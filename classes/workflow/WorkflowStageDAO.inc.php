@@ -73,8 +73,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
      */
     public static function getTranslationKeyFromId($stageId)
     {
-        $stageMapping = self::getWorkflowStageTranslationKeys();
-
+        $stageMapping = self::getWorkflowStageTranslationKeys(false);
         assert(isset($stageMapping[$stageId]));
         return $stageMapping[$stageId];
     }
@@ -84,7 +83,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
      *
      * @return array
      */
-    public static function getWorkflowStageTranslationKeys()
+    public static function getWorkflowStageTranslationKeys($filtered = true)
     {
         static $stageMapping = [
             WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
@@ -93,8 +92,12 @@ class WorkflowStageDAO extends \PKP\db\DAO
             WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
             WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
         ];
-        $applicationStages = Application::get()->getApplicationStages();
-        return array_intersect_key($stageMapping, array_flip($applicationStages));
+        if ($filtered) {
+            $applicationStages = Application::get()->getApplicationStages();
+            return array_intersect_key($stageMapping, array_flip($applicationStages));
+        } else {
+            return $stageMapping;
+        }
     }
 
     /**

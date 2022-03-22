@@ -47,7 +47,6 @@ class Library extends BaseAttacher
         $props = parent::getState();
 
         $request = Application::get()->getRequest();
-        $props['downloadLabel'] = __('common.download');
         $props['libraryApiUrl'] = $request->getDispatcher()->url(
             $request,
             Application::ROUTE_API,
@@ -57,6 +56,9 @@ class Library extends BaseAttacher
         if ($this->submission) {
             $props['includeSubmissionId'] = $this->submission->getId();
         }
+        $props['attachSelectedLabel'] = __('common.attachSelected');
+        $props['backLabel'] = __('common.back');
+        $props['downloadLabel'] = __('common.download');
 
         return $props;
     }

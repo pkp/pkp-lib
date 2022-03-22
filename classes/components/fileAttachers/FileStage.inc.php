@@ -72,6 +72,9 @@ class FileStage extends BaseAttacher
         );
 
         $props['fileStages'] = $this->fileStages;
+        $props['attachSelectedLabel'] = __('common.attachSelected');
+        $props['downloadLabel'] = __('common.download');
+        $props['backLabel'] = __('common.back');
 
         return $props;
     }

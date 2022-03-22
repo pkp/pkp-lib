@@ -128,6 +128,9 @@ msgstr "Add"
 msgid "common.addCCBCC"
 msgstr "Add CC/BCC"
 
+msgid "common.addFiles"
+msgstr "Add Files"
+
 msgid "common.addSelf"
 msgstr "Add Self"
 
@@ -136,6 +139,9 @@ msgstr "Attached Files"
 
 msgid "common.attachFiles"
 msgstr "Attach Files"
+
+msgid "common.attachSelected"
+msgstr "Attach Selected"
 
 msgid "common.name"
 msgstr "Name"
@@ -347,6 +353,12 @@ msgstr "Download"
 
 msgid "common.downloadPdf"
 msgstr "Download PDF"
+
+msgid "common.dragAndDropHere"
+msgstr "Drag and drop files here."
+
+msgid "common.orUploadFile"
+msgstr "Or upload a file"
 
 msgid "common.edit"
 msgstr "Edit"
@@ -786,6 +798,9 @@ msgstr "Suggest"
 msgid "common.switchTo"
 msgstr "Switch to"
 
+msgid "common.switchToNamedItem"
+msgstr "Switch to {$name}"
+
 msgid "common.title"
 msgstr "Title"
 
@@ -989,6 +1004,9 @@ msgstr "Body"
 
 msgid "email.cc"
 msgstr "CC"
+
+msgid "email.confirmSwitchLocale"
+msgstr "Are you sure you want to change to {$localeName} to compose this email? Any changes you have made to the subject and body of the email will be lost."
 
 msgid "email.compose"
 msgstr "Send Email"

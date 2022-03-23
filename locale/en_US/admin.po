@@ -587,3 +587,9 @@ msgstr "Created At"
 
 msgid "admin.jobs.createdAt"
 msgstr "Created at {$createdAt}"
+
+msgid "admin.job.loadMetricsData.returnToStaging.error"
+msgstr "Job that loads the usage stats data from the file {$file} failed, and the file could not be moved from {$archivedFilePath} to {$stagingPath}."
+
+msgid "admin.job.loadMetricsData.error"
+msgstr "Job that loads the usage stats data from the file {$file} failed. The file has been moved to the stage directory."

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-05 13:46+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -2174,3 +2174,24 @@ msgstr "Прикрепени файлове"
 
 msgid "common.addCCBCC"
 msgstr "Добавяне на CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Наистина ли искате да промените на {$localeName}, за да напишете този имейл? "
+"Всички промени, които сте направили в темата и тялото на имейла, ще бъдат "
+"загубени."
+
+msgid "common.switchToNamedItem"
+msgstr "Превключване към {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Или качване на файл"
+
+msgid "common.dragAndDropHere"
+msgstr "Влачете и пуснете файловете тук."
+
+msgid "common.attachSelected"
+msgstr "Прикрепяне на избраните"
+
+msgid "common.addFiles"
+msgstr "Добавяне на файлове"

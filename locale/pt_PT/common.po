@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-08 17:49+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -2186,3 +2186,24 @@ msgstr "Ficheiros Anexados"
 
 msgid "common.addCCBCC"
 msgstr "Adicionar CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Deseja realmente alterar para {$localeName} para compor este e-mail? "
+"Quaisquer alterações que tiver feito ao assunto e texto do e-mail serão "
+"perdidas."
+
+msgid "common.switchToNamedItem"
+msgstr "Mudar para {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Ou carregue um ficheiro"
+
+msgid "common.dragAndDropHere"
+msgstr "Arrastar e largar ficheiros aqui."
+
+msgid "common.attachSelected"
+msgstr "Anexo Selecionado"
+
+msgid "common.addFiles"
+msgstr "Adicionar Ficheiros"

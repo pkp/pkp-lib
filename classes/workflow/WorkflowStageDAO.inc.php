@@ -81,9 +81,9 @@ class WorkflowStageDAO extends \PKP\db\DAO
     /**
      * Return a mapping of workflow stages and its translation keys.
      *
-     * @return array
+     * @param bool $filtered true iff only stages implemented by this application should be included.
      */
-    public static function getWorkflowStageTranslationKeys($filtered = true)
+    public static function getWorkflowStageTranslationKeys(bool $filtered = true): array
     {
         static $stageMapping = [
             WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',

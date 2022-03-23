@@ -83,6 +83,7 @@ class DataObject
     /**
      * Get the stack of "important" locales, most important first.
 
+     *
      * @return string[]
      */
     private function _getLocalePrecedence(): array
@@ -117,7 +118,7 @@ class DataObject
             if (array_key_exists($key, $this->_data)) {
                 return $this->_data[$key];
             }
-        } else if (array_key_exists($locale, (array) ($this->_data[$key] ?? []))) {
+        } elseif (array_key_exists($locale, (array) ($this->_data[$key] ?? []))) {
             return $this->_data[$key][$locale];
         }
         $nullVar = null;
@@ -149,6 +150,9 @@ class DataObject
         }
         // Set a single localized value.
         if (!is_null($value)) {
+            if (isset($this->_data[$key]) && !is_array($this->_data[$key])) {
+                $this->_data[$key] = [];
+            }
             $this->_data[$key][$locale] = $value;
             return;
         }

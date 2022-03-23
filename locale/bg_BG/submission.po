@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-21 10:40+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -1284,3 +1284,292 @@ msgid "submission.source.tip"
 msgstr ""
 "Това подаване на материали извлечено ли е от друг ресурс? Ако е така, можете "
 "да въведете URL адрес или описание на този ресурс."
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Наистина ли искате авторите на това изпращане на материали да не могат да "
+"редактират метаданните на подаването на този етап?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Разрешаване на редактиране на метаданни"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Забраняване на редактиране на метаданни"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Избраният от вас участник е асоцииран за провеждане на анонмна реценция. Ако "
+"ги определяте като участник, те ще имат достъп до самоличността на автора. "
+"Насърчаваме ви да не назначавате този участник, освен ако не можете "
+"самостоятелно да осигурите целостта на процеса на рецензиране."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Трябва да изберете потребител за посочената потребителска група."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Трябва да изберете потребителска група."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"На път сте да премахнете този участник от <strong>всички</strong> етапи."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Премахване на участник"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Потребителите се асоциират на етапи от работния процес по потребителска "
+"група. Всеки потребител, присвоен на този етап, автоматично ще бъде "
+"асоцииран към други етапи, към които е назначена неговата потребителска "
+"група. Това обикновено е запазено за редактори, автори и преводачи."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Редактиране на асоциирането"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Асоцииране на участник"
+
+msgid "editor.submission.participant"
+msgstr "Участник"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Няма асоциирани"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Участници"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Всички препоръки са включени и е необходимо решение."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Подадени са нови редакционни препоръки."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "В очакване на препоръки от редакторите."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Рецензията е закъсняла."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Всички рецензенти са отговорили и е необходимо решение."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Изпратени са нови рецензии."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "В очакване на отговори от рецензенти."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Изчаква се асоциирането на рецензенти."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Изпратено на външна рецензия."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr ""
+"Подаването на материали  беше изпратено отново за друг кръг за рецензиране."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"Подаването на материали трябва да бъде изпратено отново за друг кръг за "
+"рецензиране."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Подадени са ревизии."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Изискани са ревизии."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "В момента няма файлове, които да ревизирате."
+
+msgid "submission.upload.response.description"
+msgstr ""
+"След като прегледате асоциирания файл, запишете всички коментари към файла "
+"по-долу и/или качете анотирано копие на файла (или друг файл)."
+
+msgid "submission.upload.proof"
+msgstr "Качване на готов за публикация файл"
+
+msgid "submission.upload.productionReady"
+msgstr "Качване на готов за продукция на публикацията файл"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Качване на файлове"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Качване на файл след стилова редакция"
+
+msgid "submission.upload.finalDraft"
+msgstr "Качване на файл"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Категория документ за подаване на материали"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Качване на библиотечен файл"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Ако изпращате редактиран том, трябва да качите всички глави на тома "
+"поотделно, в ролята си на редактор на том."
+
+msgid "submission.upload.userGroup"
+msgstr "Качване на този файл в моята роля като..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Това не е ревизия на съществуващ файл"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Ако качвате ревизия на съществуващ файл, моля, посочете кой файл."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Моля, изберете файла, който искате да ревизирарате."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Името на качения файл прилича на името на по-рано качен файл, \""
+"{$revisedFileName}\". Този файл предназначен ли е да замени \""
+"{$revisedFileName}\"? Ако е така, изберете файла по-долу. В противен случай "
+"изберете „Това не е ревизия на съществуващ файл“, преди да продължите."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Открито е възможно дублиране или ревизия"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Липсваща или невалидна потребителска група!"
+
+msgid "submission.upload.noGenre"
+msgstr "Липсващ или невалиден компонент!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Трябва да въведете име на файл за този файл"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Потвърждение"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Преглед на детайлите"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Качване на файл с материали"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Качване на файл"
+
+msgid "submission.status.published"
+msgstr "Публикувано"
+
+msgid "submission.status.declined"
+msgstr "Отказано"
+
+msgid "submission.status.unassigned"
+msgstr "Неасоциирано"
+
+msgid "submission.status.submission"
+msgstr "В очакване на решение на редактора"
+
+msgid "submission.status.review"
+msgstr "В етап рецензиране"
+
+msgid "submission.status.production"
+msgstr "В етап коректура"
+
+msgid "submission.status.editorial"
+msgstr "В етап стилова редакция"
+
+msgid "workflow.stage"
+msgstr "Кръг (етап)"
+
+msgid "workflow.stage.any"
+msgstr "Всеки кръг (етап)"
+
+msgid "workflow.review.internalReview"
+msgstr "Вътрешно рецензиране"
+
+msgid "submission.form.replaceExisting"
+msgstr "Подмяна на съществуващ файл?"
+
+msgid "submission.form.name"
+msgstr "Име на файла (напр. Ръкопис; Таблица 1)"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Моля, въведете препратките към литературата (библиография)."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Моля, въведете правата."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Моля, въведете източника."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Моля, въведете типа."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Моля, въведете информацията за обхвата."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Моля, въведете ключова дума."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Моля, въведете дисциплина."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Моля, въведете предмет."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Моля, въведете език."
+
+msgid "submission.submit.addAuthor"
+msgstr "Добавяне на автор/сътрудник"
+
+msgid "submission.submit.contributorRole"
+msgstr "Роля на автора/сътрудника"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Основен контакт за редакционна кореспонденция."
+
+msgid "submission.date.yyyymmdd"
+msgstr "ГГГГ-ММ-ДД"
+
+msgid "submission.date.mmdd"
+msgstr "ММ-ДД"
+
+msgid "submission.nameRequired"
+msgstr "За този елемент се изисква наименование."
+
+msgid "submission.fileDetails"
+msgstr "Информация за файл"
+
+msgid "submission.artworkFileDetails"
+msgstr "Информазия за графичния файл"
+
+msgid "submission.loadMessage"
+msgstr "Моля, изчакайте, докато вашият файл се качи на сървъра."
+
+msgid "submission.uploadSuccessful"
+msgstr "Вашият файл е качен."
+
+msgid "submission.views"
+msgstr "Прегледи"
+
+msgid "submission.viewMetadata"
+msgstr "Преглед на метаданни"
+
+msgid "submission.createRemote"
+msgstr "Създаване на отдалечен ресурс"
+
+msgid "submission.uploadFileTo"
+msgstr "Качване на файл в"
+
+msgid "submission.underway"
+msgstr "В процес"
+
+msgid "submission.type.tip"
+msgstr ""
+"Типът на подадените материали обикновено е „изображение“, „текст“ или друго "
+"мултимедийно съдържание, включително „софтуер“ или „интерактивен“. Моля, "
+"изберете най-подходящия за вашето изпращане на материали. Примери могат да "
+"бъдат намерени на<a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/"
+"2001/04/12/usageguide/generic.shtml#type</a>"

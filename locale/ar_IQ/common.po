@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-03-22 17:35+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2110,3 +2110,23 @@ msgstr "الملفات المرفقة"
 
 msgid "common.addCCBCC"
 msgstr "إضافة نسخة/نسخة سرية"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"هل أنت متأكد من رغبتك في التغيير إلى {$localeName} لإنشاء هذا البريد "
+"الالكتروني؟ ستفقد أي تغييرات أجريتها في الموضوع ومتن البريد الالكتروني."
+
+msgid "common.switchToNamedItem"
+msgstr "التبديل إلى {$name}"
+
+msgid "common.orUploadFile"
+msgstr "أو رفع ملف"
+
+msgid "common.dragAndDropHere"
+msgstr "سحب الملفات وإفلاتها هنا."
+
+msgid "common.attachSelected"
+msgstr "إرفاق المحددة"
+
+msgid "common.addFiles"
+msgstr "إضافة الملفات"

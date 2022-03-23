@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-03-02 12:27+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da_DK/>\n"
@@ -2160,3 +2160,23 @@ msgstr ""
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
 msgstr "Vedhæft filer, som forfatteren uploadede i indsendelsestrinnet."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Er du sikker på, at du vil skifte til {$localeName} for at udarbejde denne e-"
+"mail? Alle ændringer du har lavet i e-mailens emne og tekst vil blive tabt."
+
+msgid "common.switchToNamedItem"
+msgstr "Skift til {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Eller upload en fil"
+
+msgid "common.dragAndDropHere"
+msgstr "Træk og slip filer hertil."
+
+msgid "common.attachSelected"
+msgstr "Vedhæft valgte"
+
+msgid "common.addFiles"
+msgstr "Tilføj filer"

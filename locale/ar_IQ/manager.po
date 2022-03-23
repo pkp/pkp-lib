@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-03-22 17:35+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2308,3 +2308,95 @@ msgstr "إيداع معرفات المكونات الرقمية"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "إيداع الكل"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "استعمال النمط الافتراضي."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"لاحقة معرف المكون الرقمي يمكن أن تتخذ أي صيغة، ولكنها ينبغي أن تكون فريدة "
+"بين كل مكونات النشر التي عُينت لها نفس بادئة معرف المكون الرقمي:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "لاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} سيعين لها معرف مكون رقمي"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "العناصر التي لها معرفات المكونات الرقمية"
+
+msgid "manager.setup.doiPrefix"
+msgstr "بادئة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "أبدًا"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "قبيل النشر"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "عند أي نقطة من عملية النشر ينبغي إنشاء معرفات المكونات الرقمية؟"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "الإنشاء التلقائي لمعرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "بادئة معرف المكون الرقمي مطلوبة وينبغي أن تكون بصيغة 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"هذا يتم تعيينه من قبل وكالة تسجيل معرفات المكونات الرقمية، مثل <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> أو <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. مثال: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"متى ينبغي إيداع معرفات المكونات الرقمية تلقائياً لدى وكالة التسجيل المعنية."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "تمكين الإيداع التلقائي"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "الإيداع التلقائي"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "بادئة معرف المكون الرقمي"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "تمكين معرفات المكونات الرقمية"
+
+msgid "manager.setup.dois.registration"
+msgstr "التسجيل"
+
+msgid "manager.setup.dois.setup"
+msgstr "التنصيب"
+
+msgid "manager.setup.dois"
+msgstr "معرفات المكونات الرقمية"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"الرسالة الآتية عادت من قبل {$registrationAgency} وهي تتضمن تفاصيل عملية "
+"التسجيل:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "الخطأ الآتي عاد من قبل {$registrationAgency} وهو يتضمن تفاصيل مسبباته:"
+
+msgid "manager.dois.title"
+msgstr "معرفات المكونات الرقمية"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "تتطلب معرف المكون الرقمي"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"أنت بصدد جدولة كل سجلات البيانات الوصفية لمعرفات المكونات الرقمية المهمة "
+"لإيداعها في {$registrationAgency}. سيتم تحديث حالة كل عنصر بشكل فردي عند "
+"تلقي الرد. هل أنت متأكد من رغبتك في جدولة إيداع كل تلك العناصر؟"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"أنت بصدد تعيين معرفات مكونات رقمية جديدة إلى {$count} من العناصر المؤهلة "
+"للحصول على تلك المعرفات. هل أنت متأكد من رغبتك في تعيين معرفات المكونات "
+"الرقمية لتلك العناصر؟"

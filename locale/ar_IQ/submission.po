@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-03-22 17:35+0000\n"
+"PO-Revision-Date: 2022-03-23 17:52+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -1925,3 +1925,46 @@ msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
 "تم إرسال بريد الكتروني عن القرار إلى {$recipientCount} من المحكمين تحت عنوان "
 "{$subject}."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} تراجع عن قرار قبول طلب التقديم هذا وأعاده إلى مرحلة التقديم."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr "التراجع عن قرار قبول طلب التقديم هذا مع إعادته إلى مرحلة التقديم."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإشعارهم بأن طلب تقديمهم قد تمت إعادته إلى "
+"مرحلة التقديم. أعطِ توضيحًا لتبرير اتخاذ هذا القرار مع إبلاغ المؤلف بما "
+"سيطرأ من أعمال قبل تحريك طلب التقديم إلى المرحلة التالية."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "طلب التقديم، {$title}، قد تمت إعادته إلى مرحلة التقديم."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "إعادته إلى مرحلة التقديم"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "عودة إلى طلب التقديم"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم قبوله للنشر."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr "طلب التقديم، {$title}، قد تم قبوله للنشر وأرسِل إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "طلب التقديم قد قُبِل"
+
+msgid "editor.submission.decision.accept.log"
+msgstr "{$editorName} قبِل طلب التقديم هذا وأرسله إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.accept.description"
+msgstr "طلب التقديم هذا سيتم قبوله للنشر وسيُرسل إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"إرسال بريد الكتروني إلى المحكمين لشكرهم على مجهوداتهم في التحكيم وإبلاغهم "
+"بشأن اتخاذ القرار."

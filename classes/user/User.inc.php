@@ -415,11 +415,17 @@ class User extends Identity
         $this->setData('inlineHelp', $inlineHelp);
     }
 
-    public function getContactSignature(?string $locale = null)
+    /**
+     * Get localized user signature, compose of contact details of not set
+     */
+    public function getContactSignature(?string $locale = null): string
     {
-        if ($this->getSignature($locale)) {
-            return $this->getSignature($locale);
+        $signature = $locale ? $this->getSignature($locale) : $this->getLocalizedSignature();
+
+        if (!empty($signature)) {
+            return $signature;
         }
+
         $signature = htmlspecialchars($this->getFullName());
         if ($a = $this->getLocalizedAffiliation()) {
             $signature .= '<br/>' . htmlspecialchars($a);

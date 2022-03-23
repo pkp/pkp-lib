@@ -108,7 +108,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password" id="password" password="true" maxlength="255" required aria-required="true">
+				<input type="password" name="password" id="password" password="true" maxlength="72" required aria-required="true">
 			</label>
 		</div>
 		<div class="password">
@@ -120,7 +120,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password2" id="password2" password="true" maxlength="255" required aria-required="true">
+				<input type="password" name="password2" id="password2" password="true" maxlength="72" required aria-required="true">
 			</label>
 		</div>
 	</div>

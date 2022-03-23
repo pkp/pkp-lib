@@ -63,8 +63,8 @@
 		{if $userId}{capture assign="passwordInstruction"}{translate key="user.profile.leavePasswordBlank"} {translate key="user.register.form.passwordLengthRestriction" length=$minPasswordLength}{/capture}{/if}
 		{fbvFormArea id="passwordSection" title="user.password"}
 			{fbvFormSection for="password" description=$passwordInstruction translate=false}
-				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="72" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="72" inline=true size=$fbvStyles.size.MEDIUM}
 			{/fbvFormSection}
 
 			{if !$userId}

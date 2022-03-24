@@ -16,7 +16,7 @@ namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
-use PKP\components\forms\FieldRichTextarea;
+use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
@@ -53,17 +53,41 @@ class PKPEmailSetupForm extends FormComponent
             'value' => $context->getData('notifyAllAuthors'),
         ]));
 
-        $this->addField(new FieldRichTextarea('emailSignature', [
+        $this->addField(new FieldPreparedContent('emailSignature', [
             'label' => __('manager.setup.emailSignature'),
             'tooltip' => __('manager.setup.emailSignature.description'),
             'value' => $context->getData('emailSignature'),
             'preparedContent' => [
-                'contextName' => '{$contextName}',
-                'senderName' => '{$senderName}',
-                'senderEmail' => '{$senderEmail}',
-                'mailingAddress' => '{$mailingAddress}',
-                'contactEmail' => '{$contactEmail}',
-                'contactName' => '{$contactName}',
+                [
+                    'key' => 'contextName',
+                    'description' => __('emailTemplate.variable.context.contextName'),
+                    'value' => '{$contextName}',
+                ],
+                [
+                    'key' => 'senderName',
+                    'description' => __('emailTemplate.variable.sender.senderName'),
+                    'value' => '{$senderName}',
+                ],
+                [
+                    'key' => 'senderEmail',
+                    'description' => __('emailTemplate.variable.sender.senderEmail'),
+                    'value' => '{$senderEmail}',
+                ],
+                [
+                    'key' => 'mailingAddress',
+                    'description' => __('emailTemplate.variable.context.mailingAddress'),
+                    'value' => '{$mailingAddress}',
+                ],
+                [
+                    'key' => 'contactEmail',
+                    'description' => __('emailTemplate.variable.context.contactEmail'),
+                    'value' => '{$contactEmail}',
+                ],
+                [
+                    'key' => 'contactName',
+                    'description' => __('emailTemplate.variable.context.contactName'),
+                    'value' => '{$contactName}',
+                ],
             ]
         ]));
 

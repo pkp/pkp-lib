@@ -21,11 +21,12 @@ use PKP\core\PKPRequest;
 
 class ContextEmailVariable extends Variable
 {
+    public const CONTACT_NAME = 'contactName';
+    public const CONTACT_EMAIL = 'contactEmail';
     public const CONTEXT_NAME = 'contextName';
     public const CONTEXT_URL = 'contextUrl';
-    public const CONTACT_NAME = 'contactName';
+    public const MAILING_ADDRESS = 'mailingAddress';
     public const PRINCIPAL_CONTACT_SIGNATURE = 'principalContactSignature';
-    public const CONTACT_EMAIL = 'contactEmail';
     public const PASSWORD_LOST_URL = 'passwordLostUrl';
     public const SUBMISSIONS_URL = 'submissionsUrl';
 
@@ -46,10 +47,11 @@ class ContextEmailVariable extends Variable
     {
         return
         [
-            self::CONTACT_NAME => __('emailTemplate.variable.context.contactName'),
-            self::PRINCIPAL_CONTACT_SIGNATURE => __('emailTemplate.variable.context.principalContactSignature'),
             self::CONTACT_EMAIL => __('emailTemplate.variable.context.contactEmail'),
+            self::CONTACT_NAME => __('emailTemplate.variable.context.contactName'),
+            self::MAILING_ADDRESS => __('emailTemplate.variable.context.mailingAddress'),
             self::PASSWORD_LOST_URL => __('emailTemplate.variable.context.passwordLostUrl'),
+            self::PRINCIPAL_CONTACT_SIGNATURE => __('emailTemplate.variable.context.principalContactSignature'),
             self::SUBMISSIONS_URL => __('emailTemplate.variable.context.passwordLostUrl'),
         ];
     }
@@ -61,10 +63,11 @@ class ContextEmailVariable extends Variable
     {
         return
         [
-            self::CONTACT_NAME => (string) $this->context->getData('contactName'),
-            self::PRINCIPAL_CONTACT_SIGNATURE => $this->getPrincipalContactSignature($locale),
             self::CONTACT_EMAIL => (string) $this->context->getData('contactEmail'),
+            self::CONTACT_NAME => (string) $this->context->getData('contactName'),
+            self::MAILING_ADDRESS => (string) $this->context->getData('mailingAddress'),
             self::PASSWORD_LOST_URL => $this->getPasswordLostUrl(),
+            self::PRINCIPAL_CONTACT_SIGNATURE => $this->getPrincipalContactSignature($locale),
             self::SUBMISSIONS_URL => $this->getSubmissionsUrl(),
         ];
     }

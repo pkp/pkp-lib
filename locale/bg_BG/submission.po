@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-23 17:52+0000\n"
+"PO-Revision-Date: 2022-03-24 08:05+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -1573,3 +1573,82 @@ msgstr ""
 "бъдат намерени на<a target=\"_blank\" href=\"http://dublincore.org/documents/"
 "2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/"
 "2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Това подаване на материали ще бъде отхвърлено за публикуване. Етапът на "
+"рецензиране ще бъде затворен и материалите ще бъдат архивирани."
+
+msgid "editor.submission.decision.decline"
+msgstr "Отказване на подадените материали"
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} отмени решението да приеме тези материали и ги изпрати обратно "
+"на етапа на подаване на материали."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Отменете решението за приемане на тези материали и ги изпратете обратно на "
+"етапа за подаване на материали."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че техните материали за "
+"статия се изпращат обратно към етапа на подаване. Обяснете защо е взето това "
+"решение и информирайте автора каква по-нататъшна работа ще бъде предприета, "
+"преди да продължите обработката на материалите."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr ""
+"Материалът, {$title}, беше изпратен обратно към етап подадени материали."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Изпращащане обратно към етап подадени материали"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Обратно към етап подадени материали"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че подадените им материали "
+"са приети за публикуване."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Материалите, {$title}, са приети за публикуване и изпратени към етап за "
+"стилова корекция."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Материалът е приет"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} прие тези материали  и ги изпрати за етап на стилова корекция."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Това подаване на материали ще бъде прието за публикуване и изпратено за "
+"стилова корекция."
+
+msgid "editor.submission.decision.accept"
+msgstr "Приемане на материала"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Изпратете имейл до рецензентите, за да им благодарите за рецензията и да ги "
+"уведомите, че е взето решение."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Известяване на рецензентите"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Известяване на авторите"
+
+msgid "editor.submission.decision"
+msgstr "Решение"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Сигурни ли сте, че искате авторите на тези материали да могат да редактират "
+"метаданните на подаването на този етап?"

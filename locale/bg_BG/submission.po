@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-24 09:22+0000\n"
+"PO-Revision-Date: 2022-03-25 08:32+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -1690,3 +1690,479 @@ msgstr "Подадените материали са отхвърлени"
 
 msgid "editor.submission.decision.decline.log"
 msgstr "{$editorName} отхвърли това подаване на материали."
+
+msgid "submission.supplementary.publisher"
+msgstr "Издател"
+
+msgid "submission.supplementary.subject"
+msgstr "Предмет (тема)"
+
+msgid "submission.supplementary.creator"
+msgstr "Автор (или собственик) на файла"
+
+msgid "submission.supplementary"
+msgstr "Допълнително съдържание"
+
+msgid "submission.art"
+msgstr "Илюстрация"
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Тази рецензия е завършена и е изпратен благодарствен имейл на рецензента за "
+"неговия принос."
+
+msgid "submission.review.status.complete"
+msgstr "Рецензията е завършена."
+
+msgid "submission.review.status.received"
+msgstr "Рецензентът е изпратил своята рецензия."
+
+msgid "submission.review.status.accepted"
+msgstr "Тази рецензия е приета."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Рецензентът е пропуснал крайния срок за рецензиране."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Рецензентът е пропуснал крайния срок за отговор."
+
+msgid "submission.review.status.declined"
+msgstr "Рецензентът отхвърли тази молба за рецензия."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "В очакване на отговор от рецензента."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Качване на файл с ревизия"
+
+msgid "submission.productionReady"
+msgstr "Изданието е достъпно"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Изберете файлове от рецензията, които да споделите с автора(ите)"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Файлове, прикрепени от рецензента"
+
+msgid "notification.type.revertDecline"
+msgstr "Решението за отхвърляне на тези материали беше отменено."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Създадена е нова версия на подадените материали"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Преди да започне рецензиране, трябва да бъде назначен редактор. Моля, "
+"добавете редактор, като използвате списъка с участници."
+
+msgid "notification.uploadedResponse"
+msgstr "Отговорът е качен."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Отказаните материали са повторно активирани (отказът е отменен)."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Нов кръг (етап) на рецензиране е започнат."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Повторно изпращане за рецензиране."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Изисква се ревизия."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Процесът по външно рецензиране е започнат."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Последно решение на редактора."
+
+msgid "notification.type.indexRequest"
+msgstr "Бяхте помолени да създадете индекс на \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Бяхте помолени да прегледате оформлението на \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Бяхте помолени да направите стилова корекция на \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Бяхте асоцииран като редактор на подадените материали \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Документи за подадените материали"
+
+msgid "submission.stageNotInitiated"
+msgstr "Кръгът (етапът) не е започнат."
+
+msgid "submission.description"
+msgstr "Описание"
+
+msgid "submission.overview"
+msgstr "Преглед на подадените материали"
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) одобри коректурата за \"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) окончателно одобри файла \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) завърши одита и качи файла \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) беше премахнат като одитор за файла \"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) беше добавен като одитор за файла \"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"Последната редакция на файла \"{$title}\" беше премахната от {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Файлът \"{$originalFileName}\" за материала {$submissionId} беше изтрит от "
+"{$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Файлът с ревизия \"{$originalFileName}\" за материала {$submissionId} беше "
+"качен от {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Файлът \"{$originalFileName}\" за материала {$submissionId} беше изтрит от "
+"{$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Файлът \"{$originalFileName}\" за материала {$submissionId} беше качен от "
+"{$username}."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Метаданните за файла \"{$originalFileName}\" бяха редактирани от {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Възникна грешка при опит за асоцииране на одитора. Моля, опитайте отново."
+
+msgid "submission.finalDraft"
+msgstr "Работни файлове (чернови)"
+
+msgid "submission.submit.currentFile"
+msgstr "Текущ файл"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Файлове за рецензиране"
+
+msgid "submission.actionNeeded"
+msgstr "Изискват се действия"
+
+msgid "submission.noActionRequired"
+msgstr "Не се изискват действия"
+
+msgid "submission.currentStage"
+msgstr "Текущ кръг (етап)"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Записани препоръки"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Препоръчване на редакционно решение за това подаване на материали."
+
+msgid "editor.submission.recommendation"
+msgstr "Препоръка"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Не можете да правите препоръка, докато не е асоцииран редактор, който да "
+"запише решение."
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Препоръки: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Препоръка: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Промяна на препоръка"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Написване на препоръка"
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
+"{$editorName} препоръча подадените материали да бъдат отхвърлени за "
+"публикуване."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Препоръчвам подадените материали да бъдат отхвърлени за публикуване."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Препоръка за отхвърляне"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} препоръча автора да бъде помолен да представи ревизии за друг "
+"кръг (етап) на рецензиране."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Препоръчвам авторът да бъде помолен да представи ревизии за друг кръг (етап) "
+"на рецензиране."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Препоръка за повторно изпращане за рецензиране"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} препоръчва да се поискат ревизии от автора."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Препоръчвам да се поискат ревизии от автора, преди това подаване на "
+"материали да бъде прието за публикуване."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Препоръка за ревизии"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Вашата препоръка е записана и отговорният(ите) редактор(и) са уведомени."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Препоръката е изпратена"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} препоръча това подаване на материали да бъде прието за "
+"публикуване и изпратено за стилова корекция."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Препоръчвам това подаване на материали да бъде прието за публикуване и "
+"изпратено за стилова корекция."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Препоръка за приемане на материала"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Изпратете съобщение до отговорните редактори, за да ги уведомите за "
+"препоръката. Обяснете защо тази препоръка е направена в отговор на "
+"препоръките и коментарите, предоставени от рецензенти."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Асоциирайте редактор, който да активира редакционните решения за този етап."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Материалът {$title} вече е активен на етапа с получени материали."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че предишно решение за "
+"отхвърляне на тези материали е отменено. Обяснете защо решението е отменено "
+"и ги уведомете дали се очаква подаването да бъде рецензирано."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Материалът {$title} вече е активен на етап рецензиране."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Материалите са върнати към активен редакционен процес"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} отмени предишно решение за отхвърляне на тези материали."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Отменете предишно решение за отхвърляне на тези материали и ги върнете към "
+"активния редакционен процес."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Отмяна на отказ"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Този файл с коректура вече няма да бъде публично достъпен за сваляне или "
+"покупка. Искате ли да отмените одобрението?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Одобряване на коректурите"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Файлът с коректурата трябва да бъде отбелязан като одобрен, за да бъде "
+"наличен за последваща обработка. Искате ли да го одобрите?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Изпращане за вътрешна рецензия"
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че това подаване на "
+"материали е прието за публикуване и е изпратено към етапа за стилово "
+"редактиране без да бъде правена рецензия."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Материалът {$title} , пропуска етапа на рецензиране и се изпраща към стилова "
+"корекция."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Прескочено рецензиране"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} прие материала като ще пропусне етапа на рецензиране и той се "
+"изпраща за стилова корекция."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Приемане на материала и пропускане на етапа на рецензиране. Това решение ще "
+"придвижи материала към етап стилова корекция."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Приемане на материала и пропускане на рецензиране"
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че тeзи материали са "
+"изпратени обратно към етапа на стилово редактиране. Обяснете защо е взето "
+"това решение и информирайте автора какво допълнително редактиране ще се "
+"изисква, преди това представяне да бъде готово за производство/публикуване."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"Материалът {$title} беше изпратен обратно към етапа на стилово редактиране."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Изпращане обратно към етапа на стилово редактиране"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} изпрати тези материали обратно към етапа на стилово "
+"редактиране."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Изпращане на тези материали обратно към етапа на стилово редактиране."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Обратно към етапа на стилово редактиране"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Изпращане на имейл за уведомяване на авторите че материалите са насочени към "
+"продукционен етап."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Материалите {$title} бяха изпратени към продукционен етап."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Изпратено към продукционен етап"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} изпрати материалите към продукционен етап."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Изпращане на материалите към продукционен етап, за да бъдат подготвени за "
+"публикуване."
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Изпращане за продукционен етап"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Нов кръг (етап) на рецензиране"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Подадените материали - {$title}, са изпратени към етапа за рецензия.."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Изпратено за рецензиране"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} изпрати тези материали към етап рецензиране."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Това подаване на материали е готово за изпращане за рецензия."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Изпращане за рецензия"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че ревизиите ще трябва да "
+"бъдат завършени и изпратени за друг кръг (етап) на рецензиране. Включете "
+"всички подробности, които ще са необходими на автора, за да преразгледа "
+"подадените материали. Когато е уместно, не забравяйте да анонимизирате "
+"всички коментари на рецензента."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Поискани са ревизирани версии на материалите - {$title}. Беше записано "
+"решение за изпращане на ревизиите за друг кръг (етап) от рецензиране."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Поискани са ревизии"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} поиска ревизии на подадените материали, които трябва да бъдат "
+"изпратени за друг кръг (етап) на рецензиране."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Авторът трябва да предостави ревизии, които ще бъдат изпратени за друг кръг "
+"за рецензиране, преди материалите да бъдат приети за публикуване."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Повторно изпращане за рецензия"
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че ще са необходими "
+"ревизии, преди тези материали да бъдат приети за публикуване. Включете "
+"всички подробности, които ще са необходими на автора, за да преразгледа "
+"представянето си. Когато е уместно, не забравяйте да анонимизирате всички "
+"коментари на рецензента."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Поискани са ревизирани версии на материалите - {$title}."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Направено е искане за ревизии"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} изиска ревизирани версии на тези материали."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Авторът трябва да предостави ревизирани версии на материалите, преди те да "
+"бъдат приети за публикуване."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Искане за ревизии"
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+"Изберете файлове, които трябва да бъдат изпратени към етапа за "
+"продукция/публикуване."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Изберете файлове, които трябва да бъдат изпратени за рецензиране."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+"Изберете файлове, които трябва да бъдат изпратени към етапа на стилово "
+"редактиране."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че е създаден е нов кръг "
+"(етап) за рецензиране на подадените от тях материали."

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-24 08:05+0000\n"
+"PO-Revision-Date: 2022-03-24 09:22+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -1652,3 +1652,41 @@ msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
 "Сигурни ли сте, че искате авторите на тези материали да могат да редактират "
 "метаданните на подаването на този етап?"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Създаден е нов кръг (етап) за рецензиране на подадените материали: {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Кръгът (етапът) за рецензиране е създаден"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+"Отваряне на друг кръг (етап) за рецензиране на това подаване на материали."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+"{$editorName} създаде нов кръг (етап) за рецензиране за това подаване на "
+"материали."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Нов кръг (етап) на рецензиране"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Тези подадени материали ще бъдат отхвърлени за публикуване. Няма да се "
+"извършва по-нататъшна рецензия и материалите ще бъдат архивиранани."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че подадените материали са "
+"отхвърлени."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Подадените материали, {$title}, са отхвърлени и изпратени в архива."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Подадените материали са отхвърлени"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} отхвърли това подаване на материали."

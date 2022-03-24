@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-03-23 17:52+0000\n"
+"PO-Revision-Date: 2022-03-25 08:32+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -1968,3 +1968,249 @@ msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "إرسال بريد الكتروني إلى المحكمين لشكرهم على مجهوداتهم في التحكيم وإبلاغهم "
 "بشأن اتخاذ القرار."
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "معاينة كل طلبات التقديم"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr "لا يمكنك تقديم التوصية حتى يتم تعيين محرر له صلاحية تسجيل القرار."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} أوصى برفض طلب التقديم هذا."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "التوصية برفض نشر طلب التقديم هذا."
+
+msgid "editor.submission.recommend.decline"
+msgstr "التوصية بالرفض"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} أوصى بمطالبة المؤلف بإجراء تنقيحات وإرسال الأخيرة إلى جولة "
+"تحكيم أخرى."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr "التوصية بمطالبة المؤلف بتقديم التنقيحات إلى جولة تحكيم أخرى."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "التوصية بإعادة التقديم للتحكيم"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} أوصى بالمطالبة بالتنقيحات."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"التوصية بمطالبة المؤلف بإجراء تنقيحات قبل أن يتسنى قبول طلب التقديم هذا "
+"للنشر."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "التوصية بالتنقيحات"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "تم تسجيل توصيتك والمحررون أصحاب القرار تم إشعارهم بها."
+
+msgid "editor.submission.recommend.completed"
+msgstr "التوصية مقدمة"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr "{$editorName} أوصى بقبول طلب التقديم هذا وإرساله إلى التدقيق."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr "التوصية بقبول طلب التقديم هذا للنشر وإرساله إلى التدقيق."
+
+msgid "editor.submission.recommend.accept"
+msgstr "التوصية بالقبول"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"إرسال رسالة إلى المحررين أصحاب القرار لإبلاغهم بشأن التوصية. أعطِ تفسيرًا عن "
+"أسباب تقديم تلك التوصية في ضوء التوصيات والتعليقات التي قدمها المحكمون."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "طلب التقديم، {$title}، عاد الآن إلى مرحلة التقديم."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بالعدول عن القرار السابق القاضي "
+"برفض طلب التقديم هذا. أعطِ تبريرًا عن أسباب هذا العدول وأبلغهم ما إذا كان "
+"العمل سيخضع للمزيد من أعمال التحكيم."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "طلب التقديم، {$title}، صار الآن في مرحلة التحكيم."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "طلب التقديم أُعيد إلى التحرير"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} عكس قرار رفض طلب التقديم هذا."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr "التراجع عن قرار رفض طلب التقديم هذا وإعادته إلى خط أعمال التحرير."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بقبول طلب التقديم هذا للنشر "
+"وإرساله إلى مرحلة التدقيق بدون تحكيم."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"طلب التقديم، {$title}، تجاوز مرحلة التحكيم وتم إرساله إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "تجاوز التحكيم"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr "{$editorName} تجاوز مرحلة التحكيم وأرسل طلب التقديم إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"قبول طلب التقديم هذا للنشر وتجاوز مرحلة التحكيم. هذا القرار سيُرسل طلب "
+"التقديم إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُعيد إلى "
+"مرحلة التدقيق. أعطِ تبريرًا لهذا القرار وبين للمؤلف ما توجب القيام به من "
+"تعديلات إضافية قبل اعتبار العمل جاهزًا للإنتاج."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "طلب التقديم، {$title}، قد أُعيد إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "أُعيد إلى التدقيق"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} أعاد طلب التقديم هذا إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "أرجع طلب التقديم هذا إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "إعادة إلى التدقيق"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُرسل إلى "
+"مرحلة الإنتاج."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "طلب التقديم، {$title}، تم إرساله إلى مرحلة الإنتاج."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "مُرسل إلى الإنتاج"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} أرسل طلب التقديم هذا إلى مرحلة الإنتاج."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "إرسال طلب التقديم هذا إلى مرحلة الإنتاج لتحضيره للنشر."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "طلب التقديم، {$title}، قد تم إرساله إلى مرحلة التحكيم."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "مُرسل إلى التحكيم"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} أرسل طلب التقديم هذا إلى مرحلة التحكيم."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "طلب التقديم هذا جاهز ليُرسل إلى التحكيم المناظر."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "أرسل للتحكيم"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بالحاجة إلى إكمال التنقيحات "
+"المطلوبة وبإرسال طلب التقديم إلى جولة تحكيم أخرى. قم بتضمين كل التفاصيل التي "
+"يحتاجها المؤلف لتنقيح عمله. حيثما وجب الأمر، تذكر إخفاء هويات المحكمين في "
+"تعليقاتهم."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"تم طلب إجراء تنقيحات في طلب التقديم، {$title}. تم تسجيل القرار بإرساله إلى "
+"جولة تحكيم أخرى."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "التنقيحات مطلوبة"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"على المؤلف توفير التنقيحات التي ستُرسل إلى جولة تحكيم أخرى قبل أن يتسنى قبول "
+"طلب التقديم هذا للنشر."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} إلتمسَ إجراء تنقيحات لطلب التقديم هذا لإرساله إلى جولة تحكيم "
+"أخرى."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن التنقيحات ستكون مطلوبة قبل أن "
+"يتسنى قبول طلب التقديم هذا للنشر. قم بتضمين كل التفاصيل التي قد يحتاجها "
+"المؤلف لمراجعة عمله. حيثما يتطلب الأمر، تذكر إخفاء هويات المحكمين من "
+"تعليقاتهم."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "تم التماس التنقيحات لطلب التقديم، {$title}."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "التنقيحات مطلوبة"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} إلتمس إجراء تنقيحات لطلب التقديم هذا."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr "على المؤلف توفير التنقيحات قبل أن يتسنى قبول طلب التقديم هذا للنشر."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "إختر الملفات التي ينبغي إرسالها إلى مرحلة الإنتاج."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "إختر الملفات التي ينبغي إرسالها إلى التحكيم."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "إختر الملفات التي ينبغي إرسالها إلى مرحلة التدقيق."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"أرسل بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم إخضاعه إلى "
+"جولة تحكيم جديدة."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "تم إنشاء جولة تحكيم جديدة لطلب التقديم، {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "جولة التحكيم أنشِئت"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} أنشأ جولة تحكيم جديدة لطلب التقديم هذا."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "إفتح جولة أخرى من التحكيم لطلب التقديم هذا."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "جولة تحكيم جديدة"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"سيتم رفض طلب التقديم هذا ولن يتم نشره. لن يتم إجراء أي تحكيم إضافي وسيذهب "
+"طلب التقديم إلى المحفوظات."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم برفض طلب تقديمهم."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "طلب التقديم، {$title}، قد تم رفضه وأُرسل إلى المحفوظات."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "طلب التقديم مرفوض"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} رفض طلب التقديم هذا."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"سيتم رفض نشر طلب التقديم هذا. سيتم إغلاق مرحلة التحكيم المناظر وطلب التقديم "
+"سيذهب إلى الأرشيف."

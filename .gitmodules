@@ -37,3 +37,6 @@
 [submodule "plugins/generic/crossref"]
 	path = plugins/generic/crossref
 	url = https://github.com/pkp/crossref-ops.git
+[submodule "plugins/generic/citationStyleLanguage"]
+	path = plugins/generic/citationStyleLanguage
+	url = https://github.com/pkp/citationStyleLanguage.git

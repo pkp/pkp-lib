@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-03-25 08:32+0000\n"
+"PO-Revision-Date: 2022-03-28 18:24+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2480,3 +2480,156 @@ msgid "doi.manager.settings.doiSuffixCustomIdentifier"
 msgstr ""
 "أدخل بادئة معرف مكون رقمي منفردة لكل عنصر منشور. ستجد حقول إدخال معرفات "
 "المكونات الرقمية في صفحة إدارتها."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"هذه الرسالة تُبلغ المحرر الأقدم أو محرر القسم بوجود توصية تتعلق بأحد طلبات "
+"التقديم الخاصة بعمله. تُستعمل هذه الرسالة فقط عندما تقتصر صلاحية المحرر على "
+"إعطاء التوصية ويتطلب أمر تسجيل قرارات هيئة التحرير صلاحيات محرر مفوض. يمكن "
+"تحديد هذا الخيار عند تعيين المساهمين إلى طلب التقديم."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "التوصية معطاة"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يبلغ المؤلف بأن طلب تقديمه يتم إرساله مباشرة إلى مرحلة "
+"التدقيق ولن يخضع إلى التحكيم المناظر."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "التحكيم متخطى"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"وصف موجز للقرار الذي من المزمع مشاركته عبر إشعار بريد الكتروني يُرسل إلى "
+"المحكمين يتعلق بهذا القرار."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"هذا البريد الالكتروني يرسله المحرر إلى المحكم لإبلاغه باتخاذ القرار بشأن طلب "
+"تقديم قام بتحكيمه."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "عرفان المحكم"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة الإنتاج."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "مُرسل إلى الإنتاج"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة التحكيم."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "مُرسل إلى التحكيم"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه بدون "
+"إجراء التحكيم المناظر."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "إرجاع طلب تقديم مرفوض بدون تحكيم"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه جراء "
+"التحكيم المناظر."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "إرجاع طلب تقديم مرفوض"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بقرار \"التنقيح ثم إعادة التقديم\" بشأن "
+"طلب تقديمه."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "إعادة التقديم للتحكيم"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بقرار المطالبة بتنقيحات خلال التحكيم "
+"المناظر."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "التنقيحات تمت المطالبة بها"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف ببدء جولة تحكيم جديدة لطلب تقديمه."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "جولة تحكيم جديدة تم الشروع بها"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "طلب التقديم مرفوض"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف برفض طلب تقديمه بعد التحكيم المناظر."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "طلب التقديم مرفوض"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التقديم."
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التحكيم."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التقديم"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التحكيم"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التدقيق."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التدقيق"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بقبول طلب تقديمه للنشر."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "طلب التقديم مقبول"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"قمنا بدعوة المؤلفين إلى تقديم نسخة منقحة للإخضاعها إلى المزيد من التحكيم."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "قمنا بدعوة المؤلفين إلى تقديم التنقيحات."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "لقد اخترنا رفض طلب التقديم هذا."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "لقد اخترنا قبول طلب التقديم هذا بدون تنقيحات."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "نسخة من رسالة البريد الالكتروني التي أُرسلت إلى المؤلف الذي قدم الطلب"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل لإشعار مؤلفي طلب التقديم الذين لم يتم تعيينهم "
+"كمساهمين، إشعارهم باتخاذ القرار. عادة ما يكون هؤلاء هم كل المؤلفين ما عدا "
+"المؤلف الذي قدم الطلب."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "إشعار المؤلفين الآخرين"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"أسماء المؤلفين المعينين إلى سير أعمال طلب التقديم. عادة ما يكون هو المؤلف "
+"الذي قدم الطلب"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "عنوان رابط المؤلف المؤدي إلى طلب التقديم"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"هذه المجلة تعتمد التحكيم المناظر المفتوح. سيرى المحكمون اسمك وانتماءك، وكذلك "
+"الحال بالنسبة إلى زملائك المشاركين في التأليف. بشكل مشابه، سترى أسماء "
+"المحكمين وانتماءاتهم."

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-25 08:32+0000\n"
+"PO-Revision-Date: 2022-03-26 07:54+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -2166,3 +2166,321 @@ msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Изпратете имейл до авторите, за да ги уведомите, че е създаден е нов кръг "
 "(етап) за рецензиране на подадените от тях материали."
+
+msgid "publication.wordCount"
+msgstr "Брой думи: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Резюмето (абстракт) е твърде дълго. Трябва да бъде {$count} думи или по-"
+"малко. В момента съдържа {$count} думи."
+
+msgid "publication.version.confirm"
+msgstr "Наистина ли искате да създадете нова версия?"
+
+msgid "publication.version.all"
+msgstr "Всички версии"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Пътят на URL адреса не може да бъде число."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL адресът вече е използван и не може да се използва отново."
+
+msgid "publication.urlPath.description"
+msgstr ""
+"Незадължителен път, който да се използва в URL адреса вместо в "
+"идентификатора."
+
+msgid "publication.urlPath"
+msgstr "URL адрес"
+
+msgid "publication.unschedule"
+msgstr "Свален от планиране"
+
+msgid "publication.titleAbstract"
+msgstr "Заглавие и абстракт"
+
+msgid "publication.status.unpublished"
+msgstr "Непубликуван"
+
+msgid "publication.status.scheduled"
+msgstr "Планиран"
+
+msgid "publication.publicationLicense"
+msgstr "Разрешения и съгласия"
+
+msgid "publication.event.versionCreated"
+msgstr "Създадена е нова версия."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Датата трябва да е във формат ГГГГ-ММ-ДД, като 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Създаване на нова версия"
+
+msgid "publication.contributors"
+msgstr "Съавтори"
+
+msgid "catalog.category.subcategories"
+msgstr "Подкатегории"
+
+msgid "catalog.category.noItems"
+msgstr "Все още нищо не е публикувано в тази категория."
+
+msgid "submission.currentCoverImage"
+msgstr "Текущо изображение"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категории"
+
+msgid "category.coverImage"
+msgstr "Изображение на обложката"
+
+msgid "category.category"
+msgstr "Категории"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Дата на публикация (първо новите)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Дата на публикация (първо старите)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Заглавие (Я-А)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Заглавие (А-Я)"
+
+msgid "grid.category.categories"
+msgstr "Категории"
+
+msgid "submission.list.assignEditor"
+msgstr "Асоцииране на редактор"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Дни от последната активност"
+
+msgid "submission.list.activity"
+msgstr "Активност"
+
+msgid "submission.list.currentStage"
+msgstr "Текущо в кръг (етап) {$stage}."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr ""
+"Това подаване на материали трябва да бъде завършено, преди редактор да го "
+"прегледа."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Участвате в редакторска роля за това подаване на материали. Искате ли да "
+"получите достъп до <a href=\"{$urlEditorialWorkflow}\">редакционния работен "
+"процес</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Участвате в няколко роли за това подаване на материали. Искате ли да "
+"получите достъп до <a href=\"{$urlAuthorWorkflow}\">работния поток на "
+"автора</a> или <a href=\"{$urlEditorialWorkflow}\">редакционния работен "
+"процес</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Отворени дискусии"
+
+msgid "submission.list.filesPrepared"
+msgstr "Подготвени файлове"
+
+msgid "submission.list.galleysCreated"
+msgstr "Създадени типографии"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Изпратени стилово редактирани файлове"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Изпратени рецензии"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Възложените рецензии са завършени"
+
+msgid "submission.list.viewSubmission"
+msgstr "Преглед на материал"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Преглед на всички материали"
+
+msgid "submission.list.confirmDelete"
+msgstr "Да бъде ли изтрит подадения материал?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Рецензията е отказана"
+
+msgid "submission.list.reviewComplete"
+msgstr "Рецензията е изпратена"
+
+msgid "submission.list.reviewDue"
+msgstr "Срок за рецензиране до: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Асоцииране за рецензия"
+
+msgid "submission.list.responseDue"
+msgstr "Отговор до: {$date}"
+
+msgid "submission.list.empty"
+msgstr "Няма намерени материали."
+
+msgid "submission.list.infoCenter"
+msgstr "Регистър на събитията и бележки"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Трябва да асоциирате поне един участник към това подаване на материали, "
+"преди да започнете дискусия."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName} - {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Бяхте добавен/а в дискусия \"{$queryTitle}\" относно подадени материали \""
+"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Нова активност е налична в дискусия \"{$queryTitle}\" относно подадени "
+"материали \"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} започна дискусия: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} отговори на {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Добавяне на нов отговор към дискусията"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Ако напуснете тази дискусия, повече няма да получавате известия за нови "
+"съобщения. Искате ли да напуснете дискусията?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Напускане на дискусията"
+
+msgid "submission.query.addNote"
+msgstr "Добавяне на съобщение"
+
+msgid "submission.query.closed"
+msgstr "Затворено"
+
+msgid "submission.query.lastReply"
+msgstr "Последен отговор"
+
+msgid "submission.query.from"
+msgstr "От"
+
+msgid "submission.query.replies"
+msgstr "Отговори"
+
+msgid "submission.query.messages"
+msgstr "Съобщения"
+
+msgid "submission.query.subject"
+msgstr "Тема (предмет)"
+
+msgid "submission.queries.editorial"
+msgstr "Дискусии към стиловото редактиране"
+
+msgid "submission.queries.submission"
+msgstr "Дискусии преди рецензиране"
+
+msgid "submission.queries.review"
+msgstr "Резензионни дискусии"
+
+msgid "submission.copyrightStatement"
+msgstr "Авторски права (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Година за авторски права"
+
+msgid "submission.copyrightOther"
+msgstr "Декларация за авторски права"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Собствена декларация за авторски права"
+
+msgid "submission.copyrightHolder"
+msgstr "Държащ авторско право"
+
+msgid "submission.copyright"
+msgstr "Авторско право"
+
+msgid "submission.attachPermissions"
+msgstr "Добавяне на следните права към материалите:"
+
+msgid "submission.permissions"
+msgstr "Права"
+
+msgid "grid.action.editMetadata"
+msgstr "Редактиране на метаданни"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Създаване на нов елемент във формуляра за рецензия"
+
+msgid "submission.reviewFormResponse"
+msgstr "Формуляр за рецензия - отговор"
+
+msgid "submission.reviewForm"
+msgstr "Формуляр за рецензия"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Преди да започне процеса на публикуване, трябва да бъде асоцииран "
+"производствен редактор. Моля, добавете производствен редактор, като "
+"използвате списъка с участници."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Преди да започне процеса на редактиране, трябва да бъде асоцииран "
+"производствен редактор. Моля, добавете производствен редактор, като "
+"използвате списъка с участници."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Започнат е процеса за публикуване."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Към работния процес за това подаване на материали"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Спомуществувател или спонсор"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} завърши рецензията за кръг (етап) {$round} за подадените "
+"материали {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Радакторът {$userName} потвърди рецензията за кръг (етап) {$round} за "
+"подадените материали {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"На кръг (етап) {$round} рецензирането от  {$reviewerName} за подадените "
+"материали {$submissionId} беше започнато отново."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} маркира кръг (етап) {$round} от рецензирането на материали "
+"{$submissionId} като непрегледан."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"На кръг (етап) {$round} рецензията на {$reviewerName} за изпратените "
+"материали {$submissionId} беше премахната."
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} беше асоцииран да рецензира подадените материали "
+"{$submissionId} за кръг (етап) {$round}."

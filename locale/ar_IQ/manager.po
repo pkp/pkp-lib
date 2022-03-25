@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-03-23 17:52+0000\n"
+"PO-Revision-Date: 2022-03-25 08:32+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2400,3 +2400,83 @@ msgstr ""
 "أنت بصدد تعيين معرفات مكونات رقمية جديدة إلى {$count} من العناصر المؤهلة "
 "للحصول على تلك المعرفات. هل أنت متأكد من رغبتك في تعيين معرفات المكونات "
 "الرقمية لتلك العناصر؟"
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"هذه المجلة تعتمد التحكيم المناظر \"السري تحكيمًا\". سيكون اسمك وأسماء "
+"المؤلفين المشاركين معك ظاهرة للمحكمين؛ مع ذلك، ستبقى هويات المحكمين مخفية."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"هذه المجلة تعتمد التحكيم المناظر السري المزدوج. لن يرى المحكمون أي معلومات "
+"من شأنها التعريف بك أو زملائك من مؤلفي العمل. بشكل مشابه، لن تعرف من قام "
+"بتحكيم طلب تقديمك ولن تتلقى أي رسائل من المحكمين بشكل مباشر."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً السري المزدوج أو المفتوح."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "القرار الموصى به، مثل قبول طلب التقديم"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
+"تحكيم."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "وصف القرار الذي تم اتخاذه."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "اسم القرار الذي تم اتخاذه."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"كل التعليقات من التحكيمات المكتملة. أسماء المحكمين مخفية في التحكيمات غير "
+"المشخصنة"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"أرسل البريد الالكتروني فقط إلى المؤلفين المعينين إلى سير أعمال طلب التقديم. "
+"عادة ما يكون هو المؤلف الذي قدم الطلب."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "إرسال إشعار البريد الالكتروني إلى كل مؤلفي طلب التقديم."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "من ينبغي أن يتلقى إشعار البريد الالكتروني عند تسجيل قرار هيئة التحرير؟"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "إشعار كل المؤلفين"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "لا أحد"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"معرفات المكونات الرقمية يمكن صياغتها وإيداعها تلقائيًا لدى وكالة تسجيل. "
+"لاستعمال هذه الميزة، حدد إضافة من وكالة التسجيل المناسبة وقم بتنصيبها."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "لم يتم تمكين أي وكالة تسجيل"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"يرجى اختيار وكالة التسجيل التي ترغب باستعمالها عند إيداع معرفات المكونات "
+"الرقمية."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "وكالة التسجيل"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "نمط مخصص، معرف سابقًا من قبل المستخدم. لم يعد مستعملاً."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"أدخل بادئة معرف مكون رقمي منفردة لكل عنصر منشور. ستجد حقول إدخال معرفات "
+"المكونات الرقمية في صفحة إدارتها."

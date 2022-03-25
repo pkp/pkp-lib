@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-27 16:26+0000\n"
+"PO-Revision-Date: 2022-03-25 08:32+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -2193,3 +2193,24 @@ msgstr "Կցված նիշքեր"
 
 msgid "common.addCCBCC"
 msgstr "Ավելացրեք CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք փոխել {$localeName }-ին այս նամակը գրելու համար: "
+"Նամակի խորագրի և հիմնական տեքստի մեջ ձեր կատարած ցանկացած փոփոխություն "
+"կկորչի:"
+
+msgid "common.switchToNamedItem"
+msgstr "Անցնել {$name} -ին"
+
+msgid "common.orUploadFile"
+msgstr "Կամ վերբեռնեք նիշք"
+
+msgid "common.dragAndDropHere"
+msgstr "Քաշեք և թողեք նիշքերը այստեղ:"
+
+msgid "common.attachSelected"
+msgstr "Կցեք ընտրվածը"
+
+msgid "common.addFiles"
+msgstr "Ավելացրեք նիշքեր"

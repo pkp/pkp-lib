@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-10 19:56+0000\n"
+"PO-Revision-Date: 2022-03-28 18:24+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -199,3 +199,325 @@ msgstr "Настройки на сайта"
 
 msgid "manager.people.mergeUsers"
 msgstr "Обединяване на потребители"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Тази група няма членове."
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Наистина ли искате да изтриете членството в тази група?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Добавяне на член"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Изисква се заглавие на групата."
+
+msgid "manager.groups.editTitle"
+msgstr "Редакция на заглавие"
+
+msgid "manager.groups.createTitle"
+msgstr "Създаване на заглавие"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Наистина ли искате да изтриете тази група?"
+
+msgid "manager.files.uploadFile"
+msgstr "Качване на файл"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Качени файлове"
+
+msgid "manager.files.parentDir"
+msgstr "Родителска (по-горна) директория"
+
+msgid "manager.files.indexOfDir"
+msgstr "Индекс на {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "В тази директория не бяха намерени файлове."
+
+msgid "manager.files.createDir"
+msgstr "Създаване на директория"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Да се изтрие ли този файл или директория? Имайте предвид, че директорията "
+"трябва да е празна, преди да може да бъде изтрита."
+
+msgid "manager.filesBrowser"
+msgstr "Файлов браузер"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Изберете потребителите, които да бъдат експортирани в Excel/CSV файл."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Експорт към Excel/CSV"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Тема: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Изпратено на"
+
+msgid "manager.emails.sentFrom"
+msgstr "Изпратено от"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Нулиране към стойност по подразбиране"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Ако нулирате този шаблон, всички данни за съобщението ще бъдат нулирани до "
+"стойността по подразбиране, като всички модификации ще бъдат загубени. "
+"Искате ли да потвърдите тази операция?"
+
+msgid "manager.emails.resetComplete"
+msgstr "Шаблонът за имейл беше успешно нулиран."
+
+msgid "manager.emails.reset"
+msgstr "Нулиране"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Стандартните имейл шаблони са възстановени."
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Ако нулирате всички шаблони, всички модификации на шаблоните за имейли ще "
+"бъдат загубени. Искате ли да потвърдите тази операция?"
+
+msgid "manager.emails.resetAll"
+msgstr "Нулиране на всички"
+
+msgid "manager.emails"
+msgstr "Подготвени имейли"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "За имейла се изисква тема."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "За имейла се изисква съдържание."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"За имейла е необходим уникален имейл ключ, който не съдържа интервали или "
+"специални знаци."
+
+msgid "manager.emails.enable.message"
+msgstr "Ще активирате този имейл. Искате ли да потвърдите тази операция?"
+
+msgid "manager.emails.enabled"
+msgstr "Активиране на този шаблон за имейл"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Предоставеният от вас ключ вече се използва."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Трябва да предоставите идентификатор на контекста, когато добавяте шаблон за "
+"имейл."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Други шаблони"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблони за имейл"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон за имейл"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"Вече съществува имейл с дадения ключ. Ключовете за имейл трябва да са "
+"уникални."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Ключът за имейл може да съдържа само букви, цифри и долни черти."
+
+msgid "manager.emails.emailKey"
+msgstr "Имейл ключ"
+
+msgid "manager.emails.editTestExample"
+msgstr "Редактиране на тестов пример за имейл"
+
+msgid "manager.emails.editEmail"
+msgstr "Редакция на имейл"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Ще деактивирате този имейл шаблон. Ако има системни процеси, използващи този "
+"шаблон, те няма да го използват повече. Искате ли да потвърдите тази "
+"операция?"
+
+msgid "manager.emails.enable"
+msgstr "Активиране"
+
+msgid "manager.people.enroll"
+msgstr "Записване на потребител"
+
+msgid "manager.people.enable"
+msgstr "Активиране"
+
+msgid "manager.plugins.enable"
+msgstr "Активиране"
+
+msgid "manager.plugins.disable"
+msgstr "Деактивиране"
+
+msgid "manager.people.disable"
+msgstr "Деактивиране"
+
+msgid "manager.emails.disable"
+msgstr "Деактивиране"
+
+msgid "manager.emails.details"
+msgstr "Детайли за шаблон"
+
+msgid "manager.emails.data"
+msgstr "Данни за шаблонно съобщение"
+
+msgid "manager.emails.customTemplate"
+msgstr "Потребителски шаблон"
+
+msgid "manager.emails.createEmail"
+msgstr "Създаване на имейл"
+
+msgid "manager.emails.addEmail"
+msgstr "Добавяне на шаблон"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Наистина ли искате да нулирате този шаблон за имейл до неговите стойности по "
+"подразбиране?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Наистина ли искате да изтриете този шаблон за имейл?"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Следното съобщение беше върнато от {$registrationAgency} и съдържа "
+"подробности за регистрацията:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Следната грешка беше върната от {$registrationAgency} и съдържа подробности "
+"за причината за грешката:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Подробностите за напомнянето за резензиране са актуализирани."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Ръководство за рецензиране"
+
+msgid "manager.publication.emails"
+msgstr "Имейли"
+
+msgid "manager.publication.productionStage"
+msgstr "Публикация"
+
+msgid "manager.publication.editorialStage"
+msgstr "Редактиране"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензия"
+
+msgid "manager.publication.submissionStage"
+msgstr "Изпратени материали"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Елементите са успешно изпратени за депозит"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Елементите успешно са присвоили нови DOI"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Елементите са успешно маркирани като регистрирани"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Елементите са експортирани успешно"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Някои DOI не успяха да бъдат актуализирани."
+
+msgid "manager.dois.status.stale"
+msgstr "Изостанал"
+
+msgid "manager.dois.status.error"
+msgstr "Грешка"
+
+msgid "manager.dois.status.registered"
+msgstr "Регистриран"
+
+msgid "manager.dois.status.submitted"
+msgstr "Изпратен"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Нерегистриран"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Необходими DOI"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Депозиране на DOI"
+
+msgid "manger.dois.update.success"
+msgstr "DOI са успешно актуализирани"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Съобщение за успешна регистрация"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Преглед на запис"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Съобщение за грешка при регистрация"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Преглед на грешката"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Този елемент не може да бъде депозиран, докато не бъде публикуван."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Метаданните за този елемент не са изпратени на {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Метаданните за този елемент са изпратени на {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Статус на публикация"
+
+msgid "manager.dois.depositStatus"
+msgstr "Статус на депозиране"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Ще планирате всички неизпълнени записи с метаданни на DOI да бъдат "
+"депозирани в {$registrationAgency}. Индивидуалното състояние на всеки "
+"елемент ще бъде актуализирано, когато бъде получен отговор. Наистина ли "
+"искате да планирате депозити за всички тези елементи?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Депозиране на всички DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Ще присвоите нови DOI на {$count} елемент(и) за всеки отговарящ на условията "
+"елемент, който все още няма присвоен DOI. Наистина ли искате да присвоите "
+"DOI на тези елементи?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Присвояване на DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Ще експортирате записи с метаданни на DOI за {$count} елемент(и) за "
+"{$registrationAgency}. Наистина ли искате да експортирате тези записи?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Експорт на DOI"

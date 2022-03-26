@@ -287,7 +287,7 @@ msgstr ""
 "<br />\n"
 "{$senderName}"
 
-msgid "emails.reviewDecline.description"
+msgid "mailable.reviewDecline.description"
 msgstr "ایمیلی از طرف داور به سردبیر یا دبیر بخش برای اطلاع از عدم پذیرش انجام داوری"
 
 #, fuzzy
@@ -325,7 +325,7 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "emails.reviewRemindAuto.description"
+msgid "mailable.reviewRemindAuto.description"
 msgstr "This email is automatically sent when a reviewer's due date elapses (see Review Options under Journal Setup, Step 2) and one-click reviewer access is disabled. Scheduled tasks must be enabled and configured (see the site configuration file)."
 
 msgid "emails.reviewRemindAutoOneclick.subject"
@@ -828,7 +828,7 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "emails.reviewRemind.description"
+msgid "mailable.reviewRemind.description"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای یادآوری انجام داوری"
 
 msgid "emails.lockssExistingArchive.subject"
@@ -1213,7 +1213,7 @@ msgstr ""
 "{$submissionAbstract}"
 
 #, fuzzy
-msgid "emails.reviewResponseOverdueAuto.description"
+msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"
 
 msgid "emails.reviewResponseOverdueAutoOneclick.subject"

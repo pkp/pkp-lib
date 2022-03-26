@@ -2468,3 +2468,36 @@ msgstr "URL lesen lain"
 
 msgid "manager.setup.notifyUsers.copyDetails"
 msgstr "Hantar salinan e-mel ini kepada saya di {$email}."
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"E-mel ini dikirim oleh Pengulas ke Editor Bahagian sebagai respon balas "
+"kepada permintaan ulasan untuk memberitahu Editor Bahagian bahawa permintaan "
+"ulasan telah diterima dan akan diselesaikan pada tarikh yang ditentukan."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"E-mel ini dikirim oleh Pengulas ke Editor Bahagian sebagai respon balas "
+"kepada permintaan ulasan untuk memaklumkan Editor Bahagian bahawa permintaan "
+"ulasan telah ditolak."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"E-mel ini dihantar oleh Editor Bahagian untuk mengingatkan pengulas bahawa "
+"ulasan tamat."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"E-mel ini dihantar secara automatik apabila tarikh akhir pengulas berlalu ("
+"lihat Pilihan Ulasan di bawah Tetapan> Aliran Kerja> Ulasan) dan akses "
+"pengulas satu klik dinyahdayakan. Tugas berjadual mesti didayakan dan "
+"dikonfigurasi (lihat fail konfigurasi laman web)."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"E-mel ini dihantar secara automatik apabila tarikh akhir pengesahan pengulas "
+"berlalu (lihat Pilihan Ulasan di bawah Tetapan> Alur Kerja> Ulasan) dan "
+"akses pengulas satu klik dinyahdayakan. Tugas berjadual mesti didayakan dan "
+"dikonfigurasi (lihat fail konfigurasi laman web)."

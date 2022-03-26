@@ -2324,6 +2324,30 @@ msgstr "Autorennamen in Form einer verkürzten Zeichenfolge"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-Mailadresse des Hauptkontaktes der Webseite"
 
+msgid "mailable.reviewConfirm.description"
+msgstr "Diese E-Mail wird von einer Gutachterin/einem Gutachter an die/den Rubrikredakteur/in als Antwort auf eine Begutachtungsanfrage gesendet, um die/den Rubrikredakteur/in darüber zu informieren, dass die Begutachtung übernommen wird und bis zu dem angegebenen Datum abgeschlossen sein wird."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Diese E-Mail wird von einer Gutachterin/einem Gutachter an die/den Rubrikredakteur/in als Antwort auf eine Begutachtungsanfrage gesendet, um darüber zu informieren, dass die Anfrage abgelehnt wird."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Diese E-Mail wird von einer Rubrikredakteurin/einem Rubrikredakteur gesendet, um eine/n Gutachter/in daran zu erinnern, dass ihr/sein Gutachten fällig ist."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Diese E-Mail wird automatisch verschickt, wenn das Fälligkeitsdatum für eine/n Gutachter/in verstrichen ist (vgl. die Begutachtungseinstellungen in Schritt 2 des Zeitschriftensetups) und wenn der One-Click-Zugang für Gutachter/innen deaktiviert ist. Planmäßige Aufgaben (scheduled tasks) müssen aktiviert und konfiguriert sein (vgl. die Konfigurationsdatei der Website)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Diese E-Mail wird automatisch verschickt, wenn das Fälligkeitsdatum für eine/"
+"n Gutachter/in verstrichen ist (vgl. die Begutachtungseinstellungen in "
+"Schritt 2 des Zeitschriftensetups) und wenn der One-Click-Zugang für "
+"Gutachter/innen deaktiviert ist. Planmäßige Aufgaben (scheduled tasks) "
+"müssen aktiviert und konfiguriert sein (vgl. die Konfigurationsdatei der "
+"Website)."
+
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Keine"
 

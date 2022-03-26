@@ -2406,3 +2406,21 @@ msgstr "Il prefisso DOI è assegnato dalle agenzie di registrazione (es. <a href
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Contenuto della rivista"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Questa email viene mandata dal revisore  al section editor in risposta a una richiesta di revisione per far sapere a quest'ultimo che la richiesta è stata accettata e sarà completata alla data specificata."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Questa email viene mandata dal revisore al section editor in risposta a una richiesta di revisione per far sapere a quest'ultimo che la richiesta è stata declinata."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Questa email viene mandata da un section editor per ricordare al revisore che è attesa la revisione."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Questa email viene mandata automaticamente quando una data di revisionee scade (vedi opzioni del revisore nel Impostazioni > Flusso di lavoro > Revisione) e l'accesso one-click del revisore è disattivato. I compiti programmati devono essere abilitati e configurati (vedi il file di configurazione del sito)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Questa mail parte automaticamente quanto la data di conferma di un revisore scade (vedi opzioni di revisione sotto Impostazioni > Flusso di lavoro > Revisione) e l'accesso alla revisione 'one-click' è disabilitato. I compiti programmati devono essere abilitati e configurati (vedi il file di configurazione del sito)."

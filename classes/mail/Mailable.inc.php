@@ -90,6 +90,15 @@ class Mailable extends IlluminateMailable
     /** @var int[] Mailables are organized into one or more self::GROUP_ */
     protected static array $groupIds = [self::GROUP_OTHER];
 
+    /** @var bool Whether user can disable this Mailable */
+    protected static bool $canDisable = false;
+
+    /** @var int[] Role ID of the sender, see Role::ROLE_ID_ constants */
+    protected static array $fromRoleIds = [];
+
+    /** @var int[] Role ID of the recipient(s) see Role::ROLE_ID_ constants */
+    protected static array $toRoleIds = [];
+
     /** @var Variable[] The email variables supported by this mailable */
     protected array $variables = [];
 
@@ -129,7 +138,7 @@ class Mailable extends IlluminateMailable
      */
     public function getSupportsTemplates(): bool
     {
-        return $this->supportsTemplates;
+        return static::$supportsTemplates;
     }
 
     /**
@@ -215,6 +224,46 @@ class Mailable extends IlluminateMailable
     public function build(): self
     {
         return $this;
+    }
+
+    /**
+     * Check whether the subject and body of the email can be edited in the Mailable settings
+     */
+    public static function canEdit(): bool
+    {
+        return static::$canEdit;
+    }
+
+    /**
+     * Check whether Mailable can be disabled
+     */
+    public static function canDisable(): bool
+    {
+        return static::$canDisable;
+    }
+
+    /**
+     * Get role IDs of users that are able to send the Mailable
+     */
+    public static function getFromRoleIds(): array
+    {
+        return static::$fromRoleIds;
+    }
+
+    /**
+     * Get role IDs of recipients
+     */
+    public static function getToRoleIds(): array
+    {
+        return static::$toRoleIds;
+    }
+
+    /**
+     * Get associated stage IDs
+     */
+    public static function getStageIds(): array
+    {
+        return static::$stageIds;
     }
 
     /**

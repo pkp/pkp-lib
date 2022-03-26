@@ -2391,3 +2391,24 @@ msgstr "Awalan DOI ditugaskan dengan agensi pendaftaran (contoh <a href=\"http:/
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Konten Jurnal"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Email ini dikirimkan Reviewer kepada Editor Bagian sebagai respon terhadap permohonan review untuk memberitahu Editor Bagian bahwa permohonan review diterima dan akan diselesaikan pada tanggal yang ditetapkan."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Email ini dikirimkan Reviewer kepada Editor Bagian sebagai respon terhadap permohonan review untuk memberitahu Editor Bagian bahwa permohonan review ditolak."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Email ini dikirim oleh Editor untuk mengingatkan reviewer bahwa batas "
+"reviewnya telah habis. Email ini digunakan ketika editor secara manual "
+"mengirimkan pengingat kepada reviewer"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Email ini dikirimkan otomatis saat tenggat waktu review terlewati (lihat Opsi Review di menu Pengaturan > Alur Kerja > Review) and one-click reviewer access is disabled. Scheduled tasks must be enabled and configured (see the site configuration file)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Email ini dikirim otomatis saat tenggat konfirmasi terlewati (lihat Opsi Review di menu Pengaturan > Alur Kerja > Review) dan akses one-click reviewer dinonaktifkan. Scheduled tasks must be enabled and configured (see the site configuration file)."

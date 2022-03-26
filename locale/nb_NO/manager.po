@@ -2378,3 +2378,39 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidsskriftets innhold"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Denne e-posten sendes fra en fagfelle til seksjonsredaktøren som svar på «"
+"Forespørsel om fagfellevurdering» for å varsle seksjonsredaktøren om at "
+"forespørselen er mottatt og akseptert, og at fagfellevurderingen vil bli "
+"ferdigstilt innen angitt frist."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Denne e-posten sendes av en fagfelle til seksjonsredaktøren som svar på en "
+"forespørsel om fagfellevurdering, for å varsle redaktøren om at oppdraget er "
+"avslått."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Denne e-posten sendes av en seksjonsredaktør til en fagfelle for å minne om "
+"at fagfellevurderingen ventes ferdigstilt innen fristen."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Denne e-posten sendes automatisk til fagfellen når tidsfristen for "
+"fagfellevurdering utløper (se: Tid for fagfellevurdering under Innstillinger "
+"> Arbeidsflyt > Fagfellevurdering) og når ettklikks fagfelletilgang er slått "
+"av. Planlagte oppgaver må være slått på og konfiguert (se etter Scheduled "
+"tasks i konfigurasjonsfilen for nettstedet)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Denne e-posten sendes automatisk når fagfellens frist for å bekrefte oppdrag "
+"utløper (se Innstillinger > Arbeidsflyt > Fagfellevurdering) og ’Slå på "
+"ettklikks tilgang for fagfellene’ ikke er valgt. Planlagte oppgaver må være "
+"skrudd på og konfigurert (se filen med nettsidekonfigurering)."

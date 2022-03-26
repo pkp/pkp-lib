@@ -2271,3 +2271,36 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Nội dung tạp chí"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Email này được gửi bởi một phản biện cho Biên tập viên chuyên mục để phản "
+"hồi với yêu cầu đánh giá cũng để thông báo cho Biên tập viên chuyên mục rằng "
+"yêu cầu xem xét lại đã được chấp nhận và sẽ được hoàn thành vào ngày cụ thể."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Email này được gửi bởi Người phản biện đến Biên tập viên chuyên mục để phản "
+"hồi về yêu cầu đánh giá cũng để thông báo cho Biên tập viên chuyên mục biết "
+"rằng yêu cầu đánh giá đã bị từ chối."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Email này được gửi bởi một Biên tập viên chuyên mục để nhắc nhở người phản "
+"biện rằng đánh giá của họ đến hạn nộp."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Email này được gửi tự động khi hết hạn đánh giá của người phản biện (xem Tùy "
+"chọn đánh giá trong Cài đặt > Quy trình làm việc > Phản biện) và quyền truy "
+"cập của người phản biện không cần đăng nhập bị vô hiệu hóa. Các tác vụ theo "
+"lịch trình phải được bật và định cấu hình (xem tệp cấu hình trang)."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Email này được gửi tự động khi hết hạn xác nhận của người phản biện (xem Tùy "
+"chọn đánh giá trong Cài đặt> Quy trình làm việc> phản biện) và quyền truy "
+"cập của người phản biện không cần đăng nhập bị vô hiệu hóa. Các tác vụ theo "
+"lịch trình phải được bật và định cấu hình (xem tập tin cấu hình trang)."

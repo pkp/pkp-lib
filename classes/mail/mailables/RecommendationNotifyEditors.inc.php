@@ -24,6 +24,8 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\ReviewerComments;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class RecommendationNotifyEditors extends Mailable
 {
@@ -38,6 +40,8 @@ class RecommendationNotifyEditors extends Mailable
     protected static ?string $emailTemplateKey = 'EDITOR_RECOMMENDATION';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $toRoleIds = [Role::ROLE_ID_MANAGER];
 
     /**
      * @param array<ReviewAssignment> $reviewAssignments

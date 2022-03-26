@@ -2611,3 +2611,21 @@ msgstr "A DOI előtagot regisztrációs ügynökségek (pl. <a href=\"http://www
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Folyóirat tartalom"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Ezt az emailt a Szakmai Lektor küldi a Rovatszerkesztőnek a lektori felkérésre válaszolva és jelezve, hogy a szakmai lektorálási munkát elvállalja és a megadott határidőig elvégzi."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ezt az emailt a Szakmai Lektor küldi a Rovatszerkesztőnek a lektori felkérésre válaszolva és jelezve, hogy a lektorálási munkát nem tudja elvállalni."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Ezt az emailt a Rovatszerkesztő küldi a Szakmai Lektornak, hogy emlékeztesse a lektorálási határidőre."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Ez az email automatikusan generált, amikor a lektorálási határidő lejár (lásd a Lektorálási beállításokat a Beállítások > Munkafolyamat > Szakmai lektorálás résznél) és az egykattintásos lektorálási hozzáférés nincs engedélyezve. Az ütemezett feladatokat engedélyezni és konfigurálni kell (lásd az oldal konfigurálást)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Ezt az emailt a rendszer automatikusan küldi, amikor a szakmai lektorálásra történő felkérésnek elfogadási határideje lejár (lásd Lektorálási beállítások részben a Beállítások > Munkafolyamat > Szakmai lektorálás) és az egykattintásos lektori hozzáférés tiltott. Az ütemezett feladatok futását engedélyezni kell és be kell állítani (lásd az oldal konfigurációs fájlját)."

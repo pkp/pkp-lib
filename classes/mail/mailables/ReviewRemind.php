@@ -24,6 +24,7 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\AccessKeyManager;
+use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -34,13 +35,13 @@ class ReviewRemind extends Mailable
     use Configurable;
     use PasswordResetUrl;
 
-    public const EMAIL_KEY = 'REVIEW_REMIND';
-
     protected static ?string $name = 'mailable.reviewRemind.name';
-
     protected static ?string $description = 'mailable.reviewRemind.description';
-
+    protected static ?string $emailTemplateKey = 'REVIEW_REMIND';
+    protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;
     protected ReviewAssignment $reviewAssignment;

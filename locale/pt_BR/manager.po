@@ -2356,6 +2356,35 @@ msgstr "Nova mensagem de discussão"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "O e-mail do contato principal do site"
 
+msgid "mailable.reviewConfirm.description"
+msgstr "Mensagem enviada pelo Avaliador ao Editor de Seção, em resposta à solicitação de avaliação, para notificar disponibilidade para realizar a tarefa e de que a mesma será concluída no prazo especificado."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Mensagem enviada pelo Avaliador ao Editor de Seção, em resposta à solicitação de avaliação, para notificar sua NÃO disponibilidade para realizar a tarefa, rejeitando a solicitação."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Mensagem enviada pelo Editor ao Avaliador como lembrete da tarefa de "
+"avaliação em andamento ainda não concluída. Este e-mail é usado quando um "
+"editor envia manualmente um lembrete ao avaliador"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Mensagem enviada automaticamente ao avaliador quando a data de conclusão de "
+"avaliação for ultrapassada. Os lembretes de avaliação automatizados são "
+"ativados nas configurações de avaliação."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Este e-mail é automaticamente enviando quando o prazo para confirmação de um "
+"avaliador vence (veja as opções para avaliação em Configurações > Fluxo de "
+"trabalho > Avaliação) e a opção de habilitar acesso 1-clique para o "
+"avaliador está desabilitada. Tarefas agendadas devem ser habilitadas e "
+"configuradas (veja o arquivo de configuração do site)."
+
 msgid "manager.dois.actions.deposit.all"
 msgstr "Depositar tudo"
 

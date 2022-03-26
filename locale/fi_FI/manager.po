@@ -2195,3 +2195,18 @@ msgstr "DOI-prefiksi on rekisteröinnistä vastaavien tahojen (esim. <a href=\"h
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Julkaisun sisältö"
+
+msgid "mailable.reviewDecline.description"
+msgstr "This email is sent by a Reviewer to the Section Editor in response to a review request to notify the Section Editor that the review request has been declined."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "This email is sent by a Section Editor to remind a reviewer that their review is due."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "This email is automatically sent when a reviewer's due date elapses (see Review Options under Settings > Workflow > Review) and one-click reviewer access is disabled. Scheduled tasks must be enabled and configured (see the site configuration file)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "This email is automatically sent when a reviewer's confirmation due date elapses (see Review Options under Settings > Workflow > Review) and one-click reviewer access is disabled. Scheduled tasks must be enabled and configured (see the site configuration file)."

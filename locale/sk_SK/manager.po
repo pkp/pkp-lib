@@ -42,3 +42,37 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Obsah časopisu"
+
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Tento email posiela recenzent editorovi sekcie v odpovedi na žiadosť o "
+"spracovaní recenzie, aby mu oznámil, že žiadosť prijal a spracuje recenziu v "
+"stanovenom termíne."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Tento email posiela recenzent editorovi sekcie v odpovedi na žiadosť o "
+"spracovaní recenzie, aby mu oznámil, že recenziu nemôže spracovať."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Tento email posiela editor sekcie recenzentovi, aby mu pripomenul, že "
+"vypršal termín pre spracovanie recenzie."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Tento email je poslaný automaticky, keď recenzentovi vyprší stanovený termín "
+"pre spracovanie recenzie (pozri Možnosti recenzie v Nastavenie časopisu, "
+"Krok 2) a je zakázaný prístup recenzenta na jedno kliknutie. Musia byť "
+"povolené a nakonfigurované naplánované úlohy (pozri konfiguračný súbor "
+"stránky)."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Tento email sa automaticky odosiela, len čo uplynie dátum splatnosti "
+"potvrdenia recenzenta (pozri Možnosti kontroly v sekcii Nastavenia> Pracovný "
+"postup> Kontrola) a prístup k recenznej kontrole je zakázaný. Plánované "
+"úlohy musia byť povolené a konfigurované (pozri konfiguračný súbor webu)."

@@ -21,6 +21,7 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
 
 class DecisionNotifyReviewer extends Mailable
 {
@@ -35,6 +36,9 @@ class DecisionNotifyReviewer extends Mailable
     protected static ?string $emailTemplateKey = 'REVIEW_ACK';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static bool $canDisable = true;
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
     protected Decision $decision;
 
     public function __construct(Context $context, Submission $submission, Decision $decision)

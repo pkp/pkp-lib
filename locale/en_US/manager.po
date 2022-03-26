@@ -2581,6 +2581,19 @@ msgstr "Review Reminder (Automated)"
 msgid "mailable.reviewRemindAuto.description"
 msgstr "This email is automatically sent when a reviewer has not completed their review by the due date."
 
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Review Acknowledgement"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr "This email is sent by a Section Editor to confirm receipt of a completed review and thank the reviewer for their contributions."
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Review Response Overdue (Automated)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"This email is automatically sent when the deadline for a reviewer to respond to a review request passes."
+
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "The submission's current publication is missing"
 

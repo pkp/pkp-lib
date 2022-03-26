@@ -2403,3 +2403,21 @@ msgstr "El prefijo DOI lo asignan las agencias registradoras (p. ej., <a href=\"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Contenido de la revista"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Este correo es enviado por un/a revisor/a al / a la Editor/a de Sección en respuesta a una petición de revisión para notificarle que ha aceptado la petición y que será completada antes de la fecha especificada."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Este correo es enviado por un/a revisor/a al / a la Editor/a de Sección en respuesta a una petición de revisión para notificarle que rechaza la petición de revisión."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Este correo es enviado por el/la Editor/a de Sección para recordar a un/a revisor/a que ya debe entregar su revisión."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Este correo es enviado automáticamente cuando se supera la fecha de entrega de un/a revisor/a (véase Opciones de Revisión en Configuración de la revista, paso 2). Las tareas planificadas deben estar activadas y configuradas (ver fichero de configuración del sitio)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Este correo electrónico se envía automáticamente cuando transcurre la fecha de entrega del revisor/a (vea las opciones de revisión en el paso 2 de la configuración de la revista) y se deshabilita el acceso al revisor/a con un solo clic. Las tareas planificadas se deben habilitar y configurar (vea el archivo de configuración del sitio)."

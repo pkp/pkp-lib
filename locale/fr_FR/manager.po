@@ -2511,3 +2511,21 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Contenu de la revue"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Ce courriel est envoyé par le rapporteur au rédacteur de rubrique en réponse à une demande d'évaluation, pour aviser ce dernier que la demande a été acceptée et que l'évaluation sera complétée au plus tard à la date spécifiée."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ce courriel est envoyé par le rapporteur au rédacteur de rubrique en réponse à la demande d'évaluation, pour aviser ce dernier qu'il ne peut effectuer l'évaluation."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Ce courriel est envoyé par le Rédacteur de rubrique pour rappeler à un rapporteur que son évaluation est due."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Ce courriel est envoyé automatiquement quand la date due d'un rapporteur est dépassée. (Voir Options d'évaluation à l'Étape 2 de la Configuration de la revue) et que l'accès en « un clic » est désactivé. Les tâches planifiées doivent être activées et configurées (voir le fichier de Configuration du site)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Ce courriel est automatiquement envoyé lorsque la date d'échéance de confirmation d'un rapporteur est écoulée (voir Options de révision sous Paramètres> Flux des travaux> Révision) et l'accès du rapporteur en un clic est désactivé. Les tâches planifiées doivent être activées et configurées (voir le fichier de configuration du site)."

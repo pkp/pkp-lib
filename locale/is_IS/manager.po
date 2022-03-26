@@ -2478,3 +2478,9 @@ msgstr "Engin ritrýnieyðublöð hafa verið notuð."
 
 msgid "manager.reviewForms.noneCreated"
 msgstr "Engin ritrýnieyðublöð hafa verið búin til."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Þessi tölvupóstur sendist sjálfkrafa þegar komið er fram yfir skiladag "
+"ritrýnis til að bregaðst við beiðni um ritrýni og þegar  beinn aðgangur "
+"ritrýnis er ekki virkur."

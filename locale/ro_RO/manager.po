@@ -2328,3 +2328,40 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Conținutul jurnalului"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Acest e-mail este trimis de către un revizor, editorului de secțiune ca "
+"răspuns la o cerere de revizuire pentru a notifica editorul de secțiune că "
+"cererea de revizuire a fost acceptată și va fi finalizată până la data "
+"specificată."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Acest e-mail este trimis de un revizor, editorului de secțiune ca răspuns la "
+"o cerere de revizuire pentru a notifica editorul de secțiune că cererea de "
+"revizuire a fost respinsă."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Acest e-mail este trimis de un editor de secțiune pentru a reaminti "
+"recenzorului că revizuirea sa se apropie de data limită."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Acest e-mail este trimis automat la expirarea termenului de scadență al unui "
+"revizor (consultați Opțiunile de revizuire din Setări> Flux de lucru> "
+"Revizuire) și accesul cu un singur clic al revizorului este dezactivat. "
+"Sarcinile programate trebuie să fie activate și configurate (consultați "
+"fișierul de configurare a site-ului)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Acest e-mail este trimis automat la expirarea termenului de confirmare a "
+"revizorului (consultați Opțiuni de revizuire în Setări> Flux de lucru> "
+"Revizuire), iar prin apăsarea unui singur clic poate fi dezactivat. "
+"Sarcinile programate trebuie să fie activate și configurate (consultați "
+"fișierul de configurare a site-ului)."

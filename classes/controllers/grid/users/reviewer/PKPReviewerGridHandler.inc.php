@@ -35,6 +35,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
 use PKP\mail\Mailable;
+use PKP\mail\mailables\MailReviewerAssigned;
 use PKP\mail\mailables\MailReviewerReinstated;
 use PKP\mail\mailables\MailReviewerUnassigned;
 use PKP\mail\traits\Sender;
@@ -45,13 +46,15 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\user\User;
+use Symfony\Component\Mailer\Exception\TransportException;
+use ReinstateReviewerForm;
+use UnassignReviewerForm;
 use ReviewerGridCellProvider;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridRow;
-use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -503,7 +506,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
-        $reinstateReviewerForm = new \ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->initData();
 
         return new JSONMessage(true, $reinstateReviewerForm->fetch($request));
@@ -523,7 +526,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
-        $reinstateReviewerForm = new \ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->readInputData();
 
         // Reinstate the reviewer and return status message
@@ -536,7 +539,7 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = PKPServices::get('context')->get($submission->getData('contextId'));
-            $template = Repo::emailTemplate()->getByKey($context->getId(), 'REVIEW_REINSTATE');
+            $template = Repo::emailTemplate()->getByKey($context->getId(), MailReviewerReinstated::getEmailTemplateKey());
             $mailable = new MailReviewerReinstated($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }
@@ -558,7 +561,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
-        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->readInputData();
 
         // Unassign the reviewer and return status message
@@ -571,7 +574,7 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = PKPServices::get('context')->get($submission->getData('contextId'));
-            $template = Repo::emailTemplate()->getByKey($context->getId(), 'REVIEW_CANCEL');
+            $template = Repo::emailTemplate()->getByKey($context->getId(), MailReviewerAssigned::getEmailTemplateKey());
             $mailable = new MailReviewerUnassigned($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }

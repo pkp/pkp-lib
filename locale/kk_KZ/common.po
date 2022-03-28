@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-16 12:16+0000\n"
+"PO-Revision-Date: 2022-03-28 18:24+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -609,3 +609,725 @@ msgstr "Жарамсыз"
 
 msgid "common.noComments"
 msgstr "пікірлер жоқ"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Өзіңіз бен {$userFullName} арасында талқылауды бастаңыз."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Талқылауға кірісіңіз"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Хабарлама пайдаланушыларға жіберілді."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Хабарлама пайдаланушыларға жіберілді."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Жаңа жазба жарияланды."
+
+msgid "informationCenter.history.noItems"
+msgstr "Журнал бойынша ешқандай оқиға тіркелмеген."
+
+msgid "informationCenter.pastHistory"
+msgstr "Бұрынғы түзетулер"
+
+msgid "informationCenter.currentHistory"
+msgstr "Ағымдағы қайта қарау"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Осы жазбаны жойғыңыз келетініне сенімдісіз бе?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Алдыңғы нұсқалар бойынша ескертпелер"
+
+msgid "informationCenter.noNotes"
+msgstr "Көрсетілетін ескертпелер жоқ."
+
+msgid "informationCenter.addNote"
+msgstr "Ескертпе қосу"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Редакция тарихы"
+
+msgid "informationCenter.informationCenter"
+msgstr "Ақпараттық орталық"
+
+msgid "icon.view.alt"
+msgstr "Көру"
+
+msgid "icon.unchecked.alt"
+msgstr "Тексерілмеген"
+
+#, fuzzy
+msgid "icon.mail.alt"
+msgstr "Mail"
+
+msgid "icon.letter.alt"
+msgstr "Хат"
+
+msgid "icon.info.alt"
+msgstr "Мәлімет"
+
+msgid "icon.font_small.alt"
+msgstr "Кіші"
+
+msgid "icon.font_medium.alt"
+msgstr "Орташа"
+
+msgid "icon.font_large.alt"
+msgstr "Ірі"
+
+msgid "icon.folder.alt"
+msgstr "Папка"
+
+msgid "icon.edit.alt"
+msgstr "Түзету"
+
+msgid "icon.delete.alt"
+msgstr "Өшіру"
+
+msgid "icon.comment.alt"
+msgstr "Түсініктеме"
+
+msgid "icon.checked.alt"
+msgstr "Тексерілген"
+
+msgid "help.upALevel"
+msgstr "Деңгейге көтерілу"
+
+msgid "help.next"
+msgstr "келесі"
+
+msgid "help.previous"
+msgstr "Алдыңғы"
+
+msgid "help.toc"
+msgstr "Мазмұны"
+
+msgid "help.help"
+msgstr "Көмек"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} тілдер толтырылды"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} -да {$localeName})"
+
+msgid "form.invalidImage"
+msgstr ""
+"Жарамсыз сурет жүктелді. Қабылданатын форматтар келесідей .png, .gif немесе "
+".jpg."
+
+msgid "form.submit"
+msgstr "Жіберу"
+
+msgid "form.send"
+msgstr "жіберу"
+
+msgid "form.saveToUpload"
+msgstr "Файлды жүктеп салу үшін Сақтау батырмасын пайдаланыңыз."
+
+msgid "form.saved"
+msgstr "Сақталған"
+
+msgid "form.resubmit"
+msgstr "Қайта жіберіңіз"
+
+msgid "form.requireId"
+msgstr "Жарамды ID ұсынуыңыз керек."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Сіз бұл өрісті {$language} тілінде толтыруыңыз керек."
+
+msgid "form.required"
+msgstr "(* Міндетті)"
+
+msgid "form.fileRequired"
+msgstr "Файлды міндетті түрде жүктеп салу керек."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Форманы жіберу мүмкін емес. Сіз жүйеден шыққан болуыңыз мүмкін. Бетті қайта "
+"жүктеп, әрекетті қайталаңыз."
+
+msgid "form.postRequired"
+msgstr "Формасы дұрыс жіберілмеді."
+
+msgid "form.startsWith"
+msgstr "-ден басталады"
+
+msgid "form.is"
+msgstr "тең келеді"
+
+msgid "form.contains"
+msgstr "қамтиды"
+
+msgid "form.formLanguage"
+msgstr "Тіл формасы"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Төмендегі ақпаратты қосымша тілдерге енгізу үшін алдымен тілді таңдаңыз."
+
+msgid "form.errorsOccurred"
+msgstr "Бұл форманы өңдеу кезінде қателер орын алды"
+
+msgid "form.errors"
+msgstr ""
+"Форма сақталмады, себебі {$count} қате орын алды. Осы қателерді түзетіп, "
+"әрекетті қайталаңыз."
+
+msgid "form.errorMany"
+msgstr "{$count} қателерді түзетіңіз."
+
+msgid "form.errorOne"
+msgstr "Бір қатені түзетіңіз."
+
+msgid "form.errorGoTo"
+msgstr "Келесі қатеге өтіңіз"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel}-ге өтіңіз: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Сіз жеткілікті файл жүктеп салдыңыз."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Файлды жою"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Бұл жүктеуден бас тартқыңыз келетініне сенімдісіз бе?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Жүктеу тоқтатылды"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Жүктеуді тоқтату"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Сервер {{statusCode}} коды арқылы жауап берді. Бұл мәселе жойылмаса, жүйе "
+"әкімшісіне хабарласыңыз."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Бұл түрдегі файлдарды жүктеп салу мүмкін емес."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Файл тым үлкен ({{filesize}}mb). Көлемі {{maxFilesize}} мб-тан асатын "
+"файлдарды жүктеп салу мүмкін емес."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Файлдарыңызды жүктеп салу үшін төмендегі қосалқы форманы пайдаланыңыз."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Сіздің браузеріңіз файлдарды арнайы терезеге апару арқылы жүктеп салуды "
+"қолдамайды."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Жүктеу үшін файлдарды осында көшіріңіз"
+
+msgid "form.disallowedProp"
+msgstr "Бұл сипатқа рұқсат жоқ."
+
+msgid "form.disallowedLocales"
+msgstr "Келесі тілдерге ғана рұқсат етіледі: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr "Бұл формадағы деректер өзгерді. Сақтамай жалғастыруды қалайсыз ба?"
+
+msgid "form.emailRequired"
+msgstr "Электрондық поштаның мекенжайы қажет."
+
+msgid "form.confirmSubmit.title"
+msgstr "Растау"
+
+msgid "form.confirmSubmit"
+msgstr "Осы формада жібергіңіз келетініне сенімдісіз бе?"
+
+msgid "form.url.invalid"
+msgstr "Көрсетілген  URL мекенжайы жарамсыз. Тексеріп, әрекетті қайталаңыз."
+
+msgid "email.to"
+msgstr "Кімге"
+
+msgid "email.bodyRequired"
+msgstr "Электрондық хабарламаның негізгі мәтінін енгізіңіз."
+
+msgid "email.subjectRequired"
+msgstr "Электрондық хабарламаның тақырыбын енгізіңіз."
+
+msgid "email.subject"
+msgstr "Тақырып"
+
+msgid "email.skip"
+msgstr "Электрондық хабарламаны жіберуді өткізу"
+
+msgid "email.send"
+msgstr "жіберу"
+
+msgid "email.senderEmail"
+msgstr "Жіберушінің е майлы"
+
+msgid "email.senderName"
+msgstr "Жіберушінің аты"
+
+msgid "email.sender"
+msgstr "Жіберуші"
+
+msgid "email.recipients"
+msgstr "Қабылдаушылар"
+
+msgid "email.recipient"
+msgstr "Қабылдаушы"
+
+msgid "email.multipart"
+msgstr "Бұл MIME форматындағы көп бөліктен тұратын хабарлама."
+
+msgid "email.invalid"
+msgstr "Электрондық пошта мекенжайы {$email} жарамсыз."
+
+msgid "email.from"
+msgstr "кімнен"
+
+#, fuzzy
+msgid "email.email"
+msgstr "Email"
+
+msgid "email.compose.error"
+msgstr ""
+"Электрондық пошта хабарын жіберу кезінде мәселе туындады. Әрекетті кейінірек "
+"қайталаңыз немесе жүйе әкімшісіне хабарласыңыз."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Сіз соңғы хабарламаңызды жібергеннен кейін тағы хабарлама жіберуге "
+"әрекеттенудесіз. Жиі хабарлама жібермес бұрын күтіңіз."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Жіберуге әрекеттеніп жатқан хабарламаны алушы тым көп."
+
+msgid "email.compose"
+msgstr "Email жіберу"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Осы электрондық хатты жазу үшін {$localeName} етіп өзгерткіңіз келетініне "
+"сенімдісіз бе? Электрондық поштаның тақырыбы мен негізгі бөлігіне енгізген "
+"кез келген өзгертулер жойылады."
+
+#, fuzzy
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.body"
+msgstr "Хат мәтіні"
+
+msgid "email.bccSender"
+msgstr "Осы хабарламаның көшірмесін менің мекен-жайыма ({$address}) жіберіңіз"
+
+#, fuzzy
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} файлын тіркеу мүмкін емес."
+
+msgid "email.attachments"
+msgstr "Қосымшалар"
+
+msgid "email.addToRecipient"
+msgstr "Алушыны қосу"
+
+msgid "email.addCcRecipient"
+msgstr "CC қосыңыз"
+
+msgid "email.addBccRecipient"
+msgstr "BCC қосыңыз"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Сарапшылар жүктеп салған файлдарды тіркеңіз"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Қарау файлдарын тіркеңіз"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Жіберу және баспа кітапханаларынан файлдарды тіркеңіз."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Кітапхана файлдарын тіркеңіз"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Кітапхана файлдары"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Жіберу процесі кезінде жүктеп салынған файлдарды, мысалы, түзетулер немесе "
+"қаралатын файлдарды тіркеңіз."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Жіберу кезеңінде автор жүктеп салған файлдарды тіркеңіз."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Жіберілген файлдарды тіркеңіз"
+
+msgid "email.addAttachment"
+msgstr "Қосымшаны қосу"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Файлды жүктеп салу"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Рецензияны жүктеу"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Қолжетімді көрсеткіштер"
+
+msgid "defaultMetric.title"
+msgstr "Әдепкі көрсеткіш"
+
+msgid "debug.notes"
+msgstr "Ескертулер:"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "\"{$key}\" тіл кілті жоқ."
+
+msgid "debug.notes.localeLoad"
+msgstr "XMLден \"{$localeList}\" тіл тізімі жүктелді"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XMLден \"{$localeList}\" тіл тізімі жүктелді"
+
+msgid "debug.memoryUsage"
+msgstr "Жадты қолдану"
+
+msgid "debug.executionTime"
+msgstr "бетінде жасалған"
+
+msgid "debug.databaseQueries"
+msgstr "Мәліметтер қоры сұрауларының саны"
+
+msgid "common.publicAccess"
+msgstr "Жалпыға қолжетімділік"
+
+msgid "common.count"
+msgstr "Санау"
+
+msgid "common.metric"
+msgstr "Көрсеткіш"
+
+msgid "common.plugins"
+msgstr "плагиндер"
+
+msgid "common.loading"
+msgstr "Жүктелуде"
+
+msgid "common.yes"
+msgstr "йа"
+
+msgid "common.year"
+msgstr "жыл"
+
+msgid "common.width"
+msgstr "Ені"
+
+msgid "common.weeks"
+msgstr "апталар"
+
+msgid "common.viewProfile"
+msgstr "Профильді көру"
+
+msgid "common.viewWithName"
+msgstr "{$name}қарау"
+
+msgid "common.viewError"
+msgstr "Қатені қарау"
+
+msgid "common.view"
+msgstr "Көру"
+
+msgid "common.user.nonexistent"
+msgstr "[Жоқ қолданушы]"
+
+msgid "common.user"
+msgstr "Қолданушы"
+
+#, fuzzy
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.upload.dragFile"
+msgstr "Жүктеп салуды бастау үшін файлды осы жерге апару"
+
+msgid "common.upload.changeFile"
+msgstr "файлды өзгерту"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Ағымдағы таңдалған суретті алдын ала қарауы."
+
+msgid "common.upload.restore"
+msgstr "Түпнұсқаны қалпына келтіру"
+
+msgid "common.upload.addFile.description"
+msgstr "Файлды компьютерден жүктеп салыңыз."
+
+msgid "common.upload.addFile"
+msgstr "Файлды жүктеп салу"
+
+msgid "common.addFile"
+msgstr "файлды енгізу"
+
+msgid "common.up"
+msgstr "Жоғары"
+
+msgid "common.uploadFailed"
+msgstr "Файлды жүктеу немесе өңдеу мүмкін болмады."
+
+msgid "common.upload"
+msgstr "Жүктеу"
+
+msgid "common.uploadedDate"
+msgstr "Жүктелген күн"
+
+msgid "common.updated"
+msgstr "Жаңартылған"
+
+msgid "common.untitled"
+msgstr "атауы жоқ"
+
+msgid "common.unread"
+msgstr "Оқылмаған"
+
+msgid "common.unknownError"
+msgstr "Күтпеген қате орын алды. Бетті қайта жүктеп, қайталап көріңіз."
+
+msgid "common.uninitiated"
+msgstr "Басталмаған"
+
+msgid "common.component"
+msgstr "Компонент"
+
+msgid "common.type"
+msgstr "түрі"
+
+msgid "common.true"
+msgstr "дұрыс"
+
+msgid "common.toWithValue"
+msgstr "Кімге: {$value}"
+
+msgid "common.top"
+msgstr "Жоғарғы"
+
+#, fuzzy
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.title"
+msgstr "Тақырып"
+
+msgid "common.switchToNamedItem"
+msgstr "{$name}Ауыстыру"
+
+msgid "common.switchTo"
+msgstr "Ауыстыру"
+
+msgid "common.suggest"
+msgstr "Ұсыну"
+
+msgid "common.subtitle"
+msgstr "тақырыпша"
+
+msgid "common.submenu"
+msgstr "Ішкі мәзір"
+
+msgid "common.subjects"
+msgstr "Тақырыптар"
+
+msgid "common.subject"
+msgstr "Тақырыбы"
+
+msgid "common.status"
+msgstr "мәртебе"
+
+msgid "common.source"
+msgstr "Дереккөз"
+
+msgid "common.size"
+msgstr "көлемі"
+
+msgid "common.showAllSteps"
+msgstr "Барлық қадамдарды көрсетіңіз"
+
+msgid "common.sendEmail"
+msgstr "Email-мен жіберу"
+
+msgid "common.selectWithName"
+msgstr "{$name} таңдау"
+
+msgid "common.select"
+msgstr "Таңдау"
+
+msgid "common.selectNone"
+msgstr "Таңдауды алып тастау"
+
+msgid "common.selectedPrefix"
+msgstr "таңдалған:"
+
+msgid "common.selectAll"
+msgstr "барлығын таңдау"
+
+msgid "common.second"
+msgstr "Секунд(тар)"
+
+msgid "common.clearSearch"
+msgstr "Іздеу фразасын өшіру"
+
+msgid "common.searchQuery"
+msgstr "Іздеу сұранысы"
+
+msgid "common.searching"
+msgstr "Ізделуде"
+
+msgid "common.search"
+msgstr "іздеу"
+
+msgid "common.saving"
+msgstr "сақталуда"
+
+msgid "common.save"
+msgstr "сақтау"
+
+msgid "common.saveAndEmail"
+msgstr "сақтау және email"
+
+msgid "common.saveAndContinue"
+msgstr "сақтау және жалғастыру"
+
+msgid "common.reset"
+msgstr "Бастапқы күйге келтіру"
+
+msgid "common.required"
+msgstr "міндетті"
+
+msgid "common.requiredField"
+msgstr "* Қажет өрісті білдіреді"
+
+msgid "common.replaceFile"
+msgstr "файлды алмастыру"
+
+msgid "common.replaced"
+msgstr "алмастырылды"
+
+msgid "common.removeSelection"
+msgstr "таңдауды өшіру"
+
+msgid "common.removeItem"
+msgstr "{$item} өшіру"
+
+msgid "common.remove"
+msgstr "өшіру"
+
+msgid "common.remoteURL"
+msgstr "Қашықтағы URL сервері"
+
+msgid "common.remote"
+msgstr "Қашықтан"
+
+msgid "common.reminded.date"
+msgstr "Ескертілді: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "Еске салу"
+
+msgid "common.related"
+msgstr "Байланысты"
+
+msgid "common.refresh"
+msgstr "Жаңарту"
+
+msgid "common.record"
+msgstr "Жазба"
+
+msgid "common.readMoreWithTitle"
+msgstr "Толығырақ оқу {$title}"
+
+msgid "common.readMore"
+msgstr "Толығырақ оқу"
+
+#, fuzzy
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.queue.long.active"
+msgstr "Барлығы белсенді"
+
+msgid "common.quality"
+msgstr "Сапа"
+
+msgid "common.publisher"
+msgstr "Баспахана"
+
+msgid "common.preview"
+msgstr "Алдын ала көру"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Мысалдар:  A, The"
+
+msgid "common.prefix"
+msgstr "Қосымша"
+
+msgid "common.pluginDisabled"
+msgstr "Плагин \"{$pluginName}\" өшірілді."
+
+msgid "common.pluginEnabled"
+msgstr "Плагин \"{$pluginName}\" қосылды.."
+
+msgid "common.plugin"
+msgstr "Плагин"
+
+msgid "common.percentage"
+msgstr "%{$percentage}"
+
+msgid "common.pageNumber"
+msgstr "бет {$pageNumber}"
+
+msgid "common.pagination.previous"
+msgstr "алдыңғы бет"
+
+msgid "common.pagination.next"
+msgstr "келесі бет"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page} бетіне өту"
+
+msgid "common.pagination.label"
+msgstr "Қосымша беттерді қарау"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} тен {$total}"
+
+msgid "common.override"
+msgstr "Қайта анықтау"
+
+msgid "common.overdue"
+msgstr "Мерзімі өткен"
+
+msgid "common.ok"
+msgstr "жарайды"
+
+msgid "common.off"
+msgstr "өшірулі"
+
+msgid "common.orUploadFile"
+msgstr "Немесе файлды жүктеңіз"
+
+msgid "common.dragAndDropHere"
+msgstr "Файлдарды осы жерге апарыңыз."
+
+msgid "common.attachSelected"
+msgstr "таңдалған файлды тіркеу"
+
+msgid "common.addFiles"
+msgstr "файлдарды енгізу"

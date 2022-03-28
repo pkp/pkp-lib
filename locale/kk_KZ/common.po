@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-28 18:24+0000\n"
+"PO-Revision-Date: 2022-03-28 18:38+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -1331,3 +1331,19 @@ msgstr "таңдалған файлды тіркеу"
 
 msgid "common.addFiles"
 msgstr "файлдарды енгізу"
+
+msgid "stageParticipants.options"
+msgstr "Тағайындалған құқықтар"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Хабарлама өрісін толтырғаныңызды және талқылауға өзіңізден басқа біреуді "
+"қосқаныңызды тексеріңіз."
+
+msgid "stageParticipants.notify.message"
+msgstr "Хабарлама"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Қолдану үшін алдын ала анықталған хабарламаны таңдаңыз немесе төмендегі "
+"форманы толтырыңыз."

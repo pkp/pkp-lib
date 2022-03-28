@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-28 19:59+0000\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -1554,3 +1554,49 @@ msgid "stageParticipants.recommendOnly"
 msgstr ""
 "Бұл қатысушыға тек редакциялық шешімді ұсынуға рұқсат етіледі, редакциялық "
 "шешімді жазу үшін тиісті құқықтарға ие редактордың қатысуы қажет."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Материалдық метадеректер сақталды."
+
+msgid "notification.reminderSent"
+msgstr "Жаңа пароль сіз берген электрондық пошта мекенжайына жіберілді."
+
+msgid "notification.reminderError"
+msgstr ""
+"Құпия сөзді жіберу кезінде қате орын алды, электрондық пошта мекенжайын "
+"дұрыс енгізгеніңізге көз жеткізіңіз."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Хабарландыру алғыңыз келетін жүйелік оқиғаларды таңдаңыз. Оқиғаның белгісін "
+"алып тастасаңыз, бұл оқиға туралы хабарландырулар жүйеде көрсетілмейді және "
+"сізге электрондық пошта арқылы жіберіледі. Белгілермен белгіленген оқиғалар "
+"жүйеде көрсетіледі және сізге бұл хабарландыруды электрондық пошта арқылы "
+"жіберуді қосымша орнатуға болады."
+
+msgid "notification.settings"
+msgstr "Хабарландыру параметрлері"
+
+msgid "notification.sentNotification"
+msgstr "Хабарландыру жіберілген."
+
+msgid "notification.notifications"
+msgstr "Хабарландырулар"
+
+msgid "notification.notification"
+msgstr "Хабарландыру"
+
+msgid "notification.removedSubmission"
+msgstr "Материал өшірілген."
+
+msgid "notification.removedFile"
+msgstr "Файл жойылған."
+
+msgid "notification.removedNote"
+msgstr "Ескертпе өшірілді."
+
+msgid "notification.addedNote"
+msgstr "Ескерту жарияланған."
+
+msgid "notification.noneExist"
+msgstr "Қазіргі уақытта сіз үшін хабарландырулар жоқ."

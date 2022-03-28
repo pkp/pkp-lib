@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-28 18:38+0000\n"
+"PO-Revision-Date: 2022-03-28 19:59+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -1347,3 +1347,210 @@ msgid "stageParticipants.notify.chooseMessage"
 msgstr ""
 "Қолдану үшін алдын ала анықталған хабарламаны таңдаңыз немесе төмендегі "
 "форманы толтырыңыз."
+
+msgid "notification.email"
+msgstr "Мұндай хабарландыруларды маған электрондық пошта арқылы жібермеңіз."
+
+msgid "notification.confirmSuccess"
+msgstr "Сіз сәтті жазылдыңыз."
+
+msgid "notification.confirmError"
+msgstr "Жазылымыңызды растау кезінде қателік орын алды."
+
+msgid "notification.editedAuthor"
+msgstr "Автор өңдеген."
+
+msgid "notification.addedAuthor"
+msgstr "Автор қосылды."
+
+msgid "notification.removedAnnouncement"
+msgstr "Жарнама жойылды."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Жарнама түрі жойылды."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Жарнама түрі өзгертілді."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Жарнама түрі қосылды."
+
+msgid "notification.allow"
+msgstr "Хабарландырулардың осы түрлерін қосыңыз."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Рецензия файлдары жаңартылды."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Рецензентке алғыс хат жолданды."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Пікір қабылданды деп белгіленді. Электрондық поштаға жіберілген жоқ."
+
+msgid "notification.addedQuery"
+msgstr "Талқылау енгізілді"
+
+msgid "notification.removedAuditor"
+msgstr "Аудитор алынып тасталды."
+
+msgid "notification.addedAuditor"
+msgstr "Аудитор қосылды."
+
+msgid "navigation.viewFrontend"
+msgstr "Сайтты көру"
+
+msgid "navigation.userManagement"
+msgstr "қолданушыны басқару"
+
+msgid "navigation.user"
+msgstr "қолданушы"
+
+msgid "navigation.userHome"
+msgstr "Пайдаланушы беті"
+
+msgid "navigation.system"
+msgstr "Система"
+
+msgid "navigation.submissions"
+msgstr "жіберілген материалдар"
+
+msgid "navigation.stepNumber"
+msgstr "{$step}-қадам"
+
+msgid "navigation.skip.footer"
+msgstr "Сайттың төменгі деректемесіне өтіңіз"
+
+msgid "navigation.skip.nav"
+msgstr "Негізгі шарлау мәзіріне өту"
+
+msgid "navigation.skip.main"
+msgstr "Негізгі мазмұнға өту"
+
+msgid "navigation.skip.announcements"
+msgstr "Хабарландыруларға өту"
+
+msgid "navigation.skip.description"
+msgstr "Мазмұн сілтемелеріне өтіңіз"
+
+msgid "navigation.sitemap"
+msgstr "Сайт картасы"
+
+msgid "navigation.setup"
+msgstr "Орнату"
+
+msgid "navigation.settings"
+msgstr "Баптаулар"
+
+msgid "navigation.search"
+msgstr "іздеу"
+
+msgid "navigation.register"
+msgstr "тіркеу"
+
+msgid "navigation.publicMenu"
+msgstr "Жалпы мәзір"
+
+msgid "navigation.previousStep"
+msgstr "Алдыңғы қадам"
+
+#, fuzzy
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Келесі қадам"
+
+#, fuzzy
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.login"
+msgstr "Жүйеге кіру"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$total} нәтиженің {$shown}"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} {$total} нәтижелерден"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Оқырмандарға арналған ақпарат"
+
+msgid "navigation.infoForReaders"
+msgstr "Оқырмандар үшін"
+
+msgid "navigation.home"
+msgstr "негізгі"
+
+msgid "navigation.data"
+msgstr "Мәліметтер"
+
+msgid "navigation.dashboard"
+msgstr "Құралдар тақтасы"
+
+msgid "navigation.browseByTitle"
+msgstr "Тақырып бойынша"
+
+msgid "navigation.browseByAuthor"
+msgstr "Автор бойынша"
+
+msgid "navigation.backTo"
+msgstr "⟵ {$page} бетіне қайту"
+
+msgid "navigation.browse"
+msgstr "Шолу"
+
+msgid "navigation.tools.statistics"
+msgstr "Статистика"
+
+msgid "navigation.tools.importExport"
+msgstr "Импорттау/экспорттау"
+
+msgid "navigation.tools"
+msgstr "Құралдар"
+
+#, fuzzy
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Сіз мына жердесіз:"
+
+msgid "navigation.archives"
+msgstr "Мұрағаттар"
+
+msgid "navigation.admin"
+msgstr "Әкімшілік"
+
+msgid "navigation.about"
+msgstr "Туралы"
+
+msgid "navigation.access"
+msgstr "Пайдаланушылар және рөлдер"
+
+msgid "locale.supported"
+msgstr "Қолдау көрсетілетін тілдер"
+
+msgid "locale.primary"
+msgstr "Негізгі тіл"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Бұл қатысушыға ешқандай өзгертулер енгізуге болмайды"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Қатысушы"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Бұл пайдаланушыға басылымға өзгертулер енгізуге, тақырыпты, рефератты, "
+"метадеректерді және ол туралы басқа ақпаратты өзгертуге рұқсат беріңіз. "
+"Материал соңғы тексеруден өтіп, жариялануға дайын болса, сіз бұл құқықты жою "
+"туралы шешім қабылдауыңыз мүмкін."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Рұқсаттар"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Бұл қатысушыға тек редакциялық шешімді ұсынуға рұқсат етіледі, редакциялық "
+"шешімді жазу үшін тиісті құқықтарға ие редактордың қатысуы қажет."

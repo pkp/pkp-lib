@@ -2,8 +2,8 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-03 00:42+0000\n"
-"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -15,6 +15,11 @@ msgstr ""
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
+"Оқырмандарға материалдық файлдарды рецензия беруге шақыру үшін <em>+ "
+"Рецензентті қосу</em> пайдаланыңыз. Блокнот белгісі шолудың жіберілгенін "
+"көрсетеді, содан ол тексерілгеннен кейін <em>Қабылданды</em> деп "
+"белгіленеді. Қарап шығу мерзімі өткен кезде қызыл конверт белгісі "
+"рецензенттерге еске түсіру белгісі ретінде пайда болады."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Өтінім қарауға қабылданды."
@@ -45,3 +50,274 @@ msgstr "Әрекеттер журналы"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Бұл бөлімді біржола жойғыңыз келетініне сенімдісіз бе?"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Рецензентті қалпына келтіру кезінде қате орын алды. Қайталап көріңіз."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Рецензентті жою кезінде қате пайда болды. Қайталап көріңіз."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Рецензентті қосу кезінде қате орын алды. Әрекетті қайталаңыз."
+
+msgid "editor.review.mustSelect"
+msgstr "Рецензентті таңдау керек"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "рейтинг жоқ"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Жіберілген рецензияның сапасын бағалаңыз. Бұл рейтинг рецензентке "
+"көрсетілмейді."
+
+msgid "editor.review.rateReviewer"
+msgstr "рецензенттің рейтіңгісі"
+
+msgid "editor.review.reviewerComments"
+msgstr "рецензенттің пікірі"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Рецензентке алғыс айтылды"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Рецензия жіберілді"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Рецензия расталды"
+
+msgid "editor.review.reviewCompleted"
+msgstr "рецензиялау аяқталды"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Рецензияны тапсыру күні"
+
+msgid "editor.review.reviewDue"
+msgstr "Рецензиялаудың соңғы мерзімі: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Шешімді жою"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Редактор рецензияға  сұраныстан бас тартты."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Рецензент пікір жазудан бас тартты."
+
+msgid "editor.review.requestCancelled"
+msgstr "Сұраныс тоқтатылды"
+
+msgid "editor.review.requestDeclined"
+msgstr "Сұраныс қабылданбады"
+
+msgid "editor.review.requestAccepted"
+msgstr "Сұраныс қабылданды"
+
+msgid "editor.review.requestSent"
+msgstr "Өтінім жіберілді"
+
+msgid "editor.review.responseDue"
+msgstr "Жауап беру мерзімі: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Жаңа рецензияны оқу"
+
+msgid "editor.review.readReview"
+msgstr "Рецензияны оқу"
+
+msgid "editor.review.sendReminder"
+msgstr "Еске салғышты жіберу"
+
+msgid "editor.review.skipEmail"
+msgstr "Рецензентке электрондық пошта арқылы хат жібермеңіз."
+
+msgid "editor.review.thankReviewerError"
+msgstr "Рецензентке алғыс жіберу қатесі"
+
+msgid "editor.review.reminderError"
+msgstr "Рецензиялау туралы еске салғышты жіберу қатесі"
+
+msgid "editor.review.thankReviewer"
+msgstr "Рецензентке рахмет"
+
+msgid "editor.review.reminder"
+msgstr "Рецензиялауды еске салу"
+
+msgid "editor.review.noReviews"
+msgstr "Жүктеу үшін рецензиялар жоқ"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Хабарлама мәтініне рецензиялар енгізілді."
+
+msgid "editor.review.dateAccepted"
+msgstr "Материалды қарауға қабылданған күні"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Өзгерістер сараптама бағалаушының жаңа кезеңіне негіз болуы керек."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Өзгерістер сараптама бағалауының жаңа кезеңіне әсерін тигізбеу керек."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Файлдардың жаңа нұсқалары рецензиялаудың жаңа кезеңінде қарастырылады."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr ""
+"Файлдардың жаңа нұсқалары рецензиялаудың жаңа кезеңінде қарастырылмайды."
+
+msgid "editor.review.newReviewRound"
+msgstr "Сараптаманың жаңа кезеңі қажет"
+
+msgid "editor.review.uploadRevision"
+msgstr "Жаңа нұсқаны жүктеңіз"
+
+msgid "editor.review.importantDates"
+msgstr "Маңызды күндер"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Рецензентке жіберуге арналған электрондық пошта"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Анонимді рецензент"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Пікірді өңдеу"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Файл таңдауын жабу"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Рецензиялауға арналған файлдар"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Анонимді рецензент/Анонимді автор"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Анонимді рецензент/Автор белгілі"
+
+msgid "editor.submissionReview.open"
+msgstr "ашық"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Электрондық пошта арқылы хабарландыру жібермеңіз"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr ""
+"Редакторға(ларға): {$editorNames} электрондық пошта арқылы хабарландыру "
+"жіберу"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Автор(лар)ға: {$authorName} электрондық пошта арқылы хабарлама жіберу"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "рецензиялаудың түрі"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Рецензент ретінде қалпына келтіріңіз"
+
+msgid "editor.review.cancelReviewer"
+msgstr "рецензенттен бас тарту"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Рецензентті тағайындамау"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Бар қолданушыны жазыңыз"
+
+msgid "editor.review.createReviewer"
+msgstr "жаңа рецензентті тағайындау"
+
+msgid "editor.submission.backToSearch"
+msgstr "Іздеуге қайта оралу"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "{$round}-кезеңге арналған ағымдағы шолу файлдары"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Барлық қол жетімді жұмыс үрдісінің қадамдарынан файлдарды көрсету."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "қолданушыны таңдау"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "рецензентті таңдау"
+
+msgid "editor.submission.addReviewer"
+msgstr "рецензентті қосу"
+
+msgid "editor.submission.revisions"
+msgstr "Нұсқалар"
+
+msgid "editor.submission.selectFiles"
+msgstr "Файлдарды таңдау"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Файлдарды жүктеп салу/таңдау"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Тағайындалатын қолданушыны таңдауыңыз керек."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Аудиторға электрондық хат жібермеңіз"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Жеке хабарлама қосуыңыз керек."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Пайдаланушыны тағайындау үшін кем дегенде бір файлды таңдауыңыз керек."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Рецензиялау кезеңіне жіберу үшін төмендегі файлдарды таңдаңыз."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Қолданушыға хабарлама"
+
+msgid "editor.review.notInitiated"
+msgstr "Рецензиялау процесі әлі басталған жоқ."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Бұл шешімді табу мүмкін болмады. Танылған шешім түрін көрсетіңіз."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Бұл ұсыныс бойынша шешім қабылданбады. Жіберу идентификаторы жоқ немесе "
+"ұсыныс талапқа сәйкес келмейді."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Соңғы шешімді қабылдау үшін осы кезеңде редактор тағайындалмайынша, ұсыныс "
+"жасау мүмкін емес."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Бұл шешімді қабылдау үшін шолу кезеңінің идентификаторын ұсынуыңыз керек."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "Редакциялық шешімді жазу үшін сізге бұл ұсынымға тағайындалу керек."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Ұсыным шешім қабылдауға мүмкіндік беретін жұмыс процесінің кезеңінде емес."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Бұл шолу кезеңі бірақ бұл ұсынымның бөлігі емес."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr "Тексеру кезеңіне ұсынылды, бірақ шешім шолу кезеңінде қабылданбайды."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Бұл шолу кезеңі табылмады."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Келесі алушыларға электрондық хат жібере алмайсыз: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Редактор танылмады және бұл ұсыныс бойынша шешімді жазуға рұқсаты болмауы "
+"мүмкін."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Сізде бұл шешімді осы ұсыныста жазуға рұқсат жоқ."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Шешімді өзгерту"

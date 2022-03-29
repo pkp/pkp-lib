@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-28 18:24+0000\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -521,3 +521,179 @@ msgstr ""
 
 msgid "manager.dois.actions.export.label"
 msgstr "Експорт на DOI"
+
+msgid "manager.readingTools"
+msgstr "Инструменти за читателя"
+
+msgid "manager.plugins"
+msgstr "Системни добавки (плъгини)"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Това е добавка (плъгин) за целия сайт. Само администраторът на сайта може да "
+"управлява този плъгин."
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Управление на добавките (пългините)"
+
+msgid "manager.plugins.action"
+msgstr "Действие:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"Изисквайте от потребителя да промени паролата си следващия път, когато влезе "
+"в системата."
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Потребителят е създаден успешно."
+
+msgid "manager.people.unenroll"
+msgstr "Отписване"
+
+msgid "manager.people.syncUsers"
+msgstr "Синхронизация на записването на потребители"
+
+msgid "manager.people.signInAsUser"
+msgstr "Вход като потребител"
+
+msgid "manager.people.signInAs"
+msgstr "Вход като"
+
+msgid "manager.people.signedInAs"
+msgstr "В момента сте влезли като {$username}"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Запази и създай друга"
+
+msgid "manager.people.remove"
+msgstr "Премахване"
+
+msgid "manager.people"
+msgstr "Хора"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Няма записани потребители."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Няма съответстващи потребители."
+
+msgid "manager.people.mustProvideName"
+msgstr "Моля, първо посочете поне фамилно име за потребителя."
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Моля, изберете роля в горната част на страницата, преди да щракнете върху „"
+"Записване на потребител“."
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Наистина ли искате да обедините избраните {$oldAccountCount} акаунти в "
+"акаунта с потребителско име \"{$newUsername}\"? Избраните {$oldAccountCount} "
+"акаунти няма да съществуват след това. Това действие не е обратимо."
+
+msgid "manager.people.mergeUser"
+msgstr "Обединение на потребители"
+
+msgid "manager.people.invalidUser"
+msgstr "За съжаление заявеният потребител не съществува."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Записване на потребител като"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"Потребителите могат да бъдат присвоени или премахнати от роля по всяко време."
+
+msgid "manager.people.enrollSync"
+msgstr "Синхронизиране на записването"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Синхронизиране на роля"
+
+msgid "manager.people.enrollSelected"
+msgstr "Записване на избраните потребители"
+
+msgid "manager.people.enrollment"
+msgstr "Записване"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Изберете потребителите, на които искате да изпратите имейл, като поставите "
+"отметка в квадратчетата до техните имена"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Избиране на език"
+
+msgid "manager.people.emailUsers"
+msgstr "Изпращане на имейл до потребители"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Изпращане на имейл на потребители, регистрирани като"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Изпращане на имейл до избрани потребители"
+
+msgid "manager.people.editUser"
+msgstr "Редактиране на потребител"
+
+msgid "manager.people.editProfile"
+msgstr "Редактиране на профил"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Без роля"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Изпратете на потребителя имейл за добре дошли, съдържащ неговото "
+"потребителско име и парола."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Генериране на произволна парола."
+
+msgid "manager.people.createUser"
+msgstr "Създаване на нов потребител"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Да се отпише ли този потребител?"
+
+msgid "manager.people.authSource"
+msgstr "Източник на удостоверяване"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Трябва да се въведе съществуващ потребител."
+
+msgid "manager.payment.timestamp"
+msgstr "Времеви печат"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Изберете всички езици за поддръжка на сайта чрез меню за избор на език, "
+"което да се показва на всяка страница. Менюто ще се появи само ако са "
+"избрани повече от един език."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Тази система по избор позволява определена критична информация да бъде "
+"въведена на няколко допълнителни езика. За да използвате тази функция, "
+"изберете алтернативни езици и изберете от опциите, изброени по-долу."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Презареждане на стойностите по подразбиране"
+
+msgid "manager.language.forms"
+msgstr "Форми"
+
+msgid "manager.language.submissions"
+msgstr "Изпратени материали"
+
+msgid "manager.language.ui"
+msgstr "UI - потребителски интерфейс"
+
+msgid "manager.importExport"
+msgstr "Импорт/Експорт на данни"
+
+msgid "manager.groups.title"
+msgstr "Заглавие"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Няма намерени потребители."

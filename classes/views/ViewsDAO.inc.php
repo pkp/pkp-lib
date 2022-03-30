@@ -31,7 +31,7 @@ class ViewsDAO extends \PKP\db\DAO
         return $this->replace(
             'item_views',
             [
-                'date_last_viewed' => date('Y-m-d H:M:S'),
+                'date_last_viewed' => date('Y-m-d H:i:s'),
                 'assoc_type' => (int) $assocType,
                 'assoc_id' => $assocId,
                 'user_id' => (int) $userId

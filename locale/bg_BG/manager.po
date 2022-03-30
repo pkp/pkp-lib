@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-29 20:57+0000\n"
+"PO-Revision-Date: 2022-03-30 09:01+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -697,3 +697,302 @@ msgstr "Заглавие"
 
 msgid "manager.groups.membership.noUsers"
 msgstr "Няма намерени потребители."
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Изисквайте авторите да се съгласят със следното известие за авторски права "
+"като част от процеса на подаване."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Известие за авторски права"
+
+msgid "manager.setup.advanced"
+msgstr "Разширено"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Всичко, въведено тук, ще се появи на началната ви страница."
+
+msgid "manager.setup.additionalContent"
+msgstr "Допълнително съдържание"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Тези подробности могат да бъдат включени в метаданни, предоставени на "
+"архивни органи на трети страни."
+
+msgid "manager.setup.publishing"
+msgstr "Подробности за публикуване"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Няма"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI могат да бъдат автоматично създавани и депозирани в регистрационна "
+"агенция. За да използвате тази функция, намерете и инсталирайте добавка "
+"(плъгин) от съответната регистрационна агенция."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Няма активирана регистрационна агенция"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Моля, изберете регистрационната агенция, която искате да използвате, когато "
+"депозирате DOI."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Регистрационна агенция"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Наличен по-рано персонализиран, дефиниран от потребителя модел. Вече не се "
+"използва."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Въведете индивидуален DOI суфикс за всеки публикуван елемент. Ще намерите "
+"полета за въвеждане на DOI на страницата за управление на DOI."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Използване на шаблон по подразбиране."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Суфиксът на DOI може да има всякаква форма, но трябва да бъде уникален сред "
+"всички публикувани обекти със същия DOI префикс:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI суфикс"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "На {$objects} ще бъде присвоен DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Елементи с DOI"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI префикс"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Никога"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "При публикуване"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "В кой момент от процеса на публикуване трябва да бъдат създадени DOI?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Автоматично създаване на DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Префиксът DOI е задължителен и трябва да бъде във формата 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Това се присвоява от агенция за регистрация на DOI, като <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> или <a href=\""
+"https://datacite.org /\" target=\"new\">DataCite</a>. Пример: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Дали DOI следва да се депозират автоматично в конфигурираната агенция за "
+"регистрация."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Активиране на автоматично депозиране"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Автоматично депозиране"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI префикс"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Активиране на DOI"
+
+msgid "manager.setup.dois.registration"
+msgstr "Регистрация"
+
+msgid "manager.setup.dois.setup"
+msgstr "Настройка"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Спонсор"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Стесняване на резултатите по държава, регион и/или град."
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "По географско местоположение"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Или изберете диапазон от:"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Изберете диапазон на отчета"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "По тип обект и/или идентификатор на обект"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "По контекст"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"Следният URL може да се използва за генериране на отчета с текущите "
+"настройки на формуляра. Просто го копирайте и го отворете в браузъра си. "
+"Можете също да го съхраните като вашия персонализиран генератор на URL "
+"адреси на отчети във вашите отметки."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL адрес на отчета"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Трябва да изберете поне една колона, за да генерирате отчета."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr ""
+"Едно или повече имена на градове, разделени със запетая (напр. Име на град "
+"1, Име на град 2)"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Използване на формат ГГГГММДД."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Използване на формат ГГГГММ."
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Низходящо"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Възходящо"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Посока"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Подредба по"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Текущ месец"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Вчера"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+"Дефинирайте един или повече идентификатори на обекти, разделени със запетая ("
+"напр. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Идентификатор на обекта"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Тип на обекта"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Обектът не е намерен в базата данни"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Филтри"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"Определете колоните, които ще се използват за изграждане на отчета. "
+"Колоните, които избирате тук, не само определят кои данни ще бъдат "
+"представени в отчетите, но също така определят нивото на агрегиране на "
+"статистическите данни. Например, ако изберете колони ID, Тип и Месец, "
+"отчетът ще сумира всички изгледи от обект от един месец и ще представи тези "
+"данни в един ред. Ако изберете Ден вместо Месец, всеки обект ще има ред за "
+"всеки ден."
+
+msgid "manager.statistics.reports.columns"
+msgstr "Колини"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Скриване на разширените опции"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Разширени опции"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Генератор на персонализирани отчети"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Генериране на персонализиран отчет"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Шаблони за отчети по подразбиране"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Елементите в курсив и маркирани със * представляват данни, които не са "
+"задължителни за текущия начин на отчитане на статистиката в системата (тип "
+"метрика). Може да имате тези данни или не, в зависимост от конфигурацията на "
+"добавката (пългин) за статистика."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Обобщена статистика от:"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Системата генерира отчети, които проследяват подробностите, свързани с "
+"използването на сайта и подаванията на материали за даден период от време. "
+"Отчетите се генерират във формат CSV, който изисква приложение за електронни "
+"таблици за преглед."
+
+msgid "manager.statistics.reports"
+msgstr "Отчети"
+
+msgid "manager.statistics.region"
+msgstr "Регион"
+
+msgid "manager.statistics.city"
+msgstr "Град"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВашият {$contextObjectName} е конфигуриран да записва повече от един "
+"показател за използване. Статистиката за употреба ще се показва в няколко "
+"контекста.\n"
+"\t\tИма случаи, когато трябва да се използва единична статистика за "
+"използване, напр. за показване на подреден списък с най-използваните "
+"материали или за класиране\n"
+"\t\tна резултати от търсенето. Моля, изберете един от конфигурираните "
+"показатели по подразбиране.\n"
+"\t"
+
+msgid "manager.statistics"
+msgstr "Статистика и отчети"
+
+msgid "manager.roles"
+msgstr "Роли"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Използвайте формуляра по-долу, за да зададете максималните стойности за "
+"термините, които искате да търсите. Формулярът е предварително попълнен с "
+"изчислените средни стойности на тези полета."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Интереси към рецензиране"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Търсене по име"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Търсене на рецензенти по име"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Смяна"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Не можете да изтриете този представител, тъй като те са присвоени на "
+"пазарните метаданни за един или повече формати на публикация за това "
+"подаване на материали."

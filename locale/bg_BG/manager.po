@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-30 09:01+0000\n"
+"PO-Revision-Date: 2022-03-30 16:21+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -996,3 +996,647 @@ msgstr ""
 "Не можете да изтриете този представител, тъй като те са присвоени на "
 "пазарните метаданни за един или повече формати на публикация за това "
 "подаване на материали."
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Въведете условия за публично лицензиране, които искате да показвате до "
+"публикувана работа."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Условия на лиценза"
+
+msgid "manager.distribution.license.other"
+msgstr "URL на друг лиценз"
+
+msgid "notification.editedUser"
+msgstr "Редактирано от потребителя."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Езиковата настройка не можа да бъде запазена. За всяка опция трябва да е "
+"активиран поне един език"
+
+msgid "notification.localeSettingsSaved"
+msgstr "Езиковите настройки са записани."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} език е презареден за {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} език е деинсталиран."
+
+msgid "notification.localeInstalled"
+msgstr "Всички избрани езици са инсталирани и активирани."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} е дефиниран като основен език."
+
+msgid "notification.localeDisabled"
+msgstr "Езикът е деактивиран."
+
+msgid "notification.localeEnabled"
+msgstr "Езикът е активиран."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "Version.xml не се намира в директорията на добавката (плъгин)"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr ""
+"Version.xml в директорията на добавките (плъгини) съдържа невалидни данни."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Изберете файл на добавката (плъгин)"
+
+msgid "manager.plugins.uploadError"
+msgstr "Грешка при качването на файла"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Успешна актуализация до версия {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Актуализацията не бе успешна. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Тази форма ви позволява да надстроите добавка (плъгин). Моля, уверете се, че "
+"добавката е компресирана като .tar.gz файл."
+
+msgid "manager.plugins.upgrade"
+msgstr "Актуализация на добавка (плъгин)"
+
+msgid "manager.plugins.settings"
+msgstr "Настройки"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Добавката (плъгин) съществува, но е по-нова от инсталираната версия. Моля, "
+"актуализирайте вместо това действие"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr ""
+"Добавката (плъгин) не съществува. Моля, инсталирайте вместо това действие"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Version.xml в качената добавка (плъгин) съдържа име на плъгина, което не "
+"отговаря на името на надстроения плъгин."
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+"Качената добавка (плъгин) не отговаря на категорията на надстроения плъгин."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Каченият архив на добавката (плъгин) не съдържа папка, която съответства на "
+"името на плъгина."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Успешно инсталирана версия {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Неуспешно инсталиране. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Не е достъпно"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Актуално"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Може да се актуализира"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "По-нова от наличната версия"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Добавката (плъгин) вече е инсталирана и актуална."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Добавката (плъгин) вече е инсталирана, но може да бъде актуализирана до по-"
+"нова версия."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Добавката (плъгин) вече е инсталирана и е по-нова от версията, налична в "
+"галерията."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "В момента няма налична съвместима версия на тази добавка (плъгин)."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Добавката (плъгин) все още не е инсталирана."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Обща информация"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Начална страница"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "версия {$version} от {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Разработчик"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+"Тази добавка (плъгин) е предоставена от един от нашите партньори за "
+"разработка."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Партньор"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Тази добавка (плъгин) е прегледана и одобрена от екипа на проекта Public "
+"Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Ревизиран"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Тази добавка (плъгин) е разработена и поддържана от екипа на проекта Public "
+"Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Официален"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Най-нова съвместима версия"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Инсталация"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Общ преглед"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Галерия добавки (плъгини)"
+
+msgid "manager.plugins.installed"
+msgstr "Инсталирани добавки (плъгини)"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Моля, уверете се, че файлът е избран за качване."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Този формуляр ви позволява да качите и инсталирате нова добавка (плъгин). "
+"Моля, уверете се, че добавката е компресирана като .tar.gz файл."
+
+msgid "manager.plugins.upload"
+msgstr "Качване на нова добавка (плъгин)"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Моля, изберете първо файл"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Добавката (плъгин) \"{$pluginName}\"  не съществува"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Тази страница позволява на мениджъра да прегледа и евентуално да конфигурира "
+"добавките (плъгини) , които са инсталирани в момента. Плъгините са разделени "
+"на категории, според тяхната функция. Категориите са изброени по-долу, а във "
+"всяка категория е текущият набор от плъгини."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Добавката (плъгин) \"{$pluginName}\" беше успешно премахната"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Добавката (плъгин) \"{$pluginName}\" не можа да бъде изтрита от файловата "
+"система. Това може да е проблем с разрешенията. Моля, уверете се, че уеб "
+"сървърът може да записва в директорията на плъгините (включително "
+"поддиректориите), но не забравяйте да я защитите отново по-късно."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Като щракнете върху изтриване, ще премахнете тази добавка (плъгин) от "
+"файловата система на сървъра."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Сигурни ли сте, че искате да премахнете тази добавка (плъгин)?"
+
+msgid "grid.action.installPlugin"
+msgstr "Инсталиране/актуализация на добавка (плъгин)"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Сигурни ли сте, че искате да актуализирате тази добавка (плъгин)?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Сигурни ли сте, че искате да инсталирате тази добавка (плъгин)?"
+
+msgid "manager.plugins.delete"
+msgstr "Премахване на добавка (плъгин)"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Добавката (плъгин) за не беше копирана успешно. Това може да е проблем с "
+"разрешенията. Моля, уверете се, че уеб сървърът може да записва в "
+"директорията на плъгините (включително поддиректориите), но не забравяйте да "
+"я защитите отново по-късно."
+
+msgid "plugins.categories.pubIds.description"
+msgstr ""
+"Тези добавки (плъгини) влагат възможност за поддръжка на публични "
+"идентификатори."
+
+msgid "plugins.categories.pubIds"
+msgstr "Добавки (плъгини) за публични идентификатори"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Тези добавки (плъгини) за формат изразяват метаданни в OAI комуникации."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Добавки (плъгини) за OAI формат за метаданни"
+
+msgid "plugins.categories.themes"
+msgstr "Добавки (плъгини) за тема"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Добавките (плъгини) за тема могат да се използват за промяна на външния вид "
+"на системата."
+
+msgid "plugins.categories.reports"
+msgstr "Добавки (плъгини) за отчети"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Добавките (плъгини) за отчети се използват за внедряване на различни видове "
+"отчети и извлечения от данни."
+
+msgid "plugins.categories.paymethod"
+msgstr "Добавки (плъгини) за плащане"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Добавките (плъгини) за метод на плащане внедряват поддръжка за различни "
+"начини за обработка на плащания онлайн."
+
+msgid "plugins.categories.importexport"
+msgstr "Добавки (плъгини) за импорт/експорт"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Добавките (плъгини) за импортиране/експортиране могат да се използват за "
+"прехвърляне на съдържание към и от други системи."
+
+msgid "plugins.categories.generic"
+msgstr "Генерични добавки (плъгини)"
+
+msgid "plugins.categories.gateways"
+msgstr "Добавки (плъгини) за шлюзове"
+
+msgid "plugins.categories.gateways.description"
+msgstr ""
+"Добавки (плъгини) за шлюзове предоставят данни в реално време към външни "
+"системи."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Блоковите добавки (плъгини) са включващи се компоненти на потребителския "
+"интерфейс, като например различните инструменти на страничната лента."
+
+msgid "plugins.categories.blocks"
+msgstr "Добавки (плъгини) за блокове"
+
+msgid "plugins.categories.auth"
+msgstr "Добавки (плъгини) за оторизация"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Добавкиje (плъгини) за метаданни прилагат допълнителни стандарти за "
+"метаданни."
+
+msgid "plugins.categories.metadata"
+msgstr "Добавки (плъгини) за метаданни"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Регистрирани потребители"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage} %)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} нови)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Опции за достъп до сайта"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Сигурни ли сте, че искате да активирате тази секция?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Сигурни ли сте, че искате да деактивирате тази секция?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Деактивиране на тази секция и няма да се правят нови заявки за материали в "
+"нея."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Избраната от вас тема не е инсталирана или активирана."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Нови теми могат да бъдат инсталирани от раздела Добавки (плъгини) в горната "
+"част на тази страница."
+
+msgid "manager.setup.theme"
+msgstr "Тема"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Лице за контакт, което може да помогне на редактори, автори и рецензенти при "
+"всякакви проблеми, които имат при изпращането, редактирането, рецензирането "
+"или публикуването на материали."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Контакт за техническа поддръжка"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Опитните уеб разработчици могат да качат CSS файл, за да персонализират "
+"допълнително външния вид на уебсайта."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Примери: научни асоциации, университетски катедри, кооперации и др. "
+"Спонсорите се показват публично."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Връзка със спонсора и описание на политиката"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Представете връзка за <button type=\"button\">как да се уверите, че всички "
+"файлове са анонимизирани</button> по време на качване"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Режим на резензиране по подразбиране"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Изпратете напомняне по имейл, ако рецензентът не е изпратил препоръка в "
+"рамките на съответния брой дни след крайната дата за рецензиране."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Напомняне за рецензия"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Изпратете напомняне по имейл, ако рецензентът не е отговорил на молбата за "
+"рецензия съответния брой дни след крайния срок за отговор."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Напомняне за отговор"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Настройките по подразбиране могат да се променят за всяка рецензия по време "
+"на редакционния процес."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Не напомняй"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Брой седмици за завършване на рецензия"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Брой седмици за приемане или отхвърляне на молба за рецензиране."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Краен срок за завършване по подразбиране"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Краен срок за отговор по подразбиране"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Това изявление ще се появи по време на регистрацията на потребителя, "
+"изпращането на материали от автора и на публично достъпната страница за "
+"поверителност. В някои юрисдикции от вас се изисква законово да разкриете "
+"как обработвате потребителски данни в тази политика за поверителност."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Персонализиран формат"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Дата и час (кратък формат)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Дата и час"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Час"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Дата (кратък формат)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Дата"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Изберете предпочитания формат за дати и часове. Персонализиран формат може "
+"да бъде въведен с помощта на специалните <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>символи за "
+"формат</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Формати за дата и час"
+
+msgid "manager.setup.dateTime"
+msgstr "Дата и час"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Декларация за поверителност"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Въведете данни за контакт, обикновено за главен редактор, ръководен редактор "
+"или длъжност на административен персонал, които могат да бъдат показани на "
+"вашия публично достъпен уебсайт."
+
+msgid "manager.setup.principalContact"
+msgstr "Главен редакционен контакт"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Очертайте политиката и процесите на рецензиране за читателите и авторите. "
+"Това описание често включва броя на рецензентите, които обикновено се "
+"използват при прегледа на дадени материали, критериите, по които от "
+"рецензентите се изисква да преценят представените материали, очакваното "
+"време, необходимо за провеждане на рецензиите, и принципите, използвани за "
+"избор на рецензенти."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Въведете всички изображения, текст или HTML код, които искате да се показват "
+"в долната част на уебсайта ви."
+
+msgid "manager.setup.pageFooter"
+msgstr "Долен колонтитул"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Невалиден формат на изображението на заглавката на страницата (горен "
+"колонтитул) или качването не бе успешно. Приетите формати са .gif, .jpg или "
+".png."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Ако предоставяте незабавен (с публикуването на броя) безплатен достъп до "
+"цялото публикувано съдържание, можете да въведете описание на вашата "
+"политика за отворен достъп."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Политика за отворен достъп"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Изпращане на друг имейл"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Имейлът беше изпратен успешно до всички получатели."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Изпращане на имейла. Моля, не прелиствайте, докато изпращането не приключи."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Ще изпратите имейл до {$total} потребители. Наистина ли искате да изпратите "
+"този имейл?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Изпращане на имейл"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Изпратете ми копие от този имейл на {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Изберете потребителите, които трябва да получат вашето имейл известие."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Известяване"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Авторите автоматично получават имейл с потвърждение на изпращането им. Може "
+"да имате копия от този имейл, изпратени до следния имейл:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Един или повече от тези имейл адреси не са валидни."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Копие от имейла с потвърждение за изпращане ще бъде изпратено на всеки от "
+"имейл адресите, въведени тук. Отделете няколко имейл адреса със запетая. "
+"Пример: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Уведомяване на следния имейл"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Не"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Да, изпратете копие на {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Уведомяване на основния контакт"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Известия"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Изпращане на имейл само до автори, асоциирани с работния процес за "
+"подадените материали. Обикновено това е изпращащият автор."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Изпращане на известие по имейл до всички автори на подадения материал."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Кой следва да получи имейл с известие, когато бъде записано редакционно "
+"решение?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Уведомяване на всички автори"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Изпращане на копие на този имейл адрес"
+
+msgid "manager.setup.notifications"
+msgstr "Уведомление на автора за подаване на материали"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Каченият от вас файл не можа да бъде намерен. Моля, опитайте да го качите "
+"отново."
+
+msgid "manager.setup.logo"
+msgstr "Лого"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Регистриране и одит"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Блокът {$name} не може да бъде намерен. Моля, уверете се, че добавката "
+"(плъгин) е инсталирана и активирана."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Странична лента"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Описания"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Невалиден формат на изображението на заглавието на началната страница или "
+"качването не бе успешно. Приетите формати са .gif, .jpg или .png."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Невалиден формат на изображението на началната страница или качването не бе "
+"успешно. Приетите формати са .gif, .jpg или .png."
+
+msgid "manager.setup.homepageImage.description"
+msgstr ""
+"Качете изображение, което да се показва на видно място на началната страница."
+
+msgid "manager.setup.homepageImage"
+msgstr "Изображение на началната страница"
+
+msgid "manager.setup.favicon"
+msgstr "Икона Favicon"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Възникна грешка при изтриването на този елемент."
+
+msgid "manager.setup.competingInterests"
+msgstr "Конкуриращи се интереси"
+
+msgid "manager.setup.checklist"
+msgstr "Контролен списък"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Деактивиране на приемането на материали"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Препоръчаните насоки включват библиографски стандарти и стандарти за "
+"форматиране, заедно с примери за често срещани формати за цитиране, които да "
+"се използват при подаване на материали."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Насоки за автора"

@@ -471,6 +471,12 @@ msgstr "In progress"
 msgid "common.insert"
 msgstr "Insert"
 
+msgid "common.insertContent"
+msgstr "Insert Content"
+
+msgid "common.insertContentSearch"
+msgstr "Find content to insert"
+
 msgid "common.itemsPerPage"
 msgstr "Items per page"
 

@@ -2295,6 +2295,9 @@ msgstr "Process failed to parse publications"
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr "All comments from completed reviews. Reviewer names are hidden for anonymous reviews"
 
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "The mailing address of the journal"
+
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "The URL to a page where the user can recover a lost password"
 

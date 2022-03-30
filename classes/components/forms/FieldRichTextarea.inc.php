@@ -25,9 +25,6 @@ class FieldRichTextarea extends Field
     /** @var array Optional. A list of required plugins. */
     public $plugins = 'paste,link,noneditable';
 
-    /** @var array Optional. A key/value list of content that can be inserted from a TinyMCE button. */
-    public $preparedContent;
-
     /** @var string Optional. A preset size option. */
     public $size;
 

@@ -222,13 +222,13 @@ class ReviewerForm extends Form
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
         ]);
-        $mailable->setData(Locale::getLocale());
 
         // Remove template variables that haven't been set yet during form initialization
-        unset($mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
-        unset($mailable->viewData[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
+        $data = $mailable->getData(Locale::getLocale());
+        unset($data[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
+        unset($data[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
 
-        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
+        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $data));
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);

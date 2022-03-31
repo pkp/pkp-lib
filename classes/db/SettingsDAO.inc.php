@@ -24,7 +24,7 @@ abstract class SettingsDAO extends DAO {
 
 		$result = $this->retrieve(
 			'SELECT setting_name, setting_value, setting_type, locale FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
-			(int) $id
+			[(int) $id]
 		);
 
 		foreach ($result as $row) {

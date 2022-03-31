@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-08 03:37+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -14,3 +14,56 @@ msgstr ""
 
 msgid "manager.website.information"
 msgstr "Информация"
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Хабарландырудың мерзімі аяқталуы үшін белгілі бір күнді таңдаңыз."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Тек жарамдылық мерзімі аяқталған айды емес, жылды және/немесе күнді таңдаңыз."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Осы күнге дейін хабарландыру оқырмандарға көрсетіледі. Хабарландыруды шексіз "
+"жұмыс істейтінін қаласаңыз, өрісті бос қалдырыңыз."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "жарамды уақыты"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Тек жарамдылық мерзімінің күнін емес, жылды және/немесе айды таңдаңыз."
+
+msgid "manager.announcements.editTitle"
+msgstr "өзгеріс енгізу"
+
+msgid "manager.announcements.edit"
+msgstr "хабарландыруға өзгеріс енгізу"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "хабарландыруды өшіру"
+
+msgid "manager.announcements.datePublish"
+msgstr "жарияланған"
+
+msgid "manager.announcements.dateExpire"
+msgstr "жарамды"
+
+msgid "manager.announcements.createTitle"
+msgstr "енгізу"
+
+msgid "manager.announcements.create"
+msgstr "жаңа хабарландыруды енгізу"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "\"{$title}\" хабарландыруды біржола жойғыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.announcements"
+msgstr "хабарландырулар"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Кескін файлы қажет. Файлды таңдағаныңызға және жүктеп салғаныңызға көз "
+"жеткізіңіз."
+
+msgid "manager.website.appearance"
+msgstr "сыртқы түрі"

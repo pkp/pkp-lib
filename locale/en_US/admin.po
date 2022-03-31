@@ -32,11 +32,19 @@ msgstr "No authentication sources have been defined."
 msgid "admin.authSources"
 msgstr "Authentication Sources"
 
-msgid "admin.clearDataCache"
-msgstr "Clear Data Caches"
+msgid "admin.deleteCache"
+msgstr "Delete Caches"
 
+msgid "admin.deleteCache.description"
+msgstr "Delete cache files from the system. This should only be done in development environments."
+
+#, fuzzy
+msgid "admin.clearDataCache"
+msgstr "Delete Data Caches"
+
+#, fuzzy
 msgid "admin.clearTemplateCache"
-msgstr "Clear Template Cache"
+msgstr "Delete Template Cache"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr "Your configuration file has been successfully updated. Please note that if your site no longer functions correctly you may need to manually fix your configuration by editing <tt>config.inc.php</tt> directly."
@@ -67,6 +75,9 @@ msgstr "Display New Configuration"
 
 msgid "admin.expireSessions"
 msgstr "Expire User Sessions"
+
+msgid "admin.expireSessions.description"
+msgstr "All users will be immediately logged out of the application, including you, and will need to login again."
 
 msgid "admin.languages.cantDisable"
 msgstr "This locale is the primary language of the site. You can't disable it until you choose another primary locale."
@@ -131,8 +142,15 @@ msgstr "Your {$softwareName} installation automatically executed and finished th
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Are you sure you want to delete all scheduled task execution logs?"
 
+#, fuzzy
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Clear Scheduled Task Execution Logs"
+msgstr "Clear Scheduled Task Logs"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Delete all logs of scheduled tasks processes that have been run."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Delete Task Logs"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publish submissions scheduled for publication"
@@ -237,6 +255,12 @@ msgstr "The configuration file <tt>config.inc.php</tt> does not exist, is not re
 
 msgid "admin.systemInformation"
 msgstr "System Information"
+
+msgid "admin.systemInformation.description"
+msgstr "View information about the version and configuration settings of the application and server."
+
+msgid "admin.systemInformation.view"
+msgstr "View System Information"
 
 msgid "admin.versionBuild"
 msgstr "Build"
@@ -428,6 +452,12 @@ msgstr "View queued jobs"
 
 msgid "navigation.tools.jobs"
 msgstr "Jobs"
+
+msgid "navigation.tools.jobs.description"
+msgstr "View all of the queued jobs in the system and track failed attempts."
+
+msgid "navigation.tools.jobs.view"
+msgstr "View Jobs"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"

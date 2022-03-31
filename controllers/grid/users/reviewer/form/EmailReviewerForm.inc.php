@@ -23,6 +23,7 @@ use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Illuminate\Support\Facades\Mail;
+use PKP\log\SubmissionEmailLogEntry;
 
 class EmailReviewerForm extends Form
 {

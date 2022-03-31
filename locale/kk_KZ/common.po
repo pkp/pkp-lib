@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-29 20:57+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -1600,3 +1600,197 @@ msgstr "Ескерту жарияланған."
 
 msgid "notification.noneExist"
 msgstr "Қазіргі уақытта сіз үшін хабарландырулар жоқ."
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Сұранысқа жауап алған күн"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Редактордың өтініші"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "рецензиялау кестесі"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Анонимді рецензияның шынайылығын қамтамасыз ету үшін авторлар мен "
+"рецензенттер бір-бірі туралы ештеңе білмейтініне көз жеткізу үшін бар "
+"күшімізді салу керек. Бұл үшін авторлар, редакторлар және рецензенттер ("
+"құжаттарды шолудың бөлігі ретінде жүктеп салатындар) файлдың мәтіні мен "
+"қасиеттеріне қатысты келесі қадамдардың барлығының орындалғанын тексеруі "
+"керек:</p>\n"
+"<ul><li>Құжат авторлары библиографиялық сілтемелер мен сілтемелерде "
+"авторлардың аты-жөнінің, мақала тақырыбының және т.б. орнына «Автор» және "
+"жылды пайдалана отырып, мәтіннен өз есімдерін алып тастады.</li>\n"
+"<li>Құжат авторлары жеке ақпаратты келесі қадамдарды орындау арқылы файл "
+"сипаттарынан жойды:\n"
+"<ul><li>Windows жүйесіне арналған Microsoft Word:\n"
+"<ul><li>Файл мәзіріне өтіңіз</li>\n"
+"<li>Мәліметтер</li> таңдаңыз\n"
+"<li>\"Құжатты тексеру\" түймесін басыңыз</li>\n"
+"<li>\"Құжатты тексеру\" түймесін басыңыз</li>\n"
+"<li>Құжат инспекторы тілқатысу терезесінде тексергіңіз келетін жасырын "
+"мазмұн түрлері үшін құсбелгілерді қойыңыз. \"Тексеру\"</li> түймесін "
+"басыңыз\n"
+"<li>Барлығын жою</li> түймесін басыңыз\n"
+"<li>\"Жабу\" түймесін басыңыз</li>\n"
+"<li>Құжатты сақтау</li></ul>\n"
+"<li>MacOS жүйесіне арналған Microsoft Word:\n"
+"<ul><li>Құралдар мәзіріне өтіңіз</li>\n"
+"<li>\"Құжатты қорғау\" түймесін басыңыз</li>\n"
+"<li>\"Сақтау кезінде осы файлдан жеке ақпаратты жою\" опциясын таңдаңыз</li>"
+"\n"
+"<li>\"OK\" түймесін басып, файлды сақтаңыз</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Файл мәзіріне өтіңіз</li>\n"
+"<li>\"Сипаттар\"</li> таңдаңыз\n"
+"<li>Автор өрісінен барлық атауларды жою</li>\n"
+"<li>\"OK\" түймесін басыңыз</li>\n"
+"<li>Құжатты сақтау</li></ul></li></ul>\n"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Барлық файлдардың жасырын болуын қалай қамтамасыз етуге болады"
+
+msgid "dashboard.myQueue"
+msgstr "Менің ісім"
+
+msgid "dashboard.tasks"
+msgstr "Тапсырмалар"
+
+msgid "grid.action.markRead"
+msgstr "Оқылған деп белгілеңіз"
+
+msgid "grid.action.markNew"
+msgstr "Оқылмаған деп белгілеңіз"
+
+msgid "grid.action.deleteNotification"
+msgstr "Тапсырманы жойыңыз"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Ағымдағы рецензиялау ережелерін оқыңыз"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Барлық файлдардың анонимді болуын қалай қамтамасыз ету керек"
+
+msgid "context.path"
+msgstr "Жол"
+
+msgid "grid.action.downloadFile"
+msgstr "Бұл файлды жүктеу"
+
+msgid "search.typeMethodApproach"
+msgstr "Түр (әдіс/тәсіл)"
+
+msgid "search.title"
+msgstr "Тақырып"
+
+msgid "search.titleIndex"
+msgstr "Тақырып индексін қарау"
+
+msgid "search.subject"
+msgstr "Кілтсөз(дер)"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} элемент табылды."
+
+msgid "search.searchResults.foundSingle"
+msgstr "бір нәтиже табылды"
+
+msgid "search.searchResults"
+msgstr "іздеу нәтижелері"
+
+msgid "search.SearchFor"
+msgstr "іздеу үшін"
+
+msgid "search.operator.or"
+msgstr "немесе"
+
+msgid "search.operator.not"
+msgstr "жоқ"
+
+msgid "search.operator.and"
+msgstr "және"
+
+msgid "search.noResults"
+msgstr "Нәтиже жоқ"
+
+msgid "search.matchAll"
+msgstr "Барлық категориялар бойынша сәйкестендіріңіз"
+
+msgid "search.indexTermsLong"
+msgstr "Барлық термин өрістері индекстеледі"
+
+msgid "search.indexTerms"
+msgstr "Индекстеу терминдері"
+
+msgid "search.fullText"
+msgstr "Толық мәтін"
+
+msgid "search.discipline"
+msgstr "пәндер"
+
+msgid "search.deleteFilter"
+msgstr "өшіру"
+
+msgid "search.dateTo"
+msgstr "Бұрын жарияланған"
+
+msgid "search.dateFrom"
+msgstr "Кейін жарияланған"
+
+msgid "search.date"
+msgstr "Жарияланған күні"
+
+msgid "search.coverage"
+msgstr "Қамту"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} мақала индекстелді"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "қате"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "жасалды"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Көрсеткішті тазалау"
+
+msgid "search.searchAgain"
+msgstr "Қайта іздеу"
+
+msgid "search.advancedSearchLess"
+msgstr "Қосымша іздеу опцияларын жасыру"
+
+msgid "search.advancedSearchMore"
+msgstr "Қосымша іздеу опциялары"
+
+msgid "search.advancedFilters"
+msgstr "Қосымша талдаулар"
+
+msgid "search.abstract"
+msgstr "Аннотация"
+
+msgid "search.author"
+msgstr "Автор бойынша"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Бұл туралы барлық тіркелген пайдаланушыларға электрондық хат жіберіңіз."
+
+#, fuzzy
+msgid "common.re"
+msgstr "Re:"
+
+#, fuzzy
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.insertContentSearch"
+msgstr "Кірістіру үшін мазмұнды табыңыз"
+
+msgid "common.insertContent"
+msgstr "Мазмұнды енгізу"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"бойынша және немесе не бірақ болып табылады егер содан кейін басқа қашан сағ "
+"бастап бойынша қосулы өшірулі үшін жылы шығып бітті дейін ішіне бірге"

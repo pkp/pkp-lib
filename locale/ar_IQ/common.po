@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-03-23 17:52+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2130,3 +2130,9 @@ msgstr "إرفاق المحددة"
 
 msgid "common.addFiles"
 msgstr "إضافة الملفات"
+
+msgid "common.insertContentSearch"
+msgstr "العثور على محتوى لإدراجه"
+
+msgid "common.insertContent"
+msgstr "إدراج المحتوى"

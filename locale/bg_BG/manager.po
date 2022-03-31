@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-01 08:35+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -1921,3 +1921,1117 @@ msgstr ""
 
 msgid "manager.distribution.customHeaders"
 msgstr "Потребителски етикети (тагове)"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Това съобщение уведомява главния редактор или редактор на раздел, че е "
+"направена редакционна препоръка по отношение на една от назначените им "
+"публикации. Това съобщение се използва, когато на редактора е позволено само "
+"да препоръча редакционно решение и изисква от упълномощен редактор да "
+"записва редакционни решения. Тази опция може да бъде избрана, когато "
+"асоциирате участници към подаване на материали."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Направена препоръка"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че материалите се изпращат директно на етапа на "
+"стилова корекция и няма да бъде бъдат рецензирани."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Рецензирането е пропуснато"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че тяхният материал е изпратен на продукционен "
+"етап."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Изпратено към продукционен етап"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че тяхният материал е изпратен на етап "
+"рецензиране."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Изпратен за рецензия"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че предишно решение за отхвърляне на "
+"материалите без рецензиране се отменя."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Възстановяване на отхвърлени материали без рецензиране"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че предишно решение за отхвърляне на "
+"материалите след рецензиране се отменя."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Възстановяване на отхвърлени материали"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора за решение за „преразглеждане и повторно "
+"изпращане“ относно техните подадени материали."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Повторно изпращане за рецензия"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора за решение да поискат ревизии по време на "
+"рецензиране."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Направено е искане за ревизии"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че е започнат е нов кръг (етап) на рецензиране "
+"на подадените материали."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Започнат е нов кръг (етап) на рецензиране"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Подадените материали са отхвърлени"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че подадените материали са отхвърлени след "
+"партньорска рецензия."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Подадените материали са отхвърлени"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че техните подадени материали са изпратени "
+"обратно към етапа на подаване на материали."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr ""
+"Подадените материали са изпратени обратно към етапа на подаване на материали"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че техните подадени материали са изпратени "
+"обратно към етапа на рецензиране."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Подадените материали са изпратени обратно към етапа на рецензиране"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че техните подадени материали са изпратени "
+"обратно към етапа на стилово редактиране."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr ""
+"Подадените материали са изпратени обратно към етапа на стилово редактиране"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че подадените материали са приети за "
+"публикуване."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Подадените материали са приети"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Поканихме авторите да изпратят преработена версия за допълнителна рецензия."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Поканихме авторите да представят ревизии на подадените материали."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Избрахме да отхвърлим това подаване на материали."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Избрахме да приемем това подаване на материали без ревизии."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Кратко описание на това решение, което е предназначено да бъде споделено в "
+"известие по имейл, изпратено до рецензентите относно това решение."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Този имейл се изпраща от редактор до рецензента, за да го уведоми, че е "
+"взето решение по отношение на подадени материали, които той е рецензирал."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Признание към рецензента"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Копие от имейл съобщението, изпратено до подаващия материалите автор"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Този имейл се изпраща, за да уведоми авторите на подадени материали, които "
+"не са определени като участници в самото подаване, че е взето решение. "
+"Обикновено това са всички останали, освен подаващия автор."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Уведомяване на други автори"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Този имейл автоматично се изпраща на нов потребител, когато се регистрира в "
+"сайта, когато настройките изискват имейл адресът да бъде валидиран."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Потвърждаване на имейл (сайт)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr ""
+"Този имейл се изпраща, когато редактор отмени асосиирането на рецензент."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Асосиирането на рецензент е отменено"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Този имейл се изпраща, когато рецензент, който е бил асоцииран, но е "
+"премахнат като такъв от подадените материали, бъде възстановен от редактор."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Рецензентът е възстановен"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Този имейл се изпраща, когато рецензентът е асоцииран към подадените "
+"материали."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Асоцииран е рецензент"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Този имейл се изпраща автоматично до участниците в дискусията, когато към "
+"дискусията се добави ново съобщение."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Ново съобщение в дискусия"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Имената на авторите, присвоени на работния процес за подаване на материали. "
+"Обикновено това е подаващият автор"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr ""
+"URL адресът на подадените материали в редакционния бекенд панел ("
+"редакторското табло)"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "URL адрес на автора към подадените материали"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Пълните имена на авторите"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Имена на автори под формата на съкратен низ"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Абстракт (резюме) на подадените материали"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Уникален идентификатор на подадените материали"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Заглавие на подадените материали"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Редакторите, определени за това подаване на материали, които могат да вземат "
+"решение"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Имейлът на основния контакт на уебсайта"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Пълното име на основния контакт на уебсайта"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Подписът на имейла на подателя"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Имейл адресът на подателя"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Пълното име на подателя"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Това списание провежда отворено рецензиране. Рецензентите ще видят вашето "
+"име и институционалната принадлежност, както и имената и институционалната "
+"принадлежност на вашите съавтори. По същия начин ще видите имената и "
+"институционалната принадлежност на рецензентите."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Това списание извършва  „анонимно рецензензиране“. Вашето име и тези на "
+"вашите съавтори ще бъдат видими за рецензентите; обаче самоличността на "
+"рецензентите ще остане анонимна."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Това списание провежда двойно анонимно партньорско рецензиране. Рецензентите "
+"няма да видят никаква идентифицираща информация за вас или вашите съавтори. "
+"По същия начин няма да знаете кой е прегледал вашето представяне и няма да "
+"се свържете директно с рецензентите."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Описание на метода за рецензиране по подразбиране, като двойно анонимен или "
+"отворен."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Препоръчителното решение, като \"Приемане на подадените материали\""
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "URL адресът на заданието за рецензия"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Дата, на която трябва да приключи рецензирането"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Дата, на която рецензентът трябва да приеме или отхвърли заданието"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Потребителското име на получателя или на всички получатели"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Пълното име на получателя или на всички получатели"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"В кръга на рецензиране е взето това решение, ако решението е свързано с етап "
+"на рецензиране."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "На етапа на редакционния работен процес е взето това решение."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Описание на взетото решение."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Име (заглавие) на взетото решение."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+"URL адресът за преглед на всички присвоени от потребителя заявки за подаване "
+"на материали."
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"URL адресът към страница, където потребителят може да възстанови изгубена "
+"парола"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Пощенски адрес на списанието"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Всички коментари от завършени реценции. Имената на рецензентите са скрити за "
+"анонимни рецензии"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Процесът не успя и прекъсна при анализа на публикациите"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Процесът не успя и прекъсна при анализа на авторите"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\"  -  \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Посоченият път на списанието, \"{$contextPath}\", не съществува."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ГРЕШКА:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Грешна конфигурация на филтъра [{$filterName}]: {$filterCount} срещания. "
+"Трябва да е само един."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Общи елементи"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Изтеглете експортирания файл от бутона по-долу."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Експортирането завърши успешно."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Сваляне на експортиран файл"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Резултати от експорта на материали"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Процесът е неуспешен. Проверете по-долу за грешки/предупреждения."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Степен на отхвърляне (след рецензия)"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Степен на отхвърляне (при подаване)"
+
+msgid "stats.name.declineRate"
+msgstr "Степен на отхвърляне"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Степен на приемане"
+
+msgid "stats.name.daysToReject"
+msgstr "Дни до отхвърляне"
+
+msgid "stats.name.daysToAccept"
+msgstr "Дни до приемане"
+
+msgid "stats.name.daysToDecision"
+msgstr "Дни до първото редакционно решение"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Публикувани материали"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Отхвърлени материали (след рецензия)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Отхвърлени материали (при подаване)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Отхвърлени материали"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Приети материали"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Получени материали"
+
+msgid "stats.userStatistics"
+msgstr "Потребителска статистика"
+
+msgid "stats.trends"
+msgstr "Тенденции"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Общо в рамките на периода от време"
+
+msgid "stats.total"
+msgstr "Общо"
+
+msgid "stats.submissionsActive"
+msgstr "Активни подадени материали"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Търсене по заглавие, автор и ID"
+
+msgid "stats.pdf"
+msgstr "Формат PDF"
+
+msgid "stats.monthly"
+msgstr "Месечно"
+
+msgid "stats.html"
+msgstr "Формат HTML"
+
+msgid "stats.fileViews"
+msgstr "Прегледи на файл"
+
+msgid "stats.descriptionForStat"
+msgstr "Описание за {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Броят дни, необходими на повечето изпратени материали, за да получат първото "
+"редакционно решение, като например отхвърляне на документа или изпращане за "
+"рецензия.<br><br>Тези числа показват, че 80% от изпратените документи "
+"достигат до решението в рамките на дадения брой дни.< br <br>Тази статистика "
+"се опитва да опише кога мнозинството от авторите, подаващи материали се във "
+"вашето списание, могат да очакват решение."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Процентът за избрания период от време се изчислява за подадени материали "
+"през този период от време и получили окончателно решение.<br><br>Например, "
+"помислете за случая, в който са направени десет подадени заявки през този "
+"период от време. Четири бяха приети, четири бяха отхвърлени и две все още "
+"очакват окончателно решение.<br><br>Процентът на приемане ще бъде 50% (4 от "
+"8 подадени заявки), тъй като двете предложения, които не са стигнали до "
+"окончателно решение, не се зачитат."
+
+msgid "stats.dateRange.untilDate"
+msgstr "До {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "До"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Година до дата"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "От {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Последната година"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Последни две години"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Последни 90 дни"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Последни 30 дни"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Последни 12 месеца"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Началната дата не може да е по-ранна от {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Крайната дата не може да е по-късна от {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Началната дата трябва да е преди крайната дата."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Форматът на датата не е валиден. Въведете всяка дата във формат ГГГГ-ММ-ДД."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Въведете всяка дата във формат ГГГГ-ММ-ДД. Например, ако искате датата за 15 "
+"януари 2019 г., въведете 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "От"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Една от въведените дати не съществува."
+
+msgid "stats.dateRange.customRange"
+msgstr "Персонализиран диапазон"
+
+msgid "stats.dateRange.change"
+msgstr "Промяна на периода от време"
+
+msgid "stats.dateRange.apply"
+msgstr "Прилагане"
+
+msgid "stats.dateRange.allDates"
+msgstr "Всички дати"
+
+msgid "stats.dateRange"
+msgstr "Период от време"
+
+msgid "stats.daily"
+msgstr "Дневно"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/година)"
+
+msgid "stats.allUsers"
+msgstr "Всички потребители"
+
+msgid "grid.category.categoryDetails"
+msgstr "Подробности за категорията"
+
+msgid "grid.category.nameRequired"
+msgstr "Моля, въведете име на категория."
+
+msgid "grid.category.removeText"
+msgstr "Наистина ли искате да премахнете тази категория?"
+
+msgid "grid.category.parentCategory"
+msgstr "Родителска (старша) категория"
+
+msgid "grid.category.pathExists"
+msgstr "Пътят на категорията вече съществува. Моля, въведете уникален път."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Пътят на категорията трябва да се състои само от букви и цифри."
+
+msgid "grid.category.urlWillBe"
+msgstr "URL адресът на категорията ще бъде: {$sampleUrl}"
+
+msgid "grid.category.description"
+msgstr "Описание"
+
+msgid "grid.category.path"
+msgstr "Път"
+
+msgid "grid.category.name"
+msgstr "Име"
+
+msgid "grid.category.edit"
+msgstr "Редакция на категория"
+
+msgid "grid.category.add"
+msgstr "Добавяне на категория"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте въвели декларация за поверителност в "
+"Настройки > Работен процес > Подадени материали."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Връзка към страницата, показваща вашата декларация за поверителност."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Връзка към страницата за търсене."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако посетителят е влязъл като потребител в "
+"системата, плащанията са активирани в Настройки > Разпространение > Плащания "
+"и са необходими абонаменти от Настройки > Разпространение > Достъп."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако плащанията са активирани в Настройки > "
+"Разпространение > Плащания."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Моля, изберете тип навигационно меню."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте попълнили информацията за контакт в "
+"Настройки > Контакт."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Връзка към страница, показваща вашата информация за контакт."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само когато посетителят не е влязъл като "
+"потребител в системата."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само когато посетителят е влязъл като потребител в "
+"системата."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Връзка, чрез която потребителят ще излезе от системата."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Тази връзка ще се показва само на администратори."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Връзка към административните инструменти за целия сайт."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Връзка към страницата на потребителския профил."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Връзка към редакционното табло."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Връзка към страницата за регистрация на потребител."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Връзка към страницата за влизане на потребителя."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте активирали съобщения в Настройки > "
+"Уебсайт."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Връзка към страницата, показваща вашите публични съобщения."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Връзка към архивните броеве на списанието."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Връзка към текущия брой на списание."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Връзка към страницата, показваща инструкции за подаване на материали."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте попълнили секцията \"Редакционен "
+"екип\" в Настройки > Списание."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Връзка към страница, показваща съдържанието на главния банер в Настройки > "
+"Списание."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте попълнили секцията \"За списанието\" "
+"в Настройки > Списание."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Връзка към страница, показваща съдържанието на списанието в Настройки > "
+"Списание"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Връзка към който и да е URL на друг сайт, като https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Създайте персонализирана потребителска страница на вашия сайт и свържете към "
+"нея от навигационно меню."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Потребителска страница"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Изберете тип \"меню за навигация\" или \"потребителско\", за да направите "
+"свое собствено"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Тип меню за навигация"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Когато елемент от менюто отвори подменю, връзката му не може да бъде "
+"следвана на всички устройства. Например, ако имате елемент \"Относно\", "
+"който отваря подменю с \"Контакт\" и \"Редакционен екип\", връзката \""
+"Относно\" може да не е достъпна на всички устройства. В менюто по "
+"подразбиране това се обработва чрез създаване на втори елемент от менюто, „"
+"За списанието“, който се появява в подменюто."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Отдалечен/външен URL"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Научете повече за това кога този елемент от менюто ще бъде показан или скрит."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Трябва да бъде предоставен URL адрес"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL-адрес"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "На тази област вече е присвоено меню за навигация."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Изберете навигационна област"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Навигационни области в активната тема"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Неприсвоени елементи от менюто"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Присвоени елементи от менюто"
+
+msgid "manager.navigationMenuItems"
+msgstr "Елементи от менюто за навигация"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Заглавието е задължително"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Това заглавие вече съществува за друго меню за навигация."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Този път вече съществува за друг елемент от менюто за навигация."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Полето за път трябва да съдържа само буквено-цифрови знаци плюс .', '/', '-"
+"', и '_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Съдържание"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Тази страница ще бъде достъпна на адрес: "
+"<blockquote>{$pagesPath}</blockquote>...където %PATH% е пътят, въведен по-"
+"горе. <strong>Забележка:</strong> Две страници не могат да имат еднакъв път. "
+"Използването на пътища, които са вградени в системата, може да доведе до "
+"загуба на достъп до важни функции.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Навигация"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Път"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Заглавие"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Потребителското име \"{$username}\" и имейлът \"{$email}\" не съвпадат с "
+"един и същ съществуващ потребител."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Импортираният потребител {$username}\" има обикновена парола, която не е "
+"валидна. Потребителят не е импортиран."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Импортираната потребителска парола на \"{$username}\" не можа да бъде "
+"импортирана такава, каквато е. Нова парола е изпратена на потребителския "
+"имейл. Потребителят е импортиран."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Импортираният потребител \"{$username}\" няма парола. Проверете своя XML "
+"формат за импортиране. Потребителят не е импортиран."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Грешки при импорт/експорт:"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Файлът за подадените материали {$id} беше пропуснат, защото е прикачен към "
+"запис, който няма да бъде импортиран, като например задание за преглед или "
+"дискусия."
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Файлът за подадените материали не можа да бъде импортиран"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Ревизията \"{$revisionId}\" за подадения файл \"{$fileId}\" ще създаде "
+"дублиран запис"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Предоставеният размер на файла \"{$expected}\" и действителният размер на "
+"файла \"{$actual}\" не съвпадат"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Временен файл {$dest} не можа да бъде създаден от {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Неизвестен качващ {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Авторът {$authorName} няма дадено име на езика на подаването на материали, "
+"{$localeName}. Материалите не могат да бъдат импортирани без тази информация."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Липсва потребителска група за името на автор {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Неизвестна потребителска група {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Съдържанието не е езиково кодирано като {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Неизвестна езикова кодировка {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Неизвестен жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Неизвестен елемент {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id:  {$id}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Възникнали грешки:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Открити предупреждения:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Грешки при валидиране:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Изискайте от автора да предостави референциите (библиографията), преди да "
+"приемете подадените материали."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Изисквайте референциите (библиографията) от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+"Не изисквайте референциите (библиографията) от автора по време на подаването "
+"на материали."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Активиране на метаданните за референциите (библиографията)"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Съберете референциите (библиографията) в отделно поле. Това може да се "
+"наложи за спазване на услугите за проследяване на цитати, като Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Изискайте от автора да разкрие всички поддържащи агенции, преди да приемете "
+"подадените материали."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Изисквайте подкрепящи агенции от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Не изисквайте подкрепящи агенции от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Активирайте метаданните на поддържащите агенции"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Подпомагащите агенции могат да посочат източника на финансиране на "
+"изследванията или друга институционална подкрепа, която е улеснила "
+"изследването."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Изисквайте от автора да предостави дисциплини, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Изисквайте дисциплини от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Не изисквайте дисциплини от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Активирайте метаданните на дисциплините"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Дисциплините са видове обучение или клонове на знанието, както са описани от "
+"университетските факултети и учените общества."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Изискайте от автора да предостави типа, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Изисквайте типа от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Не изисквайте типа от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Активиране на тип метаданни"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Характерът или жанрът на основното съдържание на подаване. Типът обикновено "
+"е „Текст“, но може да бъде и „Набор от данни“, „Изображение“ или някой от <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/# section-7-dcmi-type-vocabulary\">Типове Dublin "
+"Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Изисквайте от автора да предостави теми, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Изисквайте теми от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Не изисквайте теми от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Активиране на метаданни за темата"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Теми ще бъдат ключови думи, ключови фрази или класификационни кодове, които "
+"описват тема на подадените материали."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Изисквайте от автора да предостави URL на източника, преди да приемете "
+"подадените материали."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Изисквайте URL на източника от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Не изисквайте URL на източника от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Активиране на метаданни за източник"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Източникът може да бъде идентификатор, като DOI, на друго произведение или "
+"ресурс, от който е получено подаването на материали."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Изисквайте от автора да разкрие всички предишни права за достъп, преди да "
+"приемете подадените материали."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Изисквайте разкриване на правата от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Не изисквайте разкриване на правата от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Активиране на метаданните за правата"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Всички права, притежавани върху подадените материали, което може да включва "
+"права на интелектуална собственост (IPR), авторско право и различни права на "
+"собственост."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Изисквайте от автора да въведе езиците на материала, преди да приемете "
+"подаването на материали."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Изисквайте езиците на материала от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Не изисквайте езиците на материала от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Активиране на езикови метаданни"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Езикът указва основния език на произведението, използвайки езиков код („en“) "
+"с незадължителен код на държавата („en_US“)."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Изискайте от автора да предложи ключови думи, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Изисквайте ключови думи от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Не изисквайте ключови думи от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Активиране на метаданни за ключови думи"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Ключовите думи обикновено са фрази от една до три думи, които се използват "
+"за обозначаване на основните теми на подаваните материали."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Изискайте от автора да предложи метаданни за обхвата (покритието), преди да "
+"приемете подадените материали."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Изисквайте метаданни за обхвата (покритието) от автора по време на подаване "
+"на материали."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Не изисквайте метаданни за обхвата (покритието) от автора по време на "
+"подаване на материали."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Активиране на метаданните за обхват (покритие)"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Обхватът (покритието) обикновено указва пространственото местоположение на "
+"произведението (име на място или географски координати), времеви период ("
+"етикет за период, дата или период от време) или юрисдикция (като наименуван "
+"административен обект)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Обхват"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Форма за подаване на материали"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL към уеб страница, описваща лиценза, ако е наличен."
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Изискайте изявление за конкурентен интерес по време на партньорската "
+"рецензия."
+
+msgid "grid.action.createReviewForm"
+msgstr "Създаване на нов формуляр за рецензия"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Видим (за автори)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Едноредово текстово поле"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Разширено текстово поле"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Текстово поле с една дума"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Включено в съобщението до автора"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Задължително е рецензента да попълни елемента"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радио бутони (можете да изберете само един)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Описание"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Елемент"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Избор"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Не са създадени елементи от формуляра."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "За елемента от формуляра е необходим въпрос."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "За елемента на формуляра се изисква тип елемент."

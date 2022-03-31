@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-23 17:52+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -2207,3 +2207,9 @@ msgstr "Anexo Selecionado"
 
 msgid "common.addFiles"
 msgstr "Adicionar Ficheiros"
+
+msgid "common.insertContentSearch"
+msgstr "Encontrar conteúdo para inserir"
+
+msgid "common.insertContent"
+msgstr "Inserir Conteúdo"

@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-30 16:21+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -1640,3 +1640,284 @@ msgstr ""
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Насоки за автора"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Тип елемент"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Редакция на елемент от формуляр"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Падащ списък"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Създаване на нов елемент"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Копиране към:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Потвърдете изтриването на публикуван елемент от формуляра..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Изберете тип елемент"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Квадратчета за отметка (можете да изберете едно или повече)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Добавяне на избраното"
+
+msgid "manager.reviewFormElements"
+msgstr "Елементи на формуляра"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Промяна на типа елемент на формуляра..."
+
+msgid "manager.reviewForms.title"
+msgstr "Заглавие"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Данни от формуляр за рецензия"
+
+msgid "manager.reviewForms.preview"
+msgstr "Предварителен преглед на формуляр"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Не са използвани формуляри за рецензия."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Не са създадени формуляри за рецензия."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Няма / Формулар за рецензия в свободна форма"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Създадените тук формуляри за партньорска рецензия ще бъдат представени на "
+"рецензентите за попълване, вместо формуляра по подразбиране, който се състои "
+"от две отворени текстови полета, първото „за автор и редактор“ и второто „за "
+"редактор“. Формулярите за рецензия могат да бъдат определени за конкретна "
+"секция на изданието и редакторите ще имат възможността да избират кой "
+"формуляр да използват при възлагането на рецензията. Във всички случаи "
+"редакторите ще имат възможността да включат рецензиите в кореспонденцията с "
+"автора."
+
+msgid "manager.reviewForms.inReview"
+msgstr "В процес на рецензиране"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Трябва да има заглавие на формуляра за преглед."
+
+msgid "manager.reviewForms.edit"
+msgstr "Формуляр за рецензия"
+
+msgid "manager.reviewForms.description"
+msgstr "Описание и инструкции"
+
+msgid "manager.reviewForms.create"
+msgstr "Създаване на формуляр за рецензия"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Наистина ли искате да изтриете този формуляр за рецензия?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Завършено"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Наистина ли искате да създадете копие на този формуляр за рецензия?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Наистина ли искате да деактивирате този формуляр за рецензия? Той вече няма "
+"да е наличен за нови задачи за рецензиране."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Наистина ли искате да активирате този формуляр за рецензия? След като бъде "
+"присвоен към рецензията, вече няма да можете да го деактивирате."
+
+msgid "manager.reviewForms"
+msgstr "Форми за рецензиране"
+
+msgid "manager.distribution.title"
+msgstr "Настройки на разпространение"
+
+msgid "manager.distribution"
+msgstr "Разпространение"
+
+msgid "manager.workflow.title"
+msgstr "Настройки на работната процедура"
+
+msgid "manager.website"
+msgstr "Уебсайт"
+
+msgid "manager.settings.wizard"
+msgstr "Помощник за настройки"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Изберете типа метаданни, които тези файлове могат да получат. \"Документ\" "
+"трябва да бъде избран за основните файлове на публикация, като например PDF "
+"за изтегляне, така че тези файлове да наследят своите метаданни от "
+"публикацията. В противен случай изберете \"Допълнително съдържание\" за "
+"повечето типове файлове. \"Произведения на изкуството\" са подходящи за "
+"файлове, които изискват различни метаданни за кредит, надпис и лиценз."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Метаданни на файла"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Ключът може да съдържа само буквено-цифрови знаци, долни черти и тирета и "
+"трябва да започва и завършва с буквено-цифров знак."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ключът вече съществува."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Незадължителен кратък символичен идентификатор за този жанр."
+
+msgid "manager.setup.genres.key"
+msgstr "Ключ"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Това са допълнителни файлове, като набори от данни и изследователски "
+"материали, и ще се показват отделно от основните файлове с публикации."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Това са зависими файлове, като изображения, показани от HTML файл, и няма да "
+"се показват с публикувано съдържание."
+
+msgid "manager.setup.genres.label"
+msgstr "Тип файл"
+
+msgid "grid.action.restoreGenres"
+msgstr "Възстановете компонентите до настройките по подразбиране"
+
+msgid "grid.action.deleteGenre"
+msgstr "Премахване на този компонент"
+
+msgid "grid.action.editGenre"
+msgstr "Редактиране на този компонент"
+
+msgid "grid.action.addGenre"
+msgstr "Добавяне на компонент"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Изберете библиотечни файлове, които да прикачите"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Този библиотечен файл може да бъде достъпен за изтегляне, ако „Публичен "
+"достъп“ е активиран, на адрес: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Друго"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Отчети"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Достъп (разрешения)"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Договори"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "За този файл в библиотеката е необходим тип файл."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "За този библиотечен файл се изисква име."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Изисква се библиотечен файл. Моля, уверете се, че сте избрали и качили файл."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Разрешете редактиране на метаданни за подаване."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Трябва да дефинирате етап, към който да асоциирате."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Трябва да дефинирате ниво на достъп за роля."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Трябва да дефинирате уникална абревиатура на ролята."
+
+msgid "settings.roles.uniqueName"
+msgstr "Трябва да дефинирате уникално име на ролята."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Трябва да дефинирате абревиатура за роля."
+
+msgid "settings.roles.nameRequired"
+msgstr "Трябва да дефинирате име на роля."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Ще премахнете тази роля от този контекст. Тази операция също така ще изтрие "
+"свързани настройки и всички потребителски асоциации на тази роля. Искате ли "
+"да продължите?"
+
+msgid "settings.roles.from"
+msgstr "Ниво на достъп"
+
+msgid "settings.roles.roleDetails"
+msgstr "Детайли за роля"
+
+msgid "settings.roles.stages"
+msgstr "Етапи"
+
+msgid "settings.roles.assignedStages"
+msgstr "Асоциирани етапи"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Абревиатура"
+
+msgid "settings.roles.roleName"
+msgstr "Име на роля"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Тази роля е разрешена само да препоръча рецензионно решение и ще изисква от "
+"упълномощен редактор да запише окончателното решение."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Разрешаване на потребителска саморегистрация"
+
+msgid "settings.roles.showTitles"
+msgstr "Показване на заглавието на ролята в списъка на сътрудниците"
+
+msgid "settings.roles.roleOptions"
+msgstr "Параметри на роля"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валута"
+
+msgid "manager.paymentMethod.method"
+msgstr "Начин за плащане"
+
+msgid "manager.paymentMethod.none"
+msgstr "Няма избран начин на плащане"
+
+msgid "manager.paymentMethod.title"
+msgstr "Начини за плащане"
+
+msgid "manager.paymentMethod"
+msgstr "Плащания"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Добавете персонализирани HTML тагове, известни също като мета тагове, които "
+"искате да бъдат вмъкнати в главата на всяка страница. Консултирайте се с "
+"технически съветник, преди да добавите етикети тук."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Потребителски етикети (тагове)"

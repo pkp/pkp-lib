@@ -25,7 +25,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\core\PKPApplication;
 use APP\submission\reviewer\ReviewerSubmissionDAO;
 use PKP\core\PKPRequest;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Illuminate\Support\Facades\Mail;
 
 class PKPReviewerHandler extends Handler
@@ -168,7 +168,7 @@ class PKPReviewerHandler extends Handler
         // Provide the email body to the template
         $reviewerAction = new ReviewerAction();
         $mailable = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, true, null);
-        $messageBody = Mail::compileParams($mailable->view, $mailable->getData(PKPLocale::getLocale()));
+        $messageBody = Mail::compileParams($mailable->view, $mailable->getData(Locale::getLocale()));
 
         $templateMgr->assign('declineMessageBody', $messageBody);
 

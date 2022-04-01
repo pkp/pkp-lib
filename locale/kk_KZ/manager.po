@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-01 20:03+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -67,3 +67,255 @@ msgstr ""
 
 msgid "manager.website.appearance"
 msgstr "сыртқы түрі"
+
+msgid "manager.emails.details"
+msgstr "Үлгі мәліметтері"
+
+msgid "manager.emails.data"
+msgstr "Электрондық пошта үлгісі деректері"
+
+msgid "manager.emails.customTemplate"
+msgstr "хат жазу"
+
+msgid "manager.emails.createEmail"
+msgstr "Хат жасау"
+
+msgid "manager.emails.addEmail"
+msgstr "Үлгіні қосыңыз"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Осы электрондық пошта үлгісін әдепкі көрінісіне қайтарғыңыз келетініне "
+"сенімдісіз бе?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Осы электрондық пошта үлгісін шынымен жойғыңыз келе ме?"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr "{$registrationAgency} тіркеу ақпараты бар келесі хабарды қайтарды:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"{$registrationAgency} оның себебі туралы ақпаратпен келесі қатені қайтарды:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Рецензенттерге арналған еске салғыш параметрлері жаңартылды."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Рецензенттерге арналған нұсқаулық"
+
+msgid "manager.publication.emails"
+msgstr "Электрондық хаттар"
+
+msgid "manager.publication.productionStage"
+msgstr "Жариялану"
+
+msgid "manager.publication.editorialStage"
+msgstr "Редакциялау"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензенттеу"
+
+msgid "manager.publication.submissionStage"
+msgstr "Жіберілуде"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Элементтер сәтті сақталды"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Элементтер жаңа DOI тағайындады"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Тіркелген элементтер ретінде сәтті белгіленді"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Элементтер сәтті экспортталды"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Кейбір DOIды жаңалау мүмкін болмады."
+
+msgid "manager.dois.status.stale"
+msgstr "күшін жойды"
+
+msgid "manager.dois.status.error"
+msgstr "қате"
+
+msgid "manager.dois.status.registered"
+msgstr "тіркелген"
+
+msgid "manager.dois.status.submitted"
+msgstr "жіберілді"
+
+msgid "manager.dois.status.unregistered"
+msgstr "тіркелмеген"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI қажет"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "DOIды сақтау"
+
+msgid "manger.dois.update.success"
+msgstr "DOI сәтті жаңартылды"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Сәтті тіркеу туралы хабарлама"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Жазбаны көрсету"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Тіркеу қатесі туралы хабарлама"
+
+msgid "manager.dois.registration.viewError"
+msgstr "қателікті көрсету"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Бұл элемент жарияланбайынша сақтауға болмайды."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+"Бұл элементке арналған метадеректер {$registrationAgency} қызметіне "
+"жіберілмеді."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Бұл элементке арналған метадеректер {$registrationAgency} жіберілді."
+
+msgid "manager.dois.publicationStatus"
+msgstr "жарияланым мәртебесі"
+
+msgid "manager.dois.depositStatus"
+msgstr "сақтау мәртебесі"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Сіз {$registrationAgency} сайтында сақталатын барлық DOI метадеректер "
+"жазбаларын жоспарлағалы тұрсыз. Жауап алынған кезде әрбір элементтің жеке "
+"күйі жаңартылады. Осы элементтердің барлығын сақтауды шынымен қалайсыз ба?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Барлық DOIды сақтаңыз"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Сіз {$count} элементтерге жаңа DOI тағайындайсыз, осылайша талаптарға сәйкес "
+"келетін кез келген элемент бұрын тағайындалмаған болса, DOI алады. Осы "
+"жазбаларға DOI тағайындағыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "DOI тағайындаңыз"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Сіз {$registrationAgency} жүйесіндегі {$count} элементтер үшін DOI "
+"метадеректер жазбаларын экспорттамақсыз. Бұл жазбаларды экспорттағыңыз "
+"келетініне сенімдісіз бе?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "DOIды экспорттау"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Сіз {$count} элементтер үшін DOI метадеректер жазбаларын тіркелген деп "
+"белгілегіңіз келеді. Бұл жазбаларды тіркелген деп белгілеу керек пе?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "DOI-ді тіркелген деп белгілеңіз"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Сіз {$count} элементтерге арналған DOI метадеректер жазбаларын "
+"{$registrationAgency} қызметіне жібергелі жатырсыз. Бұл жазбаларды "
+"сақтағыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "DOIды енгізу"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Барлығын қосымша орынға енгізіңіз"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Хабарламалар түрлері"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Хабарламалардың түрлері енгізілмеді."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Хабарлама түрінің атауы міндетті түрде қажет."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "атауы"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Бұл атаудағы хабарламаның түрі бұрыннан бар."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Сақтау және басқасын енгізу"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "өңдеу"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Хабарлама түрін өңдеу"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "енгізу"
+
+msgid "manager.announcementTypes.create"
+msgstr "Хабарлама түрін құру"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Назар аударыңыз! Осы түрдегі барлық хабарламалар да жойылады. Жалғастыруды "
+"және осы хабарлама түрін жоюды қалайсыз ба?"
+
+msgid "manager.announcementTypes"
+msgstr "Хабарлама түрлері"
+
+msgid "manager.announcements.type"
+msgstr "түрі"
+
+msgid "manager.announcements.title"
+msgstr "тақырып"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Хабарламалар жасалмаған."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Хабарламаның дұрыс түрін таңдаңыз."
+
+msgid "manager.announcements.form.typeId"
+msgstr "түрі"
+
+msgid "manager.announcements.form.title"
+msgstr "тақырып"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Хабарлама атауы міндетті түрде."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Сақтау және басқасын енгізу"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "қысқаша сипаттама"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Жарнаманың қысқаша сипаттамасы қажет."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Жарнама тақырыбымен бірге пайда болатын қысқаша сипаттама."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Жарнаманың сипаттамасы қажет."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "хабарламаның толық мәтіні."
+
+msgid "manager.announcements.form.description"
+msgstr "хабарлама"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Тек жарамдылық мерзімінің жылын емес, айды және/немесе күнді таңдаңыз."

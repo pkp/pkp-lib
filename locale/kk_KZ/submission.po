@@ -1,8 +1,61 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-04-01 08:35+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/kk_KZ/>\n"
 "Language: kk_KZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Жіберу талаптары"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Осы материалды өзіңіз өңдеп, жариялай алғыңыз келсе, келесі рөлдердің бірі "
+"ретінде жіберіңіз: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Иә, осы материал бойынша маған хабарласуыңызға келісемін."
+
+msgid "submission.submit.contactConsent"
+msgstr "Корреспонденция байланысы"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Осы материалға қосқан үлесіңізді сипаттайтын рөлді таңдаңыз."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Жіберу"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Материалыңыз серверге жүктелді және жіберуге дайын. Жалғастырмас бұрын "
+"енгізген кез келген ақпаратты тексеру және түзету үшін кері оралуға болады. "
+"Дайын болған кезде «Жіберуді аяқтау» батырмасын басыңыз."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Бір немесе бірнеше рецензент жіберу мерзімін өткізіп алды. Бұл туралы "
+"редакцияға да хабарланды және рецензияларды аяқтау үшін қажетті шаралар "
+"қабылданады. Енді ешқандай әрекет жасаудың қажеті жоқ. Шешім қабылданған "
+"кезде сізге хабарлама келеді."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr ""
+"Рецензенттер жаңа рецензияларды жіберді, олар редактордың тексеруінен өтті."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Осы материалды дайындауда пайдаланылған жұмыстарға сілтемелердің "
+"форматталған тізімін енгізіңіз. Сілтемелерді бір-бірінен бос жолмен бөліңіз."
+
+msgid "author.publicationNotFound"
+msgstr "Бұл авторға арналған жарияланым табылмады."
+
+msgid "author.editPublishedDisabled"
+msgstr "Бұл жазбаның авторларын өңдеу мүмкін емес, себебі ол бұрын жарияланған."

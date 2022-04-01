@@ -397,6 +397,9 @@ msgstr "Det gennemsnitlige antal dage for færdiggørelse af bedømmelse"
 msgid "reviewer.list.neverAssigned"
 msgstr "Aldrig tilvalgt"
 
+msgid "reviewer.list.reassign"
+msgstr "Overfør"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse."
 

@@ -34,18 +34,6 @@ class SetupGridHandler extends GridHandler
     }
 
     /**
-     * @copydoc GridHandler::initialize()
-     *
-     * @param null|mixed $args
-     */
-    public function initialize($request, $args = null)
-    {
-        parent::initialize($request, $args);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-    }
-
-    /**
      * @copydoc PKPHandler::authorize()
      *
      * @param bool $contextRequired

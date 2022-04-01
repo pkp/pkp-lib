@@ -67,10 +67,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "فراداده‌های تکمیلی"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "ایمیل ثبت‌نام CrossRef"
+msgstr "ایمیل ثبت‌نام Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "لطفاً ایمیل ثبت‌نام   CrossRef   معتبری را وارد کنید. می تونید با ایمیل خود به رایگان در وب‌سایت  CrossRef  ثبت‌نام کنید."
+msgstr "لطفاً ایمیل ثبت‌نام   Crossref   معتبری را وارد کنید. می تونید با ایمیل خود به رایگان در وب‌سایت  Crossref  ثبت‌نام کنید."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "کلید ISBNdb API"
@@ -1466,15 +1466,6 @@ msgstr "یک تصمیم برای این مقاله ارسالی ثبت کنید.
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "توصیه‌های ثبت شده"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "بعدی: فایل‌ها را از {$stageName} انتخاب کنید."
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "فایل‌های که مایلید به مرحله {$stageName} انتقال داده شوند را انتخاب کنید."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "قبلی: اطلاع‌رسانی‌هایاطلاع‌رسانی نویسنده"
 
 msgid "submission.currentStage"
 msgstr "مرحله جاری"

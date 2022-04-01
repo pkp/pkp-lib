@@ -18,6 +18,8 @@ use PKP\author\Author;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
+use PKP\facades\Locale;
+
 class NativeXmlPKPAuthorFilter extends NativeImportFilter
 {
     /**
@@ -153,8 +155,14 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
 
 
         if (empty($author->getGivenName($publication->getData('locale')))) {
-            $allLocales = AppLocale::getAllLocales();
-            $deployment->addError(ASSOC_TYPE_SUBMISSION, $publication->getId(), __('plugins.importexport.common.error.missingGivenName', ['authorName' => $author->getLocalizedGivenName(), 'localeName' => $allLocales[$submission->getLocale()]]));
+            $deployment->addError(
+                ASSOC_TYPE_SUBMISSION,
+                $publication->getId(),
+                __('plugins.importexport.common.error.missingGivenName', [
+                    'authorName' => $author->getLocalizedGivenName(),
+                    'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
+                ])
+            );
         }
 
         $authorId = Repo::author()->add($author);

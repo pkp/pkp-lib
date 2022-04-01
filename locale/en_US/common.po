@@ -125,8 +125,23 @@ msgstr "Inactive"
 msgid "common.add"
 msgstr "Add"
 
+msgid "common.addCCBCC"
+msgstr "Add CC/BCC"
+
+msgid "common.addFiles"
+msgstr "Add Files"
+
 msgid "common.addSelf"
 msgstr "Add Self"
+
+msgid "common.attachedFiles"
+msgstr "Attached Files"
+
+msgid "common.attachFiles"
+msgstr "Attach Files"
+
+msgid "common.attachSelected"
+msgstr "Attach Selected"
 
 msgid "common.name"
 msgstr "Name"
@@ -306,6 +321,9 @@ msgstr "Deleting"
 msgid "common.deleteSelection"
 msgstr "Delete Selection"
 
+msgid "common.deselect"
+msgstr "Deselect"
+
 msgid "common.designation"
 msgstr "Designation"
 
@@ -335,6 +353,12 @@ msgstr "Download"
 
 msgid "common.downloadPdf"
 msgstr "Download PDF"
+
+msgid "common.dragAndDropHere"
+msgstr "Drag and drop files here."
+
+msgid "common.orUploadFile"
+msgstr "Or upload a file"
 
 msgid "common.edit"
 msgstr "Edit"
@@ -405,6 +429,9 @@ msgstr "Add filter: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Clear filter: {$filterTitle}"
 
+msgid "common.findTemplate"
+msgstr "Find Template"
+
 msgid "common.from"
 msgstr "From"
 
@@ -444,6 +471,12 @@ msgstr "In progress"
 msgid "common.insert"
 msgstr "Insert"
 
+msgid "common.insertContent"
+msgstr "Insert Content"
+
+msgid "common.insertContentSearch"
+msgstr "Find content to insert"
+
 msgid "common.itemsPerPage"
 msgstr "Items per page"
 
@@ -467,6 +500,12 @@ msgstr "{$value} or less"
 
 msgid "common.lessThanOnly"
 msgstr "Less than"
+
+msgid "common.loadTemplate"
+msgstr "Load a Template"
+
+msgid "common.keepWorking"
+msgstr "Keep Working"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -545,6 +584,9 @@ msgstr "Notified: {$dateNotified}"
 
 msgid "common.noMatches"
 msgstr "No Matches"
+
+msgid "common.numberedMore"
+msgstr "{$number} more"
 
 msgid "common.off"
 msgstr "Off"
@@ -702,6 +744,9 @@ msgstr "Saving"
 msgid "common.search"
 msgstr "Search"
 
+msgid "common.searching"
+msgstr "Searching"
+
 msgid "common.searchQuery"
 msgstr "Search Query"
 
@@ -729,6 +774,9 @@ msgstr "Select {$name}"
 msgid "common.sendEmail"
 msgstr "Send Email"
 
+msgid "common.showAllSteps"
+msgstr "Show all steps"
+
 msgid "common.size"
 msgstr "Size"
 
@@ -752,6 +800,12 @@ msgstr "Subtitle"
 
 msgid "common.suggest"
 msgstr "Suggest"
+
+msgid "common.switchTo"
+msgstr "Switch to"
+
+msgid "common.switchToNamedItem"
+msgstr "Switch to {$name}"
 
 msgid "common.title"
 msgstr "Title"
@@ -807,6 +861,9 @@ msgstr "Add File"
 msgid "common.upload.addFile"
 msgstr "Upload File"
 
+msgid "common.upload.addFile.description"
+msgstr "Upload a file from your computer."
+
 msgid "common.upload.restore"
 msgstr "Restore Original"
 
@@ -830,6 +887,9 @@ msgstr "[Nonexistent user]"
 
 msgid "common.view"
 msgstr "View"
+
+msgid "common.viewError"
+msgstr "View Error"
 
 msgid "common.viewWithName"
 msgstr "View {$name}"
@@ -900,6 +960,30 @@ msgstr "Upload File"
 msgid "email.addAttachment"
 msgstr "Add Attachment"
 
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Attach Submission Files"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Attach files uploaded by the author in the submission stage."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr "Attach files uploaded during the submission workflow, such as revisions or files to be reviewed."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Library Files"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Attach Library Files"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Attach files from the Submission and Publisher Libraries."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Attach Review Files"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Attach files that were uploaded by reviewers"
+
 msgid "email.addBccRecipient"
 msgstr "Add BCC"
 
@@ -912,6 +996,9 @@ msgstr "Add Recipient"
 msgid "email.attachments"
 msgstr "Attachments"
 
+msgid "email.attachmentNotFound"
+msgstr "The file {$fileName} could not be attached."
+
 msgid "email.bcc"
 msgstr "BCC"
 
@@ -923,6 +1010,9 @@ msgstr "Body"
 
 msgid "email.cc"
 msgstr "CC"
+
+msgid "email.confirmSwitchLocale"
+msgstr "Are you sure you want to change to {$localeName} to compose this email? Any changes you have made to the subject and body of the email will be lost."
 
 msgid "email.compose"
 msgstr "Send Email"
@@ -1682,6 +1772,9 @@ msgstr "A reviewer has commented on \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "File considered."
 
+msgid "timeZone"
+msgstr "Time zone"
+
 msgid "user.email"
 msgstr "Email address"
 
@@ -1786,6 +1879,12 @@ msgstr "Show more details about {$name}"
 
 msgid "list.viewLess"
 msgstr "Hide expanded details about {$name}"
+
+msgid "list.expandAll"
+msgstr "Expand all"
+
+msgid "list.collapseAll"
+msgstr "Collapse all"
 
 msgid "validation.invalidOption"
 msgstr "This is not a valid option."
@@ -1974,7 +2073,7 @@ msgid "validator.string"
 msgstr "This is not a valid string."
 
 msgid "validator.timezone"
-msgstr "This is not a valid timezone."
+msgstr "This is not a valid time zone."
 
 msgid "validator.unique"
 msgstr "The {$attribute} has already been taken."

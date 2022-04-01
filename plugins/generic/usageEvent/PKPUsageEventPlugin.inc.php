@@ -62,7 +62,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
      */
     public function getInstallSitePluginSettingsFile()
     {
-        return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'settings.xml';
+        return PKP_LIB_PATH . "/{$this->getPluginPath()}/settings.xml";
     }
 
     /**
@@ -290,6 +290,14 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
                     if ($pubId) {
                         $identifiers[$pubIdPlugin->getPubIdType()] = $pubId;
                     }
+                }
+            }
+
+            // Handle DOIs separately
+            if ($context->areDoisEnabled()) {
+                $pubId = $pubObject->getStoredPubId('doi');
+                if ($pubId) {
+                    $identifiers['doi'] = $pubId;
                 }
             }
         }

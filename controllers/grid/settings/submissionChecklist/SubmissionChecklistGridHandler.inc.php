@@ -19,6 +19,7 @@ import('lib.pkp.controllers.grid.settings.submissionChecklist.SubmissionChecklis
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\Role;
@@ -111,7 +112,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
         $router = $request->getRouter();
         $context = $router->getContext($request);
         $submissionChecklist = $context->getData('submissionChecklist');
-        return $submissionChecklist[AppLocale::getLocale()];
+        return $submissionChecklist[Locale::getLocale()];
     }
 
 
@@ -197,13 +198,13 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
         // get all of the submissionChecklists
         $submissionChecklistAll = $context->getData('submissionChecklist');
 
-        foreach (AppLocale::getSupportedLocales() as $locale => $name) {
+        foreach ($context->getSupportedLocaleNames() as $locale => $name) {
             if (isset($submissionChecklistAll[$locale][$rowId])) {
                 unset($submissionChecklistAll[$locale][$rowId]);
             } else {
                 // only fail if the currently displayed locale was not set
                 // (this is the one that needs to be removed from the currently displayed grid)
-                if ($locale == AppLocale::getLocale()) {
+                if ($locale == Locale::getLocale()) {
                     return new JSONMessage(false, __('manager.setup.errorDeletingSubmissionChecklist'));
                 }
             }
@@ -231,7 +232,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
 
         // Get all of the submissionChecklists.
         $submissionChecklistAll = $context->getData('submissionChecklist');
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
 
         if (isset($submissionChecklistAll[$locale][$rowId])) {
             $submissionChecklistAll[$locale][$rowId]['order'] = $newSequence;

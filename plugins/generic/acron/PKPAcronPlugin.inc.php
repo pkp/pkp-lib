@@ -24,6 +24,7 @@ use PKP\plugins\GenericPlugin;
 use PKP\plugins\HookRegistry;
 
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\xml\PKPXMLParser;
 use PKP\xml\XMLNode;
 
 // TODO: Error handling. If a scheduled task encounters an error...?
@@ -46,7 +47,7 @@ class PKPAcronPlugin extends GenericPlugin
         $success = parent::register($category, $path, $mainContextId);
         HookRegistry::register('Installer::postInstall', [&$this, 'callbackPostInstall']);
 
-        if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+        if (Application::isUnderMaintenance()) {
             return $success;
         }
         if ($success) {
@@ -96,7 +97,7 @@ class PKPAcronPlugin extends GenericPlugin
      */
     public function getInstallSitePluginSettingsFile()
     {
-        return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/settings.xml';
+        return PKP_LIB_PATH . "/{$this->getPluginPath()}/settings.xml";
     }
 
     /**

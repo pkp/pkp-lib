@@ -20,10 +20,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Należy dostarczyć odpowiednio sformatowaną listę cytowanych prac. Proszę o rozdzielenie poszczególnych opisów bibliograficznych pustym wierszem."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Rejestracja adresu e-mail w CrossRef"
+msgstr "Rejestracja adresu e-mail w Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Proszę o wpisanie adresu e-mail do zarejestrowania się w serwisie CrossRef. Możesz zarejestrować się bezpłatnie poprzez stronę serwisu CrossRef."
+msgstr "Proszę o wpisanie adresu e-mail do zarejestrowania się w serwisie Crossref. Możesz zarejestrować się bezpłatnie poprzez stronę serwisu Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Klucz ISBNdb API"
@@ -1544,15 +1544,6 @@ msgstr "Zarekomenduj decyzję redaktorską dla tekstu."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Zapisane rekomendacje"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Wybierz pliki do przesłania do etapu: {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Wybierz pliki do przesłania do etapu {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Wcześniej: Powiadomienia autora"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr "Wybierz, które pliki recenzji udostępnić autorowi lub autorom"

@@ -80,10 +80,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Métadonnées additionnelles"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Courriel d'inscription CrossRef"
+msgstr "Courriel d'inscription Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Veuillez saisir un courriel d'inscription CrossRef valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de CrossRef."
+msgstr "Veuillez saisir un courriel d'inscription Crossref valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clé API ISBNdb"
@@ -1327,15 +1327,6 @@ msgstr "Recommander une décision éditoriale pour cette soumission."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Enregistrer les recommandations"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Poursuivre (faire parvenir les fichiers pour l'étape de {$stageName})"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape de {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Précédent  (avis à l'auteur-e)"
 
 msgid "submission.currentStage"
 msgstr "Étape actuelle"

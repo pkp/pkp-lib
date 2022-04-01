@@ -20,6 +20,7 @@ use APP\core\Application;
 
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 
@@ -80,7 +81,7 @@ class PKPSubmissionMetadataFormImplementation
         $metadataFields = Application::getMetadataFields();
         foreach ($metadataFields as $field) {
             $requiredLocaleKey = 'submission.submit.form.' . $field . 'Required';
-            if ($context->getData($field) === METADATA_REQUIRE) {
+            if ($context->getData($field) === Context::METADATA_REQUIRE) {
                 switch ($field) {
                     case in_array($field, $this->getLocaleFieldNames()):
                         $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorLocale($this->_parentForm, $field, 'required', $requiredLocaleKey, $submission->getCurrentPublication()->getData('locale')));

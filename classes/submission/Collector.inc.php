@@ -14,7 +14,8 @@
 namespace PKP\submission;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use APP\facades\Repo;
+use PKP\facades\Locale;
 use APP\submission\Collector as AppCollector;
 use Exception;
 use Illuminate\Database\Query\Builder;
@@ -25,6 +26,7 @@ use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
+use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 
 abstract class Collector implements CollectorInterface
@@ -53,6 +55,11 @@ abstract class Collector implements CollectorInterface
     public ?string $searchPhrase = null;
     public ?array $statuses = null;
     public ?array $stageIds = null;
+    public ?array $doiStatuses = null;
+    public ?bool $hasDois = null;
+
+    /** @var array Which DOI types should be considered when checking if a submission has DOIs set */
+    public array $enabledDoiTypes = [];
 
     /** @var array|int */
     public $assignedTo = null;
@@ -77,6 +84,33 @@ abstract class Collector implements CollectorInterface
     public function filterByCategoryIds(?array $categoryIds): AppCollector
     {
         $this->categoryIds = $categoryIds;
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions that contain any pub objects (e.g. publication and galley) with these statuses
+     *
+     * @param array|null $statuses One or more of DOI::STATUS_* constants
+     *
+     */
+    public function filterByDoiStatuses(?array $statuses): AppCollector
+    {
+        $this->doiStatuses = $statuses;
+
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions that do/don't have any DOIs assign to their sub objects
+     *
+     * @param bool|null $hasDois
+     * @param array|null $enabledDoiTypes TYPE_* constants to consider when checking submission has DOIs
+     * @return AppCollector
+     */
+    public function filterByHasDois(?bool $hasDois, ?array $enabledDoiTypes = null): AppCollector
+    {
+        $this->hasDois = $hasDois;
+        $this->enabledDoiTypes = $enabledDoiTypes === null ? [Repo::doi()::TYPE_PUBLICATION] : $enabledDoiTypes;
         return $this;
     }
 
@@ -194,6 +228,17 @@ abstract class Collector implements CollectorInterface
     }
 
     /**
+     * Add APP-specific filtering methods for submission sub objects DOI statuses
+     *
+     */
+    abstract protected function addDoiStatusFilterToQuery(Builder $q);
+
+    /**
+     * Add APP-specific filtering methods for checking if submission sub objects have DOIs assigned
+     */
+    abstract protected function addHasDoisFilterToQuery(Builder $q);
+
+    /**
      * @copydoc CollectorInterface::getQueryBuilder()
      */
     public function getQueryBuilder(): Builder
@@ -226,7 +271,7 @@ abstract class Collector implements CollectorInterface
                 $q->orderBy('po.seq', $this->orderDirection);
                 break;
             case self::ORDERBY_TITLE:
-                $locale = AppLocale::getLocale();
+                $locale = Locale::getLocale();
                 $q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
                     ->leftJoin('publication_settings as publication_tlps', function (JoinClause $join) use ($locale) {
                         $join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
@@ -298,9 +343,9 @@ abstract class Collector implements CollectorInterface
                 $q->select('s.submission_id')
                     ->from('submissions AS s')
                     ->leftJoin('stage_assignments as sa', function ($q) {
-                      $q->on('s.submission_id', '=', 'sa.submission_id')
-                          ->whereIn('sa.user_id', $this->assignedTo);
-                  });
+                        $q->on('s.submission_id', '=', 'sa.submission_id')
+                            ->whereIn('sa.user_id', $this->assignedTo);
+                    });
 
                 $q->leftJoin('review_assignments as ra', function ($table) {
                     $table->on('s.submission_id', '=', 'ra.submission_id');
@@ -316,7 +361,7 @@ abstract class Collector implements CollectorInterface
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')
                 ->where('stage_assignments.submission_id', '=', DB::raw('s.submission_id'))
-                ->whereIn('user_groups.role_id', [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
+                ->whereIn('user_groups.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
             $q->whereNotNull('s.date_submitted')
                 ->mergeBindings($sub)
@@ -363,6 +408,16 @@ abstract class Collector implements CollectorInterface
             $q->join('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
                 ->whereIn('pc.category_id', $this->categoryIds);
         }
+
+        // By any child pub object's DOI status
+        $q->when($this->doiStatuses !== null, function (Builder $q) {
+            $this->addDoiStatusFilterToQuery($q);
+        });
+
+        // By whether any child pub objects have DOIs assigned
+        $q->when($this->hasDois !== null, function (Builder $q) {
+            $this->addHasDoisFilterToQuery($q);
+        });
 
         // Limit and offset results for pagination
         if (isset($this->count)) {

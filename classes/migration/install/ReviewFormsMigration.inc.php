@@ -24,55 +24,65 @@ class ReviewFormsMigration extends \PKP\migration\Migration
     public function up(): void
     {
         // Review forms.
-        Schema::create('review_forms', function (Blueprint $table) {
-            $table->bigInteger('review_form_id')->autoIncrement();
-            $table->bigInteger('assoc_type');
-            $table->bigInteger('assoc_id');
-            $table->float('seq', 8, 2)->nullable();
-            $table->smallInteger('is_active')->nullable();
-        });
+        if (!Schema::hasTable('review_forms')) {
+            Schema::create('review_forms', function (Blueprint $table) {
+                $table->bigInteger('review_form_id')->autoIncrement();
+                $table->bigInteger('assoc_type');
+                $table->bigInteger('assoc_id');
+                $table->float('seq', 8, 2)->nullable();
+                $table->smallInteger('is_active')->nullable();
+            });
+        }
 
         // Review form settings
-        Schema::create('review_form_settings', function (Blueprint $table) {
-            $table->bigInteger('review_form_id');
-            $table->string('locale', 14)->default('');
-            $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6);
-            $table->index(['review_form_id'], 'review_form_settings_review_form_id');
-            $table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_pkey');
-        });
+        if (!Schema::hasTable('review_form_settings')) {
+            Schema::create('review_form_settings', function (Blueprint $table) {
+                $table->bigInteger('review_form_id');
+                $table->string('locale', 14)->default('');
+                $table->string('setting_name', 255);
+                $table->text('setting_value')->nullable();
+                $table->string('setting_type', 6);
+                $table->index(['review_form_id'], 'review_form_settings_review_form_id');
+                $table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_pkey');
+            });
+        }
 
         // Review form elements.
-        Schema::create('review_form_elements', function (Blueprint $table) {
-            $table->bigInteger('review_form_element_id')->autoIncrement();
-            $table->bigInteger('review_form_id');
-            $table->float('seq', 8, 2)->nullable();
-            $table->bigInteger('element_type')->nullable();
-            $table->smallInteger('required')->nullable();
-            $table->smallInteger('included')->nullable();
-            $table->index(['review_form_id'], 'review_form_elements_review_form_id');
-        });
+        if (!Schema::hasTable('review_form_elements')) {
+            Schema::create('review_form_elements', function (Blueprint $table) {
+                $table->bigInteger('review_form_element_id')->autoIncrement();
+                $table->bigInteger('review_form_id');
+                $table->float('seq', 8, 2)->nullable();
+                $table->bigInteger('element_type')->nullable();
+                $table->smallInteger('required')->nullable();
+                $table->smallInteger('included')->nullable();
+                $table->index(['review_form_id'], 'review_form_elements_review_form_id');
+            });
+        }
 
         // Review form element settings
-        Schema::create('review_form_element_settings', function (Blueprint $table) {
-            $table->bigInteger('review_form_element_id');
-            $table->string('locale', 14)->default('');
-            $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6);
-            $table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');
-            $table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_pkey');
-        });
+        if (!Schema::hasTable('review_form_element_settings')) {
+            Schema::create('review_form_element_settings', function (Blueprint $table) {
+                $table->bigInteger('review_form_element_id');
+                $table->string('locale', 14)->default('');
+                $table->string('setting_name', 255);
+                $table->text('setting_value')->nullable();
+                $table->string('setting_type', 6);
+                $table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');
+                $table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_pkey');
+            });
+        }
 
         // Review form responses.
-        Schema::create('review_form_responses', function (Blueprint $table) {
-            $table->bigInteger('review_form_element_id');
-            $table->bigInteger('review_id');
-            $table->string('response_type', 6)->nullable();
-            $table->text('response_value')->nullable();
-            $table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
-        });
+        if (!Schema::hasTable('review_form_responses')) {
+            Schema::create('review_form_responses', function (Blueprint $table) {
+                $table->bigInteger('review_form_element_id');
+                $table->bigInteger('review_id');
+                $table->string('response_type', 6)->nullable();
+                $table->text('response_value')->nullable();
+                $table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
+            });
+        }
     }
 
     /**

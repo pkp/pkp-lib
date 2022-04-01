@@ -17,10 +17,10 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\scheduledTask\ScheduledTask;
@@ -92,12 +92,12 @@ class ReviewReminder extends ScheduledTask
 
         // Format the review due date
         $reviewDueDate = strtotime($reviewAssignment->getDateDue());
-        $dateFormatShort = $context->getLocalizedDateFormatShort();
+        $dateFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort());
         if ($reviewDueDate === -1 || $reviewDueDate === false) {
             // Default to something human-readable if no date specified
             $reviewDueDate = '_____';
         } else {
-            $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
+            $reviewDueDate = date($dateFormatShort, $reviewDueDate);
         }
         // Format the review response due date
         $responseDueDate = strtotime($reviewAssignment->getDateResponseDue());
@@ -105,11 +105,8 @@ class ReviewReminder extends ScheduledTask
             // Default to something human-readable if no date specified
             $responseDueDate = '_____';
         } else {
-            $responseDueDate = strftime($dateFormatShort, $responseDueDate);
+            $responseDueDate = date($dateFormatShort, $responseDueDate);
         }
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
         $paramArray = [
             'recipientName' => $reviewer->getFullName(),
             'recipientUsername' => $reviewer->getUsername(),

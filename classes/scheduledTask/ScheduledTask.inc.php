@@ -18,7 +18,6 @@
 
 namespace PKP\scheduledTask;
 
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\core\Core;
 
@@ -49,14 +48,11 @@ abstract class ScheduledTask
         $this->_args = $args;
         $this->_processId = uniqid();
 
-        // Ensure common locale keys are available
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
-
         // Check the scheduled task execution log folder.
         $fileMgr = new PrivateFileManager();
 
-        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
-        $this->_executionLogFile = $scheduledTaskFilesPath . DIRECTORY_SEPARATOR . str_replace(' ', '', $this->getName()) .
+        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
+        $this->_executionLogFile = "$scheduledTaskFilesPath/" . str_replace(' ', '', $this->getName()) .
             '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
         if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
             $success = $fileMgr->mkdirtree($scheduledTaskFilesPath);

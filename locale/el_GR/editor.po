@@ -400,6 +400,9 @@ msgstr "Μέσος όρος ημερών για την ολοκλήρωση τη
 msgid "reviewer.list.neverAssigned"
 msgstr "Χωρίς καμία ανάθεση"
 
+msgid "reviewer.list.reassign"
+msgstr "Aνάθεση εκ νέου"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Η αξιολόγηση έχει ήδη ανατεθεί σε αυτόν τον Αξιολογητή."
 

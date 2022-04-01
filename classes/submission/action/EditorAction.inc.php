@@ -16,11 +16,9 @@
 namespace PKP\submission\action;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
-use APP\workflow\EditorDecisionActionsManager;
 
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
@@ -29,6 +27,7 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
 
@@ -55,74 +54,6 @@ class EditorAction
     //
     // Actions.
     //
-    /**
-     * Records an editor's submission decision.
-     *
-     * @param PKPRequest $request
-     * @param Submission $submission
-     * @param int $decision
-     * @param array $decisionLabels array(SUBMISSION_EDITOR_DECISION_... or SUBMISSION_EDITOR_RECOMMEND_... => editor.submission.decision....)
-     * @param ReviewRound $reviewRound optional Current review round that user is taking the decision, if any.
-     * @param int $stageId optional
-     * @param bool $recommendation optional
-     */
-    public function recordDecision($request, $submission, $decision, $decisionLabels, $reviewRound = null, $stageId = null, $recommendation = false)
-    {
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-
-        // Define the stage and round data.
-        if (!is_null($reviewRound)) {
-            $stageId = $reviewRound->getStageId();
-        } else {
-            if ($stageId == null) {
-                // We consider that the decision is being made for the current
-                // submission stage.
-                $stageId = $submission->getStageId();
-            }
-        }
-
-        $editorAssigned = $stageAssignmentDao->editorAssignedToStage(
-            $submission->getId(),
-            $stageId
-        );
-
-        // Sanity checks
-        if (!$editorAssigned || !isset($decisionLabels[$decision])) {
-            return false;
-        }
-
-        $user = $request->getUser();
-        $editorDecision = [
-            'editDecisionId' => null,
-            'editorId' => $user->getId(),
-            'decision' => $decision,
-            'dateDecided' => date(Core::getCurrentDate())
-        ];
-
-        $result = $editorDecision;
-        if (!HookRegistry::call('EditorAction::recordDecision', [&$submission, &$editorDecision, &$result, &$recommendation])) {
-            // Record the new decision
-            $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
-
-            // Set a new submission status if necessary
-            if ($decision == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE || $decision == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE) {
-                Repo::submission()->edit($submission, ['status' => Submission::STATUS_DECLINED]);
-                $submission = Repo::submission()->get($submission->getId());
-            } elseif ($submission->getStatus() == PKPSubmission::STATUS_DECLINED) {
-                Repo::submission()->edit($submission, ['status' => Submission::STATUS_QUEUED]);
-                $submission = Repo::submission()->get($submission->getId());
-            }
-
-            // Add log entry
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_EDITOR);
-            $eventType = $recommendation ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION;
-            $logKey = $recommendation ? 'log.editor.recommendation' : 'log.editor.decision';
-            SubmissionLog::logEvent($request, $submission, $eventType, $logKey, ['editorName' => $user->getFullName(), 'submissionId' => $submission->getId(), 'decision' => __($decisionLabels[$decision])]);
-        }
-        return $result;
-    }
-
 
     /**
      * Assigns a reviewer to a submission.
@@ -249,8 +180,8 @@ class EditorAction
                     [
                         'reviewAssignmentId' => $reviewAssignment->getId(),
                         'reviewerName' => $reviewer->getFullName(),
-                        'dueDate' => strftime(
-                            $context->getLocalizedDateFormatShort(),
+                        'dueDate' => date(
+                            PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                             strtotime($reviewAssignment->getDateDue())
                         ),
                         'submissionId' => $submission->getId(),
@@ -260,17 +191,6 @@ class EditorAction
                 );
             }
         }
-    }
-
-    /**
-     * Increment a submission's workflow stage.
-     *
-     * @param Submission $submission
-     * @param int $newStage One of the WORKFLOW_STAGE_* constants.
-     */
-    public function incrementWorkflowStage($submission, $newStage)
-    {
-        Repo::submission()->edit($submission, ['stageId' => $newStage]);
     }
 
     protected function createMail(

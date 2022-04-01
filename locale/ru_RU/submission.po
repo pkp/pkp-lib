@@ -98,10 +98,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Расширенные метаданные"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Адрес электронной почты, зарегистрированный в CrossRef"
+msgstr "Адрес электронной почты, зарегистрированный в Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в CrossRef. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте CrossRef."
+msgstr "Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в Crossref. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Ключ ISBNdb API"
@@ -1395,15 +1395,6 @@ msgstr "Рекомендовать решение редакции для это
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Записанные рекомендации"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Далее: Выбрать файлы для {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Выберите файлы: которые вы хотите отправить на этап «{$stageName}»."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Назад: Уведомление автора"
 
 msgid "submission.currentStage"
 msgstr "Текущий этап"

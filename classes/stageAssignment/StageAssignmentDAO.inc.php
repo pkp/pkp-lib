@@ -145,6 +145,40 @@ class StageAssignmentDAO extends \PKP\db\DAO
     }
 
     /**
+     * Get all assigned editors who can make a decision in a given stage
+     *
+     * @return array<int>
+     */
+    public function getDecidingEditorIds(int $submissionId, int $stageId): array
+    {
+        $decidingEditorIds = [];
+        $result = $this->getBySubmissionAndRoleId(
+            $submissionId,
+            Role::ROLE_ID_MANAGER,
+            $stageId
+        );
+        /** @var StageAssignment $stageAssignment */
+        while ($stageAssignment = $result->next()) {
+            if (!$stageAssignment->getRecommendOnly()) {
+                $decidingEditorIds[] = (int) $stageAssignment->getUserId();
+            }
+        }
+        $result = $this->getBySubmissionAndRoleId(
+            $submissionId,
+            Role::ROLE_ID_SUB_EDITOR,
+            $stageId
+        );
+        /** @var StageAssignment $stageAssignment */
+        while ($stageAssignment = $result->next()) {
+            if (!$stageAssignment->getRecommendOnly()) {
+                $decidingEditorIds[] = (int) $stageAssignment->getUserId();
+            }
+        }
+
+        return $decidingEditorIds;
+    }
+
+    /**
      * Retrieve all assignments by UserGroupId and ContextId
      *
      * @param int $userGroupId

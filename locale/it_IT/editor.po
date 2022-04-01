@@ -399,6 +399,9 @@ msgstr "Media dei giorni per completare una revisione"
 msgid "reviewer.list.neverAssigned"
 msgstr "Mai assegnate"
 
+msgid "reviewer.list.reassign"
+msgstr "Riassegna"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Questo revisore è già stato assegnato a rivedere questa proposta."
 

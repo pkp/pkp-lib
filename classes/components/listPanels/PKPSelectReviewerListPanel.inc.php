@@ -15,6 +15,7 @@
 namespace PKP\components\listPanels;
 
 use APP\facades\Repo;
+use Illuminate\Support\Enumerable;
 
 class PKPSelectReviewerListPanel extends ListPanel
 {
@@ -24,7 +25,7 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var int Number of items to show at one time */
     public $count = 30;
 
-    /** @var array List of user IDs already assigned as a reviewer to this submission */
+    /** @var array List of user IDs already assigned as a reviewer to this review round */
     public $currentlyAssigned = [];
 
     /** @var array Query parameters to pass if this list executes GET requests  */
@@ -38,6 +39,9 @@ class PKPSelectReviewerListPanel extends ListPanel
 
     /** @var array List of user IDs which may not be suitable for anonymous review because of existing access to author details */
     public $warnOnAssignment = [];
+
+    /** @var Enumerable List of users who completed a review in the last round */
+    public Enumerable $lastRoundReviewers;
 
     /**
      * @copydoc ListPanel::set()
@@ -110,6 +114,14 @@ class PKPSelectReviewerListPanel extends ListPanel
             ],
         ];
 
+        if (!empty($this->lastRoundReviewers)) {
+            $config['lastRoundReviewers'] = Repo::user()
+                ->getSchemaMap()
+                ->summarizeManyReviewers($this->lastRoundReviewers)
+                ->values()
+                ->toArray();
+        }
+
         if (!empty($this->getParams)) {
             $config['getParams'] = $this->getParams;
         }
@@ -118,6 +130,7 @@ class PKPSelectReviewerListPanel extends ListPanel
 
         $config['activeReviewsCountLabel'] = __('reviewer.list.activeReviews');
         $config['activeReviewsLabel'] = __('reviewer.list.activeReviewsDescription');
+        $config['assignedToLastRoundLabel'] = __('reviewer.list.assignedToLastRound');
         $config['averageCompletionLabel'] = __('reviewer.list.averageCompletion');
         $config['biographyLabel'] = __('reviewer.list.biography');
         $config['cancelledReviewsLabel'] = __('reviewer.list.cancelledReviews');
@@ -130,6 +143,8 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['emptyLabel'] = __('reviewer.list.empty');
         $config['gossipLabel'] = __('user.gossip');
         $config['neverAssignedLabel'] = __('reviewer.list.neverAssigned');
+        $config['reassignLabel'] = __('reviewer.list.reassign');
+        $config['reassignWithNameLabel'] = __('reviewer.list.reassign.withName');
         $config['reviewerRatingLabel'] = __('reviewer.list.reviewerRating');
         $config['reviewInterestsLabel'] = __('reviewer.list.reviewInterests');
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');

@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
@@ -39,19 +38,15 @@ use PKP\services\PKPSchemaService;
 use PKP\submissionFile\maps\Schema;
 use PKP\validation\ValidatorFactory;
 
-class Repository
+abstract class Repository
 {
-    /** @var DAO $dao */
-    public $dao;
+    public DAO $dao;
+    public string $schemaMap = Schema::class;
+    protected Request $request;
+    protected PKPSchemaService $schemaService;
 
-    /** @var string $schemaMap The name of the class to map this entity to its schemaa */
-    public $schemaMap = Schema::class;
-
-    /** @var Request $request */
-    protected $request;
-
-    /** @var PKPSchemaService $schemaService */
-    protected $schemaService;
+    /** @var array<int> $reviewFileStages The file stages that are part of a review workflow stage */
+    public array $reviewFileStages = [];
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
@@ -121,17 +116,8 @@ class Repository
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(
-        ?SubmissionFile $object,
-        array $props,
-        array $allowedLocales,
-        string $primaryLocale
-    ): array {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
-
+    public function validate(?SubmissionFile $object, array $props, array $allowedLocales, string $primaryLocale): array
+    {
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
@@ -496,6 +482,27 @@ class Repository
         );
     }
 
+    /**
+     * Copy a submission file to another stage
+     *
+     * @return int ID of the new submission file
+     */
+    public function copy(SubmissionFile $submissionFile, int $toFileStage, ?int $reviewRoundId = null): int
+    {
+        $newSubmissionFile = clone $submissionFile;
+        $newSubmissionFile->setData('fileStage', $toFileStage);
+        $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+        $newSubmissionFile->setData('assocType', null);
+        $newSubmissionFile->setData('assocId', null);
+
+        if ($reviewRoundId) {
+            $newSubmissionFile->setData('assocType', Application::ASSOC_TYPE_REVIEW_ROUND);
+            $newSubmissionFile->setData('assocId', $reviewRoundId);
+        }
+
+        return Repo::submissionFile()->add($newSubmissionFile);
+    }
+
     /** @copydoc DAO::delete() */
     public function delete(SubmissionFile $submissionFile): void
     {
@@ -619,28 +626,11 @@ class Repository
 
     /**
      * Get all valid file stages
+     *
+     * Valid file stages should be passed through
+     * the hook SubmissionFile::fileStages.
      */
-    public function getFileStages(): array
-    {
-        $stages = [
-            SubmissionFile::SUBMISSION_FILE_SUBMISSION,
-            SubmissionFile::SUBMISSION_FILE_NOTE,
-            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
-            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
-            SubmissionFile::SUBMISSION_FILE_FINAL,
-            SubmissionFile::SUBMISSION_FILE_COPYEDIT,
-            SubmissionFile::SUBMISSION_FILE_PROOF,
-            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
-            SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
-            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
-            SubmissionFile::SUBMISSION_FILE_DEPENDENT,
-            SubmissionFile::SUBMISSION_FILE_QUERY,
-        ];
-
-        HookRegistry::call('SubmissionFile::fileStages', [&$stages]);
-
-        return $stages;
-    }
+    abstract public function getFileStages(): array;
 
     /**
      * Get the path to a submission's file directory

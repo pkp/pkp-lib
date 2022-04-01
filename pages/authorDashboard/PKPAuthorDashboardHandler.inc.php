@@ -13,17 +13,16 @@
  * @brief Handle requests for the author dashboard.
  */
 
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use APP\workflow\EditorDecisionActionsManager;
 
 use Illuminate\Support\Enumerable;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
-
 use PKP\security\Role;
-
+use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
@@ -139,15 +138,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
     public function setupTemplate($request)
     {
         parent::setupTemplate($request);
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_GRID
-        );
 
         $templateMgr = TemplateManager::getManager($request);
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -159,15 +149,14 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), Role::ROLE_ID_AUTHOR)->toArray();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $contextGenres = $genreDao->getEnabledByContextId($submission->getData('contextId'))->toArray();
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
         $stageNotifications = [];
         foreach (array_keys($workflowStages) as $stageId) {
             $stageNotifications[$stageId] = false;
         }
-
-        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-        $stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
 
         // Add an upload revisions button when in the review stage
         // and the last decision is to request revisions
@@ -177,15 +166,20 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
             if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-                $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-                $editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
-                if (!empty($editorDecisions)) {
-                    $lastDecision = end($editorDecisions)['decision'];
+                $editorDecisions = Repo::decision()->getMany(
+                    Repo::decision()
+                        ->getCollector()
+                        ->filterBySubmissionIds([$submission->getId()])
+                        ->filterByStageIds([$submission->getData('stageId')])
+                        ->filterByReviewRoundIds([$lastReviewRound->getId()])
+                );
+                if (!$editorDecisions->isEmpty()) {
+                    $lastDecision = $editorDecisions->last();
                     $revisionDecisions = [
-                        EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS,
-                        EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT
+                        Decision::PENDING_REVISIONS,
+                        Decision::RESUBMIT
                     ];
-                    if (in_array($lastDecision, $revisionDecisions)) {
+                    if (in_array($lastDecision->getData('decision'), $revisionDecisions)) {
                         $actionArgs['submissionId'] = $submission->getId();
                         $actionArgs['stageId'] = $submission->getData('stageId');
                         $actionArgs['uploaderRoles'] = Role::ROLE_ID_AUTHOR;
@@ -205,11 +199,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
             }
         }
 
-        $supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
-        $localeNames = AppLocale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedSubmissionLocales);
+        $locales = $submissionContext->getSupportedSubmissionLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $latestPublication = $submission->getLatestPublication();
 
@@ -273,7 +264,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         });
 
         // Get full details of the working publication and the current publication
-        $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups);
+        $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups, $contextGenres);
         $workingPublicationProps = $mapper->map($submission->getLatestPublication());
         $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
             ? $workingPublicationProps

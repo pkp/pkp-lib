@@ -23,7 +23,7 @@ namespace PKP\config;
 use PKP\core\Registry;
 
 /** The path to the default configuration file */
-define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');
+define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . '/config.inc.php');
 
 class Config
 {

@@ -17,7 +17,6 @@
 namespace PKP\core;
 
 use PKP\config\Config;
-
 use Stringy\Stringy;
 
 class PKPString
@@ -31,18 +30,16 @@ class PKPString
     /**
      * Perform initialization required for the string wrapper library.
      */
-    public static function init()
+    public static function initialize()
     {
-        $clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));
-
-        // Check if mbstring is installed
-        if (self::hasMBString() && !defined('ENABLE_MBSTRING')) {
-            // mbstring routines are available
-            define('ENABLE_MBSTRING', true);
-
-            // Set up required ini settings for mbstring
-            // FIXME Do any other mbstring settings need to be set?
-            mb_internal_encoding($clientCharset);
+        static $isInitialized;
+        if (!$isInitialized) {
+            if (self::hasMBString()) {
+                // Set up default encoding
+                mb_internal_encoding('utf-8');
+                ini_set('default_charset', 'utf-8');
+            }
+            $isInitialized = true;
         }
     }
 
@@ -65,8 +62,7 @@ class PKPString
         if (ini_get('mbstring.func_overload') && defined('MB_OVERLOAD_STRING')) {
             $hasMBString = false;
         } else {
-            $hasMBString = (
-                extension_loaded('mbstring') &&
+            $hasMBString = extension_loaded('mbstring') &&
                 function_exists('mb_strlen') &&
                 function_exists('mb_strpos') &&
                 function_exists('mb_strrpos') &&
@@ -74,8 +70,7 @@ class PKPString
                 function_exists('mb_strtolower') &&
                 function_exists('mb_strtoupper') &&
                 function_exists('mb_substr_count') &&
-                function_exists('mb_send_mail')
-            );
+                function_exists('mb_send_mail');
         }
         return $hasMBString;
     }
@@ -195,11 +190,10 @@ class PKPString
      */
     public static function encode_mime_header($string)
     {
-        if (defined('ENABLE_MBSTRING')) {
-            return mb_encode_mimeheader($string, mb_internal_encoding(), 'B', MAIL_EOL);
-        } else {
-            return $string;
-        }
+        static::initialize();
+        return static::hasMBString()
+            ? mb_encode_mimeheader($string, mb_internal_encoding(), 'B', Core::isWindows() ? "\r\n" : "\n")
+            : $string;
     }
 
     //
@@ -381,14 +375,19 @@ class PKPString
             'html:text/xml' => 'text/html',
             'css:text/x-c' => 'text/css',
             'css:text/plain' => 'text/css',
+            'csv:text/plain' => 'text/csv',
+            'js:text/plain' => 'text/javascript',
             'xlsx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'xltx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
             'potx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.template',
             'ppsx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
             'pptx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
             'sldx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
+            'docm:application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'application/vnd.ms-word.document.macroEnabled.12',
             'docx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'dotx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+            'wma:video/x-ms-asf' => 'audio/x-ms-wma',
+            'wmv:video/x-ms-asf' => 'video/x-ms-wmv',
         ];
     }
 
@@ -405,7 +404,7 @@ class PKPString
         static $purifier;
         if (!isset($purifier)) {
             $config = \HTMLPurifier_Config::createDefault();
-            $config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
+            $config->set('Core.Encoding', 'utf-8');
             $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
             $config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
             $config->set('Cache.SerializerPath', 'cache');
@@ -505,18 +504,6 @@ class PKPString
     }
 
     /**
-     * Get a letter $steps places after 'A'
-     *
-     * @param int $steps
-     *
-     * @return string Letter
-     */
-    public static function enumerateAlphabetically($steps)
-    {
-        return chr(ord('A') + $steps);
-    }
-
-    /**
      * Create a new UUID (version 4)
      *
      * @return string
@@ -535,7 +522,50 @@ class PKPString
     }
 
     /**
-     * Matches each symbol of PHP strftime format string
+     * Get a mapping from strftime to DateTime::format formatting equivalents.
+     * Old format: https://www.php.net/manual/en/function.strftime.php
+     * New format: https://www.php.net/manual/en/datetime.format.php
+     *
+     * Introduced in 3.4.0; remove this function (and calls to it) after this is distributed
+     * in an LTS release.
+     */
+    public static function getStrftimeConversion(): array
+    {
+        return [
+            '%%' => '%', '%h' => 'M', '%d' => 'd', '%a' => 'D',
+            '%e' => 'j', '%A' => 'l', '%u' => 'N', '%w' => 'w',
+            '%U' => 'W', '%B' => 'F', '%m' => 'm', '%b' => 'M',
+            '%Y' => 'Y', '%y' => 'y', '%P' => 'a', '%p' => 'A',
+            '%l' => 'g', '%k' => 'G', '%I' => 'h', '%H' => 'H',
+            '%M' => 'i', '%S' => 's', '%Z' => 'T',
+        ];
+    }
+
+    /**
+     * Convert any strftime-based datetime formatting into DateTime::format equivalent.
+     * Passes through any strings that are already in the new format without modification.
+     * Old format: https://www.php.net/manual/en/function.strftime.php
+     * New format: https://www.php.net/manual/en/datetime.format.php
+     *
+     * Introduced in 3.4.0; remove this function (and calls to it) after this is distributed
+     * in an LTS release.
+     */
+    public static function convertStrftimeFormat(string $format): string
+    {
+        // Following the lead of Smarty's date_format modifier, check the
+        // format string for "%" characters. If found, attempt to convert.
+        // We don't expect date/time formats to contain other uses of %.
+        if (strstr($format, '%')) {
+            if (Config::getVar('debug', 'deprecation_warnings')) {
+                trigger_error('Deprecated use of strftime-based date format.');
+            }
+            $format = strtr($format, self::getStrftimeConversion());
+        }
+        return $format;
+    }
+
+    /**
+     * Matches each symbol of PHP date format string
      * to jQuery Datepicker widget date format.
      *
      * @param string $phpFormat
@@ -544,83 +574,11 @@ class PKPString
      */
     public static function dateformatPHP2JQueryDatepicker($phpFormat)
     {
-        $symbols = [
-            // Day
-            'a' => 'D',  // date() format 'D'
-            'A' => 'DD', // date() format 'DD'
-            'd' => 'dd', // date() format 'd'
-            'e' => 'd',  // date() format 'j'
-            'j' => 'oo', // date() format none
-            'u' => '',   // date() format 'N'
-            'w' => '',   // date() format 'w'
-
-            // Week
-            'U' => '',   // date() format none
-            'V' => '',   // date() format none
-            'W' => '',   // date() format 'W'
-
-            // Month
-            'b' => 'M',  // date() format 'M'
-            'h' => 'M',  // date() format 'M'
-            'B' => 'MM', // date() format 'F'
-            'm' => 'mm', // date() format 'm'
-
-            // Year
-            'C' => '',   // date() format none
-            'g' => 'y',  // date() format none
-            'G' => 'yy', // date() format 'o'
-            'y' => 'y',  // date() format 'y'
-            'Y' => 'yy', // date() format 'Y'
-
-            // Time
-            'H' => '',   // date() format 'H'
-            'k' => '',   // date() format none
-            'I' => '',   // date() format 'h'
-            'l' => '',   // date() format 'g'
-            'P' => '',   // date() format 'a'
-            'p' => '',   // date() format 'A'
-            'M' => '',   // date() format 'i'
-            'S' => '',   // date() format 's'
-            's' => '',   // date() format 'u'
-
-            // Timezone
-            'z' => '',   // date() format 'O'
-            'Z' => '',   // date() format 'T'
-
-            // Full Date/Time
-            'r' => '',   // date() format none
-            'R' => '',   // date() format none
-            'X' => '',   // date() format none
-            'D' => '',   // date() format none
-            'F' => '',   // date() format none
-            'x' => '',   // date() format none
-            'c' => '',   // date() format none
-
-            // Other
-            '%' => ''
-        ];
-
-        $datepickerFormat = '';
-        $escaping = false;
-
-        for ($i = 0; $i < strlen($phpFormat); $i++) {
-            $char = $phpFormat[$i];
-            if ($char === '\\') {
-                $i++;
-                $datepickerFormat .= $escaping ? $phpFormat[$i] : '\'' . $phpFormat[$i];
-
-                $escaping = true;
-            } else {
-                if ($escaping) {
-                    $datepickerFormat .= "'";
-                    $escaping = false;
-                }
-
-                $datepickerFormat .= $symbols[$char] ?? $char;
-            }
-        }
-
-        return $datepickerFormat;
+        return str_replace(
+            ['d',  'j', 'l',  'm',  'n', 'F',  'Y'],
+            ['dd', 'd', 'DD', 'mm', 'm', 'MM', 'yy'],
+            $phpFormat
+        );
     }
 }
 

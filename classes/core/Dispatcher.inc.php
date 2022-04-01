@@ -16,7 +16,6 @@
 namespace PKP\core;
 
 use APP\core\Services;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\plugins\HookRegistry;
 
@@ -133,8 +132,6 @@ class Dispatcher
         if (is_null($router)) {
             fatalError('None of the configured routers supports this request.');
         }
-
-        AppLocale::initialize($request);
 
         // Can we serve a cached response?
         if ($router->isCacheable($request)) {
@@ -259,7 +256,7 @@ class Dispatcher
             return false;
         }
 
-        header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
+        header('Content-Type: text/html; charset=utf-8');
 
         echo $contents;
         return true;

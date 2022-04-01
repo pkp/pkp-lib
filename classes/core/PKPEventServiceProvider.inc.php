@@ -16,10 +16,13 @@
 namespace PKP\core;
 
 use Illuminate\Events\EventServiceProvider;
+
 use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
+
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
+
 use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider
@@ -35,15 +38,6 @@ class PKPEventServiceProvider extends EventServiceProvider
      * @brief to load subscriber classes, currently empty
      */
     protected $subscribe = [];
-
-    /**
-     * @return void;
-     * @brief boot the service after registration
-     */
-    public function register()
-    {
-        parent::register();
-    }
 
     /**
      * Get the discovered events and listeners for the application

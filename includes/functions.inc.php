@@ -23,8 +23,16 @@
 if (!function_exists('import')) {
     function import($class)
     {
-        $filePath = str_replace('.', '/', $class) . '.inc.php';
-        require_once BASE_SYS_DIR . '/' . $filePath;
+        $filePathPart = BASE_SYS_DIR . '/' . str_replace('.', '/', $class);
+        $filePath = $filePathPart . '.php';
+        if (file_exists($filePath)) {
+            // Load .php suffix
+            require_once($filePath);
+        } else {
+            // Fallback: Try .inc.php suffix
+            // This behaviour is DEPRECATED as of 3.4.0.
+            require_once($filePathPart . '.inc.php');
+        }
     }
 }
 
@@ -359,24 +367,9 @@ function customAutoload($rootPath, $prefix, $class)
 }
 
 /**
- * Wrapper around PKPLocale::translate().
- *
- * Enables us to work with translated strings everywhere without
- * introducing a lot of duplicate code and without getting
- * blisters on our fingers.
- *
- * This is similar to WordPress' solution for translation, see
- * <http://codex.wordpress.org/Translating_WordPress>.
- *
- * @see PKPLocale::translate()
- *
- * @param string $key
- * @param array $params named substitution parameters
- * @param string $locale the locale to use
- *
- * @return string
+ * Translates a pluralized locale key
  */
-function __($key, $params = [], $locale = null, $missingKeyHandler = ['\PKP\i18n\PKPLocale', 'addOctothorpes'])
+function __p(string $key, int $number, array $replace = [], ?string $locale = null): string
 {
-    return \APP\i18n\AppLocale::translate($key, $params, $locale, $missingKeyHandler);
+    return trans_choice($key, $number, $replace, $locale);
 }

@@ -211,6 +211,9 @@ msgstr ""
 "forfatters identitet. Blind fagfellevurdering kan dermed ikke garanteres. "
 "Vil du låse opp denne fagfellen likevel?"
 
+msgid "reviewer.list.reassign"
+msgstr "Oppnevn på nytt"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Denne fagfellen er allerede oppnevnt til å vurdere dette bidraget."
 

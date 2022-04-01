@@ -205,7 +205,7 @@ abstract class PKPSubmissionHandler extends Handler
                 // Provide entered tagit fields values
                 $tagitKeywords = $submitForm->getData('keywords');
                 if (is_array($tagitKeywords)) {
-                    $tagitFieldNames = $submitForm->_metadataFormImplem->getTagitFieldNames();
+                    $tagitFieldNames = $submitForm->metadataForm->getTagitFieldNames();
                     $locales = array_keys($submitForm->supportedLocales);
                     $formTagitData = [];
                     foreach ($tagitFieldNames as $tagitFieldName) {
@@ -231,7 +231,6 @@ abstract class PKPSubmissionHandler extends Handler
     public function setupTemplate($request)
     {
         parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_MANAGER);
         // Get steps information.
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('steps', $this->getStepsNumberAndLocaleKeys());

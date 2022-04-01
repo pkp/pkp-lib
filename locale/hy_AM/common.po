@@ -1,7 +1,8 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-08 02:57+0000\n"
-"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -33,7 +34,7 @@ msgid "common.currentStyleSheet"
 msgstr "Գործող դիզայն"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Հրապարակային գիտական լեզու"
+msgstr "Հանրային գիտելիքների նախագիծ"
 
 msgid "common.cancel"
 msgstr "Չեղյալ"
@@ -92,7 +93,7 @@ msgstr ""
 "չեղարկվել:"
 
 msgid "common.grid"
-msgstr "Grid"
+msgstr "Ցանց"
 
 msgid "common.list"
 msgstr "Ցուցակ"
@@ -125,10 +126,10 @@ msgid "announcement.posted"
 msgstr "Հրապարակաված է"
 
 msgid "announcement.noneExist"
-msgstr "Հայտարարություն չի հրապարակվել"
+msgstr "Հայտարարություն չի հրապարակվել:"
 
 msgid "announcement.moreAnnouncements"
-msgstr "Ավելի շատ հայտարարություններ"
+msgstr "Ավելի շատ հայտարարություններ:"
 
 msgid "announcement.announcementsHome"
 msgstr "Հայտարարություններ"
@@ -200,10 +201,10 @@ msgid "common.fileName"
 msgstr "Ֆայլի անվանում"
 
 msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgstr "{$genre}, {$originalFilename}-"
 
 msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
+msgstr "{$username}, {$originalFilename}-"
 
 msgid "common.file"
 msgstr "Ֆայլ"
@@ -227,7 +228,7 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Տեղի է ունեցել անհայտ տվյալների բազայի կապի խնդիր:"
 
 msgid "common.error.databaseError"
-msgstr "Տվյալների բազայի հետ կապված խնդիր է տեղի ունեցել:"
+msgstr "Տվյալների բազայի հետ կապված խնդիր է տեղի ունեցել"
 
 msgid "common.enabled"
 msgstr "Միացված է"
@@ -254,7 +255,7 @@ msgid "common.disable"
 msgstr "Անջատել"
 
 msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixels"
+msgstr "{$width}&times;{$height} pixels-"
 
 msgid "common.description"
 msgstr "Նկարագրություն"
@@ -329,7 +330,7 @@ msgid "common.confirm"
 msgstr "Հաստատել"
 
 msgid "common.completed.date"
-msgstr "{$dateCompleted} - կատարված է:"
+msgstr "{$dateCompleted} - կատարված է"
 
 msgid "common.completed"
 msgstr "Կատարված է"
@@ -396,7 +397,7 @@ msgid "common.altTextInstructions"
 msgstr ""
 "Նկարագրեք այս պատկերը այցելուների համար, որոնք կայքը դիտում են միայն "
 "տեքստային դիտարկչում կամ օժանդակ սարքերով: Օրինակ. «Մեր խմբագիրը PKP "
-"համաժողովում ելույթ ունենալիս»:"
+"համաժողովում ելույթ ունենալիս»"
 
 msgid "common.altText"
 msgstr "Այլընտրանքային տեքստ"
@@ -463,7 +464,7 @@ msgid "common.noComments"
 msgstr "Մեկնաբանություն չկա"
 
 msgid "common.noItemsFound"
-msgstr "Ոչինչ չի գտնվել"
+msgstr "Ոչինչ չի գտնվել:"
 
 msgid "common.no"
 msgstr "Ոչ"
@@ -568,7 +569,7 @@ msgid "common.true"
 msgstr "Ճիշտ"
 
 msgid "common.toWithValue"
-msgstr "To: {$value}"
+msgstr "To: {$value}-"
 
 msgid "common.top"
 msgstr "Գագաթ"
@@ -610,7 +611,7 @@ msgid "common.selectNone"
 msgstr "Ոչ մեկը չընտրել"
 
 msgid "common.selectedPrefix"
-msgstr "Ընտրված է"
+msgstr "Ընտրված է:"
 
 msgid "common.selectAll"
 msgstr "Ընտրել բոլորը"
@@ -694,7 +695,7 @@ msgid "common.re"
 msgstr "Հտն:"
 
 msgid "common.range"
-msgstr "{$min}-{$max}"
+msgstr "{$min}-{$max}-"
 
 msgid "common.queue.long.active"
 msgstr "Ամբողջապես ակտիվ"
@@ -724,7 +725,7 @@ msgid "common.plugin"
 msgstr "Պլագին"
 
 msgid "common.percentage"
-msgstr "{$percentage}%"
+msgstr "{$percentage}%-"
 
 msgid "common.pageNumber"
 msgstr "Էջ համար {$pageNumber}"
@@ -742,7 +743,7 @@ msgid "common.pagination.label"
 msgstr "Տեսնել լրացուցիչ էջեր"
 
 msgid "common.pagination"
-msgstr "{$start}-{$end} of {$total}"
+msgstr "{$start}-{$end} of {$total}-"
 
 msgid "common.override"
 msgstr "Չեղարկել"
@@ -777,7 +778,7 @@ msgid "common.discipline"
 msgstr "Կարգ"
 
 msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI-"
 
 msgid "common.dateCompleted"
 msgstr "ժամկետը լրացել է"
@@ -816,7 +817,7 @@ msgid "navigation.breadcrumbSeparator"
 msgstr "/"
 
 msgid "navigation.breadcrumbLabel"
-msgstr "Դուք այստեղ եք."
+msgstr "Դուք այստեղ եք:"
 
 msgid "navigation.archives"
 msgstr "Արխիվներ"
@@ -834,7 +835,7 @@ msgid "locale.primary"
 msgstr "Հիմնական լեզու"
 
 msgid "stageParticipants.noOptionsToHandle"
-msgstr "Այս մասնակցի համար փոփոխություն կատարել հնարավոր չէ:"
+msgstr "Այս մասնակցի համար փոփոխություն կատարել հնարավոր չէ"
 
 msgid "stageParticipants.selectedUser"
 msgstr "Մասնակից"
@@ -878,7 +879,7 @@ msgid "informationCenter.currentHistory"
 msgstr "Ընթացիկ նախադիտում"
 
 msgid "informationCenter.deleteConfirm"
-msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել այս նշումը:"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել այս նշումը?"
 
 msgid "informationCenter.noNotes"
 msgstr "Չկան նշումներ ցուցադրելու համար:"
@@ -944,7 +945,7 @@ msgid "form.multilingualProgress"
 msgstr "{$count}/{$total} լրացված լեզուներ"
 
 msgid "form.multilingualLabel"
-msgstr "{$label} in {$localeName}"
+msgstr "{$label} in {$localeName}-"
 
 msgid "form.invalidImage"
 msgstr "Անվավեր նկար է բեռնվել: Ընդունելի ձևաչափերն են  .png, .gif, or .jpg:"
@@ -1022,7 +1023,7 @@ msgid "form.dropzone.dictRemoveFile"
 msgstr "Հեռացնել ֆայլը"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Դուք վստա՞հ եք, որ ցանկանում եք չեղարկել այս ներբեռնումը:"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք չեղարկել այս ներբեռնումը?"
 
 msgid "form.dropzone.dictUploadCanceled"
 msgstr "Ներբեռնումը չեղարկվեց"
@@ -1044,7 +1045,7 @@ msgstr ""
 "մեծ են, քան  {{maxFilesize}} ՄԲ-ը, չեն կարող ներբեռնվել:"
 
 msgid "form.dropzone.dictDefaultMessage"
-msgstr "Ներբեռնելու համար Ֆայլերը տեղափոխեք այստեղ:"
+msgstr "Ներբեռնելու համար Ֆայլերը տեղափոխեք այստեղ"
 
 msgid "form.disallowedProp"
 msgstr "Հասանելի են միայն հետևյալ հնարավորություները:"
@@ -1058,7 +1059,7 @@ msgstr "Սա MIME ֆորմատի  բազմամաս նամակ է:"
 msgid "form.dataHasChanged"
 msgstr ""
 "Այս ձևաչափի տվյալները փոփոխվել են: Դուք ցանկանու՞մ եք շարունակել առանց "
-"պահպանելու:"
+"պահպանելու?"
 
 msgid "form.emailRequired"
 msgstr "Պահանջվում է Էլ. հասցե:"
@@ -1067,7 +1068,7 @@ msgid "form.confirmSubmit.title"
 msgstr "Հաստատել"
 
 msgid "form.confirmSubmit"
-msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ներկայացնել այս ձևաչափը:"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ներկայացնել այս ձևաչափը?"
 
 msgid "email.bodyRequired"
 msgstr "Խնդրում ենք տրամադրել էլ. նամակի տեքստը:"
@@ -1120,7 +1121,7 @@ msgid "email.cc"
 msgstr "CC"
 
 msgid "email.bccSender"
-msgstr "Այս նամակի կրկնօրինակը ուղարկել ({$address}) հասցեին:"
+msgstr "Այս նամակի կրկնօրինակը ուղարկել ({$address}) հասցեին"
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1147,13 +1148,13 @@ msgid "editor.submissionReview.uploadFile"
 msgstr "Ներբեռնել գրախոսման ֆայլը"
 
 msgid "debug.notes"
-msgstr "Նշումներ."
+msgstr "Նշումներ:"
 
 msgid "debug.notes.localeLoad"
 msgstr "XML-ից բեռնված լեզուների ֆայլ \"{$localeFile}\""
 
 msgid "debug.notes.localeListLoad"
-msgstr "Բեռնված լեզուների ցանկ \"{$localeList}\"  XML-ից:"
+msgstr "Բեռնված լեզուների ցանկ \"{$localeList}\"  XML-ից"
 
 msgid "debug.memoryUsage"
 msgstr "Օգտագործված հիշողություն"
@@ -1207,21 +1208,21 @@ msgid "common.upload.changeFile"
 msgstr "Փոխել ֆայլը"
 
 msgid "common.upload.thumbnailPreview"
-msgstr "Ընտրված նկարի նախադիտում"
+msgstr "Ընտրված նկարի նախադիտում:"
 
 msgid "common.ccLicense.rt"
 msgstr ""
 "\n"
 "\t<div class=\"rtBlock\">\n"
-"\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"<br />\n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
 "target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
-"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
-"\t\t<br />\n"
-"\t\tThis work is licensed under a <a rel=\"license\" href=\""
+"0\" src =\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"<br />\n"
+"Այս աշխատանքը լիցենզավորված է <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
-"Commons Attribution 3.0 License</a>.\n"
-"\t</div>\n"
+"Commons Attribution 3.0 լիցենզիայի ներքո</a>:\n"
+"</div>\n"
 "\t"
 
 msgid "stageParticipants.notify.chooseMessage"
@@ -1295,21 +1296,21 @@ msgid "common.selectWithName"
 msgstr "Ընտրել  {$name}"
 
 msgid "common.editItem"
-msgstr "Խմբագրել {$name}ը։"
+msgstr "Խմբագրել {$name}ը"
 
 msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
 "//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
-"\t\t</a>\n"
-"\t\t<br />\n"
-"\t\tThis work is licensed under a <a rel=\"license\" target=\"_blank\" href="
-"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
-"Attribution 3.0  License</a>.\n"
+"</a>\n"
+"<br />\n"
+"Այս աշխատանքը լիցենզավորված է <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 լիցենզիայի ներքո</a>:\n"
 "\t"
 
 msgid "common.addSelf"
@@ -1349,19 +1350,19 @@ msgid "notification.type.metadataModified"
 msgstr "\"{$title}'ի\" մետա տվյալները փոփոխվել են։"
 
 msgid "notification.type.pendingRevisions.title"
-msgstr "Նախադիտումները/Դիտողությունները կցված են"
+msgstr "Նախադիտումները/Դիտողությունները կցված են:"
 
 msgid "notification.type.allReviewsIn"
 msgstr "Բոլոր գրախոսողները պատասխանել են և որոշումը  {$stage} փուլում է։"
 
 msgid "notification.type.auditorRequest"
-msgstr "Ստուգել հարցումը  \"{$file}\"ի համար։"
+msgstr "Ստուգել հարցումը  \"{$file}\"ի համար"
 
 msgid "notification.type.reviewAssignment"
 msgstr "Գրախոսումը սպասվում է։"
 
 msgid "notification.type.newAnnouncement"
-msgstr "Նոր հայտարարություն"
+msgstr "Նոր հայտարարություն:"
 
 msgid "notification.editStageParticipant"
 msgstr "Փուլի անունը փոխվել է։"
@@ -1442,7 +1443,7 @@ msgid "search.searchResults.foundPlural"
 msgstr "Գտնվել է {$count} արդյունք։"
 
 msgid "search.searchResults.foundSingle"
-msgstr "Գտնվել է մեկ արդյունք"
+msgstr "Գտնվել է մեկ արդյունք:"
 
 msgid "search.searchResults"
 msgstr "Որոնման արդյունքներ"
@@ -1617,7 +1618,7 @@ msgid "notification.editedAuthor"
 msgstr "Հեղինակի հաշիվը խմբագրված է։"
 
 msgid "notification.addedAuthor"
-msgstr "Հեղինակը ավելացված է"
+msgstr "Հեղինակը ավելացված է."
 
 msgid "notification.removedAnnouncement"
 msgstr "Հայտարարությունը հեռացված է։"
@@ -1749,10 +1750,10 @@ msgid "validator.accepted"
 msgstr "Խնդրում ենք ընդունեք այս բաժինը։"
 
 msgid "list.viewLess"
-msgstr "Թաքցնել {$name} մասին ընդլայնված տվյալները։"
+msgstr "Թաքցնել {$name} մասին ընդլայնված տվյալները"
 
 msgid "list.viewMore"
-msgstr "{$name} համար ցուցադրել լրացուցիչ տվյալներ։"
+msgstr "Ցուցադրել լրացուցիչ տվյալներ {$name}"
 
 msgid "notification.unsubscribeNotifications"
 msgstr "Ապաբաժանորդագրվել"
@@ -1782,31 +1783,31 @@ msgstr ""
 "{$contextName}."
 
 msgid "notification.unsubscribeNotifications.error"
-msgstr "Մեզ չհաջողվեց Ձեզ ապաբաժանորդագրել։"
+msgstr "Մեզ չհաջողվեց Ձեզ ապաբաժանորդագրել"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Դուք ապաբաժանորդագրվել եք"
 
 msgid "notification.removedNavigationMenu"
-msgstr "Նավիգացիոն մենյուն հաջողությամբ հեռացվել է։"
+msgstr "Նավիգացիոն մենյուն հաջողությամբ հեռացվել է"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Նավիգացիոն մենյուն հաջողությամբ թարմացվել է։"
+msgstr "Նավիգացիոն մենյուն հաջողությամբ թարմացվել է"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Նավիգացիոն մենյուն հաջողությամբ ավելացվել է։"
+msgstr "Նավիգացիոն մենյուն հաջողությամբ ավելացվել է"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Նավիգացիոն մենյուի բաժինը հաջողությամբ ավելացվել է։"
+msgstr "Նավիգացիոն մենյուի բաժինը հաջողությամբ ավելացվել է"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ ջնջվել են։"
+msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ ջնջվել են"
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ թարմացվել են։"
+msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ թարմացվել են"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}-:"
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
@@ -1814,7 +1815,7 @@ msgstr ""
 "հաշվետվության միջոցով։"
 
 msgid "notification.type.editorialReport"
-msgstr "Վիճակագրության հաշվետվություն"
+msgstr "Վիճակագրության հաշվետվություն:"
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Փուլ {$round} Ստատուս"
@@ -1823,7 +1824,7 @@ msgid "notification.type.queryAdded"
 msgstr "Քննարկումը ավելացված է։"
 
 msgid "notification.type.queryActivity"
-msgstr "Քննարկում"
+msgstr "Քննարկում:"
 
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Գաղտնիության կարգաբերումներ"
@@ -1919,7 +1920,7 @@ msgstr "XML Node-ը չի ներմուծվել"
 msgid "filter.input.error.notSupported"
 msgstr ""
 "Filter ({$displayName}) supports input {$inputTypeName} - {$typeofInput} "
-"given"
+"given-"
 
 msgid "validator.url"
 msgstr "URL հղումը վավեր չէ։"
@@ -1967,10 +1968,10 @@ msgid "validator.required_if"
 msgstr "Այս դաշտը պարտադիր է, երբ  {$other} = {$value}։"
 
 msgid "validator.required"
-msgstr "Պարտադիր դաշտ"
+msgstr "Պարտադիր դաշտ:"
 
 msgid "validator.regex"
-msgstr "Ոչ ճիշտ ֆորմատավորված"
+msgstr "Ոչ ճիշտ ֆորմատավորված:"
 
 msgid "validator.present"
 msgstr "{$attribute}ի դաշտը պարտադիր է։"
@@ -2047,10 +2048,10 @@ msgid "validator.email"
 msgstr "Էլ․ փոստի հասցեն վավեր չէ։"
 
 msgid "validator.digits_between"
-msgstr "Թվանշանների սահմանը պետք է լինի՝   {$min}- {$max}"
+msgstr "Թվանշանների սահմանը պետք է լինի՝   {$min}- {$max}:"
 
 msgid "validator.digits"
-msgstr "Երկարությունը պետք է լինի - {$digits}"
+msgstr "Երկարությունը պետք է լինի - {$digits}:"
 
 msgid "validator.different"
 msgstr "{$attribute}ը և {$other}ը պետք է լինեն տարբեր։"
@@ -2086,12 +2087,11 @@ msgid "validator.before"
 msgstr "Այս ամսաթիվը  պետք է լինի  {$date} ամսաթվից առաջ։"
 
 msgid "notification.type.pendingRevisions"
-msgstr "Revisions to consider in {$stage}."
+msgstr "Revisions to consider in {$stage}:"
 
 msgid "filter.error.missingRequirements"
 msgstr ""
-"Trying to run a transformation that is not supported in your installation "
-"environment."
+"Փորձում եք գործարկել փոխակերպում, որը չի աջակցվում ձեր տեղադրման միջավայրում:"
 
 msgid "validator.localeExpected"
 msgstr ""
@@ -2099,10 +2099,19 @@ msgstr ""
 "յուրաքանչյուր աջակցվող լեզվի համար։"
 
 msgid "notification.type.awaitingCopyedits"
-msgstr "Սպասվող խմբագրում"
+msgstr "Սպասվող խմբագրում:"
 
 msgid "notification.type.assignCopyeditors"
 msgstr "Նշանակել խմբագիր՝ կիրառելով «Նշանակել» ֆունկցիան Մասնակիցների ցուցակից։"
 
 msgid "validator.country"
 msgstr "Այս երկիրը վավեր չէ։"
+
+msgid "validation.invalidOption"
+msgstr "Սա ընդունելի տարբերակ չէ:"
+
+msgid "validator.alpha_dash_period"
+msgstr "Սա կարող է պարունակել միայն տառեր, թվեր, գծիկներ, ընդգծումներ և կետեր:"
+
+msgid "common.insert"
+msgstr "Մուտքագրել"

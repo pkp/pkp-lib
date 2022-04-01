@@ -413,17 +413,19 @@ class Validation
     }
 
     /**
-     * Check if the user must change their password in order to log in.
+     * Check if the user is logged in.
      *
      * @return bool
      */
     public static function isLoggedIn()
     {
+        if (!SessionManager::hasSession()) {
+            return false;
+        }
+
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
-
-        $userId = $session->getUserId();
-        return isset($userId) && !empty($userId);
+        return !!$session->getUserId();
     }
 
     /**
@@ -433,11 +435,13 @@ class Validation
      */
     public static function isLoggedInAs()
     {
+        if (!SessionManager::hasSession()) {
+            return false;
+        }
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
         $signedInAs = $session->getSessionVar('signedInAs');
-
-        return isset($signedInAs) && !empty($signedInAs);
+        return !!$signedInAs;
     }
 
     /**

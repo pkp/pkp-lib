@@ -14,7 +14,10 @@
  *
  */
 
+use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -23,6 +26,8 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\submission\GenreDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionFileHandler extends APIHandler
@@ -58,6 +63,11 @@ class PKPSubmissionFileHandler extends APIHandler
                     'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
                     'handler' => [$this, 'edit'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}/copy',
+                    'handler' => [$this, 'copy'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
             ],
             'DELETE' => [
@@ -210,7 +220,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $items = Repo::submissionFile()
             ->getSchemaMap()
-            ->summarizeMany($files);
+            ->summarizeMany($files, $this->getFileGenres());
 
         $data = [
             'itemsMax' => $files->count(),
@@ -235,7 +245,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $data = Repo::submissionFile()
             ->getSchemaMap()
-            ->map($submissionFile);
+            ->map($submissionFile, $this->getFileGenres());
 
         return $response->withJson($data, 200);
     }
@@ -353,7 +363,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $data = Repo::submissionFile()
             ->getSchemaMap()
-            ->map($submissionFile);
+            ->map($submissionFile, $this->getFileGenres());
 
         return $response->withJson($data, 200);
     }
@@ -433,7 +443,76 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $data = Repo::submissionFile()
             ->getSchemaMap()
-            ->map($submissionFile);
+            ->map($submissionFile, $this->getFileGenres());
+
+        return $response->withJson($data, 200);
+    }
+
+    /**
+     * Copy a submission file to another file stage
+     *
+     * @param \Slim\Http\Request $slimRequest
+     * @param APIResponse $response
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function copy($slimRequest, $response, $args)
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+
+        $params = $slimRequest->getParsedBody();
+        if (empty($params['toFileStage'])) {
+            return $response->withStatus(400)->withJsonError('api.submissionFiles.400.noFileStageId');
+        }
+
+        $toFileStage = (int) $params['toFileStage'];
+
+        if (!in_array($toFileStage, Repo::submissionFile()->getFileStages())) {
+            return $response->withStatus(400)->withJsonError('api.submissionFiles.400.invalidFileStage');
+        }
+
+        // Expect a review round id when copying to a review stage, or use the latest
+        // round in that stage by default
+        $reviewRoundId = null;
+        if (in_array($toFileStage, Repo::submissionFile()->reviewFileStages)) {
+            if (!empty($params['reviewRoundId'])) {
+                $reviewRoundId = (int) $params['reviewRoundId'];
+                /** @var ReviewRoundDAO $reviewRoundDao */
+                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+                $reviewRound = $reviewRoundDao->getById($reviewRoundId);
+                if (!$reviewRound || $reviewRound->getSubmissionId() != $submission->getId()) {
+                    return $response->withStatus(400)->withJsonError('api.submissionFiles.400.reviewRoundSubmissionNotMatch');
+                }
+            } else {
+                // Use the latest review round of the appropriate stage
+                $stageId = in_array($toFileStage, SubmissionFile::INTERNAL_REVIEW_STAGES)
+                    ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
+                    : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+                /** @var ReviewRoundDAO $reviewRoundDao */
+                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+                if ($reviewRound) {
+                    $reviewRoundId = $reviewRound->getId();
+                }
+            }
+            if ($reviewRoundId === null) {
+                return $response->withStatus(400)->withJsonError('api.submissionFiles.400.reviewRoundIdRequired');
+            }
+        }
+
+        $newSubmissionFileId = Repo::submissionFile()->copy(
+            $submissionFile,
+            $toFileStage,
+            $reviewRoundId
+        );
+
+        $newSubmissionFile = Repo::submissionFile()->get($newSubmissionFileId);
+
+        $data = Repo::submissionFile()
+            ->getSchemaMap()
+            ->map($newSubmissionFile, $this->getFileGenres());
 
         return $response->withJson($data, 200);
     }
@@ -453,11 +532,23 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $data = Repo::submissionFile()
             ->getSchemaMap()
-            ->map($submissionFile);
+            ->map($submissionFile, $this->getFileGenres());
 
         Repo::submissionFile()->delete($submissionFile);
 
         return $response->withJson($data, 200);
+    }
+
+    /**
+     * Helper method to get the file genres for the current context
+     *
+     * @return Genre[]
+     */
+    protected function getFileGenres(): array
+    {
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toArray();
     }
 
     /**

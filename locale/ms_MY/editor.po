@@ -410,6 +410,9 @@ msgstr ""
 "mereka melihat identiti pengarang. Ulasan rakan sejawat tanpa nama tidak "
 "boleh dijamin. Adakah anda mahu membuka kunci pengulas ini juga?"
 
+msgid "reviewer.list.reassign"
+msgstr "Tetapkan semula"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Pengulas ini telah ditugaskan untuk mengulas penyerahan ini."
 

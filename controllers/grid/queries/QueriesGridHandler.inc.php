@@ -15,19 +15,20 @@
 
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
-use PKP\i18n\PKPLocale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\mail\FormEmailData;
+use PKP\mail\mailables\MailDiscussionMessage;
 use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
-use PKP\observers\events\DiscussionMessageSent;
 use PKP\security\authorization\QueryAccessPolicy;
 
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
@@ -173,14 +174,6 @@ class QueriesGridHandler extends GridHandler
                 break;
             default: assert(false);
         }
-
-        // Load pkp-lib translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_SUBMISSION
-        );
 
         // Columns
         import('lib.pkp.controllers.grid.queries.QueryTitleGridColumn');
@@ -633,7 +626,6 @@ class QueriesGridHandler extends GridHandler
             }
 
             // Send notifications
-            PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
             $currentUser = $request->getUser();
             $newParticipantIds = $queryForm->getData('users');
             $added = array_diff($newParticipantIds, $oldParticipantIds);
@@ -642,8 +634,18 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            $formData = new FormEmailData();
+            $mailable = new MailDiscussionMessage($request->getContext(), $this->getSubmission());
+            $emailTemplate = Repo::emailTemplate()->getByKey($request->getContext()->getId(), $mailable::getEmailTemplateKey());
+            $mailable
+                ->body($emailTemplate->getLocalizedData('body'))
+                ->subject($emailTemplate->getLocalizedData('subject'))
+                ->sender($currentUser);
+
+            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
+            $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             foreach ($added as $userId) {
+                $user = Repo::user()->get((int) $userId);
+
                 $notification = $notificationMgr->createNotification(
                     $request,
                     $userId,
@@ -655,7 +657,18 @@ class QueriesGridHandler extends GridHandler
                     null,
                     true
                 );
-                $formData->addVariables([$userId => [
+
+                // Check if the user is unsubscribed
+                $notificationSubscriptionSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $user->getId(),
+                    $request->getContext()->getId()
+                );
+                if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
+                    continue;
+                }
+
+                $mailable->addData([
                     'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
                     'url' => $notificationMgr->getNotificationUrl($request, $notification),
                     'unsubscribeLink' =>
@@ -664,28 +677,14 @@ class QueriesGridHandler extends GridHandler
                         '\'>' .
                         __('notification.unsubscribeNotifications') .
                         '</a>'
-                ]]);
-            }
+                ]);
 
-            $assocSubmission = Repo::submission()->get($query->getAssocId());
+                $mailable->recipients([$user]);
 
-            try {
-                event(new DiscussionMessageSent(
-                    $query,
-                    $request->getContext(),
-                    $assocSubmission,
-                    $formData->setRecipientIds($added)->setSenderId($request->getUser()->getId())
-                ));
-            } catch (Swift_TransportException $e) {
-                $notificationMgr->createTrivialNotification(
-                    $currentUser->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_ERROR,
-                    ['contents' => __('email.compose.error')]
-                );
-                trigger_error($e->getMessage(), E_USER_WARNING);
+                Mail::send($mailable);
             }
-            return \PKP\db\DAO::getDataChangedEvent($query->getId());
         }
+
         // If this was new (placeholder) query that didn't validate, remember whether or not
         // we need to delete it on cancellation.
         if ($request->getUserVar('wasNew')) {

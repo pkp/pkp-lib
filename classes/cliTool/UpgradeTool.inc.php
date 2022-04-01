@@ -17,13 +17,11 @@
 
 namespace PKP\cliTool;
 
-define('RUNNING_UPGRADE', 1);
-
 use APP\core\Application;
-
-use APP\i18n\AppLocale;
 use APP\install\Upgrade;
 use PKP\site\VersionCheck;
+
+Application::upgrade();
 
 class UpgradeTool extends \PKP\cliTool\CommandLineTool
 {
@@ -37,7 +35,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
      */
     public function __construct($argv = [])
     {
-        Application::get()->initializeLaravelContainer();
         parent::__construct($argv);
 
         if (!isset($this->argv[0]) || !in_array($this->argv[0], ['check', 'latest', 'upgrade', 'download'])) {
@@ -46,7 +43,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         }
 
         $this->command = $this->argv[0];
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
     }
 
     /**
@@ -109,6 +105,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
             printf("Successfully upgraded to version %s\n", $newVersion->getVersionString(false));
         } else {
             printf("ERROR: Upgrade failed: %s\n", $installer->getErrorString());
+            exit(2);
         }
     }
 
@@ -121,7 +118,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         if (!$versionInfo) {
             $application = Application::get();
             printf("Failed to load version info from %s\n", $application->getVersionDescriptorUrl());
-            exit(1);
+            exit(3);
         }
 
         $download = $versionInfo['package'];
@@ -137,14 +134,14 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         $out = fopen($outFile, 'wb');
         if (!$out) {
             printf("Failed to open %s for writing\n", $outFile);
-            exit(1);
+            exit(5);
         }
 
         $in = fopen($download, 'rb');
         if (!$in) {
             printf("Failed to open %s for reading\n", $download);
             fclose($out);
-            exit(1);
+            exit(6);
         }
 
         printf('Downloading file...');
@@ -171,7 +168,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         if (!$versionInfo) {
             $application = Application::get();
             printf("Failed to load version info from %s\n", $application->getVersionDescriptorUrl());
-            exit(1);
+            exit(7);
         }
 
         $dbVersion = VersionCheck::getCurrentDBVersion();
@@ -189,10 +186,8 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
             if ($compare2 < 0) {
                 printf("Database version is older than code version\n");
                 printf("Run \"{$this->scriptName} upgrade\" to update\n");
-                exit(0);
             } elseif ($compare2 > 0) {
                 printf("Database version is newer than code version!\n");
-                exit(1);
             } elseif ($compare1 == 0) {
                 printf("Your system is up-to-date\n");
             } elseif ($compare1 < 0) {
@@ -200,7 +195,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
                 $displayInfo = true;
             } else {
                 printf("Current version is newer than latest!\n");
-                exit(1);
             }
         }
 

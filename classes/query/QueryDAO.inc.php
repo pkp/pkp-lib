@@ -17,6 +17,10 @@
 
 namespace PKP\query;
 
+use APP\core\Application;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
@@ -333,6 +337,61 @@ class QueryDAO extends \PKP\db\DAO
         while ($query = $queries->next()) {
             $this->deleteObject($query);
         }
+    }
+
+    /**
+     * Add a query when a recommendation (editor decision type) is made
+     */
+    public function addRecommendationQuery(int $recommenderUserId, int $submissionId, int $stageId, string $title, string $content): int
+    {
+        $query = $this->newDataObject();
+        $query->setAssocType(Application::ASSOC_TYPE_SUBMISSION);
+        $query->setAssocId($submissionId);
+        $query->setStageId($stageId);
+        $query->setSequence(REALLY_BIG_NUMBER);
+        $this->insertObject($query);
+        $this->resequence(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
+
+        // Add the decision making editors as discussion participants
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $discussionParticipantsIds = [];
+        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $stageId);
+        foreach ($editorsStageAssignments as $editorsStageAssignment) {
+            if (!$editorsStageAssignment->getRecommendOnly()) {
+                if (!in_array($editorsStageAssignment->getUserId(), $discussionParticipantsIds)) {
+                    $discussionParticipantsIds[] = $editorsStageAssignment->getUserId();
+                    $this->insertParticipant($query->getId(), $editorsStageAssignment->getUserId());
+                }
+            }
+        }
+
+        // Add the message
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $note = $noteDao->newDataObject();
+        $note->setAssocType(Application::ASSOC_TYPE_QUERY);
+        $note->setAssocId($query->getId());
+        $note->setContents($content);
+        $note->setTitle($title);
+        $note->setDateCreated(Core::getCurrentDate());
+        $note->setDateModified(Core::getCurrentDate());
+        $note->setUserId($recommenderUserId);
+        $noteDao->insertObject($note);
+
+        // Add task for assigned participants
+        $notificationMgr = new NotificationManager();
+        foreach ($discussionParticipantsIds as $discussionParticipantsId) {
+            $notificationMgr->createNotification(
+                Application::get()->getRequest(),
+                $discussionParticipantsId,
+                Notification::NOTIFICATION_TYPE_NEW_QUERY,
+                Application::get()->getRequest()->getContext()->getId(),
+                Application::ASSOC_TYPE_QUERY,
+                $query->getId(),
+                Notification::NOTIFICATION_LEVEL_TASK
+            );
+        }
+
+        return $query->getId();
     }
 }
 

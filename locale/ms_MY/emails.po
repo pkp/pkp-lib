@@ -1,0 +1,227 @@
+# Muhd Muaz <muazhero61@yahoo.com>, 2021.
+# Ga Ja Poh <gajapo2932@decorbuz.com>, 2021.
+# Studiorimau <studiorimau@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-13 05:54+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/ojs/emails/ms/>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"E-mel ini, apabila didayakan, secara automatik dikirimkan kepada pengarang "
+"apabila mereka menyelesaikan proses penyerahan manuskrip ke jurnal. Ini "
+"memberikan maklumat tentang mengesan penyerahan melalui proses dan berterima "
+"kasih pengarang atas penyerahannya."
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Ucapan Terima Kasih"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}: <br />\n"
+"<br />\n"
+"Terima kasih kerana menghantar manuskrip, &quot;{$submissionTitle}&quot; ke "
+"{$contextName}. Dengan sistem pengurusan jurnal dalam talian yang kami "
+"gunakan, anda dapat melacak kemajuannya melalui proses editorial dengan "
+"masuk ke laman web jurnal: <br />\n"
+"<br />\n"
+"URL Penyerahan: {$submissionUrl} <br />\n"
+"Nama pengguna: {$recipientUsername} <br />\n"
+"<br />\n"
+"Sekiranya anda mempunyai sebarang pertanyaan, sila hubungi saya. Terima "
+"kasih kerana mempertimbangkan jurnal ini sebagai tempat kerja anda. <br />\n"
+"<br />\n"
+"{$signature}"
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"E-mel ini dihantar oleh Editor Bahagian untuk mengesahkan penerimaan ulasan "
+"yang telah selesai dan terima kasih kepada pengulas atas sumbangan mereka."
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}: <br />\n"
+"<br />\n"
+"Terima kasih kerana menyelesaikan ulasan penyerahan, &quot; "
+"{$submissionTitle}, &quot; untuk {$contextName}. Kami menghargai sumbangan "
+"anda terhadap kualiti karya yang kami terbitkan."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Ucapan Terima Kasih atas Ulasan Artikel"
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br />\n"
+"Kami telah membuat keputusan mengenai penyerahan anda ke {$contextName}, "
+"&quot; {$ submissionTitle} &quot ;. <br />\n"
+"<br />\n"
+"Keputusan kami adalah untuk: Kirim ke Ulasan <br />\n"
+"<br />\n"
+"URL Penyerahan: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr ""
+"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
+"mereka bahawa penyerahan mereka dihantar ke ulasan luaran."
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Keputusan Editor"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr ""
+"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
+"mereka bahawa penyerahan mereka dihantar ke produksi."
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br />\n"
+"Penyuntingan penyerahan anda, &quot; {$submissionTitle}, &quot; selesai. "
+"Kami sekarang mengirimkannya ke produksi. <br />\n"
+"<br />\n"
+"URL Penyerahan: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Keputusan Editor"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$ authorName}: <br />\n"
+"<br />\n"
+"Kami telah membuat keputusan mengenai penyerahan anda ke {$contextName}, "
+"&quot; {$submissionTitle} & quot ;. <br />\n"
+"<br />\n"
+"Keputusan kami adalah: Semakan Diperlukan"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr ""
+"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
+"mereka mengenai keputusan \"semakan yang diperlukan\" terakhir mengenai "
+"penyerahannya."
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Keputusan Editor"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br />\n"
+"Kami telah membuat keputusan mengenai penyerahan anda ke {$contextName}, "
+"&quot; {$submissionTitle} &quot ;. <br />\n"
+"<br />\n"
+"Keputusan kami adalah untuk: Serah semula untuk Ulasan"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr ""
+"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
+"mereka tentang keputusan \"serah semula\" mengenai penyerahan mereka."
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Keputusan Editor"
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br />\n"
+"Kami telah membuat keputusan mengenai penyerahan anda ke {$contextName}, "
+"&quot; {$submissionTitle} &quot ;. <br />\n"
+"<br />\n"
+"Keputusan kami adalah untuk: Menolak Penyerahan"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr ""
+"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
+"mereka tentang keputusan \"penolakan\" terakhir mengenai penyerahan mereka."
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Keputusan Editor"
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr ""
+"E-mel ini dari Editor yang mencadangkan atau Editor Bahagian kepada Editor "
+"yang membuat keputusan atau Editor Bahagian memberitahu mereka tentang "
+"cadangan terakhir mengenai penyerahan."
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editor}: <br />\n"
+"<br />\n"
+"Cadangan mengenai penyerahan kepada {$contextName}, &quot; {$submissionTitle}"
+" &quot; ialah: {$recommendation}"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Cadangan Editor"
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr ""
+"E-mel ini dikirim oleh Editor Bahagian ke Copyeditor Penyerahan untuk "
+"meminta mereka memulakan proses copyediting. Ini memberikan maklumat "
+"mengenai penyerahan dan cara mengaksesnya."
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}: <br />\n"
+"<br />\n"
+"Saya meminta anda melakukan copyediting &quot; {$submissionTitle} &quot; "
+"untuk {$contextName} dengan mengikuti langkah-langkah ini. <br />\n"
+"1. Klik pada URL Penyerahan di bawah. <br />\n"
+"2. Buka mana-mana fail yang ada di bawah Fail  Draf dan lakukan copyediting "
+"anda, sambil menambahkan Perbincangan Copyediting mengikut keperluan. <br />"
+"\n"
+"3. Simpan fail yang copyedited , dan muat naik ke panel yang Copyedited. <br "
+"/>\n"
+"4. Maklumkan kepada Editor bahawa semua fail telah disiapkan, dan proses "
+"Produksi dapat dimulai. <br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"URL Penyerahan:{$submissionUrl}<br />\n"
+"Nama pengguna: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Permintaan Copyediting"
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}: <br />\n"
+"<br />\n"
+"Kami telah membuat keputusan mengenai penyerahan anda ke {$contextName}, "
+"&quot; {$submissionTitle} &quot ;. <br />\n"
+"<br />\n"
+"Keputusan kami adalah untuk: Menolak Penyerahan"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+"E-mel ini dihantar kepada pengarang sekiranya editor menolak penyerahan "
+"mereka pada awalnya, sebelum peringkat ulasan"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Keputusan Editor"

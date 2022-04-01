@@ -25,7 +25,7 @@ class SubmissionKeywordEntryDAO extends ControlledVocabEntryDAO
     /**
      * Construct a new data object corresponding to this DAO.
      *
-     * @return PaperTypeEntry
+     * @return SubmissionKeyword
      */
     public function newDataObject()
     {

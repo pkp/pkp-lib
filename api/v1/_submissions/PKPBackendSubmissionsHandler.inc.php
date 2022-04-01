@@ -22,8 +22,9 @@ use PKP\handler\APIHandler;
 use PKP\plugins\HookRegistry;
 
 use PKP\security\authorization\ContextAccessPolicy;
-
+use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
+use Slim\Http\Response;
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler
 {
@@ -72,6 +73,12 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        $routeName = $this->getSlimRequest()->getAttribute('route')->getName();
+        if (in_array($routeName, ['delete'])) {
+            $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+        }
+
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -114,9 +121,13 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+
         return $response->withJson([
             'itemsMax' => Repo::submission()->getCount($collector->limit(null)->offset(null)),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres),
         ], 200);
     }
 

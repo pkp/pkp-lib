@@ -19,7 +19,6 @@ namespace PKP\security;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use DomainException;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
@@ -30,6 +29,7 @@ use PKP\core\PKPString;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
 use PKP\workflow\WorkflowStageDAO;
@@ -94,9 +94,9 @@ class UserGroupDAO extends DAO
     {
         $this->update(
             'INSERT INTO user_groups
-				(role_id, context_id, is_default, show_title, permit_self_registration, permit_metadata_edit)
-				VALUES
-				(?, ?, ?, ?, ?, ?)',
+                (role_id, context_id, is_default, show_title, permit_self_registration, permit_metadata_edit)
+                VALUES
+                (?, ?, ?, ?, ?, ?)',
             [
                 (int) $userGroup->getRoleId(),
                 (int) $userGroup->getContextId(),
@@ -121,13 +121,13 @@ class UserGroupDAO extends DAO
     {
         $this->update(
             'UPDATE user_groups SET
-				role_id = ?,
-				context_id = ?,
-				is_default = ?,
-				show_title = ?,
-				permit_self_registration = ?,
-				permit_metadata_edit = ?
-			WHERE	user_group_id = ?',
+                role_id = ?,
+                context_id = ?,
+                is_default = ?,
+                show_title = ?,
+                permit_self_registration = ?,
+                permit_metadata_edit = ?
+            WHERE user_group_id = ?',
             [
                 (int) $userGroup->getRoleId(),
                 (int) $userGroup->getContextId(),
@@ -237,9 +237,9 @@ class UserGroupDAO extends DAO
             $params[] = (int) $contextId;
         }
         $result = $this->retrieve(
-            'SELECT	*
-			FROM	user_groups
-			WHERE	user_group_id = ?' . ($contextId !== null ? ' AND context_id = ?' : ''),
+            'SELECT *
+            FROM user_groups
+            WHERE user_group_id = ?' . ($contextId !== null ? ' AND context_id = ?' : ''),
             $params
         );
         $row = (array) $result->current();
@@ -271,7 +271,7 @@ class UserGroupDAO extends DAO
     {
         $result = $this->retrieve(
             'SELECT is_default FROM user_groups
-			WHERE user_group_id = ?',
+            WHERE user_group_id = ?',
             [(int) $userGroupId]
         );
         $row = $result->current();
@@ -295,11 +295,11 @@ class UserGroupDAO extends DAO
             $params[] = 1;
         } // true
         $result = $this->retrieveRange(
-            $sql = 'SELECT	*
-			FROM	user_groups
-			WHERE	context_id = ? AND
-				role_id = ?
-				' . ($default ? ' AND is_default = ?' : '')
+            $sql = 'SELECT *
+            FROM user_groups
+            WHERE context_id = ? AND
+                role_id = ?
+                ' . ($default ? ' AND is_default = ?' : '')
             . ' ORDER BY user_group_id',
             $params,
             $dbResultRange
@@ -322,10 +322,10 @@ class UserGroupDAO extends DAO
         }
 
         $result = $this->retrieve(
-            'SELECT	user_group_id
-			FROM	user_groups
-				WHERE role_id = ?
-				' . ($contextId ? ' AND context_id = ?' : ''),
+            'SELECT user_group_id
+            FROM user_groups
+                WHERE role_id = ?
+                ' . ($contextId ? ' AND context_id = ?' : ''),
             $params
         );
 
@@ -347,12 +347,12 @@ class UserGroupDAO extends DAO
     public function userInGroup($userId, $userGroupId)
     {
         $result = $this->retrieve(
-            'SELECT	count(*) AS row_count
-			FROM	user_groups ug
-				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE
-				uug.user_id = ? AND
-				ug.user_group_id = ?',
+            'SELECT count(*) AS row_count
+            FROM user_groups ug
+                JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+            WHERE
+                uug.user_id = ? AND
+                ug.user_group_id = ?',
             [(int) $userId, (int) $userGroupId]
         );
         $row = $result->current();
@@ -375,11 +375,11 @@ class UserGroupDAO extends DAO
         }
 
         $result = $this->retrieve(
-            'SELECT	count(*) AS row_count
-			FROM	user_groups ug
-				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ?
-				' . ($contextId ? ' AND ug.context_id = ?' : ''),
+            'SELECT count(*) AS row_count
+            FROM user_groups ug
+                JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+            WHERE uug.user_id = ?
+                ' . ($contextId ? ' AND ug.context_id = ?' : ''),
             $params
         );
         $row = $result->current();
@@ -402,11 +402,11 @@ class UserGroupDAO extends DAO
         }
 
         $result = $this->retrieve(
-            'SELECT	ug.*
-			FROM	user_groups ug
-				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-				WHERE uug.user_id = ?
-				' . ($contextId ? ' AND ug.context_id = ?' : ''),
+            'SELECT ug.*
+            FROM user_groups ug
+                JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+                WHERE uug.user_id = ?
+                ' . ($contextId ? ' AND ug.context_id = ?' : ''),
             $params
         );
 
@@ -425,9 +425,9 @@ class UserGroupDAO extends DAO
     {
         $result = $this->retrieve(
             'SELECT count(*) AS row_count
-				FROM user_groups ug
-				WHERE ug.user_group_id = ?
-				AND ug.context_id = ?',
+            FROM user_groups ug
+            WHERE ug.user_group_id = ?
+            AND ug.context_id = ?',
             [(int) $userGroupId, (int) $contextId]
         );
         $row = (array) $result->current();
@@ -451,7 +451,7 @@ class UserGroupDAO extends DAO
 
         $result = $this->retrieveRange(
             $sql = 'SELECT ug.*
-			FROM	user_groups ug' .
+            FROM user_groups ug' .
                 ($contextId ? ' WHERE ug.context_id = ?' : ''),
             $params,
             $dbResultRange
@@ -463,14 +463,12 @@ class UserGroupDAO extends DAO
     /**
      * Retrieves a keyed Collection (key = user_group_id, value = count) with the amount of active users for each user group
      */
-    public function getUserCountByContextId(int $contextId = null): Collection
+    public function getUserCountByContextId(?int $contextId = null): Collection
     {
         return DB::table('user_groups', 'ug')
             ->join('user_user_groups AS uug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
-            ->when($contextId, function (Builder $query) use ($contextId): void {
-                $query->where('ug.context_id', '=', $contextId);
-            })
+            ->when($contextId !== null, fn (Builder $query) => $query->where('ug.context_id', '=', $contextId))
             ->where('u.disabled', '=', 0)
             ->groupBy('ug.user_group_id')
             ->select('ug.user_group_id')
@@ -497,10 +495,10 @@ class UserGroupDAO extends DAO
             $params[] = (int) $roleId;
         }
         $result = $this->retrieve(
-            'SELECT	COUNT(DISTINCT(uug.user_id)) AS row_count
-			FROM	user_groups ug
-				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	ug.context_id = ?' .
+            'SELECT COUNT(DISTINCT(uug.user_id)) AS row_count
+            FROM user_groups ug
+                JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+            WHERE ug.context_id = ?' .
                 ($userGroupId ? ' AND ug.user_group_id = ?' : '') .
                 ($roleId ? ' AND ug.role_id = ?' : ''),
             $params
@@ -547,18 +545,18 @@ class UserGroupDAO extends DAO
         }
 
         $result = $this->retrieveRange(
-            'SELECT	DISTINCT u.*
-			FROM	users u
-			' . (isset($search) ? '
-					LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
-					LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
-				' : '') . '
-			WHERE	u.user_id NOT IN (
-				SELECT	DISTINCT u.user_id
-				FROM	users u, user_user_groups uug, user_groups ug
-				WHERE	u.user_id = uug.user_id
-					AND ug.user_group_id = uug.user_group_id
-					AND ug.role_id = ?' .
+            'SELECT DISTINCT u.*
+            FROM users u
+            ' . (isset($search) ? '
+                    LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
+                    LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
+                ' : '') . '
+            WHERE u.user_id NOT IN (
+                SELECT DISTINCT u.user_id
+                FROM users u, user_user_groups uug, user_groups ug
+                WHERE u.user_id = uug.user_id
+                    AND ug.user_group_id = uug.user_group_id
+                    AND ug.role_id = ?' .
                 ($contextId ? ' AND ug.context_id = ?' : '') .
                 ')' .
             (isset($search) ? ' AND (usgs.setting_value LIKE ? OR usfs.setting_value LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
@@ -582,7 +580,7 @@ class UserGroupDAO extends DAO
      */
     public function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
     {
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
         // The users register for the site, thus the site primary locale should be the default locale
         $site = Application::get()->getRequest()->getSite();
         $primaryLocale = $site->getPrimaryLocale();
@@ -782,8 +780,8 @@ class UserGroupDAO extends DAO
                     $type = null;
                     $this->update(
                         'INSERT INTO user_group_settings
-					(user_group_id, setting_name, setting_value, setting_type, locale)
-					VALUES (?, ?, ?, ?, ?)',
+                    (user_group_id, setting_name, setting_value, setting_type, locale)
+                    VALUES (?, ?, ?, ?, ?)',
                         [$userGroupId, $name, $this->convertToDB($localeValue, $type), $type, $locale]
                     );
                 }
@@ -806,10 +804,10 @@ class UserGroupDAO extends DAO
             $params[] = $locale;
         }
         $result = $this->retrieve(
-            'SELECT	setting_name, setting_value, setting_type, locale
-			FROM	user_group_settings
-			WHERE	user_group_id = ? AND
-				setting_name = ?' .
+            'SELECT setting_name, setting_value, setting_type, locale
+            FROM user_group_settings
+            WHERE user_group_id = ? AND
+                setting_name = ?' .
                 ($locale ? ' AND locale = ?' : ''),
             $params
         );
@@ -912,7 +910,7 @@ class UserGroupDAO extends DAO
             $this->updateSetting(
                 $userGroup->getId(),
                 'name',
-                [$locale => __($nameKey, null, $locale)],
+                [$locale => __($nameKey, [], $locale)],
                 'string',
                 $locale,
                 true
@@ -922,7 +920,7 @@ class UserGroupDAO extends DAO
             $this->updateSetting(
                 $userGroup->getId(),
                 'abbrev',
-                [$locale => __($abbrevKey, null, $locale)],
+                [$locale => __($abbrevKey, [], $locale)],
                 'string',
                 $locale,
                 true
@@ -970,14 +968,9 @@ class UserGroupDAO extends DAO
 
         $searchSql = '';
         $search = trim($search);
-        if (!empty($search)) {
+        if (strlen($search)) {
             if (!isset($searchTypeMap[$searchType])) {
-                $terms = array_map(
-                    function (string $term): string {
-                        return "%$term%";
-                    },
-                    PKPString::regexp_split('/\s+/', $search)
-                );
+                $terms = array_map(fn (string $term) => '%' . addcslashes($term, '%_') . '%', PKPString::regexp_split('/\s+/', $search));
                 $filters = [];
 
                 switch (get_class(DB::connection())) {
@@ -1072,13 +1065,13 @@ class UserGroupDAO extends DAO
         }
         return new DAOResultFactory(
             $this->retrieveRange(
-                $sql = 'SELECT	ug.*
-				FROM	user_groups ug
-					JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
-				WHERE	ugs.context_id = ? AND
-					ugs.stage_id = ?
-					' . ($roleId ? 'AND ug.role_id = ?' : '') . '
-				ORDER BY ug.role_id ASC',
+                $sql = 'SELECT ug.*
+                FROM user_groups ug
+                    JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
+                WHERE ugs.context_id = ? AND
+                    ugs.stage_id = ?
+                    ' . ($roleId ? 'AND ug.role_id = ?' : '') . '
+                ORDER BY ug.role_id ASC',
                 $params,
                 $dbResultRange
             ),
@@ -1102,10 +1095,10 @@ class UserGroupDAO extends DAO
     public function getAssignedStagesByUserGroupId($contextId, $userGroupId)
     {
         $result = $this->retrieve(
-            'SELECT	stage_id
-			FROM	user_group_stage
-			WHERE	context_id = ? AND
-				user_group_id = ?',
+            'SELECT stage_id
+            FROM user_group_stage
+            WHERE context_id = ? AND
+                user_group_id = ?',
             [(int) $contextId, (int) $userGroupId]
         );
 
@@ -1128,9 +1121,9 @@ class UserGroupDAO extends DAO
     {
         $result = $this->retrieve(
             'SELECT COUNT(*) AS row_count
-			FROM	user_group_stage
-			WHERE	user_group_id = ? AND
-			stage_id = ?',
+            FROM user_group_stage
+            WHERE user_group_id = ? AND
+            stage_id = ?',
             [(int) $userGroupId, (int) $stageId]
         );
         $row = $result->current();
@@ -1148,13 +1141,13 @@ class UserGroupDAO extends DAO
     public function userAssignmentExists($contextId, $userId, $stageId)
     {
         $result = $this->retrieve(
-            'SELECT	COUNT(*) AS row_count
-			FROM	user_group_stage ugs,
-			user_user_groups uug
-			WHERE	ugs.user_group_id = uug.user_group_id AND
-			ugs.context_id = ? AND
-			uug.user_id = ? AND
-			ugs.stage_id = ?',
+            'SELECT COUNT(*) AS row_count
+            FROM user_group_stage ugs,
+            user_user_groups uug
+            WHERE ugs.user_group_id = uug.user_group_id AND
+            ugs.context_id = ? AND
+            uug.user_id = ? AND
+            ugs.stage_id = ?',
             [(int) $contextId, (int) $userId, (int) $stageId]
         );
         $row = $result->current();
@@ -1177,11 +1170,11 @@ class UserGroupDAO extends DAO
         }
 
         $result = $this->retrieve(
-            'SELECT	ug.user_group_id AS user_group_id
-			FROM user_groups ug
-			JOIN user_group_settings ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.setting_name = \'recommendOnly\' AND ugs.setting_value = \'1\')
-			WHERE ug.context_id = ?
-			' . ($roleId ? ' AND ug.role_id = ?' : ''),
+            'SELECT ug.user_group_id AS user_group_id
+            FROM user_groups ug
+            JOIN user_group_settings ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.setting_name = \'recommendOnly\' AND ugs.setting_value = \'1\')
+            WHERE ug.context_id = ?
+            ' . ($roleId ? ' AND ug.role_id = ?' : ''),
             $params
         );
 
@@ -1208,11 +1201,11 @@ class UserGroupDAO extends DAO
         }
 
         $result = $this->retrieve(
-            'SELECT	ug.user_group_id AS user_group_id
-			FROM user_groups ug
-			WHERE permit_metadata_edit = 1 AND
-			ug.context_id = ?
-			' . ($roleId ? ' AND ug.role_id = ?' : ''),
+            'SELECT ug.user_group_id AS user_group_id
+            FROM user_groups ug
+            WHERE permit_metadata_edit = 1 AND
+            ug.context_id = ?
+            ' . ($roleId ? ' AND ug.role_id = ?' : ''),
             $params
         );
 

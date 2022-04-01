@@ -18,6 +18,7 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
 
+use APP\core\Request;
 use PKP\core\PKPRouter;
 
 /**
@@ -109,7 +110,7 @@ class PKPRouterTestCase extends PKPTestCase
         $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         $_SERVER['PATH_INFO'] = null;
         self::assertEquals(
-            ['index', 'index'],
+            ['index'],
             $this->router->getRequestedContextPaths($this->request)
         );
     }
@@ -122,9 +123,9 @@ class PKPRouterTestCase extends PKPTestCase
     {
         $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         HookRegistry::resetCalledHooks(true);
-        $_SERVER['PATH_INFO'] = '/context1/context2/other/path/vars';
+        $_SERVER['PATH_INFO'] = '/context1/other/path/vars';
         self::assertEquals(
-            ['context1', 'context2'],
+            ['context1'],
             $this->router->getRequestedContextPaths($this->request)
         );
         self::assertEquals(
@@ -132,25 +133,8 @@ class PKPRouterTestCase extends PKPTestCase
             $this->router->getRequestedContextPath($this->request, 1)
         );
         self::assertEquals(
-            'context2',
-            $this->router->getRequestedContextPath($this->request, 2)
-        );
-        self::assertEquals(
-            [['Router::getRequestedContextPaths', [['context1', 'context2']]]],
+            [['Router::getRequestedContextPaths', [['context1']]]],
             HookRegistry::getCalledHooks()
-        );
-    }
-
-    /**
-     * @covers PKPRouter::getRequestedContextPaths
-     */
-    public function testGetRequestedContextPathWithPartialPathInfo()
-    {
-        $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-        $_SERVER['PATH_INFO'] = '/context';
-        self::assertEquals(
-            ['context', 'index'],
-            $this->router->getRequestedContextPaths($this->request)
         );
     }
 
@@ -162,7 +146,7 @@ class PKPRouterTestCase extends PKPTestCase
         $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         $_SERVER['PATH_INFO'] = '/context:?#/';
         self::assertEquals(
-            ['context', 'index'],
+            ['context'],
             $this->router->getRequestedContextPaths($this->request)
         );
     }
@@ -174,9 +158,8 @@ class PKPRouterTestCase extends PKPTestCase
     {
         $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
         $_GET['firstContext'] = null;
-        $_GET['secondContext'] = null;
         self::assertEquals(
-            ['index', 'index'],
+            ['index'],
             $this->router->getRequestedContextPaths($this->request)
         );
     }
@@ -191,9 +174,8 @@ class PKPRouterTestCase extends PKPTestCase
         $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
         HookRegistry::resetCalledHooks(true);
         $_GET['firstContext'] = 'context1';
-        $_GET['secondContext'] = 'context2';
         self::assertEquals(
-            ['context1', 'context2'],
+            ['context1'],
             $this->router->getRequestedContextPaths($this->request)
         );
         self::assertEquals(
@@ -201,11 +183,7 @@ class PKPRouterTestCase extends PKPTestCase
             $this->router->getRequestedContextPath($this->request, 1)
         );
         self::assertEquals(
-            'context2',
-            $this->router->getRequestedContextPath($this->request, 2)
-        );
-        self::assertEquals(
-            [['Router::getRequestedContextPaths', [['context1', 'context2']]]],
+            [['Router::getRequestedContextPaths', [['context1']]]],
             HookRegistry::getCalledHooks()
         );
     }
@@ -220,7 +198,7 @@ class PKPRouterTestCase extends PKPTestCase
         $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
         $_GET['firstContext'] = 'context';
         self::assertEquals(
-            ['context', 'index'],
+            ['context'],
             $this->router->getRequestedContextPaths($this->request)
         );
     }
@@ -343,8 +321,8 @@ class PKPRouterTestCase extends PKPTestCase
      */
     protected function _setUpMockEnvironment(
         $pathInfoEnabled = self::PATHINFO_ENABLED,
-        $contextDepth = 2,
-        $contextList = ['firstContext', 'secondContext']
+        $contextDepth = 1,
+        $contextList = ['firstContext']
     ) {
         // Mock application object without calling its constructor.
         $mockApplication = $this->getMockBuilder(Application::class)
@@ -369,7 +347,7 @@ class PKPRouterTestCase extends PKPTestCase
         $this->router->setDispatcher($dispatcher);
 
         // Mock request
-        $this->request = $this->getMockBuilder(PKPRequest::class)
+        $this->request = $this->getMockBuilder(Request::class)
             ->setMethods(['isPathInfoEnabled'])
             ->getMock();
         $this->request->setRouter($this->router);
@@ -381,17 +359,15 @@ class PKPRouterTestCase extends PKPTestCase
     }
 
     /**
-     * Create two mock DAOs "FirstContextDAO" and "SecondContextDAO" that can be
+     * Create mock DAOs "FirstContextDAO" that can be
      * used with the standard environment set up when calling self::_setUpMockEnvironment().
      * Both DAOs will be registered with the DAORegistry and thereby be made available
      * to the router.
      *
      * @param string $firstContextPath
-     * @param string $secondContextPath
      * @param bool $firstContextIsNull
-     * @param bool $secondContextIsNull
      */
-    protected function _setUpMockDAOs($firstContextPath = 'current-context1', $secondContextPath = 'current-context2', $firstContextIsNull = false, $secondContextIsNull = false)
+    protected function _setUpMockDAOs($firstContextPath = 'current-context1', $firstContextIsNull = false)
     {
         $application = Application::get();
         $contextDao = $application->getContextDAO();
@@ -414,23 +390,7 @@ class PKPRouterTestCase extends PKPTestCase
                 ->with($firstContextPath)
                 ->will($this->returnValue($firstContextInstance));
         }
-        DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
 
-        $mockSecondContextDao = $this->getMockBuilder($contextClassName)
-            ->setMethods(['getByPath'])
-            ->getMock();
-        if (!$secondContextIsNull) {
-            $secondContextInstance = $this->getMockBuilder($contextClassName)
-                ->setMethods(['getPath'])
-                ->getMock();
-            $secondContextInstance->expects($this->any())
-                ->method('getPath')
-                ->will($this->returnValue($secondContextPath));
-            $mockSecondContextDao->expects($this->any())
-                ->method('getByPath')
-                ->with($secondContextPath)
-                ->will($this->returnValue($secondContextInstance));
-        }
-        DAORegistry::registerDAO('SecondContextDAO', $mockSecondContextDao);
+        DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
     }
 }

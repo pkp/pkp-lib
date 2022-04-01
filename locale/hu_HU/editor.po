@@ -423,6 +423,9 @@ msgstr "Tegnap"
 msgid "reviewer.list.neverAssigned"
 msgstr "Még nem került kijelölésre"
 
+msgid "reviewer.list.reassign"
+msgstr "Hozzárendelés"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Ez a lektor már felkérésre került, hogy lektorálja ezt a beküldést."
 

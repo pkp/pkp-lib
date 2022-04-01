@@ -17,8 +17,8 @@ namespace PKP\components\forms\context;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
-
-use Sokil\IsoCodes\IsoCodesFactory;
+use PKP\facades\Locale;
+use PKP\plugins\PluginRegistry;
 
 define('FORM_PAYMENT_SETTINGS', 'paymentSettings');
 
@@ -43,8 +43,7 @@ class PKPPaymentSettingsForm extends FormComponent
         $this->locales = $locales;
 
         $currencies = [];
-        $isoCodes = app(IsoCodesFactory::class);
-        foreach ($isoCodes->getCurrencies() as $currency) {
+        foreach (Locale::getCurrencies() as $currency) {
             $currencies[] = [
                 'value' => $currency->getLetterCode(),
                 'label' => $currency->getLocalName(),
@@ -52,7 +51,7 @@ class PKPPaymentSettingsForm extends FormComponent
         }
 
         // Ensure payment method plugins can hook in
-        $paymentPlugins = \PluginRegistry::loadCategory('paymethod', true);
+        $paymentPlugins = PluginRegistry::loadCategory('paymethod', true);
         $pluginList = [];
         foreach ($paymentPlugins as $plugin) {
             $pluginList[] = [

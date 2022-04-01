@@ -17,7 +17,6 @@
 
 namespace PKP\submission;
 
-use APP\i18n\AppLocale;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\db\XMLDAO;
@@ -358,11 +357,6 @@ class GenreDAO extends DAO
      */
     public function installDefaults($contextId, $locales)
     {
-        // Load all the necessary locales.
-        foreach ($locales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_DEFAULT, $locale);
-        }
-
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct('registry/genres.xml', ['genre']);
         if (!isset($data['genre'])) {

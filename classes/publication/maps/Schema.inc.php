@@ -16,20 +16,22 @@ namespace PKP\publication\maps;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
-
 use APP\submission\Submission;
 
 use Illuminate\Support\Enumerable;
+
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\security\UserGroup;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Genre;
 
 class Schema extends \PKP\core\maps\Schema
 {
-    /** @var Enumerable */
+    /**  */
     public Enumerable $collection;
 
-    /** @var string */
+    /**  */
     public string $schema = PKPSchemaService::SCHEMA_PUBLICATION;
 
     /** @var Submission */
@@ -38,14 +40,18 @@ class Schema extends \PKP\core\maps\Schema
     /** @var bool */
     public $anonymize;
 
-    /** @var array The user groups for this context. */
+    /** @var UserGroup[] The user groups for this context. */
     public $userGroups;
 
-    public function __construct(Submission $submission, array $userGroups, Request $request, Context $context, PKPSchemaService $schemaService)
+    /** @var Genre[] The file genres for this context. */
+    public array $genres;
+
+    public function __construct(Submission $submission, array $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->submission = $submission;
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
     }
 
     /**
@@ -135,6 +141,15 @@ class Schema extends \PKP\core\maps\Schema
                         },
                         $citationDao->getByPublicationId($publication->getId())->toArray()
                     );
+                    break;
+                case 'doiObject':
+                    if ($publication->getData('doiObject')) {
+                        $retVal = Repo::doi()->getSchemaMap()->summarize($publication->getData('doiObject'));
+                    } else {
+                        $retVal = null;
+                    }
+
+                    $output[$prop] = $retVal;
                     break;
                 case 'fullTitle':
                     $output[$prop] = $publication->getFullTitles();

@@ -52,10 +52,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
      */
     public function &_getCache()
     {
-        static $cache;
-        if (!isset($cache)) {
-            $cache = [];
-        }
+        static $cache = [];
         return $cache;
     }
 
@@ -80,11 +77,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
 
         // Fetch the object, caching if possible
         $cache = & $this->_getCache();
-        if (!isset($cache[$this->_submissionFileId])) {
-            $cache[$this->_submissionFileId] = Repo::submissionFile()->get($this->_submissionFileId);
-        }
-
-        return $cache[$this->_submissionFileId];
+        return $cache[$this->_submissionFileId] ??= Repo::submissionFile()->get($this->_submissionFileId);
     }
 
     /**

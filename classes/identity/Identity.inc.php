@@ -21,8 +21,7 @@
 namespace PKP\identity;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
-use Sokil\IsoCodes\IsoCodesFactory;
+use PKP\facades\Locale;
 
 class Identity extends \PKP\core\DataObject
 {
@@ -39,7 +38,7 @@ class Identity extends \PKP\core\DataObject
     public function &getLocalizedData($key, $preferredLocale = null)
     {
         if (is_null($preferredLocale)) {
-            $preferredLocale = AppLocale::getLocale();
+            $preferredLocale = Locale::getLocale();
         }
         $localePrecedence = [$preferredLocale];
         // the users register for the site, thus
@@ -50,8 +49,8 @@ class Identity extends \PKP\core\DataObject
         }
         // for settings other than givenName, familyName and affiliation (that are required for registration)
         // consider also the context primary locale
-        if (!in_array(AppLocale::getPrimaryLocale(), $localePrecedence)) {
-            $localePrecedence[] = AppLocale::getPrimaryLocale();
+        if (!in_array(Locale::getPrimaryLocale(), $localePrecedence)) {
+            $localePrecedence[] = Locale::getPrimaryLocale();
         }
         foreach ($localePrecedence as $locale) {
             if (empty($locale)) {
@@ -91,7 +90,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null)
     {
-        $locale = AppLocale::getLocale();
+        $locale = $defaultLocale ?? Locale::getLocale();
         if ($preferred) {
             $preferredPublicName = $this->getPreferredPublicName($locale);
             if (!empty($preferredPublicName)) {
@@ -100,13 +99,9 @@ class Identity extends \PKP\core\DataObject
         }
         $givenName = $this->getGivenName($locale);
         if (empty($givenName)) {
-            if (is_null($defaultLocale)) {
-                // the users register for the site, thus
-                // the site primary locale is the default locale
-                $site = Application::get()->getRequest()->getSite();
-                $defaultLocale = $site->getPrimaryLocale();
-            }
-            $locale = $defaultLocale;
+            // Fallback to the site's primary locale if no given name
+            // exists in the requested locale
+            $locale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
             $givenName = $this->getGivenName($locale);
         }
         $familyName = $this->getFamilyName($locale);
@@ -186,7 +181,7 @@ class Identity extends \PKP\core\DataObject
     public function getLocalizedFamilyName($defaultLocale = null)
     {
         // Prioritize the current locale, then the default locale.
-        $localePriorityList = [AppLocale::getLocale()];
+        $localePriorityList = [Locale::getLocale()];
         if (!is_null($defaultLocale)) {
             $localePriorityList[] = $defaultLocale;
         }
@@ -320,8 +315,7 @@ class Identity extends \PKP\core\DataObject
         if (!$countryCode) {
             return null;
         }
-        $isoCodes = app(IsoCodesFactory::class);
-        $country = $isoCodes->getCountries()->getByAlpha2($countryCode);
+        $country = Locale::getCountries()->getByAlpha2($countryCode);
         return $country ? $country->getLocalName() : null;
     }
 

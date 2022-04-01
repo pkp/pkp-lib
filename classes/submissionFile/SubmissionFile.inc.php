@@ -15,13 +15,12 @@
 
 namespace PKP\submissionFile;
 
-use APP\i18n\AppLocale;
-use PKP\core\PKPApplication;
-
-// Define the file stage identifiers.
+use APP\facades\Repo;
+use PKP\facades\Locale;
 
 class SubmissionFile extends \PKP\core\DataObject
 {
+    // Define the file stage identifiers.
     public const SUBMISSION_FILE_SUBMISSION = 2;
     public const SUBMISSION_FILE_NOTE = 3;
     public const SUBMISSION_FILE_REVIEW_FILE = 4;
@@ -37,6 +36,16 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
 
+    public const INTERNAL_REVIEW_STAGES = [
+        SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+        SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+    ];
+
+    public const EXTERNAL_REVIEW_STAGES = [
+        SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+        SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+    ];
+
     /**
      * Get a piece of data for this object, localized to the current
      * locale if possible.
@@ -47,7 +56,7 @@ class SubmissionFile extends \PKP\core\DataObject
     public function &getLocalizedData($key, $preferredLocale = null)
     {
         if (is_null($preferredLocale)) {
-            $preferredLocale = AppLocale::getLocale();
+            $preferredLocale = Locale::getLocale();
         }
         $localePrecedence = [$preferredLocale, $this->getData('locale')];
         foreach ($localePrecedence as $locale) {
@@ -116,7 +125,11 @@ class SubmissionFile extends \PKP\core\DataObject
      */
     public function getStoredPubId($pubIdType)
     {
-        return $this->getData('pub-id::' . $pubIdType);
+        if ($pubIdType === 'doi') {
+            return $this->getDoi();
+        } else {
+            return $this->getData('pub-id::' . $pubIdType);
+        }
     }
 
     /**
@@ -129,7 +142,22 @@ class SubmissionFile extends \PKP\core\DataObject
      */
     public function setStoredPubId($pubIdType, $pubId)
     {
-        $this->setData('pub-id::' . $pubIdType, $pubId);
+        if ($pubIdType == 'doi') {
+            if ($doiObject = $this->getData('doiObject')) {
+                Repo::doi()->edit($doiObject, ['doi' => $pubId]);
+            } else {
+                $newDoiObject = Repo::doi()->newDataObject(
+                    [
+                        'doi' => $pubId,
+                        'contextId' => $this->getContextId()
+                    ]
+                );
+                $doiId = Repo::doi()->add($newDoiObject);
+                $this->setData('doiId', $doiId);
+            }
+        } else {
+            $this->setData('pub-id::' . $pubIdType, $pubId);
+        }
     }
 
     /**
@@ -360,6 +388,21 @@ class SubmissionFile extends \PKP\core\DataObject
     public function setChapterId($chapterId)
     {
         $this->setData('chapterId', $chapterId);
+    }
+
+    /**
+     * Helper method to fetch current DOI
+     *
+     */
+    public function getDoi(): ?string
+    {
+        $doiObject = $this->getData('doiObject');
+
+        if (empty($doiObject)) {
+            return null;
+        } else {
+            return $doiObject->getData('doi');
+        }
     }
 }
 

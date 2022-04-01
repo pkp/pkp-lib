@@ -14,8 +14,6 @@
 
 namespace PKP\components\forms;
 
-use APP\core\Application;
-
 class FieldRichTextarea extends Field
 {
     /** @copydoc Field::$component */
@@ -26,12 +24,6 @@ class FieldRichTextarea extends Field
 
     /** @var array Optional. A list of required plugins. */
     public $plugins = 'paste,link,noneditable';
-
-    /** @var array Optional. A key/value list of content that can be inserted from a TinyMCE button. */
-    public $preparedContent;
-
-    /** @var bool Whether the $preparedContent properties should be replaced in the field's initial value. */
-    public $renderPreparedContent = false;
 
     /** @var string Optional. A preset size option. */
     public $size;
@@ -46,14 +38,6 @@ class FieldRichTextarea extends Field
     public $wordLimit = 0;
 
     /**
-     * @copydoc Field::__construct()
-     */
-    public function __construct($name, $args = [])
-    {
-        parent::__construct($name, $args);
-    }
-
-    /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
@@ -66,8 +50,6 @@ class FieldRichTextarea extends Field
         if (!empty($this->preparedContent)) {
             $config['preparedContent'] = $this->preparedContent;
         }
-        $config['insertPreparedContentLabel'] = __('common.insert');
-        $config['renderPreparedContent'] = $this->renderPreparedContent;
         if (!empty($this->size)) {
             $config['size'] = $this->size;
         }
@@ -79,9 +61,6 @@ class FieldRichTextarea extends Field
             $config['wordLimit'] = $this->wordLimit;
             $config['wordCountLabel'] = __('publication.wordCount');
         }
-
-        // Load TinyMCE skin
-        $config['skinUrl'] = Application::get()->getRequest()->getBaseUrl() . '/lib/ui-library/public/styles/tinymce';
 
         return $config;
     }

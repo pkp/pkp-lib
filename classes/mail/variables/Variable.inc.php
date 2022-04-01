@@ -15,36 +15,19 @@
 
 namespace PKP\mail\variables;
 
-use InvalidArgumentException;
-
 abstract class Variable
 {
     /**
      * Get descriptions of the variables provided by this class
+     *
      * @return string[]
      */
-    abstract protected static function description() : array;
+    abstract public static function descriptions(): array;
 
     /**
      * Get the value of variables supported by this class
+     *
      * @return string[]
      */
-    abstract public function values(string $locale) : array;
-
-    /**
-     * Get description of all or specific variable
-     * @param string|null $variableConst
-     * @return string|string[]
-     */
-    static function getDescription(string $variableConst = null)
-    {
-        $description = static::description();
-        if (!is_null($variableConst)) {
-            if (!array_key_exists($variableConst, $description)) {
-                throw new InvalidArgumentException('Template variable \'' . $variableConst . '\' doesn\'t exist in ' . static::class);
-            }
-            return $description[$variableConst];
-        }
-        return $description;
-    }
+    abstract public function values(string $locale): array;
 }

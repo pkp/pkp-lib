@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
@@ -76,13 +77,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_APP_ADMIN
-        );
 
         // Grid actions.
         $router = $request->getRouter();
@@ -144,33 +138,22 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
         $data = [];
 
-        $allLocales = AppLocale::getAllLocales();
         $installedLocales = $site->getInstalledLocales();
         $supportedLocales = $site->getSupportedLocales();
         $primaryLocale = $site->getPrimaryLocale();
 
         foreach ($installedLocales as $localeKey) {
             $data[$localeKey] = [];
-            $data[$localeKey]['name'] = $allLocales[$localeKey];
-            $data[$localeKey]['incomplete'] = !AppLocale::isLocaleComplete($localeKey);
-            if (in_array($localeKey, $supportedLocales)) {
-                $supported = true;
-            } else {
-                $supported = false;
-            }
-            $data[$localeKey]['supported'] = $supported;
+            $data[$localeKey]['name'] = Locale::getMetadata($localeKey)->getDisplayName();
+            $data[$localeKey]['incomplete'] = !Locale::getMetadata($localeKey)->isComplete();
+            $data[$localeKey]['supported'] = in_array($localeKey, $supportedLocales);
 
             if ($this->_canManage($request)) {
                 $context = $request->getContext();
                 $primaryLocale = $context->getPrimaryLocale();
             }
 
-            if ($localeKey == $primaryLocale) {
-                $primary = true;
-            } else {
-                $primary = false;
-            }
-            $data[$localeKey]['primary'] = $primary;
+            $data[$localeKey]['primary'] = $localeKey === $primaryLocale;
         }
 
         if ($this->_canManage($request)) {
@@ -259,7 +242,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
                 $siteDao->updateObject($site);
 
                 $this->_updateContextLocaleSettings($request);
-                AppLocale::uninstallLocale($locale);
+                Locale::uninstallLocale($locale);
 
                 $notificationManager = new NotificationManager();
                 $user = $request->getUser();
@@ -359,7 +342,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
 
         if (array_key_exists($rowId, $gridData)) {
-            if (AppLocale::isLocaleValid($rowId)) {
+            if (Locale::isLocaleValid($rowId)) {
                 $oldSitePrimaryLocale = $site->getPrimaryLocale();
                 Repo::user()->dao->changeSitePrimaryLocale($oldSitePrimaryLocale, $rowId);
                 $site->setPrimaryLocale($rowId);
@@ -401,7 +384,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             }
         }
 
-        if (AppLocale::isLocaleValid($rowId)) {
+        if (Locale::isLocaleValid($rowId)) {
             if ($enable) {
                 array_push($newSupportedLocales, $rowId);
             } else {

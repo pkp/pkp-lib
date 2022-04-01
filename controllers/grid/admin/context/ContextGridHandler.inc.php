@@ -15,6 +15,7 @@
 
 import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
+use APP\core\Request;
 use APP\core\Services;
 use APP\template\TemplateManager;
 
@@ -71,15 +72,6 @@ class ContextGridHandler extends GridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load user-related translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_APP_ADMIN
-        );
 
         $this->setTitle('context.contexts');
 
@@ -204,7 +196,7 @@ class ContextGridHandler extends GridHandler
      * Add a new context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function createContext($args, $request)
     {
@@ -216,7 +208,7 @@ class ContextGridHandler extends GridHandler
      * Edit an existing context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -235,16 +227,13 @@ class ContextGridHandler extends GridHandler
         $dispatcher = $request->getDispatcher();
         if ($context) {
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-            $supportedLocales = $context->getSupportedFormLocales();
+            $locales = $context->getSupportedFormLocaleNames();
         } else {
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'contexts');
-            $supportedLocales = $request->getSite()->getSupportedLocales();
+            $locales = $request->getSite()->getSupportedLocaleNames();
         }
 
-        $localeNames = AppLocale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedLocales);
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
         $contextFormConfig = $contextForm->getConfig();
@@ -255,13 +244,17 @@ class ContextGridHandler extends GridHandler
             $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', '__id__');
         }
 
+        $templateMgr = TemplateManager::getManager($request);
+
         $containerData = [
             'components' => [
                 FORM_CONTEXT => $contextFormConfig,
             ],
+            'tinyMCE' => [
+                'skinUrl' => $templateMgr->getTinyMceSkinUrl($request),
+            ],
         ];
 
-        $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'containerData' => $containerData,
             'isAddingNewContext' => !$context,
@@ -274,7 +267,7 @@ class ContextGridHandler extends GridHandler
      * Delete a context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -301,7 +294,7 @@ class ContextGridHandler extends GridHandler
      * Display users management grid for the given context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

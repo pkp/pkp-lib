@@ -60,8 +60,6 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
         $this->_uploaderRoles = $uploaderRoles;
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         parent::__construct(
             $request,
             'controllers/wizard/fileUpload/form/fileUploadForm.tpl',

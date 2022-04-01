@@ -1,0 +1,195 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-12-12 11:16+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できる"
+"ことを伝える同時に、著者に投稿に対するお礼をしています。"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}様<br />\n"
+"<br />\n"
+"雑誌『{$contextName}』に原稿「{$submissionTitle}」をご投稿いただき、ありがとうございました。本誌が使用しているオンライン雑"
+"誌管理システムでは、雑誌のWebサイトにログインすることにより、編集過程の進捗状況を確認することができます。<br />\n"
+"<br />\n"
+"原稿のURL: {$submissionUrl}<br />\n"
+"ユーザー名: {$recipientUsername}<br />\n"
+"<br />\n"
+"何かご不明な点がございましたら、ご連絡ください。研究成果の発表の場として、本誌をご検討いただき、誠にありがとうございました。<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "投稿のお礼"
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "このメールは、セクション編集者から査読者に査読が完了したことを確認し、その貢献に感謝するものです。"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}様:<br />\n"
+"<br />\n"
+"雑誌『{$contextName}』への投稿原稿「{$submissionTitle}」の査読をしていただき、ありがとうございました。本誌が発行する論文の"
+"品質向上に対する貴殿の貢献に対し感謝いたします。"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "論文査読のお礼"
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿が外部査読に回されることを著者に通知します。"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}様:<br />\n"
+"<br />\n"
+"下記の投稿について結論に達しましたので、連絡いたします。\n"
+"『{$contextName}』「{$submissionTitle}」<br />\n"
+"<br />\n"
+"結果は: 査読に回す<br />\n"
+"<br />\n"
+"投稿物のURL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "編集者の判断"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "編集者やセクション編集者から著者へのこのメールは、投稿が制作プロセスに入ることを通知します。"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}様:<br />\n"
+"<br />\n"
+"投稿「{$submissionTitle}」の編集が完了しました。 これから制作プロセスに入ります。<br />\n"
+"<br />\n"
+"投稿物のURL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "編集者の判断"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿に関する最終的な「改訂を要求」の決定を著者に通知するものです。"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}様:<br />\n"
+"<br />\n"
+"下記の投稿について結論に達しましたので、連絡いたします。\n"
+"『{$contextName}』「{$submissionTitle}」<br />\n"
+"<br />\n"
+"結果は: 改訂を要求"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "編集者の判断"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿に関する最終的な「再投稿」の決定を著者に通知するものです。"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}様:<br />\n"
+"<br />\n"
+"下記の投稿について結論に達しましたので、連絡いたします。\n"
+"『{$contextName}』「{$submissionTitle}」<br />\n"
+"<br />\n"
+"結果は: 査読に再投稿"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "編集者の判断"
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿に関する最終的な「不採択」の決定を著者に通知するものです。"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}様:<br />\n"
+"<br />\n"
+"下記の投稿について結論に達しましたので、連絡いたします。\n"
+"『{$contextName}』「{$submissionTitle}」<br />\n"
+"<br />\n"
+"結果は: 不採用"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "編集者の判断"
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr "推薦編集者またはセクション編集者から意思決定を行う編集者またはセクション編集者へのこのメールは、投稿に関する最終的な査読結果を通知します。"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"『$contextName}』への投稿「{$submissionTitle}」に関する査読結果は {$recommendation} です。"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "編集者の査読結果"
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr ""
+"このメールは、セクション編集者からコピーエディタに原稿整理作業を開始するよう依頼するものです。メールでは、投稿物に関する情報とアクセス方法を提供しています"
+"。"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}様:<br />\n"
+"<br />\n"
+"誌『{$contextName}』への投稿原稿「{$submissionTitle}」の原稿整理作業をお願いいたしたくメールを差し上げました。以下の手順に"
+"従って作業してください。<br />\n"
+"1. 下記の投稿URLをクリックしてください。<br />\n"
+"2. 「原稿ファイル」で利用可能なファイルを開き、必要に応じて「原稿整理 ディスカッション」を追加しながら、原稿整理作業を行います。<br />\n"
+"3. 整理したファイルを保存し、原稿整理 パネルにアップロードします。<br />\n"
+"4. 全てのファイルの準備が完了したことを編集者に通知し、制作プロセスの開始が可能になります。<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"投稿URL: {$submissionUrl}<br />\n"
+"ユーザー名: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "原稿整理のお願い"
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr "このメールは、査読段階に入る前に編集者が最初から投稿を断った場合、著者に送信されます。"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}様:<br />\n"
+"<br />\n"
+"下記の投稿について結論に達しましたので、連絡いたします。\n"
+"『{$contextName}』「{$submissionTitle}」<br />\n"
+"<br />\n"
+"結果は: 不採用"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "編集者の判断"

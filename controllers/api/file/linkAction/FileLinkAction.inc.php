@@ -16,21 +16,6 @@ use PKP\linkAction\LinkAction;
 
 class FileLinkAction extends LinkAction
 {
-    /**
-     * Constructor
-     *
-     * @param string $id Link action ID
-     * @param LinkActionRequest $actionRequest
-     * @param string $title optional
-     * @param string $image optional
-     * @param string $tooltip optional
-     */
-    public function __construct($id, $actionRequest, $title = null, $image = null, $tooltip = null)
-    {
-        parent::__construct($id, $actionRequest, $title, $image, $tooltip);
-    }
-
-
     //
     // Protected helper function
     //

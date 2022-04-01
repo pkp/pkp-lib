@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-01-21 12:53+0000\n"
+"PO-Revision-Date: 2022-02-03 08:42+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr_TR/>\n"
@@ -362,3 +363,15 @@ msgstr "Toplu E-postaları Kısıtla"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Toplu E-posta"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Editöryal Raporlama Bildirimi"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "`{$namespace}` alanı için mevcut komutlar:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "komut [argümanlar]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Kullanım:"

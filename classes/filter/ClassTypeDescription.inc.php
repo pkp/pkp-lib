@@ -24,16 +24,6 @@ class ClassTypeDescription extends TypeDescription
     /** @var string a valid package name */
     public $_packageName;
 
-    /**
-     * Constructor
-     *
-     * @param string $typeName a fully qualified class name.
-     */
-    public function __construct($typeName)
-    {
-        parent::__construct($typeName);
-    }
-
     //
     // Setters and Getters
     //

@@ -351,21 +351,21 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $expectedFileSize = $node->getAttribute('filesize');
             if ($fileSizeOnDisk != $expectedFileSize) {
                 $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', ['expected' => $expectedFileSize, 'actual' => $fileSizeOnDisk]));
-            } else {
-                clearstatcache(true, $temporaryFilename);
-                $fileManager = new FileManager();
-                $submissionDir = Repo::submissionFile()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
-                $newFileId = Services::get('file')->add(
-                    $temporaryFilename,
-                    $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
-                );
-                $deployment->setFileDBId($node->getAttribute('id'), $newFileId);
             }
+            clearstatcache(true, $temporaryFilename);
+            $fileManager = new FileManager();
+            $submissionDir = Repo::submissionFile()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+            $newFileId = Services::get('file')->add(
+                $temporaryFilename,
+                $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
+            );
+            $deployment->setFileDBId($node->getAttribute('id'), $newFileId);
         }
 
-        if ($newFileId) {
+        if (isset($newFileId)) {
             return $newFileId;
         }
+        return null;
     }
 
     /**

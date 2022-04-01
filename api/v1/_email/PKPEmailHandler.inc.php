@@ -17,7 +17,10 @@
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
+use PKP\core\PKPContainer;
+use PKP\db\DAORegistry;
 use PKP\mail\Mail;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;

@@ -1,12 +1,13 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2019-12-29 20:34+0000\n"
-"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"PO-Revision-Date: 2022-01-12 09:43+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"reviewer/it/>\n"
+"reviewer/it_IT/>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,3 +108,12 @@ msgstr "Per l'editor solamente"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "L'attuale utente non è assegnato come revisore del documento richiesto."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Inviare ai revisori"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Inviare una copia di questa notifica via BCC ai seguenti revisori."
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Salvare per dopo"

@@ -127,10 +127,7 @@ class TypeDescriptionFactory
             self::TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
             self::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription'
         ];
-        if (!isset($namespaceMap[$namespace])) {
-            return null;
-        }
-        return $namespaceMap[$namespace];
+        return $namespaceMap[$namespace] ?? null;
     }
 }
 

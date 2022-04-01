@@ -15,7 +15,6 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
@@ -264,7 +263,6 @@ class Repository
 
     public function getRolesOverview(Collector $collector)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
         $result = [
             [
                 'id' => 'total',
@@ -318,8 +316,7 @@ class Repository
             $noteDao->updateObject($note);
         }
 
-        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-        $editDecisionDao->transferEditorDecisions($oldUserId, $newUserId);
+        Repo::decision()->dao->reassignDecisions($oldUserId, $newUserId);
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         foreach ($reviewAssignmentDao->getByUserId($oldUserId) as $reviewAssignment) {

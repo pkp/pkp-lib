@@ -38,7 +38,7 @@ class DAOResultIterator implements \Iterator, \Countable
     /**
      * @copydoc Iterator::current
      */
-    public function current()
+    public function current(): mixed
     {
         return $this->_current;
     }
@@ -50,7 +50,7 @@ class DAOResultIterator implements \Iterator, \Countable
      *
      * @return int|null
      */
-    public function key()
+    public function key(): mixed
     {
         if (!$this->_current) {
             return null;
@@ -61,7 +61,7 @@ class DAOResultIterator implements \Iterator, \Countable
     /**
      * @copydoc Iterator::next()
      */
-    public function next()
+    public function next(): void
     {
         $this->_current = $this->_resultFactory->next();
         $this->_i++;
@@ -72,7 +72,7 @@ class DAOResultIterator implements \Iterator, \Countable
      * operation is not arbitrarily supported -- it can only be called
      * before the first call to `next()`.
      */
-    public function rewind()
+    public function rewind(): void
     {
         if ($this->_i != 0) {
             throw new \Exception('DAOResultIterator currently does not support rewind() once iteration has started.');
@@ -82,7 +82,7 @@ class DAOResultIterator implements \Iterator, \Countable
     /**
      * @copydoc Iterator::valid()
      */
-    public function valid()
+    public function valid(): bool
     {
         return ($this->_current !== null);
     }
@@ -90,7 +90,7 @@ class DAOResultIterator implements \Iterator, \Countable
     /**
      * @copydoc Countable::count()
      */
-    public function count()
+    public function count(): int
     {
         return $this->_resultFactory->getCount();
     }

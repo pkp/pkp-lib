@@ -18,10 +18,10 @@ namespace PKP\mail\mailables;
 use PKP\context\Context;
 use PKP\mail\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Recipient;
+use PKP\mail\traits\Sender;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\mail\Recipient;
-use PKP\mail\Sender;
 
 class MailReviewerAssigned extends Mailable
 {
@@ -30,11 +30,8 @@ class MailReviewerAssigned extends Mailable
     use Configurable;
 
     protected static ?string $name = 'mailable.mailReviewerAssigned.name';
-
     protected static ?string $description = 'mailable.mailReviewerAssigned.description';
-
-    public static bool $supportsTemplates = true;
-
+    protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
 
     public function __construct(Context $context, PKPSubmission $submission, ReviewAssignment $reviewAssignment)

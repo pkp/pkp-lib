@@ -45,7 +45,7 @@
 					{fieldLabel translate=true for=password key=$passwordLengthRestrictionLocaleKey length=$minPasswordLength}
 				{/fbvFormSection}
 				{fbvFormSection label="user.profile.repeatNewPassword" for="password2"}
-					{fbvElement type="text" required=true password=true id="password2" value=$password2|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="text" required=true password=true id="password2" value=$password2|default:""|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 
 				<p>

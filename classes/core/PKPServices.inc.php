@@ -17,6 +17,8 @@
 
 namespace PKP\core;
 
+use APP\core\Services;
+
 abstract class PKPServices
 {
     /** @var Pimple\Container Pimple Dependency Injection Container */
@@ -64,7 +66,7 @@ abstract class PKPServices
     private static function _instance()
     {
         if (is_null(self::$instance)) {
-            self::$instance = new \app\core\Services();
+            self::$instance = new Services();
         }
 
         return self::$instance;

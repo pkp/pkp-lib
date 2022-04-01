@@ -60,10 +60,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Laajat metatiedot"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRefiin rekisteröity sähköposti"
+msgstr "Crossrefiin rekisteröity sähköposti"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Anna voimassa oleva CrossRefiin rekisteröity sähköpostiosoite. Voit rekisteröidä sähköpostiosoitteesi ilmaiseksi CrossRefin verkkosivustolla."
+msgstr "Anna voimassa oleva Crossrefiin rekisteröity sähköpostiosoite. Voit rekisteröidä sähköpostiosoitteesi ilmaiseksi Crossrefin verkkosivustolla."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API -avain"
@@ -1559,15 +1559,6 @@ msgstr "Suosittele toimituksellista päätöstä käsikirjoitukseen liittyen."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Tallennetut suositukset"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Seuraavaksi: valitse tiedostot vaiheeseen {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Valitse tiedostot, jotka haluat lähettää vaiheeseen {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Edellinen ilmoitus kirjoittajalle"
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Uusi versioita on lähetetty."

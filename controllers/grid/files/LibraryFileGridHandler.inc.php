@@ -103,15 +103,6 @@ class LibraryFileGridHandler extends CategoryGridHandler
         // Set name
         $this->setTitle('manager.publication.library');
 
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_APP_COMMON,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
-
         // Columns
         // Basic grid row configuration
         $this->addColumn($this->getFileNameColumn());

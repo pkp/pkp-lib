@@ -63,7 +63,6 @@ class PluginGalleryGridHandler extends GridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_DEFAULT);
 
         // Basic grid configuration.
         $this->setTitle('manager.plugins.pluginGallery');

@@ -28,9 +28,6 @@ abstract class FieldBaseAutosuggest extends Field
     /** @var array Query params when getting suggestions. */
     public $getParams = [];
 
-    /** @var string Displayed in the text box or below the input. One of the AUTOSUGGEST_POSITION_* constants. */
-    public $initialPosition = AUTOSUGGEST_POSITION_INLINE;
-
     /** @var array List of selected items. */
     public $selected = [];
 
@@ -43,7 +40,6 @@ abstract class FieldBaseAutosuggest extends Field
         $config['apiUrl'] = $this->apiUrl;
         $config['deselectLabel'] = __('common.removeItem');
         $config['getParams'] = empty($this->getParams) ? new \stdClass() : $this->getParams;
-        $config['initialPosition'] = $this->initialPosition;
         $config['selectedLabel'] = __('common.selectedPrefix');
         $config['selected'] = $this->selected;
 

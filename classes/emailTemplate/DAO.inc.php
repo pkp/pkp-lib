@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\db\XMLDAO;
+use PKP\facades\Locale;
 use PKP\facades\Repo;
 
 class DAO extends EntityDAO
@@ -57,6 +58,7 @@ class DAO extends EntityDAO
 
     /**
      * @copydoc EntityDAO::insert()
+     *
      * @throws Exception
      */
     public function insert(EmailTemplate $object): int
@@ -104,6 +106,7 @@ class DAO extends EntityDAO
 
     /**
      * @copydoc EntityDAO::get()
+     *
      * @throws Exception
      */
     public function get(int $id): ?EmailTemplate
@@ -113,6 +116,7 @@ class DAO extends EntityDAO
 
     /**
      * Do not use this method.
+     *
      * @throws Exception
      */
     public function getIds()
@@ -162,11 +166,12 @@ class DAO extends EntityDAO
 
     /**
      * Retrieve template together with data from the email_template_default_data
+     *
      * @copydoc EntityDAO::fromRow()
      */
     public function fromRow(object $row): EmailTemplate
     {
-	    /** @var EmailTemplate $emailTemplate */
+        /** @var EmailTemplate $emailTemplate */
         $emailTemplate = parent::fromRow($row);
         $schema = $this->schemaService->get($this->schema);
 
@@ -244,15 +249,13 @@ class DAO extends EntityDAO
      * @param bool $skipExisting If true, do not install email templates
      * that already exist in the database
      *
-     * @return bool
      */
     public function installEmailTemplates(
         string $templatesFile,
         array $locales = [],
         ?string $emailKey = null,
         bool $skipExisting = false
-    ): bool
-    {
+    ): bool {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct($templatesFile, ['email']);
         if (!isset($data['email'])) {
@@ -292,14 +295,12 @@ class DAO extends EntityDAO
      * @param string|null $emailKey Optional name of single email key to install,
      * skipping others
      *
-     * @return bool
      */
     public function installEmailTemplateLocaleData(
         string $templatesFile,
         array $locales = [],
         ?string $emailKey = null
-    ): bool
-    {
+    ): bool {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct($templatesFile, ['email']);
         if (!isset($data['email'])) {
@@ -322,11 +323,11 @@ class DAO extends EntityDAO
                         ->where('locale', $locale)
                         ->delete();
 
-                    $keyNotFoundHandler = function ($key) {
-                        return null;
-                    };
-                    $translatedSubject = __($subject, [], $locale, $keyNotFoundHandler);
-                    $translatedBody = __($body, [], $locale, $keyNotFoundHandler);
+                    $previous = Locale::getMissingKeyHandler();
+                    Locale::setMissingKeyHandler(fn (string $key): string => '');
+                    $translatedSubject = __($subject, [], $locale);
+                    $translatedBody = __($body, [], $locale);
+                    Locale::setMissingKeyHandler($previous);
                     if ($translatedSubject !== null && $translatedBody !== null) {
                         DB::table('email_templates_default_data')->insert([
                             'email_key' => $attrs['key'],
@@ -358,8 +359,7 @@ class DAO extends EntityDAO
         string $templateDataFile,
         string $locale,
         ?string $emailKey = null
-    ): bool
-    {
+    ): bool {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parse($templateDataFile);
         if (!$data) {
@@ -373,16 +373,14 @@ class DAO extends EntityDAO
 
             // Translate variable contents
             foreach ([&$subject, &$body, &$description] as &$var) {
-                $var = preg_replace_callback('{{translate key="([^"]+)"}}', function ($matches) use($locale) {
-                    return __($matches[1], [], $locale);
-                }, $var);
+                $var = preg_replace_callback('{{translate key="([^"]+)"}}', fn($matches) => __($matches[1], [], $locale), $var);
             }
 
             if ($emailKey && $emailKey != $emailNode->getAttribute('key')) {
                 continue;
             }
             DB::table('email_templates_default_data')
-                ->where('email_key',$emailNode->getAttribute('key'))
+                ->where('email_key', $emailNode->getAttribute('key'))
                 ->where('locale', $locale)
                 ->delete();
 
@@ -399,7 +397,6 @@ class DAO extends EntityDAO
 
     /**
      * @param string $localizedData email template's localized subject or body
-     * @return string
      */
     protected function renameApplicationVariables(string $localizedData): string
     {

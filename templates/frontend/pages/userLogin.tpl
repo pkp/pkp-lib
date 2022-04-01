@@ -34,7 +34,7 @@
 			</div>
 		{/if}
 
-		<input type="hidden" name="source" value="{$source|escape}" />
+		<input type="hidden" name="source" value="{$source|default:""|escape}" />
 
 		<fieldset class="fields">
 			<legend class="pkp_screen_reader">{translate key="user.login"}</legend>
@@ -47,7 +47,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" autocomplete="username">
+					<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username">
 				</label>
 			</div>
 			<div class="password">
@@ -59,7 +59,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true" autocomplete="current-password">
+					<input type="password" name="password" id="password" value="{$password|default:""|escape}" password="true" maxlength="32" required aria-required="true" autocomplete="current-password">
 					<a href="{url page="login" op="lostPassword"}">
 						{translate key="user.login.forgotPassword"}
 					</a>

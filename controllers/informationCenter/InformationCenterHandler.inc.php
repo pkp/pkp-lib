@@ -202,8 +202,6 @@ abstract class InformationCenterHandler extends Handler
 
     public function setupTemplate($request)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-
         $linkParams = $this->_getLinkParams();
         $templateMgr = TemplateManager::getManager($request);
 

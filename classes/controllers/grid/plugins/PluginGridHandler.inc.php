@@ -15,7 +15,6 @@
 
 namespace PKP\controllers\grid\plugins;
 
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
@@ -78,9 +77,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load language components
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_MANAGER);
 
         // Basic grid configuration
         $this->setTitle('common.plugins');
@@ -439,8 +435,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
 
         if ($installedPlugin) {
             $pluginName = ['pluginName' => $plugin->getDisplayName()];
-            $pluginDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
-            $pluginLibDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
+            $pluginDest = Core::getBaseDir() . "/plugins/$category/$productName";
+            $pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . "/plugins/$category/$productName";
 
             // make sure plugin type is valid and then delete the files
             if (in_array($category, PluginRegistry::getCategories())) {

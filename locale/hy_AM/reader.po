@@ -1,7 +1,8 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-04 01:41+0000\n"
-"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -12,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "reader.fullText"
-msgstr "Ամբողջական տեքստ։"
+msgstr "Ամբողջական տեքստ:"
 
 msgid "comments.viewAllComments"
 msgstr "Տեսնել բոլոր մեկնաբանությունները"
@@ -42,7 +43,7 @@ msgid "comments.nReplies"
 msgstr "({$num} պատասխաններ)"
 
 msgid "comments.noComments"
-msgstr "Որևէ կարդացողի մեկնաբանություն չի հրապարակվել"
+msgstr "Որևէ կարդացողի մեկնաբանություն չի հրապարակվել։"
 
 msgid "comments.name"
 msgstr "Հրապարակողի անուն"
@@ -64,8 +65,8 @@ msgstr "Ջնջել  այս մեկնաբանությունը"
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
-"Եթե ջնջեք այս մեկնաբանությունը, ապա կջնջեք նաև դրա բոլոր պատասխանները: Դուք "
-"վստա՞հ եք, որ ցանկանում եք ջնջել:"
+"Եթե ջնջեք այս մեկնաբանությունը, ապա կջնջեք նաև դրա բոլոր արձագանքները: Դուք "
+"վստա՞հ եք, որ ցանկանում եք ջնջել?"
 
 msgid "comments.titleRequired"
 msgstr "Մեկնաբանության վերնագիրը պարտադիր է։"
@@ -74,7 +75,7 @@ msgid "comments.body"
 msgstr "Մարմին"
 
 msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
+msgstr "\"{$userName}\"․"
 
 msgid "comments.anonymous"
 msgstr "Անանուն օգտագործող"

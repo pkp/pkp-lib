@@ -17,10 +17,15 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
+use PKP\session\SessionManager;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\validation\FormValidatorReCaptcha;
 
@@ -152,7 +157,7 @@ class LoginHandler extends Handler
         } elseif ($reason !== null) {
             $error = 'user.login.accountDisabled';
         }
-        $error = $error ?? 'user.login.loginError';
+        $error ??= 'user.login.loginError';
 
 
         $templateMgr->assign([
@@ -451,14 +456,5 @@ class LoginHandler extends Handler
         } else {
             $request->redirect(null, 'user');
         }
-    }
-
-    /**
-     * Configure the template for display.
-     */
-    public function setupTemplate($request)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER);
-        parent::setupTemplate($request);
     }
 }

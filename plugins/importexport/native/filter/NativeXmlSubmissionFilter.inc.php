@@ -17,7 +17,7 @@ import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 use APP\facades\Repo;
 use APP\submission\Submission;
-
+use PKP\observers\events\BatchMetadataChanged;
 use PKP\workflow\WorkflowStageDAO;
 
 class NativeXmlSubmissionFilter extends NativeImportFilter
@@ -205,14 +205,13 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $importedObjects = & parent::process($document);
 
         // Index imported content
-        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionIds = [];
         foreach ($importedObjects as $submission) {
             assert($submission instanceof Submission);
-            $submissionSearchIndex->submissionMetadataChanged($submission);
-            $submissionSearchIndex->submissionFilesChanged($submission);
+            $submissionIds[] = $submission->getId();
         }
 
-        $submissionSearchIndex->submissionChangesFinished();
+        event(new BatchMetadataChanged($submissionIds));
 
         return $importedObjects;
     }

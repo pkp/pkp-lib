@@ -35,7 +35,7 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm
      * @param array $stageSubmissionFiles List of submission files in this stage.
      * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
-    public function execute($stageSubmissionFiles, $fileStage = null)
+    public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
         parent::execute($stageSubmissionFiles, SubmissionFile::SUBMISSION_FILE_COPYEDIT);
     }

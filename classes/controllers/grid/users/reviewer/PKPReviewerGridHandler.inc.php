@@ -17,7 +17,6 @@ namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -213,17 +212,6 @@ class PKPReviewerGridHandler extends GridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load submission-specific translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_PKP_REVIEWER,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
-
         $this->setTitle('user.role.reviewers');
 
         // Grid actions

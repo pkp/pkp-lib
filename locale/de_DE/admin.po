@@ -1,9 +1,10 @@
+# Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-01-21 12:53+0000\n"
+"PO-Revision-Date: 2022-01-27 05:25+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "de_DE/>\n"
@@ -330,3 +331,6 @@ msgstr "Massen-E-Mails einschränken"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Massen-E-Mails"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Redaktionsreport Benachrichtigung"

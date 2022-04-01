@@ -23,6 +23,7 @@ use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\OrderCategoryGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -80,8 +81,6 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
         $context = $request->getContext();
         $this->_contextId = $context->getId();
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
-
         // Set the grid title.
         $this->setTitle('grid.category.categories');
 
@@ -102,7 +101,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
 
         // Add grid columns.
         $cellProvider = new DataObjectGridCellProvider();
-        $cellProvider->setLocale(AppLocale::getLocale());
+        $cellProvider->setLocale(Locale::getLocale());
 
         $this->addColumn(
             new GridColumn(

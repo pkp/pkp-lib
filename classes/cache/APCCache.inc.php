@@ -24,18 +24,6 @@ class apc_false
 class APCCache extends GenericCache
 {
     /**
-     * Instantiate a cache.
-     *
-     * @param string $context
-     * @param mixed $cacheId
-     * @param array $fallback PKP-style callback
-     */
-    public function __construct($context, $cacheId, $fallback)
-    {
-        parent::__construct($context, $cacheId, $fallback);
-    }
-
-    /**
      * Flush the cache.
      */
     public function flush()

@@ -20,7 +20,6 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
@@ -53,8 +52,6 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
      */
     public function dataObjectEffect()
     {
-        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION]);
-
         $assignedFileStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_FILE_STAGES);
         if (empty($assignedFileStages) || !in_array(SubmissionFile::SUBMISSION_FILE_PROOF, $assignedFileStages)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

@@ -81,12 +81,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      */
     public function updateNotification($request, $userIds, $assocType, $assocId)
     {
-        $context = $request->getContext();
-        $contextId = $context->getId();
-
         assert($assocType == ASSOC_TYPE_SUBMISSION);
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);
+        $contextId = $submission->getContextId();
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getStageId());

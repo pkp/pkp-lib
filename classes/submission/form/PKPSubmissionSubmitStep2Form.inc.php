@@ -21,6 +21,7 @@ use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\submissionFile\SubmissionFile;
 
@@ -55,6 +56,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
 
         $fileUploadApiUrl = '';
         $submissionFiles = [];
+        $submissionLocale = Locale::getLocale();
         if ($this->submission) {
             $fileUploadApiUrl = $request->getDispatcher()->url(
                 $request,
@@ -64,17 +66,17 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
             );
             $submissionFileForm = new \PKP\components\forms\submission\PKPSubmissionFileForm($fileUploadApiUrl, $genres);
 
-            $submissionFilesCollector = Repo::submissionFile()
+            $collector = Repo::submissionFile()
                 ->getCollector()
                 ->filterBySubmissionIds([$this->submission->getId()])
                 ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION]);
 
-            $submissionFilesIterator = Repo::submissionFile()
-                ->getMany($submissionFilesCollector);
+            $submissionFiles = Repo::submissionFile()
+                ->getMany($collector);
 
             $submissionFiles = Repo::submissionFile()
                 ->getSchemaMap()
-                ->summarizeMany($submissionFilesIterator);
+                ->summarizeMany($submissionFiles, $genres);
         }
 
         $templateMgr = TemplateManager::getManager($request);
@@ -127,6 +129,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
                         'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
                     ],
                     'otherLabel' => __('about.other'),
+                    'primaryLocale' => $request->getContext()->getPrimaryLocale(),
                     'removeConfirmLabel' => __('submission.submit.removeConfirm'),
                     'stageId' => WORKFLOW_STAGE_ID_SUBMISSION,
                     'title' => __('submission.files'),

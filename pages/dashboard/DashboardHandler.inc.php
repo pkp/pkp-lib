@@ -104,7 +104,11 @@ class DashboardHandler extends Handler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 
-        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups);
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+
+        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups, $genres);
 
         $myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
             SUBMISSIONS_LIST_MY_QUEUE,
@@ -209,16 +213,5 @@ class DashboardHandler extends Handler
         $this->setupTemplate($request);
 
         return $templateMgr->fetchJson('dashboard/tasks.tpl');
-    }
-
-    /**
-     * Setup common template variables.
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request = null)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-        parent::setupTemplate($request);
     }
 }

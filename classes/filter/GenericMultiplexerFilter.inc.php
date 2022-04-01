@@ -27,17 +27,6 @@ class GenericMultiplexerFilter extends CompositeFilter
      */
     public $_tolerateFailures = false;
 
-    /**
-     * Constructor
-     *
-     * @param FilterGroup $filterGroup
-     * @param string $displayName
-     */
-    public function __construct(&$filterGroup, $displayName = null)
-    {
-        parent::__construct($filterGroup, $displayName);
-    }
-
 
     //
     // Setters and Getters

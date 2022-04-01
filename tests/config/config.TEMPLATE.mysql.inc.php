@@ -35,7 +35,6 @@ web_cache_hours = 1
 
 [i18n]
 locale = en_US
-client_charset = utf-8
 connection_charset = utf8
 
 [files]
@@ -100,3 +99,8 @@ font_location = /usr/share/fonts/truetype/freefont/FreeSerif.ttf
 
 [debug]
 show_stacktrace = On
+
+[queues]
+
+default_queue = "test_default_queue"
+disable_jobs_run_at_shutdown = Off

@@ -1,10 +1,11 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2021-02-01 13:53+0000\n"
-"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"PO-Revision-Date: 2022-01-12 09:18+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -614,10 +615,10 @@ msgid "submission.currentAgencies"
 msgstr "Organismes actuels"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Courriel d'inscription CrossRef"
+msgstr "Courriel d'inscription Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Veuillez saisir un courriel d'inscription CrossRef valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de CrossRef."
+msgstr "Veuillez saisir un courriel d'inscription Crossref valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clé API ISBNdb"
@@ -1566,7 +1567,9 @@ msgid "submission.query.new.contents"
 msgstr "Vous avez été ajouté à une discussion intitulée \"{$queryTitle}\" au sujet de la soumission \"{$submissionTitle}\"."
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Inclure ce contributeur dans la liste ?"
+msgstr ""
+"Inclure ce contributeur lors de l'identification des auteurs dans les listes "
+"de publications."
 
 msgid "submission.submit.submissionLocaleDescription"
 msgstr "Les soumission dans plusieurs langues sont acceptées. Choisissez la langue principal de la soumission parmi celle présentes dans le menu déroulant."
@@ -1696,15 +1699,6 @@ msgstr "Faire une recommandation pour cette soumission."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recommandations enregistrées"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Prochain : Sélection de fichiers pour  {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers à envoyer à l'étape {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Précédemment : Avertir l'auteur"
 
 msgid "editor.submission.roundStatus.recommendationsReady"
 msgstr "Nouvelles recommandations ont été soumises."
@@ -2120,3 +2114,9 @@ msgstr ""
 "pour s'assurer que les évaluations soient réalisées. Vous n'avez aucune "
 "action à effectuer pour le moment. Vous recevrez une notification lorsque la "
 "décision aura été prise."
+
+msgid "category.category"
+msgstr "Catégories"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Listes de publications"

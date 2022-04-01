@@ -80,15 +80,6 @@ class ReviewFormElementsGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
-        // Load user-related translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_ADMIN,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_APP_COMMON,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_USER
-        );
-
         // Grid actions.
         $router = $request->getRouter();
 

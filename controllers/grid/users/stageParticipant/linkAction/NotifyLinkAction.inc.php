@@ -28,7 +28,6 @@ class NotifyLinkAction extends LinkAction
      */
     public function __construct($request, &$submission, $stageId, $userId = null)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
         // Prepare request arguments
         $requestArgs['submissionId'] = $submission->getId();
         $requestArgs['stageId'] = $stageId;

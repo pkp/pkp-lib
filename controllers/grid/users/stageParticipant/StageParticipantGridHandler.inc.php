@@ -20,10 +20,10 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCate
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
-use APP\workflow\EditorDecisionActionsManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
@@ -117,15 +117,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load submission-specific translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_DEFAULT,
-            LOCALE_COMPONENT_PKP_DEFAULT,
-            LOCALE_COMPONENT_PKP_SUBMISSION
-        );
 
         // Columns
         import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCellProvider');
@@ -356,7 +347,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
-                    (new EditorDecisionActionsManager())->getStageNotifications(),
+                    $notificationMgr->getDecisionStageNotifications(),
                     null,
                     ASSOC_TYPE_SUBMISSION,
                     $submission->getId()
@@ -419,7 +410,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $notificationMgr = new NotificationManager();
         $notificationMgr->updateNotification(
             $request,
-            (new EditorDecisionActionsManager())->getStageNotifications(),
+            $notificationMgr->getDecisionStageNotifications(),
             null,
             ASSOC_TYPE_SUBMISSION,
             $submission->getId()
@@ -567,11 +558,11 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function fetchTemplateBody($args, $request)
     {
         $templateKey = $request->getUserVar('template');
-        $template = new SubmissionMailTemplate($this->getSubmission(), $templateKey);
+        $template = new SubmissionMailTemplate($this->getSubmission(), $templateKey, null, null, false);
         if ($template) {
             $user = $request->getUser();
             $template->assignParams([
-                'signature' => $user->getContactSignature(),
+                'signature' => $user->getContactSignature(Locale::getLocale()),
                 'senderName' => $user->getFullname(),
             ]);
             $template->replaceParams();

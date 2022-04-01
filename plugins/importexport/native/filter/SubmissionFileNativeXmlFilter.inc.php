@@ -94,11 +94,11 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         // Create the submission_file node and set metadata
         $submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());
         $submissionFileNode->setAttribute('id', $submissionFile->getId());
-        $submissionFileNode->setAttribute('created_at', strftime('%Y-%m-%d', strtotime($submissionFile->getData('createdAt'))));
+        $submissionFileNode->setAttribute('created_at', date('Y-m-d', strtotime($submissionFile->getData('createdAt'))));
         $submissionFileNode->setAttribute('date_created', $submissionFile->getData('dateCreated'));
         $submissionFileNode->setAttribute('file_id', $submissionFile->getData('fileId'));
         $submissionFileNode->setAttribute('stage', $stageToName[$submissionFile->getFileStage()]);
-        $submissionFileNode->setAttribute('updated_at', strftime('%Y-%m-%d', strtotime($submissionFile->getData('updatedAt'))));
+        $submissionFileNode->setAttribute('updated_at', date('Y-m-d', strtotime($submissionFile->getData('updatedAt'))));
         $submissionFileNode->setAttribute('viewable', $submissionFile->getViewable() ? 'true' : 'false');
         if ($caption = $submissionFile->getData('caption')) {
             $submissionFileNode->setAttribute('caption', $caption);
@@ -212,8 +212,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         // Add pub IDs by plugin
         $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
         foreach ($pubIdPlugins as $pubIdPlugin) {
-            $this->addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin);
+            $this->addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin->getPubIdType());
         }
+        // Also add DOI
+        $this->addPubIdentifier($doc, $revisionNode, $submissionFile, 'doi');
     }
 
     /**
@@ -222,17 +224,16 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
      * @param DOMDocument $doc
      * @param DOMElement $revisionNode
      * @param SubmissionFile $submissionFile
-     * @param PubIdPlugin $pubIdPlugin
      *
      * @return DOMElement|null
      */
-    public function addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin)
+    public function addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdType)
     {
-        $pubId = $submissionFile->getStoredPubId($pubIdPlugin->getPubIdType());
+        $pubId = $submissionFile->getStoredPubId($pubIdType);
         if ($pubId) {
             $deployment = $this->getDeployment();
             $revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-            $node->setAttribute('type', $pubIdPlugin->getPubIdType());
+            $node->setAttribute('type', $pubIdType);
             $node->setAttribute('advice', 'update');
             return $node;
         }

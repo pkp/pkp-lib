@@ -19,13 +19,19 @@ use APP\core\AppServiceProvider;
 
 use Exception;
 use Illuminate\Config\Repository;
+
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Console\Kernel as KernelContract;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
+use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
-use PKP\i18n\PKPLocale;
-use Sokil\IsoCodes\IsoCodesFactory;
-use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
+use PKP\Domains\Jobs\Providers\JobServiceProvider;
+use PKP\i18n\LocaleServiceProvider;
+use PKP\Support\ProxyParser;
+
 use Throwable;
 
 class PKPContainer extends Container
@@ -42,6 +48,7 @@ class PKPContainer extends Container
     public function __construct()
     {
         $this->basePath = BASE_SYS_DIR;
+        $this->settingProxyForStreamContext();
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
     }
@@ -56,8 +63,8 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->singleton(\Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
-            return new class() implements \Illuminate\Contracts\Debug\ExceptionHandler {
+        $this->singleton(ExceptionHandler::class, function () {
+            return new class() implements ExceptionHandler {
                 public function shouldReport(Throwable $e)
                 {
                     return true;
@@ -79,13 +86,21 @@ class PKPContainer extends Container
                 }
             };
         });
+        $this->singleton(
+            KernelContract::class,
+            Kernel::class
+        );
 
-        // This singleton is necessary to keep user selected language across the application
-        $this->singleton(IsoCodesFactory::class, function () {
-            $driver = new GettextExtensionDriver();
-            $driver->setLocale(PKPLocale::getLocale());
-            return new IsoCodesFactory(null, $driver);
-        });
+        $this->singleton(
+            'queue.failer',
+            function ($app) {
+                return new DatabaseFailedJobProvider(
+                    $app['db'],
+                    config('queue.failed.database'),
+                    config('queue.failed.table')
+                );
+            }
+        );
 
         Facade::setFacadeApplication($this);
     }
@@ -103,8 +118,14 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new \Illuminate\Queue\QueueServiceProvider($this));
+        $this->register(new PKPQueueProvider());
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
+        $this->register(new JobServiceProvider($this));
+        $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
+        $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
+        $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
+        $this->register(new LocaleServiceProvider($this));
     }
 
     /**
@@ -127,8 +148,15 @@ class PKPContainer extends Container
         foreach ([
             'app' => [self::class, \Illuminate\Contracts\Container\Container::class, \Psr\Container\ContainerInterface::class],
             'config' => [\Illuminate\Config\Repository::class, \Illuminate\Contracts\Config\Repository::class],
+            'cache' => [\Illuminate\Cache\CacheManager::class, \Illuminate\Contracts\Cache\Factory::class],
+            'cache.store' => [\Illuminate\Cache\Repository::class, \Illuminate\Contracts\Cache\Repository::class, \Psr\SimpleCache\CacheInterface::class],
+            'cache.psr6' => [\Symfony\Component\Cache\Adapter\Psr16Adapter::class, \Symfony\Component\Cache\Adapter\AdapterInterface::class, \Psr\Cache\CacheItemPoolInterface::class],
             'db' => [\Illuminate\Database\DatabaseManager::class, \Illuminate\Database\ConnectionResolverInterface::class],
             'db.connection' => [\Illuminate\Database\Connection::class, \Illuminate\Database\ConnectionInterface::class],
+            'files' => [\Illuminate\Filesystem\Filesystem::class],
+            'filesystem' => [\Illuminate\Filesystem\FilesystemManager::class, \Illuminate\Contracts\Filesystem\Factory::class],
+            'filesystem.disk' => [\Illuminate\Contracts\Filesystem\Filesystem::class],
+            'filesystem.cloud' => [\Illuminate\Contracts\Filesystem\Cloud::class],
             'maps' => [MapContainer::class, MapContainer::class],
             'events' => [\Illuminate\Events\Dispatcher::class, \Illuminate\Contracts\Events\Dispatcher::class],
             'queue' => [\Illuminate\Queue\QueueManager::class, \Illuminate\Contracts\Queue\Factory::class, \Illuminate\Contracts\Queue\Monitor::class],
@@ -151,11 +179,10 @@ class PKPContainer extends Container
         $items = [];
 
         // Database connection
-        $driver = strtolower(Config::getVar('database', 'driver'));
-        if (substr($driver, 0, 8) === 'postgres') {
+        $driver = 'mysql';
+
+        if (substr(strtolower(Config::getVar('database', 'driver')), 0, 8) === 'postgres') {
             $driver = 'pgsql';
-        } else {
-            $driver = 'mysql';
         }
 
         $items['database']['default'] = $driver;
@@ -179,6 +206,12 @@ class PKPContainer extends Container
             'table' => 'jobs',
             'queue' => 'default',
             'retry_after' => 90,
+            'after_commit' => true,
+        ];
+        $items['queue']['failed'] = [
+            'driver' => 'database',
+            'database' => $driver,
+            'table' => 'failed_jobs',
         ];
 
         // Logging
@@ -209,7 +242,19 @@ class PKPContainer extends Container
 
         $items['mail']['default'] = static::getDefaultMailer();
 
-        $this->instance('config', new Repository($items)); // create instance and bind to use globally
+        // Cache configuration
+        $items['cache'] = [
+            'default' => 'opcache',
+            'stores' => [
+                'opcache' => [
+                    'driver' => 'opcache',
+                    'path' => Core::getBaseDir() . '/cache/opcache'
+                ]
+            ]
+        ];
+
+        // Create instance and bind to use globally
+        $this->instance('config', new Repository($items));
     }
 
     /**
@@ -218,7 +263,7 @@ class PKPContainer extends Container
      */
     public function basePath($path = '')
     {
-        return $this->basePath . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+        return $this->basePath . ($path ? "/$path" : $path);
     }
 
     /**
@@ -244,6 +289,49 @@ class PKPContainer extends Container
         }
 
         return $default;
+    }
+
+    /**
+     * Setting a proxy on the stream_context_set_default when configuration [proxy] is filled
+     */
+    protected function settingProxyForStreamContext(): void
+    {
+        $proxy = new ProxyParser();
+
+        if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
+            $proxy->parseFQDN($httpProxy);
+        }
+
+        if ($httpsProxy = Config::getVar('proxy', 'https_proxy')) {
+            $proxy->parseFQDN($httpsProxy);
+        }
+
+        if ($proxy->isEmpty()) {
+            return;
+        }
+
+        /**
+         * `Connection close` here its to avoid slowness. More info at https://www.php.net/manual/en/context.http.php#114867
+         * `request_fulluri` its related to avoid proxy errors. More info at https://www.php.net/manual/en/context.http.php#110449
+         */
+        $opts = [
+            'http' => [
+                'protocol_version' => 1.1,
+                'header' => [
+                    'Connection: close',
+                ],
+                'proxy' => $proxy->getProxy(),
+                'request_fulluri' => true,
+            ],
+        ];
+
+        if ($proxy->getAuth()) {
+            $opts['http']['header'][] = 'Proxy-Authorization: Basic ' . $proxy->getAuth();
+        }
+
+        $context = stream_context_create($opts);
+        stream_context_set_default($opts);
+        libxml_set_streams_context($context);
     }
 }
 

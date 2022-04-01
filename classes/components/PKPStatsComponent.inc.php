@@ -42,9 +42,6 @@ class PKPStatsComponent
      */
     public function __construct($apiUrl, $args = [])
     {
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $this->apiUrl = $apiUrl;
         $this->init($args);
     }

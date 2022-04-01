@@ -212,6 +212,15 @@
 				"nullable"
 			]
 		},
+		"preferredPublicName": {
+			"type": "string",
+			"description": "An optional field for users to specify how they prefer to be identified.",
+			"multilingual": "true",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"signature": {
 			"type": "string",
 			"multilingual": true,

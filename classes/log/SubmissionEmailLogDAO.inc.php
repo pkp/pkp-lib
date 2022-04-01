@@ -17,6 +17,11 @@
 
 namespace PKP\log;
 
+use APP\submission\Submission;
+use PKP\core\Core;
+use PKP\mail\Mailable;
+use PKP\user\User;
+
 class SubmissionEmailLogDAO extends EmailLogDAO
 {
     /**
@@ -54,6 +59,46 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     public function getBySubmissionId($submissionId)
     {
         return $this->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+    }
+
+    /**
+     * Create a log entry from data in a Mailable class
+     *
+     * @param integer $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
+     *
+     * @return integer The new log entry id
+     */
+    public function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
+    {
+        $entry = $this->newDataObject();
+        $entry->setEventType($eventType);
+        $entry->setAssocId($submission->getId());
+        $entry->setDateSent(Core::getCurrentDate());
+        $entry->setSenderId($sender ? $sender->getId() : 0);
+        $entry->setSubject($mailable->subject);
+        $entry->setBody($mailable->render());
+        $entry->setFrom($this->getContactString($mailable->from));
+        $entry->setRecipients($this->getContactString($mailable->to));
+        $entry->setCcs($this->getContactString($mailable->cc));
+        $entry->setBccs($this->getContactString($mailable->bcc));
+
+        return $this->insertObject($entry);
+    }
+
+    /**
+     * Get the from or to data as a string
+     *
+     * @param array $addressees Expects Mailable::$to or Mailable::$from
+     */
+    protected function getContactString(array $addressees): string
+    {
+        $contactStrings = [];
+        foreach ($addressees as $addressee) {
+            $contactStrings[] = isset($addressee['name'])
+                ? '"' . $addressee['name'] . '" <' . $addressee['address'] . '>'
+                : $addressee['address'];
+        }
+        return join(', ', $contactStrings);
     }
 }
 

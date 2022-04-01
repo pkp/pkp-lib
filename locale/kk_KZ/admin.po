@@ -1,8 +1,9 @@
 # Madi <nmdbzk@gmail.com>, 2021.
+# Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-08-23 21:01+0000\n"
-"Last-Translator: Madi <nmdbzk@gmail.com>\n"
+"PO-Revision-Date: 2022-02-08 03:37+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -91,3 +92,279 @@ msgstr "Мән орнату"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Атау енгізу"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Барлық жоспарланған тапсырманы орындау журналдарын шынымен жойғыңыз келе ме?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} орнатуыңыз бұл тапсырманы автоматты түрде орындап, аяқтады "
+"және журнал файлын мына жерден жүктеп алуға болады: {$url}"
+
+msgid "admin.settings.siteTitle"
+msgstr "Сайт атауы"
+
+msgid "admin.settings.siteLogo"
+msgstr "Сайт логотипі"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Сайт стилі кестесі"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Сайт стилі кестесінің пішімі қате. Рұқсат етілген формат — .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Сайт тілі"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Бұл параметрді тек әкімшіге өзгертуге рұқсат етіледі."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Рөлдерді өшіру"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Жаппай хат таратуды шектеу"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Құпия сөздің минималды ұзындығы (таңбалар)"
+
+msgid "admin.settings.introduction"
+msgstr "Кіріспе"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tСіздің қондырғыңыз бірнеше пайдалану көрсеткіштерін жазуға арналған. "
+"Пайдалану статистикасы бірнеше контексте көрсетіледі.\n"
+"\t\tКейбір жағдайларда Бірыңғай пайдалану статистикасын қолдану қажет, "
+"мысалы, жиі қолданылатын материалдардың реттелген тізімін көрсету немесе \n"
+"\t\tіздеу нәтижелерін саралау үшін. Әдепкі параметрлердің біреуін таңдаңыз.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Негізгі контактінің аты-жөні"
+
+msgid "admin.settings.contactEmail"
+msgstr "Негізгі контактінің электрондық поштасы"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Жаппай хат тарату"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Тапсырма оқиғалар журналы үшін жазбалар жасамады."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Тапсырманы орындау процесі тоқтатылды."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Тапсырманы орындау процесі басталды."
+
+msgid "admin.scheduledTask"
+msgstr "Жоспарланған тапсырма"
+
+msgid "admin.phpInfo"
+msgstr "PHP туралы қосымша ақпарат"
+
+msgid "admin.languages.uninstall"
+msgstr "Тілді жою"
+
+msgid "admin.languages.reload"
+msgstr "Тіл стандартын қайта жүктеу"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Орнату үшін қосымша тілдер жоқ."
+
+msgid "admin.languages.languageSettings"
+msgstr "Тіл параметрлері"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Жаңа Локализацияларды Орнату"
+
+msgid "admin.languages.installLocales"
+msgstr "Орнату"
+
+msgid "admin.languages.installLocale"
+msgstr "Орнату тілі"
+
+msgid "admin.languages.availableLocales"
+msgstr "Қолжетімді тіл"
+
+msgid "admin.languages.installLanguages"
+msgstr "Локализацияны басқару"
+
+msgid "admin.languages.installedLocales"
+msgstr "Орнатылған Тіл"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Сіз бұл тілді қайта жүктегіңіз келетініне сенімдісіз бе? Бұл теңшелген "
+"электрондық пошта шаблондары сияқты белгілі бір аймаққа байланысты барлық "
+"деректерді жояды."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Кезекке қойылған тапсырмалар санын көрсету"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Әдепкі кезекке тест тапсырмасын қосыңыз"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Оның идентификаторы негізінде белгілі бір кезекте тұрған жұмысты тазалаңыз. "
+"Барлығын тазартқыңыз келсе, --all параметрін өткізіңіз. Барлығын белгілі бір "
+"кезектен тазартқыңыз келсе, --queue= параметрін жіберіңіз"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Кезекте тұрған барлық жұмыстарды тізімдеңіз. Нәтижелерді беттеу керек болса, "
+"--page= және --perPage= параметрлерін пайдаланыңыз"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Жүктеуге қол жетімді тілдер жоқ."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Қате: \"{$utilPath}\" орындау мүмкін емес.  config.inc.php файлында "
+"{$utilVar} параметрін тексеріңіз."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"\"{$utilPath}\" бағдарламасының орындалуы келесі қатені қайтарды: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Сәтті: {$filePath} - {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Ескерту: {$filePath} файлы пайдалану статистикасы каталогында бұрыннан бар."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Қате: {$tmpFilePath} файлын жою мүмкін емес"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr ""
+"Қате: файлды {$filePath} каталогынан {$tmpFilePath} ішіне көшіру мүмкін емес"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Қате: {$filePath} файлы жоқ немесе оған кіру мүмкін емес."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Қате: {$tmpDir} уақытша қалтасын жасау мүмкін емес"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Файл жүктеуші"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} файлы өңделіп, мұрағатталды."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"{$filename} файлын {$currentFilePath} каталогынан {$destinationPath} ішіне "
+"көшіру мүмкін емес"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$path} қалтасы каталог емес немесе оқу мүмкін емес."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"{$path} негізгі жолы жалпыға қолжетімді файлдар каталогында болуы керек."
+
+msgid "admin.version"
+msgstr "Нұсқа"
+
+msgid "admin.version.upToDate"
+msgstr "Сізде жаңартылған жүйе"
+
+msgid "admin.version.updateAvailable"
+msgstr "Жаңартылған нұсқа қол жетімді"
+
+msgid "admin.versionRevision"
+msgstr "Ревизия"
+
+msgid "admin.version.moreInfo"
+msgstr "Толық ақпарат"
+
+msgid "admin.versionMinor"
+msgstr "Кіші"
+
+msgid "admin.versionMajor"
+msgstr "Үлкен"
+
+msgid "admin.version.latest"
+msgstr "Соңғы нұсқа"
+
+msgid "admin.versionHistory"
+msgstr "Нұсқа тарихы"
+
+msgid "admin.version.downloadPatch"
+msgstr "Патчты жүктеу"
+
+msgid "admin.version.downloadPackage"
+msgstr "Жүктеу"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Жаңарту барын тексеру"
+
+msgid "admin.versionBuild"
+msgstr "Құрастыру"
+
+msgid "admin.systemInformation"
+msgstr "Жүйе туралы ақпарат"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"<tt>config.inc.php</tt> конфигурация файлы жоқ, оқылмайды немесе жарамсыз."
+
+msgid "admin.siteSetup"
+msgstr "Сайтты орнату"
+
+msgid "admin.siteSettings"
+msgstr "Сайт баптаулары"
+
+msgid "admin.siteManagement"
+msgstr "Сайтты басқару"
+
+#, fuzzy
+msgid "admin.siteAdmin"
+msgstr "Сайтты әкімшілеу"
+
+#, fuzzy
+msgid "admin.settings.siteTheme"
+msgstr "Сайтты безендіру темасы"
+
+msgid "admin.settings.about"
+msgstr "Сайт туралы"
+
+msgid "admin.settings"
+msgstr "Баптаулар"
+
+msgid "admin.server.platform"
+msgstr "ОЖ платформасы"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP нұсқасы"
+
+msgid "admin.serverInformation"
+msgstr "Сервер туралы ақпарат"
+
+msgid "admin.server.dbVersion"
+msgstr "Дерекқор серверінің нұсқасы"
+
+msgid "admin.server.dbDriver"
+msgstr "Дерекқор драйвері"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache Нұсқасы"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Жазылымның аяқталуы туралы ескерту"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Рецензентке ескерту"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Жариялауға жоспарланған материалдарды жариялау"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Жоспарланған тапсырманы орындау журналдарын тазалау"

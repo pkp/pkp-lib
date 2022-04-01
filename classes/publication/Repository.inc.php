@@ -18,7 +18,7 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\i18n\AppLocale;
+use APP\log\SubmissionEventLogEntry;
 use APP\publication\DAO;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -30,8 +30,12 @@ use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
+use PKP\observers\events\PublishedEvent;
+use PKP\observers\events\UnpublishedEvent;
 use PKP\plugins\HookRegistry;
+use PKP\security\UserGroup;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
 
@@ -105,14 +109,18 @@ abstract class Repository
     /**
      * Get an instance of the map class for mapping
      * publications to their schema
+     *
+     * @param UserGroup[] $userGroups
+     * @param Genre[] $genres
      */
-    public function getSchemaMap(Submission $submission, array $userGroups): maps\Schema
+    public function getSchemaMap(Submission $submission, array $userGroups, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,
             [
                 'submission' => $submission,
                 'userGroups' => $userGroups,
+                'genres' => $genres,
             ]
         );
     }
@@ -144,11 +152,6 @@ abstract class Repository
     public function validate(?Publication $publication, array $props, array $allowedLocales, string $primaryLocale): array
     {
         $errors = [];
-
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION
-        );
 
         $validator = ValidatorFactory::make(
             $props,
@@ -223,7 +226,7 @@ abstract class Repository
         );
 
         if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Publication::validate', [&$errors, $publication, $props, $allowedLocales, $primaryLocale]);
@@ -393,6 +396,8 @@ abstract class Repository
      * This method performs all actions needed when publishing an item, such
      * as setting metadata, logging events, updating the search index, etc.
      *
+     * @throws \Exception
+     *
      * @see self::setStatusOnPublish()
      */
     public function publish(Publication $publication)
@@ -404,16 +409,40 @@ abstract class Repository
 
         // Set the copyright and license information
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
-        if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
-            if (!$newPublication->getData('copyrightHolder')) {
-                $newPublication->setData('copyrightHolder', $submission->_getContextLicenseFieldValue(null, Submission::PERMISSIONS_FIELD_COPYRIGHT_HOLDER, $newPublication));
-            }
-            if (!$newPublication->getData('copyrightYear')) {
-                $newPublication->setData('copyrightYear', $submission->_getContextLicenseFieldValue(null, Submission::PERMISSIONS_FIELD_COPYRIGHT_YEAR, $newPublication));
-            }
-            if (!$newPublication->getData('licenseUrl')) {
-                $newPublication->setData('licenseUrl', $submission->_getContextLicenseFieldValue(null, Submission::PERMISSIONS_FIELD_LICENSE_URL, $newPublication));
-            }
+
+        $itsPublished = ($newPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED);
+
+        if ($itsPublished && !$newPublication->getData('copyrightHolder')) {
+            $newPublication->setData(
+                'copyrightHolder',
+                $submission->_getContextLicenseFieldValue(
+                    null,
+                    PERMISSIONS_FIELD_COPYRIGHT_HOLDER,
+                    $newPublication
+                )
+            );
+        }
+
+        if ($itsPublished && !$newPublication->getData('copyrightYear')) {
+            $newPublication->setData(
+                'copyrightYear',
+                $submission->_getContextLicenseFieldValue(
+                    null,
+                    PERMISSIONS_FIELD_COPYRIGHT_YEAR,
+                    $newPublication
+                )
+            );
+        }
+
+        if ($itsPublished && !$newPublication->getData('licenseUrl')) {
+            $newPublication->setData(
+                'licenseUrl',
+                $submission->_getContextLicenseFieldValue(
+                    null,
+                    PERMISSIONS_FIELD_LICENSE_URL,
+                    $newPublication
+                )
+            );
         }
 
         HookRegistry::call('Publication::publish::before', [&$newPublication, $publication]);
@@ -423,30 +452,44 @@ abstract class Repository
         $newPublication = Repo::publication()->get($newPublication->getId());
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        // Create DOIs
+        Repo::submission()->createDois($submission);
+
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
             Repo::submission()->updateStatus($submission);
             $submission = Repo::submission()->get($submission->getId());
         }
 
+        $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.scheduled' : 'publication.event.published';
+
         // Log an event when publication is published. Adjust the message depending
         // on whether this is the first publication or a subsequent version
         if (count($submission->getData('publications')) > 1) {
-            $msg = $newPublication->getData('status') === Submission::STATUS_SCHEDULED ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
-        } else {
-            $msg = $newPublication->getData('status') === Submission::STATUS_SCHEDULED ? 'publication.event.scheduled' : 'publication.event.published';
+            $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
         }
-        SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH, $msg);
 
-        HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
+        SubmissionLog::logEvent(
+            $this->request,
+            $submission,
+            SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH,
+            $msg
+        );
 
-        // Update the search index.
+        // Mark DOIs stale (if applicable).
         if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
-            Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
-            Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
-            Application::getSubmissionSearchDAO()->flushCache();
-            Application::getSubmissionSearchIndex()->submissionChangesFinished();
+            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+            Repo::doi()->markStale($staleDoiIds);
         }
+        HookRegistry::call(
+            'Publication::publish',
+            [
+                &$newPublication,
+                $publication,
+                $submission
+            ]
+        );
+        event(new PublishedEvent($newPublication, $publication, $submission));
     }
 
     /**
@@ -474,7 +517,13 @@ abstract class Repository
         $newPublication->setData('status', Submission::STATUS_QUEUED);
         $newPublication->stampModified();
 
-        HookRegistry::call('Publication::unpublish::before', [&$newPublication, $publication]);
+        HookRegistry::call(
+            'Publication::unpublish::before',
+            [
+                &$newPublication,
+                $publication
+            ]
+        );
 
         $this->dao->update($newPublication);
 
@@ -489,21 +538,35 @@ abstract class Repository
 
         // Log an event when publication is unpublished. Adjust the message depending
         // on whether this is the first publication or a subsequent version
-        $msg = count($submission->getData('publications')) > 1 ? 'publication.event.versionUnpublished' : 'publication.event.unpublished';
-        SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
+        $msg = 'publication.event.unpublished';
 
-        HookRegistry::call('Publication::unpublish', [&$newPublication, $publication, $submission]);
-
-        // Update the metadata in the search index.
-        if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
-            Application::getSubmissionSearchIndex()->deleteTextIndex($submission->getId());
-            Application::getSubmissionSearchIndex()->clearSubmissionFiles($submission);
-        } else {
-            Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
-            Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
+        if (count($submission->getData('publications')) > 1) {
+            $msg = 'publication.event.versionUnpublished';
         }
-        Application::getSubmissionSearchDAO()->flushCache();
-        Application::getSubmissionSearchIndex()->submissionChangesFinished();
+
+        // Mark DOIs stable (if applicable).
+        if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
+            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+            Repo::doi()->markStale($staleDoiIds);
+        }
+
+        SubmissionLog::logEvent(
+            $this->request,
+            $submission,
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH,
+            $msg
+        );
+
+        HookRegistry::call(
+            'Publication::unpublish',
+            [
+                &$newPublication,
+                $publication,
+                $submission
+            ]
+        );
+
+        event(new UnpublishedEvent($newPublication, $publication, $submission));
     }
 
     /** @copydoc DAO::delete() */
@@ -624,4 +687,9 @@ abstract class Repository
             'urlPath.regex' => __('validator.alpha_dash_period'),
         ];
     }
+
+    /**
+     * Create all DOIs associated with the publication.
+     */
+    abstract protected function createDois(Publication $newPublication): void;
 }

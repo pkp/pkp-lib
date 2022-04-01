@@ -38,9 +38,6 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
     public function __construct($argv = [])
     {
         parent::__construct($argv);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
-
         if (count($this->argv) < 1 || count($this->argv) > 2) {
             $this->usage();
             exit(1);
@@ -49,7 +46,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
         $plugin = PluginRegistry::getPlugin('generic', 'usagestatsplugin'); /** @var UsageStatsPlugin $plugin */
 
         $this->_usageStatsDir = $plugin->getFilesPath();
-        $this->_tmpDir = $this->_usageStatsDir . DIRECTORY_SEPARATOR . 'tmp';
+        $this->_tmpDir = "{$this->_usageStatsDir}/tmp";
 
         // This tool needs egrep path configured.
         $this->_egrepPath = escapeshellarg(Config::getVar('cli', 'egrep'));
@@ -64,7 +61,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
 
         $usageStatsFiles = [];
         foreach ($fileLoaderDirs as $dir) {
-            $dirFiles = glob($this->_usageStatsDir . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . '*');
+            $dirFiles = glob("{$this->_usageStatsDir}/$dir/*");
             if (is_array($dirFiles) && count($dirFiles) > 0) {
                 foreach ($dirFiles as $file) {
                     if (!is_file($file)) {
@@ -126,7 +123,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
 
         if ($fileMgr->fileExists($filePath, 'dir')) {
             // Directory.
-            $filesToCopy = glob($filePath . DIRECTORY_SEPARATOR . '*');
+            $filesToCopy = glob("$filePath/*");
             foreach ($filesToCopy as $file) {
                 // If a base filename is given as a parameter, check it.
                 if (count($this->argv) == 2) {
@@ -181,7 +178,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
             return;
         }
 
-        $tmpFilePath = $tmpDir . DIRECTORY_SEPARATOR . $fileName;
+        $tmpFilePath = "$tmpDir/$fileName";
 
         // Copy the file to a temporary directory.
         if (!$fileMgr->copyFile($filePath, $tmpFilePath)) {
@@ -202,9 +199,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
 
         // Filter only entries that contains context paths.
         $egrepPath = $this->_egrepPath;
-        $destinationPath = $usageStatsDir . DIRECTORY_SEPARATOR .
-        FileLoader::FILE_LOADER_PATH_STAGING . DIRECTORY_SEPARATOR .
-        pathinfo($tmpFilePath, PATHINFO_BASENAME);
+        $destinationPath = "$usageStatsDir/" . FileLoader::FILE_LOADER_PATH_STAGING . '/' . pathinfo($tmpFilePath, PATHINFO_BASENAME);
         // Each context path is already escaped, see the constructor.
         $output = null;
         $returnValue = 0;

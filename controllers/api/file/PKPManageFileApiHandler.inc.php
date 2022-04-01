@@ -20,6 +20,7 @@ use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
+use PKP\observers\events\MetadataChanged;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
@@ -36,8 +37,6 @@ abstract class PKPManageFileApiHandler extends Handler
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
             ['deleteFile', 'editMetadata', 'editMetadataTab', 'saveMetadata']
         );
-        // Load submission-specific translations
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
     }
 
     //
@@ -177,9 +176,7 @@ abstract class PKPManageFileApiHandler extends Handler
             }
 
             // Inform SearchIndex of changes
-            $articleSearchIndex = Application::getSubmissionSearchIndex();
-            $articleSearchIndex->submissionFilesChanged($submission);
-            $articleSearchIndex->submissionChangesFinished();
+            event(new MetadataChanged($submission));
 
             return \PKP\db\DAO::getDataChangedEvent();
         } else {

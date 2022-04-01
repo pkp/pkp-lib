@@ -450,6 +450,9 @@ msgstr "Средне число дней на рецензию"
 msgid "reviewer.list.neverAssigned"
 msgstr "Никогда не назначали рецензентом"
 
+msgid "reviewer.list.reassign"
+msgstr "Переназначить"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Этот рецензент уже был назначен рецензентом этого материала."
 

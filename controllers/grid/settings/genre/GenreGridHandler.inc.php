@@ -20,6 +20,7 @@ use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -54,20 +55,6 @@ class GenreGridHandler extends SetupGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load language components
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_COMMON,
-            LOCALE_COMPONENT_PKP_GRID,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_DEFAULT
-        );
 
         // Set the grid title.
         $this->setTitle('grid.genres.title');
@@ -107,7 +94,7 @@ class GenreGridHandler extends SetupGridHandler
 
         // Columns
         $cellProvider = new DataObjectGridCellProvider();
-        $cellProvider->setLocale(AppLocale::getLocale());
+        $cellProvider->setLocale(Locale::getLocale());
         $this->addColumn(
             new GridColumn(
                 'name',

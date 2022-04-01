@@ -15,7 +15,7 @@
 namespace PKP\user;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
@@ -49,7 +49,7 @@ class UserStageAssignmentDAO extends DAO
     {
         $site = Application::get()->getRequest()->getSite();
         $primaryLocale = $site->getPrimaryLocale();
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
         $params = [
             (int) $submissionId,
             (int) $stageId,

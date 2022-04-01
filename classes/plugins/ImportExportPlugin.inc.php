@@ -16,7 +16,6 @@
 namespace PKP\plugins;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\config\Config;
@@ -26,7 +25,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
-
+use PKP\session\SessionManager;
 use PKP\linkAction\request\RedirectAction;
 
 abstract class ImportExportPlugin extends Plugin
@@ -205,8 +204,7 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER);
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (SessionManager::isDisabled()) {
             echo __('plugins.importexport.common.validationErrors') . "\n";
             foreach ($errors as $error) {
                 echo trim($error->message) . "\n";
@@ -215,8 +213,7 @@ abstract class ImportExportPlugin extends Plugin
             echo __('plugins.importexport.common.invalidXML') . "\n";
             echo $xml . "\n";
         } else {
-            $charset = Config::getVar('i18n', 'client_charset');
-            header('Content-type: text/html; charset=' . $charset);
+            header('Content-type: text/html; charset=utf-8');
             echo '<html><body>';
             echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
             foreach ($errors as $error) {
@@ -367,8 +364,6 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function getImportedFilePath($temporaryFileId, $user)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-
         $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
 
         $temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());

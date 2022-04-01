@@ -71,6 +71,7 @@ class NotificationDAO extends \PKP\db\DAO
         $result = DB::table('notifications')
             ->where('user_id', '=', (int) $userId)
             ->where('level', '=', (int) $level)
+            ->orderBy('date_created', 'desc')
             ->get();
         return new DAOResultFactory($result, $this, '_fromRow');
     }

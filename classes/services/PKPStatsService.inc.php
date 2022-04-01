@@ -15,6 +15,8 @@
 
 namespace PKP\services;
 
+use APP\core\Application;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\statistics\PKPStatisticsHelper;
@@ -289,11 +291,11 @@ class PKPStatsService
     {
         if ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH) {
             $dateFormat = 'Y-m';
-            $labelFormat = '%B %Y';
+            $labelFormat = 'F Y';
             $interval = 'P1M';
         } elseif ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_DAY) {
             $dateFormat = 'Y-m-d';
-            $labelFormat = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
+            $labelFormat = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong());
             $interval = 'P1D';
         }
 
@@ -304,7 +306,7 @@ class PKPStatsService
         while ($startDate->format($dateFormat) <= $endDate->format($dateFormat)) {
             $timelineIntervals[] = [
                 'date' => $startDate->format($dateFormat),
-                'label' => strftime($labelFormat, $startDate->getTimestamp()),
+                'label' => date($labelFormat, $startDate->getTimestamp()),
                 'value' => 0,
             ];
             $startDate->add(new \DateInterval($interval));

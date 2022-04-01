@@ -310,6 +310,9 @@ msgstr ""
 "danh tính của tác giả. Việc phản biện kín không thể được đảm bảo. Bạn có "
 "muốn mở khóa người phản biện này không?"
 
+msgid "reviewer.list.reassign"
+msgstr "Phân công lại"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Phản biện này đã được chỉ định để xem xét bài nộp này."
 

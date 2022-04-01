@@ -18,13 +18,14 @@ namespace PKP\install;
 use adoSchema;
 use APP\core\Application;
 use APP\file\LibraryFileManager;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -160,11 +161,11 @@ class Installer
         }
 
         if (!isset($this->locale)) {
-            $this->locale = AppLocale::getLocale();
+            $this->locale = Locale::getLocale();
         }
 
         if (!isset($this->installedLocales)) {
-            $this->installedLocales = array_keys(AppLocale::getAllLocales());
+            $this->installedLocales = array_keys(Locale::getLocales());
         }
 
         if (!isset($this->dataXMLParser)) {
@@ -249,7 +250,7 @@ class Installer
         // Read installation descriptor file
         $this->log(sprintf('load: %s', $this->descriptor));
         $xmlParser = new PKPXMLParser();
-        $installPath = $this->isPlugin ? $this->descriptor : self::INSTALLER_DATA_DIR . DIRECTORY_SEPARATOR . $this->descriptor;
+        $installPath = $this->isPlugin ? $this->descriptor : self::INSTALLER_DATA_DIR . "/{$this->descriptor}";
         $installTree = $xmlParser->parse($installPath);
         if (!$installTree) {
             // Error reading installation file
@@ -734,9 +735,6 @@ class Installer
     public function installEmailTemplate($installer, $attr)
     {
         $locales = explode(',', $attr['locales']);
-        foreach ($locales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        }
         // FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
         if (!Schema::hasColumn('email_templates_default', 'stage_id')) {
             Schema::table('email_templates_default', function (Blueprint $table) {
@@ -1048,18 +1046,18 @@ class Installer
                         $metadataSetting . 'Required',
                     ]
                 );
-                $value = METADATA_DISABLE;
+                $value = Context::METADATA_DISABLE;
                 foreach ($result as $row) {
                     if ($row->setting_name === $metadataSetting . 'Required' && $row->setting_value) {
-                        $value = METADATA_REQUIRE;
-                    } elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== METADATA_REQUIRE) {
-                        $value = METADATA_REQUEST;
-                    } elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
-                        $value = METADATA_ENABLE;
+                        $value = Context::METADATA_REQUIRE;
+                    } elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== Context::METADATA_REQUIRE) {
+                        $value = Context::METADATA_REQUEST;
+                    } elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== Context::METADATA_REQUEST && $value !== Context::METADATA_REQUIRE) {
+                        $value = Context::METADATA_ENABLE;
                     }
                 }
 
-                if ($value !== METADATA_DISABLE) {
+                if ($value !== Context::METADATA_DISABLE) {
                     $contextDao->update(
                         'INSERT INTO ' . $contextDao->settingsTableName . ' (
                             ' . $contextDao->primaryKeyColumn . ',

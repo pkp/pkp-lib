@@ -19,10 +19,11 @@ import('lib.pkp.pages.management.ManagementHandler');
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
 use APP\facades\Repo;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
-
+use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 
 class PKPToolsHandler extends ManagementHandler
@@ -40,16 +41,6 @@ class PKPToolsHandler extends ManagementHandler
             Role::ROLE_ID_MANAGER,
             ['tools', 'importexport', 'permissions']
         );
-    }
-
-
-    //
-    // Public handler methods.
-    //
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION);
     }
 
     /**
@@ -152,7 +143,8 @@ class PKPToolsHandler extends ManagementHandler
         Repo::submission()->resetPermissions($context->getId());
 
         $user = $request->getUser();
-        NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
+        $notificationManager = new NotificationManager();
+        $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
 
         // This is an ugly hack to force the PageHandler to return JSON, so this
         // method can communicate properly with the AjaxFormHandler. Returning a

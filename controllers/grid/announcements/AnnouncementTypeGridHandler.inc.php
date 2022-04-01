@@ -99,9 +99,6 @@ class AnnouncementTypeGridHandler extends GridHandler
             )
         );
 
-        // Load language components
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-
         // Add grid action.
         $router = $request->getRouter();
 

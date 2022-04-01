@@ -15,9 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\i18n\AppLocale;
 use PKP\core\JSONMessage;
-
 use PKP\handler\APIHandler;
 
 class ApiAuthorizationMiddleware
@@ -54,7 +52,6 @@ class ApiAuthorizationMiddleware
             $this->_handler->initialize($request, $args);
             return true;
         } else {
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
             $authorizationMessage = $this->_handler->getLastAuthorizationMessage();
             if ($authorizationMessage == '') {
                 $authorizationMessage = 'api.403.unauthorized';

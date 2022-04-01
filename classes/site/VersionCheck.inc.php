@@ -18,17 +18,20 @@
 namespace PKP\site;
 
 use APP\core\Application;
-
+use DateInterval;
 use Exception;
-
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\db\XMLDAO;
 use PKP\file\FileManager;
+use SimpleXMLElement;
 
 class VersionCheck
 {
+    /** Max lifetime for the version cache */
+    protected const MAX_CACHE_LIFETIME = '1 year';
+
     public const VERSION_CODE_PATH = 'dbscripts/xml/version.xml';
 
     /**
@@ -39,8 +42,8 @@ class VersionCheck
     public static function getLatestVersion()
     {
         $application = Application::get();
-        $includeId = Config::getVar('general', 'installed') &&
-            !defined('RUNNING_UPGRADE') &&
+        $includeId = Application::isInstalled() &&
+            !Application::isUpgrading() &&
             Config::getVar('general', 'enable_beacon', true);
 
         if ($includeId) {
@@ -72,82 +75,51 @@ class VersionCheck
 
     /**
      * Return the current code version.
-     *
-     * @return Version|false
      */
-    public static function getCurrentCodeVersion()
+    public static function getCurrentCodeVersion(): ?Version
     {
-        $versionInfo = self::parseVersionXML(self::VERSION_CODE_PATH);
-        if ($versionInfo) {
-            return $versionInfo['version'];
-        }
-        return false;
+        return self::parseVersionXML(self::VERSION_CODE_PATH)['version'] ?? null;
     }
 
     /**
      * Parse information from a version XML file.
-     *
-     * @param string $url
-     *
-     * @return array
      */
-    public static function parseVersionXML($url)
+    public static function parseVersionXML(string $path): ?array
     {
-        $xmlDao = new XMLDAO();
-        $data = $xmlDao->parseStruct($url, []);
-        if (!$data) {
-            return false;
-        }
-
-        // FIXME validate parsed data?
-        $versionInfo = [];
-
-        if (isset($data['application'][0]['value'])) {
-            $versionInfo['application'] = $data['application'][0]['value'];
-        }
-        if (isset($data['type'][0]['value'])) {
-            $versionInfo['type'] = $data['type'][0]['value'];
-        }
-        if (isset($data['release'][0]['value'])) {
-            $versionInfo['release'] = $data['release'][0]['value'];
-        }
-        if (isset($data['tag'][0]['value'])) {
-            $versionInfo['tag'] = $data['tag'][0]['value'];
-        }
-        if (isset($data['date'][0]['value'])) {
-            $versionInfo['date'] = $data['date'][0]['value'];
-        }
-        if (isset($data['info'][0]['value'])) {
-            $versionInfo['info'] = $data['info'][0]['value'];
-        }
-        if (isset($data['package'][0]['value'])) {
-            $versionInfo['package'] = $data['package'][0]['value'];
-        }
-        if (isset($data['patch'][0]['value'])) {
-            $versionInfo['patch'] = [];
-            foreach ($data['patch'] as $patch) {
-                $versionInfo['patch'][$patch['attributes']['from']] = $patch['value'];
+        $isVirtual = FileManager::isVirtualPath($path);
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $path . ($isVirtual ? '' : filemtime($path));
+        $expiration = $isVirtual ? 0 : DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+        $version = Cache::remember($key, $expiration, function () use ($path) {
+            $xml = new SimpleXMLElement(FileManager::getStream($path));
+            $version = [];
+            foreach (['application', 'class', 'type', 'release', 'tag', 'date', 'info', 'package', 'lazy-load', 'sitewide'] as $name) {
+                if (isset($xml->$name)) {
+                    $version[$name] = (string) $xml->$name;
+                }
             }
-        }
-        if (isset($data['class'][0]['value'])) {
-            $versionInfo['class'] = (string) $data['class'][0]['value'];
-        }
+            $version['sitewide'] = (int) ($version['sitewide'] ?? 0);
+            $version['lazy-load'] = (int) ($version['lazy-load'] ?? 0);
+            if (isset($xml->patch)) {
+                $version['patch'] = [];
+                foreach ($xml->patch as $patch) {
+                    $version['patch'][$patch['from']] = (string) $patch;
+                }
+            }
+            return $version;
+        });
 
-        $versionInfo['lazy-load'] = (isset($data['lazy-load'][0]['value']) ? (int) $data['lazy-load'][0]['value'] : 0);
-        $versionInfo['sitewide'] = (isset($data['sitewide'][0]['value']) ? (int) $data['sitewide'][0]['value'] : 0);
-
-        if (isset($data['release'][0]['value']) && isset($data['application'][0]['value'])) {
-            $versionInfo['version'] = Version::fromString(
-                $data['release'][0]['value'],
-                $data['type'][0]['value'] ?? null,
-                $data['application'][0]['value'],
-                $data['class'][0]['value'] ?? '',
-                $versionInfo['lazy-load'],
-                $versionInfo['sitewide']
+        // Built outside of the cache section to avoid serializing the Version (which would need a __set_state implementation)
+        if (isset($version['release']) && isset($version['application'])) {
+            $version['version'] = Version::fromString(
+                $version['release'] ?? '',
+                $version['type'] ?? '',
+                $version['application'] ?? '',
+                $version['class'] ?? '',
+                $version['lazy-load'],
+                $version['sitewide']
             );
         }
-
-        return $versionInfo;
+        return $version;
     }
 
     /**

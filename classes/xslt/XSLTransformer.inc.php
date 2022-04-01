@@ -22,11 +22,9 @@ use PKP\file\FileManager;
 
 use XSLTProcessor;
 
-// The default character encoding
-define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));
-
 class XSLTransformer
 {
+    public const XSLT_PROCESSOR_ENCODING = 'utf-8';
     public const XSL_TRANSFORMER_DOCTYPE_STRING = 1;
     public const XSL_TRANSFORMER_DOCTYPE_FILE = 2;
     public const XSL_TRANSFORMER_DOCTYPE_DOM = 3;
@@ -261,7 +259,7 @@ class XSLTransformer
 
             case self::XSL_TRANSFORMER_DOCTYPE_DOM:
                 // Instantiate and configure the result DOM
-                $resultDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+                $resultDOM = new DOMDocument('1.0', static::XSLT_PROCESSOR_ENCODING);
                 $resultDOM->recover = true;
                 $resultDOM->substituteEntities = true;
                 $resultDOM->resolveExternals = true;
@@ -294,7 +292,7 @@ class XSLTransformer
             $xmlDOM = $xml;
         } else {
             // Instantiate and configure the XML DOM document
-            $xmlDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+            $xmlDOM = new DOMDocument('1.0', static::XSLT_PROCESSOR_ENCODING);
 
             // These are required for external entity resolution (eg. &nbsp;), but can slow processing
             // substantially (20-100x), often up to 60s.  This can be solved by use of local catalogs, ie.
@@ -327,7 +325,7 @@ class XSLTransformer
             $xslDOM = $xsl;
         } else {
             // Instantiate the XSL DOM document
-            $xslDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+            $xslDOM = new DOMDocument('1.0', static::XSLT_PROCESSOR_ENCODING);
 
             // Load the XSL based on its type
             switch ($xslType) {

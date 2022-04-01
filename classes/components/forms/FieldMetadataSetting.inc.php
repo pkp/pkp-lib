@@ -15,19 +15,21 @@
 
 namespace PKP\components\forms;
 
+use PKP\context\Context;
+
 class FieldMetadataSetting extends FieldOptions
 {
     /** @copydoc Field::$component */
     public $component = 'field-metadata-setting';
 
     /** @var int What is the value that represents metadata that is disabled */
-    public $disabledValue = METADATA_DISABLE;
+    public $disabledValue = Context::METADATA_DISABLE;
 
     /**
      * @var int What is the value that represents metadata that is enabled,
      *	but which is not requested or required during submission?
      */
-    public $enabledOnlyValue = METADATA_ENABLE;
+    public $enabledOnlyValue = Context::METADATA_ENABLE;
 
     /** @var array The options for what to request/require from the author during submission */
     public $submissionOptions = [];

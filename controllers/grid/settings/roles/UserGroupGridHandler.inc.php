@@ -105,14 +105,6 @@ class UserGroupGridHandler extends GridHandler
         $context = $request->getContext();
         $this->_contextId = $context->getId();
 
-        // Load user-related translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_PKP_SUBMISSION
-        );
-
         // Basic grid configuration.
         $this->setTitle('grid.roles.currentRoles');
 

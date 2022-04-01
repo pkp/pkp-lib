@@ -155,8 +155,6 @@ class FileUploadWizardHandler extends Handler
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
             $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
             $this->addPolicy(new SubmissionFileStageAccessPolicy($fileStage, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, 'api.submissionFiles.403.unauthorizedFileStageIdWrite'));
 
             // Additional checks before uploading to a review file stage
@@ -217,14 +215,6 @@ class FileUploadWizardHandler extends Handler
             // Validated in authorize.
             $this->_revisedFileId = (int)$request->getUserVar('revisedFileId');
         }
-
-        // Load translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_APP_COMMON
-        );
     }
 
 

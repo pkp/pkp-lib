@@ -15,14 +15,18 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use PKP\facades\Locale;
 use APP\template\TemplateManager;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\security\Validation;
 use PKP\user\InterestManager;
-use Sokil\IsoCodes\IsoCodesFactory;
 
 class UserDetailsForm extends UserForm
 {
@@ -174,9 +178,8 @@ class UserDetailsForm extends UserForm
     public function display($request = null, $template = null)
     {
         $site = $request->getSite();
-        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
-        foreach ($isoCodes->getCountries() as $country) {
+        foreach (Locale::getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();
         }
         asort($countries);
@@ -295,7 +298,7 @@ class UserDetailsForm extends UserForm
 
         $locales = [];
         foreach ($this->getData('locales') as $locale) {
-            if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+            if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
                 array_push($locales, $locale);
             }
         }

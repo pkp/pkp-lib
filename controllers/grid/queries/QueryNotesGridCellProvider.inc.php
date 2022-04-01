@@ -13,10 +13,12 @@
  * @brief Base class for a cell provider that can retrieve query note info.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\core\PKPString;
 use PKP\submissionFile\SubmissionFile;
 
 class QueryNotesGridCellProvider extends DataObjectGridCellProvider
@@ -53,11 +55,11 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
         $user = $element->getUser();
-        $datetimeFormatShort = \Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort();
+        $datetimeFormatShort = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort());
 
         switch ($columnId) {
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . strftime($datetimeFormatShort, strtotime($element->getDateCreated()))];
+                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($element->getDateCreated()))];
         }
 
         return parent::getTemplateVarsFromRowColumn($row, $column);

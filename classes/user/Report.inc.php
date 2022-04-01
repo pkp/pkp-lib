@@ -18,7 +18,7 @@
 
 namespace PKP\user;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\db\DAORegistry;
 
 class Report
@@ -33,7 +33,6 @@ class Report
      */
     public function __construct(iterable $dataSource)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
         $this->_dataSource = $dataSource;
     }
 
@@ -96,7 +95,7 @@ class Report
         return [
             $user->getId(),
             $user->getLocalizedGivenName(),
-            $user->getFamilyName(AppLocale::getLocale()),
+            $user->getFamilyName(Locale::getLocale()),
             $user->getEmail(),
             $user->getPhone(),
             $user->getCountryLocalized(),
@@ -114,7 +113,7 @@ class Report
      */
     private function _getUserGroups(): array
     {
-        static $cache = null;
-        return $cache ?? $cache = iterator_to_array(DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
+        static $cache;
+        return $cache ??= iterator_to_array(DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
     }
 }

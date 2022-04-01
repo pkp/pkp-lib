@@ -100,8 +100,6 @@ class AuthorDashboardTabHandler extends Handler
             $this->_getNotificationRequestOptions($submission)
         );
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION:
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/submission.tpl');

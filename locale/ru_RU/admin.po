@@ -1,9 +1,10 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-01-21 18:00+0000\n"
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ru_RU/>\n"
@@ -327,3 +328,6 @@ msgstr "Ограничить множественную рассылку пис�
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Множественная рассылка писем"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Уведомление о редакционном отчёте"

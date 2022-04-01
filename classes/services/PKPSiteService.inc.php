@@ -87,12 +87,6 @@ class PKPSiteService implements EntityPropertyInterface
      */
     public function validate($props, $allowedLocales, $primaryLocale)
     {
-        \AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_APP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
         $schemaService = Services::get('schema');
 
         $validator = ValidatorFactory::make(
@@ -164,7 +158,7 @@ class PKPSiteService implements EntityPropertyInterface
         });
 
         if ($validator->fails()) {
-            $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_SITE), $allowedLocales);
+            $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
         \HookRegistry::call('Site::validate', [&$errors, $props, $allowedLocales, $primaryLocale]);

@@ -17,10 +17,12 @@ namespace PKP\mail;
 
 use APP\core\Application;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\mail\variables\ContextEmailVariable;
+use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\facades\Repo;
+use PKP\session\SessionManager;
 
 class MailTemplate extends Mail
 {
@@ -74,7 +76,7 @@ class MailTemplate extends Mail
 
         $this->includeSignature = $includeSignature;
         // Use current user's locale if none specified
-        $this->locale = $locale ?? AppLocale::getLocale();
+        $this->locale = $locale ?? Locale::getLocale();
 
         // Record whether or not to BCC the sender when sending message
         $this->bccSender = $request->getUserVar('bccSender');
@@ -86,7 +88,7 @@ class MailTemplate extends Mail
         }
 
         $userSig = '';
-        $user = defined('SESSION_DISABLE_INIT') ? null : $request->getUser();
+        $user = SessionManager::isDisabled() ? null : $request->getUser();
         if ($user && $this->includeSignature) {
             $userSig = $user->getLocalizedSignature();
             if (!empty($userSig)) {
@@ -183,7 +185,7 @@ class MailTemplate extends Mail
             ], $params);
         }
 
-        if (!defined('SESSION_DISABLE_INIT') && ($user = $request->getUser())) {
+        if (!SessionManager::isDisabled() && ($user = $request->getUser())) {
             // Add user-specific variables
             $params = array_merge([
                 'senderEmail' => $user->getEmail(),
@@ -193,7 +195,7 @@ class MailTemplate extends Mail
 
         // Add some general variables
         $params = array_merge([
-            'siteTitle' => $site->getLocalizedTitle(),
+            'siteTitle' => $site->getLocalizedTitle() ?? '',
         ], $params);
 
         $this->params = $params;
@@ -231,7 +233,7 @@ class MailTemplate extends Mail
         }
 
         $request = Application::get()->getRequest();
-        $user = defined('SESSION_DISABLE_INIT') ? null : $request->getUser();
+        $user = SessionManager::isDisabled() ? null : $request->getUser();
 
         if ($user && $this->bccSender) {
             $this->addBcc($user->getEmail(), $user->getFullName());
@@ -256,6 +258,9 @@ class MailTemplate extends Mail
                 if (filter_var($value, FILTER_VALIDATE_URL) != false) {
                     $body = $this->manageURLValues($body, $key, $value);
                 } else {
+                    if (is_null($value) || is_int($value)) {
+                        $value = (string) $value;
+                    }
                     $body = str_replace('{$' . $key . '}', $value, $body);
                 }
             }

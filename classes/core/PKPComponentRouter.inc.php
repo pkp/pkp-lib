@@ -61,7 +61,6 @@ define('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 define('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-use APP\i18n\AppLocale;
 use Exception;
 
 use PKP\config\Config;
@@ -209,12 +208,21 @@ class PKPComponentRouter extends PKPRouter
 
                 // Construct the component handler file name and test its existence.
                 $component = 'controllers.' . $component;
-                $componentFileName = str_replace('.', DIRECTORY_SEPARATOR, $component) . '.inc.php';
+                $componentFileNamePart = str_replace('.', '/', $component);
                 switch (true) {
-                    case file_exists($componentFileName):
+                    case file_exists("${componentFileNamePart}.php"):
                         break;
 
-                    case file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $componentFileName):
+                    case file_exists("${componentFileNamePart}.inc.php"):
+                        // This behaviour is DEPRECATED as of 3.4.0.
+                        break;
+
+                    case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.php"):
+                        $component = 'lib.pkp.' . $component;
+                        break;
+
+                    case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.inc.php"):
+                        // This behaviour is DEPRECATED as of 3.4.0.
                         $component = 'lib.pkp.' . $component;
                         break;
 
@@ -399,11 +407,6 @@ class PKPComponentRouter extends PKPRouter
         $authorizationMessage,
         array $messageParams = []
     ) {
-        // Translate the authorization error message.
-        if (defined('LOCALE_COMPONENT_APP_COMMON')) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-        }
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
         $translatedAuthorizationMessage = __($authorizationMessage, $messageParams);
 
         // Add the router name and operation if show_stacktrace is enabled.

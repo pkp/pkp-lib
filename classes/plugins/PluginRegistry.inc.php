@@ -135,7 +135,7 @@ class PluginRegistry
             return $plugins;
         }
 
-        if ($enabledOnly && Config::getVar('general', 'installed')) {
+        if ($enabledOnly && Application::isInstalled()) {
             // Get enabled plug-ins from the database.
             $application = Application::get();
             $products = $application->getEnabledProducts('plugins.' . $category, $mainContextId);

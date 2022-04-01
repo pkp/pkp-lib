@@ -11,5 +11,5 @@
 	  id="{$FBV_id|escape}"
 	  name="{$FBV_name|escape}"
 	  class="{$FBV_class}{if $FBV_validation} {$FBV_validation|escape}{/if}"
-	  value="{$FBV_value|escape}"
+	  value="{$FBV_value|default:""|escape}"
 	  {$FBV_hiddenInputParams} />

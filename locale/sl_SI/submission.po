@@ -74,10 +74,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Razširjeni metapodatki"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef registracijski e-poštni naslov"
+msgstr "Crossref registracijski e-poštni naslov"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Vnesite veljaven CrossRef registracijski e-poštni naslov. Svojo e-pošto lahko brezplačno registrirate na spletni strani CrossRef."
+msgstr "Vnesite veljaven Crossref registracijski e-poštni naslov. Svojo e-pošto lahko brezplačno registrirate na spletni strani Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Ključ za ISBNdb API"
@@ -1307,15 +1307,6 @@ msgstr "Priporoči uredniško odločitev za ta prispevek."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Zabeleženo priporočilo"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Naprej: Izberi datoteke za {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Izberite datoteke, ki bi jih radi poslali v naslednjo fazo: {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Nazaj: Obvesti avtorja"
 
 msgid "submission.currentStage"
 msgstr "Trenutna faza"

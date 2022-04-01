@@ -19,13 +19,14 @@ namespace PKP\submission;
 
 use PKP\controlledVocab\ControlledVocabEntryDAO;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 
 class SubmissionDisciplineEntryDAO extends ControlledVocabEntryDAO
 {
     /**
      * Construct a new data object corresponding to this DAO.
      *
-     * @return PaperTypeEntry
+     * @return SubmissionDiscipline
      */
     public function newDataObject()
     {
@@ -38,9 +39,9 @@ class SubmissionDisciplineEntryDAO extends ControlledVocabEntryDAO
      *
      * @param int $controlledVocabId
      * @param null $filter (Not yet supported)
-     * @param null|mixed $rangeInfo
+     * @param null|DBResultRange $rangeInfo
      *
-     * @return object DAOResultFactory containing matching CVE objects
+     * @return DAOResultFactory matching CVE objects
      */
     public function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null)
     {

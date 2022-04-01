@@ -16,6 +16,8 @@
 namespace PKP\services;
 
 use Exception;
+use Illuminate\Support\Arr;
+use Illuminate\Support\MessageBag;
 use PKP\plugins\HookRegistry;
 
 class PKPSchemaService
@@ -24,6 +26,8 @@ class PKPSchemaService
     public const SCHEMA_AUTHOR = 'author';
     public const SCHEMA_CATEGORY = 'category';
     public const SCHEMA_CONTEXT = 'context';
+    public const SCHEMA_DOI = 'doi';
+    public const SCHEMA_DECISION = 'decision';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
     public const SCHEMA_GALLEY = 'galley';
     public const SCHEMA_ISSUE = 'issue';
@@ -304,7 +308,7 @@ class PKPSchemaService
                 }
                 return $newObject;
         }
-        fatalError('Requested variable coercion for a type that was not recognized: ' . $type);
+        throw new Exception('Requested variable coercion for a type that was not recognized: ' . $type);
     }
 
     /**
@@ -404,34 +408,13 @@ class PKPSchemaService
      *   ],
      *   bar: ['Error message'],
      * ]
-     *
-     * @param \Illuminate\Support\MessageBag $errorBag
-     * @param object $schema The entity schema
-     *
-     * @return array
      */
-    public function formatValidationErrors($errorBag, $schema, $locales)
+    public function formatValidationErrors(MessageBag $errorBag): array
     {
-        $errors = $errorBag->getMessages();
         $formatted = [];
-
-        foreach ($errors as $ruleKey => $messages) {
-            $ruleKeyParts = explode('.', $ruleKey);
-            $propName = $ruleKeyParts[0];
-            if (!isset($formatted[$propName])) {
-                $formatted[$propName] = [];
-            }
-            if (!empty($schema->properties->{$propName}) && !empty($schema->properties->{$propName}->multilingual)) {
-                $localeKey = $ruleKeyParts[1];
-                if (!isset($formatted[$propName][$localeKey])) {
-                    $formatted[$propName][$localeKey] = [];
-                }
-                $formatted[$propName][$localeKey] = array_merge($formatted[$propName][$localeKey], $messages);
-            } else {
-                $formatted[$propName] = array_merge($formatted[$propName], $messages);
-            }
+        foreach ($errorBag->getMessages() as $ruleKey => $messages) {
+            Arr::set($formatted, $ruleKey, $messages);
         }
-
         return $formatted;
     }
 
@@ -462,18 +445,6 @@ class PKPSchemaService
     public function setDefaults($schemaName, $object, $supportedLocales, $primaryLocale, $localeParams = [])
     {
         $schema = $this->get($schemaName);
-
-        // Ensure the locale files are loaded for all required locales
-        foreach ($supportedLocales as $localeKey) {
-            \AppLocale::requireComponents(
-                LOCALE_COMPONENT_PKP_DEFAULT,
-                LOCALE_COMPONENT_APP_DEFAULT,
-                LOCALE_COMPONENT_PKP_COMMON,
-                LOCALE_COMPONENT_APP_COMMON,
-                $localeKey
-            );
-        }
-
         foreach ($schema->properties as $propName => $propSchema) {
             // Don't override existing values
             if (!is_null($object->getData($propName))) {
@@ -508,8 +479,6 @@ class PKPSchemaService
     public function getLocaleDefaults($schemaName, $locale, $localeParams)
     {
         $schema = $this->get($schemaName);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
-
         $defaults = [];
         foreach ($schema->properties as $propName => $propSchema) {
             if (empty($propSchema->multilingual) || empty($propSchema->defaultLocaleKey)) {
@@ -532,6 +501,7 @@ class PKPSchemaService
      */
     public function getDefault($propSchema, $localeParams = null, $localeKey = null)
     {
+        $localeParams ??= [];
         switch ($propSchema->type) {
             case 'boolean':
             case 'integer':

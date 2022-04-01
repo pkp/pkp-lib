@@ -219,15 +219,4 @@ class NotificationHandler extends Handler
     {
         return array_merge($notificationArray, $resultFactory->toArray());
     }
-
-    /**
-     * Override setupTemplate() so we can load other locale components.
-     *
-     * @copydoc PKPHandler::setupTemplate()
-     */
-    public function setupTemplate($request)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_SUBMISSION);
-        parent::setupTemplate($request);
-    }
 }

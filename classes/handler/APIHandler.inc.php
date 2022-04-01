@@ -17,7 +17,6 @@ namespace PKP\handler;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\core\APIResponse;
 use PKP\plugins\HookRegistry;
@@ -29,8 +28,6 @@ use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
 
 use Slim\App;
-
-AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 
 class APIHandler extends PKPHandler
 {
@@ -397,6 +394,12 @@ class APIHandler extends PKPHandler
                 break;
             case 'object':
                 if (is_array($value)) {
+                    // In some cases a property may be defined as an object but it may not
+                    // contain specific details about that object's properties. In these cases,
+                    // leave the properties alone.
+                    if (!property_exists($schema, 'properties')) {
+                        return $value;
+                    }
                     $newObject = [];
                     foreach ($schema->properties as $propName => $propSchema) {
                         if (!isset($value[$propName])) {

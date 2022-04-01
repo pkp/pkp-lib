@@ -47,13 +47,13 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\config\Config;
-
 use PKP\core\Registry;
+
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
 
@@ -117,7 +117,7 @@ abstract class Plugin
         }
         if ($this->getInstallEmailTemplatesFile()) {
             HookRegistry::register('Installer::postInstall', [$this, 'installEmailTemplates']);
-            HookRegistry::register('PKPLocale::installLocale', [$this, 'installLocale']);
+            HookRegistry::register('Locale::installLocale', [$this, 'installLocale']);
         }
         if ($this->getInstallEmailTemplateDataFile()) {
             HookRegistry::register('Installer::postInstall', [$this, 'installEmailTemplateData']);
@@ -354,13 +354,13 @@ abstract class Plugin
     {
         $pluginPath = $this->getPluginPath();
         if ($inCore) {
-            $pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+            $pluginPath = PKP_LIB_PATH . "/${pluginPath}";
         }
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
 
         $contextId = \PKP\core\PKPApplication::CONTEXT_SITE;
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $context = Application::get()->getRequest()->getContext();
             if ($context instanceof \PKP\context\Context) {
                 $contextId = $context->getId();
@@ -381,7 +381,7 @@ abstract class Plugin
      */
     public function getTemplatePath($inCore = false)
     {
-        $templatePath = ($inCore ? PKP_LIB_PATH . DIRECTORY_SEPARATOR : '') . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
+        $templatePath = ($inCore ? PKP_LIB_PATH . '/' : '') . "{$this->getPluginPath()}/templates";
         if (is_dir($templatePath)) {
             return $templatePath;
         }
@@ -396,7 +396,7 @@ abstract class Plugin
     protected function _registerTemplateResource($inCore = false)
     {
         if ($templatePath = $this->getTemplatePath($inCore)) {
-            $templateMgr = TemplateManager::getManager();
+            $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
             $pluginTemplateResource = new PKPTemplateResource($templatePath);
             $templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
         }
@@ -429,7 +429,7 @@ abstract class Plugin
         }
 
         // If there's a lib/pkp/ prefix on the template, test without it.
-        $libPkpPrefix = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
+        $libPkpPrefix = 'lib/pkp/';
         if (strpos($checkFilePath, $libPkpPrefix) === 0) {
             $checkFilePath = substr($filePath, strlen($libPkpPrefix));
         }
@@ -477,21 +477,15 @@ abstract class Plugin
 
     /**
      * Load locale data for this plugin.
-     *
-     * @param string|null $locale
-     *
-     * @return bool
      */
-    public function addLocaleData($locale = null)
+    public function addLocaleData(): void
     {
-        $locale = $locale ?? AppLocale::getLocale();
-        if ($localeFilenames = $this->getLocaleFilename($locale)) {
-            foreach ((array) $localeFilenames as $localeFilename) {
-                AppLocale::registerLocaleFile($locale, $localeFilename);
+        $basePath = $this->getPluginPath() . '/locale';
+        foreach ([$basePath, "lib/pkp/${basePath}"] as $path) {
+            if (is_dir($path)) {
+                Locale::registerPath($path);
             }
-            return true;
         }
-        return false;
     }
 
     /**
@@ -502,7 +496,7 @@ abstract class Plugin
      */
     public function getSetting($contextId, $name)
     {
-        if (!defined('RUNNING_UPGRADE') && !Config::getVar('general', 'installed')) {
+        if (!Application::isUpgrading() && !Application::isInstalled()) {
             return null;
         }
 
@@ -557,28 +551,6 @@ abstract class Plugin
      *
      * NB: These methods may change without notice in the future!
      */
-    /**
-     * Get the filename for the locale data for this plugin.
-     * (Warning: This function is used by the custom locale plugin)
-     *
-     * @param string $locale
-     *
-     * @return array The locale file names.
-     */
-    public function getLocaleFilename($locale)
-    {
-        $masterLocale = \PKP\i18n\PKPLocale::MASTER_LOCALE;
-        $baseLocaleFilename = $this->getPluginPath() . "/locale/${locale}/locale.po";
-        $baseMasterLocaleFilename = $this->getPluginPath() . "/locale/${masterLocale}/locale.po";
-        $libPkpFilename = "lib/pkp/${baseLocaleFilename}";
-        $masterLibPkpFilename = "lib/pkp/${baseMasterLocaleFilename}";
-
-        return array_filter([
-            file_exists($baseMasterLocaleFilename) ? $baseLocaleFilename : false,
-            file_exists($masterLibPkpFilename) ? $libPkpFilename : false,
-        ]);
-    }
-
     /**
      * Callback used to install settings on system install.
      *
@@ -636,16 +608,15 @@ abstract class Plugin
         $result = & $args[1];
 
         // Load email template data as required from the locale files.
-        $emailTemplateLocales = [];
+        $locales = [];
         foreach ($installer->installedLocales as $locale) {
-            $emailFile = $this->getPluginPath() . "/locale/${locale}/emails.po";
-            if (!file_exists($emailFile)) {
-                continue;
+            if (file_exists($this->getPluginPath() . "/locale/${locale}/emails.po")) {
+                $locales[] = $locale;
             }
-            AppLocale::registerLocaleFile($locale, $emailFile);
-            $emailTemplateLocales[] = $locale;
         }
-        $status = Repo::emailTemplate()->dao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $emailTemplateLocales,null, true);
+        // Localized data is needed by the email installation
+        $this->addLocaleData();
+        $status = Repo::emailTemplate()->dao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $locales, null, true);
 
         if ($status === false) {
             // The template file seems to be invalid.
@@ -706,8 +677,8 @@ abstract class Plugin
         }
 
         // Install locale data specified in the new form.
-        if (file_exists($emailFile = $this->getPluginPath() . "/locale/${locale}/emails.po")) {
-            AppLocale::registerLocaleFile($locale, $emailFile);
+        if (file_exists($this->getPluginPath() . "/locale/${locale}/emails.po")) {
+            $this->addLocaleData();
             Repo::emailTemplate()->dao->installEmailTemplateLocaleData($this->getInstallEmailTemplatesFile(), [$locale]);
         }
         return false;

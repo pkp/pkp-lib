@@ -19,9 +19,10 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\services\queryBuilders\ContextQueryBuilder;
 use PKP\config\Config;
+use PKP\context\ContextDAO;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -250,12 +251,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_APP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
         $schemaService = Services::get('schema');
 
         $validator = ValidatorFactory::make(
@@ -416,7 +411,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
 
         if ($validator->fails()) {
-            $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
+            $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Context::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
@@ -621,8 +616,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function restoreLocaleDefaults($context, $request, $locale)
     {
-        AppLocale::reloadLocale($locale);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
+        Locale::installLocale($locale);
 
         // Specify values needed to render default locale strings
         $localeParams = [
@@ -697,6 +691,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
 
         return $fileName;
+    }
+
+    /**
+     * Checks if a context exists
+     */
+    public function exists(int $id): bool
+    {
+        /** @var ContextDAO $contextDao */
+        $contextDao = Application::getContextDao();
+        return $contextDao->exists($id);
     }
 
     /**

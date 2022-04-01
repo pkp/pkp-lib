@@ -25,7 +25,6 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id^=databasePassword-]').clear().type(Cypress.env('DBPASSWORD'), {delay: 0});
 	cy.get('input[id^=databaseUsername-]').clear().type(Cypress.env('DBUSERNAME'), {delay: 0});
 	cy.get('input[id^=databaseName-]').clear().type(Cypress.env('DBNAME'), {delay: 0});
-	cy.get('select[id=connectionCharset]').select('Unicode (UTF-8)');
 
 	// Files directory
 	cy.get('input[id^=filesDir-]').clear().type(Cypress.env('FILESDIR'), {delay: 0});
@@ -199,8 +198,8 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 					$row.get('span:contains("' + file.genre + '")');
 				} else {
 					$row.get('button:contains("Other")').last().click();
-					cy.get('#submission-files-container .modal label:contains("' + file.genre + '")').click();
-					cy.get('#submission-files-container .modal button:contains("Save")').click();
+					cy.get('#submission-files-container .modal__panel label:contains("' + file.genre + '")').click();
+					cy.get('#submission-files-container .modal__panel button:contains("Save")').click();
 				}
 				// Make sure the genre selection is complete before moving to the
 				// next file.
@@ -297,21 +296,192 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 	cy.contains('View ' + familyName).click({force: true});
 });
 
-Cypress.Commands.add('sendToReview', (toStage, fromStage) => {
-	if (!toStage) toStage = 'External';
-	cy.get('*[id^=' + toStage.toLowerCase() + 'Review-button-]').click();
-	if (fromStage == "Internal") {
-		cy.get('form[id="promote"] button:contains("Next:")').click();
-		cy.get('button:contains("Record Editorial Decision")').click();
+/**
+ * @var array authorNames The names of authors assigned to this submission
+ */
+Cypress.Commands.add('recordDecisionSendToReview', (decisionLabel, authorNames, filesToPromote) => {
+	cy.get('h1').contains(decisionLabel).should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
+	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.get('.decision__footer button').contains('Next').click();
+	cy.selectPromotedFiles(filesToPromote);
+	// Check for the correct confirmation message for different
+	// decisions in OJS and OMP.
+	if (decisionLabel === 'Send to External Review') {
+		cy.recordDecision('has been sent to the external review stage');
+	} else if (decisionLabel === 'Send to Internal Review') {
+		cy.recordDecision('has been sent to the internal review stage');
 	} else {
-		cy.get('form[id="initiateReview"] button:contains("Send")').click();
+		cy.recordDecision('has been sent to the review stage');
 	}
-	cy.get('span.description:contains("Waiting for reviewers")');
+});
+
+/**
+ * @var array completedReviewerNames The names of reviewers who have completed a review assignment
+ */
+Cypress.Commands.add('recordDecisionAcceptSubmission', (authorNames, completedReviewerNames, filesToPromote) => {
+	cy.get('h1').contains('Accept Submission').should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
+	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.get('.decision__footer button').contains('Next').click();
+	if (completedReviewerNames && completedReviewerNames.length) {
+		cy.get('h2').contains('Notify Reviewers').should('exist');
+		cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Reviewers")');
+		cy.checkComposerRecipients('.composer:contains("Notify Reviewers") .composer__recipients', completedReviewerNames);
+		cy.checkEmailTemplateVariables('#notifyReviewers-body-control');
+		cy.get('.decision__footer button').contains('Next').click();
+	}
+	cy.selectPromotedFiles(filesToPromote);
+	cy.recordDecision('has been accepted for publication and sent to the copyediting stage');
+});
+
+/**
+ * @var array authorNames The names of authors assigned to this submission
+ */
+Cypress.Commands.add('recordDecisionSendToProduction', (authorNames, filesToPromote) => {
+	cy.get('h1').contains('Send To Production').should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
+	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.get('.decision__footer button').contains('Next').click();
+	cy.selectPromotedFiles(filesToPromote);
+	cy.recordDecision('was sent to the production stage');
+});
+
+/**
+ * @var array completedReviewerNames The names of reviewers who have completed a review assignment
+ */
+Cypress.Commands.add('recordDecisionRevisions', (revisionLabel, authorNames, completedReviewerNames) => {
+	cy.get('h1').contains(revisionLabel).should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
+	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.get('.decision__footer button').contains('Next').click();
+	if (completedReviewerNames && completedReviewerNames.length) {
+		cy.get('h2').contains('Notify Reviewers').should('exist');
+		cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Reviewers")');
+		cy.checkComposerRecipients('.composer:contains("Notify Reviewers") .composer__recipients', completedReviewerNames);
+		cy.checkEmailTemplateVariables('#notifyReviewers-body-control');
+	}
+	cy.recordDecision('have been requested.');
+});
+
+Cypress.Commands.add('recordDecisionDecline', (authorNames) => {
+	cy.get('h1').contains('Decline Submission').should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
+	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.recordDecision('has been declined and sent to the archives');
+});
+
+Cypress.Commands.add('recordDecisionRevertDecline', (authorNames) => {
+	cy.get('h1').contains('Revert Decline').should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
+	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.recordDecision('now active in the submission stage');
+});
+
+/**
+ * @param array decidingEditors The names of editors who can record a decision on this submission
+ */
+Cypress.Commands.add('recordRecommendation', (decisionLabel, decidingEditors) => {
+	cy.get('h1').contains(decisionLabel).should('exist');
+	cy.get('h2').contains('Notify Editors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Editors")');
+	cy.checkComposerRecipients('.composer__recipients', decidingEditors);
+	cy.checkEmailTemplateVariables('#discussion-body-control');
+	cy.recordDecision('Your recommendation has been recorded');
+});
+
+Cypress.Commands.add('decisionsExist', (buttonLabels) => {
+	buttonLabels.forEach(buttonLabel => {
+		cy.get('#editorialActions:contains("' + buttonLabel + '")').should('exist');
+	});
+});
+
+Cypress.Commands.add('decisionsDoNotExist', (buttonLabels) => {
+	buttonLabels.forEach(buttonLabel => {
+		cy.get('#editorialActions:contains("' + buttonLabel + '")').should('not.exist');
+	});
+});
+
+Cypress.Commands.add('clickDecision', (buttonLabel) => {
+	cy.get('#editorialActions').contains(buttonLabel).click();
+	cy.waitJQuery();
+});
+
+Cypress.Commands.add('selectPromotedFiles', (filenames) => {
+	filenames.forEach(filename => {
+		cy.get('label:contains("' + filename + '")').find('input').check();
+	});
+});
+
+Cypress.Commands.add('recordDecision', (successMessage) => {
+	cy.get('button:contains("Record Decision")').click();
+	cy.get('#modals-container:contains("' + successMessage + '")').should('exist');
+	cy.get('a.pkpButton').contains('View Submission').click();
+});
+
+Cypress.Commands.add('submissionIsDeclined', () => {
+	cy.get('.pkpWorkflow__identificationStatus').contains('Declined').should('exist');
+	cy.get('.pkp_workflow_last_decision:contains("Submission declined.")');
+});
+
+Cypress.Commands.add('isActiveStageTab', (stageName) => {
+	cy.get('#stageTabs li.ui-state-active').contains(stageName);
+});
+
+/**
+ * Check that all email template variables have been rendered
+ * correctly in an email preview.
+ *
+ * @param string selector The HTML element selector for the text area where the value is stored
+ */
+Cypress.Commands.add('checkEmailTemplateVariables', (selector) => {
+	cy.get(selector).should(($div) => {
+		expect($div.get(0).textContent).not.to.include('{$');
+	});
+});
+
+/**
+ * Wait for an email template to be loaded into an email composer
+ *
+ * @param string selector An HTML element selector for a parent element that contains the email composer to check
+ */
+Cypress.Commands.add('waitForEmailTemplateToBeLoaded', (selector) => {
+	cy.get(selector);
+	cy.get(selector + ' .composer__loadingTemplateMask').should('not.exist');
+});
+
+/**
+ * Check that the recipients in an email composer element match
+ * those expected
+ *
+ * @param string selector The HTML element selector for the recipients field in the composer element
+ * @param string[] recipientNames The expected names of recipients
+ */
+Cypress.Commands.add('checkComposerRecipients', (selector, recipientNames) => {
+	// Every expected name is there
+	recipientNames.forEach(function(recipientName) {
+		cy.get(selector).find('.pkpAutosuggest__selection').contains(recipientName);
+	});
+	// No unexpected names are there
+	cy.get(selector).find('.pkpAutosuggest__selection').should('have.length', recipientNames.length);
 });
 
 Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	var names = name.split(' ');
 	cy.get('a[id^="component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-"]:visible').click();
+	cy.waitJQuery();
 	cy.get('select[name=filterUserGroupId').select(role);
 	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1], {delay: 0});
 	cy.get('form[id="searchUserFilter-grid-users-userselect-userselectgrid"]').find('button[id^="submitFormButton-"]').click();
@@ -322,16 +492,14 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	cy.waitJQuery();
 });
 
-Cypress.Commands.add('recordEditorialRecommendation', recommendation => {
-	cy.get('a[id^="recommendation-button-"]').click();
-	cy.get('select[id=recommendation]').select(recommendation);
-	cy.get('button').contains('Record Editorial Recommendation').click();
-	cy.get('div').contains('Recommendation:');
+Cypress.Commands.add('clickStageParticipantButton', (participantName, buttonLabel) => {
+	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '") .show_extras').click();
+	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '")').closest('tr').next().find('a:contains("' + buttonLabel + '")').click();
 });
 
 Cypress.Commands.add('assignReviewer', name => {
-	cy.wait(2000); // FIXME: Occasional problems opening the grid
-	cy.get('a[id^="component-grid-users-reviewer-reviewergrid-addReviewer-button-"]').click();
+	cy.wait(4000); // FIXME: Occasional problems opening the grid
+	cy.get('a:contains("Add Reviewer")').click();
 	cy.waitJQuery();
 	cy.get('.listPanel--selectReviewer .pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
 	cy.contains('Select ' + name).click();
@@ -339,14 +507,6 @@ Cypress.Commands.add('assignReviewer', name => {
 	cy.get('button:contains("Add Reviewer")').click();
 	cy.contains(name + ' was assigned to review');
 	cy.waitJQuery();
-});
-
-Cypress.Commands.add('recordEditorialDecision', decision => {
-	cy.get('ul.pkp_workflow_decisions:visible a:contains("' + Cypress.$.escapeSelector(decision) + '")', {timeout: 30000}).click();
-	if (decision != 'Request Revisions' && decision != 'Decline Submission') {
-		cy.get('button:contains("Next:")').click();
-	}
-	cy.get('button:contains("Record Editorial Decision")').click();
 });
 
 Cypress.Commands.add('performReview', (username, password, title, recommendation, comments, context) => {
@@ -448,9 +608,6 @@ Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, to
 	cy.get('div.pkpStats__graph table thead tr th:contains("' + abstractViews + '")');
 	while (d < daysAgo10) {
 		var dateString = d.toLocaleDateString(['en-CA'], {timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric'});
-		// PHP quirk: The date format specifier %e front-pads single-digit days with a space and there
-		// doesn't seem to be a standard way to avoid it. (Apparently %-e works but not documented.)
-		dateString = dateString.replace(/^([^ ]*) ([^ ]), ([^ ]*)$/, '$1  $2, $3');
 		cy.get('div.pkpStats__graph table tbody tr th:contains("' + dateString + '")');
 		cy.log(d.toLocaleDateString(['en-CA'], {timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric'}));
 		d.setDate(d.getDate()+1);

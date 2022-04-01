@@ -134,7 +134,7 @@ class CacheManager
      */
     public static function getFileCachePath()
     {
-        return Core::getBaseDir() . DIRECTORY_SEPARATOR . 'cache';
+        return Core::getBaseDir() . '/cache';
     }
 
     /**
@@ -156,7 +156,7 @@ class CacheManager
                 break;
             case 'file':
                 $filePath = $this->getFileCachePath();
-                $files = glob($filePath . DIRECTORY_SEPARATOR . 'fc-' . (isset($context) ? $context . '-' : '') . '*.php');
+                $files = glob("$filePath/fc-" . (isset($context) ? $context . '-' : '') . '*.php');
                 foreach ($files as $file) {
                     @unlink($file);
                 }
@@ -166,7 +166,7 @@ class CacheManager
                 // Nothing necessary.
                 break;
             default:
-                exit("Unknown cache type \"${cacheType}\"!\n");
+                exit("Unknown cache type \"${type}\"!\n");
         }
     }
 }

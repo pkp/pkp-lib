@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Schema;
 
 class PKPv3_2_1SubeditorCategoriesMigration extends \PKP\migration\Migration
 {
+    private const ASSOC_TYPE_SECTION = 0x0000212;
     /**
      * Run the migrations.
      */
@@ -45,7 +46,7 @@ class PKPv3_2_1SubeditorCategoriesMigration extends \PKP\migration\Migration
         });
 
         // Populate the assoc_type data in the newly created column
-        DB::table('subeditor_submission_group')->update(['assoc_type' => ASSOC_TYPE_SECTION]);
+        DB::table('subeditor_submission_group')->update(['assoc_type' => self::ASSOC_TYPE_SECTION]);
     }
 
     /**

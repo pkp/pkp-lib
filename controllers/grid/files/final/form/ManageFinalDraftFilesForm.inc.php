@@ -42,7 +42,7 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
      *
      * @return array a list of all submission files marked as "final".
      */
-    public function execute($stageSubmissionFiles, $fileStage = null)
+    public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
         parent::execute($stageSubmissionFiles, SubmissionFile::SUBMISSION_FILE_FINAL);
     }

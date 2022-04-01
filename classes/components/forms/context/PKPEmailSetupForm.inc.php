@@ -15,7 +15,8 @@
 namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldHTML;
-use PKP\components\forms\FieldRichTextarea;
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
@@ -41,21 +42,56 @@ class PKPEmailSetupForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $this->addField(new FieldRichTextarea('emailSignature', [
+        $this->addField(new FieldOptions('notifyAllAuthors', [
+            'label' => __('manager.setup.notifyAllAuthors'),
+            'description' => __('manager.setup.notifyAllAuthors.description'),
+            'type' => 'radio',
+            'options' => [
+                ['value' => true, 'label' => __('manager.setup.notifyAllAuthors.allAuthors')],
+                ['value' => false, 'label' => __('manager.setup.notifyAllAuthors.assignedAuthors')],
+            ],
+            'value' => $context->getData('notifyAllAuthors'),
+        ]));
+
+        $this->addField(new FieldPreparedContent('emailSignature', [
             'label' => __('manager.setup.emailSignature'),
             'tooltip' => __('manager.setup.emailSignature.description'),
             'value' => $context->getData('emailSignature'),
             'preparedContent' => [
-                'contextName' => $context->getLocalizedName(),
-                'senderName' => __('email.senderName'),
-                'senderEmail' => __('email.senderEmail'),
-                'mailingAddress' => htmlspecialchars(nl2br($context->getData('mailingAddress'))),
-                'contactEmail' => htmlspecialchars($context->getData('contactEmail')),
-                'contactName' => htmlspecialchars($context->getData('contactName')),
+                [
+                    'key' => 'contextName',
+                    'description' => __('emailTemplate.variable.context.contextName'),
+                    'value' => '{$contextName}',
+                ],
+                [
+                    'key' => 'senderName',
+                    'description' => __('emailTemplate.variable.sender.senderName'),
+                    'value' => '{$senderName}',
+                ],
+                [
+                    'key' => 'senderEmail',
+                    'description' => __('emailTemplate.variable.sender.senderEmail'),
+                    'value' => '{$senderEmail}',
+                ],
+                [
+                    'key' => 'mailingAddress',
+                    'description' => __('emailTemplate.variable.context.mailingAddress'),
+                    'value' => '{$mailingAddress}',
+                ],
+                [
+                    'key' => 'contactEmail',
+                    'description' => __('emailTemplate.variable.context.contactEmail'),
+                    'value' => '{$contactEmail}',
+                ],
+                [
+                    'key' => 'contactName',
+                    'description' => __('emailTemplate.variable.context.contactName'),
+                    'value' => '{$contactName}',
+                ],
             ]
         ]));
 
-        $this->buildEnveloperSenderField($context);
+        $this->addEnveloperSenderField($context);
     }
 
     /**
@@ -64,7 +100,7 @@ class PKPEmailSetupForm extends FormComponent
      * @param Context $context Journal or Press to change settings for
      *
      */
-    protected function buildEnveloperSenderField($context)
+    protected function addEnveloperSenderField($context)
     {
         $canEnvelopeSender = \Config::getVar('email', 'allow_envelope_sender');
 

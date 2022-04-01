@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-01 08:35+0000\n"
+"PO-Revision-Date: 2022-04-01 20:03+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/kk_KZ/>\n"
@@ -59,3 +59,566 @@ msgstr "Бұл авторға арналған жарияланым табылм
 
 msgid "author.editPublishedDisabled"
 msgstr "Бұл жазбаның авторларын өңдеу мүмкін емес, себебі ол бұрын жарияланған."
+
+msgid "submission.event.confirmClearLog"
+msgstr "Осы материал үшін оқиғалар журналын шынымен өшіргіңіз келеді ме?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Оқиғалар журналына оралу"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) {$userGroupName} ретінде жойылды."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) осы материалға {$userGroupName} ретінде тағайындалған."
+
+msgid "submission.emailLog"
+msgstr "журналдың электрондық поштасы"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Журнал жазбасын өшіріңіз"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Бұл жазбаны электрондық пошта тарихынан шынымен жойғыңыз келе ме?"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Осы мазмұнның электрондық пошта тарихын шынымен тазалағыңыз келе ме?"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Электрондық пошта тарихына қайта оралыңыз"
+
+msgid "submission.editorial"
+msgstr "әдеби өңдеу"
+
+msgid "submission.editMetadata"
+msgstr "Метадеректерді өңдеу"
+
+msgid "submission.editing"
+msgstr "Өңдеу"
+
+msgid "submission.due"
+msgstr "Мерзімі"
+
+msgid "submission.dueDate"
+msgstr "Тапсыру мерзімі"
+
+msgid "submission.downloads"
+msgstr "жүктеулер"
+
+msgid "submission.done"
+msgstr "Дайын"
+
+msgid "submission.coverage"
+msgstr "Қамту туралы ақпарат"
+
+msgid "submission.queryNoteFiles"
+msgstr "Талқылауға арналған файлдар"
+
+msgid "submission.copyediting"
+msgstr "Әдеби редакциялау барысында"
+
+msgid "submission.copyedited"
+msgstr "Әдеби редакциядан өткен"
+
+msgid "submission.contributors"
+msgstr "авторлар тізімі"
+
+msgid "submission.complete"
+msgstr "аяқталған"
+
+msgid "submission.comments.subject"
+msgstr "Тақырып"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Рецензенттерге редакциялық шешімді жіберу"
+
+msgid "submission.comments.review"
+msgstr "рецензия"
+
+msgid "submission.comments.noReviews"
+msgstr "рецензиясыз"
+
+msgid "submission.comments.noComments"
+msgstr "түсініктемесіз"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Электрондық поштаға рецензияларды қосыңыз"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Пікірлерді импорттау"
+
+msgid "submission.comments.editComment"
+msgstr "пікір жазу"
+
+msgid "submission.comments.corrections"
+msgstr "түзетулер"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Осы пікірді шынымен жойғыңыз келе ме?"
+
+msgid "submission.comments.comments"
+msgstr "түсініктемелер"
+
+msgid "submission.comments.addComment"
+msgstr "түсініктемені қосу"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Сілтемелерді шығарып алыңыз және сақтаңыз"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Келесі сілтемелер шығарылды және олар материалдың метадеректерімен "
+"байланыстырылады."
+
+#, fuzzy
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Алынған сілтемелер"
+
+msgid "submission.citations.description"
+msgstr ""
+"Әр сілтемені жаңа жолға енгізіңіз, сонда олар кейінірек бөлек шығарылып, "
+"жазылуы мүмкін."
+
+msgid "submission.citations"
+msgstr "әдебиеттер тізімі"
+
+msgid "submission.changeFile"
+msgstr "файлды өзгерту"
+
+msgid "submission.changeComments"
+msgstr "өзгерту"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Материалды редакциялауға қайта оралу"
+
+msgid "submission.attachedFile"
+msgstr "Тіркелген файл"
+
+msgid "submission.ask"
+msgstr "сұраным"
+
+msgid "submission.acknowledge"
+msgstr "Растаңыз"
+
+msgid "submission.accepted"
+msgstr "Қабылданды"
+
+msgid "submission.abstractViews"
+msgstr "аннотацияны қарау"
+
+msgid "submission.agencies"
+msgstr "ұйымдар"
+
+msgid "submission.additionalFiles"
+msgstr "қосымша файлдар"
+
+msgid "submission.addFile"
+msgstr "файлды жүктеу"
+
+msgid "submission.mySubmissions"
+msgstr "менің авторлығыммен"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} бойынша {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} және басқалары."
+
+#, fuzzy
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Автор өмірбаяндары"
+
+msgid "submission.authorBiography"
+msgstr "Автор өмірбаяны"
+
+msgid "submission.authors"
+msgstr "Авторлар"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Мұрағат материалдары"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Маған тағайындалған"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Тағайындалмаған"
+
+#, fuzzy
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstract"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Тақырып түрін дұрыс енгізгеніңізге көз жеткізіңіз. Қолдау көрсетілетін "
+"мәндер: personal, corporate и conference."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "түр атауы"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "бөлім атауын дұрыс еңгізіңіз."
+
+msgid "metadata.property.displayName.partName"
+msgstr "бөлім атауы"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Бөлім нөмірін дұрыс еңгізіңіз."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Бөлім нөмірі"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "жарамды тақырыпшаны еңгізіңіз."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Тақырыпша"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "жарамды тақырыпты еңгізіңіз."
+
+msgid "metadata.property.displayName.title"
+msgstr "тақырып"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Тақырыптарды сұрыптау кезінде еленбеу керек тақырыптың тек бірінші әріптерін "
+"енгізіңіз."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Сұрыптау кезінде  еленбейтін тақырып бөлігі"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Дұрыс тақырып түрін орнатқаныңызға көз жеткізіңіз. Қолдау көрсетілетін "
+"мәндер: abbreviated, translated, alternative и uniform."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тақырыптың түрі"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Шығарылым түрін әрқашан белгілеуіңізге көз жеткізіңіз. Қазіргі уақытта "
+"қолдау көрсетілетін мәндер book (кітаптар немесе кітап тараулары үшін) және "
+"journal (журнал мақалалары үшін) болып табылады. Егер түрі көрсетілмесе "
+"немесе қате көрсетілсе, дереккөзге арналған библиографиялық сілтемені "
+"пішімдеу дұрыс жұмыс істемейді."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Басылым түрі"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "жарамды аннотацияны еңгізіңіз."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "аннотация"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Жарамды түсініктемені еңгізіңіз."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Түсініктеме"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Жарамды балама шығарылым сілтемесін енгізіңіз."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Жарияланымға сілтеме"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Жарамды PMIDді еңгізіңіз."
+
+#, fuzzy
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "жарамды SICIді еңгізіңіз."
+
+#, fuzzy
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "жарамды CODENді еңгізіңіз."
+
+#, fuzzy
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Жарамды қолданушының жарияланым идентификаторын енгізіңіз."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "қолданушының ID шығарылымы"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "DOIды дұрыс еңгізіңіз."
+
+#, fuzzy
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "eISSNді дұрыс еңгізіңіз."
+
+#, fuzzy
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Басып шығарылған ISSNді дұрыс еңгізіңіз."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Басып шығарылған ISSN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Дұрыс ISBN номерін еңгізіңіз  (9 немесе 13 саннан тұрады)."
+
+#, fuzzy
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "баспахана атауын дұрыс енгізіңіз."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Баспа атауы"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Жариялау орнын дұрыс енгізіңіз."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Жарияланған жері"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Беттердің жалпы санын дұрыс енгізіңіз (сан болуы керек)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Бет саны"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Соңғы бетті дұрыс енгізіңіз (сан болуы керек)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Соңғы бет"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Бірінші бетті дұрыс енгізіңіз (сан болуы керек)."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Бірінші беті"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Ұйымды дұрыс енгізіңіз."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Ұйым"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Конференция демеушісін дұрыс енгізіңіз."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Конференцияның демеушісі"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Конференция атауын дұрыс енгізіңіз."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Конференцияның атауы"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Жарамды конференция өтетін орынды енгізіңіз."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Конференция өткізілетін орны"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Жарамды конференция күнін енгізіңіз (пішімі: ЖЖЖЖ-АА-КК)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "конференцияның уақыты"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "дұрыстап толықтырып енгізіңіз."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "толықтырулар"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Дұрыс серияны енгізіңіз."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серия"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Дұрыс шығарылымды енгізіңіз."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Баспа"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Жарамды тарау атауын енгізіңіз."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Тарау тақырыбы"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Жарамды маусымның идентификаторын енгізіңіз."
+
+msgid "metadata.property.displayName.season"
+msgstr "Маусым"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Жарамды томды енгізіңіз."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Дұрыс шығарылымды енгізіңіз."
+
+msgid "metadata.property.displayName.issue"
+msgstr "шығарылым"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Жарамды рұқсат күнін енгізіңіз (пішім: ЖЖЖЖ-АА-КК)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Қол жеткізу күні"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Жарамды жарияланған күнін енгізіңіз (пішімі: ЖЖЖЖ-АА-КК)."
+
+msgid "metadata.property.displayName.date"
+msgstr "Жарияланған күні"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Жарамды жазба атауын енгізіңіз."
+
+msgid "metadata.property.displayName.source"
+msgstr "Жарияланым тақырыбы"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Мақала/материал тақырыбын дұрыс енгізіңіз."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Мақаланың/материалдың атауы"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Ең жақсы нәтижелерге қол жеткізу үшін редакторлар келесі форматта енгізілуі "
+"керек: Бородин, А.А."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Редакторлар"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Ең жақсы нәтижелерге қол жеткізу үшін авторлар келесі форматта енгізілуі "
+"керек: Бородин, А.А."
+
+msgid "metadata.property.displayName.author"
+msgstr "Авторлар"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Ішкі қателік. \"Қосымша сүзгі\" параметріне жарамсыз мән жіберілді. Бұл "
+"қатені әзірлеушілерге хабарлаңыз."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Әдепкі бойынша пайдаланбаңыз (редакторға әлі де қолжетімді)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Берілген анықтамалық сілтемелердің бірін таңдаңыз."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Библиографиялық сілтеме модулі"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Егер сізде бар болса, дұрыс WorldCat API кілтін енгізіңіз."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API кілті"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Егер сізде бар болса, жарамды PubMed тіркелген электрондық пошта мекенжайын "
+"енгізіңіз."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed арқылы тіркелген электрондық пошта мекенжайы"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"ISBNdb API кілтін енгізіңіз. Егер сізде мұндай кілт жоқ болса, оны ISBNdb "
+"жобасының веб-сайтынан тегін алуға болады."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API кілті"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Crossref жүйесінде тіркелген жарамды электрондық пошта мекенжайын енгізіңіз. "
+"Электрондық пошта мекенжайын Crossref веб-сайтында тегін тіркеуге болады."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Электрондық пошта мекенжайы Crossref арқылы тіркелген"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Кеңейтілген метадеректер"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Жеке кабинетке оралу"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Жіберуге жаңа материалды ұсыну"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Бұл материалды қараңыз"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Қазіргі уақытта сіз:"
+
+msgid "submission.submit.whatNext"
+msgstr "Әрі қарай не істеу керек?"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Бұл файлды жойғыңыз келетініне сенімдісіз бе?"
+
+msgid "submission.submit.genre.error"
+msgstr "Жүктеп салынған файлдардың әрқайсысы үшін файл түрін таңдаңыз."
+
+msgid "submission.submit.genre.description"
+msgstr "Осы файлды жақсы сипаттайтын опцияны таңдаңыз."
+
+msgid "submission.submit.genre.label"
+msgstr "Бұл файлдың түрі қандай?"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Иә, мен авторлық құқық шарттарымен міндетті түрде келісемін."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Авторлық құқық шарттарын  қабылдау"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr ""
+"\"{$contextName}\" материалыңызды жариялауға қызығушылық танытқаныңызға "
+"рахмет."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Жіберу аяқталды"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Жалғастырмас бұрын төмендегі талаптардың барлығын орындағаныңызды оқып, "
+"растауыңыз қажет."

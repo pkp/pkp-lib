@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-01 20:03+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/kk_KZ/>\n"
@@ -232,3 +232,6 @@ msgstr "Әкімшінің тіркелуі"
 
 msgid "installer.additionalLocales"
 msgstr "қосымша тілдер"
+
+msgid "installer.beacon"
+msgstr "Маяк"

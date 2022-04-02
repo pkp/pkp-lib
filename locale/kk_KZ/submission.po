@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-01 20:03+0000\n"
+"PO-Revision-Date: 2022-04-03 13:57+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/kk_KZ/>\n"
@@ -622,3 +622,317 @@ msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Жалғастырмас бұрын төмендегі талаптардың барлығын орындағаныңызды оқып, "
 "растауыңыз қажет."
+
+msgid "submission.notes"
+msgstr "Материалдық жазбалар"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Жүктеп салынған файлды жойыңыз"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Материалдық ескертулер жоқ"
+
+msgid "submission.notes.expandNotes"
+msgstr "Ескертпелерді кеңейту"
+
+msgid "submission.notes.editNote"
+msgstr "ескертпе жазу"
+
+msgid "submission.notes.deleteNote"
+msgstr "Ескертпені өшіру"
+
+msgid "submission.notes.createNewNote"
+msgstr "Жаңа ескертпе жасау"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Осы мақала ескертпесін жою керек пе?"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Материалдың барлық ескертпелерін жою керек пе?"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Ескертпелерді жию"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Барлық ескертпелерді жойыңыз"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Ескертпелер"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Ескертпелерге қайта оралу"
+
+msgid "submission.notes.attachedFile"
+msgstr "Тіркелген файл"
+
+msgid "submission.notes.addNewNote"
+msgstr "Жаңа ескертпе қосыңыз"
+
+msgid "submission.noReviewAssignments"
+msgstr "Рецензенттер тағайындалмаған"
+
+msgid "submission.metadata"
+msgstr "Материалдың метадеректері"
+
+msgid "submission.layout.viewProof"
+msgstr "Галлеяны көрсетіңіз"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Материал галлеясын қарау"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Стильдер кестесі файлы бұл галлеяға қосылмаған."
+
+msgid "submission.layout.newGalley"
+msgstr "Жаңа галлея жасаңыз"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Макет түрлері"
+
+msgid "submission.layout"
+msgstr "Макет"
+
+msgid "submission.layout.layoutFile"
+msgstr "Файл макеті"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Бастапқы галлея құру"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стиль"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Стильдер парағының файлы"
+
+msgid "submission.layout.galleys"
+msgstr "галлеялар"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "сурет жоқ"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr ""
+"Жарамды қашықтағы сервер URL мекенжайын енгізіңіз (соның ішінде http://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Қашықтағы сервердің URL мекенжайы"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Галлея тілі қажет."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Галлея тілі қажет."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Галерея белгісі қажет."
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"Әдетте файл форматын анықтау үшін қолданылады (мысалы, HTML, PDF, т.б.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Галлея белгісі"
+
+msgid "submission.layout.galleyImages"
+msgstr "Кескіндер"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML Galley файлдары"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Галлей форматы"
+
+msgid "submission.layout.editGalley"
+msgstr "Галле орналасуын өңдеу"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Осы стиль кестесін жойыңыз."
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Бұл суретті галлеядан шынымен жойғыңыз келе ме?"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Осы галереяны біржола жойғыңыз келетініне сенімдісіз бе?"
+
+msgid "submission.layout.addGalley"
+msgstr "Layout Galley қосыңыз"
+
+msgid "submission.lastModified"
+msgstr "Соңғы өзгертілген"
+
+msgid "submission.stageParticipants.notify"
+msgstr "хабарлау"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Алдыңғы нұсқалардағы оқиғаларды көрсету"
+
+msgid "submission.informationCenter.history"
+msgstr "тарихы"
+
+msgid "submission.informationCenter.notes"
+msgstr "Ескертпелер"
+
+msgid "submission.informationCenter.metadata"
+msgstr "метадеректер"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Материалдық ақпарат"
+
+msgid "submission.publisherId.enable"
+msgstr "{$objects} үшін қосыңыз"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Жариялаушы идентификаторын сыртқы дерекқордан идентификатор жазу үшін "
+"пайдалануға болады. Мысалы, PubMed-ке эскроу үшін экспортталған нысандар "
+"жариялаушы идентификаторын қамтуы мүмкін. Оны DOI үшін қолдануға болмайды."
+
+msgid "submission.publisherId"
+msgstr "Жариялаушының идентификаторы"
+
+msgid "submission.identifiers"
+msgstr "Идентификаторлар"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Бұл {$datePublished} жариялаған ескірген нұсқа. <a href=\"{$urlRecentVersion}"
+"\">соңғы нұсқасын</a> оқыңыз."
+
+#, fuzzy
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "нұсқалар"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} - {$dateUpdated} жаңартылды"
+
+msgid "submission.initiated"
+msgstr "басталды"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Жүктеу сілтемесі"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Басқа библиографиялық анықтамалық форматтар"
+
+msgid "submission.howToCite"
+msgstr "Дәйексөзді қалай келтіруге болады"
+
+msgid "submission.history.viewLog"
+msgstr "журналды қарау"
+
+msgid "submission.history.submissionNotes"
+msgstr "Материалдық жазбалар"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Оқиғалар журналы"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "журналдың электрондық поштасы"
+
+msgid "submission.history.recentLogEntries"
+msgstr "соңғы жазбалар"
+
+msgid "submission.history.noLogEntries"
+msgstr "ешқандай жазба жоқ."
+
+msgid "submission.history"
+msgstr "тарихы"
+
+msgid "submission.history.clearLog"
+msgstr "журналды тазарту"
+
+msgid "submission.galley"
+msgstr "Галлея"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Файлды жүктеуші жазба файл жасалған кезде сақталады және оны өзгерту мүмкін "
+"емес."
+
+msgid "submission.files.downloadAll"
+msgstr "барлық файлдарды жүктеңіз"
+
+msgid "submission.files"
+msgstr "файлдар"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Материал \"{stage}\" сатысында болғанда, авторларға енді метадеректерді "
+"өңдеуге рұқсат етілмейді."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Авторларға енді материал \"{stage}\" сатысында болғанда, метадеректерді "
+"өңдеуге рұқсат етіледі."
+
+msgid "submission.event.viewEmail"
+msgstr "Электрондық поштаны көрсетіңіз"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Электрондық хат жіберілді:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Рецензенттің өзгертулері бар файл жаңартылды"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Пікір қайта жіберілді"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Рецензиялау қайтадан басталды"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Рецензенттің ұсыныс файлы"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Рецензиялау басталлды"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Рецензиялау  файлы жаңартылды"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Материалға рецензент тағайындау жойылды"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Рецензенттің жұмысы бағаланды"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Материалды тексеруші рецензент тағайындалды"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Рецензияны жіберу мерзімі өзгертілді"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Рецензент тексеруден бас тартты"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Алынған рецензияны қарап шығыңыз"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Рецензия үшінші аданың көмегімен алынды"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Материал файлы жаңартылды"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Материалдың метадеректері жаңартылды"
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"\"{$name}\" нұсқасы (файл идентификаторы {$submissionFileId}) жүктеп салынды."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Материалды бастапқы жіберу аяқталды."
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Шешім туралы электрондық хат {$subject} тақырыбымен {$recipientCount} "
+"рецензентіне жіберілді."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "оқиғалар журналындағы жазбаны өшіру"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Бұл жазбаны оқиғалардың журналынан шынымен жойғыңыз келе ме?"

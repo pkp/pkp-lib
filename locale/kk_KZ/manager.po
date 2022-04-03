@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-03 13:57+0000\n"
+"PO-Revision-Date: 2022-04-05 05:57+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -1027,3 +1027,1789 @@ msgstr ""
 
 msgid "manager.emails.disable"
 msgstr "өшіру"
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Басқа авторларға хабарлау"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Бұл электрондық пошта жаңа пайдаланушы электрондық поштаны растауды қажет "
+"ететін сайтқа тіркелген кезде автоматты түрде жіберіледі."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Электрондық пошта мекенжайын тексеру (веб-сайт)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr ""
+"Бұл электрондық хабар өңдеуші рецензент тапсырмасынан бас тартқанда "
+"жіберіледі."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Рецензент ретінде тағайындау жойылды"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Бұл хат жойылған рецензент редактор болып қайта тағайындалғанда жіберіледі."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Рецензент қайта тағайындалды"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Бұл электрондық хабар шолушыға жіберу тағайындалған кезде жіберіледі."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Рецензент тағайындалды"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Бұл электрондық хабар талқылауға жаңа хабар қосылғанда автоматты түрде "
+"талқылауға қатысушыларға жіберіледі."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Жаңа пост талқылауда"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Жіберу жұмыс процесіне тағайындалған автор аттары. Бұл әдетте өтініш беруші "
+"болып табылады"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Түзету серверіндегі материалдың URL мекенжайы"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Жіберуге автордың URL мекенжайы"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Авторлардың толық аты-жөні"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Қысқа жол түріндегі автор есімдері"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Материалдың аннотациясы"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Бірегей материал идентификаторы"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Материал атауы"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Бұл материалға редакторлар тағайындалған, кім шеше алады"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Сайттың негізгі байланыс электрондық пошта мекенжайы"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Сайттың негізгі байланыс тұлғасының аты-жөні"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Электрондық поштадағы жіберушінің қолы"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Жіберушінің электрондық пошта мекенжайы"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Жіберушінің аты-жөні"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Бұл журнал ашық рецензия жүргізеді. Тексерушілер сіздің атыңызды және "
+"серіктестікіңізді, сондай-ақ серіктестеріңіздің аттары мен серіктестігін "
+"көреді. Сол сияқты, сіз рецензенттердің аты-жөні мен байланыстарын көресіз."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Бұл журнал «анонимді рецензенттердің» рецензиясын жүргізеді. Сіздің атыңыз "
+"бен бірлескен авторларыңыздың аты-жөні рецензенттерге көрінетін болады; "
+"дегенмен, шолушылардың жеке басы анонимді болып қала береді."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Бұл журнал екі рет анонимді рецензия жасайды. Рецензенттер сіз немесе сіздің "
+"үлескерлеріңіз туралы сәйкестендіру ақпаратын көрмейді. Сол сияқты, сіз "
+"жіберуіңізді кім қарағанын білмейсіз және рецензенттерден тікелей естімейтін "
+"боласыз."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Қос анонимді немесе жалпыға бірдей сияқты әдепкі тексеру әдісінің "
+"сипаттамасы."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Ұсынылған шешім, мысалы, жіберуді қабылдау"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Тексеру тапсырмасының URL мекенжайы"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Рецензиялауды аяқтау керек күн"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Рецензент шолу тапсырмасын қабылдау немесе қабылдамау керек күні"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Алушының немесе барлық алушылардың логині"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Алушының немесе барлық алушылардың аты-жөні"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Шешім қайта қарау қадамымен байланысты болса, бұл шешім қабылданған шолу "
+"кезеңі."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Шешім қабылданған редакциялық жұмыс үрдісіндегі қадам."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Қабылданған шешімнің сипаттамасы."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Қабылданған шешімнің атауы."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Барлық пайдаланушы тағайындаған жіберулерді көру үшін URL мекенжайы."
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"Пайдаланушы жоғалған құпия сөзді қалпына келтіре алатын беттің URL мекенжайы"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Журналдың пошталық мекенжайы"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Барлық пікірлер аяқталған шолулардан алынған. Рецензент атаулары анонимді "
+"пікірлер үшін жасырылған"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Жарияланымды талдау кезінде қате орын алды"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Авторларды талдау кезінде қате орын алды"
+
+#, fuzzy
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Көрсетілген журнал жолы \"{$contextPath}\" жоқ."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ҚАТЕ:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Қате сүзгі конфигурациясы [{$filterName}]: {$filterCount} даналары. Біреуі "
+"ғана болуы керек."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Жалпы элементтер"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Төмендегі түймені пайдаланып экспортталған файлды жүктеп алыңыз."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Экспорттау табысты аяқталды."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Экспортталған файлды жүктеп алыңыз"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Жіберілгендердің экспорттық нәтижелері"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Процесс қатемен аяқталды. Қате/ескерту хабарлары төменде көрсетілген."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Қарап шыққаннан кейінгі қабылданбағандар пайызы"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Бірден бас тартылғандардың пайызы"
+
+msgid "stats.name.declineRate"
+msgstr "Қабылданбағандардың пайызы"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Қабылданғандардың пайызы"
+
+msgid "stats.name.daysToReject"
+msgstr "Бас тартудан бірнеше күн бұрын"
+
+msgid "stats.name.daysToAccept"
+msgstr "қабылдауға дейінгі күндер"
+
+msgid "stats.name.daysToDecision"
+msgstr "Алғашқы редакциялық шешім қабылдаудан бірнеше күн бұрын"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Жарияланған материалдар"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Қабылданбаған материалдар (қараудан кейін)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Қабылданбаған материалдар (бірден)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Материалдар қабылданбады"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Материалдар қабылданды"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Алынған материалдар"
+
+msgid "stats.userStatistics"
+msgstr "Пайдаланушы статистикасы"
+
+msgid "stats.trends"
+msgstr "Трендтер"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Жалпы уақыт аралығындағы"
+
+msgid "stats.total"
+msgstr "Барлығы"
+
+msgid "stats.submissionsActive"
+msgstr "Белсенді материалдар"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Атауы, авторы және идентификаторы бойынша іздеу"
+
+#, fuzzy
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Ай сайын"
+
+#, fuzzy
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Файлдың қаралуы"
+
+msgid "stats.editorialActivity"
+msgstr "Редакциялық іс-әрекет"
+
+msgid "stats.descriptionForStat"
+msgstr "{$stat} сипаттамасы"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Бірден қабылдамау немесе қарауға жіберу сияқты көптеген жіберілімдерге "
+"алғашқы редакциялық шешімін алу үшін қажет күндер саны.<br><br>Бұл "
+"жіберілімдердің 80%-ына мұндай шешімді алу үшін қанша уақыт кететінін "
+"көрсетеді.<br ><br>Бұл статистика журналыңызға материал жіберген авторлардың "
+"көпшілігінің шешімді күту уақытын сипаттайды."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Таңдалған күндер диапазоны үшін пайыздық мөлшерлеме осы кезеңде жіберілген "
+"және соңғы шешім қабылданған хабарлар негізінде есептеледі.<br><br>Мысалы, "
+"осы кезеңде 10 ұсыныс жіберілген жағдайды қарастырыңыз: оның төртеуі "
+"қабылданды, төртеуі қабылданбады, ал екеуі соңғы шешімді күтуде.<br><br>"
+"Қабылдау көрсеткіші 50% (8 ұсыныстың 4-і) болады, өйткені әлі аяқталмаған "
+"екі өтініш есепке алынбайды."
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date} дейін"
+
+msgid "stats.dateRange.to"
+msgstr "-ге"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Жыл басынан бүгінгі күнге дейін"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} бастап"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Соңғы жыл"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Соңғы 2 жыл"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Соңғы 90 күн"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Соңғы 30 күн"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Соңғы 12 ай"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Басталу күні {$date} күнінен ерте болмауы керек."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Аяқталу күні {$date}-тен кеш болмауы керек."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Басталу күні аяқталу күнінен бұрын болуы керек."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Уақыт форматы жарамсыз. Әрбір күн ЖЖЖЖ-АА-КК форматында болуы керек."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Әр күнді ЖЖЖЖ-АА-КК пішімінде енгізіңіз. Мысалы, күнді 2019 жылдың 15 "
+"қаңтарына орнатқыңыз келсе, 2019-01-15 енгізіңіз."
+
+msgid "stats.dateRange.from"
+msgstr "-нен"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Енгізілген күндердің бірі де жоқ."
+
+msgid "stats.dateRange.customRange"
+msgstr "Пайдаланушы диапазоны"
+
+msgid "stats.dateRange.change"
+msgstr "Күндер аралығын өзгерту"
+
+msgid "stats.dateRange.apply"
+msgstr "Қолдану"
+
+msgid "stats.dateRange.allDates"
+msgstr "Барлық күндер"
+
+msgid "stats.dateRange"
+msgstr "Күн аралығы"
+
+msgid "stats.daily"
+msgstr "Күнделікті"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/жыл)"
+
+msgid "stats.allUsers"
+msgstr "Барлық пайдаланушылар"
+
+msgid "grid.category.categoryDetails"
+msgstr "Санат туралы ақпарат"
+
+msgid "grid.category.nameRequired"
+msgstr "Санат атауын енгізіңіз."
+
+msgid "grid.category.removeText"
+msgstr "Осы санатты шынымен жойғыңыз келе ме?"
+
+msgid "grid.category.parentCategory"
+msgstr "ата-аналар санаты"
+
+msgid "grid.category.description"
+msgstr "Сипаттама"
+
+msgid "grid.category.pathExists"
+msgstr "Мұндай санат жолы бұрыннан бар. Ерекше жолды енгізіңіз."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Санат жолында тек әріптер мен сандар болуы керек."
+
+msgid "grid.category.urlWillBe"
+msgstr "Санат URL мекенжайы: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Жолы"
+
+msgid "grid.category.name"
+msgstr "Атауы"
+
+msgid "grid.category.edit"
+msgstr "Санатты өңдеу"
+
+msgid "grid.category.add"
+msgstr "Санатты қосыңыз"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Бұл сілтеме Құпиялық мәлімдемесін Параметрлер > Жұмыс процесі > Мазмұн "
+"тармағында енгізген болсаңыз ғана көрсетіледі."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Құпиялық туралы мәлімдемені көрсететін бетке сілтеме."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Іздеу бетіне сілтеме."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Бұл сілтеме кіруші жүйеге кірген болса, төлемдер Параметрлер > Тарату > "
+"Төлемдер тармағында қосылған болса және Параметрлер > Тарату > Қатынас "
+"тармағында жазылымдар қажет болса ғана көрсетіледі."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Бұл сілтеме \"Параметрлер > Тарату > Төлемдер\" бөлімінде төлемдер қосылған "
+"жағдайда ғана көрсетіледі."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Навигациялық мәзір түрін таңдаңыз."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Бұл сілтеме Параметрлер > Контакт ішіндегі «Байланыс мәліметтері» бөлімін "
+"аяқтасаңыз ғана көрсетіледі."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Байланыс ақпаратын көрсететін бетке сілтеме."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Бұл сілтеме кіруші әлі жүйеге кірмеген жағдайда ғана көрсетіледі."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Бұл сілтеме кіруші жүйеге әлдеқашан кірген жағдайда ғана көрсетіледі."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Пайдаланушыны жүйеден шығаруға сілтеме."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Бұл сілтеме тек әкімшілік құқықтары бар пайдаланушыларға көрсетіледі."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Сайтты басқару құралдарына сілтеме."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Пайдаланушының профиль бетіне сілтеме."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Редакцияның жеке кабинетіне сілтеме."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Пайдаланушыны тіркеу бетіне сілтеме."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Жүйеге кіру бетіне сілтеме."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Бұл сілтеме Параметрлер > Веб-сайтта хабарламаларды қосқанда ғана "
+"көрсетіледі."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Хабарламалар көрсетілетін бетке сілтеме."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Шығарылым мұрағатына сілтеме."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Ағымдағы шығарылымға сілтеме."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Жіберу нұсқауларын көрсететін бетке сілтеме."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Бұл сілтеме Параметрлер > Журнал ішіндегі Редакциялық топ бөлімін аяқтасаңыз "
+"ғана пайда болады."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Параметрлер > Журнал тармағында тақырыптың мазмұнын көрсететін бетке сілтеме."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Бұл сілтеме Параметрлер > Журнал ішіндегі «Журнал туралы» бөлімін аяқтаған "
+"жағдайда ғана көрсетіледі."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Параметрлер > Журнал тармағында «Журнал туралы» мазмұнын көрсететін бетке "
+"сілтеме"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Басқа сайттағы кез келген URL мекенжайына сілтеме, мысалы, "
+"https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Сыртқы URL"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Сайтыңызда өз парақшаңызды енгізіңіз және оған навигация мәзірінде сілтеме "
+"қосыңыз."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Пайдаланушы беті"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Өз түріңізді жасау үшін шарлау мәзірінің түрін немесе \"Пайдаланушы\" "
+"опциясын таңдаңыз"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Навигация мәзірінің түрі"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Мәзір элементі ішкі мәзірді ашқанда, барлық құрылғылар ондағы сілтемені "
+"орындай алмайды. Мысалы, егер сізде «Байланыс» және «Қайта қарау» бар ішкі "
+"мәзірді ашатын «Журнал туралы» элементі болса, «Журнал туралы» сілтемесі "
+"барлық құрылғыларда қолжетімді болмауы мүмкін. Әдепкі мәзірде бұл ішкі "
+"мәзірде пайда болатын «Осы журнал туралы» екінші мәзір элементін жасау "
+"арқылы өңделеді."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Бұл мәзір элементінің қашан көрсетілетіні немесе жасырылғаны туралы қосымша "
+"ақпарат алыңыз."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL мекенжайын енгізуіңіз керек"
+
+#, fuzzy
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Бұл аймақта оған тағайындалған шарлау мәзірі бар."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Шарлау аймағын таңдаңыз"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Белсенді тақырыпты шарлау аумақтары"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Тағайындалмаған мәзір элементтері"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Тағайындалған мәзір элементтері"
+
+msgid "manager.navigationMenuItems"
+msgstr "Навигация мәзірінің элементтері"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Тақырып қажет"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Бұл тақырып басқа шарлау мәзірінде бұрыннан бар."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Бұл жол басқа шарлау мәзірінің элементі үшін әлдеқашан орнатылған."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Жол өрісінде тек әріптер, сандар, «.», «/», «-» және «_» болуы керек."
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Бұл бет мына жерде қолжетімді болады: "
+"<blockquote>{$pagesPath}</blockquote>...мұндағы %PATH% — жоғарыда енгізілген "
+"жол. <strong>Назар аударыңыз:</strong> Әрбір бетке жол бірегей болуы керек. "
+"Жүйеге ендірілген жолдарды пайдалану маңызды функцияларға қол жеткізуді "
+"жоғалтуға әкелуі мүмкін.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Шарлау"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Жолы"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Тақырыбы"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"\"{$username}\" пайдаланушы аты және \"{$email}\" электрондық пошта "
+"мекенжайы екі түрлі қолданыстағы пайдаланушыларға тиесілі."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Импортталған \"{$username}\" пайдаланушысының талаптарға сай келмейтін "
+"қарапайым құпия сөзі бар. Пайдаланушы импортталмаған."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Импортталған '{$username}' пайдаланушы құпия сөзін бұл формада импорттау "
+"мүмкін емес. Жаңа құпия сөз пайдаланушының электрондық пошта мекенжайына "
+"жіберілді. Пайдаланушы импортталды."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Импортталған \"{$username}\" пайдаланушысында құпия сөз жоқ. Импорттау үшін "
+"XML файлыңыздың пішімін тексеріңіз. Пайдаланушы импортталмаған."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Импорт/экспорт қателері:"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"{$id} мазмұн файлы алынып тасталды, себебі ол импортталмайтын жазбаға "
+"тіркелген, мысалы, шолу немесе талқылау тапсырмасы."
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Материалдық файлды импорттау мүмкін емес"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"\"{$fileId}\" файлы үшін \"{$revisionId}\" жаңа нұсқасы қайталанатын жазба "
+"жасайды"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Көрсетілген файл өлшемі \"{$expected}\" мен \"{$actual}\" нақты өлшемі "
+"сәйкес келмейді"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "{$dest} уақытша файлын {$source} арқылы жасау мүмкін емес"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Белгісіз жүктеуші {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Автордың ({$authorName}) жіберу тілінде ({$localeName}) аты жоқ. Материалды "
+"бұл ақпаратсыз импорттау мүмкін емес."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "\"{$param}\" атты автор үшін арнаулы топ көрсетілмеген"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Белгісіз қолданушы тобы {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Контенттің коды сәйкес келмейді {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Белгісіз кодтау {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Белгісіз жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Белгісіз элемент {$param}"
+
+#, fuzzy
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Туындаған қателер:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Ескертулер:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Тексеру қателері:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Осы материалды қабылдамас бұрын автордан библиографиялық сілтемелерді "
+"көрсетуді талап етіңіз."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Материалды тапсыру кезінде автордан библиографиялық сілтемелер беруін "
+"сұраңыз."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+"Материалды жіберу кезінде автордан библиографиялық сілтемелерді сұрамаңыз."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Библиографиялық сілтемелерді метадеректерге қосыңыз"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Ұсынылған материалдың библиографиялық анықтамаларын жеке өріске жазыңыз. Бұл "
+"Crossref сияқты дәйексөздерді бақылау қызметтерімен жұмыс істеу үшін қажет "
+"болуы мүмкін."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Осы материалды қабылдамас бұрын автордан қолдау көрсететін ұйымдарды "
+"көрсетуін талап етіңіз."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Автордан материалды жіберу кезінде қолдау көрсететін ұйымдарды көрсетуін "
+"сұраңыз."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Материалды жіберу кезінде автордан қолдау көрсететін ұйымдарды сұрамаңыз."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Метадеректерге қолдау көрсететін ұйымдарды қосыңыз"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Қолдау көрсететін ұйымдар зерттеуді қаржыландыру көзін немесе зерттеуге "
+"берілген басқа да институционалдық қолдауды көрсете алады."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Бұл материалды қабылдамас бұрын автордан пәндерді көрсетуін талап етіңіз."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Автордан материалды тапсыру кезінде пәндерді көрсетуін сұраңыз."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Материалды жіберу кезінде автордан тәртіпті сұрамаңыз."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Метадеректерге пәндерді қосыңыз"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Пәндер – университет факультеттері мен ғылыми қоғамдарды сипаттайтын оқу "
+"түрлері немесе білім саласы."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Автордан осы материалды қабылдамас бұрын түрін көрсетуді талап етіңіз."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Автордан материалды тапсыру кезінде түрін көрсетуін сұраңыз."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Мазмұнды жіберген кезде автордан түрін сұрамаңыз."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Метадеректер түрін қосыңыз"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Өтінімнің негізгі мазмұнының сипаты немесе жанры. Әдетте түрі \"Text\" болып "
+"табылады, бірақ сонымен қатар \"Dataset\", \"Image\" немесе <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/# кез "
+"келген түрі болуы мүмкін. section -7-dcmi-type-vocabulary\">Dublin Core "
+"түрлері</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Автордан осы материалды қабылдамас бұрын тақырыптарды міндетті түрде "
+"көрсетуін талап етіңіз."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Автордан материалды жіберген кезде тақырыптарды көрсетуін сұраңыз."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Материалды жіберу кезінде тақырыпты автордан сұрауға болмайды."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Тақырыптарды метадеректерге қосыңыз"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Тақырыптар жіберу тақырыбын сипаттайтын кілт сөздер, негізгі сөз тіркестері "
+"немесе жіктеу кодтары болуы мүмкін."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Автордан осы материалды қабылдамас бұрын дереккөздің URL мекенжайын "
+"көрсетуді талап етіңіз."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Автордан материалды жіберген кезде дереккөздің URL мекенжайын беруін сұраңыз."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Мазмұнды жіберген кезде автордан бастапқы URL мекенжайын сұрамаңыз."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Дереккөзді метадеректерге қосыңыз"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Дереккөз осы материалдың негізінде жатқан басқа жұмыстың немесе ресурстың "
+"DOI сияқты идентификаторы болуы мүмкін."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Автордан осы материалды қабылдамас бұрын материалға бұрыннан бар құқықтар "
+"туралы ақпаратты көрсетуін талап ету."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Автордан материалды жіберу кезінде бұрыннан бар құқықтар туралы ақпарат "
+"беруін сұраңыз."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Өтініш беру кезінде автордан құқықтар туралы ақпаратты сұрамаңыз."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Метадеректерге құқықтарды қосыңыз"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Сіз жіберген материалға қолданылатын кез келген құқықтар зияткерлік меншік "
+"құқықтарын, авторлық құқықтарды және әртүрлі меншік құқықтарын қамтуы мүмкін."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Осы материалды қабылдамас бұрын автордан материалдың тілдерін көрсетуін "
+"талап етіңіз."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Автордан материалды жіберу кезінде олардың тілдерін көрсетуін сұраңыз."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Өтініш беру кезінде автордан материалдың тілдерін сұрамаңыз."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Метадеректерге тілді қосыңыз"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Тіл тіл кодын («ru»), одан кейін қосымша ел кодын («ru_RU») пайдалана "
+"отырып, негізгі жұмыс тілін көрсетеді."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Автордан өз материалын қабылдамас бұрын кілт сөздерді міндетті түрде "
+"көрсетуін талап етіңіз."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Жіберу кезінде автордан кілт сөздерді сұраңыз."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Жіберу кезінде автордан кілт сөздерді сұрамаңыз."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Кілтсөз метадеректерін қосыңыз"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Кілтсөздер әдетте материалдың негізгі тақырыптарын көрсету үшін қолданылатын "
+"бір немесе үш сөз тіркестері болып табылады."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Автордан олардың жіберуін қабылдамас бұрын метадеректерге қамтуды міндетті "
+"түрде қосуды талап етіңіз."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Автордан жіберу кезінде метадеректердегі аумақты көрсетуді сұраңыз."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Жіберу кезінде автордан метадеректерді қамтуды сұрамаңыз."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Метадеректерге қол жеткізуді қосыңыз"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Қолдану саласы әдетте жұмыстың геокеңістіктік орнын (жер атауы немесе "
+"географиялық координаттар), уақыт кезеңін (кезең атауы, күні немесе күндер "
+"ауқымы) немесе юрисдикцияны (әкімшілік бөлімшенің атауы сияқты) сипаттайды."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Қамту"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Материалды жіберу формасы"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "Лицензияны сипаттайтын веб-беттің URL мекенжайы (бар болса)."
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Рецензиялау  кезінде бәсекелес мүдделер туралы мәлімдемені сұраңыз."
+
+msgid "grid.action.createReviewForm"
+msgstr "Жаңа рецензия формасын жасаңыз"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Көрінетін (авторларға арналған)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Бір жолды енгізу өрісі"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Кеңейтілген мәтін өрісі"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Бір сөзді енгізуге арналған мәтіндік өріс"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Авторға жолдаған хабарламада"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Рецензент элементті толтыруы керек"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радио түймелері (тек бір опцияны таңдауға болады)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Сипаттамасы"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Элемент"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Таңдау"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Форма элементтері жасалмаған."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Форма элементіне сәйкес сұрақты енгізу керек."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Форма элементі үшін элемент түрін таңдау керек."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Элемент түрі"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Форманың элементін өңдеу"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Ашылмалы тізім"
+
+msgid "manager.reviewFormElements.create"
+msgstr "жаңа элементті енгізу"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "көшіріп алу:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Жарияланған форма элементін жоюды растау..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Түр элементін таңдаңыз"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Белгілер (бір немесе бірнеше опцияларды таңдауға болады)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Таңдауды қосу"
+
+msgid "manager.reviewFormElements"
+msgstr "Форма элементі"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Форма элементінің түрі өзгертілуде..."
+
+msgid "manager.reviewForms.title"
+msgstr "атауы"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Рецензия формасының  деректері"
+
+msgid "manager.reviewForms.preview"
+msgstr "Алдына-ала қарау формасы"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Рецензия формаларының ешқайсысы пайдаланылмаған."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Рецензия формасы енгізілмеді."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Жоқ / Рецензия формасы тегін"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Осы жерде жасалған рецензия формасы әдепкі форманың орнына толтыру үшін "
+"рецензенттерге көрсетіледі. Әдепкі форма екі мәтіндік өрістен тұрады: "
+"біріншісі - \"Авторға және редакторға\" және екіншісі - \"Редакторға\". "
+"Рецензия формасы жарияланымның белгілі бір бөліміне тағайындалуы мүмкін және "
+"редакторлардың рецензияны тағайындау кезінде арнайы форманы таңдау "
+"мүмкіндігі бар. Барлық жағдайларда, редакторлардың автормен хат алмасуға "
+"алынған пікірлерді қосу мүмкіндігі бар."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Рецензиялауда"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Тақырып рецензия формасы үшін қажет."
+
+msgid "manager.reviewForms.edit"
+msgstr "Рецензия формасы"
+
+msgid "manager.reviewForms.description"
+msgstr "Сипаттама және нұсқаулар"
+
+msgid "manager.reviewForms.create"
+msgstr "Рецензия формасын енгізіңіз"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Осы рецензия формасын шынымен жойғыңыз келе ме?"
+
+msgid "manager.reviewForms.completed"
+msgstr "толтырылды"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Осы рецензия формасының көшірмесін жасағыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Осы рецензия формасын шынымен өшіргіңіз келе ме? Ол бұдан былай жаңа "
+"рецензия үшін қолжетімді болмайды."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Осы рецензия формасын іске қосқыңыз келетініне сенімдісіз бе? Ол "
+"рецензиялауға тағайындалғаннан кейін оны өшіре алмайсыз."
+
+msgid "manager.reviewForms"
+msgstr "Рецензия формалары"
+
+msgid "manager.distribution.title"
+msgstr "Тарату параметрі"
+
+msgid "manager.distribution"
+msgstr "Тарату"
+
+msgid "manager.workflow.title"
+msgstr "Жұмыс процесі параметрлері"
+
+msgid "manager.workflow"
+msgstr "жұмыс процесі"
+
+msgid "manager.website.title"
+msgstr "Веб-сайт параметрі"
+
+msgid "manager.website"
+msgstr "Веб-сайт"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Осы пайдаланушымен байланыстырылуы тиіс кемінде бір рөлді таңдауыңыз қажет."
+
+msgid "manager.settings.wizard"
+msgstr "Параметрлер мастері"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Бұл файлдар қабылдай алатын метадеректер түрін таңдаңыз. Жүктеп алынатын PDF "
+"файлы сияқты жарияланымның негізгі файлдары үшін «Құжат» таңдалуы керек, "
+"осылайша бұл файлдар жарияланымнан метадеректерді иеленеді. Әйтпесе, "
+"көптеген файл түрлері үшін \"Қосымша мазмұнды\" таңдаңыз. \"Өнер туындысы\" "
+"бөлек атрибуцияны, қолтаңбаны және лицензия метадеректерін қажет ететін "
+"файлдарға сәйкес келеді."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Файлдың метадеректері"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Кілтте тек әріптер, сандар, астын сызулар, сызықшалар болуы мүмкін; әріппен "
+"немесе санмен басталуы және аяқталуы керек."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Кілт бұрыннан бар."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Бұл жанрға арналған қосымша қысқа таңба идентификаторы."
+
+msgid "manager.setup.genres.key"
+msgstr "кілт"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Бұл деректер жинақтары және зерттеу материалдары сияқты қосымша файлдар, "
+"сондықтан олар негізгі жарияланым файлдарынан бөлек көрсетіледі."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Бұл HTML файлы ретінде көрінетін кескіндер  сияқты тәуелді файлдар, "
+"сондықтан жарияланған мазмұн тізімінде көрсетілмейді."
+
+msgid "manager.setup.genres.label"
+msgstr "Файл түрі"
+
+msgid "grid.action.restoreGenres"
+msgstr "Компоненттерді әдепкі параметрлерге қайтару"
+
+msgid "grid.action.deleteGenre"
+msgstr "Бұл компонентті өшіріңіз"
+
+msgid "grid.action.editGenre"
+msgstr "Бұл компонентті өңдеңіз"
+
+msgid "grid.action.addGenre"
+msgstr "Компонент қосыңыз"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Тіркеу үшін кітапхана файлдарын таңдаңыз"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Егер \"Ашық қолжетімділік\" қосулы болса, бұл кітапхана файлын мына "
+"жерден жүктеп алуға болады: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Басқа"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Есептер"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Рұқсаттар"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Келісімшарттар"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Бұл кітапхана файлы үшін файл түрі қажет."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Бұл кітапхана файлының атауы қажет."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Кітапхана файлы қажет. Файлды таңдап, сайтқа жүктеп салғаныңызға көз "
+"жеткізіңіз."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Материалдың метадеректерін өңдеуге рұқсат беріңіз."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Тапсырманың маңызды кезеңін орнату керек."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Рөлдің рұқсат деңгейін орнатуыңыз қажет."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Бірегей рөлдік аббревиатураны беру керек."
+
+msgid "settings.roles.uniqueName"
+msgstr "Бірегей рөл атауын орнату керек."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Рөлдің аббревиатурасын орнату керек."
+
+msgid "settings.roles.nameRequired"
+msgstr "Рөл атын орнатуыңыз керек."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Сіз бұл рөлді осы мәтінмәннен алып тастағалы жатырсыз. Бұл әрекет осы рөлге "
+"қатысты пайдаланушы параметрлері мен тағайындауларын да жояды. "
+"Жалғастырғыңыз келе ме?"
+
+msgid "settings.roles.from"
+msgstr "Құқық деңгейі"
+
+msgid "settings.roles.roleDetails"
+msgstr "Рөл туралы мәліметтер"
+
+msgid "settings.roles.stages"
+msgstr "Кезеңдер"
+
+msgid "settings.roles.assignedStages"
+msgstr "Белгіленген кезеңдер"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Қысқарту"
+
+msgid "settings.roles.roleName"
+msgstr "Рөлдің атауы"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Бұл рөл тек рецензенттің шешімін ұсынуға мүмкіндік береді, түпкілікті "
+"шешімді жазу үшін тиісті құқықтары бар редактордың қатысуы талап етіледі."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Пайдаланушының өзін-өзі тіркеуіне рұқсат беріңіз"
+
+msgid "settings.roles.showTitles"
+msgstr "Мүшелер тізімінде рөл атауын көрсету"
+
+msgid "settings.roles.roleOptions"
+msgstr "Рөл параметрлері"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валюта"
+
+msgid "manager.paymentMethod.method"
+msgstr "Төлем тәсілі"
+
+msgid "manager.paymentMethod.none"
+msgstr "Төлем әдісі таңдалмады"
+
+msgid "manager.paymentMethod.title"
+msgstr "Төлем әдістері"
+
+msgid "manager.paymentMethod"
+msgstr "Төлемдер"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Әрбір беттің бас тегіне қосқыңыз келетін мета тегтер деп те аталатын "
+"теңшелетін HTML тегтерін қосыңыз. Бұл тегтерді қоспас бұрын техникалық "
+"сарапшымен кеңесіңіз."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Пайдаланушы тегтері"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Жарияланған жұмысыңыздың жанында көрсеткіңіз келетін жалпыға қолжетімді "
+"лицензия шарттарын енгізіңіз."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Лицензия шарттары"
+
+msgid "manager.distribution.license.other"
+msgstr "Басқа лицензияның URL мекенжайы"
+
+msgid "manager.distribution.license"
+msgstr "Лицензия"
+
+msgid "notification.editedUser"
+msgstr "Пайдаланушы өңделді."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Тіл параметрлерін сақтау мүмкін емес. Әрбір параметр үшін кемінде бір тіл "
+"қосулы болуы керек"
+
+msgid "notification.localeSettingsSaved"
+msgstr "Тіл параметрлері сақталады."
+
+msgid "notification.localeReloaded"
+msgstr "\"{$locale}\" тілі \"{$contextName}\" үшін жүктелген."
+
+msgid "notification.localeUninstalled"
+msgstr "\"{$locale}\" тілі өшірілді."
+
+msgid "notification.localeInstalled"
+msgstr "Барлық таңдалған тілдер орнатылған және белсендірілген."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} негізгі тіл ретінде орнатылған."
+
+msgid "notification.localeDisabled"
+msgstr "Тіл өшірілген."
+
+msgid "notification.localeEnabled"
+msgstr "Тіл қамтылған."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml модуль каталогында табылмады"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "Модуль каталогындағы version.xml файлында жарамсыз ақпарат бар."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Модуль файлын таңдаңыз"
+
+msgid "manager.plugins.uploadError"
+msgstr "Файлды жүктеу қатесі"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "{$versionString} нұсқасына сәтті жаңартылды"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Жаңарту сәтсіз аяқталды. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Бұл форма модульді жаңартуға мүмкіндік береді. Модуль файлының .tar.gz "
+"форматына архивталғанына көз жеткізіңіз."
+
+msgid "manager.plugins.upgrade"
+msgstr "Жаңарту модулі"
+
+msgid "manager.plugins.settings"
+msgstr "Параметрлер"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Модуль бұрыннан бар, бірақ оның нұсқасы сайтта орнатылғаннан жаңарақ. \""
+"Жаңартуды\" пайдаланыңыз"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Модуль жоқ. \"Орнату\" түймесін пайдаланыңыз"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Жүктелген модульдегі version.xml файлында жаңартылып жатқан модуль атауына "
+"сәйкес келмейтін модуль атауы бар."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Жүктелген модуль жаңартылып жатқан модуль санатына сәйкес келмейді."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Сайтқа жүктеп салынған модуль мұрағатында модуль атауына сәйкес каталог жоқ."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "{$versionNumber} нұсқасы сәтті орнатылды"
+
+msgid "manager.plugins.installFailed"
+msgstr "Орнату сәтсіз аяқталды. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Қолжетімсіз"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Нақты"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Жаңартуға болады"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Қолжетімді нұсқадан жаңарақ"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Модуль орнатылған және оның нұсқасы жаңартылған."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Модуль әлдеқашан орнатылған, бірақ оны жаңарақ нұсқаға жаңартуға болады."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Модуль әлдеқашан орнатылған және оның нұсқасы галереяда қол жетімді нұсқадан "
+"жаңарақ."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Қазіргі уақытта бұл модуль үшін үйлесімді нұсқа жоқ."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Модуль әлі орнатылмаған."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Күй"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Жалпы информация"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Негізгі бет"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "{$version} нұсқасы {$date} күні шықты"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Әзірлеуші"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Бұл модульді біздің серіктестеріміздің бірі қамтамасыз етеді."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Серіктестік"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Бұл модульді «Public Knowledge Project» жобасының тобы қарады және бекітті."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "рецензияланған"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Бұл модульді «Public Knowledge Project» жобасының тобы әзірлейді және "
+"жүргізеді."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Ресми"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Ең соңғы үйлесімді шығарылым"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Орнату"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Жалпы шолу"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Модуль галереясы"
+
+msgid "manager.plugins.installed"
+msgstr "Орнатылған модульдер"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Жүктеп салынатын файл таңдалғанына көз жеткізіңіз."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Бұл форма жаңа модульді жүктеп салуға және орнатуға мүмкіндік береді. Модуль "
+"файлының .tar.gz пішімінде қысылғанына көз жеткізіңіз."
+
+msgid "manager.plugins.upload"
+msgstr "Жаңа модульді жүктеңіз"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Алдымен файлды таңдаңыз"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "\"{$pluginName}\" плагині жоқ"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Бұл бет менеджерге ағымдағы орнатылған модульдерді көруге және мүмкін "
+"конфигурациялауға мүмкіндік береді. Модульдер функцияларына қарай жіктеледі. "
+"Санаттардың тізімі төменде берілген; белгілі бір санатты басу арқылы сіз осы "
+"санаттағы модульдердің ағымдағы жинағын көресіз."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "\"{$pluginName}\" плагині сәтті жойылды"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"'{$pluginName}' плагинін файлдық жүйеден жою мүмкін емес. Бұл рұқсат "
+"мәселесіне байланысты болуы мүмкін. Веб-сервердің «plugins» каталогына (ішкі "
+"каталогтарды қоса) жаза алатынына көз жеткізіңіз, бірақ содан кейін тиісті "
+"рұқсаттармен каталогты қорғауды ұмытпаңыз."
+
+msgid "manager.plugins.deleteDescription"
+msgstr "«Жою» түймесін басу арқылы модульді сервердің файлдық жүйесінен жояды."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Бұл модульді жүйеден шынымен жойғыңыз келе ме?"
+
+msgid "grid.action.installPlugin"
+msgstr "Бұл модульді орнатыңыз немесе жаңартыңыз"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Осы модульді жаңартқыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Бұл модульді орнатқыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.plugins.delete"
+msgstr "Модульді өшіру"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Модульді көшіру сәтсіз аяқталды. Бұл рұқсат мәселесіне байланысты болуы "
+"мүмкін. Веб-сервердің «plugins» каталогына (ішкі каталогтарды қоса) жаза "
+"алатынына көз жеткізіңіз, бірақ содан кейін тиісті рұқсаттармен каталогты "
+"қорғауды ұмытпаңыз."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Бұл модульдер жалпыға ортақ идентификаторды қолдауды жүзеге асырады."
+
+msgid "plugins.categories.pubIds"
+msgstr "Ашық идентификатор модульдері"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr ""
+"Бұл форматтың модулі OAI коммуникациялары үшін метадеректерді түрлендіреді."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI метадеректерін форматтау модульдері"
+
+msgid "plugins.categories.themes"
+msgstr "Тақырыптық модульдер"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Тақырыптық модульдерді жүйенің сыртқы түрін өзгерту үшін пайдалануға болады."
+
+msgid "plugins.categories.reports"
+msgstr "Есеп модульдері"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Есеп модульдері есептердің әртүрлі түрлерін жүзеге асыру және деректерді "
+"шығару үшін пайдаланылады."
+
+msgid "plugins.categories.paymethod"
+msgstr "Төлем модульдері"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Төлем әдісінің модульдері әртүрлі онлайн төлемдерді өңдеу әдістеріне "
+"қолдауды жүзеге асырады."
+
+msgid "plugins.categories.importexport"
+msgstr "Импорт/экспорт модульдері"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Импорттау/Экспорттау модульдерін басқа жүйелермен мазмұнды алмасу үшін "
+"пайдалануға болады."
+
+msgid "plugins.categories.generic"
+msgstr "Жалпы мақсаттағы модульдер"
+
+msgid "plugins.categories.gateways"
+msgstr "Шлюз модульдері"
+
+msgid "plugins.categories.gateways.description"
+msgstr "Шлюз модульдері сыртқы жүйелерге нақты уақыттағы деректерді береді."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Блок модульдері әртүрлі бүйірлік тақта құралдары сияқты қосылатын UI "
+"құрамдастары болып табылады."
+
+msgid "plugins.categories.blocks"
+msgstr "Блок модульдері"
+
+msgid "plugins.categories.auth"
+msgstr "Авторизация модульдері"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Метадеректер модульдері қосымша метадеректер стандарттарын жүзеге асырады."
+
+msgid "plugins.categories.metadata"
+msgstr "Метадеректер модульдері"
+
+msgid "manager.users"
+msgstr "Пайдаланушылар"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Тіркелген пайдаланушылар"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} жаңа)"
+
+#, fuzzy
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Сайтқа кіру параметрлері"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Осы бөлімді қосқыңыз келетініне сенімдісіз бе?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Осы бөлімді өшіргіңіз келетініне сенімдісіз бе?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Бұл бөлімді өшіріп, оған жаңа материалдарды жіберуге тыйым салыңыз."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Сіз таңдаған тақырып орнатылмаған немесе қосылмаған."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Жаңа тақырыптарды осы беттің жоғарғы жағындағы «Модульдер» қойындысынан "
+"орнатуға болады."
+
+msgid "manager.setup.theme"
+msgstr "Тақырып"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Редакторларға, авторларға және рецензенттерге материалды жіберу, өңдеу, "
+"қарау немесе жариялау кезінде туындауы мүмкін кез келген мәселелер бойынша "
+"көмектесе алатын байланыс тұлғасы."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Байланыс тұлғасы (техникалық қолдау)"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Тәжірибелі веб-әзірлеушілер сайттың көрінісі мен сезімін одан әрі өзгерту "
+"үшін CSS файлын жүктей алады."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Мысалдар: ғалымдар қоғамдары, жоғары оқу орындарының бөлімдері, "
+"бірлестіктер, т.б. Демеушілер сайттағы қоғамдық доменде көрсетіледі."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Ереженің сипаттамасы және демеушілермен қарым-қатынасы"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Жүктеп салу кезінде <button type=\"button\">барлық файлдардың анонимді "
+"болуын қалай қамтамасыз етуге болады</button> сілтемесін көрсету"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Әдепкі рецензиялау режимі"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Тексеру мерзімі өткеннен кейінгі келесі күндер ішінде рецензент ұсыныс "
+"жібермеген болса, еске салу керек."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Рецензия беру туралы еске салу"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Рецензент сұрауға жауап беру мерзімі өткеннен кейінгі келесі күндер ішінде "
+"тексеру сұрауына жауап бермесе, еске салғышты жіберіңіз."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Келісім туралы ескерту"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Әдепкі мәндерді редакциялау процесінде әрбір шолу үшін өзгертуге болады."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Ешқашан еске түсірмеу"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Рецензияны аяқтау үшін қажетті апталар"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Рецензияны жазуға жауап ретінде келісу немесе бас тарту апталары."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Рецензия берудің аяқталу күні"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Рецензия беруге келісім мерзімі"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Бұл мәлімдеме пайдаланушыны тіркеу, авторларға жіберу кезінде және жалпыға "
+"ортақ \"Құпиялылық\" бетінде пайда болады. Кейбір елдерде сізден заң бойынша "
+"осы \"Құпиялылық\" мәлімдемесінде пайдаланушы деректерін қалай "
+"өңдейтініңізді ашу қажет."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Пайдаланушы форматы"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "күні мен уақыты (қысқаша)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "күні мен уақыты"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Уақыт"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Күн (қысқа)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "күні"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Қалаған күн мен уақыт форматын таңдаңыз. Пайдаланушы форматын арнайы <a "
+"href='http://php.net/manual/en/function.strftime.php#refsect1-function"
+".strftime-parameters'>формат таңбаларын</a> пайдаланып енгізуге болады."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Күн және уақыт форматтары"
+
+msgid "manager.setup.dateTime"
+msgstr "күні және уақыты"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Құпиялылық мәлімдемесі"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Байланыстағы тұлғаның мәліметтерін енгізіңіз, әдетте бас редактор, басқарушы "
+"редактор немесе әкімшілік қызметкер. Бұл деректер сайтта жалпыға қолжетімді "
+"түрде көрсетілуі мүмкін."
+
+msgid "manager.setup.principalContact"
+msgstr "Байланыстағы тұлға (жалпы сұрақтар)"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Оқырмандар мен авторлар үшін журналдың рецензия саясатын және шолу процесін "
+"сипаттаңыз. Бұл сипаттама әдетте материалды қарап шығатын рецензенттер "
+"санын, рецензенттерден материалды бағалауды сұрайтын критерийлерді, "
+"шолулардың болжалды уақытын және рецензенттерді қалай таңдауды қамтиды."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Сайтыңыздың төменгі жағында пайда болғыңыз келетін кескіндерді, мәтінді "
+"немесе HTML кодын енгізіңіз."
+
+msgid "manager.setup.pageFooter"
+msgstr "Беттің төменгі колонтитулы"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Бет тақырыбына арналған логотип кескінінің форматы жарамсыз немесе "
+"жүктелмеді. Рұқсат етілген форматтар: .gif, .jpg немесе .png."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Егер журнал оқырмандарға барлық жарияланған мазмұнға бірден тегін қол "
+"жеткізуді қамтамасыз етсе, сіз Ашық қолжетімділік саясатының сипаттамасын "
+"енгізе аласыз."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Ашық жүйе ережелері"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Басқа электрондық хатты жіберіңіз"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr ""
+"Электрондық хат электрондық пошта арқылы барлық алушыларға сәтті жіберілді."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Біз хат жібереміз. Жіберу аяқталмайынша басқа беттерге ауыспаңыз."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Сіз {$total} пайдаланушыға электрондық хат жібергелі жатырсыз. Осы "
+"электрондық хатты шынымен жібергіңіз келе ме?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "хат жіберу"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Осы электрондық поштаның көшірмесін менің {$email} поштама жіберіңіз."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Электрондық пошта хабарландыруыңызды алатын пайдаланушыларды таңдаңыз."
+
+msgid "manager.setup.notifyUsers"
+msgstr "хабардар етіңіз"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Авторларға олардың жіберілгенін растайтын электрондық пошта автоматты түрде "
+"жіберіледі. Осы электрондық поштаның көшірмелерін келесі мекенжайларға "
+"жіберуге болады:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Осы электрондық пошта мекенжайларының біреуі немесе бірнешеуі жарамсыз."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Материалды жіберуді растау хатының көшірмесі осы өрісте енгізілген "
+"электрондық пошта мекенжайларының кез келгеніне жіберіледі. Әртүрлі "
+"электрондық пошта мекенжайларды үтірмен бөліңіз. Мысалы: one@example.com, "
+"Two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "кез келген адамға хабарлау"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "жоқ"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Иә, көшірмесін {$email} поштасына жіберіңіз"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Негізгі контактіге хабарлау"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Хабарландырулар"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Жұмыс үрдісіне тағайындалған авторларға ғана электрондық поштамен хат "
+"жіберіңіз. Әдетте, бұл жіберуші автор."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Барлық авторларға электрондық пошта арқылы хабарлама жіберіңіз."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Редакциялық шешім шыққан кезде электрондық пошта хабарламасын кім алуы керек?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Барлық авторларға хабарлау"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Осы электрондық мекенжайға көшірмені жіберіңіз"
+
+msgid "manager.setup.notifications"
+msgstr "Авторға жіберу туралы хабарлама"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Мазмұны"

@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-30 16:21+0000\n"
+"PO-Revision-Date: 2022-04-03 13:57+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "kk_KZ/>\n"
@@ -435,3 +435,290 @@ msgstr "Параметрлер"
 
 msgid "grid.noItems"
 msgstr "Элементтер жоқ"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Түрді таңдаңыз..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Навигация мәзірі жоқ"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Навигация мәзірінің элементтері жоқ"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Элементті қосыңыз"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Мәзірді қосыңыз"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Автор ұсынбаған толық емес материалдарды қосыңыз."
+
+msgid "grid.submission.itemTitle"
+msgstr "Автор; атауы"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr ""
+"\"{$stageName}\" кезеңіндегі \"{$userGroupName}\" рөлі қайта тағайындалды."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "\"{$userGroupName}\" рөлі \"{$stageName}\" кезеңіне тағайындалды."
+
+msgid "grid.userGroup.removed"
+msgstr "\"{$userGroupName}\" рөлі жойылды."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"\"{$userGroupName}\" рөлін жою мүмкін емес. Ол қазір {$usersCount} "
+"пайдаланушыға тағайындалған."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr ""
+"\"{$userGroupName}\" рөлі әдепкі рөл болып табылады және оны жою мүмкін емес."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Құқықтық деңгейімен"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Тағайындалған рөлдерді көрсету"
+
+msgid "grid.userGroup.allStages"
+msgstr "Жұмыс процесінің барлық кезеңдері"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Белгіленген кезеңді тағайындаудан бас тарту"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Кезеңді тағайындаңыз"
+
+msgid "grid.artworkFile.placement"
+msgstr "Материалды орналастыру"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Қолдану ережелері"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Байланыс ақпараты (автор/баспагер болмаса)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Авторлық құқық иесі"
+
+msgid "grid.artworkFile.credit"
+msgstr "автор"
+
+msgid "grid.artworkFile.caption"
+msgstr "Қолтаңба"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"Түзетуші өзгертулер енгізілді. Бұл тапсырманы қараудан алып тастауға болады"
+
+msgid "grid.plugin.disable"
+msgstr "Бұл модульді өшіргіңіз келетініне сенімдісіз бе?"
+
+msgid "grid.plugin.allCategories"
+msgstr "барлық категориялар"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "ағымдағы тізім"
+
+msgid "grid.preparedEmails.title"
+msgstr "Дайын электрондық пошта үлгілері"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"\"{$oldUsername}\" пайдаланушы аты бар тіркелгіні \"{$newUsername}\" "
+"пайдаланушы аты бар тіркелгімен біріктіргіңіз келетініне сенімдісіз бе? \""
+"{$oldUsername}\" пайдаланушы аты бар тіркелгі енді болмайды. Бұл әрекетті "
+"қайтару мүмкін емес."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Барлық тіркелген пайдаланушылар"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Осы пайдаланушының атына біріктіру"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Пайдаланушыны біріктіру"
+
+msgid "grid.user.mergeUsers"
+msgstr "Пайдаланушыларды біріктіру"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Осы қолданушымен кіресіз бе? Сіз жасайтын барлық әрекеттер осы "
+"пайдаланушының атынан болады."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Пайдаланушыны таңдаңыз"
+
+msgid "grid.user.selectUser"
+msgstr "пайдаланушыны таңдаңыз"
+
+msgid "grid.user.addRole"
+msgstr "рөлді қосу"
+
+msgid "grid.user.addRoles"
+msgstr "рөлдерді қосу"
+
+msgid "grid.user.step2"
+msgstr "№2 қадам: {$userFullName} пайдаланушысына рөлдерді қосу"
+
+msgid "grid.user.step1"
+msgstr "№1 қадам: пайдаланушының мәліметтерін толтырыңыз"
+
+msgid "grid.user.userNoRoles"
+msgstr "Бұл пайдаланушыға тағайындалған рөлдер жоқ."
+
+msgid "grid.user.userRoles"
+msgstr "Пайдаланушының рөлдері"
+
+msgid "grid.user.userDetails"
+msgstr "Пайдаланушы деректері"
+
+msgid "grid.user.lessDetails"
+msgstr "Пайдаланушы деректері (қысқаша)"
+
+msgid "grid.user.moreDetails"
+msgstr "Пайдаланушы деректері (толығырақ)"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"Пайдаланушыдан келесі рет кірген кезде құпия сөзін өзгертуді талап етіңіз."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Пайдаланушы келесі рет кірген кезде құпия сөзді өзгертуі керек."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Құпия сөзді өзгерту"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Пайдаланушыға сәлемдесу электрондық хатын жіберіңіз."
+
+msgid "grid.user.notifyUser"
+msgstr "Пайдаланушыға хабарлау"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Бұл пайдаланушы үшін кездейсоқ құпия сөз жасаңыз."
+
+msgid "grid.user.generatePassword"
+msgstr "Құпия сөзді жасаңыз"
+
+msgid "grid.user.mustProvideName"
+msgstr "Алдымен пайдаланушының тегін енгізіңіз."
+
+msgid "grid.user.authSource"
+msgstr "Аутентификация көзі"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Сізде бұл пайдаланушыны басқаруға құқықтарыңыз жеткіліксіз. Пайдаланушыны "
+"басқару үшін сіз сайт әкімшісі болуыңыз керек немесе пайдаланушы мүшесі "
+"болып табылатын барлық мәтінмәндерді басқаруыңыз керек."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Осы электрондық хабарды жіберу кезінде қате орын алды. Электрондық пошта "
+"серверінің орнату жұмыс істеп тұрғанына көз жеткізіңіз және/немесе жүйе "
+"әкімшісіне хабарласыңыз."
+
+msgid "grid.user.error"
+msgstr "Осы пайдаланушыны басқару кезінде қате орын алды. Қайталап көріңіз."
+
+msgid "grid.user.enableReason"
+msgstr "Пайдаланушыны қосу себебі"
+
+msgid "grid.user.disableReason"
+msgstr "Пайдаланушыны өшіру себебі"
+
+msgid "grid.user.disable"
+msgstr "өшіру"
+
+msgid "grid.user.enable"
+msgstr "қосу"
+
+#, fuzzy
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.edit"
+msgstr "Пайдаланушыны өңдеу"
+
+msgid "grid.user.enroll"
+msgstr "Қолданушыны тіркеңіз"
+
+msgid "grid.user.add"
+msgstr "қолданушыны қосу"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Құқықтың барлық деңгейлері"
+
+msgid "grid.user.allRoles"
+msgstr "барлық рөлдер"
+
+msgid "grid.user.currentEnrollment"
+msgstr "ағымдағы жазбалар"
+
+msgid "grid.user.currentUsers"
+msgstr "ағымдағы қолданушылар"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Кезеңдік тапсырма"
+
+msgid "grid.roles.add"
+msgstr "Жаңа рөлді еңгізіңіз"
+
+msgid "grid.roles.currentRoles"
+msgstr "Ағымдағы рөлдері"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Толық"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Әдебиеттер тізімі"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Қысқартылған"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Дисплей"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Формат"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Осы басылымның авторлары осы журналға келесі форматтарда жазылады."
+
+msgid "contributor.listPanel.preview"
+msgstr "Алдын-ала қарау"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Бақылау тізімдеріне"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Байланыс үшін адамды белгілеңіз"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Байланыс тұлғасы"
+
+msgid "author.users.contributor.role"
+msgstr "рөлі"
+
+#, fuzzy
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.name"
+msgstr "Атауы"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Бақылау тізімінің элементі"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Материалды жіберуге дайындаған бақылау парағы"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Жарияланым үлгілері: Кітапхана"
+
+msgid "grid.action.collapseAll"
+msgstr "барлығын жабу"

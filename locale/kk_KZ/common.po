@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-03 13:57+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -1794,3 +1794,422 @@ msgid "common.titleSmallWords"
 msgstr ""
 "бойынша және немесе не бірақ болып табылады егер содан кейін басқа қашан сағ "
 "бастап бойынша қосулы өшірулі үшін жылы шығып бітті дейін ішіне бірге"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML торабын импорттау мүмкін емес"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Орнату ортасында қолдау көрсетілмейтін түрлендіруді іске қосу әрекеті "
+"жасалды."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Сүзгі ({$displayName}) берілген {$inputTypeName} - {$typeofInput} енгізуді "
+"қолдайды"
+
+msgid "validator.url"
+msgstr "Жарамсыз URL."
+
+msgid "validator.unique"
+msgstr "{$attribute} әлдеқашан пайдаланылған."
+
+msgid "validator.timezone"
+msgstr "Уақыт белдеуі дұрыс емес."
+
+msgid "validator.string"
+msgstr "Жарамсыз жол."
+
+msgid "validator.size.array"
+msgstr "{$size} элементтері болуы керек."
+
+msgid "validator.size.string"
+msgstr "{$size} таңбадан тұруы керек."
+
+msgid "validator.size.file"
+msgstr "{$size} килобайт болуы керек."
+
+msgid "validator.size.numeric"
+msgstr "{$size} болуы керек."
+
+msgid "validator.same"
+msgstr "{$attribute} мен {$other} сәйкес болуы керек."
+
+msgid "validator.required_without_all"
+msgstr "{$values} орнатылмаған кезде өріс қажет."
+
+msgid "validator.required_without"
+msgstr "{$values} орнатылмаған кезде өріс қажет."
+
+msgid "validator.required_with_all"
+msgstr "Өріс {$values} берілгенде міндетті болып табылады."
+
+msgid "validator.required_with"
+msgstr "Өріс {$values} берілгенде міндетті болып табылады."
+
+msgid "validator.required_unless"
+msgstr "Өріс {$other} {$values} мәніне тең болғанша қажет."
+
+msgid "validator.required_if"
+msgstr "{$other} {$value} мәніне тең болса, өріс қажет."
+
+msgid "validator.required"
+msgstr "Өріс міндетті болып табылады."
+
+msgid "validator.regex"
+msgstr "Дұрыс форматталмаған."
+
+msgid "validator.present"
+msgstr "\"{$attribute}\" өрісі болуы керек."
+
+msgid "validator.orcid"
+msgstr "ORCID қате."
+
+msgid "validator.numeric"
+msgstr "Сан емес."
+
+msgid "validator.not_in"
+msgstr "Таңдалған {$attribute} жарамсыз."
+
+msgid "validator.min.array"
+msgstr "Кемінде {$min} элемент болуы керек."
+
+msgid "validator.min.string"
+msgstr "Кемінде {$min} таңба болуы керек."
+
+msgid "validator.min.file"
+msgstr "Кемінде {$min} килобайт болуы керек."
+
+msgid "validator.min.numeric"
+msgstr "Кем дегенде {$min} болуы керек."
+
+msgid "validator.mimes"
+msgstr "Келесі файл түрлерінің бірі болуы керек: {$values}."
+
+msgid "validator.max.array"
+msgstr "{$max} элементтен артық болмауы керек."
+
+msgid "validator.max.string"
+msgstr "{$max} таңбадан аспауы керек."
+
+msgid "validator.max.file"
+msgstr "{$max} килобайттан артық болмауы керек."
+
+msgid "validator.max.numeric"
+msgstr "{$max} мәнінен үлкен болмауы керек."
+
+msgid "validator.localeKey"
+msgstr ""
+"Тілдер тіл коды арқылы көрсетілуі керек. Мысалы: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Бұл көптілді сала. Әрбір қолдау көрсетілетін тіл үшін бөлек мәндер енгізілуі "
+"керек."
+
+msgid "validator.locale"
+msgstr "Бұл тіл қабылданбайды."
+
+msgid "validator.json"
+msgstr "Жарамсыз JSON жолы."
+
+msgid "validator.issn"
+msgstr "ISSN қате."
+
+msgid "validator.ip"
+msgstr "Жарамсыз IP мекенжайы."
+
+msgid "validator.integer"
+msgstr "Бүтін сан емес."
+
+msgid "validator.in"
+msgstr "Таңдалған {$attribute} жарамсыз."
+
+msgid "validator.image"
+msgstr "Сурет болуы керек."
+
+msgid "validator.filled"
+msgstr "Өріс міндетті болып табылады."
+
+msgid "validator.exists"
+msgstr "Таңдалған {$attribute} жарамсыз."
+
+msgid "validator.email"
+msgstr "Электрондық пошта мекенжайы жарамсыз."
+
+msgid "validator.digits_between"
+msgstr "{$min} және {$max} сандар арасында болуы керек."
+
+msgid "validator.digits"
+msgstr "Ұзындық {$digits} цифр болуы керек."
+
+msgid "validator.different"
+msgstr "{$attribute} және {$other} әртүрлі болуы керек."
+
+msgid "validator.date_format"
+msgstr "{$format} форматына сәйкес келмейді."
+
+msgid "validator.date"
+msgstr "Жарамсыз күн."
+
+msgid "validator.currency"
+msgstr "Жарамсыз валюта."
+
+msgid "validator.country"
+msgstr "Ондай мемлекет жоқ."
+
+msgid "validator.confirmed"
+msgstr "Мән және оны растау сәйкес келмейді."
+
+msgid "validator.boolean"
+msgstr "Өріс \"ақиқат\" немесе \"жалған\" болуы керек."
+
+msgid "validator.between.array"
+msgstr "{$min} және {$max} элементтер арасында болуы керек."
+
+msgid "validator.between.string"
+msgstr "{$min} және {$max} таңбалар арасында болуы керек."
+
+msgid "validator.between.file"
+msgstr "{$min} және {$max} килобайт арасында болуы керек."
+
+msgid "validator.between.numeric"
+msgstr "{$min} және {$max} арасында болуы керек."
+
+msgid "validator.before"
+msgstr "Деректер {$date} дейін болуы керек."
+
+msgid "validator.array"
+msgstr "Бұл жарамды массив емес."
+
+msgid "validator.alpha_num"
+msgstr "Ол тек әріптер мен сандарды  қамтуы мүмкін."
+
+msgid "validator.alpha_dash_period"
+msgstr "Тек әріптерді, сандарды, сызықшаларды және астын сызуды қамтуы мүмкін."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Ол тек әріптерді, сандарды, сызықшаларды және астын сызуды қамтуы мүмкін."
+
+msgid "validator.alpha"
+msgstr "Онда тек әріптер болуы мүмкін."
+
+msgid "validator.after"
+msgstr "Күн {$date} кейін болуы керек."
+
+msgid "validator.active_url"
+msgstr "URL мекенжайы жарамсыз."
+
+msgid "validator.accepted"
+msgstr "Бұл элементті қабыл алыңыз.."
+
+msgid "validation.invalidOption"
+msgstr "Бұл параметр қолжетімді емес."
+
+msgid "list.collapseAll"
+msgstr "Барлығын бетті жауып қою"
+
+msgid "list.expandAll"
+msgstr "Барлығын кеңейту"
+
+msgid "list.viewLess"
+msgstr "{$name} туралы толық ақпаратты жасыру"
+
+msgid "list.viewMore"
+msgstr "{$name} туралы толық ақпаратты көрсету"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "жазылымнан бас тартыңыз"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Күтпеген қате орын алды және {$email} электрондық пошта мекенжайын жіберу "
+"тізімінен шығару мүмкін болмады. Сізге көмектесуіміз үшін <a href=\""
+"{$profileNotificationUrl}\">пайдаланушы профилінде</a> немесе бізге тікелей "
+"хабарласу арқылы барлық электрондық пошта хабарландыруларына жазылудан бас "
+"тартуыңызға болады."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} электрондық пошта мекенжайы жіберулер тізімінен сәтті шығарылды. "
+"Біз сізге енді бұл электрондық хаттарды жібермейміз. Электрондық пошта "
+"хабарландыруларына кез келген уақытта <a href=\"{$profileNotificationUrl}\">"
+"пайдаланушы профилінде</a> қайта жазылуыңызға болады."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Сіз кез келген уақытта <a href=\"{$profileNotificationUrl}\">пайдаланушы "
+"профилінде</a> электрондық пошта хабарландыруларына қайта жазыла аласыз."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Енді {$email} мекенжайына {$contextName} арқылы алғыңыз келмейтін "
+"электрондық хаттарды таңдаңыз."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Біз сізді жіберулер тізімінен бас тарта алмаймыз"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Сіз тарату тізімінен сәтті шықтыңыз"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Навигация мәзірі сәтті жойылды"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Навигация мәзірі сәтті жаңартылды"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Навигация мәзірі сәтті қосылды."
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Навигация мәзірінің элементі сәтті қосылды."
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Навигация мәзірінің элементі сәтті жойылды"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Шарлау мәзірінің элементі сәтті жаңартылды"
+
+#, fuzzy
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr "Журналыңыздың жай-күйін редакциялық есеппен тексеруді ескертеміз."
+
+msgid "notification.type.editorialReport"
+msgstr "Статистикалық мәліметтер бойынша жиынтық есеп."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} раунд жағдайы"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Әдеби редакцияны күтуде."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Қатысушылар тізіміндегі \"Тағайындау\" сілтемесін пайдаланып, әдеби "
+"редакторды тағайындаңыз."
+
+msgid "notification.type.queryAdded"
+msgstr "Талқылау қосылды."
+
+msgid "notification.type.queryActivity"
+msgstr "Талқылау белсенділігі."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Құпиялылық параметрлері"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Бұл пайдаланушы сұралған материалдың авторы болып табылмайды. Жүйеге дұрыс "
+"пайдаланушы тіркелгісімен кіргеніңізді тексеріңіз."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Қазіргі уақытта материалды қарауға құқығыңыз жоқ. \"Басқаша тіркелу\" "
+"бөлімінде сізге сәйкес рөлдер берілгеніне көз жеткізу үшін профиліңізді "
+"өңдеңіз."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Бұл рецензияны қарауға рұқсатыңыз жоқ."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Сіз бұл талқылау жазбасына кіре алмайсыз."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Дұрыс емес пікір талас."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Рецензиялаудың дұрыс емес кезеңі."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Дұрыс емес ұсыныс."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Дұрыс емес материал."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Дұрыс емес жарияланым."
+
+msgid "user.authorization.submissionFile"
+msgstr "Бұл пайдаланушыға көрсетілген материал файлына кіруге рұқсат етілмейді."
+
+msgid "user.email"
+msgstr "Email адресі"
+
+msgid "timeZone"
+msgstr "Уақыт белдеуі"
+
+msgid "notification.signedFile"
+msgstr "Файл қаралды."
+
+msgid "notification.type.reviewerComment"
+msgstr "Сарапшы \"{$title}\" деп пікір білдірді."
+
+msgid "notification.type.metadataModified"
+msgstr "\"{$title}\" метадеректері өзгертілді."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Жаңа нұсқалар \"{$stage}\" кезеңіне жіберілді."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Жаңа нұсқалар \"{$stage}\" кезеңінде қарастырылады."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Файлдың жаңа нұсқасы \"{$stage}\" кезеңінде редакциялық тексеру үшін жүктеп "
+"салынды."
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"Барлық рецензенттер өз пікірлерін жіберді және шешім \"{$stage}\" кезеңінде "
+"қабылдануы керек."
+
+msgid "notification.type.auditorRequest"
+msgstr "\"{$file}\" үшін тексеруге сұрауы"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Рецензияның тапсырмасы жаңартылды."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Рецензиялау кезеңін күтуде."
+
+msgid "notification.type.newAnnouncement"
+msgstr "жаңа хабарлама."
+
+msgid "notification.editStageParticipant"
+msgstr "кезеңнің мақсаты өзгертілді."
+
+msgid "notification.addedStageParticipant"
+msgstr "Пайдаланушы кезең мүшесі ретінде қосылды."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензент қалпына келтірілді."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензент бас тартты."
+
+msgid "notification.removedReviewer"
+msgstr "Рецензент өшірілді."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"Бұл мазмұнды тексеруші ({$reviewerName}) тағайындалды және электрондық пошта "
+"хабарландыруы жіберілмеді."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"Осы мақалаға шолушы ({$reviewerName}) тағайындалды және электрондық поштаға "
+"хабарландыру жіберілді."
+
+msgid "navigation.goBack"
+msgstr "қайта  оралу"
+
+msgid "submission.task.responseDueDate"
+msgstr "Рецензияның растау күнін қарап шығу"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Рецензияның келіп түскен күні"

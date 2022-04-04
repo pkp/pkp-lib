@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-01 20:03+0000\n"
+"PO-Revision-Date: 2022-04-05 05:57+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/kk_KZ/>\n"
@@ -175,13 +175,13 @@ msgid "installer.filesDir"
 msgstr "Серверге жүктелген файлдарға арналған каталог"
 
 msgid "installer.databaseUsername"
-msgstr "қолданушының аты"
+msgstr "Қолданушының аты"
 
 msgid "installer.databaseSettings"
 msgstr "Мәліметтер қорының параметрлері"
 
 msgid "installer.databasePassword"
-msgstr "пароль"
+msgstr "Құпия сөз"
 
 msgid "installer.databaseName"
 msgstr "Мәліметтер қорының атауы"
@@ -217,10 +217,10 @@ msgid "installer.configFileError"
 msgstr "<tt>config.inc.php</tt> конфигурация файлы жоқ немесе оқу мүмкін емес."
 
 msgid "installer.checkYes"
-msgstr "йа"
+msgstr "Иа"
 
 msgid "installer.checkNo"
-msgstr "<span class=\"pkp_form_error formError\">жоқ</span>"
+msgstr "<span class=\"pkp_form_error formError\">ЖОҚ</span>"
 
 msgid "installer.administratorAccountInstructions"
 msgstr ""

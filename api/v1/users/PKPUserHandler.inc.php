@@ -336,7 +336,7 @@ class PKPUserHandler extends APIHandler
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
                 case 'userGroupIds':
-                    if (is_string($value) && strpos($value, ',') > -1) {
+                    if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {
                         $value = [$value];
@@ -344,7 +344,7 @@ class PKPUserHandler extends APIHandler
                     $params[$param] = array_map('intval', $value);
                     break;
                 case 'mappings':
-                    if (is_string($value) && strpos($value, ',') > -1) {
+                    if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {
                         $value = [$value];

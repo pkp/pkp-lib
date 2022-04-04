@@ -244,16 +244,16 @@ class Repository
 
     /**
      * Retrieves a filtered user report instance
-     *
-     *		@option int contextId Context ID (required)
-     *		@option int[] userGroupIds List of user groups (all groups by default)
+     * @param array $args
+     * - @option int[] contextIds Context IDs (required)
+     * - @option int[] userGroupIds List of user groups (all groups by default)
      */
     public function getReport(array $args): Report
     {
         $dataSource = $this->getMany(
             $this->getCollector()
                 ->filterByUserGroupIds($args['userGroupIds'] ?? null)
-                ->filterByContextIds($args['contextId'] ?? [])
+                ->filterByContextIds($args['contextIds'] ?? [])
         );
         $report = new Report($dataSource);
 

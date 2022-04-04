@@ -15,11 +15,13 @@
  */
 
 use APP\facades\Repo;
+use PKP\core\APIResponse;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use Slim\Http\Request;
 
 class PKPUserHandler extends APIHandler
 {
@@ -320,13 +322,8 @@ class PKPUserHandler extends APIHandler
 
     /**
      * Retrieve the user report
-     *
-     * @param Slim\Http\Request $slimRequest Slim request object
-     * @param \APIResponse $response Response
-     *
-     * @return ?\APIResponse Response
      */
-    public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args): ?\APIResponse
+    public function getReport(Request $slimRequest, APIResponse $response, array $args): ?APIResponse
     {
         $request = $this->getRequest();
 
@@ -335,7 +332,7 @@ class PKPUserHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $params = ['contextId' => $context->getId()];
+        $params = ['contextIds' => [$context->getId()]];
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
                 case 'userGroupIds':

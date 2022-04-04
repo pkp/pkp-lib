@@ -26,6 +26,7 @@ use PKP\services\PKPSchemaService;
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
+    public array $genres = [];
     public Publication $publication;
     public string $schema = PKPSchemaService::SCHEMA_GALLEY;
     public Submission $submission;
@@ -96,10 +97,10 @@ class Schema extends \PKP\core\maps\Schema
                     } else {
                         $retVal = null;
                     }
-                    $values[$prop] = $retVal;
+                    $output[$prop] = $retVal;
                     break;
                 case 'file':
-                    $values[$prop] = null;
+                    $output[$prop] = null;
                     if (is_a($galley, 'Galley')) {
                         if (!$galley->getData('submissionFileId')) {
                             break;
@@ -111,9 +112,9 @@ class Schema extends \PKP\core\maps\Schema
                             break;
                         }
 
-                        $values[$prop] = Repo::submissionFile()
+                        $output[$prop] = Repo::submissionFile()
                             ->getSchemaMap()
-                            ->map($submissionFile, $genres);
+                            ->map($submissionFile, $this->genres);
                     }
                     break;
                 case 'urlPublished':

@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Application;
 
 use APP\core\Request;
-use PKP\facades\Locale;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use DateTimeZone;
@@ -30,10 +29,12 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;
 use PKP\statistics\PKPStatisticsHelper;
+use PKP\submission\RepresentationDAOInterface;
 
 interface iPKPApplicationInfoProvider
 {
@@ -52,7 +53,7 @@ interface iPKPApplicationInfoProvider
     /**
      * Get the representation DAO.
      */
-    public static function getRepresentationDAO();
+    public static function getRepresentationDAO(): RepresentationDAOInterface;
 
     /**
      * Get a SubmissionSearchIndex instance.
@@ -235,7 +236,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $this->initializeTimeZone();
 
         if (Config::getVar('database', 'debug')) {
-            DB::listen(fn(QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
+            DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
     }
 

@@ -293,7 +293,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         $representationDao = Application::getRepresentationDAO();
         $representations = $representationDao->getByPublicationId($entity->getId());
-        while ($representation = $representations->next()) {
+        foreach ($representations as $representation) {
             $representationDoc = $currentFilter->execute($representation);
             $clone = $doc->importNode($representationDoc->documentElement, true);
             $entityNode->appendChild($clone);

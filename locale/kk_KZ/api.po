@@ -2,8 +2,8 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-03 00:42+0000\n"
-"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
+"PO-Revision-Date: 2022-04-05 05:57+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -18,8 +18,8 @@ msgstr "{$param} параметріне қолдау көрсетілмейді.
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
-"Сіздің сұрауыңыз дұрыс болған жоқ. Тапсырыс бағыты \"desc\" немесе \"asc\" "
-"болуы керек."
+"Сіздің сұрауыңыз дұрыс болған жоқ. Тапсырыс бағыты `desc` немесе `asc` болуы "
+"керек."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
@@ -184,7 +184,7 @@ msgstr ""
 
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
-"Сіздің сұрауыңыз дұрыс болған жоқ. Уақыт аралығы \"күн\" немесе \"ай\" болуы "
+"Сіздің сұрауыңыз дұрыс болған жоқ. Уақыт аралығы `күн` немесе `ай` болуы "
 "керек."
 
 msgid "api.stats.400.lateDateRange"

@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-03 13:57+0000\n"
+"PO-Revision-Date: 2022-04-05 16:17+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -203,7 +203,7 @@ msgid "common.altTextInstructions"
 msgstr ""
 "Бұл суретті сайтты мәтіндік шолғышта немесе арнайы құрылғыларды пайдаланып "
 "көретін қолданушылар үшін сипаттаңыз. Мысалы: \"PKP конференциясында "
-"сөйлеген редакторымыз\"."
+"сөйлеген редакторымыз\""
 
 msgid "common.altText"
 msgstr "Балама мәтін"
@@ -544,7 +544,7 @@ msgid "common.addCCBCC"
 msgstr "CC/BCC қосу"
 
 msgid "common.orderDown"
-msgstr "Decrease position of {$itemTitle}"
+msgstr "{$itemTitle} төменге түсіру"
 
 msgid "common.noItemsFound"
 msgstr "Ештеңе табылған жоқ."
@@ -1693,7 +1693,7 @@ msgid "search.searchResults.foundPlural"
 msgstr "{$count} элемент табылды."
 
 msgid "search.searchResults.foundSingle"
-msgstr "бір нәтиже табылды"
+msgstr "Бір ғана нәтиже табылды."
 
 msgid "search.searchResults"
 msgstr "іздеу нәтижелері"
@@ -2061,10 +2061,10 @@ msgid "notification.editedNavigationMenu"
 msgstr "Навигация мәзірі сәтті жаңартылды"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Навигация мәзірі сәтті қосылды."
+msgstr "Шолу мәзірі сәтті қосылды"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Навигация мәзірінің элементі сәтті қосылды."
+msgstr "Шолу мәзірінің элементі сәтті қосылды"
 
 msgid "notification.removedNavigationMenuItem"
 msgstr "Навигация мәзірінің элементі сәтті жойылды"

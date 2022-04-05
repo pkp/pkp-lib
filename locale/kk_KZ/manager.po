@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 05:57+0000\n"
+"PO-Revision-Date: 2022-04-05 10:07+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -470,9 +470,9 @@ msgstr "DOI префиксі қажет және 10.xxxx пішінінде бо
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"<a href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> немесе <a "
-"href=\"https://datacite.org/\" target= сияқты DOI тіркеу агенттіктері "
-"тағайындаған. \"new\">DataCite</a>. Мысалы: 10.xxxx."
+"Мұны <a href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> "
+"немесе <a href=\"https://datacite.org\" target=\"new\">DataCite</a> сияқты "
+"DOI тіркеу агенттігі тағайындайды. Мысалы: 10.xxxx"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
@@ -2813,3 +2813,115 @@ msgstr "Авторға жіберу туралы хабарлама"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "Мазмұны"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Материал қалпына келтірілмей-ақ қабылданбады"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторды қарап шыққаннан кейін жіберуден бас тарту туралы "
+"алдыңғы шешімнің күші жойылғаны туралы хабарлайды."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Қабылданбаған материалды қалпына келтіріңіз"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторды олардың материалына қатысты «қарау және қайта "
+"жіберу» шешімі туралы хабарлайды."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Қайта рецензиялауға жіберіңіз"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторды тексеру кезінде автордан түзетулерді сұрау "
+"шешімі туралы хабарлайды."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Сұралған өзгертулер"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға оның материалын қараудың жаңа кезеңі басталғаны "
+"туралы хабарлайды."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Рецензиялаудың жаңа кезеңі басталды"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Материал қабылданбады"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға олардың материалының сараптамадан кейін "
+"қабылданбағаны туралы хабарлайды."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Материал қабылданбады"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға олардың материалы жіберу кезеңіне қайтарылғаны "
+"туралы хабарлайды."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Материал кері жіберілді"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға олардың материалы қайта қарау кезеңіне "
+"жіберілгенін хабарлайды."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Материал қайта қарауға жіберілді"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға жұмыстарының өңдеуге қайтарылғаны туралы "
+"хабарлайды."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Материал өңдеуге қайтарылды"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға жұмыстарының жарияланымға қабылданғаны туралы "
+"хабарлайды."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Материал қабылданды"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "Біз авторларды одан әрі қарау үшін өңделген нұсқасын ұсынуға шақырдық."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Біз авторларды түзетулер енгізуге шақырдық."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Біз бұл материалды қабылдамау туралы шешім қабылдадық."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Біз бұл материалды түзетусіз қабылдауды таңдадық."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Осы шешім туралы рецензенттерге жіберілген электрондық пошта хабарламасында "
+"жариялануы тиіс осы шешімнің қысқаша сипаттамасы."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Бұл электрондық хатты редактор рецензентке өзі қарап шыққан материал бойынша "
+"шешім қабылданғаны туралы хабарлау үшін жібереді."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Рецензенттің растауы"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Авторға жіберілген электрондық хаттың көшірмесі"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Бұл электрондық хат қолданушы ретінде тағайындалмаған материал авторларына "
+"шешім қабылданғаны туралы хабарлау үшін жіберіледі. Әдетте бұл жіберуші "
+"автордан басқалары."

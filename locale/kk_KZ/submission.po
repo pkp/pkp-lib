@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 05:57+0000\n"
+"PO-Revision-Date: 2022-04-05 08:31+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/kk_KZ/>\n"
@@ -2328,3 +2328,40 @@ msgstr "Ескертпелерді көру"
 
 msgid "submission.notes.updateNote"
 msgstr "Ескертпені жаңарту"
+
+msgid "submission.list.currentStage"
+msgstr "Қазір \"{$stage}\" кезеңінде."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Бұл материалды редактор қарап шыққанға дейін толтыру керек."
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Сізге осы материал үшін бірнеше рөлдер тағайындалды. <a href=\""
+"{$urlAuthorWorkflow}\">Авторлық жұмыс процесін</a> немесе <a href=\""
+"{$urlEditorialWorkflow}\">Редакциялық жұмыс процесін</a> пайдаланғыңыз келе "
+"ме?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Сізге осы материалда редакторлық рөл тағайындалды. <a href=\""
+"{$urlEditorialWorkflow}\">Редакциялық жұмыс процесін</a> пайдаланғыңыз келе "
+"ме?"
+
+msgid "submission.list.discussions"
+msgstr "Талқылаулар ашық"
+
+msgid "submission.list.filesPrepared"
+msgstr "Файлдар дайын"
+
+msgid "submission.list.galleysCreated"
+msgstr "Өндірістік галлеялар құрылды"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Әдеби өңдеуден өткен файлдар жіберілді"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Жаңа нұсқалар жіберілді"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Рецензияға тағайындау аяқталды"

@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-03 13:57+0000\n"
+"PO-Revision-Date: 2022-04-05 16:17+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "kk_KZ/>\n"
@@ -722,3 +722,7 @@ msgstr "Жарияланым үлгілері: Кітапхана"
 
 msgid "grid.action.collapseAll"
 msgstr "барлығын жабу"
+
+#, fuzzy
+msgid "grid.action.collapse"
+msgstr "Collapse"

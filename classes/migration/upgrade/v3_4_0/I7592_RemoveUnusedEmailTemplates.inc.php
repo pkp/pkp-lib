@@ -30,6 +30,8 @@ class I7592_RemoveUnusedEmailTemplates extends \PKP\migration\Migration
             'REVIEW_REMIND_ONECLICK',
             'REVIEW_REQUEST_ATTACHED',
             'REVIEW_REQUEST_ATTACHED_SUBSEQUENT',
+            'REVIEW_REQUEST_ONECLICK',
+            'REVIEW_REQUEST_ONECLICK_SUBSEQUENT'
         ];
 
         $this->templatesDefault = DB::table('email_templates_default')

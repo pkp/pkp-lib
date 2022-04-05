@@ -227,6 +227,7 @@ class ReviewerForm extends Form
         $data = $mailable->getData(Locale::getLocale());
         unset($data[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
         unset($data[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
+        unset($data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL]);
 
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $data));
         $this->setData('responseDueDate', $responseDueDate);
@@ -475,21 +476,9 @@ class ReviewerForm extends Form
     /**
      * Get the email template key depending on if reviewer one click access is
      * enabled or not as well as on review round.
-     *
-     * @param Context $context The user's current context.
-     *
-     * @return int Email template key
      */
-    public function _getMailTemplateKey($context)
+    protected function _getMailTemplateKey(): string
     {
-        $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
-        $round = $this->getReviewRound()->getRound();
-
-        switch (1) {
-            case $reviewerAccessKeysEnabled && $round == 1: return 'REVIEW_REQUEST_ONECLICK';
-            case $reviewerAccessKeysEnabled: return 'REVIEW_REQUEST_ONECLICK_SUBSEQUENT';
-            case $round == 1: return 'REVIEW_REQUEST';
-            default: return 'REVIEW_REQUEST_SUBSEQUENT';
-        }
+        return $this->getReviewRound()->getRound() == 1 ? 'REVIEW_REQUEST' : 'REVIEW_REQUEST_SUBSEQUENT';
     }
 }

@@ -89,10 +89,10 @@ class Filter extends \PKP\core\DataObject
     /** @var TypeDescription */
     public $_outputType;
 
-    /** @var mixed */
+    /**  */
     public $_input;
 
-    /** @var mixed */
+    /**  */
     public $_output;
 
     /** @var array a list of errors occurred while filtering */
@@ -483,7 +483,9 @@ class Filter extends \PKP\core\DataObject
             throw new Exception(__('filter.input.error.notSupported', [
                 'displayName' => $this->getDisplayName(),
                 'inputTypeName' => $this->getInputType()->_typeName,
-                'typeofInput' => gettype($input)
+                'typeofInput' => gettype($input) === 'object'
+                    ? get_class($input)
+                    : gettype($input)
             ]));
         }
 

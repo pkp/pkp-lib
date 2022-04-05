@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 10:07+0000\n"
+"PO-Revision-Date: 2022-04-05 16:17+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -2925,3 +2925,43 @@ msgstr ""
 "Бұл электрондық хат қолданушы ретінде тағайындалмаған материал авторларына "
 "шешім қабылданғаны туралы хабарлау үшін жіберіледі. Әдетте бұл жіберуші "
 "автордан басқалары."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Бұл хабар Аға редакторға немесе Бөлім редакторына олардың тағайындалған "
+"материалдың біріне редакциялық ұсыныс жасалғаны туралы хабарлайды. Бұл хабар "
+"редакторға тек редакциялық шешімді ұсынуға рұқсат етілген және уәкілетті "
+"редактордан редакциялық шешімдер қабылдауды талап еткенде пайдаланылады. Бұл "
+"опцияны мүшелерге жұмыстарын тағайындау кезінде таңдауға болады."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Ұсыныс жасалды"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға материалының тікелей өңдеу кезеңіне "
+"жіберілетінін және қаралмайтынын хабарлайды."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Қарап шығу өткізіп жіберілді"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға олардың қолданбасы шығару сатысына жіберіліп "
+"жатқаны туралы хабарлайды."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Шығаруға жіберілді"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат авторға олардың материалы қарау кезеңіне жіберіліп "
+"жатқаны туралы хабарлайды."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Қарауға жіберілді"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Бұл электрондық хат автордың материалды қараусыз жіберуден бас тарту туралы "
+"алдыңғы шешімнің күші жойылғанын хабарлайды."

@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 08:31+0000\n"
+"PO-Revision-Date: 2022-04-05 10:07+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/kk_KZ/>\n"
@@ -2365,3 +2365,98 @@ msgstr "Жаңа нұсқалар жіберілді"
 
 msgid "submission.list.reviewsCompleted"
 msgstr "Рецензияға тағайындау аяқталды"
+
+msgid "publication.wordCount"
+msgstr "Сөздер саны: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Аннотация тым ұзын. Ол {$limit} сөзден аспауы керек. Қазіргі уақытта ол "
+"{$count} сөзден тұрады."
+
+msgid "publication.version.confirm"
+msgstr "Жаңа нұсқаны шынымен жасағыңыз келе ме?"
+
+msgid "publication.version.all"
+msgstr "Барлық нұсқалар"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL жолы сан болуы мүмкін емес."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL жолы бұрыннан қолданыста және оны қайта пайдалану мүмкін емес."
+
+msgid "publication.urlPath.description"
+msgstr "ID орнына URL мекенжайында қолданылатын қосымша жол."
+
+msgid "publication.urlPath"
+msgstr "URL жолы"
+
+msgid "publication.unschedule"
+msgstr "Жоспардан алып тастау"
+
+msgid "publication.titleAbstract"
+msgstr "Тақырып және аннотация"
+
+msgid "publication.status.unpublished"
+msgstr "Жарияланудан алынды"
+
+msgid "publication.status.scheduled"
+msgstr "Жоспарланған"
+
+msgid "publication.publicationLicense"
+msgstr "Рұқсаттар мен келісімдер"
+
+msgid "publication.event.versionCreated"
+msgstr "Жаңа нұсқасы жасалды."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Күн ЖЖЖЖ-АА-КК форматында болуы керек, мысалы, 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Жаңа нұсқа жасаңыз"
+
+msgid "publication.contributors"
+msgstr "Авторлар"
+
+msgid "catalog.category.subcategories"
+msgstr "Ішкі категориялар"
+
+msgid "catalog.category.noItems"
+msgstr "Бұл категорияда әлі ештеңе жарияланған жоқ."
+
+msgid "submission.currentCoverImage"
+msgstr "Ағымдағы сурет"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категориялар"
+
+msgid "category.coverImage"
+msgstr "Мұқаба суреті"
+
+msgid "category.category"
+msgstr "Категориялар"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Жарияланған күні (ең жаңасы бірінші)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Жарияланған күні (ең ескісі бірінші)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Атауы (А-Я)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Атауы (А-Я)"
+
+msgid "grid.category.categories"
+msgstr "Категориялар"
+
+msgid "submission.list.assignEditor"
+msgstr "Редакторды тағайындаңыз"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Соңғы әрекеттен кейінгі күндер"
+
+msgid "submission.list.activity"
+msgstr "Белсенділік"

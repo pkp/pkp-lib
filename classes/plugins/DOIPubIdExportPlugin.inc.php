@@ -110,7 +110,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      * are active at the same time.
      *
      * @param Context $context
-     * @param Submission|PreprintGalley $object
+     * @param Submission|Galley $object
      * @param string $testPrefix
      */
     public function saveRegisteredDoi($context, $object, $testPrefix = '10.1234')
@@ -164,9 +164,8 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     public function getPreprintGalleys($galleyIds)
     {
         $galleys = [];
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
         foreach ($galleyIds as $galleyId) {
-            $preprintGalley = $preprintGalleyDao->getById($galleyId);
+            $preprintGalley = Repo::galley()->get((int) $galleyId);
             if ($preprintGalley && $preprintGalley->getStoredPubId('doi')) {
                 $galleys[] = $preprintGalley;
             }

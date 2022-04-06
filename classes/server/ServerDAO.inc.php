@@ -19,7 +19,6 @@ namespace APP\server;
 
 use APP\facades\Repo;
 use PKP\context\ContextDAO;
-use PKP\db\DAORegistry;
 use PKP\metadata\MetadataTypeDescription;
 
 class ServerDAO extends ContextDAO
@@ -80,14 +79,9 @@ class ServerDAO extends ContextDAO
      */
     public function deleteAllPubIds($serverId, $pubIdType)
     {
-        $pubObjectDaos = ['PreprintGalleyDAO'];
-        foreach ($pubObjectDaos as $daoName) {
-            $dao = DAORegistry::getDAO($daoName);
-            $dao->deleteAllPubIds($serverId, $pubIdType);
-        }
-
+        Repo::galley()->dao->deleteAllPubIds($serverId, $pubIdType);
         Repo::submissionFile()->dao->deleteAllPubIds($serverId, $pubIdType);
-        Repo::publication()->dao->deleteAllPubIds($journalId, $pubIdType);
+        Repo::publication()->dao->deleteAllPubIds($serverId, $pubIdType);
     }
 
     /**

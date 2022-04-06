@@ -107,7 +107,7 @@ class PreprintHandler extends Handler
         if ($subPath === 'version') {
             $publicationId = (int) array_shift($args);
             $galleyId = empty($args) ? 0 : array_shift($args);
-            foreach ((array) $this->preprint->getData('publications') as $publication) {
+            foreach ($this->preprint->getData('publications') as $publication) {
                 if ($publication->getId() === $publicationId) {
                     $this->publication = $publication;
                 }
@@ -125,7 +125,7 @@ class PreprintHandler extends Handler
         }
 
         if ($galleyId && in_array($request->getRequestedOp(), ['view', 'download'])) {
-            $galleys = (array) $this->publication->getData('galleys');
+            $galleys = $this->publication->getData('galleys');
             foreach ($galleys as $galley) {
                 if ($galley->getBestGalleyId() == $galleyId) {
                     $this->galley = $galley;
@@ -138,7 +138,7 @@ class PreprintHandler extends Handler
             if (!$this->galley) {
                 $publications = $submission->getPublishedPublications();
                 foreach ($publications as $publication) {
-                    foreach ((array) $publication->getData('galleys') as $galley) {
+                    foreach ($publication->getData('galleys') as $galley) {
                         if ($galley->getBestGalleyId() == $galleyId) {
                             $request->redirect(null, $request->getRequestedPage(), $request->getRequestedOp(), [$submission->getBestId()]);
                         }

@@ -23,6 +23,8 @@ require_mock_env('env2');
 
 import('lib.pkp.tests.PKPTestCase');
 
+use APP\facades\Repo;
+use PKP\galley\DAO as GalleyDAO;
 use PKP\oai\OAIRecord;
 
 import('plugins.oaiMetadataFormats.dc.OAIMetadataFormat_DC');
@@ -35,7 +37,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
      */
     protected function getMockedDAOs()
     {
-        return ['OAIDAO', 'PreprintGalleyDAO'];
+        return ['OAIDAO', 'GalleyDAO'];
     }
 
     /**
@@ -96,8 +98,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $preprint->setLanguage('en_US');
 
         // Galleys
-        import('classes.preprint.PreprintGalley');
-        $galley = new PreprintGalley();
+        $galley = Repo::galley()->newDataObject();
         $galley->setId(98);
         $galley->setStoredPubId('doi', 'galley-doi');
         $galleys = [$galley];
@@ -118,20 +119,6 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         import('classes.server.Section');
         $section = new Section();
         $section->setIdentifyType('section-identify-type', 'en_US');
-
-        // Issue
-        import('classes.issue.Issue');
-        $issue = $this->getMockBuilder(Issue::class)
-            ->setMethods(['getIssueIdentification'])
-            ->getMock();
-        $issue->expects($this->any())
-            ->method('getIssueIdentification')
-            ->will($this->returnValue('issue-identification'));
-        $issue->setId(96);
-        $issue->setDatePublished('2010-11-05');
-        $issue->setStoredPubId('doi', 'issue-doi');
-        $issue->setServerId($serverId);
-
 
         //
         // Create infrastructural support objects
@@ -189,16 +176,13 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->will($this->returnValue($issue));
         DAORegistry::registerDAO('OAIDAO', $oaiDao);
 
-        // Create a mocked PreprintGalleyDAO that returns our test data.
-        import('classes.preprint.PreprintGalleyDAO');
-        $preprintGalleyDao = $this->getMockBuilder(PreprintGalleyDAO::class)
+        // Create a mocked GalleyDAO that returns our test data.
+        $galleyDao = $this->getMockBuilder(GalleyDAO::class)
             ->setMethods(['getBySubmissionId'])
             ->getMock();
-        $preprintGalleyDao->expects($this->any())
+        $galleyDao->expects($this->any())
             ->method('getBySubmissionId')
             ->will($this->returnValue($galleys));
-        DAORegistry::registerDAO('PreprintGalleyDAO', $preprintGalleyDao);
-        // FIXME: PreprintGalleyDAO::getBySubmissionId returns iterator; array expected here. Fix expectations.
 
         //
         // Test

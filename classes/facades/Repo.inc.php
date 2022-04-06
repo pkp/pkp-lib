@@ -19,6 +19,7 @@ use APP\doi\Repository as DoiRepository;
 use APP\publication\Repository as PublicationRepository;
 use APP\submission\Repository as SubmissionRepository;
 use APP\submissionFile\Repository as SubmissionFileRepository;
+use PKP\galley\Repository as GalleyRepository;
 use PKP\user\Repository as UserRepository;
 
 class Repo extends \PKP\facades\Repo
@@ -31,6 +32,11 @@ class Repo extends \PKP\facades\Repo
     public static function doi(): DoiRepository
     {
         return app(DoiRepository::class);
+    }
+
+    public static function galley(): GalleyRepository
+    {
+        return app(GalleyRepository::class);
     }
 
     public static function publication(): PublicationRepository

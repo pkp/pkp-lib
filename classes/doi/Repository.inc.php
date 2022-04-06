@@ -4,15 +4,14 @@ namespace APP\doi;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\plugins\PubIdPlugin;
-use APP\preprint\PreprintGalley;
 use APP\publication\Publication;
 use APP\server\ServerDAO;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\DataObject;
+use PKP\galley\Galley;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Representation;
 
@@ -36,7 +35,7 @@ class Repository extends \PKP\doi\Repository
     /**
      * Create a DOI for the given galley
      */
-    public function mintGalleyDoi(PreprintGalley $galley, Publication $publication, Submission $submission, Context $context): ?int
+    public function mintGalleyDoi(Galley $galley, Publication $publication, Submission $submission, Context $context): ?int
     {
         $doiSuffix = $this->generateSuffixPattern($galley, $context, $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE), $submission, $galley);
 
@@ -108,8 +107,12 @@ class Repository extends \PKP\doi\Repository
             }
 
             // Galleys
-            /** @var PreprintGalley[] $galleys */
-            $galleys = Services::get('galley')->getMany(['publicationIds' => $publication->getId()]);
+            $galleys = Repo::galley()->getMany(
+                Repo::galley()
+                    ->getCollector()
+                    ->filterByPublicationIds(['publicationIds' => $publication->getId()])
+            );
+
             foreach ($galleys as $galley) {
                 $galleyDoiId = $galley->getData('doiId');
                 if (!empty($galleyDoiId) && $context->isDoiTypeEnabled(self::TYPE_REPRESENTATION)) {

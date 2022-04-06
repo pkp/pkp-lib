@@ -33,9 +33,8 @@ define('PREPRINT_ACCESS_OPEN', 1);
 
 use APP\core\Application;
 use APP\core\Services;
-
+use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\plugins\HookRegistry;
 use PKP\submission\PKPSubmission;
 
 class Submission extends PKPSubmission
@@ -253,40 +252,44 @@ class Submission extends PKPSubmission
     /**
      * Get the galleys for an preprint.
      *
-     * @return array PreprintGalley
+     * @return array Galley
      *
      * @deprecated 3.2.0.0
      */
     public function getGalleys()
     {
-        $galleys = $this->getData('galleys');
-        if (is_null($galleys)) {
-            $this->setData('galleys', Application::get()->getRepresentationDAO()->getByPublicationId($this->getCurrentPublication()->getId(), $this->getData('contextId'))->toArray());
+        if (!is_null($this->getData('galleys'))) {
             return $this->getData('galleys');
         }
-        return $galleys;
+
+        $this->setData(
+            'galleys',
+            Repo::galley()->getMany(
+                Repo::galley()
+                    ->getCollector()
+                    ->filterByPublicationIds([$this->getCurrentPublication()->getId()])
+            )->toArray()
+        );
+
+        return $this->getData('galleys');
     }
 
     /**
      * Get the localized galleys for an preprint.
      *
-     * @return array PreprintGalley
+     * @return array Galley
      *
      * @deprecated 3.2.0.0
      */
     public function getLocalizedGalleys()
     {
-        $allGalleys = $this->getData('galleys');
+        $allGalleys = $this->getGalleys();
         $galleys = [];
         foreach ([Locale::getLocale(), Locale::getPrimaryLocale()] as $tryLocale) {
             foreach (array_keys($allGalleys) as $key) {
                 if ($allGalleys[$key]->getLocale() == $tryLocale) {
                     $galleys[] = $allGalleys[$key];
                 }
-            }
-            if (!empty($galleys)) {
-                HookRegistry::call('PreprintGalleyDAO::getLocalizedGalleysByPreprint', [&$galleys]);
-                return $galleys;
             }
         }
 
@@ -305,7 +308,7 @@ class Submission extends PKPSubmission
         $views = 0;
 
         foreach ($publications as $publication) {
-            foreach ((array) $publication->getData('galleys') as $galley) {
+            foreach ($publication->getData('galleys') as $galley) {
                 $file = $galley->getFile();
                 if (!$galley->getRemoteUrl() && $file) {
                     $views = $views + $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $file->getId());

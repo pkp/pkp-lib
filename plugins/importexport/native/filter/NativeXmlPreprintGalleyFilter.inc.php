@@ -14,6 +14,7 @@
  */
 
 use APP\facades\Repo;
+use PKP\galley\Galley;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeXmlRepresentationFilter');
 
@@ -59,7 +60,7 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
      *
      * @param DOMElement $node
      *
-     * @return array Array of ArticleGalley objects
+     * @return array Array of Galley objects
      */
     public function handleElement($node)
     {
@@ -78,13 +79,14 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
                 $addSubmissionFile = true;
             }
         }
+        /** @var Galley $representation */
         $representation = parent::handleElement($node);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if (is_a($n, 'DOMElement')) {
                 switch ($n->tagName) {
             case 'name':
-                // Labels are not localized in ArticleGalleys, but we use the <name locale="....">...</name> structure.
+                // Labels are not localized in Galleys, but we use the <name locale="....">...</name> structure.
                 $locale = $n->getAttribute('locale');
                 if (empty($locale)) {
                     $locale = $submission->getLocale();
@@ -96,11 +98,10 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
             }
         }
 
-        $representationDao = Application::getRepresentationDAO();
         if ($addSubmissionFile) {
             $representation->setFileId($newSubmissionFileId);
         }
-        $representationDao->insertObject($representation);
+        Repo::galley()->dao->insert($representation);
 
         if ($addSubmissionFile) {
             // Update the submission file.

@@ -129,12 +129,14 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $driverVersion = 'info:eu-repo/semantics/draft';
         $dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
-        // Format
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
-        $galleys = $preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId());
+        $galleys = Repo::galley()->getMany(
+            Repo::galley()
+                ->getCollector()
+                ->filterByPublicationIds([$submission->getCurrentPublication()->getId()])
+        );
 
-        $formats = [];
-        while ($galley = $galleys->next()) {
+        // Format
+        foreach ($galleys as $galley) {
             $dc11Description->addStatement('dc:format', $galley->getFileType());
         }
 
@@ -142,11 +144,6 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $request = Application::get()->getRequest();
         $includeUrls = $server->getSetting('publishingMode') != \APP\server\Server::PUBLISHING_MODE_NONE;
         $dc11Description->addStatement('dc:identifier', $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId()]));
-
-        // Get galleys and supp files.
-        $galleys = [];
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
-        $galleys = $preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
         // Language
         $locales = [];

@@ -194,7 +194,6 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO, RepresentationDAOInter
             ->where('setting_name', 'pub-id::' . $pubIdType)
             ->where('galley_id', (int) $pubObjectId)
             ->update(['setting_value' => (string) $pubId]);
-        return $this;
     }
 
     /**

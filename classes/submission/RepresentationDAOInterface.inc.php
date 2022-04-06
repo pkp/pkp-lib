@@ -13,7 +13,9 @@
 
 namespace PKP\submission;
 
-interface RepresentationDAOInterface
+use PKP\plugins\PKPPubIdPluginDAO;
+
+interface RepresentationDAOInterface extends PKPPubIdPluginDAO
 {
     /**
      * Instantiate a new Representation object

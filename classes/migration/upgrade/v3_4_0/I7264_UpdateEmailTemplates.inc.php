@@ -23,6 +23,8 @@ class I7264_UpdateEmailTemplates extends \PKP\migration\upgrade\v3_4_0\I7264_Upd
                 $newVariable = 'serverName';
             } elseif ($newVariable === 'contextUrl') {
                 $newVariable = 'serverUrl';
+            } elseif ($newVariable === 'contextSignature') {
+                $newVariable = 'serverSignature';
             }
         });
 

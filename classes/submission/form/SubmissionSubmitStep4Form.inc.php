@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\mail\PreprintMailTemplate;
+use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
@@ -93,7 +94,7 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
             $mail->assignParams([
                 'recipientName' => $user->getFullName(),
                 'recipientUsername' => $user->getUsername(),
-                'signature' => $context->getData('contactName'),
+                ContextEmailVariable::CONTEXT_SIGNATURE => $context->getData('contactName'),
                 'canAuthorPublish' => $canAuthorPublish,
                 'authorSubmissionUrl' => $router->url($request, null, 'authorDashboard', 'submission', $submission->getId()),
             ]);
@@ -105,7 +106,7 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
 
             $authorMail->assignParams([
                 'submitterName' => $user->getFullName(),
-                'signature' => $context->getData('contactName'),
+                ContextEmailVariable::CONTEXT_SIGNATURE => $context->getData('contactName'),
             ]);
 
             foreach ($this->emailRecipients as $authorEmailRecipient) {

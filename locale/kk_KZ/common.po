@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 16:17+0000\n"
+"PO-Revision-Date: 2022-04-06 05:27+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -574,7 +574,7 @@ msgid "common.options"
 msgstr "Опциялар"
 
 msgid "common.on"
-msgstr "қосулы"
+msgstr "Қосулы"
 
 msgid "common.numberedMore"
 msgstr "{$number} көп"
@@ -658,9 +658,8 @@ msgstr "Көру"
 msgid "icon.unchecked.alt"
 msgstr "Тексерілмеген"
 
-#, fuzzy
 msgid "icon.mail.alt"
-msgstr "Mail"
+msgstr "Пошта"
 
 msgid "icon.letter.alt"
 msgstr "Хат"
@@ -696,7 +695,7 @@ msgid "help.upALevel"
 msgstr "Деңгейге көтерілу"
 
 msgid "help.next"
-msgstr "келесі"
+msgstr "Келесі"
 
 msgid "help.previous"
 msgstr "Алдыңғы"
@@ -722,7 +721,7 @@ msgid "form.submit"
 msgstr "Жіберу"
 
 msgid "form.send"
-msgstr "жіберу"
+msgstr "Жіберу"
 
 msgid "form.saveToUpload"
 msgstr "Файлды жүктеп салу үшін Сақтау батырмасын пайдаланыңыз."
@@ -760,7 +759,7 @@ msgid "form.is"
 msgstr "тең келеді"
 
 msgid "form.contains"
-msgstr "қамтиды"
+msgstr "Қамтиды"
 
 msgid "form.formLanguage"
 msgstr "Тіл формасы"
@@ -865,7 +864,7 @@ msgid "email.skip"
 msgstr "Электрондық хабарламаны жіберуді өткізу"
 
 msgid "email.send"
-msgstr "жіберу"
+msgstr "Жіберу"
 
 msgid "email.senderEmail"
 msgstr "Жіберушінің е майлы"
@@ -889,9 +888,8 @@ msgid "email.invalid"
 msgstr "Электрондық пошта мекенжайы {$email} жарамсыз."
 
 msgid "email.from"
-msgstr "кімнен"
+msgstr "Кімнен"
 
-#, fuzzy
 msgid "email.email"
 msgstr "Email"
 
@@ -917,7 +915,6 @@ msgstr ""
 "сенімдісіз бе? Электрондық поштаның тақырыбы мен негізгі бөлігіне енгізген "
 "кез келген өзгертулер жойылады."
 
-#, fuzzy
 msgid "email.cc"
 msgstr "CC"
 
@@ -927,7 +924,6 @@ msgstr "Хат мәтіні"
 msgid "email.bccSender"
 msgstr "Осы хабарламаның көшірмесін менің мекен-жайыма ({$address}) жіберіңіз"
 
-#, fuzzy
 msgid "email.bcc"
 msgstr "BCC"
 
@@ -1018,16 +1014,16 @@ msgid "common.metric"
 msgstr "Көрсеткіш"
 
 msgid "common.plugins"
-msgstr "плагиндер"
+msgstr "Плагиндер"
 
 msgid "common.loading"
 msgstr "Жүктелуде"
 
 msgid "common.yes"
-msgstr "йа"
+msgstr "Иа"
 
 msgid "common.year"
-msgstr "жыл"
+msgstr "Жыл"
 
 msgid "common.width"
 msgstr "Ені"
@@ -1039,7 +1035,7 @@ msgid "common.viewProfile"
 msgstr "Профильді көру"
 
 msgid "common.viewWithName"
-msgstr "{$name}қарау"
+msgstr "{$name} қарау"
 
 msgid "common.viewError"
 msgstr "Қатені қарау"
@@ -1053,7 +1049,6 @@ msgstr "[Жоқ қолданушы]"
 msgid "common.user"
 msgstr "Қолданушы"
 
-#, fuzzy
 msgid "common.url"
 msgstr "URL"
 
@@ -1061,7 +1056,7 @@ msgid "common.upload.dragFile"
 msgstr "Жүктеп салуды бастау үшін файлды осы жерге апару"
 
 msgid "common.upload.changeFile"
-msgstr "файлды өзгерту"
+msgstr "Файлды өзгерту"
 
 msgid "common.upload.thumbnailPreview"
 msgstr "Ағымдағы таңдалған суретті алдын ала қарауы."
@@ -1076,7 +1071,7 @@ msgid "common.upload.addFile"
 msgstr "Файлды жүктеп салу"
 
 msgid "common.addFile"
-msgstr "файлды енгізу"
+msgstr "Файлды енгізу"
 
 msgid "common.up"
 msgstr "Жоғары"
@@ -1094,7 +1089,7 @@ msgid "common.updated"
 msgstr "Жаңартылған"
 
 msgid "common.untitled"
-msgstr "атауы жоқ"
+msgstr "Атауы жоқ"
 
 msgid "common.unread"
 msgstr "Оқылмаған"
@@ -1109,10 +1104,10 @@ msgid "common.component"
 msgstr "Компонент"
 
 msgid "common.type"
-msgstr "түрі"
+msgstr "Түрі"
 
 msgid "common.true"
-msgstr "дұрыс"
+msgstr "Дұрыс"
 
 msgid "common.toWithValue"
 msgstr "Кімге: {$value}"
@@ -1120,7 +1115,6 @@ msgstr "Кімге: {$value}"
 msgid "common.top"
 msgstr "Жоғарғы"
 
-#, fuzzy
 msgid "common.titleSeparator"
 msgstr " | "
 
@@ -1137,7 +1131,7 @@ msgid "common.suggest"
 msgstr "Ұсыну"
 
 msgid "common.subtitle"
-msgstr "тақырыпша"
+msgstr "Тақырыпша"
 
 msgid "common.submenu"
 msgstr "Ішкі мәзір"
@@ -1149,13 +1143,13 @@ msgid "common.subject"
 msgstr "Тақырыбы"
 
 msgid "common.status"
-msgstr "мәртебе"
+msgstr "Мәртебе"
 
 msgid "common.source"
 msgstr "Дереккөз"
 
 msgid "common.size"
-msgstr "көлемі"
+msgstr "Көлемі"
 
 msgid "common.showAllSteps"
 msgstr "Барлық қадамдарды көрсетіңіз"
@@ -1173,10 +1167,10 @@ msgid "common.selectNone"
 msgstr "Таңдауды алып тастау"
 
 msgid "common.selectedPrefix"
-msgstr "таңдалған:"
+msgstr "Таңдалған:"
 
 msgid "common.selectAll"
-msgstr "барлығын таңдау"
+msgstr "Барлығын таңдау"
 
 msgid "common.second"
 msgstr "Секунд(тар)"
@@ -1191,43 +1185,43 @@ msgid "common.searching"
 msgstr "Ізделуде"
 
 msgid "common.search"
-msgstr "іздеу"
+msgstr "Іздеу"
 
 msgid "common.saving"
-msgstr "сақталуда"
+msgstr "Сақталуда"
 
 msgid "common.save"
-msgstr "сақтау"
+msgstr "Сақтау"
 
 msgid "common.saveAndEmail"
-msgstr "сақтау және email"
+msgstr "Сақтау және email"
 
 msgid "common.saveAndContinue"
-msgstr "сақтау және жалғастыру"
+msgstr "Сақтау және жалғастыру"
 
 msgid "common.reset"
 msgstr "Бастапқы күйге келтіру"
 
 msgid "common.required"
-msgstr "міндетті"
+msgstr "Міндетті"
 
 msgid "common.requiredField"
 msgstr "* Қажет өрісті білдіреді"
 
 msgid "common.replaceFile"
-msgstr "файлды алмастыру"
+msgstr "Файлды алмастыру"
 
 msgid "common.replaced"
-msgstr "алмастырылды"
+msgstr "Алмастырылды"
 
 msgid "common.removeSelection"
-msgstr "таңдауды өшіру"
+msgstr "Таңдауды өшіру"
 
 msgid "common.removeItem"
 msgstr "{$item} өшіру"
 
 msgid "common.remove"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "common.remoteURL"
 msgstr "Қашықтағы URL сервері"
@@ -1256,7 +1250,6 @@ msgstr "Толығырақ оқу {$title}"
 msgid "common.readMore"
 msgstr "Толығырақ оқу"
 
-#, fuzzy
 msgid "common.range"
 msgstr "{$min}-{$max}"
 
@@ -1291,13 +1284,13 @@ msgid "common.percentage"
 msgstr "%{$percentage}"
 
 msgid "common.pageNumber"
-msgstr "бет {$pageNumber}"
+msgstr "Бет {$pageNumber}"
 
 msgid "common.pagination.previous"
-msgstr "алдыңғы бет"
+msgstr "Алдыңғы бет"
 
 msgid "common.pagination.next"
-msgstr "келесі бет"
+msgstr "Келесі бет"
 
 msgid "common.pagination.goToPage"
 msgstr "{$page} бетіне өту"
@@ -1315,10 +1308,10 @@ msgid "common.overdue"
 msgstr "Мерзімі өткен"
 
 msgid "common.ok"
-msgstr "жарайды"
+msgstr "Жарайды"
 
 msgid "common.off"
-msgstr "өшірулі"
+msgstr "Өшірулі"
 
 msgid "common.orUploadFile"
 msgstr "Немесе файлды жүктеңіз"
@@ -1400,10 +1393,10 @@ msgid "navigation.viewFrontend"
 msgstr "Сайтты көру"
 
 msgid "navigation.userManagement"
-msgstr "қолданушыны басқару"
+msgstr "Қолданушыны басқару"
 
 msgid "navigation.user"
-msgstr "қолданушы"
+msgstr "Қолданушы"
 
 msgid "navigation.userHome"
 msgstr "Пайдаланушы беті"
@@ -1412,7 +1405,7 @@ msgid "navigation.system"
 msgstr "Система"
 
 msgid "navigation.submissions"
-msgstr "жіберілген материалдар"
+msgstr "Жіберілген материалдар"
 
 msgid "navigation.stepNumber"
 msgstr "{$step}-қадам"
@@ -1442,10 +1435,10 @@ msgid "navigation.settings"
 msgstr "Баптаулар"
 
 msgid "navigation.search"
-msgstr "іздеу"
+msgstr "Іздеу"
 
 msgid "navigation.register"
-msgstr "тіркеу"
+msgstr "Тіркеу"
 
 msgid "navigation.publicMenu"
 msgstr "Жалпы мәзір"
@@ -1453,14 +1446,12 @@ msgstr "Жалпы мәзір"
 msgid "navigation.previousStep"
 msgstr "Алдыңғы қадам"
 
-#, fuzzy
 msgid "navigation.previousPage"
 msgstr "&lt;&lt;"
 
 msgid "navigation.nextStep"
 msgstr "Келесі қадам"
 
-#, fuzzy
 msgid "navigation.nextPage"
 msgstr "&gt;&gt;"
 
@@ -1480,7 +1471,7 @@ msgid "navigation.infoForReaders"
 msgstr "Оқырмандар үшін"
 
 msgid "navigation.home"
-msgstr "негізгі"
+msgstr "Басты бет"
 
 msgid "navigation.data"
 msgstr "Мәліметтер"
@@ -1509,7 +1500,6 @@ msgstr "Импорттау/экспорттау"
 msgid "navigation.tools"
 msgstr "Құралдар"
 
-#, fuzzy
 msgid "navigation.breadcrumbSeparator"
 msgstr "/"
 
@@ -1608,7 +1598,7 @@ msgid "reviewer.submission.reviewRequestDate"
 msgstr "Редактордың өтініші"
 
 msgid "reviewer.submission.reviewSchedule"
-msgstr "рецензиялау кестесі"
+msgstr "Рецензиялау кестесі"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1696,10 +1686,10 @@ msgid "search.searchResults.foundSingle"
 msgstr "Бір ғана нәтиже табылды."
 
 msgid "search.searchResults"
-msgstr "іздеу нәтижелері"
+msgstr "Іздеу нәтижелері"
 
 msgid "search.SearchFor"
-msgstr "іздеу үшін"
+msgstr "Іздеу үшін"
 
 msgid "search.operator.or"
 msgstr "немесе"
@@ -1726,10 +1716,10 @@ msgid "search.fullText"
 msgstr "Толық мәтін"
 
 msgid "search.discipline"
-msgstr "пәндер"
+msgstr "Пәндер"
 
 msgid "search.deleteFilter"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "search.dateTo"
 msgstr "Бұрын жарияланған"
@@ -1747,10 +1737,10 @@ msgid "search.cli.rebuildIndex.result"
 msgstr "{$numIndexed} мақала индекстелді"
 
 msgid "search.cli.rebuildIndex.error"
-msgstr "қате"
+msgstr "Қате"
 
 msgid "search.cli.rebuildIndex.done"
-msgstr "жасалды"
+msgstr "Жасалды"
 
 msgid "search.cli.rebuildIndex.clearingIndex"
 msgstr "Көрсеткішті тазалау"
@@ -1776,11 +1766,9 @@ msgstr "Автор бойынша"
 msgid "notification.sendNotificationConfirmation"
 msgstr "Бұл туралы барлық тіркелген пайдаланушыларға электрондық хат жіберіңіз."
 
-#, fuzzy
 msgid "common.re"
 msgstr "Re:"
 
-#, fuzzy
 msgid "common.notApplicableShort"
 msgstr "N/A"
 
@@ -2072,7 +2060,6 @@ msgstr "Навигация мәзірінің элементі сәтті жой
 msgid "notification.editedNavigationMenuItem"
 msgstr "Шарлау мәзірінің элементі сәтті жаңартылды"
 
-#, fuzzy
 msgid "semicolon"
 msgstr "{$label}:"
 
@@ -2178,10 +2165,10 @@ msgid "notification.type.reviewAssignment"
 msgstr "Рецензиялау кезеңін күтуде."
 
 msgid "notification.type.newAnnouncement"
-msgstr "жаңа хабарлама."
+msgstr "Жаңа хабарлама."
 
 msgid "notification.editStageParticipant"
-msgstr "кезеңнің мақсаты өзгертілді."
+msgstr "Кезеңнің мақсаты өзгертілді."
 
 msgid "notification.addedStageParticipant"
 msgstr "Пайдаланушы кезең мүшесі ретінде қосылды."
@@ -2206,7 +2193,7 @@ msgstr ""
 "хабарландыру жіберілді."
 
 msgid "navigation.goBack"
-msgstr "қайта  оралу"
+msgstr "Қайта  оралу"
 
 msgid "submission.task.responseDueDate"
 msgstr "Рецензияның растау күнін қарап шығу"

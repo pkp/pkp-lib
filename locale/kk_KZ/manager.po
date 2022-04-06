@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 16:17+0000\n"
+"PO-Revision-Date: 2022-04-06 04:55+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -28,37 +28,37 @@ msgstr ""
 "жұмыс істейтінін қаласаңыз, өрісті бос қалдырыңыз."
 
 msgid "manager.announcements.form.dateExpire"
-msgstr "жарамды уақыты"
+msgstr "Жарамды уақыты"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
 msgstr "Тек жарамдылық мерзімінің күнін емес, жылды және/немесе айды таңдаңыз."
 
 msgid "manager.announcements.editTitle"
-msgstr "өзгеріс енгізу"
+msgstr "Өзгеріс енгізу"
 
 msgid "manager.announcements.edit"
-msgstr "хабарландыруға өзгеріс енгізу"
+msgstr "Хабарландыруға өзгеріс енгізу"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr "хабарландыруды өшіру"
+msgstr "Хабарландыруды өшіру"
 
 msgid "manager.announcements.datePublish"
-msgstr "жарияланған"
+msgstr "Жарияланған"
 
 msgid "manager.announcements.dateExpire"
 msgstr "жарамды"
 
 msgid "manager.announcements.createTitle"
-msgstr "енгізу"
+msgstr "Енгізу"
 
 msgid "manager.announcements.create"
-msgstr "жаңа хабарландыруды енгізу"
+msgstr "Жаңа хабарландыруды енгізу"
 
 msgid "manager.announcements.confirmDelete"
 msgstr "\"{$title}\" хабарландыруды біржола жойғыңыз келетініне сенімдісіз бе?"
 
 msgid "manager.announcements"
-msgstr "хабарландырулар"
+msgstr "Хабарландырулар"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
@@ -66,7 +66,7 @@ msgstr ""
 "жеткізіңіз."
 
 msgid "manager.website.appearance"
-msgstr "сыртқы түрі"
+msgstr "Сыртқы түрі"
 
 msgid "manager.emails.details"
 msgstr "Үлгі мәліметтері"
@@ -75,7 +75,7 @@ msgid "manager.emails.data"
 msgstr "Электрондық пошта үлгісі деректері"
 
 msgid "manager.emails.customTemplate"
-msgstr "хат жазу"
+msgstr "Хат жазу"
 
 msgid "manager.emails.createEmail"
 msgstr "Хат жасау"
@@ -138,19 +138,19 @@ msgid "manager.dois.update.partialFailure"
 msgstr "Кейбір DOIды жаңалау мүмкін болмады."
 
 msgid "manager.dois.status.stale"
-msgstr "күшін жойды"
+msgstr "Күшін жойды"
 
 msgid "manager.dois.status.error"
-msgstr "қате"
+msgstr "Қате"
 
 msgid "manager.dois.status.registered"
-msgstr "тіркелген"
+msgstr "Тіркелген"
 
 msgid "manager.dois.status.submitted"
-msgstr "жіберілді"
+msgstr "Жіберілді"
 
 msgid "manager.dois.status.unregistered"
-msgstr "тіркелмеген"
+msgstr "Тіркелмеген"
 
 msgid "manager.dois.status.needsDoi"
 msgstr "DOI қажет"
@@ -171,7 +171,7 @@ msgid "manager.dois.registration.viewError.title"
 msgstr "Тіркеу қатесі туралы хабарлама"
 
 msgid "manager.dois.registration.viewError"
-msgstr "қателікті көрсету"
+msgstr "Қатені көрсету"
 
 msgid "manager.dois.registration.notPublishedDescription"
 msgstr "Бұл элемент жарияланбайынша сақтауға болмайды."
@@ -185,10 +185,10 @@ msgid "manager.dois.registration.submittedDescription"
 msgstr "Бұл элементке арналған метадеректер {$registrationAgency} жіберілді."
 
 msgid "manager.dois.publicationStatus"
-msgstr "жарияланым мәртебесі"
+msgstr "Жарияланым мәртебесі"
 
 msgid "manager.dois.depositStatus"
-msgstr "сақтау мәртебесі"
+msgstr "Сақтау мәртебесі"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
@@ -247,7 +247,7 @@ msgid "manager.announcementTypes.form.typeNameRequired"
 msgstr "Хабарлама түрінің атауы міндетті түрде қажет."
 
 msgid "manager.announcementTypes.form.typeName"
-msgstr "атауы"
+msgstr "Атауы"
 
 msgid "manager.announcementTypes.form.typeNameExists"
 msgstr "Бұл атаудағы хабарламаның түрі бұрыннан бар."
@@ -256,13 +256,13 @@ msgid "manager.announcementTypes.form.saveAndCreateAnother"
 msgstr "Сақтау және басқасын енгізу"
 
 msgid "manager.announcementTypes.editTitle"
-msgstr "өңдеу"
+msgstr "Өңдеу"
 
 msgid "manager.announcementTypes.edit"
 msgstr "Хабарлама түрін өңдеу"
 
 msgid "manager.announcementTypes.createTitle"
-msgstr "енгізу"
+msgstr "Енгізу"
 
 msgid "manager.announcementTypes.create"
 msgstr "Хабарлама түрін құру"
@@ -276,10 +276,10 @@ msgid "manager.announcementTypes"
 msgstr "Хабарлама түрлері"
 
 msgid "manager.announcements.type"
-msgstr "түрі"
+msgstr "Түрі"
 
 msgid "manager.announcements.title"
-msgstr "тақырып"
+msgstr "Тақырып"
 
 msgid "manager.announcements.noneCreated"
 msgstr "Хабарламалар жасалмаған."
@@ -288,7 +288,7 @@ msgid "manager.announcements.form.typeIdValid"
 msgstr "Хабарламаның дұрыс түрін таңдаңыз."
 
 msgid "manager.announcements.form.typeId"
-msgstr "түрі"
+msgstr "Түрі"
 
 msgid "manager.announcements.form.title"
 msgstr "тақырып"
@@ -300,7 +300,7 @@ msgid "manager.announcements.form.saveAndCreateAnother"
 msgstr "Сақтау және басқасын енгізу"
 
 msgid "manager.announcements.form.descriptionShort"
-msgstr "қысқаша сипаттама"
+msgstr "Қысқаша сипаттама"
 
 msgid "manager.announcements.form.descriptionShortRequired"
 msgstr "Жарнаманың қысқаша сипаттамасы қажет."
@@ -312,10 +312,10 @@ msgid "manager.announcements.form.descriptionRequired"
 msgstr "Жарнаманың сипаттамасы қажет."
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "хабарламаның толық мәтіні."
+msgstr "Хабарламаның толық мәтіні."
 
 msgid "manager.announcements.form.description"
-msgstr "хабарлама"
+msgstr "Хабарлама"
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Тек жарамдылық мерзімінің жылын емес, айды және/немесе күнді таңдаңыз."
@@ -346,7 +346,6 @@ msgstr ""
 "Негізгі бет тақырыбының кескін форматы жарамсыз немесе жүктелмеді. Рұқсат "
 "етілген форматтар: .gif, .jpg немесе .png."
 
-#, fuzzy
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
@@ -391,7 +390,7 @@ msgid "manager.setup.copyrightNotice"
 msgstr "Авторлық құқықты беру шарттары"
 
 msgid "manager.setup.advanced"
-msgstr "кеңейтілген"
+msgstr "Кеңейтілген"
 
 msgid "manager.setup.additionalContent.description"
 msgstr "Мұнда енгізілген кез келген нәрсе негізгі бетте пайда болады."
@@ -408,7 +407,7 @@ msgid "manager.setup.publishing"
 msgstr "Журнал жарияланымы туралы ақпарат"
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr "ештеңе"
+msgstr "Ештеңе"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
@@ -454,10 +453,10 @@ msgid "manager.setup.doiPrefix"
 msgstr "DOI префиксі"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "ешқашан"
+msgstr "Ешқашан"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "жариялау кезінде"
+msgstr "Жариялау кезінде"
 
 msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "Жариялау процесінің қай кезеңінде DOI құрылуы керек?"
@@ -528,7 +527,7 @@ msgstr ""
 "генераторының URL мекенжайы ретінде сақтауға болады."
 
 msgid "manager.statistics.reports.reportUrl"
-msgstr "URL-есептің адресі"
+msgstr "Есептің  URL адресі"
 
 msgid "manager.statistics.reports.form.columnsRequired"
 msgstr "Есепті құрастыру үшін кемінде бір бағанды таңдау керек."
@@ -545,22 +544,22 @@ msgid "manager.statistics.reports.month.label"
 msgstr "ЖЖЖЖММ форматын пайдаланыңыз."
 
 msgid "manager.statistics.reports.orderDir.desc"
-msgstr "кемуіне қарай"
+msgstr "Кемуіне қарай"
 
 msgid "manager.statistics.reports.orderDir.asc"
 msgstr "Өсуіне қарай"
 
 msgid "manager.statistics.reports.orderDir"
-msgstr "бағыт"
+msgstr "Бағыт"
 
 msgid "manager.statistics.reports.orderBy"
 msgstr "бойынша сорттау"
 
 msgid "manager.statistics.reports.currentMonth"
-msgstr "ағымдағы ай"
+msgstr "Ағымдағы ай"
 
 msgid "manager.statistics.reports.yesterday"
-msgstr "кеше"
+msgstr "Кеше"
 
 msgid "manager.statistics.reports.objectId.label"
 msgstr ""
@@ -568,7 +567,7 @@ msgstr ""
 "мысалы, 1,2,3,4,5)."
 
 msgid "manager.statistics.reports.objectId"
-msgstr "объектінің IDі"
+msgstr "Объектінің IDі"
 
 msgid "manager.statistics.reports.objectType"
 msgstr "Объект түрі"
@@ -589,7 +588,7 @@ msgstr ""
 "орнына «Күнді» таңдасаңыз, әрбір нысанда әр күн үшін бөлек жол болады."
 
 msgid "manager.statistics.reports.columns"
-msgstr "бағандар"
+msgstr "Бағандар"
 
 msgid "manager.statistics.reports.advancedOptions.hide"
 msgstr "Қосымша параметрлерді жасыру"
@@ -623,13 +622,13 @@ msgstr ""
 "форматында жасалады, ол электрондық кестені қарауды талап етеді."
 
 msgid "manager.statistics.reports"
-msgstr "есептер"
+msgstr "Есептер"
 
 msgid "manager.statistics.region"
 msgstr "Аймақ"
 
 msgid "manager.statistics.city"
-msgstr "қала"
+msgstr "Қала"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
@@ -643,10 +642,10 @@ msgstr ""
 "\t"
 
 msgid "manager.statistics"
-msgstr "статистика және есептер"
+msgstr "Статистика және есептер"
 
 msgid "manager.roles"
-msgstr "ролдері"
+msgstr "Ролдері"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
@@ -655,16 +654,16 @@ msgstr ""
 "алдын ала толтырылған."
 
 msgid "manager.reviewerSearch.interests"
-msgstr "рецензенттің қызығушылығы"
+msgstr "Рецензенттің қызығушылығы"
 
 msgid "manager.reviewerSearch.searchByName.short"
-msgstr "аты бойынша іздеу"
+msgstr "Аты бойынша іздеу"
 
 msgid "manager.reviewerSearch.searchByName"
-msgstr "рецензентті аты бойынша іздеу"
+msgstr "Рецензентті аты бойынша іздеу"
 
 msgid "manager.reviewerSearch.change"
-msgstr "өзгерту"
+msgstr "Өзгерту"
 
 msgid "manager.representative.inUse"
 msgstr ""
@@ -705,7 +704,7 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Пайдаланушы сәтті құрылды."
 
 msgid "manager.people.unenroll"
-msgstr "белгілеуді алып тастау"
+msgstr "Белгілеуді алып тастау"
 
 msgid "manager.people.syncUsers"
 msgstr "Қолданушы тағайындауларын синхрондау"
@@ -723,7 +722,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Сақтау және басқасын жасау"
 
 msgid "manager.people.remove"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "manager.people"
 msgstr "Адамдар"
@@ -743,7 +742,7 @@ msgstr ""
 "рөлді таңдаңыз."
 
 msgid "manager.people.mergeUsers"
-msgstr "қолданушыларды біріктіру"
+msgstr "Қолданушыларды біріктіру"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
@@ -808,10 +807,10 @@ msgid "manager.people.editProfile"
 msgstr "Профильді өңдеу"
 
 msgid "manager.people.doNotEnroll"
-msgstr "ролсіз"
+msgstr "Ролсіз"
 
 msgid "manager.people.disable"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "manager.people.createUserSendNotify"
 msgstr ""
@@ -852,12 +851,11 @@ msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Әдепкі мәндерді қайта жүктеп алыңыз"
 
 msgid "manager.language.forms"
-msgstr "формалар"
+msgstr "Формалар"
 
 msgid "manager.language.submissions"
 msgstr "Жіберілген материалдар"
 
-#, fuzzy
 msgid "manager.language.ui"
 msgstr "UI"
 
@@ -865,7 +863,7 @@ msgid "manager.importExport"
 msgstr "Деректерді импорттау/экспорттау"
 
 msgid "manager.groups.title"
-msgstr "атауы"
+msgstr "Атауы"
 
 msgid "manager.groups.membership.noUsers"
 msgstr "Пайдаланушылар табылмады."
@@ -874,19 +872,19 @@ msgid "manager.groups.membership.noneCreated"
 msgstr "Бұл топта бірде-бір мүше жоқ."
 
 msgid "manager.groups.membership"
-msgstr "мүше"
+msgstr "Мүше"
 
 msgid "manager.groups.membership.confirmDelete"
 msgstr "Осы топ мүшелігін шынымен жойғыңыз келе ме?"
 
 msgid "manager.groups.membership.addMember"
-msgstr "топ мүшесін қосу"
+msgstr "Топ мүшесін қосу"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr "топтың атауы міндетті."
+msgstr "Топтың атауы міндетті."
 
 msgid "manager.groups.editTitle"
-msgstr "атауын жазу"
+msgstr "Атауын жазу"
 
 msgid "manager.groups.createTitle"
 msgstr "Атау жазыңыз"
@@ -895,7 +893,7 @@ msgid "manager.groups.confirmDelete"
 msgstr "Бұл топты шынымен жойғыңыз келе ме?"
 
 msgid "manager.files.uploadFile"
-msgstr "файл жүктеу"
+msgstr "Файл жүктеу"
 
 msgid "manager.files.uploadedFiles"
 msgstr "Жүктелген файлдар"
@@ -927,13 +925,13 @@ msgid "manager.export.usersToCsv.label"
 msgstr "Excel/CSV файлына экспорттау"
 
 msgid "manager.emails.subjectWithValue"
-msgstr "тақырып: {$subject}"
+msgstr "Тақырып: {$subject}"
 
 msgid "manager.emails.sentTo"
 msgstr "Қабылдаушы"
 
 msgid "manager.emails.sentFrom"
-msgstr "жіберуші"
+msgstr "Жіберуші"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Әдепкі қалпына қайта орнату"
@@ -980,7 +978,7 @@ msgstr ""
 "келе ме?"
 
 msgid "manager.emails.enable"
-msgstr "қосу"
+msgstr "Қосу"
 
 msgid "manager.emails.enabled"
 msgstr "Осы электрондық пошта үлгісін қосыңыз"
@@ -1026,7 +1024,7 @@ msgstr ""
 "растағыңыз келе ме?"
 
 msgid "manager.emails.disable"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "mailable.decision.notifyOtherAuthors.name"
 msgstr "Басқа авторларға хабарлау"
@@ -1189,7 +1187,6 @@ msgstr "Жарияланымды талдау кезінде қате орын �
 msgid "plugins.importexport.author.exportFailed"
 msgstr "Авторларды талдау кезінде қате орын алды"
 
-#, fuzzy
 msgid "plugins.importexport.submission.cli.display"
 msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
@@ -1238,7 +1235,7 @@ msgid "stats.name.daysToReject"
 msgstr "Бас тартудан бірнеше күн бұрын"
 
 msgid "stats.name.daysToAccept"
-msgstr "қабылдауға дейінгі күндер"
+msgstr "Қабылдауға дейінгі күндер"
 
 msgid "stats.name.daysToDecision"
 msgstr "Алғашқы редакциялық шешім қабылдаудан бірнеше күн бұрын"
@@ -1279,14 +1276,12 @@ msgstr "Белсенді материалдар"
 msgid "stats.searchSubmissionDescription"
 msgstr "Атауы, авторы және идентификаторы бойынша іздеу"
 
-#, fuzzy
 msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.monthly"
 msgstr "Ай сайын"
 
-#, fuzzy
 msgid "stats.html"
 msgstr "HTML"
 
@@ -1563,7 +1558,6 @@ msgstr ""
 msgid "manager.navigationMenus.form.customUrlError"
 msgstr "URL мекенжайын енгізуіңіз керек"
 
-#, fuzzy
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
 
@@ -1685,7 +1679,6 @@ msgstr "Белгісіз жанр {$param}"
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Белгісіз элемент {$param}"
 
-#, fuzzy
 msgid "plugins.importexport.common.id"
 msgstr "Id: {$id}"
 
@@ -1963,10 +1956,10 @@ msgid "manager.reviewFormElements.dropdownbox"
 msgstr "Ашылмалы тізім"
 
 msgid "manager.reviewFormElements.create"
-msgstr "жаңа элементті енгізу"
+msgstr "Жаңа элементті енгізу"
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr "көшіріп алу:"
+msgstr "Көшіріп алу:"
 
 msgid "manager.reviewFormElements.confirmDelete"
 msgstr "Жарияланған форма элементін жоюды растау..."
@@ -1987,7 +1980,7 @@ msgid "manager.reviewFormElement.changeType"
 msgstr "Форма элементінің түрі өзгертілуде..."
 
 msgid "manager.reviewForms.title"
-msgstr "атауы"
+msgstr "Атауы"
 
 msgid "manager.reviewForms.reviewFormData"
 msgstr "Рецензия формасының  деректері"
@@ -2033,7 +2026,7 @@ msgid "manager.reviewForms.confirmDelete"
 msgstr "Осы рецензия формасын шынымен жойғыңыз келе ме?"
 
 msgid "manager.reviewForms.completed"
-msgstr "толтырылды"
+msgstr "Толтырылды"
 
 msgid "manager.reviewForms.confirmCopy"
 msgstr "Осы рецензия формасының көшірмесін жасағыңыз келетініне сенімдісіз бе?"
@@ -2061,7 +2054,7 @@ msgid "manager.workflow.title"
 msgstr "Жұмыс процесі параметрлері"
 
 msgid "manager.workflow"
-msgstr "жұмыс процесі"
+msgstr "Жұмыс процесі"
 
 msgid "manager.website.title"
 msgstr "Веб-сайт параметрі"
@@ -2100,7 +2093,7 @@ msgid "manager.setup.genres.key.description"
 msgstr "Бұл жанрға арналған қосымша қысқа таңба идентификаторы."
 
 msgid "manager.setup.genres.key"
-msgstr "кілт"
+msgstr "Кілт"
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
@@ -2270,10 +2263,10 @@ msgid "notification.localeSettingsSaved"
 msgstr "Тіл параметрлері сақталады."
 
 msgid "notification.localeReloaded"
-msgstr "\"{$locale}\" тілі \"{$contextName}\" үшін жүктелген."
+msgstr "{$locale} тілі {$contextName} үшін жүктелген."
 
 msgid "notification.localeUninstalled"
-msgstr "\"{$locale}\" тілі өшірілді."
+msgstr "{$locale} тілі өшірілді."
 
 msgid "notification.localeInstalled"
 msgstr "Барлық таңдалған тілдер орнатылған және белсендірілген."
@@ -2562,7 +2555,6 @@ msgstr "Тіркелген пайдаланушылар"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} жаңа)"
 
-#, fuzzy
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
 
@@ -2665,10 +2657,10 @@ msgid "manager.setup.dateTime.custom"
 msgstr "Пайдаланушы форматы"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr "күні мен уақыты (қысқаша)"
+msgstr "Күні мен уақыты (қысқаша)"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr "күні мен уақыты"
+msgstr "Күні мен уақыты"
 
 msgid "manager.setup.dateTime.time"
 msgstr "Уақыт"
@@ -2677,7 +2669,7 @@ msgid "manager.setup.dateTime.shortDate"
 msgstr "Күн (қысқа)"
 
 msgid "manager.setup.dateTime.longDate"
-msgstr "күні"
+msgstr "Күні"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
@@ -2689,7 +2681,7 @@ msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "Күн және уақыт форматтары"
 
 msgid "manager.setup.dateTime"
-msgstr "күні және уақыты"
+msgstr "Күні және уақыты"
 
 msgid "manager.setup.privacyStatement"
 msgstr "Құпиялылық мәлімдемесі"
@@ -2748,7 +2740,7 @@ msgstr ""
 "электрондық хатты шынымен жібергіңіз келе ме?"
 
 msgid "manager.setup.notifyUsers.send"
-msgstr "хат жіберу"
+msgstr "Хат жіберу"
 
 msgid "manager.setup.notifyUsers.copyDetails"
 msgstr "Осы электрондық поштаның көшірмесін менің {$email} поштама жіберіңіз."
@@ -2757,7 +2749,7 @@ msgid "manager.setup.notifyUsers.description"
 msgstr "Электрондық пошта хабарландыруыңызды алатын пайдаланушыларды таңдаңыз."
 
 msgid "manager.setup.notifyUsers"
-msgstr "хабардар етіңіз"
+msgstr "Хабардар етіңіз"
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -2776,10 +2768,10 @@ msgstr ""
 "Two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "кез келген адамға хабарлау"
+msgstr "Кез келген адамға хабарлау"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "жоқ"
+msgstr "Жоқ"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Иә, көшірмесін {$email} поштасына жіберіңіз"

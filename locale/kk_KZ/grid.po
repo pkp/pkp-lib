@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 16:17+0000\n"
+"PO-Revision-Date: 2022-04-06 04:55+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "kk_KZ/>\n"
@@ -19,7 +19,7 @@ msgid "grid.libraryFiles.review.title"
 msgstr "Кітапхананы шолу"
 
 msgid "grid.libraryFiles.editorial.title"
-msgstr "өңделген кітапхана"
+msgstr "Өңделген кітапхана"
 
 msgid "grid.libraryFiles.submission.title"
 msgstr "Алынған материалдар: кітапхана"
@@ -92,7 +92,6 @@ msgstr "Тіл"
 msgid "grid.columns.auditor"
 msgstr "Аудитор"
 
-#, fuzzy
 msgid "grid.columns.url"
 msgstr "URL"
 
@@ -128,10 +127,10 @@ msgid "grid.action.install"
 msgstr "Орнатыңыз"
 
 msgid "grid.action.preview"
-msgstr "алдын-ала қарау"
+msgstr "Алдын-ала қарау"
 
 msgid "grid.action.copy"
-msgstr "көшіру"
+msgstr "Көшіру"
 
 msgid "grid.action.deactivate"
 msgstr "Өшіру"
@@ -146,13 +145,13 @@ msgid "grid.action.exportAllUsers"
 msgstr "Барлық қолданушыларды экспорттау"
 
 msgid "grid.action.logInAs"
-msgstr "біреудің атымен кіру"
+msgstr "Біреудің атымен кіру"
 
 msgid "grid.action.bookInfo"
-msgstr "материал туралы мәлімет"
+msgstr "Материал туралы мәлімет"
 
 msgid "grid.action.enable"
-msgstr "іске қосу"
+msgstr "Іске қосу"
 
 msgid "grid.action.unconsiderReview"
 msgstr "Бұл рецензия аяқталды, бірақ сіз оны әлі тексерген жоқсыз"
@@ -200,7 +199,7 @@ msgid "grid.action.advancedSearch"
 msgstr "Кеңейтілген іздеу"
 
 msgid "grid.action.search"
-msgstr "іздеу"
+msgstr "Іздеу"
 
 msgid "grid.action.selectCreate"
 msgstr "Жаңа рецензентті енгізу"
@@ -230,7 +229,7 @@ msgid "grid.action.expand"
 msgstr "Кеңейту"
 
 msgid "grid.action.requestAccount"
-msgstr "мүшеге адам қосу"
+msgstr "Мүшеге адам қосу"
 
 msgid "grid.action.expandAll"
 msgstr "Барлығын кеңейту"
@@ -287,16 +286,16 @@ msgid "grid.action.selectFiles"
 msgstr "Жұмыс істеу үшін файлдарды таңдаңыз"
 
 msgid "grid.action.editFile"
-msgstr "файлды өзгерту"
+msgstr "Файлды өзгерту"
 
 msgid "grid.action.addFile"
-msgstr "файлды қосу"
+msgstr "Файлды қосу"
 
 msgid "grid.action.addReviewer"
-msgstr "рецентті қосу"
+msgstr "Рецентті қосу"
 
 msgid "grid.action.email"
-msgstr "е майл жіберу"
+msgstr "E-mail арқылы хат жіберу"
 
 msgid "grid.action.readReview"
 msgstr "Рецензияны оқу"
@@ -311,16 +310,16 @@ msgid "grid.action.wizard"
 msgstr "Параметр мастері"
 
 msgid "grid.action.extendAll"
-msgstr "барылығын көрсету"
+msgstr "Барылығын көрсету"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Тапсырыстан бас тарту"
 
 msgid "grid.action.saveOrdering"
-msgstr "талапты сақтау"
+msgstr "Талапты сақтау"
 
 msgid "grid.action.order"
-msgstr "реттеу"
+msgstr "Реттеу"
 
 msgid "grid.action.upgrade"
 msgstr "Жаңартыңыз"
@@ -344,7 +343,7 @@ msgid "grid.action.restoreDefaults"
 msgstr "Стандартты параметрлерді қалпына келтіріңіз"
 
 msgid "grid.action.moreInformation"
-msgstr "қосымша информация"
+msgstr "Қосымша информация"
 
 msgid "grid.action.setApproval"
 msgstr "Мақұлдауды орнатыңыз"
@@ -359,13 +358,13 @@ msgid "grid.action.edit"
 msgstr "Өңдеу"
 
 msgid "grid.action.remove"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "grid.action.editorialHistory"
 msgstr "Редакциялық тарих"
 
 msgid "grid.action.deleteSection"
-msgstr "бөлімді өшіру"
+msgstr "Бөлімді өшіру"
 
 msgid "grid.action.export"
 msgstr "Экспорттау"
@@ -380,10 +379,10 @@ msgid "grid.action.deleteMedia"
 msgstr "Медианы өшіру"
 
 msgid "grid.action.deleteFile"
-msgstr "файлды өшіру"
+msgstr "Файлды өшіру"
 
 msgid "grid.action.delete"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "grid.action.reload"
 msgstr "Қайта жүктеңіз"
@@ -413,7 +412,7 @@ msgid "grid.action.addNote"
 msgstr "Ескертпе қосыңыз"
 
 msgid "grid.action.addItem"
-msgstr "элемент қосу"
+msgstr "Элемент қосу"
 
 msgid "grid.action.sort"
 msgstr "Сұрыптау"
@@ -422,7 +421,7 @@ msgid "grid.action.manageAccess"
 msgstr "Қол жеткізуді басқару"
 
 msgid "grid.action.uninstall"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Бұл элемент қашықтағы серверде орналастырылған."
@@ -504,7 +503,7 @@ msgid "grid.artworkFile.copyrightOwner"
 msgstr "Авторлық құқық иесі"
 
 msgid "grid.artworkFile.credit"
-msgstr "автор"
+msgstr "Автор"
 
 msgid "grid.artworkFile.caption"
 msgstr "Қолтаңба"
@@ -517,10 +516,10 @@ msgid "grid.plugin.disable"
 msgstr "Бұл модульді өшіргіңіз келетініне сенімдісіз бе?"
 
 msgid "grid.plugin.allCategories"
-msgstr "барлық категориялар"
+msgstr "Барлық категориялар"
 
 msgid "grid.preparedEmails.currentList"
-msgstr "ағымдағы тізім"
+msgstr "Ағымдағы тізім"
 
 msgid "grid.preparedEmails.title"
 msgstr "Дайын электрондық пошта үлгілері"
@@ -553,13 +552,13 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Пайдаланушыны таңдаңыз"
 
 msgid "grid.user.selectUser"
-msgstr "пайдаланушыны таңдаңыз"
+msgstr "Пайдаланушыны таңдаңыз"
 
 msgid "grid.user.addRole"
-msgstr "рөлді қосу"
+msgstr "Рөлді қосу"
 
 msgid "grid.user.addRoles"
-msgstr "рөлдерді қосу"
+msgstr "Рөлдерді қосу"
 
 msgid "grid.user.step2"
 msgstr "№2 қадам: {$userFullName} пайдаланушысына рөлдерді қосу"
@@ -632,12 +631,11 @@ msgid "grid.user.disableReason"
 msgstr "Пайдаланушыны өшіру себебі"
 
 msgid "grid.user.disable"
-msgstr "өшіру"
+msgstr "Өшіру"
 
 msgid "grid.user.enable"
-msgstr "қосу"
+msgstr "Қосу"
 
-#, fuzzy
 msgid "grid.user.email"
 msgstr "Email"
 
@@ -648,19 +646,19 @@ msgid "grid.user.enroll"
 msgstr "Қолданушыны тіркеңіз"
 
 msgid "grid.user.add"
-msgstr "қолданушыны қосу"
+msgstr "Қолданушыны қосу"
 
 msgid "grid.user.allPermissionLevels"
 msgstr "Құқықтың барлық деңгейлері"
 
 msgid "grid.user.allRoles"
-msgstr "барлық рөлдер"
+msgstr "Барлық рөлдер"
 
 msgid "grid.user.currentEnrollment"
-msgstr "ағымдағы жазбалар"
+msgstr "Ағымдағы жазбалар"
 
 msgid "grid.user.currentUsers"
-msgstr "ағымдағы қолданушылар"
+msgstr "Ағымдағы қолданушылар"
 
 msgid "grid.roles.stageAssignment"
 msgstr "Кезеңдік тапсырма"
@@ -702,9 +700,8 @@ msgid "author.users.contributor.principalContact"
 msgstr "Байланыс тұлғасы"
 
 msgid "author.users.contributor.role"
-msgstr "рөлі"
+msgstr "Рөлі"
 
-#, fuzzy
 msgid "author.users.contributor.email"
 msgstr "E-mail"
 
@@ -721,8 +718,7 @@ msgid "grid.libraryFiles.productionTemplate.title"
 msgstr "Жарияланым үлгілері: Кітапхана"
 
 msgid "grid.action.collapseAll"
-msgstr "барлығын жабу"
+msgstr "Барлығын жабу"
 
-#, fuzzy
 msgid "grid.action.collapse"
-msgstr "Collapse"
+msgstr "Жиыру"

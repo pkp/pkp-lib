@@ -20,6 +20,7 @@ namespace PKP\navigationMenu;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\xml\XMLNode;
+use PKP\xml\PKPXMLParser;
 
 class NavigationMenuItemDAO extends \PKP\db\DAO
 {

@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-05 10:07+0000\n"
+"PO-Revision-Date: 2022-04-06 04:55+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/kk_KZ/>\n"
@@ -74,7 +74,7 @@ msgstr ""
 "{$name} ({$username}) осы материалға {$userGroupName} ретінде тағайындалған."
 
 msgid "submission.emailLog"
-msgstr "журналдың электрондық поштасы"
+msgstr "Журналдың электрондық поштасы"
 
 msgid "submission.email.deleteLogEntry"
 msgstr "Журнал жазбасын өшіріңіз"
@@ -89,7 +89,7 @@ msgid "submission.email.backToEmailLog"
 msgstr "Электрондық пошта тарихына қайта оралыңыз"
 
 msgid "submission.editorial"
-msgstr "әдеби өңдеу"
+msgstr "Әдеби өңдеу"
 
 msgid "submission.editMetadata"
 msgstr "Метадеректерді өңдеу"
@@ -104,7 +104,7 @@ msgid "submission.dueDate"
 msgstr "Тапсыру мерзімі"
 
 msgid "submission.downloads"
-msgstr "жүктеулер"
+msgstr "Жүктеулер"
 
 msgid "submission.done"
 msgstr "Дайын"
@@ -122,10 +122,10 @@ msgid "submission.copyedited"
 msgstr "Әдеби редакциядан өткен"
 
 msgid "submission.contributors"
-msgstr "авторлар тізімі"
+msgstr "Авторлар тізімі"
 
 msgid "submission.complete"
-msgstr "аяқталған"
+msgstr "Аяқталған"
 
 msgid "submission.comments.subject"
 msgstr "Тақырып"
@@ -134,13 +134,13 @@ msgid "submission.comments.sendDecisionToReviewers"
 msgstr "Рецензенттерге редакциялық шешімді жіберу"
 
 msgid "submission.comments.review"
-msgstr "рецензия"
+msgstr "Рецензия"
 
 msgid "submission.comments.noReviews"
-msgstr "рецензиясыз"
+msgstr "Рецензиясыз"
 
 msgid "submission.comments.noComments"
-msgstr "түсініктемесіз"
+msgstr "Түсініктемесіз"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
 msgstr "Рецензент {$reviewerLetter}:"
@@ -152,19 +152,19 @@ msgid "submission.comments.importPeerReviews"
 msgstr "Пікірлерді импорттау"
 
 msgid "submission.comments.editComment"
-msgstr "пікір жазу"
+msgstr "Пікір жазу"
 
 msgid "submission.comments.corrections"
-msgstr "түзетулер"
+msgstr "Түзетулер"
 
 msgid "submission.comments.confirmDelete"
 msgstr "Осы пікірді шынымен жойғыңыз келе ме?"
 
 msgid "submission.comments.comments"
-msgstr "түсініктемелер"
+msgstr "Түсініктемелер"
 
 msgid "submission.comments.addComment"
-msgstr "түсініктемені қосу"
+msgstr "Түсініктемені қосу"
 
 msgid "submission.parsedAndSaveCitations"
 msgstr "Сілтемелерді шығарып алыңыз және сақтаңыз"
@@ -186,13 +186,13 @@ msgstr ""
 "жазылуы мүмкін."
 
 msgid "submission.citations"
-msgstr "әдебиеттер тізімі"
+msgstr "Әдебиеттер тізімі"
 
 msgid "submission.changeFile"
-msgstr "файлды өзгерту"
+msgstr "Файлды өзгерту"
 
 msgid "submission.changeComments"
-msgstr "өзгерту"
+msgstr "Өзгерту"
 
 msgid "submission.backToSubmissionEditing"
 msgstr "Материалды редакциялауға қайта оралу"
@@ -201,7 +201,7 @@ msgid "submission.attachedFile"
 msgstr "Тіркелген файл"
 
 msgid "submission.ask"
-msgstr "сұраным"
+msgstr "Сұраным"
 
 msgid "submission.acknowledge"
 msgstr "Растаңыз"
@@ -210,19 +210,19 @@ msgid "submission.accepted"
 msgstr "Қабылданды"
 
 msgid "submission.abstractViews"
-msgstr "аннотацияны қарау"
+msgstr "Аннотацияны қарау"
 
 msgid "submission.agencies"
-msgstr "ұйымдар"
+msgstr "Ұйымдар"
 
 msgid "submission.additionalFiles"
-msgstr "қосымша файлдар"
+msgstr "Қосымша файлдар"
 
 msgid "submission.addFile"
-msgstr "файлды жүктеу"
+msgstr "Файлды жүктеу"
 
 msgid "submission.mySubmissions"
-msgstr "менің авторлығыммен"
+msgstr "Менің авторлығыммен"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} бойынша {$title}"
@@ -230,7 +230,6 @@ msgstr "{$representation} бойынша {$title}"
 msgid "submission.shortAuthor"
 msgstr "{$author} және басқалары."
 
-#, fuzzy
 msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
 
@@ -261,13 +260,13 @@ msgstr ""
 "мәндер: personal, corporate и conference."
 
 msgid "metadata.property.displayName.name-type"
-msgstr "түр атауы"
+msgstr "Түр атауы"
 
 msgid "metadata.property.validationMessage.partName"
-msgstr "бөлім атауын дұрыс еңгізіңіз."
+msgstr "Бөлім атауын дұрыс еңгізіңіз."
 
 msgid "metadata.property.displayName.partName"
-msgstr "бөлім атауы"
+msgstr "Бөлім атауы"
 
 msgid "metadata.property.validationMessage.partNumber"
 msgstr "Бөлім нөмірін дұрыс еңгізіңіз."
@@ -276,16 +275,16 @@ msgid "metadata.property.displayName.partNumber"
 msgstr "Бөлім нөмірі"
 
 msgid "metadata.property.validationMessage.subTitle"
-msgstr "жарамды тақырыпшаны еңгізіңіз."
+msgstr "Жарамды тақырыпшаны еңгізіңіз."
 
 msgid "metadata.property.displayName.subTitle"
 msgstr "Тақырыпша"
 
 msgid "metadata.property.validationMessage.title"
-msgstr "жарамды тақырыпты еңгізіңіз."
+msgstr "Жарамды тақырыпты еңгізіңіз."
 
 msgid "metadata.property.displayName.title"
-msgstr "тақырып"
+msgstr "Тақырып"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr ""
@@ -315,10 +314,10 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Басылым түрі"
 
 msgid "metadata.property.validationMessage.annotation"
-msgstr "жарамды аннотацияны еңгізіңіз."
+msgstr "Жарамды аннотацияны еңгізіңіз."
 
 msgid "metadata.property.displayName.annotation"
-msgstr "аннотация"
+msgstr "Аннотация"
 
 msgid "metadata.property.validationMessage.comment"
 msgstr "Жарамды түсініктемені еңгізіңіз."
@@ -335,21 +334,18 @@ msgstr "Жарияланымға сілтеме"
 msgid "metadata.property.validationMessage.pmid"
 msgstr "Жарамды PMIDді еңгізіңіз."
 
-#, fuzzy
 msgid "metadata.property.displayName.pmid"
 msgstr "PMID"
 
 msgid "metadata.property.validationMessage.sici"
-msgstr "жарамды SICIді еңгізіңіз."
+msgstr "Жарамды SICIді еңгізіңіз."
 
-#, fuzzy
 msgid "metadata.property.displayName.sici"
 msgstr "SICI"
 
 msgid "metadata.property.validationMessage.coden"
 msgstr "жарамды CODENді еңгізіңіз."
 
-#, fuzzy
 msgid "metadata.property.displayName.coden"
 msgstr "CODEN"
 
@@ -357,7 +353,7 @@ msgid "metadata.property.validationMessage.publisher-id"
 msgstr "Жарамды қолданушының жарияланым идентификаторын енгізіңіз."
 
 msgid "metadata.property.displayName.publisher-id"
-msgstr "қолданушының ID шығарылымы"
+msgstr "Қолданушының ID шығарылымы"
 
 msgid "metadata.property.validationMessage.doi"
 msgstr "DOIды дұрыс еңгізіңіз."
@@ -382,12 +378,11 @@ msgstr "Басып шығарылған ISSN"
 msgid "metadata.property.validationMessage.isbn"
 msgstr "Дұрыс ISBN номерін еңгізіңіз  (9 немесе 13 саннан тұрады)."
 
-#, fuzzy
 msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
 
 msgid "metadata.property.validationMessage.publisher-name"
-msgstr "баспахана атауын дұрыс енгізіңіз."
+msgstr "Баспахана атауын дұрыс енгізіңіз."
 
 msgid "metadata.property.displayName.publisher-name"
 msgstr "Баспа атауы"
@@ -444,13 +439,13 @@ msgid "metadata.property.validationMessage.conf-date"
 msgstr "Жарамды конференция күнін енгізіңіз (пішімі: ЖЖЖЖ-АА-КК)."
 
 msgid "metadata.property.displayName.conf-date"
-msgstr "конференцияның уақыты"
+msgstr "Конференцияның уақыты"
 
 msgid "metadata.property.validationMessage.supplement"
-msgstr "дұрыстап толықтырып енгізіңіз."
+msgstr "Дұрыстап толықтырып енгізіңіз."
 
 msgid "metadata.property.displayName.supplement"
-msgstr "толықтырулар"
+msgstr "Толықтырулар"
 
 msgid "metadata.property.validationMessage.series"
 msgstr "Дұрыс серияны енгізіңіз."
@@ -486,7 +481,7 @@ msgid "metadata.property.validationMessage.issue"
 msgstr "Дұрыс шығарылымды енгізіңіз."
 
 msgid "metadata.property.displayName.issue"
-msgstr "шығарылым"
+msgstr "Шығарылым"
 
 msgid "metadata.property.validationMessage.access-date"
 msgstr "Жарамды рұқсат күнін енгізіңіз (пішім: ЖЖЖЖ-АА-КК)."
@@ -634,7 +629,7 @@ msgid "submission.notes.expandNotes"
 msgstr "Ескертпелерді кеңейту"
 
 msgid "submission.notes.editNote"
-msgstr "ескертпе жазу"
+msgstr "Ескертпе жазу"
 
 msgid "submission.notes.deleteNote"
 msgstr "Ескертпені өшіру"
@@ -703,10 +698,10 @@ msgid "submission.layout.galleyStylesheet"
 msgstr "Стильдер парағының файлы"
 
 msgid "submission.layout.galleys"
-msgstr "галлеялар"
+msgstr "Галлеялар"
 
 msgid "submission.layout.galleyNoImages"
-msgstr "сурет жоқ"
+msgstr "Сурет жоқ"
 
 msgid "submission.layout.galleyRemoteURLValid"
 msgstr ""
@@ -759,19 +754,19 @@ msgid "submission.lastModified"
 msgstr "Соңғы өзгертілген"
 
 msgid "submission.stageParticipants.notify"
-msgstr "хабарлау"
+msgstr "Хабарлау"
 
 msgid "submission.informationCenter.history.allEvents"
 msgstr "Алдыңғы нұсқалардағы оқиғаларды көрсету"
 
 msgid "submission.informationCenter.history"
-msgstr "тарихы"
+msgstr "Тарихы"
 
 msgid "submission.informationCenter.notes"
 msgstr "Ескертпелер"
 
 msgid "submission.informationCenter.metadata"
-msgstr "метадеректер"
+msgstr "Метадеректер"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Материалдық ақпарат"
@@ -800,13 +795,13 @@ msgid "submission.versionIdentity"
 msgstr "{$datePublished} ({$version})"
 
 msgid "submission.versions"
-msgstr "нұсқалар"
+msgstr "Нұсқалар"
 
 msgid "submission.updatedOn"
 msgstr "{$datePublished} - {$dateUpdated} жаңартылды"
 
 msgid "submission.initiated"
-msgstr "басталды"
+msgstr "Басталды"
 
 msgid "submission.howToCite.downloadCitation"
 msgstr "Жүктеу сілтемесі"
@@ -818,7 +813,7 @@ msgid "submission.howToCite"
 msgstr "Дәйексөзді қалай келтіруге болады"
 
 msgid "submission.history.viewLog"
-msgstr "журналды қарау"
+msgstr "Журналды қарау"
 
 msgid "submission.history.submissionNotes"
 msgstr "Материалдық жазбалар"
@@ -827,19 +822,19 @@ msgid "submission.history.submissionEventLog"
 msgstr "Оқиғалар журналы"
 
 msgid "submission.history.submissionEmailLog"
-msgstr "журналдың электрондық поштасы"
+msgstr "Журналдың электрондық поштасы"
 
 msgid "submission.history.recentLogEntries"
-msgstr "соңғы жазбалар"
+msgstr "Соңғы жазбалар"
 
 msgid "submission.history.noLogEntries"
-msgstr "ешқандай жазба жоқ."
+msgstr "Ешқандай жазба жоқ."
 
 msgid "submission.history"
-msgstr "тарихы"
+msgstr "Тарихы"
 
 msgid "submission.history.clearLog"
-msgstr "журналды тазарту"
+msgstr "Журналды тазарту"
 
 msgid "submission.galley"
 msgstr "Галлея"
@@ -850,10 +845,10 @@ msgstr ""
 "емес."
 
 msgid "submission.files.downloadAll"
-msgstr "барлық файлдарды жүктеңіз"
+msgstr "Барлық файлдарды жүктеңіз"
 
 msgid "submission.files"
-msgstr "файлдар"
+msgstr "Файлдар"
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
@@ -929,7 +924,7 @@ msgstr ""
 "рецензентіне жіберілді."
 
 msgid "submission.event.deleteLogEntry"
-msgstr "оқиғалар журналындағы жазбаны өшіру"
+msgstr "Оқиғалар журналындағы жазбаны өшіру"
 
 msgid "submission.event.confirmDeleteLogEntry"
 msgstr "Бұл жазбаны оқиғалардың журналынан шынымен жойғыңыз келе ме?"
@@ -1010,7 +1005,7 @@ msgid "submission.query.closed"
 msgstr "Жабылған"
 
 msgid "submission.query.lastReply"
-msgstr "соңғы жауап"
+msgstr "Соңғы жауап"
 
 msgid "submission.query.from"
 msgstr "-дан"
@@ -1822,7 +1817,7 @@ msgid "editor.submission.decision.notifyAuthors"
 msgstr "Авторларға хабарлау"
 
 msgid "editor.submission.decision"
-msgstr "шешім"
+msgstr "Шешім"
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
@@ -1857,7 +1852,7 @@ msgid "editor.submission.removeStageParticipant.description"
 msgstr "Сіз бұл мүшені <strong>барлық</strong> кезеңнен алып тастағалы тұрсыз."
 
 msgid "editor.submission.removeStageParticipant"
-msgstr "қолданушыны өшіру"
+msgstr "Қолданушыны өшіру"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
@@ -1868,7 +1863,7 @@ msgstr ""
 "тапсырылады."
 
 msgid "editor.submission.editStageParticipant"
-msgstr "тағайындауды өңдеу"
+msgstr "Тағайындауды өңдеу"
 
 msgid "editor.submission.addStageParticipant"
 msgstr "Қатысушыны тағайындау"
@@ -1940,7 +1935,7 @@ msgstr ""
 "белгіленген көшірмені жүктеңіз."
 
 msgid "submission.upload.uploadFiles"
-msgstr "файлдарды жүктеп алу"
+msgstr "Файлдарды жүктеп алу"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Әдеби редакциядан кейін файлды жүктеп салыңыз"
@@ -1971,7 +1966,7 @@ msgstr ""
 "көрсетіңіз."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr "Пожалуйста, выберите файл, который вы хотите заменить."
+msgstr "Ауыстырғыңыз келетін файлды таңдаңыз."
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
@@ -2005,7 +2000,7 @@ msgid "submission.submit.uploadStep"
 msgstr "1. Файлды жүктеңіз"
 
 msgid "submission.status.published"
-msgstr "жарияланды"
+msgstr "Жарияланды"
 
 msgid "submission.status.declined"
 msgstr "Қабылданбады"
@@ -2026,10 +2021,10 @@ msgid "submission.status.editorial"
 msgstr "Әдеби редакциялау туралы"
 
 msgid "workflow.stage"
-msgstr "кезең"
+msgstr "Кезең"
 
 msgid "workflow.stage.any"
-msgstr "әр кезең"
+msgstr "Әр кезең"
 
 msgid "workflow.review.internalReview"
 msgstr "Өзара ішкі рецензия"
@@ -2098,7 +2093,7 @@ msgid "submission.uploadSuccessful"
 msgstr "Сіздің файлыңыз жүктеп салынды."
 
 msgid "submission.views"
-msgstr "қаралуы"
+msgstr "Қаралуы"
 
 msgid "submission.viewMetadata"
 msgstr "Метадеректерді қараңыз"
@@ -2107,7 +2102,7 @@ msgid "submission.createRemote"
 msgstr "Қашықтан басқару құралын құру"
 
 msgid "submission.uploadFileTo"
-msgstr "файлды жүктеп салыңыз"
+msgstr "Файлды жүктеп салыңыз"
 
 msgid "submission.underway"
 msgstr "Орындалу үстінде"
@@ -2157,7 +2152,7 @@ msgid "submission.submit.dependentFiles"
 msgstr "Тәуелді файлдар"
 
 msgid "submission.submit.submissionFiles"
-msgstr "материалдың файлы"
+msgstr "Материалдың файлы"
 
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
@@ -2165,7 +2160,7 @@ msgstr ""
 "негізгі тілін таңдаңыз."
 
 msgid "submission.submit.submissionLocale"
-msgstr "материалдың тілі"
+msgstr "Материалдың тілі"
 
 msgid "submission.submit.metadataForm.tip"
 msgstr ""
@@ -2185,43 +2180,43 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Жарияланымдар тізімінде авторларды көрсету кезінде осы авторды қосыңыз."
 
 msgid "submission.submit.fileAdded"
-msgstr "файлды қосу"
+msgstr "Файлды қосу"
 
 msgid "submission.submit.fileInformation"
-msgstr "файл туралы мәлімет"
+msgstr "Файл туралы мәлімет"
 
 msgid "submission.submit.selectFile"
-msgstr "файлды таңдау"
+msgstr "Файлды таңдау"
 
 msgid "submission.submit.finishSubmission"
-msgstr "жіберілімді аяқтау"
+msgstr "Жіберілімді аяқтау"
 
 msgid "submission.submitter"
-msgstr "жіберілді"
+msgstr "Жіберілді"
 
 msgid "submission.submissionReview"
 msgstr "Материалдың рецензиялануы"
 
 msgid "submission.submissionManuscript"
-msgstr "қолжазба материалы"
+msgstr "Қолжазба материалы"
 
 msgid "submission.submissionHistory"
-msgstr "материалдың тарихы"
+msgstr "Материалдың тарихы"
 
 msgid "submission.start"
-msgstr "басталуы"
+msgstr "Басталуы"
 
 msgid "submission.submissionTitle"
 msgstr "Материалдың атауы:"
 
 msgid "submission.submission"
-msgstr "материал"
+msgstr "Материал"
 
 msgid "submissions.submitted"
-msgstr "жіберілген"
+msgstr "Жіберілген"
 
 msgid "submissions.submit"
-msgstr "жіберу"
+msgstr "Жіберу"
 
 msgid "submission.source.tip"
 msgstr ""
@@ -2232,7 +2227,7 @@ msgid "submission.source"
 msgstr "Дереккөз"
 
 msgid "submissions.ruling"
-msgstr "шешім"
+msgstr "Шешім"
 
 msgid "submissions.queuedUnassigned"
 msgstr "Бұл мақалаға редактор тағайындалмаған."
@@ -2241,25 +2236,25 @@ msgid "submissions.queued"
 msgstr "Кезекте"
 
 msgid "submissions.queuedEditing"
-msgstr "редакцияның қарауында"
+msgstr "Редакцияның қарауында"
 
 msgid "submissions.noSubmissions"
-msgstr "материалдар жоқ"
+msgstr "Материалдар жоқ"
 
 msgid "submissions.incomplete"
-msgstr "аяқталмады"
+msgstr "Аяқталмады"
 
 msgid "submissions.declined"
 msgstr "Қабылданбады"
 
 msgid "submissions.completed"
-msgstr "аяқталды"
+msgstr "Аяқталды"
 
 msgid "submission.saveMetadata"
 msgstr "Метадеректерді сақтау"
 
 msgid "submissions.archived"
-msgstr "архивталған"
+msgstr "Архивталған"
 
 msgid "submissions.active"
 msgstr "Белсенді"
@@ -2288,7 +2283,7 @@ msgid "submission.restrictions"
 msgstr "Шектеулер"
 
 msgid "submission.response"
-msgstr "жауап"
+msgstr "Жауап"
 
 msgid "submission.request"
 msgstr "Анықтама"
@@ -2300,7 +2295,7 @@ msgid "submission.recommendation"
 msgstr "Ұсыныс: {$recommendation}"
 
 msgid "submission.production"
-msgstr "жарияланым"
+msgstr "Жарияланым"
 
 msgid "submission.peerReview"
 msgstr "Peer&nbsp; Рецензиялау"

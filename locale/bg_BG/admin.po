@@ -2,8 +2,8 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-04 11:21+0000\n"
-"Last-Translator: Albena Vassileva <albena.ava@gmail.com>\n"
+"PO-Revision-Date: 2022-04-06 16:41+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
 "Language: bg_BG\n"
@@ -27,7 +27,7 @@ msgid "admin.systemInfo.settingName"
 msgstr "Име на настройката"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Изчистване на отчетите (logs) за изпълнение на планирани задачи"
+msgstr "Изтриване на отчетите (logs) за планираните задачи"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -145,10 +145,10 @@ msgstr ""
 "<tt>config.inc.php</tt>."
 
 msgid "admin.clearTemplateCache"
-msgstr "Изчистване на кеша на шаблоните"
+msgstr "Изтриване на кеша на шаблоните"
 
 msgid "admin.clearDataCache"
-msgstr "Изчистване на кеша на данните"
+msgstr "Изтриване на кеша на данните"
 
 msgid "admin.authSources"
 msgstr "Източници за удостоверяване"
@@ -502,3 +502,40 @@ msgstr "Употреба:"
 
 msgid "admin.scheduledTask.depositDois"
 msgstr "Депозиране на DOI в конфигурирана регистрационна агенция"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Преглед на процеси"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Преглед на всички задачи на опашката в системата и проследяване на неуспешни "
+"опити."
+
+msgid "admin.systemInformation.view"
+msgstr "Преглед на системна информация"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Преглед на информация за версията и настройките за конфигурация на "
+"приложението и сървъра."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Изтриване на отчети (logs) на задачите"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Изтриване на всички отчети (logs) на процесите на планирани задачи, които са "
+"били стартирани."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Всички потребители ще бъдат излязат незабавно от приложението, включително и "
+"вие, и ще трябва да влязат отново."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Изтриване на кешираните от системата файлове. Това трябва да се прави само в "
+"среди за разработка."
+
+msgid "admin.deleteCache"
+msgstr "Изтриване на кеша"

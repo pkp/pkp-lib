@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-02-16 01:31+0000\n"
+"PO-Revision-Date: 2022-04-06 16:41+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -37,10 +37,10 @@ msgid "admin.authSources"
 msgstr "Fontes de Autenticação"
 
 msgid "admin.clearDataCache"
-msgstr "Limpar Caches de dados"
+msgstr "Excluir caches de dados"
 
 msgid "admin.clearTemplateCache"
-msgstr "Limpar Caches de template"
+msgstr "Excluir caches de template"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr "O documento de configuração foi atualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário atualizar manualmente o arquivo <tt>config.inc.php</tt>."
@@ -471,3 +471,40 @@ msgstr "Uso:"
 
 msgid "admin.scheduledTask.depositDois"
 msgstr "Deposito de DOIs com agência de registro configurada"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Ver Tarefas"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Visualize todas as tarefas enfileiradas no sistema e rastreie tentativas com "
+"falha."
+
+msgid "admin.systemInformation.view"
+msgstr "Ver informações do sistema"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Exiba informações sobre a versão e as definições de configuração do sistema "
+"e do servidor."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Excluir registros (logs) de tarefas"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Exclua todos os registros (logs) de processos de tarefas agendadas que foram "
+"executados."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Todos os usuários serão imediatamente desconectados do sistema, incluindo "
+"você, e precisarão fazer login novamente."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Exclua os arquivos de cache do sistema.  Isso só deve ser feito em ambientes "
+"de desenvolvimento."
+
+msgid "admin.deleteCache"
+msgstr "Excluir caches"

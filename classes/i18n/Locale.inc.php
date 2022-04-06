@@ -365,7 +365,11 @@ class Locale implements LocaleInterface
             return $value;
         }
 
-        error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");
+        // In order to reduce the noise, we're only logging missing entries for the en_US locale
+        // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
+        if ($locale === LocaleInterface::DEFAULT_LOCALE) {
+            error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");
+        }
         return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
 

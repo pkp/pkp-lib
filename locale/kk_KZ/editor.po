@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-06 04:55+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "kk_KZ/>\n"
@@ -64,7 +64,7 @@ msgid "editor.review.mustSelect"
 msgstr "Рецензентті таңдау керек"
 
 msgid "editor.review.reviewerRating.none"
-msgstr "рейтинг жоқ"
+msgstr "Рейтинг жоқ"
 
 msgid "editor.review.rateReviewer.description"
 msgstr ""
@@ -72,10 +72,10 @@ msgstr ""
 "көрсетілмейді."
 
 msgid "editor.review.rateReviewer"
-msgstr "рецензенттің рейтіңгісі"
+msgstr "Рецензенттің рейтіңгісі"
 
 msgid "editor.review.reviewerComments"
-msgstr "рецензенттің пікірі"
+msgstr "Рецензенттің пікірі"
 
 msgid "editor.review.reviewerThanked"
 msgstr "Рецензентке алғыс айтылды"
@@ -87,7 +87,7 @@ msgid "editor.review.reviewConfirmed"
 msgstr "Рецензия расталды"
 
 msgid "editor.review.reviewCompleted"
-msgstr "рецензиялау аяқталды"
+msgstr "Рецензиялау аяқталды"
 
 msgid "editor.review.reviewDueDate"
 msgstr "Рецензияны тапсыру күні"
@@ -196,7 +196,7 @@ msgid "editor.submissionReview.anonymous"
 msgstr "Анонимді рецензент/Автор белгілі"
 
 msgid "editor.submissionReview.open"
-msgstr "ашық"
+msgstr "Ашық"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Электрондық пошта арқылы хабарландыру жібермеңіз"
@@ -210,13 +210,13 @@ msgid "editor.submissionReview.sendEmail"
 msgstr "Автор(лар)ға: {$authorName} электрондық пошта арқылы хабарлама жіберу"
 
 msgid "editor.submissionReview.reviewType"
-msgstr "рецензиялаудың түрі"
+msgstr "Рецензиялаудың түрі"
 
 msgid "editor.review.reinstateReviewer"
 msgstr "Рецензент ретінде қалпына келтіріңіз"
 
 msgid "editor.review.cancelReviewer"
-msgstr "рецензенттен бас тарту"
+msgstr "Рецензенттен бас тарту"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Рецензентті тағайындамау"
@@ -225,7 +225,7 @@ msgid "editor.review.enrollReviewer.short"
 msgstr "Бар қолданушыны жазыңыз"
 
 msgid "editor.review.createReviewer"
-msgstr "жаңа рецензентті тағайындау"
+msgstr "Жаңа рецензентті тағайындау"
 
 msgid "editor.submission.backToSearch"
 msgstr "Іздеуге қайта оралу"
@@ -237,13 +237,13 @@ msgid "editor.submission.fileList.includeAllStages"
 msgstr "Барлық қол жетімді жұмыс үрдісінің қадамдарынан файлдарды көрсету."
 
 msgid "editor.submission.findAndSelectUser"
-msgstr "қолданушыны таңдау"
+msgstr "Қолданушыны таңдау"
 
 msgid "editor.submission.findAndSelectReviewer"
-msgstr "рецензентті таңдау"
+msgstr "Рецензентті таңдау"
 
 msgid "editor.submission.addReviewer"
-msgstr "рецензентті қосу"
+msgstr "Рецензентті қосу"
 
 msgid "editor.submission.revisions"
 msgstr "Нұсқалар"
@@ -329,7 +329,7 @@ msgid "editor.decision.skipEmail"
 msgstr "Бұл электрондық поштаны өткізіп жіберіңіз"
 
 msgid "editor.decision.recordDecision"
-msgstr "шешімді енгізу"
+msgstr "Шешімді енгізу"
 
 msgid "editor.decision.emailSkipped"
 msgstr "Бұл қадам өткізіп жіберілді және электрондық пошта жіберілмейді."
@@ -359,7 +359,7 @@ msgid "reviewer.list.reviewInterests"
 msgstr "Рецензент ретіндегі қызығушылықтар"
 
 msgid "reviewer.list.warnOnAssignUnlock"
-msgstr "бұғатын алу"
+msgstr "Бұғатын алу"
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
@@ -387,7 +387,7 @@ msgid "reviewer.list.daysSinceLastAssignmentDescription"
 msgstr "Соңғы рецензиядан кейінгі күндер"
 
 msgid "reviewer.list.daySinceLastAssignment"
-msgstr "кеше"
+msgstr "Кеше"
 
 msgid "reviewer.list.daysSinceLastAssignment"
 msgstr "{$days} күндер бұрын"
@@ -449,10 +449,10 @@ msgstr ""
 "Төмендегі тізімді пайдалана отырып, осы талқылауға файлдарды тіркей аласыз."
 
 msgid "grid.action.editQuery"
-msgstr "пікір-таласты жазу"
+msgstr "Пікір-таласты жазу"
 
 msgid "submission.queries.attachedFiles"
-msgstr "тіркелген файлдар"
+msgstr "Тіркелген файлдар"
 
 msgid "submission.queries.messageRequired"
 msgstr "Талқылаудағы хабарламаның мәтіні міндетті түрде көрсетіледі."
@@ -476,7 +476,7 @@ msgid "editor.article.selectReviewForm"
 msgstr "Рецензиялау формасын таңдаңыз"
 
 msgid "editor.article.reviewForms"
-msgstr "рецензия формасы"
+msgstr "Рецензия формасы"
 
 msgid "editor.submission.createNewRound"
 msgstr "Рецензиялаудың жаңа кезеңін енгізіңіз"
@@ -517,7 +517,7 @@ msgid "editor.review.noReviewFilesUploaded.details"
 msgstr "Тексеру үшін ешқандай файл жүктеп салған жоқсыз."
 
 msgid "editor.review.noReviewFilesUploaded"
-msgstr "жүктелген файл жоқ"
+msgstr "Жүктелген файл жоқ"
 
 msgid "editor.review.reviewDetails"
 msgstr "Рецензиялауды қарап шығу"
@@ -548,7 +548,7 @@ msgstr ""
 "файлды мақұлдағыңыз келе ме?"
 
 msgid "editor.submission.proof.reminder"
-msgstr "түзету туралы ескерту"
+msgstr "Түзету туралы ескерту"
 
 msgid "editor.submission.personalMessageToUser"
 msgstr "Пайдаланушыға жіберуге арналған электрондық пошта"
@@ -590,7 +590,7 @@ msgstr ""
 "түймесін басыңыз."
 
 msgid "editor.review.unconsiderReview"
-msgstr "рецензияны қаралмаған деп белгілеңіз"
+msgstr "Рецензияны қаралмаған деп белгілеңіз"
 
 msgid "editor.review.unconsiderReviewText"
 msgstr ""

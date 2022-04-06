@@ -25,7 +25,7 @@ interface RepresentationDAOInterface extends PKPPubIdPluginDAO
     /**
      * Get a representation by id
      */
-    public function getById(int $id): ?Representation;
+    public function getById(int $id, ?int $publicationId = null, ?int $contextId = null): ?Representation;
 
     /**
      * Get the representations of a publication

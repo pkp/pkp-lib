@@ -21,13 +21,12 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
-use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
 
-class DAO extends EntityDAO implements PKPPubIdPluginDAO, RepresentationDAOInterface
+class DAO extends EntityDAO implements RepresentationDAOInterface
 {
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_GALLEY;
@@ -141,7 +140,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO, RepresentationDAOInter
     }
 
     /** @copydoc RepresentationDAOInterface::getById() */
-    public function getById(int $galleyId): ?Galley
+    public function getById(int $galleyId, ?int $publicationId = null, ?int $contextId = null): ?Galley
     {
         return $this->get($galleyId);
     }

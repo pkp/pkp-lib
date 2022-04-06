@@ -15,6 +15,7 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
+use APP\core\Application;
 use PKP\submission\PKPSubmission;
 use PKP\submission\RepresentationDAOInterface;
 

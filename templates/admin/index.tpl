@@ -21,46 +21,93 @@
 		</notification>
 	{/if}
 
-	<div class="app__contentPanel">
+	<action-panel>
 		<h2>{translate key="admin.siteManagement"}</h2>
-		<ul>
-			<li><a href="{url op="contexts"}">{translate key="admin.hostedContexts"}</a></li>
-			{call_hook name="Templates::Admin::Index::SiteManagement"}
-			<li><a href="{url op="settings"}">{translate key="admin.siteSettings"}</a></li>
-		</ul>
-		<h2>{translate key="admin.adminFunctions"}</h2>
-		<ul>
-			<li><a href="{url op="systemInfo"}">{translate key="admin.systemInformation"}</a></li>
-			<li>
-				<form type="post" action="{url op="expireSessions"}">
-					{csrf}
-					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
-				</form>
-			</li>
-			<li>
-				<form type="post" action="{url op="clearDataCache"}">
-					{csrf}
-					<button class="-linkButton">{translate key="admin.clearDataCache"}</button>
-				</form>
-			</li>
-			<li>
-				<form type="post" action="{url op="clearTemplateCache"}">
-					{csrf}
-					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
-				</form>
-			</li>
-			<li>
-				<form type="post" action="{url op="clearScheduledTaskLogFiles"}">
-					{csrf}
-					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</button>
-				</form>
-			</li>
-			<li>
-				<a href="{url op="jobs"}">
-					{translate key="navigation.tools.jobs"}
-				</a>
-			</li>
-			{call_hook name="Templates::Admin::Index::AdminFunctions"}
-		</ul>
-	</div>
+		<p>
+			{translate key="admin.siteManagement.description"}
+		</p>
+		<template slot="actions">
+			<pkp-button
+				element="a"
+				href="{url op="contexts"}"
+			>
+				{translate key="admin.hostedContexts"}
+			</pkp-button>
+			<pkp-button
+				element="a"
+				href="{url op="settings"}"
+			>
+				{translate key="admin.siteSettings"}
+			</pkp-button>
+		</template>
+	</action-panel>
+	<action-panel>
+		<h2>{translate key="admin.systemInformation"}</h2>
+		<p>
+			{translate key="admin.systemInformation.description"}
+		</p>
+		<template slot="actions">
+			<pkp-button
+				element="a"
+				href="{url op="systemInfo"}"
+			>
+				{translate key="admin.systemInformation.view"}
+			</pkp-button>
+		</template>
+	</action-panel>
+	<action-panel>
+		<h2>{translate key="admin.expireSessions"}</h2>
+		<p>
+			{translate key="admin.expireSessions.description"}
+		</p>
+		<template slot="actions">
+			<form type="post" action="{url op="expireSessions"}">
+				{csrf}
+				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
+			</form>
+		</template>
+	</action-panel>
+	<action-panel>
+		<h2>{translate key="admin.deleteCache"}</h2>
+		<p>
+			{translate key="admin.deleteCache.description"}
+		</p>
+		<template slot="actions">
+			<form type="post" action="{url op="clearDataCache"}">
+				{csrf}
+				<button class="pkpButton pkpButton--isWarnable">{translate key="admin.clearDataCache"}</button>
+			</form>
+			<form type="post" action="{url op="clearTemplateCache"}">
+				{csrf}
+				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
+			</form>
+		</template>
+	</action-panel>
+	<action-panel>
+		<h2>{translate key="admin.scheduledTask.clearLogs"}</h2>
+		<p>
+			{translate key="admin.scheduledTask.clearLogs.description"}
+		</p>
+		<template slot="actions">
+			<form type="post" action="{url op="clearScheduledTaskLogFiles"}">
+				{csrf}
+				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs.delete"}</button>
+			</form>
+		</template>
+	</action-panel>
+	<action-panel>
+		<h2>{translate key="navigation.tools.jobs"}</h2>
+		<p>
+			{translate key="navigation.tools.jobs.description"}
+		</p>
+		<template slot="actions">
+			<pkp-button
+				element="a"
+				href="{url op="jobs"}"
+			>
+				{translate key="navigation.tools.jobs.view"}
+			</pkp-button>
+		</template>
+	</action-panel>
+	{call_hook name="Templates::Admin::Index::AdminFunctions"}
 {/block}

@@ -41,14 +41,11 @@ abstract class LocaleFile
      */
     public static function getLoader(string $path): LoaderInterface
     {
-        switch ((new SplFileInfo($path))->getExtension()) {
-            case 'po':
-                return new PoLoader();
-            case 'mo':
-                return new MoLoader();
-            default:
-                throw new Exception("There's no suitable gettext loader for this file type");
-        }
+        return match (strtolower((new SplFileInfo($path))->getExtension())) {
+            'po' => new PoLoader(),
+            'mo' => new MoLoader(),
+            default => throw new Exception("There's no suitable gettext loader for this file type")
+        };
     }
 
     /**
@@ -64,7 +61,7 @@ abstract class LocaleFile
     */
     public static function loadArray(string $path, bool $useCache = false): array
     {
-        $loader = fn() => (new ArrayGenerator())->generateArray(static::loadTranslations($path));
+        $loader = fn() => (new ArrayGenerator(['includeEmpty' => true]))->generateArray(static::loadTranslations($path));
         $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $path . filemtime($path);
         return $useCache ? Cache::remember($key, DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader) : $loader();
     }

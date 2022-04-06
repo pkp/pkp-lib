@@ -19,8 +19,6 @@ use APP\core\Application;
 use APP\install\Upgrade;
 use PKP\site\VersionCheck;
 
-Application::upgrade();
-
 class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string Path to descriptor file to install */
@@ -97,5 +95,6 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
     }
 }
 
+Application::upgrade();
 $tool = new InstallPluginVersionTool($argv ?? []);
 $tool->execute();

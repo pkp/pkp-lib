@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Facade;
 use PKP\i18n\interfaces\LocaleInterface;
 
 /**
- * @method static mixed get(string $key, array $replace = [], $locale = null) Get the translation for a given key.
+ * @method static string get(string $key, array $replace = [], $locale = null) Get the translation for a given key.
  * @method static string choice(string $key, int $number, array $replace = [], string $locale = null) Get a translation according to an integer value.
  * @method static string getLocale() Get the default locale being used.
  * @method static void setLocale(string $locale) Set the default locale.

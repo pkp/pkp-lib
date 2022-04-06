@@ -87,6 +87,6 @@ class IsoCodesTranslationDriver implements TranslationDriverInterface
      */
     public function translate(string $isoNumber, string $message): string
     {
-        return ($this->translator ? $this->translator->getSingular($message) : $message) ?: $message;
+        return $this->translator?->getSingular($message) ?: $message;
     }
 }

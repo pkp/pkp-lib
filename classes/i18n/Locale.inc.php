@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 /**
  * @defgroup i18n I18N
- * Implements localization concerns such as locale files, time zones, and country lists.
+ * Implements localization concerns such as locale files, languages, currencies, and country lists.
  */
 
 /**
@@ -75,9 +75,12 @@ class Locale implements LocaleInterface
     protected ?string $primaryLocale = null;
 
     /** @var string[]|null Supported form locales cache, where key = locale and value = name */
-    protected ?array $supportedFormLocales = null;
+    protected ?array $supportedFormLocaleNames = null;
 
     /** @var string[]|null Supported locales cache, where key = locale and value = name */
+    protected ?array $supportedLocaleNames = null;
+
+    /** @var string[]|null Supported locales cache */
     protected ?array $supportedLocales = null;
 
     /** @var LocaleBundle[] Keeps a cache for the locale bundles */
@@ -147,17 +150,8 @@ class Locale implements LocaleInterface
             return $this->primaryLocale;
         }
         $request = $this->_getRequest();
-        $locale = null;
-        if (SessionManager::isDisabled()) {
-            $locale = $this->getDefaultLocale();
-        } elseif ($context = $request->getContext()) {
-            $locale = $context->getPrimaryLocale();
-        } elseif ($site = $request->getSite()) {
-            $locale = $site->getPrimaryLocale();
-        }
-        return $this->primaryLocale = $this->isLocaleValid($locale)
-            ? $locale
-            : $this->getDefaultLocale();
+        $locale = SessionManager::isDisabled() ? null : $request->getContext()?->getPrimaryLocale() ?? $request->getSite()?->getPrimaryLocale();
+        return $this->primaryLocale = $this->isLocaleValid($locale) ? $locale : $this->getDefaultLocale();
     }
 
     /**
@@ -167,7 +161,7 @@ class Locale implements LocaleInterface
     {
         $path = new SplFileInfo($path);
         if (!$path->isDir()) {
-            throw new InvalidArgumentException("${path} isn't a valid folder");
+            throw new InvalidArgumentException("\"${path}\" isn't a valid folder");
         }
 
         // Invalidate the loaded bundles cache
@@ -213,7 +207,11 @@ class Locale implements LocaleInterface
      */
     public function getLocales(): array
     {
-        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path), '');
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(
+            array_keys($this->paths),
+            fn(string $hash, string $path): string => sha1($hash . $path),
+            ''
+        );
         $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
         return $this->locales ??= Cache::remember($key, $expiration, function () {
             $locales = [];
@@ -235,12 +233,8 @@ class Locale implements LocaleInterface
     public function installLocale(string $locale): void
     {
         Repo::emailTemplate()->dao->installEmailTemplateLocaleData(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [$locale]);
-
         // Load all plugins so they can add locale data if needed
-        $categories = PluginRegistry::getCategories();
-        foreach ($categories as $category) {
-            PluginRegistry::loadCategory($category);
-        }
+        PluginRegistry::loadAllPlugins();
         HookRegistry::call('Locale::installLocale', [&$locale]);
     }
 
@@ -259,11 +253,7 @@ class Locale implements LocaleInterface
      */
     public function isSupported(string $locale): bool
     {
-        static $locales;
-        $locales ??= SessionManager::isDisabled()
-            ? array_keys($this->getLocales())
-            : (($context = $this->_getRequest()->getContext()) ? $context->getSupportedLocales() : $this->_getRequest()->getSite()->getSupportedLocales());
-        return in_array($locale, $locales);
+        return isset($this->_getSupportedLocales()[$locale]);
     }
 
     /**
@@ -271,10 +261,8 @@ class Locale implements LocaleInterface
      */
     public function getSupportedFormLocales(): array
     {
-        return $this->supportedFormLocales ??= (fn(): array => SessionManager::isDisabled()
-            ? array_map(fn(LocaleMetadata $locale) => $locale->locale, $this->getLocales())
-            : (($context = $this->_getRequest()->getContext()) ? $context->getSupportedFormLocaleNames() : $this->_getRequest()->getSite()->getSupportedLocaleNames())
-        )();
+        return $this->supportedFormLocaleNames ??= (SessionManager::isDisabled() ? null : $this->_getRequest()->getContext()?->getSupportedFormLocaleNames())
+            ?? $this->getSupportedLocales();
     }
 
     /**
@@ -282,10 +270,7 @@ class Locale implements LocaleInterface
      */
     public function getSupportedLocales(): array
     {
-        return $this->supportedLocales ??= (fn(): array => SessionManager::isDisabled()
-            ? array_map(fn(LocaleMetadata $locale) => $locale->locale, $this->getLocales())
-            : ($this->_getRequest()->getContext() ?? $this->_getRequest()->getSite())->getSupportedLocaleNames()
-        )();
+        return $this->supportedLocaleNames ??= array_map(fn(string $locale) => $this->getMetadata($locale)->getDisplayName(), $this->_getSupportedLocales());
     }
 
     /**
@@ -376,11 +361,15 @@ class Locale implements LocaleInterface
         $locale ??= $this->getLocale();
         $localeBundle = $this->getBundle($locale);
         $value = $number === null ? $localeBundle->translateSingular($key, $params) : $localeBundle->translatePlural($key, $number, $params);
-        if ($value ?? HookRegistry::call('Locale::translate', [&$value, $key, $params, $number, $locale, $localeBundle])) {
+        if ($value !== null || HookRegistry::call('Locale::translate', [&$value, $key, $params, $number, $locale, $localeBundle])) {
             return $value;
         }
 
-        error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");
+        // In order to reduce the noise, we're only logging missing entries for the en_US locale
+        // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
+        if ($locale === LocaleInterface::DEFAULT_LOCALE) {
+            error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");
+        }
         return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
 
@@ -433,5 +422,20 @@ class Locale implements LocaleInterface
     private function _getIsoCodes(string $locale = null): IsoCodesFactory
     {
         return app(IsoCodesFactory::class, $locale ? ['locale' => $locale] : []);
+    }
+
+    /**
+     * Retrieves the supported locales
+     *
+     * @return string[]
+     */
+    private function _getSupportedLocales(): array
+    {
+        if (isset($this->supportedLocales)) {
+            return $this->supportedLocales;
+        }
+        $locales = (SessionManager::isDisabled() ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
+            ?? array_map(fn(LocaleMetadata $locale) => $locale->locale, $this->getLocales());
+        return $this->supportedLocales = array_combine($locales, $locales);
     }
 }

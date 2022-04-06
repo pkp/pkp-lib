@@ -14,6 +14,7 @@
  * @brief Operations for retrieving and modifying NavigationMenuItem objects. NMI = NavigationMenuItem
  */
 
+import('lib.pkp.classes.xml.PKPXMLParser');
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
 import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 

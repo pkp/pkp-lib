@@ -277,20 +277,12 @@ class Version extends DataObject {
 	 * @return string
 	 */
 	function getVersionString($numeric = true, ...$optional) {
+		$truncatedLength = 7;
 		if (!empty($optional)) {
 			$truncatedLength = $optional[0];
-			if ($truncatedLength == 1) {
-				$numericVersion = sprintf('%d', $this->getMajor());
-			} elseif ($truncatedLength == 3) {
-				$numericVersion = sprintf('%d.%d', $this->getMajor(), $this->getMinor());
-			} elseif ($truncatedLength == 5) {
-				$numericVersion = sprintf('%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision());
-			} else {
-				$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
-			}
-		} else {
-			$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
 		}
+		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+		$numericVersion = substr($numericVersion, 0, $truncatedLength);
 		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.0\./', $numericVersion)) return ('3.0 Alpha 1');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.9\.0/', $numericVersion)) return ('3.0 Beta 1');

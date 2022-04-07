@@ -296,10 +296,6 @@ class Version extends DataObject {
 	 * @return boolean
 	 */
 	function isCompatible($version) {
-		
-		if (is_object($version)) {
-			$stop = true;
-		}
 		$semver = new Semver();
 		$systemVersion = $this->getVersionString();
 		

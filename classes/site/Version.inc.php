@@ -13,7 +13,8 @@
  *
  * @brief Describes system version history.
  */
-
+use Composer\Semver\VersionParser;
+use Composer\Semver\Semver as Sem;
 
 class Version extends DataObject {
 	/**
@@ -51,8 +52,24 @@ class Version extends DataObject {
 		if (is_object($version)) {
 			return $this->compare($version->getVersionString());
 		}
-		$seperators = substr_count($version, ".");
-		return version_compare($this->getVersionString(true, $seperators), $version);
+		
+		$versionParser = new VersionParser();
+		$semver = new Sem();
+		$parsed = $versionParser->parseConstraints($version);
+		$systemVersion = $this->getVersionString();
+		if ($parsed instanceof Composer\Semver\Constraint\MultiConstraint) {
+			$constraints = $parsed->getConstraints();
+			foreach ($constraints as $constraint) {
+				if (!($semver->satisfies($systemVersion, $constraint))) {
+					return version_compare($systemVersion, $constraint->getVersion());
+				}
+			}
+		} else {
+			if (!$semver->satisfies($systemVersion, $parsed)) {
+				return version_compare($systemVersion, $parsed->getVersion());
+			}
+		}
+		return 0;
 	}
 
 	/**
@@ -277,16 +294,9 @@ class Version extends DataObject {
 	 * @seperators	integer	4	(default) The number of seperators (.) in the version string, used to truncate to the same number of seperators.
 	 * @return string
 	 */
-	function getVersionString($numeric = true, $seperators = 3) {
-		if ($seperators == 0) {
-			$numericVersion = sprintf('%d', $this->getMajor());
-		} elseif ($seperators == 1) {
-			$numericVersion = sprintf('%d.%d', $this->getMajor(), $this->getMinor());
-		} elseif ($seperators == 2) {
-			$numericVersion = sprintf('%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision());
-		} else {
-			$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
-		}
+	function getVersionString($numeric = true) {
+		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+		
 		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.0\./', $numericVersion)) return ('3.0 Alpha 1');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.9\.0/', $numericVersion)) return ('3.0 Beta 1');

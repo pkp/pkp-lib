@@ -17,10 +17,17 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
+use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\mailables\ReviewRemind;
+use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
-use PKP\security\AccessKeyManager;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\facades\Locale;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewReminderForm extends Form
 {
@@ -71,40 +78,18 @@ class ReviewReminderForm extends Form
         $reviewer = Repo::user()->get($reviewerId);
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-
-        $context = $request->getContext();
-        $templateKey = $this->_getMailTemplateKey($context);
-
-        $email = new SubmissionMailTemplate($submission, $templateKey);
-
-        // Format the review due date
-        $reviewDueDate = strtotime($reviewAssignment->getDateDue());
-        $dateFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort());
-        if ($reviewDueDate == -1) {
-            $reviewDueDate = $dateFormatShort;
-        } // Default to something human-readable if no date specified
-        else {
-            $reviewDueDate = date($dateFormatShort, $reviewDueDate);
-        }
-
-        $dispatcher = $request->getDispatcher();
-        $paramArray = [
-            'recipientName' => $reviewer->getFullName(),
-            'reviewDueDate' => $reviewDueDate,
-            'signature' => $user->getContactSignature(),
-            'recipientUsername' => $reviewer->getUsername(),
-            'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'reviewAssignmentUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, ['submissionId' => $reviewAssignment->getSubmissionId()])
-        ];
-        $email->assignParams($paramArray);
+        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
+        $mailable->sender($user)->recipients([$reviewer]);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));
 
         $this->setData('stageId', $reviewAssignment->getStageId());
         $this->setData('reviewAssignmentId', $reviewAssignment->getId());
         $this->setData('submissionId', $submission->getId());
         $this->setData('reviewAssignment', $reviewAssignment);
         $this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
-        $this->setData('message', $email->getBody());
-        $this->setData('reviewDueDate', $reviewDueDate);
+        $this->setData('message', $body);
+        $this->setData('reviewDueDate', $mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
     }
 
     /**
@@ -114,18 +99,9 @@ class ReviewReminderForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $context = $request->getContext();
-        $user = $request->getUser();
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('emailVariables', [
-            'recipientName' => __('user.name'),
-            'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
-            'reviewAssignmentUrl' => __('common.url'),
-            'submissionTitle' => __('submission.title'),
             'passwordResetUrl' => __('common.url'),
-            'journalName' => $context->getLocalizedName(),
-            'signature' => $user->getContactSignature(),
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -149,65 +125,46 @@ class ReviewReminderForm extends Form
     public function execute(...$functionArgs)
     {
         $request = Application::get()->getRequest();
-
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $reviewDueDate = $this->getData('reviewDueDate');
-        $dispatcher = $request->getDispatcher();
         $user = $request->getUser();
-
         $context = $request->getContext();
-        $templateKey = $this->_getMailTemplateKey($context);
-        $email = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
 
-        $reviewUrlArgs = ['submissionId' => $reviewAssignment->getSubmissionId()];
-        if ($context->getData('reviewerAccessKeysEnabled')) {
-            $accessKeyManager = new AccessKeyManager();
-            $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
-            $accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
-            $reviewUrlArgs = array_merge($reviewUrlArgs, ['reviewId' => $reviewAssignment->getId(), 'key' => $accessKey]);
-        }
+        // Create ReviewRemind email and populate with data
+        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
+        $mailable->sender($user)->recipients([$reviewer]);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
+        $mailable->setData(Locale::getLocale());
 
-        $email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
-        $email->setBody($this->getData('message'));
-        $email->assignParams([
-            'recipientName' => $reviewer->getFullName(),
-            'reviewDueDate' => $reviewDueDate,
-            'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'reviewAssignmentUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs),
-            'signature' => $user->getContactSignature(),
-        ]);
-        if (!$email->send($request)) {
+        // Finally, send email and handle Symfony transport exceptions
+        try {
+            Mail::send($mailable);
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao->logMailable(
+                SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REMIND,
+                $mailable,
+                $submission,
+                $user,
+            );
+        } catch(TransportException $e) {
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            $notificationMgr->createTrivialNotification(
+                $request->getUser()->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            trigger_error($e->getMessage(), E_USER_WARNING);
         }
 
-        // update the ReviewAssignment with the reminded and modified dates
+        // Update the ReviewAssignment with the reminded and modified dates
         $reviewAssignment->setDateReminded(Core::getCurrentDate());
         $reviewAssignment->stampModified();
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         parent::execute(...$functionArgs);
-    }
-
-    /**
-     * Get the email template key depending on if reviewer one click access is
-     * enabled or not.
-     *
-     * @param Context $context The user's current context.
-     *
-     * @return int Email template key
-     */
-    public function _getMailTemplateKey($context)
-    {
-        $templateKey = 'REVIEW_REMIND';
-        if ($context->getData('reviewerAccessKeysEnabled')) {
-            $templateKey = 'REVIEW_REMIND_ONECLICK';
-        }
-
-        return $templateKey;
     }
 }

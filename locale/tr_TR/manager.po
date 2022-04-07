@@ -2320,7 +2320,7 @@ msgstr "Gönderenin e-posta adresi"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Gönderenin tam adı"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Hakem atamasının URL'si"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

@@ -91,8 +91,6 @@ class ValidateRegisteredEmail
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
             $mailable->addData([
                 'activateUrl' => PKPApplication::get()->getRequest()->url(null, 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
-                'siteName' => $event->site->getLocalizedTitle(),
-                'signature' => $mailable->viewData['siteContactName'],
             ]);
             $registerTemplate = Repo::emailTemplate()->getByKey(PKPApplication::CONTEXT_SITE, $mailable::getEmailTemplateKey());
         }

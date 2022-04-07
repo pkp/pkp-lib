@@ -33,6 +33,7 @@ use PKP\log\PKPSubmissionEventLogEntry;
 
 use PKP\log\SubmissionLog;
 use PKP\mail\mailables\MailReviewerAssigned;
+use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\plugins\HookRegistry;
@@ -40,7 +41,7 @@ use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
-use Swift_TransportException;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class EditorAction
 {
@@ -122,7 +123,7 @@ class EditorAction
 
                 try {
                     Mail::send($mailable);
-                } catch (Swift_TransportException $e) {
+                } catch (TransportException $e) {
                     $notificationMgr = new PKPNotificationManager();
                     $notificationMgr->createTrivialNotification(
                         $request->getUser()->getId(),
@@ -193,6 +194,10 @@ class EditorAction
         }
     }
 
+    /**
+     * Create an email representation based on data entered by the editor to the ReviewerForm
+     * Associated templates: REVIEW_REQUEST, REVIEW_REQUEST_SUBSEQUENT
+     */
     protected function createMail(
         PKPSubmission $submission,
         ReviewAssignment $reviewAssignment,
@@ -205,12 +210,11 @@ class EditorAction
         $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            // Overwrite default submissionReviewUrl variable value
             $accessKeyManager = new AccessKeyManager();
             $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
             $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewAssignment->getId(), $expiryDays);
             $mailable->addData([
-                'submissionReviewUrl' => PKPApplication::get()->getDispatcher()->url(
+                ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL => PKPApplication::get()->getDispatcher()->url(
                     PKPApplication::get()->getRequest(),
                     PKPApplication::ROUTE_PAGE,
                     $context->getData('urlPath'),

@@ -2494,7 +2494,7 @@ msgstr "И-мејл адреса на испраќачот"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Целосно име на испраќачот"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "УРЛ кон назначување рецензент"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

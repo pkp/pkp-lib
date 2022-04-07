@@ -2302,7 +2302,7 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "The URL to a page where the user can recover a lost password"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "The URL to view all of a user's assigned submissions.
+msgstr "The URL to view all of a user's assigned submissions."
 
 msgid "emailTemplate.variable.decision.name"
 msgstr "The name of the decision that was taken."
@@ -2328,7 +2328,7 @@ msgstr "Date when the reviewer should accept or decline the assignment"
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr "Date when the review should be completed"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "The URL to the review assignment"
 
 msgid "emailTemplate.variable.recommendation"
@@ -2361,6 +2361,9 @@ msgstr "The full name of the website's primary contact"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "The email of the website's primary contact"
 
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "The website's email signature for automated emails"
+
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "The editors assigned to this submission who can make a decision"
 
@@ -2387,6 +2390,9 @@ msgstr "The URL to the submission in the editorial backend"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr "The names of the authors assigned to the submission workflow. Usually this is the submitting author"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "Hashed URL which is sent to a user to confirm the password reset"
 
 msgid "mailable.mailDiscussionMessage.name"
 msgstr "New Discussion Message"
@@ -2535,3 +2541,26 @@ msgstr "Recommendation Made"
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr "This message notifies a senior Editor or Section Editor that an editorial recommendation has been made regarding one of their assigned submissions. This message is used when an editor is only allowed to recommend an editorial decision and requires an authorized editor to record editorial decisions. This option can be selected when assigning participants to a submission."
 
+msgid "mailable.reviewConfirm.name"
+msgstr "Review Confirm"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "This email is automatically sent when a reviewer accepts a review request"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Review Decline"
+
+msgid "mailable.reviewDecline.description"
+msgstr "This email is sent by a reviewer when declining a review request"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Review Reminder"
+
+msgid "mailable.reviewRemind.description"
+msgstr "This email is sent by an Editor to remind a reviewer that their review is due"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Review Reminder (Automated)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr "This email is automatically sent when a reviewer has not completed their review by the due date."

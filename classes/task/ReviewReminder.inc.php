@@ -17,16 +17,18 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\facades\Repo;
-
+use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\mail\mailables\ReviewRemindAuto;
+use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\security\AccessKeyManager;
-use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewReminder extends ScheduledTask
 {
@@ -40,87 +42,54 @@ class ReviewReminder extends ScheduledTask
 
     /**
      * Send the automatic review reminder to the reviewer.
-     *
-     * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment
-     * @param Submission $submission
-     * @param Context $context
-     * @param string $reminderType
-     * 	REVIEW_REMIND_AUTO, REVIEW_RESPONSE_OVERDUE_AUTO
      */
-    public function sendReminder($reviewAssignment, $submission, $context, $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO')
+    public function sendReminder(
+        ReviewAssignment $reviewAssignment,
+        PKPSubmission $submission,
+        Context $context,
+        ReviewRemindAuto|ReviewResponseRemindAuto $mailable
+    ): void
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewId = $reviewAssignment->getId();
 
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
-            return false;
+            return;
         }
 
-        $emailKey = $reminderType;
+        $primaryLocale = $context->getPrimaryLocale();
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $mailable->subject($emailTemplate->getData('subject', $primaryLocale))
+            ->body($emailTemplate->getData('body', $primaryLocale))
+            ->from($context->getData('contactEmail'), $context->getData('contactName'))
+            ->recipients([$reviewer]);
+
+        $mailable->setData($primaryLocale);
+
+        $application = Application::get();
+        $request = $application->getRequest();
+        $dispatcher = $application->getDispatcher();
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
-        switch (true) {
-            case $reviewerAccessKeysEnabled && ($reminderType == 'REVIEW_REMIND_AUTO'):
-                $emailKey = 'REVIEW_REMIND_AUTO_ONECLICK';
-                break;
-            case $reviewerAccessKeysEnabled && ($reminderType == 'REVIEW_RESPONSE_OVERDUE_AUTO'):
-                $emailKey = 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK';
-                break;
-        }
-        $email = new SubmissionMailTemplate($submission, $emailKey, $context->getPrimaryLocale(), $context, false);
-        $email->setContext($context);
-        $email->setReplyTo(null);
-        $email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
-        $email->setSubject($email->getSubject($context->getPrimaryLocale()));
-        $email->setBody($email->getBody($context->getPrimaryLocale()));
-        $email->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
-
-        $reviewUrlArgs = ['submissionId' => $reviewAssignment->getSubmissionId()];
-        if ($reviewerAccessKeysEnabled) {
+        if ($reviewerAccessKeysEnabled) { // Give one-click access if enabled
             $accessKeyManager = new AccessKeyManager();
 
             // Key lifetime is the typical review period plus four weeks
             $keyLifetime = ($context->getData('numWeeksPerReview') + 4) * 7;
             $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewId, $keyLifetime);
-            $reviewUrlArgs = array_merge($reviewUrlArgs, ['reviewId' => $reviewId, 'key' => $accessKey]);
+
+            $reviewUrlArgs = ['submissionId' => $reviewAssignment->getSubmissionId(), 'reviewId' => $reviewId, 'key' => $accessKey];
+            $submissionReviewUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
+            $mailable->addData(['submissionReviewUrl' => $submissionReviewUrl]);
         }
 
-        $application = Application::get();
-        $request = $application->getRequest();
-        $dispatcher = $application->getDispatcher();
-        $submissionReviewUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
-
-        // Format the review due date
-        $reviewDueDate = strtotime($reviewAssignment->getDateDue());
-        $dateFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort());
-        if ($reviewDueDate === -1 || $reviewDueDate === false) {
-            // Default to something human-readable if no date specified
-            $reviewDueDate = '_____';
-        } else {
-            $reviewDueDate = date($dateFormatShort, $reviewDueDate);
-        }
-        // Format the review response due date
-        $responseDueDate = strtotime($reviewAssignment->getDateResponseDue());
-        if ($responseDueDate === -1 || $responseDueDate === false) {
-            // Default to something human-readable if no date specified
-            $responseDueDate = '_____';
-        } else {
-            $responseDueDate = date($dateFormatShort, $responseDueDate);
-        }
-        $paramArray = [
-            'recipientName' => $reviewer->getFullName(),
-            'recipientUsername' => $reviewer->getUsername(),
-            'reviewDueDate' => $reviewDueDate,
-            'responseDueDate' => $responseDueDate,
-            'signature' => $context->getData('contactName') . "\n" . $context->getLocalizedName(),
-            'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'reviewAssignmentUrl' => $submissionReviewUrl,
+        // deprecated template variables OJS 2.x
+        $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
-        ];
-        $email->assignParams($paramArray);
+        ]);
 
-        $email->send();
+        Mail::send($mailable);
 
         $reviewAssignment->setDateReminded(Core::getCurrentDate());
         $reviewAssignment->setReminderWasAutomatic(1);
@@ -169,22 +138,22 @@ class ReviewReminder extends ScheduledTask
                 $submitReminderDays = $context->getData('numDaysBeforeSubmitReminder');
             }
 
-            $reminderType = false;
+            $mailable = null;
             if ($submitReminderDays >= 1 && $reviewAssignment->getDateDue() != null) {
                 $checkDate = strtotime($reviewAssignment->getDateDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $submitReminderDays) {
-                    $reminderType = 'REVIEW_REMIND_AUTO';
+                    $mailable = new ReviewRemindAuto($reviewAssignment, $submission, $context);
                 }
             }
             if ($inviteReminderDays >= 1 && $reviewAssignment->getDateConfirmed() == null) {
                 $checkDate = strtotime($reviewAssignment->getDateResponseDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $inviteReminderDays) {
-                    $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO';
+                    $mailable = new ReviewResponseRemindAuto($reviewAssignment, $submission, $context);
                 }
             }
 
-            if ($reminderType) {
-                $this->sendReminder($reviewAssignment, $submission, $context, $reminderType);
+            if ($mailable) {
+                $this->sendReminder($reviewAssignment, $submission, $context, $mailable);
             }
         }
 

@@ -25,20 +25,20 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
     {
         // Rename email template keys
         foreach ([
-            DB::table('email_templates'),
-            DB::table('email_templates_default'),
-            DB::table('email_templates_default_data')
-        ] as $tableContainingKeys) {
-            $tableContainingKeys->where('email_key', 'USER_VALIDATE')
+            'email_templates',
+            'email_templates_default',
+            'email_templates_default_data'
+        ] as $tableName) {
+            DB::table($tableName)->where('email_key', 'USER_VALIDATE')
                 ->update(['email_key' => 'USER_VALIDATE_CONTEXT']);
 
-            $tableContainingKeys->where('email_key', 'PUBLISH_NOTIFY')
+            DB::table($tableName)->where('email_key', 'PUBLISH_NOTIFY')
                 ->update(['email_key' => 'ISSUE_PUBLISH_NOTIFY']);
 
-            $tableContainingKeys->where('email_key', 'REVIEW_REQUEST_REMIND_AUTO')
+            DB::table($tableName)->where('email_key', 'REVIEW_REQUEST_REMIND_AUTO')
                 ->update(['email_key' => 'REVIEW_RESPONSE_OVERDUE_AUTO']);
 
-            $tableContainingKeys->where('email_key', 'REVIEW_REQUEST_REMIND_AUTO_ONECLICK')
+            DB::table($tableName)->where('email_key', 'REVIEW_REQUEST_REMIND_AUTO_ONECLICK')
                 ->update(['email_key' => 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK']);
         }
 
@@ -80,23 +80,23 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 
         // Revert renaming email template keys
         foreach ([
-            DB::table('email_templates'),
-            DB::table('email_templates_default'),
-            DB::table('email_templates_default_data')
-        ] as $tableContainingKeys) {
-            $tableContainingKeys->where('email_key', 'USER_VALIDATE_CONTEXT')
+             'email_templates',
+             'email_templates_default',
+             'email_templates_default_data'
+        ] as $tableName) {
+            DB::table($tableName)->where('email_key', 'USER_VALIDATE_CONTEXT')
                 ->update(['email_key' => 'USER_VALIDATE']);
 
-            $tableContainingKeys->where('email_key', 'ISSUE_PUBLISH_NOTIFY')
+            DB::table($tableName)->where('email_key', 'ISSUE_PUBLISH_NOTIFY')
                 ->update(['email_key' => 'PUBLISH_NOTIFY']);
 
-            $tableContainingKeys->where('email_key', 'REVIEW_RESPONSE_OVERDUE_AUTO')
+            DB::table($tableName)->where('email_key', 'REVIEW_RESPONSE_OVERDUE_AUTO')
                 ->update(['email_key' => 'REVIEW_REQUEST_REMIND_AUTO']);
 
-            $tableContainingKeys->where('email_key', 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK')
+            DB::table($tableName)->where('email_key', 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK')
                 ->update(['email_key' => 'REVIEW_REQUEST_REMIND_AUTO_ONECLICK']);
 
-            $tableContainingKeys->where('email_key', 'USER_VALIDATE_SITE')->delete();
+            DB::table($tableName)->where('email_key', 'USER_VALIDATE_SITE')->delete();
         }
     }
 
@@ -148,40 +148,41 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
         return [
             'NOTIFICATION' => [
                 'url' => 'notificationUrl',
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
+                'siteTitle' => 'contextName',
             ],
             'NOTIFICATION_CENTER_DEFAULT' => [
                 'contextName' => 'contextName',
             ],
             'PASSWORD_RESET_CONFIRM' => [
                 'url' => 'passwordResetUrl',
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
             ],
             'PASSWORD_RESET' => [
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
                 'username' => 'recipientUsername',
             ],
             'USER_REGISTER' => [
                 'userFullName' => 'recipientName',
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
                 'contextName' => 'contextName',
                 'username' => 'recipientUsername',
             ],
             // new template from USER_VALIDATE
             'USER_VALIDATE_CONTEXT' => [
                 'userFullName' => 'recipientName',
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
                 'contextName' => 'contextName',
             ],
             // new template from USER_VALIDATE
             'USER_VALIDATE_SITE' => [
                 'userFullName' => 'recipientName',
-                'principalContactSignature' => 'signature',
-                'contextName' => 'contextName',
+                'principalContactSignature' => 'siteContactName',
+                'contextName' => 'siteTitle',
             ],
             'REVIEWER_REGISTER' => [
                 'contextName' => 'contextName',
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
                 'username' => 'recipientUsername'
             ],
             // renamed from PUBLISH_NOTIFY
@@ -204,12 +205,12 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'authorName' => 'recipientName',
                 'contextName' => 'contextName',
                 'authorUsername' => 'recipientUsername',
-                'editorContactSignature' => 'signature',
+                'editorContactSignature' => 'contextSignature',
                 'submissionUrl' => 'authorSubmissionUrl',
             ],
             'SUBMISSION_ACK_NOT_USER' => [
                 'contextName' => 'contextName',
-                'editorialContactSignature' => 'signature',
+                'editorialContactSignature' => 'contextSignature',
             ],
             // submissionUrl and editorUsername/recipientUsername are used only in the old template
             'EDITOR_ASSIGN' => [
@@ -268,14 +269,14 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'contextName' => 'contextName',
                 'contextUrl' => 'contextUrl',
                 'submissionReviewUrl' => 'reviewAssignmentUrl',
-                'editorialContactSignature' => 'signature',
+                'editorialContactSignature' => 'contextSignature',
             ],
             // renamed from REVIEW_REQUEST_REMIND_AUTO_ONECLICK
             'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK' => [
                 'reviewerName' => 'recipientName',
                 'contextName' => 'contextName',
                 'submissionReviewUrl' => 'reviewAssignmentUrl',
-                'editorialContactSignature' => 'signature',
+                'editorialContactSignature' => 'contextSignature',
             ],
             'REVIEW_CONFIRM' => [
                 'contextName' => 'contextName',
@@ -299,6 +300,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'reviewerName' => 'recipientName',
                 'contextName' => 'contextName',
                 'submissionReviewUrl' => 'reviewAssignmentUrl',
+                'editorialContactSignature' => 'contextSignature',
             ],
             'REVIEW_REMIND_ONECLICK' => [
                 'reviewerName' => 'recipientName',
@@ -310,7 +312,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'reviewerName' => 'recipientName',
                 'contextName' => 'contextName',
                 'submissionReviewUrl' => 'reviewAssignmentUrl',
-                'editorialContactSignature' => 'signature',
+                'editorialContactSignature' => 'contextSignature',
             ],
             'EDITOR_DECISION_ACCEPT' => [
                 'authorName' => 'authors',
@@ -373,30 +375,30 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'subscriberName' => 'recipientName',
                 'contextName' => 'contextName',
                 'username' => 'recipientUsername',
-                'subscriptionContactSignature' => 'signature',
+                'subscriptionContactSignature' => 'subscriptionSignature',
             ],
             'OPEN_ACCESS_NOTIFY' => [
                 'contextName' => 'contextName',
                 'contextUrl' => 'contextUrl',
-                'editorialContactSignature' => 'signature',
+                'editorialContactSignature' => 'contextSignature',
             ],
             'SUBSCRIPTION_BEFORE_EXPIRY' => [
                 'subscriberName' => 'recipientName',
                 'contextName' => 'contextName',
                 'username' => 'recipientUsername',
-                'subscriptionContactSignature' => 'signature',
+                'subscriptionContactSignature' => 'subscriptionSignature',
             ],
             'SUBSCRIPTION_AFTER_EXPIRY' => [
                 'subscriberName' => 'recipientName',
                 'contextName' => 'contextName',
                 'username' => 'recipientUsername',
-                'subscriptionContactSignature' => 'signature',
+                'subscriptionContactSignature' => 'subscriptionSignature',
             ],
             'SUBSCRIPTION_AFTER_EXPIRY_LAST' => [
                 'subscriberName' => 'recipientName',
                 'contextName' => 'contextName',
                 'username' => 'recipientUsername',
-                'subscriptionContactSignature' => 'signature',
+                'subscriptionContactSignature' => 'subscriptionSignature',
             ],
             'SUBSCRIPTION_PURCHASE_INDL' => [
                 'contextName' => 'contextName',
@@ -424,7 +426,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'authorName' => 'submitterName',
             ],
             'STATISTICS_REPORT_NOTIFICATION' => [
-                'principalContactSignature' => 'signature',
+                'principalContactSignature' => 'contextSignature',
             ],
             'ANNOUNCEMENT' => [
                 'title' => 'announcementTitle',

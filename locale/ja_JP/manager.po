@@ -87,7 +87,7 @@ msgstr "送信者のメールアドレス"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "送信者のフルネーム"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "査読者任命のURL"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

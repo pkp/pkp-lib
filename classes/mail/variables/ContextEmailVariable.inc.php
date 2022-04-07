@@ -16,17 +16,19 @@
 namespace PKP\mail\variables;
 
 use PKP\context\Context;
+use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\core\PKPString;
 
 class ContextEmailVariable extends Variable
 {
     public const CONTACT_NAME = 'contactName';
     public const CONTACT_EMAIL = 'contactEmail';
     public const CONTEXT_NAME = 'contextName';
+    public const CONTEXT_SIGNATURE = 'contextSignature';
     public const CONTEXT_URL = 'contextUrl';
     public const MAILING_ADDRESS = 'mailingAddress';
-    public const PRINCIPAL_CONTACT_SIGNATURE = 'principalContactSignature';
     public const PASSWORD_LOST_URL = 'passwordLostUrl';
     public const SUBMISSIONS_URL = 'submissionsUrl';
 
@@ -34,10 +36,14 @@ class ContextEmailVariable extends Variable
 
     protected PKPRequest $request;
 
+    protected Dispatcher $dispatcher;
+
     public function __construct(Context $context)
     {
         $this->context = $context;
-        $this->request = PKPApplication::get()->getRequest();
+        $application = PKPApplication::get();
+        $this->request = $application->getRequest();
+        $this->dispatcher = $application->getDispatcher();
     }
 
     /**
@@ -47,11 +53,10 @@ class ContextEmailVariable extends Variable
     {
         return
         [
-            self::CONTACT_EMAIL => __('emailTemplate.variable.context.contactEmail'),
             self::CONTACT_NAME => __('emailTemplate.variable.context.contactName'),
+            self::CONTACT_EMAIL => __('emailTemplate.variable.context.contactEmail'),
             self::MAILING_ADDRESS => __('emailTemplate.variable.context.mailingAddress'),
             self::PASSWORD_LOST_URL => __('emailTemplate.variable.context.passwordLostUrl'),
-            self::PRINCIPAL_CONTACT_SIGNATURE => __('emailTemplate.variable.context.principalContactSignature'),
             self::SUBMISSIONS_URL => __('emailTemplate.variable.context.passwordLostUrl'),
         ];
     }
@@ -63,25 +68,25 @@ class ContextEmailVariable extends Variable
     {
         return
         [
-            self::CONTACT_EMAIL => (string) $this->context->getData('contactEmail'),
             self::CONTACT_NAME => (string) $this->context->getData('contactName'),
+            self::CONTACT_EMAIL => (string) $this->context->getData('contactEmail'),
             self::MAILING_ADDRESS => (string) $this->context->getData('mailingAddress'),
             self::PASSWORD_LOST_URL => $this->getPasswordLostUrl(),
-            self::PRINCIPAL_CONTACT_SIGNATURE => $this->getPrincipalContactSignature($locale),
             self::SUBMISSIONS_URL => $this->getSubmissionsUrl(),
         ];
     }
 
     protected function getContextUrl(): string
     {
-        return $this->request->getDispatcher()->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'));
+        return $this->dispatcher->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'));
     }
 
-    protected function getPrincipalContactSignature(string $locale): string
+    protected function getContextSignature() : string
     {
-        return $this->context->getData('contactName')
-            . "<br>\n"
-            . $this->context->getLocalizedData('name', $locale);
+        $signature = $this->context->getData('emailSignature');
+        return $signature
+            ? PKPString::stripUnsafeHtml($signature)
+            : '';
     }
 
     /**
@@ -89,7 +94,7 @@ class ContextEmailVariable extends Variable
      */
     protected function getPasswordLostUrl(): string
     {
-        return $this->request->getDispatcher()->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'), 'login', 'lostPassword');
+        return $this->dispatcher->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'), 'login', 'lostPassword');
     }
 
     /**

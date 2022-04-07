@@ -22,6 +22,7 @@ class SiteEmailVariable extends Variable
     public const SITE_TITLE = 'siteTitle';
     public const SITE_CONTACT = 'siteContactName';
     public const SITE_EMAIL = 'siteContactEmail';
+    public const SITE_SIGNATURE = 'siteSignature';
 
     protected Site $site;
 
@@ -40,6 +41,7 @@ class SiteEmailVariable extends Variable
             self::SITE_TITLE => __('emailTemplate.variable.site.siteTitle'),
             self::SITE_CONTACT => __('emailTemplate.variable.site.siteContactName'),
             self::SITE_EMAIL => __('emailTemplate.variable.site.siteContactEmail'),
+            self::SITE_SIGNATURE => __('emailTemplate.variable.site.siteSignature'),
         ];
     }
 
@@ -53,6 +55,10 @@ class SiteEmailVariable extends Variable
            self::SITE_TITLE => $this->site->getLocalizedData('title', $locale),
            self::SITE_CONTACT => $this->site->getLocalizedData('contactName', $locale),
            self::SITE_EMAIL => $this->site->getData('contactEmail'),
+           self::SITE_SIGNATURE => '<p>' .
+               $this->site->getLocalizedData('contactName', $locale). '<br/>' .
+               $this->site->getLocalizedData('title', $locale) .
+               '</p>',
        ];
     }
 }

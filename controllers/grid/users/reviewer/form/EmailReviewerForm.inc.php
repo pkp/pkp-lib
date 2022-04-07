@@ -17,26 +17,33 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-use PKP\mail\SubmissionMailTemplate;
-
+use PKP\mail\Mailable;
+use APP\submission\Submission;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use Symfony\Component\Mailer\Exception\TransportException;
+use Illuminate\Support\Facades\Mail;
+use PKP\log\SubmissionEmailLogEntry;
 
 class EmailReviewerForm extends Form
 {
     /** @var ReviewAssignment The review assignment to use for this contact */
     public $_reviewAssignment;
 
+    protected Submission $submission;
+
     /**
      * Constructor.
      *
      * @param ReviewAssignment $reviewAssignment The review assignment to use for this contact.
+     * @param Submission $submission
      */
-    public function __construct($reviewAssignment)
+    public function __construct($reviewAssignment, $submission)
     {
         parent::__construct('controllers/grid/users/reviewer/form/emailReviewerForm.tpl');
 
         $this->_reviewAssignment = $reviewAssignment;
+        $this->submission = $submission;
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'subject', 'required', 'email.subjectRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'message', 'required', 'email.bodyRequired'));
@@ -67,8 +74,6 @@ class EmailReviewerForm extends Form
      */
     public function fetch($request, $template = null, $display = false, $requestArgs = [])
     {
-        $user = Repo::user()->get($this->_reviewAssignment->getReviewerId());
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'userFullName' => $this->_reviewAssignment->getReviewerFullName(),
@@ -81,27 +86,39 @@ class EmailReviewerForm extends Form
 
     /**
      * Send the email
-     *
-     * @param Submission $submission
      */
-    public function execute($submission, ...$functionArgs)
+    public function execute(...$functionArgs)
     {
         $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
-        $email = new SubmissionMailTemplate($submission);
+        $mailable = new Mailable([$this->submission]);
+        $mailable->to($toUser->getEmail(), $toUser->getFullName());
+        $mailable->from($fromUser->getEmail(), $fromUser->getFullName());
+        $mailable->replyTo($fromUser->getEmail(), $fromUser->getFullName());
+        $mailable->subject($this->getData('subject'));
+        $mailable->body($this->getData('message'));
 
-        $email->addRecipient($toUser->getEmail(), $toUser->getFullName());
-        $email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
-        $email->setSubject($this->getData('subject'));
-        $email->setBody($this->getData('message'));
-        $email->assignParams();
-        if (!$email->send()) {
+        try {
+            Mail::send($mailable);
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao->logMailable(
+                SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_NOTIFY_REVIEWER,
+                $mailable,
+                $this->submission,
+                $fromUser,
+            );
+        } catch(TransportException $e) {
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            $notificationMgr->createTrivialNotification(
+                $fromUser->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            trigger_error($e->getMessage(), E_USER_WARNING);
         }
 
-        parent::execute($submission, ...$functionArgs);
+        parent::execute(...$functionArgs);
     }
 }

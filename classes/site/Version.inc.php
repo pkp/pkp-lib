@@ -47,17 +47,12 @@ class Version extends DataObject {
 	 * @param $version string/Version the version to compare against
 	 * @return int
 	 */
-	function compare($version, ...$plugin) {
+	function compare($version) {
 		if (is_object($version)) {
 			return $this->compare($version->getVersionString());
 		}
-		if (!empty($plugin)) {
-			$wilds = $this->findWildCards($version);
-			if (!empty($wilds)) {
-				removeWilds($version, $wilds);
-			}
-		}
-		return version_compare($this->getVersionString(true, $wilds), $version);
+		$pluginLength = strlen($version);
+		return version_compare($this->getVersionString(true, $pluginLength), $version);
 	}
 
 	/**
@@ -281,19 +276,15 @@ class Version extends DataObject {
 	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
 	 * @return string
 	 */
-	function getVersionString($numeric = true, ...$extra) {
-		if (!empty($extra)) {
-			$wild = $extra[0];
-			if (array_key_exists('build', $wild)) {
-				if (array_key_exists('revision', $wild)) {
-					if (array_key_exists('minor', $wild)) {
-						$numericVersion = sprintf('%d', $this->getMajor());
-					} else {
-						$numericVersion = sprintf('%d.%d', $this->getMajor(), $this->getMinor());
-					}
-				} else {
-					$numericVersion = sprintf('%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision());
-				}
+	function getVersionString($numeric = true, ...$optional) {
+		if (!empty($optional)) {
+			$truncatedLength = $optional[0];
+			if ($truncatedLength == 1) {
+				$numericVersion = sprintf('%d', $this->getMajor());
+			} elseif ($truncatedLength == 3) {
+				$numericVersion = sprintf('%d.%d', $this->getMajor(), $this->getMinor());
+			} elseif ($truncatedLength == 5) {
+				$numericVersion = sprintf('%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision());
 			} else {
 				$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
 			}
@@ -306,36 +297,6 @@ class Version extends DataObject {
 		if (!$numeric && $this->getProduct() == 'ops' && preg_match('/^3\.2\.0\.0/', $numericVersion)) return ('3.2.0 Beta');
 
 		return $numericVersion;
-	}
-
-	function findWildCards($version) {
-		$wilds = [];
-		$lastpos = 0;
-		while (($lastpos = strpos($version, "*", $lastpos)) !== false) {
-			if ($lastpos == 0) {
-				$wilds["error"] = 1;
-			} elseif ($lastpos == 2) {
-				$wilds["minor"] = 1;
-			} elseif ($lastpos == 4) {
-				$wilds["revision"] = 1;
-			} elseif ($lastpos == 6) {
-				$wilds["build"] = 1;
-			} else {
-				$wilds["error"] = 1;
-			}
-			$lastpos = $lastpos + 1;
-		}
-		return $wilds;
-	}
-}
-
-function removeWilds(&$version, $wild) {
-	if (array_key_exists('minor', $wild)) {
-		$version = substr($version, 0, 1);
-	} elseif (array_key_exists('revision', $wild)) {
-		$version = substr($version, 0, 3);
-	} elseif (array_key_exists('build', $wild)) {
-		$version = substr($version, 0, 5);
 	}
 }
 

@@ -51,7 +51,8 @@ class Version extends DataObject {
 		if (is_object($version)) {
 			return $this->compare($version->getVersionString());
 		}
-		return version_compare($this->getVersionString(), $version);
+		$wilds = $this->findWildCards($version);
+		return version_compare($this->getVersionString($wilds), $version);
 	}
 
 	/**
@@ -275,14 +276,49 @@ class Version extends DataObject {
 	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
 	 * @return string
 	 */
-	function getVersionString($numeric = true) {
-		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+	function getVersionString($numeric = true, ...$wild) {
+		if (!empty($wild)) {
+			if (array_key_exists('build', $wild)) {
+				if (array_key_exists('revision', $wild)) {
+					if (array_key_exists('minor', $wild)) {
+						$numericVersion = sprintf('%d', $this->getMajor());
+					} else {
+						$numericVersion = sprintf('%d.%d', $this->getMajor(), $this->getMinor());
+					}
+				} else {
+					$numericVersion = sprintf('%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision());
+				}
+			} else {
+				$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+			}
+		} else {
+			$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+		}
 		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.0\./', $numericVersion)) return ('3.0 Alpha 1');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.9\.0/', $numericVersion)) return ('3.0 Beta 1');
 		if (!$numeric && $this->getProduct() == 'ops' && preg_match('/^3\.2\.0\.0/', $numericVersion)) return ('3.2.0 Beta');
 
 		return $numericVersion;
+	}
+
+	function findWildCards($version) {
+		$wilds = [];
+		$lastpos = 0;
+		while (($lastpos = strpos($version, "*", $lastpos)) !== false) {
+			if ($lastpos == 0) {
+				$wilds["major"] = 1;
+			} elseif ($lastpos == 2) {
+				$wilds["minor"] = 1;
+			} elseif ($lastpos == 4) {
+				$wilds["revision"] = 1;
+			} elseif ($lastpos == 6) {
+				$wilds["build"] = 1;
+			} else {
+				$wilds["error"] = 1;
+			}
+		}
+		return $wilds;
 	}
 }
 

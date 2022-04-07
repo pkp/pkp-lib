@@ -47,12 +47,17 @@ class Version extends DataObject {
 	 * @param $version string/Version the version to compare against
 	 * @return int
 	 */
-	function compare($version) {
+	function compare($version, ...$plugin) {
 		if (is_object($version)) {
 			return $this->compare($version->getVersionString());
 		}
-		$wilds = $this->findWildCards($version);
-		return version_compare($this->getVersionString($wilds), $version);
+		if (!empty($plugin)) {
+			$wilds = $this->findWildCards($version);
+			if (!empty($wilds)) {
+				removeWilds($version, $wilds);
+			}
+		}
+		return version_compare($this->getVersionString(true, $wilds), $version);
 	}
 
 	/**
@@ -276,8 +281,9 @@ class Version extends DataObject {
 	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
 	 * @return string
 	 */
-	function getVersionString($numeric = true, ...$wild) {
-		if (!empty($wild)) {
+	function getVersionString($numeric = true, ...$extra) {
+		if (!empty($extra)) {
+			$wild = $extra[0];
 			if (array_key_exists('build', $wild)) {
 				if (array_key_exists('revision', $wild)) {
 					if (array_key_exists('minor', $wild)) {
@@ -307,7 +313,7 @@ class Version extends DataObject {
 		$lastpos = 0;
 		while (($lastpos = strpos($version, "*", $lastpos)) !== false) {
 			if ($lastpos == 0) {
-				$wilds["major"] = 1;
+				$wilds["error"] = 1;
 			} elseif ($lastpos == 2) {
 				$wilds["minor"] = 1;
 			} elseif ($lastpos == 4) {
@@ -317,8 +323,19 @@ class Version extends DataObject {
 			} else {
 				$wilds["error"] = 1;
 			}
+			$lastpos = $lastpos + 1;
 		}
 		return $wilds;
+	}
+}
+
+function removeWilds(&$version, $wild) {
+	if (array_key_exists('minor', $wild)) {
+		$version = substr($version, 0, 1);
+	} elseif (array_key_exists('revision', $wild)) {
+		$version = substr($version, 0, 3);
+	} elseif (array_key_exists('build', $wild)) {
+		$version = substr($version, 0, 5);
 	}
 }
 

@@ -292,7 +292,7 @@ class Version extends DataObject {
 	 * Returns:
 	 * 		true iff the version given is compatible with this version
 	 * 		false iff the version given is incompatible with this version
-	 * @param $version string/Version the version to compare against
+	 * @param $version string the string of constraints for the version to be checked against
 	 * @return boolean
 	 */
 	function isCompatible($version) {

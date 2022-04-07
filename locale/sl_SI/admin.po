@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
+"PO-Revision-Date: 2022-04-07 13:59+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl_SI/>\n"
@@ -325,3 +326,11 @@ msgstr "Omeji masovne emaile"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Masovni emaili"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Izbriši začasne datoteke (cash)  na datotečnem sistemu. To se lahko naredi "
+"le na razvojnem okolju."
+
+msgid "admin.deleteCache"
+msgstr "Izbriši začasni pomnilnik (cash)"

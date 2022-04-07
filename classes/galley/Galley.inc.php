@@ -3,8 +3,8 @@
 /**
  * @file classes/galley/Galley.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class galley
@@ -37,9 +37,9 @@ class Galley extends Representation
     public function getViews()
     {
         $application = Application::get();
-        $fileId = $this->getFileId();
-        if ($fileId) {
-            return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $fileId);
+        $submissionFileID = $this->getData('submissionFileId');
+        if ($submissionFileID) {
+            return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileID);
         } else {
             return 0;
         }
@@ -99,30 +99,6 @@ class Galley extends Representation
     }
 
     /**
-     * Set file ID.
-     *
-     * @deprecated 3.3
-     *
-     * @param $fileId int
-     */
-    public function setFileId($fileId)
-    {
-        $this->setData('submissionFileId', $fileId);
-    }
-
-    /**
-     * Get file id
-     *
-     * @deprecated 3.3
-     *
-     * @return int
-     */
-    public function getFileId()
-    {
-        return $this->getData('submissionFileId');
-    }
-
-    /**
      * Get the submission file corresponding to this galley.
      *
      * @deprecated 3.3
@@ -152,6 +128,8 @@ class Galley extends Representation
 
     /**
      * Determine whether the galley is a PDF.
+     *
+     * @deprecated 3.4
      *
      * @return boolean
      */

@@ -3,8 +3,8 @@
 /**
  * @file classes/galley/Collector.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class galley
@@ -32,13 +32,13 @@ class Collector implements CollectorInterface
         $this->dao = $dao;
     }
 
-    public function filterByPublicationIds(array $publicationIds): self
+    public function filterByPublicationIds(?array $publicationIds): self
     {
         $this->publicationIds = $publicationIds;
         return $this;
     }
 
-    public function filterByContextIds(array $contextIds): self
+    public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
         return $this;

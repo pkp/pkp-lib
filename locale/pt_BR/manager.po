@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-07 23:13+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2806,3 +2806,42 @@ msgstr "Precisa de DOI"
 
 msgid "emailTemplate.variable.context.mailingAddress"
 msgstr "O endereço de correspondência da revista"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Confirmar avaliação"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Este e-mail é enviado automaticamente quando um avaliador não conclui sua "
+"avaliação até a data de vencimento."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Lembrete de avaliação (automatizado)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Este e-mail é enviado por um Editor para lembrar a um avaliador que sua "
+"avaliação está atrasada"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Lembrete de avaliação"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Este e-mail é enviado por um avaliador ao recusar uma solicitação de "
+"avaliação"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Recusar revisão"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Este e-mail é enviado automaticamente quando um avaliador aceita uma "
+"solicitação de avaliação"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"URL com hash que é enviado a um usuário para confirmar a redefinição de senha"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "A assinatura de e-mail do site para e-mails automatizados"

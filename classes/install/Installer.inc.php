@@ -24,6 +24,7 @@ define('INSTALLER_ERROR_DB', 2);
 // Default data
 define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 
+import('lib.pkp.classes.xml.PKPXMLParser');
 import('lib.pkp.classes.db.DBDataXMLParser');
 import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');

@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying NavigationMenu objects.
  */
 
-
+import('lib.pkp.classes.xml.PKPXMLParser');
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
 
 class NavigationMenuDAO extends DAO {

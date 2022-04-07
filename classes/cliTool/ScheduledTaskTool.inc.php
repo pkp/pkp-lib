@@ -17,6 +17,7 @@
 /** Default XML tasks file to parse if none is specified */
 define('TASKS_REGISTRY_FILE', 'registry/scheduledTasks.xml');
 
+import('lib.pkp.classes.xml.PKPXMLParser');
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskDAO');

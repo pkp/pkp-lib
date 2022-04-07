@@ -15,6 +15,7 @@
  * hook implementation.
  */
 
+import('lib.pkp.classes.xml.PKPXMLParser');
 import('lib.pkp.classes.plugins.GenericPlugin');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 

@@ -13,6 +13,8 @@
  * @brief Operations for retrieving and modifying settings.
  */
 
+import('lib.pkp.classes.xml.PKPXMLParser');
+ 
 abstract class SettingsDAO extends DAO {
 	/**
 	 * Retrieve (and newly cache) all settings.

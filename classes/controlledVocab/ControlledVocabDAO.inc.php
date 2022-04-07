@@ -14,6 +14,7 @@
  * @brief Operations for retrieving and modifying ControlledVocab objects.
  */
 
+import('lib.pkp.classes.xml.PKPXMLParser');
 import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {

@@ -455,6 +455,9 @@ msgstr "The URL to the server's homepage"
 msgid "emailTemplate.variable.context.contactName"
 msgstr "The name of the server's primary contact"
 
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr "The server's email signature for automated emails"
+
 msgid "emailTemplate.variable.context.principalContactSignature"
 msgstr "The server's email signature for automated emails"
 

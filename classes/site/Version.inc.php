@@ -51,8 +51,8 @@ class Version extends DataObject {
 		if (is_object($version)) {
 			return $this->compare($version->getVersionString());
 		}
-		$breaks = substr_count($version, ".");
-		return version_compare($this->getVersionString(true, $breaks), $version);
+		$seperators = substr_count($version, ".");
+		return version_compare($this->getVersionString(true, $seperators), $version);
 	}
 
 	/**
@@ -274,14 +274,15 @@ class Version extends DataObject {
 	/**
 	 * Return complete version string.
 	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
+	 * @seperators	integer	4	(default) The number of seperators (.) in the version string, used to truncate to the same number of seperators.
 	 * @return string
 	 */
-	function getVersionString($numeric = true, $breaks = 3) {
-		if ($breaks == 0) {
+	function getVersionString($numeric = true, $seperators = 3) {
+		if ($seperators == 0) {
 			$numericVersion = sprintf('%d', $this->getMajor());
-		} elseif ($breaks == 1) {
+		} elseif ($seperators == 1) {
 			$numericVersion = sprintf('%d.%d', $this->getMajor(), $this->getMinor());
-		} elseif ($breaks == 2) {
+		} elseif ($seperators == 2) {
 			$numericVersion = sprintf('%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision());
 		} else {
 			$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());

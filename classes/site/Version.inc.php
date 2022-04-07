@@ -13,8 +13,7 @@
  *
  * @brief Describes system version history.
  */
-use Composer\Semver\VersionParser;
-use Composer\Semver\Semver as Sem;
+use Composer\Semver\Semver;
 
 class Version extends DataObject {
 	/**
@@ -287,7 +286,9 @@ class Version extends DataObject {
 	}
 
 	/**
-	 * Checks if this version is compatible with given version
+	 * Checks if the Version is compatible with the given string of constraints for the version, 
+	 * formatted per composer/semver specifications; 
+	 * c.f. https://getcomposer.org/doc/articles/versions.md#writing-version-constraints
 	 * Returns:
 	 * 		true iff the version given is compatible with this version
 	 * 		false iff the version given is incompatible with this version
@@ -295,36 +296,14 @@ class Version extends DataObject {
 	 * @return boolean
 	 */
 	function isCompatible($version) {
-		$versionParser = new VersionParser();
-		$semver = new Sem();
-		$parsed = $versionParser->parseConstraints($version);
-		$systemVersion = $this->getVersionString();
-		if ($parsed instanceof Composer\Semver\Constraint\MultiConstraint) {
-			$success = false;
-			$localFailure = false;
-			$multiConstraints = $parsed->getConstraints();
-			foreach ($multiConstraints as $constraints) {
-				$localFailure = false;
-				if ($constraints instanceof Composer\Semver\Constraint\MultiConstraint) {
-					$constraintsLV2 = $constraints->getConstraints();
-					foreach ($constraintsLV2 as $constraint) {
-						if (!($semver->satisfies($systemVersion, $constraint))){
-							$localFailure = true;
-							break;
-						}
-					}
-					if (!($localFailure)) {
-						return true;
-					}
-				} else {
-					if ($semver->satisfies($systemVersion, $constraints)){
-						return true;
-					}
-				}
-			}
-			return $success;
+		
+		if (is_object($version)) {
+			$stop = true;
 		}
-		return $semver->satisfies($systemVersion, $parsed);
+		$semver = new Semver();
+		$systemVersion = $this->getVersionString();
+		
+		return $semver->satisfies($systemVersion, $version);
 	}
 }
 

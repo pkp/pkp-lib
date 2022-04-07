@@ -292,14 +292,14 @@ class Version extends DataObject {
 	 * Returns:
 	 * 		true iff the version given is compatible with this version
 	 * 		false iff the version given is incompatible with this version
-	 * @param $version string the string of constraints for the version to be checked against
+	 * @param $constraints string the string of constraints for the version to be checked against
 	 * @return boolean
 	 */
-	function isCompatible($version) {
+	function isCompatible($constraints) {
 		$semver = new Semver();
-		$systemVersion = $this->getVersionString();
+		$version = $this->getVersionString();
 		
-		return $semver->satisfies($systemVersion, $version);
+		return $semver->satisfies($version, $constraints);
 	}
 }
 

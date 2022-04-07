@@ -52,24 +52,7 @@ class Version extends DataObject {
 		if (is_object($version)) {
 			return $this->compare($version->getVersionString());
 		}
-		
-		$versionParser = new VersionParser();
-		$semver = new Sem();
-		$parsed = $versionParser->parseConstraints($version);
-		$systemVersion = $this->getVersionString();
-		if ($parsed instanceof Composer\Semver\Constraint\MultiConstraint) {
-			$constraints = $parsed->getConstraints();
-			foreach ($constraints as $constraint) {
-				if (!($semver->satisfies($systemVersion, $constraint))) {
-					return version_compare($systemVersion, $constraint->getVersion());
-				}
-			}
-		} else {
-			if (!$semver->satisfies($systemVersion, $parsed)) {
-				return version_compare($systemVersion, $parsed->getVersion());
-			}
-		}
-		return 0;
+		return version_compare($this->getVersionString(), $version);
 	}
 
 	/**
@@ -291,18 +274,57 @@ class Version extends DataObject {
 	/**
 	 * Return complete version string.
 	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
-	 * @seperators	integer	4	(default) The number of seperators (.) in the version string, used to truncate to the same number of seperators.
 	 * @return string
 	 */
 	function getVersionString($numeric = true) {
 		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
-		
 		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.0\./', $numericVersion)) return ('3.0 Alpha 1');
 		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.9\.0/', $numericVersion)) return ('3.0 Beta 1');
 		if (!$numeric && $this->getProduct() == 'ops' && preg_match('/^3\.2\.0\.0/', $numericVersion)) return ('3.2.0 Beta');
 
 		return $numericVersion;
+	}
+
+	/**
+	 * Checks if this version is compatible with given version
+	 * Returns:
+	 * 		true iff the version given is compatible with this version
+	 * 		false iff the version given is incompatible with this version
+	 * @param $version string/Version the version to compare against
+	 * @return boolean
+	 */
+	function isCompatible($version) {
+		$versionParser = new VersionParser();
+		$semver = new Sem();
+		$parsed = $versionParser->parseConstraints($version);
+		$systemVersion = $this->getVersionString();
+		if ($parsed instanceof Composer\Semver\Constraint\MultiConstraint) {
+			$success = false;
+			$localFailure = false;
+			$multiConstraints = $parsed->getConstraints();
+			foreach ($multiConstraints as $constraints) {
+				$localFailure = false;
+				if ($constraints instanceof Composer\Semver\Constraint\MultiConstraint) {
+					$constraintsLV2 = $constraints->getConstraints();
+					foreach ($constraintsLV2 as $constraint) {
+						if (!($semver->satisfies($systemVersion, $constraint))){
+							$localFailure = true;
+							break;
+						}
+					}
+					if (!($localFailure)) {
+						return true;
+					}
+				} else {
+					if ($semver->satisfies($systemVersion, $constraints)){
+						return true;
+					}
+				}
+			}
+			return $success;
+		}
+		return $semver->satisfies($systemVersion, $parsed);
 	}
 }
 

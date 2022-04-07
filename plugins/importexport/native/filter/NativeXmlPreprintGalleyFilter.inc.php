@@ -99,7 +99,7 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
         }
 
         if ($addSubmissionFile) {
-            $representation->setFileId($newSubmissionFileId);
+            $representation->setData('submissionFileId', $newSubmissionFileId);
         }
         Repo::galley()->dao->insert($representation);
 

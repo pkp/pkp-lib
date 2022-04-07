@@ -349,12 +349,12 @@ class PreprintHandler extends Handler
             }
 
             // If the file ID is not the galley's file ID, ensure it is a dependent file, or else 404.
-            if ($this->fileId != $this->galley->getFileId()) {
+            if ($this->fileId != $this->galley->getData('submissionFileId')) {
                 $collector = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
                         ASSOC_TYPE_SUBMISSION_FILE,
-                        [$this->galley->getFileId()]
+                        [$this->galley->getData('submissionFileId')]
                     )->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
                     ->includeDependentFiles();
 

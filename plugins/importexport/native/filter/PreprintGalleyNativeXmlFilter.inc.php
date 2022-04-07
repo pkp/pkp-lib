@@ -59,9 +59,9 @@ class PreprintGalleyNativeXmlFilter extends RepresentationNativeXmlFilter
      */
     public function getFiles($representation)
     {
-        if ($representation->getFileId()) {
+        if ($representation->getData('submissionFileId')) {
             return [
-                Repo::submissionFile()->get($representation->getFileId())
+                Repo::submissionFile()->get($representation->getData('submissionFileId'))
             ];
         }
 

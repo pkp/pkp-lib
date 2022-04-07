@@ -18,6 +18,7 @@
 namespace PKP\site;
 
 use APP\core\Services;
+use Illuminate\Support\Facades\DB;
 
 use PKP\services\PKPSchemaService;
 
@@ -154,7 +155,6 @@ class SiteDAO extends \PKP\db\DAO
         $this->update('UPDATE site SET ' . join(',', $set), $params);
 
         $deleteSettings = [];
-        $keyColumns = ['locale', 'setting_name'];
         foreach ($schema->properties as $propName => $propSchema) {
             if (array_key_exists($propName, $this->primaryTableColumns)) {
                 continue;
@@ -171,21 +171,17 @@ class SiteDAO extends \PKP\db\DAO
                             $localeKey,
                         ]);
                     } else {
-                        $updateArray = [
-                            'locale' => $localeKey,
-                            'setting_name' => $propName,
-                            'setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
-                        ];
-                        $result = $this->replace('site_settings', $updateArray, $keyColumns);
+                        DB::table('site_settings')->updateOrInsert(
+                            ['locale' => $localeKey, 'setting_name' => $propName],
+                            ['setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type)]
+                        );
                     }
                 }
             } else {
-                $updateArray = [
-                    'locale' => '',
-                    'setting_name' => $propName,
-                    'setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
-                ];
-                $this->replace('site_settings', $updateArray, $keyColumns);
+                DB::table('site_settings')->updateOrInsert(
+                    ['locale' => '', 'setting_name' => $propName],
+                    ['setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type)]
+                );
             }
         }
 

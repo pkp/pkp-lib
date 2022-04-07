@@ -602,7 +602,7 @@ class UserGroupDAO extends DAO
             Identity::IDENTITY_SETTING_FAMILYNAME, $locale, $primaryLocale, $locale
         ];
 
-        $sql = "SELECT u.*, $settingValue AS user_given, $settingValue AS user_family
+        $sql = "SELECT u.*, ${settingValue} AS user_given, ${settingValue} AS user_family
             FROM users AS u
             WHERE 1 = 1";
 
@@ -759,16 +759,9 @@ class UserGroupDAO extends DAO
 
         if (!$isLocalized) {
             $value = $this->convertToDB($value, $type);
-            $this->replace(
-                'user_group_settings',
-                [
-                    'user_group_id' => (int) $userGroupId,
-                    'setting_name' => $name,
-                    'setting_value' => $value,
-                    'setting_type' => $type,
-                    'locale' => ''
-                ],
-                $keyFields
+            DB::table('user_group_settings')->updateOrInsert(
+                ['user_group_id' => (int) $userGroupId, 'setting_name' => $name, 'locale' => ''],
+                ['setting_value' => $value, 'setting_type' => $type]
             );
         } else {
             if (is_array($value)) {
@@ -985,7 +978,7 @@ class UserGroupDAO extends DAO
                 }
 
                 $userSetting = "COALESCE((
-                    SELECT $concatSettingValue
+                    SELECT ${concatSettingValue}
                     FROM user_settings
                     WHERE user_id = u.user_id
                     AND setting_name = '%s'
@@ -999,7 +992,8 @@ class UserGroupDAO extends DAO
                         'u.email',
                         sprintf($userSetting, $userDao::USER_FIELD_AFFILIATION),
                         'u.username'
-                    ) . ') LIKE LOWER(?)', count($terms)
+                    ) . ') LIKE LOWER(?)',
+                    count($terms)
                 ) . ')';
                 array_push($params, ...$terms);
 
@@ -1019,7 +1013,7 @@ class UserGroupDAO extends DAO
                 $searchSql .= 'AND (' . implode(' OR ', $filters) . ') ';
             } else {
                 $filter = $searchTypeMap[$searchType];
-                $searchSql = "AND $filter";
+                $searchSql = "AND ${filter}";
                 switch ($searchMatch) {
                     case 'is':
                         $params[] = $search;

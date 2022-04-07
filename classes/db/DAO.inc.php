@@ -182,8 +182,9 @@ class DAO
      */
     public function replace($table, $arrFields, $keyCols)
     {
-        $queryBuilder = new \Staudenmeir\LaravelUpsert\Query\Builder(DB::connection());
-        return $queryBuilder->from($table)->upsert($arrFields, $keyCols);
+        $matchValues = array_filter($arrFields, fn ($key) => in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
+        $additionalValues = array_filter($arrFields, fn ($key) => !in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
+        DB::table($table)->updateOrInsert($matchValues, $additionalValues);
     }
 
     /**

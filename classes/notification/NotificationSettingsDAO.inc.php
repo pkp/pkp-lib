@@ -18,6 +18,7 @@
 namespace PKP\notification;
 
 use APP\notification\Notification;
+use Illuminate\Support\Facades\DB;
 
 class NotificationSettingsDAO extends \PKP\db\DAO
 {
@@ -61,19 +62,11 @@ class NotificationSettingsDAO extends \PKP\db\DAO
      */
     public function updateNotificationSetting($notificationId, $name, $value, $isLocalized = false, $type = null)
     {
-        $keyFields = ['setting_name', 'locale', 'notification_id'];
         if (!$isLocalized) {
             $value = $this->convertToDB($value, $type);
-            $this->replace(
-                'notification_settings',
-                [
-                    'notification_id' => (int) $notificationId,
-                    'setting_name' => $name,
-                    'setting_value' => $value,
-                    'setting_type' => $type,
-                    'locale' => ''
-                ],
-                $keyFields
+            DB::table('notification_settings')->updateOrInsert(
+                ['notification_id' => (int) $notificationId, 'setting_name' => $name, 'locale' => ''],
+                ['setting_value' => $value, 'setting_type' => $type]
             );
         } else {
             if (is_array($value)) {

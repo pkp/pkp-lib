@@ -15,6 +15,8 @@
 
 namespace PKP\views;
 
+use Illuminate\Support\Facades\DB;
+
 class ViewsDAO extends \PKP\db\DAO
 {
     /**
@@ -24,19 +26,12 @@ class ViewsDAO extends \PKP\db\DAO
      * @param string $assocId The id of the object being marked.
      * @param int $userId The id of the user viewing the item.
      *
-     * @return int RECORD_VIEW_RESULT_...
      */
-    public function recordView($assocType, $assocId, $userId)
+    public function recordView($assocType, $assocId, $userId): bool
     {
-        return $this->replace(
-            'item_views',
-            [
-                'date_last_viewed' => date('Y-m-d H:i:s'),
-                'assoc_type' => (int) $assocType,
-                'assoc_id' => $assocId,
-                'user_id' => (int) $userId
-            ],
-            ['assoc_type', 'assoc_id', 'user_id']
+        return DB::table('item_views')->updateOrInsert(
+            ['assoc_type' => (int) $assocType, 'assoc_id' => $assocId, 'user_id' => (int) $userId],
+            ['date_last_viewed' => date('Y-m-d H:i:s')]
         );
     }
 

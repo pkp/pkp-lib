@@ -10,10 +10,10 @@
 #
 
 # Run php-cs-fixer on all committed changes
-git diff --name-only --diff-filter=d --cached | xargs ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes --path-mode=intersection --config=.php_cs -q
+git diff --name-only --diff-filter=d --cached | xargs ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes --path-mode=intersection --config=.php-cs-fixer.php -q
 
 # Run php-cs-fixer again with --dry-run to throw an error if any files could not be automatically formatted
-git diff --name-only --diff-filter=d --cached | xargs ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --path-mode=intersection --config=.php_cs
+git diff --name-only --diff-filter=d --cached | xargs ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --path-mode=intersection --config=.php-cs-fixer.php
 
 if [ $? -eq 0 ]
 then

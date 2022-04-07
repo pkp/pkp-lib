@@ -15,6 +15,8 @@
 
 namespace PKP\tombstone;
 
+use Illuminate\Support\Facades\DB;
+
 class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
 {
     /**
@@ -60,16 +62,9 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
     {
         if (!$isLocalized) {
             $value = $this->convertToDB($value, $type);
-            $this->replace(
-                'data_object_tombstone_settings',
-                [
-                    'tombstone_id' => $tombstoneId,
-                    'setting_name' => $name,
-                    'setting_value' => $value,
-                    'setting_type' => $type,
-                    'locale' => ''
-                ],
-                ['tombstone_id', 'setting_name', 'locale']
+            DB::table('data_object_tombstone_settings')->updateOrInsert(
+                ['tombstone_id' => $tombstoneId, 'setting_name' => $name, 'locale' => ''],
+                ['setting_value' => $value, 'setting_type' => $type]
             );
         }
         if (is_array($value)) {

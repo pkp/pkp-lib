@@ -17,6 +17,7 @@
 
 namespace PKP\navigationMenu;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\xml\XMLNode;
@@ -433,16 +434,9 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
         if (!$isLocalized) {
             $value = $this->convertToDB($value, $type);
-            $this->replace(
-                'navigation_menu_item_settings',
-                [
-                    'navigation_menu_item_id' => (int) $navigationMenuItemId,
-                    'setting_name' => $name,
-                    'setting_value' => trim($value, '##'),
-                    'setting_type' => $type,
-                    'locale' => ''
-                ],
-                $keyFields
+            DB::table('navigation_menu_item_settings')->updateOrInsert(
+                ['navigation_menu_item_id' => (int) $navigationMenuItemId, 'setting_name' => $name, 'locale' => ''],
+                ['setting_value' => trim($value, '##'), 'setting_type' => $type]
             );
         } else {
             if (is_array($value)) {

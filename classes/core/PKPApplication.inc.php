@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Application;
 
 use APP\core\Request;
-use PKP\facades\Locale;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use DateTimeZone;
@@ -30,6 +29,7 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;
@@ -83,7 +83,7 @@ interface iPKPApplicationInfoProvider
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
 {
-    public const PHP_REQUIRED_VERSION = '8.0.0';
+    public const PHP_REQUIRED_VERSION = '8.0.2';
 
     // Constant used to distinguish between editorial and author workflows
     public const WORKFLOW_TYPE_EDITORIAL = 'editorial';
@@ -235,7 +235,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $this->initializeTimeZone();
 
         if (Config::getVar('database', 'debug')) {
-            DB::listen(fn(QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
+            DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
     }
 

@@ -39,7 +39,7 @@ class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
 
         $this->localeKey = array_shift($argv);
 
-        if (sizeof($this->argv) > 2) {
+        if (!empty($argv)) {
             $this->dirs = $argv;
         }
     }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-08 18:37+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2768,3 +2768,42 @@ msgstr "Necessita de DOI"
 
 msgid "emailTemplate.variable.context.mailingAddress"
 msgstr "O endereço de correspondência da revista"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Este e-mail é automaticamente enviar quando um revisor não concluiu a "
+"revisão dentro do prazo."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Lembrete de Revisão (automático)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Este e-mail é enviar por um Editor para lembrar um revisor que o prazo foi "
+"ultrapassado"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Lembrete de Revisão"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Este e-mail é enviado por um revisor quando rejeita um pedido de revisão"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Rejeitar revisão"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Este e-mail é automaticamente enviado quando um revisor aceita aceita a "
+"revisor"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Confirmar revisão"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"URL com hash que é enviado para o utilizador para confirmar a redefinição de "
+"senha"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "A assinatura do e-mail do website para e-mail automáticos"

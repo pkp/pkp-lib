@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-01 08:35+0000\n"
+"PO-Revision-Date: 2022-04-08 18:37+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3035,3 +3035,45 @@ msgstr "За елемента от формуляра е необходим въ
 
 msgid "manager.reviewFormElements.form.elementTypeRequired"
 msgstr "За елемента на формуляра се изисква тип елемент."
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Този имейл е изпратен автоматично, за да напомни на рецензента, че е изтекло "
+"времето за рецензиране."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Напомняне за рецензиране (автоматично)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Този имейл е изпратен от редактор, за да напомни на рецензента, че е изтекло "
+"времето за рецензиране"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Напомняне за рецензиране"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Този имейл се изпраща от рецензент, когато отхвърля заявка за рецензиране"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Отказ за рецензиране"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Този имейл се изпраща автоматично, когато рецензентът приеме заявка за "
+"рецензия"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Потвърждение за рецензиране"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Хеширан URL адрес, който се изпраща на потребител, за да потвърди нулирането "
+"на паролата"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Имейл подпис на уебсайта за автоматизирани имейли"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "URL адресът на заданието за рецензия"

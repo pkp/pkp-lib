@@ -3,7 +3,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-02 09:35+0000\n"
+"PO-Revision-Date: 2022-04-08 03:39+0000\n"
 "Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "kk_KZ/>\n"
@@ -495,3 +495,10 @@ msgstr "Редакциялық есеп туралы хабарлама"
 
 msgid "admin.scheduledTask.depositDois"
 msgstr "DOI-ді теңшелген тіркеу агенттігіне енгізіңіз"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Жүйеден кэш файлдарын жойыңыз. Бұл тек әзірлеу орталарында жасалуы керек."
+
+msgid "admin.deleteCache"
+msgstr "Кэштерді жою"

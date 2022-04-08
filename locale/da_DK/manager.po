@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-04-05 05:57+0000\n"
+"PO-Revision-Date: 2022-04-08 18:37+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -1719,7 +1719,7 @@ msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Standard bedømmelsesindstilling"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Bedømmelses-påmindelse"
+msgstr "Påmindelse om bedømmelse"
 
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Svarpåmindelse"
@@ -2871,3 +2871,42 @@ msgstr "Kræver DOI"
 
 msgid "emailTemplate.variable.context.mailingAddress"
 msgstr "Dette tidsskrifts postadresse"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Denne e-mail sendes automatisk, når en bedømmer ikke har færdiggjort sin "
+"bedømmelse inden forfaldsdatoen."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Påmindelse om bedømmelse (automatisk)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Denne e-mail sendes af en redaktør for at påminde en bedømmer om at "
+"vedkommendes bedømmelse skulle have været afleveret"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Påmindelse om bedømmelse"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Denne e-mail sendes af en bedømmer, når vedkommende afviser en anmodning om "
+"bedømmelse"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Afvis bedømmelse"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Bekræft bedømmelse"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Denne e-mail sendes automatisk når en bedømmer accepterer en anmodning om "
+"bedømmelse"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Hashed URL, som sendes til brugeren for at bekræfte nulstilling af password"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Hjemmesidens e-mail-signatur til automatiserede e-mails"

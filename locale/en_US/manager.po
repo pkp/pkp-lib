@@ -245,6 +245,9 @@ msgstr "Items successfully assigned new DOIs"
 msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "Items successfully submitted for deposit"
 
+msgid "manager.genres.alertDelete"
+msgstr "Before this component can be deleted, you must associate all related submission files with a different component."
+
 msgid "manager.publication.submissionStage"
 msgstr "Submission"
 

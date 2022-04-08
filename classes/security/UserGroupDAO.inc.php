@@ -16,6 +16,7 @@
 
 import('lib.pkp.classes.security.UserGroup');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Query\Builder;

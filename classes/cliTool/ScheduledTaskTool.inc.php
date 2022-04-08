@@ -20,6 +20,7 @@ define('TASKS_REGISTRY_FILE', 'registry/scheduledTasks.xml');
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskDAO');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 class ScheduledTaskTool extends CommandLineTool {
 	/** @var string the XML file listing the tasks to be executed */

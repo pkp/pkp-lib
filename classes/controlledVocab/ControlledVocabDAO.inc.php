@@ -15,6 +15,7 @@
  */
 
 import('lib.pkp.classes.controlledVocab.ControlledVocab');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 class ControlledVocabDAO extends DAO {
 

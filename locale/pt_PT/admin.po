@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-02-17 15:54+0000\n"
+"PO-Revision-Date: 2022-04-08 18:37+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_PT/>\n"
@@ -31,7 +31,7 @@ msgid "admin.authSources"
 msgstr "Fontes de Autenticação"
 
 msgid "admin.clearDataCache"
-msgstr "Limpar Cache de Dados"
+msgstr "Eliminar Cache de Dados"
 
 msgid "admin.clearTemplateCache"
 msgstr "Limpar Cache do Template"
@@ -226,7 +226,7 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Tem a certeza que pretende eliminar todos os registos das tarefas agendadas executadas?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Limpar Registos/Logs das Tarefas Eexecutadas"
+msgstr "Limpar Registos/Logs das Tarefas"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Lembrete Revisão"
@@ -462,3 +462,36 @@ msgstr "Reservado a"
 
 msgid "admin.scheduledTask.depositDois"
 msgstr "Depositar os DOIs na agência de registo configurada"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Ver Tarefas"
+
+msgid "navigation.tools.jobs.description"
+msgstr "Ver todas as tarefas em fila no sistema e reveja as tarefas falhadas."
+
+msgid "admin.systemInformation.view"
+msgstr "Ver Informação do sistema"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Ver informação sobre a versão e as definições de configuração do sistema e "
+"do servidor."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Eliminar registos de tarefas"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Elimine todos os registos de tarefas agendadas que foram executadas."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Todos os utilizadores serão imediatamente ser desligados do sistema, "
+"incluindo você, e terá que fazer login novamente."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Elimine os ficheiros de cache do sistema. Isto só poderá ser feito em "
+"ambientes de desenvolvimento."
+
+msgid "admin.deleteCache"
+msgstr "Eliminar Caches"

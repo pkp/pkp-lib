@@ -572,7 +572,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
 
                 case $this->sectionIdsQueryParam:
                 case 'submissionIds':
-                    if (is_string($value) && strpos($value, ',') > -1) {
+                    if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {
                         $value = [$value];

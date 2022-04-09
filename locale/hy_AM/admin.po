@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-18 23:01+0000\n"
+"PO-Revision-Date: 2022-04-09 16:07+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -87,10 +87,10 @@ msgstr ""
 "կարգավորել  <tt>config.inc.php</tt> ֆայլը."
 
 msgid "admin.clearTemplateCache"
-msgstr "Մաքրել  Template-ի քեշը"
+msgstr "Ջնջել ձևանմուշ քեշը"
 
 msgid "admin.clearDataCache"
-msgstr "Մաքրել տվյալների քեշը"
+msgstr "Ջնջել տվյալների քեշը"
 
 msgid "admin.authSources"
 msgstr "Նույնականացման աղբյուր"
@@ -300,7 +300,7 @@ msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Հրապարակել  ներկայացված հոդվածները"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Մաքրել պլանավորված առաջադրանքների կատարման գրանցամատյանները"
+msgstr "Մաքրել պլանավորված առաջադրանքների գրանցամատյանները"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -499,3 +499,38 @@ msgstr "Օգտագործում:"
 
 msgid "admin.scheduledTask.depositDois"
 msgstr "Ավանդադրեք DOI-ներ կազմաձևված գրանցման գործակալությունում"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Դիտեք աշխատանքները"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Դիտեք համակարգում հերթագրված բոլոր աշխատանքները և հետևեք ձախողված փորձերին:"
+
+msgid "admin.systemInformation.view"
+msgstr "Դիտեք համակարգի տեղեկատվությունը"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Դիտեք հավելվածի և սպասարկող կայանի տարբերակի և կազմաձևման կարգավորումների "
+"մասին տեղեկատվությունը:"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Ջնջել առաջադրանքների գրանցամատյանները"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Ջնջել պլանավորված առաջադրանքների գործընթացների բոլոր մատյանները, որոնք "
+"գործարկվել են:"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Բոլոր օգտատերերն, այդ թվում և դուք, անմիջապես դուրս կգաք հավելվածից, և պետք "
+"է նորից մուտք գործեք:"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Ջնջել քեշի նիշքերը համակարգից: Դա պետք է արվի միայն զարգացման միջավայրում:"
+
+msgid "admin.deleteCache"
+msgstr "Ջնջել քեշերը"

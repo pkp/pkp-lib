@@ -431,6 +431,21 @@ abstract class PKPStatsEditorialQueryBuilder
     }
 
     /**
+     * Get the count of submissions skipped by the other statistics
+     */
+    public function countSkipped(): int
+    {
+        $query = $this->_getObject()
+            ->whereColumn('s.submission_id', '=', 'parent.submission_id');
+
+        // Select rows which are not present in the default query
+        $skippedQuery = DB::table('submissions AS parent')
+            ->addWhereExistsQuery($query, 'and',  true);
+
+        return $skippedQuery->count();
+    }
+
+    /**
      * Retrieves a suitable diff by days clause according to the active database driver
      *
      * @return string

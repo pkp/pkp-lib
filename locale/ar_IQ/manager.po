@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-09 16:07+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2636,3 +2636,42 @@ msgstr ""
 
 msgid "emailTemplate.variable.context.mailingAddress"
 msgstr "عنوان المراسلة للمجلة"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد "
+"تسليم التحكيم"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "تذكير التحكيم (مؤتمت)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل من قبل المحرر لتذكير المحكم باستيجاب موعد تسليم "
+"التحكيم"
+
+msgid "mailable.reviewRemind.name"
+msgstr "تذكير التحكيم"
+
+msgid "mailable.reviewDecline.description"
+msgstr "هذا البريد الالكتروني يُرسل من قبل المحكم عند رفضه لالتماس التحكيم"
+
+msgid "mailable.reviewDecline.name"
+msgstr "رفض التحكيم"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "هذا البريد الالكتروني يُرسل تلقائيًا عند قبول المحكم بالتماس التحكيم"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "تأكيد التحكيم"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "الرابط المشفر المرسل إلى المستخدم لتأكيد إعادة تعيين كلمة المرور"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "توقيع رسائل البريد الالكتروني المؤتمتة في الموقع"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"قبل أن يتسنى حذف هذا المكون، عليك ربط كل ملفات طلب التقديم ذات الصلة بمكون "
+"آخر."

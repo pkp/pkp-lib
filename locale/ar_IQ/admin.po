@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-03-22 17:35+0000\n"
+"PO-Revision-Date: 2022-04-09 16:07+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -38,10 +38,10 @@ msgid "admin.authSources"
 msgstr "مصادر التوثيق"
 
 msgid "admin.clearDataCache"
-msgstr "إزالة البيانات المخبأة"
+msgstr "حذف خبء البيانات"
 
 msgid "admin.clearTemplateCache"
-msgstr "إزالة القوالب المخبأة"
+msgstr "حذف خبء القوالب"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr "ملف التعريف الخاص بك تم تحديثه بنجاح. لطفاً، لاحظ أنه إن لم يعد موقعك عاملاً بالشكل الصحيح، فقد تضطر إلى إجراء التصحيح على ملف التعريف يدوياً عبر التعديل المباشر على الملف<tt>config.inc.php</tt>."
@@ -134,7 +134,7 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "هل أنت متأكد من رغبتك في حذف بيانات توثيق المهام المجدولة جميعاً؟"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "إزالة بيانات توثيق المهام المجدولة"
+msgstr "إزالة سجلات وقوعات المهام المجدولة"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "نشر طلبات التقديم المجدولة للنشر"
@@ -458,3 +458,32 @@ msgstr "command [arguments]"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "طريقة الاستعمال:"
+
+msgid "navigation.tools.jobs.view"
+msgstr "معاينة الوظائف"
+
+msgid "navigation.tools.jobs.description"
+msgstr "معاينة كل الوظائف التي في طابور النظام وتقفي المحاولات الفاشلة."
+
+msgid "admin.systemInformation.view"
+msgstr "معاينة معلومات النظام"
+
+msgid "admin.systemInformation.description"
+msgstr "معاينة معلومات عن الإصدار وإعدادات التهيئة للبرنامج وللملقم."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "حذف سجلات وقوعات المهام"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "إزالة كل سجلات الوقوعات لعمليات المهام المجدولة التي جرى تشغيلها."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"سيتم إخراج كل المستخدمين فورًا من البرنامج، بما فيهم أنت، وسيترتب عليهم "
+"تسجيل الدخول مجددًا."
+
+msgid "admin.deleteCache.description"
+msgstr "حذف الملفات المخبأة من النظام. ينبغي القيام بذلك فقط في بيئات التطوير."
+
+msgid "admin.deleteCache"
+msgstr "حذف المخبوءات"

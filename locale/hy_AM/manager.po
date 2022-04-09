@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-01 08:35+0000\n"
+"PO-Revision-Date: 2022-04-09 16:07+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2968,3 +2968,50 @@ msgstr "Անհրաժեշտ է DOI"
 
 msgid "emailTemplate.variable.context.mailingAddress"
 msgstr "Ամսագրի փոստային հասցեն"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Այս նամակն ավտոմատ կերպով ուղարկվում է, երբ գրախոսը չի ավարտել իր "
+"վերանայումը մինչև սահմանված ժամկետը:"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Վերանայման հիշեցում (ինքնաշխատ դարձված)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Այս նամակն ուղարկվում է Խմբագրի կողմից՝ գրախոսին հիշեցնելու, որ իր "
+"վերանայումն ենթակա է ավարտվի"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Գրախոսման հիշեցում"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Այս նամակն ուղարկվում է գրախոսի կողմից, երբ մերժում է վերանայման հարցումը"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Վերանայումը մերժել"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Այս նամակն ինքնաշխատ կերպով ուղարկվում է, երբ գրախոսն ընդունում է վերանայման "
+"հարցումը"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Վերանայումը հաստատել"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Հիշված URL, որն ուղարկվում է օգտատիրոջը՝ գաղտնաբառի վերակայումը հաստատելու "
+"համար"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Կայքի էլ․ փոստի ստորագրությունը ինքնաշխատ դարձրած էլ․ փոստերի համար"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "Վերանայման առաջադրանքի URL-ը"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Նախքան այս բաղադրիչը ջնջելը, դուք պետք է կապակցեք ներկայացման բոլոր նիշքերը "
+"մեկ այլ բաղադրիչի հետ:"

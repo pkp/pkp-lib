@@ -31,6 +31,8 @@ class PKPStatsEditorialService {
 
 		$received = $this->countSubmissionsReceived($args);
 		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
+		$submissionsPublished = $this->countSubmissionsPublished($args);
+		$submissionsSkipped = $this->countSubmissionsSkipped($args);
 		$declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
 		$declinedReview = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
 		$declined = $declinedDesk + $declinedReview;
@@ -113,7 +115,12 @@ class PKPStatsEditorialService {
 			[
 				'key' => 'submissionsPublished',
 				'name' => 'stats.name.submissionsPublished',
-				'value' => $this->countSubmissionsPublished($args),
+				'value' => $submissionsPublished,
+			],
+			[
+				'key' => 'submissionsSkipped',
+				'name' => 'stats.name.submissionsSkipped',
+				'value' => $submissionsSkipped,
 			],
 			[
 				'key' => 'daysToDecision',
@@ -342,6 +349,19 @@ class PKPStatsEditorialService {
 	 */
 	public function countByStatus($statuses, $args = []) {
 		return $this->getQueryBuilder($args)->countByStatus((array) $statuses);
+	}
+
+	/**
+	 * Get a count of the submissions which are skipped by the other statistics
+	 *
+	 * Date restrictions will not be applied. It will return the count of
+	 * all skipped submissions.
+	 *
+	 * @param array $args See self::getQueryBuilder()
+	 * @return int
+	 */
+	public function countSubmissionsSkipped($args = []) {
+		return $this->getQueryBuilder($args)->countSkipped();
 	}
 
 	/**

@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-09 16:07+0000\n"
+"PO-Revision-Date: 2022-04-11 10:45+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3082,3 +3082,12 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Преди този компонент да може да бъде изтрит, трябва да асоциирате всички "
 "свързани файлове за подадените материали с различен компонент."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Други подадени материали"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Това включва подадени материали, които не се отчитат в други суми, като "
+"тези, които все още са в етам на редакиране и тези, които изглежда са "
+"импортирани."

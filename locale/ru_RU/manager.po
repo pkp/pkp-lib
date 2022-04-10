@@ -2173,7 +2173,7 @@ msgstr "Адрес электронной почты отправителя"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "ФИО отправителя"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL задания на рецензию"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

@@ -110,7 +110,7 @@ class ManagementHandler extends Handler
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
-        $locales = $context->getSupportedSubmissionLocaleNames();
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $contactForm = new PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
@@ -172,7 +172,7 @@ class ManagementHandler extends Handler
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
-        $locales = $context->getSupportedSubmissionLocaleNames();
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
@@ -226,7 +226,7 @@ class ManagementHandler extends Handler
         $contextApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
         $emailTemplatesApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'emailTemplates');
 
-        $locales = $context->getSupportedSubmissionLocaleNames();
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
@@ -283,7 +283,7 @@ class ManagementHandler extends Handler
         $sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
         $paymentsUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_payments');
 
-        $locales = $context->getSupportedSubmissionLocaleNames();
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
@@ -322,7 +322,7 @@ class ManagementHandler extends Handler
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
         $context = $request->getContext();
 
-        $locales = $context->getSupportedSubmissionLocaleNames();
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());

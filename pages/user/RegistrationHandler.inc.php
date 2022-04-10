@@ -24,6 +24,7 @@ use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
 use PKP\security\AccessKeyManager;
 use PKP\user\form\RegistrationForm;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class RegistrationHandler extends UserHandler
 {
@@ -76,7 +77,7 @@ class RegistrationHandler extends UserHandler
             } else {
                 event(new UserRegisteredSite($user, $request->getSite()));
             }
-        } catch(Swift_TransportException $e) {
+        } catch(TransportException $e) {
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
                 $userId,

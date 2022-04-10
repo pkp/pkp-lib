@@ -2356,7 +2356,7 @@ msgstr "Afsenders e-mail-adresse"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Afsenders fulde navn"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Webadressen til bedømmelsestildelingen"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

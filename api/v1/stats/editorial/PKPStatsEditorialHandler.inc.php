@@ -92,7 +92,7 @@ abstract class PKPStatsEditorialHandler extends APIHandler
                     break;
 
                 case $this->sectionIdsQueryParam:
-                    if (is_string($value) && strpos($value, ',') > -1) {
+                    if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {
                         $value = [$value];
@@ -144,7 +144,7 @@ abstract class PKPStatsEditorialHandler extends APIHandler
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
                 case $this->sectionIdsQueryParam:
-                    if (is_string($value) && strpos($value, ',') > -1) {
+                    if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {
                         $value = [$value];

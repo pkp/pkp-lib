@@ -29,6 +29,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
@@ -36,25 +37,21 @@ use PKP\emailtemplate\EmailTemplate;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\MailReviewerReinstated;
 use PKP\mail\mailables\MailReviewerUnassigned;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\mail\traits\Sender;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\user\User;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
-
-use PKP\user\User;
-use ReinstateReviewerForm;
-use ReviewerGridCellProvider;
-
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
+use ReviewerGridCellProvider;
 use ReviewerGridRow;
-use Swift_TransportException;
-use UnassignReviewerForm;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -870,7 +867,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling.
         import('lib.pkp.controllers.grid.users.reviewer.form.EmailReviewerForm');
-        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment);
+        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment, $submission);
         if (!$request->isPost()) {
             $emailReviewerForm->initData();
             return new JSONMessage(
@@ -884,7 +881,7 @@ class PKPReviewerGridHandler extends GridHandler
             );
         }
         $emailReviewerForm->readInputData();
-        $emailReviewerForm->execute($submission);
+        $emailReviewerForm->execute();
         return new JSONMessage(true);
     }
 
@@ -959,34 +956,30 @@ class PKPReviewerGridHandler extends GridHandler
 
     /**
      * Fetches an email template's message body and returns it via AJAX.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function fetchTemplateBody($args, $request)
+    public function fetchTemplateBody(array $args, PKPRequest $request): ?JSONMessage
     {
-        $template = new SubmissionMailTemplate($this->getSubmission(), $request->getUserVar('template'));
+        $context = $request->getContext();
+        $mailable = new class([$context, $this->getSubmission()]) extends Mailable
+        {
+            use Sender;
+        };
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $request->getUserVar('template'));
+
         if (!$template) {
-            return;
+            return null;
         }
 
         $user = $request->getUser();
-        $dispatcher = $request->getDispatcher();
-        $context = $request->getContext();
-
-        $template->assignParams([
-            'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-            'editorialContactSignature' => $user->getContactSignature(),
-            'signatureFullName' => $user->getFullname(),
-            'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
+        $mailable->sender($user);
+        $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
         ]);
-        $template->replaceParams();
 
-        return new JSONMessage(true, $template->getBody());
+        $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));
+
+        return new JSONMessage(true, $body);
     }
 
 
@@ -1123,13 +1116,9 @@ class PKPReviewerGridHandler extends GridHandler
             ->sender($sender)
             ->recipients([$reviewer]);
 
-        $mailable->addData([
-            'reviewerName' => $mailable->viewData['userFullName']
-        ]);
-
         try {
             Mail::send($mailable);
-        } catch (Swift_TransportException $e) {
+        } catch (TransportException $e) {
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
                 $sender->getId(),

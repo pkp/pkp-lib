@@ -1333,16 +1333,16 @@
         },
         {
             "name": "gettext/translator",
-            "version": "v1.0.1",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Translator.git",
-                "reference": "0a80844789e6a4ffad417d2053bbb56c83b02803"
+                "reference": "b18ff33e8203de623854561f5e47e992fc5c50bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Translator/zipball/0a80844789e6a4ffad417d2053bbb56c83b02803",
-                "reference": "0a80844789e6a4ffad417d2053bbb56c83b02803",
+                "url": "https://api.github.com/repos/php-gettext/Translator/zipball/b18ff33e8203de623854561f5e47e992fc5c50bb",
+                "reference": "b18ff33e8203de623854561f5e47e992fc5c50bb",
                 "shasum": ""
             },
             "require": {
@@ -1387,9 +1387,23 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/php-gettext/Translator/issues",
-                "source": "https://github.com/php-gettext/Translator/tree/v1.0.1"
+                "source": "https://github.com/php-gettext/Translator/tree/v1.1.1"
             },
-            "time": "2020-12-01T18:51:46+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/oscarotero",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/oscarotero",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/misteroom",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-02-23T20:29:40+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

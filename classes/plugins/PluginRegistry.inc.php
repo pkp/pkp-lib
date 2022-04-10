@@ -255,6 +255,7 @@ class PluginRegistry
             foreach (self::getCategories() as $category) {
                 self::loadCategory($category, $enabledOnly);
             }
+            $isLoaded = true;
         }
         return self::getAllPlugins();
     }

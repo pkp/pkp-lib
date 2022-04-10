@@ -2155,7 +2155,7 @@ msgstr "عنوان البريد الالكتروني للمرسل"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "الاسم الكامل للمرسل"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "رابط مهمة التحكيم"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

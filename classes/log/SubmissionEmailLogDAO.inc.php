@@ -64,9 +64,9 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     /**
      * Create a log entry from data in a Mailable class
      *
-     * @param integer $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
+     * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
      *
-     * @return integer The new log entry id
+     * @return int The new log entry id
      */
     public function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {

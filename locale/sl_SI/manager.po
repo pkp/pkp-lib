@@ -2278,7 +2278,7 @@ msgstr "Email naslov pošiljatelja"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Polno ime pošiljatelja"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL do recenzentske zadolžitve"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

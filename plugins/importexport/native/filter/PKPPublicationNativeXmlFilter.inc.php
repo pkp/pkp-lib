@@ -218,7 +218,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         // add controlled vocabularies
         // get the supported locale keys
-        $supportedLocales = array_keys($deployment->getContext()->getSupportedFormLocaleNames());
+        $supportedLocales = $deployment->getContext()->getSupportedFormLocales();
         $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
         foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
             $dao = DAORegistry::getDAO($mappings[0]);

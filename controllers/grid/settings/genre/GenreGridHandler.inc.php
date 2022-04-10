@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('lib.pkp.controllers.grid.settings.genre.GenreGridRow');
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
@@ -236,11 +237,27 @@ class GenreGridHandler extends SetupGridHandler
         $context = $request->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genre = $genreDao->getById($genreId, $context->getId());
-        if ($genre && $request->checkCSRF()) {
-            $genreDao->deleteObject($genre);
-            return \PKP\db\DAO::getDataChangedEvent($genre->getId());
+
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false, __('form.csrfInvalid'));
         }
-        return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
+
+        if (!$genre) {
+            return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
+        }
+
+        $submissionFilesCollector = Repo::submissionFile()
+            ->getCollector()
+            ->filterByGenreIds([$genreId]);
+        $submissionFiles = Repo::submissionFile()->getIds($submissionFilesCollector);
+
+        $genreEmpty = $submissionFiles->count() == 0;
+        if (!$genreEmpty) {
+            return new JSONMessage(false, __('manager.genres.alertDelete'));
+        }
+
+        $genreDao->deleteObject($genre);
+        return \PKP\db\DAO::getDataChangedEvent($genre->getId());
     }
 
     /**

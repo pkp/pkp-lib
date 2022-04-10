@@ -17,6 +17,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
@@ -243,16 +244,16 @@ class Repository
 
     /**
      * Retrieves a filtered user report instance
-     *
-     *		@option int contextId Context ID (required)
-     *		@option int[] userGroupIds List of user groups (all groups by default)
+     * @param array $args
+     * - @option int[] contextIds Context IDs (required)
+     * - @option int[] userGroupIds List of user groups (all groups by default)
      */
     public function getReport(array $args): Report
     {
         $dataSource = $this->getMany(
             $this->getCollector()
                 ->filterByUserGroupIds($args['userGroupIds'] ?? null)
-                ->filterByContextIds($args['contextId'] ?? [])
+                ->filterByContextIds($args['contextIds'] ?? [])
         );
         $report = new Report($dataSource);
 
@@ -379,5 +380,17 @@ class Repository
         $this->delete($this->get($oldUserId, true));
 
         return true;
+    }
+
+    /**
+     * Create a user object from the Context contact details
+     */
+    public function getUserFromContextContact(Context $context): User
+    {
+        $contextUser = $this->newDataObject();
+        $supportedLocales = $context->getSupportedFormLocales();
+        $contextUser->setData('email', $context->getData('contactEmail'));
+        $contextUser->setData('givenName', array_fill_keys($supportedLocales, $context->getData('contactName')));
+        return $contextUser;
     }
 }

@@ -2482,7 +2482,7 @@ msgstr "A feladó e-mail címe"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "A feladó teljes neve"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "A bírálói felkérés URL-e"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

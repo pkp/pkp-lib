@@ -18,13 +18,19 @@
 
 namespace PKP\user;
 
+use APP\core\Application;
+use APP\core\Request;
 use PKP\facades\Locale;
 use PKP\db\DAORegistry;
+use PKP\security\UserGroup;
+use PKP\security\UserGroupDAO;
 
 class Report
 {
     /** @var iterable The report data source, should yield /User objects */
-    private $_dataSource;
+    private iterable $_dataSource;
+
+    private Request $_request;
 
     /**
      * Constructor
@@ -34,6 +40,7 @@ class Report
     public function __construct(iterable $dataSource)
     {
         $this->_dataSource = $dataSource;
+        $this->_request = Application::get()->getRequest();
     }
 
     /**
@@ -72,9 +79,7 @@ class Report
             __('common.mailingAddress'),
             __('user.dateRegistered'),
             __('common.updated'),
-            ...array_map(function ($userGroup) {
-                return $userGroup->getLocalizedName();
-            }, $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalizedName(), $this->_getUserGroups())
         ];
     }
 
@@ -85,6 +90,7 @@ class Report
      */
     private function _getDataRow(User $user): array
     {
+        /** @var UserGroupDAO */
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $userGroups = $userGroupDao->getByUserId($user->getId());
         $groups = [];
@@ -102,18 +108,20 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            ...array_map(function ($userGroup) use ($groups) {
-                return __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no');
-            }, $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
         ];
     }
 
     /**
      * Retrieves the user groups
+     *
+     * @return UserGroup[]
      */
     private function _getUserGroups(): array
     {
         static $cache;
-        return $cache ??= iterator_to_array(DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
+        return $cache ??= iterator_to_array(
+            DAORegistry::getDAO('UserGroupDAO')->getByContextId($this->_request->getContext()->getId())->toIterator()
+        );
     }
 }

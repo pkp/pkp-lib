@@ -128,7 +128,7 @@ class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
             }
 
             if (count($newTargetLines)) {
-                file_put_contents($localeTargetFile, join("\n", $newTargetLines), FILE_APPEND);
+                file_put_contents($localeTargetFile, "\n" . join("\n", $newTargetLines), FILE_APPEND);
                 $this->output(count($newTargetLines) . ' lines added to ' . $localeTargetFile . '.');
             }
 

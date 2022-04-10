@@ -94,6 +94,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
                 case 'submissionsAccepted':
                     $acceptedSubmissions = $stat['value'];
                     break;
+                case 'submissionsSkipped':
+                    $skippedSubmissions = $stat['value'];
+                    break;
             }
         }
 
@@ -101,6 +104,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
             'newSubmissions' => $newSubmissions,
             'declinedSubmissions' => $declinedSubmissions,
             'acceptedSubmissions' => $acceptedSubmissions ?? null,
+            'skippedSubmissions' => $skippedSubmissions,
             'totalSubmissions' => Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$this->_context->getId()]]),
             'month' => $this->_getLocalizedMonthName($dateStart, $locale),
             'year' => $dateStart->format('Y'),

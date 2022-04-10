@@ -2229,7 +2229,7 @@ msgstr "Avsändarens e-postadress"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Avsändarens fullständiga namn"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL till granskningsuppdraget"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

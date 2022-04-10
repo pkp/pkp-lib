@@ -707,7 +707,7 @@ msgstr "Nama penuh penghantar"
 msgid "grid.action.createReviewForm"
 msgstr "Buat Borang Ulasan baharu"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL untuk tugasan ulasan"
 
 msgid "manager.reviewFormElements.viewable"

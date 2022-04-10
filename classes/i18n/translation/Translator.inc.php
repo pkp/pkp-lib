@@ -31,7 +31,7 @@ class Translator extends GetTextTranslator
     /**
      * Builds a translator instance from arrays
      */
-    public static function createFromTranslationsArray(array ...$translations): self
+    public static function createFromTranslationsArray(array ...$translations): static
     {
         $translator = new static();
         foreach ($translations as $translationSet) {
@@ -42,26 +42,22 @@ class Translator extends GetTextTranslator
 
     /**
      * Retrieves a singular translation
-     *
-     * @return string Empty string when a translation cannot be retrieved
      */
-    public function getSingular(string $original): string
+    public function getSingular(string $original): ?string
     {
         $translation = $this->getTranslation(null, null, $original);
-        return $translation[0] ?? '';
+        return $translation[0] ?? null;
     }
 
     /**
      * Retrieves a plural translation
-     *
-     * @return string Empty string when a translation cannot be retrieved
      */
-    public function getPlural(string $original, int $value): string
+    public function getPlural(string $original, int $value): ?string
     {
         $translation = $this->getTranslation(null, null, $original);
         $key = $this->getPluralIndex(null, $value, $translation === null);
 
-        return $translation[$key] ?? '';
+        return $translation[$key] ?? null;
     }
 
     /**

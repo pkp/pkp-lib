@@ -45,7 +45,7 @@
 				{call_hook name="Template::Settings::website::appearance"}
 			</tabs>
 		</tab>
-		<tab id="setup" label="{translate key="navigation.setup"}">
+		<tab id="configuration" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="information" label="{translate key="manager.website.information"}">

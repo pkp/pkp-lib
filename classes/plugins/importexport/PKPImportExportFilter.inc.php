@@ -16,6 +16,8 @@
 namespace PKP\plugins\importexport;
 
 // FIXME: Add namespacing
+
+use Exception;
 use NativeExportFilter;
 
 use PKP\db\DAORegistry;

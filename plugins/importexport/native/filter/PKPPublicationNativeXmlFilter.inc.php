@@ -15,7 +15,9 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
+use APP\core\Application;
 use PKP\submission\PKPSubmission;
+use PKP\submission\RepresentationDAOInterface;
 
 class PKPPublicationNativeXmlFilter extends NativeExportFilter
 {
@@ -266,7 +268,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     {
         $currentFilter = PKPImportExportFilter::getFilter('author=>native-xml', $this->getDeployment());
 
-        $authors = $entity->getData('authors');
+        $authors = $entity->getData('authors')->toArray();
         $authorsDoc = $currentFilter->execute($authors);
 
         if ($authorsDoc && $authorsDoc->documentElement instanceof DOMElement) {
@@ -291,9 +293,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     {
         $currentFilter = PKPImportExportFilter::getFilter($this->getRepresentationExportFilterGroupName(), $this->getDeployment());
 
+        /** @var RepresentationDAOInterface $representationDao */
         $representationDao = Application::getRepresentationDAO();
         $representations = $representationDao->getByPublicationId($entity->getId());
-        while ($representation = $representations->next()) {
+        foreach ($representations as $representation) {
             $representationDoc = $currentFilter->execute($representation);
             $clone = $doc->importNode($representationDoc->documentElement, true);
             $entityNode->appendChild($clone);

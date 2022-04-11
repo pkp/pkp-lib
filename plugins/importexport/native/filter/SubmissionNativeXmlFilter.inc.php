@@ -174,7 +174,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     {
         $currentFilter = PKPImportExportFilter::getFilter('publication=>native-xml', $this->getDeployment());
 
-        $publications = (array) $submission->getData('publications');
+        $publications = $submission->getData('publications');
         foreach ($publications as $publication) {
             $publicationDoc = $currentFilter->execute($publication);
 

@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-09 16:07+0000\n"
+"PO-Revision-Date: 2022-04-11 10:45+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -3015,3 +3015,12 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Նախքան այս բաղադրիչը ջնջելը, դուք պետք է կապակցեք ներկայացման բոլոր նիշքերը "
 "մեկ այլ բաղադրիչի հետ:"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Այլ ներկայացումներ"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Սա ներառում է այն ներկայացումները, որոնք չեն հաշվարկվել այլ "
+"հանրագումարներում, ինչպիսիք են այն ներկայացումները, որոնք դեռ ընթացքի մեջ են "
+"և նրանք, որոնք կարծես ներմուծված են:"

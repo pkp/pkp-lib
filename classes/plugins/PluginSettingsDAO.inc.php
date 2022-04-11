@@ -17,6 +17,7 @@
 
 namespace PKP\plugins;
 
+use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
 use PKP\xml\PKPXMLParser;
 
@@ -134,7 +135,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param mixed $value Setting value
      * @param string $type data type of the setting. If omitted, type will be guessed
      *
-     * @return int Return value from ADODB's replace() function.
+     * @return bool See \Illuminate\Database\Query\Builder::updateOrInsert
      */
     public function updateSetting($contextId, $pluginName, $name, $value, $type = null)
     {
@@ -146,16 +147,9 @@ class PluginSettingsDAO extends \PKP\db\DAO
 
         $value = $this->convertToDB($value, $type);
 
-        return $this->replace(
-            'plugin_settings',
-            [
-                'context_id' => (int) $contextId,
-                'plugin_name' => $pluginName,
-                'setting_name' => $name,
-                'setting_value' => $value,
-                'setting_type' => $type,
-            ],
-            ['context_id', 'plugin_name', 'setting_name']
+        DB::table('plugin_settings')->updateOrInsert(
+            ['context_id' => (int) $contextId, 'plugin_name' => $pluginName, 'setting_name' => $name],
+            ['setting_value' => $value, 'setting_type' => $type]
         );
     }
 

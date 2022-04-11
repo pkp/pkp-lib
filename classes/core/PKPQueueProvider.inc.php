@@ -46,6 +46,7 @@ class PKPQueueProvider
 
         $laravelContainer = PKPContainer::getInstance();
         $options = new WorkerOptions(
+            'default',
             $job->getDelay(),
             $job->getAllowedMemory(),
             $job->getTimeout(),

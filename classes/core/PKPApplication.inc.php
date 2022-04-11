@@ -84,7 +84,7 @@ interface iPKPApplicationInfoProvider
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
 {
-    public const PHP_REQUIRED_VERSION = '8.0.0';
+    public const PHP_REQUIRED_VERSION = '8.0.2';
 
     // Constant used to distinguish between editorial and author workflows
     public const WORKFLOW_TYPE_EDITORIAL = 'editorial';

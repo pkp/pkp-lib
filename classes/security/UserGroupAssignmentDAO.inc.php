@@ -20,6 +20,7 @@
 
 namespace PKP\security;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 
 class UserGroupAssignmentDAO extends \PKP\db\DAO
@@ -145,14 +146,10 @@ class UserGroupAssignmentDAO extends \PKP\db\DAO
      */
     public function insertObject($userGroupAssignment)
     {
-        $this->replace(
-            'user_user_groups',
-            [
-                'user_id' => (int) $userGroupAssignment->getUserId(),
-                'user_group_id' => (int) $userGroupAssignment->getUserGroupId(),
-            ],
-            ['user_id', 'user_group_id']
-        );
+        DB::table('user_user_groups')->updateOrInsert([
+            'user_id' => (int) $userGroupAssignment->getUserId(),
+            'user_group_id' => (int) $userGroupAssignment->getUserGroupId(),
+        ]);
     }
 
     /**

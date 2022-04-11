@@ -18,6 +18,7 @@
 namespace PKP\log;
 
 use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
 
@@ -257,10 +258,8 @@ class EmailLogDAO extends \PKP\db\DAO
             if ($user instanceof \PKP\user\User) {
                 // We use replace here to avoid inserting duplicated entries
                 // in table (sometimes the recipients can have the same email twice).
-                $this->replace(
-                    'email_log_users',
-                    ['email_log_id' => $entry->getId(), 'user_id' => $user->getId()],
-                    ['email_log_id', 'user_id']
+                DB::table('email_log_users')->updateOrInsert(
+                    ['email_log_id' => $entry->getId(), 'user_id' => $user->getId()]
                 );
             }
         }

@@ -13,7 +13,7 @@ return [
 		'no_spaces_around_offset' => true,
 		'no_superfluous_phpdoc_tags' => true,
 		'no_whitespace_before_comma_in_array' => true,
-		'ordered_imports' => ['sortAlgorithm' => 'alpha'],
+		'ordered_imports' => ['sort_algorithm' => 'alpha'],
 		'phpdoc_add_missing_param_annotation' => true,
 		'phpdoc_no_empty_return' => true,
 		'phpdoc_order' => true,

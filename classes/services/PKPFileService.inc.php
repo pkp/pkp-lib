@@ -18,9 +18,9 @@ use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-use League\Flysystem\Adapter\Local;
-
 use League\Flysystem\Filesystem;
+use League\Flysystem\Local\LocalFilesystemAdapter;
+use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use PKP\config\Config;
 use PKP\file\FileManager;
 use PKP\plugins\HookRegistry;
@@ -35,11 +35,9 @@ class PKPFileService
      */
     public function __construct()
     {
-        $adapter = new Local(
+        $adapter = new LocalFilesystemAdapter(
             Config::getVar('files', 'files_dir'),
-            LOCK_EX,
-            Local::DISALLOW_LINKS,
-            [
+            PortableVisibilityConverter::fromArray([
                 'file' => [
                     'public' => FileManager::FILE_MODE_MASK,
                     'private' => FileManager::FILE_MODE_MASK,
@@ -48,7 +46,9 @@ class PKPFileService
                     'public' => DIRECTORY_MODE_MASK,
                     'private' => DIRECTORY_MODE_MASK,
                 ]
-            ]
+            ]),
+            LOCK_EX,
+            LocalFilesystemAdapter::DISALLOW_LINKS
         );
 
         HookRegistry::call('File::adapter', [&$adapter, $this]);
@@ -86,13 +86,11 @@ class PKPFileService
         if (!$stream) {
             throw new Exception("Unable to copy ${from} to ${to}.");
         }
-        if (!$this->fs->writeStream($to, $stream)) {
-            throw new Exception("Unable to write file at ${to}.");
-        }
+        $this->fs->writeStream($to, $stream);
         if (is_resource($stream)) {
             fclose($stream);
         }
-        $mimetype = $this->fs->getMimetype($to);
+        $mimetype = $this->fs->mimeType($to);
 
         // Check and override ambiguous mime types based on file extension
         if ($extension = pathinfo($to, PATHINFO_EXTENSION)) {
@@ -159,7 +157,7 @@ class PKPFileService
 
         // Stream the file to the end user.
         $mimetype = $file->mimetype ?? 'application/octet-stream';
-        $filesize = $this->fs->getSize($path);
+        $filesize = $this->fs->fileSize($path);
         $encodedFilename = urlencode($filename);
         header("Content-Type: ${mimetype}");
         header("Content-Length: ${filesize}");

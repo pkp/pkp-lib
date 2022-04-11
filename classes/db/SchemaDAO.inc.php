@@ -165,23 +165,17 @@ abstract class SchemaDAO extends DAO
                             $localeKey,
                         ]);
                     } else {
-                        $updateArray = [
-                            $this->primaryKeyColumn => $object->getId(),
-                            'locale' => $localeKey,
-                            'setting_name' => $propName,
-                            'setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
-                        ];
-                        $this->replace($this->settingsTableName, $updateArray, $keyColumns);
+                        DB::table($this->settingsTableName)->updateOrInsert(
+                            [$this->primaryKeyColumn => $object->getId(), 'locale' => $localeKey, 'setting_name' => $propName],
+                            ['setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type)]
+                        );
                     }
                 }
             } else {
-                $updateArray = [
-                    $this->primaryKeyColumn => $object->getId(),
-                    'locale' => '',
-                    'setting_name' => $propName,
-                    'setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
-                ];
-                $this->replace($this->settingsTableName, $updateArray, $keyColumns);
+                DB::table($this->settingsTableName)->updateOrInsert(
+                    [$this->primaryKeyColumn => $object->getId(), 'locale' => '', 'setting_name' => $propName],
+                    ['setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type)]
+                );
             }
         }
 

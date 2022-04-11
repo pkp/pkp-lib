@@ -245,6 +245,8 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      * @param string $pubIdSettingValue optional
      * @param DBResultRange $rangeInfo optional
      *
+     * @deprecated 3.4.0
+     *
      * @return DAOResultFactory
      */
     public function getExportable($contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null)

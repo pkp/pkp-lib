@@ -13,7 +13,6 @@
 
 namespace APP\submission;
 
-use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\Generator;
@@ -27,17 +26,6 @@ class DAO extends \PKP\submission\DAO
      */
     public function deleteById(int $id)
     {
-        $publicationCollector = Repo::publication()->getCollector()->filterBySubmissionIds([$id]);
-        $publicationIds = Repo::publication()->getIds($publicationCollector);
-
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
-        foreach ($publicationIds as $publicationId) {
-            $galleys = $preprintGalleyDao->getByPublicationId($publicationId)->toArray();
-            foreach ($galleys as $galley) {
-                $preprintGalleyDao->deleteById($galley->getId());
-            }
-        }
-
         $preprintSearchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $preprintSearchDao */
         $preprintSearchDao->deleteSubmissionKeywords($id);
 

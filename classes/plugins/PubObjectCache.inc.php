@@ -15,9 +15,8 @@
 
 namespace APP\plugins;
 
-use APP\preprint\PreprintGalley;
-
 use APP\submission\Submission;
+use PKP\galley\Galley;
 use PKP\submission\Genre;
 
 class PubObjectCache
@@ -32,7 +31,7 @@ class PubObjectCache
     /**
      * Add a publishing object to the cache.
      *
-     * @param Submission|PreprintGalley $object
+     * @param Submission|Galley $object
      * @param Submission|null $parent Only required when adding a galley.
      */
     public function add($object, $parent)
@@ -40,7 +39,7 @@ class PubObjectCache
         if ($object instanceof Submission) {
             $this->_insertInternally($object, 'preprints', $object->getId());
         }
-        if ($object instanceof PreprintGalley) {
+        if ($object instanceof Galley) {
             assert($parent instanceof Submission);
             $this->_insertInternally($object, 'galleys', $object->getId());
             $this->_insertInternally($object, 'galleysByPreprint', $object->getData('submissionId'), $object->getId());

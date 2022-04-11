@@ -33,9 +33,8 @@ define('PREPRINT_ACCESS_OPEN', 1);
 
 use APP\core\Application;
 use APP\core\Services;
-
+use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\plugins\HookRegistry;
 use PKP\submission\PKPSubmission;
 
 class Submission extends PKPSubmission
@@ -163,130 +162,46 @@ class Submission extends PKPSubmission
     }
 
     /**
-     * Get the localized cover page server-side file name
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getLocalizedCoverImage()
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-        $coverImage = $publication->getLocalizedData('coverImage');
-        return empty($coverImage['uploadName']) ? '' : $coverImage['uploadName'];
-    }
-
-    /**
-     * get cover page server-side file name
-     *
-     * @param string $locale
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getCoverImage($locale)
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-        $coverImage = $publication->getData('coverImage', $locale);
-        return empty($coverImage['uploadName']) ? '' : $coverImage['uploadName'];
-    }
-
-    /**
-     * Get the localized cover page alternate text
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getLocalizedCoverImageAltText()
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-        $coverImage = $publication->getLocalizedData('coverImage');
-        return empty($coverImage['altText']) ? '' : $coverImage['altText'];
-    }
-
-    /**
-     * get cover page alternate text
-     *
-     * @param string $locale
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getCoverImageAltText($locale)
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-        $coverImage = $publication->getData('coverImage', $locale);
-        return empty($coverImage['altText']) ? '' : $coverImage['altText'];
-    }
-
-    /**
-     * Get a full URL to the localized cover image
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getLocalizedCoverImageUrl()
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-        return $publication->getLocalizedCoverImageUrl($this->getData('contextId'));
-    }
-
-    /**
      * Get the galleys for an preprint.
      *
-     * @return array PreprintGalley
+     * @return array Galley
      *
      * @deprecated 3.2.0.0
      */
     public function getGalleys()
     {
-        $galleys = $this->getData('galleys');
-        if (is_null($galleys)) {
-            $this->setData('galleys', Application::get()->getRepresentationDAO()->getByPublicationId($this->getCurrentPublication()->getId(), $this->getData('contextId'))->toArray());
+        if (!is_null($this->getData('galleys'))) {
             return $this->getData('galleys');
         }
-        return $galleys;
+
+        $this->setData(
+            'galleys',
+            Repo::galley()->getMany(
+                Repo::galley()
+                    ->getCollector()
+                    ->filterByPublicationIds([$this->getCurrentPublication()->getId()])
+            )->toArray()
+        );
+
+        return $this->getData('galleys');
     }
 
     /**
      * Get the localized galleys for an preprint.
      *
-     * @return array PreprintGalley
+     * @return array Galley
      *
      * @deprecated 3.2.0.0
      */
     public function getLocalizedGalleys()
     {
-        $allGalleys = $this->getData('galleys');
+        $allGalleys = $this->getGalleys();
         $galleys = [];
         foreach ([Locale::getLocale(), Locale::getPrimaryLocale()] as $tryLocale) {
             foreach (array_keys($allGalleys) as $key) {
                 if ($allGalleys[$key]->getLocale() == $tryLocale) {
                     $galleys[] = $allGalleys[$key];
                 }
-            }
-            if (!empty($galleys)) {
-                HookRegistry::call('PreprintGalleyDAO::getLocalizedGalleysByPreprint', [&$galleys]);
-                return $galleys;
             }
         }
 
@@ -305,7 +220,7 @@ class Submission extends PKPSubmission
         $views = 0;
 
         foreach ($publications as $publication) {
-            foreach ((array) $publication->getData('galleys') as $galley) {
+            foreach ($publication->getData('galleys') as $galley) {
                 $file = $galley->getFile();
                 if (!$galley->getRemoteUrl() && $file) {
                     $views = $views + $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $file->getId());

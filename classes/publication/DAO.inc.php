@@ -13,7 +13,7 @@
 
 namespace APP\publication;
 
-use APP\core\Services;
+use APP\facades\Repo;
 
 class DAO extends \PKP\publication\DAO
 {
@@ -38,9 +38,13 @@ class DAO extends \PKP\publication\DAO
     public function fromRow(object $primaryRow): Publication
     {
         $publication = parent::fromRow($primaryRow);
-        $publication->setData('galleys', iterator_to_array(
-            Services::get('galley')->getMany(['publicationIds' => $publication->getId()])
-        ));
+
+        $collector = Repo::galley()->getCollector();
+        $collector->filterByPublicationIds([$publication->getId()]);
+        $galleys = Repo::galley()->getMany($collector);
+
+        $publication->setData('galleys', $galleys);
+
         return $publication;
     }
 }

@@ -20,8 +20,10 @@ import('classes.i18n.Locale'); // Causes mocked Locale class to be loaded
 import('lib.pkp.tests.PKPTestCase');
 import('classes.submission.Submission');
 
+use Illuminate\Support\Facades\App;
 use PKP\core\ArrayItemIterator;
 use PKP\db\DAORegistry;
+use PKP\galley\DAO as GalleyDAO;
 
 class PreprintSearchIndexTest extends PKPTestCase
 {
@@ -36,7 +38,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         $mockedDaos = parent::getMockedDAOs();
         $mockedDaos += [
             'PreprintSearchDAO', 'ServerDAO',
-            'PreprintGalleyDAO'
         ];
         return $mockedDaos;
     }
@@ -408,27 +409,21 @@ class PreprintSearchIndexTest extends PKPTestCase
     }
 
     /**
-     * Mock and register an PreprintGalleyDAO as a test back end for
+     * Mock and register an GalleyDAO as a test back end for
      * the PreprintSearchIndex class.
      */
     private function registerFileDAOs($expectMethodCall)
     {
         // Mock file DAOs.
-        $preprintGalleyDao = $this->getMockBuilder(PreprintGalleyDAO::class)
-            ->setMethods(['getBySubmissionId'])
-            ->getMock();
+        App::instance(GalleyDAO::class, \Mockery::mock(GalleyDAO::class, function ($mock) use ($expectMethodCall) {
+            if ($expectMethodCall) {
+                $mock->shouldReceive('getBySubmissionId')->andReturn([]);
+            } else {
+                $mock->shouldNotReceive('getBySubmissionId');
+            }
+        }));
 
-        // Make sure that the DAOs are being called.
-        if ($expectMethodCall) {
-            $expectation = $this->atLeastOnce();
-        } else {
-            $expectation = $this->never();
-        }
-        $preprintGalleyDao->expects($expectation)
-            ->method('getBySubmissionId')
-            ->will($this->returnValue([]));
-        // FIXME: PreprintGalleyDAO::getBySubmissionId returns iterator; array expected here. Fix expectations.
-        DAORegistry::registerDAO('PreprintGalleyDAO', $preprintGalleyDao);
+        // FIXME: GalleyDAO::getBySubmissionId returns iterator; array expected here. Fix expectations.
     }
 
     /**

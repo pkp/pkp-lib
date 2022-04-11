@@ -14,8 +14,8 @@
  */
 
 use APP\facades\Repo;
-use APP\services\GalleyService;
 use PKP\core\APIResponse;
+use PKP\db\DAORegistry;
 use PKP\security\Role;
 
 use Slim\Http\Request as SlimRequest;
@@ -49,10 +49,7 @@ class BackendDoiHandler extends PKPBackendDoiHandler
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        /** @var GalleyService $galleyService */
-        $galleyService = Services::get('galley');
-
-        $galley = $galleyService->get($args['galleyId']);
+        $galley = Repo::galley()->get((int)$args['galleyId']);
         if (!$galley) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
@@ -68,10 +65,21 @@ class BackendDoiHandler extends PKPBackendDoiHandler
             return $response->withStatus(404)->withJsonError('api.dois.404.doiNotFound');
         }
 
-        $galley = $galleyService->edit($galley, ['doiId' => $doi->getId()], $request);
-        $galleyProps = $galleyService->getFullProperties($galley, [
-            'request' => $request
-        ]);
+
+        Repo::galley()->edit($galley, ['doiId' => $doi->getId()]);
+
+        $publicationId = $galley->getData('publicationId');
+        $publication = Repo::publication()->get((int)$publicationId);
+        $submissionId = $publication->getData('submissionId');
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $submission = Repo::submission()->get((int)$submissionId);
+        $galley = Repo::galley()->get($galley->getId());
+
+        $galleyProps = Repo::galley()->getSchemaMap($submission, $publication, $genres)->map($galley);
+
         return $response->withJson($galleyProps, 200);
     }
 }

@@ -10,16 +10,17 @@
  * @class PreprintGalleyForm
  * @ingroup controllers_grid_preprintGalleys_form
  *
- * @see PreprintGalley
+ * @see Galley
  *
  * @brief Preprint galley editing form.
  */
 
-use APP\core\Application;
 use APP\facades\Repo;
+use APP\publication\Publication;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
+use PKP\galley\Galley;
 
 class PreprintGalleyForm extends Form
 {
@@ -29,7 +30,7 @@ class PreprintGalleyForm extends Form
     /** @var Publication */
     public $_publication = null;
 
-    /** @var PreprintGalley current galley */
+    /** @var Galley current galley */
     public $_preprintGalley = null;
 
     /**
@@ -56,12 +57,12 @@ class PreprintGalleyForm extends Form
         $this->addCheck(
             new \PKP\form\validation\FormValidator(
                 $this,
-                'galleyLocale',
+                'locale',
                 'required',
                 'editor.submissions.galleyLocaleRequired'
             ),
-            function ($galleyLocale) use ($server) {
-                return in_array($galleyLocale, $server->getSupportedSubmissionLocaleNames());
+            function ($locale) use ($server) {
+                return in_array($locale, $server->getSupportedSubmissionLocaleNames());
             }
         );
     }
@@ -100,16 +101,14 @@ class PreprintGalleyForm extends Form
     public function validate($callHooks = true)
     {
 
-        // Check if urlPath is already being used
+        /// Validate the urlPath
         if ($this->getData('urlPath')) {
             if (ctype_digit((string) $this->getData('urlPath'))) {
                 $this->addError('urlPath', __('publication.urlPath.numberInvalid'));
                 $this->addErrorField('urlPath');
             } else {
-                $preprintGalley = Application::get()->getRepresentationDAO()->getByBestGalleyId($this->getData('urlPath'), $this->_publication->getId());
-                if ($preprintGalley &&
-                    (!$this->_preprintGalley || $this->_preprintGalley->getId() !== $preprintGalley->getId())
-                ) {
+                $existingGalley = Repo::galley()->getByUrlPath((string) $this->getData('urlPath'), $this->_publication);
+                if ($existingGalley && (!$this->_articleGalley || $this->_articleGalley->getId() !== $existingGalley->getId())) {
                     $this->addError('urlPath', __('publication.urlPath.duplicate'));
                     $this->addErrorField('urlPath');
                 }
@@ -127,7 +126,7 @@ class PreprintGalleyForm extends Form
         if ($this->_preprintGalley) {
             $this->_data = [
                 'label' => $this->_preprintGalley->getLabel(),
-                'galleyLocale' => $this->_preprintGalley->getLocale(),
+                'locale' => $this->_preprintGalley->getLocale(),
                 'urlPath' => $this->_preprintGalley->getData('urlPath'),
                 'urlRemote' => $this->_preprintGalley->getData('urlRemote'),
             ];
@@ -144,7 +143,7 @@ class PreprintGalleyForm extends Form
         $this->readUserVars(
             [
                 'label',
-                'galleyLocale',
+                'locale',
                 'urlPath',
                 'urlRemote',
             ]
@@ -158,33 +157,35 @@ class PreprintGalleyForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $preprintGalley = $this->_preprintGalley;
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
+        $galley = $this->_preprintGalley;
 
-        if ($preprintGalley) {
-            $preprintGalley->setLabel($this->getData('label'));
-            $preprintGalley->setLocale($this->getData('galleyLocale'));
-            $preprintGalley->setData('urlPath', $this->getData('urlPath'));
-            $preprintGalley->setData('urlRemote', $this->getData('urlRemote'));
+        if ($galley) {
 
             // Update galley in the db
-            $preprintGalleyDao->updateObject($preprintGalley);
+            $newData = [
+                'label' => $this->getData('label'),
+                'locale' => $this->getData('locale'),
+                'urlPath' => $this->getData('urlPath'),
+                'urlRemote' => $this->getData('urlRemote')
+            ];
+            Repo::galley()->edit($galley, $newData);
         } else {
             // Create a new galley
-            $preprintGalley = $preprintGalleyDao->newDataObject();
-            $preprintGalley->setData('publicationId', $this->_publication->getId());
-            $preprintGalley->setLabel($this->getData('label'));
-            $preprintGalley->setLocale($this->getData('galleyLocale'));
-            $preprintGalley->setData('urlPath', $this->getData('urlPath'));
-            $preprintGalley->setData('urlRemote', $this->getData('urlRemote'));
+            $galley = Repo::galley()->newDataObject([
+                'publicationId' => $this->_publication->getId(),
+                'label' => $this->getData('label'),
+                'locale' => $this->getData('locale'),
+                'urlPath' => $this->getData('urlPath'),
+                'urlRemote' => $this->getData('urlRemote')
+            ]);
 
-            // Insert new galley into the db
-            $preprintGalleyDao->insertObject($preprintGalley);
-            $this->_preprintGalley = $preprintGalley;
+            $galleyId = Repo::galley()->add($galley);
+            $galley = Repo::galley()->get($galleyId);
+            $this->_preprintGalley = $galley;
         }
 
         parent::execute(...$functionArgs);
 
-        return $preprintGalley;
+        return $galley;
     }
 }

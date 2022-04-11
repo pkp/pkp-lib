@@ -85,8 +85,12 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
                     }
                     if ($representationEnabled) {
                         foreach ($publications as $publication) {
-                            $representations = $representationDao->getByPublicationId($publication->getId(), $context->getId());
-                            while ($representation = $representations->next()) {
+                            $representations = Repo::galley()->getMany(
+                                Repo::galley()
+                                    ->getCollector()
+                                    ->filterByPublicationIds([$publication->getId()])
+                            );
+                            foreach ($representations as $representation) {
                                 $representationPubId = $representation->getStoredPubId($this->getPubIdType());
                                 if (empty($representationPubId)) {
                                     $representationPubId = $this->getPubId($representation);

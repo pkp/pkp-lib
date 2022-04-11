@@ -455,7 +455,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Update the given object.
      *
-     * @param Submission|PreprintGalley $object
+     * @param Submission|Galley $object
      */
     protected function updateObject($object)
     {
@@ -742,9 +742,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     public function getPreprintGalleys($galleyIds)
     {
         $galleys = [];
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
         foreach ($galleyIds as $galleyId) {
-            $preprintGalley = $preprintGalleyDao->getById($galleyId);
+            $preprintGalley = Repo::galley()->get((int) $galleyId);
             if ($preprintGalley) {
                 $galleys[] = $preprintGalley;
             }

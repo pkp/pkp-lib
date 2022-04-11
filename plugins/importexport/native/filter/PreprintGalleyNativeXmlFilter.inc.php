@@ -10,7 +10,7 @@
  * @class PreprintGalleyNativeXmlFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Class that converts an ArticleGalley to a Native XML document.
+ * @brief Class that converts a Galley to a Native XML document.
  */
 
 use APP\facades\Repo;
@@ -59,9 +59,9 @@ class PreprintGalleyNativeXmlFilter extends RepresentationNativeXmlFilter
      */
     public function getFiles($representation)
     {
-        if ($representation->getFileId()) {
+        if ($representation->getData('submissionFileId')) {
             return [
-                Repo::submissionFile()->get($representation->getFileId())
+                Repo::submissionFile()->get($representation->getData('submissionFileId'))
             ];
         }
 

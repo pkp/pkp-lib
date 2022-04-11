@@ -18,10 +18,11 @@
  * is used symlinked in both plug-ins.
  */
 
+use APP\facades\Repo;
+
 import('lib.pkp.tests.PKPTestCase');
 import('classes/issue/Issue');
 import('classes/preprint/Submission');
-import('classes/preprint/PreprintGalley');
 import('plugins.importexport.medra.classes.PubObjectCache');
 
 class PubObjectCacheTest extends PKPTestCase
@@ -82,7 +83,7 @@ class PubObjectCacheTest extends PKPTestCase
         $preprint->setId('2');
         $preprint->setIssueId('1');
 
-        $preprintGalley = new PreprintGalley();
+        $preprintGalley = Repo::galley()->newDataObject();
         $preprintGalley->setId('3');
         $preprintGalley->setSubmissionId($preprint->getId());
 
@@ -121,11 +122,11 @@ class PubObjectCacheTest extends PKPTestCase
         $preprint->setId('2');
         $preprint->setIssueId('1');
 
-        $preprintGalley1 = new PreprintGalley();
+        $preprintGalley1 = Repo::galley()->newDataObject();
         $preprintGalley1->setId('3');
         $preprintGalley1->setSubmissionId($preprint->getId());
 
-        $preprintGalley2 = new PreprintGalley();
+        $preprintGalley2 = Repo::galley()->newDataObject();
         $preprintGalley2->setId('4');
         $preprintGalley2->setSubmissionId($preprint->getId());
 

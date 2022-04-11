@@ -14,7 +14,6 @@
  */
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -24,6 +23,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\galley\Galley;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\PluginRegistry;
@@ -78,7 +78,7 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Get the authorized galley.
      *
-     * @return PreprintGalley
+     * @return Galley
      */
     public function getGalley()
     {
@@ -180,10 +180,8 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
-        $galley = $galleyDao->getById($rowId);
-        $galley->setSequence($newSequence);
-        $galleyDao->updateObject($galley);
+        $galley = Repo::galley()->get((int) $rowId);
+        Repo::galley()->edit($galley, ['seq' => $newSequence]);
     }
 
     //
@@ -225,15 +223,11 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
-        $galleyIterator = Services::get('galley')->getMany([
-            'publicationIds' => [$this->getPublication()->getId()],
-        ]);
-        // PreprintGalleyGridRow::initialize expects the array
-        // key to match the galley id
-        $galleys = [];
-        foreach ($galleyIterator as $galley) {
-            $galleys[$galley->getId()] = $galley;
-        }
+        $galleys = Repo::galley()->getMany(
+            Repo::galley()
+                ->getCollector()
+                ->filterByPublicationIds([$this->getPublication()->getId()])
+        );
         return $galleys;
     }
 
@@ -250,8 +244,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function identifiers($args, $request)
     {
-        $representationDao = Application::getRepresentationDAO();
-        $representation = $representationDao->getById($request->getUserVar('representationId'));
+        $representation = Repo::galley()->get($request->getUserVar('representationId'));
         import('controllers.tab.pubIds.form.PublicIdentifiersForm');
         $form = new PublicIdentifiersForm($representation);
         $form->initData();
@@ -339,7 +332,7 @@ class PreprintGalleyGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        Services::get('galley')->delete($galley);
+        Repo::galley()->delete($galley);
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO');
         $notificationDao->deleteByAssoc(ASSOC_TYPE_REPRESENTATION, $galley->getId());
@@ -459,7 +452,7 @@ class PreprintGalleyGridHandler extends GridHandler
         $json = parent::fetchRow($args, $request);
         if ($row = $this->getRequestedRow($request, $args)) {
             $galley = $row->getData();
-            if ($galley->getRemoteUrl() == '' && !$galley->getFileId()) {
+            if ($galley->getRemoteUrl() == '' && !$galley->getData('submissionFileId')) {
                 $json->setEvent('uploadFile', $galley->getId());
             }
         }

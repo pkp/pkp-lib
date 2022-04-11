@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.tab.pubIds.form.PKPPublicIdentifiersForm');
 
 use APP\template\TemplateManager;
+use PKP\galley\Galley;
 
 class PublicIdentifiersForm extends PKPPublicIdentifiersForm
 {
@@ -29,7 +30,7 @@ class PublicIdentifiersForm extends PKPPublicIdentifiersForm
         $templateMgr = TemplateManager::getManager($request);
         $enablePublisherId = $request->getContext()->getData('enablePublisherId');
         $templateMgr->assign([
-            'enablePublisherId' => (is_a($this->getPubObject(), 'PreprintGalley') && in_array('galley', $enablePublisherId))
+            'enablePublisherId' => ($this->getPubObject() instanceof Galley && in_array('galley', $enablePublisherId))
         ]);
 
         return parent::fetch($request, $template, $display);

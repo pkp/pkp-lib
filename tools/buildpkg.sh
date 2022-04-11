@@ -44,6 +44,7 @@ lib/pkp/tests										\
 .scrutinizer.yml									\
 .travis.yml										\
 lib/pkp/.git										\
+lib/pkp/captainhook.json								\
 lib/pkp/lib/vendor/smarty/smarty/demo							\
 lib/pkp/lib/vendor/alex198710/pnotify/.git						\
 lib/pkp/lib/vendor/sebastian								\

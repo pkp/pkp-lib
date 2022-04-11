@@ -18,12 +18,10 @@
 namespace PKP\submissionFile;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
-
 use PKP\core\EntityDAO;
 use PKP\db\DAORegistry;
 use PKP\plugins\PKPPubIdPluginDAO;
@@ -373,17 +371,12 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function deleteAllPubIds($contextId, $pubIdType)
     {
-        $collector = Repo::submission()
-            ->getCollector()
-            ->filterByContextIds([$contextId]);
-        $submissionsIds = Repo::submission()->getIds($collector)->toArray();
-
-        $submissionFilesCollector = Repo::submissionFile()
-            ->getCollector()
-            ->filterBySubmissionIds($submissionsIds);
-
-        Repo::submissionFile()
-            ->deleteMany($submissionFilesCollector);
+        return DB::table('publication_settings as ps')
+            ->leftJoin('publications as p', 'p.publication_id', '=', 'ps.publication_id')
+            ->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
+            ->where('ps.setting_name', '=', 'pub-id::' . $pubIdType)
+            ->where('s.context_id', '=', $contextId)
+            ->delete();
     }
 
     /**

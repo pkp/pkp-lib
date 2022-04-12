@@ -30,7 +30,7 @@
 						@set="set"
 					/>
 				</tab>
-				<tab id="setup" label="{translate key="navigation.setup"}">
+				<tab id="appearance-setup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_APPEARANCE_SETUP}"
 						@set="set"
@@ -45,7 +45,7 @@
 				{call_hook name="Template::Settings::website::appearance"}
 			</tabs>
 		</tab>
-		<tab id="configuration-setup" label="{translate key="navigation.setup"}">
+		<tab id="setup" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="information" label="{translate key="manager.website.information"}">

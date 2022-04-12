@@ -232,7 +232,11 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				import('lib.pkp.classes.mail.MailTemplate');
 				$mail = new MailTemplate('USER_REGISTER');
 				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
-				$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
+				$mail->assignParams([
+					'username' => htmlspecialchars($user->getUsername()),
+					'password' => htmlspecialchars($password),
+					'userFullName' => htmlspecialchars($user->getFullName()),
+				]);
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
 				$mail->send();
 			}

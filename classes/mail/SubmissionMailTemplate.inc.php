@@ -51,10 +51,10 @@ class SubmissionMailTemplate extends MailTemplate {
 		$request = Application::get()->getRequest();
 		parent::assignParams(array_merge(
 			array(
-				'submissionTitle' => strip_tags($submission->getLocalizedFullTitle()),
+				'submissionTitle' => htmlspecialchars($submission->getLocalizedFullTitle()),
 				'submissionId' => $submission->getId(),
 				'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
-				'authorString' => strip_tags($submission->getAuthorString()),
+				'authorString' => htmlspecialchars($submission->getAuthorString()),
 			),
 			$paramArray
 		));

@@ -146,30 +146,30 @@ class MailTemplate extends Mail {
 		if ($this->context) {
 			// Add context-specific variables
 			$dispatcher = $application->getDispatcher();
-			$params = array_merge(array(
-				'principalContactSignature' => $this->context->getData('contactName'),
-				'contextName' => $this->context->getLocalizedName(),
+			$params = array_merge([
+				'principalContactSignature' => htmlspecialchars($this->context->getData('contactName')),
+				'contextName' => htmlspecialchars($this->context->getLocalizedName()),
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $this->context->getPath()),
-			), $params);
+			], $params);
 		} else {
 			// No context available
-			$params = array_merge(array(
-				'principalContactSignature' => $site->getLocalizedContactName(),
-			), $params);
+			$params = array_merge([
+				'principalContactSignature' => htmlspecialchars($site->getLocalizedContactName()),
+			], $params);
 		}
 
 		if (!defined('SESSION_DISABLE_INIT') && ($user = $request->getUser())) {
 			// Add user-specific variables
-			$params = array_merge(array(
-				'senderEmail' => $user->getEmail(),
-				'senderName' => $user->getFullName(),
-			), $params);
+			$params = array_merge([
+				'senderEmail' => htmlspecialchars($user->getEmail()),
+				'senderName' => htmlspecialchars($user->getFullName()),
+			], $params);
 		}
 
 		// Add some general variables
-		$params = array_merge(array(
-			'siteTitle' => $site->getLocalizedTitle(),
-		), $params);
+		$params = array_merge([
+			'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+		], $params);
 
 		$this->params = $params;
 	}

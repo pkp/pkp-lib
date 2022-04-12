@@ -102,11 +102,10 @@ class RecommendationForm extends Form {
 		$dispatcher = $router->getDispatcher();
 		$user = $request->getUser();
 		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
-		$emailParams = array(
-			'editors' => $editorsStr,
+		$email->assignParams([
+			'editors' => htmlspecialchars($editorsStr),
 			'submissionUrl' => $submissionUrl,
-		);
-		$email->assignParams($emailParams);
+		]);
 		$email->replaceParams();
 
 		// Get the recorded recommendations
@@ -196,12 +195,12 @@ class RecommendationForm extends Form {
 
 			$dispatcher = $router->getDispatcher();
 			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
-			$email->assignParams(array(
-				'editors' => $this->getData('editors'),
+			$email->assignParams([
+				'editors' => htmlspecialchars($this->getData('editors')),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'submissionUrl' => $submissionUrl,
-				'recommendation' => __($recommendationOptions[$recommendation]),
-			));
+				'recommendation' => htmlspecialchars(__($recommendationOptions[$recommendation])),
+			]);
 			if (!$this->getData('skipEmail')) {
 				if (!$email->send($request)) {
 					import('classes.notification.NotificationManager');

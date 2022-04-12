@@ -179,10 +179,10 @@ class LoginHandler extends Handler {
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
 			$site = $request->getSite();
 			$this->_setMailFrom($request, $mail, $site);
-			$mail->assignParams(array(
+			$mail->assignParams([
 				'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
-				'siteTitle' => $site->getLocalizedTitle()
-			));
+				'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+			]);
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
 
@@ -245,11 +245,11 @@ class LoginHandler extends Handler {
 			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$this->_setMailFrom($request, $mail, $site);
-			$mail->assignParams(array(
-				'username' => $user->getUsername(),
-				'password' => $newPassword,
-				'siteTitle' => $site->getLocalizedTitle()
-			));
+			$mail->assignParams([
+				'username' => htmlspecialchars($user->getUsername()),
+				'password' => htmlspecialchars($newPassword),
+				'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+			]);
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			if (!$mail->send()) {
 				import('classes.notification.NotificationManager');

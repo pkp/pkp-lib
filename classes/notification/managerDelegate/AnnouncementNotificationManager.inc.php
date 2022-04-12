@@ -121,9 +121,9 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate {
 	 */
 	private function _getMessageParams() : array {
 		return [
-			'title' => $this->_announcement->getLocalizedTitle(),
-			'summary' => $this->_announcement->getLocalizedDescriptionShort(),
-			'announcement' => $this->_announcement->getLocalizedDescription(),
+			'title' => htmlspecialchars($this->_announcement->getLocalizedTitle()),
+			'summary' => PKPString::stripUnsafeHtml($this->_announcement->getLocalizedDescriptionShort()),
+			'announcement' => PKPString::stripUnsafeHtml($this->_announcement->getLocalizedDescription()),
 			'url' => Application::get()->getRequest()->getDispatcher()->url(
 				Application::get()->getRequest(),
 				ROUTE_PAGE,

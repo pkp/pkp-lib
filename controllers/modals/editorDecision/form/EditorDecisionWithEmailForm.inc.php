@@ -70,7 +70,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 
 		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
 		$email->assignParams([
-			'authorName' => $submission->getAuthorString(),
+			'authorName' => htmlspecialchars($submission->getAuthorString()),
 			'submissionUrl' => $submissionUrl,
 		]);
 		$email->replaceParams();
@@ -318,8 +318,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$user = $request->getUser();
 			$email->assignParams([
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
-				'contextName' => $context->getLocalizedName(),
-				'authorName' => $submission->getAuthorString(),
+				'contextName' => htmlspecialchars($context->getLocalizedName()),
+				'authorName' => htmlspecialchars($submission->getAuthorString()),
 				'editorialContactSignature' => $user->getContactSignature(),
 			]);
 			if (!$email->send($request)) {

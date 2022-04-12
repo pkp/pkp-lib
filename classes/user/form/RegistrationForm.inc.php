@@ -323,11 +323,11 @@ class RegistrationForm extends Form {
 			$this->_setMailFrom($request, $mail);
 			$context = $request->getContext();
 			$contextPath = $context ? $context->getPath() : null;
-			$mail->assignParams(array(
-				'userFullName' => $user->getFullName(),
-				'contextName' => $context ? $context->getLocalizedName() : $site->getLocalizedTitle(),
-				'activateUrl' => $request->url($contextPath, 'user', 'activateUser', array($this->getData('username'), $accessKey))
-			));
+			$mail->assignParams([
+				'userFullName' => htmlspecialchars($user->getFullName()),
+				'contextName' => htmlspecialchars($context ? $context->getLocalizedName() : $site->getLocalizedTitle()),
+				'activateUrl' => $request->url($contextPath, 'user', 'activateUser', [$this->getData('username'), $accessKey])
+			]);
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			if (!$mail->send()) {
 				import('classes.notification.NotificationManager');

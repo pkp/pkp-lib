@@ -337,7 +337,11 @@ class UserDetailsForm extends UserForm {
 				import('lib.pkp.classes.mail.MailTemplate');
 				$mail = new MailTemplate('USER_REGISTER');
 				$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()));
+				$mail->assignParams([
+					'username' => htmlspecialchars($this->getData('username')),
+					'password' => htmlspecialchars($password),
+					'userFullName' => htmlspecialchars($this->user->getFullName())
+				]);
 				$mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
 				if (!$mail->send()) {
 					import('classes.notification.NotificationManager');

@@ -48,7 +48,7 @@
 		}
 	},
 	"scripts": {
-		"fix": "./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes"
+		"fix": "PHP_CS_FIXER_IGNORE_ENV=1 ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes"
 	},
 	"extra": {
 		"patches": {

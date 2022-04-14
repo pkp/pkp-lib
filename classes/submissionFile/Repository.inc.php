@@ -122,9 +122,7 @@ abstract class Repository
         array $props,
         array $allowedLocales,
         string $primaryLocale
-    ): array
-    {
-
+    ): array {
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
@@ -288,7 +286,7 @@ abstract class Repository
                 'fileId' => $submissionFile->getData('fileId'),
                 'submissionId' => $submissionFile->getData('submissionId'),
                 'originalFileName' => $submissionFile->getLocalizedData('name'),
-                'username' => $this->request->getUser()->getUsername(),
+                'username' => $user ? $user->getUsername() : null,
             ]
         );
 
@@ -304,7 +302,7 @@ abstract class Repository
                 'submissionFileId' => $submissionFile->getId(),
                 'fileId' => $submissionFile->getData('fileId'),
                 'submissionId' => $submissionFile->getData('submissionId'),
-                'username' => $user->getUsername(),
+                'username' => $user ? $user->getUsername() : null,
                 'name' => $submissionFile->getLocalizedData('name'),
             ]
         );
@@ -350,7 +348,7 @@ abstract class Repository
                 }
 
                 $uploader = $this->request->getUser();
-                if ($uploader->getId() != $submissionFile->getData('uploaderUserId')) {
+                if (!$uploader || $uploader->getId() != $submissionFile->getData('uploaderUserId')) {
                     $uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
                 }
 
@@ -466,7 +464,7 @@ abstract class Repository
                 'fileId' => $submissionFile->getData('fileId'),
                 'submissionId' => $submissionFile->getData('submissionId'),
                 'originalFileName' => $submissionFile->getLocalizedData('name'),
-                'username' => $user->getUsername(),
+                'username' => $user ? $user->getUsername() : null,
             ]
         );
 
@@ -482,7 +480,7 @@ abstract class Repository
                 'submissionFileId' => $submissionFile->getId(),
                 'fileId' => $submissionFile->getData('fileId'),
                 'submissionId' => $submissionFile->getData('submissionId'),
-                'username' => $user->getUsername(),
+                'username' => $user ? $user->getUsername() : null,
                 'originalFileName' => $submissionFile->getLocalizedData('name'),
                 'name' => $submissionFile->getLocalizedData('name'),
             ]

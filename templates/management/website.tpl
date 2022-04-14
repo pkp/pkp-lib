@@ -30,7 +30,7 @@
 						@set="set"
 					/>
 				</tab>
-				<tab id="setup" label="{translate key="navigation.setup"}">
+				<tab id="appearance-setup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_APPEARANCE_SETUP}"
 						@set="set"

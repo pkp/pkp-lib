@@ -23,7 +23,7 @@ class DoisEnabledPolicy extends AuthorizationPolicy
 
     public function __construct(Context $context)
     {
-        parent::__construct('user.authorization.accessDenied');
+        parent::__construct('doi.authorization.enabledRequired');
         $this->context = $context;
     }
 

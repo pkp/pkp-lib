@@ -453,7 +453,7 @@ abstract class Repository
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         // Create DOIs
-        Repo::submission()->createDois($submission);
+        $_failureResults = Repo::submission()->createDois($submission);
 
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {

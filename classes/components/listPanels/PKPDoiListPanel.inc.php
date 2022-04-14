@@ -162,7 +162,8 @@ abstract class PKPDoiListPanel extends ListPanel
             'common.selectAll',
             'common.selectNone',
             'list.expandAll',
-            'list.collapseAll'
+            'list.collapseAll',
+            'manager.dois.update.failedCreation'
         ]);
 
         $this->setAppConfig($config);

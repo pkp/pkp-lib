@@ -17,6 +17,7 @@ namespace PKP\doi;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
@@ -335,12 +336,13 @@ abstract class Repository
     /**
      * Compose final DOI and save to database
      *
+     * @throws Exception
      */
-    protected function mintAndStoreDoi(Context $context, string $doiSuffix): ?int
+    protected function mintAndStoreDoi(Context $context, string $doiSuffix): int
     {
         $doiPrefix = $context->getData(Context::SETTING_DOI_PREFIX);
         if (empty($doiPrefix)) {
-            return null;
+            throw new Exception('Tried to create a DOI, but a DOI prefix is required for the context to create one.');
         }
 
         $completedDoi = $doiPrefix . '/' . $doiSuffix;

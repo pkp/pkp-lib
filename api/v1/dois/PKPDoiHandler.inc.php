@@ -19,6 +19,7 @@ use APP\submission\Submission;
 
 use PKP\context\Context;
 use PKP\core\APIResponse;
+use PKP\doi\exceptions\DoiCreationException;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -448,15 +449,46 @@ class PKPDoiHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
+        $context = $this->getRequest()->getContext();
+        $doiPrefix = $context->getData(Context::SETTING_DOI_PREFIX);
+        if (empty($doiPrefix)) {
+            return $response->withStatus(400)->withJsonError('api.dois.400.prefixRequired');
+        }
+
+        $failedDoiCreations = [];
+
         // Assign DOIs
         foreach ($requestIds as $id) {
             $submission = Repo::submission()->get($id);
             if ($submission !== null) {
-                Repo::submission()->createDois($submission);
+                if ($submission->getData('contextId') !== $context->getId()) {
+                    $creationFailureResults = [
+                        new DoiCreationException(
+                            $submission->getCurrentPublication()->getLocalizedFullTitle(),
+                            $submission->getCurrentPublication()->getLocalizedFullTitle(),
+                            DoiCreationException::INCORRECT_SUBMISSION_CONTEXT
+                        )
+                    ];
+                } else {
+                    $creationFailureResults = Repo::submission()->createDois($submission);
+                }
+                $failedDoiCreations = array_merge($failedDoiCreations, $creationFailureResults);
             }
         }
 
-        return $response->withStatus(200);
+        if (!empty($failedDoiCreations)) {
+            return $response->withJson(
+                [
+                    'failedDoiCreations' => array_map(
+                        function (DoiCreationException $item) {
+                            return $item->getMessage();
+                        },
+                        $failedDoiCreations
+                    )
+                ], 400);
+        }
+
+        return $response->withJson(['failedDoiCreations' => $failedDoiCreations],200);
     }
 
     /**

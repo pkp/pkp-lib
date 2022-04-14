@@ -84,7 +84,7 @@ abstract class PKPWorkflowHandler extends Handler
         // Get the closest workflow stage that user has an assignment.
         $workingStageId = null;
         for ($workingStageId = $currentStageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
-            if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
+            if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId] ?? [])) {
                 break;
             }
         }
@@ -93,7 +93,7 @@ abstract class PKPWorkflowHandler extends Handler
         // submission. Try to get the closest future workflow stage.
         if ($workingStageId == null) {
             for ($workingStageId = $currentStageId; $workingStageId <= WORKFLOW_STAGE_ID_PRODUCTION; $workingStageId++) {
-                if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
+                if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId] ?? [])) {
                     break;
                 }
             }
@@ -156,13 +156,13 @@ abstract class PKPWorkflowHandler extends Handler
         $canPublish = false; // Ability to publish, unpublish and create versions
         $canAccessEditorialHistory = false; // Access to activity log
         // unassigned managers
-        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [Role::ROLE_ID_MANAGER])) {
+        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [Role::ROLE_ID_MANAGER] ?? [])) {
             $canAccessProduction = true;
             $canPublish = true;
             $canAccessPublication = true;
             $canAccessEditorialHistory = true;
-        } elseif (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$currentStageId])) {
-            $canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
+        } elseif (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$currentStageId] ?? [])) {
+            $canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
             $canAccessPublication = true;
 
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
@@ -176,7 +176,7 @@ abstract class PKPWorkflowHandler extends Handler
             // for the production workflow stage. An unassigned admin or manager may
             // have been granted access and should be allowed to publish.
             if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
-                $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
+                $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
 
             // Otherwise, check stage assignments
             // "Recommend only" stage assignments can not publish
@@ -192,7 +192,7 @@ abstract class PKPWorkflowHandler extends Handler
                 }
             }
         }
-        if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId])) {
+        if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId] ?? [])) {
             $canAccessEditorialHistory = true;
         }
         /** @var GenreDAO $genreDao */
@@ -406,7 +406,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
 
         // Add the revision decision/recommendation forms if this app supports a review stage
-        if (count(array_intersect([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW], Application::getApplicationStages()))) {
+        if (count(array_intersect([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW], Application::getApplicationStages() ?? []))) {
             $selectRevisionDecisionForm = new PKP\components\forms\decision\SelectRevisionDecisionForm();
             $selectRevisionRecommendationForm = new PKP\components\forms\decision\SelectRevisionRecommendationForm();
             $state['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();

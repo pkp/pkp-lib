@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-04-14 14:20+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -2252,7 +2252,7 @@ msgid "emailTemplate.variable.submission.authorsFull"
 msgstr "Polna imena avtorjev"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr "Skrajšana oblika imen avtorjev"
+msgstr "Imena avtorjev"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Povzetek prispevka"
@@ -2608,3 +2608,223 @@ msgstr ""
 
 msgid "emailTemplate.variable.recommendation"
 msgstr "Priporočena odločitev, kot je Sprejmite prispevek"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Ta email je poslan avtomatično, ko recenzent ne opravi recenzije pravočasno."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Opomnik za recenzijo (avtomatski)"
+
+msgid "mailable.reviewRemind.description"
+msgstr "Ta email pošlje urednik, da opomni recenzenta, da opravi recenzijo"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Opomnik za recenzijo"
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ta email je poslan, ko recenzent zavrnje prošnjo za recenzijo"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Recenzija zavrnjena"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Ta email je avtomatično poslan, ko recenzent sprejme prošnjo za recenzijo"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Recenzija potrjena"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Ta email obvešča urednika, da je bila odano priporočilo za en prispevek, ki "
+"mu je dodoljen. To sporočilo se uporablja, kadar določeni urednik ne more "
+"sprejeti odločitve ampak lahko le odda priporočilo. To se določi, ko se "
+"dodeli uredniku dodeli uredniška zadolžitev."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Oddano priporočilo"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek poslan direktno v "
+"lektoriranje in da ne bo recenziran."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Recenzija izpuščena"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek poslan v produkcijo."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Poslano v produkcijo"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek poslan v fazo recenzije."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Poslano v recenzijo"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila preklicana odločitev o zavrnitvi "
+"njihovega prispevka brez recenzije."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Povrnitev zavrnjenega prispevka brez recenzije"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila preklicana odločitev o zavrnitvi "
+"njihovega prispevka."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Povrnitev zavrnjeni prispevek"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila sprejeta odločitev za njihov prispevek, "
+"da je prispevek potrebno revidirati in ponovno oddati."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Ponovna oddaja za recenzijo"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila v fazi recenzije sprejeta odločitev, da "
+"so potrebni popravki njihovega prispevka."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Zahtevani popravki"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil za njihov prispevek odprt nov krog "
+"recenzije."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Odprt je bil nov krog recenzije"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Prispevek zavrnjen"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek zavrnjen po opravljeni "
+"recenziji."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Prispevek zavrnjen"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
+"oddaje."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Prispevek vrnjen v fazo oddaje"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
+"recenzije."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Prispevek vrnjen nazaj v fazo recenzije"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
+"lektoriranja."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Prispevek vrnjen nazaj v fazo lektoriranja"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr "Ta email obvešča avtorje, da je bil njihov prispevek sprejet za objavo."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Pripevek sprejet"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Avtorje smo pozvali, da oddajo popravke, ki bodo šli ponovno v recenzijo."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Avtorje smo pozvali, da oddajo popravke."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Odločili smo se, da prispevek zavrnemo."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Odločili smo se, da sprejmemo prispevek brez sprememb."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Kratek opis te uredniške odločitve, ki bo poslana v emailu recenzentom z "
+"obvestilom o tej odločitvi."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Ta email pošlje urednik recenzentu z obvestilom, kakšna odločitev je bila "
+"sprejeta v zvezi s prispevkom, ki ga je recenziral."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Zahvala recenzentu"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Kopija emaila, ki je bil poslan avtorju, ki je oddal prispevek"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Ta email z obvestilom o uredniški odločitvi se pošlje avtorjem, ki niso "
+"dodeljeni delovnemu toku prispevka. Običajno so to vsi avtorji, razen "
+"avtorja, ki je oddal prispevek."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Obvesti ostale avtorje"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "Zgoščeni URL, ki se pošlje uporabniku za potrditev ponastavitve gesla"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Imena avtorjev, ki so dodeljeni delovnemu toku prispevka. Običajno je to "
+"avtor, ki je oddal prispevek."
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Avtorjev URL do prispevka"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Skrajšana oblika imen avtorjev"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Email podpis spletne strani za avtomatske emaile"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Email primarnega kontakta spletne strani"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Pri tej reviji potekajo recenzije na način odprte recenzije. Recenzenti bodo "
+"videli vaše ime in imena vaših soavtorjev. Podobno boste tudi vi videli "
+"imena recenzentov."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Pri tej reviji potekajo recenzije na način anonimnih recenzentov. Vaše ime "
+"in imena vaših soavtorjev bodo vidna recenzentom, medtem ko vam identiteta "
+"recenzentov ne bo razkrita."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Pri tej reviji recenzije potekajo na način dvojno slepe recenzije. "
+"Recenzenti ne vidijo nobenih vaših identifikacijskih podatkov in podatkov "
+"vaših soavtorjev. Podobno, vi ne boste vedeli kdo je opravil recenzijo "
+"vašega prispevka in ne bo ste direktno v stiku z recenzenti."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."

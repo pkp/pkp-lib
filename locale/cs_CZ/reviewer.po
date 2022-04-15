@@ -105,6 +105,12 @@ msgstr "Pro autora a redaktora"
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "Pouze pro redaktora"
 
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Poslat emailem v kopii následujícím recenzentům."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Poslat emailem recenzentům"
+
 msgid "user.authorization.submissionReviewer"
 msgstr "Současný uživatel není přiřazen jako recenzent pro požadovaný dokument."
 

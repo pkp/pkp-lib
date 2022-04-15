@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sl_SI/>\n"
@@ -394,7 +395,7 @@ msgid "reviewer.list.reassign"
 msgstr "Prerazporeditev"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Recenzent je že dodlejen temu prispevku."
+msgstr "Recenzent je že dodeljen temu krogu recenzije."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -482,3 +483,90 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "Diskusija z izbranim udeležencem ne more biti ustvarjena, ker bi ogrozila "
 "anonimnost recenzijskega procesa."
+
+msgid "editor.decision.stepError"
+msgstr "Prišlo je do težave pri koraku {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "Izpusti ta email"
+
+msgid "editor.decision.recordDecision"
+msgstr "Zapiši odločitev"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Ta korak je bil izpuščen in email ne po poslan."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Ne izpusti tega emaila"
+
+msgid "editor.decision.completeSteps"
+msgstr "Opravite naslednje korake za sprejetje te odločitve"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Ste prepričani, da želite preklicati to odločitev?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Prekliči odločitev"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Dodeljen v predhodnem krogu"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Prerazporedi {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Ta recenzent je končal recenzijo v zadnjem krogu."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Popravki bi morali biti predmet novega kroga recenzije."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Popravki ne bi smeli biti predmet novega kroga recenzije."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Odločitve ni bilo mogoče najti. Prosimo določite tip odločitve, ki bo "
+"prepoznan."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Odločitve ni bilo mogoče sprejeti. Ali manjka ID prispevka ali pa ne ustreza "
+"zahtevanemu prispevku."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Priporočila ni mogoče oddati, če prispevku ni dodeljen urednik v tej fazi, "
+"da lahko sprejme končno odločitev."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Za sprejetje te odločitve je potrebno določiti ID kroga recenzije."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Prispevek vam mora biti dodoljen, da lahko sprejmete uredniško odločitev."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Prispevek ni v pravi fazi uredniškega postopka za sprejetje te odločitve."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Ta krog recenzije ni del tega prispevka."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Recenzija je bila opravljena, a ta odločitev ni bila sprejeta med fazo "
+"recenzije."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Tega kroga recenzije ni bilo mogoče najti."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Emaila ne morete poslati naslednjim prejemnikom: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Urednik ni bil prepoznan in morda nima pravice za zapis odločitve na tem "
+"prispevku."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Nimate pravice zapisati te odločitve na tem prispevku."

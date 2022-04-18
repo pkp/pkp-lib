@@ -30,7 +30,6 @@ use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\QueryAccessPolicy;
-
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\core\PKPApplication;
@@ -762,7 +761,7 @@ class QueriesGridHandler extends GridHandler
         if ($template) {
             $user = $request->getUser();
             $template->assignParams([
-                'editorialContactSignature' => $user->getContactSignature(),
+                'editorialContactSignature' => $user->getSignature() ?? '',
                 'signatureFullName' => $user->getFullname(),
             ]);
             $template->replaceParams();

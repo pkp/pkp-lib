@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"PO-Revision-Date: 2022-04-22 08:58+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -2201,3 +2201,6 @@ msgstr "Търсене на съдържание за добавяне"
 
 msgid "common.insertContent"
 msgstr "Добавяне на съдържание"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Неизвестна команда {$command}"

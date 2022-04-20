@@ -1,11 +1,13 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-13T08:00:00+02:00\n"
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2022-02-25 00:26+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -223,7 +225,7 @@ msgid "publication.galley.downloads"
 msgstr "Téléchargement(s) {$downloads}"
 
 msgid "submission.dates"
-msgstr "Soumis-e {$submitted} - Publié-e {$published}"
+msgstr "Soumis-e {$submitted} - Diffusé-e {$published}"
 
 msgid "submission.numberOfVersions"
 msgstr "Il existe {$numberOfVersions} version(s) de cette prépublication"
@@ -232,7 +234,7 @@ msgid "submission.search"
 msgstr "Recherche de prépublications"
 
 msgid "submissions.published"
-msgstr "Publié-e"
+msgstr "Diffusé-e"
 
 msgid "preprint.abstract"
 msgstr "Résumé"
@@ -399,3 +401,9 @@ msgstr "Éditer {$sectionTitle}"
 
 msgid "category.categories"
 msgstr "Catégories"
+
+msgid "preprint.pageTitle"
+msgstr "Affichage de {$title}"
+
+msgid "doi.manager.settings.publications"
+msgstr "Prépublications"

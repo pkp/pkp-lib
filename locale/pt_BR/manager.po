@@ -1,7 +1,7 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-23 14:23+0000\n"
+"PO-Revision-Date: 2022-04-11 13:57+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -779,3 +779,50 @@ msgstr "Atribuir DOI automaticamente para os seguintes objetos quando criados:"
 
 msgid "doi.manager.settings.publicationDoiAutoAssign"
 msgstr "Designação automática"
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr "Apenas DOIs podem ser editados após uma publicação ter sido publicada"
+
+msgid "api.issue.400.invalidDoi"
+msgstr "O DOI submetido não é válido"
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr ""
+"Apenas DOIs podem ser editados após a publicação de uma publicação/composição"
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr "A composição  solicitada não faz parte desta publicação."
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr "O DOI {$pubId} será atribuído na publicação."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Nenhum"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Selecione a agência de registro que você gostaria de usar ao depositar DOIs."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agência de Registro"
+
+msgid "doi.manager.submissionDois"
+msgstr "DOIs de preprint"
+
+msgid "doi.manager.displayName"
+msgstr "DOIs"
+
+msgid "manager.setup.enableDois.description"
+msgstr ""
+"Atribua identificadores de objetos digitais (DOIs) a preprints e composições."
+
+msgid "doi.manager.settings.doiCreationTime.copyedit"
+msgstr "Na fase de editoração"
+
+msgid "doi.manager.settings.doiSuffixLegacy"
+msgstr ""
+"Use modelos padrão.<br />%j.%a para preprints <br />%j.%a.g%g para "
+"composições."
+
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr "A assinatura de e-mail do servidor para e-mails automáticos"

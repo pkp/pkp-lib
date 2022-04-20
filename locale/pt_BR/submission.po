@@ -1,6 +1,7 @@
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-16 10:54+0000\n"
+"PO-Revision-Date: 2022-02-26 20:26+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
@@ -21,13 +22,16 @@ msgid "publication.relation.vorDoi"
 msgstr "DOI do preprint publicado"
 
 msgid "publication.relation.published"
-msgstr "O preprint foi publicado em um periódico como um preprint"
+msgstr ""
+"O preprint foi publicado em um periódico ou em outra publicação acadêmica."
 
 msgid "publication.relation.submitted"
-msgstr "O preprint foi submetido para publicação em um servidor"
+msgstr ""
+"O preprint foi submetido para publicação em um periódico ou outra publicação "
+"acadêmica."
 
 msgid "publication.relation.none"
-msgstr "O preprint não foi submetido para publicação"
+msgstr "O preprint não foi submetido para publicação."
 
 msgid "publication.relation.label"
 msgstr "Submetido para publicação"
@@ -242,3 +246,19 @@ msgid "submission.copyrightHolder.description"
 msgstr ""
 "Copyright será designado automaticamente a {$copyright} quando isto for "
 "postado."
+
+msgid "publication.publish.relationStatus.published"
+msgstr "Este preprint foi <a href='{$vorDoi}' target='_blank'>publicado</a>."
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr "Este preprint foi publicado, mas ainda não há DOI disponível."
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
+"Este preprint foi submetido a um periódico ou outra publicação acadêmica."
+
+msgid "publication.publish.relationStatus.none"
+msgstr "Este preprint não foi publicado em outro lugar."
+
+msgid "publication.publish.relationStatus"
+msgstr "Publicação Relacionada"

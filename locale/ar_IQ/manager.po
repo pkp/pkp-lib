@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-01-27 05:25+0000\n"
+"PO-Revision-Date: 2022-04-09 16:07+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2211,3 +2211,467 @@ msgstr "رسالة جديدة من المناقشة"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "عنوان البريد الالكتروني لجهة الاتصال الرئيسية في الموقع"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "تم تسليم العناصر بنجاح لغرض الإيداع"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "تم تعيين معرفات مكونات رقمية جديدة للعناصر بنجاح"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "تم تأشير العناصر بأنها مسجلة"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "تم تصدير العناصر بنجاح"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "بعض معرفات المكونات الرقمية فشل تحديثها."
+
+msgid "manager.dois.status.stale"
+msgstr "عتيقة"
+
+msgid "manager.dois.status.error"
+msgstr "خطأ"
+
+msgid "manager.dois.status.registered"
+msgstr "مسجلة"
+
+msgid "manager.dois.status.submitted"
+msgstr "مسلمة"
+
+msgid "manager.dois.status.unregistered"
+msgstr "غير مسجلة"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "إيداع معرفات المكونات الرقمية"
+
+msgid "manger.dois.update.success"
+msgstr "تم تحديث معرفات المكونات الرقمية بنجاح"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "رسالة التسجيل الموفق"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "معاينة السجل"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "رسالة خطأ التسجيل"
+
+msgid "manager.dois.registration.viewError"
+msgstr "معاينة الخطأ"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "لا يمكن إيداع هذا العنصر حتى يتم نشره."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "البيانات الوصفية لهذا لعنصر لم يتم تسليمها إلى {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "البيانات الوصفية لهذا لعنصر قد تم تسليمها إلى {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "حالة النشر"
+
+msgid "manager.dois.depositStatus"
+msgstr "حالة الإيداع"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "إيداع كل معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "تعيين معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"أنت بصدد تصدير سجلات البيانات الوصفية لمعرفات المكونات الرقمية لـ {$count} "
+"من العناصر إلى {$registrationAgency}. هل أنت متأكد من رغبتك في تصدير هذه "
+"السجلات؟"
+
+msgid "manager.dois.actions.export.label"
+msgstr "تصدير معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"أنت بصدد تأشير سجلات البيانات الوصفية لـ {$count} من العناصر بأنها مسجلة. هل "
+"أنت متأكد من رغبتك في تأشير تلك السجلات بأنها مسجلة؟"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "تأشير معرفات المكونات الرقمية على أنها مسجلة"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"أنت بصدد إرسال سجلات البيانات الوصفية لـ {$count} من العناصر إلى "
+"{$registrationAgency}. هل أنت متأكد من رغبتك في إيداع هذه السجلات؟"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "إيداع معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "إيداع الكل"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "استعمال النمط الافتراضي."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"لاحقة معرف المكون الرقمي يمكن أن تتخذ أي صيغة، ولكنها ينبغي أن تكون فريدة "
+"بين كل مكونات النشر التي عُينت لها نفس بادئة معرف المكون الرقمي:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "لاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} سيعين لها معرف مكون رقمي"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "العناصر التي لها معرفات المكونات الرقمية"
+
+msgid "manager.setup.doiPrefix"
+msgstr "بادئة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "أبدًا"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "قبيل النشر"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "عند أي نقطة من عملية النشر ينبغي إنشاء معرفات المكونات الرقمية؟"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "الإنشاء التلقائي لمعرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "بادئة معرف المكون الرقمي مطلوبة وينبغي أن تكون بصيغة 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"هذا يتم تعيينه من قبل وكالة تسجيل معرفات المكونات الرقمية، مثل <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> أو <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. مثال: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"متى ينبغي إيداع معرفات المكونات الرقمية تلقائياً لدى وكالة التسجيل المعنية."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "تمكين الإيداع التلقائي"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "الإيداع التلقائي"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "بادئة معرف المكون الرقمي"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "تمكين معرفات المكونات الرقمية"
+
+msgid "manager.setup.dois.registration"
+msgstr "التسجيل"
+
+msgid "manager.setup.dois.setup"
+msgstr "التنصيب"
+
+msgid "manager.setup.dois"
+msgstr "معرفات المكونات الرقمية"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"الرسالة الآتية عادت من قبل {$registrationAgency} وهي تتضمن تفاصيل عملية "
+"التسجيل:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "الخطأ الآتي عاد من قبل {$registrationAgency} وهو يتضمن تفاصيل مسبباته:"
+
+msgid "manager.dois.title"
+msgstr "معرفات المكونات الرقمية"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "تتطلب معرف المكون الرقمي"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"أنت بصدد جدولة كل سجلات البيانات الوصفية لمعرفات المكونات الرقمية المهمة "
+"لإيداعها في {$registrationAgency}. سيتم تحديث حالة كل عنصر بشكل فردي عند "
+"تلقي الرد. هل أنت متأكد من رغبتك في جدولة إيداع كل تلك العناصر؟"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"أنت بصدد تعيين معرفات مكونات رقمية جديدة إلى {$count} من العناصر المؤهلة "
+"للحصول على تلك المعرفات. هل أنت متأكد من رغبتك في تعيين معرفات المكونات "
+"الرقمية لتلك العناصر؟"
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"هذه المجلة تعتمد التحكيم المناظر \"السري تحكيمًا\". سيكون اسمك وأسماء "
+"المؤلفين المشاركين معك ظاهرة للمحكمين؛ مع ذلك، ستبقى هويات المحكمين مخفية."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"هذه المجلة تعتمد التحكيم المناظر السري المزدوج. لن يرى المحكمون أي معلومات "
+"من شأنها التعريف بك أو زملائك من مؤلفي العمل. بشكل مشابه، لن تعرف من قام "
+"بتحكيم طلب تقديمك ولن تتلقى أي رسائل من المحكمين بشكل مباشر."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً السري المزدوج أو المفتوح."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "القرار الموصى به، مثل قبول طلب التقديم"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
+"تحكيم."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "وصف القرار الذي تم اتخاذه."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "اسم القرار الذي تم اتخاذه."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"كل التعليقات من التحكيمات المكتملة. أسماء المحكمين مخفية في التحكيمات غير "
+"المشخصنة"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"أرسل البريد الالكتروني فقط إلى المؤلفين المعينين إلى سير أعمال طلب التقديم. "
+"عادة ما يكون هو المؤلف الذي قدم الطلب."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "إرسال إشعار البريد الالكتروني إلى كل مؤلفي طلب التقديم."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "من ينبغي أن يتلقى إشعار البريد الالكتروني عند تسجيل قرار هيئة التحرير؟"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "إشعار كل المؤلفين"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "لا أحد"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"معرفات المكونات الرقمية يمكن صياغتها وإيداعها تلقائيًا لدى وكالة تسجيل. "
+"لاستعمال هذه الميزة، حدد إضافة من وكالة التسجيل المناسبة وقم بتنصيبها."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "لم يتم تمكين أي وكالة تسجيل"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"يرجى اختيار وكالة التسجيل التي ترغب باستعمالها عند إيداع معرفات المكونات "
+"الرقمية."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "وكالة التسجيل"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "نمط مخصص، معرف سابقًا من قبل المستخدم. لم يعد مستعملاً."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"أدخل بادئة معرف مكون رقمي منفردة لكل عنصر منشور. ستجد حقول إدخال معرفات "
+"المكونات الرقمية في صفحة إدارتها."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"هذه الرسالة تُبلغ المحرر الأقدم أو محرر القسم بوجود توصية تتعلق بأحد طلبات "
+"التقديم الخاصة بعمله. تُستعمل هذه الرسالة فقط عندما تقتصر صلاحية المحرر على "
+"إعطاء التوصية ويتطلب أمر تسجيل قرارات هيئة التحرير صلاحيات محرر مفوض. يمكن "
+"تحديد هذا الخيار عند تعيين المساهمين إلى طلب التقديم."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "التوصية معطاة"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يبلغ المؤلف بأن طلب تقديمه يتم إرساله مباشرة إلى مرحلة "
+"التدقيق ولن يخضع إلى التحكيم المناظر."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "التحكيم متخطى"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"وصف موجز للقرار الذي من المزمع مشاركته عبر إشعار بريد الكتروني يُرسل إلى "
+"المحكمين يتعلق بهذا القرار."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"هذا البريد الالكتروني يرسله المحرر إلى المحكم لإبلاغه باتخاذ القرار بشأن طلب "
+"تقديم قام بتحكيمه."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "عرفان المحكم"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة الإنتاج."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "مُرسل إلى الإنتاج"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة التحكيم."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "مُرسل إلى التحكيم"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه بدون "
+"إجراء التحكيم المناظر."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "إرجاع طلب تقديم مرفوض بدون تحكيم"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه جراء "
+"التحكيم المناظر."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "إرجاع طلب تقديم مرفوض"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بقرار \"التنقيح ثم إعادة التقديم\" بشأن "
+"طلب تقديمه."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "إعادة التقديم للتحكيم"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بقرار المطالبة بتنقيحات خلال التحكيم "
+"المناظر."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "التنقيحات تمت المطالبة بها"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف ببدء جولة تحكيم جديدة لطلب تقديمه."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "جولة تحكيم جديدة تم الشروع بها"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "طلب التقديم مرفوض"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف برفض طلب تقديمه بعد التحكيم المناظر."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "طلب التقديم مرفوض"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التقديم."
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التحكيم."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التقديم"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التحكيم"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التدقيق."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التدقيق"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بقبول طلب تقديمه للنشر."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "طلب التقديم مقبول"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"قمنا بدعوة المؤلفين إلى تقديم نسخة منقحة للإخضاعها إلى المزيد من التحكيم."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "قمنا بدعوة المؤلفين إلى تقديم التنقيحات."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "لقد اخترنا رفض طلب التقديم هذا."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "لقد اخترنا قبول طلب التقديم هذا بدون تنقيحات."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "نسخة من رسالة البريد الالكتروني التي أُرسلت إلى المؤلف الذي قدم الطلب"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل لإشعار مؤلفي طلب التقديم الذين لم يتم تعيينهم "
+"كمساهمين، إشعارهم باتخاذ القرار. عادة ما يكون هؤلاء هم كل المؤلفين ما عدا "
+"المؤلف الذي قدم الطلب."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "إشعار المؤلفين الآخرين"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"أسماء المؤلفين المعينين إلى سير أعمال طلب التقديم. عادة ما يكون هو المؤلف "
+"الذي قدم الطلب"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "عنوان رابط المؤلف المؤدي إلى طلب التقديم"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"هذه المجلة تعتمد التحكيم المناظر المفتوح. سيرى المحكمون اسمك وانتماءك، وكذلك "
+"الحال بالنسبة إلى زملائك المشاركين في التأليف. بشكل مشابه، سترى أسماء "
+"المحكمين وانتماءاتهم."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "عنوان المراسلة للمجلة"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد "
+"تسليم التحكيم"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "تذكير التحكيم (مؤتمت)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل من قبل المحرر لتذكير المحكم باستيجاب موعد تسليم "
+"التحكيم"
+
+msgid "mailable.reviewRemind.name"
+msgstr "تذكير التحكيم"
+
+msgid "mailable.reviewDecline.description"
+msgstr "هذا البريد الالكتروني يُرسل من قبل المحكم عند رفضه لالتماس التحكيم"
+
+msgid "mailable.reviewDecline.name"
+msgstr "رفض التحكيم"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "هذا البريد الالكتروني يُرسل تلقائيًا عند قبول المحكم بالتماس التحكيم"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "تأكيد التحكيم"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "الرابط المشفر المرسل إلى المستخدم لتأكيد إعادة تعيين كلمة المرور"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "توقيع رسائل البريد الالكتروني المؤتمتة في الموقع"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"قبل أن يتسنى حذف هذا المكون، عليك ربط كل ملفات طلب التقديم ذات الصلة بمكون "
+"آخر."

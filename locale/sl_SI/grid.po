@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-03-26 20:55+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "sl_SI/>\n"
@@ -674,3 +675,37 @@ msgstr "Ustvari novo verzijo"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Odstrani to uporabniško skupino"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Polno"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Seznam publikacij"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Skrajšano"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Prikaži"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Oblika"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Sodelujoči v tej publikaciji bodo v tej reviji identificirani v spodnjih "
+"oblikah."
+
+msgid "contributor.listPanel.preview"
+msgstr "Predogled"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Določite primarni kontakt"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Ste prepričani, da želite odstraniti osebo  {$name} kot sodelavca? Te akcije "
+"ni mogoče povrniti."
+
+msgid "grid.action.saveOrdering"
+msgstr "Shrani vrstni red"

@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-12-20 15:29+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -2001,3 +2001,333 @@ msgstr "Kategorie"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Seznam publikací"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Doporučujeme, aby byly od autora před přijetím tohoto příspěvku vyžádány "
+"úpravy."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Doporučit úpravy"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Vaše doporučení bylo zaznamenáno a rozhodující redaktoři byli informováni."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Doporučení odesláno"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} doporučil/a, aby byl tento příspěvek přijat a zaslán ke "
+"copyeditingu."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Doporučte přijetí tohoto příspěvku k publikaci a jeho zaslání ke "
+"copyeditoringu."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Doporučit přijetí"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Pošlete zprávu rozhodujícím redaktorům a informujte je o doporučení. "
+"Vysvětlete, proč bylo toto doporučení vydáno v reakci na doporučení a "
+"připomínky předložené recenzenty."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Příspěvek {$title} je nyní aktivní ve fázi podání."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém jim oznámíte, že předchozí rozhodnutí o "
+"zamítnutí tohoto příspěvku bylo zrušeno. Vysvětlete, proč bylo rozhodnutí "
+"zrušeno, a sdělte jim, zda se očekává, že příspěvek bude podroben dalšímu "
+"recenznímu řízení."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Příspěvek {$title} je nyní aktivním příspěvkem v recenzní fázi."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Opětovná aktivace příspěvku"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} zrušil/a rozhodnutí o zamítnutí tohoto příspěvku."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Vrátit předchozí rozhodnutí o zamítnutí tohoto příspěvku a vrátit jej do "
+"aktivního redakčního procesu."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém jim oznámíte, že tento příspěvek byl "
+"přijat k publikaci a odeslán do fáze copyeditingu bez recenze."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Příspěvek {$title} přeskočil fázi recenzního řízení a byl odeslán do fáze "
+"copyeditingu."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Přeskočené recenzní řízení"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} přeskočil fázi recenzí a poslal tento příspěvek do fáze "
+"copyeditingu."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Přijměte tento příspěvek ke zveřejnění a přeskočte fázi recenzního řízení. "
+"Tímto rozhodnutím bude příspěvek poslán do fáze finálních úprav."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém jim oznámíte, že tento příspěvek byl "
+"odeslán zpět do fáze finálních úprav. Vysvětlete, proč bylo toto rozhodnutí "
+"učiněno, a informujte autora o tom, jaké další úpravy budou nutné, než bude "
+"toto podání připraveno k publikování."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Příspěvek {$title} byl odeslán zpět do fáze finálních úprav."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Posláno zpět do fáze finálních úprav"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} poslal/a tento příspěvek zpět do fáze finálních úprav."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Poslat tento příspěvek zpět do fáze konečných úprav."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Zpět do fáze finálních úprav"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Odeslání e-mailu autorům, abyste jim oznámili, že tento příspěvek byl "
+"odeslán do produkční fáze."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Příspěvek {$title} byl odeslán do produkční fáze."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Odesláno do produkční fáze"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} odeslal tento příspěvek do produkční fáze."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "Odeslání tohoto příspěvku do produkční fáze k přípravě na zveřejnění."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Příspěvek {$title} byl odeslán do recenzního řízení."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Odeslat k recenzi"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} odeslal/a tento příspěvek do fáze recenzního řízení."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Tento příspěvek je připraven k odeslání k recenznímu řízení."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Odeslat k recenzím"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém je upozorníte, že je třeba dokončit úpravy "
+"a odeslat je k dalšímu kolu recenzního řízení. Uveďte všechny podrobnosti, "
+"které bude autor potřebovat k úpravě svého příspěvku. Případně nezapomeňte "
+"anonymizovat všechny připomínky recenzentů."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Byly vyžádány úpravy předloženého příspěvku {$title}. Bylo zaznamenáno "
+"rozhodnutí o zaslání úprav k dalšímu kolu recenzí."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Jsou vyžadovány úpravy"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} si vyžádal/a úpravy tohoto příspěvku, které by měly být "
+"zaslány k dalšímu kolu recenzního řízení."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Před přijetím příspěvku k publikaci musí autor předložit úpravy, která budou "
+"zaslány do dalšího kola recenzního řízení."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém je upozorníte, že před přijetím příspěvku "
+"k publikaci budou vyžadovány úpravy. Uveďte všechny podrobnosti, které bude "
+"autor potřebovat k úpravám svého příspěvku. Případně nezapomeňte "
+"anonymizovat všechny připomínky recenzentů."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Byly vyžádány úpravy příspěvku  {$title}."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Jsou vyžadovány úpravy textu"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} si vyžádal úpravy textu tohoto příspěvku."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr "Před přijetím příspěvku k publikaci musí autor předložit úpravy textu."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Vyberte soubory, které mají být odeslány do produkční fáze."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Vyberte soubory, které mají být odeslány do recenzního řízení."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Vyberte soubory, které mají být odeslány do fáze závěrečných úprav."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém jim oznámíte, že jejich příspěvky byly "
+"odeslány do nového kola recenzního řízení."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "Pro příspěvek {$title} bylo vytvořeno nové kolo recenzního řízení."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Nové kolo recenzního řízení bylo vytvořeno"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} vytvořil nové kolo recenzního řízení pro tento příspěvek."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Otevřít další kolo recenzního řízení pro tento příspěvek."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Nové kolo recenzního řízení"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Tento příspěvek bude odmítnut ke zveřejnění. Nebude provedeno žádné další "
+"recenzní řízení a příspěvek bude archivován."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Poslat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
+"odmítnut."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Příspěvek {$title} byl odmítnut a odeslán do archivu."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Odmítnutí příspěvku"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} tento příspěvek odmítl/a."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Tento příspěvek byl odmítnut ke zveřejnění. Fáze recenzního řízení bude "
+"uzavřena a příspěvek bude archivován."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} zrušil rozhodnutí o přijetí tohoto příspěvku a vrátil jej zpět "
+"do fáze předkládání."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Vrátit rozhodnutí o přijetí tohoto příspěvku a vrátit jej zpět do fáze "
+"podání."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Pošlat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
+"vrácen zpět do fáze předkládání. Vysvětlete, proč bylo toto rozhodnutí "
+"učiněno, a informujte autora o tom, jaké další práce budou provedeny "
+"předtím, než se podání posune dál."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "Příspěvek {$title} byl odeslán zpět do fáze podání příspěvku."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Poslat zpět do fáze podávání příspěvku"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Zpět k příspěvku"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Pošlat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
+"přijat k publikaci."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Příspěvek s názvem {$title} byl přijat k publikaci a odeslán do fáze "
+"redakčních úprav."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Příspěvek přijat"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} přijal/a tento příspěvek a poslal/a jej do fáze konečného "
+"formátování."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Tento příspěvek bude přijat ke zveřejnění a odeslán k závěrečnému "
+"formátování."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Pošlat recenzentům e-mail, ve kterém se jim děkuje za recenzi a oznámí jim, "
+"že bylo přijato rozhodnutí."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Upozornit recenzenty"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Upozornit autory"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"E-mail o rozhodnutí byl zaslán recenzentovi (recenzentům) {$recipientCount} "
+"s předmětem {$subject}."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Doporučení můžete vydat až poté, co vám bude přidělen editor s oprávněním "
+"zaznamenat rozhodnutí."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} doporučil tento příspěvek odmítnout."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Doporučit zamítnutí žádosti o zveřejnění příspěvku."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Doporučení odmítnutí"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} doporučil, aby byly vyžádány úpravy a tyto úpravy byly zaslány "
+"k dalšímu kolu recenzí."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Doporučit, aby byl autor vyzván k předložení úprav pro další kolo recenzního "
+"řízení."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Doporučit nové zaslání příspěvku k recenznímu řízení"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} doporučil/a, aby byly vyžádány úpravy."
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Zobrazit všechny příspěvky"

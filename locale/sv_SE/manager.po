@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-10-08 17:06+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -1510,13 +1510,13 @@ msgid "manager.emails.emailTemplates"
 msgstr "E-postmallar"
 
 msgid "stats.name.submissionsPublished"
-msgstr "Bidraget är publicerat"
+msgstr "Publicerade bidrag"
 
 msgid "stats.name.submissionsAccepted"
-msgstr "Bidraget är accepterat"
+msgstr "Accepterade bidrag"
 
 msgid "stats.name.submissionsReceived"
-msgstr "Bidraget är mottaget"
+msgstr "Mottagna bidrag"
 
 msgid "stats.userStatistics"
 msgstr "Användarstatistik"
@@ -1611,16 +1611,16 @@ msgid "manager.setup.metadata.coverage.enable"
 msgstr "Gör det möjligt att lägga in metadata om täckning"
 
 msgid "stats.name.declinedReviewRate"
-msgstr "Avslagsprocent efter granskning"
+msgstr "Avslagsfrekvens efter granskning"
 
 msgid "stats.name.declinedDeskRate"
-msgstr "Redaktionell avslagsprocent"
+msgstr "Redaktionell avslagsfrekvens"
 
 msgid "stats.name.declineRate"
-msgstr "Avslagsprocent"
+msgstr "Avslagsfrekvens"
 
 msgid "stats.name.acceptanceRate"
-msgstr "Accepteringsprocent"
+msgstr "Acceptansprocent"
 
 msgid "stats.name.daysToReject"
 msgstr "Dagar till avslag"
@@ -1949,10 +1949,10 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Granskningspåminnelsens detaljer har uppdaterats."
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Bidraget är refuserat efter granskning"
+msgstr "Refuserade efter granskning"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Bidraget är refuserat av redaktionen"
+msgstr "Refuserade av redaktionen"
 
 msgid "manager.setup.metadata.type.request"
 msgstr ""
@@ -2203,7 +2203,7 @@ msgid "emailTemplate.variable.submission.authorsFull"
 msgstr "Författarnas fullständiga namn"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr "Författarnamn i form av en förkortad sträng"
+msgstr "Författarnas fullständiga namn"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Bidragets abstract"
@@ -2246,3 +2246,413 @@ msgstr "Mottagarens eller mottagarnas fullständiga namn"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL till en sida där användaren kan återställa sitt lösenord"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Använd standardmönster."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Ett DOI-suffix utformas hur som helst, men måste vara unikt för objekt med "
+"samma DOI-prefix:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffix"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} kommer tilldelas DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Objekt med DOI:er"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI-prefix"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Aldrig"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Vid publicering"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Vid vilken punkt i publiceringsprocessen ska DOI tilldelas?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatisk generering av DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI-prefix krävs och måste vara i formatet 10.xxxx..."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Detta tilldelas av en organisation som står för ett DOI-register, t.ex. <a "
+"href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> eller <a href="
+"\"https://datacite.org/\" target=\"new\">DataCite</a>. Exempel: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Anger om DOI:er deponeras automatiskt till den inställda organisationen."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Aktivera automatisk deponering"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatisk deponering"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-prefix"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Aktivera DOI:er"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrering"
+
+msgid "manager.setup.dois.setup"
+msgstr "Konfiguration"
+
+msgid "manager.setup.dois"
+msgstr "DOI:er"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "Följande fel har rapporterats av {$registrationAgency}:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr "Följande fel har rapporterats av {$registrationAgency}:"
+
+msgid "manager.dois.title"
+msgstr "DOI:er"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Objekt har skickats in för deponering"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Objekt har tilldelats DOI:er"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Objekt har markerats som registrerade"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Objekt har exporterats"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Vissa DOI:er kunde inte uppdateras."
+
+msgid "manager.dois.status.error"
+msgstr "Fel"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrerad"
+
+msgid "manager.dois.status.submitted"
+msgstr "Inskickad"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Oregistrerad"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Deponera DOI(:er)"
+
+msgid "manger.dois.update.success"
+msgstr "DOI:er har uppdaterats"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Meddelande om avklarad registrering"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Visa post"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Felmeddelande för registrering"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Visa fel"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Detta objekt kan inte deponeras förrän det har publicerats."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadata för detta objekt har inte skickats till {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadata för detta objekt har skickats in till {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Publiceringsstatus"
+
+msgid "manager.dois.depositStatus"
+msgstr "Deponera status"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Du kommer schemalägga alla utestående metadataposter som ska deponeras hos "
+"{$registrationAgency}. Varje objekts enskilda status kommer uppdateras när "
+"svar ges. Är du säker på att du vill schemalägga deponeringar för samtliga "
+"dessa objekt?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deponera alla DOI:er"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Du kommer tilldela nya DOI:er till {$count} objekt, om dessa inte redan har "
+"tilldelats en DOI. Är du säker på att du vill tilldela DOI:er till dessa "
+"objekt?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Tilldela DOI:er"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Du kommer exportera metadata för {$count} objekt till {$registrationAgency}. "
+"Är du säker på att du vill exportera de här posterna?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exportera DOI:er"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr "Du kommer markera {$count} objekt som registerade. Är du säker på det?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Markera DOI:er som registrerade"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Du kommer skicka metadata för {$count} objekt till {$registrationAgency}. Är "
+"du säker på att du vill deponera de här posterna?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deponera DOI:er"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deponera alla"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "Användardefinierat mönster för DOI-suffix som ej används längre."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Ange manuellt DOI-suffix för varje publikation. Du hittar fält för att ange "
+"DOI i sidan för DOI-hantering."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bearbetning av bidraget "
+"krävs."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Bearbetning krävs"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att en ny granskningsomgång har "
+"satts igång."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Ny granskningsomgång har startats"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Bidraget har refuserats"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har refuserats "
+"efter granskning."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Bidraget har refuserats"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
+"till inskickat-steget."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till inskickat"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"tillbaka till granskningssteget."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till granskning"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
+"till manusredigeringssteget."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till manusredigering"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget har accepterats."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Bidraget är accepterat"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Vi har bjudit in författare att skicka in en bearbetad version för "
+"ytterligare granskning."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Vi har bett författarna skicka in ändringar."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Vi har valt att refusera bidraget."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Vi har valt att acceptera bidraget utan ändringar."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"En kort beskrivning av beslutet som kommer med i e-postmeddelandet till "
+"granskaren."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Detta e-postmeddelande skickas från en redaktör till en granskare för att "
+"meddela att beslut fattats om ett bidrag som de granskat."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Meddelande till granskare"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+"En kopia av e-postmeddelandet som skickades till författaren som skickade in "
+"bidraget"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Detta e-postmeddelande skickas för att meddela alla författare till ett "
+"bidrag som inte är med på deltagarlistan att ett beslut har fattats. Detta "
+"inkluderar vanligtvis alla författare förutom den som skickat in bidraget."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Meddela andra författare"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Detta e-postmeddelande skickas automatiskt till nya användare i samband med "
+"registrering, om inställningarna kräver att e-postadressen godkänns."
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en redaktör tar bort ett "
+"granskningsuppdrag."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Granskningsuppdrag borttaget"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en granskare som tagits bort sedan "
+"återinsätts av en redaktör."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Granskare återinsatt"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en granskare utsetts till ett bidrag."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Granskare utsedd"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Detta e-postmeddelande skickas automatiskt till deltagare i diskussionen när "
+"ett nytt meddelande läggs till."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Lägg till diskussion"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Författarnamnen som är tilldelade arbetsflödet för inskickning. Detta är "
+"oftast författaren som skickat in bidraget"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Författarens URL till bidraget"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Författarnamn i en förkortad version"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "E-postadress till sidans primära kontakt"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Beskrivning av standardmetoden för granskning, t.ex. anonym författare/"
+"anonym granskare eller öppen."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Rekommenderat beslut, t.ex. acceptera bidrag"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Vilken granskningsomgång beslutet fattats i, om beslutet hänger ihop med "
+"granskningssteget."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Arbetsflödessteget i vilket beslutet fattats."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "En beskrivning av det fattade beslutet."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Benämningen av det fattade beslutet."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL för att se en användares samtliga tilldelade bidrag."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Alla kommentarer från färdigställda granskningar. Granskares namn är dolda "
+"om granskningen är anonym"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Skicka enbart e-postavisering till författare som är knutna till "
+"arbetsflödet för bidraget. Detta är vanligtvis författaren som skickat in "
+"bidraget."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Skicka en e-postavisering till bidragets samtliga författare."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Vem ska få en e-postavisering när beslut fattats?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Meddela alla författare"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Ingen"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI:er kan skapas och registreras hos en DOI-organisation. För att använda "
+"denna funktion, installera plugin för den organisation ni är anslutna till."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Ingen DOI-organisation aktiverad"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Välj DOI-organisationen du vill använda för att registrera DOI:er."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "DOI-organisation"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Återinför refuserat bidrag"
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Skicka in igen för ny granskning"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "En rekommendation finns nu"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI saknas"

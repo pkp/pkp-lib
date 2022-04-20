@@ -1,10 +1,10 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2021-12-26 09:24+0000\n"
+"PO-Revision-Date: 2022-02-20 09:24+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru_RU/>\n"
@@ -2230,3 +2230,222 @@ msgstr "Новое сообщение в обсуждении"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Адрес электронной почты основного контактного лица сайта"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Присвоить DOI"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Нет"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI могут быть автоматически сгенерированы и депонированы в агентстве "
+"регистрации. Чтобы воспользоваться этой функцией, найдите и установите "
+"плагин от соответствующего агентства регистрации."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Нет включенных агентств регистрации"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Пожалуйста, выберите агенство регистрации, которое вы хотите использовать "
+"при депонировании DOI."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Агентство регистрации"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Ранее доступный шаблон, определённый пользователем. Больше не используется."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Ввести индивидуальный суффикс DOI для каждого опубликованного элемента. Вы "
+"увидите поля ввода DOI на странице Управления DOI."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Использовать шаблон по умолчанию."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Суффикс DOI может принимать любую форму, но должен быть уникальным среди "
+"всех публикуемых объектов, которым присвоен один и тот же префикс DOI:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Суффикс DOI"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} будет присвоен DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Элементы c DOI"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Префикс DOI"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Никогда"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "При публикации"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "В какой момент процесса публикации должны создаваться DOI?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Автоматическое создание DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Префикс DOI обязателен и должен быть в форме 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Назначается агентствами регистрации DOI, такими как <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> или <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. Пример: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Должны ли DOI быть автоматически депонированы в настроенном агентстве "
+"регистрации."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Включить автоматическое депонирование"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Автоматическое депонирование"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Префикс DOI"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Включить DOI"
+
+msgid "manager.setup.dois.registration"
+msgstr "Регистрация"
+
+msgid "manager.setup.dois.setup"
+msgstr "Настройка"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"{$registrationAgency} вернуло следующее сообщение с информацией о "
+"регистрации:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"{$registrationAgency} вернуло следующую ошибку с информацией о её причинах:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Элементы успешно отправлены на депонирование"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Элементам успешно присвоены новые DOI"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Элементы успешно отмечены как зарегистрированные"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Элементы успешно экспортированы"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Некоторые DOI не удалось обновить."
+
+msgid "manager.dois.status.stale"
+msgstr "Утратил силу"
+
+msgid "manager.dois.status.error"
+msgstr "Ошибка"
+
+msgid "manager.dois.status.registered"
+msgstr "Зарегистрирован"
+
+msgid "manager.dois.status.submitted"
+msgstr "Отправлен"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Не зарегистрирован"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Депонировать DOI"
+
+msgid "manger.dois.update.success"
+msgstr "DOI успешно обновлены"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Сообщение об успешной регистрации"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Показать запись"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Сообщение об ошибке регистрации"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Показать ошибку"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Этот элемент не может быть депонирован, пока он не будет опубликован."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+"Метаданные для этого элемента не были отправлены в {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Метаданные для этого элемента были отправлены в {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Статус публикации"
+
+msgid "manager.dois.depositStatus"
+msgstr "Статус депонирования"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Вы собираетесь запланировать депонирование всех записей метаданных DOI для "
+"{$count} в {$registrationAgency}. Индивидуальный статус каждого элемента "
+"будет обновлен после получения ответа. Вы уверены, что хотите запланировать "
+"депонирование для всех этих записей?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Депонировать все DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Вы собираетесь присвоить новые DOI {$count} элементам, чтобы любой элемент, "
+"удовлетворяющий требованиям, получил DOI, если он ранее не был присвоен. Вы "
+"уверены, что хотите присвоить DOI этим записям?"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Вы собираетесь экспортировать записи метаданных DOI для {$count} элементов в "
+"{$registrationAgency}. Вы уверены, что хотите экспортировать эти записи?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Экспортировать DOI"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Вы собираетесь отметить записи метаданных DOI для {$count} элементов как "
+"зарегистрированные. Вы уверены, что хотите отметить эти записи как "
+"зарегистрированные?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Отметить DOI как зарегистрированные"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Вы собираетесь отправить записи метаданных DOI для {$count} элементов в "
+"{$registrationAgency}. Вы уверены, что хотите депонировать эти записи?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Депонировать DOI"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Депонировать всё"

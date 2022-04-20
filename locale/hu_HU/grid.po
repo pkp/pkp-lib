@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-21 15:36+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"hu/>\n"
+"hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -685,3 +686,37 @@ msgstr "Új verzió létrehozása"
 
 msgid "grid.action.removeUserGroup"
 msgstr "A felhasználói csoport eltávolítása"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Teljes"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Publikációs listák"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Rövidítve"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Megjelenítés"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formátum"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Az e kiadványhoz hozzájáruló szerzőket ebben a folyóiratban a következő "
+"módon azonosítják."
+
+msgid "contributor.listPanel.preview"
+msgstr "Előnézet"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Elsődleges kapcsolattartó beállítása"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Biztos, hogy törölni akarja őt {$name}, mint közreműködőt? Ez a művelet nem "
+"visszavonható."
+
+msgid "grid.action.saveOrdering"
+msgstr "Sorrend mentése"

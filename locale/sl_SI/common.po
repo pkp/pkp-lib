@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-10-10 05:02+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -1576,7 +1576,7 @@ msgid "validator.unique"
 msgstr "{$attribute} je že zaseden."
 
 msgid "validator.timezone"
-msgstr "To ni veljavna časovna cona."
+msgstr "To ni veljaven časovni pas."
 
 msgid "validator.string"
 msgstr "To ni veljaven niz."
@@ -2035,3 +2035,107 @@ msgstr "Vsebuje lahko le črke, številke, vezaj, podčrtaj in piko."
 
 msgid "validation.invalidOption"
 msgstr "Ta opcija ni možna."
+
+msgid "list.collapseAll"
+msgstr "Strni vse"
+
+msgid "list.expandAll"
+msgstr "Razširi vse"
+
+msgid "timeZone"
+msgstr "Časovni pas"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Ste prepričani, da želite spremeniti jezik {$localeName} za pisanje tega "
+"emaila? Spremembe, ki ste jih pri naredili pri zadevi in vsebini, bodo "
+"izgubljene."
+
+msgid "email.attachmentNotFound"
+msgstr "Datoteke {$fileName} ni bilo mogoče pripeti."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Pripni datoteke, ki so jih naložili recenzenti"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Pripni recenzijske datoteke"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Pripni datoteke iz knjižnice prispevka in izdajatelja."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Pripni datoteke iz knjižnice"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Datoteke knjižnice"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Pripni datoteke naložene v fazi oddajanja, kot so posodobitve ali datoteke, "
+"ki morajo biti recenzirane."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Pripni datoteke, ki jih je naložil avtor v fazi oddajanja."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Pripni datoteke prispevka"
+
+msgid "common.viewError"
+msgstr "Poglej napako"
+
+msgid "common.upload.addFile.description"
+msgstr "Naloži datoteko iz računalnika."
+
+msgid "common.switchToNamedItem"
+msgstr "Preklopi na {$name}"
+
+msgid "common.switchTo"
+msgstr "Preklopi na"
+
+msgid "common.showAllSteps"
+msgstr "Pokaži vse korake"
+
+msgid "common.searching"
+msgstr "Iskanje"
+
+msgid "common.numberedMore"
+msgstr "še {$number}"
+
+msgid "common.keepWorking"
+msgstr "Nadaljuj z delom"
+
+msgid "common.loadTemplate"
+msgstr "Naloži predlogo"
+
+msgid "common.insertContentSearch"
+msgstr "Poišči vsebino za vstaviti"
+
+msgid "common.insertContent"
+msgstr "Vstavi vsebino"
+
+msgid "common.findTemplate"
+msgstr "Poišči predlogo"
+
+msgid "common.orUploadFile"
+msgstr "Ali naložite datoteke"
+
+msgid "common.dragAndDropHere"
+msgstr "Potegni in spusti dateteke sem."
+
+msgid "common.deselect"
+msgstr "Odznači"
+
+msgid "common.attachSelected"
+msgstr "Pripni izbrane datoteke"
+
+msgid "common.attachFiles"
+msgstr "Pripni datoteke"
+
+msgid "common.attachedFiles"
+msgstr "Pripete datoteke"
+
+msgid "common.addFiles"
+msgstr "Dodaj datoteke"
+
+msgid "common.addCCBCC"
+msgstr "Dodaj Kp/Skp"

@@ -1,9 +1,10 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-12-29 10:52+0000\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/pt_PT/>\n"
@@ -48,7 +49,10 @@ msgid "installer.databaseDriver"
 msgstr "Driver da Base de Dados"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Drivers de bases de dados relacionados entre chaves ([]) não tiveram as suas extensões PHP reconhecidas pelo sistema, e portanto não devem funcionar.</strong><br />Os drivers não suportados, listados acima, são exibidos apenas em carácter académico e experimental, não devendo funcionar por padrão. Somente poderão ser utilizados pelo sistema os drivers que tiverem as suas extensões PHP prévia e correctamente instaladas no servidor."
+msgstr ""
+"<strong>O sistema atualmente suporta MySQL e PostgreSQL, caso não consiga "
+"selecionar uma das opções abaixo, contacte o administrador do sistema para "
+"garantir que o seu servidor tenha as extensões PHP necessárias.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Servidor"
@@ -200,3 +204,16 @@ msgstr "Configurações Gerais"
 #, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Erro ao executar a classe de migração <tt>{$class}</tt>."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Selecione qualquer idioma adicional para suporte neste sistema. Idiomas "
+"adicionais podem ser instalados a qualquer momento na interface de "
+"administração do site.<br>* = Designa os idiomas que não se encontram "
+"totalmente traduzidos (> 90% dos termos traduzidos)"
+
+msgid "installer.timezoneInstructions"
+msgstr "O fuso horário a ser usado para este sistema."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Deve selecionar um fuso horário."

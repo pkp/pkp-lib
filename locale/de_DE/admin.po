@@ -1,11 +1,12 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2022-01-27 05:25+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -334,3 +335,9 @@ msgstr "Massen-E-Mails"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Redaktionsreport Benachrichtigung"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Benutzung:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOIs über die angegebene Registrierungsagentur abliefern"

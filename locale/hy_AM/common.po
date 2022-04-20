@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-04-01 08:35+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -2115,3 +2116,107 @@ msgstr "Սա կարող է պարունակել միայն տառեր, թվեր,
 
 msgid "common.insert"
 msgstr "Մուտքագրել"
+
+msgid "list.collapseAll"
+msgstr "Փլուզել բոլորը"
+
+msgid "list.expandAll"
+msgstr "Ընդլայնել բոլորը"
+
+msgid "timeZone"
+msgstr "Ժամային գոտի"
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} նիշքը չի կարող կցվել:"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Կցեք նիշքերը, որոնք վերբեռնվել են գրախոսողների կողմից"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Կցեք վերանայված նիշքերը"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Կցեք նիշքեր Ներկայացման և Հրատարակիչների Գրադարաններից:"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Կցեք գրադարանի նիշքերը"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Գրադարանի նիշքեր"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Կցեք նիշքերը, որոնք վերբեռնվել են ներկայացման աշխատանքների ընթացքում, օրինակ՝"
+" գրախոսման ենթակա նիշքերի վերանայումները:"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Կցեք ներկայացման փուլում հեղինակի կողմից բեռնված նիշքերը:"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Կցեք ներկայացման նիշքերը"
+
+msgid "common.viewError"
+msgstr "Դիտեք սխալը"
+
+msgid "common.upload.addFile.description"
+msgstr "Վերբեռնեք նիշքը ձեր համակարգչից:"
+
+msgid "common.switchTo"
+msgstr "Անցնել"
+
+msgid "common.showAllSteps"
+msgstr "Ցուցադրեք բոլոր քայլերը"
+
+msgid "common.searching"
+msgstr "Որոնում"
+
+msgid "common.numberedMore"
+msgstr "{$number} ավելին"
+
+msgid "common.keepWorking"
+msgstr "Շարունակել աշխատել"
+
+msgid "common.loadTemplate"
+msgstr "Բեռնեք ձևանմուշը"
+
+msgid "common.findTemplate"
+msgstr "Գտեք ձևանմուշը"
+
+msgid "common.deselect"
+msgstr "Ապաընտրեք"
+
+msgid "common.attachFiles"
+msgstr "Կցեք նիշքեր"
+
+msgid "common.attachedFiles"
+msgstr "Կցված նիշքեր"
+
+msgid "common.addCCBCC"
+msgstr "Ավելացրեք CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք փոխել {$localeName }-ին այս նամակը գրելու համար: "
+"Նամակի խորագրի և հիմնական տեքստի մեջ ձեր կատարած ցանկացած փոփոխություն "
+"կկորչի:"
+
+msgid "common.switchToNamedItem"
+msgstr "Անցնել {$name} -ին"
+
+msgid "common.orUploadFile"
+msgstr "Կամ վերբեռնեք նիշք"
+
+msgid "common.dragAndDropHere"
+msgstr "Քաշեք և թողեք նիշքերը այստեղ:"
+
+msgid "common.attachSelected"
+msgstr "Կցեք ընտրվածը"
+
+msgid "common.addFiles"
+msgstr "Ավելացրեք նիշքեր"
+
+msgid "common.insertContentSearch"
+msgstr "Գտեք բովանդակություն՝ տեղադրելու համար"
+
+msgid "common.insertContent"
+msgstr "Տեղադրեք բովանդակությունը"

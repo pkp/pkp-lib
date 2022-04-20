@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-07-21 11:04+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "cs_CZ/>\n"
@@ -420,7 +420,7 @@ msgid "reviewer.list.reassign"
 msgstr "Nové přidělení"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Recenzentovi již byla přidělen tento příspěvek."
+msgstr "Tento recenzent již byl přiřazen k tomuto kolu recenzního řízení."
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
@@ -505,3 +505,93 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "S vybranými účastníky nelze vytvořit diskusi, protože by to mělo dopad na "
 "anonymitu recenzního procesu."
+
+msgid "editor.decision.stepError"
+msgstr "V kroku {$stepName} došlo k problému."
+
+msgid "editor.decision.skipEmail"
+msgstr "Přeskočit tento email"
+
+msgid "editor.decision.recordDecision"
+msgstr "Nahrát rozhodnutí"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Tento krok byl přeskočen a žádný e-mail nebude odeslán."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Nevynechávejte tento e-mail"
+
+msgid "editor.decision.completeSteps"
+msgstr "Pro přijetí tohoto rozhodnutí proveďte následující kroky"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Jste si jisti, že chcete toto rozhodnutí zrušit?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Zrušit rozhodnutí"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Revize by měly být podrobeny novému kolu peer review recenzí."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Revize by neměly být předmětem nového kola peer review recenzí."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Toto rozhodnutí se nepodařilo nalézt. Uveďte prosím rozpoznaný typ "
+"rozhodnutí."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"O tomto příspěvku nebylo možné rozhodnout. Id příspěvku chybí nebo "
+"neodpovídá požadovanému příspěvku."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Doporučení nelze vydat, pokud není v této fázi přidělen redaktor, který může "
+"přijmout konečné rozhodnutí."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Id kola recenze je třeba zadat, aby bylo možné přijmout toto rozhodnutí."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Aby bylo možné zaznamenat redakční rozhodnutí, musíte být k tomuto příspěvku "
+"přiřazeni."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Příspěvek se nenachází ve vhodné fázi pracovního postupu, aby bylo možné "
+"toto rozhodnutí přijmout."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Toto kolo recenzí není součástí tohoto příspěvku."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Bylo zadáno kolo recenzí, ale toto rozhodnutí se v tomto recenzním kole "
+"nepřijímá."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Nelze najít toto recenzní kolo."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Následujícím příjemcům nelze odeslat e-mail: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Editor nebyl rozpoznán a nemusí mít oprávnění zaznamenat rozhodnutí o tomto "
+"příspěvku."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "K zápisu tohoto rozhodnutí k tomuto příspěvku nemáte oprávnění."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Zařazeno do dřívějšího kola"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Znovu přiřadit {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Tento recenzent dokončil recenzi v minulém kole."

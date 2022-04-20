@@ -1,10 +1,10 @@
-# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-08-11 15:04+0000\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/hu_HU/>\n"
@@ -52,7 +52,11 @@ msgid "installer.databaseDriver"
 msgstr "Adatbázis illesztőprogram"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>A zárójelben felsorolt ​​adatbázis illesztőprogramok nem feltétlenül töltődnek be a szükséges PHP-bővítményekkel, és a telepítés valószínűleg sikertelen lesz, ha kiválasztja. </strong> <br /> A fenti felsorolásban szereplő, nem támogatott adatbázis-illesztőprogramok kizárólag tudományos célokra vannak felsorolva, és valószínűleg nem fognak működni."
+msgstr ""
+"<strong>A rendszer jelenleg támogatja a MySQL-t és a PostgreSQL-t is, abban "
+"az esetben, ha nem tudja kiválasztani az alábbi lehetőségek egyikét sem, "
+"lépjen kapcsolatba a rendszergazdával, hogy megbizonyosodjon arról, hogy a "
+"szerver rendelkezik-e a szükséges PHP kiterjesztésekkel.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Kiszolgáló"
@@ -201,3 +205,16 @@ msgid "installer.installMigrationError"
 msgstr ""
 "Váratlan hiba lépett fel ennek a migrációs osztálynak <tt>{$class}</tt> "
 "végrehajtása során. A  hiba ez volt: {$message}."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Válasszon ki további nyelveket a rendszer használatához. További nyelvek "
+"bármikor installálhatók a webhely adminisztrátori felületéről.<br>* jelöli "
+"azokat a nyelveket, amelyek nincsenek teljesen lefordítva (a kifejezéseknek >"
+" 90%-a  van lefordítva)"
+
+msgid "installer.timezoneInstructions"
+msgstr "A rendszerhez használandó időzóna."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Az időzónát ki kell választani."

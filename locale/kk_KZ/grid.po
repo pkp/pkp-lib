@@ -1,8 +1,724 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-04-06 04:55+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"kk_KZ/>\n"
 "Language: kk_KZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "кітапхана басылымы"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Кітапхананы шолу"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Өңделген кітапхана"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Алынған материалдар: кітапхана"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Файлдар"
+
+msgid "grid.noFiles"
+msgstr "Файлдар жоқ"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Жауап түрлері"
+
+msgid "grid.reviewForm.title"
+msgstr "Рецензия формалары"
+
+msgid "grid.action.newVersion"
+msgstr "Жаңа нұсқаны енгізіңіз"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"\"{$name}\" авторлар тізімінен шынымен жойғыңыз келе ме? Бұл әрекетті "
+"қалпына келтіру мүмкін емес."
+
+msgid "grid.action.deleteContributor"
+msgstr "Техникалық қызмет көрсетушіні өшіріңіз"
+
+msgid "grid.action.editContributor"
+msgstr "Редакторды өңдеуші"
+
+msgid "grid.action.addContributor"
+msgstr "Қолдаушыны қосыңыз"
+
+msgid "grid.contributor.title"
+msgstr "Қолдаушылар"
+
+msgid "grid.action.deleteCategory"
+msgstr "категорияны өшіру"
+
+msgid "grid.action.editCategory"
+msgstr "Санатты өңдеу"
+
+msgid "grid.action.addCategory"
+msgstr "Санатты қосыңыз"
+
+msgid "grid.action.deleteSeries"
+msgstr "Серияны өшіру"
+
+msgid "grid.action.editSeries"
+msgstr "Серияны өңдеу"
+
+msgid "grid.action.addSeries"
+msgstr "Серияларды қосу"
+
+msgid "grid.action.editSponsor"
+msgstr "Демеушіні жазу"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Демеушіні өшіру"
+
+msgid "grid.action.addSponsor"
+msgstr "Демеуші қосу"
+
+msgid "grid.sponsor.title"
+msgstr "Демеушілер"
+
+msgid "grid.columns.locale"
+msgstr "Тіл"
+
+msgid "grid.columns.auditor"
+msgstr "Аудитор"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.institution"
+msgstr "Ұйым"
+
+msgid "grid.columns.actions"
+msgstr "Әрекеттер"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Бұл пікір дайын. Пікірді оқу үшін сол жақтағы ескертпе белгішесін басыңыз."
+
+msgid "grid.task.status.unfinished"
+msgstr "Тапсырма аяқталмады"
+
+msgid "grid.task.status.uploaded"
+msgstr "Кестеде  бұл файлды кім жүктеп салғанын көрсетеді"
+
+msgid "grid.task.status.new"
+msgstr "Қарап шыққаннан кейін ескертілді"
+
+msgid "grid.task.status.completed"
+msgstr "Бұл тапсырма орындалды"
+
+msgid "grid.action.users"
+msgstr "Пайдаланушыларды қарау/таңдау"
+
+msgid "grid.action.moreItems"
+msgstr "Қосымша жүктеңіз"
+
+msgid "grid.action.install"
+msgstr "Орнатыңыз"
+
+msgid "grid.action.preview"
+msgstr "Алдын-ала қарау"
+
+msgid "grid.action.copy"
+msgstr "Көшіру"
+
+msgid "grid.action.deactivate"
+msgstr "Өшіру"
+
+msgid "grid.action.activate"
+msgstr "Белсендендіру"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Барлық пайдаланушыларды экспорттауды қалайсыз ба?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Барлық қолданушыларды экспорттау"
+
+msgid "grid.action.logInAs"
+msgstr "Біреудің атымен кіру"
+
+msgid "grid.action.bookInfo"
+msgstr "Материал туралы мәлімет"
+
+msgid "grid.action.enable"
+msgstr "Іске қосу"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Бұл рецензия аяқталды, бірақ сіз оны әлі тексерген жоқсыз"
+
+msgid "grid.action.history"
+msgstr "тарихын көрсету"
+
+msgid "grid.action.unassignUser"
+msgstr "Пайдаланушы тағайындауды жою"
+
+msgid "grid.action.mergeUser"
+msgstr "Пайдаланушыны біріктіру"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Жарнама  қосыңыз"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Жарнама түрін қосыңыз"
+
+msgid "grid.action.uploadFile"
+msgstr "Файлды серверге жүктеңіз"
+
+msgid "grid.action.thankReviewer"
+msgstr "Осы рецензентке алғыс хатын жіберіңіз"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Мүдделер жөніндегі нұсқаулық саясатын қараңыз"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Рецензентке арналған нұсқаулықты көрсету"
+
+msgid "grid.action.newRound"
+msgstr "Жаңа айналымды енгізу"
+
+msgid "grid.action.sendReminder"
+msgstr "Осы пайдаланушыға тапсырманы есіне салу керек"
+
+msgid "grid.action.viewMetadata"
+msgstr "Осы мазмұнға арналған метадеректерді көрсету"
+
+msgid "grid.action.viewLibrary"
+msgstr "Құжаттар кітапханасын көрсету"
+
+msgid "grid.action.advancedSearch"
+msgstr "Кеңейтілген іздеу"
+
+msgid "grid.action.search"
+msgstr "Іздеу"
+
+msgid "grid.action.selectCreate"
+msgstr "Жаңа рецензентті енгізу"
+
+msgid "grid.action.enrolExisting"
+msgstr "Бұрыннан бар пайдаланушыны шолушы ретінде тіркеңіз"
+
+msgid "grid.action.details"
+msgstr "Бұл элементті көрсету"
+
+msgid "grid.action.disable"
+msgstr "Өшіру"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Бұл пайдаланушылар тобын өшіріңіз"
+
+msgid "grid.action.editUserGroup"
+msgstr "Бұл пайдаланушылар тобын өңдеңіз"
+
+msgid "grid.action.addUserGroup"
+msgstr "Жаңа пайдаланушылар тобын қосу"
+
+msgid "grid.action.notify"
+msgstr "Бұл пайдаланушыны хабардар етіңіз"
+
+msgid "grid.action.expand"
+msgstr "Кеңейту"
+
+msgid "grid.action.requestAccount"
+msgstr "Мүшеге адам қосу"
+
+msgid "grid.action.expandAll"
+msgstr "Барлығын кеңейту"
+
+msgid "grid.action.resetEmail"
+msgstr "Осы электрондық пошта үлгісінің әдепкі мәнін қалпына келтіріңіз"
+
+msgid "grid.action.disableEmail"
+msgstr "Бұл электрондық пошта үлгісін өшіріңіз"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Осы электрондық пошта үлгісін өңдеңіз"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Жаңа электрондық пошта үлгісін қосыңыз"
+
+msgid "grid.action.resetAll"
+msgstr "Барлық элементтерді әдепкі мәндерге қойыңыз"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Бұл бақылау тізімінің элементін жойыңыз"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Осы бақылау тізімінің элементін өңдеңіз"
+
+msgid "grid.action.orderItems"
+msgstr "Ұйымдастыру режимін қосыңыз"
+
+msgid "grid.action.importexport"
+msgstr "Мазмұнды немесе сайт деректерін импорттау/экспорттау"
+
+msgid "grid.action.settings"
+msgstr "Параметрлер"
+
+msgid "grid.action.sendToProduction"
+msgstr "Осы мақаланы жариялауға жіберіңіз"
+
+msgid "grid.action.externalReview"
+msgstr "Бұл мақаланы сыртқы тексеруге жіберіңіз"
+
+msgid "grid.action.internalReview"
+msgstr "Бұл материалды ішкі сараптамаға жіберіңіз"
+
+msgid "grid.action.decline"
+msgstr "Бұл жазбаны қабылдамау"
+
+msgid "grid.action.accept"
+msgstr "Бұл материалды қабылдаңыз"
+
+msgid "grid.action.requestRevisions"
+msgstr "Бұл материал үшін жаңа нұсқаларды сұраңыз"
+
+msgid "grid.action.selectFiles"
+msgstr "Жұмыс істеу үшін файлдарды таңдаңыз"
+
+msgid "grid.action.editFile"
+msgstr "Файлды өзгерту"
+
+msgid "grid.action.addFile"
+msgstr "Файлды қосу"
+
+msgid "grid.action.addReviewer"
+msgstr "Рецентті қосу"
+
+msgid "grid.action.email"
+msgstr "E-mail арқылы хат жіберу"
+
+msgid "grid.action.readReview"
+msgstr "Рецензияны оқу"
+
+msgid "grid.action.downloadAll"
+msgstr "Барлық файлдарды бір мұрағатта жүктеп алыңыз"
+
+msgid "grid.action.moveItem"
+msgstr "Элементті жылжыту"
+
+msgid "grid.action.wizard"
+msgstr "Параметр мастері"
+
+msgid "grid.action.extendAll"
+msgstr "Барылығын көрсету"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Тапсырыстан бас тарту"
+
+msgid "grid.action.saveOrdering"
+msgstr "Талапты сақтау"
+
+msgid "grid.action.order"
+msgstr "Реттеу"
+
+msgid "grid.action.upgrade"
+msgstr "Жаңартыңыз"
+
+msgid "grid.action.addAuditor"
+msgstr "Аудиторды қосыңыз"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Авторды өшіру"
+
+msgid "grid.action.editAuthor"
+msgstr "Авторды өңдеу"
+
+msgid "grid.action.addAuthor"
+msgstr "Автор қосу"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Әдепкі параметрлерді қалпына келтіргіңіз келетініне сенімдісіз бе?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Стандартты параметрлерді қалпына келтіріңіз"
+
+msgid "grid.action.moreInformation"
+msgstr "Қосымша информация"
+
+msgid "grid.action.setApproval"
+msgstr "Мақұлдауды орнатыңыз"
+
+msgid "grid.action.disapprove"
+msgstr "Мақұлдаудан бас тарту"
+
+msgid "grid.action.approve"
+msgstr "Мақұлдау"
+
+msgid "grid.action.edit"
+msgstr "Өңдеу"
+
+msgid "grid.action.remove"
+msgstr "Өшіру"
+
+msgid "grid.action.editorialHistory"
+msgstr "Редакциялық тарих"
+
+msgid "grid.action.deleteSection"
+msgstr "Бөлімді өшіру"
+
+msgid "grid.action.export"
+msgstr "Экспорттау"
+
+msgid "grid.action.editSection"
+msgstr "Бөлімді өңдеу"
+
+msgid "grid.action.editMedia"
+msgstr "Медианы өңдеу"
+
+msgid "grid.action.deleteMedia"
+msgstr "Медианы өшіру"
+
+msgid "grid.action.deleteFile"
+msgstr "Файлды өшіру"
+
+msgid "grid.action.delete"
+msgstr "Өшіру"
+
+msgid "grid.action.reload"
+msgstr "Қайта жүктеңіз"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Келесі кезеңге жіберу үшін осы көшірмемен өңделген файлды бекітіңіз"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Осы шолушыны тағайындаудан бас тарту"
+
+msgid "grid.action.addUser"
+msgstr "Пайдаланушыны қосыңыз"
+
+msgid "grid.action.updateQuery"
+msgstr "Талқылауды жаңарту"
+
+msgid "grid.action.deleteQuery"
+msgstr "Талқылауды өшіру"
+
+msgid "grid.action.readQuery"
+msgstr "Талқылауды оқу"
+
+msgid "grid.action.addQuery"
+msgstr "Талқылауды қосыңыз"
+
+msgid "grid.action.addNote"
+msgstr "Ескертпе қосыңыз"
+
+msgid "grid.action.addItem"
+msgstr "Элемент қосу"
+
+msgid "grid.action.sort"
+msgstr "Сұрыптау"
+
+msgid "grid.action.manageAccess"
+msgstr "Қол жеткізуді басқару"
+
+msgid "grid.action.uninstall"
+msgstr "Өшіру"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Бұл элемент қашықтағы серверде орналастырылған."
+
+msgid "grid.noAuditors"
+msgstr "Аудиторлар жоқ"
+
+msgid "grid.settings"
+msgstr "Параметрлер"
+
+msgid "grid.noItems"
+msgstr "Элементтер жоқ"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Түрді таңдаңыз..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Навигация мәзірі жоқ"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Навигация мәзірінің элементтері жоқ"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Элементті қосыңыз"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Мәзірді қосыңыз"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Автор ұсынбаған толық емес материалдарды қосыңыз."
+
+msgid "grid.submission.itemTitle"
+msgstr "Автор; атауы"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr ""
+"\"{$stageName}\" кезеңіндегі \"{$userGroupName}\" рөлі қайта тағайындалды."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "\"{$userGroupName}\" рөлі \"{$stageName}\" кезеңіне тағайындалды."
+
+msgid "grid.userGroup.removed"
+msgstr "\"{$userGroupName}\" рөлі жойылды."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"\"{$userGroupName}\" рөлін жою мүмкін емес. Ол қазір {$usersCount} "
+"пайдаланушыға тағайындалған."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr ""
+"\"{$userGroupName}\" рөлі әдепкі рөл болып табылады және оны жою мүмкін емес."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Құқықтық деңгейімен"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Тағайындалған рөлдерді көрсету"
+
+msgid "grid.userGroup.allStages"
+msgstr "Жұмыс процесінің барлық кезеңдері"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Белгіленген кезеңді тағайындаудан бас тарту"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Кезеңді тағайындаңыз"
+
+msgid "grid.artworkFile.placement"
+msgstr "Материалды орналастыру"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Қолдану ережелері"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Байланыс ақпараты (автор/баспагер болмаса)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Авторлық құқық иесі"
+
+msgid "grid.artworkFile.credit"
+msgstr "Автор"
+
+msgid "grid.artworkFile.caption"
+msgstr "Қолтаңба"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"Түзетуші өзгертулер енгізілді. Бұл тапсырманы қараудан алып тастауға болады"
+
+msgid "grid.plugin.disable"
+msgstr "Бұл модульді өшіргіңіз келетініне сенімдісіз бе?"
+
+msgid "grid.plugin.allCategories"
+msgstr "Барлық категориялар"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Ағымдағы тізім"
+
+msgid "grid.preparedEmails.title"
+msgstr "Дайын электрондық пошта үлгілері"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"\"{$oldUsername}\" пайдаланушы аты бар тіркелгіні \"{$newUsername}\" "
+"пайдаланушы аты бар тіркелгімен біріктіргіңіз келетініне сенімдісіз бе? \""
+"{$oldUsername}\" пайдаланушы аты бар тіркелгі енді болмайды. Бұл әрекетті "
+"қайтару мүмкін емес."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Барлық тіркелген пайдаланушылар"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Осы пайдаланушының атына біріктіру"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Пайдаланушыны біріктіру"
+
+msgid "grid.user.mergeUsers"
+msgstr "Пайдаланушыларды біріктіру"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Осы қолданушымен кіресіз бе? Сіз жасайтын барлық әрекеттер осы "
+"пайдаланушының атынан болады."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Пайдаланушыны таңдаңыз"
+
+msgid "grid.user.selectUser"
+msgstr "Пайдаланушыны таңдаңыз"
+
+msgid "grid.user.addRole"
+msgstr "Рөлді қосу"
+
+msgid "grid.user.addRoles"
+msgstr "Рөлдерді қосу"
+
+msgid "grid.user.step2"
+msgstr "№2 қадам: {$userFullName} пайдаланушысына рөлдерді қосу"
+
+msgid "grid.user.step1"
+msgstr "№1 қадам: пайдаланушының мәліметтерін толтырыңыз"
+
+msgid "grid.user.userNoRoles"
+msgstr "Бұл пайдаланушыға тағайындалған рөлдер жоқ."
+
+msgid "grid.user.userRoles"
+msgstr "Пайдаланушының рөлдері"
+
+msgid "grid.user.userDetails"
+msgstr "Пайдаланушы деректері"
+
+msgid "grid.user.lessDetails"
+msgstr "Пайдаланушы деректері (қысқаша)"
+
+msgid "grid.user.moreDetails"
+msgstr "Пайдаланушы деректері (толығырақ)"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"Пайдаланушыдан келесі рет кірген кезде құпия сөзін өзгертуді талап етіңіз."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Пайдаланушы келесі рет кірген кезде құпия сөзді өзгертуі керек."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Құпия сөзді өзгерту"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Пайдаланушыға сәлемдесу электрондық хатын жіберіңіз."
+
+msgid "grid.user.notifyUser"
+msgstr "Пайдаланушыға хабарлау"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Бұл пайдаланушы үшін кездейсоқ құпия сөз жасаңыз."
+
+msgid "grid.user.generatePassword"
+msgstr "Құпия сөзді жасаңыз"
+
+msgid "grid.user.mustProvideName"
+msgstr "Алдымен пайдаланушының тегін енгізіңіз."
+
+msgid "grid.user.authSource"
+msgstr "Аутентификация көзі"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Сізде бұл пайдаланушыны басқаруға құқықтарыңыз жеткіліксіз. Пайдаланушыны "
+"басқару үшін сіз сайт әкімшісі болуыңыз керек немесе пайдаланушы мүшесі "
+"болып табылатын барлық мәтінмәндерді басқаруыңыз керек."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Осы электрондық хабарды жіберу кезінде қате орын алды. Электрондық пошта "
+"серверінің орнату жұмыс істеп тұрғанына көз жеткізіңіз және/немесе жүйе "
+"әкімшісіне хабарласыңыз."
+
+msgid "grid.user.error"
+msgstr "Осы пайдаланушыны басқару кезінде қате орын алды. Қайталап көріңіз."
+
+msgid "grid.user.enableReason"
+msgstr "Пайдаланушыны қосу себебі"
+
+msgid "grid.user.disableReason"
+msgstr "Пайдаланушыны өшіру себебі"
+
+msgid "grid.user.disable"
+msgstr "Өшіру"
+
+msgid "grid.user.enable"
+msgstr "Қосу"
+
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.edit"
+msgstr "Пайдаланушыны өңдеу"
+
+msgid "grid.user.enroll"
+msgstr "Қолданушыны тіркеңіз"
+
+msgid "grid.user.add"
+msgstr "Қолданушыны қосу"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Құқықтың барлық деңгейлері"
+
+msgid "grid.user.allRoles"
+msgstr "Барлық рөлдер"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Ағымдағы жазбалар"
+
+msgid "grid.user.currentUsers"
+msgstr "Ағымдағы қолданушылар"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Кезеңдік тапсырма"
+
+msgid "grid.roles.add"
+msgstr "Жаңа рөлді еңгізіңіз"
+
+msgid "grid.roles.currentRoles"
+msgstr "Ағымдағы рөлдері"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Толық"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Әдебиеттер тізімі"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Қысқартылған"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Дисплей"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Формат"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Осы басылымның авторлары осы журналға келесі форматтарда жазылады."
+
+msgid "contributor.listPanel.preview"
+msgstr "Алдын-ала қарау"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Бақылау тізімдеріне"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Байланыс үшін адамды белгілеңіз"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Байланыс тұлғасы"
+
+msgid "author.users.contributor.role"
+msgstr "Рөлі"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.name"
+msgstr "Атауы"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Бақылау тізімінің элементі"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Материалды жіберуге дайындаған бақылау парағы"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Жарияланым үлгілері: Кітапхана"
+
+msgid "grid.action.collapseAll"
+msgstr "Барлығын жабу"
+
+msgid "grid.action.collapse"
+msgstr "Жиыру"

@@ -1,6 +1,7 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-27 14:28+0000\n"
+"PO-Revision-Date: 2022-02-25 13:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -240,3 +241,58 @@ msgstr ""
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Následující lokalizace nejsou podporovány:  {$locales}."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"K požadavku byla připojena jedna nebo více neplatných položek k zveřejnění."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "K žádosti nebyly přiloženy žádné platné položky k publikování."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Některé položky nebyly úspěšně uloženy. Podívejte se prosím na konkrétní "
+"chybová hlášení u jednotlivých položek."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Došlo k chybě a některé z odeslaných položek nebyly označeny jako "
+"registrované."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Došlo k chybě validace XML a XML nebylo možné exportovat."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Došlo k chybě a objekt DOI nelze vytvořit."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Nezveřejněné položky (položky, jejichž zveřejnění bylo zrušeno) nelze "
+"exportovat/odložit. Zrušte prosím výběr nepublikovaných položek a zkuste to "
+"znovu."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Požadované DOI nebylo nalezeno."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Tento koncový bod není dostupný z oboru názvů celého webu a musí být vyžádán "
+"pro daný kontext."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Nelze upravovat DOI položky, která není v tomto kontextu"
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Při přesunu souboru do této fáze je nutné zadat identifikátor kola recenze."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Vámi zadaná fáze souboru není platná."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"U tohoto příspěvku nelze zaznamenat rozhodnutí ani doporučit rozhodnutí, "
+"protože již byl zveřejněn."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Musíte zadat předmět a tělo e-mailu."

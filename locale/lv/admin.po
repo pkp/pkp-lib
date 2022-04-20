@@ -1,0 +1,43 @@
+# Gints Buda <gints.buda@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-03-04 10:13+0000\n"
+"Last-Translator: Gints Buda <gints.buda@gmail.com>\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"lv/>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.clearTemplateCache"
+msgstr "Notīrīt Veidņu Kešatmiņu"
+
+msgid "admin.clearDataCache"
+msgstr "Notīrīt Datu Kešatmiņu"
+
+msgid "admin.authSources"
+msgstr "Autentifikācijas Avoti"
+
+msgid "admin.auth.noneCreated"
+msgstr "Nav definētu autentifikācijas avotu."
+
+msgid "admin.auth.create"
+msgstr "Izveidot autentifikācijas avotu"
+
+msgid "admin.auth.confirmDelete"
+msgstr ""
+"Vai esat drošs, ka vēlaties neatgriezeniski izdzēst šo autentifikācijas "
+"avotu?"
+
+msgid "admin.adminFunctions"
+msgstr "Administratīvās Funkcijas"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Iestatījumu Vērtība"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Iestatījumu Nosaukums"

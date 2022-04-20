@@ -1,10 +1,12 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-02-25 09:05+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -224,3 +226,62 @@ msgstr ""
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Følgende sprog understøttes ikke: {$locales}."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Upublicerede elementer kan ikke eksporteres/deponeres. Fravælg de "
+"upublicerede elementer og prøv igen."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Der blev inkluderet et eller flere ugyldige puklikationsobjekter sammen med "
+"anmodningen."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+"Der blev ikke inkluderet nogen gyldige publikationsposter sammen med "
+"anmodningen."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Nogle poster blev ikke deponeret korrekt. Tjek venligst de individuelle "
+"poster for at se deres specifikke fejlmeddelelser."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Der opstod en fejl, og nogle af de indsendte poster blev ikke markeret som "
+"registrerede."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Der opstod en fejl med validering af XML, og XML kunne ikke eksporteres."
+
+msgid "api.dois.400.creationFailed"
+msgstr "En fejl opstod, og DOI objektet kunne ikke skabes."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Den DOI, du efterspurgte, blev ikke fundet."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Du kan ikke redigere et emnes DOI som ikke findes i denne kontekst"
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Dette grænsepunkt er ikke tilgængeligt fra hele webstedets navnerum, og der "
+"skal anmodes om det i en given kontekst."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Du skal angive et ID for bedømmelsesrunden, når du flytter en fil til dette "
+"trin."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Det trin, du har angivet for filen, er ikke gyldigt."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Du kan ikke angive eller anbefale en beslutning til denne indsendelse, da "
+"den allerede er blevet publiceret."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Du skal angive et emne og en beskedtekst i e-mailen."

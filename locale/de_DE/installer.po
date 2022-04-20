@@ -1,10 +1,11 @@
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-12-15 09:58+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/de_DE/>\n"
 "Language: de_DE\n"
@@ -48,7 +49,11 @@ msgid "installer.databaseDriver"
 msgstr "Datenbank-Treiber"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Zu den Datenbank-Treibern in Klammern scheinen nicht die nötigen PHP-Erweiterungen installiert zu sein, so dass die Installation vermutlich scheitern wird.</strong><br />Alle nicht unterstützten Datenbank-Treiber, die oben aufgeführt sind, sind ausschließlich aus Vollständigkeitsgründen erfasst und werden voraussichtlich nicht funktionieren."
+msgstr ""
+"<strong>Das System unterstützt derzeit MySQL und PostgreSQL. Falls Sie keine "
+"der unten angegebenen Optionen auswählen können, kontaktieren Sie Ihre/n "
+"Systemadministrator/in um sicherzustellen, dass Ihr Server die benötigten "
+"PHP-Erweiterungen hat.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Server"
@@ -192,3 +197,16 @@ msgstr "Die PHP-Version Ihres Servers wird nicht von dieser Software unterstütz
 #, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Fehler beim Ausführen der migration-Klasse <tt>{$class}</tt>."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Wählen Sie zusätzliche Sprachen für Ihr System aus. Weitere Sprachen können "
+"auch jederzeit über die Administrationsoberfläche hinzugefügt werden.<br>* = "
+"Bezeichnet Sprachen, die nicht komplett übersetzt wurden (> 90% aller "
+"Begriffe übersetzt)"
+
+msgid "installer.timezoneInstructions"
+msgstr "Die Zeitzone, die für dieses System verwendet werden soll."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Es muss eine Zeitzone ausgewählt werden."

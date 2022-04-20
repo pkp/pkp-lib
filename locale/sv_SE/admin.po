@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2022-02-10 00:38+0000\n"
+"PO-Revision-Date: 2022-02-15 15:07+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sv_SE/>\n"
@@ -336,3 +336,12 @@ msgstr "Användning:"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Avisering om redaktionsrapport"
+
+msgid "admin.jobs.totalCount"
+msgstr "Det finns totalt <strong>{$total}</strong> uppgifter i kön"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Menade något av följande?"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponera DOI:er hos den inställda organisationen"

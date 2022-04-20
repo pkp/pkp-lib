@@ -1,11 +1,12 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
-"Language-Team: hy (generated) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/hy/>\n"
-"Language: hy\n"
+"PO-Revision-Date: 2022-04-11 10:45+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/hy_AM/>\n"
+"Language: hy_AM\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,3 +42,2985 @@ msgstr "Պահանջվում է պատկերի ֆայլ: Համոզվեք, որ 
 
 msgid "manager.website.appearance"
 msgstr "Արտաքին տեսք"
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Խնդրում ենք ընտրել հայտարարության ժամկետի ավարտի վավեր օր։"
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Խնդրում ենք ընտրել տարին և/կամ օրը՝ ի հավելումն գործողության ժամկետի ավարտի "
+"ամսվա:"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Հայտարարությունը կցուցադրվի ընթերցողներին մինչև այս ամսաթիվը: Թողեք դատարկ, "
+"եթե հայտարարությունը պետք է անորոշ ժամանակով ցուցադրվի:"
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Ժամկետի ավարտի ամսաթիվ"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr ""
+"Խնդրում ենք ընտրել տարին և/կամ ամիսը՝ ի հավելումն գործողության ժամկետի "
+"ավարտի օրվա:"
+
+msgid "manager.announcements.editTitle"
+msgstr "Խմբագրել"
+
+msgid "manager.announcements.edit"
+msgstr "Խմբագրել հայտարարությունը"
+
+msgid "plugins.categories.reports"
+msgstr "Հաշվետվությունների պլագիններ"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Հաշվետվությունների պլագիններն օգտագործվում են տարբեր տեսակի "
+"հաշվետվությունների և տվյալների քաղվածքների իրականացման համար:"
+
+msgid "plugins.categories.paymethod"
+msgstr "Վճարման պլագիններ"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Վճարման մեթոդի պլագիններն ապահովում են  աջակցություն առցանց վճարումների "
+"իրականացման տարբեր եղանակներին:"
+
+msgid "plugins.categories.importexport"
+msgstr "Ներմուծման/արտահանման պլագիններ"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Ներմուծման/արտահանման պլագինները կարող են օգտագործվել բովանդակությունը այլ "
+"համակարգեր և այլ համակարգերից տեղափոխելու համար:"
+
+msgid "plugins.categories.generic"
+msgstr "Ընդհանուր պլագիններ"
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway պլագիններ"
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway Plugins-ը կենդանի տվյալներ է տրամադրում արտաքին համակարգերին:"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Բլոկի պլագինները դրանք միացվող UI բաղադրիչներ են, ինչպիսիք են տարբեր կողային "
+"գործիքները:"
+
+msgid "plugins.categories.blocks"
+msgstr "Բլոկի պլագիններ"
+
+msgid "plugins.categories.auth"
+msgstr "Լիազորության պլագիններ"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Մետատվյալների պլագինը իրականացնում է լրացուցիչ մետատվյալների ստանդարտներ:"
+
+msgid "plugins.categories.metadata"
+msgstr "Մետատվյալների պլագիններ"
+
+msgid "manager.users"
+msgstr "Օգտվողներ"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Գրանցված օգտվողներ"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} նոր)"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Կայքի մուտքի ընտրանքներ"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ակտիվացնել այս բաժինը:"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Վստա՞հ եք, որ ցանկանում եք անջատել այս բաժինը:"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Ապաակտիվացրեք այս բաժինը և թույլ մի տվեք, որ դրանում նոր ներկայացումներ "
+"արվեն:"
+
+msgid "manager.setup.theme.notFound"
+msgstr "Ձեր ընտրած թեման տեղադրված կամ միացված չէ:"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Նոր թեմաները կարող են տեղադրվել այս էջի վերևում գտնվող «Plugins» ներդիրից:"
+
+msgid "manager.setup.theme"
+msgstr "Թեմա"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Կոնտակտային անձ, ով կարող է օգնել խմբագիրներին, հեղինակներին և գրախոսներին "
+"նյութի ներկայացման, խմբագրման, գրախոսման կամ հրապարակման հետ կապված ցանկացած "
+"խնդիրների առնչությամբ:"
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Տեխնիկական աջակցության կապ"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Փորձառու վեբ մշակողները կարող են վերբեռնել CSS նիշք՝ վեբ կայքի արտաքին տեսքն "
+"ավելի հարմարեցնելու համար:"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Օրինակներ՝ գիտական ասոցիացիաներ, համալսարանական բաժիններ, կոոպերատիվներ և "
+"այլն: Հովանավորները ցուցադրվում են հրապարակայնորեն:"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Հովանավորի հարաբերություններ և քաղաքականության նկարագրությունը"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Ուղղեք հղումը դեպի <button type=\"button\">ինչպես երաշխավորել, որ բոլոր "
+"նիշքերը անանունացված լինեն</button> վերբեռնման ժամանակ"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Գրախոսման կանխադրված ռեժիմ"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Ուղարկեք էլ․ փոստով հիշեցում, եթե գրախոսը առաջարկություն չի ներկայացրել "
+"վերանայման ժամկետից հետո մի քանի օրվա ընթացքում:"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Գրախոսման հիշեցում"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Ուղարկեք էլ․ փոստի հիշեցում, եթե գրախոսը չի պատասխանել գրախոսման հարցումին "
+"պատասխանի վերջնաժամկետից որոշակի օրեր անց:"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Պատասխանի հիշեցում"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Լռելյայնները կարող են փոփոխվել յուրաքանչյուր գրախոսման համար խմբագրման "
+"գործընթացի ընթացքում:"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Երբեք մի հիշեցրեք"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Հատկացված շաբաթները, որոնք տրված են գրախոսության իրականացմանը"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Շաբաթների քանակը՝ գրախոսելու հարցումն ընդունելու կամ մերժելու համար:"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Կանխադրված ավարտի վերջնաժամկետ"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Կանխադրված պատասխանի վերջնաժամկետ"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Այս հայտարարությունը կհայտնվի օգտվողի գրանցման, հեղինակի ներկայացման և "
+"հանրային հասանելի Գաղտնիության էջում: Որոշ իրավասություններում ձեզնից "
+"օրենքով պահանջվում է բացահայտել, թե ինչպես եք վարում օգտատերերի տվյալները "
+"այս գաղտնիության քաղաքականության մեջ:"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Անհատականացված"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Ամսաթիվ և ժամ (կարճ)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Ամսաթիվ և ժամ"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Ժամ"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Ամսաթիվ (կարճ)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Ամսաթիվ"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Ընտրեք նախընտրելի ձևաչափը ամսաթվերի և ժամերի համար: Հատուկ ձևաչափ կարելի է "
+"մուտքագրել՝ օգտագործելով \n"
+"<a href='http://php.net/manual/en/function.strftime.php#refsect1-function"
+".strftime-parameters'>ձևաչափի նիշեր</a>:"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Ամսաթվի և ժամի ձևաչափեր"
+
+msgid "manager.setup.dateTime"
+msgstr "Ամսաթիվ և ժամ"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Գաղտնիության քաղաքականությունը"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Մուտքագրեք կոնտակտային տվյալները, սովորաբար գլխավոր խմբագիրն է, կամ "
+"պատասխանատու խմբագիրը, ովքեր կարող են ցուցադրվել հանրությանը հասանելի ձեր "
+"կայքում:"
+
+msgid "manager.setup.principalContact"
+msgstr "Գլխավոր կոնտակտ"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Ուրվագծեք գործընկերներով գրախոսման քաղաքականությունը և գործընթացները "
+"ընթերցողների և հեղինակների համար: Այս նկարագրությունը հաճախ ներառում է "
+"գրախոսների թիվը, որոնք սովորաբար օգտագործվում են ներկայացումը գրախոսելիս, "
+"չափանիշները, որոնցով գրախոսներից պահանջվում է գնահատել ներկայացումները, "
+"ակնկալվող ժամանակը, որը պահանջվում է գրախոսություններ անցկացնելու համար, և "
+"այն սկզբունքները, որոնք օգտագործվում են գրախոսներ ընտրելու համար:"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Մուտքագրեք ցանկացած պատկեր, տեքստ կամ HTML կոդ, որը ցանկանում եք որ հայտնվի "
+"ձեր կայքի ներքևում:"
+
+msgid "manager.setup.pageFooter"
+msgstr "Էջի տողատակ"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Էջի վերնախորագրի լոգոյի պատկերի անվավեր ձևաչափ կամ վերբեռնումը ձախողվեց: "
+"Ընդունված ձևաչափերն են .gif, .jpg կամ .png:"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Եթե տրամադրում եք անհապաղ անվճար մուտք դեպի հրապարակված ողջ բովանդակությանը, "
+"կարող եք մուտքագրել ձեր Բաց հասանելիության քաղաքականության նկարագրությունը:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Բաց հասանելիության քաղաքականություն"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Ուղարկեք ևս մեկ էլ․ նամակ"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Էլ․ նամակը հաջողությամբ ուղարկվել է բոլոր հասցեատերերին:"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Ուղարկվում է էլ. նամակ։ Խնդրում ենք մի տեղափոխվեք այլ էջ, քանի դեռ առաքումը "
+"չի ավարտվել:"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Դուք պատրաստվում եք նամակ ուղարկել {$total} օգտվողներին: Վստա՞հ եք, որ "
+"ցանկանում եք ուղարկել այս նամակը:"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Ուղարկեք էլ․ նամակ"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Ուղարկեք այս նամակի պատճենն ինձ {$email} հասցեով:"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Ընտրեք այն օգտվողներին, ովքեր պետք է ստանան էլ․ փոստի ձեր ծանուցումը:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Ծանուցել"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Հեղինակներին ինքնաշխատ կերպով ուղարկվում է նամակ՝ հաստատող իրենց "
+"ներկայացումը: Դուք կարող եք ունենալ էլ․ փոստի այս պատճեններն ուղարկված "
+"հետևյալ հասցեով."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "էլ․ փոստի այս հասցեներից մեկը կամ մի քանիսը վավեր չեն:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Ներկայացման հաստատման նամակի պատճենը կուղարկվի այստեղ մուտքագրված էլ. փոստի "
+"ցանկացած հասցեին: Էլ․ փոստի բազմաթիվ հասցեները բաժանեք ստորակետով: Օրինակ՝ "
+"one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Տեղեկացնել ցանկացածին"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ոչ"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Այո, պատճենն ուղարկեք {$email} հասցեին"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Տեղեկացնել առաջնային կապին"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Ծանուցումներ"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Ուղարկեք պատճենը էլ․ փոստի այս հասցեին"
+
+msgid "manager.setup.notifications"
+msgstr "Հեղինակի ներկայացման մասին ծանուցում"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Ձեր բեռնած նիշքը չի գտնվել: Խնդրում ենք կրկին վերբեռնել այն:"
+
+msgid "manager.setup.logo"
+msgstr "Լոգոն"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Մուտքագրում և աուդիտ"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name} բլոկը հնարավոր չէ գտնել: Համոզվեք, որ plugin-ը տեղադրված և միացված է:"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Կողային գոտի"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Նկարագրություններ"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Գլխավոր էջի վերնագրի անվավեր պատկերի ձևաչափ կամ վերբեռնումը ձախողվեց: "
+"Ընդունված ձևաչափերն են .gif, .jpg կամ .png:"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Հիմնական էջի պատկերի անվավեր ձևաչափ կամ վերբեռնումը ձախողվեց: Ընդունված "
+"ձևաչափերն են .gif, .jpg կամ .png:"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Վերբեռնեք պատկերը՝ գլխավոր էջում աչքի ընկնելու համար:"
+
+msgid "manager.setup.homepageImage"
+msgstr "Գլխավոր էջի պատկեր"
+
+msgid "manager.setup.favicon"
+msgstr "Պատկերիկ"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Այս տարրը ջնջելիս սխալ տեղի ունեցավ:"
+
+msgid "manager.setup.competingInterests"
+msgstr "Մրցակցող շահեր"
+
+msgid "manager.setup.checklist"
+msgstr "Ստուգաթերթիկ"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Անջատել ներկայացումները"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Առաջարկվող ուղեցույցները ներառում են մատենագիտական և ձևաչափման ստանդարտներ, "
+"ինչպես նաև մեջբերումների ընդհանուր ձևաչափերի օրինակներ, որոնք պետք է "
+"օգտագործվեն ներկայացումներում:"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Հեղինակի համար ուղեցույցներ"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Հեղինակներից պահանջեք համաձայնել հեղինակային իրավունքի  հետևյալ ծանուցմանը` "
+"որպես ներկայացման գործընթացի մաս:"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Հեղինակային իրավունքի ծանուցում"
+
+msgid "manager.setup.advanced"
+msgstr "Ընդլայնված"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Այստեղ մուտքագրված ցանկացած բան կհայտնվի ձեր գլխավոր էջում:"
+
+msgid "manager.setup.additionalContent"
+msgstr "Լրացուցիչ բովանդակություն"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Այս մանրամասները կարող են ներառվել երրորդ կողմի արխիվային մարմիններին "
+"տրամադրվող մետատվյալներում:"
+
+msgid "manager.setup.publishing"
+msgstr "Հրապարակման մանրամասներ"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Ոչ մեկը"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI-ները կարող են ինքնաշխատ կերպով ձևավորվել և ավանդադրվել գրանցման "
+"գործակալությունում: Այս հնարավորությունն օգտագործելու համար տեղորոշեք և "
+"տեղադրեք հավելված համապատասխան գրանցման գործակալությունից:"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Գրանցման գործակալություն միացված չէ"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Խնդրում ենք ընտրել գրանցման գործակալությունը, որը կցանկանայիք օգտագործել DOI-"
+"ներ ավանդադրելիս:"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Գրանցման գործակալություն"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Նախկինում հասանելի անհատականացված, օգտագործողի կողմից սահմանված "
+"օրինաչափություն: Այլևս չի օգտագործվում:"
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Մուտքագրեք անհատական DOI վերջածանց յուրաքանչյուր հրապարակված նյութի համար: "
+"Դուք կգտնեք DOI մուտքագրման դաշտերը DOI կառավարման էջում:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Օգտագործեք լռելյայն կաղապարը:"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"DOI վերջածանցը կարող է ունենալ ցանկացած ձև, բայց պետք է լինի եզակի բոլոր "
+"հրատարակչական օբյեկտների մեջ, որոնց հատկացված է նույն DOI նախածանցը։"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI վերջածանց"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} -ին նշանակվելու է DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "DOI-ներով տարրեր"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI նախածանց"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Երբեք"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Հրապարակման ժամանակ"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Հրապարակման գործընթացի ո՞ր կետում պետք է ստեղծվեն DOI-ները:"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Ինքնաշխատ DOI ստեղծում"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI նախածանցը պարտադիր է և պետք է լինի 10.xxxx ձևով:"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Սա նշանակված է DOI գրանցման գործակալության կողմից, ինչպիսիք են <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> կամ <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>: Օրինակ՝ 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Արդյոք DOI-ները պետք է ինքնաշխատ կերպով պահվեն կազմաձևված գրանցման "
+"գործակալությունում:"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Միացրեք ինքնաշխատ ավանդադրումը"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Ինքնաշխատ ավանդադրում"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI նախածանց"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Միացնել DOI-ները"
+
+msgid "manager.setup.dois.registration"
+msgstr "Գրանցում"
+
+msgid "manager.setup.dois.setup"
+msgstr "Կարգաբերում"
+
+msgid "manager.setup.dois"
+msgstr "DOI -ներ"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Հովանավոր"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Նեղացրեք արդյունքներ ըստ երկրի, տարածաշրջանի և/կամ քաղաքի:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Ըստ աշխարհագրական դիրքի"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Կամ ընտրեք միջակայքը ըստ՝"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Ընտրեք հաշվետվության միջակայքը"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Ըստ օբյեկտի տեսակի և/կամ օբյեկտի ID-ի"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Ըստ համատեքստի"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"Հետևյալ url-ը կարող է օգտագործվել ընթացիկ ձևի կարգավորումներով "
+"հաշվետվություն ստեղծելու համար: Պարզապես պատճենեք այն և բացեք այն ձեր "
+"դիտակում: Դուք կարող եք նաև պահել այն որպես ձեր հատուկ հաշվետվության url "
+"գեներատոր ձեր էջանիշերում:"
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Հաշվետվության URL"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Հաշվետվությունը ստեղծելու համար դուք պետք է ընտրեք առնվազն մեկ սյունակ:"
+
+msgid "manager.statistics.reports.cities.label"
+msgstr ""
+"Մեկ կամ մի քանի քաղաքների անուններ՝ բաժանված ստորակետերով (օրինակ՝ քաղաքի "
+"անվանումը 1, քաղաքի անվանումը 2)"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Օգտագործեք ՏՏՏՏԱԱՕՕ ձևաչափը։"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Օգտագործեք ՏՏՏՏԱԱ ձևաչափը։"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Ըստ նվազման"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Ըստ աճման"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Ուղղություն"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Տեսակավորել ըստ"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Ընթացիկ ամիս"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Երեկ"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+"Սահմանեք մեկ կամ մի քանի օբյեկտի ID՝ ստորակետերով բաժանված (օրինակ՝ "
+"1,2,3,4,5):"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Օբյեկտի id"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Օբյեկտի տեսակը"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Օբյեկտը չի գտնվել տվյալների շտեմարանում"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Զտիչներ"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"Սահմանեք սյունակները, որոնք կօգտագործվեն հաշվետվությունը պատրաստելու համար: "
+"Այստեղ ձեր ընտրած սյունակները ոչ միայն սահմանում են, թե որ տվյալները "
+"կներկայացվեն հաշվետվություններում, այլ նաև սահմանում են վիճակագրության "
+"համախմբման մակարդակը: Օրինակ, եթե ընտրեք ID, Տեսակ և Ամիս սյունակները, "
+"հաշվետվությունը կամփոփի առարկայի մեկ ամսվա բոլոր դիտումները և կներկայացնի "
+"այդ տվյալները մեկ տողում: Եթե Ամսվա փոխարեն ընտրեք Օր, ապա յուրաքանչյուր "
+"առարկա կունենա տող յուրաքանչյուր օրվա համար:"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Սյունակներ"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Թաքցրեք հավելյալ հնարավորությունները"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Հավելյալ հնարավորություններ"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Անհատականացված հաշվետվության գեներատոր"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Ստեղծեք անհատականացված հաշվետվություն"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Հաշվետվության կանխադրված ձևանմուշներ"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Նյութերը որոնք շեղագիր են և նշված են * -ով ներկայացնում են տվյալներ, որոնք "
+"կամընտրական են համակարգում վիճակագրության հաշվառման ընթացիկ եղանակին ("
+"մետրրիկային տեսակը): Դուք կարող եք ունենալ այդ տվյալները, թե ոչ՝ կախված է "
+"ձեր վիճակագրության հավելվածի կազմաձևից:"
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Համախառն վիճակագրություն ըստ՝"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Համակարգը ստեղծում է հաշվետվություններ, որոնք հետևում են կայքի օգտագործման և "
+"ներկայացումների հետ կապված մանրամասներին տվյալ ժամանակահատվածում: "
+"Հաշվետվությունները ստեղծվում են CSV ձևաչափով, որը դիտելու համար պահանջվում է "
+"աղյուսակային հավելված:"
+
+msgid "manager.statistics.reports"
+msgstr "Հաշվետվություններ"
+
+msgid "manager.statistics.region"
+msgstr "Տարածաշրջան"
+
+msgid "manager.statistics.city"
+msgstr "Քաղաք"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tՁեր {$contextObjectName} -ը կազմաձևված է մեկից ավելի օգտագործման "
+"չափումներ գրանցելու համար: Օգտագործման վիճակագրությունը կցուցադրվի մի քանի "
+"համատեքստում:\n"
+"\t\tԿան դեպքեր, երբ պետք է օգտագործվի մեկ օգտագործման վիճակագրություն, "
+"օրինակ. ցուցադրելու ամենաշատ օգտագործվող հայտերի պատվիրված ցանկը կամ "
+"դասակարգելու համար\n"
+"\t\tորոնման արդյունքները. Խնդրում ենք որպես կանխադրված ընտրել կազմաձևված "
+"չափորոշիչներից մեկը:\n"
+"\t"
+
+msgid "manager.statistics"
+msgstr "Վիճակագրություն &amp; հաշվետվություններ"
+
+msgid "manager.roles"
+msgstr "Դերեր"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Օգտագործեք ստորև բերված ձևը՝ սահմանելու առավելագույն արժեքներ այն տերմինների "
+"համար, որոնք ցանկանում եք որոնել: Ձևը նախապես համալրված է այդ դաշտերի "
+"հաշվարկված միջիններով:"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Հետաքրքրությունների վերանայում"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Որոնեք անուններով"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Որոնեք գրախոսներին անուններով"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Փոխել"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Դուք չեք կարող ջնջել այս ներկայացուցչին, քանի որ դրանք նշանակված են "
+"մետատվյալների առաջընթացի համար այս ներկայացման մեկ կամ մի քանի ձևաչափերով "
+"հրապարակման  համար:"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Որոնել օգտվողին անունով"
+
+msgid "manager.readingTools"
+msgstr "Ընթերցանության գործիքներ"
+
+msgid "manager.plugins"
+msgstr "Համակարգի պլագիններ"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Սա ամբողջ կայքի հավելում է: Միայն Կայքի ադմինիստրատորը կարող է կառավարել այս "
+"հավելվածը:"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Պլագինի կառավարում"
+
+msgid "manager.plugins.enable"
+msgstr "Միացնել"
+
+msgid "manager.plugins.disable"
+msgstr "Անջատել"
+
+msgid "manager.plugins.action"
+msgstr "Գործողություն:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Օգտվողից պահանջեք փոխել իր գաղտնաբառը հաջորդ անգամ մուտք գործելիս:"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Օգտվողը հաջողությամբ ստեղծվեց:"
+
+msgid "manager.people.unenroll"
+msgstr "Չներառվել"
+
+msgid "manager.people.syncUsers"
+msgstr "Համաժամացնել օգտվողի գրանցումը"
+
+msgid "manager.people.signInAsUser"
+msgstr "Մուտք գործեք որպես օգտվող"
+
+msgid "manager.people.signInAs"
+msgstr "Մուտք գործեք որպես"
+
+msgid "manager.people.signedInAs"
+msgstr "Դուք ներկայումս մուտք եք գործել որպես {$username}"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Պահպանեք և ստեղծեք մեկ ուրիշը"
+
+msgid "manager.people.remove"
+msgstr "Հեռացնել"
+
+msgid "manager.people"
+msgstr "Մարդիկ"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Ներգրավված օգտվողներ չկան:"
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Համընկնող օգտվողներ չկան:"
+
+msgid "manager.people.mustProvideName"
+msgstr "Խնդրում ենք նախ տրամադրել օգտատիրոջ առնվազն ազգանունը:"
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Խնդրում ենք ընտրել դերը էջի վերևում, նախքան «ներգրավել օգտվողին» սեղմելը:"
+
+msgid "manager.people.mergeUsers"
+msgstr "Ձուլեք օգտվողներին"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Համոզվա՞ծ եք, որ ցանկանում եք միավորել ընտրված {$oldAccountCount} հաշիվը \""
+"{$newUsername}\" օգտանունով հաշվին: Ընտրված {$oldAccountCount} հաշիվները "
+"հետագայում չեն լինի: Այս գործողությունը շրջելի չէ:"
+
+msgid "manager.people.mergeUser"
+msgstr "Ձուլեք օգտվողին"
+
+msgid "manager.people.invalidUser"
+msgstr "Ներեցեք, հարցվող օգտվողը գոյություն չունի:"
+
+msgid "manager.people.enrollUserAs"
+msgstr "Ներգրավեք օգտվողին որպես"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Օգտագործողներին ցանկացած պահի կարող է նշանակվել կամ հեռացնել որևէ դեր:"
+
+msgid "manager.people.enrollSync"
+msgstr "Համաժամացնել գրանցումը"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Համաժամացնել դերը"
+
+msgid "manager.people.enrollSelected"
+msgstr "Ներգրավեք ընտրված օգտվողներին"
+
+msgid "manager.people.enrollment"
+msgstr "Ներգրավվածություն"
+
+msgid "manager.people.enroll"
+msgstr "Ներգրավեք օգտվող"
+
+msgid "manager.people.enable"
+msgstr "Միացնել"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Ընտրեք այն օգտատերերին, որոնց ցանկանում եք էլ․ նամակ ուղարկել նշելով նրանց "
+"անվան կողքին գտնվող վանդակները"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Ընտրեք տեղայինը"
+
+msgid "manager.people.emailUsers"
+msgstr "Էլ․ նամակներ ուղարկել օգտվողներին"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Էլ․ փոստի օգտվողները ներգրավված են որպես"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Էլ․ նամակ ուղարկեք ընտրված օգտվողներին"
+
+msgid "manager.people.editUser"
+msgstr "Խմբագրել օգտվողին"
+
+msgid "manager.people.editProfile"
+msgstr "Խմբագրել պրոֆիլը"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Առանց դերի"
+
+msgid "manager.people.disable"
+msgstr "Անջատել"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Օգտագործողին ուղարկեք ողջույնի նամակ, որը պարունակում է իր օգտվողի անունը և "
+"գաղտնաբառը:"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Ստեղծեք պատահական գաղտնաբառ:"
+
+msgid "manager.people.createUser"
+msgstr "Ստեղծեք նոր օգտվող"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Չեղարկե՞լ այս օգտատիրոջ գրանցումը:"
+
+msgid "manager.people.authSource"
+msgstr "Նույնականացման աղբյուր"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Պետք է մուտքագրվի գոյություն ունեցող օգտվող:"
+
+msgid "manager.payment.timestamp"
+msgstr "Օր/ժամ"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Ընտրեք բոլոր տեղայինները, կայքում աջակցելու համար լեզվի ընտրացանկի միջոցով, "
+"որը կհայտնվի յուրաքանչյուր էջում: Ցանկը կհայտնվի միայն այն դեպքում, եթե "
+"ընտրված են մեկից ավելի տեղայիններ:"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Այս համակարգը ընտրովի թույլ է տալիս որոշակի կարևոր տեղեկատվություն "
+"մուտքագրել մի քանի լրացուցիչ լեզուներով: Այս հատկությունն օգտագործելու համար "
+"ընտրեք այլընտրանքային տեղայինները և ընտրեք ստորև թվարկված տարբերակներից:"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Վերբեռնել կանխադրվածները"
+
+msgid "manager.language.forms"
+msgstr "Ձևեր"
+
+msgid "manager.language.submissions"
+msgstr "Ներկայացումներ"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.importExport"
+msgstr "Ներմուծել/արտահանել տվյալներ"
+
+msgid "manager.groups.title"
+msgstr "Վերնագիր"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Օգտվողներ չեն գտնվել։"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Այս խումբը չունի անդամներ։"
+
+msgid "manager.groups.membership"
+msgstr "Անդամակցություն"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել անդամակցությունը այս խմբին:"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Ավելացրու անդամ"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Պահանջվում է խմբի վերնագիր:"
+
+msgid "manager.groups.editTitle"
+msgstr "Խմբագրել վերնագիրը"
+
+msgid "manager.groups.createTitle"
+msgstr "Ստեղծել վերնագիր"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել այս խումբը:"
+
+msgid "manager.files.uploadFile"
+msgstr "Վերբեռնել նիշք"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Վերբեռնված նիշքեր"
+
+msgid "manager.files.parentDir"
+msgstr "Ծնող գրացուցակ"
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} -ի ցուցիչ"
+
+msgid "manager.files.emptyDir"
+msgstr "Այս գրացուցակում նիշքեր չեն գտնվել:"
+
+msgid "manager.files.createDir"
+msgstr "Ստեղծեք գրացուցակ"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Ջնջե՞լ այս նիշքը կամ գրացուցակը: Նկատի ունեցեք, որ գրացուցակը պետք է դատարկ "
+"լինի, նախքան այն ջնջելը:"
+
+msgid "manager.filesBrowser"
+msgstr "Նիշքերի զննարկիչ"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Ընտրեք օգտվողներին, որոնք պետք է արտահանվեն Excel/CSV նիշք:"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Արտահանել Excel/CSV"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Թեմա՝ {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Ուղարկվել է"
+
+msgid "manager.emails.sentFrom"
+msgstr "Ուղարկված է"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Վերականգնել լռելյայնին"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Եթե զրոյացնեք այս ձևանմուշը, հաղորդագրության բոլոր տվյալները կվերակայվեն "
+"նախնական արժեքին՝ կորցնելով բոլոր փոփոխությունները: Ցանկանու՞մ եք հաստատել "
+"այս գործողությունը:"
+
+msgid "manager.emails.resetComplete"
+msgstr "Էլ․ փոստի ձևանմուշը հաջողությամբ զրոյացվել է:"
+
+msgid "manager.emails.reset"
+msgstr "Վերակայել"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Էլ․ փոստի կանխադրված ձևանմուշները վերականգնվել են:"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Եթե վերակայեք բոլոր ձևանմուշները, էլ․ փոստի ձևանմուշների բոլոր "
+"փոփոխությունները կկորչեն: Ցանկանու՞մ եք հաստատել այս գործողությունը:"
+
+msgid "manager.emails.resetAll"
+msgstr "Վերականգնել բոլորը"
+
+msgid "manager.emails"
+msgstr "Պատրաստված նամակներ"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Նամակի համար անհրաժեշտ է թեմա:"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Էլ․ փոստի համար անհրաժեշտ է մարմին:"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Նամակի համար պահանջվում է բացատ կամ հատուկ նիշ չպարունակող էլ․ փոստի եզակի "
+"բանալի:"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Դուք պատրաստվում եք միացնել այս էլ․ հասցեն։ Ցանկանու՞մ եք հաստատել այս "
+"գործողությունը:"
+
+msgid "manager.emails.enable"
+msgstr "Միացնել"
+
+msgid "manager.emails.enabled"
+msgstr "Միացնել էլ․ փոստի այս ձևանմուշը"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Ձեր տրամադրած բանալին արդեն օգտագործվում է:"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Էլ․ փոստի ձևանմուշ ավելացնելիս պետք է տրամադրեք համատեքստի ID:"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Այլ ձևանմուշներ"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Էլ․ փոստի ձևանմուշներ"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Էլ․ փոստի ձևանմուշ"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"Տվյալ բանալիով էլ․ փոստ արդեն գոյություն ունի: Էլ․ փոստի բանալիները պետք է "
+"եզակի լինեն:"
+
+msgid "manager.emails.emailKey.description"
+msgstr "Էլ․ փոստի բանալին կարող է պարունակել միայն տառեր, թվեր և ընդգծումներ:"
+
+msgid "manager.emails.emailKey"
+msgstr "Էլ․ փոստի բանալի"
+
+msgid "manager.emails.editTestExample"
+msgstr "Խմբագրել էլ․ փոստի փորձնական օրինակը"
+
+msgid "manager.emails.editEmail"
+msgstr "Խմբագրել էլ․ նամակը"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Դուք պատրաստվում եք անջատել էլ․ փոստի այս ձևանմուշը: Եթե այս կաղապարի "
+"օգտագործմամբ համակարգային գործընթացներ են եղել, նրանք այլևս չեն օգտագործի "
+"այն։ Ցանկանու՞մ եք հաստատել այս գործողությունը:"
+
+msgid "manager.emails.disable"
+msgstr "Անջատել"
+
+msgid "manager.emails.details"
+msgstr "Ձևանմուշի մանրամասներ"
+
+msgid "manager.emails.data"
+msgstr "Ձևանմուշի հաղորդագրության տվյալներ"
+
+msgid "manager.emails.customTemplate"
+msgstr "Անհատական ձևանմուշ"
+
+msgid "manager.emails.createEmail"
+msgstr "Ստեղծել էլ․ նամակ"
+
+msgid "manager.emails.addEmail"
+msgstr "Ավելացնել ձևանմուշ"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Իսկապե՞ս ուզում եք վերականգնել էլփոստի այս ձևանմուշը իր կանխադրված "
+"արժեքներին:"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Իսկապե՞ս ուզում եք ջնջել էլփոստի այս ձևանմուշը:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Հետևյալ հաղորդագրությունն է վերադարձվել {$registrationAgency} -ի կողմից և "
+"պարունակում է մանրամասներ գրանցման մասին."
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Հետևյալ սխալն է վերադարձվել {$registrationAgency} -ի կողմից և պարունակում է "
+"մանրամասներ սխալի պատճառի մասին։"
+
+msgid "manager.dois.title"
+msgstr "DOI-ներ"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Գրախոսման հիշեցման մանրամասները թարմացվել են:"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Գրախոսի ուղեցույց"
+
+msgid "manager.publication.emails"
+msgstr "Էլ․ նամակներ"
+
+msgid "manager.publication.productionStage"
+msgstr "Արտադրություն"
+
+msgid "manager.publication.editorialStage"
+msgstr "Խմբագրական"
+
+msgid "manager.publication.reviewStage"
+msgstr "Գրախոսություն"
+
+msgid "manager.publication.submissionStage"
+msgstr "Ներկայացում"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Նյութերը հաջողությամբ ներկայացվել են ավանդադրման համար"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Նյութերին հաջողությամբ նշանակվեցին նոր DOI-եր"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Նյութերը հաջողությամբ նշվել են որպես գրանցված"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Նյութերը հաջողությամբ արտահանվեցին"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Որոշ DOI-ներ չհաջողվեց թարմացնել:"
+
+msgid "manager.dois.status.stale"
+msgstr "Հնացած"
+
+msgid "manager.dois.status.error"
+msgstr "Սխալ"
+
+msgid "manager.dois.status.registered"
+msgstr "Գրանցված է"
+
+msgid "manager.dois.status.submitted"
+msgstr "Ներկայացված է"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Չգրանցված"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Ավանդադրեք DOI"
+
+msgid "manger.dois.update.success"
+msgstr "DOI-ն հաջողությամբ թարմացվել է"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Հաջող գրանցման հաղորդագրություն"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Դիտել գրառումը"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Գրանցման սխալի հաղորդագրություն"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Դիտել սխալը"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Այս նյութը չի կարող ի պահ հանձնվել, քանի դեռ այն չի հրապարակվել:"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Այս տարրի մետատվյալները չեն ներկայացվել {$registrationAgency} -ին:"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Այս տարրի մետատվյալներն ուղարկվել են {$registrationAgency}:"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Հրապարակման կարգավիճակ"
+
+msgid "manager.dois.depositStatus"
+msgstr "Ավանդադրման վիճակ"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Դուք պատրաստվում եք պլանավորել բոլոր չմարված DOI մետատվյալների գրառումները, "
+"որոնք պահվում են {$registrationAgency} -ում: Յուրաքանչյուր տարրի անհատական "
+"կարգավիճակը կթարմացվի, երբ պատասխան ստացվի: Համոզվա՞ծ եք, որ ցանկանում եք "
+"ավանդներ պլանավորել այս բոլոր տարրերի համար:"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Ավանդադրեք բոլոր DOI-ները"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Դուք պատրաստվում եք նոր DOI-ներ հատկացնել {$count} տարր(եր)ին ցանկացած "
+"իրավասու նյութի համար, որն արդեն նշանակված DOI չունի: Իսկապե՞ս ուզում եք DOI-"
+"ներ հատկացնել այս տարրերին:"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Նշանակել DOI-ներ"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Դուք պատրաստվում եք արտահանել DOI մետատվյալների գրառումները {$count} տարր(եր)"
+"ի համար {$registrationAgency} -ի համար: Իսկապե՞ս ուզում եք արտահանել այս "
+"գրառումները:"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Արտահանել DOI-ներ"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Դուք պատրաստվում եք նշել DOI մետատվյալների գրառումները {$count} տարր(եր)ի "
+"համար որպես գրանցված: Վստա՞հ եք, որ ցանկանում եք նշել այս գրառումները որպես "
+"գրանցված:"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Նշեք DOI-երը գրանցված"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Դուք պատրաստվում եք ուղարկել DOI մետատվյալների գրառումները {$count} տարր(եր)"
+"ի համար {$registrationAgency} -ին: Վստա՞հ եք, որ ցանկանում եք ի պահ դնել այս "
+"գրառումները:"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Ավանդադրեք DOI-ները"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Ավանդադրեք բոլորը"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Հայտարարության տեսակ"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Հայտարարության տեսակներ չեն ստեղծվել:"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Հայտարարության տեսակի անվանումը պահանջվում է:"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Անվանում"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Այս անունով հայտարարության տեսակ արդեն գոյություն ունի:"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Պահպանեք և ստեղծեք մեկ ուրիշը"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Խմբագրեք"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Խմբագրեք հայտարարության տեսակը"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Ստեղծեք"
+
+msgid "manager.announcementTypes.create"
+msgstr "Ստեղծեք հայտարարության տեսակ"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Զգուշացում. Հայտարարության այս տեսակով բոլոր հայտարարությունները նույնպես "
+"կջնջվեն։ Իսկապե՞ս ուզում եք շարունակել և ջնջել հայտարարության  այս տեսակը:"
+
+msgid "manager.announcementTypes"
+msgstr "Հայտարարության տեսակները"
+
+msgid "manager.announcements.type"
+msgstr "Տեսակ"
+
+msgid "manager.announcements.title"
+msgstr "Վերնագիր"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Հայտարարություններ չեն ստեղծվել։"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Խնդրում ենք ընտրել հայտարարության վավեր տեսակ:"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Տեսակ"
+
+msgid "manager.announcements.form.title"
+msgstr "Վերնագիր"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Հայտարարության վերնագիրը պարտադիր է։"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Պահպանեք և ստեղծեք մեկ ուրիշը"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Կարճ նկարագրություն"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Հայտարարության կարճ նկարագրությունը պարտադիր է:"
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr ""
+"Համառոտ նկարագրություն, որը կհայտնվի հայտարարության վերնագրի հետ միասին:"
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Հայտարարության նկարագրությունը պարտադիր է:"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Հայտարարության տեքստն ամբողջությամբ."
+
+msgid "manager.announcements.form.description"
+msgstr "Հայտարարություն"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"Խնդրում ենք ընտրել ամիս և/կամ օր՝ ի հավելումն գործողության ժամկետի ավարտի "
+"տարվա:"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} -ը սահմանվում է որպես հիմնական տեղային:"
+
+msgid "notification.localeDisabled"
+msgstr "Տեղայինը անջատված է։"
+
+msgid "notification.localeEnabled"
+msgstr "Տեղայինը միացված է։"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml -ը չի գտնվել պլագին գրացուցակում"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml -ը պլագին գրացուցակում պարունակում է անվավեր տվյալներ:"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Ընտրեք պլագին նիշքը"
+
+msgid "manager.plugins.uploadError"
+msgstr "Նիշքը վերբեռնելիս սխալ առաջացավ"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Հաջողությամբ թարմացվեց {$versionString} տարբերակի"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Չհաջողվեց թարմացնել: {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Այս ձևը թույլ է տալիս թարմացնել հավելվածը: Համոզվեք, որ պլագինը սեղմված է "
+"որպես .tar.gz նիշք:"
+
+msgid "manager.plugins.upgrade"
+msgstr "Թարմացնել պլագինը"
+
+msgid "manager.plugins.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Փլագինը արդեն գոյություն ունի, բայց ավելի նոր է, քան տեղադրված տարբերակը: "
+"Փոխարենը խնդրում ենք թարմացնել"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Պլագին գոյություն չունի: Փոխարենը խնդրում ենք տեղադրել"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Վերբեռնված փլագինի version.xml -ը պարունակում է պլագինի անուն, որը չի "
+"համապատասխանում արդիականացված փլագինի անվանը:"
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Վերբեռնված փլագինը չի համապատասխանում արդիականացված հավելվածի դասին:"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Վերբեռնված փլագինների արխիվը չի պարունակում թղթապանակ, որը համապատասխանում է "
+"հավելվածի անվանմանը:"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "{$versionNumber} տարբերակը հաջողությամբ տեղադրվեց"
+
+msgid "manager.plugins.installFailed"
+msgstr "Տեղադրումը ձախողվեց: {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Հասանելի չէ"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Արդիական է"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Կարող է արդիականացվել"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Ավելի նոր, քան հասանելի տարբերակը"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Փլագինը արդեն տեղադրված է և արդիական է:"
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Փլագինը արդեն տեղադրված է, բայց կարող է թարմացվել ավելի նոր տարբերակով:"
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Փլագինը արդեն տեղադրված է և ավելի նոր է, քան պատկերասրահում առկա տարբերակը:"
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Ներկայումս այս հավելվածի համատեղելի տարբերակը չկա:"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Փլագինը դեռ տեղադրված չէ:"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Վիճակ"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Ամփոփում"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Տնային էջ"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} թողարկվել է {$date} -ին"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Պահպանող"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Այս փլագինը տրամադրված է զարգացման մեր գործընկերներից մեկի կողմից:"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Գործընկեր"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Այս փլագինը վերանայվել և հաստատվել է Public Knowledge Project թիմի կողմից:"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Գրախոսված"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Այս փլագինը մշակվել և պահպանվում է ՀPublic Knowledge Project թիմի կողմից:"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Պաշտոնական"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Համատեղելի վերջին թողարկումը"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Տեղադրում"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Ակնարկ"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Պլագինների պատկերասրահ"
+
+msgid "manager.plugins.installed"
+msgstr "Տեղադրված պլագիններ"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Համոզվեք, որ նիշք է ընտրվել վերբեռնման համար:"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Այս ձևը թույլ է տալիս վերբեռնել և տեղադրել նոր փլագին: Համոզվեք, որ փլագինը "
+"սեղմված է որպես .tar.gz նիշք:"
+
+msgid "manager.plugins.upload"
+msgstr "Վերբեռնեք նոր պլագին"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Խնդրում ենք նախ ընտրել նիշք"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "\"{$pluginName}\" փլագինը գոյություն չունի"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Այս էջը կառավարչին թույլ է տալիս վերանայել և ըստ հնարավորինլ կարգավորել "
+"ներկայումս տեղադրված պլագինները: Պլագինները բաժանվում են դասերի՝ ըստ իրենց "
+"գործառույթի։ Դասերը թվարկված են ստորև, և յուրաքանչյուր դասի մեջ՝ դրա ընթացիկ "
+"պլագինների շարքը:"
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "\"{$pluginName}\" հավելվածը հաջողությամբ ջնջվեց"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"\"{$pluginName}\" փլագինը չհաջողվեց ջնջել նիշքային համակարգից: Սա կարող է "
+"լինել թույլտվությունների խնդիր: Խնդրում ենք համոզվել, որ վեբ սերվերը ի "
+"վիճակի է գրել plugins գրացուցակում (ներառյալ ենթագրացուցակները), բայց մի "
+"մոռացեք այն ավելի ուշ անվտանգ դարձնել:"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Սեղմելով Ջնջել՝ դուք կջնջեք հավելվածը սերվերի նիշքային համակարգից։"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել այս փլագինը համակարգից:"
+
+msgid "grid.action.installPlugin"
+msgstr "Տեղադրեք կամ արդիականացրեք այս պլագինը"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Վստա՞հ եք, որ ցանկանում եք թարմացնել այս պլագինը:"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Վստա՞հ եք, որ ցանկանում եք տեղադրել այս պլագինը:"
+
+msgid "manager.plugins.delete"
+msgstr "Ջնջեք պլագինը"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Պլագինը հաջողությամբ չի պատճենվել: Սա կարող է լինել թույլտվությունների խնդիր:"
+" Խնդրում ենք համոզվել, որ վեբ սերվերը ի վիճակի է գրել պլագինների "
+"գրացուցակում (ներառյալ ենթագրացուցակներում), բայց մի մոռացեք այն ավելի ուշ "
+"կրկին անվտանգ դարձնել:"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Այս պլագիններն ապահովում են հանրային նույնացուցիչի աջակցությունը:"
+
+msgid "plugins.categories.pubIds"
+msgstr "Հանրային նույնացուցիչի պլագիններ"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr ""
+"Այս ձևաչափի պլագիններն արտահայտում են մետատվյալները OAI "
+"հաղորդակցություններում:"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI մետատվյալների ձևաչափի պլագիններ"
+
+msgid "plugins.categories.themes"
+msgstr "Թեմայի պլագիններ"
+
+msgid "plugins.categories.themes.description"
+msgstr "Թեմայի պլագինները կարող են օգտագործվել համակարգի տեսքը փոխելու համար:"
+
+msgid "manager.paymentMethod"
+msgstr "Վճարումներ"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Ավելացրեք հատուկ HTML թեգեր, որոնք նաև հայտնի են որպես մետա թեգեր, որոնք "
+"ցանկանում եք տեղադրել յուրաքանչյուր էջի գլխում: Այստեղ պիտակներ ավելացնելուց "
+"առաջ խորհրդակցեք տեխնիկական խորհրդատուի հետ:"
+
+msgid "manager.distribution.customHeaders"
+msgstr "Անհատական թեգեր"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Մուտքագրեք հանրային արտոնագրման պայմանները, որոնք ցանկանում եք ցուցադրել "
+"հրապարակված աշխատանքի հետ մեկտեղ:"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Արտոնագրի պայմաններ"
+
+msgid "manager.distribution.license.other"
+msgstr "Այլ արտոնագրի URL"
+
+msgid "manager.distribution.license"
+msgstr "Արտոնագիր"
+
+msgid "notification.editedUser"
+msgstr "Օգտվողը խմբագրվել է։"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Լեզվի կարգավորումը չհաջողվեց պահել: Յուրաքանչյուր տարբերակի համար պետք է "
+"միացված լինի առնվազն մեկ լեզու"
+
+msgid "notification.localeSettingsSaved"
+msgstr "Տեղայինի կարգավորումները պահպանված են:"
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} տեղայինը վերաբեռնվել է {$contextName} -ի համար:"
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} տեղայինն ապատեղադրված է:"
+
+msgid "notification.localeInstalled"
+msgstr "Ընտրված բոլոր տեղայինները տեղադրված և ակտիվացված են։"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Պայմանագրեր"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Գրադարանային այս նիշքի համար անհրաժեշտ է նիշքի տեսակ:"
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Գրադարանի այս նիշքի համար անհրաժեշտ է անուն:"
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Պահանջվում է գրադարանի նիշք: Համոզվեք, որ ընտրել և վերբեռնել եք նիշք:"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Թույլատրել ներկայացվածների մետատվյալների խմբագրումը:"
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Դուք պետք է սահմանեք փուլ, որին պետք է նշանակեք:"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Դուք պետք է սահմանեք դերի թույլտվության մակարդակը:"
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Դուք պետք է սահմանեք դերի եզակի հապավումը:"
+
+msgid "settings.roles.uniqueName"
+msgstr "Դուք պետք է սահմանեք դերի եզակի անուն:"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Դուք պետք է սահմանեք դերի հապավումը:"
+
+msgid "settings.roles.nameRequired"
+msgstr "Դուք պետք է սահմանեք դերի անուն:"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Դուք պատրաստվում եք հեռացնել այս դերն այս համատեքստից: Այս գործողությունը "
+"նաև կջնջի հարակից կարգավորումները և օգտատերերի բոլոր հանձնարարությունները "
+"այս դերին: Ցանկանու՞մ եք շարունակել։"
+
+msgid "settings.roles.from"
+msgstr "Թույլտվության մակարդակը"
+
+msgid "settings.roles.roleDetails"
+msgstr "Դերի մանրամասներ"
+
+msgid "settings.roles.stages"
+msgstr "Փուլեր"
+
+msgid "settings.roles.assignedStages"
+msgstr "Նշանակված փուլեր"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Հապավում"
+
+msgid "settings.roles.roleName"
+msgstr "Դերի անվանումը"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Այս դերը թույլատրվում է միայն առաջարկել վերանայման որոշում և կպահանջվի "
+"լիազորված խմբագրի կողմից վերջնական որոշումը գրանցելու համար:"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Թույլատրել օգտվողի ինքնագրանցումը"
+
+msgid "settings.roles.showTitles"
+msgstr "Ցույց տալ դերի անվանումը աջակիցների ցանկում"
+
+msgid "settings.roles.roleOptions"
+msgstr "Դերի ընտրանքներ"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Արտարժույթ"
+
+msgid "manager.paymentMethod.method"
+msgstr "Վճարման մեթոդ"
+
+msgid "manager.paymentMethod.none"
+msgstr "Չկա ընտրված վճարման մեթոդ"
+
+msgid "manager.paymentMethod.title"
+msgstr "Վճարման մեթոդներ"
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Հղում դեպի որոնման էջ:"
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե այցելուն մուտք է գործել, "
+"վճարումները միացված են այստեղից՝ Կարգավորումներ > Բաշխում > Վճարումներ և "
+"բաժանորդագրությունները պահանջվում են այստեղից՝ Կարգավորումներ > Բաշխում > "
+"Հասանելիություն:"
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե վճարումները միացված են այստեղից՝"
+" Կարգավորումներ > Բաշխում > Վճարումներ:"
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Խնդրում ենք ընտրել նավարկման ընտրացանկի տեսակը:"
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե լրացրել եք Կոնտակտային "
+"տվյալները այստեղից՝ Կարգավորումներ > Կոնտակտ:"
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Հղում դեպի ձեր կոնտակտային տվյալները ցուցադրող էջին:"
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Այս հղումը կցուցադրվի միայն այն դեպքում, երբ այցելուն մուտք գործած չէ:"
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն ժամանակ, երբ այցելուն մուտք գործած լինի:"
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Հղում, որը օգտատերին դուրս կբերի:"
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Այս հղումը կցուցադրվի միայն վարչական աշխատակազմին:"
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Հղում դեպի ամբողջ կայքի կառավարման գործիքներին:"
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Հղում դեպի օգտվողի պրոֆիլի էջ:"
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Հղում դեպի խմբագրական վահանակ:"
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Հղում դեպի օգտվողի գրանցման էջ:"
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Հղում դեպի օգտվողի մուտքի էջ:"
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե դուք ակտիվացրել եք "
+"հայտարարությունները այստեղից՝ Կարգավորումներ > Կայքում:"
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Հղում դեպի ձեր հայտարարությունները ցուցադրող էջին:"
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Հղում ձեր թողարկման արխիվին:"
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Հղում ձեր ընթացիկ թողարկմանը:"
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Հղում դեպի էջի, որտեղ ցուցադրվում են ներկայացման հրահանգները:"
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե լրացրել եք «Խմբագրական թիմ» "
+"բաժինը այստեղից՝ Կարգավորումներ > Ամսագիր:"
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Հղում դեպի մի էջի, որը ցուցադրում է վերնախորագրային բովանդակությունը "
+"այստեղից՝ Կարգավորումներ > Ամսագիր:"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե լրացրել եք Ամսագրի մասին բաժինը "
+"այստեղից՝ Կարգավորումներ > Ամսագիր:"
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Հղում դեպի էջի, որը ցուցադրում է Ամսագրի մասին բովանդակությունը այստեղից՝ "
+"Կարգավորումներ > Ամսագիր"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Հղում դեպի մեկ այլ կայքի ցանկացած URL, օրինակ՝ https://pkp.sfu.ca:"
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Հեռավար URL"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Ստեղծեք անհատականացված էջ ձեր կայքում և հղվեք դրան նավարկման ընտրացանկից:"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Այցելուի էջ"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Ընտրեք նավիգացիոն ընտրացանկի տեսակը կամ Անհատականացված՝ ձերը ստեղծելու համար"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Նավարկման ընտրացանկի տեսակ"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Երբ ընտրացանկի տարրը բացում է ենթացանկը, դրա հղմանը հնարավոր չէ հետևել բոլոր "
+"սարքերում: Օրինակ, եթե դուք ունեք \"Մասին\" տարր, որը բացում է \"Կապ\" և \""
+"Խմբագրական թիմ\" ենթաընտրացանկերը, ապա \"Մասին\" հղումը կարող է հասանելի "
+"չլինել բոլոր սարքերում: Լռելյայն ընտրացանկում դա կարգավորվում է՝ ստեղծելով "
+"ընտրացանկի երկրորդ տարրը՝ «Ամսագրի մասին», որը հայտնվում է ենթաընտրացանկում:"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Իմացեք ավելին այն մասին, թե երբ ընտրացանկի այս տարրը կցուցադրվի կամ կթաքցվի:"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Պետք է տրամադրվի URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Այս տարածքին արդեն նշանակված է նավարկման ընտրացանկ:"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Ընտրեք նավարկման տարածքը"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Ակտիվ թեմայի նավարկման տարածքներ"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Չնշանակված ընտրացանկի տարրեր"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Նշանակված ընտրացանկի կետեր"
+
+msgid "manager.navigationMenuItems"
+msgstr "Նավարկման ընտրացանկի տարրեր"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Վերնագիրը պարտադիր է"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Այս վերնագիրն արդեն գոյություն ունի նավարկման մեկ այլ ընտրացանկի համար:"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr ""
+"Այս ուղին արդեն գոյություն ունի նավարկման ընտրացանկի մեկ այլ տարրի համար:"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Ուղիի դաշտը պետք է պարունակի միայն տառաթվային նիշեր,  գումարած '.', '/', '-' "
+"և '_':"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Բովանդակություն"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Այս էջը հասանելի կլինի հետևյալ հասցեով՝ "
+"<blockquote>{$pagesPath}</blockquote>...որտեղ %PATH% -ը վերևում մուտքագրված "
+"ուղին է: <strong>Նշում.</strong> Ոչ մի երկու էջ չեն կարող ունենալ նույն "
+"ուղին: Համակարգում ներկառուցված ուղիների օգտագործումը կարող է պատճառ դառնալ, "
+"որ դուք կորցնեք հասանելիությունը կարևոր գործառույթների:</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Նավարկում"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Ուղի"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Վերնագիր"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"\"{$username}\" օգտանունը և \"{$email}\" էլ․ փոստը չեն համընկնում նույն "
+"գոյություն ունեցող օգտվողի հետ:"
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Ներմուծված \"{$username}\" օգտվողն ունի պարզ գաղտնաբառ, որը անվավեր է: "
+"Օգտագործողը չի ներմուծվել:"
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Ներմուծված \"{$username}\" օգտվողի գաղտնաբառը չհաջողվեց ներմուծել այնպես, "
+"ինչպես կա: Օգտվողի էլ. փոստին ուղարկվել է նոր գաղտնաբառ: Օգտվողը ներմուծվել "
+"է:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Ներմուծված \"{$username}\" օգտվողը գաղտնաբառ չունի: Ստուգեք ձեր ներմուծման "
+"XML ձևաչափը: Օգտվողը չի ներմուծվել:"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Ներմուծման/արտահանման սխալներ."
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Ներկայացման {$id} նիշքը բաց է թողնվել, քանի որ այն կցված է գրառումին, որը չի "
+"ներմուծվի, օրինակ՝ վերանայման առաջադրանք կամ քննարկում:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Ներկայացման նիշքը չհաջողվեց ներմուծել"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"\"{$revisionId}\" վերանայումը ներկայացման \"{$fileId}\" նիշքի համար կստեղծի "
+"կրկնօրինակ գրառում"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Տրամադրված նիշքի չափը  \"{$expected}\" և նիշքի իրական չափը \"{$actual}\"  "
+"չեն համընկնում"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "{$dest} ժամանակավոր նիշքը չհաջողվեց ստեղծել {$source} -ից"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Անհայտ վերբեռնող {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Հեղինակը՝ {$authorName} չունի տված անուն ներկայացման լեզվով` {$localeName}: "
+"Ներկայացումը չի կարող ներմուծվել առանց այս տեղեկատվության:"
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup բացակայում է հեղինակի անունը {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Օգտվողների անհայտ խումբ {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Բովանդակությունը կոդավորված չէ որպես {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Անհայտ կոդավորում {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Անհայտ ժանր {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Անհայտ տարր {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Սխալներ են տեղի ունեցել."
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Հանդիպած զգուշացումներ."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Վավերացման սխալներ."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Հեղինակից պահանջեք հղումներ տրամադրել նախքան իրենց ներկայացումն ընդունելը:"
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Խնդրեք հեղինակին ներկայացնել հղումներ ներկայացնելու ընթացքում:"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից հղումներ մի պահանջեք:"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Միացնել հղումների մետատվյալները"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Հավաքեք ներկայացման հղումները առանձին դաշտում: Սա կարող է պահանջվել, որպեսզի "
+"համապատասխանի մեջբերումների հետագծման ծառայությունների հետ, ինչպիսիք են "
+"Crossref-ը:"
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Հեղինակից պահանջեք ներառել որևէ աջակցող գործակալություն՝ նախքան ներկայացումն "
+"ընդունելը:"
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Խնդրեք հեղինակին ներառել ցանկացած աջակցող գործակալություն ներկայացման "
+"ընթացքում:"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից մի պահանջեք աջակցող գործակալություններ:"
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Միացնել աջակցող գործակալությունների մետատվյալները"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Աջակցող գործակալությունները կարող են նշել հետազոտության ֆինանսավորման "
+"աղբյուրը կամ այլ ինստիտուցիոնալ աջակցություն, որը նպաստել է հետազոտությանը:"
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Հեղինակից պահանջեք ներկայացնել դիսցիպլիններ՝ նախքան ներկայացումն ընդունելը:"
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Խնդրեք հեղինակին ներկայացնել դիսցիպլիններ ներկայացնելու ընթացքում:"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից դիսցիպլիններ մի պահանջեք:"
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Միացնել առարկաների մետատվյալները"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Առարկաները ուսումնասիրության տեսակներ են կամ գիտելիքի ճյուղեր, ինչպես "
+"նկարագրված են համալսարանական ֆակուլտետների և սովորող հասարակությունների "
+"կողմից:"
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Հեղինակից պահանջեք տրամադրել տեսակը՝ նախքան ներկայացումն ընդունելը:"
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Խնդրեք հեղինակին տրամադրել տեսակը ներկայացնելու ընթացքում:"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից տեսակը մի պահանջեք:"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Միացնել տեսակի մետատվյալները"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Ներկայացման հիմնական բովանդակության բնույթը կամ ժանրը: Տեսակը սովորաբար "
+"«Տեքստ» է, բայց կարող է լինել նաև «Տվյալների հավաքածու», «Պատկեր» կամ "
+"սրանցից որևէ մեկը  <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core "
+"տեսակներ</a>:"
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Հեղինակից պահանջեք տրամադրել խորագրերը նախքան ներկայացումն ընդունելը:"
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Խնդրեք հեղինակին տրամադրել խորագրեր ներկայացնելու ընթացքում:"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից խորագրեր մի պահանջեք:"
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Միացնել խորագրի մետատվյալները"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Խորագրերը կլինեն բանալի բառեր, հիմնական արտահայտություններ կամ դասակարգման "
+"կոդեր, որոնք նկարագրում են ներկայացման թեման:"
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Հեղինակից պահանջեք տրամադրել աղբյուրի URL նախքան իրենց ներկայացումն "
+"ընդունելը:"
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Խնդրեք հեղինակին տրամադրել սկզբնաղբյուրի URL -ը ներկայացման ժամանակ:"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "երկայացման ընթացքում հեղինակից մի պահանջեք աղբյուրի URL:"
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Միացնել աղբյուրի մետատվյալները"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Աղբյուրը կարող է լինել մեկ այլ աշխատանքի կամ պաշարի ID, ինչպիսին է DOI-ն, "
+"որից բխում է ներկայացումը:"
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Հեղինակից պահանջեք բացահայտել արդեն առկա ցանկացած իրավունք՝ նախքան դրանց "
+"ներկայացումն ընդունելը:"
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Խնդրեք հեղինակին հրապարակել արդեն առկա ցանկացած իրավունք՝ ներկայացնելու "
+"ընթացքում:"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Մի պահանջեք հեղինակից իրավունքների բացահայտում ներկայացնելու ընթացքում:"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Միացնել իրավունքների մետատվյալները"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Ներկայացման նկատմամբ պահպանվող ցանկացած իրավունք, որը կարող է ներառել մտավոր "
+"սեփականության իրավունքները (ՄՍԻ), հեղինակային իրավունքը և սեփականության "
+"տարբեր իրավունքները:"
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Հեղինակից պահանջեք մուտքագրել ներկայացման լեզուները՝ նախքան դրանք ընդունելը:"
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Խնդրեք հեղինակին ներկայացնել ներկայացման լեզուները:"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից մի պահանջեք ներկայացման լեզուները:"
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Միացնել լեզվի մետատվյալները"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Լեզուն ցույց է տալիս ստեղծագործության հիմնական լեզուն՝ օգտագործելով լեզվի "
+"կոդը («en») և ընտրովի երկրի կոդը («en_US»):"
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Հեղինակից պահանջեք բանալի բառեր առաջարկել նախքան դրանց ներկայացումն "
+"ընդունելը:"
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Խնդրեք հեղինակին առաջարկել բանալի բառեր ներկայացնելու ընթացքում:"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից բանալի բառեր մի պահանջեք:"
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Միացնել բանալի բառի մետատվյալները"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Բանալի բառերը սովորաբար մեկից երեք բառանոց արտահայտություններ են, որոնք "
+"օգտագործվում են ներկայացման հիմնական թեմաները նշելու համար:"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Հեղինակից պահանջեք առաջարկել ծածկույթի մետատվյալներ՝ նախքան դրանց "
+"ներկայացումն ընդունելը:"
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Խնդրեք հեղինակին առաջարկել ծածկույթի մետատվյալներ ներկայացման ընթացքում:"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Ներկայացման ընթացքում հեղինակից մի պահանջեք ծածկույթի մետատվյալներ:"
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Միացնել ծածկույթի մետատվյալները"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Ծածկույթը սովորաբար ցույց է տալիս աշխատանքի տարածական դիրքը (վայրի անունը "
+"կամ աշխարհագրական կոորդինատները), ժամանակավոր ժամանակաշրջանը (ժամանակաշրջանի "
+"պիտակը, ամսաթիվը կամ ամսաթվերի տիրույթը) կամ իրավասությունը (օրինակ՝ "
+"անվանված վարչական միավորը):"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Ծածկույթ"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Ներկայացման ձև"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "Արտոնագիրը նկարագրող վեբ էջի URL, եթե առկա է:"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Պահանջել Շահերի բախման հայտարարություն գործընկերային գրախոսման ժամանակ:"
+
+msgid "grid.action.createReviewForm"
+msgstr "Ստեղծեք գրախոսման նոր ձև"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Տեսանելի (հեղինակների համար)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Մեկ տողանի տեքստային տուփ"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Ընդլայնված տեքստային տուփ"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Մեկ բառի տեքստային տուփ"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Ներառված է հեղինակին ուղղված հաղորդագրության մեջ"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Գրախոսները պարտադիր պետք է լրացնեն տարրը"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Ռադիո կոճակներ (կարող եք ընտրել միայն մեկը)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Նկարագրություն"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Նյութ"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Ընտրություն"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Ձևի տարրեր չեն ստեղծվել:"
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Ձևի տարրի համար պահանջվում է հարց տալ:"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Ձևի տարրի համար պահանջվում է նյութի տեսակ:"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Նյութի տեսակ"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Խմբագրել ձևի տարրը"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Բացվող տուփ"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Ստեղծեք նոր նյութ"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Պատճենեք:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Հաստատեք հրապարակված ձևի տարրի ջնջումը..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Ընտրեք նյութի տեսակը"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Նշավանդակներ (կարող եք ընտրել մեկը կամ մի քանիսը)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Ավելացնել ընտրություն"
+
+msgid "manager.reviewFormElements"
+msgstr "Ձևի տարրեր"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Ձևի տարրի տեսակի փոփոխում..."
+
+msgid "manager.reviewForms.title"
+msgstr "Վերնագիր"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Գրախոսման ձևի տվյալներ"
+
+msgid "manager.reviewForms.preview"
+msgstr "Նախադիտման ձև"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Գրախոսման ձևեր չեն օգտագործվել:"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Գրախոսման ձևեր չեն ստեղծվել:"
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Չկա / Անվճար գրախոսություն ձև"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Այստեղ ստեղծված գրախոսական ձևերը կներկայացվեն գրախոսներին՝ լրացնելու համար՝ "
+"լռելյայն ձևի փոխարեն, որը բաղկացած է երկու բաց տեքստային տուփերից, առաջինը՝ «"
+"հեղինակի և խմբագրի համար», իսկ երկրորդը՝ «խմբագրի համար»: Գրախոսման ձևերը "
+"կարող են նշանակվել տպագրության որոշակի բաժնի համար, և խմբագիրները "
+"հնարավորություն կունենան ընտրել, թե որ ձևն օգտագործեն գրախոսությունը "
+"նշանակելիս: Բոլոր դեպքերում, խմբագիրները հնարավորություն կունենան ներառել "
+"գրախոսությունները հեղինակի հետ նամակագրության մեջ:"
+
+msgid "manager.reviewForms.inReview"
+msgstr "Գրախոսություն է անցնում"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Վերնագիրն անհրաժեշտ է գրախոսման ձևի համար:"
+
+msgid "manager.reviewForms.edit"
+msgstr "Գրախոսման ձև"
+
+msgid "manager.reviewForms.description"
+msgstr "Նկարագրություն և հրահանգներ"
+
+msgid "manager.reviewForms.create"
+msgstr "Ստեղծել գրախոսման ձև"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել գրախոսման այս ձևը:"
+
+msgid "manager.reviewForms.completed"
+msgstr "Ավարտված է"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ստեղծել գրախոսման այս ձևի պատճենը:"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք անջատել գրախոսման այս ձևը: Այն այլևս հասանելի չի "
+"լինի գրախոսման նոր առաջադրանքների համար:"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք ակտիվացնել գրախոսման այս ձևը: Երբ այն նշանակվի "
+"գրախոսման համար, դուք այլևս չեք կարողանա ապաակտիվացնել այն:"
+
+msgid "manager.reviewForms"
+msgstr "Գրախոսման ձևեր"
+
+msgid "manager.distribution.title"
+msgstr "Բաշխման կարգավորումներ"
+
+msgid "manager.distribution"
+msgstr "Բաշխում"
+
+msgid "manager.workflow.title"
+msgstr "Աշխատանքային հոսքի կարգավորումներ"
+
+msgid "manager.workflow"
+msgstr "Աշխատանքային ընթացք"
+
+msgid "manager.website.title"
+msgstr "Կայքի կարգավորումներ"
+
+msgid "manager.website"
+msgstr "Կայք էջ"
+
+msgid "manager.users.roleRequired"
+msgstr "Դուք պետք է ընտրեք առնվազն մեկ դեր, որը կապված է այս օգտատիրոջ հետ:"
+
+msgid "manager.settings.wizard"
+msgstr "Կարգավորումների հրաշագործ"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Ընտրեք մետատվյալների տեսակը, որոնք կարող են ստանալ այս նիշքերը: Փաստաթուղթը "
+"պետք է ընտրվի հիմնական հրապարակման նիշքերի համար, ինչպիսիք են ներբեռնվող PDF-"
+"ը, որպեսզի այդ նիշքերը ժառանգեն իրենց մետատվյալները հրապարակումից: Հակառակ "
+"դեպքում, ընտրեք \"Լրացուցիչ բովանդակություն\" նիշքերի տեսակների մեծ մասի "
+"համար: \"Արվեստի գործերը\" հարմար են նիշքերի համար, որոնք պահանջում են հստակ "
+"երախտիքի, ենթագրերի և արտոնագրման մետատվյալներ:"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Նիշքի մետատվյալներ"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Բանալին կարող է պարունակել միայն տառաթվային նիշեր, ընդգծման գծեր և գծիկներ, "
+"և պետք է սկսվի և ավարտվի տառաթվային նիշով:"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Բանալին արդեն առկա է։"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Այս ժանրի համար ընտրովի կարճ խորհրդանշական նույնացուցիչ:"
+
+msgid "manager.setup.genres.key"
+msgstr "Բանալի"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Սրանք լրացուցիչ նիշքեր են, ինչպիսիք են տվյալների հավաքածուները և հետազոտական "
+"նյութերը, և կցուցադրվեն հիմնական հրապարակման նիշքերից առանձին:"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Սրանք կախյալ նիշքեր են, ինչպիսիք են պատկերները, որոնք ցուցադրվում են HTML "
+"նիշքով, և չեն ցուցադրվի հրապարակված բովանդակության հետ:"
+
+msgid "manager.setup.genres.label"
+msgstr "Նիշքի տեսակ"
+
+msgid "grid.action.restoreGenres"
+msgstr "Վերականգնել բաղադրիչները նախնական պարամետրերին"
+
+msgid "grid.action.deleteGenre"
+msgstr "Ջնջել այս բաղադրիչը"
+
+msgid "grid.action.editGenre"
+msgstr "Խմբագրել այս բաղադրիչը"
+
+msgid "grid.action.addGenre"
+msgstr "Ավելացնել բաղադրիչ"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Ընտրեք գրադարանի նիշքերը՝ կցելու համար"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Այս գրադարանի նիշքը կարող է հասանելի լինել ներբեռնման համար, եթե «"
+"Հանրային մուտքը» միացված է, այստեղից "
+"<blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Այլ"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Հաշվետվություններ"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Թույլտվություններ"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Մարքեթինգ"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Նամակ ուղարկեք միայն այն հեղինակներին, որոնք նշանակված են ներկայացման "
+"աշխատանքներին: Սովորաբար սա ներկայացնող հեղինակն է:"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Ուղարկեք էլ․ փոստով ծանուցում ներկայացման բոլոր հեղինակներին:"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Ո՞վ պետք է ստանա ծանուցման նամակ, երբ խմբագրական որոշումը գրանցվում է:"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Տեղեկացնել բոլոր հեղինակներին"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"ոլոր մեկնաբանությունները ավարտվուն գրախոսություններից: Անանուն "
+"գրախոսությունների պարագայում գրախոսների անունները թաքցված են"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Հրատարակությունները վերլուծելիս գործընթացը ձախողվեց"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Հեղինակներին վերլուծելիս գործընթացը ձախողվեց"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Նշված ամսագրի ուղին՝ \"{$contextPath}\", գոյություն չունի:"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ՍԽԱԼ:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Զտիչի սխալ կազմաձևում [{$filterName}]: {$filterCount} հանդիպումներ: Պետք է "
+"լինի միայն մեկը."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Ընդհանուր տարրեր"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Ներբեռնեք արտահանված նիշքը ստորև բերված կոճակից:"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Արտահանումը հաջողությամբ ավարտվեց:"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Ներբեռնեք արտահանված նիշքը"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Արտահանել ներկայացումների արդյունքները"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Գործընթացը ձախողվեց: Ստուգեք ստորև՝ սխալների/նախազգուշացումների համար:"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Գրախոսությունից հետո մերժվածների տոկոսը"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Միանգամից մերժվածների տոկոսը"
+
+msgid "stats.name.declineRate"
+msgstr "Մերժման տոկոսը"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Ընդունման տոկոսը"
+
+msgid "stats.name.daysToReject"
+msgstr "Օրեր մինչ մերժելը"
+
+msgid "stats.name.daysToAccept"
+msgstr "Օրեր մինչ ընդունումը"
+
+msgid "stats.name.daysToDecision"
+msgstr "Օրեր մինչև խմբագրական առաջին որոշումը"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Ներկայացումները Հրապարակվել են"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Մերժված ներկայացումներ (Գրախոսումից հետո)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Մերժված ներկայացումներ (անմիջապես)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Մերժված ներկայացումներ"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Ընդունված ներկայացումներ"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Ստացված ներկայացումներ"
+
+msgid "stats.userStatistics"
+msgstr "Օգտվողի վիճակագրություն"
+
+msgid "stats.trends"
+msgstr "Միտումներ"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Ընդհանուրը ամսաթվերի միջակայքում"
+
+msgid "stats.total"
+msgstr "Ընդամենը"
+
+msgid "stats.submissionsActive"
+msgstr "Ակտիվ ներկայացումներ"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Որոնել ըստ վերնագրի, հեղինակի և ID-ի"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Ամսական"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Նիշքերի դիտում"
+
+msgid "stats.editorialActivity"
+msgstr "Խմբագրական ակտիվություն"
+
+msgid "stats.descriptionForStat"
+msgstr "Նկարագրություն սրա համար {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Ներկայացումների մեծ մասի համար պահանջվում է առաջին խմբագրական որոշումը "
+"ստանալու համար անհրաժեշտ օրերի քանակը, օրինակ՝ միանգամից մերժումը կամ "
+"գրախոսման ուղարկելը:<br><br>Այս թվերը ցույց են տալիս, որ ներկայացումների 80%-"
+"ը որոշում է կայացվում նշված օրերի ընթացքում:< br><br>Այս վիճակագրությունը "
+"փորձում է նկարագրել, երբ ձեր ամսագրին ներկայացնող հեղինակների "
+"մեծամասնությունը կարող է ակնկալել որոշում:"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Ընտրված ամսաթվերի տիրույթի տոկոսը հաշվարկվում է այն փաստաթղթերի համար, որոնք "
+"ներկայացվել են այս ժամկետների միջակայքում և ստացել են վերջնական "
+"որոշում:<br><br>Օրինակ, նկատի ունեցեք այն դեպքը, երբ տասը ներկայացումներ են "
+"կատարվել այս ժամկետների տիրույթում: Չորսն ընդունվել են, չորսը մերժվել , և "
+"երկուսը դեռ սպասում են վերջնական որոշմանը:<br><br>Ընդունման տոկոսը կկազմի 50%"
+" (4-ը 8 դիմումներից), քանի որ վերջնական որոշում չհասած երկու դիմումները չեն "
+"հաշվվում:"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Մինչ {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Դեպի"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Տարին մինչ օրս"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Սկսած {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Վերջին տարին"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Վերջին երկու օրը"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Վերջին 90 օրերը"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Վերջին 30 օրերը"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Վերջին 12 ամիսները"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Մեկնարկի ամսաթիվը չի կարող ավելի վաղ լինել, քան {$date} -ը:"
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Ավարտի ամսաթիվը չի կարող ավելի ուշ լինել, քան {$date} -ը:"
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Մեկնարկի ամսաթիվը պետք է լինի մինչ ավարտի ամսաթիվը:"
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Ամսաթվի ձևաչափը վավեր չէ: Մուտքագրեք յուրաքանչյուր ամսաթիվ հետևյալ ձևաչափով՝ "
+"ՏՏՏՏ-ԱԱ-ՕՕ:"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Մուտքագրեք յուրաքանչյուր ամսաթիվ՝ ՏՏՏՏ-ԱԱ-ՕՕ ձևաչափով: Օրինակ, եթե ցանկանում "
+"եք 2019 թվականի հունվարի 15-ի ամսաթիվը, մուտքագրեք 2019-01-15:"
+
+msgid "stats.dateRange.from"
+msgstr "Այստեղից"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Մուտքագրված ամսաթվերից մեկը գոյություն չունի:"
+
+msgid "stats.dateRange.customRange"
+msgstr "Անհատականացված միջակայք"
+
+msgid "stats.dateRange.change"
+msgstr "Փոխեք ամսաթվերի միջակայքը"
+
+msgid "stats.dateRange.apply"
+msgstr "Կիրառել"
+
+msgid "stats.dateRange.allDates"
+msgstr "Բոլոր ամսաթվերը"
+
+msgid "stats.dateRange"
+msgstr "Ամսաթվերի միջակայք"
+
+msgid "stats.daily"
+msgstr "Ամեն օր"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/տարի)"
+
+msgid "stats.allUsers"
+msgstr "Բոլոր օգտվողները"
+
+msgid "grid.category.categoryDetails"
+msgstr "Դասի մանրամասներ"
+
+msgid "grid.category.nameRequired"
+msgstr "Խնդրում ենք մուտքագրել դասի անունը:"
+
+msgid "grid.category.removeText"
+msgstr "Իսկապե՞ս ցանկանում եք հեռացնել այս դասը:"
+
+msgid "grid.category.parentCategory"
+msgstr "Ծնողի դաս"
+
+msgid "grid.category.description"
+msgstr "Նկարագրություն"
+
+msgid "grid.category.pathExists"
+msgstr "Դասի ուղին արդեն առկա է: Խնդրում ենք մուտքագրել եզակի ուղի:"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Դասի ուղին պետք է բաղկացած լինի միայն տառերից և թվերից:"
+
+msgid "grid.category.urlWillBe"
+msgstr "Դասի URL-ը կլինի՝ {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Ուղի"
+
+msgid "grid.category.name"
+msgstr "Անուն"
+
+msgid "grid.category.edit"
+msgstr "Խմբագրել դասը"
+
+msgid "grid.category.add"
+msgstr "Ավելացնել դաս"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե դուք մուտքագրել եք գաղտնիության "
+"հայտարարություն այստեղից Կարգավորումներ > Աշխատանքային հոսք > Ներկայացումներ:"
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Հղում դեպի գաղտնիության ձեր հայտարարությունը ցուցադրող էջին:"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Այս հաղորդագրությունը ծանուցում է ավագ խմբագրին կամ բաժնի խմբագրին, որ "
+"խմբագրական հանձնարարական է տրվել առնչվող իրենց հանձնարարված ներկայացումներից "
+"մեկի վերաբերյալ: Այս հաղորդագրությունն օգտագործվում է, երբ խմբագրին "
+"թույլատրվում է միայն խմբագրական որոշումներ առաջարկել և պահանջում է, որ "
+"լիազորված խմբագիրն արձանագրի խմբագրական որոշումները: Այս տարբերակը կարող է "
+"ընտրվել, երբ մասնակիցներին նշանակվում է ներկայացում:"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Պատրաստված է առաջարկություն"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Այս նամակը ծանուցում է հեղինակին, որ իրենց ներկայացումն ուղարկվում է "
+"անմիջապես սրբագրման փուլ և գործընկերային գրախոսություն չի լինի:"
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Գրախոսությունը բաց է թողված"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ իրենց ներկայացումն ուղարկվում է "
+"արտադրության փուլ:"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Ուղարկվել է արտադրություն"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ իրենց ներկայացումն ուղարկվում է "
+"գրախոսման փուլ:"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Ուղարկել գրախոսման"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ առանց գրախոսության իրենց "
+"ներկայացումը մերժելու նախկին որոշումը հետ է վերադարձվում:"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Վերականգնել ներկայացումը մերժվել է առանց գրախոսության"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ գործընկերային վերանայումից հետո "
+"իրենց ներկայացումը մերժելու նախորդ որոշումը հետ է վերադարձվել:"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Վերականգնել մերժված ներկայացումը"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին իրենց ներկայացման վերաբերյալ «վերանայել "
+"և նորից ներկայացնել» որոշման մասին:"
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Կրկին ներկայացնել գրախոսության համար"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը հեղինակին ծանուցում է, որ գործընկերային գրախոսության ժամանակ "
+"կայացվել է որոշում պահանջելու վերանայումներ:"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Խնդրվել են վերանայումներ"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ վերանայման նոր փուլ է սկսվում "
+"ներկայացման համար:"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Սկսվել է վերանայման նոր փուլ"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Ներկայացումը մերժվել է"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը մերժվել է "
+"գործընկերային գրախոսությունից հետո:"
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Ներկայացումը մերժվել է"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը հետ է ուղարկվել "
+"ներկայացման փուլ:"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Ներկայացումը հետ է ուղարկվել ներկայացման"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը հետ է ուղարկվել "
+"վերանայման փուլ:"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Ներկայացումն հետ է ուղարկվել վերանայման"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Այս նամակը ծանուցում է հեղինակին, որ ներկայացումը հետ է ուղարկվել սրբագրման "
+"փուլ:"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Ներկայացումը հետ է ուղարկվել սրբագրման"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ ներկայացումն ընդունվել է "
+"հրապարակման համար:"
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Ներկայացումն ընդունված է"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Մենք հեղինակներին հրավիրել ենք վերանայված տարբերակը ներկայացնել հետագա "
+"գրախոսման համար:"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Մենք հեղինակներին հրավիրել ենք գրախոսումներ ներկայացնելու։"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Մենք որոշել ենք մերժել այս ներկայացումը:"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Մենք որոշել ենք ընդունել այս ներկայացումը առանց վերանայումների:"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Այս որոշման համառոտ նկարագրությունը, որը նախատեսվում է համօգտագործել այս "
+"որոշման մասին գրախոսներին ուղարկված էլեկտրոնային ծանուցման միջոցով:"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Այս նամակը խմբագրի կողմից ուղարկվում է գրախոսին՝ ծանուցելու որ որոշում է "
+"կայացվել իր կողմից գրախոսված ներկայացման վերաբերյալ:"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Գրախոսի հաստատում"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+"Էլ․ փոստի հաղորդագրության պատճենը, որն ուղարկվել է ներկայացնող հեղինակին"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Այս էլ․ նամակն ուղարկվում է՝ ծանուցելու այն հեղինակներին, ովքեր չեն "
+"նշանակվել որպես մասնակից, որ որոշում է կայացվել: Սովորաբար սրանք մնացյալ "
+"բոլորն են, բացառությամբ ներկայացնող հեղինակի:"
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Տեղեկացնել այլ հեղինակներին"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է նոր օգտվողին, երբ նրանք "
+"գրանցվում են կայքում, երբ կարգավորումները պահանջում են վավերացնել էլ․ փոստի "
+"հասցեն:"
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Վավերացնել էլ․ փոստը (կայք)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Այս էլ․ նամակն ուղարկվում է, երբ խմբագիրն ապանշանակում է գրախոսին:"
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Գրախոսը ապանշանակված է"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Այս էլ․ նամակն ուղարկվում է, երբ գրախոսը, որը ապանշանակված էր, խմբագրի "
+"կողմից վերականգնվում է:"
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Գրախոսը վերականգնվեց"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Այս նամակն ուղարկվում է, երբ գրախոսին նշանակվում է ներկայացում:"
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Գրախոսի նշանակում"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է քննարկման մասնակիցներին, երբ "
+"քննարկմանը նոր հաղորդագրություն է ավելացվում:"
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Քննարկման նոր հաղորդագրություն"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Ներկայացման աշխատանքային ընթացքին նշանակված հեղինակների անունները: Սովորաբար "
+"սա ներկայացնող հեղինակն է"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Ներկայացման URL-ը խմբագրության հետին մասում"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Հեղինակի URL-ը այս ներկայացմանը"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Հեղինակների լրիվ անունները"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Հեղինակների անունները կրճատված տողի տեսքով"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Ներկայացման համառոտագրությունը"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Այս ներկայացման եզակի ID թիվը"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Այս ներկայացման վերնագիրը"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Այս ներկայացմանը նշանակված խմբագիրները, ովքեր կարող են որոշում կայացնել"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Կայքի հիմնական կոնտակտի էլ․ փոստը"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Կայքի հիմնական կոնտակտի լրիվ անունը"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Ուղարկողի էլ․ փոստի ստորագրությունը"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Ուղարկողի էլ․ փոստի հասցեն"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Ուղարկողի լրիվ անունը"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Այս ամսագիրը իրականացնում է գործընկերային բաց գրախոսություն: Գրախոսները "
+"կտեսնեն ձեր անունը և պատկանելությունը, ինչպես նաև ձեր համահեղինակների "
+"անուններն ու պատկանելությունները: Նմանապես, դուք կտեսնեք գրախոսողների "
+"անուններն ու պատկանելությունը:"
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Այս ամսագիրը անցկացնում է «անանուն գրախոսի» գործընկերային փորձաքննություն: "
+"Ձեր անունը և ձեր համահեղինակների անունները տեսանելի կլինեն գրախոսներին. "
+"սակայն, գրախոսների ինքնությունը կմնա անանուն:"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Այս ամսագիրն իրականացնում է կրկնակի անանուն գործընկերային գրախոսություն: "
+"Գրախոսները չեն տեսնի ձեր կամ ձեր համահեղինակների մասին նույնականացնող որևէ "
+"տեղեկություն: Նմանապես, դուք չեք իմանա, թե ով է գրախոսել ձեր ներկայացումը, և "
+"ուղղակիորեն չեք լսի գրախոսներից:"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց:"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Առաջարկվող որոշումը, օրինակ՝ Ընդունել ներկայացումը"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Գրախոսության առաջադրանքի URL-ը"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Ամսաթիվ, երբ գրախոսությունը պետք է ավարտվի"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Ամսաթիվը, երբ գրախոսը պետք է ընդունի կամ մերժի հանձնարարությունը"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Ստացողի կամ բոլոր ստացողների օգտանունը"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Ստացողի կամ բոլոր ստացողների լրիվ անունները"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Սույն որոշումն ընդունվել է գրախոսման փուլում, եթե որոշումը կապված է "
+"գրախոսման փուլի հետ։"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Այս որոշումն ընդունվել է խմբագրական աշխատանքի փուլում։"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Ընդունված որոշման նկարագրությունը."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Ընդունված որոշման անվանումը."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Օգտվողի կողմից նշանակված բոլոր ներկայացումները դիտելու URL-ը:"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Էջի URL-ը, որտեղից օգտագործողը կարող է վերականգնել կորցրած գաղտնաբառը"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Անհրաժեշտ է DOI"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Ամսագրի փոստային հասցեն"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Այս նամակն ավտոմատ կերպով ուղարկվում է, երբ գրախոսը չի ավարտել իր "
+"վերանայումը մինչև սահմանված ժամկետը:"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Վերանայման հիշեցում (ինքնաշխատ դարձված)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Այս նամակն ուղարկվում է Խմբագրի կողմից՝ գրախոսին հիշեցնելու, որ իր "
+"վերանայումն ենթակա է ավարտվի"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Գրախոսման հիշեցում"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Այս նամակն ուղարկվում է գրախոսի կողմից, երբ մերժում է վերանայման հարցումը"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Վերանայումը մերժել"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Այս նամակն ինքնաշխատ կերպով ուղարկվում է, երբ գրախոսն ընդունում է վերանայման "
+"հարցումը"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Վերանայումը հաստատել"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Հիշված URL, որն ուղարկվում է օգտատիրոջը՝ գաղտնաբառի վերակայումը հաստատելու "
+"համար"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Կայքի էլ․ փոստի ստորագրությունը ինքնաշխատ դարձրած էլ․ փոստերի համար"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "Վերանայման առաջադրանքի URL-ը"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Նախքան այս բաղադրիչը ջնջելը, դուք պետք է կապակցեք ներկայացման բոլոր նիշքերը "
+"մեկ այլ բաղադրիչի հետ:"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Այլ ներկայացումներ"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Սա ներառում է այն ներկայացումները, որոնք չեն հաշվարկվել այլ "
+"հանրագումարներում, ինչպիսիք են այն ներկայացումները, որոնք դեռ ընթացքի մեջ են "
+"և նրանք, որոնք կարծես ներմուծված են:"

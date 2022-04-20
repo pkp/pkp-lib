@@ -1,10 +1,10 @@
-# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-08-10 07:05+0000\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hu_HU/>\n"
@@ -458,7 +458,9 @@ msgid "user.preferredPublicName"
 msgstr "Preferált megszólítás"
 
 msgid "user.preferredPublicName.description"
-msgstr "Hogy szólíthatjuk? Ide megadható titulus és középső név is. "
+msgstr ""
+"Kérjük, adja meg a teljes nevet, amivel a szerzőt azonosítani lehet a "
+"közzétett munkában. Például: Dr. Alan P. Mwandenga"
 
 msgid "user.privacyLink"
 msgstr "Az adatokat az <a href=\"{$privacyUrl}\" target=\"_blank\">adatkezelési nyilatkozatunk</a> irányelvei szerint kezeljük. "

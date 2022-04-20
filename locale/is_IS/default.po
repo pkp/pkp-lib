@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-10 00:38+0000\n"
+"PO-Revision-Date: 2022-03-16 00:29+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/is_IS/>\n"
@@ -91,10 +91,10 @@ msgid "default.groups.abbrev.marketing"
 msgstr "MS"
 
 msgid "default.groups.plural.marketing"
-msgstr "Markaðs og sölustjórar"
+msgstr "Markaðs- og sölustjórar"
 
 msgid "default.groups.name.marketing"
-msgstr "Markaðs og sölustjóri"
+msgstr "Markaðs- og sölustjóri"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "IR"

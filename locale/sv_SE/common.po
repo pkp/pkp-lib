@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-10-08 17:06+0000\n"
+"PO-Revision-Date: 2022-03-10 19:56+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv_SE/>\n"
@@ -2046,3 +2046,71 @@ msgstr ""
 
 msgid "validation.invalidOption"
 msgstr "Detta är inte ett giltigt alternativ."
+
+msgid "list.collapseAll"
+msgstr "Fäll ihop alla"
+
+msgid "list.expandAll"
+msgstr "Expandera alla"
+
+msgid "timeZone"
+msgstr "Tidszon"
+
+msgid "email.attachmentNotFound"
+msgstr "Filen {$fileName} kunde inte bifogas."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Bifoga filer som laddats upp av granskare"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Bifoga granskningsfiler"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Bifoga filer som laddades upp av författaren i samband med inskickningen av "
+"bidraget, t.ex. revideringar eller filer som ska granskas."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Bifoga filer som laddades upp av författaren vid inskickning."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Bifoga filer"
+
+msgid "common.viewError"
+msgstr "Visa fel"
+
+msgid "common.upload.addFile.description"
+msgstr "Ladda upp en fil från din dator."
+
+msgid "common.switchTo"
+msgstr "Växla till"
+
+msgid "common.showAllSteps"
+msgstr "Visa alla steg"
+
+msgid "common.searching"
+msgstr "Sökning"
+
+msgid "common.numberedMore"
+msgstr "{$number} fler"
+
+msgid "common.keepWorking"
+msgstr "Fortsätt arbeta"
+
+msgid "common.loadTemplate"
+msgstr "Ladda in en mall"
+
+msgid "common.findTemplate"
+msgstr "Hitta mall"
+
+msgid "common.deselect"
+msgstr "Avmarkera"
+
+msgid "common.attachFiles"
+msgstr "Bifoga filer"
+
+msgid "common.attachedFiles"
+msgstr "Bifogade filer"
+
+msgid "common.addCCBCC"
+msgstr "Lägg till kopia/hemlig kopia"

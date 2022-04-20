@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-31 17:07+0000\n"
+"PO-Revision-Date: 2022-03-21 17:59+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -25,11 +25,11 @@ msgid "manager.readingTools"
 msgstr "Lestrartól"
 
 msgid "manager.plugins"
-msgstr "Kerfis viðbætur"
+msgstr "Kerfisviðbætur"
 
 msgid "manager.plugins.sitePlugin"
 msgstr ""
-"Þetta viðbótarforrit nær yfir alla vefsíðuna.  Engöngu vefstjóri getur "
+"Þetta viðbótarforrit nær yfir alla vefsíðuna.  Eingöngu vefstjóri getur "
 "sýslað með þessa viðbót."
 
 msgid "manager.plugins.pluginManagement"
@@ -54,7 +54,7 @@ msgid "manager.people.unenroll"
 msgstr "Afskrá"
 
 msgid "manager.people.syncUsers"
-msgstr "Samstilla notenda skráningar"
+msgstr "Samstilla notendaskráningar"
 
 msgid "manager.people.signInAsUser"
 msgstr "Skrá inn sem notandi"
@@ -81,7 +81,7 @@ msgid "manager.people.noMatchingUsers"
 msgstr "Engir notendur sem passa."
 
 msgid "manager.people.mustProvideName"
-msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notandanns."
+msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notanda."
 
 msgid "manager.people.mustChooseRole"
 msgstr ""
@@ -93,16 +93,16 @@ msgstr "Tvinna saman notendur"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"Ertu viss um að þú viljir tvinna saman {$oldAccountCount} notenda reikning(a)"
-" við notendanafnið \"{$newUsername}\"?  Valinn/valdir {$oldAccountCount} "
-"notendareikningar  verða ekki til á eftir. Þessa aðgerð er ekki hægt að "
+"Ertu viss um að þú viljir tvinna {$oldAccountCount} notenda reikning(a) við "
+"notendanafnið \"{$newUsername}\"?  Valinn/valdir {$oldAccountCount} "
+"notendareikningar  verða ekki til eftir það. Aðgerðina er ekki hægt að "
 "afturkalla."
 
 msgid "manager.people.mergeUser"
 msgstr "Tvinna saman notendur"
 
 msgid "manager.people.invalidUser"
-msgstr "Afsakaðu, umbeðinn notandi er ekki til."
+msgstr "Umbeðinn notandi er ekki til."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Skrá notanda sem"
@@ -130,11 +130,10 @@ msgstr "Virkja"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Veldu þá notendur sem þú vilt senda tölvupóst á með því að merkja í kassann "
-"við hvert nafn"
+"Veldu þá notendur sem þú vilt senda tölvupóst með því að haka við hvert nafn"
 
 msgid "manager.people.emailUsers.selectLocale"
-msgstr "Veldur tungumál"
+msgstr "Veldu tungumál"
 
 msgid "manager.people.emailUsers"
 msgstr "Senda notendum tölvupóst"
@@ -152,16 +151,18 @@ msgid "manager.people.editProfile"
 msgstr "Breyta forstillingum"
 
 msgid "manager.people.doNotEnroll"
-msgstr "Með ekkert hlutverk"
+msgstr "Án hlutverks"
 
 msgid "manager.people.disable"
 msgstr "Afvirkja"
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Senda notanda velkominn tölvupóst með notendanafni og lykilorði."
+msgstr ""
+"Bjóða notanda velkominn með tölvupósti þar sem notendanafn og lykilorð kemur "
+"fram."
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr "Búa til slembi lykilorð."
+msgstr "Búa til slembilykilorð."
 
 msgid "manager.people.createUser"
 msgstr "Stofna nýjan notanda"
@@ -180,15 +181,14 @@ msgstr "Tímastimpill"
 
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
-"Veldu öll tungumál sem vefsíðan á að styðja við á tungumála valmyndinni sem "
-"birtist á hverri síðu. Valmyndin birtist bara ef fleira en eitt tungumál er "
-"valið."
+"Veldu öll tungumál sem vefsíðan á að styðja við á tungumálavalmyndinni sem "
+"birtist á hverri síðu. Valmyndin birtist ef fleira en eitt tungumál er valið."
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
-"Þetta kerfi leyfir að sérstakar mikilvægar upplýsingar séu settar inn á "
-"viðbótar tungumálum.  Til að nota þenna möguleika, veldu viðbótar tungumál "
-"og veldu valkost af listanum."
+"Þetta kerfi leyfir að ákveðnar mikilvægar upplýsingar séu settar inn á "
+"viðbótartungumálum.  Til að nota þenna möguleika, veldu viðbótartungumál og "
+"valkost af listanum."
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Endurhlaða sjálfgefnum gildum"
@@ -197,7 +197,7 @@ msgid "manager.language.forms"
 msgstr "Eyðublöð"
 
 msgid "manager.language.submissions"
-msgstr "Senda inn grein"
+msgstr "Innsendingar"
 
 msgid "manager.language.ui"
 msgstr "UI"
@@ -255,11 +255,11 @@ msgstr "Stofna skráasvæði"
 
 msgid "manager.files.confirmDelete"
 msgstr ""
-"Eyða þessari skrá eða skráasvæði?  ATH skráasvæði þarf að vera tómt svo hægt "
-"sé að eyða því."
+"Eyða þessari skrá eða skráasvæði?  ATH skráasvæði þarf að vera tómt til að "
+"hægt sé að eyða því."
 
 msgid "manager.filesBrowser"
-msgstr "Skráa vafri"
+msgstr "Skráavafri"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Velja notendur til að flytja út í Excel/CSV skrá."
@@ -271,7 +271,7 @@ msgid "manager.emails.subjectWithValue"
 msgstr "Efni: {$subject}"
 
 msgid "manager.emails.sentTo"
-msgstr "Sent til"
+msgstr "Móttakandi"
 
 msgid "manager.emails.sentFrom"
 msgstr "Sent frá"
@@ -291,12 +291,12 @@ msgid "manager.emails.reset"
 msgstr "Endurstilla"
 
 msgid "manager.emails.resetAll.complete"
-msgstr "Upprunalegu tölvupóst sniðmátin hafa verið endurheimt."
+msgstr "Upprunalegu tölvupóstsniðmátin hafa verið endurheimt."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
-"Ef þú endurstillir öll sniðmát, munu allar breytingar á tölvupóst "
-"sniðmátunum tapast.  Viltu staðfesta þessa aðgerð?"
+"Ef þú endurstillir öll sniðmát, munu allar breytingar á tölvupóstsniðmátunum "
+"tapast.  Viltu staðfesta þessa aðgerð?"
 
 msgid "manager.emails.resetAll"
 msgstr "Endurstilla allt"
@@ -312,17 +312,17 @@ msgstr "Meginmál er áskilið fyrir tölvupóstinn."
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
-"Einkvæmur tölvupósts lykill sem inniheldur engin stafabil eða sérstafi er "
-"áskilinn fyri tölvupóstinn."
+"Fyrir tölvupóstinn er áskilinn einkvæmur tölvupóstslykill sem inniheldur "
+"engin stafabil eða sérstafi."
 
 msgid "manager.emails.enable.message"
-msgstr "Þú ert við það að virja þennan tölvupóst.  Viltu staðfesta aðgerðina?"
+msgstr "Þú ert við það að virkja tölvupóstinn.  Viltu staðfesta aðgerðina?"
 
 msgid "manager.emails.enable"
 msgstr "Virkja"
 
 msgid "manager.emails.enabled"
-msgstr "Virkja tölvupóst sniðmát"
+msgstr "Virkja sniðmát tölvupósts"
 
 msgid "manager.emails.emailTemplate.noDuplicateKeys"
 msgstr "Lykillinn sem þú slóst inn er nú þegar í notkun."
@@ -350,7 +350,7 @@ msgid "manager.emails.emailKey.description"
 msgstr "Tölvupóstslykill má bara innihalda bókstafi, númer og undirstrik."
 
 msgid "manager.emails.emailKey"
-msgstr "Tölvupósts lykill"
+msgstr "Tölvupóstslykill"
 
 msgid "manager.emails.editTestExample"
 msgstr "Breyta tölvupósti - dæmi um prófun"
@@ -360,9 +360,8 @@ msgstr "Breyta tölvupósti"
 
 msgid "manager.emails.disable.message"
 msgstr ""
-"Þú ert við það að afvirkja þetta sniðmát.  Ef það eru aðrir ferlar í kerfinu "
-"sem nota þetta sniðmát, þá geta þeir ekki gert það lengur.  Viltu staðfesta "
-"þessa aðgerð?"
+"Þú ert við það að afvirkja þetta sniðmát.  Þar með munu aðrir ferlar í "
+"kerfinu ekki lengur geta notað sniðmátið.  Viltu staðfesta þessa aðgerð?"
 
 msgid "manager.emails.disable"
 msgstr "Afvirkja"
@@ -371,7 +370,7 @@ msgid "manager.emails.details"
 msgstr "Sniðmát - nánar"
 
 msgid "manager.emails.data"
-msgstr "Sniðmát -  Skilaboð"
+msgstr "Sniðmát - skilaboð"
 
 msgid "manager.emails.customTemplate"
 msgstr "Sérsniðið sniðmát"
@@ -384,11 +383,11 @@ msgstr "Bæta við sniðmáti"
 
 msgid "manager.emails.confirmReset"
 msgstr ""
-"Ertu viss um að þú villjir endurstilla þetta tölvupóst sniðmát í upphaflegt "
+"Ertu viss um að þú villjir endurstilla þetta sniðmát tölvupósts í upphaflegt "
 "form?"
 
 msgid "manager.emails.confirmDelete"
-msgstr "Ert þú viss um að þú viljir eyða þessu tölvupósts sniðmáti?"
+msgstr "Ertu viss um að þú viljir eyða þessu sniðmáti tölvupósts?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Búið að uppfæra upplýsingar í áminningu um ritrýni."
@@ -486,19 +485,19 @@ msgid "manager.announcements.form.descriptionRequired"
 msgstr "Lýsing á tilkynningu er áskilin."
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Heildartexti tilkynningarinnar."
+msgstr "Heildartexti tilkynningar."
 
 msgid "manager.announcements.form.description"
 msgstr "Tilkynning"
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Vinsamlega veldu mánuð og/eða dag til viðbótar við gildisloka-ár."
+msgstr "Vinsamlega veldu mánuð og/eða dag til viðbótar við gildislokaár."
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr "Vinsamlega veldu gilda dagsetningu sem gildisloka dagsetningu."
+msgstr "Vinsamlega veldu gilda dagsetningu fyrir gildislok."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr "Vinsamlega veldu ár og/eða dag í viðbót við gildisloka-mánuð."
+msgstr "Vinsamlega veldu ár og/eða dag í viðbót við gildislokamánuð."
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
@@ -506,10 +505,10 @@ msgstr ""
 "á að birtast ótímabundið."
 
 msgid "manager.announcements.form.dateExpire"
-msgstr "Gildisloka dagsetning"
+msgstr "Dagsetning gildisloka"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Vinsamlega veldu ár og/eða mánuð í viðbót við gildisloka-daginn."
+msgstr "Vinsamlega veldu ár og/eða mánuð til viðbótar við gildislokadaginn."
 
 msgid "manager.announcements.editTitle"
 msgstr "Breyta"
@@ -533,14 +532,14 @@ msgid "manager.announcements.create"
 msgstr "Stofna nýja tilkynningu"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Ertu viss um að þú viljir eyða endanlega þessari tilkynningu: {$title}?"
+msgstr "Ertu viss um að þú viljir eyða tilkynningunni endanlega: {$title}?"
 
 msgid "manager.announcements"
 msgstr "Tilkynningar"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
-"Mynda skrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
+"Myndaskrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
 "hlaðið upp skrá."
 
 msgid "manager.statistics.reports.aggregationColumns"
@@ -548,7 +547,7 @@ msgstr "Safna upp tölfræði eftir:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
-"Kerfið býr til skýrslur yfir upplýsingar tengdar notkuninni á vefnum og "
+"Kerfið býr til skýrslur yfir upplýsingar tengdar notkun á vefnum og "
 "innsendingum yfir tiltekið tímabil. Skýrslurnar eru á CSV fromi sem kallar á "
 "töflureikni eins og t.d. Excel til að skoða gögnin."
 
@@ -564,11 +563,11 @@ msgstr "Staður"
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
 "\n"
-"\t\tHluturinn {$contextObjectName} er stilltur til að skrá meira en einn "
-"notkunarmælikvarða. Tölfræði um notkun verður birt í fleiru en einu "
+"\t\tHluturinn {$contextObjectName} er stilltur til að skrá fleiri en einn "
+"notkunarmælikvarða. Tölfræði um notkun verður birt í hverju og einu "
 "samhengi. \n"
-"\t\tÞað eru tilfelli þar sem ein tölfræði notkun verður að vera notuð. T.d. "
-"til að sýna sorteraðan lista af algengustu innsendingum til að raða "
+"\t\tÍ ákveðnum tilfellum þarf að nýta eina tölfræðinotkun, t.d. til að sýna "
+"flokkaðan lista af algengustu innsendingum  eða til að raða "
 "leitarniðurstöðum. Vinsamlega veldur einn af mælikvörðunum sem búið er að "
 "stilla sem sjálfgefinn.\n"
 "\t"
@@ -585,7 +584,7 @@ msgstr ""
 "óskar að leita eftir. Formið forsýnir útreiknað meðaltal þessara svæða."
 
 msgid "manager.reviewerSearch.interests"
-msgstr "Ritrýni áhugasvið"
+msgstr "Áhugasvið ritrýni"
 
 msgid "manager.reviewerSearch.searchByName.short"
 msgstr "Leita eftir nafni"
@@ -598,17 +597,17 @@ msgstr "Breyta"
 
 msgid "manager.representative.inUse"
 msgstr ""
-"Þú getur ekki eytt þessum fulltrúa því viðkomandi er tengdur á markasð "
-"lýsigögn fyrir eitt eða fleiri útgáfu from fyrir þetta handrit."
+"Þú getur ekki eytt þessum fulltrúa þar sem viðkomandi er tengdur "
+"markaðslýsigögnum einnar eða fleiri útgáfugerða handrits."
 
 msgid "manager.setup.advanced"
-msgstr "Ítarlegra"
+msgstr "Ítarlegt"
 
 msgid "manager.setup.additionalContent.description"
 msgstr "Allt sem er slegið inn hér mun birtast á heimasíðunni."
 
 msgid "manager.setup.additionalContent"
-msgstr "Viðbótar innihald"
+msgstr "Viðbótarinnihald"
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
@@ -643,7 +642,7 @@ msgid "manager.statistics.reports.reportUrl.label"
 msgstr ""
 "Eftirfarandi vefslóð má nota til að búa til skýrsluna með gildandi "
 "stillingum.  Afritaðu vefslóðina og opnaðu í vafra. Þú getur líka vistað "
-"hana sem smið fyrir þína sérsniðnu skýrslu vefslóð í þínum bókarmerkjum."
+"hana sem \"vefslóðasmið\"  í þínum bókmerkjum."
 
 msgid "manager.statistics.reports.reportUrl"
 msgstr "Vefslóð skýrslu"
@@ -681,7 +680,7 @@ msgstr "Í gær"
 
 msgid "manager.statistics.reports.objectId.label"
 msgstr ""
-"Skilgreindu einn eða fleiri kenni fyrir hlut, aðgreinda með kommu (t.d. "
+"Skilgreindu eitt eða fleiri kenni fyrir hlut og aðgreindu með kommu (t.d. "
 "1,2,3,4,5)."
 
 msgid "manager.statistics.reports.objectId"
@@ -691,7 +690,7 @@ msgid "manager.statistics.reports.objectType"
 msgstr "Tegund hlutar"
 
 msgid "manager.statistics.reports.objectNotFound"
-msgstr "Hlutur fannst ekki í gegnagrunni"
+msgstr "Hlutur fannst ekki í gagnagrunni"
 
 msgid "manager.statistics.reports.filters"
 msgstr "Síur"
@@ -699,11 +698,11 @@ msgstr "Síur"
 msgid "manager.statistics.reports.columns.description"
 msgstr ""
 "Skilgreindu dálkana sem eiga að vera á skýrslunni.  Dálkarnir sem þú velur "
-"hér ráða bæði hvaða gögn eru birt á skýrslunni, en einnig hvernig "
-"tölfræðinni er safnað upp.  Dæmi: Ef þú velur kenni, tegund og mánuði sem "
-"dálka, mun skýrslan summera alla \"skoðun\" á hlut í einum mánuði og birta "
-"gögnin í einni línu.  Ef þú velur dag í staðinn fyrir mánuð mun hver hlutur "
-"fá eina línu per dag."
+"hér ráða bæði hvaða gögn eru birt á skýrslunni og hvernig tölfræði er safnað "
+"upp.  Dæmi: Ef þú velur kenni, tegund og mánuði sem dálka, mun skýrslan taka "
+"saman alla \"skoðun\" viðkomandi atriðis í einum mánuði og birta gögnin í "
+"einni línu.  Ef þú velur dag í staðinn fyrir mánuð mun hvert atriði fá eina "
+"línu per dag."
 
 msgid "manager.statistics.reports.columns"
 msgstr "Dálkar"
@@ -712,7 +711,7 @@ msgid "manager.statistics.reports.advancedOptions.hide"
 msgstr "Fela ítarlega valkosti"
 
 msgid "manager.statistics.reports.advancedOptions"
-msgstr "Ítarlegri valkostir"
+msgstr "Ítarlegir valkostir"
 
 msgid "manager.statistics.reports.customReportGenerator"
 msgstr "Skýrslusmiður"
@@ -721,63 +720,63 @@ msgid "manager.statistics.reports.generateReport"
 msgstr "Búa til sérsniðna skýrslu"
 
 msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Sjálfgefið skýrslu sniðmát"
+msgstr "Sjálfgefið skýrslusniðmát"
 
 msgid "manager.statistics.reports.optionalColumns.description"
 msgstr ""
-"Atriði með skáskrift og merkt með * eru fyrir gögn sem eru valkvæð fyrir "
-"núverandi aðferð við að safna tölfræði í kerfinu (tegund mælikvarða).  Þú "
-"gæir haft gögnin eða ekki, eftir því hvernig tölfræði viðbótin er sett upp."
+"Atriði með skáskrift og *merkingu, eru fyrir gögn sem eru valkvæð fyrir "
+"núverandi aðferð við að safna tölfræði í kerfinu (tegund mælikvarða).  "
+"Uppsetning tölfræðiviðbótar ræður því hvort þú hafir viðkomandi gögn eða "
+"ekki."
 
 msgid "manager.reviewForms.noneChosen"
-msgstr "Ekkert / Opið ritrýni eyðublað"
+msgstr "Ekkert / Opið ritrýnieyðublað"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
-"Ritrýni eyðublöðin sem eru búin til hér, eru lögð fram fyrir ritrýna til að "
-"fylla út. Í stað sjálfgefna eyðublaðsins sem inniheldur tvö opin texta box. "
-"Það fyrra fyrir höfund og ritstjóra og það síðara fyrir ritstjóra.  Ritrýni "
-"eyðublöðin geta verið fyrir tiltekna kafla í tímaritinu, og ritstjórar hafa "
-"val um hvaða eyðublað á að nota þegar þeir úthluta ritrýni. Í öllum "
-"tilfellum hafa ritstjórar val um að taka ritrýnina með í samskiptum við "
-"höfundinn."
+"Ritrýnieyðublöðin sem eru búin til hér, fá ritrýnar til útfyllingar í stað "
+"sjálfgefins eyðublaðs sem inniheldur tvö opin textabox: eitt fyrir höfund og "
+"ritstjóra og annað fyrir ritstjóra. Ritrýnieyðublöð geta verið fyrir "
+"tiltekna kafla í tímaritinu og ritstjórar geta valið hvaða eyðublað á að "
+"nota þegar þeir úthluta ritrýni. Í öllum tilfellum hafa ritstjórar val um að "
+"taka ritrýnina með í samskiptum við höfundinn."
 
 msgid "manager.reviewForms.inReview"
 msgstr "Í ritrýni"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Það þarf að vera titill á ritrýni eyðublaðinu."
+msgstr "Það þarf að vera titill á ritrýnieyðublaðinu."
 
 msgid "manager.reviewForms.edit"
-msgstr "Ritrýni eyðublað"
+msgstr "Ritrýnieyðublað"
 
 msgid "manager.reviewForms.description"
 msgstr "Lýsing og leiðbeiningar"
 
 msgid "manager.reviewForms.create"
-msgstr "Búa til ritrýni eyðublað"
+msgstr "Búa til ritrýnieyðublað"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr "Ertu viss um að þú viljir eyða þessu ritrýni eyðublaði?"
+msgstr "Ertu viss um að þú viljir eyða þessu ritrýnieyðublaði?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Lokið"
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr "Ert þú viss um að þú viljir búa til afrit af þessu ritrýni eyðublaði?"
+msgstr "Ert þú viss um að þú viljir búa til afrit af þessu ritrýnieyðublaði?"
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
-"Ertu viss um að þú viljir afvirkja þetta ritrýni eyðublað?  Það verður ekki "
+"Ertu viss um að þú viljir afvirkja þetta ritrýnieyðublað?  Það verður ekki "
 "lengur tiltækt í úthlutun til ritrýna."
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
-"Ertu viss um að þú viljir virkja þetta ritrýni eyðublað? Þegar búið er að "
+"Ertu viss um að þú viljir virkja þetta ritrýnieyðublað? Þegar búið er að "
 "úthluta því í ritrýni verður ekki hægt að afvirkja það."
 
 msgid "manager.reviewForms"
-msgstr "Ritrýni eyðublöð"
+msgstr "Ritrýnieyðublöð"
 
 msgid "manager.distribution.title"
 msgstr "Stillingar á dreifingu"
@@ -801,15 +800,15 @@ msgid "manager.users.roleRequired"
 msgstr "Þú þarf að velja a.m.k. eitt hlutverk til að tengja á þennan notanda."
 
 msgid "manager.settings.wizard"
-msgstr "Stillinga álfur"
+msgstr "Stillingaálfur"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
 "Veldu tegund lýsigagna sem þessar skrár mega taka á móti.  Það þarf að velja "
-"skjal sem megin útgáfuskrá, svo sem niðurhalanlegt PDF, þannig að þessar "
-"skrár erfi lýsigögnin frá útgáfunni.  Að öðruleiti skaltu velja viðbótar "
-"innihald fyrir flestar skráartegundir.  Listaverk er viðeigandi fyrir skrár "
-"sem kalla á sérstaka viðurkenninu, fyrirsögn og lýsigögn fyrir leyfi."
+"skjal sem meginútgáfuskrá, t.d. niðurhalanlegt PDF, þannig að þessar skrár "
+"erfi lýsigögnin frá útgáfunni.  Að öðru leyti skaltu velja viðbótarinnihald "
+"fyrir flestar skráartegundir.  Listaverk er viðeigandi fyrir skrár sem kalla "
+"á sérstaka viðurkenninu, fyrirsögn og lýsigögn fyrir leyfi."
 
 msgid "manager.setup.genres.metatadata"
 msgstr "Lýsigögn skráar"
@@ -823,20 +822,20 @@ msgid "manager.setup.genres.key.exists"
 msgstr "Lykillinn er til."
 
 msgid "manager.setup.genres.key.description"
-msgstr "Valkvætt stutt táknrænt kenni fyrir þessa grein."
+msgstr "Valkvætt, táknrænt, stutt kenni fyrir þessa grein."
 
 msgid "manager.setup.genres.key"
 msgstr "Lykill"
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
-"Þetta eru viðbótarskrár, svo sem gagnasett og rannsóknargögn og verða sýnd "
-"aðgreind frá megin útgáfu skrám."
+"Þetta eru viðbótarskrár, t.d. gagnasett og rannsóknargögn og verða þau sýnd "
+"aðgreind frá meginskrám útgáfu."
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
-"Þetta eru tengdar skrár, svo sem myndir sýndar í HTML skrá og verður ekki "
-"birt með útgefnu efni."
+"Þetta eru tengdar skrár, t.d. myndir sýndar í HTMLskrá og þær verða ekki "
+"birtar með útgefnu efni."
 
 msgid "manager.setup.genres.label"
 msgstr "Skráartegund"
@@ -854,7 +853,7 @@ msgid "grid.action.addGenre"
 msgstr "Bæta við íhlut"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Veldu safn skrár (Library Files) til að hengja við"
+msgstr "Veldu safnskrár (Library Files) til að hengja við"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
@@ -877,10 +876,10 @@ msgid "settings.libraryFiles.category.contracts"
 msgstr "Samningar"
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr "Það þarf að vera skráartegund á þessari safn skrá (Library file)."
+msgstr "Það þarf að vera skráartegund á þessari safnskrá (Library file)."
 
 msgid "settings.libraryFiles.nameRequired"
-msgstr "Það þarf að vera nafn á þessari safn skrá (Library file)."
+msgstr "Það þarf að vera heiti á þessari safnskrá (Library file)."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
@@ -910,9 +909,9 @@ msgstr "Þú þarft að skilgreina heiti hlutverks."
 
 msgid "settings.roles.removeText"
 msgstr ""
-"Þú ert við það að fjarlægja þetta hlutverk úr þessu samhengi. Þessi aðgerð "
-"mun líka eða tengdum stillingum og skráningum notenda á þetta hlutverk.  "
-"Viltu halda áfram?"
+"Þú ert við það að fjarlægja hlutverk úr þessu samhengi. Aðgerðin mun líka "
+"eyða tengdum stillingum og skráningum notenda á hlutverkið.  Viltu halda "
+"áfram?"
 
 msgid "settings.roles.from"
 msgstr "Aðgangsheimild"
@@ -934,8 +933,8 @@ msgstr "Heiti hlutverks"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
-"Þetta hlutverk má bara leggja til ritrýni ákvörðun og kallar á aðkomu "
-"ritstjóra með heimild til að skrá loka ákvörðun."
+"Þetta hlutverk getur eingöngu sett fram tillögur að ritrýniákvörðun en "
+"lokaákvörðun kallar á aðkomu ritstjóra með heimild til skráningar."
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Leyfa notendum að skrá sig sjálfir"
@@ -988,11 +987,11 @@ msgstr "Notanda breytt."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
-"Ekki hægt að vista tungumála stillingar. Það þarf að virkja a.m.k. eitt "
+"Ekki er hægt að vista tungumálastillingar. Það þarf að virkja a.m.k. eitt "
 "tungumál fyrir hvern valmöguleika"
 
 msgid "notification.localeSettingsSaved"
-msgstr "Tungumála stillingar vistaðar."
+msgstr "Tungumálastillingar vistaðar."
 
 msgid "notification.localeReloaded"
 msgstr "Tungumál {$locale} endurhlaðið fyrir {$contextName}."
@@ -1004,7 +1003,7 @@ msgid "notification.localeInstalled"
 msgstr "Öll valin tungumál uppsett og virkjuð."
 
 msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} er skilgreint sem upphafs tungumál."
+msgstr "{$locale} er skilgreint sem upphafstungumál."
 
 msgid "notification.localeDisabled"
 msgstr "Tungumál óvirkt."
@@ -1013,13 +1012,13 @@ msgid "notification.localeEnabled"
 msgstr "Tungumál virkt."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml fannst ekki á viðbóta svæðinu"
+msgstr "version.xml fannst ekki á svæði viðbóta"
 
 msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml á viðbóta svæðinu inniheldur ógild gögn."
+msgstr "version.xml á svæði viðbóta inniheldur ógild gögn."
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr "Veldu viðbóta skránna"
+msgstr "Veldu viðbótarskrá"
 
 msgid "manager.plugins.uploadError"
 msgstr "Villa við að hlaða upp skrá"
@@ -1032,7 +1031,7 @@ msgstr "Uppfærsla mistókst. {$errorString}"
 
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
-"Þetta form gerir þér kleyft að uppfæra viðbót.  Vinsamlega gakktu úr skugga "
+"Þetta form gerir þér kleift að uppfæra viðbót.  Vinsamlega gakktu úr skugga "
 "um að viðbótin sé pressuð sem .tar.gz skrá."
 
 msgid "manager.plugins.upgrade"
@@ -1043,7 +1042,7 @@ msgstr "Stillingar"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
-"Viðbótin er nú þegar til, en er nýrra en uppset útgáfa. Vinsamlega uppfærðu "
+"Viðbótin er nú þegar til, en er nýrri en uppsett útgáfa. Vinsamlega uppfærðu "
 "í staðinn"
 
 msgid "manager.plugins.pleaseInstall"
@@ -1099,11 +1098,11 @@ msgstr "Það er ekki búið að setja upp þessa viðbót."
 msgid "manager.plugins.description"
 msgstr ""
 "Þessi síða leyfir stjórnanda að skoða og mögulega stilla uppsettar viðbætur. "
-"Viðbætur eru skipt í flokka eftir virkni. Flokkarnir eru listaðir fyirr "
-"neðan, og í hverjum flokki má sjá vikrar viðbætur."
+"Viðbótum er skipt í flokka eftir virkni. Flokkarnir eru listaðir fyrir "
+"neðan, og í hverjum flokki má sjá virkar viðbætur."
 
 msgid "plugins.categories.importexport"
-msgstr "Viðbótarforrit fyrir inn-/út-flutning"
+msgstr "Viðbótarforrit fyrir inn-/útflutning"
 
 msgid "manager.plugins.pluginGallery.status"
 msgstr "Status"
@@ -1121,7 +1120,7 @@ msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Viðhaldið af"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Þessi viðbót kemur frá einum af þróunnar samstarfsaðilum okkar."
+msgstr "Þessi viðbót er þróuð af samstarfsaðila okkar."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Samstarfsaðili/meðeigandi"
@@ -1148,24 +1147,24 @@ msgid "manager.plugins.pluginGallery.overview"
 msgstr "Yfirlit"
 
 msgid "manager.plugins.pluginGallery"
-msgstr "Viðbóta smiðja"
+msgstr "Viðbótasmiðja"
 
 msgid "manager.plugins.installed"
 msgstr "Uppsettar viðbætur"
 
 msgid "manager.plugins.uploadFailed"
-msgstr "Vinsamlega athugaðu hvort að skrá var valin til að hlaða upp."
+msgstr "Vinsamlega athugaðu hvort að valin hafi verið skrá til að hlaða upp."
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
-"Þetta form gerir þér kleyft að hlaða upp og setja upp nýtt viðbótarforrit.  "
-"Vinsamlega gaktu úr skugga um að vibótin sé þjöppum sem .tar.gz skrá."
+"Þetta form gerir þér kleift að hlaða upp og setja upp nýtt viðbótarforrit.  "
+"Vinsamlega gakktu úr skugga um að vibótin sé þjöppuð sem .tar.gz skrá."
 
 msgid "manager.plugins.upload"
 msgstr "Hlaða inn nýju viðbótarforriti"
 
 msgid "manager.plugins.fileSelectError"
-msgstr "Vinsamlega veldu skrá fyrst"
+msgstr "Vinsamlega byrjaðu á að velja skrá"
 
 msgid "manager.plugins.doesNotExist"
 msgstr "Viðbótarforritið \"{$pluginName}\" er ekki til"
@@ -1175,10 +1174,10 @@ msgstr "Það tókst að eyða viðbótinni: \"{$pluginName}\""
 
 msgid "manager.plugins.deleteError"
 msgstr ""
-"Ekki var hægt að eyða þessari viðbót: \"{$pluginName}\". Þetta gæti verið "
-"vandamál með leyfi. Vinsamlega gaktu úr skugga um að vefþjóninn geti skrifað "
-"á skráarsvæði fyrir viðbótarforritin (þ.m.t. í undirmöppur), en ekki gleyma "
-"að læsa á það aftur á eftir."
+"Ekki var hægt að eyða viðbótinni: \"{$pluginName}\". Þetta gæti verið "
+"vandamál tengt leyfi. Vinsamlega gakktu úr skugga um að vefþjóninn geti "
+"skrifað á skráarsvæði fyrir viðbótarforritin (þ.m.t. í undirmöppur), en ekki "
+"gleyma að læsa því/loka á það aftur á eftir."
 
 msgid "manager.plugins.deleteDescription"
 msgstr ""
@@ -1194,17 +1193,17 @@ msgid "manager.plugins.upgradeConfirm"
 msgstr "Ertu viss um að þú viljir uppfæra þessa viðbót?"
 
 msgid "manager.plugins.installConfirm"
-msgstr "Ertu viss um að þú viljir sejta inn þessa viðbót?"
+msgstr "Ertu viss um að þú viljir setja viðbótina inn?"
 
 msgid "manager.plugins.delete"
 msgstr "Eyða viðbótarforriti"
 
 msgid "manager.plugins.copyError"
 msgstr ""
-"Ekki tókst að afrita viðbótarforrit. Þetta gæti verið vandamál með leyfi. "
-"Vinsamlega gaktu úr skugga um að vefþjóninn geti skrifað á skráarsvæði fyrir "
-"viðbótarforritin (þ.m.t. í undirmöppur), en ekki gleyma að læsa á það aftur "
-"á eftir."
+"Ekki tókst að afrita viðbótarforrit. Þetta gæti verið vandamál tengt leyfi. "
+"Vinsamlega gakktu úr skugga um að vefþjóninn geti skrifað á skráarsvæði "
+"fyrir viðbótarforritin (þ.m.t. í undirmöppur), en ekki gleyma að læsa því/"
+"loka á það aftur á eftir."
 
 msgid "plugins.categories.pubIds.description"
 msgstr "Þessar viðbætur setja upp stuðning við opinber auðkenni."
@@ -1213,10 +1212,10 @@ msgid "plugins.categories.pubIds"
 msgstr "Viðbótarforrit fyrir opinber auðkenni"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Viðbætur fyrir formatt lýsigagna eru notuð í OAI samskiptum."
+msgstr "Viðbætur fyrir snið lýsigagna eru notuð í OAI samskiptum."
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "Viðbætur fyrir OAI formatt lýsiganga"
+msgstr "Viðbætur fyrir OAI snið lýsiganga"
 
 msgid "plugins.categories.themes"
 msgstr "Viðbótarforrit fyrir þema"
@@ -1230,8 +1229,8 @@ msgstr "Viðbótarforrit fyrir skýrslur"
 
 msgid "plugins.categories.paymethod.description"
 msgstr ""
-"Viðbætur fyrir greiðsluaðferðir setja inn stuðning við ýmsar greiðslu "
-"aðferðir á vefnum."
+"Viðbætur fyrir greiðsluaðferðir setja inn stuðning við ýmsar "
+"greiðsluaðferðir á vefnum."
 
 msgid "plugins.categories.reports.description"
 msgstr ""
@@ -1243,12 +1242,12 @@ msgstr "Viðbótarforrit fyrir greiðslur"
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
-"Reyndir vefforritarar geta hlaðið upp CSS skrá til að stilla útlits vefsins "
-"meira."
+"Reyndir vefforritarar geta hlaðið upp CSS skrá til frekari stillinga á "
+"útliti vefsins."
 
 msgid "plugins.categories.importexport.description"
 msgstr ""
-"Viðbætur fyrir innflutning/ útfluting má nota til að færa gögn til og frá "
+"Viðbætur fyrir innflutning/útfluting má nota til að færa gögn til og frá "
 "öðrum kerfum."
 
 msgid "plugins.categories.generic"
@@ -1263,17 +1262,17 @@ msgstr ""
 
 msgid "plugins.categories.blocks.description"
 msgstr ""
-"Viðbótarforrit fyrir stiklur eru einingar á notendaviðmót, eins og t.d. "
-"ýmsar hliðar stikur."
+"Viðbótarforrit fyrir stiklur eru einingar á notendaviðmót, t.d. ýmsar "
+"hliðarstikur."
 
 msgid "plugins.categories.blocks"
-msgstr "Viðbótarforrit fyrir stiklur(Block)"
+msgstr "Viðbótarforrit fyrir stiklur (Block)"
 
 msgid "plugins.categories.auth"
 msgstr "Viðbótarforrit fyrir aðgangsheimildir"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Viðbótarforrit fyrir lýsigögn setja upp viðbótar staðla fyrir lýsigögn."
+msgstr "Viðbótarforrit fyrir lýsigögn setja upp viðbótarstaðla fyrir lýsigögn."
 
 msgid "plugins.categories.metadata"
 msgstr "Viðbótarforrit fyrir lýsigögn"
@@ -1291,28 +1290,28 @@ msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Aðgangs valmöguleikar síðu"
+msgstr "Aðgangsvalmöguleikar síðu"
 
 msgid "manager.sections.confirmActivateSection"
 msgstr "Ertu viss um að þú viljir virkja þennan kafla?"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
-"Leiðbeiningar sem mælt er með fela í sér bókfræðilega staðla, "
-"uppsetningarstaðla ásamt dæmi um tilvísanir sem nota á í handritum."
+"Leiðbeiningar sem mælt er með feli í sér staðla um heimildaskráningu og "
+"uppsetningu, ásamt dæmum um tilvísanir sem nota á í handritum."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Ert þú viss um að þú viljir afvirkja þennan hluta?"
 
 msgid "manager.sections.form.deactivateSection"
-msgstr "Afvirkja þennan hluta og ekki leyfa nýjar innsendingar á þetta."
+msgstr "Afvirkja þennan hluta og ekki leyfa nýjar innsendingar hér."
 
 msgid "manager.setup.theme.notFound"
 msgstr "Þemað sem þú valdir er ekki uppsett eða virkt."
 
 msgid "manager.setup.theme.description"
 msgstr ""
-"Hægt er að setja inn ný þema undir flipanum \"Viðbótarforrit\" efst á "
+"Hægt er að setja inn nýtt þema undir flipanum \"Viðbótarforrit\" efst á "
 "þessari síðu."
 
 msgid "manager.setup.theme"
@@ -1321,7 +1320,7 @@ msgstr "Þema"
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
 "Tengiliður sem getur aðstoðað ritstjóra, höfunda og ritrýna með vandamál við "
-"að senda inn handirt, ristjórn, ritrýni eða útgáfu efnis."
+"að senda inn handrit, ristjórn, ritrýni eða útgáfu efnis."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Tæknileg aðstoð"
@@ -1329,31 +1328,31 @@ msgstr "Tæknileg aðstoð"
 msgid "manager.setup.sponsors.description"
 msgstr ""
 "Dæmi: Faglegar tengingar, háskóladeildir, samstarf o.s.frv. Stuðningaðilar "
-"eru birtir almenningi."
+"birtast opinberlega."
 
 msgid "manager.setup.sponsors.note"
 msgstr "Tengingar stuðningsaðila og lýsing á stefnu"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Gefðu tengil á  <button type=\"button\">Hvernig tryggja skal nafnleysi "
+"Sýndu tengil á  <button type=\"button\">Hvernig tryggja skal nafnleysi "
 "skráa</button>  við upphleðslu"
 
 msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Sjálfgefinn ritrýni hamur"
+msgstr "Sjálfgefinn ritrýnihamur"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Senda áminningu í tölvupósti ef ritrýnir hefur ekki sent ráðleggingar/"
-"ritrýni innan svona margra daga eftir lokadag ritrýni."
+"ritrýni innan tiltekins fjölda daga eftir lokadag ritrýni."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Áminning um ritrýni"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
-"Senda áminningu í tölvupósti ef ritrýnir hefur ekki bruggðist við beiðni um "
-"ritrýni svona mörgum dögum eftir lokafrest."
+"Senda áminningu í tölvupósti ef ritrýnir hefur ekki brugðist við beiðni um "
+"ritrýni þessu mörgum dögum eftir lokafrest."
 
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Áminning um svar"
@@ -1381,9 +1380,9 @@ msgstr "Sjálfgefin dagsetning á lokafresti svars"
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
 "Þessi yfirlýsing birtist þegar notendur skrá sig, höfundar senda inn greinar "
-"og á aðgengilegum persónuverndar síðum.  Á sumum stöðum eru lagalega kröfur "
-"um að þú upplýsir hvernig meðferð persónu upplýsinga er háttað í þessari "
-"persónverndarstefnu."
+"og á aðgengilegum persónuverndarsíðum.  Á sumum stöðum eru lagalega kröfur "
+"um að þú upplýsir í persónuverndarstefnunni hvernig meðferð "
+"persónuupplýsinga er háttað."
 
 msgid "manager.setup.dateTime.custom"
 msgstr "Sérsnið"
@@ -1405,7 +1404,7 @@ msgstr "Dags."
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"Veldu snið á dagsetningu og tíma. Hægt er að slá inn sérsnið með þeð því að "
+"Veldu snið á dagsetningu og tíma. Hægt er að slá inn sérsnið með því að "
 "nota  <a href='http://php.net/manual/en/"
 "function.strftime.php#refsect1-function.strftime-parameters'>format "
 "characters</a>."
@@ -1414,14 +1413,14 @@ msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "Snið dagsetningar og tíma"
 
 msgid "manager.setup.dateTime"
-msgstr "Dags & tími"
+msgstr "Dags. & tími"
 
 msgid "manager.setup.privacyStatement"
 msgstr "Perónuvernd"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Sláðu inn tengiliða upplýsingar.  Gjarnan aðal ritstjóra, ritstjórn eða "
+"Sláðu inn tengiliðaupplýsingar, gjarnan aðalritstjóra, ritstjórn eða "
 "stjórnendastöður sem hægt er að birta á vefsíðunni."
 
 msgid "manager.setup.principalContact"
@@ -1429,11 +1428,10 @@ msgstr "Aðaltengiliður"
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
-"Gefðu yfirlit yfir ritrýnistefnuna og ferla fyrir lesendur og höfund.  Þessi "
-"lýsing inniheldur oft fjölda ritrýna sem eru notaðir við hvert handirt, "
-"skilyrðin sem ritrýnar eru beðnir um að dæma handrit eftir, tímarammin sem "
-"gefinn er til að klára ritrýni og þau grundvallaratriði sem liggja að baki "
-"vali á ritrýnum."
+"Gefðu yfirlit yfir ritrýnistefnu og ferla fyrir lesendur og höfunda. Slík "
+"lýsing inniheldur oft fjölda ritrýna við hvert handrit, skilyrði sem "
+"ritrýnar eru beðnir um að dæma handrit eftir, tímaramma sem gefinn er til að "
+"klára ritrýni og þau grundvallaratriði sem liggja að baki vali á ritrýnum."
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
@@ -1450,8 +1448,8 @@ msgstr ""
 
 msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
-"Ef þið veitið frjálsan aðgang að öllu útgefnu efni, þá getur þú slegið inn "
-"ykkar stefnu um opinn aðgang."
+"Ef veittur er frjáls aðgangur að öllu útgefnu efni, má slá hér inn eigin "
+"stefnu um opinn aðgang."
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Stefna um opinn aðgang"
@@ -1464,8 +1462,8 @@ msgstr "Það tókst að senda tölvupóst á alla viðtakendur."
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
-"Er að senda tölvupóstinn.  Vinsamlega vertu kyrr á þessari síðu þar til "
-"sendingunni er lokið."
+"Er að senda tölvupóstinn.  Vinsamlega ekki loka síðunni fyrr en sendingu er "
+"lokið."
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
@@ -1494,9 +1492,8 @@ msgstr "Eitt eða fleiri af þessum netföngum eru ekki gild."
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
-"Afrit af staðfestingu í tölvupósti á móttöku handrits verður sent á netföng "
-"sett inn hér.  Aðgreindu fleiri en eitt netfang með kommu.  Dæmi eitt@"
-"dæmi.is, tvö@dæmi.is"
+"Afrit af staðfestingu á móttöku handrits verður send í tölvupósti á netföng "
+"skráð hér.  Aðgreindu netföng með kommu.  Dæmi eitt@dæmi.is, tvö@dæmi.is"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
 msgstr "Tilkynna einhverjum"
@@ -1508,7 +1505,7 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Já, senda afrit til {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Tilkynna aðal tengilið"
+msgstr "Tilkynna aðaltengilið"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Tilkynningar"
@@ -1555,7 +1552,7 @@ msgid "manager.setup.homepageImage.description"
 msgstr "Hlaða upp mynd til að sýna  með áberandi hætti á heimasíðunni."
 
 msgid "manager.setup.homepageImage"
-msgstr "Heimasíðu mynd"
+msgstr "Heimasíðumynd"
 
 msgid "manager.setup.favicon"
 msgstr "Veftáknmynd"
@@ -1577,8 +1574,8 @@ msgstr "Fyrir höfunda"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
-"Biðja höfunda um að samþykkja eftirfarandi upplýsingar um höfundarétt sem "
-"hluta af innsendingar ferlinu."
+"Óska eftir samþykki höfunda á eftirfarandi upplýsingum um höfundarétt sem "
+"hluta af innsendingarferli."
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Upplýsingar um höfundarétt"
@@ -1591,11 +1588,11 @@ msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
-"Þessi tövlupóstur er sendur sjálfkrafa til nýrra notenda þegar þeir skrá sig "
-"þegar stillingar kalla á að netfang sé staðfest."
+"Tövlupóstur sendur sjálfkrafa til nýrra notenda við nýskráningu, þegar "
+"stillingar kalla á að netfang sé staðfest."
 
 msgid "mailable.validateEmailSite.name"
-msgstr "Staðfestingar tölvupóstur (Síða)"
+msgstr "Staðfestingartölvupóstur (Síða)"
 
 msgid "mailable.mailReviewerUnassigned.description"
 msgstr "Þessi tölvupóstur er sendur þegar ritstjóri aftengir ritrýni."
@@ -1619,20 +1616,20 @@ msgstr "Úthlutaður ritrýnir"
 
 msgid "mailable.mailDiscussionMessage.description"
 msgstr ""
-"Þessi tölvupóstur er sjálfkrafa sendur á þátttakendur í umræðu þegar "
-"skilboðum er bætt við umræðuna."
+"Tölvupóstur sjálfkrafa sendur á þátttakendur í umræðu, þegar skilboðum er "
+"bætt við umræðuna."
 
 msgid "mailable.mailDiscussionMessage.name"
-msgstr "Ný umræðu skilaboð"
+msgstr "Ný umræðuskilaboð"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "Vefslóðin á innsendinguna í bakenda ritstjórnar"
+msgstr "Vefslóð á innsendinguna í bakenda ritstjórnar"
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Fullt nafn höfunda"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Nöfn höfundar  formað í styttum streng"
+msgstr "Nöfn höfundar í styttum streng"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Útdráttur handrits"
@@ -1653,7 +1650,7 @@ msgid "emailTemplate.variable.site.siteContactName"
 msgstr "Fullt nafn á aðaltengilið vefsíðunnar"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr "Tölvupósts undirskrift sendanda"
+msgstr "Tölvupóstsundirskrift sendanda"
 
 msgid "emailTemplate.variable.sender.senderEmail"
 msgstr "Netfang sendanda"
@@ -1662,7 +1659,7 @@ msgid "emailTemplate.variable.sender.senderName"
 msgstr "Fullt nafn sendanda"
 
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
-msgstr "Vefslóð á ritrýni verkefnið"
+msgstr "Vefslóð á ritrýniverkefnið"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr "Dagsetning þegar ritrýni á að vera lokið"
@@ -1677,13 +1674,13 @@ msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Fullt nafn viðtakanda eða allra viðtakenda"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr "Vefslóð á síðu þar sem notandi getur endurheimt tínt lykilorð"
+msgstr "Vefslóð á síðu þar sem notandi getur endurheimt týnt lykilorð"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr "Ferlinu tókst ekki að þátta útgáfur"
+msgstr "Þáttun útgáfa mistókst"
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr "Ferlinu tókst ekki að þátta höfunda"
+msgstr "Þáttun höfunda mistókst"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Tilgreind slóð á tímaritið, \"{$contextPath}\", er ekki til."
@@ -1693,26 +1690,26 @@ msgstr "VILLA:"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
-"Röng stilling á síu [{$filterName}]: kemur fyrir í {$filterCount} skipti. "
-"Ætti bara að vera einu sinni."
+"Röng stilling á síu [{$filterName}]: {$filterCount} tilfelli. Ætti bara að "
+"vera einu sinni."
 
 msgid "plugins.importexport.native.common.any"
 msgstr "Almenn atriði"
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "Hlaða niður export skrá með hnappinum fyrir neðan."
+msgstr "Hlaða niður útsendiskrá með hnappnum fyrir neðan."
 
 msgid "plugins.importexport.native.export.completed"
-msgstr "Það tókst að exporta."
+msgstr "Það tókst að flytja út."
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr "Hlaða niður Export skrá"
+msgstr "Hlaða niður útsendiskrá (export)"
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Export niðurstöður innsendinga"
+msgstr "Flytja út niðurstöður innsendinga"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr "Ferlið mistókst. Athugaði villur/viðvaranir hér fyrir neðan."
+msgstr "Ferlið mistókst. Athugaðu villur/viðvaranir hér fyrir neðan."
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Hafnað eftir ritrýni - hlutfall"
@@ -1721,10 +1718,10 @@ msgid "stats.name.declinedDeskRate"
 msgstr "Hafnað við innsendingu - hlutfall"
 
 msgid "stats.name.declineRate"
-msgstr "Höfnunar hlutfall"
+msgstr "Höfnunarhlutfall"
 
 msgid "stats.name.acceptanceRate"
-msgstr "Samþykktar hlutfall"
+msgstr "Samþykktarhlutfall"
 
 msgid "stats.name.daysToReject"
 msgstr "Dagar til höfnunar"
@@ -1739,10 +1736,10 @@ msgid "stats.name.submissionsPublished"
 msgstr "Handrit birt"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Handriti hafnað (Eftir ritrýni)"
+msgstr "Handritum hafnað (Eftir ritrýni)"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Handritið hafnað (Við innsendingu)"
+msgstr "Handritum hafnað (Við innsendingu)"
 
 msgid "stats.name.submissionsDeclined"
 msgstr "Handritum hafnað"
@@ -1775,13 +1772,13 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.monthly"
-msgstr "Mánaðarlega"
+msgstr "Mánaðarlegt"
 
 msgid "stats.html"
 msgstr "HTML"
 
 msgid "stats.fileViews"
-msgstr "Skráar-kíkk"
+msgstr "Skráarskoðun"
 
 msgid "stats.editorialActivity"
 msgstr "Ritstjórn"
@@ -1793,18 +1790,19 @@ msgid "stats.description.daysToDecision"
 msgstr ""
 "Fjöldi daga sem það tekur fyrir flest handrit að fá fyrstu ritstjórnarlegu "
 "ákvörðun eins og t.d.  \"hafnað við innsendingu\"  eða \"sent í ritrýni\""
-".<br><br>Þessar tölur gefa til kynna að 80% af innsendum handritum fá "
-"ákvörðun innan gefins dagafjölda.<br><br>Þessi tölfræði leitast við að lýsa "
-"hvenær meirihluti höfunda sem sendir inn handrit getur vænst ákvörðunnar."
+".<br><br>Þessar tölur gefa til kynna að varðandi 80% af innsendum handritum "
+"liggi ákvörðun fyrir innan gefins dagafjölda.<br><br>Þessi tölfræði leitast "
+"við að lýsa hvenær meirihluti höfunda sem sendir inn handrit getur vænst "
+"ákvörðunnar."
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Hlutfall fyrir valið tímabil er reiknað fyrir handrit sem vor send inn á "
-"þessu tímabili og búið er að taka lokaákvörðun um. <br><br>Dæmi:  Tilfelli "
-"þar sem tíu handirt voru send inn á tímabilinu. Fjögur hafa verið samþykkt, "
-"fjórum var hafnað og tvö bíða enn lokaákvörðunnar.<br><br>"
-"Samþykktarhlutfallið er 50% (4 af 8 handritum) vegna þess að þau tvö handrit "
-"sem ekki hefur verið tekin lokákvörðun um eru ekki talin með."
+"Hlutfall fyrir valið tímabil reiknast fyrir innsend handrit á þessu "
+"tímabili, sem búið er að taka lokaákvörðun um. <br><br>Dæmi:  Tilfelli þar "
+"sem tíu handrit voru send inn á tímabilinu. Fjögur hafa verið samþykkt, "
+"fjórum var hafnað og tvö bíða enn lokaákvörðunar.<br><br>"
+"Samþykktarhlutfallið er 50% (4 af 8 handritum). Handrit sem bíða "
+"lokákvörðunar eru ekki meðtalin í hlutfalli."
 
 msgid "stats.dateRange.untilDate"
 msgstr "Þar til {$date}"
@@ -1816,7 +1814,7 @@ msgid "stats.dateRange.thisYear"
 msgstr "Frá upphafi árs til dagsins í dag"
 
 msgid "stats.dateRange.sinceDate"
-msgstr "Síðan {$date}"
+msgstr "Frá {$date}"
 
 msgid "stats.dateRange.lastYear"
 msgstr "Síðasta ár"
@@ -1855,10 +1853,10 @@ msgid "stats.dateRange.from"
 msgstr "Frá"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Ein af dagsetningunum sem var slegin inn er ekki til."
+msgstr "Ein af innslegnum dagsetningum er ekki til."
 
 msgid "stats.dateRange.customRange"
-msgstr "Sérsniðið röð/svið"
+msgstr "Sérsniðin röð/svið"
 
 msgid "stats.dateRange.change"
 msgstr "Breyta tímabili"
@@ -1873,7 +1871,7 @@ msgid "stats.dateRange"
 msgstr "Tímabil"
 
 msgid "stats.daily"
-msgstr "Daglega"
+msgstr "Daglegt"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/ár)"
@@ -1891,16 +1889,17 @@ msgid "grid.category.removeText"
 msgstr "Ertu viss um að þú viljir fjarlægja þennan flokk?"
 
 msgid "grid.category.parentCategory"
-msgstr "Yfir flokkur"
+msgstr "Yfirflokkur"
 
 msgid "grid.category.description"
 msgstr "Lýsing"
 
 msgid "grid.category.pathExists"
-msgstr "Slóðin fyrir flokkinn er til fyrir. Vinsamlega sláðu inn einkvæma slóð."
+msgstr ""
+"Þessi slóð fyrir flokkinn er þegar til. Vinsamlega sláðu inn einkvæma slóð."
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr "Slóðin fyrir flokkinn má bara innihalda bókstafi og númer."
+msgstr "Slóð fyrir flokkinn má bara innihalda bókstafi og númer."
 
 msgid "grid.category.urlWillBe"
 msgstr "Vefslóðin fyrir flokkinn verður: {$sampleUrl}"
@@ -1912,7 +1911,7 @@ msgid "grid.category.name"
 msgstr "Nafn"
 
 msgid "grid.category.edit"
-msgstr "Breyta flokk"
+msgstr "Breyta flokki"
 
 msgid "grid.category.add"
 msgstr "Bæta við flokk"
@@ -1923,7 +1922,7 @@ msgstr ""
 "Stillingar>Verkflæði>Innsendingar."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Tengill á síðuna um persónuvernd."
+msgstr "Tengill á síðu um persónuvernd."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Tengill á leitarsíðuna."
@@ -1960,7 +1959,7 @@ msgid "manager.navigationMenus.logOut.description"
 msgstr "Tengill sem skráir notanda út."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr "Þessi tenglill er bara sýnilegur stjórnendum."
+msgstr "Þessi tengill er bara sýnilegur stjórnendum."
 
 msgid "manager.navigationMenus.administration.description"
 msgstr "Tengill á stjórntæki vefsíðustjóra."
@@ -1972,7 +1971,7 @@ msgid "manager.navigationMenus.dashboard.description"
 msgstr "Tengill á ritstjóralesborð."
 
 msgid "manager.navigationMenus.register.description"
-msgstr "Tengill á notendaskráningar síðuna."
+msgstr "Tengill á síðu fyrir notendaskráningar."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Tengill á innskráningarsíðu."
@@ -1989,7 +1988,7 @@ msgid "manager.navigationMenus.archives.description"
 msgstr "Tengill á útgefið efni."
 
 msgid "manager.navigationMenus.current.description"
-msgstr "Tengill á nýjasta tölublaðið."
+msgstr "Tengill á nýjasta tölublað."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Tengill á síðu sem sýnir leiðbeiningar um innsendingu handrita."
@@ -2001,7 +2000,7 @@ msgstr ""
 
 msgid "manager.navigationMenus.editorialTeam.description"
 msgstr ""
-"Tengill á síðu sem sýnir \"Masthead\" innihaldið í Stillingar > Tímarit."
+"Tengill á síðu sem sýnir upplýsingar á nafnplötu í Stillingar > Tímarit."
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
@@ -2027,19 +2026,18 @@ msgid "manager.navigationMenus.customPage"
 msgstr "Sérsniðin síða"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "Veldur tegund valmyndar, eða sérsniðið til að gera þína eigin"
+msgstr "Veldu tegund valmyndar eða sérsnið til að gera þína eigin"
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Tegund valmyndar"
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
-"þegar valkostur á valmynd opnar undirvalmynd, er ekki hægt að elta tengilinn "
-"á öllum tækjum. Dæmi:  Ef þú vilt að \"Upplýsingar\" sem valkostur opni "
-"undirvalmynd með \"Tengiliður\" og \"Ritstjórn\", er mögulegt að ekki sé "
-"hægt að fanga tengilinn fyrir \"Upplýsingar\" á öllum tækjum.   Til að leysa "
-"þetta er búinn til viðbótar valkostur fyrir \"Um tímaritið\" sem birtist í "
-"undirvalmyndinni."
+"Þegar valkostur á valmynd opnar undirvalmynd, virkar tengillinn ekki á öllum "
+"tækjum. Dæmi:  Ef þú vilt að \"Upplýsingar\" opni undirvalmynd með \""
+"Tengiliður\" og \"Ritstjórn\", er mögulegt að ekki sé hægt að fanga "
+"tengilinn fyrir \"Upplýsingar\" á öllum tækjum. Til að leysa þetta er búinn "
+"til viðbótarvalkostur fyrir \"Um tímaritið\" sem birtist í undirvalmyndinni."
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Læra meira um hvenær valkostir á þessari valmynd eru sýndir eða faldir."
@@ -2054,10 +2052,10 @@ msgid "manager.navigationMenus.form.menuAssigned"
 msgstr "Valmynd er nú þegar tengd við þetta svæði."
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "Veldu valmynda-/stikusvæð"
+msgstr "Veldu valmynda-/stikusvæði"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Virkt þema fyrir valmynda og stikusvæði"
+msgstr "Virkt þema fyrir valmynda- og stikusvæði"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
 msgstr "Ótengdir valkostir á valmynd"
@@ -2103,8 +2101,8 @@ msgstr "Titill"
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
-"Notandanafnið \"{$username}\" og netfangið \"{$email}\" passa ekki við "
-"þenann notanda og sama notanda sem er til."
+"Notandanafnið \"{$username}\" og netfangið \"{$email}\" vísa ekki til eins "
+"og sama stofnaða notanda."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
@@ -2119,10 +2117,10 @@ msgstr ""
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
 "Notandinn var ekki lesinn inn.  Notandi \"{$username}\" hefur ekki lykilorð. "
-"Athugaðu innflutings XML-sniðið."
+"Athugaðu XML-innflutingssniðið."
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Import/export villur:"
+msgstr "Flytja villur inn/út:"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
@@ -2139,14 +2137,14 @@ msgstr ""
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
-"Uppgefin srkáarstærð \"{$expected}\" og raunstærð \"{$actual}\" passa ekki "
+"Uppgefin skráarstærð \"{$expected}\" og raunstærð \"{$actual}\" passa ekki "
 "saman"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "Ekki tókst að búa til tímabundna skrá {$dest} útfrá {$source}"
+msgstr "Ekki tókst að búa til tímabundna skrá {$dest} út frá {$source}"
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Óþekktur upphlaðari {$param}"
+msgstr "Óþekktur innsendandi {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -2154,7 +2152,7 @@ msgstr ""
 "{$localeName}. Ekki er hægt að lesa inn handritið án þessara upplýsinga."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "Notendahóp vantar fyrir nafn höfunds {$param}"
+msgstr "Notendahóp vantar fyrir nafn höfundar {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Óþekktur notendahópur {$param}"
@@ -2202,12 +2200,12 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
-"Krefja höfund um að upplýsa um alla stuðnings stofnanir/aðila áður en "
+"Krefja höfund um að upplýsa um allar stuðningsstofnanir/-aðila áður en "
 "viðkomandi samþykkir innsendingu."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
-"Biðja höfund um að upplýsa um alla stuðnings stofnanir/aðila á meðan á "
+"Biðja höfund um að upplýsa um allar stuðningsstofnanir/-aðila á meðan á "
 "innsendingu stendur."
 
 msgid "manager.setup.metadata.agencies.noRequest"
@@ -2218,8 +2216,8 @@ msgstr "Virkja lýsigögn fyrir stuðningstofnanir"
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
-"Stuðnings stofnanir geta gefið til kynna hvaðan rannsókarfé kemur, eða annar "
-"stofnanastuðingur sem hefur auðveldað rannsóknina."
+"Stuðningsstofnanir geta gefið til kynna hvaðan fengist hefur rannsókarfé eða "
+"annar stofnanastuðingur til styrktar rannsókninni."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
@@ -2237,7 +2235,7 @@ msgstr "Virkja lýsigögn fræðigreinar"
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
-"Fræðigreinar/fræðasvið eru tegund af námi eða þekkingarsvið eins og þeim er "
+"Fræðigreinar/fræðasvið eru tegund af námi eða þekkingarsviði eins og þeim er "
 "lýst af háskóladeildum og fræðasamfélaginu."
 
 msgid "manager.setup.metadata.type.require"
@@ -2256,8 +2254,8 @@ msgstr "Virkja lýsigögn tegundar"
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
-"Eðli eða grein megin innihalds innsendingar. Tegundin er venjulega \"Texti\""
-", eng getur líka verið  \"Gagnasett\", \"Mynd\" eða eitthvað af  <a target=\""
+"Eðli eða grein megininnihalds innsendingar. Tegundin er almennt \"Texti\", "
+"en getur líka verið  \"Gagnasett\", \"Mynd\" eða eitthvað af  <a target=\""
 "_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/"
 "#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
 
@@ -2276,8 +2274,8 @@ msgstr "Virkja lýsigögn efnis"
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
-"Efni eru lykilorð, lykil frasar eða flokkunar kótar sem lýsa viðfangsefni "
-"handritsins."
+"Efni eru lykilorð, lykilsetningar eða flokkunarkóðar sem lýsa viðfangsefni "
+"handrits."
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
@@ -2287,57 +2285,56 @@ msgid "manager.setup.metadata.source.request"
 msgstr "Biðja höfund um vefslóð auðlindar á meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr "Biðja höfud ekki um vefslóð auðlindar á meðan á innsendingu stendur."
+msgstr "Ekki biðja höfund um vefslóð auðlindar meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.source.enable"
 msgstr "Virkja lýsigögn auðlindar"
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
-"Auðlindin getur verið Kenni, eins og DOI númer annars verks  eða auðlindar "
-"hvaðan innsendingin er fengin."
+"Upptök geta verið kenni, t.d. DOI númer annars verks  eða grunnur þaðan sem "
+"innsendingin er fengin."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
-"Krefja höfund um að upplýsa um öll fyrir aðgangs rétindi áður en viðkomandi "
+"Krefja höfund um að upplýsa um öll fyrir aðgangsréttindi áður en viðkomandi "
 "samþykkir innsendingu."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
-"Biðja höfund um að upplýsa um öll fyrri aðgangs réttindi á meðan á "
+"Biðja höfund um að upplýsa um öll fyrri aðgangsréttindi á meðan á "
 "innsendingu stendur."
 
 msgid "manager.setup.metadata.rights.noRequest"
 msgstr ""
-"Ekki biðja höfundum um upplýsingar um réttindi á meðan á innsendingu stendur."
+"Ekki biðja höfund um upplýsingar um réttindi á meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.rights.enable"
 msgstr "Virkja lýsigögn fyrir réttindi"
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
-"Hvaða réttindi sem er á handritinu, sem gæti falið í sér hugverka rétt, "
-"höfundarétt og ýmis eignaréttindi."
+"Öll réttindi sem hvíla á handritinu, t.d. hugverkaréttur, höfundaréttur og "
+"ýmis eignarréttindi."
 
 msgid "manager.setup.metadata.languages.require"
 msgstr ""
-"Krefjast að höfundur gefi upp tungumál handrits áður en viðkomandi samþykkir "
-"innsendinguna."
+"Krefjast þess að höfundur gefi upp tungumál handrits áður en viðkomandi "
+"samþykkir innsendinguna."
 
 msgid "manager.setup.metadata.languages.request"
 msgstr ""
 "Biðja höfund um að tilgreina tungumál handrits á meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Ekki biðja höfund um um tungumál handrits á meðan á innsendingu stendur."
+msgstr "Ekki biðja höfund um tungumál handrits á meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.languages.enable"
 msgstr "Virkja tungumál lýsigagna"
 
 msgid "manager.setup.metadata.languages.description"
 msgstr ""
-"Tungumál kefur til kynna aðal tungumá verks með því að nota tungumála kóða(\""
+"Tungumál gefur til kynna aðaltungumál verks með því að nota tungumálakóða(\""
 "en\"), mögulega með lengri landakóða (\"en_US\")."
 
 msgid "manager.setup.metadata.keywords.require"
@@ -2349,20 +2346,20 @@ msgid "manager.setup.metadata.keywords.request"
 msgstr "Biðja höfund um að leggja til lykilorð á meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Biðja ekki um lykilorð frá höfundi á meðan á innsendingu stendur."
+msgstr "Ekki biðja um lykilorð frá höfundi á meðan á innsendingu stendur."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr "Virkja lykilorða lýsigögn"
+msgstr "Virkja lýsigöng lykilorða"
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
 "Dæmigerð lykilorð eru eins til þriggja orða frasar sem eru notaðir til að "
-"gefa til kynna megin umfjöllunarefni handrits."
+"gefa til kynna meginumfjöllunarefni handrits."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Krefjast að höfundur leggi til lýsigögn fyrir yfirgrip áður en viðkomandi "
-"samþykkir innsendingu."
+"Krefja höfund um lýsigögn fyrir yfirgrip áður en viðkomandi samþykkir "
+"innsendingu."
 
 msgid "manager.setup.metadata.coverage.request"
 msgstr ""
@@ -2371,32 +2368,32 @@ msgstr ""
 
 msgid "manager.setup.metadata.coverage.noRequest"
 msgstr ""
-"Biðja ekki um lýsigögn fyrir yfirgrip frá höfundi á meðan á innsendingu "
+"Ekki biðja um lýsigögn fyrir yfirgrip frá höfundi á meðan á innsendingu "
 "stendur."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr "Virkja yfirgrips lýsigögn"
+msgstr "Virkja yfirgripslýsigögn"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
 "Dæmigert yfirgrip gefur til kynna svæðisbundna staðsetningu (staðarheiti eða "
 "landfræðileg hnit),  afmarkað tímabil (heiti tímabils, dagsetingu eða "
-"dagsetningarbil) eða lögsögu (svo sem tiltekin stjórnsýsu eining)."
+"dagsetningarbil) eða lögsögu (svo sem tiltekin stjórnsýsueining)."
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Yfirgrip"
 
 msgid "manager.setup.metadata.submission"
-msgstr "Innsendingar eyðublað"
+msgstr "Innsendingareyðublað"
 
 msgid "manager.setup.licenseURLDescription"
-msgstr "Vefslóð á vefsíðu sem lýsir leyfinu, ef hún er til."
+msgstr "Vefslóð á vefsíðu sem lýsir leyfinu, ef til."
 
 msgid "manager.setup.competingInterests.required"
 msgstr "Biðja um yfirlýsingu um hagsmunaárekstra á meðan á ritrýni stendur."
 
 msgid "grid.action.createReviewForm"
-msgstr "Stofna nýtt ritrýni eyðublað"
+msgstr "Stofna nýtt ritrýnieyðublað"
 
 msgid "manager.reviewFormElements.viewable"
 msgstr "Sýnilegt (fyrir höfunda)"
@@ -2405,19 +2402,19 @@ msgid "manager.reviewFormElements.textfield"
 msgstr "Textabox með einni línu"
 
 msgid "manager.reviewFormElements.textarea"
-msgstr "Lengt textabox"
+msgstr "Stækkað textabox"
 
 msgid "manager.reviewFormElements.smalltextfield"
 msgstr "Textabox með einu orði"
 
 msgid "manager.reviewFormElements.included"
-msgstr "Taka með í skilaboð til höfundar"
+msgstr "Taka með í skilaboðum til höfundar"
 
 msgid "manager.reviewFormElements.required"
 msgstr "Ritrýnir verður að klára atriði"
 
 msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Útvarps hnappar (Þú getur bara valið einn)"
+msgstr "Útvarpshnappar (þú getur bara valið einn)"
 
 msgid "manager.reviewFormElements.description"
 msgstr "Lýsing"
@@ -2429,7 +2426,7 @@ msgid "manager.reviewFormElements.possibleResponse"
 msgstr "Val"
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr "Engin atriði á eyðublað hafa verið stofnuð."
+msgstr "Engin atriði á eyðublaði hafa verið stofnuð."
 
 msgid "manager.reviewFormElements.form.questionRequired"
 msgstr "Það þarf að vera spurning fyrir atriðið á eyðublaðinu."
@@ -2438,7 +2435,7 @@ msgid "manager.reviewFormElements.elementType"
 msgstr "Atriðategund"
 
 msgid "manager.reviewFormElements.edit"
-msgstr "Breyta eyðublaðs atriði"
+msgstr "Breyta eyðublaðsatriði"
 
 msgid "manager.reviewFormElements.dropdownbox"
 msgstr "Fellival"
@@ -2456,7 +2453,7 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Veldu atriðategund"
 
 msgid "manager.reviewFormElements.checkboxes"
-msgstr "Gátreitir (Þú getur valið einn eða fleiri)"
+msgstr "Gátreitir (val um einn eða fleiri)"
 
 msgid "manager.reviewFormElements.addResponseItem"
 msgstr "Bæta við vali"
@@ -2465,19 +2462,19 @@ msgid "manager.reviewFormElements"
 msgstr "Atriði eyðublaðs"
 
 msgid "manager.reviewFormElement.changeType"
-msgstr "Breyta atriða tegund eyðublaðs..."
+msgstr "Breyta atriðategund eyðublaðs..."
 
 msgid "manager.reviewForms.title"
 msgstr "Titill"
 
 msgid "manager.reviewForms.reviewFormData"
-msgstr "Ritrýni eyðublöð - gögn"
+msgstr "Ritrýnieyðublöð - gögn"
 
 msgid "manager.reviewForms.preview"
 msgstr "Forskoða eyðublað"
 
 msgid "manager.reviewForms.noneUsed"
-msgstr "Engin ritrýni eyðublöð hafa verið notuð."
+msgstr "Engin ritrýnieyðublöð hafa verið notuð."
 
 msgid "manager.reviewForms.noneCreated"
-msgstr "Engin ritrýni eyðublöð hafa verið búin til."
+msgstr "Engin ritrýnieyðublöð hafa verið búin til."

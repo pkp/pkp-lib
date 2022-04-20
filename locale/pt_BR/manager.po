@@ -1,13 +1,13 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2022-04-11 10:45+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2352,3 +2352,509 @@ msgstr "Nova mensagem de discussão"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "O e-mail do contato principal do site"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Depositar tudo"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Nenhum"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"Os DOIs podem ser automaticamente criados e depositados em uma agência de "
+"registro. Para usar esse recurso, localize e instale um plug-in da agência "
+"de registro apropriada."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nenhuma agência de registro ativada"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Por favor, selecione a agência de registro que você gostaria de usar ao "
+"depositar DOIs."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agência de Registro"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Padrão personalizado e definido pelo usuário anteriormente disponível. Não "
+"está mais em uso."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Insira um sufixo DOI individual para cada item publicado. Você encontrará "
+"campos de entrada de DOI na página de Gerenciamento de DOI."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Use o  padrão."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Um sufixo DOI pode assumir qualquer formato, mas deve ser único entre todos "
+"os objetos de publicação com o mesmo prefixo DOI atribuído:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufixo DOI"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} terá(ão) um DOI atribuído"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Itens com DOIs"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefixo DOI"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nunca"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Após a publicação"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Em que ponto do processo de publicação devem ser criados os DOIs?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Criação automática de DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "O prefixo DOI é obrigatório e deve estar no formato 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Isso é atribuído por uma agência de registro do DOI, como <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> ou <a href=\"https://"
+"datacite.org /\" target=\"new\">DataCite</a>. Exemplo: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Se os DOIs devem ser depositados automaticamente na agência de registro "
+"configurada."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Ativar depósito automático"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Depósito automático"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefixo DOI"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Ativar DOIs"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registro"
+
+msgid "manager.setup.dois.setup"
+msgstr "Configuração"
+
+msgid "manager.setup.dois"
+msgstr "DOIs"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"A seguinte mensagem foi retornada por {$registrationAgency} e contém "
+"detalhes sobre o registro:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"O seguinte erro foi retornado por {$registrationAgency} e contém detalhes "
+"sobre a causa do erro:"
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Itens enviados com sucesso para depósito"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Itens atribuídos com sucesso a novos DOIs"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Itens marcados registrados com sucesso"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Itens exportados com sucesso"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Alguns DOI(s) falharam ao atualizar."
+
+msgid "manager.dois.status.stale"
+msgstr "Obsoleto"
+
+msgid "manager.dois.status.error"
+msgstr "Erro"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrado"
+
+msgid "manager.dois.status.submitted"
+msgstr "Submetido"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Não registrado"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Depositar DOI(s)"
+
+msgid "manger.dois.update.success"
+msgstr "DOIs atualizados com sucesso"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Mensagem de registro bem-sucedido"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Visualizar registro"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Mensagem de erro de registro"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Visualizar erro"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Este item não pode ser depositado até que seja publicado."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Os metadados deste item não foram enviados para {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Os metadados deste item foram enviados para {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status da publicação"
+
+msgid "manager.dois.depositStatus"
+msgstr "Status do Depósito"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Está prestes a agendar todos os registros de metadados DOI pendentes para "
+"serem depositados em {$registrationAgency}. O status individual de cada item "
+"será atualizado quando uma resposta for recebida. Deseja realmente agendar "
+"depósitos para todos esses itens?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deposite todos os DOIs"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Está prestes a atribuir novos DOIs a {$count} item(ns) para qualquer item "
+"elegível que ainda não tenha um DOI atribuído. Deseja realmente atribuir "
+"DOIs a estes itens?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Atribuir DOIs"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Está prestes a exportar registros de metadados DOI para {$count} item(ns) "
+"para {$registrationAgency}. Deseja realmente exportar estes registos?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exportar DOIs"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Está prestes a marcar registros de metadados DOI para {$count} item(ns) como "
+"registrados. Deseja realmente marcar estes registos como registados?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Marcar DOIs registrados"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Está prestes a enviar registros de metadados DOI para {$count} item(ns) para "
+"{$registrationAgency}. Deseja realmente depositar estes registos?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Depositar DOIs"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Envie uma notificação por e-mail para todos os autores da submissão."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Quem deve receber um e-mail de notificação quando uma decisão editorial é "
+"registrada?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Notificar todos os autores"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Esta mensagem notifica um Editor sênior ou Editor de Seção que uma "
+"recomendação editorial foi feita em relação a uma de suas submissões "
+"atribuídas. Esta mensagem é usada quando um editor só pode recomendar uma "
+"decisão editorial e requer que um editor autorizado registre as decisões "
+"editoriais. Essa opção pode ser selecionada ao atribuir participantes a uma "
+"submissão."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Recomendação feita"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão está sendo enviada "
+"diretamente para a fase de edição de texto e não será avaliada por pares."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Avaliação ignorada"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que sua submissão está sendo enviada para a "
+"fase de editoração."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Enviado para Editoração"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão está sendo enviada para a "
+"fase de avaliação."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Enviado para avaliação"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma decisão anterior de recusar a "
+"submissão sem avaliação está sendo revertida."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Reintegrar submissão recusada sem Avaliação"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma decisão anterior de recusar a "
+"submissão após a avaliação por pares está sendo revertida."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Reintegrar submissão recusada"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de uma decisão de \"revisar e ressubmeter\" em "
+"relação à sua submissão."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Ressubmeter para avaliação"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de uma decisão de solicitar revisões durante a "
+"avaliação por pares."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Revisões Solicitadas"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma nova rodada de avaliação está "
+"começando para sua submissão."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Nova rodada de avaliação iniciada"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Submissão Recusada"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi recusada após a "
+"avaliação por pares."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Submissão Recusada"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta ao "
+"estágio de submissão."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Submissão enviada de volta para estágio de submissão"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta à "
+"fase de avaliação."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Submissão enviada de volta para avaliação"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta ao "
+"estágio de edição de texto."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Edição de Texto"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi aceita para publicação."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Submissão Aceita"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Convidamos os autores a enviar uma versão revisada para avaliação adicional."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Convidamos os autores a submeterem revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Optamos por recusar esta submissão."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Optamos por aceitar esta submissão sem revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Uma breve descrição dessa decisão que deve ser compartilhada em uma "
+"notificação por e-mail enviada aos avaliadores sobre essa decisão."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Este e-mail é enviado por um Editor a um Avaliador para notificá-lo de que "
+"uma decisão foi tomada em relação a uma submissão que ele avaliou."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Agradecimento do Avaliador"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Uma cópia da mensagem de e-mail que foi enviada ao autor da submissão"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Este e-mail é enviado para notificar os autores de uma submissão que não "
+"foram designados como participantes de que uma decisão foi tomada. "
+"Geralmente são todos os outros, exceto o autor que o submete."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Notificar outros autores"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Os nomes dos autores atribuídos ao fluxo de trabalho de submissão. "
+"Geralmente este é o autor da submissão"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "URL do autor para a submissão"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Este periódico realiza avaliação por pares aberta. Os avaliadores verão seu "
+"nome e afiliação, bem como os nomes e afiliações de seus coautores. Da mesma "
+"forma, você verá os nomes e afiliações dos avaliadores."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Este periódico realiza avaliação por pares “avaliador anônimo”. Seu nome e "
+"os de seus coautores ficarão visíveis para os avaliadores; no entanto, as "
+"identidades dos avaliadores permanecerão anônimas."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Este periódico realiza avaliação por pares anônima dupla. Os avaliadores não "
+"verão nenhuma informação de identificação sobre você ou seus coautores. Da "
+"mesma forma, você não saberá quem avaliou sua submissão e não receberá "
+"notícias diretamente dos avaliadores."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Uma descrição do método de avaliação padrão, como duplo anônimo ou aberto."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "A decisão recomendada, como Aceitar Submissão"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"A rodada de avaliação em que esta decisão foi tomada, se a decisão estiver "
+"relacionada a um estágio de avaliação."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"O estágio do fluxo de trabalho editorial em que essa decisão foi tomada."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Uma descrição da decisão que foi tomada."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "O nome da decisão que foi tomada."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "A URL para visualizar todos as submissões atribuídas a um usuário."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Todos os comentários de avaliações concluídas. Os nomes dos avaliadores "
+"estão ocultos para avaliações anônimas"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Envie um e-mail apenas para autores atribuídos ao fluxo de trabalho da "
+"submissão. Normalmente, este é o autor da submissão."
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Precisa de DOI"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "O endereço de correspondência da revista"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Confirmar avaliação"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Este e-mail é enviado automaticamente quando um avaliador não conclui sua "
+"avaliação até a data de vencimento."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Lembrete de avaliação (automatizado)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Este e-mail é enviado por um Editor para lembrar a um avaliador que sua "
+"avaliação está atrasada"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Lembrete de avaliação"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Este e-mail é enviado por um avaliador ao recusar uma solicitação de "
+"avaliação"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Recusar revisão"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Este e-mail é enviado automaticamente quando um avaliador aceita uma "
+"solicitação de avaliação"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"URL com hash que é enviado a um usuário para confirmar a redefinição de senha"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "A assinatura de e-mail do site para e-mails automatizados"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Outras submissões"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Isso inclui submissões que não são contabilizados em outros totais, como os "
+"que ainda estão em andamento e os que parecem ter sido importados."
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Antes que este componente possa ser excluído, você deve associar todos os "
+"arquivos de submissão relacionados a um componente diferente."

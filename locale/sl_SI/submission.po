@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2021-12-04 03:31+0000\n"
+"PO-Revision-Date: 2022-04-11 10:45+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl_SI/>\n"
@@ -949,7 +949,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Datoteka dodana"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Dodaj tega sodelavca na seznam sodelujočih?"
+msgstr "Vključite tega sodelavca, ko se identificira avtorje na seznamih revij."
 
 msgid "submission.submit.newFile"
 msgstr "Dodaj drugo datoteko"
@@ -1985,3 +1985,325 @@ msgstr ""
 
 msgid "category.category"
 msgstr "Kategorije"
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorejm z obvestilom, da so zahtevani popravki preden bo "
+"prispevek sprejet za objavo. Vključite vse podrobnosti, ki jih avtor "
+"potrebuje, da bo lahko popravil prispevek. Ne pozabite na anonimizacijo "
+"recenzentskih mnenj, kjer je potrebno."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Za prispevek, {$title}, so bili zahtevani popravki."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Zahtevani popravki"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} je zahteval popravke za ta prispevek."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr "Avtor mora narediti popravke, preden bo prispevek sprejet za objavo."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Izberi datoteke, ki naj se pošljejo v fazo produkcije."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Izberi datoteke, ki naj se pošljejo v recenzijo."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Izberite datoteke, ki naj bodo poslane v fazo lektoriranja."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorjem z obvestilom, da je bil njihov prispevek poslan v nov "
+"krog recenzije."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "Odprt je bil nov krog recenzije za prispevek {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Odprt je bil nov krog recenzije"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} je odprl nov krog recenzije za ta prispevek."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Odpri nov krog recenzije za ta prispevek."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Nov krog recenzije"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Prispevek bo zavrnjen. Nobene recenzije ne bo več opravljene in prispevek bo "
+"arhiviran."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorjem z obvestilom, da je bil njihov prispevek zavrnjen."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Prispevek, {$title}, je bil zavrnjen in arhiviran."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Prispevek zavrnjen"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} je zavrnil prispevek."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Objava prispevka bo zavrnjena. Faza recenzije bo zaključena in prispevek bo "
+"arhiviran."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} je spremenil odločitev o sprejetju tega prispevka in ga pošlal "
+"nazaj v fazo oddaje."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Spremeni odločitev o sprejetju tega prispevka in ga pošlji nazaj v fazo "
+"oddaje."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorjem z obvestilom, da je bil prispevek poslan nazaj v fazo "
+"oddaje prispevka. Pojasni zakaj je bila sprejeta ta odločitev in razloži "
+"avtorjem, kaj je potrebno narediti, da bo šel prispevek v naslednjo fazo."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "Prispevek, {$title}, je bil poslan nazaj v fazo oddaje prispevka."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Pošlji nazaj v fazo oddaje prispevka"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Nazaj na fazo oddaje prispevka"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorjem z obvestilom, da je bil njihov prispevek sprejet za "
+"objavo."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Prispevek, {$title}, je bil sprejet za objavo in poslan v fazo lektoriranja."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Prispevek je sprejet"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} je sprejel prispevek za objavo in ga poslal v lektoriranje."
+
+msgid "editor.submission.decision.accept.description"
+msgstr "Prispevek bo sprejet za objavo in poslan v lektoriranje."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Pošlji email recenzentom v zahvalo za njihovo recenzijo in jih obvesti o "
+"sprejeti odločitvi."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Obvesti recenzente"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Obvesti avtorje"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Seznam revij"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Email o odločitvi je bil poslan {$recipientCount} recenzent(om) z zadevo "
+"{$subject}."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Prispevek, {$title}, je bil premaknjen nazaj v fazo lektoriranja."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Premaknjeno nazaj v fazo lektoriranja"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} je premaknil ta prispevek nazaj v fazo lektoriranja."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Premakni ta prispevek nazaj v fazo lektoriranja."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Nazaj v fazo lektoriranja"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Pošljite email avtorjem z obvestilom, da je bil ta prispevek premaknjen v "
+"fazo produkcije."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Prispevek, {$title}, je bil premaknjen v fazo produkcije."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Premaknjeno v fazo produkcije"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} je premaknil ta prispevek v fazo produkcije."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "Premakni prispevek v fazo produkcije, da bo pripravljen za objavo."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Prizpevek, {$title}, je bil premaknjen v fazo recenzije."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Premaknjeno v fazo recenzije"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} je premaknil prispevek v fazo recenzije."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Prispevek je pripravljen za recenzijo."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Pošlji v recenzijo"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Poglej vse prispevke"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Priporočila ne morete oddati, dokler ni določen urednik, ki lahko sprejme "
+"odločitev."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} je oddal priporočilo, da se prispevek zavrne."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Pošljite avtorjem email z obvestilo o tem, da morajo oddati popravke preden "
+"bo prispevek pregledan v novem krogu recenzije. Vključite vse podrobnosti, "
+"ki jih so potrebne, da bodo lahko ustrezno popravili prispevek. Ne pozabite "
+"aninimizirati vse komentarje recenzentov, kjer je potrebno."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Zahtevani so popravki za prispevek, {$title}. Odločeno je bilo, da bodo "
+"popravki pregledani v novem krogu recenzije."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Zahtevani popravki"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} je zahteval popravke tega prispevka, ki bodo pregledani v "
+"naslednjem krogu recenzije."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Avtor mora oddati popravke, ki bodo pregledani v novem krogu recenzije, "
+"preden bo prispevek sprejet v objavo."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} je preskočil fazo recenzije in ta prispevek premaknil v fazo "
+"lektoriranja."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Priporočite, da se prispevek zavrne za objavo."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Priporočite zavrnitev"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} je priporočil, da se zahtevajo popravki in da so ti popravki "
+"recenzirani v novem krogu recenzije."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr "Priporočite, da avtorji popravijo prispevek za nov krog recenzije."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Priporočite ponovno recenzijo"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} je priporočil, da se prispevek popravi."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Priporočite, da avtorji popravijo prispevek, preden je sprejet za objavo."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Priporočite popravke"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Vaše priporočilo je bilo zabeleženo in uredniki, ki odločajo, so bili "
+"obveščeni."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Priporočilo oddano"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} je priporočil sprejetje tega prispevka in prestavitev v fazo "
+"lektoriranja."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr "Priporočite sprejetje prispevka v objavo in fazo lektoriranja."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Priporočite sprejetje"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Pošljite obvestilo s priporočilom urednikom, ki sprejemajo odločitev. "
+"Razložite zakaj tako priporočilo glede na priporočila in komentarje "
+"recenzentov."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Prispevek, {$title}, je sedaj aktiven v fazi oddaje."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Pošljite avtorjem email z obvestilom, da je bila prešnja odločitev o "
+"zavrnitvi prispevka spremenjena. Razložite zakaj je bila odločitev "
+"spremenjena in jih obvestite o tem, če bo prispevek potreboval še recenzijo."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Prispevek, {$title}, je ponovno aktiviran in v fazi recenzije."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Prispevek je ponovno aktiviran"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} je spremenil odločitev o zavrnitvi tega prispevka."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Spremeni prejšnjo odločitev o zavrnitvi tega prispevka in povrni prispevek v "
+"uredniški postopek."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorjem z obvestilom, da je bil prispevek sprejet za objavo in "
+"da je bil premaknjen v fazo lektoriranja brez recenzije."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Pri prispevku, {$title}, je bila faza recenzije izpuščena, prispevek je bil "
+"premaknjen v fazo lektoriranja."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Recenzija izpuščena"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Sprejmite ta prispevek za objavo in preskočite fazo recenzije. S to "
+"odločitvijo bo prispevek premaknjen v fazo lektoriranja."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Pošljite avtorjem email z obvestilom, da je bil ta prispevek premaknjen "
+"nazaj v fazo lektoriranja. Razložite, zakaj je bila sprejeta taka odločitev "
+"in razložite avtorjem, kaj je še potrebno, preden bo prispevek pripravljen "
+"za fazo produkcije."

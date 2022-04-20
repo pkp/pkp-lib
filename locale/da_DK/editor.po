@@ -1,10 +1,12 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-04-08 18:37+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -178,7 +180,7 @@ msgid "editor.review.noReviews"
 msgstr "Ingen fagfællebedømmelser at importere"
 
 msgid "editor.review.reminder"
-msgstr "Påmindelse til bedømmer"
+msgstr "Påmindelse om bedømmelse"
 
 msgid "editor.review.thankReviewer"
 msgstr "Tak bedømmer"
@@ -401,7 +403,7 @@ msgid "reviewer.list.reassign"
 msgstr "Overfør"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse."
+msgstr "Denne bedømmer er allerede blevet tilmeldt denne bedømmelsesrunde."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -487,3 +489,94 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "En drøftelse kan ikke oprettes med de valgte deltagere, da det vil påvirke "
 "anonymiteten i forbindelse med bedømmelsesprocessen."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"En ID for bedømmelsesrunden skal angives for at kunne tage denne beslutning."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Du skal være tilknyttet denne indsendelse for at kunne foretage en "
+"redaktionel beslutning."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Indsendelsen er ikke på det trin i workflowet, hvor denne beslutning kan "
+"tages."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Denne bedømmelsesrunde er ikke en del af denne indsendelse."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"En bedømmelsesrunde blev stillet til rådighed, men denne beslutning kan ikke "
+"tages på bedømmelsestrinnet."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Denne bedømmelse kunne ikke findes."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Du kan ikke sende en e-mail til de følgende modtagere: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Redaktøren blev ikke genkendt og har muligvis ikke tilladelse til at "
+"foretage denne beslutning omkring denne indsendelse."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+"Du har ikke tilladelse til at foretage denne beslutning omkring denne "
+"indsendelse."
+
+msgid "editor.decision.emailSkipped"
+msgstr "Dette trin er sprunget over, og der vil ikke blive afsendt en e-mail."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Spring ikke denne e-mail over"
+
+msgid "editor.decision.completeSteps"
+msgstr "Færdiggør de følgende trin for at tage denne beslutning"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Er du sikker på, at du vil annullere denne beslutning?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Annuller beslutning"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Revisioner skal sendes til en ny bedømmelsesrunde."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Revisioner skal ikke behandles i en ny bedømmelsesrunde."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Afgørelsen kunne ikke findes. Angiv venligst en anerkendt afgørelsestype."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"En beslutning kunne ikke tages om denne indsendelse. Indsendelsens ID "
+"mangler eller passer ikke på den ønskede indsendelse."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Der kan ikke laves en anbefaling, medmindre der på dette trin er tilknyttet "
+"en redaktør, der kan tage en endelig beslutning."
+
+msgid "editor.decision.stepError"
+msgstr "Der var et problem med trinnet {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "Spring denne e-mail over"
+
+msgid "editor.decision.recordDecision"
+msgstr "Registrer beslutning"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Denne bedømmer færdiggjorde en bedømmelse i sidste runde."
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Gentildel {$name}"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Tilmeldt til tidligere runde"

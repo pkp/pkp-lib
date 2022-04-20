@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-02-03 08:42+0000\n"
+"PO-Revision-Date: 2022-04-06 05:27+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -226,7 +226,7 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Jste si jisti, že chcete smazat logy všech provedených úloh?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Smazat logy provedení naplánovaných úloh"
+msgstr "Smazat logy naplánovaných úloh"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Připomenutí recenze"
@@ -460,3 +460,37 @@ msgstr "příkaz [argumenty]"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Využití:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Uložení DOI u registrační agentury dle konfigurace"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Zobrazit úlohy"
+
+msgid "navigation.tools.jobs.description"
+msgstr "Zobrazit všechny úlohy ve frontě v systému a sledovat neúspěšné pokusy."
+
+msgid "admin.systemInformation.view"
+msgstr "Zobrazit systémové informace"
+
+msgid "admin.systemInformation.description"
+msgstr "Zobrazení informací o verzi a nastavení konfigurace aplikace a serveru."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Odstranění protokolů úloh"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Odstranění všech protokolů spuštěných procesů naplánovaných úloh."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Všichni uživatelé včetně vás budou z aplikace okamžitě odhlášeni a budou se "
+"muset znovu přihlásit."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Odstranění souborů mezipaměti ze systému. Toto by se mělo provádět pouze ve "
+"vývojovém prostředí."
+
+msgid "admin.deleteCache"
+msgstr "Smazat cache"

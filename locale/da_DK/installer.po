@@ -1,10 +1,11 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-11-27 16:28+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/da_DK/>\n"
 "Language: da_DK\n"
@@ -48,7 +49,11 @@ msgid "installer.databaseDriver"
 msgstr "Database-driver"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong> I de database-drivere, der er angivet i kantede parenteser, er den påkrævede PHP-udvidelse tilsyneladende ikke indlæst, og installationen vil sandsynligvis mislykkes, hvis den vælges.</strong><br />Eventuelle ikke-understøttede database-drivere, der er angivet ovenfor, er udelukkende angivet til akademiske formål og vil sandsynligvis ikke fungere."
+msgstr ""
+"<strong>Systemet understøtter på nuværende tidspunkt MySQL og PostgreSQL. "
+"Hvis du ikke kan vælge en af disse muligheder nedenfor, skal du kontakte din "
+"systemadministrator for at sikre dig, at din server har de påkrævede PHP-"
+"udvidelser.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Vært"
@@ -141,7 +146,7 @@ msgid "installer.publicFilesDirError"
 msgstr "Den offentlige filmappe findes ikke eller er ikke skrivbar."
 
 msgid "installer.releaseNotes"
-msgstr "Produktbemærkninger"
+msgstr "Udgivelsesbemærkninger"
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>."
@@ -198,3 +203,16 @@ msgstr "Din servers PHP-version er ikke understøttet af denne software. Dobbelt
 #, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Fejl ved udførelse af migreringsklassen <tt>{$class}</tt>."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Vælg yderligere sprog, der skal understøttes af dette system. Yderligere "
+"sprog kan også installeres på ethvert tidspunkt fra sideadministrations-"
+"interfacet. <br>* = Betegner sprog, som ikke er fuldt oversat (> 90 % af "
+"udtrykkene er oversat)"
+
+msgid "installer.timezoneInstructions"
+msgstr "Tidszonen, der skal bruges til dette system."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Der skal vælges en tidszone."

@@ -1,10 +1,11 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-04-14 15:37+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "sv_SE/>\n"
 "Language: sv_SE\n"
@@ -157,3 +158,36 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "API-token kunde inte valideras. Detta kan indikera ett fel i API-token eller "
 "att API-token inte längre är giltig."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Inga giltiga objekt inkluderades i förfrågan."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Vissa objekt har inte deponerats. Kontrollera de enskilda objekten och deras "
+"respektive felmeddelanden."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Ett fel har inträffat och vissa av de bifogade objekten har inte märkts upp "
+"som registrerade."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Ett fel i XML-valideringen inträffade och XML:en kunde inte exporteras."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Ett fel inträffade och DOI-objektet kunde inte skapas."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Opublicerade objekt kan inte exporteras. Välj bort opublicerade objekt och "
+"försök igen."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Den efterfrågade DOI:n hittades inte."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Du kan inte redigera ett DOI som inte finns i denna kontext"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Ämne och brödtext krävs."

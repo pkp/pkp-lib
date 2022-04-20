@@ -1,11 +1,12 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2022-01-27 05:25+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -683,3 +684,28 @@ msgstr "Hauptkontakt festlegen"
 
 msgid "grid.action.saveOrdering"
 msgstr "Reihenfolge speichern"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Ganz"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Publikationslisten"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abgekürzt"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Display"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Beiträger/innen zu dieser Publikation werden in diesem Journal mit den "
+"folgenden Formaten identifiziert."
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Sind Sie sicher, dass Sie {$name} als Beiträger/in entfernen möchten? Diese "
+"Aktion kann nicht rückgängig gemacht werden."

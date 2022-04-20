@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-01 06:03+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -110,8 +110,8 @@ msgstr "Breytingar hafa verið vistaðar."
 
 msgid "common.captcha.error.missing-input-response"
 msgstr ""
-"Þú verður að klára fullgildingar prófið sem er notað til að koma í veg fyrir "
-"rusl innsendingar."
+"Þú verður að klára fullgildingarprófið sem er notað til að koma í veg fyrir "
+"falskar innsendingar."
 
 msgid "common.notice"
 msgstr "Ábending"
@@ -147,18 +147,18 @@ msgid "common.assign"
 msgstr "Úthluta"
 
 msgid "common.applyAction"
-msgstr "Nota aðgerðin"
+msgstr "Nota aðgerð"
 
 msgid "common.and"
 msgstr "og"
 
 msgid "common.altTextInstructions"
 msgstr ""
-"Lýstu þessari mynd fyrir þá sem skoða síðuna eingöngu sem texta eða með "
+"Lýstu myndinni fyrir þá sem skoða síðuna eingöngu sem texta eða með "
 "aðstoðartækni. Dæmi: „Ritstjórinn okkar að halda ræðu á ráðstefnu.“"
 
 msgid "common.altText"
-msgstr "Vara texti"
+msgstr "Texti til vara"
 
 msgid "common.alreadyAssigned"
 msgstr "Úthlutað"
@@ -173,7 +173,7 @@ msgid "common.name"
 msgstr "Nafn"
 
 msgid "common.addSelf"
-msgstr "Bæta við sjálf(ur)"
+msgstr "Bæta við sjálf(ur/t)"
 
 msgid "common.add"
 msgstr "Bæta við"
@@ -256,7 +256,7 @@ msgid "about.contact.supportContact"
 msgstr "Tæknileg aðstoð"
 
 msgid "about.contact.principalContact"
-msgstr "Aðal tengiliður"
+msgstr "Aðaltengiliður"
 
 msgid "about.contact.phone"
 msgstr "Sími"
@@ -294,13 +294,13 @@ msgstr ""
 "breytingar?"
 
 msgid "form.emailRequired"
-msgstr "Það verður að vera netfang."
+msgstr "Það verður að skrá netfang."
 
 msgid "debug.notes.localeLoad"
-msgstr "Tungumála skráin \"{$localeFile}\" lesinn inn frá  XML"
+msgstr "Tungumálaskráin \"{$localeFile}\" lesinn inn frá  XML"
 
 msgid "debug.notes.localeListLoad"
-msgstr "Tungumála listinn \"{$localeList}\" lesinn inn frá XML"
+msgstr "Tungumálalistinn \"{$localeList}\" lesinn inn frá XML"
 
 msgid "defaultMetric.availableMetrics"
 msgstr "Mælikvarðar í boði"
@@ -318,7 +318,7 @@ msgid "debug.executionTime"
 msgstr "Síðan mynduð í"
 
 msgid "debug.databaseQueries"
-msgstr "Fjöldi gagnagrunns fyrirspurna"
+msgstr "Fjöldi gagnagrunnsfyrirspurna"
 
 msgid "common.publicAccess"
 msgstr "Opinber aðgangur"
@@ -387,7 +387,7 @@ msgid "common.up"
 msgstr "Upp"
 
 msgid "common.uploadFailed"
-msgstr "Ekki var hægt að hlaða upp eða endurbæta þessa skrá."
+msgstr "Ekki var hægt að hlaða upp eða endurbæta skrá."
 
 msgid "common.upload"
 msgstr "Hlaða upp"
@@ -399,13 +399,13 @@ msgid "common.updated"
 msgstr "Uppfært"
 
 msgid "common.untitled"
-msgstr "Án nafns"
+msgstr "Án heitis"
 
 msgid "common.unread"
 msgstr "Ólesið"
 
 msgid "common.unknownError"
-msgstr "óvænt villa kom upp. Vinsamlega endurhladdu síðunni og prófaðu aftur."
+msgstr "Óvænt villa kom upp. Vinsamlega endurhladdu síðunni og prófaðu aftur."
 
 msgid "common.uninitiated"
 msgstr "Ekki hafið"
@@ -480,7 +480,7 @@ msgid "common.clearSearch"
 msgstr "Hreinsa leitarskilyrði"
 
 msgid "common.searchQuery"
-msgstr "Leitar fyrirspurn"
+msgstr "Leitarfyrirspurn"
 
 msgid "common.search"
 msgstr "Leita"
@@ -618,10 +618,10 @@ msgid "common.originalFileName"
 msgstr "Upphaflegt skráarheiti"
 
 msgid "common.orderDown"
-msgstr "Lækka staðsetningu af {$itemTitle}"
+msgstr "Lækka staðsetningu {$itemTitle}"
 
 msgid "common.orderUp"
-msgstr "Hækka staðsetningu af {$itemTitle}"
+msgstr "Hækka staðsetningu {$itemTitle}"
 
 msgid "common.order"
 msgstr "Röðun"
@@ -639,7 +639,7 @@ msgid "common.off"
 msgstr "Af"
 
 msgid "common.noMatches"
-msgstr "Ekkert sem passar"
+msgstr "Engin samsvörun"
 
 msgid "common.notified.date"
 msgstr "Tilkynnt: {$dateNotified}"
@@ -649,7 +649,7 @@ msgstr "Tilkynnt"
 
 msgid "common.notes.tooltip"
 msgstr ""
-"Athugasemdir (Gult: nýjar athugasemdir; blátt: búið að skoða athugasemdir; "
+"Athugasemdir (gult: nýjar athugasemdir; blátt: búið að skoða athugasemdir; "
 "grátt: engar athugasemdir)"
 
 msgid "common.notes"
@@ -676,7 +676,7 @@ msgid "common.noComments"
 msgstr "Engar athugasemdir"
 
 msgid "common.noItemsFound"
-msgstr "Engin atriði fudnust."
+msgstr "Engin atriði fundust."
 
 msgid "common.no"
 msgstr "Nei"
@@ -685,7 +685,7 @@ msgid "common.none"
 msgstr "Enginn"
 
 msgid "common.noneAssigned"
-msgstr "Engum úthlutað"
+msgstr "Engu úthlutað"
 
 msgid "common.moreThanOnly"
 msgstr "Meira en"
@@ -779,9 +779,9 @@ msgstr "þar til"
 
 msgid "common.fileUploaderError"
 msgstr ""
-"Flutningur á skrá er í gangi. Ef það lítur ekki út fyrir að vera svo, er "
-"mögulegt að keyrslutíminn sé ekki studdur af þessum vafra.  Hafðu samband "
-"við tæknilega aðstoð til að fá hjálp."
+"Flutningur á skrá er í gangi. Ef svo virðist ekki vera, er mögulegt að "
+"keyrslutíminn sé ekki studdur af þessum vafra.  Hafðu samband við tæknilega "
+"aðstoð til að fá hjálp."
 
 msgid "common.error.framesRequired"
 msgstr ""
@@ -849,7 +849,7 @@ msgid "common.enabled"
 msgstr "Virkt"
 
 msgid "common.enable"
-msgstr "Gera virkt"
+msgstr "Virkja"
 
 msgid "common.editItem"
 msgstr "Breyta {$name}"
@@ -858,10 +858,10 @@ msgid "common.edit"
 msgstr "Breyta"
 
 msgid "common.downloadPdf"
-msgstr "Hala niður PDF"
+msgstr "Hlaða niður PDF"
 
 msgid "common.download"
-msgstr "Hala niður"
+msgstr "Niðurhal"
 
 msgid "common.done"
 msgstr "Lokið"
@@ -873,7 +873,7 @@ msgid "common.disabled"
 msgstr "Óvirkt"
 
 msgid "common.disable"
-msgstr "Óvirkja"
+msgstr "Aftengja"
 
 msgid "common.description"
 msgstr "Lýsing"
@@ -885,7 +885,7 @@ msgid "form.confirmSubmit"
 msgstr "Ertu viss um að þú viljir senda inn þetta eyðublað?"
 
 msgid "form.url.invalid"
-msgstr "Tilgreint veffang er ógilt. Vinsamlega skoðaðu og reyndu aftur."
+msgstr "Tilgreint veffang er ógilt. Vinsamlega skoðaðu það og reyndu aftur."
 
 msgid "email.to"
 msgstr "Til"
@@ -921,7 +921,7 @@ msgid "email.recipient"
 msgstr "Viðtakandi"
 
 msgid "email.multipart"
-msgstr "þettaer tilkynning á MIME- formi, sem samanstendur af mörgum pörtum."
+msgstr "Þetta er tilkynning á MIME- formi sem samanstendur af mörgum pörtum."
 
 msgid "email.invalid"
 msgstr "Netfangið {$email} er ógilt."
@@ -949,7 +949,7 @@ msgid "email.compose"
 msgstr "Senda tölvupóst"
 
 msgid "email.cc"
-msgstr "Afrit til"
+msgstr "Afrit til (CC)"
 
 msgid "email.body"
 msgstr "Meginmál"
@@ -1024,13 +1024,13 @@ msgstr ""
 
 msgid "notification.settingsDescription"
 msgstr ""
-"Veldu þá kerfisatburði sem þú vilt fá tilkynningu um.  Afmerking atriða "
+"Veldu þá kerfisatburði sem þú vilt fá tilkynningar um.  Afmerking atriða "
 "kemur í veg fyrir að tilkynningar um atburðinn komi upp í kerfinu og að þú "
 "fáir tölvupóst. Merktir atburðir munu sjást í kerfinu og þú hefur val um  "
 "hvort þú vilt fá sömu tilkynningu í tölvupósti eða ekki."
 
 msgid "notification.settings"
-msgstr "Stillingar á tilkynningu"
+msgstr "Stillingar á tilkynningum"
 
 msgid "notification.sentNotification"
 msgstr "Tilkynning send."
@@ -1054,7 +1054,7 @@ msgid "notification.addedNote"
 msgstr "Minnispunktur birtur."
 
 msgid "notification.noneExist"
-msgstr "Þú átt engar tilkynningar núna."
+msgstr "Þín bíða engar tilkynningar að svo stöddu."
 
 msgid "notification.email"
 msgstr "Ekki senda mér tölvupóst fyrir þessa tegund af tilkynningum."
@@ -1063,7 +1063,7 @@ msgid "notification.confirmSuccess"
 msgstr "Þér tókst að gerast áskrifandi."
 
 msgid "notification.confirmError"
-msgstr "Það kom upp villa við að staðfesta áskriftina þína."
+msgstr "Það kom upp villa við að staðfesta áskrift þína."
 
 msgid "notification.editedAuthor"
 msgstr "Höfundi breytt."
@@ -1090,7 +1090,7 @@ msgid "notification.updatedReviewFiles"
 msgstr "Búið að uppfæra ritrýniskrá(r)."
 
 msgid "notification.reviewerThankedEmail"
-msgstr "Þakkar póstur sendur til ritrýnis."
+msgstr "Þakkarpóstur sendur til ritrýnis."
 
 msgid "notification.reviewAcknowledged"
 msgstr "Ritrýni merkt sem samþykkt. Tölvupóstur ekki sendur."
@@ -1222,7 +1222,7 @@ msgid "navigation.archives"
 msgstr "Útgefið efni"
 
 msgid "navigation.admin"
-msgstr "Stjórnun"
+msgstr "Umsjón"
 
 msgid "navigation.about"
 msgstr "Um"
@@ -1351,7 +1351,7 @@ msgid "icon.checked.alt"
 msgstr "Merkt"
 
 msgid "help.upALevel"
-msgstr "Up um þrep"
+msgstr "Upp um þrep"
 
 msgid "help.next"
 msgstr "Næst"
@@ -1360,7 +1360,7 @@ msgid "help.previous"
 msgstr "Fyrri"
 
 msgid "help.toc"
-msgstr "Efnisyfrlit"
+msgstr "Efnisyfirlit"
 
 msgid "help.help"
 msgstr "Hjálp"
@@ -1373,7 +1373,7 @@ msgstr "{$label} á {$localeName}"
 
 msgid "form.invalidImage"
 msgstr ""
-"Ógildri mynd var hlaðið upp.  Leyfðar tegunder eru: .png, .gif, eða .jpg."
+"Ógildri mynd var hlaðið upp.  Leyfðar tegundir eru: .png, .gif, eða .jpg."
 
 msgid "form.submit"
 msgstr "Senda"
@@ -1408,7 +1408,7 @@ msgstr ""
 "Vinsamlega endurhalddu síðunni og reyndu aftur."
 
 msgid "form.postRequired"
-msgstr "Eyðublaðið var ekki sent inn almennilega."
+msgstr "Eyðublaðið var ekki sent inn á réttan hátt."
 
 msgid "form.startsWith"
 msgstr "byrjar á"
@@ -1424,8 +1424,8 @@ msgstr "Tungumál eyðublaðs"
 
 msgid "form.formLanguage.description"
 msgstr ""
-"Til að setja inn upplýsingarnar fyrir neðan á viðbótar tungumáli, þarf fyrst "
-"að velja tungumál."
+"Til að setja inn upplýsingarnar hér fyrir neðan á viðbótartungumáli, þarf "
+"fyrst að velja tungumál."
 
 msgid "form.errorsOccurred"
 msgstr "Villur komu upp við vinnslu þessa eyðublaðs"
@@ -1445,7 +1445,7 @@ msgid "form.errorGoTo"
 msgstr "Hoppa á næstu villu"
 
 msgid "form.errorA11y"
-msgstr "Farðu til {$fieldLabel}: {$errorMessage}"
+msgstr "Fara til {$fieldLabel}: {$errorMessage}"
 
 msgid "form.dropzone.dictMaxFilesExceeded"
 msgstr "Þú getur ekki hlaðið upp fleiri skrám."
@@ -1551,10 +1551,10 @@ msgid "search.matchAll"
 msgstr "Passa við alla flokka"
 
 msgid "search.indexTermsLong"
-msgstr "öll skilyrða svæði atriðasrkár"
+msgstr "Öll skilyrði atriðaskráa"
 
 msgid "search.indexTerms"
-msgstr "Atriðskrá - skilyrði"
+msgstr "Atriðaskrá - skilyrði"
 
 msgid "search.fullText"
 msgstr "Allur texti"
@@ -1572,7 +1572,7 @@ msgid "search.dateFrom"
 msgstr "Gefið út eftir"
 
 msgid "search.date"
-msgstr "Útgáfu dagur"
+msgstr "Útgáfudagur"
 
 msgid "search.coverage"
 msgstr "Yfirgrip"
@@ -1608,7 +1608,7 @@ msgid "validator.same"
 msgstr "{$attribute} og {$other} verða að passa saman."
 
 msgid "validator.required_without_all"
-msgstr "þetta svæði er áskilið þegar ekkert af {$values} eru til staðar."
+msgstr "Þetta svæði er áskilið þegar ekkert {$values} er til staðar."
 
 msgid "validator.required_without"
 msgstr "Þetta svæði er áskilið þegar {$values} er ekki til staðar."
@@ -1644,7 +1644,7 @@ msgid "validator.not_in"
 msgstr "Valinn {$attribute} er ógildur."
 
 msgid "validator.min.array"
-msgstr "Þetta þarf að hafa a.m.k.t {$min} atriði."
+msgstr "Þetta þarf að hafa a.m.k. {$min} atriði."
 
 msgid "validator.min.string"
 msgstr "Þetta þarf að vera a.m.k. {$min} stafir."
@@ -1677,20 +1677,20 @@ msgstr ""
 
 msgid "validator.localeExpected"
 msgstr ""
-"Þetta svæði er fyrir mörg tungumál.  þú þarft að tilgreina innihald á hverju "
+"Þetta svæði er fyrir mörg tungumál.  Þú þarft að tilgreina innihald á hverju "
 "leyfðu tungumáli fyrir sig."
 
 msgid "validator.locale"
 msgstr "Þetta tungumál er ekki leyft."
 
 msgid "validator.json"
-msgstr "Þetta er ekki gidlur JSON strengur."
+msgstr "Þetta er ekki gildur JSON strengur."
 
 msgid "validator.issn"
 msgstr "Þetta er ekki gilt ISSN."
 
 msgid "validator.ip"
-msgstr "þetta er ekki gilt IP-númer."
+msgstr "Þetta er ekki gilt IP-númer."
 
 msgid "validator.integer"
 msgstr "Þetta er ekki gild heiltala."
@@ -1711,10 +1711,10 @@ msgid "validator.email"
 msgstr "Þetta er ekki gilt netfang."
 
 msgid "validator.digits_between"
-msgstr "þetta verður að vera á milli {$min} og {$max} tölustafa."
+msgstr "Þetta verður að vera á milli {$min} og {$max} tölustafa."
 
 msgid "validator.digits"
-msgstr "Lengdin verður að vera {$digits} tölustir."
+msgstr "Lengdin verður að vera {$digits} tölustafir."
 
 msgid "validator.different"
 msgstr "{$attribute} og {$other} mega ekki vera eins."
@@ -1835,7 +1835,7 @@ msgid "notification.type.roundStatusTitle"
 msgstr "Umferð {$round} Status"
 
 msgid "notification.type.awaitingCopyedits"
-msgstr "Bíður efitr yfirförnu handriti."
+msgstr "Bíður eftir yfirförnu handriti."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
@@ -1846,10 +1846,10 @@ msgid "notification.type.queryAdded"
 msgstr "Umræðu bætt við."
 
 msgid "notification.type.queryActivity"
-msgstr "Umræðu aðgerð."
+msgstr "Umræðuaðgerð."
 
 msgid "user.register.form.privacyConsentLabel"
-msgstr "Persónuverndar skilyrði"
+msgstr "Skilyrði persónuverndar"
 
 msgid "user.authorization.submissionAuthor"
 msgstr ""
@@ -1858,21 +1858,21 @@ msgstr ""
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
-"Þú hefur ekki næg re´ttindi til að skoða innsendinguna.  Vinsamlega breyttu "
-"stillingunum þínum til að tryggja að þú fáir viðeigandi hlutverk undir \""
+"Þú hefur ekki næg réttindi til að skoða innsendinguna.  Vinsamlega breyttu "
+"stillingum þínum til að tryggja að þú fáir viðeigandi hlutverk undir \""
 "Skráning sem\"."
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Þú hefur ekki aðgang að þessari ritrýni úthlutun."
+msgstr "Þú hefur ekki aðgang að þessari ritrýniúthlutun."
 
 msgid "user.authorization.unauthorizedNote"
-msgstr "Þú hefur ekki aðgang að þessu umræðu skilaboði."
+msgstr "Þú hefur ekki aðgang að þessum umræðuskilaboðum."
 
 msgid "user.authorization.invalidQuery"
 msgstr "Ógild umræða."
 
 msgid "user.authorization.invalidReviewRound"
-msgstr "Ógild ritrýni umferð."
+msgstr "Ógild umferð ritrýni."
 
 msgid "user.authorization.invalidRepresentation"
 msgstr "Ógild framsetning."
@@ -1884,7 +1884,7 @@ msgid "user.authorization.invalidPublication"
 msgstr "Ógild útgáfa."
 
 msgid "user.authorization.submissionFile"
-msgstr "Notandinn hefur ekki aðgang til að skoða þessa innsendingar skrá."
+msgstr "Notandi hefur ekki aðgang til að skoða þessa innsendingarskrá."
 
 msgid "user.email"
 msgstr "Netfang"
@@ -1906,18 +1906,17 @@ msgstr "Endurskoðun til skoðunar á stigi {$stage}."
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
-"Búið er að hlaða upp lagfærðri skrá til ritstjórnarlegrar skoðunnar á stigi: "
+"Búið er að hlaða upp lagfærðri skrá til ritstjórnarlegrar skoðunar á stigi: "
 "{$stage}."
 
 msgid "notification.type.allReviewsIn"
-msgstr ""
-"Allir ritrýnar hafa svarað og það þarf að taka ákvörðun á  stigi: {$stage}."
+msgstr "Allir ritrýnar hafa svarað og taka þarf ákvörðun á stigi: {$stage}."
 
 msgid "notification.type.auditorRequest"
 msgstr "Beiðni um yfirferð á  \"{$file}\""
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Ritrýni úthlutun uppfærð."
+msgstr "Úthlutun ritrýni uppfærð."
 
 msgid "notification.type.reviewAssignment"
 msgstr "Ritrýni í gangi."
@@ -1942,7 +1941,7 @@ msgstr "Ritrýnir fjarlægður."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr ""
-"{$reviewerName}var úthlutað til að ritrýna þessa innsendingu og  fékk ekki "
+"{$reviewerName} var úthlutað til að ritrýna þessa innsendingu og  fékk ekki "
 "senda tilkynningu í tölvupósti."
 
 msgid "notification.addedReviewer"
@@ -1971,14 +1970,14 @@ msgstr "Tímaáætlun ritrýni"
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Til að tryggja áreiðanleika nafnlausrar ritrýni, skal leitast við af "
-"fremsta megni að koma í veg fyrir að höfundur eða ritrýnir beri kennsl hvor "
-"á annan. Það felur í sér að höfundar, ritstjórar og ritrýnar (sem hlaða inn "
-"skjölum sem hluta af ritrýni sinni) athugi hvort að efitrfarandi atriða hafi "
-"verð gætt í tengslum við textann og eiginleika skráa:</p>\n"
+"fremsta megni að koma í veg fyrir að höfundur og ritrýnir beri kennsl hvor á "
+"annan. Það felur í sér að höfundar, ritstjórar og ritrýnar (sem hlaða inn "
+"skjölum sem hluta af ritrýni sinni) athugi hvort eftirfarandi atriða hafi "
+"verið gætt í tengslum við textann og eiginleika skráa:</p>\n"
 "<ul><li>Höfundur skjals skal eyða nafni sínu úr texta og nota orðið \""
 "Höfundur\"  og ár notað í tilvísunum og undirmálsgreinum í stað nafns "
 "höfundar, titil greina, o.s.frv.</li>\n"
-"<li>Höfundur skjals fjarlægi persónulegar upplýsingar úr skráar eiginleikum "
+"<li>Höfundur skjals fjarlægi persónulegar upplýsingar úr skráareiginleikum "
 "með því að gera eftirfarandi - ath lýsingin miðast við viðmót á ensku:\n"
 "<ul><li>Microsoft Word for Windows:\n"
 "<ul><li>Go to File</li>\n"
@@ -2062,4 +2061,4 @@ msgid "common.navigation.user"
 msgstr "Valmynd notanda"
 
 msgid "common.navigation.siteContext"
-msgstr "Valmynd (site context navigaion)"
+msgstr "Valmynd ? (site context navigaion)"

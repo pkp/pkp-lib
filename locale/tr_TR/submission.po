@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-01-10 09:39+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr_TR/>\n"
@@ -2002,3 +2002,12 @@ msgstr "Kategoriler"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Yayın Listeleri"
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Aday Makale Kabul Edildi"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Hakemleri Bilgilendir"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Yazarları Bilgilendir"

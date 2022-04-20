@@ -1,10 +1,10 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-12-22 12:24+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -2018,3 +2018,338 @@ msgstr "Categorias"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Listas de Publicação"
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Enviado para Produção"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} enviou esta submissão para a etapa de produção."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Envie esta submissão para a etapa de produção para ser preparada para "
+"publicação."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "A submissão, {$title}, foi enviada para a etapa de revisão."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Enviado para Revisão"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} enviou esta submissão para a etapa de revisão."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Esta submissão está pronta para ser enviada para revisão por pares."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Enviar para Revisão"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que as revisões terão que ser "
+"concluídas e enviadas para nova ronda de revisão. Inclua todas os detalhes "
+"que o autor irá necessitar para rever a sua submissão. Quando apropriado, "
+"lembre-se de anonimizar quaisquer comentários do revisor."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Foram solicitadas revisões para a submissão, {$title}. A decisão de enviar "
+"as revisões para outra ronda de revisão foi registada."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Revisões solicitadas"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} solicitou revisões para esta submissão que devem ser enviadas "
+"para outra ronda de revisão."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"O autor deve enviar revisões que serão enviadas para outra ronda de revisão "
+"antes da submissão ser aceite para publicação."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que serão solicitadas revisões "
+"antes que a submissão seja aceite para publicação. Inclua todos os detalhes "
+"que o autor irá necessitar para rever a sua submissão. Quando apropriado, "
+"lembre-se de anonimizar qualquer comentário do revisor."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Foram solicitadas revisões para a submissão, {$title}."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Revisões solicitadas"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} solicitou revisões para esta submissão."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"O autor deve enviar revisões antes da submissão ser aceite para publicação."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Selecione os ficheiros que devem ser enviados para a etapa de produção."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Selecione os ficheiros que devem ser enviados para revisão."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+"Selecione ficheiros que devem ser enviados para a etapa de edição de texto."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores a informá-los que a sua submissão foi enviada "
+"para um nova ronda de revisão."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "Foi criada uma nova ronda de revisão para a submissão, {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Ronda de Revisão Criada"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} criou uma nova ronda de revisão para esta submissão."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Abra outra ronda de revisão para esta submissão."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Nova Ronda de Revisão"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Esta submissão será rejeitada. Não será conduzida qualquer revisão adicional "
+"e a submissão será arquivada."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que a sua submissão foi "
+"rejeitada."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "A submissão, {$title}, foi rejeitada e enviada para os arquivos."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Submissão Rejeitada"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} rejeitou esta submissão."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Esta submissão será rejeitada. A etapa de revisão por pares será encerrada e "
+"a submissão arquivada."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} reverteu a decisão de aceitar a submissão e enviou de volta "
+"para a etapa de submissão."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Reverter a decisão de aceitar a submissão e enviar de volta para a etapa de "
+"submissão."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que a sua submissão irá "
+"regressra à etapa de submissão. Explique o porquê de ter sido tomada esta "
+"decisão e informe o autor do trabalho adicional a ser realizado antes de "
+"avançar com a submissão."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "A submissão, {$title}, foi enviada de volta à etapa de submissão."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Enviar de volta à Submissão"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Voltar à Submissão"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Enviar um e-mail aos autores para informá-los que a sua submissão foi aceite "
+"para publicação."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"A submissão, {$title}, foi aceite para publicação e enviada para a etapa de "
+"edição de texto."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Submissão Aceite"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} aceitou esta submissão e enviou para a etapa de edição de "
+"texto."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Esta submissão será aceite para publicação e enviada para edição de texto."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Enviar um e-mail aos revisores para agradecer a sua revisão e informá-los "
+"que foi tomada uma decisão."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Notificar Revisores"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Notificar Autores"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Um e-mail sobre a decisão foi enviado para {$recipientCount} revisor(es) com "
+"o assunto {$subject}."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Esta submissão, {$title}, está agora ativa na etapa de revisão."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Submissão Reativada"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} reverteu a decisão de rejeitar esta submissão."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao ativo "
+"no processo editorial."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que esta submissão foi aceite "
+"para publicação e enviada para a etapa de edição de texto sem revisão."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"A submissão, {$title}, saltou a etapa de revisão e foi enviada para a etapa "
+"de edição de texto."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Saltar Revisão"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} saltou a etapa de revisão e enviou a submissão para a etapa de "
+"edição de texto."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Aceitar esta submissão para publicação e saltar a etapa de revisão. Esta "
+"decisão irá enviar a submissão para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que esta submissão foi enviada "
+"de volta para a etapa de edição de texto. Explique o porquê desta decisão "
+"ter sido tomada e informe o autor das edições adicionais que serão "
+"necessárias antes da submissão estar pronta para produção."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"A submissão, {$title}, foi enviada de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Enviar de volta para Edição de texto"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} enviou esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Envie esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Voltar para Edição de texto"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail para os autores para informá-lo que esta submissão foi "
+"enviada para a etapa de produção."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "A submissão, {$title}, foi enviada para a etapa de produção."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Não pode emitir uma recomendação antes de ser designado um editor com "
+"permissões para registar uma decisão."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} recomendou que esta submissão seja rejeitada."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Recomendar que a submissão seja rejeitada para publicação."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Recomendo Rejeitar"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} recomendou que sejam solicitadas revisões ao autor e que sigam "
+"para nova ronda de revisão."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Recomendo que seja solicitado ao autor que reenvie revisões que sejam alvo "
+"de nova ronda de revisão."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Recomendo Reenviar para Revisão"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} recomendou que sejam solicitadas revisões."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Recomendo que sejam solicitadas revisões ao autor antes da submissão ser "
+"aceite para publicação."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Recomendo Revisões"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"A sua recomendação foi registada e o(s) editor(es) decisor(es) foi(ram) "
+"notificado(s)."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Recomendação Submetida"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} recomendou que esta submissão seja aceite e enviada para "
+"edição de texto."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Recomendar que esta submissão seja aceite para publicação e enviada para "
+"edição de texto."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Recomendo Aceitar"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Envie uma mensagem aos editores decisores para informá-los da recomendação. "
+"Explique o porquê de ter emitido essa recomendação em resposta às "
+"recomendações e comentários enviados pelos revisores."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "A submissão, {$title}, está agora ativa na etapa da submissão."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que uma decisão anterior de "
+"rejeitar esta submissão foi revertida. Explique o porquê da decisão ter sido "
+"revertida e informe-os se a submissão deverá ser submetida a nova revisão."
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Ver Todas as Submissões"

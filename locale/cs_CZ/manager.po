@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-12-24 03:18+0000\n"
+"PO-Revision-Date: 2022-04-11 10:45+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2337,3 +2337,499 @@ msgstr "Nová diskusní zpráva"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-mail hlavní kontaktní osoby webové stránky"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Žádný"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI mohou být automaticky vytvořeny a uloženy u registrační agentury. Chcete-"
+"li tuto funkci používat, vyhledejte a nainstalujte zásuvný modul od "
+"příslušné registrační agentury."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nebyla povolena žádná registrační agentura"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Vyberte registrační agenturu, kterou chcete použít při ukládání DOI."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registrační agentura"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "Dříve dostupný vlastní, uživatelem definovaný vzor. Již se nepoužívá."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Pro každou zveřejněnou položku zadejte individuální příponu DOI. Pole pro "
+"zadávání DOI najdete na stránce Správa DOI."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Použít výchozí vzor."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Přípona DOI může mít libovolnou podobu, ale musí být jedinečná mezi všemi "
+"publikačními objekty se stejnou přidělenou předponou DOI:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Přípona DOI"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} získají DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Položka s DOI"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefix DOI"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nikdy"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Po zveřejnění"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Ve které fázi publikačního procesu by měly být vytvořeny DOI?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatické generování DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Prefix DOI je povinný a musí být ve tvaru 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Přiděluje ho registrační agentura DOI, například <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> nebo <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. Příklad: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Zda by se DOI měly automaticky ukládat u nastavené registrační agentury."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Povolit automatické ukládání"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatické uložení"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefix DOI"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Povolit DOI"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrace"
+
+msgid "manager.setup.dois.setup"
+msgstr "Nastavení"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Následující zpráva byla vrácena agenturou {$registrationAgency} a obsahuje "
+"podrobnosti o registraci:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Následující chyba byla vrácena agenturou {$registrationAgency} a obsahuje "
+"podrobnosti o příčině chyby:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Položky úspěšně předané k uložení"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Položkám byly úspěšně přiřazeny nové DOI"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Položky byly úspěšně označeny jako exportované"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Položky byly úspěšně exportovány"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Některé DOI se nepodařilo aktualizovat."
+
+msgid "manager.dois.status.stale"
+msgstr "Zastaralé"
+
+msgid "manager.dois.status.error"
+msgstr "Chyba"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrováno"
+
+msgid "manager.dois.status.submitted"
+msgstr "Odesláno"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Registrace zrušena"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Uložit DOI"
+
+msgid "manger.dois.update.success"
+msgstr "Úspěšně aktualizované DOI"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Zpráva o úspěšné registraci"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Zobrazit záznam"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Chybová zpráva při registraci"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Zobrazení chyby"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Tuto položku nelze uložit, dokud není zveřejněna."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadata k této položce nebyla odeslána {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadata k této položce byla předána {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Stav publikování"
+
+msgid "manager.dois.depositStatus"
+msgstr "Stav uložení"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Chystáte se naplánovat uložení všech zbývajících metadatových záznamů DOI u "
+"{$registrationAgency}. Stav jednotlivých položek bude aktualizován po "
+"obdržení odpovědi. Jste si jisti, že chcete naplánovat vklady pro všechny "
+"tyto položky?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Uložit všechny DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Chystáte se přiřadit nové DOI k {$count} položkám pro všechny způsobilé "
+"položky, které ještě nemají přiřazené DOI. Jste si jisti, že chcete těmto "
+"položkám přiřadit DOI?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Přiřazená DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Chystáte se exportovat metadatové záznamy DOI pro {$count} položek pro "
+"{$registrationAgency}. Jste si jisti, že chcete tyto záznamy exportovat?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Export DOI"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Chystáte se označit metadatové záznamy DOI pro {$count} položek jako "
+"registrované. Jste si jisti, že chcete tyto záznamy označit jako "
+"registrované?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Označit DOI jako registrované"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Chystáte se odeslat metadatové záznamy DOI pro {$count} položek do "
+"{$registrationAgency}. Jste si jisti, že chcete tyto záznamy uložit?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Uložení DOI"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Uložení všech"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Tato zpráva oznamuje vedoucímu redaktorovi nebo redaktorovi sekce, že bylo "
+"vydáno redakční doporučení týkající se jednoho z jejich přidělených "
+"příspěvků. Tato zpráva se používá v případech, kdy je redaktor oprávněn "
+"pouze doporučit redakční rozhodnutí a vyžaduje, aby pověřený redaktor "
+"zaznamenal redakční rozhodnutí. Tuto možnost lze zvolit při přiřazování "
+"účastníků k příspěvku."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Vypracováno doporučení"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek je odeslán přímo do fáze "
+"závěrečných úprav a nebude podroben recenznímu řízení."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Recenzní řízení bylo přeskočeno"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán do produkční "
+"fáze."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Odeslání do produkční fáze"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán do fáze "
+"recenzního řízení."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Odesláno do recenzního řízení"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že předchozí rozhodnutí o zamítnutí jeho "
+"příspěvku bez recenzního řízení se ruší."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Obnovení příspěvku odmítnutého bez recenzního řízení"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že předchozí rozhodnutí o zamítnutí jeho "
+"příspěvku po recenzním řízení se ruší."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Obnovení odmítnutého příspěvku"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavku na „úpravy textu "
+"opětovné předložení“ jeho příspěvku."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Znovu podat do recenzního řízení"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavcích na revizi textu "
+"během recenzního řízení."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Byly vyžádány revize textu"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že začíná nové kolo recenzí jeho příspěvku."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Zahájení nového kola recenzí"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl po recenzním řízení "
+"odmítnut."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"podávání."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Příspěvek odeslán zpět do fáze podání"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"recenzního řízení."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Příspěvek byl poslán zpět do recenzní fáze"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"konečných úprav."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Příspěvek byl zaslán zpět k závěrečným úpravám"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl přijat k publikaci."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Příspěvek byl přijat"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "Vyzvali jsme autory, aby předložili revidovanou verzi k další recenzi."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Vyzvali jsme autory k předložení revidovaného textu."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Rozhodli jsme se tento příspěvek odmítnout."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Rozhodli jsme se přijmout tento příspěvek bez revizí."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Krátký popis tohoto rozhodnutí, který má být sdílen v e-mailovém oznámení "
+"zaslaném recenzentům o tomto rozhodnutí."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Tento e-mail zasílá editor recenzentovi, aby mu oznámil, že bylo přijato "
+"rozhodnutí týkající se příspěvku, který recenzoval."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Poděkování recenzentovi"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Kopie e-mailové zprávy, která byla zaslána předkládajícímu autorovi"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Tento e-mail se zasílá autorům příspěvku, kteří nejsou přiřazeni jako "
+"účastníci, aby byli informováni o rozhodnutí. Obvykle se jedná o všechny "
+"ostatní kromě předkládajícího autora."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Upozornit ostatní autory"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Jména autorů přiřazených k pracovnímu postupu příspěvku. Obvykle se jedná o "
+"předkládajícího autora"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Adresa URL autora podání"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Tento časopis provádí otevřené recenzní řízení. Recenzenti uvidí vaše jméno "
+"a afiliaci, jakož i jména a afiliaci vašich spoluautorů. Stejně tak vy "
+"uvidíte jména a afiliace recenzentů."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Tento časopis provádí „anonymní“ recenzní řízení. Vaše jméno a jména vašich "
+"spoluautorů budou recenzentům viditelná; totožnost recenzentů však zůstane "
+"anonymní."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Tento časopis provádí dvojí anonymní recenzní řízení. Recenzenti neuvidí "
+"žádné identifikační údaje o vás ani o vašich spoluautorech. Stejně tak se "
+"nedozvíte, kdo váš příspěvek recenzoval, a recenzenti se vám přímo neozvou."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr "Popis výchozí metody recenzí, například dvojitá anonymní nebo otevřená."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Doporučené rozhodnutí, například Přijmout příspěvek"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Kolo recenzí, v němž bylo toto rozhodnutí přijato, pokud se rozhodnutí týká "
+"fáze recenze."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Popis přijatého rozhodnutí."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Název přijatého rozhodnutí."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Adresa URL pro zobrazení všech přiřazených příspěvků uživatele."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Všechny komentáře z dokončených recenzí. U anonymních recenzí jsou jména "
+"recenzentů skryta"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Odeslat email pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
+"Obvykle se jedná o předkládajícího autora."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Odeslání e-mailového oznámení všem autorům příspěvku."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Kdo by měl obdržet oznamovací e-mail, když je zaznamenáno redakční "
+"rozhodnutí?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Upozornit všechny autory"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Potřebuje DOI"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Mailová adresa časopisu"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Tento e-mail se automaticky odešle, pokud recenzent nedokončí recenzi do "
+"stanoveného termínu."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Připomenutí recenze (automatizované)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Tento e-mail zasílá editor, aby připomněl recenzentovi, že uplynul termín "
+"pro dodání recenze"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Připomenutí recenze"
+
+msgid "mailable.reviewDecline.description"
+msgstr "Tento e-mail odesílá recenzent při odmítnutí žádosti o recenzi"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Odmítnutí recenze"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán, když recenzent přijme žádost o recenzi"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Potvrzení recenze"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Hashovaná adresa URL, která je odeslána uživateli pro potvrzení resetování "
+"hesla"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "E-mailový podpis webové stránky pro automatické e-maily"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Před odstraněním této součásti je nutné přiřadit všechny související soubory "
+"příspěvku k jiné součásti."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Jiné příspěvky"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Zahrnuje příspěvky, které nejsou započítány do jiných součtů, například ty, "
+"které jsou stále v procesu, a ty, které se zdají být importovány."

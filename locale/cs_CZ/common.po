@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-09-14 23:04+0000\n"
+"PO-Revision-Date: 2022-03-30 18:07+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "cs_CZ/>\n"
@@ -2075,3 +2075,107 @@ msgstr "Tato možnost není platná."
 
 msgid "validator.alpha_dash_period"
 msgstr "Může obsahovat pouze písmena, číslice, pomlčky, podtržítka a tečky."
+
+msgid "list.collapseAll"
+msgstr "Sbalit vše"
+
+msgid "list.expandAll"
+msgstr "Rozbalit vše"
+
+msgid "timeZone"
+msgstr "Časové pásmo"
+
+msgid "email.attachmentNotFound"
+msgstr "Soubor {$fileName} nelze připojit."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Připojení souborů nahraných recenzenty"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Připojit recenzní soubory"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Připojte soubory z podání příspěvku a z knihovny vydavatele."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Připojit soubory knihovny"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Soubory knihovny"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Připojte soubory nahrané během pracovního postupu odesílání, například "
+"revize nebo soubory k recenzi."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Přiložte soubory nahrané autorem ve fázi podání příspěvku."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Připojit soubor příspěvku"
+
+msgid "common.viewError"
+msgstr "Ukázat chybu"
+
+msgid "common.upload.addFile.description"
+msgstr "Nahrajte soubor z počítače."
+
+msgid "common.switchTo"
+msgstr "Přepnout na"
+
+msgid "common.showAllSteps"
+msgstr "Ukázat všechny kroky"
+
+msgid "common.searching"
+msgstr "Hledání"
+
+msgid "common.numberedMore"
+msgstr "{$number} krát více"
+
+msgid "common.keepWorking"
+msgstr "Pokračovat v práci"
+
+msgid "common.loadTemplate"
+msgstr "Nahrát šablonu"
+
+msgid "common.findTemplate"
+msgstr "Najít šablonu"
+
+msgid "common.deselect"
+msgstr "Zrušit výběr"
+
+msgid "common.attachFiles"
+msgstr "Připojte soubory"
+
+msgid "common.attachedFiles"
+msgstr "Připojené soubory"
+
+msgid "common.addCCBCC"
+msgstr "Přidat CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Jste si jisti, že chcete změnit na {$localeName} pro sestavení tohoto e-"
+"mailu? Veškeré změny, které jste provedli v předmětu a těle e-mailu, budou "
+"ztraceny."
+
+msgid "common.switchToNamedItem"
+msgstr "Přepnout na {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Nebo nahrajte soubor"
+
+msgid "common.dragAndDropHere"
+msgstr "Přetáhněte sem soubory."
+
+msgid "common.attachSelected"
+msgstr "Připojit vybrané"
+
+msgid "common.addFiles"
+msgstr "Přidat soubory"
+
+msgid "common.insertContentSearch"
+msgstr "Najít obsah k vložení"
+
+msgid "common.insertContent"
+msgstr "Vložte obsah"

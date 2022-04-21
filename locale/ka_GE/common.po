@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-14 09:45+0000\n"
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ka_GE/>\n"
@@ -2004,10 +2005,10 @@ msgid "navigation.items"
 msgstr "{$from} - {$to}, სულ {$total} ელემენტი"
 
 msgid "navigation.infoForReaders.long"
-msgstr "ინფორმაცია მკითხველებისთვის"
+msgstr "ინფორმაცია მკითხველთათვის"
 
 msgid "navigation.infoForReaders"
-msgstr "მკითხველებისთვის"
+msgstr "მკითხველთათვის"
 
 msgid "navigation.browseByTitle"
 msgstr "სათაურის მიხედვით"
@@ -2076,3 +2077,122 @@ msgid "filter.input.error.notSupported"
 msgstr ""
 "ფილტრი ({$displayName}) მხარს უჭერს შეყვანას {$inputTypeName} — მოცემულია "
 "{$typeofInput}"
+
+msgid "common.addCCBCC"
+msgstr "დაამატეთ CC/BCC"
+
+msgid "common.findTemplate"
+msgstr "იპოვეთ შაბლონი"
+
+msgid "common.insert"
+msgstr "ჩასმა"
+
+msgid "common.addFiles"
+msgstr "დაამატეთ ფაილები"
+
+msgid "common.attachedFiles"
+msgstr "Მიმაგრებული ფაილები"
+
+msgid "common.attachFiles"
+msgstr "ფაილების მიმაგრება"
+
+msgid "common.attachSelected"
+msgstr "მიამაგრეთ არჩეული"
+
+msgid "common.deselect"
+msgstr "არჩევის გაუქმება"
+
+msgid "common.dragAndDropHere"
+msgstr "გადაიტანეთ და ჩამოაგდეთ ფაილები აქ."
+
+msgid "common.orUploadFile"
+msgstr "ან ატვირთეთ ფაილი"
+
+msgid "common.insertContent"
+msgstr "კონტენტის ჩასმა"
+
+msgid "common.insertContentSearch"
+msgstr "იპოვნეთ ჩასასმელი შიგთავსი"
+
+msgid "common.loadTemplate"
+msgstr "ჩატვირთეთ შაბლონი"
+
+msgid "common.keepWorking"
+msgstr "გააგრძელეთ მუშაობა"
+
+msgid "common.numberedMore"
+msgstr "კიდევ {$number}"
+
+msgid "common.searching"
+msgstr "ძებნა"
+
+msgid "common.showAllSteps"
+msgstr "ყველა ნაბიჯის ჩვენება"
+
+msgid "common.switchTo"
+msgstr "გადართვა"
+
+msgid "common.switchToNamedItem"
+msgstr "გადართვა {$name}"
+
+msgid "common.upload.addFile.description"
+msgstr "ატვირთეთ ფაილი თქვენი კომპიუტერიდან."
+
+msgid "common.viewError"
+msgstr "ნახვის შეცდომა"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "მიამაგრეთ წარდგენის ფაილები"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "მიამაგრეთ ავტორის მიერ ატვირთული ფაილები წარდგენის ეტაპზე."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"მიამაგრეთ წარდგენის სამუშაო პროცესის დროს ატვირთული ფაილები, როგორიცაა "
+"რევიზიები ან განსახილველი ფაილები."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "ბიბლიოთეკის ფაილები"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "მიამაგრეთ ბიბლიოთეკის ფაილები"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "მიამაგრეთ ფაილები წარდგენისა და გამომცემლის ბიბლიოთეკებიდან."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "მიამაგრეთ მიმოხილვის ფაილები"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "მიამაგრეთ ფაილები, რომლებიც ატვირთულია მიმომხილველების მიერ"
+
+msgid "email.attachmentNotFound"
+msgstr "ფაილის {$fileName} მიმაგრება ვერ მოხერხდა."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ შეცვალოთ {$localeName} ამ ელფოსტის დასაწერად? "
+"ელ. ფოსტის საგანსა და ტექსტში განხორციელებული ნებისმიერი ცვლილება დაიკარგება."
+
+msgid "timeZone"
+msgstr "დროის სარტყელი"
+
+msgid "list.expandAll"
+msgstr "ყველას გაშლა"
+
+msgid "list.collapseAll"
+msgstr "ყველას აკეცვა"
+
+msgid "validation.invalidOption"
+msgstr "ეს არ არის სწორი ვარიანტი."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"ეს შეიძლება შეიცავდეს მხოლოდ ასოებს, რიცხვებს, ტირეებს, ხაზს და წერტილებს."
+
+msgid "validator.country"
+msgstr "გთხოვთ, აირჩიოთ სწორი ქვეყანა."
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "უცნობი ბრძანება {$command}"

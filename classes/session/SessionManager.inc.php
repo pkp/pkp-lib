@@ -133,6 +133,29 @@ class SessionManager {
 	}
 
 	/**
+     * Invalidate given user's all sessions or except for the given session id
+     *
+     * @param int       			$userId
+     * @param mixed<string|null>    $sessionId
+     * 
+     * @return bool
+     */
+    public function invalidateSessions(int $userId, string $excludableSessionId = null) {
+
+        $this->getSessionDao()->deleteUserSessions($userId, $excludableSessionId);
+
+        return true;
+    }
+
+	/**
+     * Get the Session DAO instance
+	 * @return SessionDao
+     */
+    public function getSessionDao() {
+        return $this->sessionDao;
+    }
+
+	/**
 	 * Get the session associated with the current request.
 	 * @return Session
 	 */

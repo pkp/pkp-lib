@@ -15,6 +15,7 @@
 
 
 import('classes.handler.Handler');
+import('lib.pkp.classes.session.SessionManager');
 
 class LoginHandler extends Handler {
 	/**
@@ -237,6 +238,8 @@ class LoginHandler extends Handler {
 				$user->setPassword(Validation::encryptCredentials($user->getUsername(), $newPassword));
 			}
 
+			SessionManager::getManager()->invalidateSessions($user->getId());
+
 			$user->setMustChangePassword(1);
 			$userDao->updateObject($user);
 
@@ -304,6 +307,9 @@ class LoginHandler extends Handler {
 		if ($passwordForm->validate()) {
 			if ($passwordForm->execute()) {
 				$user = Validation::login($passwordForm->getData('username'), $passwordForm->getData('password'), $reason);
+				
+				$sessionManager = SessionManager::getManager();
+            	$sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
 			}
 			$this->sendHome($request);
 		} else {

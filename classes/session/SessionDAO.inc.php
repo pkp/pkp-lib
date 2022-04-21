@@ -16,6 +16,7 @@
 
 
 import('lib.pkp.classes.session.Session');
+use Illuminate\Support\Facades\DB;
 
 class SessionDAO extends DAO {
 
@@ -169,6 +170,22 @@ class SessionDAO extends DAO {
 		$row = $result->current();
 		return $row ? (boolean) $row->row_count : false;
 	}
+
+	/**
+     * Delete given user's all sessions or except for the given session id
+     *
+     * @param int                   $userId
+     * @param mixed<string|null>    $sessionId
+     *
+     * @return void
+     */
+    public function deleteUserSessions(int $userId, string $excludableSessionId = null) {
+
+        DB::table('sessions')
+            ->where('user_id', $userId)
+            ->when($excludableSessionId, fn($query) => $query->where('session_id', '<>', $excludableSessionId))
+            ->delete();
+    }
 }
 
 

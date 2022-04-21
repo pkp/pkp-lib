@@ -20,7 +20,7 @@
 
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
-
+import('lib.pkp.classes.session.SessionManager');
 class ProfileTabHandler extends Handler {
 
 	//
@@ -262,15 +262,24 @@ class ProfileTabHandler extends Handler {
 	 * @return JSONMessage JSON-formatted response
 	 */
 	function savePassword($args, $request) {
+		
 		$this->setupTemplate($request);
+
+		$user = $request->getUser();
+
 		import('lib.pkp.classes.user.form.ChangePasswordForm');
-		$passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
+		$passwordForm = new ChangePasswordForm($user, $request->getSite());
 		$passwordForm->readInputData();
 
 		if ($passwordForm->validate()) {
+
 			$passwordForm->execute();
+
+			$sessionManager = SessionManager::getManager();
+            $sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
+
 			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
+			$notificationMgr->createTrivialNotification($user->getId());
 			return new JSONMessage(true);
 
 		}

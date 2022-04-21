@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-16 22:41+0000\n"
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ka_GE/>\n"
@@ -692,3 +693,35 @@ msgstr "ნავიგაციის მენიუები არ არი
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "ტიპის არჩევა..."
+
+msgid "grid.action.saveOrdering"
+msgstr "შეკვეთის შენახვა"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ წაშალოთ {$name}, როგორც კონტრიბუტორი? ამ "
+"მოქმედების გაუქმება შეუძლებელია."
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "დააყენეთ პირველადი კონტაქტი"
+
+msgid "contributor.listPanel.preview"
+msgstr "გადახედვა"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "ამ პუბლიკაციის ავტორები გამოვლინდებიან ამ ჟურნალში შემდეგ ფორმატებში."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "ფორმატი"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "ჩვენება"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "შემოკლებით"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "პუბლიკაციების სიები"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "სრული"

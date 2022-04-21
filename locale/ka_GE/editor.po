@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-14 09:46+0000\n"
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ka_GE/>\n"
@@ -511,3 +512,91 @@ msgstr "ინტერესების განხილვა"
 
 msgid "reviewer.list.empty"
 msgstr "რეცენზენტები ვერ მოიძებნა"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "თქვენ არ გაქვთ უფლება ჩაწეროთ ეს გადაწყვეტილება ამ წარდგენაზე."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"რედაქტორი არ იყო აღიარებული და შესაძლოა არ ჰქონდეს ამ წარდგენის შესახებ "
+"გადაწყვეტილების ჩაწერის უფლება."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "თქვენ არ შეგიძლიათ ელფოსტის გაგზავნა შემდეგ მიმღებებთან: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "ეს მიმოხილვის რაუნდი ვერ მოიძებნა."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"განხილვის რაუნდი იყო გათვალისწინებული, მაგრამ ეს გადაწყვეტილება არ მიიღება "
+"განხილვის ეტაპზე."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "განხილვის ეს რაუნდი არ არის ამ წარდგენის ნაწილი."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"წარდგენა არ არის სამუშაო პროცესის შესაბამის ეტაპზე ამ გადაწყვეტილების "
+"მისაღებად."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "სარედაქციო გადაწყვეტილების ჩასაწერად თქვენ უნდა დაინიშნოთ ეს წარდგენა."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"ამ გადაწყვეტილების მისაღებად უნდა იყოს წარმოდგენილი განხილვის რაუნდის ID."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"რეკომენდაციის გაცემა შეუძლებელია, თუ ამ ეტაპზე არ იქნება დანიშნული "
+"რედაქტორი, რომელსაც შეუძლია მიიღოს საბოლოო გადაწყვეტილება."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"ამ განცხადებაზე გადაწყვეტილების მიღება ვერ მოხერხდა. წარდგენის ID აკლია ან "
+"არ ემთხვევა მოთხოვნილ წარდგენას."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"ეს გადაწყვეტილება ვერ მოიძებნა. გთხოვთ, მიუთითოთ გადაწყვეტილების აღიარებული "
+"ტიპი."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "შესწორებები არ უნდა ექვემდებარებოდეს თანატოლთა მიმოხილვის ახალ რაუნდს."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "შესწორებები უნდა დაექვემდებაროს თანატოლთა მიმოხილვის ახალ რაუნდს."
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "ამ რეფერენტმა დაასრულა მიმოხილვა ბოლო ტურში."
+
+msgid "reviewer.list.reassign.withName"
+msgstr "ხელახლა მინიჭება {$name}"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "ენიჭება ადრეულ რაუნდს"
+
+msgid "editor.decision.cancelDecision"
+msgstr "გადაწყვეტილების გააუქმება"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "დარწმუნებული ხართ, რომ გსურთ გააუქმოთ ეს გადაწყვეტილება?"
+
+msgid "editor.decision.completeSteps"
+msgstr "შეასრულეთ შემდეგი ნაბიჯები ამ გადაწყვეტილების მისაღებად"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "არ გამოტოვოთ ეს ელფოსტა"
+
+msgid "editor.decision.emailSkipped"
+msgstr "ეს ნაბიჯი გამოტოვებულია და ელფოსტა არ გაიგზავნება."
+
+msgid "editor.decision.recordDecision"
+msgstr "ჩანაწერის გადაწყვეტილება"
+
+msgid "editor.decision.skipEmail"
+msgstr "გამოტოვეთ ეს ელფოსტა"
+
+msgid "editor.decision.stepError"
+msgstr "იყო პრობლემა {$stepName} საფეხურთან დაკავშირებით."

@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-14 09:47+0000\n"
+"PO-Revision-Date: 2022-04-22 08:58+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ka_GE/>\n"
@@ -421,7 +422,7 @@ msgstr "ვადის გასვლის თარიღი"
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
-"განცხადება ამ თარიღამდე გამოჩნდება მკითხველებისთვის. დატოვეთ ცარიელი, თუ "
+"განცხადება ამ თარიღამდე გამოჩნდება მკითხველთათვის. დატოვეთ ცარიელი, თუ "
 "განცხადება უნდა იყოს ნაჩვენები უსასრულოდ."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
@@ -2399,3 +2400,628 @@ msgstr ""
 "მიიღებს გადაწყვეტილებას მოცემული დღის განმავლობაში.<br><br>ეს სტატისტიკა "
 "ცდილობს აღწეროს, თუ როდის შეიძლება ავტორების უმეტესობა თქვენს ჟურნალს "
 "წარუდგინოს გადაწყვეტილება."
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"ეს ელფოსტა ავტომატურად იგზავნება, როდესაც მიმომხილველი მიიღებს განხილვის "
+"მოთხოვნას"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"ეს შეტყობინება ატყობინებს უფროს რედაქტორს ან განყოფილების რედაქტორს, რომ "
+"გაკეთდა სარედაქციო რეკომენდაცია მათ მიერ მინიჭებულ ერთ-ერთ წარდგენასთან "
+"დაკავშირებით. ეს შეტყობინება გამოიყენება მაშინ, როდესაც რედაქტორს უფლება "
+"აქვს მხოლოდ სარედაქციო გადაწყვეტილების რეკომენდაციის გაცემა და მოითხოვს "
+"უფლებამოსილი რედაქტორის მიერ სარედაქციო გადაწყვეტილებების ჩაწერას. ეს "
+"პარამეტრი შეიძლება აირჩეს მონაწილეთა წარდგენისას."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "წარდგენის აღდგენა უარყოფილია განხილვის გარეშე"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ წინა გადაწყვეტილება, უარი თქვას მათ "
+"გაგზავნაზე თანატოლთა განხილვის შემდეგ."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "უარყოფილი გაგზავნის აღდგენა"
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "ხელახლა გაგზავნა განსახილველად"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს გადაწყვეტილების შესახებ, რომ მოითხოვოს ცვლილებები "
+"თანატოლთა განხილვისას."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "წარდგენა გაიგზავნა უკან განხილვაზე"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი გაგზავნა დაბრუნდა კოპირების "
+"რედაქტირების ეტაპზე."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "წარდგენა გაიგზავნა უკან კოპირების რედაქტირებაზე"
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "წარდგენა მიღებულია"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"ჩვენ მოვიწვიეთ ავტორები, რომ წარმოადგინონ შესწორებული ვერსია შემდგომი "
+"განხილვისთვის."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "ჩვენ მოვიწვიეთ ავტორები, რომ წარადგინონ ვერსიები."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "ჩვენ ავირჩიეთ უარი თქვან ამ წარდგენაზე."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"ამ გადაწყვეტილების მოკლე აღწერა, რომელიც გამიზნულია ამ გადაწყვეტილების "
+"შესახებ მიმომხილველებისთვის გაგზავნილ ელ. შეტყობინებაში გასაზიარებლად."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"ეს ელფოსტა რედაქტორის მიერ ეგზავნება მიმომხილველს, რათა აცნობოს მათ, რომ "
+"მიღებულია გადაწყვეტილება მათ მიერ განხილულ წარდგენის შესახებ."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "რეცენზენტის აღიარება"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "ელფოსტის შეტყობინების ასლი, რომელიც გაეგზავნა გამომგზავნი ავტორს"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"ეს ელფოსტა იგზავნება იმისთვის, რომ აცნობოს წარდგენის ავტორებს, რომლებიც არ "
+"არიან მინიჭებული მონაწილეებად, რომ გადაწყვეტილება მიღებულია. როგორც წესი, ეს "
+"ყველაფერი სხვაა, გარდა წარმდგენი ავტორისა."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "ელფოსტის (საიტის) დადასტურება"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "ეს ელფოსტა იგზავნება, როდესაც რედაქტორი გააუქმებს მიმომხილველს."
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"ეს ელფოსტა იგზავნება, როდესაც მიმომხილველი, რომელიც არ იყო დანიშნული, "
+"აღდგება რედაქტორის მიერ."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "მიმომხილველი აღდგა."
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"ეს ელფოსტა ავტომატურად ეგზავნება დისკუსიის მონაწილეებს, როდესაც დისკუსიას "
+"დაემატება ახალი შეტყობინება."
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"ავტორების სახელები, რომლებიც მინიჭებული არიან წარდგენის სამუშაო პროცესზე. "
+"როგორც წესი, ეს არის ავტორი"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "ვებსაიტის ძირითადი კონტაქტის სრული სახელი"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"ეს ჟურნალი ატარებს ორმაგ ანონიმურ მიმოხილვას. მიმომხილველები ვერ ნახავენ "
+"რაიმე საიდენტიფიკაციო ინფორმაციას თქვენს ან თქვენი თანაავტორების შესახებ. "
+"ანალოგიურად, თქვენ არ გეცოდინებათ ვინ განიხილა თქვენი წარდგენა და არ "
+"მოისმენთ უშუალოდ მიმომხილველებს."
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "მიმღების ან ყველა მიმღების მომხმარებლის სახელი"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "მიმღების ან ყველა მიმღების სრული სახელი"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"განხილვის რაუნდში ეს გადაწყვეტილება მიიღეს, თუ გადაწყვეტილება დაკავშირებულია "
+"განხილვის ეტაპთან."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "მიღებული გადაწყვეტილების აღწერა."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "მიღებული გადაწყვეტილების სახელწოდება."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "სხვა წარდგინებები"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"ეს მოიცავს წარდგინებებს, რომლებიც არ არის ჩათვლილი სხვა ჯამებში, როგორიცაა "
+"ისეთები, რომლებიც ჯერ კიდევ მიმდინარეობს და ისინი, რომლებიც, როგორც ჩანს, "
+"იმპორტირებულია."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "მოთხოვნილი რევიზიები"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ იწყება განხილვის ახალი რაუნდი მათი "
+"გაგზავნისთვის."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "გაგზავნა უარყოფილია"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი გაგზავნა კვლავ გაგზავნილია წარდგენის "
+"ეტაპზე."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "წარდგენა გაგზავნილია უკან წარდგენაზე"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი წარდგენა დაბრუნდა განხილვის ეტაპზე."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL მომხმარებლის მიერ მინიჭებული ყველა წარდგენის სანახავად."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"ყველა კომენტარი დასრულებული მიმოხილვებიდან. მიმომხილველის სახელები დამალულია "
+"ანონიმური მიმოხილვებისთვის"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "არაფერი"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI შეიძლება ავტომატურად დაიჭრა და შეიტანოს სარეგისტრაციო სააგენტოში. ამ "
+"ფუნქციის გამოსაყენებლად, იპოვნეთ და დააინსტალირეთ მოდული შესაბამისი "
+"სარეგისტრაციო სააგენტოდან."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "არ არის ჩართული სარეგისტრაციო სააგენტო"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"გთხოვთ, აირჩიოთ სარეგისტრაციო სააგენტო, რომლის გამოყენებაც გსურთ DOI-ების "
+"დეპონირებისას."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "სარეგისტრაციო სააგენტო"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"ადრე ხელმისაწვდომი მორგებული, მომხმარებლის მიერ განსაზღვრული ნიმუში. აღარ "
+"გამოიყენება."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"შეიყვანეთ ინდივიდუალური DOI სუფიქსი თითოეული გამოქვეყნებული ელემენტისთვის. "
+"თქვენ იპოვით DOI შეყვანის ველებს DOI მართვის გვერდზე."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI სუფიქსი"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "ავტომატური DOI შექმნა"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI პრეფიქსი აუცილებელია და უნდა იყოს 10.xxxx ფორმის."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"ეს მინიჭებულია DOI სარეგისტრაციო სააგენტოს მიერ, როგორიცაა <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> ან <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a> . მაგალითი: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"უნდა მოხდეს თუ არა DOI-ების ავტომატურად დეპონირება კონფიგურირებულ "
+"სარეგისტრაციო სააგენტოში."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "ჩართეთ ავტომატური დეპონირება"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"შემდეგი შეტყობინება დაბრუნდა {$registrationAgency}-ის მიერ და შეიცავს "
+"დეტალებს რეგისტრაციის შესახებ:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"შემდეგი შეცდომა დაბრუნდა {$registrationAgency}-ის მიერ და შეიცავს დეტალებს "
+"შეცდომის მიზეზის შესახებ:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"სანამ ეს კომპონენტი წაიშლება, თქვენ უნდა დააკავშიროთ ყველა დაკავშირებული "
+"წარდგენის ფაილი სხვა კომპონენტთან."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "ახალი დისკუსიის შეტყობინება"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "ვებსაიტის ძირითადი კონტაქტის ელფოსტა"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "გაკეთდა რეკომენდაცია"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი წარდგენა იგზავნება უშუალოდ კოპირების "
+"რედაქტირების ეტაპზე და არ განიხილება."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "მიმოხილვა გამოტოვებულია"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი წარდგენა იგზავნება წარმოების ეტაპზე."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "წარმოებისთვის გაგზავნილი."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი წარდგენა იგზავნება განხილვის ეტაპზე."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "გაგზავნილია განხილვაზე"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "ჩვენ ავირჩიეთ ამ წარდგენის მიღება გადასინჯვის გარეშე."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "მიმომხილველი დანიშნა"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"ნაგულისხმევი განხილვის მეთოდის აღწერა, როგორიცაა ორმაგი ანონიმური ან ღია."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "რეკომენდირებული გადაწყვეტილება, როგორიცაა მიღება წარდგენის"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "ეს გადაწყვეტილება სარედაქციო მუშაობის ეტაპზე მიიღეს."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"გაუგზავნეთ ელფოსტა მხოლოდ ავტორებს, რომლებიც მინიჭებულნი არიან წარდგენის "
+"სამუშაო პროცესზე. ჩვეულებრივ, ეს არის წარმდგენი ავტორი."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "გაუგზავნეთ შეტყობინება ელექტრონული ფოსტით წარდგენის ყველა ავტორს."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"ვინ უნდა მიიღოს შეტყობინების ელფოსტა სარედაქციო გადაწყვეტილების ჩაწერისას?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "აცნობეთ ყველა ავტორს"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "განხილვა დაადასტურეთ"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"ეს ელფოსტა ავტომატურად იგზავნება, როდესაც მიმომხილველი არ დაასრულებს "
+"მიმოხილვას ვადამდე."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "მიმოხილვის შეხსენება (ავტომატური)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"ეს ელფოსტა იგზავნება რედაქტორის მიერ, რათა შეახსენოს მიმომხილველს, რომ მათი "
+"განხილვა დასრულებულია"
+
+msgid "mailable.reviewRemind.name"
+msgstr "შეხსენება რეცენზენტს"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"ეს ელფოსტა იგზავნება მიმომხილველის მიერ, როდესაც უარყოფს განხილვის მოთხოვნას"
+
+msgid "mailable.reviewDecline.name"
+msgstr "მიმოხილვის უარყოფა"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს გადაწყვეტილების „გადახედვისა და ხელახლა გაგზავნის“"
+" შესახებ მათი წარდგენის შესახებ."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "ახალი მიმოხილვის რაუნდი დაიწყო"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "გაგზავნა უარყოფილია"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ მათი გაგზავნა უარყოფილია თანატოლთა განხილვის "
+"შემდეგ."
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან „მასალის მიღების“ "
+"საბოლოო გადაწყვეტილების შესახებ."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "აცნობეთ სხვა ავტორებს"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"ეს ელფოსტა ავტომატურად ეგზავნება ახალ მომხმარებელს, როდესაც ისინი "
+"დარეგისტრირდებიან საიტზე, როდესაც პარამეტრები მოითხოვს ელფოსტის მისამართის "
+"დამოწმებას."
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"ჰეშირებული URL, რომელიც ეგზავნება მომხმარებელს პაროლის გადატვირთვის "
+"დასადასტურებლად"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "წარდგენის URL სარედაქციო სარეზერვო სისტემაში"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "ავტორის URL წარდგენისთვის"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "ავტორების სრული სახელები"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"რედაქტორები დაევალათ ამ წარდგენას, რომლებსაც შეუძლიათ გადაწყვეტილების მიღება"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "ვებსაიტის ელ.ფოსტის ხელმოწერა ავტომატური ელფოსტისთვის"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "მიმოხილვის დავალების URL"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"ეს ელფოსტა აცნობებს ავტორს, რომ წინა გადაწყვეტილება, უარი თქვას მათ "
+"გაგზავნაზე განხილვის გარეშე, უბრუნდება."
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} მიენიჭება DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "ერთეულები DOI-ით"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI პრეფიქსი"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "არასოდეს"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "გამოქვეყნებისთანავე"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "გამოქვეყნების პროცესის რომელ ეტაპზე უნდა შეიქმნას DOI?"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "საქონელი წარმატებით გაიგზავნა დეპოზიტზე"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "ერთეულებმა წარმატებით მინიჭებული ახალი DOI-ები"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "ელემენტი წარმატებით მოინიშნა რეგისტრირებული"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "ერთეულები წარმატებით იქნა ექსპორტირებული"
+
+msgid "manager.dois.status.stale"
+msgstr "შემორჩენილი"
+
+msgid "manager.dois.status.error"
+msgstr "შეცდომა"
+
+msgid "manager.dois.status.registered"
+msgstr "რეგისტრირებული"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "სჭირდება DOI"
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "მიმომხილველი არ არის დანიშნული"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "ეს ელფოსტა იგზავნება მაშინ, როდესაც მიმომხილველი ენიჭება წარდგენას."
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "ავტორის სახელები შემოკლებული სტრიქონის სახით"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr ""
+"{$recipientName}:<br />\n"
+"Just a gentle reminder of our request for your review of the submission, "
+"&quot;{$submissionTitle},&quot; for {$contextName}. We were hoping to have "
+"your response by {$responseDueDate}, and this email has been automatically "
+"generated and sent with the passing of that date.\n"
+"<br />\n"
+"I believe that you would serve as an excellent reviewer of the manuscript. "
+"The submission's abstract is inserted below, and I hope that you will "
+"consider undertaking this important task for us.<br />\n"
+"<br />\n"
+"Please log into the journal web site to indicate whether you will undertake "
+"the review or not, as well as to access the submission and to record your "
+"review and recommendation..<br />\n"
+"<br />\n"
+"The review itself is due {$reviewDueDate}.<br />\n"
+"<br />\n"
+"Submission URL: {$reviewAssignmentUrl}<br />\n"
+"<br />\n"
+"Thank you for considering this request.<br />\n"
+"<br />\n"
+"{$signature}<br />\n"
+"<br />\n"
+"&quot;{$submissionTitle}&quot;<br />\n"
+"<br />\n"
+"{$submissionAbstract}"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "წარდგენის სათაური:"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "გამგზავნის ელ.ფოსტის ხელმოწერა"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "გამგზავნის სრული სახელი"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"ეს ჟურნალი ატარებს ღია მიმოხილვას. მიმომხილველები დაინახავენ თქვენს სახელს "
+"და კუთვნილებას, ასევე თქვენი თანაავტორების სახელებსა და კუთვნილებებს. "
+"ანალოგიურად, თქვენ ნახავთ მიმომხილველების სახელებს და კუთვნილებებს."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"ეს ჟურნალი ატარებს \"მიმომხილველი ანონიმური\" თანატოლების მიმოხილვას. თქვენი "
+"სახელი და თქვენი თანაავტორების სახელი ხილული იქნება რეცენზენტებისთვის; "
+"თუმცა, მიმომხილველთა ვინაობა დარჩება ანონიმური."
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "თარიღი, როდესაც განხილვა უნდა დასრულდეს"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "თარიღი, როდესაც მიმომხილველმა უნდა მიიღოს ან უარყოს დავალება"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "ჟურნალის საფოსტო მისამართი"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "გამგზავნის ელ.ფოსტის მისამართი"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "გვერდის URL, სადაც მომხმარებელს შეუძლია დაკარგული პაროლის აღდგენა"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "წარდგენის უნიკალური ID ნომერი"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "გამოიყენეთ ნაგულისხმევი ნიმუში."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"DOI სუფიქსი შეიძლება იყოს ნებისმიერი ფორმის, მაგრამ უნდა იყოს უნიკალური "
+"ყველა გამოქვეყნებულ ობიექტს შორის, რომლებსაც მინიჭებული აქვთ ერთი და იგივე "
+"DOI პრეფიქსი:"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "ავტომატური ანაბარი"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI პრეფიქსი"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "DOI-ების ჩართვა"
+
+msgid "manager.setup.dois.registration"
+msgstr "რეგისტრაცია"
+
+msgid "manager.setup.dois.setup"
+msgstr "ინსტალაცია"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "ზოგიერთი DOI(ები) ვერ განახლდა."
+
+msgid "manager.dois.status.submitted"
+msgstr "დამატებულია"
+
+msgid "manager.dois.status.unregistered"
+msgstr "დაურეგისტრირებელი"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "შეიტანეთ DOI(ები)"
+
+msgid "manger.dois.update.success"
+msgstr "DOI წარმატებით განახლდა"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "წარმატებული რეგისტრაციის შეტყობინება"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "ჩანაწერის ნახვა"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "რეგისტრაციის შეცდომის შეტყობინება"
+
+msgid "manager.dois.registration.viewError"
+msgstr "ნახვის შეცდომა"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "ამ ნივთის დეპონირება შეუძლებელია, სანამ არ გამოქვეყნდება."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "ამ ერთეულის მეტამონაცემები არ არის გაგზავნილი {$registrationAgency}-ზე."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "ამ ერთეულის მეტამონაცემები გადაეგზავნა {$registrationAgency}-ს."
+
+msgid "manager.dois.publicationStatus"
+msgstr "გამოცემის სტატუსი"
+
+msgid "manager.dois.depositStatus"
+msgstr "ანაბრის სტატუსი"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"თქვენ აპირებთ დაგეგმოთ ყველა გამოჩენილი DOI მეტამონაცემების ჩანაწერი "
+"{$registrationAgency}-ში შესანახად. თითოეული ელემენტის ინდივიდუალური სტატუსი "
+"განახლდება პასუხის მიღებისას. დარწმუნებული ხართ, რომ გსურთ დეპოზიტების "
+"დაგეგმვა ყველა ამ ელემენტისთვის?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "შეიტანეთ ყველა DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"თქვენ აპირებთ ახალი DOI-ების მინიჭებას {$count} ერთეულ(ებ)ისთვის ნებისმიერი "
+"დასაშვები ერთეულისთვის, რომელსაც უკვე არ აქვს მინიჭებული DOI. დარწმუნებული "
+"ხართ, რომ გსურთ ამ ერთეულებისთვის DOI-ების მინიჭება?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "DOI-ს მინიჭება"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"თქვენ აპირებთ DOI მეტამონაცემების ჩანაწერების ექსპორტს {$count} ელემენტ(ებ)"
+"ისთვის {$registrationAgency}-ისთვის. დარწმუნებული ხართ, რომ გსურთ ამ "
+"ჩანაწერების ექსპორტი?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "DOI-ების ექსპორტი"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"თქვენ აპირებთ მონიშნოთ DOI მეტამონაცემების ჩანაწერები {$count} ელემენტ(ებ)"
+"ისთვის, როგორც რეგისტრირებული. დარწმუნებული ხართ, რომ გსურთ ამ ჩანაწერების "
+"მონიშვნა რეგისტრირებულად?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "მონიშნეთ DOI რეგისტრირებული"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"თქვენ აპირებთ გაგზავნოთ DOI მეტამონაცემების ჩანაწერები {$count} ელემენტ(ებ)"
+"ისთვის {$registrationAgency}-ზე. დარწმუნებული ხართ, რომ გსურთ ამ ჩანაწერების "
+"დეპონირება?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "შეიტანეთ DOI-ები"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "შეიტანეთ ყველა"

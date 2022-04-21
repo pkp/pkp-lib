@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-14 06:55+0000\n"
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ka_GE/>\n"
@@ -219,3 +220,56 @@ msgstr ""
 
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "ენა {$locale} არ არის მხარდაჭერილი."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "თქვენ უნდა მიუთითოთ ელწერილის თემა და ტექსტი."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"თქვენ არ შეგიძლიათ შეცვალოთ ელემენტის DOI, რომელიც არ არის ამ კონტექსტში"
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"ეს საბოლოო წერტილი მიუწვდომელია საიტის მასშტაბური სახელების სივრციდან და "
+"უნდა მოითხოვოს მოცემულ კონტექსტში."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "თქვენ მიერ მოთხოვნილი DOI ვერ მოიძებნა."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"გამოუქვეყნებელი ნივთების ექსპორტი/დეპონირება შეუძლებელია. გთხოვთ, გააუქმოთ "
+"გამოუქვეყნებელი ერთეულების არჩევა და სცადოთ ხელახლა."
+
+msgid "api.dois.400.creationFailed"
+msgstr "მოხდა შეცდომა და DOI ობიექტის შექმნა ვერ მოხერხდა."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "მოხდა XML ვალიდაციის შეცდომა და XML-ის ექსპორტი ვერ მოხერხდა."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"მოხდა შეცდომა და ზოგიერთი წარმოდგენილი ელემენტი არ მოინიშნა რეგისტრირებული."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"ზოგიერთი ელემენტი წარმატებით არ განთავსდა. გთხოვთ, შეამოწმოთ ცალკეული "
+"ელემენტები მათი კონკრეტული შეცდომის შეტყობინებებისთვის."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "მოთხოვნაში არ იყო მოქმედი გამოქვეყნების ობიექტი."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "მოთხოვნაში იყო ერთი ან მეტი არასწორი გამოცემის ობიექტი."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"თქვენ არ შეგიძლიათ ჩაწეროთ გადაწყვეტილება ან გირჩიოთ გადაწყვეტილება ამ "
+"წარდგენისთვის, რადგან ის უკვე გამოქვეყნებულია."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "თქვენ მიერ მოწოდებული ფაილის ეტაპი არასწორია."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"ფაილის ამ ფაილის ეტაპზე გადატანისას უნდა მიუთითოთ მიმოხილვის რაუნდის ID."

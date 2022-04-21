@@ -69,7 +69,7 @@ class RegistrationHandler extends UserHandler
 
         $userId = $regForm->execute();
 
-        $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId, true);
 
         try {
             if ($context = $request->getContext()) {

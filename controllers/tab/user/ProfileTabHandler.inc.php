@@ -29,6 +29,7 @@ use PKP\user\form\ContactForm;
 use PKP\user\form\IdentityForm;
 use PKP\user\form\PublicProfileForm;
 use PKP\user\form\RolesForm;
+use PKP\session\SessionManager;
 
 class ProfileTabHandler extends Handler
 {
@@ -300,15 +301,25 @@ class ProfileTabHandler extends Handler
     public function savePassword($args, $request)
     {
         $this->setupTemplate($request);
-        $passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
+
+		$user = $request->getUser();
+
+        $passwordForm = new ChangePasswordForm($user, $request->getSite());
         $passwordForm->readInputData();
 
         if ($passwordForm->validate()) {
+
             $passwordForm->execute();
+
+			$sessionManager = SessionManager::getManager();
+            $sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
+
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($request->getUser()->getId());
-            return new JSONMessage(true);
+            $notificationMgr->createTrivialNotification($user->getId());
+            
+			return new JSONMessage(true);
         }
+		
         return new JSONMessage(true, $passwordForm->fetch($request));
     }
 

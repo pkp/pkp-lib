@@ -148,14 +148,14 @@ class RegistrationHandler extends UserHandler
     {
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
-        $user = Repo::user()->getByUsername($username);
+        $user = Repo::user()->getByUsername($username, true);
         if (!$user) {
             $request->redirect(null, 'login');
         }
 
         // Checks user and token
         $accessKeyManager = new AccessKeyManager();
-        $accessKeyHash = AccessKeyManager::generateKeyHash($accessKeyCode);
+        $accessKeyHash = $accessKeyManager->generateKeyHash($accessKeyCode);
         $accessKey = $accessKeyManager->validateKey(
             'RegisterContext',
             $user->getId(),

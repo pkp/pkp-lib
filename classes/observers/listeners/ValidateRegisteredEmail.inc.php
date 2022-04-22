@@ -83,14 +83,14 @@ class ValidateRegisteredEmail
             $mailable = new ContextMailable($event->context);
             $mailable->from($event->context->getData('supportEmail'), $event->context->getData('supportName'));
             $mailable->addData([
-                'activateUrl' => PKPApplication::get()->getRequest()->url($event->context->getData('urlPath'), 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
+                'activateUrl' => PKPApplication::get()->getRequest()->url($event->context->getData('urlPath'), 'user', 'activateUser', [$event->recipient->getUsername(), $accessKey]),
             ]);
             $registerTemplate = Repo::emailTemplate()->getByKey($event->context->getId(), $mailable::getEmailTemplateKey());
         } else {
             $mailable = new SiteMailable($event->site);
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
             $mailable->addData([
-                'activateUrl' => PKPApplication::get()->getRequest()->url(null, 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
+                'activateUrl' => PKPApplication::get()->getRequest()->url(null, 'user', 'activateUser', [$event->recipient->getUsername(), $accessKey]),
             ]);
             $registerTemplate = Repo::emailTemplate()->getByKey(PKPApplication::CONTEXT_SITE, $mailable::getEmailTemplateKey());
         }

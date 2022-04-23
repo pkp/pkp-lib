@@ -22,6 +22,7 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -32,7 +33,6 @@ use PKP\notification\PKPNotification;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
-use PKP\core\PKPApplication;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -761,7 +761,7 @@ class QueriesGridHandler extends GridHandler
         if ($template) {
             $user = $request->getUser();
             $template->assignParams([
-                'editorialContactSignature' => $user->getSignature() ?? '',
+                'editorialContactSignature' => $user->getSignature(Locale::getLocale()) ?? '',
                 'signatureFullName' => $user->getFullname(),
             ]);
             $template->replaceParams();

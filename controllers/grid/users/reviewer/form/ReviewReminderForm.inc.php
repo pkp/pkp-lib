@@ -76,15 +76,14 @@ class ReviewReminderForm extends Form {
 		else $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
 
 		$dispatcher = $request->getDispatcher();
-		$paramArray = array(
-			'reviewerName' => $reviewer->getFullName(),
+		$email->assignParams([
+			'reviewerName' => htmlspecialchars($reviewer->getFullName()),
 			'reviewDueDate' => $reviewDueDate,
 			'editorialContactSignature' => $user->getContactSignature(),
-			'reviewerUserName' => $reviewer->getUsername(),
+			'reviewerUserName' => htmlspecialchars($reviewer->getUsername()),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))
-		);
-		$email->assignParams($paramArray);
+		]);
 
 		$this->setData('stageId', $reviewAssignment->getStageId());
 		$this->setData('reviewAssignmentId', $reviewAssignment->getId());
@@ -158,13 +157,13 @@ class ReviewReminderForm extends Form {
 
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setBody($this->getData('message'));
-		$email->assignParams(array(
-			'reviewerName' => $reviewer->getFullName(),
+		$email->assignParams([
+			'reviewerName' => htmlspecialchars($reviewer->getFullName()),
 			'reviewDueDate' => $reviewDueDate,
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs),
 			'editorialContactSignature' => $user->getContactSignature(),
-		));
+		]);
 		if (!$email->send($request)) {
 			import('classes.notification.NotificationManager');
 			$notificationMgr = new NotificationManager();

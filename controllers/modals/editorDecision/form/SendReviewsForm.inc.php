@@ -77,10 +77,10 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		$resubmitEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_RESUBMIT');
 
 		foreach (array($revisionsEmail, $resubmitEmail) as &$email) {
-			$email->assignParams(array(
-				'authorName' => $submission->getAuthorString(),
+			$email->assignParams([
+				'authorName' => htmlspecialchars($submission->getAuthorString()),
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
-			));
+			]);
 			$email->replaceParams();
 		}
 

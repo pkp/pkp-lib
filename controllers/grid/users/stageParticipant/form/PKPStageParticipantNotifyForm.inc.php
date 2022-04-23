@@ -166,18 +166,18 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$submissionUrl = Services::get('submission')->getWorkflowUrlByUserRoles($submission, $user->getId());
 
 			// Parameters for various emails
-			$email->assignParams(array(
+			$email->assignParams([
 				// COPYEDIT_REQUEST, LAYOUT_REQUEST, INDEX_REQUEST
-				'participantName' => $user->getFullName(),
-				'participantUsername' => $user->getUsername(),
+				'participantName' => htmlspecialchars($user->getFullName()),
+				'participantUsername' => htmlspecialchars($user->getUsername()),
 				'submissionUrl' => $submissionUrl,
 				// LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN
-				'editorialContactName' => $user->getFullname(),
+				'editorialContactName' => htmlspecialchars($user->getFullname()),
 				// EDITOR_ASSIGN
-				'editorUsername' => $user->getUsername(),
+				'editorUsername' => htmlspecialchars($user->getUsername()),
 				// AUTHOR ASSIGN, AUTHOR NOTIFY
-				'authorName' => $user->getFullName(),
-			));
+				'authorName' => htmlspecialchars($user->getFullName()),
+			]);
 
 			$suppressNotificationEmail = false;
 

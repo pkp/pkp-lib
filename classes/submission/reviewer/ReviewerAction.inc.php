@@ -122,7 +122,7 @@ class ReviewerAction {
 		$email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
 
 		$email->assignParams(array(
-			'reviewerName' => $reviewer->getFullName(),
+			'reviewerName' => htmlspecialchars($reviewer->getFullName()),
 			'reviewDueDate' => $reviewDueDate
 		));
 		$email->replaceParams();

@@ -419,9 +419,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 					}
 				}
 				// Get uploader name
-				$mail->assignParams(array(
-					'authorName' => $uploader->getFullName(),
-					'editorialContactSignature' => $context->getData('contactName'),
+				$mail->assignParams([
+					'authorName' => htmlspecialchars($uploader->getFullName()),
+					'editorialContactSignature' => htmlspecialchars($context->getData('contactName')),
 					'submissionUrl' => $request->getDispatcher()->url(
 						$request,
 						ROUTE_PAGE,
@@ -433,7 +433,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 							$reviewRound->getStageId(),
 						]
 					),
-				));
+				]);
 
 				if ($mail->getRecipients()){
 					if (!$mail->send($request)) {

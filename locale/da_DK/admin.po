@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-02-09 00:14+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2022-04-07 13:59+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -32,10 +32,10 @@ msgid "admin.authSources"
 msgstr "Godkendelseskilder"
 
 msgid "admin.clearDataCache"
-msgstr "Ryd datacache"
+msgstr "Slet datacache"
 
 msgid "admin.clearTemplateCache"
-msgstr "Ryd skabeloncachen"
+msgstr "Slet skabeloncachen"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr "Konfigurationsfilen er blevet opdateret. Vær opmærksom på, at hvis webstedet ikke længere fungerer korrekt, skal du muligvis rette konfigurationen manuelt ved at redigere direkte i filen <tt>config.inc.php</tt>."
@@ -275,7 +275,7 @@ msgstr ""
 "permanent?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Ryd planlagte opgavers eksekverings-logfiler"
+msgstr "Ryd logfiler over planlagte opgaver"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
@@ -441,17 +441,15 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
-"Liste over alle opgaver i køen. Hvis du vil sideopdele resultatet, så brug "
-"parametrene --page= and --perPage="
+"Skab liste over alle opgaver i køen. Hvis du vil sideopdele resultatet, så "
+"brug parametrene --page= og --perPage="
 
 msgid "admin.cli.tool.available.commands"
 msgstr "Tilgængelige kommandoer for `{$namespace}` namespace:"
 
-#, fuzzy
 msgid "admin.jobs.createdAt"
 msgstr "Skabt den {$createdAt}"
 
-#, fuzzy
 msgid "admin.jobs.list.createdAt"
 msgstr "Skabt den"
 
@@ -477,3 +475,38 @@ msgstr "Reserveret til"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Opgavens visningsnavn"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponér DOI'er hos den konfigurerede registreringsorganisation"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Se opgaver"
+
+msgid "navigation.tools.jobs.description"
+msgstr "Se alle opgaver i kø i systemet og følg fejlede forsøg."
+
+msgid "admin.systemInformation.view"
+msgstr "Se information om systemet"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Se informationer om version og indstillinger af applikationen og serveren."
+
+msgid "admin.deleteCache"
+msgstr "Slet caches"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Slet filer i cachen fra systemet. Dette bør udelukkende gøres i "
+"udviklingsmiljøer."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Slet logfiler over opgaver"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Slet alle logfiler over planlagte opgaver, der har været kørt."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Alle brugere vil øjeblikkeligt blive logget ud af systemet, inklusiv dig, og "
+"vil skulle logge ind igen."

@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-31 16:54+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
@@ -43,13 +43,13 @@ msgid "submission.informationCenter.submissionInfo"
 msgstr "Upplýsingar um innsendingu"
 
 msgid "submission.publisherId.enable"
-msgstr "Virja fyrir {$objects}"
+msgstr "Virkja fyrir {$objects}"
 
 msgid "submission.publisherId.description"
 msgstr ""
 "Kenni útgefanda er hægt að nota til að skrá kenni frá ytri gagnagrunni.  Til "
-"dæmis, atriði flutt út í geymslu hjá PubMed geta falið í sér kenni "
-"útgefanda. Það á ekki að nota þetta fyrir DOI númer."
+"dæmis geta atriði flutt út í geymslu hjá PubMed falið í sér kenni útgefanda. "
+"Þetta á ekki að nota fyrir DOI númer."
 
 msgid "submission.publisherId"
 msgstr "Kenni útgefanda"
@@ -93,7 +93,7 @@ msgid "submission.history.submissionEventLog"
 msgstr "Atburðaskrá"
 
 msgid "submission.history.submissionEmailLog"
-msgstr "Tölvupóst skrá"
+msgstr "Tölvupóstskrá"
 
 msgid "submission.history.recentLogEntries"
 msgstr "Nýlegar færslur"
@@ -112,8 +112,8 @@ msgstr "Galley - Lokaprófarkir"
 
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
-"Færsla, sem ekki er hægt að breyta, um þann sem hleður upp skrá er vistuð "
-"þegar skráin er stofnuð."
+"Ekki er hægt að breyta færslu sem til verður við innsendingu, um þann sem "
+"hleður upp viðkomandi skrá."
 
 msgid "submission.files.downloadAll"
 msgstr "Hlaða niður öllum skrám"
@@ -126,8 +126,7 @@ msgstr ""
 "Höfundar mega ekki breyta lýsigögnum þegar innsending er á þrepi {stage}."
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Höfundar mega núna breyta lýsigögnum þegar innsending er á þrepi {stage}."
+msgstr "Höfundar geta nú breytt lýsigögnum þegar innsending er á þrepi {stage}."
 
 msgid "submission.event.viewEmail"
 msgstr "Skoða tölvupóst"
@@ -142,22 +141,22 @@ msgid "submission.event.reviewer.reviewResubmitted"
 msgstr "Ritrýni send aftur inn"
 
 msgid "submission.event.reviewer.reviewReinitiated"
-msgstr "Ritrýni úthlutun sett aftur af stað"
+msgstr "Ritrýniúthlutun sett aftur af stað"
 
 msgid "submission.event.reviewer.reviewRecommendation"
-msgstr "Ritrýni ráðleggingaskrá"
+msgstr "Ráðleggingaskrá ritrýni"
 
 msgid "submission.event.reviewer.reviewInitiated"
-msgstr "Ritrýni úthlutun hafin"
+msgstr "Ritrýniúthlutun hafin"
 
 msgid "submission.event.reviewer.reviewFile"
 msgstr "Ritrýniskrá uppfærð"
 
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "Ritrýnir ekki lengur tengdur þessari innsendingu"
+msgstr "Ritrýnir aftengdur innsendingu"
 
 msgid "submission.event.reviewer.reviewerRated"
-msgstr "Mat ritrýnis skilað"
+msgstr "Mati ritrýnis skilað"
 
 msgid "submission.event.reviewer.reviewerAssigned"
 msgstr "Handriti úthlutað á ritrýni"
@@ -184,14 +183,14 @@ msgid "submission.event.fileRevised"
 msgstr "Endurskoðun \"{$name}\" var hlaðið inn fyrir skrá {$submissionFileId}."
 
 msgid "submission.event.submissionSubmitted"
-msgstr "Upphafs innsendingu lokið."
+msgstr "Upphafsinnsendingu lokið."
 
 msgid "submission.event.deleteLogEntry"
 msgstr "Eyða færslu úr skrá"
 
 msgid "submission.event.confirmClearLog"
 msgstr ""
-"Ertu viss um að þú viljir hreinsa atburðaskránna fyrir þessa innsendingu?"
+"Ertu viss um að þú viljir hreinsa atburðaskrána fyrir þessa innsendingu?"
 
 msgid "submission.event.confirmDeleteLogEntry"
 msgstr "Ertu viss um að þú viljir eyða þessari færslu úr atburðaskránni?"
@@ -200,7 +199,7 @@ msgid "submission.event.backToEventLog"
 msgstr "Til baka í atburðaskrá"
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) fjarlægður sem {$userGroupName}."
+msgstr "\"{$name}\" ({$username}) fjarlægð(ur/-t) sem {$userGroupName}."
 
 msgid "submission.event.participantAdded"
 msgstr ""
@@ -218,7 +217,7 @@ msgstr ""
 
 msgid "submission.email.confirmClearLog"
 msgstr ""
-"Ert þú viss um að þú viljir hreinsa skránna yfir tölvupósta fyrir þessa "
+"Ert þú viss um að þú viljir hreinsa skrána yfir tölvupósta fyrir þessa "
 "innsendingu?"
 
 msgid "submission.email.backToEmailLog"
@@ -246,10 +245,10 @@ msgid "submission.done"
 msgstr "Lokið"
 
 msgid "submission.coverage"
-msgstr "Umfangs upplýsingar"
+msgstr "Umfangsupplýsingar"
 
 msgid "submission.queryNoteFiles"
-msgstr "Umræðu skrár"
+msgstr "Umræðuskrár"
 
 msgid "submission.copyediting"
 msgstr "Í yfirferð (copyediting)"
@@ -267,7 +266,7 @@ msgid "submission.comments.subject"
 msgstr "Efni"
 
 msgid "submission.comments.sendDecisionToReviewers"
-msgstr "Senda ritrýni ákvörðun ritstjóra"
+msgstr "Senda ritrýniákvörðun ritstjóra"
 
 msgid "submission.comments.review"
 msgstr "Ritrýni"
@@ -346,19 +345,19 @@ msgid "submission.accepted"
 msgstr "Samþykkt"
 
 msgid "submission.abstractViews"
-msgstr "Áhorf útdráttar"
+msgstr "Skoðun útdráttar"
 
 msgid "submission.agencies"
 msgstr "Umboð"
 
 msgid "submission.additionalFiles"
-msgstr "Viðbótar skrár"
+msgstr "Viðbótarskrár"
 
 msgid "submission.addFile"
 msgstr "Hlaða upp skrá"
 
 msgid "submission.mySubmissions"
-msgstr "Mín höfundaverk"
+msgstr "Mín höfundarverk"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} fyrir {$title}"
@@ -370,10 +369,10 @@ msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
 
 msgid "submission.authorBiographies"
-msgstr "Æfiágrip höfundar"
+msgstr "Um höfund (biographies)"
 
 msgid "submission.authorBiography"
-msgstr "Æfiágrip höfundar"
+msgstr "Um höfund (biography)"
 
 msgid "submission.authors"
 msgstr "Höfundar"
@@ -392,11 +391,11 @@ msgstr "Útdráttur"
 
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""
-"Vertu viss um að þú setjir gilda nafnategund.  Gildi sem stutt er við eru \""
-"Persónulegt\", \"Fyrirtæki\" og \"Ráðstefna\"."
+"Vertu viss um að þú setjir gilda tegund heitis.  Studd gildi eru \""
+"persónulegt\", \"fyrirtæki\" og \"ráðstefna\"."
 
 msgid "metadata.property.displayName.name-type"
-msgstr "Tegund nafns"
+msgstr "Tegund heitis"
 
 msgid "metadata.property.validationMessage.partName"
 msgstr "Vinsamlega sláðu inn gilt heiti hlutar."
@@ -411,38 +410,38 @@ msgid "metadata.property.displayName.partNumber"
 msgstr "Hlutanúmer"
 
 msgid "metadata.property.validationMessage.subTitle"
-msgstr "Vinsamlega sláðu inn gildian undirtitil."
+msgstr "Vinsamlega sláðu inn gildan undirtitil."
 
 msgid "metadata.property.displayName.subTitle"
 msgstr "Undirtitill"
 
 msgid "metadata.property.validationMessage.title"
-msgstr "Vinsamlega sláðu inn gildann titill."
+msgstr "Vinsamlega sláðu inn gildan titil."
 
 msgid "metadata.property.displayName.title"
 msgstr "Titill"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr ""
-"Vinsamlega sláðu bara inn upphafsstafi titilsins sem á að horfa framhjá "
-"þegar verið er að sortera titilinn."
+"Vinsamlega sláðu bara inn upphafsstafi titilsins sem horfa á framhjá við "
+"flokkun titils."
 
 msgid "metadata.property.displayName.nonSort"
-msgstr "Horft framhjá hluta titils við sorteringu"
+msgstr "Horft framhjá hluta titils við flokkun"
 
 msgid "metadata.property.validationMessage.title-type"
 msgstr ""
-"Gakktu úr skugga um að þú setjir gilda tegund titils.  Gildi sem er stutt "
-"við eru  \"skamstöfun\", \"þýtt\", \"annar texti \" og \"samræmt\"."
+"Vinsamlega gakktu úr skugga um að þú setjir gilda tegund titils. Studd gildi "
+"eru  \"skammstöfun\", \"þýtt\", \"annar texti \" og \"samræmt\"."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Titill tegundar"
 
 msgid "metadata.property.validationMessage.publication-type"
 msgstr ""
-"Vinsamlega gakktu úr skugga um að þú setjir altaf tegund útgáfu.  Gildi sem "
-"nú er studd eru bækur(fyrir bækur eða bókarkafla) og tímarit (fyrir greinar "
-"í tímarit). Að öðrum kosti munu tílvísanir ekki vera sýndar rétt."
+"Vinsamlega gakktu úr skugga um að þú setjir alltaf tegund útgáfu.  Studd "
+"gildi eru bækur (fyrir bækur eða bókarkafla) og tímarit (fyrir "
+"tímaritsgreinar). Að öðrum kosti verða tílvísanir ekki réttar."
 
 msgid "metadata.property.displayName.publication-type"
 msgstr "Tegund útgáfu"
@@ -460,7 +459,7 @@ msgid "metadata.property.displayName.comment"
 msgstr "Athugasemd"
 
 msgid "metadata.property.validationMessage.uri"
-msgstr "Vinsamlega sláðu gildan tengil sem valkost á útgáfuna."
+msgstr "Vinsamlega skráðu gildan viðbótartengil á útgáfuna."
 
 msgid "metadata.property.displayName.uri"
 msgstr "Tengill á útgáfuna"
@@ -475,16 +474,16 @@ msgid "metadata.property.validationMessage.sici"
 msgstr "Vinsamlega sláðu inn gilt SICI."
 
 msgid "metadata.property.validationMessage.coden"
-msgstr "Vinsamlega sláðu inn gillt CODEN."
+msgstr "Vinsamlega sláðu inn gilt CODEN."
 
 msgid "metadata.property.displayName.coden"
 msgstr "CODEN"
 
 msgid "metadata.property.validationMessage.publisher-id"
-msgstr "Vinsamlega sláðu inn gilt sérsniðið útgáfu kenni."
+msgstr "Vinsamlega sláðu inn gilt sérsniðið útgáfukenni."
 
 msgid "metadata.property.displayName.publisher-id"
-msgstr "Sérsniðið útgáfu kenni"
+msgstr "Sérsniðið útgáfukenni"
 
 msgid "metadata.property.validationMessage.doi"
 msgstr "Vinsamlega sláðu inn gilt DOI númer."
@@ -511,10 +510,10 @@ msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
 
 msgid "metadata.property.validationMessage.publisher-name"
-msgstr "Vinsamlega sláðu inn nafn útgefanda."
+msgstr "Vinsamlega sláðu inn gilt heiti útgefanda."
 
 msgid "metadata.property.displayName.publisher-name"
-msgstr "Nafn útgefanda"
+msgstr "Heiti útgefanda"
 
 msgid "metadata.property.validationMessage.publisher-loc"
 msgstr "Vinsamlega sláðu inn útgáfustað."
@@ -523,14 +522,14 @@ msgid "metadata.property.displayName.publisher-loc"
 msgstr "Útgáfustaður"
 
 msgid "metadata.property.validationMessage.size"
-msgstr "Vinsamlega sláðu inn heildar blaðsíðufjölda (þarf að vera númer)."
+msgstr "Vinsamlega sláðu inn heildarfjölda blaðsíðna (þarf að vera númer)."
 
 msgid "metadata.property.displayName.size"
 msgstr "Fjöldi blaðsíðna"
 
 msgid "metadata.property.validationMessage.lpage"
 msgstr ""
-"Vinsamlega sláðu inn leyfilegt síðunúmer fyrir öftustu síðu.  (þarf að vera "
+"Vinsamlega sláðu inn leyfilegt síðunúmer fyrir öftustu síðu (þarf að vera "
 "númer)."
 
 msgid "metadata.property.displayName.lpage"
@@ -543,13 +542,13 @@ msgid "metadata.property.displayName.fpage"
 msgstr "Fyrsta síða"
 
 msgid "metadata.property.validationMessage.institution"
-msgstr "vinsamlega sláðu inn leyfilega stofnun."
+msgstr "Vinsamlega sláðu inn leyfilega stofnun."
 
 msgid "metadata.property.displayName.institution"
 msgstr "Stofnun"
 
 msgid "metadata.property.validationMessage.conf-sponsor"
-msgstr "Vinsamlega sláðu inn stuðningsaðila ráðstefnu."
+msgstr "Vinsamlega sláðu inn gilda stuðningsaðila ráðstefnu."
 
 msgid "metadata.property.displayName.conf-sponsor"
 msgstr "Stuðningsaðilar ráðstefnu"
@@ -618,7 +617,7 @@ msgid "metadata.property.validationMessage.access-date"
 msgstr "Vinsamlega sláðu inn leyfilegan aðgangsdag (snið: AAAA-MM-DD)."
 
 msgid "metadata.property.displayName.access-date"
-msgstr "Aðgangs dagur"
+msgstr "Aðgangsdagur"
 
 msgid "metadata.property.validationMessage.date"
 msgstr "Vinsamlega sláðu inn leyfilegan útgáfudag. (snið: AAAA-MM-DD)."
@@ -654,50 +653,49 @@ msgstr "Höfundar"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
-"Innri villa.  Óleyfilegu gildi var póstað fyrir stillingar á valkvæðum "
-"síum.  Vinsamlega tilkynntu þetta sem hugbúnaðarvillu."
+"Innri villa.  Óleyfilegt gildi var birt fyrir stillingar á valkvæðum síum.  "
+"Vinsamlega tilkynntu þetta sem hugbúnaðarvillu."
 
 msgid "metadata.filters.settings.isOptional.displayName"
-msgstr "Ekki nota sem sjálfgefið (er samt aðgengilegt fyrir ritstjóra)"
+msgstr "Ekki nota sem sjálfgefið (er þó aðgengilegt fyrir ritstjóra)"
 
 msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "Vinsamlega veldu eina af uppgefnum tilvísana einingum."
+msgstr "Vinsamlega veldu eina af uppgefnum tilvísanaeiningum."
 
 msgid "metadata.filters.paracite.settings.citationModule.displayName"
-msgstr "Tilvísana eining"
+msgstr "Tilvísanaeining"
 
 msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
-msgstr "Vinsamlega skráðu inn gildann WorldCat API lykil ef þú ert með slíkann."
+msgstr "Vinsamlega skráðu inn gildann WorldCat API lykil ef þú ert með slíkan."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "WorldCat API Lykill"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
 msgstr ""
-"Vinsamlega sláðu inn gilt skráningar netfang fyrir PubMed ef þú ert með "
-"slíkt."
+"Vinsamlega sláðu inn gilt skráningarnetfang fyrir PubMed ef þú ert með slíkt."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
-msgstr "PubMed skráningar netfang"
+msgstr "PubMed skráningarnetfang"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
 msgstr ""
-"Vinsamlega sláðu inn ISBNdb API lykil. Ef þú ert ekki enn komin(n) með lykil "
-"getur þú beðið um hann ókeypis frá ISBNdb verkefninu."
+"Vinsamlega sláðu inn ISBNdb API lykil. Hafir þú ekki fengið lykil getur þú "
+"beðið um hann endurgjaldslaust frá ISBNdb verkefninu."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API Lykill"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Vinsamlega sláðu inn gilt CrossRef skráningar netfang.  Þú getur skráð "
-"netfangið þitt ókeypis á vefsíðu CrossRef."
+"Vinsamlega sláðu inn gilt Crossref skráningar netfang.  Þú getur skráð "
+"netfangið þitt ókeypis á vefsíðu Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef skráningar netfang"
+msgstr "Crossref skráningar netfang"
 
 msgid "submission.submit.whatNext.review"
-msgstr "Skoðað þessa innsendingu"
+msgstr "Skoða innsendinguna"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Útvíkkuð lýsigögn"
@@ -718,10 +716,10 @@ msgid "submission.submit.removeConfirm"
 msgstr "Ertu viss um að þú viljir fjarlægja þessa skrá?"
 
 msgid "submission.submit.genre.error"
-msgstr "Vinsamleg veldu hvernig skrá er um að ræða fyrir hvert upphal."
+msgstr "Vinsamleg veldu skráartegund fyrir hvert upphal."
 
 msgid "submission.submit.genre.description"
-msgstr "Veldu valkost sem lýsir best þessari skrá."
+msgstr "Veldu valkost sem lýsir skránni best."
 
 msgid "submission.submit.genre.label"
 msgstr "Hvernig skrá er þetta?"
@@ -748,26 +746,26 @@ msgstr "Minnislisti höfunda"
 
 msgid "submission.submit.userGroupDescriptionManagers"
 msgstr ""
-"Sendu inn í einhverju af eftirfarandi hlutverkum, ef þú vilt sjálf(ur) geta "
-"breytt og gefið út þessa innsendingu: {$managerGroups}"
+"Veldu eitt af eftirfarandi hlutverkum, ef þú vilt sjálf(ur/t) geta breytt og "
+"gefið út þessa innsendingu: {$managerGroups}"
 
 msgid "submission.submit.contactConsentDescription"
-msgstr "Já, ég vil láta vera í sambandi við mig vegna þessarar innsendingar."
+msgstr "Já, ég vil að haft verði samband við mig vegna innsendingarinnar."
 
 msgid "submission.submit.contactConsent"
 msgstr "Tengiliður samskipta"
 
 msgid "submission.submit.availableUserGroupsDescription"
-msgstr "Veldu hlutverk sem lýsir best þínu framlagi til þessarar innsendingar."
+msgstr "Veldu hlutverk sem lýsir best framlagi þínu til innsendingarinnar."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Senda inn sem"
 
 msgid "submission.confirm.message"
 msgstr ""
-"Handritinu þínu hefur verið hlaðið inn og er tilbúið til innsendingar.  Þú "
+"Handriti þínu hefur verið hlaðið inn og er tilbúið til innsendingar. Þú "
 "getur farið til baka til að skoða og laga þær upplýsingar sem þú hefur gefið "
-"upp áður en þú heldur áfram.  Þegar þú ert tilbúin(n), smelltu á \"Klára "
+"upp áður en þú heldur áfram.  Þegar þú ert tilbúin(n/-ð), smelltu á \"Klára "
 "innsendingu\"."
 
 msgid "author.submission.roundStatus.reviewOverdue"
@@ -803,7 +801,7 @@ msgid "submission.list.reviewDue"
 msgstr "Skiladagur ritrýni: {$date}"
 
 msgid "submission.list.reviewAssignment"
-msgstr "Ritrýni úthlutun"
+msgstr "Ritrýniúthlutun"
 
 msgid "submission.list.responseDue"
 msgstr "Skiladagur svars: {$date}"
@@ -829,7 +827,7 @@ msgstr ""
 
 msgid "submission.query.activity.contents"
 msgstr ""
-"Það er eitthvað nýtt í umræðu sem kallast \"{$queryTitle}\" varðand "
+"Það eru komin fram ný atriði í umræðu sem kallast \"{$queryTitle}\" varðand "
 "innsendingu \"{$submissionTitle}\"."
 
 msgid "submission.query.new"
@@ -844,7 +842,7 @@ msgstr "Bæta nýju svari við umræðuna"
 msgid "submission.query.leaveQuery.confirm"
 msgstr ""
 "Ef þú yfirgefur þessa umræðu færð þú ekki lengur tilkynningar um ný "
-"skilaboð. Viltu yfirgefa þessa umræðu?"
+"skilaboð. Viltu yfirgefa umræðuna?"
 
 msgid "submission.query.leaveQuery"
 msgstr "Yfirgefa umræðu"
@@ -871,13 +869,13 @@ msgid "submission.query.subject"
 msgstr "Efni"
 
 msgid "submission.queries.editorial"
-msgstr "Textatækniyfirferð - Umræður"
+msgstr "Textatækniyfirferð - umræður"
 
 msgid "submission.queries.review"
-msgstr "Ritrýni umræður"
+msgstr "Ritrýniumræður"
 
 msgid "submission.queries.submission"
-msgstr "Ritrýni umræður"
+msgstr "Ritrýniumræður"
 
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
@@ -998,30 +996,29 @@ msgstr "CC Attribution-NonCommercial 4.0"
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Úthluta ritstjóra til að gera mögulegt að taka ritstjórnar ákvörðun á þessu "
-"þrepi."
+"Úthluta ritstjóra til að gera ritstjórnarákvörðun mögulega á þessu þrepi."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Snúa við höfnun"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr ""
-"Þessi prófarkaskrá verður ekki lengur aðgengileg öllum fyrir niðurhal eða "
-"kaup.  Viltu afturkalla samþykki?"
+"Þessi prófakarskrá verður ekki lengur aðgengileg öllum til niðurhals eða "
+"kaupa.  Viltu afturkalla samþykki?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Samþykktar prófarkir"
 
 msgid "editor.submission.decision.approveProofsDescription"
 msgstr ""
-"Síðu prófarkaskráin þarf að vera merkt sem samþykkt til að vera aðgengileg. "
+"Síðuprófarkaskráin þarf að vera merkt sem samþykkt til að vera aðgengileg. "
 "Viltu samþykkja hana?"
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Senda í innri ritrýni"
 
 msgid "editor.submission.decision.skipReview"
-msgstr "Samþykkja og hoppa yfir ritrýni"
+msgstr "Samþykkja og sleppa ritrýni"
 
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Senda í framleiðslu"
@@ -1030,10 +1027,10 @@ msgid "editor.submission.decision.decline"
 msgstr "Hafna innsendingu"
 
 msgid "editor.submission.decision.newRound"
-msgstr "Ný ritrýni umferð"
+msgstr "Ný umferð ritrýni"
 
 msgid "editor.submission.decision.resubmit"
-msgstr "Endursenda í ritrýni"
+msgstr "Endurtaka ritrýni"
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Biðja um ritrýni"
@@ -1062,16 +1059,16 @@ msgstr "Synja um breytingar á lýsigögnum"
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
-"Þátttakandinn sem þú valdir hefur verið úthlutað nafnlausri ritrýni.  Ef þú "
-"úthlutar þessum þátttakanda, hefur viðkomandi aðgang til að sjá hver er "
-"höfundur.  Við hvetjum þig til að úthluta ekki þessum þáttakanda nema þú "
-"getir tryggt heilindi ritrýniferlisins."
+"Þátttakandanum sem þú valdir hefur verið úthlutað nafnlausri ritrýni. Með "
+"skráningu þátttakanda í þetta hlutverk, hefur viðkomandi aðgang að nafni "
+"höfnunda(r). Við hvetjum þig til að tryggja heilindi ritrýniferlisins við "
+"úthlutun hlutverka til þátttakenda."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
-msgstr "Þú verður að velja notanda í tilgreindan notendahóp."
+msgstr "Þú verður að velja notanda fyrir tilgreindan notendahóp."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
-msgstr "Þú verður að velja notenda hóp."
+msgstr "Þú verður að velja notendahóp."
 
 msgid "editor.submission.removeStageParticipant.description"
 msgstr ""
@@ -1083,9 +1080,9 @@ msgstr "Fjarlægja þátttakanda"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
-"Notendur eru tengdir við þrep verkferlisins í gegnum notendahóp.  Notanda "
-"úthlutað á þetta þrep mun sjálfkrafa vera úthlutað á önnur þrep sem "
-"notendahópurin þeirra er tengdur við."
+"Notendur eru tengdir við þrep verkferlisins í gegnum notendahóp. Öllum "
+"notendum sem tengdir eru á þetta þrep, verður sjálfkrafa úthlutað á önnur "
+"þau þrep sem tengd eru notendahópi þeirra."
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Breyta úthlutun"
@@ -1103,19 +1100,19 @@ msgid "editor.submission.stageParticipants"
 msgstr "Þátttakendur"
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "Allar ráðleggingar eru komnar og það þarf að taka ákvörðun."
+msgstr "Allar ráðleggingar hafa borist og ákvörðunar er beðið."
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "Nýjar ráðleggingar frá ritstjórn hafa verið sendar inn."
+msgstr "Nýjar ráðleggingar ritstjórnar hafa verið sendar inn."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "Bíður ráðlegginga frá ritstjóra."
+msgstr "Bíður ráðlegginga ritstjóra."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Ritrýni komin fram yfir skiladag."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Allir ritrýnar hafa svarað og það þarf að taka ákvörðun."
+msgstr "Allir ritrýnar hafa svarað og ákvörðunar er beðið."
 
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Engin ritrýni hefur verið send inn."
@@ -1136,10 +1133,10 @@ msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Senda í ytri ritrýni."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Búið er að endursenda innsendinguna fyrir nýja ritrýni umferð."
+msgstr "Búið er að endursenda innsendinguna fyrir nýja umferð ritrýni."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Það þarf að senda innsendinguna aftur inn fyrir aðra ritrýni umferð."
+msgstr "Það þarf að senda innsendinguna aftur inn fyrir næstu umferð ritrýni."
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ritrýni hefur verið send inn."
@@ -1154,12 +1151,12 @@ msgid "submission.upload.proof"
 msgstr "Hlaða inn skrá sem er tilbúin fyrir útgáfu"
 
 msgid "submission.upload.productionReady"
-msgstr "Hlaða inn skrá sem er tilbúin í framleiðslu"
+msgstr "Hlaða inn skrá sem er tilbúin til framleiðslu"
 
 msgid "submission.upload.response.description"
 msgstr ""
-"Eftir ritrýni á úthlutuðu handriti, skráðu athugasemdir í skránna fyrir "
-"neðan, og/eða hladdu upp afriti af skránni með umsögn (eða aðra skrá)."
+"Eftir ritrýni á úthlutuðu handriti, skráðu athugasemdir í skrána fyrir "
+"neðan, og/eða hladdu upp afriti af skránni (eða nýrri skrá) með umsögn."
 
 msgid "submission.upload.uploadFiles"
 msgstr "Hlaða upp skrám"
@@ -1178,11 +1175,11 @@ msgstr "Hlaða inn safnskrá"
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
-"Ef þú ert að hlaða upp breyttu bindi, ættir þú að hlaða upp hverjum kafla "
-"sér, í hlutverki þínu sem ritstjóri bindis."
+"Í hlutverki ritstjóra bindis, ættir þú við upphleðslu á breyttu bindi, að "
+"hlaða hverjum kafla upp fyrir sig."
 
 msgid "submission.upload.userGroup"
-msgstr "Hlaða upp þessari skrá í hlutverki mínu sem...."
+msgstr "Hlaða þessari skrá upp sem (veldu hlutverk)...."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
@@ -1190,30 +1187,30 @@ msgstr ""
 "hvaða skrá."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr "Vinsamlega veldu skránna sem þú vilt endurskoða."
+msgstr "Vinsamlega veldu skrána sem þú vilt endurskoða."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Þetta er ekki endurskoðun á skrá sem til er"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
-"Nafn á skrá sem var hlaðið upp líkist nafni á skrá sem búið er að hlaða upp, "
-"\"{$revisedFileName}.\" Á þessi skrá að koma í staðinn fyrir \""
-"{$revisedFileName}\"? Ef svo er, veldu þá skránna fyrir neðan.  Ef ekki, "
+"Nafn á skrá sem var hlaðið upp líkist nafni á skrá sem áður hefur verið "
+"hlaðið upp, \"{$revisedFileName}.\" Á þessi skrá að koma í staðinn fyrir \""
+"{$revisedFileName}\"? Ef svo er, veldu þá skrána fyrir neðan.  Ef ekki, "
 "veldu þá \"Þetta er ekki endurskoðun á skrá sem til er\" áður en þú heldur "
 "áfram."
 
 msgid "submission.upload.possibleRevision"
-msgstr "Mögulega tvöföldun eða endurskoðað"
+msgstr "Vart varð mögulegrar tvöföldunar eða endurskoðunar"
 
 msgid "submission.upload.invalidUserGroup"
-msgstr "Vantar notendahóp eða hann ógildur!"
+msgstr "Notendahóp vantar eða hann ógildur!"
 
 msgid "submission.upload.noGenre"
-msgstr "Vantar hlut  eða hann ógildur!"
+msgstr "Hlut vantar eða hann ógildur!"
 
 msgid "submission.submit.fileNameRequired"
-msgstr "Þú verður að slá inn nafn á þessa skrá"
+msgstr "Þú verður að slá inn heiti á þessa skrá"
 
 msgid "submission.submit.finishingUpStep"
 msgstr "3. Staðfesta"
@@ -1222,7 +1219,7 @@ msgid "submission.submit.metadataStep"
 msgstr "2. Fara yfir allt"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "Hlaða upp insendingarsrká"
+msgstr "Hlaða upp innsendingarskrá"
 
 msgid "submission.submit.uploadStep"
 msgstr "1. Hlaða upp skrá"
@@ -1261,7 +1258,7 @@ msgid "submission.form.replaceExisting"
 msgstr "Skipta út skrá?"
 
 msgid "submission.form.name"
-msgstr "Gefðu skránni nafn (t.d. Handrit; Tafla 1)"
+msgstr "Gefðu skránni heiti (t.d. Handrit; Tafla 1)"
 
 msgid "submission.submit.form.citationsRequired"
 msgstr "Settu inn heimildir."
@@ -1297,7 +1294,7 @@ msgid "submission.submit.contributorRole"
 msgstr "Hlutverk framlagsaðila"
 
 msgid "submission.submit.selectPrincipalContact"
-msgstr "Aðal tengiliður fyrir samskipti við ritstjórn."
+msgstr "Aðaltengiliður fyrir samskipti við ritstjórn."
 
 msgid "submission.date.yyyymmdd"
 msgstr "AAAA-MM-DD"
@@ -1306,7 +1303,7 @@ msgid "submission.date.mmdd"
 msgstr "MM-DD"
 
 msgid "submission.nameRequired"
-msgstr "Það þarf nafn á þetta atriði."
+msgstr "Það þarf heiti á þetta atriði."
 
 msgid "submission.fileDetails"
 msgstr "Nánar um skrá"
@@ -1327,7 +1324,7 @@ msgid "submission.viewMetadata"
 msgstr "Skoða lýsigögn"
 
 msgid "submission.createRemote"
-msgstr "Búa til fjar"
+msgstr "Búa til fjar-"
 
 msgid "submission.uploadFileTo"
 msgstr "Hlaða upp skrá á"
@@ -1337,12 +1334,12 @@ msgstr "Á leiðinni"
 
 msgid "submission.type.tip"
 msgstr ""
-"Tegund innsendingar er venjulega eitt af eftirfarandi 'mynd', 'texti', eða "
-"aðrar or aðrar margmilunar tegundir, þar á meðal 'hugbúnaður' eða "
-"'gagnvirkt'.  Vinsamlega veldu það sem best á við fyrir þína innsendingu.  "
-"Dæmi má finna á   <a target=\"_blank\" href=\"http://dublincore.org/"
-"documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/"
-"documents/2001/04/12/usageguide/generic.shtml#type</a>"
+"Tegund innsendingar er venjulega eitt af eftirfarandi: 'mynd', 'texti', eða "
+"aðrar margmiðlunartegundir, þ.m.t. 'hugbúnaður' eða 'gagnvirkt'.  Vinsamlega "
+"veldu það sem best á við fyrir þína innsendingu.  Dæmi má finna á   <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titill og útdráttur"
@@ -1354,13 +1351,13 @@ msgid "submission.currentAgencies"
 msgstr "Umboðsaðili"
 
 msgid "submission.supportingAgencies"
-msgstr "Stuðnings umboðsaðilar"
+msgstr "Stuðningsumboðsaðilar"
 
 msgid "submission.summary"
 msgstr "Samantekt"
 
 msgid "submission.upload.query"
-msgstr "Hladd upp umræðuskrá"
+msgstr "Hladdu upp umræðuskrá"
 
 msgid "submission.upload.dependent"
 msgstr "Hladdu upp tengdum skrám"
@@ -1370,8 +1367,8 @@ msgstr "Upphleðslu {$percent}% lokið"
 
 msgid "submission.upload.instructions"
 msgstr ""
-"Hladdu upp öllum skrám sem ritstjórnar teymið þarfnast til að leggja mat á "
-"handritið þitt."
+"Hladdu upp öllum skrám sem ritstjórnarteymið þarf til að leggja mat á "
+"handrit þitt."
 
 msgid "submission.manageDependentFiles"
 msgstr "Stýra tengdum skrám"
@@ -1384,8 +1381,8 @@ msgstr "Innsendingarskrár"
 
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
-"Tekið er á móti handritum á fleiri en einu tungumáli.  Veldu frum tungumál "
-"fyrir innsendinguna af fellivalinu fyrir ofan."
+"Tekið er á móti handritum á fleiri en einu tungumáli.  Veldu frumtungumál "
+"fyrir innsendinguna af fellilistanum hér fyrir ofan."
 
 msgid "submission.submit.submissionLocale"
 msgstr "Tungumál innsendingar"
@@ -1396,7 +1393,7 @@ msgstr ""
 "hugtak."
 
 msgid "submission.submit.metadataForm"
-msgstr "Viðbótar fíniseringar"
+msgstr "Viðbótarhreinsanir"
 
 msgid "submission.submit.newFile"
 msgstr "Bæta við annarri skrá"
@@ -1405,7 +1402,7 @@ msgid "submission.submit.includeInBrowse.title"
 msgstr "Listi yfir útgefið efni"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Haffa þennan aðila með á lista yfir höfunda á útgefnu efni."
+msgstr "Hafa þennan aðila meðal höfunda á lista yfir útgefið efni."
 
 msgid "submission.submit.fileAdded"
 msgstr "Skrá bætt við"
@@ -1451,20 +1448,20 @@ msgstr "Senda inn"
 
 msgid "submission.source.tip"
 msgstr ""
-"Á þessi innsending rætur að rekja til annarrar auðindar?  Ef svo, þá getur "
-"þú skráð vefslóð eða lýsingu á þeirri auðlind."
+"Á þessi innsending rætur að rekja til annars uppruna?  Ef svo er, þá getur "
+"þú skráð vefslóð eða lýsingu á því hvaðan hún er fengin."
 
 msgid "submission.source"
 msgstr "Uppruni"
 
 msgid "submissions.ruling"
-msgstr "Ráðandi / Niðurstaða"
+msgstr "Ráðandi niðurstaða"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Engum ritstjóra hefur verið úthlutað á þessa innsendingu."
+msgstr "Ritstjóra hefur ekki verið úthlutað á þessa innsendingu."
 
 msgid "submissions.queued"
-msgstr "Í Röð"
+msgstr "Í röð"
 
 msgid "submissions.queuedEditing"
 msgstr "Í ritstýringu"
@@ -1489,14 +1486,14 @@ msgstr "Virkt"
 
 msgid "submission.rights.tip"
 msgstr ""
-"Ef þú óskar, þá getur þú slegið inn stutta yfirlýsingu um aðgengis réttindi "
-"í eða yfir þessari innsendingu."
+"Hér getur þú valið að slá inn stutta yfirlýsingu um aðgengisréttindi "
+"varðandi þessa innsendingu."
 
 msgid "submission.rights"
 msgstr "Réttindi"
 
 msgid "submission.reviewVersion"
-msgstr "Ritrýni útgáfa"
+msgstr "Ritrýniútgáfa"
 
 msgid "submission.reviewed"
 msgstr "Ritrýnt"
@@ -1529,7 +1526,7 @@ msgid "submission.peerReview"
 msgstr "Jafningja&nbsp;ritrýni"
 
 msgid "submission.page.citations"
-msgstr "#{$id} Tilvitnanir"
+msgstr "#{$id} tilvitnanir"
 
 msgid "submission.page.summary"
 msgstr "#{$id} samantekt"
@@ -1574,7 +1571,7 @@ msgid "submission.notes.createNewNote"
 msgstr "Búa til nýjan minnispunkt"
 
 msgid "submission.notes.confirmDelete"
-msgstr "Fjarlgæja þennan minnispunkt innsendingar?"
+msgstr "Fjarlægja þennan minnispunkt innsendingar?"
 
 msgid "submission.notes.confirmDeleteAll"
 msgstr "Fjarlægja alla minnispunkta innsendingar?"
@@ -1598,7 +1595,7 @@ msgid "submission.notes.addNewNote"
 msgstr "Bæta við nýjum minnispunkti"
 
 msgid "submission.noReviewAssignments"
-msgstr "Engar ritrýni úthlutanir"
+msgstr "Engar ritrýniúthlutanir"
 
 msgid "submission.metadata"
 msgstr "Lýsigögn innsendingar"
@@ -1607,7 +1604,7 @@ msgid "submission.layout.viewProof"
 msgstr "Skoða próförk"
 
 msgid "submission.layout.viewingGalley"
-msgstr "Skoða insendingar galley"
+msgstr "Skoða innsendingargalley"
 
 msgid "submission.layout.noStyleFile"
 msgstr "Engu stílsniði hefur verið bætt við þetta galley."
@@ -1616,7 +1613,7 @@ msgid "submission.layout.newGalley"
 msgstr "Stofna nýtt Galley"
 
 msgid "submission.layout.layoutVersion"
-msgstr "Umbrot útgáfa"
+msgstr "Umbrotsútgáfa"
 
 msgid "submission.layout"
 msgstr "Umbrot/Útlit"
@@ -1655,7 +1652,7 @@ msgid "submission.layout.galleyLabelRequired"
 msgstr "Galley kennimerki er áskilið."
 
 msgid "submission.layout.galleyLabelInstructions"
-msgstr "Týpískt notað til að skilgreina skráarsnið (t.d. PDF, HTML o.s.frv.)."
+msgstr "Gjarnan notað til að skilgreina skráarsnið (t.d. PDF, HTML o.s.frv.)."
 
 msgid "submission.layout.galleyLabel"
 msgstr "Galley kennimerki"
@@ -1679,7 +1676,7 @@ msgid "submission.licenseURL"
 msgstr "Leyfi - vefslóð"
 
 msgid "submission.licenseURLValid"
-msgstr "Vinsamlega sláðu inn gilda ytri vefslóð (hafðu með http://)."
+msgstr "Vinsamlega sláðu inn gilda ytri vefslóð (hafðu http:// með)."
 
 msgid "submission.copyrightStatement"
 msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
@@ -1712,32 +1709,34 @@ msgid "grid.action.editMetadata"
 msgstr "Breyta lýsigögnum"
 
 msgid "grid.action.createReviewFormElement"
-msgstr "Stofna nýtt atriði fyrir ritrýni eyðublað"
+msgstr "Stofna nýtt atriði fyrir ritrýnieyðublað"
 
 msgid "submission.reviewFormResponse"
-msgstr "Ritrýni eyðublað - svör"
+msgstr "Ritrýnieyðublað - svör"
 
 msgid "submission.reviewForm"
-msgstr "Ritrýni eyðublað"
+msgstr "Ritrýnieyðublað"
 
 msgid "notification.type.editorAssignmentEditing"
 msgstr ""
-"Úthluta þarf framleiðsu ritstjóra áður en hægt er að hefja ritstjórnarferli. "
-"Vinsamlega bættu við framleiðslu ritstjóra af þátttakendalistanum."
+"Úthluta þarf framleiðslunni ritstjóra áður en hægt er að hefja "
+"ritstjórnarferli. Vinsamlega veldu framleiðsluritstjóra af "
+"þátttakendalistanum."
 
 msgid "notification.type.editorAssignmentProduction"
 msgstr ""
-"Úthluta þarf framleiðsu ritstjóra áður en hægt er að hefja framleiðsluferli. "
-"Vinsamlega bættu við framleiðslu ritstjóra af þátttakendalistanum."
+"Úthluta þarf framleiðslunni ritstjóra áður en hægt er að hefja "
+"framleiðsluferli. Vinsamlega veldu framleiðsluritstjóra af "
+"þátttakendalistanum."
 
 msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Framleiðsluferli hafið."
 
 msgid "grid.action.itemWorkflow"
-msgstr "Fara í verkferli þessarar innsendingar"
+msgstr "Fara í verkferli innsendingar"
 
 msgid "submission.supplementary.sponsor"
-msgstr "Stuðnings umboðsaðili"
+msgstr "Stuðningsumboðsaðili"
 
 msgid "submission.supplementary.publisher"
 msgstr "Útgefandi"
@@ -1749,7 +1748,7 @@ msgid "submission.supplementary.creator"
 msgstr "Skrá búin til af/eigandi"
 
 msgid "submission.supplementary"
-msgstr "Viðbótar innihald"
+msgstr "Viðbótarinnihald"
 
 msgid "submission.art"
 msgstr "Listaverk"
@@ -1758,8 +1757,7 @@ msgid "submission.document"
 msgstr "Skjal"
 
 msgid "submission.review.status.thanked"
-msgstr ""
-"Þessari ritrýni er lokið og búið er að þakka ritrýninum fyrir sitt framlag."
+msgstr "Þessari ritrýni er lokið og búið er að þakka ritrýninum þeirra framlag."
 
 msgid "submission.review.status.complete"
 msgstr "Þessari ritrýni er lokið."
@@ -1777,25 +1775,25 @@ msgid "submission.review.status.responseOverdue"
 msgstr "Ritrýnir er kominn fram yfir skiladag viðbragða."
 
 msgid "submission.review.status.declined"
-msgstr "Ritrýnir hafnaði þessari beiðni um ritrýni."
+msgstr "Ritrýnir hafnaði beiðni um ritrýni."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Beðið eftir viðbrögðum frá ritrýni."
 
 msgid "log.review.reviewReady"
 msgstr ""
-"{$reviewerName} hefur lokið ritrýni fyrir umferð {$round} fyrir innsendingu "
+"{$reviewerName} hefur lokið ritrýniumferð {$round} fyrir innsendingu "
 "{$submissionId}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Ristjórinn {$userName} hefur staðfest ritrýni fyrir umferð {$round} fyrir "
-"innsendingu {$submissionId}."
+"Ristjórinn {$userName} hefur staðfest ritrýni fyrir  {$round} umferð "
+"innsendingar {$submissionId}."
 
 msgid "log.review.reviewReinstated"
 msgstr ""
-"Umferð {$round} ritrýnt af {$reviewerName} fyrir innsendingu {$submissionId} "
-"hefur verið sett aftur af stað."
+"Rýni {$reviewerName} á {$round} umferð innsendingar {$submissionId} hefur "
+"verið sett aftur af stað."
 
 msgid "log.review.reviewUnconsidered"
 msgstr ""
@@ -1825,7 +1823,7 @@ msgid "grid.reviewAttachments.title"
 msgstr "Viðhengi ritrýnis"
 
 msgid "notification.type.revertDecline"
-msgstr "Ákvörðuninni um að hafna þessari innsendingu var snúið við."
+msgstr "Ákvörðun um höfnun innsendingar snúið."
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Ný útgáfa af innsendingu var búin til"
@@ -1839,13 +1837,13 @@ msgid "notification.uploadedResponse"
 msgstr "Svörum hlaðið upp."
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Höfnuð innsending endurvirkjuð."
+msgstr "Endurvirkjun innsendingar sem hafði verið hafnað."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Innsendingu hafnað."
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr "Ný umferð af ritrýni hefur verið sett af stað."
+msgstr "Ný umferð ritrýni hefur verið sett af stað."
 
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Senda aftur í ritrýni."
@@ -1863,16 +1861,17 @@ msgid "notification.type.editorDecisionTitle"
 msgstr "Síðasta ákvörðun ritstjóra."
 
 msgid "notification.type.indexRequest"
-msgstr "Þú hefur berið beðinn um að lykla \"{$title}\"."
+msgstr "Óskað er eftir lyklun frá þér fyrir \"{$title}\"."
 
 msgid "notification.type.layouteditorRequest"
-msgstr "Þú hefur verið beðinn um að rýna umbrot fyrir \"{$title}\"."
+msgstr "Óskað er eftir rýni frá þér fyrir umbrot \"{$title}\"."
 
 msgid "notification.type.copyeditorRequest"
-msgstr "Þú hefur verið beðinn um að rýna yfirfarna skrá fyrir \"{$title}\"."
+msgstr "Óskað er eftir rýni frá þér fyrir yfirfarna skrá \"{$title}\"."
 
 msgid "notification.type.editorAssign"
-msgstr "Þér hefur verið úthlutað sem ritstjóra á innsendingu \"{$title}\"."
+msgstr ""
+"Þér hefur verið úthlutað hlutverki ritstjóra á innsendingu \"{$title}\"."
 
 msgid "submission.documents"
 msgstr "Innsendingarskjöl"
@@ -1899,8 +1898,8 @@ msgstr ""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) var fjarlægð(ur) sem endurskoðandi fyrir skrá \""
-"{$file}.\""
+"Notandinn \"{$name}\" ({$username}) var fjarlægður sem endurskoðandi fyrir "
+"skrána \"{$file}.\""
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
@@ -1918,7 +1917,7 @@ msgstr ""
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Endurskoðuð skrá \"{$originalFileName}\" var hlaðið upp fyrir innsendingu "
+"Endurskoðaðri skrá \"{$originalFileName}\" var hlaðið upp fyrir innsendingu "
 "{$submissionId} af {$username}."
 
 msgid "submission.event.fileDeleted"
@@ -1936,7 +1935,7 @@ msgstr ""
 "Lýsigögnum fyrir skránna \"{$originalFileName}\" var breytt af {$username}."
 
 msgid "editor.submission.addAuditorError"
-msgstr "Það kom upp villa við að skrá höfundinn. Vinsamlega reyndu aftur."
+msgstr "Það kom upp villa við skráningu höfundar. Vinsamlega reyndu aftur."
 
 msgid "submission.finalDraft"
 msgstr "Drög"
@@ -1945,10 +1944,10 @@ msgid "submission.submit.currentFile"
 msgstr "Núverandi skrá"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Ritrýni skrár"
+msgstr "Ritrýniskrár"
 
 msgid "submission.actionNeeded"
-msgstr "Þarfnast aðgerðar"
+msgstr "Þarfnast aðgerða"
 
 msgid "submission.noActionRequired"
 msgstr "Engra aðgerða er þörf"
@@ -2009,7 +2008,7 @@ msgstr ""
 "Vefslóðin hefur verið notuð nú þegar og ekki er hægt að nota hana aftur."
 
 msgid "publication.urlPath.description"
-msgstr "Valkvæð slóð að nota í vefslóðinni í stað kennis."
+msgstr "Valkvæð slóð til að nota í vefslóðinni í stað kennis."
 
 msgid "publication.urlPath"
 msgstr "Vefslóð"
@@ -2033,7 +2032,7 @@ msgid "publication.event.versionCreated"
 msgstr "Ný útgáfa var stofnuð."
 
 msgid "publication.datePublished.errorFormat"
-msgstr "Dagsetningin þarf að vera á sniði AAAA-MM-DD, eins og 2019-01-24."
+msgstr "Dagsetningin þarf að vera á sniði AAAA-MM-DD, eins og 2022-09-24."
 
 msgid "publication.createVersion"
 msgstr "Búa til nýja útgáfu"
@@ -2078,13 +2077,13 @@ msgid "submission.list.assignEditor"
 msgstr "Úthluta ritstjóra"
 
 msgid "submission.list.daysSinceLastActivity"
-msgstr "Dagar síðan síðasta aðgerð"
+msgstr "Dagar frá síðustu aðgerð"
 
 msgid "submission.list.activity"
 msgstr "Aðgerð"
 
 msgid "submission.list.currentStage"
-msgstr "Núna á {$stage} þrepi."
+msgstr "Á {$stage} þrepi eins og er."
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Þessari innsendingu þarf að ljúka áður en ritstjóri skoðar hana."
@@ -2107,7 +2106,7 @@ msgid "submission.list.filesPrepared"
 msgstr "Undirbúnar skrár"
 
 msgid "submission.list.galleysCreated"
-msgstr "Framleiðslu galley stofnað"
+msgstr "Framleiðslugalley stofnað"
 
 msgid "submission.list.copyeditsSubmitted"
 msgstr "Yfirfarnar skrár sendar inn"
@@ -2128,4 +2127,4 @@ msgid "submission.list.reviewCancelled"
 msgstr "Hætt við ritrýni"
 
 msgid "submission.list.reviewComplete"
-msgstr "Ritrýni send inn"
+msgstr "Ritrýni skilað"

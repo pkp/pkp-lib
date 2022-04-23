@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "sl_SI/>\n"
@@ -218,3 +219,57 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "API žeton ne more biti preverjen. To lahko pomeni napako v API žetonu ali da "
 "API žeton ni več veljaven."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Podati morate ID kroga recenzije, ko premikate datoteko v to fazo datoteke."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Podana faza datoteke ni veljavna."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Ne morete shraniti odločitve ali priporočila odločitve za ta prispevek, ker "
+"je bil že objavljen."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "Eden ali več objavljenih objektov je bil vključen v zahtevo."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "V zahtevi ni bilo nobenega veljavnega objaljvenega objekta."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Nekateri elementi niso bili uspešno deponirani. Prosimo preverite vsak "
+"element posebej za specifične napake."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Prišlo je do napake in nekateri oddani elementi niso bili označeni kot "
+"registrirani."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Prišlo je do napake pri XML preverjanju, zato XML-ja ni mogoče izvoziti."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Prišlo je do napake. DOI za element ni bilo mogoče ustvariti."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Neobjavljeni elementi ne morejo biti izvoženi ali deponirani. Prosimo "
+"odznačite neobjavljene elemente in poskusite ponovno."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Zahtevani DOI ni bil najden."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Ta končna točka ni na voljo v imenskem prostoru celotnega spletnega mesta in "
+"jo je treba zahtevati za dani kontekst."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Ne morete urejati DOI elementa, ki ni v tem kontekstu"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Navesti morate zadevo in vsebino emaila."

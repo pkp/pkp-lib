@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2020-12-14 10:13+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sl_SI/>\n"
@@ -438,7 +439,9 @@ msgid "user.preferredPublicName"
 msgstr "Želeno javno ime"
 
 msgid "user.preferredPublicName.description"
-msgstr "Kako želite biti naslovljeni? Dodate lahko naziv, srednje ime in pripone, ki bi jih želeli."
+msgstr ""
+"Navedite polno ime, kot naj bo avtor prikazan na objavljenem delu. Primer: "
+"Dr. Alan P. Mwandenga"
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "Ime je obvezno."

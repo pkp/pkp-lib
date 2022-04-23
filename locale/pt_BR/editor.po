@@ -1,10 +1,11 @@
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -66,7 +67,7 @@ msgid "editor.submissionReview.reviewType"
 msgstr "Tipo de avaliação"
 
 msgid "editor.submissionReview.skipEmail"
-msgstr "Não enviar email ao autor"
+msgstr "Não envie uma notificação por e-mail ao autor"
 
 msgid "editor.submissionReview.open"
 msgstr "Abrir"
@@ -132,7 +133,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Erro ao enviar agradecimento ao avaliador"
 
 msgid "editor.review.skipEmail"
-msgstr "Não enviar email ao avaliador."
+msgstr "Não enviar e-mail ao avaliador."
 
 msgid "editor.review.sendReminder"
 msgstr "Enviar Lembrete"
@@ -381,7 +382,7 @@ msgid "reviewer.list.reassign"
 msgstr "Reatribuir"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Esse avaliador já foi designado para avaliar essa submissão."
+msgstr "Esse avaliador já foi designado para avaliar esta rodada de avaliação."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -498,3 +499,96 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "Uma discussão não pode ser criada com os participantes selecionados por que "
 "isso impactaria o anonimato do processo de avaliação."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Você não tem permissão para registrar esta decisão nesta submissão."
+
+msgid "editor.decision.stepError"
+msgstr "Houve um problema na etapa {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "Ignorar este e-mail"
+
+msgid "editor.decision.recordDecision"
+msgstr "Gravar Decisão"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Esta etapa foi ignorada e nenhum e-mail será enviado."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Não ignore este e-mail"
+
+msgid "editor.decision.completeSteps"
+msgstr "Conclua as etapas a seguir para tomar essa decisão"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Tem certeza de que deseja cancelar esta decisão?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Cancelar Decisão"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
+"As revisões devem ser submetidas a uma nova rodada de avaliação por pares."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+"As revisões não devem estar sujeitas a uma nova rodada de avaliação por "
+"pares."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Esta decisão não foi encontrada. Forneça um tipo de decisão reconhecido."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Não foi possível tomar uma decisão sobre esta submissão. O ID da submissão "
+"está ausente ou não corresponde à submissão solicitada."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Uma recomendação não pode ser feita a menos que um editor seja designado "
+"para esta etapa que possa tomar uma decisão final."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Um ID da rodada de avaliação deve ser fornecido para tomar essa decisão."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Você deve ser designado para esta submissão para registrar uma decisão "
+"editorial."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"A submissão não está no estágio apropriado do fluxo de trabalho para tomar "
+"essa decisão."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Esta rodada de avaliação não faz parte desta submissão."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Foi providenciada uma rodada de avaliação, mas essa decisão não é tomada "
+"durante uma fase de avaliação."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Não foi possível encontrar esta rodada de avaliação."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+"Você não pode enviar um e-mail para os seguintes destinatários: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"O editor não foi reconhecido e pode não ter permissão para registrar uma "
+"decisão sobre esta submissão."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Atribuído à rodada anterior"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Reatribuir {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Este avaliador completou uma avaliação na última rodada."

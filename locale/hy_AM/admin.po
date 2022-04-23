@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-04-09 16:07+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -86,10 +87,10 @@ msgstr ""
 "կարգավորել  <tt>config.inc.php</tt> ֆայլը."
 
 msgid "admin.clearTemplateCache"
-msgstr "Մաքրել  Template-ի քեշը"
+msgstr "Ջնջել ձևանմուշ քեշը"
 
 msgid "admin.clearDataCache"
-msgstr "Մաքրել տվյալների քեշը"
+msgstr "Ջնջել տվյալների քեշը"
 
 msgid "admin.authSources"
 msgstr "Նույնականացման աղբյուր"
@@ -296,10 +297,10 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Գրախոսության հիշեցում"
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Հրապարակել  պլանավորված հոդվածները"
+msgstr "Հրապարակել  ներկայացված հոդվածները"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Մաքրել պլանավորված առաջադրանքների կատարման գրանցամատյանները"
+msgstr "Մաքրել պլանավորված առաջադրանքների գրանցամատյանները"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -353,17 +354,16 @@ msgstr "Արգելել մասսայական էլ․ նամակների ուղա�
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
-"Պատճենեք փոխանցված apache մուտքի մատյան ֆայլ(ներ)ը՝ զտելով այս տեղադրման հետ "
+"Պատճենեք փոխանցված apache մուտքի մատյանի նիշք(եր)ը՝ զտելով այս տեղադրման հետ "
 "կապված գրառումները,\n"
-"ընթացիկ ֆայլերի գրացուցակում, UsageStatsPlugin փուլային գրացուցակի ներսում: "
-"Պետք է գործարկվի օգտվողի տակ, որն ունի բավարար արտոնություններ՝ կարդալու "
-"մուտքի apache մատյան ֆայլերը:\n"
-"\n"
-"Այս գործիքը պատճենելու է միայն այն ֆայլերը, որոնք դեռևս չեն գտնվում "
-"usageStats ֆայլերի բեռնիչի գրացուցակներում (փուլ, մշակում, արխիվ, մերժում):\n"
+"ընթացիկ նիշքերի գրացուցակում, UsageStatsPlugin փուլային գրացուցակի ներսում: "
+"Պետք է գործարկվի օգտվողի կողմից, որն ունի բավարար արտոնություններ՝ կարդալու "
+"մուտքի apache մատյան նիշքերը:\n"
+"Այս գործիքը պատճենելու է միայն այն նիշքերը, որոնք դեռևս չեն գտնվում "
+"usageStats նիշքերի բեռնիչի գրացուցակներում (փուլ, մշակում, արխիվ, մերժում):\n"
 "\n"
 "Օգտագործում՝ {$scriptName} path/to/apache/log/file.log\n"
-"Օգտագործում (բոլոր ֆայլերի մշակումը գրացուցակի ներսում). {$scriptName} path/"
+"Օգտագործում (բոլոր նիշքերի մշակումը գրացուցակի ներսում): {$scriptName} path/"
 "to/apache/directory\n"
 "\t"
 
@@ -372,3 +372,165 @@ msgstr "Մասսայական էլ․ նամակ"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Խմբագրական զեկույցի մասին ծանուցում"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.createdAt"
+msgstr "Ստեղծված է {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Ստեղծված է"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Փորձեր"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Հերթ"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Աշխատանք"
+
+msgid "navigation.tools.jobs"
+msgstr "Աշխատանքներ"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Դիտեք հերթագրված աշխատանքները"
+
+msgid "admin.jobs.totalCount"
+msgstr "Հերթում ընդհանուր առմամբ կա <strong>{$total}</strong> աշխատանք(ներ)"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Դուք նկատի ունեի՞ք հետևյալներից մեկը."
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Տարբերակ {$option} գոյություն չունի:"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Մենք ունենք {$total} հերթագրված աշխատանք"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Ջնջված են բոլոր աշխատանքները:"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Անհնար էր ջնջել բոլոր աշխատանքները:"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Աշխատանքը ջնջվեց:"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Աշխատանքի անվավեր ID"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Այս հրամանն օգտագործելու համար դուք պետք է փոխանցեք առնվազն Job ID, '--all' "
+"կամ '--queue='"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Հաջորդ"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Նախորդ"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Ընթացիկ"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Էջակալում"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Ստեղծված է"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Հասանելի է"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Ամրագրված է"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Փորձեր"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Աշխատանքի ցուցադրման անվանումը"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Հերթ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Հերթագրված աշխատանքներ"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Տարբերակը չէր կարող դատարկ լինել: Ստուգեք օգտագործման եղանակը:"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Ցուցադրել Jobs օգտագործման պարամետրերը"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Ցուցադրել Jobs հրամանի օգտագործումը"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Ցուցադրել հերթագրված աշխատանքների քանակը"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Ավելացրեք փորձնական աշխատանք լռելյայն հերթում"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Մաքրել որոշակի հերթագրված աշխատանք՝ հիմնվելով նրա ID-ի վրա: Եթե ցանկանում եք "
+"մաքրել բոլորը, փոխանցեք --all պարամետրը: Եթե ցանկանում եք մաքրել բոլորը "
+"որոշակի հերթից, փոխանցեք --queue= պարամետրը"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Թվարկեք հերթագրված բոլոր աշխատանքները: Եթե ցանկանում եք էջանշել "
+"արդյունքները, օգտագործեք --page= և --perPage= պարամետրերը"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Հասանելի հրամաններ `{$namespace}` անվանատարածքի համար:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "հրաման [arguments]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Օգտագործում:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Ավանդադրեք DOI-ներ կազմաձևված գրանցման գործակալությունում"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Դիտեք աշխատանքները"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Դիտեք համակարգում հերթագրված բոլոր աշխատանքները և հետևեք ձախողված փորձերին:"
+
+msgid "admin.systemInformation.view"
+msgstr "Դիտեք համակարգի տեղեկատվությունը"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Դիտեք հավելվածի և սպասարկող կայանի տարբերակի և կազմաձևման կարգավորումների "
+"մասին տեղեկատվությունը:"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Ջնջել առաջադրանքների գրանցամատյանները"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Ջնջել պլանավորված առաջադրանքների գործընթացների բոլոր մատյանները, որոնք "
+"գործարկվել են:"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Բոլոր օգտատերերն, այդ թվում և դուք, անմիջապես դուրս կգաք հավելվածից, և պետք "
+"է նորից մուտք գործեք:"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Ջնջել քեշի նիշքերը համակարգից: Դա պետք է արվի միայն զարգացման միջավայրում:"
+
+msgid "admin.deleteCache"
+msgstr "Ջնջել քեշերը"

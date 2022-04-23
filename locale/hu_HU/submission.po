@@ -1,10 +1,10 @@
-# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-09-22 08:06+0000\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hu_HU/>\n"
@@ -1153,7 +1153,9 @@ msgid "submission.submit.fileAdded"
 msgstr "Fájl hozzáadva"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "A közreműködő legyen benne a böngészhető listákban?"
+msgstr ""
+"Ennek a közreműködőnek a felvétele, amikor a szerzőket meghatározza a "
+"publikációs listákban."
 
 msgid "submission.submit.newFile"
 msgstr "Másik fájl hozzáadása"
@@ -2249,3 +2251,133 @@ msgid "submission.upload.instructions"
 msgstr ""
 "Töltsön fel minden olyan fájlt, amelyre a szerkesztőségnek szüksége lesz a "
 "kézirat értékeléséhez."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Ez a kézirat szakmai lektorálásra alkalmas."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Szakmai lektorálásra küldés"
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Átdolgozás igényelve"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Átdolgozás igényelve ehhez a kézirathoz, {$title},."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Átdolgozás igényelve"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} átdolgozást igényelt ennél a kéziratnál."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"A szerzőnek átdolgozást kell benyújtania, mielőtt ezt a beadványt "
+"publikálásra elfogadják."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Fájlok kiválasztása a közzétételi szakaszhoz."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Fájlok kiválasztása a szakmai lektoráláshoz."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Fájlok kiválasztása az olvasószerkesztői szakaszhoz."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"E-mail küldése a szerzőknek arról, hogy kéziratuk egy újabb bírálati "
+"szakaszba lett küldve."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "Egy új bírálati szakasz létrehozva ehhez a kézirathoz, {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Bírálati szakasz létrehozva"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} létrehozott egy új bírálati szakaszt ehhez a kézirathoz."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Új bírálati szakasz indítása ehhez a kézirathoz."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Új bírálati szakasz"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Ezt a kéziratot nem lesz elfogadva közlésre. További felülvizsgálata nem "
+"lesz, archiválásra kerül."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"E-mail küldése a szerzőknek arról, hogy a kéziratuk vissza lett utasítva."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "A kézirat, {$title}, vissza lett utasítva, majd archiválva lett."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Kézirat visszautasítva"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} visszautasította ezt a kéziratot."
+
+msgid "category.category"
+msgstr "Kategóriák"
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Állítsa vissza a beadvány elfogadására vonatkozó döntést, és küldje vissza a "
+"benyújtási szakaszba."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"E-mail küldése a szerzőknek arról, hogy a kéziratuk vissza lett helyezve "
+"kézirat státuszba. Indokolja meg, hogy miért született meg ez a döntés, és "
+"írja le a szerzőnek, hogy milyen további változtatásokat kell elvégeznie "
+"ahhoz, hogy ez státusz megváltozzon."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "A kézirat, {$title}, vissza lett helyezve kézirat státuszba."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Visszaküldve a kézirat státuszba"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Vissza a kézirat státuszba"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"E-mail küldése a szerzőknek arról, hogy a kéziratuk el lett fogadva közlésre."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"A kézirat, {$title}, el lett fogadva közlésre és el lett küldve az "
+"olvasószerkesztői szakaszba."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Kézirat elfogadva"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} elfogadta ezt a kéziratot, és tovább küldte a "
+"olvasószerkesztési szakaszba."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Ez a kézirat el lehet fogadva megjelentetésre, és tovább lett küldve az "
+"olvasószerkesztőnek."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"E-mail küldése a szakmai lektoroknak, köszönettel a bírálataikért és "
+"értesítéssel arról, hogy a döntés megszületett."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Szakmai lektorok értesítése"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Szerzők értesítése"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Publikációk listája"

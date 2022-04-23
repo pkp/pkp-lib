@@ -1,10 +1,10 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-09-15 11:20+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -2109,3 +2109,107 @@ msgstr ""
 
 msgid "validation.invalidOption"
 msgstr "Esta não é uma opção válida."
+
+msgid "list.collapseAll"
+msgstr "Recolher todos"
+
+msgid "list.expandAll"
+msgstr "Expandir todos"
+
+msgid "timeZone"
+msgstr "Fuso horário"
+
+msgid "email.attachmentNotFound"
+msgstr "O ficheiro {$fileName} não pôde ser anexado."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Anexar ficheiros enviados pelos revisores"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Anexar Ficheiros de Revisão"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Anexar ficheiros da Biblioteca da Submissão e da Editora."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Anexar Ficheiros da Biblioteca"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Ficheiros da Biblioteca"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Anexar ficheiros enviados durante o fluxo de trabalho da submissão, tal como "
+"revisões ou ficheiros para serem revistos."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Anexar ficheiros enviados pelo autor na etapa de submissão."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Anexar Ficheiros de Submissão"
+
+msgid "common.viewError"
+msgstr "Ver Erro"
+
+msgid "common.upload.addFile.description"
+msgstr "Inserir um ficheiro a partir do seu computador."
+
+msgid "common.switchTo"
+msgstr "Alterar para"
+
+msgid "common.showAllSteps"
+msgstr "Mostrar todas as etapas"
+
+msgid "common.searching"
+msgstr "A procurar"
+
+msgid "common.numberedMore"
+msgstr "{$number} mais"
+
+msgid "common.keepWorking"
+msgstr "Continuar a trabalhar"
+
+msgid "common.loadTemplate"
+msgstr "Carregar um Modelo"
+
+msgid "common.findTemplate"
+msgstr "Procurar Modelo"
+
+msgid "common.deselect"
+msgstr "Desmarcar"
+
+msgid "common.attachFiles"
+msgstr "Anexar Ficheiros"
+
+msgid "common.attachedFiles"
+msgstr "Ficheiros Anexados"
+
+msgid "common.addCCBCC"
+msgstr "Adicionar CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Deseja realmente alterar para {$localeName} para compor este e-mail? "
+"Quaisquer alterações que tiver feito ao assunto e texto do e-mail serão "
+"perdidas."
+
+msgid "common.switchToNamedItem"
+msgstr "Mudar para {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Ou carregue um ficheiro"
+
+msgid "common.dragAndDropHere"
+msgstr "Arrastar e largar ficheiros aqui."
+
+msgid "common.attachSelected"
+msgstr "Anexo Selecionado"
+
+msgid "common.addFiles"
+msgstr "Adicionar Ficheiros"
+
+msgid "common.insertContentSearch"
+msgstr "Encontrar conteúdo para inserir"
+
+msgid "common.insertContent"
+msgstr "Inserir Conteúdo"

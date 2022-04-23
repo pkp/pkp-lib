@@ -22,6 +22,8 @@ namespace PKP\plugins\importexport;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
+use Exception;
+use Error;
 
 class PKPImportExportDeployment
 {

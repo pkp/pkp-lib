@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-01-10 09:39+0000\n"
+"PO-Revision-Date: 2022-02-23 13:26+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -2374,3 +2374,33 @@ msgstr "Yeni Tartışma Mesajı"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Birincil iletişim kişisinin e-postası"
+
+msgid "manager.setup.dois"
+msgstr "DOI'ler"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "DOI'leri etkinleştir"
+
+msgid "manager.setup.dois.registration"
+msgstr "Kayıt"
+
+msgid "manager.setup.dois.setup"
+msgstr "Ayar"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Otomatik aktarımı aktifleştir"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Otomatik Aktar"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI Öneki"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Otomatik DOI Yarat"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Asla"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI öneki"

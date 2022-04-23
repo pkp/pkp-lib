@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1651,7 +1651,7 @@ msgid "validator.unique"
 msgstr "{$attribute} já está em uso."
 
 msgid "validator.timezone"
-msgstr "Este não é um fuso válido."
+msgstr "Este não é um fuso horário válido."
 
 msgid "validator.string"
 msgstr "Esta não é uma cadeia válida."
@@ -2109,3 +2109,107 @@ msgstr "Permitido apenas letras, números, traços, sublinhados e pontos."
 
 msgid "validation.invalidOption"
 msgstr "Opção inválida."
+
+msgid "list.collapseAll"
+msgstr "Recolher todos"
+
+msgid "list.expandAll"
+msgstr "Expandir todos"
+
+msgid "timeZone"
+msgstr "Fuso horário"
+
+msgid "email.attachmentNotFound"
+msgstr "O arquivo {$fileName} não pôde ser anexado."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Anexar arquivos enviados por avaliadores"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Anexar arquivos de avaliação"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Anexe arquivos de submissões e publicações à biblioteca."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Anexar arquivos da biblioteca"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Arquivos de biblioteca"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Anexe arquivos carregados durante o fluxo de trabalho de submissão, como "
+"revisões ou arquivos a serem revisados."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Anexe os arquivos enviados pelo autor na etapa de submissão."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Anexar arquivos de submissão"
+
+msgid "common.viewError"
+msgstr "Ver erro"
+
+msgid "common.upload.addFile.description"
+msgstr "Carregue um arquivo do seu computador."
+
+msgid "common.switchTo"
+msgstr "Alternar para"
+
+msgid "common.showAllSteps"
+msgstr "Mostrar todas as etapas"
+
+msgid "common.searching"
+msgstr "Pesquisando"
+
+msgid "common.numberedMore"
+msgstr "{$number} mais"
+
+msgid "common.keepWorking"
+msgstr "Continue trabalhando"
+
+msgid "common.loadTemplate"
+msgstr "Carregar um modelo"
+
+msgid "common.findTemplate"
+msgstr "Localizar Modelo"
+
+msgid "common.deselect"
+msgstr "Desmarcar"
+
+msgid "common.attachFiles"
+msgstr "Anexar Arquivos"
+
+msgid "common.attachedFiles"
+msgstr "Arquivos Anexados"
+
+msgid "common.addCCBCC"
+msgstr "Adicionar CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Tem certeza de que deseja alterar para {$localeName} para redigir este e-"
+"mail?  Quaisquer alterações feitas no assunto e no corpo do e-mail serão "
+"perdidas."
+
+msgid "common.switchToNamedItem"
+msgstr "Mudar para {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Ou carregue um arquivo"
+
+msgid "common.dragAndDropHere"
+msgstr "Arraste e solte arquivos aqui."
+
+msgid "common.attachSelected"
+msgstr "Anexar Selecionado"
+
+msgid "common.addFiles"
+msgstr "Adicionar Arquivos"
+
+msgid "common.insertContentSearch"
+msgstr "Encontre conteúdo para inserir"
+
+msgid "common.insertContent"
+msgstr "Inserir Conteúdo"

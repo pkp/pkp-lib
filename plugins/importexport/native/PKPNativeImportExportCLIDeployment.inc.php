@@ -67,8 +67,10 @@ class PKPNativeImportExportCLIDeployment
             case 'export':
                 $this->exportEntity = array_shift($this->args);
                 break;
+            case 'usage':
+                break;
             default:
-                throw new BadMethodCallException('Unknown command ' . $this->command);
+                throw new BadMethodCallException(__('plugins.importexport.common.error.unknownCommand', ['command' => $this->command]));
         }
     }
 

@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-24 15:25+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "is_IS/>\n"
@@ -46,7 +46,7 @@ msgid "grid.action.addSponsor"
 msgstr "Bæta við styrktaraðila"
 
 msgid "grid.sponsor.title"
-msgstr "Styrktarfélög"
+msgstr "Styrktaraðilar"
 
 msgid "grid.columns.locale"
 msgstr "Tungumál"
@@ -65,14 +65,14 @@ msgstr "Aðgerðir"
 
 msgid "grid.task.status.reviewReady"
 msgstr ""
-"Þessi ritrýni er tilbúin. Smelltu á minnispunkta merkið til vinstri til að "
+"Þessi ritrýni er tilbúin. Smelltu á minnispunktamerkið til vinstri til að "
 "lesa ritrýnina."
 
 msgid "grid.task.status.unfinished"
 msgstr "Verki ólokið"
 
 msgid "grid.task.status.uploaded"
-msgstr "Dálkurinn Titill gefur til kynna hver hlóð upp þessari skrá"
+msgstr "Dálkurinn \"Titill\" gefur til kynna hver hlóð upp skránni"
 
 msgid "grid.task.status.new"
 msgstr "Merkt þegar búið er að taka til skoðunar"
@@ -108,7 +108,7 @@ msgid "grid.action.exportAllUsers"
 msgstr "Flytja út alla notendur"
 
 msgid "grid.action.logInAs"
-msgstr "Skrá sig inn sem"
+msgstr "Skrá inn sem"
 
 msgid "grid.action.bookInfo"
 msgstr "Upplýsingar um handrit"
@@ -117,7 +117,8 @@ msgid "grid.action.enable"
 msgstr "Virkja"
 
 msgid "grid.action.unconsiderReview"
-msgstr "Þessari ritrýni er lokið, en þú gætir ekki tekið það til greina"
+msgstr ""
+"Þessari ritrýni er lokið, en þú gætir valið að taka hana ekki til greina"
 
 msgid "grid.action.history"
 msgstr "Skoða sögu"
@@ -138,19 +139,19 @@ msgid "grid.action.uploadFile"
 msgstr "Hlaða upp skrá"
 
 msgid "grid.action.thankReviewer"
-msgstr "Senda þakkarskilaboð á þenan ritrýni"
+msgstr "Senda ritrýni þakkarskilaboð"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
 msgstr "Skoða stefnu um hagsmunaárekstra"
 
 msgid "grid.action.viewReviewGuidelines"
-msgstr "Skoða ritrýni leiðbeiningar"
+msgstr "Skoða ritrýnileiðbeiningar"
 
 msgid "grid.action.newRound"
 msgstr "Stofna nýja umferð"
 
 msgid "grid.action.sendReminder"
-msgstr "Senda verkáminningu á þennan notanda"
+msgstr "Senda notanda verkáminningu"
 
 msgid "grid.action.viewMetadata"
 msgstr "Skoða lýsigögn þessa handrits"
@@ -186,7 +187,7 @@ msgid "grid.action.addUserGroup"
 msgstr "Bæta við nýjum notendahóp"
 
 msgid "grid.action.notify"
-msgstr "Tilkynna þessum notanda"
+msgstr "Tilkynna notanda"
 
 msgid "grid.action.expand"
 msgstr "Þysja út"
@@ -198,10 +199,10 @@ msgid "grid.action.expandAll"
 msgstr "Þysja allt út"
 
 msgid "grid.action.resetEmail"
-msgstr "Endurstilla þetta tölvupósts-sniðmát"
+msgstr "Endurstilla þetta tölvupóstssniðmát"
 
 msgid "grid.action.disableEmail"
-msgstr "Afvirkja þetta tölvupósts-sniðmát"
+msgstr "Afvirkja þetta tölvupóstssniðmát"
 
 msgid "grid.action.editPreparedEmail"
 msgstr "Breyta þessu tölvupósts-sniðmáti"
@@ -213,13 +214,13 @@ msgid "grid.action.resetAll"
 msgstr "Endurstilla öll atriði á sjálfgefin gildi"
 
 msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Eyða þessu gátlista atriði"
+msgstr "Eyða þessu atriði gátlista"
 
 msgid "grid.action.editSubmissionChecklist"
 msgstr "Breyta þessu gátlista atriði"
 
 msgid "grid.action.orderItems"
-msgstr "Virkja pönntunarham"
+msgstr "Virkja pöntunarham"
 
 msgid "grid.action.importexport"
 msgstr "Flytja inn eða út innihald eða gögn vefsíðu"
@@ -270,7 +271,7 @@ msgid "grid.action.moveItem"
 msgstr "Flytja atriði"
 
 msgid "grid.action.wizard"
-msgstr "Stillinga-forrit"
+msgstr "Stillingaforrit"
 
 msgid "grid.action.collapseAll"
 msgstr "Fella allt saman"
@@ -306,7 +307,7 @@ msgid "grid.action.addAuthor"
 msgstr "Bæta við höfundi"
 
 msgid "grid.action.restoreDefaults.confirm"
-msgstr "Ert þú viss um að þú viljir endurheimta sjálfgefin gildi?"
+msgstr "Ertu viss um að þú viljir endurheimta sjálfgefin gildi?"
 
 msgid "grid.action.restoreDefaults"
 msgstr "Endurheimta sjálfgefin gildi"
@@ -315,7 +316,7 @@ msgid "grid.action.moreInformation"
 msgstr "Nánari upplýsingar"
 
 msgid "grid.action.setApproval"
-msgstr "Setja samþykkt"
+msgstr "Setja samþykki"
 
 msgid "grid.action.disapprove"
 msgstr "Hafna"
@@ -357,7 +358,7 @@ msgid "grid.action.reload"
 msgstr "Endurhlaða"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Samþykkja þessa próförk til að senda á næsta þrep"
+msgstr "Samþykkja próförk og senda á næsta þrep"
 
 msgid "grid.action.unassignReviewer"
 msgstr "Aftengja þennan ritrýni"
@@ -384,7 +385,7 @@ msgid "grid.action.addItem"
 msgstr "Bæta við atriði"
 
 msgid "grid.action.sort"
-msgstr "Sortera"
+msgstr "Flokka/raða"
 
 msgid "grid.action.manageAccess"
 msgstr "Stýra aðgangi"
@@ -405,16 +406,17 @@ msgid "grid.noItems"
 msgstr "Engin atriði"
 
 msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Gátlista atriði"
+msgstr "Gátlistaatriði"
 
 msgid "grid.submissionChecklist.title"
 msgstr "Gátlisti handrita"
 
 msgid "grid.libraryFiles.submission.title"
-msgstr "Handrita safn"
+msgstr "Handritasafn"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Búið að prófarkalesa og laga.  Þú gætir viljað sleppa þessu verki"
+msgstr ""
+"Prófarkalestri og lagfæringum er lokið.  Þú gætir viljað sleppa þessu verki"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Veldu tegund..."
@@ -453,16 +455,16 @@ msgstr ""
 "Hlutverkið {$userGroupName} er sjálfgefið og ekki hægt að fjarlægja það."
 
 msgid "grid.userGroup.filter.permissionLevel"
-msgstr "Með aðgangsheimild stillta á"
+msgstr "Aðgangsheimild stillt á"
 
 msgid "grid.userGroup.filter.listRoles"
-msgstr "Lista hlutverk úthlutað til"
+msgstr "Hlutverki af lista úthlutað til"
 
 msgid "grid.userGroup.allStages"
-msgstr "Öll verkflæðis þrep"
+msgstr "Öll verkflæðisþrep"
 
 msgid "grid.userGroup.unassignStage"
-msgstr "aftengja þrep"
+msgstr "Aftengja þrep"
 
 msgid "grid.userGroup.assignStage"
 msgstr "Úthluta þrepi"
@@ -471,7 +473,7 @@ msgid "grid.artworkFile.permissionTerms"
 msgstr "Leyfisskilmálar"
 
 msgid "grid.artworkFile.copyrightContact"
-msgstr "Tengiliður (ef ekki höfundur/útgefandi)"
+msgstr "Tengiliður (ef annar en höfundur/útgefandi)"
 
 msgid "grid.artworkFile.copyrightOwner"
 msgstr "Eigandi höfundaréttar"
@@ -483,23 +485,23 @@ msgid "grid.artworkFile.caption"
 msgstr "Skýringartexti"
 
 msgid "grid.plugin.disable"
-msgstr "Ertu viss um að þú viljir afvirkja þetta viðbótarforrit/tengiforrit?"
+msgstr "Ertu viss um að þú viljir afvirkja viðbótar-/tengiforritið?"
 
 msgid "grid.plugin.allCategories"
-msgstr "Allari flokkar"
+msgstr "Allir flokkar"
 
 msgid "grid.preparedEmails.currentList"
 msgstr "Núverandi listi"
 
 msgid "grid.preparedEmails.title"
-msgstr "Tilbúin tölvupósts sniðmát"
+msgstr "Tilbúin tölvupóstssniðmát"
 
 msgid "grid.user.mergeUsers.confirm"
 msgstr ""
-"Ertu viss um að þú viljir sameina notendareikning með notendanafninu \""
-"{$oldUsername}\" við reikning með notendanafninu \"{$newUsername}\"?  "
-"Notendareikningur  \"{$oldUsername}\" verður ekki til á eftir. Þessa aðgerð "
-"er ekki hægt að afturkalla."
+"Ertu viss um að þú viljir sameina notendareikninginn \"{$oldUsername}\" við "
+"reikning með notendanafninu \"{$newUsername}\"?  Notendareikningur  \""
+"{$oldUsername}\" verður ekki til eftir það. Aðgerðina er ekki hægt að "
+"afturkalla."
 
 msgid "grid.user.mergeUsers.allUsers"
 msgstr "Allir skráðir notendur"
@@ -515,8 +517,8 @@ msgstr "Sameina notendur"
 
 msgid "grid.user.confirmLogInAs"
 msgstr ""
-"Skrá inn sem þessi notandi? Allar aðgerðir sem þú framkvæmir verða eignaðar "
-"þessum notanda."
+"Innskráning sem þessi notandi? Allar aðgerðir sem þú framkvæmir verða "
+"eignaðar þessum notanda."
 
 msgid "grid.user.pleaseSelectUser"
 msgstr "Vinsamlega veldu notanda"
@@ -534,13 +536,13 @@ msgid "grid.user.step2"
 msgstr "Skref #2: Setja notendahlutverk á {$userFullName}"
 
 msgid "grid.user.step1"
-msgstr "Skref #1: Skrá inn upplýsingar um notanda"
+msgstr "Skref #1: Skrá upplýsingar um notanda"
 
 msgid "grid.user.userNoRoles"
-msgstr "Þessi notandi hefur engin hlutverk."
+msgstr "Notandinn hefur ekkert hlutverk."
 
 msgid "grid.user.userRoles"
-msgstr "Notenda hlutverk"
+msgstr "Hlutverk notanda"
 
 msgid "grid.user.userDetails"
 msgstr "Upplýsingar um notanda"
@@ -567,7 +569,7 @@ msgid "grid.user.notifyUser"
 msgstr "Tilkynna notanda"
 
 msgid "grid.user.generatePasswordDescription"
-msgstr "Búa til slembi lykilorð fyrir þennan notanda."
+msgstr "Búa til slembi-lykilorð fyrir þennan notanda."
 
 msgid "grid.user.generatePassword"
 msgstr "Búa til lykilorð"
@@ -586,8 +588,8 @@ msgstr ""
 
 msgid "grid.user.errorEmail"
 msgstr ""
-"Villa kom upp við að senda tölvupóstinn. Vinsamlega skoðaðu að uppsetningin "
-"á póstþjóninum virki og/eða hafðu samband við þinn kerfisstjóra."
+"Villa kom upp við sendingu tölvupóstsins. Vinsamlega athugaðu hvort "
+"uppsetning á póstþjóni virki og/eða hafðu samband við kerfisstjóra."
 
 msgid "grid.user.error"
 msgstr "Villa kom upp við umsýslu á þessum notanda. Vinsamlega reyndu aftur."
@@ -596,7 +598,7 @@ msgid "grid.user.enableReason"
 msgstr "Ástæða þess að notandi er gerður virkur"
 
 msgid "grid.user.disableReason"
-msgstr "Ástæða þess að notandi er afvirkjaður"
+msgstr "Ástæða fyrir afvirkjun notanda"
 
 msgid "grid.user.disable"
 msgstr "Afvirkja"
@@ -629,7 +631,7 @@ msgid "grid.user.currentUsers"
 msgstr "Núverandi notendur"
 
 msgid "grid.roles.stageAssignment"
-msgstr "Þrepa úthlutun"
+msgstr "Úthlutun þrepa"
 
 msgid "grid.roles.add"
 msgstr "Stofna nýtt hlutverk"
@@ -644,7 +646,7 @@ msgid "contributor.listPanel.preview.publicationLists"
 msgstr "Útgáfulistar"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Stytt"
+msgstr "Skammstafað"
 
 msgid "contributor.listPanel.preview.display"
 msgstr "Sýna"
@@ -654,17 +656,17 @@ msgstr "Form"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
-"Framlagsaðilar til þessarar útgáfu verða skilgreindir í þessu tímariti á "
-"eftirfarandi formi."
+"Í tímaritinu verða framlagsaðilar til útgáfunnar skilgreindir á eftirfarandi "
+"formi."
 
 msgid "contributor.listPanel.preview"
 msgstr "Forskoða"
 
 msgid "author.users.contributor.includeInBrowse"
-msgstr "Á vafra listum"
+msgstr "Á vafralistum"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr "Skrá aðal tengilið"
+msgstr "Skrá aðaltengilið"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Aðal tengiliður"
@@ -679,7 +681,7 @@ msgid "author.users.contributor.name"
 msgstr "Nafn"
 
 msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Framleiðslu-sniðmátasafn"
+msgstr "Safn framleiðslusniðmáta"
 
 msgid "grid.libraryFiles.production.title"
 msgstr "Framleiðslusafn"
@@ -700,7 +702,7 @@ msgid "grid.reviewFormElement.responseItems"
 msgstr "Svarmöguleikar"
 
 msgid "grid.reviewForm.title"
-msgstr "Ritrýni eyðublöð"
+msgstr "Ritrýnieyðublöð"
 
 msgid "grid.action.newVersion"
 msgstr "Stofna nýja útgáfu"
@@ -717,7 +719,7 @@ msgid "grid.action.editContributor"
 msgstr "Breyta framlagsaðila"
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr "Taka með ókláruð handirt sem ekki voru send inn af höfundi."
+msgstr "Taka með ókláruð handrit sem ekki voru send inn af höfundi."
 
 msgid "grid.artworkFile.placement"
 msgstr "Staðsetning í handriti"

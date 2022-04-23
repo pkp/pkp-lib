@@ -1,9 +1,10 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
+"PO-Revision-Date: 2022-02-20 09:24+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ru_RU/>\n"
@@ -210,3 +211,45 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "Токен API не удаётся проверить. Это может говорить об ошибке в токене API "
 "или о том, что данный токен API больше недействителен."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"В запрос были включены один или несколько некорректных объектов публикации."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "В запрос не было включено ни одного корректного объекта публикации."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Некоторые элементы не были успешно депонированы. Пожалуйста, проверьте эти "
+"элементы по отдельности на предмет специфических сообщений об ошибках."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Произошла ошибка и некоторые из отправленных элементов не были отмечены как "
+"зарегистрированные."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Произошла ошибка валидации XML и XML нельзя экспортировать."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Произошла ошибка и объект DOI не может быть создан."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Неопубликованные элементы не могут быть экспортированы/депонированы. "
+"Пожалуйста, уберите выделение с неопубликованных элементов и попробуйте "
+"снова."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Запрошенный вами DOI не найден."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Эта конечная точка не доступна из пространства имён сайта и должна "
+"запрашиваться для заданного контекста."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"Вы не можете редактировать DOI элемента, который не находится в этом "
+"контексте"

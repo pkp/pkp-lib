@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-02-27 16:26+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -13,10 +14,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "api.403.unauthorized"
-msgstr "Դուք նույնականացված չեք այս աղբյուրին հասանելիության համար։"
+msgstr "Ձեզ հասանելի չէ այս նյութը:"
 
 msgid "api.400.paramNotSupported"
-msgstr "Այս {$param} պարամետրը չի դիտարկվում։"
+msgstr "Այս {$param} պարամետրը չի աջակցվում։"
 
 msgid "api.vocabs.400.vocabNotSupported"
 msgstr "{$vocab} բառապաշարը չի երաշխավորվում:"
@@ -232,3 +233,54 @@ msgstr "Գրախոսման նշված փուլը այս նյութի մաս չէ
 
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr "Դուք չեք կարող կցել ֆայլ գրախոսմանը այս փուլում։"
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "Հրապարակման մեկ կամ մի քանի անվավեր օբյեկտներ ներառվել են հարցումով:"
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Հարցման մեջ հրապարակման վավեր օբյեկտներ չեն ներառվել:"
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Որոշ նյութեր հաջողությամբ չեն պահվել: Խնդրում ենք ստուգել առանձին նյութերը "
+"իրենց որոշակի սխալի հաղորդագրությունների համար:"
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Սխալ է տեղի ունեցել, և ներկայացված որոշ նյութեր չեն նշվել որպես գրանցված:"
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "XML վավերացման սխալ տեղի ունեցավ, և XML-ը չհաջողվեց արտահանել:"
+
+msgid "api.dois.400.creationFailed"
+msgstr "Սխալ առաջացավ, և DOI օբյեկտը չհաջողվեց ստեղծել:"
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Չհրապարակված նյութերը չեն կարող արտահանվել/ավանդադրվել: Խնդրում ենք "
+"ապաընտրել չհրապարակված նյութերը և նորից փորձել:"
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Ձեր պահանջած DOI-ն չի գտնվել:"
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Այս վերջնակետը հասանելի չէ կայքի ամբողջ անվանատարածքից և պետք է պահանջվի "
+"տվյալ համատեքստի համար:"
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Դուք չեք կարող խմբագրել նյութի DOI-ն, որն այս համատեքստում չէ"
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr "Ֆայլը այս նիշքի փուլ տեղափոխելիս պետք է տրամադրեք վերանայման փուլի ID:"
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Ձեր տրամադրած նիշքի փուլը վավեր չէ:"
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Դուք չեք կարող որևէ որոշում գրանցել կամ առաջարկել որոշում այս ներկայացման "
+"համար, քանի որ այն արդեն հրապարակվել է:"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Էլ․ փոստի համար պետք է նշեք թեման և նյութը:"

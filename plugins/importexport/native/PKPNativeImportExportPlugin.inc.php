@@ -267,7 +267,17 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
      */
     public function executeCLI($scriptName, &$args)
     {
-        $cliDeployment = new PKPNativeImportExportCLIDeployment($scriptName, $args);
+        try 
+        {
+            $cliDeployment = new PKPNativeImportExportCLIDeployment($scriptName, $args);
+        } 
+        catch (BadMethodCallException $ex)
+        {
+            $this->cliToolkit->echoCLIError($ex->getMessage());
+            $this->usage($scriptName);
+            return true;
+        }
+
         $this->cliDeployment = $cliDeployment;
 
         $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
@@ -349,6 +359,9 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                             return false;
                     }
                 }
+                return true;
+            default:
+                $this->usage($scriptName);
                 return true;
         }
     }

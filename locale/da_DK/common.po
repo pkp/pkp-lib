@@ -1,11 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-09-16 00:34+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-04-01 08:35+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -2081,3 +2083,106 @@ msgid "validator.alpha_dash_period"
 msgstr ""
 "Dette må kun indeholde bogstaver, tal, bindestreger, understregninger og "
 "punktummer."
+
+msgid "list.collapseAll"
+msgstr "Fold alt sammen"
+
+msgid "list.expandAll"
+msgstr "Udvid alle"
+
+msgid "timeZone"
+msgstr "Tidszone"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Vedhæft indsendelsesfiler"
+
+msgid "common.viewError"
+msgstr "Vis fejl"
+
+msgid "common.upload.addFile.description"
+msgstr "Upload en fil fra din computer."
+
+msgid "common.switchTo"
+msgstr "Skift til"
+
+msgid "common.showAllSteps"
+msgstr "Vis alle trin"
+
+msgid "common.searching"
+msgstr "Søger"
+
+msgid "common.numberedMore"
+msgstr "{$number} mere"
+
+msgid "common.keepWorking"
+msgstr "Fortsæt arbejdet"
+
+msgid "common.loadTemplate"
+msgstr "Indlæs en skabelon"
+
+msgid "common.findTemplate"
+msgstr "Find skabelon"
+
+msgid "common.deselect"
+msgstr "Fravælg"
+
+msgid "common.attachFiles"
+msgstr "Vedhæft filer"
+
+msgid "common.attachedFiles"
+msgstr "Vedhæftede filer"
+
+msgid "common.addCCBCC"
+msgstr "Tilføj CC/BCC"
+
+msgid "email.attachmentNotFound"
+msgstr "Filen {$fileName} kunne ikke vedhæftes."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Vedhæft filer, der blev uploadet af bedømmere"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Vedhæft bedømmelsesfiler"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Vedhæft filer fra indsendelsen og forlagsbiblioteket."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Vedhæft biblioteksfiler"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Biblioteksfiler"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Vedhæft filer, der blev uploadet i indsendelsestrinnet, eksempelvis "
+"rettelser eller filer, der skal bedømmes."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Vedhæft filer, som forfatteren uploadede i indsendelsestrinnet."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Er du sikker på, at du vil skifte til {$localeName} for at udarbejde denne e-"
+"mail? Alle ændringer du har lavet i e-mailens emne og tekst vil blive tabt."
+
+msgid "common.switchToNamedItem"
+msgstr "Skift til {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Eller upload en fil"
+
+msgid "common.dragAndDropHere"
+msgstr "Træk og slip filer hertil."
+
+msgid "common.attachSelected"
+msgstr "Vedhæft valgte"
+
+msgid "common.addFiles"
+msgstr "Tilføj filer"
+
+msgid "common.insertContentSearch"
+msgstr "Find indhold der skal indsættes"
+
+msgid "common.insertContent"
+msgstr "Indsæt indhold"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-02-03 08:42+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr_TR/>\n"
@@ -31,10 +31,10 @@ msgid "admin.authSources"
 msgstr "Yetkilendirme Kaynakları"
 
 msgid "admin.clearDataCache"
-msgstr "Önbellekteki Verileri Temizle"
+msgstr "Önbellek Verilerini Sil"
 
 msgid "admin.clearTemplateCache"
-msgstr "Tema Önbelleklerini Temizle"
+msgstr "Tema Önbelleğini Sil"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -249,7 +249,7 @@ msgstr ""
 "misiniz?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Zamanlanmış Görev Yürütme Günlüklerini Temizle"
+msgstr "Zamanlanmış Görev Kayıtlarını Temizle"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Değerlendirme hatırlatıcısı"
@@ -375,3 +375,53 @@ msgstr "komut [argümanlar]"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Kullanım:"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Sonraki"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Önceki"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Son Sayı"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Sayfalandırma"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Kuyruğa alınmış tüm işleri listeleyin. Sonuçları sayfalara ayırmak "
+"istiyorsanız ---page= and --perPage= parametrelerini kullanabilirsiniz."
+
+msgid "admin.systemInformation.view"
+msgstr "Sistem Bilgilerini Görüntüle"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Sistemin ve çalıştığı sunucunun sürümü ve yapılandırma ayarları hakkındaki "
+"bilgileri görüntüleyin."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Görev Kayıtlarını Sil"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Çalışan tüm zamanlanmış görev süreçlerinin kayıtlarını silin."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Yapılandırılmış ayarlarınız ile DOI'leri gönderin"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Siz de dahil tüm sistem kullanıcılarının oturumları kapatılacak ve tekrar "
+"giriş yapmaları gerekecek."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Önbellek dosyalarını sistemden silin. Bu yalnızca geliştirme ortamlarında "
+"yapılmalıdır."
+
+msgid "admin.deleteCache"
+msgstr "Önbelleği Sil"

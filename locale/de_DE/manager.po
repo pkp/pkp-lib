@@ -1,13 +1,13 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2022-01-27 05:25+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -2323,3 +2323,228 @@ msgstr "Autorennamen in Form einer verkürzten Zeichenfolge"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-Mailadresse des Hauptkontaktes der Webseite"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Keine"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOIs können automatisch an eine Registrierungsagentur abgeliefert werden. Um "
+"dieses Feature zu verwenden, finden und installieren Sie ein Plugin der "
+"jeweiligen Registrierungsagentur."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Keine Registrierungsagentur aktiviert"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Bitte wählen Sie die Registrierungsagentur aus, bei der Sie DOIs abliefern "
+"möchten."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registrierungsagentur"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Ehemals verfügbares nutzerdefiniertes Pattern. Wird nicht mehr verwendet."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Geben Sie ein individuelles DOI-Suffix für jedes publizierte Objekt ein. "
+"Ihnen werden zusätzliche DOI-Input Felder auf der DOI-Managementseite "
+"angezeigt."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Standard-Pattern verwenden."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Ein DOI-Suffix kann in beliebiger Form sein, muss aber unikat unter allen "
+"Publikationsobjekten sein, denen dasselbe DOI-Präfix zugewiesen wird:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-Suffix"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} werden DOIs zugewiesen"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Objekte mit DOIs"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI-Präfix"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nie"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Bei der Veröffentlichung"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "An welchem Punkt des Publikationsprozesses sollen DOIs kreiert werden?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatische DOI-Kreierung"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Das DOI-Präfix wird benötigt und muss in der Form 10.xxxx sein."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Das Präfix wird von einer DOI-Registrierungsagentur vergeben, z.B. <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> oder <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. Beispiel: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Ob DOIs automatisch bei der angegebenen Registrierungsagentur abgeliefert "
+"werden sollen."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Automatische Ablieferung aktivieren"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatische Ablieferung"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI Präfix"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "DOIs aktivieren"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrierung"
+
+msgid "manager.setup.dois.setup"
+msgstr "Setup"
+
+msgid "manager.setup.dois"
+msgstr "DOIs"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Die folgende Nachricht wurde von {$registrationAgency} zurückgeschickt und "
+"beinhaltet Details über die Registrierung:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Die folgende Fehlermeldung wurde von {$registrationAgency} zurückgeschickt "
+"und beinhaltet Details über die Ursache des Fehlers:"
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Objekte wurden erfolgreich zur Ablieferung eingereicht"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Objekten wurden erfolgreich neue DOIs zugewiesen"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Objekte erfolgreich als 'registriert' markiert"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Objekte erfolgreich exportiert"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Einige DOI(s) konnten nicht aktualisiert werden."
+
+msgid "manager.dois.status.stale"
+msgstr "Abgelaufen"
+
+msgid "manager.dois.status.error"
+msgstr "Fehler"
+
+msgid "manager.dois.status.registered"
+msgstr "Registriert"
+
+msgid "manager.dois.status.submitted"
+msgstr "Eingereicht"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Nicht registriert"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "DOI(s) abliefern"
+
+msgid "manger.dois.update.success"
+msgstr "DOIs erfolgreich aktualisiert"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Erfolgreiche Registrierungsmeldung"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Record ansehen"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Registrierungsfehlermeldung"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Fehlermeldung ansehen"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Dieses Objekt kann nicht abgeliefert werden, bevor es publiziert wurde."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+"Die Metadaten für dieses Objekt wurden nicht an {$registrationAgency} "
+"abgeliefert."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr ""
+"Die Metadaten für dieses Objekt wurden an {$registrationAgency} abgeliefert."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Publikationsstatus"
+
+msgid "manager.dois.depositStatus"
+msgstr "Ablieferungsstatus"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Sie sind im Begriff, alle ausstehenden DOI Metadaten an {$registrationAgency}"
+" zu liefern. Der Status jedes Objektes wird aktualisiert, sobald eine "
+"Antwort erhalten wird. Sind Sie sicher, dass Sie die Daten für alle Objekte "
+"abliefern möchten?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Alle DOIs abliefern"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Sie sind im Begriff, neue DOIs zu {$count} Objekt/en zuzuweisen (für alle "
+"Objekte, denen nicht bereits DOIs zugewiesen wurden). Sind Sie sicher, dass "
+"Sie diesen Objekten DOIs zuweisen möchten?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "DOIs zuweisen"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Sie sind im Begriff, DOI Metadaten für {$count} Objekt/e für "
+"{$registrationAgency} zu exportieren. Sind Sie sicher, dass Sie die Daten "
+"exportieren möchten?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "DOIs exportieren"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Sie sind im Begriff, DOI Metadaten für {$count} Objekt/e als 'registriert' "
+"zu markieren. Sind Sie sicher, dass Sie die Daten als 'registriert' "
+"markieren möchten?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "DOIs als registriert markieren"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Sie sind im Begriff, DOI Metadaten für {$count} Objekt/e an "
+"{$registrationAgency} zu senden. Sind Sie sicher, dass Sie die Daten "
+"abliefern möchten?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "DOIs abliefern"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Alle abliefern"

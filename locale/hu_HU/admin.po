@@ -1,10 +1,10 @@
-# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-09-18 14:05+0000\n"
+"PO-Revision-Date: 2022-03-29 20:57+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hu_HU/>\n"
@@ -347,3 +347,133 @@ msgstr "Tömeges e-mailek korlátozása"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Tömeges e-mailek"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Értesítés Szerkesztőségi jelentésről"
+
+msgid "admin.jobs.createdAt"
+msgstr "Létrehozva {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Létrehozva"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Próbálkozások"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Várólista"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Feladat"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Feladatok"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Várólistás feladatok megtekintése"
+
+msgid "admin.jobs.totalCount"
+msgstr "Összesen <strong> {$total} </strong> feladat van a várólistán"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "A következők egyikére gondolt?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "A(z) {$option} beállítás nem létezik."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Van {$total} várólistás feladatunk"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Az összes feladat törölve lett!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Lehetetlen volt törölni az összes feladatot."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "A feladat törölve lett!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Érvénytelen feladat ID"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Használnia kell legalább egy Feladat ID-t vagy '--all'-t vagy '--queue=' -t "
+"ennek a parancsnak a használatakor"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Következő"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Előző"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Jelenlegi"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Oldalszámozás"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Létrehozva ekkor"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Elérhető ettől"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Fenntartva ekkortól"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Kísérletek"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Feladat megjelenítendő neve"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Várólista"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Várólistás feladatok"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Az opció nem lehet üres! Ellenőrizze a felhasználási módot."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "A Jobs használati paramétereinek megjelenítése"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "A Jobs parancs használatának megjelenítése"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "A várólistára állított feladatok mennyiségének megjelenítése"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Tesztfeladat hozzáadása az alapértelmezett várólistához"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Törölje az adott várólistás feladatot azonosítója alapján. Ha mindent "
+"törölni szeretné, használja az --all paramétert. Ha az összeset törölni "
+"szeretné egy adott várólistából, használja a --queue= paramétert"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Az összes sorban álló munka listázása. Ha lapozást szeretne az eredmények "
+"között, használja a --page= és --perPage= paramétereket"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Elérhető parancsok ehhez a `{$namespace}` névtérhez:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "parancs [argumentumok]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Használat:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOI bejegyzése a beállított regisztrációs ügynökségen keresztül"

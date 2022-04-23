@@ -1,9 +1,10 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_PT/>\n"
@@ -393,7 +394,7 @@ msgid "reviewer.list.reassign"
 msgstr "Redesignar"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Este revisor já foi designado para rever esta submissão."
+msgstr "Este revisor já foi designado a esta ronda de revisão."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -478,3 +479,92 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "Não pode ser criada uma discussão entre os participantes selecionados porque "
 "isso iria comprometer o anonimato do processo de revisão."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"O editor não é reconhecido e pode não ter permissões para registar a decisão "
+"para esta submissão."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Não possui permissões para registar esta decisão para esta submissão."
+
+msgid "editor.decision.stepError"
+msgstr "Houve um problema com a etapa {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "Não enviar e-mail"
+
+msgid "editor.decision.recordDecision"
+msgstr "Registar Decisão"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Esta etapa foi ignorado e não foi enviado e-mail."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Não saltar este e-mail"
+
+msgid "editor.decision.completeSteps"
+msgstr "Conclua as etapas seguintes para tomar esta decisão"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Deseja realmente cancelar esta decisão?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Cancelar Decisão"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "As revisões devem ser submetidas a uma nova ronda de revisão por pares."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "As revisões não serão sujeitas a nova ronda de revisão por pares."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Esta decisão não foi encontrada. Forneça um tipo de decisão reconhecido."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Não foi possível tomar uma decisão para esta submissão. O ID de submissão "
+"encontra-se em falta ou não corresponde à submissão solicitada."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Não é possível emitir uma recomendação se não estiver designado um editor a "
+"esta etapa que possa tomar a decisão final."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"É necessário fornecer um ID de ronda de revisão para tomar esta decisão."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Deve estar designado a esta submissão para poder registar uma decisão "
+"editorial."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"A submissão não se encontra na etapa apropriada do fluxo de trabalho para "
+"tomar esta decisão."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "A ronda de revisão não faz parte desta submissão."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Existiu uma ronda de revisão mas a decisão não foi tomada durante a etapa de "
+"revisão."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Não foi possível encontrar esta ronda de revisão."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Não pode enviar e-mail para os seguintes destinatários: {$names}."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Designado a Ronda Anterior"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Redesignar {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Este revisor concluiu uma revisão na ronda anterior."

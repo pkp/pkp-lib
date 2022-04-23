@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-11-17 23:33+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sv_SE/>\n"
@@ -946,7 +946,7 @@ msgid "submission.submit.fileAdded"
 msgstr "En fil är tillagd"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Lägg till medarbetare i bläddringslistor?"
+msgstr "Lägg till medarbetare som författare i publikationslistor."
 
 msgid "submission.submit.newFile"
 msgstr "Lägg till ytterligare en fil"
@@ -1747,7 +1747,7 @@ msgid "editor.submission.removePermissionToEdit"
 msgstr "Tillåt inte redigering av metadata"
 
 msgid "editor.submission.editStageParticipant"
-msgstr "Redigeringsuppdag"
+msgstr "Redigera uppdrag"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -1777,7 +1777,7 @@ msgstr "Antal ord:{$count}/{$limit}"
 
 msgid "publication.wordCountLong"
 msgstr ""
-"Abstractet är för långt.  Det får inte vara mer än {$limit}. Nu är det "
+"Abstractet är för långt. Det får inte vara fler än {$limit} ord. Nu är det "
 "{$count} ord."
 
 msgid "publication.status.unpublished"
@@ -1882,18 +1882,18 @@ msgid "publication.urlPath"
 msgstr "URL-sökväg"
 
 msgid "publication.unschedule"
-msgstr "Ta bort från publiceringsplan"
+msgstr "Oplanerad"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Anpassad upphovsrättsdeklaration"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
-"Publikationens författare kan inte redigeras eftersom den redan är "
+"Författarna till publikationen kan inte redigera den eftersom den är "
 "publicerad."
 
 msgid "publication.publicationLicense"
-msgstr "Behörigheter & tillgänglighet"
+msgstr "Upphovsrätt och licens"
 
 msgid "submission.list.daysSinceLastActivity"
 msgstr "Antal dagar sedan senaste aktivitet"
@@ -1970,3 +1970,338 @@ msgstr ""
 "Utgivar-ID kan användas i samband med externa databaser. Poster som "
 "exporteras till exempelvis PubMed kan innehålla utgivar-ID. Detta ska inte "
 "användas för DOI:er."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Rekommendera att bidraget refuseras."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna för att meddela dem att deras "
+"bidrag har skickats tillbaka till manusredigeringssteget. Förklara varför så "
+"har skett och informera författarna om ytterligare redigering som krävs för "
+"att bidraget ska vara färdigt för."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Skickad tillbaka till manusredigeringssteget"
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Tillbaka till manusredigeringssteget"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Visa alla bidrag"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Du kan inte lämna in en rekommendation förrän en redaktör med rättighet att "
+"fatta beslut har registrerats."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} rekommenderade att bidraget refuseras."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Rekommendera refusering"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} rekommenderade att ändringar begärs och att dessa ändringar "
+"skickas till ytterligare en granskningsomgång."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Rekommendera att författaren begärs skicka in ändringar för ytterligare en "
+"granskningsomgång."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Rekommendera att skicka in igen för granskning"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} rekommenderade att ändringar begärs."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Rekommendera att ändringar begärs av författaren innan bidraget kan "
+"accepteras."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Rekommendera ändringar"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "Din rekommendation har registrerats, ansvarig redaktör kommer meddelas."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Rekommendation inskickad"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Rekommendera att bidraget accepteras för publicering och skickas vidare till "
+"manusredigering."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} rekommenderade att bidraget accepteras och skickas vidare till "
+"manusredigering."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Rekommendera att acceptera"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Skicka ett meddelande till ansvariga redaktörer och meddela dem er "
+"rekommendation. Förklara orsaken till rekommendationen."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Bidraget {$title} är nu aktivt i bidragssteget."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna att det tidigare beslutet att "
+"refusera bidraget har återkallats. Förklara orsaken till återkallandet och "
+"meddela dem om bidraget förväntas genomgå vidare granskning."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Bidraget {$title} är nu tillbaka i granskningssteget."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Bidraget har återinförts"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} återkallade beslutet att refusera bidraget."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Återkalla beslutet att refusera bidraget och skicka tillbaka det till den "
+"redaktionella processen."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna och meddela dem att bidraget "
+"har accepterats och har skickats direkt till manusredigering utan att "
+"granskas."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Bidraget {$title} har gått förbi granskningssteget och gått direkt till "
+"manusredigering."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Hoppade över granskning"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} hoppade över granskningssteget, bidraget gick till "
+"manusredigeringssteget."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Acceptera bidraget för publicering och hoppa över granskningssteget. Detta "
+"beslut skickar bidraget direkt till manusredigeringssteget."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Bidraget {$title} har skickats tillbaka manusredigeringssteget."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} skickade tillbaka bidraget till manusredigeringssteget."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Skicka tillbaka bidraget till manusredigeringssteget."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande för att meddela författarna att deras bidrag har "
+"skickats till produktionssteget."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Bidraget {$title} skickades produktionssteget."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Skickad till produktionssteget"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} skickade detta bidrag till produktionssteget."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Skicka detta bidrag till produktionssteget för att färdigställa det för "
+"publicering."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Bidraget {$title} har skickats till granskningssteget."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Skickad till till granskning"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} skickade detta bidrag till granskningssteget."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Detta bidrag är färdigt för att skickas till sakkunniggranskning."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Skickad till granskning"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande för att meddela författarna att ändringar krävs "
+"och dessa måste skickas till ytterligare en granskningsomgång. Inkludera "
+"detaljer om ändringar som behöver göras. Kom ihåg att anonymisera granskares "
+"kommentarer där så är lämpligt."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Ändringar för bidraget {$title} har begärts. Beslut att skicka ändringar "
+"till ytterligare en granskningsomgång har fattats."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Ändringar har begärts"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} begärde ändringar som ska skickas till ytterligare en "
+"granskningsomgång."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Författaren måste göra ändringar som skickas till en ny granskningsomgång "
+"innan bidraget kan accepteras."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande för att meddela författarna att ändringar krävs "
+"för att bidraget ska kunna publiceras. Inkludera detaljer om ändringar som "
+"behöver göras. Kom ihåg att anonymisera granskares kommentarer där så är "
+"lämpligt."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Ändringar för bidraget {$title} har begärts."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Ändringar har begärts"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} begärde ändringar i detta bidrag."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr "Ändringar måste göras innan bidraget kan accepteras."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Välj filer som ska skickas till manusredigeringssteget."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Välj filer som ska skickas till granskning."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Välj filer som ska skickas till manusredigeringssteget."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna för att meddela dem att "
+"bidraget har skickats till en ny granskningsomgång."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "En ny granskningsomgång har startats för {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Granskningsomgång startad"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} öppnade en ny granskningsomgång."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Öppna en ny granskningsomgång för detta bidrag."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Ny granskningsomgång"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Bidraget kommer refuseras. Ingen ytterligare granskning kommer utföras och "
+"bidraget kommer arkiveras."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna för att meddela dem att deras "
+"bidrag har refuserats."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Bidraget {$title} har refuserats och arkiverats."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Bidraget har refuserats"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} refuserade bidraget."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Bidraget har refuserats. Sakkunniggranskningen kommer stängas och bidraget "
+"arkiveras."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} återkallade beslutet att acceptera bidraget och skickade "
+"tillbaka det till inskickat-steget."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Återkalla beslutet att acceptera bidraget, och skicka tillbaka det till "
+"inskickat-steget."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna för att meddela dem att deras "
+"bidrag har skickats tillbaka till inskickat-steget. Informera om varför "
+"detta beslut fattats och vad som behöver göras för att kunna gå vidare med "
+"bidraget."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "Bidraget {$title} har skickats tillbaka till inskickat-steget."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Skickat tillbaka till inskickat-steget"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Tillbaka till inskickat-steget"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Skicka ett e-postmeddelande till författarna och meddela dem att deras "
+"bidrag har accepterats för publicering."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Bidraget {$title} har accepterats för publicering och skickats till "
+"manusredigeringssteget."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Bidraget har accepterats"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} accepterade bidraget och skickade det till "
+"manusredigeringssteget."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Bidraget kommer accepteras för publicering, och skickas till manusredigering."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Skicka ett e-postmeddelande till granskare för att tacka och meddela dem att "
+"ett beslut har fattats."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Meddela granskare"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Meddela författare"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Publikationslistor"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Ett e-postmeddelande med ämnet {$subject} har skickats till {$recipientCount}"
+" granskare."
+
+msgid "category.category"
+msgstr "Kategorier"

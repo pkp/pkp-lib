@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
+"PO-Revision-Date: 2022-04-07 23:13+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl_SI/>\n"
@@ -325,3 +326,163 @@ msgstr "Omeji masovne emaile"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Masovni emaili"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Izbriši začasne datoteke (cash)  na datotečnem sistemu. To se lahko naredi "
+"le na razvojnem okolju."
+
+msgid "admin.deleteCache"
+msgstr "Izbriši začasni pomnilnik (cash)"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Paginacija"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Ustvarjeno"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Na voljo"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Rezervirano"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Poskusi"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Ime opravila"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Čakalna vrsta"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Čakalna vrsta opravil"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Opcija mora biti podana! Preveri način uporabe."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Prikaži parametre ukaza Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Prikači način uporabe ukaza Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Prikaži število opravil v čakalni vrsti"
+
+msgid "admin.jobs.createdAt"
+msgstr "Ustvarjeno {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Ustvarjeno"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Poskusi"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Čakalna vrsta"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Opravilo"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Poglej opravila"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Poglej vsa opravila v čakalni vrsti v sistemu in sledi neuspelim poskusom."
+
+msgid "navigation.tools.jobs"
+msgstr "Opravila"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Poglej opravila v čakalni vrsti"
+
+msgid "admin.jobs.totalCount"
+msgstr "V čakalni vrsti je skupaj <strong>{$total}</strong> opravil"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Ste mislili nekaj od spodnjega?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Opcija {$option}  ne obstaja."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Imamo {$total} opravil v čakalni vrsti"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Zbriši vsa opravila!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Ni bilo mogoče zbrisati vsa opravila."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Opravilo je bilo zbrisano!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Napačen ID opravila"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr "Uporabiti morate ID opravila, '--all' ali '--queue='"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Naslednji"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Predhodni"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Trenutni"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Dodaj testno opravilo v privzeto čakalno vrsto"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Izbrišite določeno opravilo v čakalni vrsti na osnovi njegovega IDja. Če "
+"želite zbrisati vse, uporabite parameter -all. Če želite zbrisati vse iz "
+"določene vrste, uporabite parameter --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Prikaži seznam opravil v čakalni vrsti. Če želite rezultate paginirati, "
+"uporabite parametre --page= in --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Ukazi za namespace `{$namespace}`, ki so na voljo:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "ukaz [argumenti]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Uporaba:"
+
+msgid "admin.systemInformation.view"
+msgstr "Poglej informacije o sistemu"
+
+msgid "admin.systemInformation.description"
+msgstr "Poglej informacije o verziji in nastavitvah aplikacije in strežnika."
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Obvestilo o uredniškem poročilu"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Izbriši \"log\" zapise"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Izbriši \"log\" zapise končanih opravil iz razporejevalnika opravil."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponiraj DOIje pri nastavljeni registracijski agenciji"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Vsi trenutno prijavljeni uporabniki bodo odjavljeni iz aplikacije, vključno "
+"z vami, in se bodo morali ponovno prijaviti."

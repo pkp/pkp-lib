@@ -1,9 +1,10 @@
 # Madi <nmdbzk@gmail.com>, 2021.
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
+# Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-08 03:37+0000\n"
-"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"PO-Revision-Date: 2022-04-08 03:39+0000\n"
+"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -208,12 +209,11 @@ msgstr "Кезекке қойылған тапсырмалар санын көр
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr "Әдепкі кезекке тест тапсырмасын қосыңыз"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
-"Оның идентификаторы негізінде белгілі бір кезекте тұрған жұмысты тазалаңыз. "
-"Барлығын тазартқыңыз келсе, --all параметрін өткізіңіз. Барлығын белгілі бір "
-"кезектен тазартқыңыз келсе, --queue= параметрін жіберіңіз"
+"Кезекке қойылған нақты тапсырманы оның идентификаторы негізінде тазалаңыз. "
+"Егер сіз бәрін жойғыңыз келсе, --all параметрін жіберіңіз. Егер сіз бәрін "
+"белгілі бір кезектен жойғыңыз келсе, --queue= параметрін жіберіңіз"
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
@@ -325,11 +325,9 @@ msgstr "Сайт баптаулары"
 msgid "admin.siteManagement"
 msgstr "Сайтты басқару"
 
-#, fuzzy
 msgid "admin.siteAdmin"
 msgstr "Сайтты әкімшілеу"
 
-#, fuzzy
 msgid "admin.settings.siteTheme"
 msgstr "Сайтты безендіру темасы"
 
@@ -368,3 +366,139 @@ msgstr "Жариялауға жоспарланған материалдарды
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Жоспарланған тапсырманы орындау журналдарын тазалау"
+
+msgid "admin.jobs.createdAt"
+msgstr "{$createdAt} құрылған"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Құрылған"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Әрекеттер"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Кезек"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Жұмыс"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Жұмыстар"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Кезекке қойылған тапсырмаларды қарау"
+
+msgid "admin.jobs.totalCount"
+msgstr "Кезекте жалпы <strong>{$total}</strong> тапсырма(лар)"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Сіз келесілердің бірін білдірдіңіз бе?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "{$option} опциясы жоқ."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Бізде {$total} кезектегі тапсырмалар бар"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Барлық тапсырмаларды жойды!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Барлық тапсырмаларды жою мүмкін болмады."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Тапсырма жойылды!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Қате тапсырма идентификаторы"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Осы пәрменді пайдалану үшін кем дегенде '--all' немесе '--queue=' тапсырма "
+"идентификаторын беру керек"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Келесі"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Алдыңғы"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Ағымдағы"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Парақшалау"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Құрылған"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Жетімді"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Сақталған"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Әрекеттер"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Көрсетілген тапсырма атауы"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Кезек"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Кезектегі тапсырмалар"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Опция бос болмауы мүмкін! Пайдалану әдісін тексеріңіз."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Тапсырмаларды пайдалану параметрлерін көрсету"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Тапсырма пәрменін пайдалануды көрсету"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "`{$namespace}` аттар кеңістігі үшін қол жетімді командалар:"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Берілген apache кіру журналының файлдарын, осы орнатумен байланысты сүзгі "
+"жазбаларын көшіріңіз,\n"
+"Usage Stats плагин сатысы каталогындағы ағымдағы файлдар каталогында. Apache "
+"access журналының файлдарын оқу үшін жеткілікті артықшылықтары бар "
+"пайдаланушының басқаруымен іске қосылуы керек.\n"
+"\n"
+"Бұл құрал тек UsageStats файл жүктеушісінің каталогында жоқ файлдарды ғана "
+"көшіреді (кезең, өңдеу, мұрағаттау, қабылдамау).\n"
+"\n"
+"Пайдалану: {$scriptName} path/to/apache/log/file.log\n"
+"Пайдалану (каталог ішіндегі барлық файлдарды өңдеу): {$scriptName} path/to/"
+"apache/directory\n"
+"\t"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "команда [arguments]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Пайдалану:"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Редакциялық есеп туралы хабарлама"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOI-ді теңшелген тіркеу агенттігіне енгізіңіз"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Жүйеден кэш файлдарын жойыңыз. Бұл тек әзірлеу орталарында жасалуы керек."
+
+msgid "admin.deleteCache"
+msgstr "Кэштерді жою"

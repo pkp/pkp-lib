@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-24 15:25+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/is_IS/>\n"
@@ -46,12 +46,12 @@ msgstr ""
 "\t\t\t<li><tt>cache/_db</tt>  er skrifanlegt: {$writable_db_cache}</li>\n"
 "\t\t</ul>\n"
 "\n"
-"\t\t<p>2. Það þarf að búa til skrifanlegt skráarsvæði fyrir geymslu "
-"upphlaðinna skráa (Sjá \"Skráa stillingar\" hér fyrir neaðn).</p>\n"
+"\t\t<p>2. Útbúa þarf skrifanlegt skráarsvæði fyrir geymslu upphlaðinna skráa "
+"(Sjá \"Skráa stillingar\" hér fyrir neðan).</p>\n"
 "\t"
 
 msgid "installer.preInstallationInstructionsTitle"
-msgstr "For uppsetningar skref"
+msgstr "Skref foruppsetningar"
 
 msgid "installer.releaseNotes"
 msgstr "Upplýsingar um útgáfu"
@@ -75,7 +75,7 @@ msgid "installer.locale"
 msgstr "Tungumál"
 
 msgid "installer.unsupportedUpgradeError"
-msgstr "Ekkii stutt við uppfærslu. Sjá  nánar docs/UPGRADE-UNSUPPORTED."
+msgstr "Ekki stutt við uppfærslu. Sjá  nánar docs/UPGRADE-UNSUPPORTED."
 
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Villa við þáttun skráar fyrir uppsetningu á síum <tt>{$file}</tt>."
@@ -89,11 +89,12 @@ msgstr ""
 "<tt>{$class}</tt>.  Frábrigðið var þetta: {$message}."
 
 msgid "installer.installParseDBFileError"
-msgstr "Villa við að þátta uppsetningarsrká gagnagrunnsins <tt>{$file}</tt>."
+msgstr "Villa við þáttun uppsetningarskrár gagnagrunnsins <tt>{$file}</tt>."
 
 msgid "installer.installFilesDirError"
 msgstr ""
-"Uppgefið skráasvæði fyir uphlaðnar skrár finnst ekki eða er ekki skrifanlegt."
+"Uppgefið skráasvæði fyrir upphlaðnar skrár finnst ekki eða er ekki "
+"skrifanlegt."
 
 msgid "installer.installFileError"
 msgstr ""
@@ -108,8 +109,8 @@ msgstr "Villur komu upp við uppsetningu"
 
 msgid "installer.installationWrongPhp"
 msgstr ""
-"<br/><strong>VIÐVÖRUN: Þín núverandi útgáfa af PHP uppfyllir ekki lágmarks "
-"kröfur fyrir uppsetningu. Það er mælt með að uppfæra í nýrri útgáfu af PHP. "
+"<br/><strong>VIÐVÖRUN: Núverandi útgáfa af PHP uppfyllir ekki lágmarks "
+"kröfur fyrir uppsetningu. Mælt er með uppfærslu í nýrri útgáfu af PHP. "
 "</strong>"
 
 msgid "installer.form.usernameRequired"
@@ -118,22 +119,22 @@ msgstr "Notendanafn fyrir kerfisstjóra er áskilið."
 msgid "installer.form.usernameAlphaNumeric"
 msgstr ""
 "Notendanafn kerfisstjóra má bara innihalda bókstafi, tölustafi, undirstrik "
-"og bandstrik. Það þarf að byrja og enda á bókstaf eða tölustaf."
+"og bandstrik, og verður að byrja og enda á bókstaf eða tölustaf."
 
 msgid "installer.form.separateMultiple"
-msgstr "Aðgreindu mörg gildi með kommu"
+msgstr "Aðgreindu gildin með kommu"
 
 msgid "installer.form.passwordsDoNotMatch"
-msgstr "Kerfisstjóra lykilorðin passa ekki saman."
+msgstr "Kerfisstjóralykilorðin passa ekki saman."
 
 msgid "installer.form.passwordRequired"
 msgstr "Lykilorð fyrir kerfistjóra er áskilið."
 
 msgid "installer.form.localeRequired"
-msgstr "Tungumál þarf að vera valið."
+msgstr "Velja þarf tungumál."
 
 msgid "installer.form.filesDirRequired"
-msgstr "Skráasvæði til að geyma upphlaðnar skrár er áskilið."
+msgstr "Skráasvæði sem geymir upphlaðnar skrár er áskilið."
 
 msgid "installer.form.emailRequired"
 msgstr "Gilt netfang fyrir kerfisstjóra er áskilið."
@@ -142,13 +143,13 @@ msgid "installer.form.databaseNameRequired"
 msgstr "Nafn gagnagrunns er áskilið."
 
 msgid "installer.form.databaseDriverRequired"
-msgstr "Það þarf að velja gagnagrunnsrekil(driver)."
+msgstr "Velja þarf gagnagrunnsrekil(driver)."
 
 msgid "installer.form.clientCharsetRequired"
-msgstr "Það þarf að velja stafasett biðlara."
+msgstr "Velja þarf stafasett biðlara."
 
 msgid "installer.fileSettings"
-msgstr "Skráa stillingar"
+msgstr "Skráastillingar"
 
 msgid "installer.filesDir"
 msgstr "Skráasafn fyrir upphlað"
@@ -170,20 +171,18 @@ msgstr "Hýsingartölva"
 
 msgid "installer.databaseDriverInstructions"
 msgstr ""
-"<strong>Gagnagrunnsreklar listaðir í hornklofum virðast ekki hafa "
-"nauðsynlega PHP viðbót innhlaðna og uppsetning mun líklega mistakast ef þeir "
-"eru valdir.</strong><br />Hver óstuddur gangagrunnsrekill listaður upp hér "
-"fyrir ofan eru listaðir eingöngu í fræðilegum tilgangi og eru ólíklegir til "
-"að virka."
+"<strong>Kerfið styður við MySQL og PostgreSQL,  ef þú getur ekki valið "
+"annanhvorn möguleikann, hafðu þá samband við þinn kerfisstjóra til að ganga "
+"úr skugga um að þjónninn sé með nauðsynlega PHP viðbætur.</strong>"
 
 msgid "installer.databaseDriver"
 msgstr "Gagnagrunnsrekill (driver)"
 
 msgid "installer.contentsOfConfigFile"
-msgstr "Innihald í uppsetningarskrá"
+msgstr "Uppsetningarskrá"
 
 msgid "installer.connectionCharset"
-msgstr "Tengi stafasett"
+msgstr "Tengistafasett"
 
 msgid "installer.configFileError"
 msgstr ""
@@ -203,11 +202,11 @@ msgstr "<span class=\"pkp_form_error formError\">NO</span>"
 
 msgid "installer.administratorAccountInstructions"
 msgstr ""
-"Þessi notandi verður kerfisstjóri og hefur fullan aðgang að kerfinu. Hægt er "
-"að stofna viðbótar notendur eftir uppsetningu."
+"Notandinn verður kerfisstjóri og hefur fullan aðgang að kerfinu. Hægt er að "
+"stofna viðbótarnotendur eftir uppsetningu."
 
 msgid "installer.administratorAccount"
 msgstr "Reikningur kerfisstjóra"
 
 msgid "installer.additionalLocales"
-msgstr "Viðbótar tungumál"
+msgstr "Viðbótartungumál"

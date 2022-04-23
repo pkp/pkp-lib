@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-03-21 10:40+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -435,9 +436,8 @@ msgstr ""
 "տալիս տեսնել հոդվածագրին։ Այս դեպքում անանուն գրախոսում երաշխավորել հնարավոր "
 "չէ։"
 
-
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Այս գրախոսողը արդել կցված եղել է այս նյութի գրախոսմանը։"
+msgstr "Այս գրախոսը արդեն կցված եղել է գրախոսման այս փուլին։"
 
 msgid "reviewer.list.neverAssigned"
 msgstr "Երբեք չի նշանակվել գրախոսող"
@@ -513,3 +513,95 @@ msgstr ""
 "ներկայացվել է վերանայում, որն այնուհետև ստուգվում է <em> Հաստատված է </em> "
 "այն խորհրդակցելուց հետո: Երբ վերանայումները ժամկետանց են, կարմիր ծրարի "
 "պատկերակ է հայտնվում գրախոսներին հիշեցնելու համար:"
+
+msgid "editor.decision.stepError"
+msgstr "{$stepName} քայլի հետ կապված խնդիր առաջացավ:"
+
+msgid "editor.decision.skipEmail"
+msgstr "Բաց թողեք այս էլ․ նամակը"
+
+msgid "editor.decision.recordDecision"
+msgstr "Գրանցեք որոշումը"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Այս քայլը բաց է թողնվել, և էլ․ նամակ չի ուղարկվի:"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Բաց մի թողեք այս էլ․ նամակը"
+
+msgid "editor.decision.completeSteps"
+msgstr "Այս որոշումը կայացնելու համար կատարեք հետևյալ քայլերը"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Իսկապե՞ս ուզում եք չեղարկել այս որոշումը:"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Չեղարկել որոշումը"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Վերանայումները պետք է ենթարկվեն գործընկերային գրախոսման նոր փուլի:"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Վերանայումները չպետք է ենթարկվեն գործընկերային գրախոսման նոր փուլի:"
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Այս որոշումը չհաջողվեց գտնել: Խնդրում ենք տրամադրել ճանաչված որոշման տեսակ:"
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Այս ներկայացման վերաբերյալ որոշում չի կայացվել: Ներկայացման ID-ն բացակայում "
+"է կամ չի համապատասխանում հայցվող ներկայացմանը:"
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Առաջարկություն չի կարող տրվել, քանի դեռ այս փուլում չի նշանակվել խմբագիր, ով "
+"կարող է վերջնական որոշում կայացնել:"
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Այս որոշումը կայացնելու համար պետք է տրամադրվի վերանայման փուլի ID:"
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Դուք պետք է նշանակված լինեք այս ներկայացմանը, որպեսզի գրանցեք խմբագրական "
+"որոշումը:"
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Ներկայացումը աշխատանքային գործընթացի համապատասխան փուլում չէ այս որոշումը "
+"կայացնելու համար:"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Վերանայման այս փուլը այս ներկայացման մաս չէ:"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Նախատեսվել է վերանայման փուլ, սակայն այս որոշումը չի ընդունվում վերանայման "
+"փուլում:"
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Վերանայման այս փուլը չհաջողվեց գտնել:"
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Դուք չեք կարող նամակ ուղարկել հետևյալ հասցեատերերին՝ {$names}:"
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Խմբագիրը չի ճանաչվել և կարող է թույլտվություն չունենալ արձանագրելու այս "
+"ներկայացման վերաբերյալ որոշումը:"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+"Դուք թույլտվություն չունեք գրանցելու այս որոշումը այս ներկայացման վերաբերյալ:"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Նշանակվել է ավելի վաղ փուլին"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Վերանշանակել {$name}"
+
+msgid "reviewer.list.reassign"
+msgstr "Վերանշանակել"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Այս գրախոսը ավարտեց վերանայումը վերջին փուլում:"

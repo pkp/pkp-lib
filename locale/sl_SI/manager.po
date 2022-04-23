@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2021-11-20 18:23+0000\n"
+"PO-Revision-Date: 2022-04-16 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -2252,7 +2252,7 @@ msgid "emailTemplate.variable.submission.authorsFull"
 msgstr "Polna imena avtorjev"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr "Skrajšana oblika imen avtorjev"
+msgstr "Imena avtorjev"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Povzetek prispevka"
@@ -2332,3 +2332,499 @@ msgstr ""
 
 msgid "mailable.mailDiscussionMessage.name"
 msgstr "Novo sporočilo v diskusiji"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Faza uredniškega postopka v kateri je bila sprejeta odločitev."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Opis sprejete odločitve."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Ime sprejete odločitve."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL za pregled vseh prispevkov dodeljenih enemu uporabniku."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Poštni naslov revije"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Vsi komentarji zaključenih recenzij. Imena recenzentov so skrita zaradi "
+"anonimnosti recenzije."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Ostali prispevki"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Vključuje tudi prispevke, ki niso všteti v ostale številke, kot so tisti, ki "
+"so še vedno v procesu ali naj bi bili uvoženi."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Pošljite email samo avtorjem določenim v delovnem toku prispevka. Običajno "
+"je to avtor, ki je oddal prispevek."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Pošljite email obvestilo vsem avtorjem prispevka."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Kdo naj prejme email obvestilo, ko je sprejeta uredniška odločitev?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Obvesti vse avtorje"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Nobena"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI-ji so lahko avtomatično določeni in deponirani pri registracijski "
+"agenciji. Za uporabo te možnosti določite in namestite vtičnik izbrane "
+"registracijske agencije."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nobena registracijska agencija ni omogočena"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Prosimo izberite registracijsko agencijo, ki bi jo radi uporabili za "
+"deponiranje DOI-jev."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registracijska agencija"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Poljubni uporabniško določen vzorec, ki je bil včasih na voljo. Se ne "
+"uporablja več."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Za vsak izdan objekt vnesite svojo DOI priponko. Pri metapodatkih vsakega "
+"objekta boste našli DOI vnosno polje."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Uporabi privzet vzorec."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"DOI pripona je poljubne oblike, pomembno je, da je unikatna med vsemi "
+"objavljenimi objekti, ki so bili izdani znotraj ene DOI predpone:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI pripona"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} objektom bo določen DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Zapisi z DOI-ji"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI predpona"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nikoli"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Ob objavi"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Na katerem mestu produkcijskega procesa naj bodo ustvarjeni DOi-ji?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Avtomatsko ustvarjanje DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI predpona je obvezna in je oblike 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"To določi DOI registracijska agencija, kot je npr. <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> ali <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. Primer: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Naj se DOI-ji samodejno deponirajo pri nastavljeni registracijski agenciji."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Omogoči avtomatsko deponiranje"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Avtomatsko deponiranje"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI predpona"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Omogoči DOI-je"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registracija"
+
+msgid "manager.setup.dois.setup"
+msgstr "Nastavitve"
+
+msgid "manager.setup.dois"
+msgstr "DOI-ji"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Spodnje sporočilo je bilo vrnjeno od {$registrationAgency} in vsebuje "
+"podrobnosti o registraciji:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Spodnja napaka je bila vrnjena od {$registrationAgency} in vsebuje "
+"podrobnosti o vzroku napake:"
+
+msgid "manager.dois.title"
+msgstr "DOI-ji"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Preden lahko to komponento izbrišete, morate vse povezane datoteke dodeliti "
+"novi komponenti."
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Zapisi uspešno oddani za deponiranje"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "DOI-ji uspešno določeni zapisom"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Zapisi uspešno označeni kot registrirani"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Zapisi uspešno izvoženi"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Nekateri DOI-ji se niso posodobili."
+
+msgid "manager.dois.status.stale"
+msgstr "Obviselo"
+
+msgid "manager.dois.status.error"
+msgstr "Napaka"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrirano"
+
+msgid "manager.dois.status.submitted"
+msgstr "Oddano"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Neregistriran"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI manjka"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Deponirajte DOI(-je)"
+
+msgid "manger.dois.update.success"
+msgstr "DOI-ji uspešno posodobljeni"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Zapis uspešne registracije"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Poglej zapis"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Napaka registracije"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Poglej napako"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Ta zapis ne more biti deponiran dokler ni objavljen."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metapodatki za ta zapis niso bili poslani na {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metapodatki za ta zapis je bil poslan na {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status objave"
+
+msgid "manager.dois.depositStatus"
+msgstr "Status depozitov"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Zahtevali boste, da se pri {$registrationAgency} deponirajo vsi DOI zapisi, "
+"ki še niso deponirati. Status vsakega posameznega DOI zapisa bo posodobljen, "
+"ko bo prišel odziv. Ste prepričani, da želite oddati zahtevo po deponiranju "
+"vseh teh zapisov?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deponirajte vse DOI-je"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Dodelili boste nove DOI-je za {$count} objek(ov) za vse objekte, ki še "
+"nimajo dodeljenih DOI-jev. Ste prepričani, da želite dodeliti DOI-je tem "
+"objekt(om)?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Dodeli DOI-je"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Izvozili boste DOI metapodatke za {$count} objek(ov) na {$registrationAgency}"
+". Ste prepričani, da želite te zapise izvoziti?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Izvozi DOI-je"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"DOI metapodatke za {$count} objek(ov) boste označili kot registrirane. Ste "
+"prepričani, da želite te zapise označiti kot registrirani?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Označi DOI-je registrirane"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Poslali boste DOI metapodatke za {$count} objek(ov) na {$registrationAgency}"
+". Ste prepričani, da želite te zapise deponirati?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deponirajte DOI-je"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deponirajte vse"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Krog recenzije v katerem je bila sprejeta odločitev, če je faza recenzije "
+"vplivala na odločitev."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Priporočena odločitev, kot je Sprejmite prispevek"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Ta email je poslan avtomatično, ko recenzent ne opravi recenzije pravočasno."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Opomnik za recenzijo (avtomatski)"
+
+msgid "mailable.reviewRemind.description"
+msgstr "Ta email pošlje urednik, da opomni recenzenta, da opravi recenzijo"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Opomnik za recenzijo"
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ta email je poslan, ko recenzent zavrnje prošnjo za recenzijo"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Recenzija zavrnjena"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Ta email je avtomatično poslan, ko recenzent sprejme prošnjo za recenzijo"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Recenzija potrjena"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Ta email obvešča urednika, da je bila odano priporočilo za en prispevek, ki "
+"mu je dodoljen. To sporočilo se uporablja, kadar določeni urednik ne more "
+"sprejeti odločitve ampak lahko le odda priporočilo. To se določi, ko se "
+"dodeli uredniku dodeli uredniška zadolžitev."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Oddano priporočilo"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek poslan direktno v "
+"lektoriranje in da ne bo recenziran."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Recenzija izpuščena"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek poslan v produkcijo."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Poslano v produkcijo"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek poslan v fazo recenzije."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Poslano v recenzijo"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila preklicana odločitev o zavrnitvi "
+"njihovega prispevka brez recenzije."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Povrnitev zavrnjenega prispevka brez recenzije"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila preklicana odločitev o zavrnitvi "
+"njihovega prispevka."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Povrnitev zavrnjeni prispevek"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila sprejeta odločitev za njihov prispevek, "
+"da je prispevek potrebno revidirati in ponovno oddati."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Ponovna oddaja za recenzijo"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bila v fazi recenzije sprejeta odločitev, da "
+"so potrebni popravki njihovega prispevka."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Zahtevani popravki"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil za njihov prispevek odprt nov krog "
+"recenzije."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Odprt je bil nov krog recenzije"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Prispevek zavrnjen"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek zavrnjen po opravljeni "
+"recenziji."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Prispevek zavrnjen"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
+"oddaje."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Prispevek vrnjen v fazo oddaje"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
+"recenzije."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Prispevek vrnjen nazaj v fazo recenzije"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
+"lektoriranja."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Prispevek vrnjen nazaj v fazo lektoriranja"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr "Ta email obvešča avtorje, da je bil njihov prispevek sprejet za objavo."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Pripevek sprejet"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Avtorje smo pozvali, da oddajo popravke, ki bodo šli ponovno v recenzijo."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Avtorje smo pozvali, da oddajo popravke."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Odločili smo se, da prispevek zavrnemo."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Odločili smo se, da sprejmemo prispevek brez sprememb."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Kratek opis te uredniške odločitve, ki bo poslana v emailu recenzentom z "
+"obvestilom o tej odločitvi."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Ta email pošlje urednik recenzentu z obvestilom, kakšna odločitev je bila "
+"sprejeta v zvezi s prispevkom, ki ga je recenziral."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Zahvala recenzentu"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Kopija emaila, ki je bil poslan avtorju, ki je oddal prispevek"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Ta email z obvestilom o uredniški odločitvi se pošlje avtorjem, ki niso "
+"dodeljeni delovnemu toku prispevka. Običajno so to vsi avtorji, razen "
+"avtorja, ki je oddal prispevek."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Obvesti ostale avtorje"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "Zgoščeni URL, ki se pošlje uporabniku za potrditev ponastavitve gesla"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Imena avtorjev, ki so dodeljeni delovnemu toku prispevka. Običajno je to "
+"avtor, ki je oddal prispevek."
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Avtorjev URL do prispevka"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Skrajšana oblika imen avtorjev"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Email podpis spletne strani za avtomatske emaile"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Email primarnega kontakta spletne strani"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Pri tej reviji potekajo recenzije na način odprte recenzije. Recenzenti bodo "
+"videli vaše ime in imena vaših soavtorjev. Podobno boste tudi vi videli "
+"imena recenzentov."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Pri tej reviji potekajo recenzije na način anonimnih recenzentov. Vaše ime "
+"in imena vaših soavtorjev bodo vidna recenzentom, medtem ko vam identiteta "
+"recenzentov ne bo razkrita."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Pri tej reviji recenzije potekajo na način dvojno slepe recenzije. "
+"Recenzenti ne vidijo nobenih vaših identifikacijskih podatkov in podatkov "
+"vaših soavtorjev. Podobno, vi ne boste vedeli kdo je opravil recenzijo "
+"vašega prispevka in ne bo ste direktno v stiku z recenzenti."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."

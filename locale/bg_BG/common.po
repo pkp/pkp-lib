@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-05 07:14+0000\n"
+"PO-Revision-Date: 2022-03-31 17:05+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -2095,3 +2095,109 @@ msgstr "Скриване на подробности за {$name}"
 
 msgid "list.viewMore"
 msgstr "Показване на подробности за {$name}"
+
+msgid "list.collapseAll"
+msgstr "Скриване на всички"
+
+msgid "list.expandAll"
+msgstr "Показване на всички"
+
+msgid "timeZone"
+msgstr "Часова зона"
+
+msgid "email.attachmentNotFound"
+msgstr "Файлът {$fileName} не може да бъде прикрепен."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Прикачване на файлове, качени от рецензентите"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Прикачване на рецензионни файлове"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr ""
+"Прикачване на файлове от библиотеките за изпратени материали и издателските "
+"библиотеки."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Прикачване на библиотечни файлове"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Библиотечни файлове"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Прикрепяне на файлове, качени при изпращането на материала, като ревизии или "
+"файлове за рецензия."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Прикрепяне на файлове, качени от автора при изпращането на материала."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Прикрепяне на файлове за изпращане на материала"
+
+msgid "common.viewError"
+msgstr "Преглед на грешка"
+
+msgid "common.upload.addFile.description"
+msgstr "Качване на файл от вашия компютър."
+
+msgid "common.switchTo"
+msgstr "Превключване към"
+
+msgid "common.showAllSteps"
+msgstr "Показване на всички стъпки"
+
+msgid "common.searching"
+msgstr "Търсене"
+
+msgid "common.numberedMore"
+msgstr "още {$number}"
+
+msgid "common.keepWorking"
+msgstr "Продължаване на обработката (работата)"
+
+msgid "common.loadTemplate"
+msgstr "Зареди шаблон"
+
+msgid "common.findTemplate"
+msgstr "Намери шаблон"
+
+msgid "common.deselect"
+msgstr "Отмяна на избраното"
+
+msgid "common.attachFiles"
+msgstr "Прикрепяне на файлове"
+
+msgid "common.attachedFiles"
+msgstr "Прикрепени файлове"
+
+msgid "common.addCCBCC"
+msgstr "Добавяне на CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Наистина ли искате да промените на {$localeName}, за да напишете този имейл? "
+"Всички промени, които сте направили в темата и тялото на имейла, ще бъдат "
+"загубени."
+
+msgid "common.switchToNamedItem"
+msgstr "Превключване към {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Или качване на файл"
+
+msgid "common.dragAndDropHere"
+msgstr "Влачете и пуснете файловете тук."
+
+msgid "common.attachSelected"
+msgstr "Прикрепяне на избраните"
+
+msgid "common.addFiles"
+msgstr "Добавяне на файлове"
+
+msgid "common.insertContentSearch"
+msgstr "Търсене на съдържание за добавяне"
+
+msgid "common.insertContent"
+msgstr "Добавяне на съдържание"

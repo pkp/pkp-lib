@@ -1,9 +1,10 @@
+# M. Ali <vorteem@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2021-01-29 12:17+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
@@ -197,3 +198,54 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "تعذر التحقق من ترميز واجهة برمجة التطبيق. قد يشير هذا إلى خطأ في ترميز واجهة "
 "برمجة التطبيق أو أنه لم يعد صالحاً."
+
+msgid "api.dois.400.creationFailed"
+msgstr "وقع خطأ ما وتعذر إنشاء كيان معرف المكون الرقمي."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "تعذر العثور على معرف المكون الرقمي الذي طلبته."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "لا يمكنك تحرير معرف المكون الرقمي للعنصر الذي ليس في هذا السياق"
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"ينبغي عليك إعطاء الرمز التعريفي لجولة التحكيم عند نقل الملف إلى مرحلة "
+"الملفات هذه."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "مرحلة الملف التي أعطيتها غير صالحة."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"لا يمكنك تسجيل القرار أو التوصية به لطلب التقديم هذا لأنه سبق وأن تم نشره."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "واحد أو أكثر من مكونات النشر غير الصالحة تم تضمينه في الطلب."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "لم يتم تضمين مكونات نشر صالحة في الطلب."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"لم ينجح إيداع بعض العناصر. يرجى التحقق منها فردًا فردًا للوقوف على رسائل "
+"الخطأ الخاصة بكل منها."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr "وقع خطأ ما وبعض العناصر المسلمة لم يتم تأشيرها على أنها مسجلة."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "وقع خطأ عند التحقق من صحة XML وتعذر تصديره."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"العناصر غير المنشورة لا يمكن تصديرها/إيداعها. يرجى إزالة التأشير من العناصر "
+"غير المنشورة ثم المحاولة مجددًا."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"هذه النقطة الطرفية غير متاحة من جانب مساحة الاسم التي على مستوى كل الموقع، "
+"وينبغي التماسها لسياق معين."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "ينبغي عليك توفير موضوع البريد الالكتروني ومتنه."

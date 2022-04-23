@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-01-06 09:25+0000\n"
+"PO-Revision-Date: 2022-04-19 16:09+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -988,7 +988,7 @@ msgid "manager.reviewForms.reviewFormData"
 msgstr "Data fra bedømmelsesformular"
 
 msgid "manager.reviewFormElement.changeType"
-msgstr "Ændre formularens elementtype..."
+msgstr "Ændrer formularens elementtype..."
 
 msgid "manager.reviewFormElements"
 msgstr "Formularelementer"
@@ -1415,7 +1415,7 @@ msgid "manager.navigationMenus.assignedMenuItems"
 msgstr "Tildelte menuelementer"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Annulerede menuelementer"
+msgstr "Annullerede menuelementer"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
 msgstr "Aktive tema-navigationsområder"
@@ -1719,7 +1719,7 @@ msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Standard bedømmelsesindstilling"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Bedømmelses-påmindelse"
+msgstr "Påmindelse om bedømmelse"
 
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Svarpåmindelse"
@@ -2409,3 +2409,518 @@ msgstr "Ny besked under drøftelser"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-mail på webstedets primære kontaktperson"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Du er ved at planlægge alle udestående fortegnelser over DOI metadata til "
+"deponering ved {$registrationAgency}. Hvert elements individuelle status vil "
+"blive opdateret, når et svar modtages. Er du sikker på, at du ønsker at "
+"planlægge deponering for alle disse elementer?"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Ingen"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Ingen registreringsorganisation aktiveret"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Vælg venligst den registreringsorganisation, du ønsker at anvende til at "
+"deponere DOI'er."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registreringsorganisation"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "Tidligere tilgængeligt, brugerdefineret mønster. Ikke længere i brug."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Indtast et individuelt DOI-suffiks til hvert publiceret element. Du finder "
+"et DOI-indtastningsfelt på DOI Management siden."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Anvend stadardmønster."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Et DOI-suffiks kan antage en hvilken som helst form, men det skal være unikt "
+"for hvert enkelt udgivet element med samme tildelte DOI-præfiks:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffiks"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} vil blive tildelt en DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Elementer med DOI'er"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI-præfiks"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Aldrig"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Ved publikation"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "På hvilket tidspunkt i publikationsprocessen skal DOI'er dannes?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatisk dannelse af DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Et DOI-præfiks er påkrævet. Det skal være på formen 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Dette tildeles af en DOI registreringsorganisation, som fx <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> eller <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>. Eksempelvis: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Aktivér automatisk deponering"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatisk deponering"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-præfiks"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Aktivér DOI'er"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrering"
+
+msgid "manager.setup.dois.setup"
+msgstr "Opsætning"
+
+msgid "manager.setup.dois"
+msgstr "DOI'er"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Elementer blev indsendt til deponering"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Dette element kan ikke deponeres, førend det er blevet publiceret."
+
+msgid "manager.dois.depositStatus"
+msgstr "Deponeringsstatus"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deponer alle DOI'er"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Du er ved at sende DOI metadata fortegnelser for {$count} elementer(er) til "
+"{$registrationAgency}. Er du sikker på, at du vil deponere disse "
+"fortegnelser?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deponer DOI'er"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deponer alle"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Den følgende besked blev returneret af {$registrationAgency} og indeholder "
+"detaljer omkring registreringen:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Den følgende fejl blev returneret af {$registrationAgency} og indeholder "
+"detaljer omkring årsagen til fejlen:"
+
+msgid "manager.dois.title"
+msgstr "DOI'er"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Elementer fik tildelt nye DOI'er"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Elementer blev markeret som registrerede"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Elementer lykkedes med at blive eksporteret"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Nogle DOI('er) var ikke i stand til at blive opdaterede."
+
+msgid "manager.dois.status.stale"
+msgstr "Forældet"
+
+msgid "manager.dois.status.error"
+msgstr "Fejl"
+
+msgid "manager.dois.status.registered"
+msgstr "Registreret"
+
+msgid "manager.dois.status.submitted"
+msgstr "Indsendt"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Uregistreret"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Deponer DOI('er)"
+
+msgid "manger.dois.update.success"
+msgstr "Opdatering af DOI'er var vellykket"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Vellykket registreringsmeddelelse"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Se fortegnelse"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Registreringsfejlmeddelelse"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Vis fejl"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+"Metadata for dette element er ikke blevet indsendt til {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr ""
+"Metadata for dette element er blevet indsendt til {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Publikationsstatus"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Du er ved at tildele nye DOI'er til {$count} element(er). DOI tildeles til "
+"alle de valgte elementer, der ikke allerede har et DOI. Er du sikker på, du "
+"ønsker at tildele DOI til disse elementer?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Tildel DOI'er"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Du er ved at markere fortegnelser over DOI metadata for {$count} element(er) "
+"som registrerede. Er du sikker på, at du ønsker at markere disse "
+"fortegnelser som registrerede?"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Du er ved at eksportere fortegnelser over DOI metadata for {$count} "
+"element(er) til {$registrationAgency}. Er du sikker på, at du vil eksportere "
+"disse fortegnelser?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exporter DOI'er"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Marker DOI'er som registrerede"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI’er kan blive udformede og deponerede automatisk hos en "
+"registreringsorganisation. For at bruge denne mulighed skal du finde og "
+"installere et plugin fra den valgte organisation."
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Om DOI'er skal registreres automatisk hos den registreringsorganisation, der "
+"er konfigureret i opsætningen."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Vi har bedt forfatterne om at indsende en revideret version til videre "
+"bedømmelse."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Vi har bedt forfatterne om at indsende revisioner."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Vi har besluttet af afvise denne indsendelse."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Vi har besluttet af acceptere denne indsendelse uden revisioner."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"En kort beskrivelse af denne beslutning, som er ment til at blive delt i en "
+"e-mail besked, der sendes til bedømmerne omkring denne indsendelse."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Denne e-mail sendes til en redaktør eller bedømmer for at informere dem om, "
+"at der er blevet truffet en beslutning angående en indsendelse, som de har "
+"bedømt."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Bekræftelse af bedømmer"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "En kopi af den e-mail, der blev sendt til den indsendende forfatter"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Denne e-mail sendes for at informere forfattere af en indsendelse, som ikke "
+"er tilmeldt som deltagere i det redaktionelle workflow, om at der er truffet "
+"en beslutning. Dette drejer sig som regel om alle andre end den indsendende "
+"forfatter."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Underret andre forfattere"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Navnene på forfatterne tilmeldt det redaktionelle workflow. Det er som regel "
+"kun den indsendende forfatter"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Forfatterens URL til indsendelsen"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Dette tidsskrift foretager åbne fagfællebedømmelser. Bedømmerne vil se dit "
+"og dine medforfatteres navne og tilknytninger. På samme vis vil du se navn "
+"og tilknytning på dine bedømmere."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Dette tidsskrift foretager \"anonym bedømmer\" fagfællebedømmelse. Dit og "
+"dine medforfatteres navne vil være synlige for bedømmerne, mens bedømmernes "
+"identiteter vil forblive anonyme."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Dette tidsskrift foretager dobbelt-anonyme fagfællebedømmelser. Bedømmerne "
+"vil ikke se nogle identificerbare informationer omkring dig eller dine "
+"medforfattere. På samme vis, vil du ikke vide hvem der bedømte din "
+"indsendelse, og du vil ikke høre direkte fra bedømmerne."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"En beskrivelse af standard bedømmelsesmetoden, som fx dobbelt anonym eller "
+"åben."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Den anbefalede beslutning, som fx Accepter Indsendelse"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Bedømmelsesrunden, hvor denne beslutning blev truffet, hvis beslutningen er "
+"relateret til bedømmelsestrinnet."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"Trinnet af det redaktionelle workflow, hvor denne beslutning blev truffet."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "En beskrivelse af den trufne beslutning."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Navnet på beslutningen, der blev truffet."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL til at se alle brugerens tildelte indsendelser."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Alle kommentarer fra færdiggjorte bedømmelser. Bedømmeres navne er skjulte "
+"ved anonyme bedømmelser"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Send kun en e-mail til forfattere, der er tilmeldt det redaktionelle "
+"workflow. Dette er som regel kun den indsendende forfatter."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Send en besked via e-mail til alle forfattere af indsendelsen."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Hvem skal modtage en besked via e-mail, når en redaktionel beslutning "
+"registreres?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Underret alle forfattere"
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Indsendelse accepteret"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Indsendelse sendt tilbage til kopiredigering"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at deres indsendelse er blevet "
+"accepteret til publicering."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Indsendelse sendt tilbage til bedømmelse"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt tilbage til kopiredigeringstrinnet."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Indsendelse sendt tilbage til indsendelsestrinnet"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt tilbage til bedømmelsestrinnet."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Indsendelse afslået"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt tilbage til indsendelsestrinnet."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Indsendelse afslået"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Denne e-mail meddeler forfatteren, at deres indsendelse er blevet afvist "
+"efter en fagfællebedømmelse."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at der er indledt en ny "
+"bedømmelsesrunde for vedkommendes indsendelse."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Ny bedømmelsesrunde indledt"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Denne e-mail meddeler forfatteren om en beslutning angående vedkommendes "
+"indsendelse om at revidere og indsende igen."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Fremsend igen til bedømmelse"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Denne e-mail meddeler forfatteren om en beslutning om at ønske rettelser "
+"under fagfællebedømmelsen."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Rettelser ønskes"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Genindsæt afvist indsendelse"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Sendt til bedømmelse"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at en tidligere beslutning om at "
+"afvise vedkommendes indsendelse uden bedømmelse er blevet omstødt."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Genindsæt indsendelse, der blev afvist uden bedømmelse"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at en tidligere beslutning om at "
+"afvise vedkommendes indsendelse efter fagfællebedømmelsen er blevet omstødt."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Anbefaling foretaget"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt direkte til kopiredigeringstrinnet og ikke vil blive bedømt."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Bedømmelse sprunget over"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt til produktionstrinnet."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Sendt til produktion"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt til bedømmelsestrinnet."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Denne besked meddeler en seniorredaktør eller sektionsredaktør, at der er "
+"givet en redaktionel anbefaling om en af deres tilmeldte indsendelser. Denne "
+"besked bruges, når en redaktør kun har tilladelse til at anbefale en "
+"redaktionel beslutning, men en autoriseret redaktør er påkrævet for at tage "
+"den endelige redaktionelle beslutning. Denne mulighed kan vælges, når "
+"rollerne tildeles for indsendelsen."
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Kræver DOI"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Dette tidsskrifts postadresse"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Denne e-mail sendes automatisk, når en bedømmer ikke har færdiggjort sin "
+"bedømmelse inden forfaldsdatoen."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Påmindelse om bedømmelse (automatisk)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Denne e-mail sendes af en redaktør for at påminde en bedømmer om at "
+"vedkommendes bedømmelse skulle have været afleveret"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Påmindelse om bedømmelse"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Denne e-mail sendes af en bedømmer, når vedkommende afviser en anmodning om "
+"bedømmelse"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Afvis bedømmelse"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Bekræft bedømmelse"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Denne e-mail sendes automatisk når en bedømmer accepterer en anmodning om "
+"bedømmelse"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Hashed URL, som sendes til brugeren for at bekræfte nulstilling af password"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Hjemmesidens e-mail-signatur til automatiserede e-mails"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Andre indsendelser"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Dette inkluderer indsendelser, der ikke bliver talt med i andre totalantal, "
+"fx indsendelser, der stadig er i det redaktionelle forløb og dem, der lader "
+"til at være blevet importerede."
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Førend denne komponent kan slettes, må du knytte alle relaterede "
+"indsendelsesfiler til en anden komponent."

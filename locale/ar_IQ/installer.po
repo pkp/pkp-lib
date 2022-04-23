@@ -1,9 +1,10 @@
+# M. Ali <vorteem@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/ar_IQ/>\n"
@@ -49,7 +50,10 @@ msgid "installer.databaseDriver"
 msgstr "مشغل قاعدة البيانات"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>قواعد البيانات الظاهرة بين الأقواس المربعة لا يبدو أنها تمتلك ما يوائمها مع لغة البرمجة PHP ولذلك، فإن التنصيب باستعمالها سيفشل على الأرجح.</strong><br />أي قاعدة بيانات غير مدعومة مدرجة أعلاه ذُكرت لمجرد العرض الأكاديمي وهي لا يُتوقع منها العمل مع النظام."
+msgstr ""
+"<strong>النظام يدعم حاليًا قواعد البيانات MySQL و PostgreSQL، وإذا تعذر عليك "
+"تحديد أحد الخيارات أدناه، تواصل مع مشرف نظامك للتأكد من أن ملقمك يمتلك "
+"إمتدادات PHP المطلوبة.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "المضيف"
@@ -193,3 +197,15 @@ msgstr "إن نسخة PHP التي يعمل بها ملقمك لا يدعمها 
 #, fuzzy
 msgid "installer.installMigrationError"
 msgstr "وقع خطأ عند تنفيذ صنف الانتقال <tt>{$class}</tt>."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"حدد أي من اللغات الإضافية التي تريد أن يدعمها هذا النظام. يمكن أيضًا تنصيب "
+"اللغات الإضافية في أي وقت من واجهة إدارة الموقع.<br>* = تشير إلى اللغات التي "
+"ليست مكتملة الترجمة (ما يزيد على 90% من العبارات تمت ترجمتها)"
+
+msgid "installer.timezoneInstructions"
+msgstr "المنطقة الزمنية المستعملة في هذا النظام."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "لا بد من تحديد المنطقة الزمنية."

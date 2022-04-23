@@ -1,10 +1,11 @@
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-05-28 15:59+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -236,3 +237,38 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "Das API-Token konnte nicht validiert werden. Dies kann auf einen Fehler im "
 "API-Token hinweisen oder darauf, dass das API-Token nicht mehr gültig ist."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"In Ihrer Anfrage waren ein oder mehrere ungültige Publikationsobjekte "
+"enthalten."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "In Ihrer Anfrage waren keine gültigen Publikationsobjekte enthalten."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Einige Artikel wurden nicht erfolgreich abgeliefert. Bitte überprüfen Sie "
+"die einzelnen Artikel auf ihre spezifischen Fehlermeldungen."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Ein Fehler ist aufgetreten und einige der eingereichten Artikel wurden nicht "
+"als 'registriert' markiert."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Ein XML-Validierungsfehler ist aufgetreten und die XML konnte nicht "
+"ausgegeben werden."
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+"Ein Fehler ist aufgetreten und das DOI-Objekt konnte nicht kreiert werden."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Unveröffentlichte Artikel können nicht ausgegeben/abgeliefert werden. Bitte "
+"wählen Sie alle unveröffentlichten Artikel ab und versuchen es erneut."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Die DOI, nach der Sie suchen, konnte nicht gefunden werden."

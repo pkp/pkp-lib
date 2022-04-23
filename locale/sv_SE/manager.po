@@ -2265,6 +2265,14 @@ msgstr "Det här e-postmeddelandet skickas automatiskt när en granskares deadli
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Det här e-postmeddelandet skickas automatiskt när en granskares deadline för bekräftelse på granskningsförfrågan löper ut (se Granskningsalternativ under Inställningar > Arbetsflöde > Granskning) och Granskning utan inloggning är avaktiverat. Schemalagda aktiviteter måste vara aktiverat och konfigurerat (se serverns konfigurationsfil)."
 
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Det här e-postmeddelandet från sektionsredaktören till en granskare ber granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska ett bidrag. Det innehåller information om bidraget i form av titel och abstract, en deadline för granskning och instruktioner för hur man kommer åt bidraget. Meddelandet används när granskningsprocess Standard är valt i Administration > Inställningar > Arbetsflöde > Granskning."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Det här e-postmeddelandet från sektionsredaktören till en granskare ber granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska ett bidrag en andra gång eller på nytt. Det innehåller information om bidraget i form av titel och abstract, en deadline för granskning och instruktioner för hur man kommer åt bidraget. Meddelandet används när granskningsprocess Standard är valt i Administration > Inställningar > Arbetsflöde > Granskning."
+
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Använd standardmönster."
 

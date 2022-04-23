@@ -2158,34 +2158,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Convalidare l'e-mail (sito)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Questa e-mail viene inviata quando un redattore disassegna un revisore."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Revisore non assegnato"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Questa email viene inviata quando un revisore che non era stato assegnato "
 "viene reintegrato da un editore."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Revisore reintegrato"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Questa email viene inviata quando un revisore viene assegnato a una "
-"sottomissione."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Revisore assegnato"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Questa e-mail viene inviata automaticamente ai partecipanti alla discussione "
 "quando un nuovo messaggio viene aggiunto alla discussione."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Nuovo contributo alla discussione"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
@@ -2424,3 +2416,11 @@ msgstr "Questa email viene mandata automaticamente quando una data di revisionee
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Questa mail parte automaticamente quanto la data di conferma di un revisore scade (vedi opzioni di revisione sotto Impostazioni > Flusso di lavoro > Revisione) e l'accesso alla revisione 'one-click' è disabilitato. I compiti programmati devono essere abilitati e configurati (vedi il file di configurazione del sito)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Questa email dal section editor al revisore richiede che quest'ultimo accetti o rifiuti il compito di revisionare una proposta. Fornisce informazioni sulla submission quali il titolo e l'abstract, una data attesa per la revisione, e su come accedere alla submission stessa. Questo messaggio è usato quando il processo Standard di revisione è selezionato nel Journal Setup, fase 2. (Altrimenti vedi  ALLEGATA_RICHIESTA_REVISIONE.)"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Questo messaggio viene inviato dall'editor a un revisore chiedendogli di accettare o rifiutare l'incarico di revisione di una proposta per un secondo o successivo round di revisione. Esso fornisce informazioni come il titolo e l'abstract, una data di scadenza e modalità di accesso alla stessa proposta. Questo messaggio viene utilizzato quando il processo di revisione standard è stato selezionato nel setup."

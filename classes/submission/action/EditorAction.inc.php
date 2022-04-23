@@ -19,8 +19,6 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
-
-use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
@@ -30,9 +28,9 @@ use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
-
 use PKP\log\SubmissionLog;
-use PKP\mail\mailables\MailReviewerAssigned;
+use PKP\mail\mailables\ReviewRequest;
+use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
@@ -40,6 +38,7 @@ use PKP\plugins\HookRegistry;
 use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -206,8 +205,12 @@ class EditorAction
         string $emailBody,
         string $emailSubject,
         Context $context
-    ): Mailable {
-        $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
+    ): ReviewRequest|ReviewRequestSubsequent {
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
+        $mailable = $reviewRound->getRound() == 1 ?
+            new ReviewRequest($context, $submission, $reviewAssignment) :
+            new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
             $accessKeyManager = new AccessKeyManager();

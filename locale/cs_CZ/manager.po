@@ -2311,31 +2311,25 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Validace emailu (stránky)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Tento email je poslán v případě, že editor zruší přiřazení recenzenta."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Bylo zrušeno přiřazení recenzenta"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Tento e-mail je odeslán, když editor znovu přiřadí nepřiřazeného recenzenta."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Recenzent obnoven"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Tento e-mail je odeslán, když je k příspěvku přiřazen recenzent."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Přiřazený recenzent"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Tento e-mail je automaticky odeslán účastníkům diskuse, jakmile je do "
 "diskuse přidána nová zpráva."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Nová diskusní zpráva"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2364,6 +2358,20 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Tento email se automaticky odesílá, jakmile uplyne datum splatnosti potvrzení recenzenta (viz Možnosti kontroly v sekci Nastavení> Pracovní postup> Kontrola) a přístup k recenznímu kontrole je zakázán. Plánované úlohy musí být povoleny a konfigurovány (viz konfigurační soubor webu)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Tento email od editora sekce pro recenzenta žádá, aby recenzent přijal nebo "
+"odmítl úkol zpracovat recenzi příspěvku. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Tento e-mail od editora recenzentovi žádá, aby recenzent přijal nebo odmítl "
+"úkol posoudit předložený příspěvek v dalším kole recenzního řízení. Obsahuje "
+"informace o příspěvku, jako je název a abstrakt, datum uzávěrky recenze a "
+"způsob přístupu k samotnému příspěvku."
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Žádný"

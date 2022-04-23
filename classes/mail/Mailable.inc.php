@@ -136,7 +136,7 @@ class Mailable extends IlluminateMailable
     /**
      * Get whether or not this Mailable supports extra email templates
      */
-    public function getSupportsTemplates(): bool
+    public static function getSupportsTemplates(): bool
     {
         return static::$supportsTemplates;
     }
@@ -227,14 +227,6 @@ class Mailable extends IlluminateMailable
     }
 
     /**
-     * Check whether the subject and body of the email can be edited in the Mailable settings
-     */
-    public static function canEdit(): bool
-    {
-        return static::$canEdit;
-    }
-
-    /**
      * Check whether Mailable can be disabled
      */
     public static function canDisable(): bool
@@ -256,14 +248,6 @@ class Mailable extends IlluminateMailable
     public static function getToRoleIds(): array
     {
         return static::$toRoleIds;
-    }
-
-    /**
-     * Get associated stage IDs
-     */
-    public static function getStageIds(): array
-    {
-        return static::$stageIds;
     }
 
     /**

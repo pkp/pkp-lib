@@ -2286,36 +2286,28 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "E-Mail überprüfen (Seite)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Diese E-Mail wird verschickt wenn ein Editor die Zuordnung eines/r Gutachter/"
 "in rückgängig macht."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Gutachter/in nicht mehr zugeordnet"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Diese E-Mail wird verschickt wenn ein/e Gutachter/in, die/der nicht mehr "
 "zugeordnet war, von einem Editor wieder eingesetzt wird."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Gutachter/in wieder eingesetzt"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Diese E-Mail wird verschickt wenn ein/e Gutachter/in einer Einreichung "
-"zugewiesen wird."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Gutachter/in zugewiesen"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Diese E-Mail wird automatisch an Diskussionsteilnehmende verschickt wenn ein "
 "neuer Beitrag zu einer Diskussion hinzugefügt wurde."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Neuer Diskussionsbeitrag"
 
 msgid "emailTemplate.variable.submission.authorsShort"
@@ -2347,6 +2339,14 @@ msgstr ""
 "Gutachter/innen deaktiviert ist. Planmäßige Aufgaben (scheduled tasks) "
 "müssen aktiviert und konfiguriert sein (vgl. die Konfigurationsdatei der "
 "Website)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Diese E-Mail von der/dem Rubrikredakteur/in an eine/n Gutachter/in bittet darum, dass diese/r die Aufgabe, eine Einreichung zu begutachten, übernimmt oder ablehnt. Sie liefert Informationen über die Einreichung wie Titel und Abstract, ein Fälligkeitsdatum für das Gutachten und darüber, wie auf die Einreichung zugegriffen werden kann. Diese Nachricht wird benutzt, wenn in Schritt 2 des Zeitschriftensetups das Standardbegutachtungsverfahren ausgewählt worden ist."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Diese E-Mail wird von der/dem Rubrikredakteur/in an eine/n Gutachter/in gesendet, damit diese/r die Aufgabe, eine Einreichung in einer zweiten oder weiteren Begutachtungsrunde zu beurteilen, übernimmt oder ablehnt. Sie übermittelt Informationen über die Einreichung wie den Titel und das Abstract, ein Fälligkeitsdatum für das Gutachten und Informationen, wie auf die Einreichung zugegriffen werden kann. Diese Nachricht wird benutzt, wenn in Schritt 2 des Zeitschriftensetups das Standardbegutachtungsverfahren ausgewählt worden ist."
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Keine"

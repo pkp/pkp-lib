@@ -2200,32 +2200,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Проверка адреса почты (сайт)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Это письмо отправляется, когда редактор отменяет назначение рецензента."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Назначение рецензентом отменено"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Это письмо отправляется, когда снятый с назначения рецензент снова "
 "назначается редактором."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Рецензент назначен заново"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Это письмо отправляется, когда рецензенту назначают материал."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Назначен рецензент"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Это письмо автоматически отправляется участникам обсуждения, когда в "
 "обсуждение добавляется новое сообщение."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Новое сообщение в обсуждении"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2254,6 +2248,21 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Это письмо отправляется автоматически, когда дата подтверждения рецензентом участия в рецензировании прошла (смотрите Параметры рецензирования в Настройки > Рабочий процесс > Рецензирование) и прямой доступ рецензента по ссылке отключен. Запланированные задачи должны быть включены и настроены (смотрите файл конфигурации сайта)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Это письмо редактора раздела, отправляемое рецензенту, с запросом согласия "
+"или отказа от выполнения рецензирования материала. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Это письмо от редактора, отправляемое рецензенту, с запросом согласия или "
+"отказа от выполнения рецензирования материала в дополнительном раунде "
+"рецензирования. В письме приводится информация о материале, такая как "
+"название и аннотация, срок выполнения рецензии и как получить доступ к "
+"самому материалу."
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Присвоить DOI"

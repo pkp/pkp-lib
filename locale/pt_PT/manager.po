@@ -2281,7 +2281,7 @@ msgstr "Nomes dos autores de forma abreviada"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "O URL da submissão no dashboard editorial"
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Nova Mensagem de Discussão"
 
 msgid "mailable.validateEmailSite.description"
@@ -2292,27 +2292,21 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Validar E-mail (Site)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Este e-mail é enviado quando um editor desassocia um revisor."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Revisor Desassociado"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Este e-mail é enviado quando um revisor que foi desassociado é reintegrado "
 "por um editor."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Revisor Reintegrado"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Este e-mail é enviado quando um revisor é designado para a submissão."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Revisor Designado"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Este e-mail é enviado automaticamente a participantes da discussão quando "
 "uma nova mensagem é adicionada à discussão."
@@ -2351,6 +2345,20 @@ msgstr ""
 "trabalho > Revisão) e o acesso com um clique como revisor está desativado. "
 "As tarefas agendadas devem ser ativadas e configuradas (consulte o ficheiro "
 "de configuração do site)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor de Secção para o Revisor a solicitar que "
+"aceite ou recuse a tarefa de rever um artigo. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor ao Revisor a solicitar que aceite ou "
+"recuse a tarefa de rever um artigo numa ronda de revisão adicional. Fornece "
+"informações sobre a submissão, como o título e resumo, prazo de revisão e "
+"como aceder à própria submissão."
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Depositar todos os DOIs"

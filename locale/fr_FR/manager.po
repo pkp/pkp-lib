@@ -2337,33 +2337,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Valider le courriel (site)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Ce courriel est envoyé lorsqu'un éditeur désassigne un réviseur."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Evaluateur( trice) plus attribué(e)"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Cet e-mail est envoyé lorsqu'un évaluateur qui n'était pas assigné est "
 "réintégré par un éditeur."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Evaluateur(trice) réintégré(e)"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Cet e-mail est envoyé lorsqu'un évaluateur est affecté à une soumission."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Evaluateur(trice) attribué(e)"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Ce courriel est automatiquement envoyé aux participants de la discussion "
 "lorsqu'un nouveau message est ajouté à la discussion."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Nouveau message de discussion"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
@@ -2529,3 +2522,18 @@ msgstr "Ce courriel est envoyé automatiquement quand la date due d'un rapporteu
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Ce courriel est automatiquement envoyé lorsque la date d'échéance de confirmation d'un rapporteur est écoulée (voir Options de révision sous Paramètres> Flux des travaux> Révision) et l'accès du rapporteur en un clic est désactivé. Les tâches planifiées doivent être activées et configurées (voir le fichier de configuration du site)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Ce courriel du Rédacteur de rubrique à un Rapporteur demande que le "
+"rapporteur accepte ou refuse la tâche d'évaluation d'une soumission. Il "
+"fournit de l'information sur la soumission, tel son titre et un résumé, la "
+"date d'échéance pour l'évaluation, et comment accéder à la soumission elle-"
+"même. Ce message est utilisé quand « Processus d'évaluation standard » est "
+"sélectionné à l'Étape 2, dans la Configuration de la revue. (Autrement voir «"
+" Demande d'évaluation d'un article en pièce jointe »)."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Ce courriel du rédacteur de section à un rapporteur demande que le rapporteur accepte ou refuse la tâche d'examiner une soumission pour une deuxième fois ou plus. Il fournit des informations sur la soumission, comme le titre et le résumé, la date d'échéance de l'examen et la façon d'accéder à la soumission elle-même. Ce message est utilisé lorsque le processus de révision standard est sélectionné dans Administration> Paramètres> Flux des travaux> Révision et que l'accès d'un relecteur est activé."

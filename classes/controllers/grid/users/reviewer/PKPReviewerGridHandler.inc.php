@@ -35,9 +35,8 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
 use PKP\mail\Mailable;
-use PKP\mail\mailables\MailReviewerAssigned;
-use PKP\mail\mailables\MailReviewerReinstated;
-use PKP\mail\mailables\MailReviewerUnassigned;
+use PKP\mail\mailables\ReviewerReinstate;
+use PKP\mail\mailables\ReviewerUnassign;
 use PKP\mail\traits\Sender;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
@@ -539,8 +538,8 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = PKPServices::get('context')->get($submission->getData('contextId'));
-            $template = Repo::emailTemplate()->getByKey($context->getId(), MailReviewerReinstated::getEmailTemplateKey());
-            $mailable = new MailReviewerReinstated($context, $submission, $reviewAssignment);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerReinstate::getEmailTemplateKey());
+            $mailable = new ReviewerReinstate($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }
 
@@ -574,8 +573,8 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = PKPServices::get('context')->get($submission->getData('contextId'));
-            $template = Repo::emailTemplate()->getByKey($context->getId(), MailReviewerAssigned::getEmailTemplateKey());
-            $mailable = new MailReviewerUnassigned($context, $submission, $reviewAssignment);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerUnassign::getEmailTemplateKey());
+            $mailable = new ReviewerUnassign($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }
 

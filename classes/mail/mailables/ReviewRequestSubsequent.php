@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file classes/mail/mailables/MailReviewerAssigned.inc.php
+ * @file classes/mail/mailables/ReviewRequestSubsequent.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class MailReviewerAssigned
+ * @class ReviewRequestSubsequent
  * @ingroup mail_mailables
  *
- * @brief An email send to a reviewer when they are assigned
+ * @brief An email send to a reviewer with a request to accept or decline a task to review a submission on subsequent review rounds
  */
 
 namespace PKP\mail\mailables;
@@ -24,14 +24,15 @@ use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
-class MailReviewerAssigned extends Mailable
+class ReviewRequestSubsequent extends Mailable
 {
     use Recipient;
     use Sender;
     use Configurable;
 
-    protected static ?string $name = 'mailable.mailReviewerAssigned.name';
-    protected static ?string $description = 'mailable.mailReviewerAssigned.description';
+    protected static ?string $name = 'mailable.reviewRequestSubsequent.name';
+    protected static ?string $description = 'mailable.reviewRequestSubsequent.description';
+    protected static ?string $emailTemplateKey = 'REVIEW_REQUEST_SUBSEQUENT';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static bool $canDisable = true;

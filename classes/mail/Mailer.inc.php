@@ -141,9 +141,9 @@ class Mailer extends IlluminateMailer
     /**
      * @return string[] mailable class names
      */
-    public static function getMailables(): array
+    public static function getMailables(int $contextId): array
     {
-        $mailables = static::getMailablesFromCache();
+        $mailables = static::getMailablesFromCache($contextId);
         HookRegistry::call('Mailer::Mailables', [&$mailables]);
 
         return $mailables;
@@ -152,11 +152,9 @@ class Mailer extends IlluminateMailer
     /**
      * @return string[] cached mailable class names
      */
-    protected static function getMailablesFromCache(): array
+    protected static function getMailablesFromCache(int $contextId): array
     {
         $cacheManager = CacheManager::getManager();
-        $context = PKPApplication::get()->getRequest()->getContext();
-        $contextId = $context ? $context->getId() : PKPApplication::CONTEXT_SITE;
         $cache = $cacheManager->getCache('mailable', $contextId, function (FileCache $cache) {
             $cache->setEntireCache(static::scanMailables());
         });

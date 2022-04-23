@@ -1701,3 +1701,11 @@ msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "这封电子邮件是由区段编辑寄发给审查人一份邀请函，询问审查人接受或婉谢一份稿件的审查工作。邮件中含有关于稿件标题和摘要的信息，一个审查工作到期日，以及如何访"
 "问稿件的说明信息。在「期刊设定」之步骤2中选择「标准审查流程」选项时，才会用到这份消息。"
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "这封电子邮件是由区段编辑寄发给审查人一份邀请函，询问审查人接受或婉谢一份稿件的审查工作。邮件中含有关于稿件标题和摘要的信息，一个审查工作到期日，以及如何访问稿件的说明信息。在「期刊设定」之步骤2中选择「标准审查流程」选项时，才会用到这份消息。"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission for a second or greater round of review. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Journal Setup, Step 2."

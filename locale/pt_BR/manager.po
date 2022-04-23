@@ -2323,34 +2323,27 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Validar e-mail (site)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Este e-mail é enviado quando um editor cancela a atribuição de um avaliador."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Avaliador não atribuído"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Este e-mail é enviado quando um avaliador que não estava atribuído é "
 "reintegrado por um editor."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Avaliador reintegrado"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Este e-mail é enviado quando um avaliador é designado para uma submissão."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Avaliador designado"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Este e-mail é enviado automaticamente aos participantes da discussão quando "
 "uma nova mensagem é adicionada à discussão."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Nova mensagem de discussão"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2384,6 +2377,20 @@ msgstr ""
 "trabalho > Avaliação) e a opção de habilitar acesso 1-clique para o "
 "avaliador está desabilitada. Tarefas agendadas devem ser habilitadas e "
 "configuradas (veja o arquivo de configuração do site)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Mensagem do Editor de Seção para solicitar ao Avaliador que indique a "
+"disponibilidade ou não para realizar uma avaliação. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Este e-mail do Editor para um Avaliador, que solicita ao usuário aceitar ou "
+"recusar a tarefa de avaliar uma submissão para uma rodada adicional de "
+"avaliação. Ele fornece informações sobre a submissão, como o título e "
+"resumo, uma data de limite de avaliação, e como acessar a própria submissão."
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Depositar tudo"

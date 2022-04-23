@@ -229,7 +229,7 @@ class PKPEmailTemplateHandler extends APIHandler
         $params['key'] = $args['key'];
 
         // Only allow admins to change the context an email template is attached to.
-        // Set the contextId if it has not been npassed or the user is not an admin
+        // Set the contextId if it has not been passed or the user is not an admin
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         if (isset($params['contextId'])
                 && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)

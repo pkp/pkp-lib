@@ -1594,32 +1594,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Staðfestingartölvupóstur (Síða)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Þessi tölvupóstur er sendur þegar ritstjóri aftengir ritrýni."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Ritrýnir aftengdur"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Þessi tölvupóstur er sendur þegar ritrýnir, sem var aftengdur, er settur "
 "aftur inn af ritstjóra."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Ritrýnir settur aftur inn"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Þessi tölvupóstur er sendur þegar ritrýni er úthlutað handriti."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Úthlutaður ritrýnir"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Tölvupóstur sjálfkrafa sendur á þátttakendur í umræðu, þegar skilboðum er "
 "bætt við umræðuna."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Ný umræðuskilaboð"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
@@ -2484,3 +2478,8 @@ msgstr ""
 "Þessi tölvupóstur sendist sjálfkrafa þegar komið er fram yfir skiladag "
 "ritrýnis til að bregaðst við beiðni um ritrýni og þegar  beinn aðgangur "
 "ritrýnis er ekki virkur."
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Þessi tölvupóstur er frá kaflaritstjóra til ritrýnis um að ritrýnir samþykki "
+"eða hafni beiðni um ritrýni. "

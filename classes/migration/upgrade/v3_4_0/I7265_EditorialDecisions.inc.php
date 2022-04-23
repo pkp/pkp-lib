@@ -64,7 +64,7 @@ abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
     protected function downReviewRounds()
     {
         Schema::table('edit_decisions', function (Blueprint $table) {
-            $table->dropForeign('review_round_id');
+            $table->dropForeign(['review_round_id']);
         });
 
         DB::table('edit_decisions')

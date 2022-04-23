@@ -2382,32 +2382,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Validér e-mail (websted)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Denne e-mail afsendes når en redaktør framelder en bedømmer."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Bedømmer frameldt"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Denne e-mail afsendes, når en bedømmer, der tidligere blev frameldt, "
 "genindsættes af en redaktør."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Bedømmer genindsat"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Denne e-mail afsendes når en bedømmer bliver tildelt en indsendelse."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Bedømmer tilvalgt"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Denne e-mail sendes automatisk til deltagere i drøftelserne, når en ny "
 "meddelelse tilføjes."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Ny besked under drøftelser"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2436,6 +2430,21 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Denne e-mail sendes automatisk når en bedømmers bekræftelsesdato er overskredet (se bedømmelsesindstillinger under Indstillinger > Workflow > Bedømmelse) og ’Aktiver adgang for bedømmere ved hjælp af ét klik’ er fravalgt. Tidsfrister og påmindelser skal være defineret."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Denne e-mail fra sektionsredaktøren til en bedømmer anmoder bedømmeren om at "
+"acceptere eller afvise at bedømme et manuskript. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Denne mail sendes af redaktøren til en bedømmer, der bedes oplyse om "
+"vedkommende vil påtage sig at bedømme et indlæg i en yderligere  "
+"bedømmelsesrunde. Det indeholder informationer om indlægget så som titel og "
+"resumé, forfaldsdato for indlevering af bedømmelse samt hvordan man får "
+"adgang til indlægget."
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""

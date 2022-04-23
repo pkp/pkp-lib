@@ -2421,3 +2421,23 @@ msgstr "Este correo es enviado automáticamente cuando se supera la fecha de ent
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Este correo electrónico se envía automáticamente cuando transcurre la fecha de entrega del revisor/a (vea las opciones de revisión en el paso 2 de la configuración de la revista) y se deshabilita el acceso al revisor/a con un solo clic. Las tareas planificadas se deben habilitar y configurar (vea el archivo de configuración del sitio)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Este correo electrónico del editor/a de sección se dirige a un revisor/a "
+"para solicitarle que acepte o rechace la tarea de revisión de un envío. El "
+"correo proporciona información sobre el envío, como el título y el resumen, "
+"el plazo de revisión y cómo acceder al envío propiamente dicho. Este mensaje "
+"se usa cuando se selecciona el proceso de revisión estándar en Gestión > "
+"Ajustes > Flujo de trabajo > Revisión."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Este correo electrónico del editor/a de sección a un revisor/a solicita que "
+"el revisor/a acepte o rechace la tarea de revisar un envío para una ronda de "
+"revisión adicional. Además, proporciona información sobre el envío como el "
+"título, el resumen, la fecha de entrega de la revisión y cómo obtener acceso "
+"al propio envío. Este mensaje se usa cuando se selecciona el proceso de "
+"revisión estándar en Gestión > Ajustes > Flujo de trabajo > Revisión."

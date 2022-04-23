@@ -2412,3 +2412,17 @@ msgstr "Email ini dikirimkan otomatis saat tenggat waktu review terlewati (lihat
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Email ini dikirim otomatis saat tenggat konfirmasi terlewati (lihat Opsi Review di menu Pengaturan > Alur Kerja > Review) dan akses one-click reviewer dinonaktifkan. Scheduled tasks must be enabled and configured (see the site configuration file)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Email ini dikirimkan kepada Reviewer oleh Editor Bagian untuk meminta "
+"reviewer apakah menerima atau menolak permohonan review. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Email ini dikirim oleh Editor Bagian kepada Reviewer untuk meminta reviewer "
+"apakah menerima atau menolak permohonan review untuk tahap review tambahan. "
+"Email ini berisi informasi tentang naskah yang mencakup  judul dan abstrak, "
+"tenggat review, dan cara mengakses naskah."

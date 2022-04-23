@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/mail/mailables/MailReviewerUnassigned.inc.php
+ * @file classes/mail/mailables/ReviewerUnassign.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class MailReviewerUnassigned
+ * @class ReviewerUnassign
  * @ingroup mail_mailables
  *
  * @brief Email sent when a reviewer is unassigned
@@ -24,14 +24,14 @@ use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
-class MailReviewerUnassigned extends Mailable
+class ReviewerUnassign extends Mailable
 {
     use Recipient;
     use Sender;
     use Configurable;
 
-    protected static ?string $name = 'mailable.mailReviewerUnassigned.name';
-    protected static ?string $description = 'mailable.mailReviewerUnassigned.description';
+    protected static ?string $name = 'mailable.reviewerUnassign.name';
+    protected static ?string $description = 'mailable.reviewerUnassign.description';
     protected static ?string $emailTemplateKey = 'REVIEW_CANCEL';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];

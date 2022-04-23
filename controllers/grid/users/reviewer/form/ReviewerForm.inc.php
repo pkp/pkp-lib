@@ -22,7 +22,8 @@ use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
-use PKP\mail\mailables\MailReviewerAssigned;
+use PKP\mail\mailables\ReviewRequest;
+use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
@@ -210,13 +211,12 @@ class ReviewerForm extends Form
         $this->setData('reviewRoundId', $reviewRound->getId());
 
         $context = $request->getContext();
-        $templateKey = $this->_getMailTemplateKey($context);
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignment = $reviewAssignmentDao->newDataObject();
         $reviewAssignment->setSubmissionId($this->getSubmissionId());
 
-        $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+        $mailable = $this->getMailable($context, $submission, $reviewAssignment);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $mailable->sender($request->getUser());
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
@@ -269,7 +269,9 @@ class ReviewerForm extends Form
             'recipientUsername' => __('user.username'),
         ]);
         // Allow the default template
-        $templateKeys[] = $this->_getMailTemplateKey($request->getContext());
+        $templateKeys[] = $this->getReviewRound()->getRound() == 1 ?
+            ReviewRequest::getEmailTemplateKey() :
+            ReviewRequestSubsequent::getEmailTemplateKey();
 
         // Determine if the current user can use any custom templates defined.
         $user = $request->getUser();
@@ -474,11 +476,16 @@ class ReviewerForm extends Form
     }
 
     /**
-     * Get the email template key depending on if reviewer one click access is
-     * enabled or not as well as on review round.
+     * Get the Mailable depending on a review round.
      */
-    protected function _getMailTemplateKey(): string
+    protected function getMailable(
+        Context $context,
+        Submission $submission,
+        ReviewAssignment $reviewAssignment
+    ): ReviewRequest|ReviewRequestSubsequent
     {
-        return $this->getReviewRound()->getRound() == 1 ? 'REVIEW_REQUEST' : 'REVIEW_REQUEST_SUBSEQUENT';
+        return $this->getReviewRound()->getRound() == 1 ?
+            new ReviewRequest($context, $submission, $reviewAssignment) :
+            new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
     }
 }

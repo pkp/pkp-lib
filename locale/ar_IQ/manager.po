@@ -2184,32 +2184,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "التحقق من البريد الالكتروني (الموقع)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "هذا البريد الالكتروني يُرسل عندما يلغي المحرر تعيين المحكم."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "محكم تم إلغاء تعيينه"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "هذا البريد الالكتروني يُرسل عندما يُعيد المحرر المحكم الذي سبق وأن تم إلغاء "
 "تعيينه."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "محكم تمت إعادته"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "هذا البريد الالكتروني يُرسل عند تعيين محكم لطلب التقديم."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "المحكم تم تعيينه"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "هذا البريد الالكتروني يُرسل تلقائيًا إلى المشاركين في المناقشة عندما تُضاف "
 "رسالة جديدة إليها."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "رسالة جديدة من المناقشة"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2236,6 +2230,19 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "هذه الرسالة يرسلها النظام آلياً عندما يتباطأ أحد المحكمين عن تقديم إجابة في الموعد المقرر (إنظر خيارات التحكيم ضمن: الإعدادات، المخطط الانسيابي، التحكيم) عندما تكون ميزة وصول المحكم بنقرة واحدة معطلة. يجب أن تكون المهام المجدولة ممكنة ومعدة (إنظر ملف إعدادات الموقع)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"هذه الرسالة يرسلها محرر قسم المجلة إلى أحد المحكمين ليلتمس منه قبول مهمة "
+"التحكيم أو رفضها. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"هذه الرسالة يعنونها المحرر إلى المحكم ليلتمس منه قبول أو رفض مهمة تحكيم "
+"المؤلَّف لجولة أخرى. الرسالة تشير إلى عنوان المؤلَّف وملخصه وتاريخ استيجاب "
+"التحكيم كما تعطي رابط الوصول إلى المؤلَّف في موقع المجلة نفسه."
 
 msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "تم تسليم العناصر بنجاح لغرض الإيداع"

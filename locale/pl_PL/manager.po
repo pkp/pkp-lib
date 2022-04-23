@@ -2274,3 +2274,19 @@ msgstr "Wiadomość automatycznie wysłana po upłynięciu terminu nadesłania r
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Wiadomość od redaktora działu do recenzenta. Zawiera prośbę o przygotowanie recenzji artykułu, jego tytuł i abstrakt, a także zalecenie dot. zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do logowania. Wysyłana, jeśli recenzent pracować będzie w systemie."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
+"przygotowanie recenzji tekstu, jego tytuł i abstrakt, a także zalecenie dot. "
+"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
+"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
+"przygotowanie recenzji tekstu, jego tytuł i abstrakt oraz informacje o "
+"dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
+"pracować będzie w systemie"

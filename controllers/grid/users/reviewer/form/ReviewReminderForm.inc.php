@@ -135,7 +135,7 @@ class ReviewReminderForm extends Form
         // Create ReviewRemind email and populate with data
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable->getEmailTemplateKey());
         $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
         $mailable->setData(Locale::getLocale());
 

@@ -30,28 +30,22 @@ msgstr "このメールは、新規ユーザーがサイトに登録する際、
 msgid "mailable.validateEmailSite.name"
 msgstr "電子メールの検証（サイト）"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "このメールは、編集者が査読者の任命を解除したときに送信されます。"
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "査読者未任命"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr "このメールは、任命解除されていた査読者が編集者によって復帰されたときに送られます。"
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "査読者復活"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "このメールは、投稿に査読者が割り当てられたときに送信されます。"
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "査読者任命済み"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr "このメールは、ディスカッションに新しいメッセージが追加されたときに、ディスカッション参加者に自動的に送信されます。"
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "新規ディスカッションメッセージ"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
@@ -2256,3 +2250,16 @@ msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "このメールは、査読者の確認期限が過ぎた場合（「設定」>「ワークフロー」>「査読」の「査読オプション」を参照）、査読者のワンクリックアクセスが無効になってい"
 "る場合に自動的に送信されます。スケジュールされたタスクを有効にして設定する必要があります（サイト設定ファイルを参照）。"
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"このメールは、セクション編集者から査読者に投稿物の査読を依頼するものです。メールには、タイトルや要旨などの投稿物に関する情報、査読期限日、投稿物へのアクセ"
+"ス方法を示しています。このメールは、雑誌設定のステップ2で標準的査読プロセスが選択された場合に使用されます（そうでない場合は、REVIEW_REQUEST"
+"_ATTACHEDを参照してください）。"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"このメールは、セクション編集者から査読者に投稿物の査読の次回目を依頼するものです。メールには、タイトルや要旨などの投稿物に関する情報、査読期限日、投稿物へ"
+"のアクセス方法を示しています。このメールは、雑誌設定のステップ2で標準的査読プロセスが選択された場合に使用されます（そうでない場合は、REVIEW_REQ"
+"UEST_ATTACHED_SUBSEQUENTを参照してください）。"

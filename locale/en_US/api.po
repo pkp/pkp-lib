@@ -231,3 +231,12 @@ msgstr "The active theme, {$themePluginPath}, is not enabled and may not be inst
 
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "The {$locale} locale is not supported."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "The mailable you requested was not found."
+
+msgid "api.mailables.404.templateNotFound"
+msgstr "The email template requested to be attached to the mailable was not found"
+
+msgid "api.mailables.403.notAllowedTemplate"
+msgstr "You cannot change mailable associated with the requested email template"

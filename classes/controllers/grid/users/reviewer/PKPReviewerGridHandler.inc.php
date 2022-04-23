@@ -878,7 +878,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			'signatureFullName' => htmlspecialchars($user->getFullname()),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
 			'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-			'abstractTermIfEnabled' => htmlspecialchars($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+			'abstractTermIfEnabled' => $this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract'), // Deprecated; for OJS 2.x templates
 		]);
 		$template->replaceParams();
 

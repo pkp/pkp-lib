@@ -199,7 +199,7 @@ class RecommendationForm extends Form {
 				'editors' => htmlspecialchars($this->getData('editors')),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'submissionUrl' => $submissionUrl,
-				'recommendation' => htmlspecialchars(__($recommendationOptions[$recommendation])),
+				'recommendation' => __($recommendationOptions[$recommendation]),
 			]);
 			if (!$this->getData('skipEmail')) {
 				if (!$email->send($request)) {

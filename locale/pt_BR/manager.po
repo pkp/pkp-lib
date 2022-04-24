@@ -1,7 +1,7 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-11 13:57+0000\n"
+"PO-Revision-Date: 2022-04-25 15:57+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -601,7 +601,9 @@ msgid "doi.editor.missingPrefix"
 msgstr "O DOI deve começar com {$doiPrefix}."
 
 msgid "doi.editor.assignDoi.assigned"
-msgstr "O DOI {$pubId} foi atribuído."
+msgstr ""
+"O DOI {$pubId} foi atribuído.  Para editar o DOI, visite a <a href=\""
+"{$doiManagementLink}\">página de gerenciamento de DOI</a>."
 
 msgid "doi.editor.assignDoi.pattern"
 msgstr ""
@@ -754,7 +756,7 @@ msgstr ""
 "Objetos Digitais (DOI):"
 
 msgid "doi.manager.settings.doiObjectsRequired"
-msgstr "Escolha os objetos aos quais se deve atribuir DOIs."
+msgstr "Por favor, escolha os objetos aos quais os DOIs devem ser atribuídos."
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Conteúdo do servidor"

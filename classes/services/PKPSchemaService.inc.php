@@ -283,7 +283,7 @@ class PKPSchemaService
                 if (is_object($value) || is_array($value)) {
                     $value = serialize($value);
                 }
-                return (string) $value;
+                return empty($value) ? null : (string) $value;
             case 'array':
                 $newArray = [];
                 if (is_array($schema->items)) {

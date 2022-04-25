@@ -14,6 +14,7 @@
  */
 
 use APP\facades\Repo;
+use PKP\facades\Locale;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;

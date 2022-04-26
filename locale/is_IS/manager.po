@@ -2481,5 +2481,5 @@ msgstr ""
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Þessi tölvupóstur er frá kaflaritstjóra til ritrýnis um að ritrýnir samþykki "
-"eða hafni beiðni um ritrýni. "
+"Þessi tölvupóstur er frá kaflaritstjóra til ritrýnis með óskum um að "
+"viðkomandi samþykki eða hafni beiðni um ritrýni."

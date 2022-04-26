@@ -2407,7 +2407,7 @@ msgstr "Questa email viene mandata dal revisore al section editor in risposta a 
 
 #, fuzzy
 msgid "mailable.reviewRemind.description"
-msgstr "Questa email viene mandata da un section editor per ricordare al revisore che è attesa la revisione."
+msgstr "Questa email viene mandata da un editor per ricordare al revisore che è attesa la revisione."
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
@@ -2419,8 +2419,8 @@ msgstr "Questa mail parte automaticamente quanto la data di conferma di un revis
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
-msgstr "Questa email dal section editor al revisore richiede che quest'ultimo accetti o rifiuti il compito di revisionare una proposta. Fornisce informazioni sulla submission quali il titolo e l'abstract, una data attesa per la revisione, e su come accedere alla submission stessa. Questo messaggio è usato quando il processo Standard di revisione è selezionato nel Journal Setup, fase 2. (Altrimenti vedi  ALLEGATA_RICHIESTA_REVISIONE.)"
+msgstr "Questa email dal section editor al revisore richiede che quest'ultimo accetti o rifiuti il compito di revisionare una proposta."
 
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
-msgstr "Questo messaggio viene inviato dall'editor a un revisore chiedendogli di accettare o rifiutare l'incarico di revisione di una proposta per un secondo o successivo round di revisione. Esso fornisce informazioni come il titolo e l'abstract, una data di scadenza e modalità di accesso alla stessa proposta. Questo messaggio viene utilizzato quando il processo di revisione standard è stato selezionato nel setup."
+msgstr "Questo messaggio viene inviato dall'editor a un revisore chiedendogli di accettare o rifiutare l'incarico di revisione di una proposta per un secondo o successivo round di revisione. Esso fornisce informazioni come il titolo e l'abstract, una data di scadenza e modalità di accesso alla stessa proposta."

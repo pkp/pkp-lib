@@ -2287,16 +2287,16 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
-"Email này được gửi bởi một Biên tập viên chuyên mục để nhắc nhở người phản "
-"biện rằng đánh giá của họ đến hạn nộp."
+"Email này được gửi bởi một Biên tập viên để nhắc nhở người review rằng "
+"review của họ đến hạn nộp. Email này được sử dụng khi Biên tập viên gửi nhắc "
+"nhở đến người review một cách thủ công"
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Email này được gửi tự động khi hết hạn đánh giá của người phản biện (xem Tùy "
-"chọn đánh giá trong Cài đặt > Quy trình làm việc > Phản biện) và quyền truy "
-"cập của người phản biện không cần đăng nhập bị vô hiệu hóa. Các tác vụ theo "
-"lịch trình phải được bật và định cấu hình (xem tệp cấu hình trang)."
+"Email này được gửi tự động khi người review không hoàn thành việc review "
+"trong hạn thời gian. Việc tự động hóa nhắc nhở được bật ở mục thiết đặt "
+"Review."
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""

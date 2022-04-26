@@ -2395,17 +2395,15 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
-"Denne e-posten sendes av en seksjonsredaktør til en fagfelle for å minne om "
+"Denne e-posten sendes av en redaktør til en fagfelle for å minne om "
 "at fagfellevurderingen ventes ferdigstilt innen fristen."
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Denne e-posten sendes automatisk til fagfellen når tidsfristen for "
-"fagfellevurdering utløper (se: Tid for fagfellevurdering under Innstillinger "
-"> Arbeidsflyt > Fagfellevurdering) og når ettklikks fagfelletilgang er slått "
-"av. Planlagte oppgaver må være slått på og konfiguert (se etter Scheduled "
-"tasks i konfigurasjonsfilen for nettstedet)."
+"Denne e-posten sendes automatisk til fagfellen når tidsfristen er "
+"overskredet. Automatiske påminnelser om fagfellevurdering kan aktiveres i "
+"Arbeidsflyt > Fagfellevurdering"
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"

@@ -2345,17 +2345,16 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
-"Acest e-mail este trimis de un editor de secțiune pentru a reaminti "
-"recenzorului că revizuirea sa se apropie de data limită."
+"Acest email este trimis de un editor pentru a reaminti evaluatorului că "
+"evaluarea sa trebuia trimisă. Acest email este utilizat atunci când un "
+"editor trimite manual un memento evaluatorului"
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Acest e-mail este trimis automat la expirarea termenului de scadență al unui "
-"revizor (consultați Opțiunile de revizuire din Setări> Flux de lucru> "
-"Revizuire) și accesul cu un singur clic al revizorului este dezactivat. "
-"Sarcinile programate trebuie să fie activate și configurate (consultați "
-"fișierul de configurare a site-ului)."
+"Acest email este trimis automat atunci când un evaluator nu și-a finalizat "
+"evaluarea până la data limită. Memento-urile automate de evaluare sunt "
+"activate în setările de evaluare."
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"

@@ -164,6 +164,9 @@ msgstr "Editorial Report Notification"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Subscription expiry reminder"
 
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Remove unvalidated expired users"
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache version"
 

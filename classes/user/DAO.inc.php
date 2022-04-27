@@ -314,11 +314,15 @@ class DAO extends \PKP\core\EntityDAO
      */
     public function deleteUnvalidatedExpiredUsers(Carbon $dateTillValid, array $excludableUsersId = []) {
 
-        return DB::table('users')
+        $users = DB::table('users')
             ->whereNull('date_validated')
             ->whereNull('date_last_login')
             ->where('date_registered', '<', $dateTillValid)
             ->when( !empty($excludableUsersId), fn($query) => $query->whereNotIn('id', $excludableUsersId) )
-            ->delete();
+            ->get();
+
+        $users->each(fn($user) => $this->delete($this->get($user->user_id, true)));
+
+        return $users->count();
     }
 }

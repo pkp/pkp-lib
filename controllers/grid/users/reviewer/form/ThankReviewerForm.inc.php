@@ -114,7 +114,7 @@ class ThankReviewerForm extends Form {
 			$context = $request->getContext();
 			$user = $request->getUser();
 			$email->assignParams([
-				'reviewerName' => htmlspecialchars($reviewer->getFullName()_,
+				'reviewerName' => htmlspecialchars($reviewer->getFullName()),
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => htmlspecialchars($user->getFullname()),

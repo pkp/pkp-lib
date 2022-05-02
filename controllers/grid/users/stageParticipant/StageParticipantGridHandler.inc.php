@@ -562,7 +562,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         if ($template) {
             $user = $request->getUser();
             $template->assignParams([
-                'signature' => $user->getContactSignature(Locale::getLocale()),
+                'signature' => $user->getSignature(Locale::getLocale()) ?? '',
                 'senderName' => $user->getFullname(),
             ]);
             $template->replaceParams();

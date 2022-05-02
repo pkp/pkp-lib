@@ -415,22 +415,6 @@ class User extends Identity
         $this->setData('inlineHelp', $inlineHelp);
     }
 
-    public function getContactSignature(?string $locale = null)
-    {
-        if ($this->getSignature($locale)) {
-            return $this->getSignature($locale);
-        }
-        $signature = htmlspecialchars($this->getFullName());
-        if ($a = $this->getLocalizedAffiliation()) {
-            $signature .= '<br/>' . htmlspecialchars($a);
-        }
-        if ($p = $this->getPhone()) {
-            $signature .= '<br/>' . __('user.phone') . ' ' . htmlspecialchars($p);
-        }
-        $signature .= '<br/>' . htmlspecialchars($this->getEmail());
-        return $signature;
-    }
-
     /**
      * Check if this user has a role in a context
      *

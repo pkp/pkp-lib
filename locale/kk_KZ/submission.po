@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-06 04:55+0000\n"
+"PO-Revision-Date: 2022-05-03 22:42+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/kk_KZ/>\n"
@@ -358,14 +358,12 @@ msgstr "Қолданушының ID шығарылымы"
 msgid "metadata.property.validationMessage.doi"
 msgstr "DOIды дұрыс еңгізіңіз."
 
-#, fuzzy
 msgid "metadata.property.displayName.doi"
 msgstr "DOI"
 
 msgid "metadata.property.validationMessage.eissn"
 msgstr "eISSNді дұрыс еңгізіңіз."
 
-#, fuzzy
 msgid "metadata.property.displayName.eissn"
 msgstr "eISSN"
 

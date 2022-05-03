@@ -108,7 +108,7 @@ class XMLTypeDescription extends TypeDescription
     public function checkType(&$object)
     {
         // We only accept DOMDocument objects and source strings.
-        if (!$object instanceof \DOMDocument && !is_string($object)) {
+        if (!$object instanceof DOMDocument && !is_string($object)) {
             return false;
         }
 

@@ -148,7 +148,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $submissionFile->setData('credit', $credit);
         }
 
-        if ($directSalesPrice = $node->getAttribute('direct_sales_price')) {
+        $directSalesPrice = $node->getAttribute('direct_sales_price');
+        if ($directSalesPrice != null) {
             $submissionFile->setData('directSalesPrice', $directSalesPrice);
         }
 

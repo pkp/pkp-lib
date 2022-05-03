@@ -3,8 +3,8 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-08 03:39+0000\n"
-"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
+"PO-Revision-Date: 2022-05-03 22:42+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -365,7 +365,7 @@ msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Жариялауға жоспарланған материалдарды жариялау"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Жоспарланған тапсырманы орындау журналдарын тазалау"
+msgstr "Жоспарланған тапсырманы орындау әрекеттерін тазалау"
 
 msgid "admin.jobs.createdAt"
 msgstr "{$createdAt} құрылған"
@@ -502,3 +502,31 @@ msgstr ""
 
 msgid "admin.deleteCache"
 msgstr "Кэштерді жою"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Тапсырмаларды қарау"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Жүйедегі барлық кезекте тұрған тапсырмаларды қараңыз және сәтсіз әрекеттерді "
+"қадағалаңыз."
+
+msgid "admin.systemInformation.view"
+msgstr "Жүйе туралы ақпаратты қарау"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Бағдарлама мен сервердің нұсқасы мен конфигурация параметрлері туралы "
+"ақпаратты қараңыз."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Тапсырма мәліметтерін жою"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Орындалуға жоспарланған тапсырмалар үрдісінің барлық әрекеттерді жойыңыз."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Барлық пайдаланушылар бағдарламадан бірден шығарылады, ондай кезде сізде "
+"бірден шығасыз және сізге қайта кіру қажет болады."

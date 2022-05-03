@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-06 05:27+0000\n"
+"PO-Revision-Date: 2022-05-03 22:42+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -2200,3 +2200,6 @@ msgstr "Рецензияның растау күнін қарап шығу"
 
 msgid "reviewer.submission.reviewDueDate"
 msgstr "Рецензияның келіп түскен күні"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Белгісіз командалар {$command}"

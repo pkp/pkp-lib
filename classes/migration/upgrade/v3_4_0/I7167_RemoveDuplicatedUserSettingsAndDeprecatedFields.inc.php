@@ -93,15 +93,15 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
         }
 
         // Here we should be free of duplicates, so it's safe to remove the columns without creating duplicated entries.
+        // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
+        // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
         try {
             Schema::table('user_settings', fn (Blueprint $table) => $table->dropUnique('user_settings_pkey'));
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             error_log('Failed to drop unique index "user_settings_pkey" from table "user_settings", another attempt will be done.');
             try {
                 Schema::table('user_settings', fn (Blueprint $table) => $table->dropIndex('user_settings_pkey'));
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 error_log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.');
             }
         }

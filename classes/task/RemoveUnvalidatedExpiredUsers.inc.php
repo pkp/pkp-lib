@@ -35,13 +35,13 @@ class RemoveUnvalidatedExpiredUsers extends ScheduledTask
      * @copydoc ScheduledTask::executeActions()
      */
     public function executeActions()
-    {
-        if ( ! Config::getVar('general', 'remove_expired_users') ) {
+    {   
+        $validationMaxDeadlineInDays = (int) Config::getVar('general', 'user_validation_period');
+
+        if ( $validationMaxDeadlineInDays <= 0 ) {
             
             return;
         }
-        
-        $validationMaxDeadlineInDays = Config::getVar('email', 'validation_timeout') ?? 14;
 
         $dateTillValid = Carbon::now()->startOfDay()->subDays($validationMaxDeadlineInDays);
 

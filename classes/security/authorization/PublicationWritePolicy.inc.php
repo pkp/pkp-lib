@@ -36,7 +36,7 @@ class PublicationWritePolicy extends ContextPolicy
 
         // Is the user assigned to this submission in one of these roles, and does this role
         // have access to the _current_ stage of the submission?
-        $this->addPolicy(new StageRolePolicy([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR]));
+        $this->addPolicy(new StageRolePolicy([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR]));
 
         // Can the user edit the publication?
         $this->addPolicy(new PublicationCanBeEditedPolicy($request, 'api.submissions.403.userCantEdit'));

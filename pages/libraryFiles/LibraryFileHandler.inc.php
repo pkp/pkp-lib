@@ -84,7 +84,7 @@ class LibraryFileHandler extends Handler
                 // Managers are always allowed access.
                 if ($this->_callingHandler) {
                     $userRoles = $this->_callingHandler->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-                    if (array_intersect($userRoles, [Role::ROLE_ID_MANAGER])) {
+                    if (array_intersect($userRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
                         $allowedAccess = true;
                     }
                 }

@@ -50,7 +50,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
         // Managers and Editors additionally get administrative access
         $this->addRoleAssignment(
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
             array_merge($peOps, ['addParticipant', 'deleteParticipant', 'saveParticipant', 'fetchUserList'])
         );
         $this->setTitle('editor.submission.stageParticipants');
@@ -103,7 +103,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         // If the current role set includes Manager or Editor, grant.
         return (bool) array_intersect(
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
         );
     }

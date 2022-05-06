@@ -49,6 +49,14 @@ class QueryAccessPolicy extends ContextPolicy
         $queryAccessPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         //
+        // Site Admin role
+        //
+        if (isset($roleAssignments[Role::ROLE_ID_SITE_ADMIN])) {
+            // Site administrators have all access to all queries.
+            $queryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
+        }
+
+        //
         // Managerial role
         //
         if (isset($roleAssignments[Role::ROLE_ID_MANAGER])) {

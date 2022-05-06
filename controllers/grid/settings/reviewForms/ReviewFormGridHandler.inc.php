@@ -42,7 +42,7 @@ class ReviewFormGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [Role::ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             ['fetchGrid', 'fetchRow', 'createReviewForm', 'editReviewForm', 'updateReviewForm',
                 'reviewFormBasics', 'reviewFormElements', 'copyReviewForm',
                 'reviewFormPreview', 'activateReviewForm', 'deactivateReviewForm', 'deleteReviewForm',

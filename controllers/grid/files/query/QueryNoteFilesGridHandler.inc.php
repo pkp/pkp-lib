@@ -39,7 +39,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow', 'selectFiles']
         );
 
@@ -62,7 +62,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
 
         if (0 != count(array_intersect(
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]
         ))) {
             $this->getCapabilities()->setCanManage(true);
         }

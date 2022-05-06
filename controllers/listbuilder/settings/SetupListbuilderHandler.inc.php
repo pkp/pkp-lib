@@ -29,7 +29,7 @@ class SetupListbuilderHandler extends ListbuilderHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            Role::ROLE_ID_MANAGER,
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             ['fetch', 'fetchRow', 'save']
         );
     }

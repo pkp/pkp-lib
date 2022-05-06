@@ -30,7 +30,7 @@ class ReportGeneratorHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            Role::ROLE_ID_MANAGER,
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             ['fetchReportGenerator', 'saveReportGenerator', 'fetchArticlesInfo', 'fetchRegions']
         );
     }

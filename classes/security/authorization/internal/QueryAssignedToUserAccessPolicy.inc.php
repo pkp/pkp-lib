@@ -64,7 +64,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
         // Managers are allowed to access discussions they are not participants in
         // as long as they have Manager-level access to the workflow stage
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-        $managerAssignments = array_intersect([Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[$query->getStageId()] ?? []);
+        $managerAssignments = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $accessibleWorkflowStages[$query->getStageId()] ?? []);
         if (!empty($managerAssignments)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }

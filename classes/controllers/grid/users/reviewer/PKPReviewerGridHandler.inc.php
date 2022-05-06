@@ -29,11 +29,11 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
+use PKP\emailtemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
-use PKP\emailtemplate\EmailTemplate;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\MailReviewerReinstated;
 use PKP\mail\mailables\MailReviewerUnassigned;
@@ -45,13 +45,13 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\user\User;
-use Symfony\Component\Mailer\Exception\TransportException;
+use ReviewerGridCellProvider;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
-use ReviewerGridCellProvider;
 use ReviewerGridRow;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -80,7 +80,7 @@ class PKPReviewerGridHandler extends GridHandler
         $allOperations = array_merge($this->_getReviewAssignmentOps(), $this->_getReviewRoundOps());
 
         $this->addRoleAssignment(
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
             $allOperations
         );
 
@@ -960,8 +960,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function fetchTemplateBody(array $args, PKPRequest $request): ?JSONMessage
     {
         $context = $request->getContext();
-        $mailable = new class([$context, $this->getSubmission()]) extends Mailable
-        {
+        $mailable = new class ([$context, $this->getSubmission()]) extends Mailable {
             use Sender;
         };
         $template = Repo::emailTemplate()->getByKey($context->getId(), $request->getUserVar('template'));
@@ -1104,9 +1103,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Creates and sends email to the reviewer
      */
-    protected function createMail(Mailable $mailable, string $emailBody, EmailTemplate $template, User $sender, User $reviewer) : void
+    protected function createMail(Mailable $mailable, string $emailBody, EmailTemplate $template, User $sender, User $reviewer): void
     {
-
         if ($subject = $template->getLocalizedData('subject')) {
             $mailable->subject($subject);
         }

@@ -197,7 +197,7 @@ class Repository
             && !empty(array_intersect($workflowRoles, $userAccessibleStages[$stageId]))) {
             return true;
         }
-        if (empty($userAccessibleStages) && in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+        if (empty($userAccessibleStages) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
             return true;
         }
         return false;
@@ -231,13 +231,12 @@ class Repository
         // If unassigned, only managers and admins have access
         if (empty($accessibleStageRoles)) {
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-            $userRoles = $roleDao->getByUserId($userId, $contextId);
-            foreach ($userRoles as $userRole) {
-                if (in_array($userRole->getId(), [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER])) {
-                    $accessibleStageRoles[] = $userRole->getId();
-                }
+            if ($roleDao->userHasRole($contextId, $userId, Role::ROLE_ID_MANAGER)) {
+                $accessibleStageRoles[] = Role::ROLE_ID_MANAGER;
             }
-            $accessibleStageRoles = array_unique($accessibleStageRoles);
+            if ($roleDao->userHasRole(CONTEXT_SITE, $userId, Role::ROLE_ID_SITE_ADMIN)) {
+                $accessibleStageRoles[] = Role::ROLE_ID_SITE_ADMIN;
+            }
         }
 
         return array_map('intval', $accessibleStageRoles);
@@ -245,6 +244,7 @@ class Repository
 
     /**
      * Retrieves a filtered user report instance
+     *
      * @param array $args
      * - @option int[] contextIds Context IDs (required)
      * - @option int[] userGroupIds List of user groups (all groups by default)

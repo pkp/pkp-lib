@@ -66,9 +66,9 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Managers can access file stages when not assigned or when assigned as a manager
+        // Managers and site admins can access file stages when not assigned or when assigned as a manager
         if (empty($stageAssignments)) {
-            if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+            if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
             return AuthorizationPolicy::AUTHORIZATION_DENY;

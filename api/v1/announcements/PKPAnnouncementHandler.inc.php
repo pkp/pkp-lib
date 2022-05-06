@@ -46,33 +46,33 @@ class PKPAnnouncementHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
                     'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
             'POST' => [
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
             'PUT' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
                     'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
             'DELETE' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
                     'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
         ];
@@ -198,22 +198,24 @@ class PKPAnnouncementHandler extends APIHandler
         $id = Repo::announcement()->add($announcement);
         $announcement = Repo::announcement()->get($id);
 
-        if(filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN)){
-			import('lib.pkp.classes.notification.managerDelegate.AnnouncementNotificationManager');
-			$announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
-			$announcementNotificationManager->initialize($announcement);
+        if (filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN)) {
+            import('lib.pkp.classes.notification.managerDelegate.AnnouncementNotificationManager');
+            $announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
+            $announcementNotificationManager->initialize($announcement);
 
-			$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao  */
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-			$allUsers = $userGroupDao->getUsersByContextId($request->getContext()->getId());
-			while ($user = $allUsers->next()) {
-				if ($user->getDisabled()) continue;
-				$blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $user->getId(), $request->getContext()->getId());
-				if (!in_array(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT, $blockedEmails)) {
-					$announcementNotificationManager->notify($user);
-				}
-			}
-		}
+            $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao  */
+            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+            $allUsers = $userGroupDao->getUsersByContextId($request->getContext()->getId());
+            while ($user = $allUsers->next()) {
+                if ($user->getDisabled()) {
+                    continue;
+                }
+                $blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $user->getId(), $request->getContext()->getId());
+                if (!in_array(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT, $blockedEmails)) {
+                    $announcementNotificationManager->notify($user);
+                }
+            }
+        }
 
         return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
     }

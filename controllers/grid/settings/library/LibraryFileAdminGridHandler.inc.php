@@ -27,9 +27,9 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler
     {
         parent::__construct(new LibraryFileAdminGridDataProvider(true));
         $this->addRoleAssignment(
-            [Role::ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             [
-                'addFile', 'uploadFile', 'saveFile', // Adding new library files
+                'fetchGrid', 'addFile', 'uploadFile', 'saveFile', // Adding new library files
                 'editFile', 'updateFile', // Editing existing library files
                 'deleteFile'
             ]

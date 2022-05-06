@@ -54,64 +54,63 @@ class PKPDoiHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{doiId:\d+}',
                     'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/exports/{fileId:\d+}',
                     'handler' => [$this, 'getExportedFile'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ]
             ],
             'POST' => [
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/submissions/export',
                     'handler' => [$this, 'exportSubmissions'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/submissions/deposit',
                     'handler' => [$this, 'depositSubmissions'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/submissions/markRegistered',
                     'handler' => [$this, 'markSubmissionsRegistered'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/submissions/assignDois',
                     'handler' => [$this, 'assignSubmissionDois'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/depositAll',
                     'handler' => [$this, 'depositAllDois'],
-                    'roles' => [Role::ROLE_ID_MANAGER]
-
-                ]
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN]
+                ],
             ],
             'PUT' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{doiId:\d+}',
                     'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
             'DELETE' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{doiId:\d+}',
                     'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
         ]);

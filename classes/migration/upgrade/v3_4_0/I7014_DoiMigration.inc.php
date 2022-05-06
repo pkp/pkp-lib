@@ -8,30 +8,16 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\doi\Doi;
 use PKP\install\DowngradeNotSupportedException;
-use PKP\migration\install\DoiMigration;
-use PKP\migration\Migration;
+use PKP\migration\upgrade\v3_4_0\PKPI7014_DoiMigration;
 
-class I7014_DoiMigration extends Migration
+class I7014_DoiMigration extends PKPI7014_DoiMigration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        // DOIs
-        $doiMigrations = new DoiMigration($this->_installer, $this->_attributes);
-        $doiMigrations->up();
-
-        // Context ID foreign key needs to be added on an app-specific basis
-        Schema::table('dois', function (Blueprint $table) {
-            $table->foreign('context_id')->references('server_id')->on('servers');
-        });
-
-        // Add doiId to publication
-        Schema::table('publications', function (Blueprint $table) {
-            $table->bigInteger('doi_id')->nullable();
-            $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
-        });
+        parent::up();
 
         // Add doiId to galley
         Schema::table('publication_galleys', function (Blueprint $table) {
@@ -52,178 +38,12 @@ class I7014_DoiMigration extends Migration
         throw new DowngradeNotSupportedException();
     }
 
-    private function migrateExistingDataUp()
+    protected function migrateExistingDataUp(): void
     {
+        parent::migrateExistingDataUp();
         // Find all existing DOIs, move to new DOI objects and add foreign key for pub object
-        $this->_migrateDoiSettingsToContext();
-        $this->_migratePublicationDoisUp();
         $this->_migrateGalleyDoisUp();
         $this->_migrateCrossrefSettingsToContext();
-    }
-
-    /**
-     * Move DOI settings from plugin_settings to Context (Journal) settings
-     */
-    private function _migrateDoiSettingsToContext()
-    {
-        // Get plugin_based settings
-        $q = DB::table('plugin_settings')
-            ->where('plugin_name', '=', 'doipubidplugin')
-            ->select(['context_id','setting_name', 'setting_value']);
-        $results = $q->get();
-
-        $data = new \stdClass();
-        $data->enabledDois = [];
-        $data->doiCreationTime = [];
-        $data->enabledDoiTypes = [];
-        $data->doiPrefix = [];
-        $data->customDoiSuffixType = [];
-        $data->doiPublicationSuffixPattern = [];
-        $data->doiRepresentationSuffixPattern = [];
-
-        // Map to context-based settings
-        $results->reduce(function ($carry, $item) {
-            switch ($item->setting_name) {
-                case 'enabled':
-                    $carry->enabledDois[] = [
-                        'server_id' => $item->context_id,
-                        'setting_name' => 'enableDois',
-                        'setting_value' => (int) $item->setting_value,
-                    ];
-                    $carry->doiCreationTime[] = [
-                        'server_id' => $item->context_id,
-                        'setting_name' => 'doiCreationTime',
-                        'setting_value' => 'copyEditCreationTime',
-                    ];
-                    return $carry;
-                case 'enablePublicationDoi':
-                    if (!isset($carry->enabledDoiTypes[$item->context_id])) {
-                        $carry->enabledDoiTypes[$item->context_id] = [
-                            'server_id' => $item->context_id,
-                            'setting_name' => 'enabledDoiTypes',
-                            'setting_value' => [],
-                        ];
-                    }
-
-                    if ($item->setting_value === '1') {
-                        array_push($carry->enabledDoiTypes[$item->context_id]['setting_value'], 'publication');
-                    }
-                    return $carry;
-                case 'enableRepresentationDoi':
-                    if (!isset($carry->enabledDoiTypes[$item->context_id])) {
-                        $carry->enabledDoiTypes[$item->context_id] = [
-                            'server_id' => $item->context_id,
-                            'setting_name' => 'enabledDoiTypes',
-                            'setting_value' => [],
-                        ];
-                    }
-
-                    if ($item->setting_value === '1') {
-                        array_push($carry->enabledDoiTypes[$item->context_id]['setting_value'], 'representation');
-                    }
-                    return $carry;
-                case 'doiSuffix':
-                    $value = '';
-                    switch ($item->setting_value) {
-                        case 'default':
-                            $value = 'defaultPattern';
-                            break;
-                        case 'pattern':
-                            $value = 'customPattern';
-                            break;
-                        case 'customId':
-                            $value = 'customId';
-                            break;
-                    }
-                    $carry->customDoiSuffixType[] = [
-                        'server_id' => $item->context_id,
-                        'setting_name' => 'customDoiSuffixType',
-                        'setting_value' => $value,
-                    ];
-                    return $carry;
-                case 'doiPrefix':
-                    $carry->doiPrefix[] = [
-                        'server_id' => $item->context_id,
-                        'setting_name' => $item->setting_name,
-                        'setting_value' => $item->setting_value,
-                    ];
-                    return $carry;
-                case 'doiPublicationSuffixPattern':
-                    $carry->doiPublicationSuffixPattern[] = [
-                        'server_id' => $item->context_id,
-                        'setting_name' => $item->setting_name,
-                        'setting_value' => $item->setting_value,
-                    ];
-                    return $carry;
-                case 'doiRepresentationSuffixPattern':
-                    $carry->doiRepresentationSuffixPattern[] = [
-                        'server_id' => $item->context_id,
-                        'setting_name' => $item->setting_name,
-                        'setting_value' => $item->setting_value,
-                    ];
-                    return $carry;
-                default:
-                    return $carry;
-            }
-        }, $data);
-
-        // Prepare insert statements
-        $insertData = [];
-        foreach ($data->enabledDois as $item) {
-            array_push($insertData, $item);
-        }
-        foreach ($data->enabledDoiTypes as $item) {
-            $item['setting_value'] = json_encode($item['setting_value']);
-            array_push($insertData, $item);
-        }
-        foreach ($data->doiPrefix as $item) {
-            array_push($insertData, $item);
-        }
-        foreach ($data->customDoiSuffixType as $item) {
-            array_push($insertData, $item);
-        }
-        foreach ($data->doiPublicationSuffixPattern as $item) {
-            array_push($insertData, $item);
-        }
-        foreach ($data->doiRepresentationSuffixPattern as $item) {
-            array_push($insertData, $item);
-        }
-
-        DB::table('server_settings')->insert($insertData);
-
-        // Add minimum required DOI settings to context if DOI plugin not previously enabled
-        $missingDoiSettingsInsertStatement = DB::table('servers')
-            ->select('server_id')
-            ->whereNotIn('server_id', function (Builder $q) {
-                $q->select('server_id')
-                    ->from('server_settings')
-                    ->where('setting_name', '=', 'enableDois');
-            })
-            ->get()
-            ->reduce(function ($carry, $item) {
-                $carry[] = [
-                    'server_id' => $item->server_id,
-                    'setting_name' => 'enableDois',
-                    'setting_value' => 0,
-                ];
-                $carry[] = [
-                    'server_id' => $item->server_id,
-                    'setting_name' => 'doiCreationTime',
-                    'setting_value' => 'copyEditCreationTime'
-                ];
-                return $carry;
-            }, []);
-
-        DB::table('server_settings')->insert($missingDoiSettingsInsertStatement);
-
-        // Cleanup old DOI plugin settings
-        DB::table('plugin_settings')
-            ->where('plugin_name', '=', 'doipubidplugin')
-            ->delete();
-        DB::table('versions')
-            ->where('product_type', '=', 'plugins.pubIds')
-            ->where('product', '=', 'doi')
-            ->update(['current' => 0]);
     }
 
     /**
@@ -406,41 +226,6 @@ class I7014_DoiMigration extends Migration
             ->delete();
     }
 
-
-    /**
-     * Move publication DOIs from publication_settings table to DOI objects
-     */
-    private function _migratePublicationDoisUp(): void
-    {
-        $q = DB::table('submissions', 's')
-            ->select(['s.context_id', 'p.publication_id', 'p.doi_id', 'pss.setting_name', 'pss.setting_value'])
-            ->leftJoin('publications as p', 'p.submission_id', '=', 's.submission_id')
-            ->leftJoin('publication_settings as pss', 'pss.publication_id', '=', 'p.publication_id')
-            ->where('pss.setting_name', '=', 'pub-id::doi');
-
-        $q->chunkById(1000, function ($items) {
-            foreach ($items as $item) {
-                // Double-check to ensure a DOI object does not already exist for publication
-                if ($item->doi_id === null) {
-                    $doiId = $this->_addDoi($item->context_id, $item->setting_value);
-
-                    // Add association to newly created DOI to publication
-                    DB::table('publications')
-                        ->where('publication_id', '=', $item->publication_id)
-                        ->update(['doi_id' => $doiId]);
-                } else {
-                    // Otherwise, update existing DOI object
-                    $this->_updateDoi($item->doi_id, $item->context_id, $item->setting_value);
-                }
-            }
-        }, 'p.publication_id', 'publication_id');
-
-        // Remove pub-id::doi settings entry
-        DB::table('publication_settings')
-            ->where('setting_name', '=', 'pub-id::doi')
-            ->delete();
-    }
-
     /**
      * Move galley DOIs from publication_galley_settings table to DOI objects
      */
@@ -472,34 +257,93 @@ class I7014_DoiMigration extends Migration
     }
 
     /**
-     * Creates a new DOI object for a given context ID and DOI
-     *
+     * Gets app-specific context table name, e.g. journals
      */
-    private function _addDoi(string $contextId, string $doi): int
+    protected function getContextTable(): string
     {
-        return DB::table('dois')
-            ->insertGetId(
-                [
-                    'context_id' => $contextId,
-                    'doi' => $doi,
-                ]
-            );
+        return 'servers';
     }
 
     /**
-     * Update the context ID and doi for a given DOI object
-     *
+     * Gets app-specific context_id column, e.g. journal_id
      */
-    private function _updateDoi(int $doiId, string $contextId, string $doi): int
+    protected function getContextIdColumn(): string
     {
-        return DB::table('dois')
-            ->where('doi_id', '=', $doiId)
-            ->update(
-                [
-                    'context_id' => $contextId,
-                    'doi' => $doi
-                ]
-            );
+        return 'server_id';
+    }
+
+    /**
+     * Gets app-specific context settings table, e.g. journal_settings
+     */
+    protected function getContextSettingsTable(): string
+    {
+        return 'server_settings';
+    }
+
+    /**
+     * Adds app-specific suffix patterns to data collector stdClass
+     */
+    protected function addSuffixPatternsData(\stdClass $data): \stdClass
+    {
+        // OPS does not add any additional publication types,
+        // so we only need to return the unmodified data.
+        return $data;
+    }
+
+    /**
+     * Adds suffix pattern settings from DB into reducer's data
+     */
+    protected function insertSuffixPatternsData(\stdClass $carry, \stdClass $item): \stdClass
+    {
+        // OPS does not add any additional publication types,
+        // so we only need to return the passed in carry object.
+        return $carry;
+    }
+
+    /**
+     * Adds insert-ready statements for all applicable suffix pattern items
+     */
+    protected function prepareSuffixPatternsForInsert(\stdClass $processedData, array $insertData): array
+    {
+        // OPS does not add any additional publication types,
+        // so we only need to return the passed in insert data array.
+        return $insertData;
+    }
+
+    /**
+     * Add app-specific enabled DOI types for insert into DB
+     */
+    protected function insertEnabledDoiTypes(\stdClass $carry, \stdClass $item): \stdClass
+    {
+        // OPS does not add any additional publication types,
+        // so we only need to return the passed in carry object.
+        return $carry;
+    }
+
+    /**
+     * Get an array with the keys for each suffix pattern type
+     */
+    protected function getSuffixPatternNames(): array
+    {
+        return ['doiPublicationSuffixPattern', 'doiRepresentationSuffixPattern'];
+    }
+
+    /**
+     * Returns the default pattern for the given suffix pattern type
+     */
+    protected function getSuffixPatternValue(string $suffixPatternName): string
+    {
+        $pattern = '';
+        switch ($suffixPatternName) {
+            case 'doiPublicationSuffixPattern':
+                $pattern = '%j.%a';
+                break;
+            case 'doiRepresentationSuffixPattern':
+                $pattern = '%j.%a.g%g';
+                break;
+        }
+
+        return $pattern;
     }
 }
 

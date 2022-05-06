@@ -669,18 +669,6 @@ msgstr "Внесете ја шемата наставка на DOI за отис
 msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
 msgstr "Внесете ја шемата за наставки ДОИ за отпечатоци."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Внесете индивидуален додаток на ДОИ за секоја објавена ставка. Ќе најдете "
-"дополнително поле за внесување DOI на страницата со мета-податоци на секоја "
-"ставка."
-
-msgid "doi.manager.settings.doiSuffixDefault.description"
-msgstr "%j.%a за претходни отпечатоци <br />%j.%a.g%g за отисоци на труд."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Користете стандардни обрасци."
-
 msgid "doi.manager.settings.doiSuffixPattern.representations"
 msgstr "за отисоци на труд"
 
@@ -699,22 +687,8 @@ msgstr ""
 "отисок на труд за ОПС, %f за ИД-датотека за ОПС и %x за \"Прилагоден "
 "идентификатор\"."
 
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Додаток на ДОИ може да има каква било форма, но мора да биде единствен меѓу "
-"сите објавувачки објекти со ист доделен префикс ДОИ:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Додаток на ДОИ"
-
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "Префиксот DOI е задолжителен и мора да биде во форма 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Префиксот DOI е доделен од агенциите за регистрација (на пр. <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a>) и е во формат "
-"10.xxxx (на пример, 10.1234):"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "Префикс на ДОИ"
@@ -736,11 +710,9 @@ msgstr ""
 "Изберете ги објектите за објавување на кои ќе им бидат доделени "
 "идентификатори на дигитални објекти (ДОИ):"
 
+#, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
 msgstr "Ве молиме, изберете ги предметите на кои треба да се доделат ДОИ."
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Содржина на сервер"
 
 msgid "doi.manager.settings.description"
 msgstr ""

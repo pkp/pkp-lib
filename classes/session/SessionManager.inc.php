@@ -151,7 +151,7 @@ class SessionManager
      * @return bool
      */
     public function invalidateSessions(int $userId, string $excludableSessionId = null): bool 
-	{
+    {
         $this->getSessionDao()->deleteUserSessions($userId, $excludableSessionId);
 
         return true;
@@ -163,7 +163,7 @@ class SessionManager
 	 * @return SessionDao
      */
     public function getSessionDao(): SessionDao
-	{
+    {
         return $this->sessionDao;
     }
 

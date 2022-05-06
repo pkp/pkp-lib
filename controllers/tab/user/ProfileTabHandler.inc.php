@@ -302,7 +302,7 @@ class ProfileTabHandler extends Handler
     {
         $this->setupTemplate($request);
 
-		$user = $request->getUser();
+        $user = $request->getUser();
 
         $passwordForm = new ChangePasswordForm($user, $request->getSite());
         $passwordForm->readInputData();
@@ -311,13 +311,13 @@ class ProfileTabHandler extends Handler
 
             $passwordForm->execute();
 
-			$sessionManager = SessionManager::getManager();
+            $sessionManager = SessionManager::getManager();
             $sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
 
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification($user->getId());
             
-			return new JSONMessage(true);
+            return new JSONMessage(true);
         }
 		
         return new JSONMessage(true, $passwordForm->fetch($request));

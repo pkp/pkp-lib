@@ -203,7 +203,7 @@ class SessionDAO extends DAO
      * @return void
      */
     public function deleteUserSessions(int $userId, string $excludableSessionId = null) 
-	{
+    {
         DB::table('sessions')
             ->where('user_id', $userId)
             ->when($excludableSessionId, fn($query) => $query->where('session_id', '<>', $excludableSessionId))

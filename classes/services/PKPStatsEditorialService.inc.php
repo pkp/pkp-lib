@@ -32,7 +32,7 @@ class PKPStatsEditorialService
         $received = $this->countSubmissionsReceived($args);
         $accepted = $this->countByDecisions(Decision::ACCEPT, $args);
         $submissionsPublished = $this->countSubmissionsPublished($args);
-        $submissionsSkipped = $this->countSkipped($args);
+        $submissionsSkipped = $this->countSubmissionsSkipped($args);
         $declinedDesk = $this->countByDecisions(Decision::INITIAL_DECLINE, $args);
         $declinedReview = $this->countByDecisions(Decision::DECLINE, $args);
         $declined = $declinedDesk + $declinedReview;

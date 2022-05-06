@@ -31,4 +31,8 @@
 		<descr>Send automated statistics reports to server managers and editors.</descr>
 		<frequency day="1"/>
 	</task>
+	<task class="lib.pkp.classes.task.RemoveUnvalidatedExpiredUsers">
+		<descr>Automatically remove unvalidated and expired users.</descr>
+		<frequency day="1"/>
+	</task>
 </scheduled_tasks>

@@ -23,6 +23,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\DataObject;
 use PKP\identity\Identity;
 use Carbon\Carbon;
+use APP\facades\Repo;
 
 class DAO extends \PKP\core\EntityDAO
 {
@@ -321,7 +322,9 @@ class DAO extends \PKP\core\EntityDAO
             ->when( !empty($excludableUsersId), fn($query) => $query->whereNotIn('id', $excludableUsersId) )
             ->get();
 
-        $users->each(fn($user) => $this->delete($this->get($user->user_id, true)));
+        $userRepository = Repo::user();
+
+        $users->each(fn($user) => $userRepository->delete($userRepository->get($user->user_id, true)));
 
         return $users->count();
     }

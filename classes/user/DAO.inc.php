@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\DataObject;
 use PKP\identity\Identity;
+use Carbon\Carbon;
+use APP\facades\Repo;
 
 class DAO extends \PKP\core\EntityDAO
 {
@@ -301,5 +303,29 @@ class DAO extends \PKP\core\EntityDAO
                 );
             }
         }
+    }
+
+    /**
+     * Delete unvalidated expired users
+     * 
+     * @param object<Carbon\Carbon> $dateTillValid      The dateTime till before which user will consider expired
+     * @param array                 $excludableUsersId  The users id to exclude form delete operation
+     * 
+     * @return int The number rows affected by DB operation
+     */
+    public function deleteUnvalidatedExpiredUsers(Carbon $dateTillValid, array $excludableUsersId = []) {
+
+        $users = DB::table('users')
+            ->whereNull('date_validated')
+            ->whereNull('date_last_login')
+            ->where('date_registered', '<', $dateTillValid)
+            ->when( !empty($excludableUsersId), fn($query) => $query->whereNotIn('id', $excludableUsersId) )
+            ->get();
+
+        $userRepository = Repo::user();
+
+        $users->each(fn($user) => $userRepository->delete($userRepository->get($user->user_id, true)));
+
+        return $users->count();
     }
 }

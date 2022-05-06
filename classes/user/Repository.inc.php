@@ -21,6 +21,7 @@ use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
+use Carbon\Carbon;
 
 class Repository
 {
@@ -392,5 +393,18 @@ class Repository
         $contextUser->setData('email', $context->getData('contactEmail'));
         $contextUser->setData('givenName', array_fill_keys($supportedLocales, $context->getData('contactName')));
         return $contextUser;
+    }
+
+    /**
+     * Delete unvalidated expired users
+     * 
+     * @param object<Carbon\Carbon> $dateTillValid      The dateTime till before which user will consider expired
+     * @param array                 $excludableUsersId  The users id to exclude form delete operation
+     * 
+     * @return int The number rows affected by DB operation
+     */
+    public function deleteUnvalidatedExpiredUsers(Carbon $dateTillValid, array $excludableUsersId = []) {
+
+        return $this->dao->deleteUnvalidatedExpiredUsers($dateTillValid, $excludableUsersId);
     }
 }

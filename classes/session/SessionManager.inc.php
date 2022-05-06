@@ -19,6 +19,8 @@ use PKP\config\Config;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\session\Session;
+use PKP\session\SessionDAO;
 
 class SessionManager
 {
@@ -138,6 +140,31 @@ class SessionManager
         }
 
         return $instance;
+    }
+
+	/**
+     * Invalidate given user's all sessions or except for the given session id
+     *
+     * @param int                   $userId     The target user id for whom to invalidate sessions
+     * @param mixed<string|null>    $sessionId  The specific session id which need to be excluded from invalidation process for targated user
+     * 
+     * @return bool
+     */
+    public function invalidateSessions(int $userId, string $excludableSessionId = null): bool 
+    {
+        $this->getSessionDao()->deleteUserSessions($userId, $excludableSessionId);
+
+        return true;
+    }
+
+	/**
+     * Get the Session DAO instance associated with the current request
+	 * 
+	 * @return SessionDao
+     */
+    public function getSessionDao(): SessionDao
+    {
+        return $this->sessionDao;
     }
 
     /**

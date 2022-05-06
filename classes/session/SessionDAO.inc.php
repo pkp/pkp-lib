@@ -18,6 +18,7 @@
 namespace PKP\session;
 
 use PKP\db\DAO;
+use Illuminate\Support\Facades\DB;
 
 class SessionDAO extends DAO
 {
@@ -191,6 +192,22 @@ class SessionDAO extends DAO
         $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM sessions WHERE session_id = ?', [$sessionId]);
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;
+    }
+
+	/**
+     * Delete given user's all sessions or except for the given session id
+     *
+     * @param int                   $userId     The target user id for whom to invalidate sessions
+     * @param mixed<string|null>    $sessionId  The specific session id which need to be excluded from invalidation process for targated user
+     *
+     * @return void
+     */
+    public function deleteUserSessions(int $userId, string $excludableSessionId = null) 
+    {
+        DB::table('sessions')
+            ->where('user_id', $userId)
+            ->when($excludableSessionId, fn($query) => $query->where('session_id', '<>', $excludableSessionId))
+            ->delete();
     }
 }
 

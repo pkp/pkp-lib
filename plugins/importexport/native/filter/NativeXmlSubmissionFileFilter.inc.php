@@ -347,6 +347,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             }
         }
 
+        $newFileId = null;
         if ($temporaryFilename) {
             $fileSizeOnDisk = filesize($temporaryFilename);
             $expectedFileSize = $node->getAttribute('filesize');
@@ -363,10 +364,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $deployment->setFileDBId($node->getAttribute('id'), $newFileId);
         }
 
-        if (isset($newFileId)) {
-            return $newFileId;
-        }
-        return null;
+        return $newFileId;
     }
 
     /**

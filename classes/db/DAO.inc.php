@@ -33,6 +33,9 @@ class DAO
     public const SORT_DIRECTION_ASC = 1;
     public const SORT_DIRECTION_DESC = 2;
 
+    /** @var String The generated sql statement to execute */
+    protected $sql = null;
+
     /**
      * Constructor.
      * Initialize the database connection.
@@ -47,6 +50,16 @@ class DAO
                 return;
             }
         }
+    }
+
+    /**
+     * Get the generated SQL statement for target operation
+     * 
+     * @return mixed<string|null>
+     */
+    public function getSql(): ?string
+    {
+        return $this->sql;
     }
 
     /**
@@ -106,6 +119,8 @@ class DAO
             $offset += max(0, $dbResultRange->getPage() - 1) * (int) $dbResultRange->getCount();
             $sql .= ' OFFSET ' . $offset;
         }
+
+        $this->sql = $sql;
 
         return DB::cursor(DB::raw($sql), $params);
     }

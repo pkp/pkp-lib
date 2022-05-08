@@ -242,7 +242,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
             $rangeInfo
         );
 
-        return new DAOResultFactory($result, $this, '_fromRow');
+        return new DAOResultFactory($result, $this, '_fromRow', [], $this->getSql(), [(int) $reviewFormId]);
     }
 
     /**

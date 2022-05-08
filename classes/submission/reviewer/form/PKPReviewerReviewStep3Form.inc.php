@@ -28,6 +28,7 @@ use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\security\Role;
 use PKP\submission\SubmissionComment;
+use PKP\reviewForm\ReviewFormResponse;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.confirmationModal.linkAction.ViewReviewGuidelinesLinkAction');

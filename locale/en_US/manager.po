@@ -2573,3 +2573,9 @@ msgstr "Review Reminder (Automated)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr "This email is automatically sent when a reviewer has not completed their review by the due date."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "The submission's current publication is missing"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "The submission's child {$child} failed to be processed"

@@ -145,10 +145,10 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
                 $this->parseIdentifier($n, $submission);
                 break;
             case 'submission_file':
-                $this->parseSubmissionFile($n, $submission);
+                $this->parseChild($n, $submission);
                 break;
             case 'publication':
-                $this->parsePublication($n, $submission);
+                $this->parseChild($n, $submission);
                 break;
             default:
                 $deployment = $this->getDeployment();
@@ -178,22 +178,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     }
 
     /**
-     * Parse a submission file and add it to the submission.
-     *
-     * @param DOMElement $n
-     * @param Submission $submission
-     */
-    public function parseSubmissionFile($n, $submission)
-    {
-        $importFilter = $this->getImportFilter($n->tagName);
-        assert(isset($importFilter)); // There should be a filter
-
-        $submissionFileDoc = new DOMDocument();
-        $submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-        return $importFilter->execute($submissionFileDoc);
-    }
-
-    /**
      * @see Filter::process()
      *
      * @param DOMDocument|string $document
@@ -202,12 +186,18 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
      */
     public function &process(&$document)
     {
-        $importedObjects = & parent::process($document);
+        $importedObjects =& parent::process($document);
+
+        $deployment = $this->getDeployment();
 
         // Index imported content
         $submissionIds = [];
         foreach ($importedObjects as $submission) {
             assert($submission instanceof Submission);
+            $publication = $submission->getCurrentPublication();
+            if (!isset($publication)) {
+                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(),  __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
+            }
             $submissionIds[] = $submission->getId();
         }
 
@@ -217,19 +207,25 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     }
 
     /**
-     * Parse a submission publication and add it to the submission.
+     * Parse a submission child and add it to the submission.
      *
      * @param DOMElement $n
      * @param Submission $submission
      */
-    public function parsePublication($n, $submission)
+    function parseChild($n, $submission) 
     {
         $importFilter = $this->getImportFilter($n->tagName);
         assert(isset($importFilter)); // There should be a filter
 
-        $submissionFileDoc = new DOMDocument();
-        $submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-        return $importFilter->execute($submissionFileDoc);
+        $submissionChildDoc = new DOMDocument();
+        $submissionChildDoc->appendChild($submissionChildDoc->importNode($n, true));
+        $ret = $importFilter->execute($submissionChildDoc);
+
+        if ($ret == null) {
+            $deployment = $this->getDeployment();
+
+            $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.submissionChildFailed', ['child' => $n->tagName]));
+        }
     }
 
     //

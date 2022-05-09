@@ -423,8 +423,7 @@ msgid "reviewer.list.cancelledReviews"
 msgstr "Ακύρωση αιτημάτων αξιολόγησης"
 
 msgid "editor.review.errorReinstatingReviewer"
-msgstr ""
-"Παρουσιάστηκε σφάλμα κατά την επαναφορά του Αξιολογητή. Προσπαθήστε ξανά."
+msgstr "Παρουσιάστηκε σφάλμα κατά την επαναφορά του Αξιολογητή. Προσπαθήστε ξανά."
 
 msgid "editor.review.requestCancelled"
 msgstr "Το αίτημα ακυρώθηκε"
@@ -461,3 +460,18 @@ msgstr "Η απόφαση καταγράφηκε"
 
 msgid "editor.activityLog"
 msgstr "Αρχείο Καταγραφής Δραστηριότητας"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Ο επιμελητής ακύρωσε αυτό το αίτημα ελέγχου."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Αποδόθηκαν ευχαριστίες στον επιμελητή"
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr "Δεν μπορεί να δημιουργηθεί συζήτηση με τους επιλεγμένους συμμετέχοντες επειδή θα επηρεάσει την ανωνυμία της διαδικασίας αξιολόγησης."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Ένας επιλεγμένος συμμετέχων δεν έχει εκχωρηθεί σε αυτό το στάδιο."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Είστε βέβαιοι ότι θέλετε να αντιστρέψετε την απόφαση απόρριψης αυτής της υποβολής?"

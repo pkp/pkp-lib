@@ -207,20 +207,10 @@ msgid "common.captchaField"
 msgstr "Επικύρωση"
 
 msgid "common.ccLicense"
-msgstr ""
-"\n"
-"\t\t&lt;a target=\"_new\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\"&gt;\n"
-"\t\t\t&lt;img alt=\"Creative Commons License\" class=\"EKT_CreativeCommons_IMG\" src=\"https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png\"/&gt;\n"
-"\t\t&lt;/a&gt;\n"
-"\t\t&lt;br/&gt;\n"
-"\t\t&lt;span&gt;\n"
-"        Η χρήση του περιεχομένου καθορίζεται από την άδεια &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\"&gt;Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές&lt;/a&gt; &lt;/span&gt;"
+msgstr "\n\t\t&lt;a target=\"_new\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\"&gt;\n\t\t\t&lt;img alt=\"Creative Commons License\" class=\"EKT_CreativeCommons_IMG\" src=\"https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png\"/&gt;\n\t\t&lt;/a&gt;\n\t\t&lt;br/&gt;\n\t\t&lt;span&gt;\n  Η χρήση του περιεχομένου καθορίζεται από την άδεια &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\"&gt;Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές&lt;/a&gt; &lt;/span&gt;"
 
 msgid "common.ccLicense.rt"
-msgstr ""
-"\n"
-"\t\tΗ χρήση του περιεχομένου καθορίζεται από την άδεια <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\">Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές</a>\n"
-"\t\t"
+msgstr "\n\t\tΗ χρήση του περιεχομένου καθορίζεται από την άδεια <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\">Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές</a>\n\t\t"
 
 msgid "common.changesSaved"
 msgstr "Οι αλλαγές σας αποθηκεύτηκαν."
@@ -447,9 +437,6 @@ msgstr "Σε εξέλιξη"
 msgid "common.itemsPerPage"
 msgstr "Αντικείμενα ανά σελίδα"
 
-msgid "common.favicon.altText"
-msgstr "Favicon"
-
 msgid "common.keywords"
 msgstr "Λέξεις κλειδιά"
 
@@ -578,9 +565,6 @@ msgstr "Προηγούμενη σελίδα"
 
 msgid "common.pageNumber"
 msgstr "Σελίδα {$pageNumber}"
-
-msgid "common.pageHeaderLogo.altText"
-msgstr "Λογότυπο κεφαλίδας σελίδας"
 
 msgid "common.percentage"
 msgstr "{$percentage}%"
@@ -711,9 +695,6 @@ msgstr "Πηγή"
 msgid "common.status"
 msgstr "Κατάσταση"
 
-msgid "common.startTyping"
-msgstr "Έναρξη πληκτρολόγησης"
-
 msgid "common.subject"
 msgstr "Θέμα"
 
@@ -759,20 +740,11 @@ msgstr "Ενημερώθηκε"
 msgid "common.uploadedDate"
 msgstr "Ημερομηνία μεταφόρτωσης"
 
-msgid "common.uploadedFile"
-msgstr "Αρχείο από μεταφόρτωση"
-
 msgid "common.upload"
 msgstr "Μεταφόρτωση"
 
 msgid "common.uploadFailed"
 msgstr "Το αρχείο δεν μεταφορτώθηκε. Παρακαλούμε προσπαθήστε ξανά, ή επικοινωνήστε με τον Διαχειριστή αν το πρόβλημα παραμένει."
-
-msgid "common.invalidFileType"
-msgstr "Κανένα αρχείο δεν ανέβηκε ή μη έγκυρος τύπος αρχείου."
-
-msgid "common.homepageImage.altText"
-msgstr "Εικόνα αρχικής σελίδας"
 
 msgid "common.up"
 msgstr "Πάνω"
@@ -1120,7 +1092,7 @@ msgid "locale.supported"
 msgstr "Συμπληρωματικές γλώσσες"
 
 msgid "navigation.access"
-msgstr "Χρήστες &amp; Ρόλοι"
+msgstr "Χρήστες & Ρόλοι"
 
 msgid "navigation.about"
 msgstr "Σχετικά"
@@ -1449,41 +1421,7 @@ msgstr "Η λίστα μου"
 
 #, fuzzy
 msgid "review.anonymousPeerReview"
-msgstr ""
-"<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης "
-"εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές "
-"και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι "
-"μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα "
-"σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που "
-"μεταφορτώνονται:</p>\n"
-"<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν "
-"υπάρχουν παραπομπές σε προηγούμενες εργασίες των Συγγραφέων, τα ονόματά τους "
-"αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται "
-"και παραμένει μόνο το έτος έκδοσης.</li>\n"
-"<li> Οι συντάκτες του εγγράφου έχουν αφαιρέσει προσωπικές πληροφορίες από "
-"τις ιδιότητες του αρχείου ακολουθώντας τα ακόλουθα βήματα:\n"
-"<ul> <li> Microsoft Word για Windows:\n"
-"<ul> <li> Μετάβαση στο αρχείο </li>\n"
-"<li> Επιλέξτε Πληροφορίες </li>\n"
-"<li> Κάντε κλικ στην επιλογή Έλεγχος ζητημάτων </li>\n"
-"<li> Κάντε κλικ στο Επιθεώρηση εγγράφου </li>\n"
-"<li> Στο πλαίσιο διαλόγου Document Inspector, επιλέξτε τους τύπους του "
-"κρυφού περιεχομένου που θέλετε να επιθεωρήσετε. </li>\n"
-"<li> Κάντε κλικ στην επιλογή Κατάργηση όλων </li>\n"
-"<li> Κάντε κλικ στο Κλείσιμο </li>\n"
-"<li> Αποθηκεύστε το έγγραφο </li> </ul>\n"
-"<li> Microsoft Word για MacOS:\n"
-"<ul> <li> Μεταβείτε στα Εργαλεία </li>\n"
-"<li> Κάντε κλικ στην Προστασία εγγράφου </li>\n"
-"<li> Επιλέξτε Κατάργηση προσωπικών πληροφοριών για αυτό το αρχείο στην "
-"αποθήκευση </li>\n"
-"<li> Κάντε κλικ στο OK και αποθηκεύστε το αρχείο </li> </ul> </li>\n"
-"<li> PDF:\n"
-"<ul> <li> Μετάβαση στο αρχείο </li>\n"
-"<li> Επιλέξτε Ιδιότητες </li>\n"
-"<li> Κατάργηση οποιουδήποτε ονόματος στο πεδίο συγγραφέα </li>\n"
-"<li> Κάντε κλικ στο OK </li>\n"
-"<li> Αποθήκευση εγγράφου </li> </ul> </li> </ul>\n"
+msgstr "<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που μεταφορτώνονται:</p>\n<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν υπάρχουν παραπομπές σε προηγούμενες εργασίες των Συγγραφέων, τα ονόματά τους αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται και παραμένει μόνο το έτος έκδοσης.</li>\n<li> Οι συντάκτες του εγγράφου έχουν αφαιρέσει προσωπικές πληροφορίες από τις ιδιότητες του αρχείου ακολουθώντας τα ακόλουθα βήματα:\n<ul> <li> Microsoft Word για Windows:\n<ul> <li> Μετάβαση στο αρχείο </li>\n<li> Επιλέξτε Πληροφορίες </li>\n<li> Κάντε κλικ στην επιλογή Έλεγχος ζητημάτων </li>\n<li> Κάντε κλικ στο Επιθεώρηση εγγράφου </li>\n<li> Στο πλαίσιο διαλόγου Document Inspector, επιλέξτε τους τύπους του κρυφού περιεχομένου που θέλετε να επιθεωρήσετε. </li>\n<li> Κάντε κλικ στην επιλογή Κατάργηση όλων </li>\n<li> Κάντε κλικ στο Κλείσιμο </li>\n<li> Αποθηκεύστε το έγγραφο </li> </ul>\n<li> Microsoft Word για MacOS:\n<ul> <li> Μεταβείτε στα Εργαλεία </li>\n<li> Κάντε κλικ στην Προστασία εγγράφου </li>\n<li> Επιλέξτε Κατάργηση προσωπικών πληροφοριών για αυτό το αρχείο στην αποθήκευση </li>\n<li> Κάντε κλικ στο OK και αποθηκεύστε το αρχείο </li> </ul> </li>\n<li> PDF:\n<ul> <li> Μετάβαση στο αρχείο </li>\n<li> Επιλέξτε Ιδιότητες </li>\n<li> Κατάργηση οποιουδήποτε ονόματος στο πεδίο συγγραφέα </li>\n<li> Κάντε κλικ στο OK </li>\n<li> Αποθήκευση εγγράφου </li> </ul> </li> </ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Χρονοδιάγραμμα αξιολόγησης"
@@ -1504,9 +1442,7 @@ msgid "navigation.goBack"
 msgstr "Επιστροφή"
 
 msgid "notification.addedReviewer"
-msgstr ""
-"Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε "
-"σχετική ενημέρωση."
+msgstr "Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε σχετική ενημέρωση."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr "Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, χωρίς να έχει αποσταλεί σχετική ενημέρωση."
@@ -1632,8 +1568,7 @@ msgid "validator.same"
 msgstr "Τα χαρακτηριστικά {$attribute} και {$ other} πρέπει να ταιριάζουν."
 
 msgid "validator.required_without_all"
-msgstr ""
-"Αυτό το πεδίο απαιτείται όταν δεν υπάρχει καμία από τις τιμές {$values}."
+msgstr "Αυτό το πεδίο απαιτείται όταν δεν υπάρχει καμία από τις τιμές {$values}."
 
 #, fuzzy
 msgid "validator.required_without"
@@ -1700,14 +1635,10 @@ msgid "validator.max.numeric"
 msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max}."
 
 msgid "validator.localeKey"
-msgstr ""
-"Οι γλώσσες πρέπει να καθοριστούν χρησιμοποιώντας τον τοπικό κωδικό. "
-"Παραδείγματα: en_US, fr_CA, el_GR, sr_RS @ cyrillic."
+msgstr "Οι γλώσσες πρέπει να καθοριστούν χρησιμοποιώντας τον τοπικό κωδικό. Παραδείγματα: en_US, fr_CA, el_GR, sr_RS @ cyrillic."
 
 msgid "validator.localeExpected"
-msgstr ""
-"Αυτό το πεδίο είναι πολύγλωσσο. Πρέπει να παρέχονται ξεχωριστές τιμές για "
-"κάθε υποστηριζόμενη γλώσσα."
+msgstr "Αυτό το πεδίο είναι πολύγλωσσο. Πρέπει να παρέχονται ξεχωριστές τιμές για κάθε υποστηριζόμενη γλώσσα."
 
 msgid "validator.locale"
 msgstr "Αυτή η γλώσσα δεν είναι αποδεκτή."
@@ -1782,8 +1713,7 @@ msgid "validator.alpha_num"
 msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα και αριθμοί."
 
 msgid "validator.alpha_dash"
-msgstr ""
-"Πρέπει να περιλαμβάνονται μόνο γράμματα, αριθμοί, παύλες και κάτω_παύλες."
+msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα, αριθμοί, παύλες και κάτω_παύλες."
 
 msgid "validator.alpha"
 msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα."
@@ -1798,9 +1728,7 @@ msgid "validator.accepted"
 msgstr "Αποδεχτείτε αυτό το αντικείμενο .."
 
 msgid "notification.type.editorialReport.contents"
-msgstr ""
-"Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της "
-"συντακτικής έκθεσης."
+msgstr "Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της συντακτικής έκθεσης."
 
 msgid "notification.type.editorialReport"
 msgstr "Περίληψη αναφοράς στατιστικών."
@@ -1827,11 +1755,7 @@ msgid "stageParticipants.selectedUser"
 msgstr "Μετέχων"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr ""
-"Επιτρέψτε σε αυτό το άτομο να κάνει αλλαγές στη δημοσίευση, όπως ο τίτλος, η "
-"περίληψη, τα μεταδεδομένα και άλλες λεπτομέρειες δημοσίευσης. Μπορεί να "
-"θέλετε να ανακαλέσετε αυτό το προνόμιο εάν η υποβολή περάσει τον τελικό "
-"έλεγχο και είναι έτοιμη για δημοσίευση."
+msgstr "Επιτρέψτε σε αυτό το άτομο να κάνει αλλαγές στη δημοσίευση, όπως ο τίτλος, η περίληψη, τα μεταδεδομένα και άλλες λεπτομέρειες δημοσίευσης. Μπορεί να θέλετε να ανακαλέσετε αυτό το προνόμιο εάν η υποβολή περάσει τον τελικό ελεγχο και είναι έτοιμη για δημοσίευση."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Δικαιώματα"
@@ -1846,20 +1770,10 @@ msgid "form.requireId"
 msgstr "Πρέπει να δώσετε ένα έγκυρο αναγνωριστικό (ID)."
 
 msgid "form.requirePrimaryLocale"
-msgstr "Πρέπει να συμπληρώσετε αυτό το πεδίο στα {$language}."
-
-msgid "form.missingRequired"
-msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Προέκυψε ένα μη αναμενόμενο σφάλμα. Μπορεί να έχετε αποσυνδεθεί. Ανανεώστε "
-"τη σελίδα και ξαναπροσπαθήστε."
+msgstr "Πρέπει να συμπληρώσετε αυτό το πεδίο στα {$language}.""τη σελίδα και ξαναπροσπαθήστε."
 
 msgid "form.errors"
-msgstr ""
-"Η φόρμα δεν αποθηκεύτηκε επειδή παρουσιάστηκαν {$count} σφάλματα. Διορθώστε "
-"αυτά τα σφάλματα και δοκιμάστε ξανά."
+msgstr "Η φόρμα δεν αποθηκεύτηκε επειδή παρουσιάστηκαν {$count} σφάλματα. Διορθώστε αυτά τα σφάλματα και δοκιμάστε ξανά."
 
 msgid "form.errorMany"
 msgstr "Διορθώστε {$count} σφάλματα."
@@ -1889,25 +1803,19 @@ msgid "form.dropzone.dictCancelUpload"
 msgstr "Ακύρωση μεταφόρτωσης"
 
 msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Ο διακομιστής απάντησε με κωδικό σφάλματος {{statusCode}}. Επικοινωνήστε με "
-"το διαχειριστή του συστήματος εάν το πρόβλημα παραμένει."
+msgstr "Ο διακομιστής απάντησε με κωδικό σφάλματος {{statusCode}}. Επικοινωνήστε με το διαχειριστή του συστήματος εάν το πρόβλημα παραμένει."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Δεν είναι δυνατή η μεταφόρτωση αρχείων αυτού του τύπου."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Το αρχείο είναι πολύ μεγάλο  ({{filesize}}mb). Δεν είναι δυνατή η "
-"μεταφόρτωση αρχείων μεγαλύτερων από {{maxFilesize}}mb."
+msgstr "Το αρχείο είναι πολύ μεγάλο  ({{filesize}}mb). Δεν είναι δυνατή η μεταφόρτωση αρχείων μεγαλύτερων από {{maxFilesize}}mb."
 
 msgid "form.dropzone.dictFallbackText"
 msgstr "Χρησιμοποιήστε την ακόλουθη φόρμα για να ανεβάσετε τα αρχεία σας."
 
 msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
-"Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει μεταφορτώσεις αρχείων με "
-"απόθεση."
+msgstr "Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει μεταφορτώσεις αρχείων με απόθεση."
 
 msgid "form.dropzone.dictDefaultMessage"
 msgstr "Αποθέστε εδώ τα αρχεία για μεταφόρτωση"
@@ -1948,9 +1856,7 @@ msgid "common.override"
 msgstr "Παράκαμψη"
 
 msgid "common.noTemporaryFile"
-msgstr ""
-"Δεν ήταν δυνατή η εύρεση του αρχείου που ανεβάσατε. Προσπαθήστε να το "
-"ανεβάσετε ξανά."
+msgstr "Δεν ήταν δυνατή η εύρεση του αρχείου που ανεβάσατε. Προσπαθήστε να το ανεβάσετε ξανά."
 
 msgid "common.noItemsFound"
 msgstr "Δεν βρέθηκαν αντικείμενα."
@@ -1966,3 +1872,69 @@ msgstr "Η τελευταία δραστηριότητα καταγράφηκε 
 
 msgid "common.fromWithValue"
 msgstr "Από: {$value}"
+
+msgid "common.inactive"
+msgstr "Αδρανής"
+
+msgid "common.editItem"
+msgstr "Επεξεργασία {$name}"
+
+msgid "common.selectWithName"
+msgstr "Επιλογή {$name}"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.addFile"
+msgstr "Προσθήκη αρχείου"
+
+msgid "common.user.nonexistent"
+msgstr "[Ανύπαρκτος χρήστης]"
+
+msgid "common.viewWithName"
+msgstr "Προβολή {$name}"
+
+msgid "form.saved"
+msgstr "Αποθηκεύτηκε"
+
+msgid "navigation.backTo"
+msgstr "⟵ Πίσω στην {$page}"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Βρέθηκε ένα αντικείμενο."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Βρέθηκαν {$count} αντικείμενα."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Πώς να διασφαλίσετε ότι όλα τα αρχεία είναι ανώνυμα"
+
+msgid "notification.editStageParticipant"
+msgstr "Το στάδιο ανάθεσης έχει αλλάξει."
+
+msgid "user.email"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Μη έγκυρος γύρος ελέγχου."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Μη έγκυρη συζήτηση."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Δεν έχετε πρόσβαση σε αυτό το μήνυμα συζήτησης."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Δεν έχετε πρόσβαση σε αυτήν την εργασία αξιολόγησης."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Επιλογές απορρήτου"
+
+msgid "validator.alpha_dash_period"
+msgstr "Αυτό μπορεί να περιέχει μόνο γράμματα, αριθμούς, παύλες, κάτω παύλες και τελείες."
+
+msgid "validator.array"
+msgstr "Αυτός δεν είναι έγκυρος πίνακας."
+
+msgid "validator.unique"
+msgstr "Το {$attribute} έχει ήδη ληφθεί."

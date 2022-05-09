@@ -46,7 +46,7 @@ class SubmissionHandler extends PKPSubmissionHandler
         $this->_endpoints['PUT'][] = [
             'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/relate',
             'handler' => [$this, 'relatePublication'],
-            'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+            'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
         ];
 
         // Allow authors to create and publish versions

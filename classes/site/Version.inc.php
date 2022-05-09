@@ -21,6 +21,7 @@ use APP\core\Application;
 
 use PKP\core\Core;
 
+use Composer\Semver\Semver;
 class Version extends \PKP\core\DataObject
 {
     /**
@@ -362,6 +363,24 @@ class Version extends \PKP\core\DataObject
 
         return $numericVersion;
     }
+
+    /**
+	 * Checks if the Version is compatible with the given string of constraints for the version, 
+	 * formatted per composer/semver specifications; 
+	 * c.f. https://getcomposer.org/doc/articles/versions.md#writing-version-constraints
+	 * Returns:
+	 * 		true iff the version given is compatible with this version
+	 * 		false iff the version given is incompatible with this version
+	 * @param $constraints string the string of constraints for the version to be checked against
+	 * @return boolean
+	 */
+	public function isCompatible($constraints) {
+		$semver = new semver();
+		$version = $this->getVersionString();
+		
+		return $semver->satisfies($version, $constraints);
+	}
+
 }
 
 if (!PKP_STRICT_MODE) {

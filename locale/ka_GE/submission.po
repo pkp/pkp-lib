@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-14 09:47+0000\n"
+"PO-Revision-Date: 2022-04-22 08:58+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -2099,3 +2100,342 @@ msgstr "მიმოხილვის ფორმა"
 
 msgid "submission.reviewFormResponse"
 msgstr "მიმოხილვის ფორმის გამოხმაურება"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "პუბლიკაციების სიები"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "შეატყობინეთ ავტორებს"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "აცნობეთ მიმომხილველებს"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"გაუგზავნეთ ელ.წერილი მიმომხილველებს, რომ მადლობა გადაგიხადოთ განხილვისთვის "
+"და აცნობეთ, რომ გადაწყვეტილება მიიღეს."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"ეს წარდგენა მიიღება გამოსაქვეყნებლად და გაიგზავნება ასლის რედაქტირებისთვის."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} დაეთანხმა ამ წარდგენას და გაგზავნა კოპირების რედაქტირების "
+"ეტაპზე."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "წარდგენა მიღებულია"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"წარდგენა, {$title}, მიღებულია გამოსაქვეყნებლად და გაგზავნილია კოპირების "
+"რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ მათი წარდგენა მიღებულია "
+"გამოსაქვეყნებლად."
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "დაბრუნება წარდგენაზე"
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "გაგზავნილია უკან წარდგენაზე"
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "გაგზავნა, {$title}, დაბრუნდა გაგზავნის ეტაპზე."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა მათ აცნობონ, რომ მათი წარდგენა უკან "
+"იგზავნება წარდგენის ეტაპზე. აუხსენით, რატომ მიიღეს ეს გადაწყვეტილება და "
+"აცნობეთ ავტორს, რა შემდგომი სამუშაოები იქნება განხორციელებული წარდგენის წინ "
+"გადატანამდე."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"დააბრუნეთ გადაწყვეტილება ამ წარდგენის მიღების შესახებ და გააგზავნეთ იგი "
+"წარდგენის ეტაპზე."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName}-მა დააბრუნა გადაწყვეტილება ამ წარდგენის მიღების შესახებ და "
+"დააბრუნა გაგზავნის ეტაპზე."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"ეს წარდგენა უარყოფილი იქნება გამოქვეყნებისთვის. თანატოლთა განხილვის ეტაპი "
+"დაიხურება და წარდგენა დაარქივდება."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName}-მა უარყო ეს გაგზავნა."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "გაგზავნა უარყოფილია"
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "გაგზავნა, {$title}, უარყოფილია და გაგზავნილია არქივში."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ მათი გაგზავნა უარყოფილია."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"ეს წარდგენა უარყოფილი იქნება გამოქვეყნებისთვის. შემდგომი განხილვა არ "
+"განხორციელდება და წარდგენა არქივდება."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "რეცენზიის ახალი რაუნდი"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "გახსენით განხილვის კიდევ ერთი რაუნდი ამ წარდგენისთვის."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName}-მა შექმნა განხილვის ახალი რაუნდი ამ წარდგენისთვის."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "განხილვის რაუნდი შეიქმნა"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "განხილვის ახალი რაუნდი შეიქმნა წარდგენისთვის, {$title}."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ მათი წარდგენა გაიგზავნა "
+"განხილვის ახალი რაუნდისთვის."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+"აირჩიეთ ფაილები, რომლებიც უნდა გაიგზავნოს კოპირების რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "აირჩიეთ ფაილები, რომლებიც უნდა გაიგზავნოს განსახილველად."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "აირჩიეთ ფაილები, რომლებიც უნდა გაიგზავნოს წარმოების ეტაპზე."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"ავტორმა უნდა წარმოადგინოს რევიზიები, სანამ ეს წარდგენა მიიღება "
+"გამოსაქვეყნებლად."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName}-მა მოითხოვა ცვლილებები ამ წარდგენისთვის."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "მოთხოვნილი რევიზიები"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "მოთხოვნილი იქნა წარდგენის, {$title}, ცვლილებები."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობოთ მათ, რომ საჭირო იქნება ცვლილებები, "
+"სანამ ეს წარდგენა მიიღება გამოსაქვეყნებლად. ჩართეთ ყველა დეტალი, რომელიც "
+"ავტორს დასჭირდება მათი წარდგენის გადასინჯვის მიზნით. საჭიროების შემთხვევაში, "
+"არ უნდა დაგვავიწყდეს, რომ ანონიმურად დაასახელოთ მიმომხილველის კომენტარები."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"ავტორმა უნდა მიაწოდოს ვერსიები, რომლებიც გაიგზავნება განხილვის კიდევ ერთი "
+"რაუნდისთვის, სანამ ეს წარდგენა მიიღება გამოსაქვეყნებლად."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName}-მა მოითხოვა შესწორებები ამ წარდგენისთვის, რომელიც უნდა "
+"გაიგზავნოს განხილვის კიდევ ერთი რაუნდისთვის."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "მოთხოვნილი რევიზიები"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"მოთხოვნილი იქნა წარდგენის, {$title}, ცვლილებები. დაფიქსირდა გადაწყვეტილება "
+"გადასინჯვის კიდევ ერთი რაუნდისთვის გაგზავნის შესახებ."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ საჭირო იქნება შესწორებების "
+"დასრულება და გაგზავნა განხილვის კიდევ ერთი რაუნდისთვის. ჩართეთ ყველა დეტალი, "
+"რომელიც ავტორს დასჭირდება მათი წარდგენის გადასინჯვისთვის. საჭიროების "
+"შემთხვევაში, არ უნდა დაგვავიწყდეს, რომ ანონიმურად დაასახელოთ მიმომხილველის "
+"კომენტარები."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "რეცენზიაზე გაგზავნა"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "ეს წარდგენა მზად არის გასაგზავნად თანატოლთა განხილვისთვის."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName}-მა გაგზავნა ეს წარდგენა განხილვის ეტაპზე."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "გაგზავნილია განსახილველად"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "გაგზავნა, {$title}, გაიგზავნა განხილვის ეტაპზე."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"გაგზავნეთ ეს წარდგენა წარმოების ეტაპზე, რათა მომზადდეს გამოსაქვეყნებლად."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName}-მა გაგზავნა ეს წარდგენა წარმოების ეტაპზე."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "წარმოებისთვის გაგზავნილი."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "წარდგენა, {$title}, გაიგზავნა წარმოების ეტაპზე."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა გაიგზავნა "
+"წარმოების ეტაპზე."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "დაბრუნება კოპირების რედაქტირებაზე"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "გააგზავნეთ ეს წარდგენა კოპირების რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName}-მა ეს გაგზავნა დააბრუნა კოპირების რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "გაგზავნილია უკან კოპირების რედაქტირებაზე"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "წარდგენა, {$title}, დაბრუნდა კოპირების რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა დაბრუნდა "
+"კოპირების რედაქტირების ეტაპზე. ახსენით, რატომ იქნა მიღებული ეს "
+"გადაწყვეტილება და აცნობეთ ავტორს, რა შემდგომი რედაქტირება იქნება საჭირო, "
+"სანამ ეს წარდგენა მზად იქნება წარმოებისთვის."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"მიიღეთ ეს წარდგენა გამოსაქვეყნებლად და გამოტოვეთ განხილვის ეტაპი. ეს "
+"გადაწყვეტილება გაგზავნის გაგზავნას კოპირების რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName}-მა გამოტოვა განხილვის ეტაპი და გაგზავნა ეს წარდგენა კოპირების "
+"რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "გამოტოვებული მიმოხილვა"
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"გაგზავნამ, {$title}, გამოტოვა განხილვის ეტაპი და გაიგზავნა კოპირების "
+"რედაქტირების ეტაპზე."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა მიღებულია "
+"გამოსაქვეყნებლად და გადაგზავნილია კოპირების რედაქტირების ეტაპზე განხილვის "
+"გარეშე."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"დააბრუნეთ წინა გადაწყვეტილება ამ წარდგენის უარყოფის შესახებ და დააბრუნეთ იგი "
+"აქტიურ სარედაქციო პროცესზე."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName}-მა გააუქმა გადაწყვეტილება ამ გაგზავნის უარყოფის შესახებ."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "გაგზავნა ხელახლა გააქტიურებულია"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "წარდგენა, {$title}, ახლა აქტიური წარდგენაა განხილვის ეტაპზე."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობოთ მათ, რომ წინა გადაწყვეტილება ამ "
+"წარდგენის უარყოფის შესახებ დაბრუნებულია. აუხსენით, რატომ იქნა მიღებული "
+"გადაწყვეტილება და აცნობეთ მათ, მოსალოდნელია თუ არა წარდგენის შემდგომი "
+"განხილვა."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "წარდგენა, {$title}, ახლა აქტიურია წარდგენის ეტაპზე."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"გაუგზავნეთ შეტყობინება გადამწყვეტ რედაქტორებს, რათა მათ აცნობონ "
+"რეკომენდაცია. ახსენით, რატომ გაკეთდა ეს რეკომენდაცია რეცენზენტების მიერ "
+"წარმოდგენილი რეკომენდაციებისა და კომენტარების პასუხად."
+
+msgid "editor.submission.recommend.accept"
+msgstr "რეკომენდაცია მიღება"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"გირჩევთ, რომ ეს წარდგენა მიღებულ იქნეს გამოსაქვეყნებლად და გაგზავნილი "
+"გადასაწერად."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName}-მა რეკომენდაცია გაუწია ამ წარდგენის მიღებას და გაგზავნას "
+"კოპირების რედაქტირებისთვის."
+
+msgid "editor.submission.recommend.completed"
+msgstr "რეკომენდაცია გაგზავნილია"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "თქვენი რეკომენდაცია ჩაიწერა და გადამწყვეტი რედაქტორ(ებ)ი ეცნობა."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "რეკომენდაცია რევიზიებს"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"გირჩევთ, რომ რევიზიები მოითხოვოთ ავტორისგან, სანამ ეს წარდგენა მიიღება "
+"გამოსაქვეყნებლად."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName}-მა რეკომენდაცია გაუწია შესწორებების მოთხოვნას."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "გირჩევთ ხელახლა გაგზავნოთ განსახილველად"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"რეკომენდაცია, რომ ავტორს სთხოვონ გამოაგზავნოს ვერსიები განხილვის კიდევ ერთი "
+"რაუნდისთვის."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName}-მა რეკომენდაცია გაუწია შესწორებების მოთხოვნას და ეს ვერსიების "
+"გაგზავნა განხილვის კიდევ ერთი რაუნდისთვის."
+
+msgid "editor.submission.recommend.decline"
+msgstr "უარის რეკომენდაცია"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "გირჩევთ, უარი თქვან წარდგენაზე გამოსაქვეყნებლად."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} რეკომენდაციას უწევს ამ წარდგენის უარყოფას."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"თქვენ არ შეგიძლიათ გააკეთოთ რეკომენდაცია, სანამ რედაქტორს არ მიენიჭება "
+"გადაწყვეტილების ჩაწერის ნებართვა."
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"გადაწყვეტილების შესახებ ელფოსტა გაეგზავნა {$recipientCount} მიმომხილველ(ებ)ს "
+"თემით {$subject}."
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "ყველა წარდგენის ნახვა"
+
+msgid "category.category"
+msgstr "კატეგორიები"

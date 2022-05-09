@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-06 04:55+0000\n"
+"PO-Revision-Date: 2022-05-03 22:42+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "kk_KZ/>\n"
@@ -2957,3 +2957,61 @@ msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
 "Бұл электрондық хат автордың материалды қараусыз жіберуден бас тарту туралы "
 "алдыңғы шешімнің күші жойылғанын хабарлайды."
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Тексеруші тексеру мерзімі аяқталмаған кезде бұл электрондық хатты автоматты "
+"түрде жібереді."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Қарап шығу туралы еске салғыш (Automated)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Бұл электрондық хатты Редактор рецензентке материалдардың қарастырылуы тиіс "
+"екенін еске салу үшін жібереді"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Қайта қарауды еске салу"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Бұл электрондық хатты материалды қабылдамауға шешім қабылданған кезде "
+"тексеруші жібереді"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Қабылданбауды қарап шығу"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Тексеруші тексеру сұрауын қабылдағанда, бұл электрондық пошта арқылы жауап "
+"автоматты түрде жіберіледі"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Қарап шығуды растау"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Құпия сөзді қалпына келтіруді растау үшін пайдаланушыға жіберілетін "
+"хэштелген URL мекенжайы"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+"Автоматтандырылған электрондық поштаға арналған веб-сайттың электрондық "
+"поштадағы жауап"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "Қарап шығуға арналған тапсырманың URL мекенжайы"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Басқа материалдар"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Бұған әлі орындалып жатқан және импортталған сынды басқа жиындарда "
+"есептелмейтін материалдар кіреді."
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Бұл компонент жойылмас бұрын, соған байланысты жіберу файлдарын басқа "
+"компонентпен байланыстыру керек."

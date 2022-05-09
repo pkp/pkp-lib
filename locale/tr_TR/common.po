@@ -1,11 +1,12 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-02-23 13:26+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2022-04-24 07:57+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr_TR/>\n"
 "Language: tr_TR\n"
@@ -16,7 +17,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
-msgstr "Hakkında"
+msgstr "Site Hakkında"
 
 msgid "about.contact"
 msgstr "İletişim"
@@ -64,7 +65,7 @@ msgid "announcement.view"
 msgstr "Duyuruyu gör"
 
 msgid "common.action"
-msgstr "Eylem"
+msgstr "İşlem"
 
 msgid "common.activate"
 msgstr "Etkinleştir"
@@ -76,7 +77,7 @@ msgid "common.add"
 msgstr "Ekle"
 
 msgid "common.addSelf"
-msgstr "Üye Ol"
+msgstr "Kayıt Ol"
 
 msgid "common.all"
 msgstr "Tümü"
@@ -94,7 +95,7 @@ msgid "common.and"
 msgstr "ve"
 
 msgid "common.applyAction"
-msgstr "Eylemi Uygula"
+msgstr "İşlemi Uygula"
 
 msgid "common.assign"
 msgstr "Ata"
@@ -112,7 +113,7 @@ msgid "common.cancel"
 msgstr "İptal"
 
 msgid "common.cancelled"
-msgstr "İptal Edilmiş"
+msgstr "İptal Edildi"
 
 msgid "common.captchaField.description"
 msgstr "Lütfen resim üzerinde görüntülenen karakterleri giriniz."
@@ -154,7 +155,7 @@ msgid "common.changesSaved"
 msgstr "Değişiklikleriniz kaydedildi."
 
 msgid "common.chooseOne"
-msgstr "Birini Seçiniz"
+msgstr "Seçim Yap"
 
 msgid "common.close"
 msgstr "Kapat"
@@ -163,16 +164,16 @@ msgid "common.closeWindow"
 msgstr "Pencereyi Kapat"
 
 msgid "common.complete"
-msgstr "Tamamlama"
+msgstr "Tamamla"
 
 msgid "common.completed"
-msgstr "Tamamlanmış"
+msgstr "Tamamlandı"
 
 msgid "common.continue"
 msgstr "Devam Et"
 
 msgid "common.copy"
-msgstr "Kopya"
+msgstr "Kopyala"
 
 msgid "common.country"
 msgstr "Ülke"
@@ -181,28 +182,28 @@ msgid "common.create"
 msgstr "Oluştur"
 
 msgid "common.dateCompleted"
-msgstr "Tamamlandığı tarih"
+msgstr "Tamamlanma Tarihi"
 
 msgid "common.date"
 msgstr "Tarih"
 
 msgid "common.dateModified"
-msgstr "Değiştirildiği tarih"
+msgstr "Değiştirilme Tarihi"
 
 msgid "common.dateRequested"
-msgstr "İstendiği tarih"
+msgstr "Talep Tarihi"
 
 msgid "common.dateSubmitted"
-msgstr "Gönderildiği tarih"
+msgstr "Gönderilme Tarihi"
 
 msgid "common.dateUploaded"
-msgstr "Gönderildiği tarih"
+msgstr "Yüklenme Tarihi"
 
 msgid "common.day"
 msgstr "Gün"
 
 msgid "common.deactivate"
-msgstr "Pasifleştir"
+msgstr "Devre Dışı Bırak"
 
 msgid "common.default"
 msgstr "Varsayılan"
@@ -836,25 +837,25 @@ msgid "search.typeMethodApproach"
 msgstr "Tür (Yöntem/Yaklaşım)"
 
 msgid "announcement.postedOn"
-msgstr "{$postDate} tarihinde gönderildi"
+msgstr "{$postDate} tarihinde yayınlandı"
 
 msgid "common.accepted"
-msgstr "Kabul Edilmiş"
+msgstr "Kabul Edildi"
 
 msgid "common.titleSmallWords"
-msgstr "bir ve veya fakat eğer ile"
+msgstr "ile, ve gibi bağlaçlar"
 
 msgid "common.warning"
 msgstr "Uyarı"
 
 msgid "common.confirm"
-msgstr "Doğrulama"
+msgstr "Onayla"
 
 msgid "common.content"
 msgstr "İçerik"
 
 msgid "common.declined"
-msgstr "Geri Çevirildi"
+msgstr "Reddedildi"
 
 msgid "common.enable"
 msgstr "Aktifleştir"
@@ -920,7 +921,7 @@ msgid "form.invalidImage"
 msgstr "Hatalı görsel yüklendi. Geçerli biçimleri .png, .gif, veya .jpg'tir."
 
 msgid "navigation.access"
-msgstr "Üyeler &amp; Roller"
+msgstr "Kullanıcılar & Roller"
 
 msgid "navigation.admin"
 msgstr "Yönetim"
@@ -953,7 +954,7 @@ msgid "navigation.userManagement"
 msgstr "Üye Yönetimi"
 
 msgid "common.acknowledged"
-msgstr "Kabul Edilen"
+msgstr "Onaylandı"
 
 msgid "common.notified"
 msgstr "Bildirilmiş"
@@ -968,31 +969,31 @@ msgid "common.publicKnowledgeProject"
 msgstr "Kamu Bilgi Projesi (PKP)"
 
 msgid "common.currentStyleSheet"
-msgstr "Güncel Biçim Sayfası"
+msgstr "Geçerli Sitil Dosyası"
 
 msgid "about.description"
-msgstr "Tanım"
+msgstr "Açıklama"
 
 msgid "about.guidelines"
-msgstr "Rehberler"
+msgstr "Rehber"
 
 msgid "common.allDownloads"
-msgstr "Tüm İndirilenler"
+msgstr "Tüm İndirmeler"
 
 msgid "common.navigation.sidebar"
-msgstr "Kenar Çubuğu"
+msgstr "Yan Taraf"
 
 msgid "common.navigation.site"
-msgstr "Site Haritası"
+msgstr "Site Menüsü"
 
 msgid "common.navigation.siteContext"
-msgstr "Site İçerik Haritası"
+msgstr "Site İçerik Menüsü"
 
 msgid "common.navigation.user"
-msgstr "Kullanıcı Haritası"
+msgstr "Kullanıcı Menüsü"
 
 msgid "common.tasks"
-msgstr "İşler"
+msgstr "Görevler"
 
 msgid "common.list"
 msgstr "Liste"
@@ -1004,10 +1005,10 @@ msgid "common.confirmDelete"
 msgstr "Bu öğeyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
 
 msgid "common.abstract"
-msgstr "Özet"
+msgstr "Öz"
 
 msgid "common.name"
-msgstr "İsim"
+msgstr "Ad"
 
 msgid "common.assigned.date"
 msgstr "Atama: {$dateAssigned}"
@@ -1019,7 +1020,7 @@ msgid "common.error"
 msgstr "Hata"
 
 msgid "common.notice"
-msgstr "Duyuru"
+msgstr "Bidirim"
 
 msgid "common.captcha.error.missing-input-secret"
 msgstr "Bu web sitesinin captcha doğrulaması doğru şekilde yapılandırılmamış. Gizli anahtar eksik."
@@ -1433,7 +1434,7 @@ msgid "notification.editedAuthor"
 msgstr "Yazar düzeltildi."
 
 msgid "navigation.archives"
-msgstr "Arşivler"
+msgstr "Arşiv"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Buradasınız:"
@@ -1445,7 +1446,7 @@ msgid "navigation.tools"
 msgstr "Araçlar"
 
 msgid "navigation.tools.importExport"
-msgstr "Dışa Aktar/İçe Aktar"
+msgstr "İçe/Dışa Aktar"
 
 msgid "navigation.tools.statistics"
 msgstr "İstatistikler"
@@ -1951,7 +1952,7 @@ msgid "common.fromWithValue"
 msgstr "Gönderen: {$value}"
 
 msgid "common.dateDecided"
-msgstr "Karar tarihi"
+msgstr "Karar Tarihi"
 
 msgid "common.altTextInstructions"
 msgstr ""
@@ -2087,3 +2088,21 @@ msgstr "Hepsini genişlet"
 
 msgid "timeZone"
 msgstr "Saat dilimi"
+
+msgid "common.deselect"
+msgstr "Seçimi Bırak"
+
+msgid "common.attachSelected"
+msgstr "Seçileni Ekle"
+
+msgid "common.attachFiles"
+msgstr "Dosya Ekle"
+
+msgid "common.attachedFiles"
+msgstr "Ekli Dosyalar"
+
+msgid "common.addFiles"
+msgstr "Dosya Ekle"
+
+msgid "common.addCCBCC"
+msgstr "CC/BCC Ekle"

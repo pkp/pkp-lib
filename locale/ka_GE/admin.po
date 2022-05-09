@@ -1,6 +1,7 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-14 09:45+0000\n"
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ka_GE/>\n"
@@ -74,10 +75,10 @@ msgid "admin.authSources"
 msgstr "ავთენტიფიკაციის წყაროები"
 
 msgid "admin.clearDataCache"
-msgstr "მონაცემთა კეშის გასუფთავება"
+msgstr "მონაცემთა კეშის წაშლა"
 
 msgid "admin.clearTemplateCache"
-msgstr "შაბლონის კეშის გასუფთავება"
+msgstr "შაბლონის კეშის წაშლა"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -362,3 +363,167 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "ჩამოსატვირთად ხელმისაწვდომი ენები არ არის."
+
+msgid "admin.deleteCache"
+msgstr "ქეშების წაშლა"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"წაშალეთ ქეში ფაილები სისტემიდან. ეს უნდა გაკეთდეს მხოლოდ შუალედურ გარემოში."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"ყველა მომხმარებელი დაუყოვნებლივ გამოვა აპლიკაციიდან, მათ შორის თქვენც, და "
+"დაგჭირდებათ ხელახლა შესვლა."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "შეიტანეთ DOI კონფიგურირებული სარეგისტრაციო სააგენტოში"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"წაშალეთ დაგეგმილი ამოცანების პროცესების ყველა ჟურნალი, რომელიც გაშვებულია."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "ამოცანების ჟურნალის წაშლა"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "სარედაქციო ანგარიშის შეტყობინება"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"იხილეთ ინფორმაცია აპლიკაციისა და სერვერის ვერსიისა და კონფიგურაციის "
+"პარამეტრების შესახებ."
+
+msgid "admin.systemInformation.view"
+msgstr "სისტემის ინფორმაციის ნახვა"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "გამოყენება:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "ბრძანება [arguments]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "ხელმისაწვდომი ბრძანებები `{$namespace}` სახელთა სივრცისთვის:"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"ჩამოთვალეთ რიგში მყოფი სამუშაოები. თუ გსურთ შედეგების პაგინირება, გამოიყენეთ "
+"პარამეტრები --page= და --perPage="
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"გაწმინდეთ კონკრეტული რიგის სამუშაო მისი ID-ის საფუძველზე. თუ გსურთ ყველას "
+"გასუფთავება, გადაიტანეთ პარამეტრი --all. თუ გსურთ ყველაფრის გასუფთავება "
+"კონკრეტული რიგიდან, გადაიტანეთ პარამეტრი --queue="
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "დაამატეთ სატესტო სამუშაო ნაგულისხმევ რიგში"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "აჩვენეთ მომლოდინე სამუშაოების რაოდენობა"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "სამუშაოების ბრძანების გამოყენების ჩვენება"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "სამუშაოების გამოყენების პარამეტრების ჩვენება"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "ვარიანტი არ შეიძლება იყოს ცარიელი! შეამოწმეთ გამოყენების მეთოდი."
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "სამუშაოები მოლოდინში"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "რიგი"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "სამუშაოს საჩვენებელი სახელი"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "მცდელობები"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "დაჯავშნილია"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "ხელმისაწვდომია"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "შექმნილია"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "გვერდებად დანომვრა"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "მიმდინარე"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "წინა"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "შემდეგი"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"ამ ბრძანების გამოსაყენებლად თქვენ უნდა გადასცეთ მინიმუმ სამუშაოს ID, '--all' "
+"ან '--queue='"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "სამუშაოს ID არასწორია"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "სამუშაო წაიშალა!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "შეუძლებელი იყო ყველა სამუშაოს წაშლა."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "წაიშალა ყველა სამუშაო!"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "ჩვენ გვაქვს {$total} მომლოდინე სამუშაო"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "ვარიანტი {$option} არ არსებობს."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "ქვემოთ ჩამოთვლილთაგან ერთ-ერთს გულისხმობთ?"
+
+msgid "admin.jobs.totalCount"
+msgstr "რიგში არის სულ <strong>{$total}</strong> სამუშაო"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "რიგში მდგომი სამუშაოების ნახვა"
+
+msgid "navigation.tools.jobs"
+msgstr "სამუშაოები"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"იხილეთ სისტემაში მდგომი ყველა სამუშაო და აკონტროლეთ წარუმატებელი მცდელობები."
+
+msgid "navigation.tools.jobs.view"
+msgstr "სამუშაოების ნახვა"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Სამუშაო"
+
+msgid "admin.jobs.list.queueName"
+msgstr "რიგი"
+
+msgid "admin.jobs.list.attempts"
+msgstr "მცდელობები"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "შექმნილია"
+
+msgid "admin.jobs.createdAt"
+msgstr "შექმნილია {$createdAt}"

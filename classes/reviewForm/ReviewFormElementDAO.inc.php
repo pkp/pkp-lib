@@ -232,17 +232,17 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     public function getByReviewFormId($reviewFormId, $rangeInfo = null, $included = null)
     {
         $result = $this->retrieveRange(
-            'SELECT *
-			FROM review_form_elements
-			WHERE review_form_id = ?
-			' . ($included === true ? ' AND included = 1' : '') . '
-			' . ($included === false ? ' AND included = 0' : '') . '
-			ORDER BY seq',
-            [(int) $reviewFormId],
+            $sql = 'SELECT *
+                    FROM review_form_elements
+                    WHERE review_form_id = ?
+                    ' . ($included === true ? ' AND included = 1' : '') . '
+                    ' . ($included === false ? ' AND included = 0' : '') . '
+                    ORDER BY seq',
+            $params = [(int) $reviewFormId],
             $rangeInfo
         );
 
-        return new DAOResultFactory($result, $this, '_fromRow');
+        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params);
     }
 
     /**

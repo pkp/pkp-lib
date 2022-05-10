@@ -16,17 +16,23 @@
 namespace PKP\core;
 
 use APP\core\AppServiceProvider;
-
+use APP\Providers\SchedulerServiceProvider as AppSchedulerServiceProvider;
 use Exception;
-use Illuminate\Config\Repository;
 
+use Illuminate\Cache\CacheManager as LaravelCacheManager;
+use Illuminate\Config\Repository;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Cache\Factory as CacheFactory;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+
+use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
@@ -63,6 +69,8 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
+        $this->instance('files', new Filesystem());
+
         $this->singleton(ExceptionHandler::class, function () {
             return new class() implements ExceptionHandler {
                 public function shouldReport(Throwable $e)
@@ -86,6 +94,7 @@ class PKPContainer extends Container
                 }
             };
         });
+
         $this->singleton(
             KernelContract::class,
             Kernel::class
@@ -98,6 +107,25 @@ class PKPContainer extends Container
                     $app['db'],
                     config('queue.failed.database'),
                     config('queue.failed.table')
+                );
+            }
+        );
+
+        $this->singleton(
+            CacheFactory::class,
+            function (Container $container) {
+                return new LaravelCacheManager($container);
+            }
+        );
+
+        $this->singleton(
+            Schedule::class,
+            function (): Schedule {
+                return tap(
+                    new Schedule(Config::getVar('general', 'time_zone', 'UTC')),
+                    function (Schedule $schedule): void {
+                        $schedule->useCache('file');
+                    }
                 );
             }
         );
@@ -126,6 +154,7 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
+        $this->register(new AppSchedulerServiceProvider($this));
     }
 
     /**
@@ -246,14 +275,22 @@ class PKPContainer extends Container
         $items['cache'] = [
             'default' => 'opcache',
             'stores' => [
+                'array' => [
+                    'driver' => 'array',
+                    'serialize' => false,
+                ],
                 'opcache' => [
                     'driver' => 'opcache',
                     'path' => Core::getBaseDir() . '/cache/opcache'
-                ]
+                ],
+                'file' => [
+                    'driver' => 'file',
+                    'path' => CacheManager::getFileCachePath(),
+                ],
             ]
         ];
 
-        // Create instance and bind to use globally
+        // create instance and bind to use globally
         $this->instance('config', new Repository($items));
     }
 
@@ -263,7 +300,7 @@ class PKPContainer extends Container
      */
     public function basePath($path = '')
     {
-        return $this->basePath . ($path ? "/$path" : $path);
+        return $this->basePath . ($path ? "/${path}" : $path);
     }
 
     /**
@@ -332,6 +369,26 @@ class PKPContainer extends Container
         $context = stream_context_create($opts);
         stream_context_set_default($opts);
         libxml_set_streams_context($context);
+    }
+
+    /**
+     * This method is necessary to PKPScheduler run the scheduled tasks.
+     * Currently he will return a boolean false value
+     *
+     */
+    public function isDownForMaintenance(): bool
+    {
+        return false;
+    }
+
+    /**
+     * This method is necessary to PKPScheduler run the scheduled tasks.
+     * Currently he will return an empty string
+     *
+     */
+    public function environment(): string
+    {
+        return '';
     }
 }
 

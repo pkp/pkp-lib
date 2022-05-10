@@ -147,15 +147,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         Schema::table('submissions', function (Blueprint $table) {
             $table->string('locale', 14)->nullable();
         });
-        $currentPublicationIds = DB::table('submissions')->pluck('current_publication_id');
-        $submissionLocales = DB::table('publications')
-            ->whereIn('publication_id', $currentPublicationIds)
-            ->pluck('locale', 'submission_id');
-        foreach ($submissionLocales as $submissionId => $locale) {
-            DB::table('submissions as s')
-                ->where('s.submission_id', '=', $submissionId)
-                ->update(['locale' => $locale]);
-        }
+        DB::unprepared('UPDATE submissions s SET locale=(SELECT locale FROM publications WHERE publication_id = s.current_publication_id)');
         Schema::table('publications', function (Blueprint $table) {
             $table->dropColumn('locale');
         });
@@ -452,30 +444,19 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         // Collect rows that will be deleted because they are old revisions
         // They are identified by the new_file_id column, which is the only unique
         // column on the table at this point.
-        $newFileIdsToDelete = [];
+        $newFileIdsToDelete = DB::table('submission_files', 'sf')
+            ->join('submission_files as newer', function ($join) {
+                $join->on('sf.file_id', '=', 'newer.file_id')
+                    ->on('newer.revision', '>', 'sf.revision');
+            })
+            ->select('sf.new_file_id')
+            ->distinct()
+            ->get();
 
-        // Get all the unique file_ids. For each one, determine the latest revision
-        // in order to keep it in the table. The others will be flagged for removal
-        foreach (DB::table('submission_files')->select('file_id')->distinct()->get() as $row) {
-            $submissionFileRows = DB::table('submission_files')
-                ->where('file_id', '=', $row->file_id)
-                ->orderBy('revision', 'desc')
-                ->get([
-                    'file_id',
-                    'new_file_id',
-                ]);
-            $latestFileId = $submissionFileRows[0]->new_file_id;
-            foreach ($submissionFileRows as $submissionFileRow) {
-                if ($submissionFileRow->new_file_id !== $latestFileId) {
-                    $newFileIdsToDelete[] = $submissionFileRow->new_file_id;
-                }
-            }
-        }
-
-        // Delete the rows for old revisions (chunked for performance)
-        foreach (array_chunk($newFileIdsToDelete, 100) as $chunkFileIds) {
+        // Delete the rows for old revisions (chunked for performance) // TODO: Array chunk doesn't work with Laravel collections
+        foreach ($newFileIdsToDelete->chunk(100) as $chunkFileIds) {
             DB::table('submission_files')
-                ->whereIn('new_file_id', $chunkFileIds)
+                ->whereIn('new_file_id', (array) $chunkFileIds)
                 ->delete();
         }
 

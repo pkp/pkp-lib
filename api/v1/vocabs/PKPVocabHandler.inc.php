@@ -18,6 +18,7 @@ use APP\core\Application;
 use PKP\core\APIResponse;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -29,7 +30,6 @@ use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 use Slim\Http\Request;
 use Stringy\Stringy;
-use PKP\facades\Locale;
 
 class PKPVocabHandler extends APIHandler
 {
@@ -44,7 +44,7 @@ class PKPVocabHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
         ];

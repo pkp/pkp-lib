@@ -34,7 +34,7 @@ class PKPBackendDoiHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern() . "/publications/{publicationId:\d+}",
                     'handler' => [$this, 'editPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ]
             ]
         ]);

@@ -80,6 +80,11 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         // differentiated policies for those roles in a policy set.
         $fileAccessPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
+        //
+        // Site administrator role
+        if (isset($roleAssignments[Role::ROLE_ID_SITE_ADMIN])) {
+            $fileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
+        }
 
         //
         // Managerial role

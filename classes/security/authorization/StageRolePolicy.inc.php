@@ -86,7 +86,7 @@ class StageRolePolicy extends AuthorizationPolicy
         }
 
         // A manager is granted access when they are not assigned in any other role
-        if (empty($userAccessibleStages) && in_array(Role::ROLE_ID_MANAGER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
+        if (empty($userAccessibleStages) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)))) {
             if ($this->_allowRecommendOnly) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }

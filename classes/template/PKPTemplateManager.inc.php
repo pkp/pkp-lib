@@ -999,7 +999,7 @@ class PKPTemplateManager extends Smarty
                 $menu = [];
 
                 if ($request->getContext()) {
-                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
+                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
                         $menu['submissions'] = [
                             'name' => __('navigation.submissions'),
                             'url' => $router->url($request, null, 'submissions'),
@@ -1013,7 +1013,7 @@ class PKPTemplateManager extends Smarty
                         ];
                     }
 
-                    if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
                         if ($request->getContext()->getData('enableAnnouncements')) {
                             $menu['announcements'] = [
                                 'name' => __('announcement.announcements'),
@@ -1062,7 +1062,7 @@ class PKPTemplateManager extends Smarty
                         ];
                     }
 
-                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
+                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
                         $menu['statistics'] = [
                             'name' => __('navigation.tools.statistics'),
                             'submenu' => [
@@ -1083,7 +1083,7 @@ class PKPTemplateManager extends Smarty
                                 ]
                             ]
                         ];
-                        if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+                        if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
                             $menu['statistics']['submenu'] += [
                                 'reports' => [
                                     'name' => __('manager.statistics.reports'),
@@ -1094,7 +1094,7 @@ class PKPTemplateManager extends Smarty
                         }
                     }
 
-                    if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
                         $menu['tools'] = [
                             'name' => __('navigation.tools'),
                             'url' => $router->url($request, null, 'management', 'tools'),

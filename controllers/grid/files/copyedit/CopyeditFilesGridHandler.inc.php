@@ -36,6 +36,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler
             [
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_AUTHOR,
             ],
@@ -47,6 +48,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler
             [
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_ASSISTANT
             ],
             [
@@ -70,7 +72,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler
     {
         if (0 != count(array_intersect(
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
             // Authors may also view this grid, and shouldn't be able to do anything (just view).
         ))) {
             $this->setCapabilities(new FilesGridCapabilities(FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_MANAGE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_DELETE));

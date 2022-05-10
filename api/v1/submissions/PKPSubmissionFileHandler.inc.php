@@ -43,38 +43,38 @@ class PKPSubmissionFileHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
                     'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
             'POST' => [
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
             'PUT' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
                     'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}/copy',
                     'handler' => [$this, 'copy'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
                 ],
             ],
             'DELETE' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
                     'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
         ];
@@ -158,7 +158,7 @@ class PKPSubmissionFileHandler extends APIHandler
         ];
 
         // Managers can access files for submissions they are not assigned to
-        if (!$stageAssignments && !in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+        if (!$stageAssignments && !count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
             return $response->withStatus(403)->withJsonError('api.403.unauthorized');
         }
 

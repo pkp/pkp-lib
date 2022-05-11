@@ -38,7 +38,7 @@ class SubmissionChecklistForm extends Form {
 	 * @see Form::initData
 	 * @param $args array
 	 */
-	function initData($args) {
+	function initData($args = []) {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 

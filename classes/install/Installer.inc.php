@@ -28,6 +28,7 @@ import('lib.pkp.classes.db.DBDataXMLParser');
 import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');
 import('lib.pkp.classes.config.ConfigParser');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Schema\Blueprint;

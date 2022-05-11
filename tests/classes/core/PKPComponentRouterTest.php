@@ -46,7 +46,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
+			'PATH_INFO' => '/context1/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
 		);
 		self::assertTrue($this->router->supports($this->request));
 	}
@@ -63,7 +63,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/page/operation'
+			'PATH_INFO' => '/context1/page/operation'
 		);
 		self::assertEquals('', $this->router->getRequestedComponent($this->request));
 		self::assertFalse($this->router->supports($this->request));
@@ -81,7 +81,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/path/to/handler/operation'
+			'PATH_INFO' => '/context1/path/to/handler/operation'
 		);
 		self::assertEquals('', $this->router->getRequestedComponent($this->request));
 		self::assertFalse($this->router->supports($this->request));
@@ -100,7 +100,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/inexistent/component/fetch-grid'
+			'PATH_INFO' => '/context1/$$$call$$$/inexistent/component/fetch-grid'
 		);
 		self::assertEquals('inexistent.ComponentHandler', $this->router->getRequestedComponent($this->request));
 		self::assertFalse($this->router->supports($this->request));
@@ -117,7 +117,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-component/operation'
+			'PATH_INFO' => '/context1/$$$call$$$/path/to/some-component/operation'
 		);
 		self::assertEquals('path.to.SomeComponentHandler', $this->router->getRequestedComponent($this->request));
 	}
@@ -133,7 +133,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-#component/operation'
+			'PATH_INFO' => '/context1/$$$call$$$/path/to/some-#component/operation'
 		);
 		self::assertEquals('', $this->router->getRequestedComponent($this->request));
 	}
@@ -165,7 +165,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-component/some-op'
+			'PATH_INFO' => '/context1/$$$call$$$/path/to/some-component/some-op'
 		);
 		self::assertEquals('someOp', $this->router->getRequestedOp($this->request));
 	}
@@ -212,7 +212,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-component/so#me-op'
+			'PATH_INFO' => '/context1/$$$call$$$/path/to/some-component/so#me-op'
 		);
 		self::assertEquals('', $this->router->getRequestedOp($this->request));
 	}
@@ -231,7 +231,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 		$_SERVER = array(
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
+			'PATH_INFO' => '/context1/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
 		);
 		$_GET = array(
 			'arg1' => 'val1',
@@ -239,18 +239,23 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		);
 
 		// Simulate context DAOs
-		$this->_setUpMockDAOs('context1', 'context2');
+		$this->_setUpMockDAOs('context1');
+
+		$this->expectOutputRegex('/{"status":true,"content":".*component-grid-notifications-tasknotificationsgrid/');
 
 		// Route the request. This should call NotificationsGridHandler::fetchGrid()
 		// with a reference to the request object as the first argument.
+		Registry::set('request', $this->request);
+		import('lib.pkp.classes.user.User');
+		$user = new User();
+		Registry::set('user', $user);
+
 		$this->router->route($this->request);
 
 		self::assertNotNull($serviceEndpoint =& $this->router->getRpcServiceEndpoint($this->request));
 		self::assertInstanceOf('NotificationsGridHandler', $handler =& $serviceEndpoint[0]);
 		$firstContextDao = DAORegistry::getDAO('FirstContextDAO');
 		self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
-		$secondContextDao = DAORegistry::getDAO('SecondContextDAO');
-		self::assertInstanceOf('Context', $secondContextDao->getByPath('context2'));
 	}
 
 	/**
@@ -266,57 +271,57 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$_SERVER = array(
 			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/current-context1/current-context2/$$$call$$$/current/component-class/current-op'
+			'PATH_INFO' => '/current-context1/$$$call$$$/current/component-class/current-op'
 		);
 
 		// Simulate context DAOs
 		$this->_setUpMockDAOs();
 
 		$result = $this->router->url($this->request);
-		self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/$$$call$$$/current/component-class/current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/current-context1/$$$call$$$/current/component-class/current-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/current-op', $result);
 
-		$result = $this->router->url($this->request, array('new-context1', 'new?context2'));
-		self::assertEquals('http://mydomain.org/index.php/new-context1/new%3Fcontext2/$$$call$$$/current/component-class/current-op', $result);
+		$result = $this->router->url($this->request, array('new?context1'));
+		self::assertEquals('http://mydomain.org/index.php/new%3Fcontext1/$$$call$$$/current/component-class/current-op', $result);
 
 		$result = $this->router->url($this->request, array(), 'new.NewComponentHandler');
-		self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/$$$call$$$/new/new-component/current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/current-context1/$$$call$$$/new/new-component/current-op', $result);
 
 		$result = $this->router->url($this->request, array(), null, 'newOp');
-		self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/$$$call$$$/current/component-class/new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/current-context1/$$$call$$$/current/component-class/new-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', 'new.NewComponentHandler');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/new/new-component/current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/new/new-component/current-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', 'new.NewComponentHandler', 'newOp');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/new/new-component/new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/new/new-component/new-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, 'newOp');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/new-op', $result);
 
 		$result = $this->router->url($this->request, array('firstContext' => null, 'secondContext' => null), null, 'newOp');
-		self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/$$$call$$$/current/component-class/new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php/current-context1/$$$call$$$/current/component-class/new-op', $result);
 
 		$params =  array(
 			'key1' => 'val1?',
 			'key2' => array('val2-1', 'val2?2')
 		);
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, $params, null, true);
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/current-op?key1=val1%3F&amp;key2%5B%5D=val2-1&amp;key2%5B%5D=val2%3F2', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/current-op?key1=val1%3F&amp;key2%5B%5D=val2-1&amp;key2%5B%5D=val2%3F2', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, $params, null, false);
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/current-op?key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/current-op?key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/current-op#some%3Fanchor', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/current-op#some%3Fanchor', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, 'newOp', null, array('key' => 'val'), 'some-anchor');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/new-op?key=val#some-anchor', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/new-op?key=val#some-anchor', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, array('key1' => 'val1', 'key2' => 'val2'), null, true);
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/$$$call$$$/current/component-class/current-op?key1=val1&amp;key2=val2', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/current-op?key1=val1&amp;key2=val2', $result);
 	}
 
 	/**
@@ -332,36 +337,14 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$_SERVER = array(
 			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/overridden-context/current-context2/$$$call$$$/current/component-class/current-op'
+			'PATH_INFO' => '/overridden-context/$$$call$$$/current/component-class/current-op'
 		);
 
 		// Simulate context DAOs
 		$this->_setUpMockDAOs('overridden-context');
 
 		$result = $this->router->url($this->request);
-		self::assertEquals('http://some-domain/xyz-context/current-context2/$$$call$$$/current/component-class/current-op', $result);
-	}
-
-	/**
-	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
-	 * @covers PKPComponentRouter::_urlGetBaseAndContext
-	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
-	 * @covers PKPComponentRouter::_urlFromParts
-	 */
-	public function testUrlWithPathinfoAndSecondContextObjectIsNull() {
-		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
-			'SCRIPT_NAME' => '/index.php',
-			'PATH_INFO' => '/current-context1/current-context2/$$$call$$$/current/component-class/current-op'
-		);
-
-		// Simulate context DAOs
-		$this->_setUpMockDAOs('current-context1', 'current-context2', false, true);
-
-		$result = $this->router->url($this->request);
-		self::assertEquals('http://mydomain.org/index.php/current-context1/index/$$$call$$$/current/component-class/current-op', $result);
+		self::assertEquals('http://some-domain/xyz-context/$$$call$$$/current/component-class/current-op', $result);
 	}
 
 	/**
@@ -379,7 +362,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		);
 		$_GET = array(
 			'firstContext' => 'current-context1',
-			'secondContext' => 'current-context2',
 			'component' => 'current.component-class',
 			'op' => 'current-op'
 		);
@@ -388,47 +370,47 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$this->_setUpMockDAOs();
 
 		$result = $this->router->url($this->request);
-		self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&secondContext=current-context2&component=current.component-class&op=current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&component=current.component-class&op=current-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=current.component-class&op=current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=current.component-class&op=current-op', $result);
 
-		$result = $this->router->url($this->request, array('new-context1', 'new-context2'));
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=new-context2&component=current.component-class&op=current-op', $result);
+		$result = $this->router->url($this->request, array('new-context1'));
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=current.component-class&op=current-op', $result);
 
 		$result = $this->router->url($this->request, array(), 'new.NewComponentHandler');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&secondContext=current-context2&component=new.new-component&op=current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&component=new.new-component&op=current-op', $result);
 
 		$result = $this->router->url($this->request, array(), null, 'newOp');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&secondContext=current-context2&component=current.component-class&op=new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&component=current.component-class&op=new-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', 'new.NewComponentHandler');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=new.new-component&op=current-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=new.new-component&op=current-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', 'new.NewComponentHandler', 'newOp');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=new.new-component&op=new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=new.new-component&op=new-op', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, 'newOp');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=current.component-class&op=new-op', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=current.component-class&op=new-op', $result);
 
 		$params = array(
 			'key1' => 'val1?',
 			'key2' => array('val2-1', 'val2?2')
 		);
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, $params, null, true);
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;secondContext=current-context2&amp;component=current.component-class&amp;op=current-op&amp;key1=val1%3F&amp;key2%5B%5D=val2-1&amp;key2%5B%5D=val2%3F2', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;component=current.component-class&amp;op=current-op&amp;key1=val1%3F&amp;key2%5B%5D=val2-1&amp;key2%5B%5D=val2%3F2', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, $params);
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=current.component-class&op=current-op&key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=current.component-class&op=current-op&key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=current.component-class&op=current-op#some%3Fanchor', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=current.component-class&op=current-op#some%3Fanchor', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, 'newOp', null, array('key' => 'val'), 'some-anchor');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&component=current.component-class&op=new-op&key=val#some-anchor', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&component=current.component-class&op=new-op&key=val#some-anchor', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, array('key1' => 'val1', 'key2' => 'val2'), null, true);
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;secondContext=current-context2&amp;component=current.component-class&amp;op=current-op&amp;key1=val1&amp;key2=val2', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;component=current.component-class&amp;op=current-op&amp;key1=val1&amp;key2=val2', $result);
 	}
 
 	/**
@@ -447,7 +429,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		);
 		$_GET = array(
 			'firstContext' => 'overridden-context',
-			'secondContext' => 'current-context2',
 			'component' => 'current.component-class',
 			'op' => 'current-op'
 		);
@@ -458,36 +439,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		// NB: This also tests whether unusual URL elements like user, password and port
 		// will be handled correctly.
 		$result = $this->router->url($this->request);
-		self::assertEquals('http://some-user:some-pass@some-domain:8080/?firstContext=xyz-context&secondContext=current-context2&component=current.component-class&op=current-op', $result);
-	}
-
-	/**
-	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
-	 * @covers PKPComponentRouter::_urlGetBaseAndContext
-	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
-	 * @covers PKPComponentRouter::_urlFromParts
-	 */
-	public function testUrlWithoutPathinfoAndSecondContextObjectIsNull() {
-		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs enabled
-		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
-			'SCRIPT_NAME' => '/index.php',
-		);
-		$_GET = array(
-			'firstContext' => 'current-context1',
-			'secondContext' => 'current-context2',
-			'component' => 'current.component-class',
-			'op' => 'current-op'
-		);
-
-		// Simulate context DAOs
-		$this->_setUpMockDAOs('current-context1', 'current-context2', false, true);
-
-		// NB: This also tests whether restful URLs work correctly.
-		$result = $this->router->url($this->request);
-		self::assertEquals('http://mydomain.org/?firstContext=current-context1&secondContext=index&component=current.component-class&op=current-op', $result);
+		self::assertEquals('http://some-user:some-pass@some-domain:8080/?firstContext=xyz-context&component=current.component-class&op=current-op', $result);
 	}
 }
 

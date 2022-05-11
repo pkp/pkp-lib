@@ -13,6 +13,8 @@
  * @brief Operations for retrieving and modifying settings.
  */
 
+import('lib.pkp.classes.xml.PKPXMLParser');
+
 abstract class SettingsDAO extends DAO {
 	/**
 	 * Retrieve (and newly cache) all settings.
@@ -24,7 +26,7 @@ abstract class SettingsDAO extends DAO {
 
 		$result = $this->retrieve(
 			'SELECT setting_name, setting_value, setting_type, locale FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
-			(int) $id
+			[(int) $id]
 		);
 
 		foreach ($result as $row) {

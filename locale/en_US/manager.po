@@ -1947,6 +1947,9 @@ msgstr "The number of days it takes for most submissions to receive the first ed
 "These figures indicate that 80% of submissions reach the decision within the given number of days.<br><br>"
 "This statistic attempts to describe when the majority of authors submitting to your journal can expect a decision."
 
+msgid "stats.description.submissionsSkipped"
+msgstr "This includes submissions that are not counted in other totals, such as those that are still in progress and those that appear to have been imported."
+
 msgid "stats.descriptionForStat"
 msgstr "Description for {$stat}"
 
@@ -1985,6 +1988,9 @@ msgstr "User Statistics"
 
 msgid "stats.name.submissionsReceived"
 msgstr "Submissions Received"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Other Submissions"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Submissions Accepted"

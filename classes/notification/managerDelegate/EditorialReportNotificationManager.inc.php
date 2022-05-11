@@ -75,6 +75,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 				case 'submissionsAccepted':
 					$acceptedSubmissions = $stat['value'];
 					break;
+				case 'submissionsSkipped':
+					$skippedSubmissions = $stat['value'];
+					break;
 			}
 		}
 
@@ -82,6 +85,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 			'newSubmissions' => $newSubmissions,
 			'declinedSubmissions' => $declinedSubmissions,
 			'acceptedSubmissions' => $acceptedSubmissions,
+			'skippedSubmissions' => $skippedSubmissions,
 			'totalSubmissions' => Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$this->_context->getId()]]),
 			'month' => $this->_getLocalizedMonthName($dateStart, $locale),
 			'year' => $dateStart->format('Y'),
@@ -256,7 +260,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 */
 	private function _getMessageParams(User $user) : array
 	{
-		return $this->_params + ['name' => $user->getLocalizedGivenName($this->_context->getPrimaryLocale())];
+		return $this->_params + ['name' => htmlspecialchars($user->getLocalizedGivenName($this->_context->getPrimaryLocale()))];
 	}
 
 	/**

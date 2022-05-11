@@ -367,6 +367,7 @@ class PKPString {
 			'css:text/x-c' => 'text/css',
 			'css:text/plain' => 'text/css',
 			'csv:text/plain' => 'text/csv',
+			'js:text/plain' => 'text/javascript',
 			'xlsx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 			'xltx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
 			'potx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.template',

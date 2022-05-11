@@ -306,6 +306,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
 		import('lib.pkp.classes.log.SubmissionFileLog');
 		import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+		$user = $request->getUser();
 		\SubmissionFileLog::logEvent(
 			$request,
 			$submissionFile,
@@ -318,7 +319,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				'fileId' => $submissionFile->getData('fileId'),
 				'submissionId' => $submissionFile->getData('submissionId'),
 				'originalFileName' => $submissionFile->getLocalizedData('name'),
-				'username' => $request->getUser()->getUsername(),
+				'username' => $user ? $user->getUsername() : null,
 			]
 		);
 
@@ -379,7 +380,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				}
 
 				$uploader = $request->getUser();
-				if ($uploader->getId() != $submissionFile->getData('uploaderUserId')) {
+				if (!$uploader || $uploader->getId() != $submissionFile->getData('uploaderUserId')) {
 					$uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
 				}
 
@@ -418,9 +419,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 					}
 				}
 				// Get uploader name
-				$mail->assignParams(array(
-					'authorName' => $uploader->getFullName(),
-					'editorialContactSignature' => $context->getData('contactName'),
+				$mail->assignParams([
+					'authorName' => htmlspecialchars($uploader->getFullName()),
+					'editorialContactSignature' => htmlspecialchars($context->getData('contactName')),
 					'submissionUrl' => $request->getDispatcher()->url(
 						$request,
 						ROUTE_PAGE,
@@ -432,7 +433,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 							$reviewRound->getStageId(),
 						]
 					),
-				));
+				]);
 
 				if ($mail->getRecipients()){
 					if (!$mail->send($request)) {
@@ -463,6 +464,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
 		import('lib.pkp.classes.log.SubmissionFileLog');
 		import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+		$user = $request->getUser();
 		\SubmissionFileLog::logEvent(
 			$request,
 			$submissionFile,
@@ -475,13 +477,12 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				'fileId' => $submissionFile->getData('fileId'),
 				'submissionId' => $submissionFile->getData('submissionId'),
 				'originalFileName' => $submissionFile->getLocalizedData('name'),
-				'username' => $request->getUser()->getUsername(),
+				'username' => $user ? $user->getUsername() : null,
 			]
 		);
 
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
-		$user = $request->getUser();
 		$submission = Services::get('submission')->get($submissionFile->getData('submissionId'));
 		\SubmissionLog::logEvent(
 			$request, $submission,
@@ -493,7 +494,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				'submissionFileId' => $submissionFile->getId(),
 				'fileId' => $submissionFile->getData('fileId'),
 				'submissionId' => $submissionFile->getData('submissionId'),
-				'username' => $user->getUsername(),
+				'username' => $user ? $user->getUsername() : null,
 				'originalFileName' => $submissionFile->getLocalizedData('name'),
 				'name' => $submissionFile->getLocalizedData('name'),
 			]
@@ -584,6 +585,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		// Log the deletion
 		import('lib.pkp.classes.log.SubmissionFileLog');
 		import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+		$user = Application::get()->getRequest()->getUser();
 		\SubmissionFileLog::logEvent(
 			Application::get()->getRequest(),
 			$submissionFile,
@@ -594,7 +596,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
 				'submissionFileId' => $submissionFile->getId(),
 				'submissionId' => $submissionFile->getData('submissionId'),
-				'username' => Application::get()->getRequest()->getUser()->getUsername(),
+				'username' => $user ? $user->getUsername() : null,
 			]
 		);
 

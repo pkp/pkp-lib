@@ -376,11 +376,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			}
 
-			$mail->assignParams(array(
+			$mail->assignParams([
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
-				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle()
-			));
+				'siteTitle' => htmlspecialchars($context?$context->getLocalizedName():$site->getLocalizedTitle()),
+			]);
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			if (is_callable($mailConfigurator)) {
 				$mail = $mailConfigurator($mail);

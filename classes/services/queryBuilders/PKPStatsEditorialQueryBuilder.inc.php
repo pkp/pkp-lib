@@ -341,19 +341,19 @@ abstract class PKPStatsEditorialQueryBuilder {
 		// than the first date_published. This prevents imported
 		// submissions from being counted in editorial stats.
 		$q->leftJoin('publications as pi', function($q) {
-					$q->where('pi.publication_id', function($q) {
-						$q->from('publications as pi2')
-							->where('pi2.submission_id', '=', Capsule::raw('s.submission_id'))
-							->where('pi2.status', '=', STATUS_PUBLISHED)
-							->orderBy('pi2.date_published', 'ASC')
-							->limit(1)
-							->select('pi2.publication_id');
-					});
-				})
-				->where(function($q) {
-					$q->whereNull('pi.date_published')
-						->orWhere('s.date_submitted', '<', Capsule::raw('pi.date_published'));
-				});
+			$q->where('pi.publication_id', function($q) {
+				$q->from('publications as pi2')
+					->where('pi2.submission_id', '=', Capsule::raw('s.submission_id'))
+					->where('pi2.status', '=', STATUS_PUBLISHED)
+					->orderBy('pi2.date_published', 'ASC')
+					->limit(1)
+					->select('pi2.publication_id');
+			});
+		})
+		->where(function($q) {
+			$q->whereNull('pi.date_published')
+				->orWhere('s.date_submitted', '<', Capsule::raw('pi.date_published'));
+		});
 
 		\HookRegistry::call('Stats::editorial::queryObject', array(&$q, $this));
 
@@ -401,6 +401,22 @@ abstract class PKPStatsEditorialQueryBuilder {
 		}
 
 		return $q;
+	}
+
+	/**
+	 * Get the count of submissions skipped by the other statistics
+	 *
+	 * @return int
+	 */
+	public function countSkipped() {
+		$query = $this->_getObject()
+			->whereColumn('s.submission_id', '=', 'parent.submission_id');
+
+		// Select rows which are not present in the default query
+		$skippedQuery = Capsule::table('submissions AS parent')
+			->addWhereExistsQuery($query, 'and',  true);
+
+		return $skippedQuery->count();
 	}
 
 	/**

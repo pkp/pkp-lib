@@ -13,7 +13,7 @@
  *
  * @brief Describes system version history.
  */
-
+use Composer\Semver\Semver;
 
 class Version extends DataObject {
 	/**
@@ -283,6 +283,23 @@ class Version extends DataObject {
 		if (!$numeric && $this->getProduct() == 'ops' && preg_match('/^3\.2\.0\.0/', $numericVersion)) return ('3.2.0 Beta');
 
 		return $numericVersion;
+	}
+
+	/**
+	 * Checks if the Version is compatible with the given string of constraints for the version, 
+	 * formatted per composer/semver specifications; 
+	 * c.f. https://getcomposer.org/doc/articles/versions.md#writing-version-constraints
+	 * Returns:
+	 * 		true iff the version given is compatible with this version
+	 * 		false iff the version given is incompatible with this version
+	 * @param $constraints string the string of constraints for the version to be checked against
+	 * @return boolean
+	 */
+	function isCompatible($constraints) {
+		$semver = new Semver();
+		$version = $this->getVersionString();
+		
+		return $semver->satisfies($version, $constraints);
 	}
 }
 

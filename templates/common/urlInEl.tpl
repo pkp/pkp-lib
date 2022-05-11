@@ -12,7 +12,7 @@
 <script>
 	// Initialise JS handler.
 	$(function() {ldelim}
-		$('#{$inElElId|escape:"js"}').pkpHandler(
+		$('#{$inElElId|escape:"javascript"}').pkpHandler(
 			'$.pkp.controllers.UrlInDivHandler',
 			{ldelim}
 				sourceUrl: {$inElUrl|json_encode},

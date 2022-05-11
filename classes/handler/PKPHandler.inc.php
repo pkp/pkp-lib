@@ -278,6 +278,10 @@ class PKPHandler {
 			$this->addPolicy(new HttpsPolicy($request), true);
 		}
 
+		// Ensure the allowed hosts setting, when provided, is respected.
+		import('lib.pkp.classes.security.authorization.AllowedHostsPolicy');
+		$this->addPolicy(new AllowedHostsPolicy($request), true);
+
 		if (!defined('SESSION_DISABLE_INIT')) {
 			// Add user roles in authorized context.
 			$user = $request->getUser();

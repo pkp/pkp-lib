@@ -65,12 +65,12 @@ class ThankReviewerForm extends Form {
 		$email = new SubmissionMailTemplate($submission, 'REVIEW_ACK');
 
 		$dispatcher = $request->getDispatcher();
-		$email->assignParams(array(
-			'reviewerName' => $reviewer->getFullName(),
-			'reviewerUserName' => $reviewer->getUsername(),
+		$email->assignParams([
+			'reviewerName' => htmlspecialchars($reviewer->getFullName()),
+			'reviewerUserName' => htmlspecialchars($reviewer->getUsername()),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))
-		));
+		]);
 		$email->replaceParams();
 
 		$this->setData('submissionId', $submission->getId());
@@ -113,12 +113,12 @@ class ThankReviewerForm extends Form {
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$user = $request->getUser();
-			$email->assignParams(array(
-				'reviewerName' => $reviewer->getFullName(),
+			$email->assignParams([
+				'reviewerName' => htmlspecialchars($reviewer->getFullName()),
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
-				'signatureFullName' => $user->getFullname(),
-			));
+				'signatureFullName' => htmlspecialchars($user->getFullname()),
+			]);
 			if (!$email->send($request)) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();

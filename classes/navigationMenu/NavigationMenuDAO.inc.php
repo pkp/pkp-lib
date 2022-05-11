@@ -16,6 +16,7 @@
 
 
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 class NavigationMenuDAO extends DAO {
 	/**

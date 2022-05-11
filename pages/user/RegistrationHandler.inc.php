@@ -135,7 +135,7 @@ class RegistrationHandler extends UserHandler {
 		// Checks user and token
 		import('lib.pkp.classes.security.AccessKeyManager');
 		$accessKeyManager = new AccessKeyManager();
-		$accessKeyHash = AccessKeyManager::generateKeyHash($accessKeyCode);
+		$accessKeyHash = $accessKeyManager->generateKeyHash($accessKeyCode);
 		$accessKey = $accessKeyManager->validateKey(
 			'RegisterContext',
 			$user->getId(),

@@ -55,7 +55,7 @@ class InstallPluginVersionTool extends CommandLineTool {
 		$pluginVersion = $versionInfo['version'];
 
 		$productType = $pluginVersion->getProductType();
-		if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::getPluginCategories())) {
+		if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::get()->getPluginCategories())) {
 			error_log("Invalid type \"$productType\".");
 			return false;
 		}

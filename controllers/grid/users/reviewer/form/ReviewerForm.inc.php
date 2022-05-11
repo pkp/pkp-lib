@@ -201,14 +201,14 @@ class ReviewerForm extends Form {
 			$user = $request->getUser();
 			$dispatcher = $request->getDispatcher();
 			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER); // reviewer.step1.requestBoilerplate
-			$template->assignParams(array(
+			$template->assignParams([
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
-				'signatureFullName' => $user->getFullname(),
+				'signatureFullName' => htmlspecialchars($user->getFullname()),
 				'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-				'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
-			));
+				'abstractTermIfEnabled' => htmlspecialchars($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+			]);
 			$template->replaceParams();
 		}
 		$this->setData('personalMessage', $template->getBody());

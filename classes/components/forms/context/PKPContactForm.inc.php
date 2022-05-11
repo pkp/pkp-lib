@@ -66,7 +66,7 @@ class PKPContactForm extends FormComponent {
 			]))
 			->addField(new FieldTextarea('mailingAddress', [
 				'label' => __('common.mailingAddress'),
-				'isRequired' => true,
+				'isRequired' => false,
 				'size' => 'small',
 				'groupId' => 'principal',
 				'value' => $context->getData('mailingAddress'),

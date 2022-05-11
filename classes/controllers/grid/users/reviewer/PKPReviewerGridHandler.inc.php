@@ -872,14 +872,14 @@ class PKPReviewerGridHandler extends GridHandler {
 		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 
-		$template->assignParams(array(
+		$template->assignParams([
 			'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 			'editorialContactSignature' => $user->getContactSignature(),
-			'signatureFullName' => $user->getFullname(),
+			'signatureFullName' => htmlspecialchars($user->getFullname()),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
 			'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-			'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
-		));
+			'abstractTermIfEnabled' => $this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract'), // Deprecated; for OJS 2.x templates
+		]);
 		$template->replaceParams();
 
 		return new JSONMessage(true, $template->getBody());

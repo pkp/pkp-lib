@@ -17,6 +17,7 @@
 
 import('lib.pkp.classes.plugins.GenericPlugin');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 // TODO: Error handling. If a scheduled task encounters an error...?
 

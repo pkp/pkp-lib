@@ -14,6 +14,8 @@
  * @brief Operations for retrieving and modifying plugin settings.
  */
 
+import('lib.pkp.classes.xml.PKPXMLParser');
+
 class PluginSettingsDAO extends DAO {
 
 	/**

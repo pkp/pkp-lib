@@ -289,6 +289,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		$errors = Services::get('submissionFile')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
 		if (!empty($errors)) {
+			Services::get('file')->delete($fileId);
 			return $response->withStatus(400)->withJson($errors);
 		}
 
@@ -299,6 +300,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 			SUBMISSION_FILE_QUERY,
 		];
 		if (in_array($params['fileStage'], $notAllowedFileStages)) {
+			Services::get('file')->delete($fileId);
 			return $response->withStatus(400)->withJsonError('api.submissionFiles.403.unauthorizedFileStageIdWrite');
 		}
 
@@ -311,6 +313,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		];
 		if (in_array($params['fileStage'], $reviewFileStages)) {
 			if (empty($params['assocType']) || $params['assocType'] !== ASSOC_TYPE_REVIEW_ROUND || empty($params['assocId'])) {
+				Services::get('file')->delete($fileId);
 				return $response->withStatus(400)->withJsonError('api.submissionFiles.400.missingReviewRoundAssocType');
 			}
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
@@ -321,6 +324,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 			if (!$reviewRound
 					|| $reviewRound->getData('submissionId') != $params['submissionId']
 					|| $reviewRound->getData('stageId') != $stageId) {
+				Services::get('file')->delete($fileId);
 				return $response->withStatus(400)->withJsonError('api.submissionFiles.400.reviewRoundSubmissionNotMatch');
 			}
 		}

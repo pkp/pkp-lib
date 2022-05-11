@@ -22,6 +22,9 @@ class Report {
 	/** @var iterable The report data source, should yield /User objects */
 	private $_dataSource;
 
+	/** @var \PKPRequest */
+	private $_request;
+
 	/**
 	 * Constructor
 	 * @param iterable $dataSource The data source, should yield /User objects
@@ -29,7 +32,7 @@ class Report {
 	public function __construct(iterable $dataSource) {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
 		$this->_dataSource = $dataSource;
-		
+		$this->_request = \Application::get()->getRequest();
 	}
 
 	/**
@@ -76,7 +79,7 @@ class Report {
 	 * @return string[]
 	 */
 	private function _getDataRow(\User $user) : array {
-		$userGroups = \Services::get('user')->getProperties($user, ['groups'], ['request' => \Application::get()->getRequest()])['groups'];
+		$userGroups = \Services::get('user')->getProperties($user, ['groups'], ['request' => $this->_request])['groups'];
 		$groups = [];
 		foreach ($userGroups as ['id' => $id]) {
 			$groups[$id] = 0;
@@ -93,7 +96,7 @@ class Report {
 			$user->getDateRegistered(),
 			$user->getLocalizedData('dateProfileUpdated'),
 			],
-                        array_map(function($userGroup) use ($groups) {
+			array_map(function($userGroup) use ($groups) {
 				return __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no');
 			}, $this->_getUserGroups())
 		);
@@ -105,6 +108,8 @@ class Report {
 	 */
 	private function _getUserGroups() : array {
 		static $cache = null;
-		return $cache ?? $cache = iterator_to_array(\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
+		return $cache ?? $cache = iterator_to_array(
+			\DAORegistry::getDAO('UserGroupDAO')->getByContextId($this->_request->getContext()->getId())->toIterator()
+		);
 	}
 }

@@ -70,10 +70,10 @@ abstract class ReviewerNotifyActionForm extends Form {
 			$reviewer = $userDao->getById($reviewerId);
 			$user = $request->getUser();
 
-			$template->assignParams(array(
-				'reviewerName' => $reviewer->getFullName(),
-				'signatureFullName' => $user->getFullname(),
-			));
+			$template->assignParams([
+				'reviewerName' => htmlspecialchars($reviewer->getFullName()),
+				'signatureFullName' => htmlspecialchars($user->getFullname()),
+			]);
 			$template->replaceParams();
 
 			$this->setData('personalMessage', $template->getBody());

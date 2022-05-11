@@ -227,7 +227,7 @@ class Core {
 	 * @return string|bool The url without base url,
 	 * false if it was not possible to remove it.
 	 */
-	function removeBaseUrl($url) {
+	static function removeBaseUrl($url) {
 		list($baseUrl, $contextPath) = Core::_getBaseUrlAndPath($url);
 
 		if (!$baseUrl) return false;
@@ -280,7 +280,7 @@ class Core {
 	 * @param $url string
 	 * @return array With two elements, base url and context path.
 	 */
-	function _getBaseUrlAndPath($url) {
+	static function _getBaseUrlAndPath($url) {
 		$baseUrl = false;
 		$contextPath = false;
 
@@ -351,7 +351,7 @@ class Core {
 	 * path info.
 	 * @return boolean
 	 */
-	function _checkBaseUrl($baseUrl, $url) {
+	static function _checkBaseUrl($baseUrl, $url) {
 		// Check if both base url and url have host
 		// component or not.
 		$baseUrlHasHost = (boolean) parse_url($baseUrl, PHP_URL_HOST);

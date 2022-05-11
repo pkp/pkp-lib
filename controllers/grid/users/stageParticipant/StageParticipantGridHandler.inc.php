@@ -524,7 +524,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$context = $request->getContext();
 			$template->assignParams(array(
 				'editorialContactSignature' => $user->getContactSignature(),
-				'signatureFullName' => $user->getFullname(),
+				'signatureFullName' => htmlspecialchars($user->getFullname()),
 			));
 			$template->replaceParams();
 

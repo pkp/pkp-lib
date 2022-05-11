@@ -99,18 +99,17 @@ class ReviewReminder extends ScheduledTask {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
-		$paramArray = array(
-			'reviewerName' => $reviewer->getFullName(),
-			'reviewerUserName' => $reviewer->getUsername(),
+		$email->assignParams([
+			'reviewerName' => htmlspecialchars($reviewer->getFullName()),
+			'reviewerUserName' => htmlspecialchars($reviewer->getUsername()),
 			'reviewDueDate' => $reviewDueDate,
 			'responseDueDate' => $responseDueDate,
-			'editorialContactSignature' => $context->getData('contactName') . "\n" . $context->getLocalizedName(),
+			'editorialContactSignature' => htmlspecialchars($context->getData('contactName') . "\n" . $context->getLocalizedName()),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $submissionReviewUrl,
 			'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-			'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
-		);
-		$email->assignParams($paramArray);
+			'abstractTermIfEnabled' => htmlspecialchars($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
+		]);
 
 		$email->send();
 

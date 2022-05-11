@@ -215,7 +215,7 @@ class PluginGalleryDAO extends DAO {
 			switch ($n->tagName) {
 				case 'version':
 					$installedVersion = $application->getCurrentVersion();
-					if ($installedVersion->compare($n->nodeValue)==0) {
+					if ($installedVersion->isCompatible($n->nodeValue)) {
 						// Compatibility was determined.
 						return true;
 					}

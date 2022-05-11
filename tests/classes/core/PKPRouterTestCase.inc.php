@@ -99,7 +99,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithEmptyPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER['PATH_INFO'] = null;
-		self::assertEquals(array('index', 'index'),
+		self::assertEquals(array('index'),
 				$this->router->getRequestedContextPaths($this->request));
 	}
 
@@ -110,15 +110,13 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithFullPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		HookRegistry::resetCalledHooks(true);
-		$_SERVER['PATH_INFO'] = '/context1/context2/other/path/vars';
-		self::assertEquals(array('context1', 'context2'),
+		$_SERVER['PATH_INFO'] = '/context1/other/path/vars';
+		self::assertEquals(array('context1'),
 				$this->router->getRequestedContextPaths($this->request));
 		self::assertEquals('context1',
 				$this->router->getRequestedContextPath($this->request, 1));
-		self::assertEquals('context2',
-				$this->router->getRequestedContextPath($this->request, 2));
 		self::assertEquals(
-			array(array('Router::getRequestedContextPaths', array(array('context1', 'context2')))),
+			array(array('Router::getRequestedContextPaths', array(array('context1')))),
 			HookRegistry::getCalledHooks()
 		);
 	}
@@ -129,7 +127,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithPartialPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER['PATH_INFO'] = '/context';
-		self::assertEquals(array('context', 'index'),
+		self::assertEquals(array('context'),
 				$this->router->getRequestedContextPaths($this->request));
 	}
 
@@ -139,7 +137,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithInvalidPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER['PATH_INFO'] = '/context:?#/';
-		self::assertEquals(array('context', 'index'),
+		self::assertEquals(array('context'),
 				$this->router->getRequestedContextPaths($this->request));
 	}
 
@@ -149,8 +147,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithEmptyContextParameters() {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_GET['firstContext'] = null;
-		$_GET['secondContext'] = null;
-		self::assertEquals(array('index', 'index'),
+		self::assertEquals(array('index'),
 				$this->router->getRequestedContextPaths($this->request));
 	}
 
@@ -163,8 +160,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		HookRegistry::resetCalledHooks(true);
 		$_GET['firstContext'] = 'context1';
-		$_GET['secondContext'] = 'context2';
-		self::assertEquals(array('context1', 'context2'),
+		self::assertEquals(array('context1'),
 				$this->router->getRequestedContextPaths($this->request));
 		self::assertEquals('context1',
 				$this->router->getRequestedContextPath($this->request, 1));
@@ -174,18 +170,6 @@ class PKPRouterTestCase extends PKPTestCase {
 			array(array('Router::getRequestedContextPaths', array(array('context1', 'context2')))),
 			HookRegistry::getCalledHooks()
 		);
-	}
-
-	/**
-	 * @covers PKPRouter::getRequestedContextPaths
-	 * @runInSeparateProcess
-	 * @preserveGlobalState disabled
-	 */
-	public function testGetRequestedContextPathWithPartialContextParameters() {
-		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-		$_GET['firstContext'] = 'context';
-		self::assertEquals(array('context', 'index'),
-				$this->router->getRequestedContextPaths($this->request));
 	}
 
 	/**
@@ -299,7 +283,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 * @return unknown
 	 */
 	protected function _setUpMockEnvironment($pathInfoEnabled = self::PATHINFO_ENABLED,
-			$contextDepth = 2, $contextList = array('firstContext', 'secondContext')) {
+			$contextDepth = 1, $contextList = array('firstContext')) {
 		// Mock application object without calling its constructor.
 		$mockApplication = $this->getMockBuilder(Application::class)
 			->setMethods(array('getContextDepth', 'getContextList'))
@@ -335,16 +319,14 @@ class PKPRouterTestCase extends PKPTestCase {
 	}
 
 	/**
-	 * Create two mock DAOs "FirstContextDAO" and "SecondContextDAO" that can be
+	 * Create mock DAOs "FirstContextDAO" that can be
 	 * used with the standard environment set up when calling self::_setUpMockEnvironment().
 	 * Both DAOs will be registered with the DAORegistry and thereby be made available
 	 * to the router.
 	 * @param $firstContextPath string
-	 * @param $secondContextPath string
 	 * @param $firstContextIsNull boolean
-	 * @param $secondContextIsNull boolean
 	 */
-	protected function _setUpMockDAOs($firstContextPath = 'current-context1', $secondContextPath = 'current-context2', $firstContextIsNull = false, $secondContextIsNull = false) {
+	protected function _setUpMockDAOs($firstContextPath = 'current-context1', $firstContextIsNull = false) {
 		$application = Application::get();
 		$contextDao = $application->getContextDAO();
 		$contextClassName = get_class($contextDao->newDataObject());
@@ -367,23 +349,6 @@ class PKPRouterTestCase extends PKPTestCase {
 			                    ->will($this->returnValue($firstContextInstance));
 		}
 		DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
-
-		$mockSecondContextDao = $this->getMockBuilder($contextClassName)
-			->setMethods(array('getByPath'))
-			->getMock();
-		if (!$secondContextIsNull) {
-			$secondContextInstance = $this->getMockBuilder($contextClassName)
-				->setMethods(array('getPath'))
-				->getMock();
-			$secondContextInstance->expects($this->any())
-			                      ->method('getPath')
-			                      ->will($this->returnValue($secondContextPath));
-			$mockSecondContextDao->expects($this->any())
-			                     ->method('getByPath')
-			                     ->with($secondContextPath)
-			                     ->will($this->returnValue($secondContextInstance));
-		}
-		DAORegistry::registerDAO('SecondContextDAO', $mockSecondContextDao);
 	}
 }
 

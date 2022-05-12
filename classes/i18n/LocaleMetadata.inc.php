@@ -49,14 +49,28 @@ class LocaleMetadata
 
     /**
      * Retrieves the display name
+     *
+     * @param bool $withCountry Whether to append the country name to language
      */
-    public function getDisplayName(?string $locale = null): string
+    public function getDisplayName(?string $locale = null, bool $withCountry = false): string
     {
-        $country = $this->getCountry($locale);
-        // Remove parenthesis from the language name and also convert the its character to uppercase (due to the IsoCodes texts)
-        return PKPString::regexp_replace('/\s*\([^)]*\)\s*/', '', PKPString::ucfirst($this->_getLanguage($locale)->getLocalName())) . ($country ? " (${country})" : '');
-    }
+        $name = PKPString::regexp_replace('/\s*\([^)]*\)\s*/', '', PKPString::ucfirst($this->_getLanguage($locale)->getLocalName()));
+        if (!$withCountry) {
+            return $name;
+        }
 
+        $country = $this->getCountry($locale);
+        if (!$country) {
+            return $name;
+        }
+
+        return __('common.withParenthesis',
+            [
+                'item' => $name,
+                'inParenthesis' => $country,
+            ]
+        );
+    }
     /**
      * Retrieves the language name
      */

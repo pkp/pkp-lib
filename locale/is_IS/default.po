@@ -1,0 +1,145 @@
+# Kolbrun Reynisdottir <kolla@probus.is>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-03-16 00:29+0000\n"
+"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/is_IS/>\n"
+"Language: is_IS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "Ritstj"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
+"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stílsnið"
+
+msgid "default.genres.image"
+msgstr "Mynd"
+
+msgid "default.genres.multimedia"
+msgstr "Margmiðlun"
+
+msgid "default.genres.other"
+msgstr "Annað"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Les"
+
+msgid "default.groups.plural.reader"
+msgstr "Lesendur"
+
+msgid "default.groups.name.reader"
+msgstr "Lesandi"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Þýð"
+
+msgid "default.groups.plural.translator"
+msgstr "Þýðendur"
+
+msgid "default.groups.name.translator"
+msgstr "Þýðandi"
+
+msgid "default.groups.abbrev.author"
+msgstr "Höf"
+
+msgid "default.groups.plural.author"
+msgstr "Höfundar"
+
+msgid "default.groups.name.author"
+msgstr "Höfundur"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "Set."
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Setjarar"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Setjari"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "LYK"
+
+msgid "default.groups.plural.indexer"
+msgstr "Starfsmenn við lyklun"
+
+msgid "default.groups.name.indexer"
+msgstr "Starfsmaður við lyklun"
+
+msgid "default.groups.abbrev.funding"
+msgstr "UF"
+
+msgid "default.groups.plural.funding"
+msgstr "Umsjón með fjármögnun"
+
+msgid "default.groups.name.funding"
+msgstr "Umsjón með fjármögnun"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.marketing"
+msgstr "Markaðs- og sölustjórar"
+
+msgid "default.groups.name.marketing"
+msgstr "Markaðs- og sölustjóri"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Innri ritrýnar"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Innri ritrýnir"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Hönnun"
+
+msgid "default.groups.plural.designer"
+msgstr "Hönnuðir"
+
+msgid "default.groups.name.designer"
+msgstr "Hönnuður"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PL"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "TT"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Prófarkalesarar"
+
+msgid "default.groups.name.proofreader"
+msgstr "Prófarkalesari"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Textatæknar"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Textatæknir"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Ritstjórar"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Ritstjóri"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Kerfisstjórar síðu"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Kerfisstjóri síðu"

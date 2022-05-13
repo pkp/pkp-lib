@@ -2476,11 +2476,6 @@ msgstr "وكالة التسجيل"
 msgid "doi.manager.settings.doiSuffixLegacyUser"
 msgstr "نمط مخصص، معرف سابقًا من قبل المستخدم. لم يعد مستعملاً."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"أدخل بادئة معرف مكون رقمي منفردة لكل عنصر منشور. ستجد حقول إدخال معرفات "
-"المكونات الرقمية في صفحة إدارتها."
-
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 "هذه الرسالة تُبلغ المحرر الأقدم أو محرر القسم بوجود توصية تتعلق بأحد طلبات "
@@ -2675,6 +2670,26 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "قبل أن يتسنى حذف هذا المكون، عليك ربط كل ملفات طلب التقديم ذات الصلة بمكون "
 "آخر."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"لاحقة معرف المكون الرقمي يمكنها أن تكون بأي تنسيق، لكنها لا بد أن تكون فريدة "
+"ما بين كل المكونات المنشورة المنضوية تحت نفس البادئة:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "استعمل الأنماط الافتراضية."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "لاحقة DOI"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"إن معرف المكون الرقمي يتم تعيينه من قبل وكالات التسجيل (كما في <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) وهو بالتنسيق الآتي  "
+"10.xxxx (مثلاً 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "محتوى المجلة"
 
 msgid "stats.name.submissionsSkipped"
 msgstr "طلبات التقديم الأخرى"

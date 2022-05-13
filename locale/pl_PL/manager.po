@@ -2241,3 +2241,18 @@ msgstr "BŁĄD:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Określona ścieżka \"{$contextPath}\" nie istnieje."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "Sufiks DOI może przyjmować dowolną formę, ale musi być jednakowy dla wszystkich obiektów z takim samym prefiksem:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Korzystaj z domyślnego wzoru."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufiks DOI"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "Prefiks DOI jest przydzielany przez organizacje rejestrujące, np. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a> i posiada format 10.xxxx (np. 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Zawartość czasopisma"

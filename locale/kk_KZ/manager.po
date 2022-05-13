@@ -427,11 +427,6 @@ msgstr "Тіркеу агенттігі"
 msgid "doi.manager.settings.doiSuffixLegacyUser"
 msgstr "Пайдаланушы анықтаған бұрын қол жетімді үлгі. Енді қолданылмайды."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Әрбір жарияланған элемент үшін жеке DOIды енгізіңіз. DOI енгізу өрістерін "
-"DOI басқару бетінде көресіз."
-
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Әдепкі шаблонды пайдаланыңыз."
 
@@ -2957,6 +2952,26 @@ msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
 "Бұл электрондық хат автордың материалды қараусыз жіберуден бас тарту туралы "
 "алдыңғы шешімнің күші жойылғанын хабарлайды."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"DOI жұрнағы кез-келген формада болуы мүмкін, бірақ бірдей DOI префиксі "
+"барлық жарияланған нысандар арасында ерекше болуы керек:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Негізгі үлгілерді қолданыңыз."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI жұрнағы"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"DOI префиксін тіркеу агенттіктері тағайындайды (мысалы, <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) және 10.xxxx "
+"форматында ұсынылады (мысалы, 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Журнал мазмұны"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""

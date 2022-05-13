@@ -2511,3 +2511,23 @@ msgstr "Целосно име од примателот или примател�
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "УРЛ кон страницата каде што корисникот може да ја обнови лозинката"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Додаток на ДОИ може да има каква било форма, но мора да биде единствен меѓу "
+"сите објавувачки објекти со ист доделен префикс ДОИ:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Користете стандардни обрасци."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Додаток на ДОИ"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Префиксот DOI е доделен од агенциите за регистрација (на пр. <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) и е во формат "
+"10.xxxx (на пример, 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Содржина на весник"

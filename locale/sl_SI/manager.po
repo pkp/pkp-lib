@@ -2400,11 +2400,6 @@ msgstr ""
 "Poljubni uporabniško določen vzorec, ki je bil včasih na voljo. Se ne "
 "uporablja več."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Za vsak izdan objekt vnesite svojo DOI priponko. Pri metapodatkih vsakega "
-"objekta boste našli DOI vnosno polje."
-
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Uporabi privzet vzorec."
 
@@ -2828,3 +2823,18 @@ msgstr ""
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "DOI pripona je poljubne oblike, pomembno je, da je unikatna med vsemi objavljenimi objekti, ki so bili izdani znotraj ene DOI predpone:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Uporabi privzet vzorec."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI pripona"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "DOI predpono dodeli registracijska agencija (npr. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) in je oblike 10.xxxx (npr. 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Vsebina revije"

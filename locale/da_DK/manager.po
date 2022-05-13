@@ -2434,11 +2434,6 @@ msgstr "Registreringsorganisation"
 msgid "doi.manager.settings.doiSuffixLegacyUser"
 msgstr "Tidligere tilgængeligt, brugerdefineret mønster. Ikke længere i brug."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Indtast et individuelt DOI-suffiks til hvert publiceret element. Du finder "
-"et DOI-indtastningsfelt på DOI Management siden."
-
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Anvend stadardmønster."
 
@@ -2924,3 +2919,18 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Førend denne komponent kan slettes, må du knytte alle relaterede "
 "indsendelsesfiler til en anden komponent."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "Et DOI-suffiks kan antage en hvilken som helst form, men det skal være unikt for hvert enkelt udgivet element under samme DOI-præfiksgruppe:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Anvend standardformaterne."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffiks"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "DOI-præfikset tildeles af registreringsorganisationer (f.eks. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) og er i formatet 10.xxxx (f.eks. 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Tidsskriftsindhold"

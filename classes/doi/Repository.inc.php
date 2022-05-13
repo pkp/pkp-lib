@@ -31,12 +31,12 @@ abstract class Repository
     public const TYPE_PUBLICATION = 'publication';
     public const TYPE_REPRESENTATION = 'representation';
 
-    public const SUFFIX_DEFAULT_PATTERN = 'defaultPattern';
+    public const SUFFIX_DEFAULT = 'default';
     public const SUFFIX_CUSTOM_PATTERN = 'customPattern';
-    public const CUSTOM_SUFFIX_MANUAL = 'customId';
+    public const SUFFIX_MANUAL = 'customId';
 
-    public const LEGACY_CUSTOM_PUBLICATION_PATTERN = 'doiPublicationSuffixPattern';
-    public const LEGACY_CUSTOM_REPRESENTATION_PATTERN = 'doiRepresentationSuffixPattern';
+    public const CUSTOM_PUBLICATION_PATTERN = 'doiPublicationSuffixPattern';
+    public const CUSTOM_REPRESENTATION_PATTERN = 'doiRepresentationSuffixPattern';
 
     public const CREATION_TIME_COPYEDIT = 'copyEditCreationTime';
     public const CREATION_TIME_PUBLICATION = 'publicationCreationTime';
@@ -266,7 +266,7 @@ abstract class Repository
      */
     public function depositAll(Context $context)
     {
-        $enabledDoiTypes = $context->getData(Context::SETTING_ENABLED_DOI_TYPES);
+        $enabledDoiTypes = $context->getData(Context::SETTING_ENABLED_DOI_TYPES) ?? [];
         if ($this->_checkIfSubmissionValidForDeposit($enabledDoiTypes)) {
 
             // If there is no configured registration agency, nothing can be deposited.
@@ -293,6 +293,16 @@ abstract class Repository
             // Mark submission DOIs as submitted
             Repo::doi()->markSubmitted($submissionData['doiIds']);
         }
+    }
+
+    /**
+     * Creates an eight character DOI suffix
+     *
+     * @return string
+     */
+    protected function generateDefaultSuffix(): string
+    {
+        return DoiGenerator::encodeSuffix();
     }
 
     /**

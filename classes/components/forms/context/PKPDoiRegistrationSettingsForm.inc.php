@@ -15,6 +15,7 @@
 namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldHTML;
+use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
@@ -52,8 +53,17 @@ class PKPDoiRegistrationSettingsForm extends FormComponent
                 'label' => __('doi.manager.settings.registrationAgency'),
                 'description' => __('doi.manager.settings.registrationAgency.description'),
                 'options' => $registrationAgencies,
-                'value' => $context->getData(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY) ? $context->getData(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY) : Context::SETTING_NO_REGISTRATION_AGENCY,
-            ]));
+                'value' => $context->getData(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY),
+            ]))
+                ->addField(new FieldOptions(Context::SETTING_DOI_AUTOMATIC_DEPOSIT, [
+                    'label' => __('doi.manager.setup.automaticDeposit'),
+                    'description' => __('doi.manager.setup.automaticDeposit.description'),
+                    'options' => [
+                        ['value' => true, 'label' => __('doi.manager.setup.automaticDeposit.enable')]
+                    ],
+                    'value' => (bool) $context->getData(Context::SETTING_DOI_AUTOMATIC_DEPOSIT),
+                    'showWhen' => Context::SETTING_CONFIGURED_REGISTRATION_AGENCY,
+                ]));
         } else {
             $this->addField(new FieldHTML('noPluginsEnabled', [
                 'label' => __('doi.manager.settings.registrationAgency.noPluginsEnabled.label'),

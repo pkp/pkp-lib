@@ -2379,11 +2379,6 @@ msgstr ""
 "Padrão previamente disponível, definido pelo utilizador. Já não se encontra "
 "em uso."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Insira um sufixo DOI individual para cada item publicado. Encontrará o campo "
-"para inserir o DOI na página de gestão de DOI."
-
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Usar padrão."
 
@@ -2807,3 +2802,20 @@ msgstr ""
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr "A assinatura do e-mail do website para e-mail automáticos"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"O sufixo DOI pode ter vários formatos, mas deve ser único para todas as "
+"publicações que usem o mesmo prefixo:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Usar padrão por omissão."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufixo DOI"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "O prefixo DOI é atribuído pelas agências de registo (ex: <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) e é definido no formato 10.xxxx (ex. 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Conteúdo da Revista"

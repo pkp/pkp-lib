@@ -97,6 +97,58 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
             $author->setSequence($node->getAttribute('seq'));
         }
 
+        // Handle metadata in subelements
+        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
+            if (is_a($n, 'DOMElement')) {
+                switch ($n->tagName) {
+                    case 'givenname':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $publication->getData('locale');
+                        }
+                        $author->setGivenName($n->textContent, $locale);
+                        break;
+                    case 'familyname':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $publication->getData('locale');
+                        }
+                        $author->setFamilyName($n->textContent, $locale);
+                        break;
+                    case 'affiliation':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $publication->getData('locale');
+                        }
+                        $author->setAffiliation($n->textContent, $locale);
+                        break;
+                    case 'country': $author->setCountry($n->textContent); break;
+                    case 'email': $author->setEmail($n->textContent); break;
+                    case 'url': $author->setUrl($n->textContent); break;
+                    case 'orcid': $author->setOrcid($n->textContent); break;
+                    case 'biography':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $publication->getData('locale');
+                        }
+                        $author->setBiography($n->textContent, $locale);
+                        break;
+                }
+            }
+        }
+
+        $authorGivenName = $author->getFullName($publication->getData('locale'));
+        if (empty($authorGivenName)) {
+            $deployment->addError(
+                ASSOC_TYPE_SUBMISSION,
+                $publication->getId(),
+                __('plugins.importexport.common.error.missingGivenName', [
+                    'authorName' => $author->getLocalizedGivenName(),
+                    'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
+                ])
+            );
+        }
+
         // Identify the user group by name
         $userGroupName = $node->getAttribute('user_group_ref');
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -108,61 +160,11 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                 break;
             }
         }
+
         if (!$author->getUserGroupId()) {
-            $deployment->addError(ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', ['param' => $userGroupName]));
+            $authorFullName = $author->getFullName($publication->getData('locale'));
+            $deployment->addError(ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', ['authorName' => $authorFullName, 'userGroupName' => $userGroupName]));
             throw new Exception(__('plugins.importexport.author.exportFailed'));
-        }
-
-        // Handle metadata in subelements
-        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
-                switch ($n->tagName) {
-                case 'givenname':
-                    $locale = $n->getAttribute('locale');
-                    if (empty($locale)) {
-                        $locale = $publication->getData('locale');
-                    }
-                    $author->setGivenName($n->textContent, $locale);
-                    break;
-                case 'familyname':
-                    $locale = $n->getAttribute('locale');
-                    if (empty($locale)) {
-                        $locale = $publication->getData('locale');
-                    }
-                    $author->setFamilyName($n->textContent, $locale);
-                    break;
-                case 'affiliation':
-                    $locale = $n->getAttribute('locale');
-                    if (empty($locale)) {
-                        $locale = $publication->getData('locale');
-                    }
-                    $author->setAffiliation($n->textContent, $locale);
-                    break;
-                case 'country': $author->setCountry($n->textContent); break;
-                case 'email': $author->setEmail($n->textContent); break;
-                case 'url': $author->setUrl($n->textContent); break;
-                case 'orcid': $author->setOrcid($n->textContent); break;
-                case 'biography':
-                    $locale = $n->getAttribute('locale');
-                    if (empty($locale)) {
-                        $locale = $publication->getData('locale');
-                    }
-                    $author->setBiography($n->textContent, $locale);
-                    break;
-            }
-            }
-        }
-
-
-        if (empty($author->getGivenName($publication->getData('locale')))) {
-            $deployment->addError(
-                ASSOC_TYPE_SUBMISSION,
-                $publication->getId(),
-                __('plugins.importexport.common.error.missingGivenName', [
-                    'authorName' => $author->getLocalizedGivenName(),
-                    'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
-                ])
-            );
         }
 
         $authorId = Repo::author()->add($author);

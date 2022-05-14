@@ -98,7 +98,7 @@
 					{foreach from=$settings item="value" key="name"}
 								<tr>
 									<td>{$name|escape}</td>
-									{if $value == "password"}
+									{if $name === "password"}
 										<td>**************</td>
 									{else}
 										<td>{$value|escape}</td>

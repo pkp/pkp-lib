@@ -1872,7 +1872,7 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "The content is not encoded as {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Unknown user group {$param}"
+msgstr "The import file includes an author '{$authorName}', with the user group '{$userGroupName}'. There is no user group defined in the destination installation with a user group with this name."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "UserGroup Missing for author name {$param}"

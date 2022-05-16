@@ -84,6 +84,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         // Create and insert the submission (ID needed for other entities)
         $submission = Repo::submission()->newDataObject();
 
+        $submission->setData('locale', $node->getAttribute('locale') ?: $context->getPrimaryLocale());
         $submission->setData('contextId', $context->getId());
         $submission->stampLastActivity();
         $submission->setData('status', $node->getAttribute('status'));

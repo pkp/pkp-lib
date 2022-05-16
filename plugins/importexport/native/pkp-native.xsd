@@ -237,6 +237,7 @@
 		<attribute name="current_publication_id" type="int" use="optional" />
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="submission_progress" type="int" use="optional" />
+		<attribute name="locale" type="string" use="optional" />
 	</complexType>
 
 	<complexType name="pkppublication">

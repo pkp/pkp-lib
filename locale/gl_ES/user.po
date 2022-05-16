@@ -1,6 +1,7 @@
+# Real Academia Galega <reacagal@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-17 09:54+0000\n"
+"PO-Revision-Date: 2022-05-16 10:41+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "gl_ES/>\n"
@@ -326,8 +327,8 @@ msgstr ""
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Como prefires que che atendan? Aquí pode engadir saúdos, segundos nomes e "
-"sufixos se o desexa."
+"Como prefires que te atendan? Aquí pode engadir saúdos, segundos nomes e "
+"sufixos se o desexa"
 
 msgid "user.preferredPublicName"
 msgstr "Nome público preferido"

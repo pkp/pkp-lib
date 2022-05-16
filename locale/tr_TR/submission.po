@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-04-16 10:57+0000\n"
+"PO-Revision-Date: 2022-05-16 18:45+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr_TR/>\n"
@@ -1266,7 +1266,7 @@ msgid "editor.submission.decision.resubmit"
 msgstr "Değerlendirme İçin Yeniden Gönder"
 
 msgid "editor.submission.decision.decline"
-msgstr "Gönderiyi Reddet"
+msgstr "Makaleyi Reddet"
 
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Basıma Gönder"
@@ -2011,3 +2011,9 @@ msgstr "Hakemleri Bilgilendir"
 
 msgid "editor.submission.decision.notifyAuthors"
 msgstr "Yazarları Bilgilendir"
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Yeni Değerlendirme Turu"
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Makale Reddedildi"

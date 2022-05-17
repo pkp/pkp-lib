@@ -35,16 +35,17 @@ class PKPFileService
      */
     public function __construct()
     {
+        $umask = Config::getVar('files', 'umask', 0022);
         $adapter = new LocalFilesystemAdapter(
             Config::getVar('files', 'files_dir'),
             PortableVisibilityConverter::fromArray([
                 'file' => [
-                    'public' => FileManager::FILE_MODE_MASK,
-                    'private' => FileManager::FILE_MODE_MASK,
+                    'public' => FileManager::FILE_MODE_MASK & ~$umask,
+                    'private' => FileManager::FILE_MODE_MASK & ~$umask,
                 ],
                 'dir' => [
-                    'public' => DIRECTORY_MODE_MASK,
-                    'private' => DIRECTORY_MODE_MASK,
+                    'public' => DIRECTORY_MODE_MASK & ~$umask,
+                    'private' => DIRECTORY_MODE_MASK & ~$umask,
                 ]
             ]),
             LOCK_EX,

@@ -37,7 +37,6 @@ class NativeImportFilter extends PKPImportExportFilter
         }
         assert(is_a($document, 'DOMDocument'));
 
-        $deployment = $this->getDeployment();
         $importedObjects = [];
         if ($document->documentElement->tagName == $this->getPluralElementName()) {
             // Multiple element (plural) import

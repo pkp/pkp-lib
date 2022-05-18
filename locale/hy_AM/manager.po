@@ -2,8 +2,8 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-11 10:45+0000\n"
-"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"PO-Revision-Date: 2022-05-16 10:41+0000\n"
+"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
 "Language: hy_AM\n"
@@ -1915,7 +1915,10 @@ msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "UserGroup բացակայում է հեղինակի անունը {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Օգտվողների անհայտ խումբ {$param}"
+msgstr ""
+"Ներմուծման ֆայլը ներառում է «{$ authorName}» հեղինակ, «{$ userGroupName}» "
+"օգտվողների խմբի հետ: Այս անունով օգտատերերի խմբում սահմանված օգտատերերի "
+"խումբ չկա:"
 
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "Բովանդակությունը կոդավորված չէ որպես {$param}"
@@ -3019,3 +3022,9 @@ msgstr ""
 "Սա ներառում է այն ներկայացումները, որոնք չեն հաշվարկվել այլ "
 "հանրագումարներում, ինչպիսիք են այն ներկայացումները, որոնք դեռ ընթացքի մեջ են "
 "և նրանք, որոնք կարծես ներմուծված են:"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Ներկայացման երեխային {$child} չհաջողվեց մշակել"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Ներկայացման ընթացիկ հրապարակումը բացակայում է"

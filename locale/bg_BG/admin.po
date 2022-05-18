@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-06 16:41+0000\n"
+"PO-Revision-Date: 2022-05-11 01:44+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
@@ -539,3 +539,6 @@ msgstr ""
 
 msgid "admin.deleteCache"
 msgstr "Изтриване на кеша"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Премахване на невалидирани потребители с изтекъл срок на валидация"

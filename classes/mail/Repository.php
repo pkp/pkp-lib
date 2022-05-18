@@ -43,11 +43,11 @@ class Repository
     }
 
     /**
-     * @param array $mailable see result of self::mapMailableProperties()
      * Simple check if mailable's name and description contains a search phrase
      * doesn't look up in associated email templates
+     * @param array $mailable see result of self::mapMailableProperties()
      */
-    public function containsSearchPhrase(array $mailable, string $searchPhrase): bool
+    protected function containsSearchPhrase(array $mailable, string $searchPhrase): bool
     {
         $searchPhrase = PKPString::strtolower($searchPhrase);
 
@@ -59,7 +59,7 @@ class Repository
      * Retrieve single mailable array mapped according to self::mapMailableProperties
      * Additionally may include custom email templates associated with the mailable
      */
-    public function getByMailableClassName(string $className, bool $withCustomTemplateKeys = false, ?int $contextId = null): array
+    public function getByClass(string $className, bool $withCustomTemplateKeys = false, ?int $contextId = null): array
     {
         $mailable = $this->mapMailableProperties($className);
         if (!$withCustomTemplateKeys) {

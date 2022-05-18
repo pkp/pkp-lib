@@ -85,13 +85,13 @@ class MailableHandler extends APIHandler
     }
 
     /**
-     * Get a single mailable
+     * Get a mailable by its class name
      */
     public function get(SlimRequest $slimRequest, Response $response, array $args): Response
     {
         $request = $this->getRequest();
 
-        $mailable = Repo::mailable()->getByMailableClassName($args['className'], true, $request->getContext()->getId());
+        $mailable = Repo::mailable()->getByClass($args['className'], true, $request->getContext()->getId());
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
@@ -108,7 +108,7 @@ class MailableHandler extends APIHandler
         $request = $this->getRequest();
         $requestContextId = $request->getContext()->getId();
 
-        $mailable = Repo::mailable()->getByMailableClassName($args['className']);
+        $mailable = Repo::mailable()->getByClass($args['className']);
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
@@ -138,7 +138,7 @@ class MailableHandler extends APIHandler
         }
 
         Repo::mailable()->edit($mailable, [$template]);
-        $mailable = Repo::mailable()->getByMailableClassName($mailable['className'], true, $requestContextId);
+        $mailable = Repo::mailable()->getByClass($mailable['className'], true, $requestContextId);
 
         return $response->withJson($mailable, 200);
     }

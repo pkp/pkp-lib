@@ -79,7 +79,7 @@ class MailableHandler extends APIHandler
      */
     public function getMany(SlimRequest $slimRequest, Response $response, array $args): Response
     {
-        $mailables = Repo::mailable()->getMany($this->getRequest()->getContext()->getId(), $slimRequest->getQueryParam('searchPhrase'));
+        $mailables = Repo::mailable()->getMany($this->getRequest()->getContext(), $slimRequest->getQueryParam('searchPhrase'));
 
         return $response->withJson($mailables, 200);
     }

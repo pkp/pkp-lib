@@ -22,6 +22,7 @@ use Illuminate\Mail\Mailer as IlluminateMailer;
 use InvalidArgumentException;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\observers\events\MessageSendingContext;
@@ -141,9 +142,9 @@ class Mailer extends IlluminateMailer
     /**
      * @return string[] mailable class names
      */
-    public static function getMailables(int $contextId): array
+    public static function getMailables(Context $context): array
     {
-        $mailables = static::getMailablesFromCache($contextId);
+        $mailables = static::getMailablesFromCache($context->getId());
         HookRegistry::call('Mailer::Mailables', [&$mailables]);
 
         return $mailables;

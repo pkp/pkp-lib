@@ -15,6 +15,7 @@ namespace PKP\mail;
 
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\plugins\HookRegistry;
@@ -24,10 +25,10 @@ class Repository
     /**
      * @copydoc DAO::getMany()
      */
-    public function getMany(int $contextId, ?string $searchPhrase = null): array
+    public function getMany(Context $context, ?string $searchPhrase = null): array
     {
         $mailables = [];
-        foreach (Mail::getMailables($contextId) as $classname) {
+        foreach (Mail::getMailables($context) as $classname) {
             $mailable = $this->mapMailableProperties($classname);
 
             if ($searchPhrase && $this->containsSearchPhrase($mailable, $searchPhrase)) {

@@ -12,6 +12,11 @@ describe('DOI tests', function() {
 	const publicationId = 20;
 	const galleyId = 20;
 
+	function checkDoiInput(input) {
+		const val = input.val();
+		expect(val).to.match(/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{4}-[0-9abcdefghjkmnpqrstvwxyz]{2}[0-9]{2}/);
+	}
+
 	it('Check DOI Configuration', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
 
@@ -29,9 +34,6 @@ describe('DOI tests', function() {
 
 		// Declare DOI Prefix
 		cy.get('input[name=doiPrefix]').focus().clear().type('10.1234');
-
-		// Select DOI suffix pattern type
-		cy.get('input[name="customDoiSuffixType"][value="defaultPattern"]')
 
 		// Save
 		cy.get('#doisSetup button').contains('Save').click();
@@ -56,8 +58,10 @@ describe('DOI tests', function() {
 		cy.get('.app__notifications').contains('Items successfully assigned new DOIs', {timeout:20000});
 
 		cy.get(`#list-item-submission-${submissionId} button.expander`).click();
-		cy.get(`input#${submissionId}-preprint-${publicationId}`).should('have.value', '10.1234/jpkpkp.19');
-		cy.get(`input#${submissionId}-galley-${galleyId}`).should('have.value', '10.1234/jpkpkp.19.g20');
+		cy.get(`input#${submissionId}-preprint-${publicationId}`)
+			.should(($input) => checkDoiInput($input));
+		cy.get(`input#${submissionId}-galley-${galleyId}`)
+			.should(($input) => checkDoiInput($input));
 	});
 
 	it('Check Publication/Galley DOI visible', function() {

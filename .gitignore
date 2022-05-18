@@ -16,3 +16,4 @@ cypress.env.json
 cypress/logs/
 cypress/screenshots/
 .php_cs.cache
+.php-cs-fixer.cache

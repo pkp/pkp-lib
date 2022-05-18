@@ -27,7 +27,11 @@ class Repository extends \PKP\doi\Repository
      */
     public function mintPublicationDoi(Publication $publication, Submission $submission, Context $context): ?int
     {
-        $doiSuffix = $this->generateSuffixPattern($publication, $context, $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE), $submission);
+        if ($context->getData(Context::SETTING_DOI_SUFFIX_TYPE) === Repo::doi()::SUFFIX_DEFAULT) {
+            $doiSuffix = $this->generateDefaultSuffix();
+        } else {
+            $doiSuffix = $this->generateSuffixPattern($publication, $context, $context->getData(Context::SETTING_DOI_SUFFIX_TYPE), $submission);
+        }
 
         return $this->mintAndStoreDoi($context, $doiSuffix);
     }
@@ -37,7 +41,11 @@ class Repository extends \PKP\doi\Repository
      */
     public function mintGalleyDoi(Galley $galley, Publication $publication, Submission $submission, Context $context): ?int
     {
-        $doiSuffix = $this->generateSuffixPattern($galley, $context, $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE), $submission, $galley);
+        if ($context->getData(Context::SETTING_DOI_SUFFIX_TYPE) === Repo::doi()::SUFFIX_DEFAULT) {
+            $doiSuffix = $this->generateDefaultSuffix();
+        } else {
+            $doiSuffix = $this->generateSuffixPattern($galley, $context, $context->getData(Context::SETTING_DOI_SUFFIX_TYPE), $submission, $galley);
+        }
 
         return $this->mintAndStoreDoi($context, $doiSuffix);
     }
@@ -57,15 +65,12 @@ class Repository extends \PKP\doi\Repository
     ): string {
         $doiSuffix = '';
         switch ($patternType) {
-            case self::SUFFIX_DEFAULT_PATTERN:
-                $doiSuffix = PubIdPlugin::generateDefaultPattern($context, $submission, $representation);
-                break;
             case self::SUFFIX_CUSTOM_PATTERN:
                 $pubIdSuffixPattern = $this->getPubIdSuffixPattern($object, $context);
                 $publication = $submission !== null ? Repo::publication()->get($submission->getData('currentPublicationId')) : null;
                 $doiSuffix = PubIdPlugin::generateCustomPattern($context, $pubIdSuffixPattern, $object, $submission, $publication, $representation);
                 break;
-            case self::CUSTOM_SUFFIX_MANUAL:
+            case self::SUFFIX_MANUAL:
                 break;
         }
 
@@ -132,9 +137,9 @@ class Repository extends \PKP\doi\Repository
     private function getPubIdSuffixPattern(DataObject $object, Context $context)
     {
         if ($object instanceof Representation) {
-            return $context->getData(Repo::doi()::LEGACY_CUSTOM_REPRESENTATION_PATTERN);
+            return $context->getData(Repo::doi()::CUSTOM_REPRESENTATION_PATTERN);
         } else {
-            return $context->getData(Repo::doi()::LEGACY_CUSTOM_PUBLICATION_PATTERN);
+            return $context->getData(Repo::doi()::CUSTOM_PUBLICATION_PATTERN);
         }
     }
 }

@@ -554,17 +554,6 @@ msgstr "Ingrese el patrón de sufijo DOI para galeradas."
 msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
 msgstr "Ingrese el patrón de sufijo DOI para los preprints."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Ingrese un sufijo DOI individual para cada elemento postado. Encontrará un "
-"campo de entrada DOI adicional en la página de metadatos de cada elemento."
-
-msgid "doi.manager.settings.doiSuffixDefault.description"
-msgstr "%j.%a para preprints <br />%j.%a.g%g para galeras."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Use patrones predeterminados."
-
 msgid "doi.manager.settings.doiSuffixPattern.representations"
 msgstr "para galeradas"
 
@@ -582,22 +571,8 @@ msgstr ""
 "de la galera de OPS, %f para la ID de archivo de OPS y %x para el \""
 "Identificador Personalizado\"."
 
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Un sufijo DOI puede tomar cualquier forma, pero debe ser único entre todos "
-"los objetos de publicación con el mismo prefijo DOI asignado:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Sufijo DOI"
-
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "El prefijo DOI es obligatorio y debe tener el formato 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"El prefijo DOI es asignado por las agencias de registro (por ejemplo, <a "
-"href=\"http://www.crossref.org\" target=\"_new\"> Crossref</a>) y tiene el "
-"formato 10.xxxx (por ejemplo, 10.1234):"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "Prefijo DOI"
@@ -613,11 +588,9 @@ msgstr ""
 "Seleccione los objetos de publicación que tendrán asignados Identificadores "
 "de Objetos Digitales (DOI):"
 
+#, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
 msgstr "Elija los objetos a los que se deben asignar los DOI."
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Contenido del servidor"
 
 msgid "doi.manager.settings.description"
 msgstr "Configure el complemento DOI para poder administrar y usar DOI en OPS:"

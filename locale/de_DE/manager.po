@@ -597,18 +597,6 @@ msgstr "Bitte geben Sie das DOI-Suffixmuster für Gesamtfahnen ein."
 msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
 msgstr "Bitte geben Sie das DOI-Suffixmuster für Preprints ein."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Geben Sie ein individuelles DOI-Suffix für jeden veröffentlichten Artikel "
-"ein. Ein zusätzliches DOI-Eingabefeld finden Sie auf der Metadatenseite "
-"eines jeden Artikels."
-
-msgid "doi.manager.settings.doiSuffixDefault.description"
-msgstr "%j.%a für Preprints<br />%j.%a.g%g für Gesamtfahnen."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Verwenden Sie Standardmuster."
-
 msgid "doi.manager.settings.doiSuffixPattern.representations"
 msgstr "für Gesamtfahnen"
 
@@ -626,24 +614,10 @@ msgstr ""
 "Verwenden Sie %j für die Serverinitialen, %a für die OPS Preprint ID, %g für "
 "die OPS Galley ID, %f für die OPS File ID und %x für \"Custom Identifier\"."
 
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Ein DOI-Suffix kann eine beliebige Form haben, muss aber unter allen "
-"Veröffentlichungsobjekten mit demselben DOI-Präfix eindeutig sein:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI-Suffix"
-
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
 "Der DOI-Präfix ist obligatorisch und muss in der Form 10.xxxx angegeben "
 "werden."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Das DOI-Präfix wird von den Registrierungsstellen vergeben (z. B. <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a>) und hat das Format "
-"10.xxxx (z. B. 10.1234):"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "DOI-Präfix"
@@ -666,11 +640,9 @@ msgstr ""
 "Bitte wählen Sie die Publikationsobjekte aus, denen Digital Object "
 "Identifier (DOI) zugewiesen werden sollen:"
 
+#, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
 msgstr "Bitte wählen Sie die Objekte aus, denen DOIs zugewiesen werden sollen."
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Server Inhalt"
 
 msgid "doi.manager.settings.description"
 msgstr ""

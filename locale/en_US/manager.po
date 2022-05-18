@@ -33,7 +33,7 @@ msgid "doi.manager.settings.doiSuffixLegacy"
 msgstr "Use default patterns.<br />%j.%a for preprints<br />%j.%a.g%g for galleys."
 
 msgid "doi.manager.settings.doiCreationTime.copyedit"
-msgstr "At the production stage"
+msgstr "Upon reaching the production stage"
 
 msgid "manager.language.ui"
 msgstr "UI"
@@ -153,7 +153,10 @@ msgid "manager.setup.numAnnouncementsHomepage.description"
 msgstr "How many announcements to display on the homepage. Leave this empty to display none."
 
 msgid "manager.setup.enableDois.description"
-msgstr "Assign Digital Object Identifiers (DOIs) to preprints and galleys."
+msgstr "Allow Digital Object Identifiers (DOIs) to assigned to works published on this server."
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr "Select the types of work published on this server that should be assigned DOIs. Most preprint servers assign DOIs to preprints, but you may wish to assign DOIs to preprint galleys as well."
 
 msgid "manager.setup.enableUserRegistration"
 msgstr "Visitors can register a user account with the server."
@@ -497,20 +500,14 @@ msgstr "DOI"
 msgid "doi.manager.settings.description"
 msgstr "Please configure the DOI plugin to be able to manage and use DOIs in OPS:"
 
-msgid "doi.manager.settings.doiObjects"
-msgstr "Server Content"
-
-msgid "doi.manager.settings.doiObjectsRequired"
-msgstr "Please choose the objects DOIs should be assigned to."
-
 msgid "doi.manager.settings.explainDois"
 msgstr "Please select the publishing objects that will have Digital Object Identifiers (DOI) assigned:"
 
-msgid "doi.manager.settings.enablePublicationDoi"
-msgstr "Preprints"
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr "Preprint galleys, such as a published PDF"
 
 msgid "doi.manager.settings.enableRepresentationDoi"
-msgstr "Galleys"
+msgstr "Preprint Galleys"
 
 msgid "doi.manager.settings.publicationDoiAutoAssign"
 msgstr "Automatic assignment"
@@ -521,20 +518,14 @@ msgstr "Automatically assign DOI for the following objects when created:"
 msgid "doi.manager.settings.doiPrefix"
 msgstr "DOI Prefix"
 
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr "The DOI Prefix is assigned by registration agencies (e.g. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) and is in the format 10.xxxx (e.g. 10.1234):"
-
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "The DOI prefix is mandatory and must be in the form 10.xxxx."
 
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI Suffix"
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr "A DOI suffix can take any form, but must be unique among all publishing objects with the same DOI prefix assigned:"
-
 msgid "doi.manager.settings.doiSuffixPattern"
-msgstr "Use the pattern entered below to generate DOI suffixes. Use %j for server initials %a for the OPS preprint ID, %g for the OPS galley ID, %f for the OPS file ID and %x for \"Custom Identifier\"."
+msgstr "Enter a custom suffix pattern for each publication type. The custom suffix pattern may use the following symbols to generate a suffix:<br><br> "
+"<code>%j.%a</code> Preprints<br> "
+"<code>%j.%a.g%g</code> Galleys<br><br> "
+"Beware that custom suffix patterns often lead to problems generating and depositing DOIs. When using a custom suffix pattern, carefully test that editors can generate DOIs and deposit them to a registration agency like Crossref. "
 
 msgid "doi.manager.settings.doiSuffixPattern.example"
 msgstr "For example, %j.%a could create a DOI such as 10.1234/server_initials.12345"
@@ -544,15 +535,6 @@ msgstr "for preprints"
 
 msgid "doi.manager.settings.doiSuffixPattern.representations"
 msgstr "for galleys"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Use default patterns."
-
-msgid "doi.manager.settings.doiSuffixDefault.description"
-msgstr "%j.%a for preprints<br />%j.%a.g%g for galleys."
-
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr "Enter an individual DOI suffix for each published item. You'll find an additional DOI input field on each item's meta-data page."
 
 msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
 msgstr "Please enter the DOI suffix pattern for preprints."

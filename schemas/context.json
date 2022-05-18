@@ -272,7 +272,7 @@
 		},
 		"enableDois": {
 			"type": "boolean",
-			"default": false,
+			"default": true,
 			"validation": [
 				"nullable"
 			]
@@ -280,15 +280,20 @@
 		"doiPrefix": {
 			"type": "string",
 			"validation": [
-				"regex:/^10\\.[0-9]{4,7}$/"
+				"regex:/^10\\.[0-9]{4,7}$/",
+				"nullable"
 			]
 		},
-		"customDoiSuffixType": {
-			"type": "string"
+		"doiSuffixType": {
+			"type": "string",
+		  	"default": "default"
 		},
 		"registrationAgency": {
 			"type": "string",
-			"default": "none"
+			"default": "",
+			"validation": [
+				"nullable"
+			]
 		},
 		"doiPublicationSuffixPattern": {
 			"type": "string",

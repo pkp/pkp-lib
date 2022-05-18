@@ -21,7 +21,7 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 
-class PKPDoiSetupSettingsForm extends FormComponent
+abstract class PKPDoiSetupSettingsForm extends FormComponent
 {
     public const FORM_DOI_SETUP_SETTINGS = 'doiSetupSettings';
 
@@ -30,6 +30,10 @@ class PKPDoiSetupSettingsForm extends FormComponent
 
     /** @copydoc FormComponent::$method */
     public $method = 'PUT';
+
+    protected const DOI_SETTINGS_GROUP = 'doiSettingsGroup';
+    protected const DOI_DEFAULT_GROUP = 'doiDefaultGroup';
+    protected const DOI_CUSTOM_SUFFIX_GROUP = 'doiCustomSuffixGroup';
 
     /**
      * Constructor
@@ -43,35 +47,44 @@ class PKPDoiSetupSettingsForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $this->addField(new FieldOptions(Context::SETTING_ENABLE_DOIS, [
-            'label' => __('manager.setup.dois'),
-            'description' => __('manager.setup.enableDois.description'),
-            'options' => [
-                ['value' => true, 'label' => __('manager.setup.enableDois.enable')]
-            ],
-            'value' => (bool) $context->getData(Context::SETTING_ENABLE_DOIS),
-        ]))
-            ->addField(new FieldOptions(Context::SETTING_DOI_AUTOMATIC_DEPOSIT, [
-                'label' => __('doi.manager.setup.automaticDeposit'),
-                'description' => __('doi.manager.setup.automaticDeposit.description'),
+        $this->addGroup(
+            [
+                'id' => self::DOI_DEFAULT_GROUP,
+            ]
+        )
+            ->addGroup(
+                [
+                    'id' => self::DOI_SETTINGS_GROUP,
+                    'showWhen' => Context::SETTING_ENABLE_DOIS,
+                ]
+            )
+            ->addGroup(
+                [
+                    'id' => self::DOI_CUSTOM_SUFFIX_GROUP,
+                    'label' => __('doi.manager.settings.doiSuffix.custom'),
+                    'description' => __('doi.manager.settings.doiSuffixPattern'),
+                    'showWhen' => [Context::SETTING_DOI_SUFFIX_TYPE, Repo::doi()::SUFFIX_CUSTOM_PATTERN],
+                ]
+            )
+            ->addField(new FieldOptions(Context::SETTING_ENABLE_DOIS, [
+                'label' => __('manager.setup.dois'),
+                'groupId' => self::DOI_DEFAULT_GROUP,
                 'options' => [
-                    ['value' => true, 'label' => __('doi.manager.setup.automaticDeposit.enable')]
+                    ['value' => true, 'label' => __('manager.setup.enableDois.description')]
                 ],
-                'value' => (bool) $context->getData(Context::SETTING_DOI_AUTOMATIC_DEPOSIT),
-                'showWhen' => Context::SETTING_ENABLE_DOIS
+                'value' => (bool) $context->getData(Context::SETTING_ENABLE_DOIS),
             ]))
             ->addField(new FieldText(Context::SETTING_DOI_PREFIX, [
                 'label' => __('doi.manager.settings.doiPrefix'),
                 'description' => __('doi.manager.settings.doiPrefix.description'),
+                'groupId' => self::DOI_SETTINGS_GROUP,
                 'value' => $context->getData(Context::SETTING_DOI_PREFIX),
-                'showWhen' => Context::SETTING_ENABLE_DOIS,
                 'size' => 'small',
-                'isRequired' => true
-
             ]))
             ->addField(new FieldSelect(Context::SETTING_DOI_CREATION_TIME, [
                 'label' => __('doi.manager.settings.doiCreationTime.label'),
                 'description' => __('doi.manager.settings.doiCreationTime.description'),
+                'groupId' => self::DOI_SETTINGS_GROUP,
                 'options' => [
                     [
                         'value' => Repo::doi()::CREATION_TIME_COPYEDIT,
@@ -87,29 +100,37 @@ class PKPDoiSetupSettingsForm extends FormComponent
                     ]
                 ],
                 'value' => $context->getData(Context::SETTING_DOI_CREATION_TIME) ? $context->getData(Context::SETTING_DOI_CREATION_TIME) : Repo::doi()::CREATION_TIME_COPYEDIT,
-                'showWhen' => Context::SETTING_ENABLE_DOIS
-
             ]))
-            ->addField(new FieldOptions(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE, [
+            ->addField(new FieldOptions(Context::SETTING_DOI_SUFFIX_TYPE, [
                 'label' => __('doi.manager.settings.doiSuffix'),
                 'description' => __('doi.manager.settings.doiSuffix.description'),
+                'groupId' => self::DOI_SETTINGS_GROUP,
                 'options' => [
                     [
-                        'value' => Repo::doi()::SUFFIX_DEFAULT_PATTERN,
-                        'label' => __('doi.manager.settings.doiSuffixLegacy')
+                        'value' => Repo::doi()::SUFFIX_DEFAULT,
+                        'label' => __('doi.manager.settings.doiSuffixDefault')
                     ],
                     [
-                        'value' => Repo::doi()::CUSTOM_SUFFIX_MANUAL,
-                        'label' => __('doi.manager.settings.doiSuffixCustomIdentifier')
+                        'value' => Repo::doi()::SUFFIX_MANUAL,
+                        'label' => __('common.none')
                     ],
                     [
                         'value' => Repo::doi()::SUFFIX_CUSTOM_PATTERN,
-                        'label' => __('doi.manager.settings.doiSuffixLegacyUser')
+                        'label' => __('doi.manager.settings.doiSuffixUserDefined')
                     ],
                 ],
-                'value' => $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE) ? $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE) : Repo::doi()::SUFFIX_DEFAULT_PATTERN,
+                'value' => $context->getData(Context::SETTING_DOI_SUFFIX_TYPE) ? $context->getData(Context::SETTING_DOI_SUFFIX_TYPE) : Repo::doi()::SUFFIX_DEFAULT,
                 'type' => 'radio',
-                'showWhen' => Context::SETTING_ENABLE_DOIS,
+            ]))
+            ->addField(new FieldText(Repo::doi()::CUSTOM_PUBLICATION_PATTERN, [
+                'label' => __('manager.language.submissions'),
+                'groupId' => self::DOI_CUSTOM_SUFFIX_GROUP,
+                'value' => $context->getData(Repo::doi()::CUSTOM_PUBLICATION_PATTERN),
+            ]))
+            ->addField(new FieldText(Repo::doi()::CUSTOM_REPRESENTATION_PATTERN, [
+                'label' => __('doi.manager.settings.enableRepresentationDoi'),
+                'groupId' => self::DOI_CUSTOM_SUFFIX_GROUP,
+                'value' => $context->getData(Repo::doi()::CUSTOM_REPRESENTATION_PATTERN),
             ]));
     }
 }

@@ -70,7 +70,7 @@ abstract class DAO extends \PKP\core\EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('d' . $this->primaryKeyColumn)
+            ->select('d.' . $this->primaryKeyColumn)
             ->get()
             ->count();
     }

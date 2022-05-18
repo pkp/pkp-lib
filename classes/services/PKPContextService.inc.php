@@ -22,6 +22,7 @@ use APP\file\PublicFileManager;
 use PKP\facades\Locale;
 use APP\services\queryBuilders\ContextQueryBuilder;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -410,6 +411,18 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             });
         }
 
+        // Disallow empty DOI Prefix when enableDois is true
+        if (isset($props[Context::SETTING_ENABLE_DOIS]) || isset($props[Context::SETTING_DOI_PREFIX])) {
+            $context = Application::get()->getRequest()->getContext();
+            $validator->after(function ($validator) use ($context, $props) {
+                $enableDois = $props[Context::SETTING_ENABLE_DOIS] ?? $context->getData(Context::SETTING_ENABLE_DOIS);
+
+                if ($enableDois && empty($props[Context::SETTING_DOI_PREFIX])) {
+                    $validator->errors()->add(Context::SETTING_DOI_PREFIX, __('doi.manager.settings.doiPrefix.required'));
+                }
+            });
+        }
+
         if ($validator->fails()) {
             $errors = $schemaService->formatValidationErrors($validator->errors());
         }
@@ -489,7 +502,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $params[$fileUploadProp] = $value;
         }
         if (!empty($params['styleSheet'])) {
-            $params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
+            $params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $currentUser->getId());
         }
         $context = $this->edit($context, $params, $request);
 

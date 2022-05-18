@@ -748,11 +748,6 @@ msgstr ""
 "Наличен по-рано персонализиран, дефиниран от потребителя модел. Вече не се "
 "използва."
 
-msgid "doi.manager.settings.doiSuffixCustomIdentifier"
-msgstr ""
-"Въведете индивидуален DOI суфикс за всеки публикуван елемент. Ще намерите "
-"полета за въвеждане на DOI на страницата за управление на DOI."
-
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Използване на шаблон по подразбиране."
 
@@ -3091,3 +3086,23 @@ msgstr ""
 "Това включва подадени материали, които не се отчитат в други суми, като "
 "тези, които все още са в етам на редакиране и тези, които изглежда са "
 "импортирани."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Суфиксът на DOI може да има произволна форма, но трябва да е уникален "
+"измежду всички публикувани обекти с един и същ DOI префикс:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Използвайте стандартни шаблони."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI суфикс"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Префиксът на DOI се определя от регистрираща агенция (например,  <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) и е във формата "
+"10.xxxx (например, 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Съдържание на списание"

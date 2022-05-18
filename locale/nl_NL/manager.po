@@ -1721,3 +1721,18 @@ msgstr "FOUT:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Het opgegeven pad \"{$contextPath}\" bestaat niet."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "Een DOI achtervoegsel kan iedere gewenste vorm hebben, maar moet uniek zijn tussen alle objecten met hetzelfde DOI voorvoegsel:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Gebruik standaard patronen."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI Achtervoegsel"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "Het DOI voorvoegsel wordt toegekend door de registrerende instantie (bv. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) en heeft als format 10.xxxx (bv. 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Tijdschriftinhoud"

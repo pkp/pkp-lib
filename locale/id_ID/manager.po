@@ -2376,3 +2376,18 @@ msgstr "Pemberitahuan"
 
 msgid "manager.emails.otherTemplates"
 msgstr "Templet Lain"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "Akhiran DOI dapat dengan format apapun, tetapi harus unik di antara semua objek penerbitan dengan penugasan awalan DOI yang sama:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Gunakan pola default."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Akhiran DOI"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "Awalan DOI ditugaskan dengan agensi pendaftaran (contoh <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) dan dalam format 10.xxxx (contoh 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Konten Jurnal"

@@ -49,7 +49,7 @@
 	</div>
 
 	{* The file upload and drag-and-drop area *}
-	<div id="pkpUploaderDropZone" class="pkp_uploader_drop_zone">
+	<div id="{$id}-pkpUploaderDropZone" class="pkp_uploader_drop_zone">
 
 		<div class="pkp_uploader_drop_zone_label">
 			{translate key=$stringDragFile}

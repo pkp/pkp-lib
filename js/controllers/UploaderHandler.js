@@ -62,6 +62,9 @@
 		if (typeof options.multipart_params) {
 			uploaderOptions.multipart_params = options.multipart_params;
 		}
+
+		uploaderOptions.drop_element =  $uploader.first().find('#' + $uploader.first().attr('id') + '-pkpUploaderDropZone').attr('id');
+
 		uploaderOptions = $.extend(
 				{},
 				this.self('DEFAULT_PROPERTIES_'),
@@ -260,8 +263,7 @@
 		file_data_name: 'uploadedFile',
 		multipart: true,
 		headers: {'browser_user_agent': navigator.userAgent},
-		browse_button: 'pkpUploaderButton',
-		drop_element: 'pkpUploaderDropZone'
+		browse_button: 'pkpUploaderButton'
 	};
 
 

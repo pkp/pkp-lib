@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-05-16 18:45+0000\n"
+"PO-Revision-Date: 2022-05-20 08:58+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2411,13 +2411,13 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Após a publicação"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Em que ponto do processo de publicação devem ser criados os DOIs?"
+msgstr "Quando uma submissão deve ter um DOI atribuído?"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Criação automática de DOI"
+msgstr "Atribuição automática de DOI"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "O prefixo DOI é obrigatório e deve estar no formato 10.xxxx."
+msgstr "O prefixo DOI é obrigatório e deve estar no seguinte formato: 10.xxxx."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -2427,8 +2427,10 @@ msgstr ""
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Se os DOIs devem ser depositados automaticamente na agência de registro "
-"configurada."
+"O registro e os metadados do DOI podem ser depositados automaticamente na "
+"agência de registro selecionada sempre que um item com DOI for publicado.  O "
+"depósito automático acontecerá em intervalos programados e o status de "
+"registro de cada DOI pode ser monitorado na página de gerenciamento do DOI."
 
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Ativar depósito automático"
@@ -2864,10 +2866,29 @@ msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Use os padrões predefinidos."
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "Sufixo DOI"
+msgstr "Formato DOI"
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr "O prefixo DOI é atribuído por agências de registro (ex.: <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) e possui o formato 10.xxxx (ex.: 10.1234):"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Conteúdo"
+
+#, fuzzy
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "A submissão derivada {$child} não foi processada"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "A publicação atual da submissão está ausente"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Padrão personalizado (não recomendado)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Padrão de sufixo DOI personalizado"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "Sufixo DOI"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Um prefixo DOI é obrigatório"

@@ -569,6 +569,9 @@ class Core
         if (Str::startsWith($path, 'classes')) {
             $path = Str::replaceFirst('classes/', '', $path);
         }
-        return $namespace . str_replace('/', '\\', Str::replaceLast('.inc.php', '', $path));
+
+        // FIXME Workaround while .inc.php class name suffix is still supported, remove after pkp/pkp-lib#6091 is resolved
+        str_ends_with($file->getFilename(), '.inc.php') ? $suffix = '.inc.php' : $suffix = '.php';
+        return $namespace . str_replace('/', '\\', Str::replaceLast($suffix, '', $path));
     }
 }

@@ -14,7 +14,7 @@
 namespace PKP\api\v1\mailables;
 
 use APP\facades\Repo;
-use PKP\core\PKPApplication;
+use Illuminate\Support\Facades\Mail;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
@@ -106,9 +106,25 @@ class MailableHandler extends APIHandler
     public function edit(SlimRequest $slimRequest, Response $response, array $args): Response
     {
         $request = $this->getRequest();
-        $requestContextId = $request->getContext()->getId();
+        $requestedContext = $request->getContext();
+        $requestContextId = $requestedContext->getId();
 
-        $mailable = Repo::mailable()->getByClass($args['className']);
+        $className = null;
+        if (isset($args['className'])) {
+            $className = $args['className'];
+        }
+
+        if (!$className) {
+            return $response->withStatus(404)->withJsonError('api.mailables.404.mailableClassNameMissing');
+        }
+
+        // Check if Mailable class name exists
+        $existingClassNames = Mail::getMailables($requestedContext);
+        if (!in_array($className, $existingClassNames)) {
+            return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
+        }
+
+        $mailable = Repo::mailable()->getByClass($className);
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');

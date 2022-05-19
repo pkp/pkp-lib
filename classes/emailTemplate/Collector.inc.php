@@ -274,9 +274,10 @@ class Collector implements CollectorInterface
             })
 
             ->when(!is_null($this->mailableClassName), function (Builder $q) {
-                return $q->where(function (Builder $q) {
-                    return $q->join('email_templates_assignments as eta', 'eta.email_id', '=', 'et.email_id')
-                        ->where('et.email_key', $this->mailableClassName);
+                return $q->whereIn('et.email_id', function (Builder $q) {
+                    return $q->select('email_id')
+                        ->from('email_templates_assignments')
+                        ->where('mailable', $this->mailableClassName);
                 });
             })
 

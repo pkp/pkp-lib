@@ -232,6 +232,9 @@ msgstr "The active theme, {$themePluginPath}, is not enabled and may not be inst
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "The {$locale} locale is not supported."
 
+msgid "api.mailables.404.mailableClassNameMissing"
+msgstr "The mailable class name isn't specified"
+
 msgid "api.mailables.404.mailableNotFound"
 msgstr "The mailable you requested was not found."
 

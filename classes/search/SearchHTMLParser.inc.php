@@ -20,7 +20,7 @@ class SearchHTMLParser extends SearchFileParser
     public function doRead()
     {
         // strip HTML tags from the read line
-        $line = fgetss($this->fp, 4096);
+        $line = strip_tags(fgets($this->fp));
 
         // convert HTML entities to valid UTF-8 characters
         $line = html_entity_decode($line, ENT_COMPAT, 'UTF-8');

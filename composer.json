@@ -45,7 +45,8 @@
 			"php": "8.0.2"
 		},
 		"allow-plugins": {
-			"cweagans/composer-patches": true
+			"cweagans/composer-patches": true,
+			"captainhook/plugin-composer": true
 		}
 	},
 	"scripts": {

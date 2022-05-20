@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-04-09 16:07+0000\n"
+"PO-Revision-Date: 2022-05-21 10:58+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -487,3 +487,6 @@ msgstr "حذف الملفات المخبأة من النظام. ينبغي ال�
 
 msgid "admin.deleteCache"
 msgstr "حذف المخبوءات"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "إزالة حسابات المستخدمين منتهية الصلاحية التي لم يتم التحقق منها"

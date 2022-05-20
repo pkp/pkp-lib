@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-04-29 13:35+0000\n"
+"PO-Revision-Date: 2022-05-21 10:58+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -1547,7 +1547,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "إن المحتوى غير مرمز بصيغة {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "مجموعة مستخدم مجهولة {$param}"
+msgstr ""
+"ملف الاستيراد يتضمن المؤلف '{$authorName}'، مع مجموعة المستخدمين "
+"'{$userGroupName}'. ليست هناك مجموعة مستخدمين معرفة في التنصيب المستهدف بهذا "
+"الاسم."
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr "إن المؤلف {$authorName} لم يتم إدخال اسمه بلغة العمل الرئيسية، {$localeName}. يتعذر استيراد طلب التقديم بدون توفر هذه المعلومة."
@@ -2336,13 +2339,13 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "قبيل النشر"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "عند أي نقطة من عملية النشر ينبغي إنشاء معرفات المكونات الرقمية؟"
+msgstr "متى ينبغي تعيين معرف المكون الرقمي لطلب التقديم؟"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "الإنشاء التلقائي لمعرف المكون الرقمي"
+msgstr "التعيين التلقائي لمعرف المكون الرقمي"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "بادئة معرف المكون الرقمي مطلوبة وينبغي أن تكون بصيغة 10.xxxx."
+msgstr "بادئة معرف المكون الرقمي مطلوبة وينبغي أن تكون بالصيغة الآتية: 10.xxxx."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -2352,7 +2355,10 @@ msgstr ""
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"متى ينبغي إيداع معرفات المكونات الرقمية تلقائياً لدى وكالة التسجيل المعنية."
+"يمكن إيداع تسجيل معرفات المكونات الرقمية والبيانات الوصفية تلقائياً لدى "
+"وكالة التسجيل المحددة كلما تم نشر عنصر ذي معرف مكون رقمي. الإيداع القائي "
+"سيحدث في فترات مجدولة يمكن مراقبة حالة التسجيل لأي معرف مكون رقمي من خلال "
+"صفحة إدارة معرفات المكونات الرقمية."
 
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "تمكين الإيداع التلقائي"
@@ -2698,3 +2704,21 @@ msgid "stats.description.submissionsSkipped"
 msgstr ""
 "هذا يشمل طلبات التقديم التي لا تحتسب في الإجماليات الأخرى، كالتي لا تزال في "
 "مراحل التقدم أو تلك التي تبدو مستوردة."
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "المكون الفرعي لطلب التقديم {$child} تعذرت معالجته"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "النشر الحالي لطلب التقديم مفقود"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "النمط المخصص (غير موصى به)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "النمط المخصص للاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "لاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا"

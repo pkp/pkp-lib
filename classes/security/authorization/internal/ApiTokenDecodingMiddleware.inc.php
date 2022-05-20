@@ -151,12 +151,19 @@ class ApiTokenDecodingMiddleware
             return $slimRequest->getQueryParam('apiToken');
         }
 
-        $parts = explode(' ', $authHeader[0]);
-        if (count($parts) < 2 || $parts[0] !== 'Bearer') {
-            throw new Exception(__('api.500.badAuthorizationheader'));
+        // Several authorization methods may be supplied with commas between them.
+        // For example: Basic basic_auth_string_here, Bearer api_key_here
+        // JWT uses the Bearer scheme with an API key. Ignore the others.
+        $clauses = explode(',', $authHeader[0]);
+        foreach ($clauses as $clause) {
+            // Split the authorization scheme and parameters and look for the Bearer scheme.
+            $parts = explode(' ', trim($clause));
+            if (count($parts) == 2 && $parts[0] == 'Bearer') {
+                // Found bearer authorization; return the token.
+                return $parts[1];
+            }
         }
-
-        return $parts[1];
+        return null;
     }
 }
 

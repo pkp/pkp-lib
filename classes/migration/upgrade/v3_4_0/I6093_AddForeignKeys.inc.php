@@ -69,6 +69,9 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('category_id')->references('category_id')->on('categories');
             $table->foreign('publication_id')->references('publication_id')->on('publications');
         });
+        Schema::table('item_views', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users');
+        });
     }
 
     /**

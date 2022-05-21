@@ -500,15 +500,8 @@ abstract class Plugin
             return null;
         }
 
-        // Construct the argument list and call the plug-in settings DAO
-        $arguments = [
-            $contextId,
-            $this->getName(),
-            $name,
-        ];
-
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-        return call_user_func_array([&$pluginSettingsDao, 'getSetting'], $arguments);
+        return $pluginSettingsDao->getSetting($contextId, $this->getName(), $name);
     }
 
     /**

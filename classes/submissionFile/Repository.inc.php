@@ -687,7 +687,7 @@ abstract class Repository
         ) {
             $parentFile = $this->get($submissionFile->getData('assocId'));
 
-            return $this->getWorkflowStageId($parentFile);
+            return $parentFile ? $this->getWorkflowStageId($parentFile) : null;
         }
 
         if (

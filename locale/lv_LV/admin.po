@@ -1,11 +1,11 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-04 10:13+0000\n"
+"PO-Revision-Date: 2022-05-23 14:45+0000\n"
 "Last-Translator: Gints Buda <gints.buda@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"lv/>\n"
-"Language: lv\n"
+"lv_LV/>\n"
+"Language: lv_LV\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,3 +41,43 @@ msgstr "Iestatījumu Vērtība"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Iestatījumu Nosaukums"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Uzstādīt Jaunas Lokalizācijas"
+
+msgid "admin.languages.installLocales"
+msgstr "Uzstādīt"
+
+msgid "admin.languages.installLocale"
+msgstr "Uzstādīt lokalizāciju"
+
+msgid "admin.languages.availableLocales"
+msgstr "Pieejamās lokalizācijas"
+
+msgid "admin.languages.installLanguages"
+msgstr "Pārvaldīt lokalizācijas"
+
+msgid "admin.languages.installedLocales"
+msgstr "Uzstādītās lokalizācijas"
+
+msgid "admin.dateInstalled"
+msgstr "Uzstādīšanas datums"
+
+msgid "admin.currentVersion"
+msgstr "Pašreizējā versija"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Konfigurācijas faila saturs"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Jūsu konfigurācijas fails ir veiksmīgi atjaunināts. Lūdzu, ņemiet vērā, ja "
+"jūsu vietne vairs nedarbojas pareizi, iespējams, būs manuāli jālabo "
+"konfigurācija, rediģējot <tt>config.inc.php</tt>."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Izdzēsiet kešatmiņas failus no sistēmas. Tas jādara tikai izstrādes vidēs."
+
+msgid "admin.deleteCache"
+msgstr "Dzēst kešatmiņas"

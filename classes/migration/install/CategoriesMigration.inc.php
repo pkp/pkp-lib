@@ -40,13 +40,13 @@ class CategoriesMigration extends \PKP\migration\Migration
             $table->unique(['context_id', 'path'], 'category_path');
         });
         Schema::table('categories', function (Blueprint $table) {
-            $table->foreign('parent_id')->references('category_id')->on('categories');
+            $table->foreign('parent_id')->references('category_id')->on('categories')->onDelete('set null');;
         });
 
         // Category-specific settings
         Schema::create('category_settings', function (Blueprint $table) {
             $table->bigInteger('category_id');
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
@@ -56,10 +56,10 @@ class CategoriesMigration extends \PKP\migration\Migration
         // Associations for categories and publications.
         Schema::create('publication_categories', function (Blueprint $table) {
             $table->bigInteger('publication_id');
-            $table->foreign('publication_id')->references('publication_id')->on('publications');
+            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
 
             $table->bigInteger('category_id');
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
 
             $table->unique(['publication_id', 'category_id'], 'publication_categories_id');
         });

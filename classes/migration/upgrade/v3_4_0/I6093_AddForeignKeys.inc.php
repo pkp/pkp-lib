@@ -63,11 +63,11 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         DB::table('categories')->where('parent_id', '=', 0)->update(['parent_id' => null]);
         Schema::table('categories', function (Blueprint $table) {
             $table->foreign('context_id')->references($this->getContextKeyField())->on($this->getContextTable());
-            $table->foreign('parent_id')->references('category_id')->on('categories');
+            $table->foreign('parent_id')->references('category_id')->on('categories')->onDelete('set null');
         });
         Schema::table('publication_categories', function (Blueprint $table) {
-            $table->foreign('category_id')->references('category_id')->on('categories');
-            $table->foreign('publication_id')->references('publication_id')->on('publications');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
+            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
         });
         Schema::table('item_views', function (Blueprint $table) {
             $table->foreign('user_id')->references('user_id')->on('users');

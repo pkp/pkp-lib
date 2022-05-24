@@ -465,7 +465,7 @@ class UserDAO extends DAO {
 			FROM users u
 			' . $this->getFetchJoins() . '
 			LEFT JOIN roles r ON u.user_id=r.user_id
-			WHERE r.role_id IS NULL';
+			WHERE r.role_id IS NULL ';
 
 		$orderSql = $this->getOrderBy(); // FIXME Add "sort field" parameter?
 		$params = $this->getFetchParameters();

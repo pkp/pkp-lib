@@ -2517,18 +2517,18 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "ელფოსტის (საიტის) დადასტურება"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "ეს ელფოსტა იგზავნება, როდესაც რედაქტორი გააუქმებს მიმომხილველს."
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "ეს ელფოსტა იგზავნება, როდესაც მიმომხილველი, რომელიც არ იყო დანიშნული, "
 "აღდგება რედაქტორის მიერ."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "მიმომხილველი აღდგა."
 
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "ეს ელფოსტა ავტომატურად ეგზავნება დისკუსიის მონაწილეებს, როდესაც დისკუსიას "
 "დაემატება ახალი შეტყობინება."
@@ -2679,7 +2679,7 @@ msgstr ""
 "სანამ ეს კომპონენტი წაიშლება, თქვენ უნდა დააკავშიროთ ყველა დაკავშირებული "
 "წარდგენის ფაილი სხვა კომპონენტთან."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "ახალი დისკუსიის შეტყობინება"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2712,9 +2712,6 @@ msgstr "გაგზავნილია განხილვაზე"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "ჩვენ ავირჩიეთ ამ წარდგენის მიღება გადასინჯვის გარეშე."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "მიმომხილველი დანიშნა"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -2868,11 +2865,8 @@ msgstr "რეგისტრირებული"
 msgid "manager.dois.status.needsDoi"
 msgstr "სჭირდება DOI"
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "მიმომხილველი არ არის დანიშნული"
-
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "ეს ელფოსტა იგზავნება მაშინ, როდესაც მიმომხილველი ენიჭება წარდგენას."
 
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "ავტორის სახელები შემოკლებული სტრიქონის სახით"

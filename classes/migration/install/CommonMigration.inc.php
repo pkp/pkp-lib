@@ -218,14 +218,11 @@ class CommonMigration extends \PKP\migration\Migration
         });
 
         // Association between Mailables and Email Templates
-        Schema::create('email_templates_assignments', function (Blueprint $table) {
-            $table->id();
+        Schema::create('mailable_templates', function (Blueprint $table) {
             $table->bigInteger('email_id');
             $table->string('mailable', 255);
-        });
-
-        Schema::table('email_templates_assignments', function (Blueprint $table) {
             $table->foreign('email_id')->references('email_id')->on('email_templates');
+            $table->primary('email_id', 'mailable');
         });
 
         // Resumption tokens for the OAI protocol interface.
@@ -260,7 +257,7 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('email_templates');
         Schema::drop('email_templates_default_data');
         Schema::drop('email_templates_default');
-        Schema::drop('email_templates_assignments');
+        Schema::drop('mailable_templates');
         Schema::drop('notification_mail_list');
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');

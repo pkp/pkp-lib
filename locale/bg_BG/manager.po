@@ -2087,35 +2087,27 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Потвърждаване на имейл (сайт)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Този имейл се изпраща, когато редактор отмени асосиирането на рецензент."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Асосиирането на рецензент е отменено"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Този имейл се изпраща, когато рецензент, който е бил асоцииран, но е "
 "премахнат като такъв от подадените материали, бъде възстановен от редактор."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Рецензентът е възстановен"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Този имейл се изпраща, когато рецензентът е асоцииран към подадените "
-"материали."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Асоцииран е рецензент"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Този имейл се изпраща автоматично до участниците в дискусията, когато към "
 "дискусията се добави ново съобщение."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Ново съобщение в дискусия"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"

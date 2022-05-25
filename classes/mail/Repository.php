@@ -13,17 +13,16 @@
 
 namespace PKP\mail;
 
-use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\emailTemplate\EmailTemplate;
-use PKP\plugins\HookRegistry;
 
 class Repository
 {
     /**
-     * @copydoc DAO::getMany()
+     * Get an array of mailables depending on a context and given search string
      */
     public function getMany(Context $context, ?string $searchPhrase = null): array
     {
@@ -56,42 +55,36 @@ class Repository
     }
 
     /**
-     * Retrieve single mailable array mapped according to self::mapMailableProperties
-     * Additionally may include custom email templates associated with the mailable
+     * Get a mailable by its class name
+     *
+     * @return array A key/value map of the mailable. See self::mapMailableProperties().
      */
-    public function getByClass(string $className, bool $withCustomTemplateKeys = false, ?int $contextId = null): array
+    public function getByClass(string $className): array
     {
-        $mailable = $this->mapMailableProperties($className);
-        if (!$withCustomTemplateKeys) {
-            return $mailable;
-        }
+        return $this->mapMailableProperties($className);
 
-        $collector = Repo::emailTemplate()->getCollector()->filterByMailableClassName($className);
-        if ($contextId) {
-            $collector = $collector->filterByContext($contextId);
-        }
-        $templates = Repo::emailTemplate()->getMany($collector);
-        foreach ($templates as $template) {
-            $mailable['customTemplateKeys'][] = $template->getData('key');
-        }
-
-        return $mailable;
     }
 
     /**
      * Associate mailable with custom templates
      * @param array<EmailTemplate> $customTemplates
      */
-    public function edit(array $mailable, array $customTemplates): void
+    public function edit(string $className, array $customTemplates): void
     {
-        HookRegistry::call('Mailable::edit', [&$mailable, &$customTemplates]);
-        Repo::emailTemplate()->dao->associateWithMailable($mailable['className'], $customTemplates);
+        // Remove already assigned first
+        DB::table('mailable_templates')->where('mailable', $className)->delete();
+
+        // TODO remove suuport Don't allow an email template assignment to multiple mailables, replace previous assignment with the current
+        foreach ($customTemplates as $emailTemplate){
+            DB::table('mailable_templates')
+                ->updateOrInsert(['email_id' => $emailTemplate->getId()], ['mailable' => $className]);
+        }
     }
 
     /**
-     * @return null|array['property' => 'value'] Mailable properties to return by external calls
+     * Get the properties of a mailable in a key/value array
      */
-    protected function mapMailableProperties(string|Mailable $mailableClassName): ?array
+    protected function mapMailableProperties(string $mailableClassName): ?array
     {
         return [
             'name' => $mailableClassName::getName(),

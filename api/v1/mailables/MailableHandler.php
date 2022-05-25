@@ -47,8 +47,8 @@ class MailableHandler extends APIHandler
             ],
             'PUT' => [
                 [
-                    'pattern' => $this->getEndpointPattern() . '/{className}',
-                    'handler' => [$this, 'edit'],
+                    'pattern' => $this->getEndpointPattern() . '/{className}/emailTemplates',
+                    'handler' => [$this, 'assignTemplates'],
                     'roles' => $roles,
                 ],
             ],
@@ -61,11 +61,10 @@ class MailableHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
-
         // This endpoint is not available at the site-wide level
         $this->addPolicy(new ContextRequiredPolicy($request));
 
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
@@ -89,9 +88,7 @@ class MailableHandler extends APIHandler
      */
     public function get(SlimRequest $slimRequest, Response $response, array $args): Response
     {
-        $request = $this->getRequest();
-
-        $mailable = Repo::mailable()->getByClass($args['className'], true, $request->getContext()->getId());
+        $mailable = Repo::mailable()->getByClass($args['className']);
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
@@ -103,43 +100,27 @@ class MailableHandler extends APIHandler
     /**
      * Add or remove associated email template to/from a mailable
      */
-    public function edit(SlimRequest $slimRequest, Response $response, array $args): Response
+    public function assignTemplates(SlimRequest $slimRequest, Response $response, array $args): Response
     {
         $request = $this->getRequest();
         $requestedContext = $request->getContext();
         $requestContextId = $requestedContext->getId();
 
-        $className = null;
-        if (isset($args['className'])) {
-            $className = $args['className'];
-        }
-
-        if (!$className) {
-            return $response->withStatus(404)->withJsonError('api.mailables.404.mailableClassNameMissing');
-        }
-
         // Check if Mailable class name exists
         $existingClassNames = Mail::getMailables($requestedContext);
-        if (!in_array($className, $existingClassNames)) {
+        if (!in_array($args['className'], $existingClassNames)) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
         }
 
-        $mailable = Repo::mailable()->getByClass($className);
+        $mailable = Repo::mailable()->getByClass($args['className']);
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
         }
 
-        $templateKey = $slimRequest->getParsedBodyParam('templateKey');
-        $template = Repo::emailTemplate()->getByKey($requestContextId, $templateKey);
-
-        if (!$template) {
-            return $response->withStatus(404)->withJsonError('api.mailables.404.templateNotFound');
-        }
-
-        // Don't allow edit of the default templates
-        if (!$template->getId()) {
-            return $response->withJson(403)->withJsonError('api.mailables.403.notAllowedTemplate');
+        $templateKeys = $slimRequest->getParsedBodyParam('templateKeys');
+        if (!$templateKeys) {
+            return $response->withJson(400)->withJsonError('api.mailables.400.templateKeysMissing');
         }
 
         // Reject modified default templates
@@ -147,14 +128,25 @@ class MailableHandler extends APIHandler
             Repo::emailTemplate()->getCollector()
                 ->filterByContext($requestContextId)
                 ->filterByIsCustom(true)
-                ->filterByKeys([$template->getData('key')])
+                ->filterByKeys($templateKeys)
         );
-        if ($templateCollection->count() === 0) {
-            return $response->withJson(403)->withJsonError('api.mailables.403.notAllowedTemplate');
+
+        if ($templateCollection->isEmpty() || ($templateCollection->count() !== count($templateKeys))) {
+            return $response->withJson(404)->withJsonError('api.mailables.404.templateNotFound');
         }
 
-        Repo::mailable()->edit($mailable, [$template]);
-        $mailable = Repo::mailable()->getByClass($mailable['className'], true, $requestContextId);
+        Repo::mailable()->edit($mailable['className'], $templateCollection->toArray());
+
+        // Attach associated custom email templates to the response
+        $collector = Repo::emailTemplate()->getCollector()->filterByMailables([$mailable['className']]);
+        if ($requestContextId) {
+            $collector = $collector->filterByContext($requestContextId);
+        }
+
+        $templates = Repo::emailTemplate()->getMany($collector);
+        foreach ($templates as $template) {
+            $mailable['customTemplateKeys'][] = $template->getData('key');
+        }
 
         return $response->withJson($mailable, 200);
     }

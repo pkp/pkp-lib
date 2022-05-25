@@ -104,8 +104,8 @@ class DAO extends EntityDAO
     {
         parent::_delete($emailTemplate);
 
-        // Remove template from _assignments table
-        DB::table('email_templates_assignments')->where('email_id', $emailTemplate->getId())->delete();
+        // Remove template from mailable_templates table
+        DB::table('mailable_templates')->where('email_id', $emailTemplate->getId())->delete();
     }
 
     /**
@@ -397,18 +397,6 @@ class DAO extends EntityDAO
             ]);
         }
         return true;
-    }
-
-    /**
-     * Update association between email templates with a mailable
-     * @param array<EmailTemplate> $emailTemplates
-     */
-    public function associateWithMailable(string $mailableClassName, array $emailTemplates): void
-    {
-        foreach ($emailTemplates as $emailTemplate){
-            DB::table('email_templates_assignments')
-                ->updateOrInsert(['email_id' => $emailTemplate->getId()], ['mailable' => $mailableClassName]);
-        }
     }
 
     /**

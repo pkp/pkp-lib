@@ -21,20 +21,17 @@ class I7706_AssociateTemplatesWithMailables extends Migration
 {
     public function up(): void
     {
-        Schema::create('email_templates_assignments', function (Blueprint $table) {
-            $table->id();
+        Schema::create('mailable_templates', function (Blueprint $table) {
             $table->bigInteger('email_id');
             $table->string('mailable', 255);
-        });
-
-        Schema::table('email_templates_assignments', function (Blueprint $table) {
             $table->foreign('email_id')->references('email_id')->on('email_templates');
+            $table->primary('email_id', 'mailable');
         });
     }
 
     public function down(): void
     {
-        Schema::table('email_templates_assignments', function (Blueprint $table) {
+        Schema::table('mailable_templates', function (Blueprint $table) {
             $table->drop();
         });
     }

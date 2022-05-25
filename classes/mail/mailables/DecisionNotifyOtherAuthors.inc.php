@@ -39,7 +39,7 @@ class DecisionNotifyOtherAuthors extends Mailable
         self::GROUP_COPYEDITING,
         self::GROUP_PRODUCTION,
     ];
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     public function __construct(Context $context, Submission $submission)

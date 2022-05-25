@@ -2559,35 +2559,28 @@ msgstr ""
 "Detta e-postmeddelande skickas automatiskt till nya användare i samband med "
 "registrering, om inställningarna kräver att e-postadressen godkänns."
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Detta e-postmeddelande skickas när en redaktör tar bort ett "
 "granskningsuppdrag."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Granskningsuppdrag borttaget"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Detta e-postmeddelande skickas när en granskare som tagits bort sedan "
 "återinsätts av en redaktör."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Granskare återinsatt"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Detta e-postmeddelande skickas när en granskare utsetts till ett bidrag."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Granskare utsedd"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Detta e-postmeddelande skickas automatiskt till deltagare i diskussionen när "
 "ett nytt meddelande läggs till."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Lägg till diskussion"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"

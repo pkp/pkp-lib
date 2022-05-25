@@ -1032,33 +1032,27 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Электрондық пошта мекенжайын тексеру (веб-сайт)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Бұл электрондық хабар өңдеуші рецензент тапсырмасынан бас тартқанда "
 "жіберіледі."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Рецензент ретінде тағайындау жойылды"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Бұл хат жойылған рецензент редактор болып қайта тағайындалғанда жіберіледі."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Рецензент қайта тағайындалды"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Бұл электрондық хабар шолушыға жіберу тағайындалған кезде жіберіледі."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Рецензент тағайындалды"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Бұл электрондық хабар талқылауға жаңа хабар қосылғанда автоматты түрде "
 "талқылауға қатысушыларға жіберіледі."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Жаңа пост талқылауда"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"

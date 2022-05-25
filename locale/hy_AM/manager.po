@@ -2827,32 +2827,26 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Վավերացնել էլ․ փոստը (կայք)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Այս էլ․ նամակն ուղարկվում է, երբ խմբագիրն ապանշանակում է գրախոսին:"
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Գրախոսը ապանշանակված է"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Այս էլ․ նամակն ուղարկվում է, երբ գրախոսը, որը ապանշանակված էր, խմբագրի "
 "կողմից վերականգնվում է:"
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Գրախոսը վերականգնվեց"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Այս նամակն ուղարկվում է, երբ գրախոսին նշանակվում է ներկայացում:"
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Գրախոսի նշանակում"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է քննարկման մասնակիցներին, երբ "
 "քննարկմանը նոր հաղորդագրություն է ավելացվում:"
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Քննարկման նոր հաղորդագրություն"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"

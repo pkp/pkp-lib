@@ -1,9 +1,10 @@
+# Manolis Saldaris <omanos@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2020-07-30 09:35+0000\n"
+"PO-Revision-Date: 2022-05-26 09:59+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "el_GR/>\n"
@@ -464,3 +465,6 @@ msgstr "Η απόφαση καταγράφηκε"
 
 msgid "editor.activityLog"
 msgstr "Αρχείο Καταγραφής Δραστηριότητας"
+
+msgid "editor.decision.skipEmail"
+msgstr "Παραλείψτε αυτό το email"

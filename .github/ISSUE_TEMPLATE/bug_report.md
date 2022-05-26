@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a broken feature in OJS, OMP or OPS.
+about: File a bug report in OJS, OMP or OPS. Try our support forum linked below if you can't provide reproduction steps and technical specifications.
 title: ''
 labels: ''
 assignees: ''

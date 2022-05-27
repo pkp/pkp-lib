@@ -16,6 +16,7 @@
 namespace PKP\context;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\plugins\IDoiRegistrationAgency;
 use Illuminate\Support\Arr;
 use PKP\config\Config;

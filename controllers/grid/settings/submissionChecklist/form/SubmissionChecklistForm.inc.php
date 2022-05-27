@@ -16,6 +16,7 @@
 
 use PKP\form\Form;
 use PKP\facades\Locale;
+use APP\core\Application;
 
 class SubmissionChecklistForm extends Form
 {
@@ -42,13 +43,12 @@ class SubmissionChecklistForm extends Form
      * Initialize form data from current settings.
      *
      * @see Form::initData
-     *
-     * @param array $args
      */
-    public function initData($args)
+    public function initData()
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
+        $args = $request->getUserVars();
 
         $submissionChecklistAll = $context->getData('submissionChecklist');
         $checklistItem = [];

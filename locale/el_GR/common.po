@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-05-26 09:59+0000\n"
+"PO-Revision-Date: 2022-05-27 08:11+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "el_GR/>\n"
@@ -1989,3 +1989,66 @@ msgstr "Από: {$value}"
 
 msgid "common.inactive"
 msgstr "Ανενεργό"
+
+msgid "common.viewWithName"
+msgstr "Προβολή του {$name}"
+
+msgid "common.viewError"
+msgstr "Προβολή Σφάλματος"
+
+msgid "common.user.nonexistent"
+msgstr ""
+
+msgid "common.upload.addFile.description"
+msgstr "Μεταφορτώστε ένα αρχείο από τον υπολογιστή σας."
+
+msgid "common.addFile"
+msgstr "Προσθήκη Αρχείου"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.showAllSteps"
+msgstr "Εμφάνιση όλων των βημάτων"
+
+msgid "common.selectWithName"
+msgstr "Επιλέξτε το {$name}"
+
+msgid "common.searching"
+msgstr "Γίνεται αναζήτηση"
+
+msgid "common.numberedMore"
+msgstr "{$number} ακόμη"
+
+msgid "common.insertContentSearch"
+msgstr "Βρείτε περιεχόμενο για εισαγωγή"
+
+msgid "common.insertContent"
+msgstr "Εισάγετε Περιεχόμενο"
+
+msgid "common.insert"
+msgstr "Εισαγωγή"
+
+msgid "common.findTemplate"
+msgstr "Εύρεση προτύπου"
+
+msgid "common.orUploadFile"
+msgstr "Ή ανεβάστε ένα αρχείο"
+
+msgid "common.dragAndDropHere"
+msgstr "Σύρετε και αποθέστε αρχεία εδώ."
+
+msgid "common.deselect"
+msgstr "Αποεπιλογή"
+
+msgid "common.attachedFiles"
+msgstr "Αρχεία πουέχουν επισυναφθεί"
+
+msgid "common.attachFiles"
+msgstr "Επισύναψη αρχείων"
+
+msgid "common.addFiles"
+msgstr "Προσθήκη αρχείων"
+
+msgid "common.addCCBCC"
+msgstr "Προσθήκη CC/BCC"

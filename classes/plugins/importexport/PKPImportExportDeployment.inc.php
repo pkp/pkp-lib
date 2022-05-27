@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use Exception;
 use Error;
+use LibXMLError;
 
 class PKPImportExportDeployment
 {
@@ -554,12 +555,6 @@ class PKPImportExportDeployment
 
             $result = $currentFilter->execute($importXml);
 
-            $this->xmlValidationErrors = array_filter(libxml_get_errors(), function ($a) {
-                return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
-            });
-
-            libxml_clear_errors();
-
             $dbConnection->commit();
 
             $this->processResult = $result;
@@ -568,6 +563,9 @@ class PKPImportExportDeployment
             $dbConnection->rollBack();
 
             $this->processFailed = true;
+        } finally {
+            $this->xmlValidationErrors = array_filter(libxml_get_errors(), fn (LibXMLError $error) => in_array($error->level, [LIBXML_ERR_ERROR, LIBXML_ERR_FATAL]));
+            libxml_clear_errors();
         }
     }
 
@@ -676,6 +674,11 @@ class PKPImportExportDeployment
             if (!empty($foundErrors)) {
                 $problems['errors'][$name][] = $foundErrors;
             }
+        }
+        if (count($validationErrors = $this->getXMLValidationErrors())) {
+            $validationErrors = array_map(fn (LibXMLError $e) => "Line {$e->line} Column {$e->column}: {$e->message}", $validationErrors);
+            $genericError = $objectTypes[PKPApplication::ASSOC_TYPE_NONE];
+            $problems['errors'][$genericError][] = [$validationErrors];
         }
 
         return $problems;

@@ -17,7 +17,7 @@
 	{if isset($_label.$currentLocale)}
 		{assign var=_label value=$_label.$currentLocale}
 	{else}
-		{assign var=_primaryLocale value=Locale::getPrimaryLocale()}
+		{assign var=_primaryLocale value=\PKP\facades\Locale::getPrimaryLocale()}
 		{assign var=_label value=$_label.$_primaryLocale}
 	{/if}
 {/if}

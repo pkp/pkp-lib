@@ -1,9 +1,10 @@
+# Manolis Saldaris <omanos@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-30 09:16+0000\n"
+"PO-Revision-Date: 2022-05-27 10:27+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el_GR/>\n"
@@ -18,7 +19,8 @@ msgid "manager.announcements"
 msgstr "Ανακοινώσεις"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά τη συγκεκριμένη ανακοίνωση;"
+msgstr ""
+"Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά την ανακοίνωση {$title};"
 
 msgid "manager.announcements.create"
 msgstr "Δημιουργία νέας ανακοίνωσης"
@@ -54,7 +56,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Επιλέξτε μήνα ή/και ημέρα εκτός από το έτος της ημερομηνίας λήξης."
 
 msgid "manager.announcements.form.description"
-msgstr "Περιγραφή"
+msgstr "Ανακοίνωση"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Πλήρες κείμενο της ανακοίνωσης."
@@ -2186,3 +2188,37 @@ msgstr "ΣΦΑΛΜΑ:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Η καθορισμένη διαδρομή περιοδικού, \"{$contextPath}\", δεν υπάρχει."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Προσαρμοσμένη"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Ημερομηνία και ώρα (Σύντομη)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "ρομηνία και ώρα"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Ώρα"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Ημερομηνία (Σύντομη)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Ημερομηνία"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Επιλέξτε την προτιμώμενη μορφή για ημερομηνίες και ώρες. Μπορείτε να "
+"εισαγάγετε μια προσαρμοσμένη μορφή χρησιμοποιώντας τους ειδικούς <a "
+"href='http://php.net/manual/en/function.strftime.php#refsect1-function"
+".strftime-parameters'>χαρακτήρες μορφοποίησης</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Μορφές ημερομηνίας και ώρας"
+
+msgid "manager.setup.dateTime"
+msgstr "Ημερομηνία και ώρα"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Διαγραφή Ανακοίνωσης"

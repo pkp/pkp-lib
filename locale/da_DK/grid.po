@@ -1,12 +1,12 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022.
 # Jesper B. Thestrup <jbt@kb.dk>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-12-22 12:24+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2022-05-31 09:00+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -131,7 +131,7 @@ msgid "grid.action.order"
 msgstr "Rækkefølge"
 
 msgid "grid.action.cancelOrdering"
-msgstr "Annullér bestilling"
+msgstr "Annullér ændringer i rækkefølge"
 
 msgid "grid.action.extendAll"
 msgstr "Forlæng alle"
@@ -194,7 +194,7 @@ msgid "grid.action.importexport"
 msgstr "Importér eller eksportér indhold eller websitedata"
 
 msgid "grid.action.orderItems"
-msgstr "Aktivér bestillingsform"
+msgstr "Aktivér sorteringsmode"
 
 msgid "grid.action.editSubmissionChecklist"
 msgstr "Redigér dette tjeklistepunkt"

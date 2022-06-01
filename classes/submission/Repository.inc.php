@@ -26,6 +26,7 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\doi\exceptions\DoiCreationException;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -499,8 +500,9 @@ abstract class Repository
      * 2) it does not already exist.
      *
      * @param Submission $submission
+     * @return DoiCreationException[]
      */
-    abstract public function createDois(Submission $submission): void;
+    abstract public function createDois(Submission $submission): array;
 
     /**
      * Compile the sort orderBy and orderDirection into an option

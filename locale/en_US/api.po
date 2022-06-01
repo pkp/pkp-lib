@@ -29,6 +29,9 @@ msgstr "You must provide a subject and body for the email."
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "It is not possible to change the time this was created."
 
+msgid "api.dois.400.prefixRequired"
+msgstr "A DOI prefix is required to generate DOIs."
+
 msgid "api.403.unauthorized"
 msgstr "You are not authorized to access the requested resource."
 

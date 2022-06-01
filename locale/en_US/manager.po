@@ -230,6 +230,9 @@ msgstr "Error"
 msgid "manager.dois.status.stale"
 msgstr "Stale"
 
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI Updates Failed"
+
 msgid "manager.dois.update.partialFailure"
 msgstr "Some DOI(s) failed to update."
 
@@ -841,6 +844,9 @@ msgstr "DOIs can be automatically minted and deposited with a registration agenc
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "None"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "You cannot call this operation without DOIs enabled."
 
 msgid "manager.setup.publishing"
 msgstr "Publishing Details"

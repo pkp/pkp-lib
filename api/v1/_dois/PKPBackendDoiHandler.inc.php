@@ -17,6 +17,7 @@
 use APP\facades\Repo;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 
@@ -52,6 +53,8 @@ class PKPBackendDoiHandler extends APIHandler
     {
         // This endpoint is not available at the site-wide level
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        $this->addPolicy(new DoisEnabledPolicy($request->getContext()));
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {

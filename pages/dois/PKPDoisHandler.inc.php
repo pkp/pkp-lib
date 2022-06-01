@@ -19,6 +19,7 @@ use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPDoiSetupSettingsForm;
 use PKP\context\Context;
 use PKP\plugins\IPKPDoiRegistrationAgency;
+use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -46,6 +47,9 @@ abstract class PKPDoisHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new \PKP\security\authorization\ContextRequiredPolicy($request, $roleAssignments));
+
+        // DOIs must be enabled to access DOI management page
+        $this->addPolicy(new DoisEnabledPolicy($request->getContext()));
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {

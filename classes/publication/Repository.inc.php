@@ -281,8 +281,6 @@ class Repository extends \PKP\publication\Repository
 
     /**
      * Create all DOIs associated with the publication
-     *
-     * @return mixed
      */
     protected function createDois(Publication $newPublication): void
     {

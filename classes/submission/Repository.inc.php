@@ -20,6 +20,7 @@ use APP\preprint\PreprintTombstoneManager;
 use APP\server\ServerDAO;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\doi\exceptions\DoiCreationException;
 
 class Repository extends \PKP\submission\Repository
 {
@@ -55,7 +56,7 @@ class Repository extends \PKP\submission\Repository
      * 2) it does not already exist.
      *
      */
-    public function createDois(Submission $submission): void
+    public function createDois(Submission $submission): array
     {
         /** @var ServerDAO $contextDao */
         $contextDao = Application::getContextDAO();
@@ -64,10 +65,14 @@ class Repository extends \PKP\submission\Repository
 
         // Preprint
         $publication = $submission->getCurrentPublication();
+
+        $doiCreationFailures = [];
         if ($context->isDoiTypeEnabled(Repo::doi()::TYPE_PUBLICATION) && empty($publication->getData('doiId'))) {
-            $doiId = Repo::doi()->mintPublicationDoi($publication, $submission, $context);
-            if ($doiId !== null) {
+            try {
+                $doiId = Repo::doi()->mintPublicationDoi($publication, $submission, $context);
                 Repo::publication()->edit($publication, ['doiId' => $doiId]);
+            } catch (DoiCreationException $exception) {
+                $doiCreationFailures[] = $exception;
             }
         }
 
@@ -80,12 +85,16 @@ class Repository extends \PKP\submission\Repository
             );
             foreach ($galleys as $galley) {
                 if (empty($galley->getData('doiId'))) {
-                    $doiId = Repo::doi()->mintGalleyDoi($galley, $publication, $submission, $context);
-                    if ($doiId !== null) {
+                    try {
+                        $doiId = Repo::doi()->mintGalleyDoi($galley, $publication, $submission, $context);
                         Repo::galley()->edit($galley, ['doiId' => $doiId]);
+                    } catch (DoiCreationException $exception) {
+                        $doiCreationFailures[] = $exception;
                     }
                 }
             }
         }
+
+        return $doiCreationFailures;
     }
 }

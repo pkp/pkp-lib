@@ -21,9 +21,11 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
+use PKP\mail\traits\Configurable;
 
 class DecisionNotifyOtherAuthors extends Mailable
 {
+    use Configurable;
     use Sender;
 
     /** @var string An email variable that contains the message that was sent to the submitting author */

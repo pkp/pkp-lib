@@ -13,11 +13,14 @@
 
 namespace PKP\mail;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
+use PKP\context\ContextDAO;
 use PKP\core\PKPString;
 use PKP\emailTemplate\EmailTemplate;
+use Exception;
 
 class Repository
 {
@@ -28,14 +31,9 @@ class Repository
     {
         $mailables = [];
         foreach (Mail::getMailables($context) as $classname) {
-            $mailable = $this->mapMailableProperties($classname);
-
-            if ($searchPhrase && $this->containsSearchPhrase($mailable, $searchPhrase)) {
-                $mailables[] = $mailable;
-                continue;
+            if (!$searchPhrase || $this->containsSearchPhrase($classname, $searchPhrase)) {
+                $mailables[] = $classname;
             }
-
-            $mailables[] = $mailable;
         }
 
         return $mailables;
@@ -44,57 +42,62 @@ class Repository
     /**
      * Simple check if mailable's name and description contains a search phrase
      * doesn't look up in associated email templates
-     * @param array $mailable see result of self::mapMailableProperties()
+     * @param string $className the fully qualified class name of the Mailable
      */
-    protected function containsSearchPhrase(array $mailable, string $searchPhrase): bool
+    protected function containsSearchPhrase(string $className, string $searchPhrase): bool
     {
         $searchPhrase = PKPString::strtolower($searchPhrase);
 
-        return str_contains(PKPString::strtolower($mailable['name']), $searchPhrase) ||
-            str_contains(PKPString::strtolower($mailable['description']), $searchPhrase);
+        /** @var Mailable $className */
+        return str_contains(PKPString::strtolower($className::getName()), $searchPhrase) ||
+            str_contains(PKPString::strtolower($className::getDescription()), $searchPhrase);
     }
 
     /**
-     * Get a mailable by its class name
+     * Get a mailable by its id
      *
-     * @return array A key/value map of the mailable. See self::mapMailableProperties().
+     * @return ?string fully qualified class name.
      */
-    public function getByClass(string $className): array
+    public function get(string $id, Context $context): ?string
     {
-        return $this->mapMailableProperties($className);
-
+        $mailables = $this->getMany($context);
+        foreach ($mailables as $mailable) {
+            if ($mailable::getId() === $id) {
+                return $mailable;
+            }
+        }
+        return null;
     }
 
     /**
      * Associate mailable with custom templates
      * @param array<EmailTemplate> $customTemplates
+     * @throws Exception
      */
-    public function edit(string $className, array $customTemplates): void
+    public function assignTemplates(string $id, array $customTemplates): void
     {
         // Remove already assigned first
-        DB::table('mailable_templates')->where('mailable', $className)->delete();
+        DB::table('mailable_templates')->where('mailable_id', $id)->delete();
 
-        // TODO remove suuport Don't allow an email template assignment to multiple mailables, replace previous assignment with the current
-        foreach ($customTemplates as $emailTemplate){
-            DB::table('mailable_templates')
-                ->updateOrInsert(['email_id' => $emailTemplate->getId()], ['mailable' => $className]);
+        // Allow one-to-many relationship between templates and mailables
+        $checkedIds = [];
+        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        foreach ($customTemplates as $emailTemplate) {
+
+            // Data integrity check whether Mailable exists and is in the same context with the template
+            $contextId = $emailTemplate->getData('contextId');
+            $mailableExists = in_array($contextId, $checkedIds);
+            if (!$mailableExists) {
+                $context = $contextDao->getById($contextId);
+                $mailableExists = (bool) $this->get($id, $context);
+            }
+
+            if ($mailableExists) {
+                DB::table('mailable_templates')
+                    ->insert(['email_id' => $emailTemplate->getId(), 'mailable_id' => $id]);
+            } else {
+                throw new Exception('Tried to insert unexisting Mailable ' . $id);
+            }
         }
-    }
-
-    /**
-     * Get the properties of a mailable in a key/value array
-     */
-    protected function mapMailableProperties(string $mailableClassName): ?array
-    {
-        return [
-            'name' => $mailableClassName::getName(),
-            'className' => is_string($mailableClassName) ? $mailableClassName : $mailableClassName::class,
-            'description' => $mailableClassName::getDescription(),
-            'supportsTemplates' => $mailableClassName::getSupportsTemplates(),
-            'groupsIds' => $mailableClassName::getGroupIds(),
-            'fromRoleIds' => $mailableClassName::getFromRoleIds(),
-            'toRoleIds' => $mailableClassName::getToRoleIds(),
-            'emailTemplateKey' => $mailableClassName::getEmailTemplateKey(),
-        ];
     }
 }

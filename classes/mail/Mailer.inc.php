@@ -175,7 +175,7 @@ class Mailer extends IlluminateMailer
         $mailables = [];
         foreach ($finder as $file) {
             $className = Core::classFromFile($file);
-            if (is_a($className, Mailable::class, true)) {
+            if (is_a($className, Mailable::class, true) && class_uses_recursive(Configurable::class)) {
                 $mailables[] = $className;
             }
         }

@@ -22,9 +22,11 @@ use PKP\mail\traits\Recipient;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\traits\Configurable;
 
 class ReviewResponseRemindAuto extends Mailable
 {
+    use Configurable;
     use Recipient;
     use PasswordResetUrl;
 

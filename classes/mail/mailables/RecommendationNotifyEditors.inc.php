@@ -26,9 +26,11 @@ use PKP\mail\traits\ReviewerComments;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\traits\Configurable;
 
 class RecommendationNotifyEditors extends Mailable
 {
+    use Configurable;
     use Recipient;
     use ReviewerComments;
     use Sender;

@@ -240,3 +240,6 @@ msgstr "The email you requested was not found."
 
 msgid "api.mailables.404.templateNotFound"
 msgstr "The template could not be assigned to this email because the template was not found."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "The templateKeys input should be an array or empty string"

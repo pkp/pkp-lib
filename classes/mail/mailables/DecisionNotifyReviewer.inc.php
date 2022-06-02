@@ -22,9 +22,11 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
+use PKP\mail\traits\Configurable;
 
 class DecisionNotifyReviewer extends Mailable
 {
+    use Configurable;
     use Recipient;
     use Sender;
 

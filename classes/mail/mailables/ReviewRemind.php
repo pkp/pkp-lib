@@ -17,7 +17,7 @@ namespace PKP\mail\mailables;
 
 use APP\core\Application;
 use PKP\context\Context;
-use PKP\mail\Configurable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
 use PKP\mail\traits\PasswordResetUrl;
 use PKP\mail\traits\Recipient;

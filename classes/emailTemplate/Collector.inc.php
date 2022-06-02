@@ -282,7 +282,7 @@ class Collector implements CollectorInterface
                 return $q->whereIn('et.email_id', function (Builder $q) {
                     return $q->select('email_id')
                         ->from('mailable_templates')
-                        ->whereIn('mailable', $this->mailables);
+                        ->whereIn('mailable_id', $this->mailables);
                 });
             })
 

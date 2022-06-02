@@ -18,9 +18,11 @@ namespace PKP\mail\mailables;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\site\Site;
+use PKP\mail\traits\Configurable;
 
 class ValidateEmailSite extends Mailable
 {
+    use Configurable;
     use Recipient;
 
     protected static ?string $name = 'mailable.validateEmailSite.name';

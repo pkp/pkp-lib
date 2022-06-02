@@ -25,7 +25,7 @@ class I7706_AssociateTemplatesWithMailables extends Migration
             $table->bigInteger('email_id');
             $table->string('mailable', 255);
             $table->foreign('email_id')->references('email_id')->on('email_templates');
-            $table->primary('email_id', 'mailable');
+            $table->primary(['email_id', 'mailable_id']);
         });
     }
 

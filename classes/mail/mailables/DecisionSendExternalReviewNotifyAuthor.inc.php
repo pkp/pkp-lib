@@ -23,9 +23,11 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\traits\Configurable;
 
 class DecisionSendExternalReviewNotifyAuthor extends Mailable
 {
+    use Configurable;
     use Recipient;
     use Sender;
 

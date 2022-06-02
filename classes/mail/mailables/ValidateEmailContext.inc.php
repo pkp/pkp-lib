@@ -18,9 +18,11 @@ namespace PKP\mail\mailables;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
+use PKP\mail\traits\Configurable;
 
 class ValidateEmailContext extends Mailable
 {
+    use Configurable;
     use Recipient;
 
     protected static ?string $name = 'mailable.validateEmailContext.name';

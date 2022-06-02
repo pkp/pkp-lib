@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-25 13:26+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -296,3 +296,6 @@ msgstr ""
 
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Musíte zadat předmět a tělo e-mailu."
+
+msgid "api.dois.400.prefixRequired"
+msgstr "Pro generování identifikátorů DOI je vyžadován prefix DOI."

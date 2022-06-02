@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-05-18 20:12+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2870,3 +2870,9 @@ msgstr "Podřízený příspěvek {$child} se nepodařilo zpracovat"
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "Chybí aktuální zveřejnění příspěvku"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Tuto operaci nelze vyvolat bez povolených DOI."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Aktualizace DOI selhala"

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-05-31 09:00+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2841,3 +2841,24 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Antes deste componente poder ser eliminado, deve associar quaisquer "
 "ficheiros de submissão relacionado a um componente diferente."
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "O filho da submissão {$child} não foi processado com sucesso"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "A publicação atual da submissão encontra-se em falta"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Outras Submissões"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Isto inclui submissões que não são contabilizados em outros totais, tais "
+"como os que ainda estão em andamento e aqueles que parecem ter sido "
+"importados."
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Não pode realizar esta operação sem DOIs ativados."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Atualizações de DOI falhou"

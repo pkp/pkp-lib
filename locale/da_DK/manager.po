@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-05-20 08:58+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2962,3 +2962,9 @@ msgstr "DOI-suffiks"
 
 msgid "doi.manager.settings.doiPrefix.required"
 msgstr "Et DOI prefiks er påkrævet"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Du kan ikke vælge denne handling uden at have DOI'er slået til."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI opdatering mislykkedes"

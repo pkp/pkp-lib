@@ -222,8 +222,21 @@ class PKPContainer extends Container
             'driver' => 'errorlog',
             'level' => 'debug',
         ];
+        $items['logging']['channels']['maillog'] = [
+            'driver' => 'errorlog',
+            'level' => 'debug',
+        ];
+        
 
         // Mail Service
+        $logPath = Config::getVar('email', 'log_path');
+        if (strlen($logPath)) {
+            $items['logging']['channels']['maillog'] = [
+                'driver' => 'single',
+                'path' => $logPath,
+            ];
+        }
+        $items['mail']['default'] = static::getDefaultMailer();;
         $items['mail']['mailers']['sendmail'] = [
             'transport' => 'sendmail',
             'path' => Config::getVar('email', 'sendmail_path'),
@@ -240,10 +253,8 @@ class PKPContainer extends Container
         ];
         $items['mail']['mailers']['log'] = [
             'transport' => 'log',
-            'channel' => 'errorlog',
+            'channel' => 'maillog',
         ];
-
-        $items['mail']['default'] = static::getDefaultMailer();
 
         // Cache configuration
         $items['cache'] = [

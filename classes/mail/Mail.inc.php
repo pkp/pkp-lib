@@ -22,6 +22,7 @@ namespace PKP\mail;
 
 use APP\core\Application;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use League\OAuth2\Client\Provider\Google;
 
 use PHPMailer\PHPMailer\OAuth;
@@ -602,7 +603,7 @@ class Mail extends \PKP\core\DataObject
             if (Config::getVar('debug', 'show_stacktrace')) {
                 // debug level 3 represents client and server interaction, plus initial connection debugging
                 $mailer->SMTPDebug = 3;
-                $mailer->Debugoutput = 'error_log';
+                $mailer->Debugoutput = Log::channel('maillog');
             }
             if (Config::getVar('email', 'smtp_suppress_cert_check')) {
                 // disabling the SMTP certificate check.
@@ -689,16 +690,15 @@ class Mail extends \PKP\core\DataObject
         }
 
         try {
-            $success = $mailer->Send();
-            if (!$success) {
-                error_log($mailer->ErrorInfo);
-                return false;
+            if (Config::getVar('email', 'default') === 'log') {
+                Log::channel('maillog')->debug('Email was successfully sent');
+                return true;
             }
+            return $mailer->Send() || throw new Exception('Failed to send email');
         } catch (Exception $e) {
-            error_log($mailer->ErrorInfo);
+            Log::channel('maillog')->error($e, ['message' => $mailer->ErrorInfo]);
             return false;
         }
-        return true;
     }
 
     /**

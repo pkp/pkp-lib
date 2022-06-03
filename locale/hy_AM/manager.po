@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-20 08:59+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -3040,3 +3040,9 @@ msgstr "DOI վերջածանց"
 
 msgid "doi.manager.settings.doiPrefix.required"
 msgstr "Պահանջվում է DOI նախածանց"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Դուք չեք կարող կանչել այս գործողությունը առանց միացված DOI -ների:"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI-ի թարմացումները ձախողվեցին"

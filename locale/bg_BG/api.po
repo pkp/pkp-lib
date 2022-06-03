@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-05 13:46+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "bg_BG/>\n"
@@ -288,3 +288,6 @@ msgstr "Не можете да редактирате DOI на елемент, �
 
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Трябва да посочите тема и съдържание на имейла."
+
+msgid "api.dois.400.prefixRequired"
+msgstr "За генериране на DOI е необходим префикс за DOI."

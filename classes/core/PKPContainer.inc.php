@@ -220,23 +220,26 @@ class PKPContainer extends Container
         $items['logging']['default'] = 'errorlog';
         $items['logging']['channels']['errorlog'] = [
             'driver' => 'errorlog',
-            'level' => 'debug',
+            'level' => Config::getVar('logging', 'level', 'debug'),
         ];
+        $logPath = Config::getVar('logging', 'path');
+        if (strlen($logPath)) {
+            $items['logging']['channels']['errorlog']['driver'] = 'single';
+            $items['logging']['channels']['errorlog']['path'] = $logPath;
+        }
+
         $items['logging']['channels']['maillog'] = [
             'driver' => 'errorlog',
-            'level' => 'debug',
+            'level' => Config::getVar('email', 'log_level', 'error'),
         ];
-        
+        $mailLogPath = Config::getVar('email', 'log_path');
+        if (strlen($mailLogPath)) {
+            $items['logging']['channels']['maillog']['driver'] = 'single';
+            $items['logging']['channels']['maillog']['path'] = $mailLogPath;
+        }
 
         // Mail Service
-        $logPath = Config::getVar('email', 'log_path');
-        if (strlen($logPath)) {
-            $items['logging']['channels']['maillog'] = [
-                'driver' => 'single',
-                'path' => $logPath,
-            ];
-        }
-        $items['mail']['default'] = static::getDefaultMailer();;
+        $items['mail']['default'] = static::getDefaultMailer();
         $items['mail']['mailers']['sendmail'] = [
             'transport' => 'sendmail',
             'path' => Config::getVar('email', 'sendmail_path'),

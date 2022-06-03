@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-04-16 10:57+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -1320,7 +1320,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Vsebina ni kodirana kot  {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Neznana uporabniška skupina {$param}"
+msgstr ""
+"Uvožena datoteka vsebuje avtorja '{$authorName}', z uporabniško vlogo "
+"'{$userGroupName}'. Ne obstaja zahtevna uporabniška vloga s tem uporabniškim "
+"imenom."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Neznan nalagalnik {$param}"
@@ -2427,13 +2430,13 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Ob objavi"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Na katerem mestu produkcijskega procesa naj bodo ustvarjeni DOi-ji?"
+msgstr "Kdaj naj se prispevku določi DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Avtomatsko ustvarjanje DOI"
+msgstr "Avtomatsko dodeljevanje DOI-jev"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "DOI predpona je obvezna in je oblike 10.xxxx."
+msgstr "DOI predpona je obvezna in je naslednje oblike 10.xxxx."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -2443,7 +2446,10 @@ msgstr ""
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Naj se DOI-ji samodejno deponirajo pri nastavljeni registracijski agenciji."
+"Deponiranje metapodatkov in registracija DOI-jev poteka lahko avtomatično "
+"pri izbrani registracijski agenciji v trenutku, ko je določen objekt "
+"obljavljen. Avtomatska akcija se izvede v določenih intervalih, status "
+"registriranih DOI-jev pa je možno spremljati na DOI management strani."
 
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Omogoči avtomatsko deponiranje"
@@ -2825,16 +2831,43 @@ msgstr ""
 "Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr "DOI pripona je poljubne oblike, pomembno je, da je unikatna med vsemi objavljenimi objekti, ki so bili izdani znotraj ene DOI predpone:"
+msgstr "Izberite vzorec, ki naj se uporabi za generiranje DOI-jev."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Uporabi privzet vzorec."
+msgstr "Privzet vzorec"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI pripona"
+msgstr "Oblika DOI"
 
 msgid "doi.manager.settings.doiPrefix.description"
-msgstr "DOI predpono dodeli registracijska agencija (npr. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) in je oblike 10.xxxx (npr. 10.1234):"
+msgstr ""
+"DOI predpono dodeli registracijska agencija, kot je <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) ali <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>.  Je oblike 10.xxxx"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Vsebina revije"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Podrejenega elementa prispevka {$child} ni bilo mogoče obdelati"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Manjka obsotječa revije prispevka"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Ta operacija ni možna, če nimate omogočene DOI-je."
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Uporabniško določen vzorec (ni priporočljivo)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "DOI pripona po meri"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI pripona"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "DOI predpona je obvezna"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Napaka pri DOI posodobitvi"

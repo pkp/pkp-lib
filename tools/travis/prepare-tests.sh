@@ -49,6 +49,9 @@ if [[ "$DISABLE_PATH_INFO" == "1" ]]; then
 	sed -i -e "s/disable_path_info = Off/disable_path_info = On/" config.inc.php
 fi
 
+# Setup the mailer to use a logger
+sed -i -e "s/default = sendmail/default = log/;s/log_path/mail.log/" config.inc.php
+
 # Make the files directory (this will be files_dir in config.inc.php after installation).
 mkdir --parents ${FILESDIR}
 

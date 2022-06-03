@@ -23,7 +23,7 @@ class I7706_AssociateTemplatesWithMailables extends Migration
     {
         Schema::create('mailable_templates', function (Blueprint $table) {
             $table->bigInteger('email_id');
-            $table->string('mailable', 255);
+            $table->string('mailable_id', 255);
             $table->foreign('email_id')->references('email_id')->on('email_templates');
             $table->primary(['email_id', 'mailable_id']);
         });

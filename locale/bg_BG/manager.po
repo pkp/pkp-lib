@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-26 09:59+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3132,3 +3132,9 @@ msgstr "DOI суфикс"
 
 msgid "doi.manager.settings.doiPrefix.required"
 msgstr "Изисква се префикс DOI"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Не можете да изпълните тази операция без активирани DOI."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Неуспешни актуализации на DOI"

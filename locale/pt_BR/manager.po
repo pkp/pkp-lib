@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-05-20 08:58+0000\n"
+"PO-Revision-Date: 2022-06-04 19:36+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2892,3 +2892,9 @@ msgstr "Sufixo DOI"
 
 msgid "doi.manager.settings.doiPrefix.required"
 msgstr "Um prefixo DOI é obrigatório"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Não pode chamar esta operação sem DOIs habilitados."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Falha nas atualizações do DOI"

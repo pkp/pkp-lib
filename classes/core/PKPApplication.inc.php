@@ -214,6 +214,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         // Load default locale files
         Locale::registerPath(BASE_SYS_DIR . '/lib/pkp/locale');
+
+        if (static::isInstalled() && !static::isUpgrading()) {
+            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+            $appVersion = $versionDao->getCurrentVersion()->getVersionString();
+            Registry::set('appVersion', $appVersion);
+        }
     }
 
     /**

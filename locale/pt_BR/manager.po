@@ -1,7 +1,7 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-25 15:57+0000\n"
+"PO-Revision-Date: 2022-05-19 19:08+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -708,10 +708,13 @@ msgstr ""
 
 msgid "doi.manager.settings.doiSuffixPattern"
 msgstr ""
-"Use o padrão a seguir para gerar sufixos DOI. Use %j para as iniciais do "
-"servidor %a para o ID do preprint do OPS, %g para a ID da composição final "
-"do OPS, %f para a ID do arquivo de OPS e %x para o \"Identificador "
-"Personalizado\"."
+"Insira um padrão de sufixo personalizado para cada tipo de publicação.  O "
+"padrão de sufixo personalizado pode usar os seguintes símbolos para gerar um "
+"sufixo:<br><br> <code>%j.%a</code> Preprints<br> <code>%j.%a.g%g</code>  "
+"Composições<br><br> Esteja ciente de que os padrões de sufixo personalizados "
+"geralmente levam a problemas na geração e depósito de DOIs.  Ao usar um "
+"padrão de sufixo personalizado, teste cuidadosamente se os editores podem "
+"gerar DOIs e depositá-los em uma agência de registro como o Crossref. "
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "O prefixo DOI é obrigatório e deve ter o formato 10.xxxx."
@@ -789,10 +792,11 @@ msgstr "DOIs"
 
 msgid "manager.setup.enableDois.description"
 msgstr ""
-"Atribua identificadores de objetos digitais (DOIs) a preprints e composições."
+"Permitir que Identificadores de Objetos Digitais (DOIs) sejam atribuídos a "
+"trabalhos publicados neste servidor."
 
 msgid "doi.manager.settings.doiCreationTime.copyedit"
-msgstr "Na fase de editoração"
+msgstr "Ao chegar à fase de editoração"
 
 msgid "doi.manager.settings.doiSuffixLegacy"
 msgstr ""
@@ -801,3 +805,6 @@ msgstr ""
 
 msgid "emailTemplate.variable.context.contextSignature"
 msgstr "A assinatura de e-mail do servidor para e-mails automáticos"
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr "Composições de preprints, como um PDF publicado"

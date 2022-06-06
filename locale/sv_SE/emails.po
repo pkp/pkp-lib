@@ -65,9 +65,6 @@ msgstr ""
 "Bidragets URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att hens bidrag skickas till extern granskning."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Redaktörsbeslut"
 
@@ -80,9 +77,6 @@ msgstr ""
 "<br />\n"
 "Bidragets URL: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att hens bidrag sänds vidare till produktion."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Redaktörsbeslut"
@@ -97,9 +91,6 @@ msgstr ""
 "Vårt beslut är att: Bearbetning krävs"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att beslutet \"Bearbetning krävs\" fattats för hens bidrag."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Redaktörsbeslut"
 
@@ -112,9 +103,6 @@ msgstr ""
 "<br />\n"
 "Vårt beslut är att: Skicka in igen för ny granskning"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att beslutet \"Skicka in igen för ny granskning\" fattats för hens bidrag."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Redaktörsbeslut"
@@ -129,9 +117,6 @@ msgstr ""
 "Vårt beslut är att: Refusera bidrag"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att beslutet \"Refusera bidrag\" fattats för hens bidrag."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Redaktörsrekommendation"
 
@@ -142,9 +127,6 @@ msgstr ""
 "<br />\n"
 "Rekommendationen angående bidraget &quot;{$submissionTitle}&quot; till {$contextName} är: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Det här e-postmeddelandet från den rekommenderande redaktören eller sektionsredaktören till ansvariga redaktörer eller sektionsredaktörer meddelar dem en slutgiltig rekommendation för bidraget."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Förfrågan om manusredigering"
@@ -182,7 +164,3 @@ msgstr ""
 "Vårt beslut är att: Refusera bidrag"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Det här e-postmeddelandet skickas till författaren om redaktören refuserar "
-"bidraget direkt, innan granskningssteget"

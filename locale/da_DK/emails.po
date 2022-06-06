@@ -71,9 +71,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Denne e-mail fra redaktøren eller sektionsredaktøren til forfatteren meddeler at indsendelsen videresendes til ekstern bedømmelse."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Næste trin for publicering af din indsendelse"
 
@@ -89,11 +86,6 @@ msgstr ""
 "{$submissionUrl}\">submission dashboard</a>.</p><p>Med venlig "
 "hilsen</p>{$signature}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Denne e-mail fra redaktøren eller sektionsredaktøren til forfatteren "
-"meddeler at indsendelsen nu sendes til publicering."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr ""
@@ -127,11 +119,6 @@ msgstr ""
 "hilsen</p>{$signature}<hr><p>De følgende kommentarer er modtaget fra "
 "bedømmerne.</p>{$allReviewerComments}"
 
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Denne e-mail fra redaktøren anmoder forfatteren om ændringer under "
-"fagfællebedømmelsen."
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr ""
@@ -168,11 +155,6 @@ msgstr ""
 "kommentarer er modtaget fra bedømmerne.</p>{$allReviewerComments}"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Denne e-mail fra redaktøren eller sektionsredaktøren til en forfatter "
-"meddeler dem om en beslutning om at revidere og indsende deres bidrag igen."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Din indsendelse er blevet afvist"
 
@@ -192,11 +174,6 @@ msgstr ""
 "bedømmerne.</p>{$allReviewerComments}"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Denne e-mail meddeler forfatteren, at deres indsendelse er blevet afvist "
-"efter en fagfællebedømmelse."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Redaktøranbefaling"
 
@@ -211,15 +188,6 @@ msgstr ""
 "kontakte mig, hvis der er nogle spørgsmål.</p><p>Med venlig "
 "hilsen</p><p>{$senderName}</p>"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Denne automatiske e-mail meddeler en seniorredaktør eller sektionsredaktør, "
-"at der er givet en redaktionel anbefaling om en indsendelse. Denne skabelon "
-"bruges, når en redaktør kun har tilladelse til at anbefale en redaktionel "
-"beslutning men ikke er autoriseret til at tage den endelige redaktionelle "
-"beslutning. Denne mulighed kan vælges, når rollerne tildeles for "
-"indsendelsen."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
@@ -264,8 +232,3 @@ msgstr ""
 "hilsen</p>{$signature}"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Denne e-mail sendes til forfatteren, hvis redaktøren afviser manuskriptet "
-"indledningsvist, før bedømmelsesfasen, idet indsendelsen ikke lever op til "
-"kravene for publicering i tidsskriftet"

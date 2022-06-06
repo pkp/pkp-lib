@@ -69,9 +69,6 @@ msgstr ""
 "URL inzending: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Deze e-mail van de redacteur of sectieredacteur brengt een auteur ervan op de hoogte dat een inzending wordt doorgestuurd aan een reviewer."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Redacteursbeslissing"
 
@@ -84,9 +81,6 @@ msgstr ""
 "<br />\n"
 "URL inzending: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Deze e-mail van de redacteur of sectieredacteur brengt een auteur ervan op de hoogte dat een inzending in productie wordt gegeven."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Redacteursbeslissing"
@@ -101,9 +95,6 @@ msgstr ""
 "Onze beslissing is: Revisies benodigd"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Deze e-mail van de redacteur of sectieredacteur brengt een auteur ervan op de hoogte dat bijkomende revisies worden verwacht voor een inzending."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Redacteursbeslissing"
 
@@ -116,9 +107,6 @@ msgstr ""
 "<br />\n"
 "Onze beslissing is: Opnieuw indienen voor review"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Deze e-mail van de redacteur of sectieredacteur brengt een auteur ervan op de hoogte dat een inzending opnieuw moet worden ingediend voor review."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Redacteursbeslissing"
@@ -133,9 +121,6 @@ msgstr ""
 "Onze beslissing is: Weiger inzending"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Deze e-mail van de redacteur of sectieredacteur brengt een auteur ervan op de hoogte dat een inzending wordt geweigerd."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Redacteursaanbeveling"
 
@@ -146,9 +131,6 @@ msgstr ""
 "<br />\n"
 "De aanbeveling voor de inzending voor {$contextName}, &quot;{$submissionTitle}&quot; is: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Deze e-mail van de aanbevelende redacteur of sectieredacteur brengt de beslissende redacteurs of sectieredacteurs op de hoogte van een aanbeveling over de inzending."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Tekstredactie verzoek"
@@ -192,7 +174,3 @@ msgstr ""
 "Onze beslissing is: Weiger inzending"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Deze e-mail wordt aan een auteur verzonden wanneer de redacteur de inzending "
-"weigert nog voor die aan een reviewer werd bezorgd"

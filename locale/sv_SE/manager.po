@@ -2685,3 +2685,5 @@ msgstr "DOI-prefix delas ut av t.ex. <a href=\"http://www.crossref.org\" target=
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidskriftens innehåll"
+
+#, fuzzy

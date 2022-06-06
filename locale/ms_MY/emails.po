@@ -73,20 +73,8 @@ msgstr ""
 "URL Penyerahan: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
-"mereka bahawa penyerahan mereka dihantar ke ulasan luaran."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Keputusan Editor"
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
-"mereka bahawa penyerahan mereka dihantar ke produksi."
-
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -111,13 +99,6 @@ msgstr ""
 "Keputusan kami adalah: Semakan Diperlukan"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
-"mereka mengenai keputusan \"semakan yang diperlukan\" terakhir mengenai "
-"penyerahannya."
-
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Keputusan Editor"
 #, fuzzy
@@ -129,12 +110,6 @@ msgstr ""
 "&quot; {$submissionTitle} &quot ;. <br />\n"
 "<br />\n"
 "Keputusan kami adalah untuk: Serah semula untuk Ulasan"
-
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
-"mereka tentang keputusan \"serah semula\" mengenai penyerahan mereka."
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
@@ -150,21 +125,8 @@ msgstr ""
 "Keputusan kami adalah untuk: Menolak Penyerahan"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"E-mel ini dari Editor atau Editor Bahagian kepada Pengarang memberitahu "
-"mereka tentang keputusan \"penolakan\" terakhir mengenai penyerahan mereka."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Keputusan Editor"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"E-mel ini dari Editor yang mencadangkan atau Editor Bahagian kepada Editor "
-"yang membuat keputusan atau Editor Bahagian memberitahu mereka tentang "
-"cadangan terakhir mengenai penyerahan."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -215,12 +177,6 @@ msgstr ""
 "&quot; {$submissionTitle} &quot ;. <br />\n"
 "<br />\n"
 "Keputusan kami adalah untuk: Menolak Penyerahan"
-
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"E-mel ini dihantar kepada pengarang sekiranya editor menolak penyerahan "
-"mereka pada awalnya, sebelum peringkat ulasan"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

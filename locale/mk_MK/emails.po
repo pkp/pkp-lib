@@ -62,12 +62,6 @@ msgstr ""
 "&quot;{$submissionTitle},&quot; за {$contextName}. Го цениме вашиот придонес "
 "кон квалитетот на трудовите кои ги објавуваме."
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Овој и-меил од Главен или Секциски уредник до Автор ги известува дека "
-"нивниот поднесок се испраќа за надворешна рецензија."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Одлука на уредникот"
 
@@ -83,12 +77,6 @@ msgstr ""
 "<br />\n"
 "URL-адреса на поднесокот: {$submissionUrl}"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Овој и-меил од Главен или Секциски уредник до Автор ги известува дека "
-"нивниот поднесок се испраќа за обработка."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Одлука на уредникот"
 
@@ -101,12 +89,6 @@ msgstr ""
 "Сега го испраќаме на обработка.<br />\n"
 "<br />\n"
 "URL-адреса на поднесокот: {$submissionUrl}"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Овој и-меил од Главен или Секциски уредник до Автор ги известува за "
-"конечната одлука „потребни се исправки“ во однос на нивниот поднесок."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Одлука на уредникот"
@@ -121,12 +103,6 @@ msgstr ""
 "<br />\n"
 "Нашата одлука е: Потребни се ревизии"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Овој и-меил од Главен или Секциски уредник до Автор ги известува за "
-"конечната одлука „повторно поднеси“ во однос на нивниот поднесок."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Одлука на уредникот"
 
@@ -139,12 +115,6 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Нашата одлука е: Поднеси повторно за рецензија"
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Овој и-меил од Главен или Секциски уредник до Автор ги известува за "
-"конечната одлука „одбиено“ во однос на нивниот поднесок."
-
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Одлука на уредникот"
@@ -159,12 +129,6 @@ msgstr ""
 "<br />\n"
 "Нашата одлука е: Одбиен поднесок"
 #, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Овој и-меил од Главен или Секциски уредник кој препорачува до Главен или "
-"Секциски уредник кој носи одлука ги известува за конечната препорака во "
-"однос на поднесокот."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Препорака на уредникот"
 
@@ -206,12 +170,6 @@ msgstr ""
 "{$contextName} URL-адреса: {$contextUrl}<br />\n"
 "URL-адреса на поднесокот: {$submissionUrl}<br />\n"
 "Корисничко име: {$recipientUsername}"
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Овој и-меил е испратен до авторот доколку уредникот го одбие нивниот "
-"поднесок на почетокот, пред да биде испратен на рецензија"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

@@ -88,3 +88,5 @@ msgstr ""
 "mumkinligi haqidagi ma'lumotlar taqdim etiladi. Bu xabar menejment> "
 "sozlamalar> ish oqimi> ko'rib chiqish bo'limida standart ko'rib chiqish "
 "jarayoni tanlanganida ishlatiladi."
+
+#, fuzzy

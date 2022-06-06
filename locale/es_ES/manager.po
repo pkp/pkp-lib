@@ -2441,3 +2441,5 @@ msgstr ""
 "título, el resumen, la fecha de entrega de la revisión y cómo obtener acceso "
 "al propio envío. Este mensaje se usa cuando se selecciona el proceso de "
 "revisión estándar en Gestión > Ajustes > Flujo de trabajo > Revisión."
+
+#, fuzzy

@@ -58,13 +58,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "زانیارییەکانی هەڵسەنگاندنی توێژینەوە"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"ئەم ئیمەیڵە لە لایەن سەرنوسەر یان سەرنوسەری بەشەوە بۆ توێژەرە بە مەبەستی "
-"ئاگادارکردنەوەیان لە ئەوەی کە توێژینەوەکەیان بۆ هەڵسەنگێنەری دەرەکی "
-"دەنێردرێت."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -80,12 +73,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "بڕیاری سەرنوسەر"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"ئەم ئیمەیڵە لە سەرنوسەر یان سەرنوسەری بەشەوە بۆ توێژەرە بۆ ئاگادارکردنەوەیان "
-"لەوەی کە توێژینەوەکەیان دەنێردرێت بۆ بڵاوکردنەوە."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -98,12 +85,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "بڕیاری سەرنوسەر"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"ئەم ئیمەیڵە لە لایەن سەرنوسەر یان سەرنوسەری بەشەوەیە بۆ ئاگادارکردنەوەیان لە "
-"بڕیاری ئەوەی کە ''توێژینەوەکەیان پێویستی بە پێداچونەوە هەیە''."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -118,12 +99,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "بڕیاری سەرنوسەر"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"ئەم ئیمەیڵە لە لایەن سەرنوسەر یان سەرنوسەری بەشەوەیە بۆ ئاگادارکردنەوەیان لە "
-"بڕیاری ئەوەی کە ''دوبارە توێژینەوەکەت پێشکەش بکەوە بۆ هەڵسەنگاندن''."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -137,12 +112,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "بڕیاری سەرنوسەر"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"ئەم ئیمەیڵە لە لایەن سەرنوسەر یان سەرنوسەری بەشەوەیە بۆ ئاگادارکردنەوەیان لە "
-"بڕیاری ئەوەی کە ''توێژینەوەکە ڕەت کرایەوە''."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -155,12 +124,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "بڕیاری سەرنوسەر"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"ئەم ئیمەیڵە لە لایەن یەکێک لە سەرونسەرانەوەیە بۆ سەرنوسەری بڕیاردەر بۆ ئەوەی "
-"لە کۆتا پێشنیازەکان دەربارەی توێژینەوەی پێشکەشکراو ئاگادار بکرێتەوە."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -209,12 +172,6 @@ msgstr ""
 "بڕیارمان دا.<br />\n"
 "<br />\n"
 "بڕیار: توێژینەوەکە ڕەت کرایەوە"
-
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"ئەم ئیمەیڵە بۆ توێژەر دەچێت کاتێک سەرنوسەر توێژینەوەکە پێش ناردنی بۆ "
-"هەڵسەنگێنەر ڕەت دەکاتەوە"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

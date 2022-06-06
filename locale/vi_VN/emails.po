@@ -70,20 +70,8 @@ msgstr ""
 "URL bài gửi: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Email này từ Biên tập viên hoặc Biên tập chuyên mục cho Tác giả thông báo "
-"cho họ rằng bài gửi của họ đang được gửi đi đánh giá bên ngoài."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Quyết định của Ban biên tập"
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Email này từ Biên tập viên hoặc Biên tập chuyên mục cho Tác giả thông báo "
-"cho họ rằng bài gửi của họ đang được gửi đến giai đoạn chế bản."
-
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Quyết định của Ban biên tập"
@@ -97,13 +85,6 @@ msgstr ""
 "thành. Chúng tôi đã chuyển nó sang giai đoạn chế bản.<br />\n"
 "<br />\n"
 "URL bài gửi: {$submissionUrl}"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Email này từ Biên tập viên hoặc Biên tập viên chuyên mục cho Tác giả thông "
-"báo cho họ về quyết định \"yêu cầu sửa chữa\" cuối cùng liên quan đến bài "
-"gửi của họ."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Quyết định của Ban biên tập"
@@ -132,19 +113,8 @@ msgstr ""
 "Quyết định của chúng tôi là: Gửi lại để xem xét"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Email này từ Biên tập viên hoặc Biên tập viên chuyên mục cho Tác giả thông "
-"báo cho họ về quyết định \"gửi lại\" cuối cùng liên quan đến bài gửi của họ."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Quyết định của Ban biên tập"
-
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Email này từ Biên tập viên hoặc Biên tập viên chuyên mục cho Tác giả thông "
-"báo cho họ về quyết định \"từ chối\" cuối cùng liên quan đến bài gửi của họ."
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
@@ -158,13 +128,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Khuyến nghị của biên tập viên"
-
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Email này từ Biên tập viên hoặc Biên tập viên chuyên mục tới các Biên tập "
-"viên hoặc Biên tập viên chuyên mục thông báo cho họ quyết định về khuyến "
-"nghị cuối cùng liên quan đến bài gửi."
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
@@ -219,7 +182,3 @@ msgstr ""
 "Quyết định của chúng tôi là: Từ chối"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Email này được gửi cho tác giả nếu biên tập viên từ chối gửi ban đầu, trước "
-"giai đoạn xem xét"

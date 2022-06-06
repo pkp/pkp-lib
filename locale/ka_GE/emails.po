@@ -72,12 +72,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან, მასალის გარე "
-"რეცენზირებაზე გაგზავნის შესახებ."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "რედაქციის გადაწყვეტილება"
 #, fuzzy
@@ -89,12 +83,6 @@ msgstr ""
 "complete.  We are now sending it to production..<br />\n"
 "<br />\n"
 "Submission URL: {$submissionUrl}"
-
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან, მასალის "
-"წარმოებაში ჩაშვების შესახებ."
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
@@ -110,12 +98,6 @@ msgstr ""
 "Our decision is: Revisions Required"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან „საჭიროა კორექტურა“"
-" საბოლოო გადაწყვეტილების შესახებ."
-
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "რედაქციის გადაწყვეტილება"
 #, fuzzy
@@ -127,12 +109,6 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;..<br />\n"
 "<br />\n"
 "Our decision is to: Resubmit for Review"
-
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან „რეცენზირებაზე "
-"გაგზავნა“ საბოლოო გადაწყვეტილების შესახებ."
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
@@ -148,12 +124,6 @@ msgstr ""
 "Our decision is to: Decline Submission"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან „მასალის უარყოფა“ "
-"საბოლოო გადაწყვეტილების შესახებ."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "რედაქციის გადაწყვეტილება"
 #, fuzzy
@@ -165,11 +135,6 @@ msgstr ""
 "&quot;{$submissionTitle}&quot; is: {$recommendation}"
 
 #, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"ეს წერილი არის რეკომენდაციის მიმცემი რედაქტორის, ან განყოფილების რედაქტორის "
-"მიერ გაგზავნილი მასალის საბოლოო რეკომენდაციის შესახებ."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "რედაქციის გადაწყვეტილება"
 #, fuzzy
@@ -212,12 +177,6 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;..<br />\n"
 "<br />\n"
 "Our decision is to: Decline Submission"
-
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"ეს წერილი ეგზავნება ავტორს, თუ რედაქტორი გადაწყვიტავს უარყოს გამოგზავნილი "
-"მასალა საწყის ეტაპზე, რეცენზირების დაწყებამდე"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

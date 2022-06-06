@@ -2263,3 +2263,5 @@ msgstr ""
 "sélectionné dans Configuration de la revue > Paramètres > Flux des travaux > "
 "Évaluation (Autrement voir « Demande d'évaluation d'un article (cycle "
 "subséquent) ».)"
+
+#, fuzzy

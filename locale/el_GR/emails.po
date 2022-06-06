@@ -64,9 +64,6 @@ msgstr ""
 "Σύνδεσμος υποβολής: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή ή τον Επιμελητή Ενότητας στον Συγγραφέα, ως ενημέρωση ότι η υποβολή προωθείται προς εξωτερική αξιολόγηση."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Απόφαση Επιμελητή"
 
@@ -79,9 +76,6 @@ msgstr ""
 "<br />\n"
 "Σύνδεσμος υποβολής: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή ή τον Επιμελητή Ενότητας στον Συγγραφέα, ως ενημέρωση ότι η υποβολή προωθείται στην παραγωγή."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Απόφαση Επιμελητή"
@@ -96,9 +90,6 @@ msgstr ""
 "Η απόφασή μας είναι: Απαιτούνται αναθεωρήσεις"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή ή τον Επιμελητή Ενότητας στον Συγγραφέα, ως ενημέρωση ότι απαιτούνται αναθεωρήσεις στην υποβολή."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Απόφαση Επιμελητή"
 
@@ -111,9 +102,6 @@ msgstr ""
 "<br />\n"
 "Η απόφασή μας είναι: Επανυποβολή για αξιολόγηση"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή ή τον Επιμελητή Ενότητας στον Συγγραφέα, ως ενημέρωση ότι απαιτείται επανυποβολή για αξιολόγηση."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Απόφαση Επιμελητή"
@@ -128,9 +116,6 @@ msgstr ""
 "Η απόφασή μας είναι: Απόρριψη της Υποβολής"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή ή τον Επιμελητή Ενότητας στον Συγγραφέα, ως ενημέρωση για την απόρριψη της υποβολής."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Σύσταση Επιμελητή"
 
@@ -141,9 +126,6 @@ msgstr ""
 "<br />\n"
 "Η σύσταση αναφορικά με την υποβολή &quot;{$submissionTitle}&quot;, στο περιοδικό {$contextName}, είναι: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον συστήνοντα Επιμελητή (ή Επιμελητή Ενότητας) στους Επιμελητές (ή Επιμελητές Ενότητας) που έχουν την εποπτεία μιας υποβολής, γνωστοποιώντας την τελική σύσταση σχετικά με την υποβολή."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Αίτημα επιμέλειας κειμένου"
@@ -181,5 +163,3 @@ msgstr ""
 "Η απόφασή μας είναι: Απόρριψη υποβολής"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται στον Συγγραφέα, σε περίπτωση που ο Επιμελητής απορρίψει την υποβολή αρχικά, πριν το στάδιο της αξιολόγησης."

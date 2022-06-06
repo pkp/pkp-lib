@@ -70,9 +70,6 @@ msgstr ""
 "URL Naskah: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Email ini dari Editor atau Editor Bagian kepada Penulis memberitahukan bahwa naskah dikirimkan ke reviewer eksternal."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Tahap berikutnya menerbitkan naskah Anda"
 
@@ -85,9 +82,6 @@ msgstr ""
 "<br />\n"
 "URL Naskah: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Email ini dari Editor atau Editor Bagian kepada Penulis memberitahukan bahwa naskah dikirim ke produksi."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr ""
@@ -104,9 +98,6 @@ msgstr ""
 "Keputusan kami adalah: Perlu Revisi"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Email dari Editor meminta revisi dari penulis selama proses review."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Naskah Anda telah direview - silakan revisi dan kirim ulang"
 
@@ -120,9 +111,6 @@ msgstr ""
 "Keputusan kami adalah: Kirim Ulang untuk Review"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Email ini dari Editor atau Editor Bagian kepada Penulis memberitahukan bahwa Penulis perlu mengirim ulang naskahnya."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Naskah Anda ditolak"
 
@@ -134,18 +122,6 @@ msgstr ""
 "Kami telah membuat keputusan terkait naskah yang Anda kirimkan ke {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Keputusan kami adalah: Naskah Ditolak"
-
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Email ini memberitahukan kepada penulis bahwa naskahnya telah ditolak "
-"setelah proses review."
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Email ini berasal dari Editor atau Editor Bagian kepada Editor pengambilan "
-"keputusan atau Editor Bagian memberi tahu mereka tentang rekomendasi akhir "
-"mengenai naskah tersebut."
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
@@ -180,12 +156,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "Email ini dari Editor Bagian ke Copyeditor naskah agar memulai proses copyediting.  Email ini memuat informasi terkait penyerahan naskah dan bagaimana mengaksesnya."
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Email ini dikirim kepada penulis jika naskah mereka ditolak oleh editor "
-"lebih awal, sebelum masuk ke tahap review"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

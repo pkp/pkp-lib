@@ -2383,3 +2383,5 @@ msgstr ""
 "cum ar fi titlul și rezumatul, data limită de revizuire și modul de accesare "
 "a lucrării. Acest mesaj este utilizat când Procesul de revizuire standard "
 "este selectat în Management> Setări> Flux de lucru> Revizuire."
+
+#, fuzzy

@@ -2519,3 +2519,5 @@ msgstr ""
 "tajuk dan abstrak, tarikh akhir ulasan, dan cara mengakses penyerahan itu "
 "sendiri. Mesej ini digunakan apabila Proses Ulansan Standard dipilih dalam "
 "Pengurusan> Tetapan> Aliran Kerja> Ulasan."
+
+#, fuzzy

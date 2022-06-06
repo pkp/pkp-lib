@@ -59,12 +59,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "Poďakovanie za spracovanie recenzie článku"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Tento email od editora alebo editora sekcie autorovi oznamuje, že ich "
-"príspevok je odosielaný k externej recenzii."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "Vážený(á) {$authors}:<br />\n"
@@ -80,12 +74,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Rozhodnutie editora"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Tento e-mail od editora alebo editora sekcie autorovi oznamuje, že ich "
-"podanie je odoslané do produkčnej fázy."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -98,12 +86,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Rozhodnutie editora"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Tento e-mail od editora alebo editora sekcie upozorňuje autora o rozhodnutí "
-"\"požadujeme recenziu\"."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -118,12 +100,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Rozhodnutie editora"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Tento e-mail od editora alebo editora sekcie upozorňuje autora na konečné "
-"rozhodnutie \"opätovné podanie\"."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -137,12 +113,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Rozhodnutie editora"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Tento e-mail od editora alebo editora sekcie informuje autora o konečnom "
-"rozhodnutí o odmietnutí jeho príspevku."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -155,12 +125,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Rozhodnutie editora"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Tento e-mail je od editora alebo redaktora sekcie pre zodpovedného redaktora "
-"alebo pre redaktorov sekcií - informuje o konečnom odporúčaní príspevku."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -199,12 +163,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Žiadosť o redigovanie príspevku"
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Tento e-mail sa pošle autorovi, ak redaktor odmietne príspevok už pred "
-"recenzným riadením"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

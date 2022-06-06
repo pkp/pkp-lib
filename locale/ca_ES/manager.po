@@ -2598,3 +2598,5 @@ msgstr ""
 "la tramesa, com el títol i el resum, la data límit de revisió i la manera d"
 "'accedir-hi. Aquest missatge s'utilitza quan el procés de revisió estàndard "
 "s'ha seleccionat a Gestió > Configuració > Flux de treball > Revisió."
+
+#, fuzzy

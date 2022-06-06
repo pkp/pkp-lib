@@ -2424,3 +2424,5 @@ msgstr "Questa email dal section editor al revisore richiede che quest'ultimo ac
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Questo messaggio viene inviato dall'editor a un revisore chiedendogli di accettare o rifiutare l'incarico di revisione di una proposta per un secondo o successivo round di revisione. Esso fornisce informazioni come il titolo e l'abstract, una data di scadenza e modalità di accesso alla stessa proposta."
+
+#, fuzzy

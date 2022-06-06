@@ -78,12 +78,6 @@ msgstr ""
 "URL an tagraidh: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Tha am post-d seo on deasaiche no o dheasaiche na h-earrainn gu ùghdar a’ "
-"leigeil fios thuca gun deach an tagradh aca a chur airson lèirmheas air an "
-"taobh a-muigh."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Co-dhùnadh deasaiche"
 
@@ -97,12 +91,6 @@ msgstr ""
 "<br />\n"
 "URL an tagraidh: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Tha am post-d seo on deasaiche no o dheasaiche na h-earrainn gu ùghdar a’ "
-"leigeil fios thuca gun deach an tagradh aca a chur chun an sgioba "
-"saothrachaidh."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Co-dhùnadh deasaiche"
@@ -118,12 +106,6 @@ msgstr ""
 "Cho-dhùin sinn na leanas: Tha feum air ath-dheasachadh"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Tha am post-d seo on deasaiche no o dheasaiche na h-earrainn gu ùghdar a’ "
-"leigeil fios thuca gum b’ e “feum air ath-dheasachadh” an co-dhùnadh "
-"deireannach mun tagradh aca."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Co-dhùnadh deasaiche"
 
@@ -137,12 +119,6 @@ msgstr ""
 "<br />\n"
 "Cho-dhùin sinn Cuir a chùm lèirmheis às ùr"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Tha am post-d seo on deasaiche no o dheasaiche na h-earrainn gu ùghdar a’ "
-"leigeil fios thuca gum b’ e a ath-thagradh an co-dhùnadh deireannach mun "
-"tagradh aca."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Co-dhùnadh deasaiche"
@@ -158,12 +134,6 @@ msgstr ""
 "Cho-dhùin sinn an tagradh a dhiùltadh"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Tha am post-d seo on deasaiche no o dheasaiche na h-earrainn gu ùghdar a’ "
-"leigeil fios thuca gum b’ e a dhiùltadh an co-dhùnadh deireannach mun "
-"tagradh aca."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Moladh an deasaiche"
 
@@ -175,12 +145,6 @@ msgstr ""
 "’S e seo an co-dhùnadh a thaobh an tagraidh gu {$contextName}, "
 "“{$submissionTitle}”: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Tha am post-d seo on deasaiche a mhol e no o dheasaiche na h-earrainn chun "
-"nan deasaichean co-dhùnaidh no deasaichean earrainn a’ leigeil fios thuca "
-"mun mholadh deireannach a thaobh an tagraidh."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Iarrtas grinn-deasachaidh"
@@ -227,7 +191,3 @@ msgstr ""
 "Cho-dhùin sinn an tagradh a dhiùltadh"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Thèid am post-d seo a chur chun an ùghdair ma dhiùltas an deasaiche an "
-"tagradh aca sa chiad dol a-mach, ro ìre an lèirmheis"

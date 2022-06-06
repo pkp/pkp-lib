@@ -54,13 +54,6 @@ msgstr ""
 msgid "emails.reviewAck.description"
 msgstr "Aquest missatge de correu electrònic té un editor de secció com a remitent i s'envia al revisor per a confirmar-li la recepció d'una revisió completada i agrair-li la seva contribució."
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Aquest correu electrònic de l'editor/a o de l'editor/a de secció s'adreça a "
-"un autor/a per notificar-li que la seva tramesa s'envia a una revisió "
-"externa."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -76,12 +69,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Decisió de l'editor/a"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Aquest correu electrònic de l'editor/a o de l'editor/a de secció s'adreça a "
-"un autor/a per notificar-li que la seva tramesa s'envia a producció."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -94,13 +81,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decisió de l'editor/a"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Aquest correu electrònic de l'editor/a o de l'editor/a de secció s'adreça a "
-"un autor/a per notificar-li que la decisió final és que la seva tramesa "
-"necessita revisions."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -115,13 +95,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decisió de l'editor/a"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Aquest correu electrònic de l'editor/a o de l'editor/a de secció s'adreça a "
-"un autor/a per notificar-li que s'ha pres la decisió final de tornar a "
-"enviar a revisió la seva tramesa."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -135,13 +108,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decisió de l'editor/a"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Aquest correu electrònic de l'editor/a o de l'editor/a de secció s'adreça a "
-"un autor/a per notificar-li que s'ha pres la decisió final de rebutjar la "
-"seva tramesa."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -154,13 +120,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Decisió de l'editor/a"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Aquest correu electrònic de l'editor/a o de l'editor/a de secció que fan "
-"recomanacions per als editors/ores o editors/ores de secció que prenen "
-"decisions els notifica que s'ha fet una recomanació final sobre la tramesa."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -200,12 +159,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "Aquest missatge de correu electrònic té un editor de secció com a remitent i s'envia al possible corrector d'una tramesa per a sol·licitar-li que comenci el procés de correcció. Proporciona informació sobre la tramesa i com s'hi ha d'accedir."
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Aquest correu electrònic s'envia a l'autor/a si l'editor/a rebutja la "
-"tramesa inicialment, abans de la fase de revisió"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

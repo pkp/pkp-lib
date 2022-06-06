@@ -1,11 +1,12 @@
 # Jonas Raoni Soares da Silva <weblate@raoni.org>, 2021.
+# Manolis Saldaris <omanos@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2021-12-26 09:24+0000\n"
-"Last-Translator: Jonas Raoni Soares da Silva <weblate@raoni.org>\n"
+"PO-Revision-Date: 2022-05-27 08:26+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "el_GR/>\n"
 "Language: el_GR\n"
@@ -37,10 +38,10 @@ msgid "admin.authSources"
 msgstr "Πηγές πιστοποίησης"
 
 msgid "admin.clearDataCache"
-msgstr "Καθαρισμός κρυφής μνήμης δεδομένων"
+msgstr "Διαγραφή κρυφής μνήμης δεδομένων"
 
 msgid "admin.clearTemplateCache"
-msgstr "Καθαρισμός κρυφής μνήμης προτύπων"
+msgstr "Διαγραφή κρυφής μνήμης προτύπων"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -141,7 +142,7 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Επιβεβαιώνετε τη διαγραφή όλων των αρχείων διεκπεραίωσης των προγραμματισμένων εργασιών;"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Διαγραφή αρχείων διεκπεραίωσης προγραμματισμένων εργασιών"
+msgstr "Εκκαθάριση προγραμματισμένων αρχείων καταγραφής εργασιών"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Υπενθύμιση αξιολόγησης"
@@ -340,3 +341,19 @@ msgstr "Δημοσίευση των προγραμματισμένων για δ
 
 msgid "admin.settings.about"
 msgstr "Σχετικά με τον ιστότοπο"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Διαγράψτε όλα τα αρχεία καταγραφής των διαδικασιών προγραμματισμένων "
+"εργασιών που έχουν εκτελεστεί."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Όλοι οι χρήστες θα αποσυνδεθούν αμέσως από την εφαρμογή, συμπεριλαμβανομένου "
+"και εσάς, και θα χρειαστεί να συνδεθείτε ξανά."
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Περιορισμός σε μαζικά μηνύματα ηλ. ταχυδρομείου"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Μαζικά μηνύματα ηλ. ταχυδρομείου"

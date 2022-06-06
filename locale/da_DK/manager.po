@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-05-17 08:54+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2464,13 +2464,14 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Ved publikation"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "På hvilket tidspunkt i publikationsprocessen skal DOI'er dannes?"
+msgstr "Hvornår skal en indsendelse tildeles et DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Automatisk dannelse af DOI"
+msgstr "Automatisk tildeling af DOI"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "Et DOI-præfiks er påkrævet. Det skal være på formen 10.xxxx."
+msgstr ""
+"Et DOI-præfiks er påkrævet. Det skal være på den følgende form: 10.xxxx."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -2627,8 +2628,11 @@ msgstr ""
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Om DOI'er skal registreres automatisk hos den registreringsorganisation, der "
-"er konfigureret i opsætningen."
+"Registrering af DOI'er og metadata kan automatisk deponeres ved den valgte "
+"registreringsorganisation, når en publikation med et DOI publiceres. "
+"Automatisk deponering vil ske med et planlagt interval og "
+"registreringsstatussen for hver enkelt DOI kan overvåges på siden, hvor DOI "
+"styres."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
@@ -2924,16 +2928,43 @@ msgstr ""
 "indsendelsesfiler til en anden komponent."
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr "Et DOI-suffiks kan antage en hvilken som helst form, men det skal være unikt for hvert enkelt udgivet element under samme DOI-præfiksgruppe:"
+msgstr "Vælg det format, der skal bruges, når der genereres et DOI."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Anvend standardformaterne."
+msgstr "Standard"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI-suffiks"
+msgstr "DOI format"
 
 msgid "doi.manager.settings.doiPrefix.description"
-msgstr "DOI-præfikset tildeles af registreringsorganisationer (f.eks. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) og er i formatet 10.xxxx (f.eks. 10.1234):"
+msgstr ""
+"DOI-præfikset tildeles af registreringsorganisationer (f.eks. <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a> eller  <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>) og er i formatet 10.xxxx"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidsskriftsindhold"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Indsendelsens fil {$child} kunne ikke behandles"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Indsendelsens aktuelle publikation mangler"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Brugerdefineret mønster (ikke anbefalet)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Brugerdefineret DOI-suffiksmønster"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI-suffiks"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Et DOI prefiks er påkrævet"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Du kan ikke vælge denne handling uden at have DOI'er slået til."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI opdatering mislykkedes"

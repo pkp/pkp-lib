@@ -2,8 +2,8 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-16 10:41+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
 "Language: hy_AM\n"
@@ -477,15 +477,13 @@ msgstr ""
 "օրինաչափություն: Այլևս չի օգտագործվում:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Օգտագործեք լռելյայն կաղապարը:"
+msgstr "Լռելյայն"
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"DOI վերջածանցը կարող է ունենալ ցանկացած ձև, բայց պետք է լինի եզակի բոլոր "
-"հրատարակչական օբյեկտների մեջ, որոնց հատկացված է նույն DOI նախածանցը։"
+msgstr "Ընտրեք այն ձևաչափը, որը կօգտագործվի, երբ հավելվածը ստեղծում է DOI:"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI վերջածանց"
+msgstr "DOI ձևաչափ"
 
 msgid "doi.manager.settings.enableFor"
 msgstr "{$objects} -ին նշանակվելու է DOI"
@@ -503,24 +501,26 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Հրապարակման ժամանակ"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Հրապարակման գործընթացի ո՞ր կետում պետք է ստեղծվեն DOI-ները:"
+msgstr "Ե՞րբ պետք է ներկայացմանը նշանակվի DOI:"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Ինքնաշխատ DOI ստեղծում"
+msgstr "Ինքնաշխատ DOI նշանակում"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "DOI նախածանցը պարտադիր է և պետք է լինի 10.xxxx ձևով:"
+msgstr "DOI նախածանցը պահանջվում է և պետք է լինի հետևյալ ձևաչափով՝ 10.xxxx:"
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Սա նշանակված է DOI գրանցման գործակալության կողմից, ինչպիսիք են <a href=\""
-"https://www.crossref.org\" target=\"_new\">Crossref</a> կամ <a href=\""
+"DOI նախածանցը նշանակված է գրանցման գործակալության կողմից, ինչպիսիք են <a "
+"href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> կամ <a href=\""
 "https://datacite.org/\" target=\"new\">DataCite</a>: Օրինակ՝ 10.xxxx"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Արդյոք DOI-ները պետք է ինքնաշխատ կերպով պահվեն կազմաձևված գրանցման "
-"գործակալությունում:"
+"DOI-ի գրանցումը և մետատվյալները կարող են ինքնաշխատ կերպով պահվել ընտրված "
+"գրանցման գործակալությունում, երբ հրապարակվում է DOI-ով նյութ: Ինքնաշխատ "
+"պահումը կկատարվի նախատեսված ժամանակահատվածում, և յուրաքանչյուր DOI-ի "
+"գրանցման կարգավիճակը կարող է վերահսկվել DOI-ի կառավարման էջից:"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Միացրեք ինքնաշխատ ավանդադրումը"
@@ -3028,3 +3028,21 @@ msgstr "Ներկայացման երեխային {$child} չհաջողվեց մշ
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "Ներկայացման ընթացիկ հրապարակումը բացակայում է"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Պատվերով կաղապար (խորհուրդ չի տրվում)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Պատվերով DOI վերջածանցի նմուշ"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI վերջածանց"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Պահանջվում է DOI նախածանց"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Դուք չեք կարող կանչել այս գործողությունը առանց միացված DOI -ների:"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI-ի թարմացումները ձախողվեցին"

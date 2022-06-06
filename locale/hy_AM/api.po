@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-27 16:26+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
@@ -284,3 +284,6 @@ msgstr ""
 
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Էլ․ փոստի համար պետք է նշեք թեման և նյութը:"
+
+msgid "api.dois.400.prefixRequired"
+msgstr "DOI-ներ ստեղծելու համար պահանջվում է DOI նախածանց:"

@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-11 10:45+0000\n"
+"PO-Revision-Date: 2022-06-04 03:53+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -775,13 +775,13 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "При публикуване"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "В кой момент от процеса на публикуване трябва да бъдат създадени DOI?"
+msgstr "Кога на материалът трябва да бъде присвоен DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Автоматично създаване на DOI"
+msgstr "Автоматично присвояване на DOI"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "Префиксът DOI е задължителен и трябва да бъде във формата 10.xxxx."
+msgstr "Префиксът DOI е задължителен и трябва да бъде във формат: 10.xxxx."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -791,8 +791,11 @@ msgstr ""
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Дали DOI следва да се депозират автоматично в конфигурираната агенция за "
-"регистрация."
+"Регистрацията на DOI и метаданните могат автоматично да бъдат депозирани в "
+"избраната агенция за регистрация всеки път, когато се публикува статия с "
+"DOI. Автоматично депозиране ще се извършва на планирани интервали и статусът "
+"на регистрация на всеки DOI може да се наблюдава от страницата за управление "
+"на DOI."
 
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Активиране на автоматично депозиране"
@@ -2730,7 +2733,10 @@ msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "Липсва потребителска група за името на автор {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Неизвестна потребителска група {$param}"
+msgstr ""
+"Файлът за импортиране включва автор '{$authorName}' с потребителска група "
+"'{$userGroupName}'. Няма дефинирана потребителска група в целевата "
+"инсталация с потребителска група с това име."
 
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "Съдържанието не е езиково кодирано като {$param}"
@@ -3096,7 +3102,7 @@ msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Използвайте стандартни шаблони."
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI суфикс"
+msgstr "DOI формат"
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -3106,3 +3112,29 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Съдържание на списание"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr ""
+"Обработването на свързаните материали - {$child} на подадения материал не бе "
+"успешно"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Липсва текущата публикация за подадения материал"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Персонализиран модел (не се препоръчва)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Персонализиран DOI суфиксен модел"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI суфикс"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Изисква се префикс DOI"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Не можете да изпълните тази операция без активирани DOI."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Неуспешни актуализации на DOI"

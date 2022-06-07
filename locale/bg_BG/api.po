@@ -289,5 +289,5 @@ msgstr "Не можете да редактирате DOI на елемент, �
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Трябва да посочите тема и съдържание на имейла."
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "За генериране на DOI е необходим префикс за DOI."

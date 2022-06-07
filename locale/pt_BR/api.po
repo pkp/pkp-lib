@@ -287,5 +287,5 @@ msgstr ""
 "Você não pode registrar ou recomendar uma decisão para esta submissão, "
 "porque ela já foi publicada."
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "Um prefixo DOI é necessário para gerar DOIs."

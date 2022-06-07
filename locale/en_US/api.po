@@ -29,7 +29,7 @@ msgstr "You must provide a subject and body for the email."
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "It is not possible to change the time this was created."
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "A DOI prefix is required to generate DOIs."
 
 msgid "api.403.unauthorized"
@@ -51,7 +51,7 @@ msgid "api.contexts.400.localesNotSupported"
 msgstr "The following locales are not supported: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "You cannot edit an item's DOI that is not in this context"
+msgstr "You cannot edit an item's DOI that is not in this context."
 
 msgid "api.dois.404.contextNotFound"
 msgstr "This endpoint is not available from the site-wide namespace, and must be requested for a given context."
@@ -79,6 +79,7 @@ msgstr "No valid publication objects were included with the request."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr "One or more invalid publication objects were included with the request."
+
 msgid "api.decisions.403.alreadyPublished"
 msgstr "You can not record a decision or recommend a decision for this submission because it has already been published."
 

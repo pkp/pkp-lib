@@ -77,6 +77,18 @@ class PKPDoiHandler extends APIHandler
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
+                    'pattern' => $this->getEndpointPattern() . '/submissions/assignDois',
+                    'handler' => [$this, 'assignSubmissionDois'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
+                ],
+            ],
+            'PUT' => [
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{doiId:\d+}',
+                    'handler' => [$this, 'edit'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
+                ],
+                [
                     'pattern' => $this->getEndpointPattern() . '/submissions/export',
                     'handler' => [$this, 'exportSubmissions'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
@@ -92,21 +104,9 @@ class PKPDoiHandler extends APIHandler
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
                 [
-                    'pattern' => $this->getEndpointPattern() . '/submissions/assignDois',
-                    'handler' => [$this, 'assignSubmissionDois'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-                [
                     'pattern' => $this->getEndpointPattern() . '/depositAll',
                     'handler' => [$this, 'depositAllDois'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN]
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{doiId:\d+}',
-                    'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
             'DELETE' => [
@@ -163,7 +163,7 @@ class PKPDoiHandler extends APIHandler
 
         // The contextId should always point to the requested contextId
         if ($doi->getData('contextId') !== $this->getRequest()->getContext()->getId()) {
-            return $response->withStatus(404)->withJsonError('api.dois.400.contextsNotMatched');
+            return $response->withStatus(403)->withJsonError('api.dois.400.contextsNotMatched');
         }
 
         return $response->withJson(Repo::doi()->getSchemaMap()->map($doi), 200);
@@ -249,7 +249,7 @@ class PKPDoiHandler extends APIHandler
 
         // The contextId should always point to the requested contextId
         if ($doi->getData('contextId') !== $this->getRequest()->getContext()->getId()) {
-            return $response->withStatus(403)->withJsonError('api.dois.400.contextsNotMatched');
+            return $response->withStatus(403)->withJsonError('api.dois.403.editItemOutOfContext');
         }
 
         $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_DOI, $slimRequest->getParsedBody());
@@ -282,7 +282,7 @@ class PKPDoiHandler extends APIHandler
 
         // The contextId should always point to the requested contextId
         if ($doi->getData('contextId') !== $this->getRequest()->getContext()->getId()) {
-            return $response->withStatus(403)->withJsonError('api.dois.400.contextsNotMatched');
+            return $response->withStatus(403)->withJsonError('api.dois.403.editItemOutOfContext');
         }
 
         $doiProps = Repo::doi()->getSchemaMap()->map($doi);
@@ -325,7 +325,7 @@ class PKPDoiHandler extends APIHandler
         }
 
         if (empty($submissions[0])) {
-            return $response->withStatus(404)->withJsonError('apis.dois.404.doiNotFound');
+            return $response->withStatus(404)->withJsonError('api.dois.404.doiNotFound');
         }
 
         $agency = $context->getConfiguredDoiAgency();
@@ -446,7 +446,7 @@ class PKPDoiHandler extends APIHandler
         $context = $this->getRequest()->getContext();
         $doiPrefix = $context->getData(Context::SETTING_DOI_PREFIX);
         if (empty($doiPrefix)) {
-            return $response->withStatus(400)->withJsonError('api.dois.400.prefixRequired');
+            return $response->withStatus(403)->withJsonError('api.dois.403.prefixRequired');
         }
 
         $failedDoiCreations = [];

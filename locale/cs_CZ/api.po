@@ -297,5 +297,5 @@ msgstr ""
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Musíte zadat předmět a tělo e-mailu."
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "Pro generování identifikátorů DOI je vyžadován prefix DOI."

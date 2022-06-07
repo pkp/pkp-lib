@@ -48,11 +48,6 @@ msgstr ""
 msgid "emails.issuePublishNotify.subject"
 msgstr "Објавено ново печатење"
 
-msgid "emails.userValidateContext.description"
-msgstr ""
-"Оваа е-пошта е испратена до новорегистриран корисник за да ја потврди "
-"неговата сметка за е-пошта."
-
 msgid "emails.userValidateContext.body"
 msgstr ""
 "{$recipientName} <br />\n"
@@ -134,11 +129,6 @@ msgstr ""
 
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Потврда за ресетирање на лозинка"
-
-msgid "emails.notification.description"
-msgstr ""
-"Е-поштата се испраќа до регистрираните корисници кои избрале да им се "
-"испраќа овој вид на известување по е-пошта."
 
 msgid "emails.notification.body"
 msgstr ""
@@ -246,11 +236,6 @@ msgstr ""
 
 msgid "emails.revisedVersionNotify.subject"
 msgstr "Прикачена е ревидирана верзија"
-
-msgid "emails.editorDecisionAccept.description"
-msgstr ""
-"Оваа е-пошта од менаџерот или модераторот до авторот ги известува за "
-"конечната одлука да се \"прифати поднесокот\" во врска со нивниот поднесок."
 
 msgid "emails.editorDecisionAccept.body"
 msgstr ""

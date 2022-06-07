@@ -29,9 +29,6 @@ msgstr ""
 "<br />\n"
 "{$signature}"
 
-msgid "emails.notification.description"
-msgstr "Ce courriel est envoyé aux utilisateurs-trices inscrits-es qui ont choisi de recevoir par courriel ce type d'avis."
-
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmation de la réinitialisation du mot de passe"
 
@@ -106,9 +103,6 @@ msgstr ""
 "<br />\n"
 "Merci,<br />\n"
 "{$signature}"
-
-msgid "emails.userValidateContext.description"
-msgstr "Ce courriel est envoyé à un,une utilisateur-trice nouvellement inscrit-e pour valider son compte de courriel."
 
 msgid "emails.submissionAckNotUser.subject"
 msgstr "Accusé de réception de la soumission"

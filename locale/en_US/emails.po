@@ -26,9 +26,6 @@ msgstr ""
 "<hr />"
 "{$unsubscribeLink}"
 
-msgid "emails.notification.description"
-msgstr "The email is sent to registered users that have selected to have this type of notification emailed to them."
-
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Password Reset Confirmation"
 
@@ -92,9 +89,6 @@ msgstr ""
 "Thank you,<br />\n"
 "{$signature}"
 
-msgid "emails.userValidateContext.description"
-msgstr "This email is sent to a new user signed up on the server to validate their email account."
-
 msgid "emails.userValidateSite.subject"
 msgstr "Validate Your Account"
 
@@ -108,9 +102,6 @@ msgstr ""
 "<br />\n"
 "Thank you,<br />\n"
 "{$signature}"
-
-msgid "emails.userValidateSite.description"
-msgstr "This email is sent to a new user signed up on the site to validate their email account."
 
 msgid "emails.issuePublishNotify.subject"
 msgstr "New Preprint Posted"
@@ -188,9 +179,6 @@ msgstr ""
 "We have reached a decision regarding your submission to {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Our decision is to: Accept Submission"
-
-msgid "emails.editorDecisionAccept.description"
-msgstr "This email from the Manager or Moderator to an Author notifies them of a final \"accept submission\" decision regarding their submission."
 
 msgid "emails.revisedVersionNotify.subject"
 msgstr "Revised Version Uploaded"

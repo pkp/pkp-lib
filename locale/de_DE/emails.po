@@ -88,11 +88,6 @@ msgstr ""
 msgid "emails.revisedVersionNotify.subject"
 msgstr "Überarbeitete Version hochgeladen"
 
-msgid "emails.editorDecisionAccept.description"
-msgstr ""
-"Diese E-Mail des Managers oder Moderators an einen Autor benachrichtigt "
-"diesen über die endgültige Entscheidung über die Annahme seiner Einsendung."
-
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -190,11 +185,6 @@ msgstr ""
 msgid "emails.issuePublishNotify.subject"
 msgstr "Neuer Preprint veröffentlicht"
 
-msgid "emails.userValidateContext.description"
-msgstr ""
-"Diese E-Mail wird an einen neu registrierten Benutzer gesendet, um sein E"
-"-Mail-Konto zu bestätigen."
-
 msgid "emails.userValidateContext.body"
 msgstr ""
 "{$recipientName}<br />\n"
@@ -279,11 +269,6 @@ msgstr ""
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Bestätigung der Passwortrücksetzung"
 
-msgid "emails.notification.description"
-msgstr ""
-"Die E-Mail wird an registrierte Benutzer gesendet, die diese Art von "
-"Benachrichtigung per E-Mail ausgewählt haben."
-
 msgid "emails.notification.body"
 msgstr ""
 "Sie haben eine neue Benachrichtigung von {$siteTitle}:<br />\n"
@@ -296,11 +281,6 @@ msgstr ""
 
 msgid "emails.notification.subject"
 msgstr "Neue Benachrichtigung von {$siteTitle}"
-
-msgid "emails.userValidateSite.description"
-msgstr ""
-"Diese E-Mail wird an einen neu registrierten benutzer gesendet, um sein E"
-"-Mail-Konto zu bestätigen."
 
 msgid "emails.userValidateSite.body"
 msgstr ""

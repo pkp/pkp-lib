@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @file tests/classes/dois/DoiUtilsTest.php
+ * @file tests/classes/dois/DoiGeneratorTest.php
  *
  * Copyright (c) 2013-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DoiUtilsTest
+ * @class DoiGeneratorTest
  * @ingroup tests_classes_doi
  *
  * @see Core
  *
- * @brief Tests for the \PKP\doi\Utils
+ * @brief Tests for the \PKP\doi\DoiGenerator
  */
 
 use PKP\doi\DoiGenerator;
 
 import('lib.pkp.tests.PKPTestCase');
 
-class DoiUtilsTest extends PKPTestCase
+class DoiGeneratorTest extends PKPTestCase
 {
 
     public function testEncodeDoi()

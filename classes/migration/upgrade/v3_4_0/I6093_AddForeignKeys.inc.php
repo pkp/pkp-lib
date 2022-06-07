@@ -55,6 +55,7 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
 
         Schema::table('category_settings', function (Blueprint $table) {
             $table->dropColumn('setting_type');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
         });
         // Permit nulls in categories.parent_id where previously 0 was used for "no parent"
         Schema::table('categories', function (Blueprint $table) {
@@ -71,6 +72,12 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         });
         Schema::table('item_views', function (Blueprint $table) {
             $table->foreign('user_id')->references('user_id')->on('users');
+        });
+        Schema::table('genres', function (Blueprint $table) {
+            $table->foreign('context_id')->references($this->getContextKeyField())->on($this->getContextTable());
+        });
+        Schema::table('genre_settings', function (Blueprint $table) {
+            $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
         });
     }
 

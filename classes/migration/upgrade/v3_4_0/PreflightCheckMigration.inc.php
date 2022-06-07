@@ -55,6 +55,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('announcement_settings')->where('announcement_id', '=', $announcementId)->delete();
             }
 
+            // Clean orphaned category data
+            $orphanedIds = DB::table('categories AS ca')->leftJoin($this->getContextTable() . ' AS c', 'ca.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('ca.category_id');
+            foreach ($orphanedIds as $categoryId) {
+                $this->_installer->log("Removing orphaned category ID ${categoryId} with no matching context ID.");
+                DB::table('categories')->where('category_id', '=', $categoryId)->delete();
+            }
             // Clean orphaned category_setting entries
             $orphanedIds = DB::table('category_settings AS cs')->leftJoin('categories AS c', 'cs.category_id', '=', 'c.category_id')->whereNull('c.category_id')->distinct()->pluck('cs.category_id');
             foreach ($orphanedIds as $categoryId) {
@@ -76,6 +82,19 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
             // Clean out orphaned views entries
             DB::table('item_views AS v')->leftJoin('users AS u', 'v.user_id', '=', 'u.user_id')->whereNull('u.user_id')->whereNotNull('v.user_id')->delete();
+
+            // Clean orphaned genre data
+            $orphanedIds = DB::table('genres AS g')->leftJoin($this->getContextTable() . ' AS c', 'g.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('g.genre_id');
+            foreach ($orphanedIds as $genreId) {
+                $this->_installer->log("Removing orphaned genre ID ${genreId} with no matching context ID.");
+                DB::table('genres')->where('genre_id', '=', $genreId)->delete();
+            }
+            // Clean orphaned genre_setting entries
+            $orphanedIds = DB::table('genre_settings AS gs')->leftJoin('genres AS g', 'gs.genre_id', '=', 'g.genre_id')->whereNull('g.genre_id')->distinct()->pluck('gs.genre_id');
+            foreach ($orphanedIds as $genreId) {
+                $this->_installer->log("Removing orphaned settings for missing genre ID ${genreId}");
+                DB::table('genre_settings')->where('genre_id', '=', $genreId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

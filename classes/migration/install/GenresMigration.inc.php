@@ -27,7 +27,11 @@ class GenresMigration extends \PKP\migration\Migration
         // A context's submission file genres.
         Schema::create('genres', function (Blueprint $table) {
             $table->bigInteger('genre_id')->autoIncrement();
+
             $table->bigInteger('context_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
             $table->bigInteger('seq');
             $table->smallInteger('enabled')->default(1);
 
@@ -41,11 +45,12 @@ class GenresMigration extends \PKP\migration\Migration
         // Genre settings
         Schema::create('genre_settings', function (Blueprint $table) {
             $table->bigInteger('genre_id');
+            $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-            $table->index(['genre_id'], 'genre_settings_genre_id');
             $table->unique(['genre_id', 'locale', 'setting_name'], 'genre_settings_pkey');
         });
     }

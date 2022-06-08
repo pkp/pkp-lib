@@ -29,7 +29,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|escape}" maxlength="255" required aria-required="true">
+				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|escape}" required aria-required="true">
 			</label>
 		</div>
 		<div class="family_name">
@@ -37,7 +37,7 @@
 				<span class="label">
 					{translate key="user.familyName"}
 				</span>
-				<input type="text" name="familyName" autocomplete="family-name" id="familyName" value="{$familyName|escape}" maxlength="255">
+				<input type="text" name="familyName" autocomplete="family-name" id="familyName" value="{$familyName|escape}">
 			</label>
 		</div>
 		<div class="affiliation">
@@ -84,7 +84,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true" autocomplete="email">
+				<input type="email" name="email" id="email" value="{$email|escape}" maxlength="255" required aria-required="true" autocomplete="email">
 			</label>
 		</div>
 		<div class="username">
@@ -108,7 +108,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true">
+				<input type="password" name="password" id="password" password="true" maxlength="72" required aria-required="true">
 			</label>
 		</div>
 		<div class="password">
@@ -120,7 +120,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true">
+				<input type="password" name="password2" id="password2" password="true" maxlength="72" required aria-required="true">
 			</label>
 		</div>
 	</div>

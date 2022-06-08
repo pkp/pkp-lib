@@ -16,10 +16,10 @@
 {fbvElement type="hidden" name="submissionVersion" id="submissionVersion" value=$formParams.submissionVersion}
 <div class="pkp_helpers_clear">
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}
-		{fbvElement label="common.prefixAndTitle.tip" type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly maxlength="32"}
+		{fbvElement label="common.prefixAndTitle.tip" type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly}
 	{/fbvFormSection}
 	{fbvFormSection for="title" title="common.title" inline="true" size=$fbvStyles.size.LARGE required=true}
-		{fbvElement type="text" multilingual=true name="title" id="title" value=$title readonly=$readOnly maxlength="255" required=true}
+		{fbvElement type="text" multilingual=true name="title" id="title" value=$title readonly=$readOnly required=true}
 	{/fbvFormSection}
 </div>
 {fbvFormSection title="common.subtitle" for="subtitle"}

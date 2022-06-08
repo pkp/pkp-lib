@@ -123,7 +123,7 @@
 			<KEY/>
 			<AUTOINCREMENT/>
 		</field>
-		<field name="email" type="C2" size="90">
+		<field name="email" type="C2" size="255">
 			<NOTNULL/>
 		</field>
 		<field name="include_in_browse" type="I1">

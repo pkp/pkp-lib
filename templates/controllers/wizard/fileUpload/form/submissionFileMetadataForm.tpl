@@ -29,20 +29,20 @@
 
 		{* File name and detail summary *}
 		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getData('name') multilingual=true maxlength="255" required=true}
+			{fbvElement type="text" id="name" value=$submissionFile->getData('name') multilingual=true required=true }
 		{/fbvFormSection}
 
 		{* Supplementary file metadata *}
 		{if $genre && $genre->getCategory() == $smarty.const.GENRE_CATEGORY_SUPPLEMENTARY}
 			{fbvFormSection}
 				{fbvElement label="common.description" type="textarea" id="description" value=$submissionFile->getData('description') multilingual=true}
-				{fbvElement label="submission.supplementary.creator" inline=true size=$fbvStyles.size.MEDIUM type="text" id="creator" value=$submissionFile->getData('creator') multilingual=true maxlength="255"}
-				{fbvElement label="submission.supplementary.publisher" inline=true size=$fbvStyles.size.MEDIUM type="text" id="publisher" value=$submissionFile->getData('publisher') multilingual=true maxlength="255"}
-				{fbvElement label="common.source" inline=true size=$fbvStyles.size.MEDIUM type="text" id="source" value=$submissionFile->getData('source') multilingual=true maxlength="255"}
-				{fbvElement label="submission.supplementary.subject" inline=true size=$fbvStyles.size.MEDIUM type="text" id="subject" value=$submissionFile->getData('subject') multilingual=true maxlength="255"}
-				{fbvElement label="submission.supplementary.sponsor" inline=true size=$fbvStyles.size.MEDIUM type="text" id="sponsor" value=$submissionFile->getData('sponsor') multilingual=true maxlength="255"}
+				{fbvElement label="submission.supplementary.creator" inline=true size=$fbvStyles.size.MEDIUM type="text" id="creator" value=$submissionFile->getData('creator') multilingual=true }
+				{fbvElement label="submission.supplementary.publisher" inline=true size=$fbvStyles.size.MEDIUM type="text" id="publisher" value=$submissionFile->getData('publisher') multilingual=true }
+				{fbvElement label="common.source" inline=true size=$fbvStyles.size.MEDIUM type="text" id="source" value=$submissionFile->getData('source') multilingual=true }
+				{fbvElement label="submission.supplementary.subject" inline=true size=$fbvStyles.size.MEDIUM type="text" id="subject" value=$submissionFile->getData('subject') multilingual=true }
+				{fbvElement label="submission.supplementary.sponsor" inline=true size=$fbvStyles.size.MEDIUM type="text" id="sponsor" value=$submissionFile->getData('sponsor') multilingual=true 
 				{fbvElement label="common.date" inline=true size=$fbvStyles.size.SMALL type="text" id="dateCreated" value=$submissionFile->getData('dateCreated') class="datepicker"}
-				{fbvElement label="common.language" inline=true size=$fbvStyles.size.SMALL type="text" id="language" value=$submissionFile->getData('language') maxlength="255"}
+				{fbvElement label="common.language" inline=true size=$fbvStyles.size.SMALL type="text" id="language" value=$submissionFile->getData('language') }
 			{/fbvFormSection}
 		{/if}
 

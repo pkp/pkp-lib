@@ -22,22 +22,22 @@
 		{/fbvFormSection}
 		{if $coverageEnabled}
 			{fbvFormSection title="submission.coverage" for="coverage" required=$coverageRequired}
-				{fbvElement type="text" multilingual=true name="coverage" id="coverage" value=$coverage maxlength="255" readonly=$readOnly required=false required=$coverageRequired}
+				{fbvElement type="text" multilingual=true name="coverage" id="coverage" value=$coverage readonly=$readOnly required=false required=$coverageRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $typeEnabled}
 			{fbvFormSection for="type" title="common.type" required=$typeRequired}
-				{fbvElement type="text" label="submission.type.tip" multilingual=true name="type" id="type" value=$type maxlength="255" readonly=$readOnly required=$typeRequired}
+				{fbvElement type="text" label="submission.type.tip" multilingual=true name="type" id="type" value=$type readonly=$readOnly required=$typeRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $sourceEnabled}
 			{fbvFormSection label="submission.source" for="source" required=$sourceRequired}
-				{fbvElement type="text" label="submission.source.tip" multilingual=true name="source" id="source" value=$source maxlength="255" readonly=$readOnly required=$sourceRequired}
+				{fbvElement type="text" label="submission.source.tip" multilingual=true name="source" id="source" value=$source readonly=$readOnly required=$sourceRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $rightsEnabled}
 			{fbvFormSection label="submission.rights" for="rights" required=$rightsRequired}
-				{fbvElement type="text" label="submission.rights.tip" multilingual=true name="rights" id="rights" value=$rights maxlength="255" readonly=$readOnly required=$rightsRequired}
+				{fbvElement type="text" label="submission.rights.tip" multilingual=true name="rights" id="rights" value=$rights readonly=$readOnly required=$rightsRequired}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

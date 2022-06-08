@@ -25,8 +25,8 @@
 
 {fbvFormArea id="userDetails"}
 	{fbvFormSection title="user.name"}
-		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM required="true"}
-		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName inline=true size=$fbvStyles.size.MEDIUM required="true"}
+		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
@@ -49,7 +49,7 @@
 
 	{if !$disableEmailSection}
 		{fbvFormSection title="about.contact"}
-			{fbvElement type="email" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="email" label="user.email" id="email" required="true" value=$email maxlength="255" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 	{/if}
 
@@ -63,8 +63,8 @@
 		{if $userId}{capture assign="passwordInstruction"}{translate key="user.profile.leavePasswordBlank"} {translate key="user.register.form.passwordLengthRestriction" length=$minPasswordLength}{/capture}{/if}
 		{fbvFormArea id="passwordSection" title="user.password"}
 			{fbvFormSection for="password" description=$passwordInstruction translate=false}
-				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="72" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="72" inline=true size=$fbvStyles.size.MEDIUM}
 			{/fbvFormSection}
 
 			{if !$userId}
@@ -112,9 +112,9 @@
 {capture assign="extraContent"}
 	{fbvFormArea id="userFormExtendedLeft"}
 		{fbvFormSection}
-			{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255" inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="2047" inline=true size=$fbvStyles.size.SMALL}
 			{if !$disablePhoneSection}
-				{fbvElement type="tel" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
+				{fbvElement type="tel" label="user.phone" name="phone" id="phone" value=$phone maxlength="32" inline=true size=$fbvStyles.size.SMALL}
 			{/if}
 			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="37" inline=true size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}

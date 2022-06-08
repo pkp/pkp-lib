@@ -23,7 +23,7 @@
 			<input type="hidden" name="announcementTypeId" value="{$typeId|escape}" />
 		{/if}
 		{fbvFormSection title="manager.announcementTypes.form.typeName" for="title" required="true"}
-			{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="255" required="true"}
+			{fbvElement type="text" multilingual="true" id="name" value=$name required="true"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

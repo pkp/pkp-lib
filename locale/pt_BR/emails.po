@@ -32,11 +32,6 @@ msgstr ""
 msgid "emails.issuePublishNotify.subject"
 msgstr "Novo Preprint Postado"
 
-msgid "emails.userValidateContext.description"
-msgstr ""
-"Este e-mail é enviado a um usuário recém-registrado para validar sua conta "
-"de e-mail."
-
 msgid "emails.userValidateContext.body"
 msgstr ""
 "{$recipientName}<br />\n"
@@ -115,11 +110,6 @@ msgstr ""
 
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmação de Redefinição de Senha"
-
-msgid "emails.notification.description"
-msgstr ""
-"O e-mail é enviado aos usuários registrados que selecionaram para receber "
-"este tipo de notificação por e-mail."
 
 msgid "emails.notification.body"
 msgstr ""
@@ -231,11 +221,6 @@ msgstr ""
 "Este e-mail, quando habilitado, é enviado automaticamente a um autor quando "
 "o preprint é postado online no servidor."
 
-msgid "emails.editorDecisionAccept.description"
-msgstr ""
-"Um e-mail do moderador ou coordenador para um autor notifica-o sobre a "
-"decisão final de \"Aceitar  Submissão\"."
-
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -287,11 +272,6 @@ msgstr ""
 "servidor como local de envio de sua pesquisa.<br />\n"
 "<br />\n"
 "{$signature}"
-
-msgid "emails.userValidateSite.description"
-msgstr ""
-"Este e-mail é enviado para um novo usuário cadastrado no site para validar "
-"sua conta de e-mail."
 
 msgid "emails.userValidateSite.body"
 msgstr ""

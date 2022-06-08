@@ -30,11 +30,6 @@ msgstr ""
 msgid "emails.issuePublishNotify.subject"
 msgstr "Nuevo preprint postado"
 
-msgid "emails.userValidateContext.description"
-msgstr ""
-"Este correo electrónico se envía a un usuario recién registrado para validar "
-"su cuenta de correo electrónico."
-
 msgid "emails.userValidateContext.body"
 msgstr ""
 "{$recipientName} <br />\n"
@@ -118,12 +113,6 @@ msgstr ""
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmación de restablecimiento de contraseña"
 
-msgid "emails.notification.description"
-msgstr ""
-"El correo electrónico se envía a los usuarios registrados que han "
-"seleccionado recibir este tipo de notificación por correo electrónico."
-
-#, fuzzy
 msgid "emails.notification.body"
 msgstr ""
 "Tiene una nueva notificación de {$siteTitle}: <br />\n"

@@ -538,3 +538,27 @@ msgstr "Navedena putanja časopisa, \"{$contextPath}\", ne postoji."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "GREŠKA:"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Ovim obrascem e-pošte recenzent potvrđuje uredniku rubrike da prihvaća zahtjev za recenzijom."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ovim obrascem e-pošte recenzent odgovara uredniku rubrike da ne prihvaća zahtjev za recenzijom."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Ovim obrascem e-pošte urednik rubrike podsjeća recenzenta da rok za izradu recenzije istekao."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Ovaj se obrazac e-pošte automatski šalje recenzentu kada datum naveden kao rok za izradu recenzije istekao (pogledajte Opcije recenzije unutar Postavljanja časopisa, 2. korak), a recenzentu nije omogućen pristup jednim klikom. Za ovu funkciju Raspoređeni zadaci moraju biti aktivirani i namješteni (pogledajte konfiguracijsku datoteku stranice)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Ovim obrascem e-pošte urednik rubrike šalje upit recenzentu može li prihvatiti zadatak recenziranja članka. Zamolba sadrži osnovne informacije u vidu naslova i kratkog sadržaja članka, datum do kojeg bi recenzija trebala biti napisana te načina na koji se recenzent može prijaviti u sustav. Ova poruka se koristi kada je odabran standardni recenzijski postupak u 2. koraku Postavljanja časopisa (Ako nije, koristi se Zamolba za recenziju članka u privitku)"
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Ovim obrascem e-pošte urednik rubrike šalje upit recenzentu može li prihvatiti zadatak recenziranja članka. Zamolba sadrži osnovne informacije u vidu naslova i kratkog sadržaja članka, datum do kojeg bi recenzija trebala biti napisana te načina na koji se recenzent može prijaviti u sustav. Ova poruka se koristi kada je odabran standardni recenzijski postupak u 2. koraku Postavljanja časopisa (Ako nije, koristi se Zamolba za recenziju članka u privitku)"
+
+#, fuzzy

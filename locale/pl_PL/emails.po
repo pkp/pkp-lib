@@ -77,9 +77,6 @@ msgstr ""
 "WWW tekstu: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Ta wiadomość jest wysyłana od redaktora lub redaktora działu do autora. Zawiera decyzję o przesłaniu zgłoszonego tekstu do recenzji."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decyzja redakcji"
 
@@ -93,9 +90,6 @@ msgstr ""
 "<br />\n"
 "WWW tekstu: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Ta wiadomość jest wysyłana od redaktora lub redaktora działu do autora. Zawiera powiadomienie o ukończeniu korekty i przekazaniu tekstu do etapu realizacji."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decyzja redakcji"
@@ -111,9 +105,6 @@ msgstr ""
 "Decyzja redakcji: Wymagane poprawki"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Ta wiadomość jest wysyłana od redaktora lub redaktora działu do autora. Zawiera decyzję o \"Wymaganych poprawkach\" (drobne poprawki) zgłoszonego tekstu."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decyzja redakcji"
 
@@ -127,9 +118,6 @@ msgstr ""
 "<br />\n"
 "Decyzja redakcji: Wymagane poprawki i ponowna recenzja"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Ta wiadomość jest wysyłana od redaktora lub redaktora działu do autora. Zawiera decyzję o \"Wymaganych poprawkach i ponownej recenzji\" (gruntowne poprawki) zgłoszonego tekstu."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Decyzja redakcji"
@@ -145,9 +133,6 @@ msgstr ""
 "Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Ta wiadomość jest wysyłana od redaktora lub redaktora działu do autora. Zawiera powiadomienie o odrzuceniu zgłoszonego tekstu."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Rekomendacja redaktora"
 
@@ -159,9 +144,6 @@ msgstr ""
 "przesyłam rekomendację w sprawie tekstu \"{$submissionTitle}\", zgłoszonego "
 "do czasopisma \"{$contextName}\": {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Ta wiadomość jest wysyłana od redaktora przypisanego do tekstu do redaktora czasopisma. Zawiera powiadomienie o rekomendacji w sprawie tekstu."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Prośba do korektora"
@@ -204,8 +186,3 @@ msgstr ""
 "Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Ta wiadomość jest wysyłana od redaktora lub redaktora działu do autora. "
-"Zawiera powiadomienie o odrzuceniu zgłoszonego tekstu po ocenie wstępnej ("
-"przed procesem recenzji)"

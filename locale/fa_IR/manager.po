@@ -1511,3 +1511,31 @@ msgstr "پیشوند DOI توسط مراجع ثبت کننده اختصاص دا
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "محتوای مجله"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "ایمیلی از طرف داور به سردبیر یا دبیر بخشبرای اطلاع از پذیرش انجام داوری"
+
+msgid "mailable.reviewDecline.description"
+msgstr "ایمیلی از طرف داور به سردبیر یا دبیر بخش برای اطلاع از عدم پذیرش انجام داوری"
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای یادآوری انجام داوری"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "This email is automatically sent when a reviewer's due date elapses (see Review Options under Journal Setup, Step 2) and one-click reviewer access is disabled. Scheduled tasks must be enabled and configured (see the site configuration file)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Journal Setup, Step 2."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"
+
+#, fuzzy

@@ -16,10 +16,11 @@
 namespace PKP\mail\mailables;
 
 use PKP\context\Context;
-use PKP\mail\Configurable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -29,13 +30,14 @@ class ReviewAcknowledgement extends Mailable
     use Recipient;
     use Sender;
 
-    public const EMAIL_KEY = 'REVIEW_ACK';
-
     protected static ?string $name = 'mailable.reviewAcknowledgement.name';
-
     protected static ?string $description = 'mailable.reviewAcknowledgement.description';
-
+    protected static ?string $emailTemplateKey = 'REVIEW_ACK';
+    protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static bool $canDisable = true;
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     public function __construct(Context $context, PKPSubmission $submission, ReviewAssignment $reviewAssignment)
     {

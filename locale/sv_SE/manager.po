@@ -2247,6 +2247,32 @@ msgstr "Mottagarens eller mottagarnas fullständiga namn"
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL till en sida där användaren kan återställa sitt lösenord"
 
+msgid "mailable.reviewConfirm.description"
+msgstr "Det här e-postmeddelandet skickas från en granskare till sektionsredaktören som svar på en förfrågan om granskning för att meddela sektionsredaktören att granskaren accepterar förfrågan om granskning och att hen kommer att färdigställa denna till angiven deadline."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Det här e-postmeddelandet skickas från en granskare till sektionsredaktören som svar på en förfrågan om granskning för att meddela sektionsredaktören att granskaren tackar nej till granskningsuppdraget."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Det här e-postmeddelandet skickas från en sektionsredaktör som en påminnelse till granskaren att deadline för granskningen har passerat."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Det här e-postmeddelandet skickas automatiskt när en granskares deadline löper ut (se Granskningsalternativ under Inställningar > Arbetsflöde > Granskning) och när Granskartillgång med ett klick är avaktiverat. Schemalagda aktiviteter måste vara aktiverat och konfigurerat (se serverns konfigurationsfil)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Det här e-postmeddelandet skickas automatiskt när en granskares deadline för bekräftelse på granskningsförfrågan löper ut (se Granskningsalternativ under Inställningar > Arbetsflöde > Granskning) och Granskning utan inloggning är avaktiverat. Schemalagda aktiviteter måste vara aktiverat och konfigurerat (se serverns konfigurationsfil)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Det här e-postmeddelandet från sektionsredaktören till en granskare ber granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska ett bidrag. Det innehåller information om bidraget i form av titel och abstract, en deadline för granskning och instruktioner för hur man kommer åt bidraget. Meddelandet används när granskningsprocess Standard är valt i Administration > Inställningar > Arbetsflöde > Granskning."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Det här e-postmeddelandet från sektionsredaktören till en granskare ber granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska ett bidrag en andra gång eller på nytt. Det innehåller information om bidraget i form av titel och abstract, en deadline för granskning och instruktioner för hur man kommer åt bidraget. Meddelandet används när granskningsprocess Standard är valt i Administration > Inställningar > Arbetsflöde > Granskning."
+
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Använd standardmönster."
 
@@ -2533,35 +2559,28 @@ msgstr ""
 "Detta e-postmeddelande skickas automatiskt till nya användare i samband med "
 "registrering, om inställningarna kräver att e-postadressen godkänns."
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Detta e-postmeddelande skickas när en redaktör tar bort ett "
 "granskningsuppdrag."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Granskningsuppdrag borttaget"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Detta e-postmeddelande skickas när en granskare som tagits bort sedan "
 "återinsätts av en redaktör."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Granskare återinsatt"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Detta e-postmeddelande skickas när en granskare utsetts till ett bidrag."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Granskare utsedd"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Detta e-postmeddelande skickas automatiskt till deltagare i diskussionen när "
 "ett nytt meddelande läggs till."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Lägg till diskussion"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
@@ -2666,3 +2685,5 @@ msgstr "DOI-prefix delas ut av t.ex. <a href=\"http://www.crossref.org\" target=
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidskriftens innehåll"
+
+#, fuzzy

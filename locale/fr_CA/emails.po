@@ -73,9 +73,6 @@ msgstr ""
 "URL de la soumission : {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Ce courriel du,de la rédacteur-trice ou du,de la rédacteur-trice de rubrique à un-e auteur-e le,la notifie de la décision concernant sa soumission, soit d'envoyer sa soumission en évaluation externe."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Décision du rédacteur"
 
@@ -88,9 +85,6 @@ msgstr ""
 "<br />\n"
 "URL de la soumission : {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Ce courriel du,de la rédacteur-trice ou du,de la rédacteur-trice de rubrique à un-e auteur-e le,la notifie de la décision concernant sa soumission, soit d'envoyer sa soumission en production."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Décision du rédacteur"
@@ -107,9 +101,6 @@ msgstr ""
 "soumission."
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Ce courriel du,de la rédacteur-trice ou du,de la rédacteur-trice de rubrique à un-e auteur-e le,la notifie de la décision finale concernant sa soumission, soit de demander d'y apporter des révisions."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Décision du rédacteur"
 
@@ -125,12 +116,6 @@ msgstr ""
 "soumission et de la soumettre à nouveau."
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Ce courriel du,de la rédacteur-trice ou du,de la rédacteur-trice de rubrique "
-"un-e auteur-e le,la notifie de la décision finale concernant sa soumission, "
-"soit de demander d'y apporter des révisions et la soumettre à nouveau."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Décision du rédacteur"
 
@@ -145,9 +130,6 @@ msgstr ""
 "Notre décision est de refuser votre soumission."
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Ce courriel du,de la rédacteur-trice ou du,de la rédacteur-trice de rubrique à un-e auteur-e le,la notifie de la décision concernant sa soumission, soit de refuser la soumission."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Recommandation du rédacteur"
 
@@ -159,9 +141,6 @@ msgstr ""
 "La recommandation concernant la soumission « {$submissionTitle} » à la revue "
 "{$contextName} est de : {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Ce courriel envoyé par le,la rédacteur-trice ou le,la rédacteur-trice de rubrique en charge de la recommandation au,à la rédacteur-trice ou au,à la rédacteur-trice de rubrique en charge de la prise de décisions l'informe d'une recommandation finale concernant la soumission."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Demande de révision d'une soumission"
@@ -206,5 +185,3 @@ msgstr ""
 "Notre décision est de refuser votre soumission."
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "Cet courriel est envoyé à l'auteur-e si la soumission est refusée avant même l'étape d'évaluation"

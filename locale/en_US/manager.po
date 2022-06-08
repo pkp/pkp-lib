@@ -2410,28 +2410,22 @@ msgstr "The names of the authors assigned to the submission workflow. Usually th
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr "Hashed URL which is sent to a user to confirm the password reset"
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "New Discussion Message"
 
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr "This email is automatically sent to discussion participants when a new message is added to the discussion."
 
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Reviewer Assigned"
+msgid "mailable.reviewerReinstate.name"
+msgstr "Reviewer Reinstate"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "This email is sent when a reviewer is assigned to a submission."
-
-msgid "mailable.mailReviewerReinstate.name"
-msgstr "Reviewer Reinstated"
-
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr "This email is sent when a reviewer that was unassigned is reinstated by an editor."
 
-msgid "mailable.mailReviewerUnassigned.name"
-msgstr "Reviewer Unassigned"
+msgid "mailable.reviewerUnassign.name"
+msgstr "Reviewer Unassign"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "This email is sent when an editor unassigns a reviewer."
 
 msgid "mailable.validateEmailSite.name"
@@ -2580,6 +2574,36 @@ msgstr "Review Reminder (Automated)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr "This email is automatically sent when a reviewer has not completed their review by the due date."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Review Acknowledgement"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr "This email is sent by a Section Editor to confirm receipt of a completed review and thank the reviewer for their contributions."
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Review Response Overdue (Automated)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"This email is automatically sent when the deadline for a reviewer to respond to a review request passes."
+
+msgid "mailable.reviewRequest.name"
+msgstr "Review Request"
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a "
+"submission. "
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Review Request Subsequent"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"This email from an Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a "
+"submission for an additional round of review. It provides information about the submission such as the title and "
+"abstract, a review due date, and how to access the submission itself."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "The submission's current publication is missing"

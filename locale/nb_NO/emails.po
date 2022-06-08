@@ -61,12 +61,6 @@ msgstr ""
 "Denne e-posten sendes av en seksjonsredaktør for å bekrefte at "
 "fagfellevurderingen er mottatt, og takke fagfellen for innsatsen."
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Denne e-posten fra redaktør eller seksjonsredaktør til en forfatter, "
-"informerer om at innleveringen vil bli sendt til fagfellevurdering."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -81,12 +75,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Redaktørens beslutning"
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Denne e-posten fra redaktør eller seksjonsredaktør til en forfatter, "
-"informerer om at innleveringen sendes til produksjon."
-
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -115,11 +103,6 @@ msgstr ""
 "Vår beslutning er: Omarbeiding kreves"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Denne e-posten fra redaktør eller seksjonsredaktør til en forfatter, "
-"informerer om at innleveringen må omarbeides."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Redaktørens beslutning"
 
@@ -134,11 +117,6 @@ msgstr ""
 "Vår beslutning er: Lever inn til ny fagfellevurdering"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Denne e-posten fra redaktør eller seksjonsredaktør til en forfatter, "
-"informerer om at innleveringen må leveres inn til ny fagfellevurdering."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Redaktørens beslutning"
 
@@ -151,18 +129,6 @@ msgstr ""
 "som du sendte inn til {$contextName}. <br />\n"
 "<br />\n"
 "Vår beslutning er: Manuskriptet avvises"
-
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Denne e-posten fra redaktør eller seksjonsredaktør til en forfatter, "
-"informerer om at innleveringen ble avvist."
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Denne e-posten fra rådgivende redaktører eller seksjonsredaktører til "
-"besluttende redaktørerer eller seksjonsredaktørerer informerer om en endelig "
-"anbefaling angående innleveringen."
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
@@ -204,12 +170,6 @@ msgstr ""
 "Denne e-posten sendes av en seksjonsredaktør til en språkvasker for å sette "
 "i gang arbeidet med språkvasken. E-posten gir informasjon om innleveringen, "
 "og om hvordan språkvaskeren får tilgang til den."
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Denne e-posten sendes til forfatteren dersom redaktøren avviser "
-"innleveringen ved første lesing (før fagfellevurdering)"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

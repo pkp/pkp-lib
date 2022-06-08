@@ -78,9 +78,6 @@ msgstr ""
 "<p>If you have any questions, please contact me from your submission dashboard.</p>"
 "<p>{$signature}</p>"
 
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them that their submission is being sent to the peer review stage."
-
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Next steps for publishing your submission"
 
@@ -93,11 +90,6 @@ msgstr ""
 "<p>If you have any questions, please contact me from your <a href=\"{$authorSubmissionUrl}\">submission dashboard</a>.</p>"
 "<p>Kind regards,</p>"
 "{$signature}"
-
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"This email from the Editor or Section Editor to an Author notifies them that their submission is being sent to "
-"production."
 
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Your submission has been reviewed and we encourage you to submit revisions"
@@ -121,9 +113,6 @@ msgstr ""
 "<hr>"
 "<p>The following comments were received from reviewers.</p>"
 "{$allReviewerComments}"
-
-msgid "emails.editorDecisionRevisions.description"
-msgstr "This email from the editor requests revisions from the author during peer review."
 
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Your submission has been reviewed - please revise and resubmit"
@@ -150,11 +139,6 @@ msgstr ""
 "<p>The following comments were received from reviewers.</p>"
 "{$allReviewerComments}"
 
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"This email from the Editor or Section Editor to an Author notifies them of a \"revise and resubmit\" decision "
-"regarding their submission."
-
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Your submission has been declined"
 
@@ -173,9 +157,6 @@ msgstr ""
 "<p>The following comments were received from reviewers.</p>"
 "{$allReviewerComments}"
 
-msgid "emails.editorDecisionDecline.description"
-msgstr "This email notifies the author that their submission has been declined after peer review."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Editor Recommendation"
 
@@ -190,13 +171,6 @@ msgstr ""
 "<p>Please feel free to contact me with any questions.</p>"
 "<p>Kind regards,</p>"
 "<p>{$senderName}</p>"
-
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"This automated email notifies a senior Editor or Section Editor that an editorial recommendation has been made "
-"regarding a submission. This template is used when an editor is only allowed to recommend an editorial decision and "
-"requires an authorized editor to record editorial decisions. This option can be selected when assigning participants "
-"to a submission."
 
 msgid "emails.copyeditRequest.subject"
 msgstr "Submission {$submissionId} is ready to be copyedited for {$contextAcronym}"
@@ -298,8 +272,3 @@ msgstr ""
 "<p>I wish you success if you consider submitting your work elsewhere.</p>"
 "<p>Kind regards,</p>"
 "{$signature}"
-
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"This email is sent to the author if the editor declines their submission initially, before the review stage, "
-"because the submission does not meet the requirements for publication."

@@ -73,7 +73,7 @@ class ThankReviewerForm extends Form
 
         $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable->getEmailTemplateKey());
 
         $this->setData('submissionId', $submission->getId());
         $this->setData('stageId', $reviewAssignment->getStageId());
@@ -110,7 +110,7 @@ class ThankReviewerForm extends Form
         // Create mailable and populate with data
         $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable->getEmailTemplateKey());
         $mailable->body($this->getData('message'))->subject($template->getLocalizedData('subject'));
 
         HookRegistry::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);

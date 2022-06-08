@@ -71,9 +71,6 @@ msgstr ""
 "Webová adresa příspěvku: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Tento email od editora nebo editora sekce autorovi sděluje, že jejich příspěvek je odesílán k externí recenzi."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Další kroky pro zveřejnění vašeho příspěvku"
 
@@ -88,9 +85,6 @@ msgstr ""
 "neváhejte nás kontaktovat pomocí redakčního systému  <a href=\""
 "{$submissionUrl}\">našeho periodika</a>.</p><p>S pozdravy,</p>{$signature}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Tento e-mail od editora nebo editora sekce autorovi oznamuje, že jejich podání je odesláno do produkční fáze."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr ""
@@ -108,10 +102,6 @@ msgstr ""
 "Naše rozhodnutí je: požadujeme přepracování"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"V tomto e-mailu editor žádá autora o úpravy příspěvku na základě recenzí."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr ""
 "Váš příspěvek byl podroben recenznímu řízení – upravte ho, prosím, podle "
@@ -128,11 +118,6 @@ msgstr ""
 "Naše rozhodnutí je: znovu odeslat k recenzi"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Tento e-mail od editora nebo editora sekce autorovi oznamuje rozhodnutí o „"
-"úpravě a opětovném zaslání“ jeho příspěvku."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Váš příspěvek byl odmítnut"
 
@@ -147,11 +132,6 @@ msgstr ""
 "Naše rozhodnutí je: odmítnout příspěvek"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Tento e-mail oznamuje autorovi, že jeho příspěvek byl po recenzním řízení "
-"odmítnut."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Doporučení redaktora"
 
@@ -165,15 +145,6 @@ msgstr ""
 "pokračujte dle vydaného doporučení.</p><p>V případě jakýchkoli dotazů nás "
 "neváhejte kontaktovat.</p><p>S pozdravy,</p><p>{$senderName}</p>"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Tento automatický e-mail oznamuje hlavnímu redaktorovi nebo redaktorovi "
-"sekce, že bylo vydáno redakční doporučení týkající se předloženého "
-"příspěvku. Tato šablona se používá v případě, že redaktor může pouze "
-"doporučit redakční rozhodnutí a vyžaduje, aby oprávněný redaktor zaznamenal "
-"redakční rozhodnutí. Tuto možnost lze zvolit při přiřazování účastníků k "
-"příspěvku."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
@@ -219,8 +190,3 @@ msgstr ""
 "pozdravem,</p>{$signature}"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Tento e-mail je zaslán autorovi v případě, že editor původně odmítne jeho "
-"příspěvek ještě před recenzním řízením, protože nesplňuje požadavky pro "
-"zveřejnění v časopise"

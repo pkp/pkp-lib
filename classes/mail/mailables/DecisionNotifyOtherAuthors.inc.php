@@ -20,9 +20,12 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
+use PKP\mail\traits\Configurable;
 
 class DecisionNotifyOtherAuthors extends Mailable
 {
+    use Configurable;
     use Sender;
 
     /** @var string An email variable that contains the message that was sent to the submitting author */
@@ -38,6 +41,8 @@ class DecisionNotifyOtherAuthors extends Mailable
         self::GROUP_COPYEDITING,
         self::GROUP_PRODUCTION,
     ];
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     public function __construct(Context $context, Submission $submission)
     {

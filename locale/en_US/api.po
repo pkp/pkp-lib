@@ -231,3 +231,15 @@ msgstr "The active theme, {$themePluginPath}, is not enabled and may not be inst
 
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "The {$locale} locale is not supported."
+
+msgid "api.mailables.400.templateKeysMissing"
+msgstr "The email template keys aren't specified."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "The email you requested was not found."
+
+msgid "api.mailables.404.templateNotFound"
+msgstr "The template could not be assigned to this email because the template was not found."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "The templateKeys input should be an array or empty string"

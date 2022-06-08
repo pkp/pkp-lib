@@ -19,21 +19,22 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\PasswordResetUrl;
 use PKP\mail\traits\Recipient;
+use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\traits\Configurable;
 
 class ReviewResponseRemindAuto extends Mailable
 {
+    use Configurable;
     use Recipient;
     use PasswordResetUrl;
 
-    public const EMAIL_KEY = 'REVIEW_RESPONSE_OVERDUE_AUTO';
-
     protected static ?string $name = 'mailable.ReviewResponseOverdueAuto.name';
-
     protected static ?string $description = 'mailable.ReviewResponseOverdueAuto.description';
-
+    protected static ?string $emailTemplateKey = 'REVIEW_RESPONSE_OVERDUE_AUTO';
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;
     protected ReviewAssignment $reviewAssignment;

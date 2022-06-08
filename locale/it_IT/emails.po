@@ -44,6 +44,7 @@ msgstr ""
 "nel momento in cui viene completato il processo di sottomissione del "
 "manoscritto. Fornisce informazioni su come tracciare il manoscritto e "
 "ringrazia l'autore per la proposta."
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Ringraziamenti per la revisione"
@@ -60,6 +61,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewAck.description"
 msgstr "Questa email viene inviata dal section editor per confermare la ricezione di una revisione completata e per ringraziare i revisori per i loro contributi."
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Decisione dell'editor"
@@ -76,11 +78,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Questa mail è inviata dall'Editor o dal Section Editor all'autore quando il "
-"manoscritto viene assegnato ad un revisore."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decisione dell'editor"
 
@@ -93,9 +90,6 @@ msgstr ""
 "<br />\n"
 "URL proposta: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Questa mail è inviata dall'editor o dall'editor di sezione all'autore quando una proposta è stata sistemata dal punto di vista editoriale."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decisione dell'editor"
@@ -110,11 +104,6 @@ msgstr ""
 "La nostra decisione: è necessaria ciclo di peer-review"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Questa mail è inviata dall'Editor o dal Section Editor  all'autore quando il "
-"manoscritto deve essere revisionato dopo la revisione."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decisione dell'editor"
 
@@ -127,9 +116,6 @@ msgstr ""
 "<br />\n"
 "La decisione è: mandarla di nuovo in revisione"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Messaggio dell'editor all'autore per informarlo della decisione conclusiva sulla proposta inviata."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Decisione dell'editor"
@@ -144,9 +130,6 @@ msgstr ""
 "La decisione è di non accettare la proposta"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Questa mail è inviata dall'editor o dall'editor di sezione all'autore per non accettare una proposta."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Raccomandazione dell'editor"
 
@@ -157,9 +140,6 @@ msgstr ""
 "<br />\n"
 "La raccomandazione riguardo la proposta &quot;{$submissionTitle}&quot;, giunta per  {$contextName}, è: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Mail che l'editor invia al responsabile contenente la raccomandazione su cosa fare di una certa proposta."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Assegnazione di copyediting"
@@ -183,6 +163,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "Questa email viene mandata dal section editor al copyeditor della submission per richiedere che comincino con il processo di copyedit. Questa fornisce informazioni sulla submission e su come accedervi."
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Decisione dell'editor"
@@ -199,5 +180,3 @@ msgstr ""
 "Ci rincresce informarla che non ci è possibile accettare il suo contributo"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "Questa mail viene mandata all'autore se la proposta subito non viene accettata dall'editor"

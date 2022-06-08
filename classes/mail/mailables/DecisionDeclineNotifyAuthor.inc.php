@@ -22,9 +22,13 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\ReviewerComments;
 use PKP\mail\traits\Sender;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\security\Role;
+use PKP\mail\traits\Configurable;
 
 class DecisionDeclineNotifyAuthor extends Mailable
 {
+    use Configurable;
     use Recipient;
     use ReviewerComments;
     use Sender;
@@ -34,6 +38,8 @@ class DecisionDeclineNotifyAuthor extends Mailable
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_DECLINE';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     /**
      * @param array<ReviewAssignment> $reviewAssignments

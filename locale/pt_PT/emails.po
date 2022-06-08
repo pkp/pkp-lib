@@ -78,11 +78,6 @@ msgstr ""
 "URL da submissão: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Este email é enviado pelo Editor/Editor de Secção ao Autor serve para o "
-"notificar que a submissão foi enviada para uma revisão externa."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Próximos passos para publicar a sua submissão"
 
@@ -95,11 +90,6 @@ msgstr ""
 "<br />\n"
 "URL da submissão : {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Este e-mail é enviado pelo Editor/Editor de Secção ao Autor a notificá-lo "
-"que a sua submissão foi enviada para produção."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "A sua submissão foi revista e encorajamo-lo a inserir revisões"
@@ -115,11 +105,6 @@ msgstr ""
 "A decisão é: Revisões Requeridas"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Esta mensagem é enviada pelo do editor solicitando ao autor revisões durante "
-"o processo de revisão por pares."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "A sua submissão foi revista - por favor reveja e volte a submeter"
 
@@ -133,11 +118,6 @@ msgstr ""
 "<br />\n"
 "A decisão é: Submeter Novamente Para Revisão"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Esta mensagem enviada pelo Editor/Editor de Secção ao Autor notifica sobre a "
-"decisão editorial de rever e voltar a submeter."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "A sua submissão foi recusada"
@@ -153,11 +133,6 @@ msgstr ""
 "A decisão é: Rejeitar"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Este e-mail notifica o autor que a sua submissão foi recusada após a revisão "
-"por pares."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Recomendação Editorial"
 
@@ -173,15 +148,6 @@ msgstr ""
 ">Encontro-me ao dispor para responder a qualquer "
 "pergunta.</p><p>Cumprimentos,</p><p>{$senderName}</p>"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Este e-mail notifica o Editor ou Editor de Secção  que foi emitida uma "
-"recomendação editorial relativamente à submissão. Este modelo é usado quando "
-"um editor só tem permissões para emitir uma recomendação de decisão "
-"editorial e é necessário um Editor autorizado para registar a decisão "
-"editorial. Esta opção pode ser selecionada quando designa participantes numa "
-"submissão."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
@@ -229,8 +195,3 @@ msgstr ""
 "A decisão é: Rejeitar a Submissão"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Este e-mail é enviado ao autor se o editor decidir rejeitar a submissão numa "
-"fase inicial, antes do processo de revisão, porque a submissão não obedece "
-"aos critérios de publicação na revista"

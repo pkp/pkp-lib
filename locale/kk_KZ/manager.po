@@ -1032,33 +1032,27 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Электрондық пошта мекенжайын тексеру (веб-сайт)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Бұл электрондық хабар өңдеуші рецензент тапсырмасынан бас тартқанда "
 "жіберіледі."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Рецензент ретінде тағайындау жойылды"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Бұл хат жойылған рецензент редактор болып қайта тағайындалғанда жіберіледі."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Рецензент қайта тағайындалды"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Бұл электрондық хабар шолушыға жіберу тағайындалған кезде жіберіледі."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Рецензент тағайындалды"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Бұл электрондық хабар талқылауға жаңа хабар қосылғанда автоматты түрде "
 "талқылауға қатысушыларға жіберіледі."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Жаңа пост талқылауда"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
@@ -2973,6 +2967,38 @@ msgstr ""
 msgid "doi.manager.settings.doiObjects"
 msgstr "Журнал мазмұны"
 
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Бұл рецензенттің мақаланы қарау сұранысына жауап ретінде бөлім редакторына "
+"қарау сұранысының қабылданғанын және рецензия көрсетілген күнге дейін "
+"жіберілетінін хабарлау үшін жіберілген хат."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Бұл бөлім редакторына мақаланы қарау сұрауына жауап ретінде бөлім "
+"редакторына қарау сұрауы қабылданбағаны туралы жіберілген рецензент хат."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Бұл хатты бөлім редакторы рецензентке қарау мерзімі өтіп кеткенін еске салу "
+"үшін жібереді."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Егер рецензент белгіленген мерзімде шолуды аяқтамаса, бұл электрондық пошта "
+"автоматты түрде жіберіледі. Тексеру параметрлерінде автоматты тексеру еске "
+"салғыштары бар."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Бұл электрондық пошта шолушының қарауды растау күні өткен кезде автоматты "
+"түрде жіберіледі (Параметрлер> Жұмыс үрдісі> Қарау бөліміндегі Қарау "
+"опцияларын қараңыз) және шолушының сілтеме арқылы тікелей қатынасы "
+"өшірілген. Жоспарланған тапсырмалар қосылып, конфигурациялануы керек ("
+"сайттың конфигурация файлын қараңыз)."
+
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Тексеруші тексеру мерзімі аяқталмаған кезде бұл электрондық хатты автоматты "
@@ -3030,3 +3056,22 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Бұл компонент жойылмас бұрын, соған байланысты жіберу файлдарын басқа "
 "компонентпен байланыстыру керек."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Бұл электрондық хатта жылғы редактор-бөлімнің сын-пікір жазушысына өтіну "
+"қарай сын-пікір жазушысына қабылдауға немесе қабылдамауға міндетті сараптау "
+"бойынша ұсыну."
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Это письмо редактора раздела, отправляемое рецензенту, с запросом согласия "
+"или отказа от выполнения рецензирования материала во втором или последующих "
+"раундах рецензирования. В письме приводится информация о материале, такая "
+"как название и аннотация, срок выполнения рецензии и как получить доступ к "
+"самому материалу. Это сообщение используется, если выбран стандартный "
+"процесс рецензирования в Управление > Настройки > Рабочий процесс > "
+"Рецензирование."
+
+#, fuzzy

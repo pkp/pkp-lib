@@ -38,6 +38,7 @@ class Collector implements CollectorInterface
     public ?array $stageIds = null;
     public ?int $count = null;
     public ?int $offset = null;
+    public ?array $mailables = null;
 
     public const EMAIL_TEMPLATE_STAGE_DEFAULT = 0;
 
@@ -144,6 +145,17 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter results by those assigned to one or more mailables
+     *
+     * @param string[] $mailables One or more mailable class names
+     */
+    public function filterByMailables(?array $mailables): self
+    {
+        $this->mailables = $mailables;
+        return $this;
+    }
+
+    /**
      * This method performs a UNION on the default and custom template
      * tables, and returns the final SQL string and merged bindings.
      *
@@ -154,7 +166,7 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $q = $this->isModified === true || $this->isEnabled === false ?
+        $q = $this->isModified === true || $this->isEnabled === false || !is_null($this->mailables) ?
             $this->getCustomQueryBuilder() :
             $this->getDefaultQueryBuilder()->union($this->getCustomQueryBuilder());
 
@@ -264,6 +276,14 @@ class Collector implements CollectorInterface
 
             ->when(!is_null($this->keys), function (Builder $q) {
                 return $q->whereIn('et.email_key', $this->keys);
+            })
+
+            ->when(!is_null($this->mailables), function (Builder $q) {
+                return $q->whereIn('et.email_id', function (Builder $q) {
+                    return $q->select('email_id')
+                        ->from('mailable_templates')
+                        ->whereIn('mailable_id', $this->mailables);
+                });
             })
 
             ->when(!is_null($this->searchPhrase), function (Builder $q) {

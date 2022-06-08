@@ -51,12 +51,6 @@ msgstr ""
 msgid "emails.reviewAck.description"
 msgstr "Цим листом редактор розділу підтверджує отримання готової рецензії та дякує рецензенту за його внесок."
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Це лист редактора чи редактора розділу до автора, з повідомленням про те, що "
-"подання відправлено на зовнішнє рецензування."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -71,12 +65,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Рішення Редакції"
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Це лист редактора чи редактора розділу, яке повідомляє Автора про запуск "
-"його матеріалу у Виробництво."
-
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -105,9 +93,6 @@ msgstr ""
 "Наше рішення: Необхідні Виправлення"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Цим листом редактор або редактор розділу повідомляє автору про прийняття остаточного рішення стосовно його подання."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Рішення редактора"
 
@@ -122,9 +107,6 @@ msgstr ""
 "Наше рішення: Відправити на повторне рецензування"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Цим листом редактор або редактор розділу повідомляє автору про прийняття остаточного рішення стосовно його подання."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Рішення редактора"
 
@@ -138,9 +120,6 @@ msgstr ""
 "<br />\n"
 "Наше рішення: Відмовити у поданні"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Цим листом редактор або редактор розділу повідомляє автору про прийняття остаточного рішення стосовно його подання."
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""

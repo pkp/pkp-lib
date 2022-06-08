@@ -77,9 +77,6 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "emails.userValidateContext.description"
-msgstr "Erabiltzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
-
 msgid "emails.reviewerRegister.subject"
 msgstr "{$contextName} aldizkarian Ebaluatzaile gisa erregistratzea"
 
@@ -258,7 +255,7 @@ msgstr ""
 "{$submissionAbstract}"
 
 #, fuzzy
-msgid "emails.reviewResponseOverdueAuto.description"
+msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr "Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra hautatzen denean. (Bestela, ikus REVIEW_REQUEST_ATTACHED)."
 
 msgid "emails.reviewResponseOverdueAutoOneclick.subject"
@@ -319,7 +316,7 @@ msgstr ""
 "{$submissionAbstract}"
 
 #, fuzzy
-msgid "emails.reviewRequest.description"
+msgid "mailable.reviewRequest.description"
 msgstr "Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra hautatzen denean. (Bestela, ikus REVIEW_REQUEST_ATTACHED)."
 
 msgid "emails.reviewCancel.subject"
@@ -333,9 +330,6 @@ msgstr ""
 "<br />\n"
 "Galderaren bat baduzu, jar zaitez harremanetan nirekin, mesedez."
 
-msgid "emails.reviewCancel.description"
-msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio artikulu baten ebaluazioa egiten hasita dagoenean, ebaluazioa bertan behera utzi dela jakinarazteko."
-
 msgid "emails.reviewConfirm.subject"
 msgstr "Ebaluazioa egiteko prest"
 
@@ -346,9 +340,6 @@ msgstr ""
 "{$contextName} aldizkarirako &quot;{$submissionTitle}&quot; artikulua ebaluatzeko aukera aztertu dut, eta prest nago lan hori egiteko. Eskerrik asko nigan pentsatzeagatik; nire txostena garaiz jasoko duzue, mugaegunerako ({$reviewDueDate}) eginda egongo da, lehenago ez bada.<br />\n"
 "<br />\n"
 "{$senderName}"
-
-msgid "emails.reviewConfirm.description"
-msgstr "Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko eskaera onartzen duela eta lana garaiz bukatuko duela esateko."
 
 msgid "emails.reviewDecline.subject"
 msgstr "Ebaluazioa egin ezina"
@@ -361,7 +352,7 @@ msgstr ""
 "<br />\n"
 "{$senderName}"
 
-msgid "emails.reviewDecline.description"
+msgid "mailable.reviewDecline.description"
 msgstr "Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko eskaerari erantzunez, ezin duela egin esateko."
 
 #, fuzzy
@@ -399,7 +390,7 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "emails.reviewRemind.description"
+msgid "mailable.reviewRemind.description"
 msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazioa egiteko epea pasatu dela gogorarazteko."
 
 msgid "emails.reviewRemindAuto.subject"
@@ -421,7 +412,7 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "emails.reviewRemindAuto.description"
+msgid "mailable.reviewRemindAuto.description"
 msgstr "Mezu hau automatikoki bidaltzen da ebaluatzaile baten epea amaitu eta erantzun ez duenean (ikus Konfigurazioko 2. urratseko Ebaluazio-aukerak) eta klik bakarreko ebaluatzaile-sarbidea desgaituta dagoenean. Programatutako atazak (scheduled_tasks) gaituta eta konfiguratuta egon behar dute (ikus konfigurazio-fitxategia)."
 
 msgid "emails.reviewRemindAutoOneclick.subject"
@@ -787,10 +778,6 @@ msgstr ""
 "<br />\n"
 "{$signature}"
 
-msgid "emails.notification.description"
-msgstr "Mezu hau mota honetako jakinarazpena jasotzea hautatu duten erabiltzaile erregistratuei bidaltzen zaie."
-
-#, fuzzy
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Editorearen erabakia"
 
@@ -802,10 +789,6 @@ msgstr ""
 "Hartu dugu {$contextName} aldizkarira bidali zenuen &quot;{$submissionTitle}&quot; artikuluari buruzko erabakia.<br />\n"
 "<br />\n"
 "Gure erabakia:"
-
-#, fuzzy
-msgid "emails.editorDecisionAccept.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
@@ -821,10 +804,6 @@ msgstr ""
 "Gure erabakia:"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Editorearen erabakia"
 
@@ -836,10 +815,6 @@ msgstr ""
 "Hartu dugu {$contextName} aldizkarira bidali zenuen &quot;{$submissionTitle}&quot; artikuluari buruzko erabakia.<br />\n"
 "<br />\n"
 "Gure erabakia:"
-
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
@@ -855,9 +830,6 @@ msgstr ""
 "Gure erabakia:"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
-
 msgid "emails.subscriptionPurchaseIndl.subject"
 msgstr "Harpidetza-erosketa: Indibiduala"
 
@@ -1022,7 +994,7 @@ msgstr ""
 "{$submissionAbstract}"
 
 #, fuzzy
-msgid "emails.reviewRequestSubsequent.description"
+msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Atalen Editoreak Berrikusleari bidalitako mezu honetan berrikusleari eskatzen dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo baztertu dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, titulua eta aurkezpena, berrikuspena egiteko muga, eta nola sartu bidalitakora.  Mezu hau erabiltzen da Aldizkariaren Konfigurazioan, 2. urratsean Berrikuspen Estandarraren Prozesua hautatzen denean. (Bestela, ikus BERRIKUSPENA_ESKAKIZUNA_ERANTSIA_ONDORENGOA.)"
 
 msgid "emails.reviewRequestAttachedSubsequent.subject"
@@ -1119,9 +1091,6 @@ msgstr ""
 "Gure erabakia:"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Editorearen erabakia"
 
@@ -1135,9 +1104,6 @@ msgstr ""
 "Gure erabakia:"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Editorearen erabakia"
 
@@ -1150,9 +1116,6 @@ msgstr ""
 "<br />\n"
 "Gure erabakia:"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Mezu hau Editoreak edo Ataleko editoreak bidaltzen dio Egileari, artikuluari buruz hartu duen erabakia jakinarazteko."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Zuzenketa egiteko eskaera"

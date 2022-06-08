@@ -137,16 +137,14 @@
 		},
 		"doiObject": {
 			"type": "object",
-			"description": "DOI object for this publication",
+			"description": "An object representing the DOI for this publication.",
 			"apiSummary": true,
 			"readOnly": true,
-			"items": {
-				"$ref": "#/definitions/Doi"
-			}
+			"$ref": "#/definitions/Doi"
 		},
 		"doiId": {
 			"type": "integer",
-			"description": "Reference to the DOI for this publication",
+			"description": "The ID of the DOI to assign to this publication.",
 			"writeOnly": true,
 			"validation": [
 				"nullable"

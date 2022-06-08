@@ -70,9 +70,6 @@ msgstr ""
 "URL des Beitrags: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Diese E-Mail von Redakteur/in oder Rubrikredakteur/in benachrichtigt die/den Autor/in darüber, dass ein externes Gutachten angefordert wird."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Entscheidung der Redaktion"
 
@@ -85,9 +82,6 @@ msgstr ""
 "<br />\n"
 "URL des Beitrags: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Diese E-Mail von Redakteur/in oder Rubrikredakteur/in informiert die/den Autor/in darüber, dass deren Beitrag in die Herstellung weitergeleitet worden ist."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Entscheidung der Redaktion"
@@ -102,9 +96,6 @@ msgstr ""
 "<br />\n"
 "Wir haben entschieden, dass Ihr Beitrag überarbeitet werden muss."
 
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Diese E-Mail von der/dem Redakteur/in oder Rubrikredakteur/in an eine/n Autor/in informiert diese/n über eine getroffene Entscheidung zu ihrer/seiner Einreichung."
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Entscheidung der Redaktion"
@@ -121,9 +112,6 @@ msgstr ""
 "erneut zum Begutachtung versendet wird."
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Diese E-Mail von der/dem Redakteur/in oder Rubrikredakteur/in an eine/n Autor/in informiert diese/n über eine getroffene Entscheidung zu ihrer/seiner Einreichung."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Entscheidung der Redaktion"
 
@@ -137,9 +125,6 @@ msgstr ""
 "Unsere Entscheidung lautet: Beitrag ablehnen"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Diese E-Mail von der/dem Redakteur/in oder Rubrikredakteur/in an eine/n Autor/in informiert diese/n über eine getroffene Entscheidung zu ihrer/seiner Einreichung."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Entscheidung der Redaktion"
 
@@ -150,13 +135,6 @@ msgstr ""
 "<br />\n"
 "Die Empfehlung hinsichtlich der Einreichung für {$contextName}, &quot;{$submissionTitle}&quot; ist: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Diese E-Mail von der/dem vorschlagenen Redakteur/in oder Rubrikenredakteur/"
-"in an die/den Entscheidungen treffenden Redakteur/in oder Rubrikenredakteur/"
-"in informiert diese/n über die endgültige Empfehlung zur vorliegenden "
-"Einreichung."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Bitte um ein Lektorat"
@@ -194,7 +172,3 @@ msgstr ""
 "Wir haben entschieden, Ihre Einreichung abzulehnen."
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Diese E-Mail wird an die/den Autor/in gesendet, wenn die/der Redakteur/in "
-"die Einreichung bereits vor dem Begutachtungsprozess ablehnt."

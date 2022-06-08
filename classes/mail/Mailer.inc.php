@@ -22,6 +22,7 @@ use Illuminate\Mail\Mailer as IlluminateMailer;
 use InvalidArgumentException;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\observers\events\MessageSendingContext;
@@ -141,9 +142,9 @@ class Mailer extends IlluminateMailer
     /**
      * @return string[] mailable class names
      */
-    public static function getMailables(): array
+    public static function getMailables(Context $context): array
     {
-        $mailables = static::getMailablesFromCache();
+        $mailables = static::getMailablesFromCache($context->getId());
         HookRegistry::call('Mailer::Mailables', [&$mailables]);
 
         return $mailables;
@@ -152,11 +153,9 @@ class Mailer extends IlluminateMailer
     /**
      * @return string[] cached mailable class names
      */
-    protected static function getMailablesFromCache(): array
+    protected static function getMailablesFromCache(int $contextId): array
     {
         $cacheManager = CacheManager::getManager();
-        $context = PKPApplication::get()->getRequest()->getContext();
-        $contextId = $context ? $context->getId() : PKPApplication::CONTEXT_SITE;
         $cache = $cacheManager->getCache('mailable', $contextId, function (FileCache $cache) {
             $cache->setEntireCache(static::scanMailables());
         });
@@ -176,7 +175,7 @@ class Mailer extends IlluminateMailer
         $mailables = [];
         foreach ($finder as $file) {
             $className = Core::classFromFile($file);
-            if (is_a($className, Mailable::class, true)) {
+            if (is_a($className, Mailable::class, true) && class_uses_recursive(Configurable::class)) {
                 $mailables[] = $className;
             }
         }

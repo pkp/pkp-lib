@@ -2256,3 +2256,39 @@ msgstr "Prefiks DOI jest przydzielany przez organizacje rejestrujące, np. <a hr
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Zawartość czasopisma"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera akceptację prośby o wykonanie recenzji."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera odrzucenie prośby o wykonanie recenzji."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Wiadomość wysyłana przez redaktora prowadzącego do recenzenta. Zawiera przypomnienie o terminie wykonania recenzji."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Wiadomość automatycznie wysłana po upłynięciu terminu nadesłania recenzji. Zaplanowane zadania w systemie muszą zostać na nowo skonfigurowane."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Wiadomość od redaktora działu do recenzenta. Zawiera prośbę o przygotowanie recenzji artykułu, jego tytuł i abstrakt, a także zalecenie dot. zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do logowania. Wysyłana, jeśli recenzent pracować będzie w systemie."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
+"przygotowanie recenzji tekstu, jego tytuł i abstrakt, a także zalecenie dot. "
+"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
+"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
+"przygotowanie recenzji tekstu, jego tytuł i abstrakt oraz informacje o "
+"dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
+"pracować będzie w systemie"
+
+#, fuzzy

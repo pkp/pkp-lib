@@ -58,13 +58,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "Maqolani ko'rib chiqish"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Tahrirlovchidan yoki bo'lim muharriridan muallifga yuborilgan elektron "
-"pochta xabarlari ularning taqdimoti tashqi tekshiruvga yuborilayotgani "
-"haqida xabar beradi."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}: <br />\n"
@@ -80,13 +73,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Tahririyat qarori"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Tahrirlovchidan yoki bo'lim muharriridan Muallifga yuborilgan ushbu elektron "
-"pochta xabari, ularning taqdimoti ishlab chiqarishga yuborilayotgani haqida "
-"xabar beradi."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}: <br />\n"
@@ -99,13 +85,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Tahririyat qarori"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Tahririyat yoki bo'lim muharriridan muallifga yuborilgan elektron pochta "
-"xabarlari ularni yuborish to'g'risida \"tuzatishlar kerak\" degan yakuniy "
-"qaror haqida xabar beradi."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -120,13 +99,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Tahririyat qarori"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Tahririyat yoki bo'lim muharriridan muallifga yuborilgan ushbu elektron "
-"pochta xabari ularni topshirish to'g'risida yakuniy \"qayta yuborish\" "
-"qarori to'g'risida xabardor qiladi."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}: <br />\n"
@@ -140,13 +112,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Tahririyat qarori"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Tahririyat yoki bo'lim muharriridan muallifga yuborilgan elektron pochta "
-"xabarlari ularni yuborish to'g'risida \"rad etish\" to'g'risida yakuniy "
-"qaror haqida xabar beradi."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}: <br />\n"
@@ -159,13 +124,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Tahririyat qarori"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Tavsiya etayotgan muharrir yoki bo'lim muharriridan qaror qabul qilish "
-"muharrirlari yoki bo'lim muharrirlariga yuborilgan elektron pochta xabarlari "
-"ularga topshirish bo'yicha yakuniy tavsiyanoma to'g'risida xabar beradi."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -204,12 +162,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "So'rovni nusxalash"
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Agar muharrir ularni ko'rib chiqish bosqichidan oldin rad etsa, bu elektron "
-"pochta muallifiga yuboriladi"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

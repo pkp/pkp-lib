@@ -71,12 +71,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "Қараудың қабылданғанын растау"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Бұл редактордың немесе бөлім редакторының авторға сырттан қарауға "
-"жіберілгені туралы хабарлау үшін жіберген хаты."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "Сәлеметсіз бе {$authors}! <br />\n"
@@ -98,12 +92,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Редакциялық шешім"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Бұл редактордың немесе бөлім редакторының авторға материалдың өндірісте "
-"шығарылуы туралы хабарлау үшін жіберген хаты."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "Здравствуйте, {$authors}!<br />\n"
@@ -120,12 +108,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Решение редакции"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Бұл редактордан немесе бөлім редакторынан авторға жіберілген материалға "
-"қатысты «Түзету қажет» соңғы шешімі туралы хабарлау үшін жіберілген хат."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -144,12 +126,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Редакциялық шешім"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Бұл редактордың немесе бөлім редакторының авторға жіберуге қатысты «Қарауға "
-"жіберу» соңғы шешімі туралы хабарлау үшін жіберген хаты."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "Сәлеметсіз бе {$authorName}! <br />\n"
@@ -167,12 +143,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Редакциялық шешім"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Бұл редактордың немесе бөлім редакторының авторға жіберуге қатысты соңғы «"
-"Бас тарту» шешімі туралы хабарлау үшін жіберген хаты."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "Сәлеметсіз бе {$authors}! <br />\n"
@@ -189,13 +159,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Редакциялық шешім"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Бұл ұсынушы редактордың немесе бөлім редакторының редакторларға немесе бөлім "
-"редакторларына жіберуге қатысты соңғы ұсыныс туралы хабарлау туралы шешім "
-"қабылдаған хаты."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -245,12 +208,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Әдеби редакциялауға сұраныс"
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Бұл хат авторға жіберіледі, егер редактор оның ұсынысын қабылдамауды "
-"бастапқы кезеңде, сараптамалық кезеңге дейін қабылдамаса."
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

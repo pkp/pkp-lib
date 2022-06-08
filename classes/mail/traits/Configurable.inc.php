@@ -13,7 +13,7 @@
  * @brief trait to support Mailable's name and description displayed in the UI
  */
 
-namespace PKP\mail;
+namespace PKP\mail\traits;
 
 use Exception;
 
@@ -43,5 +43,13 @@ trait Configurable
         }
 
         return __(static::$description);
+    }
+
+    /**
+     * Retrieve a unique Mailable's ID
+     */
+    public static function getId(): string
+    {
+        return str_replace('\\', '-', static::class);
     }
 }

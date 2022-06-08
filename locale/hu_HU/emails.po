@@ -70,9 +70,6 @@ msgstr ""
 "{$signature}<br />"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkét a szerkesztőség külső szakmai lektorálásra küldte."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Szerkesztői döntés"
 
@@ -89,9 +86,6 @@ msgstr ""
 "{$signature}<br />"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkét a szerkesztőség megjelentetésre továbbította."
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Szerkesztői döntés"
 
@@ -105,9 +99,6 @@ msgstr ""
 "Üdvözlettel,<br />\n"
 "{$signature}<br />"
 
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkével kapcsolatos döntés az \"Átdolgozás szükséges\"."
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Szerkesztői döntés"
@@ -123,9 +114,6 @@ msgstr ""
 "{$signature}<br />"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkével kapcsolatos döntés az \"Újrabenyújtás\"."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Szerkesztői döntés"
 
@@ -140,9 +128,6 @@ msgstr ""
 "{$signature}<br />"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkével kapcsolatos döntés az \"Elutasítás\"."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Szerkesztői javaslat"
 
@@ -156,9 +141,6 @@ msgstr ""
 "Üdvözlettel,<br />  \n"
 "{$signature}<br />"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Ez az e-mail az ajánlatot tevő Szerkesztőtől vagy Rovatszerkesztőtől megy a döntést meghozó Szerkesztőkhöz vagy Rovatszerkesztőkhöz, értesítve őket a  kézirattal kapcsolatos végső javaslatról."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Technikai szerkesztés kérése"
@@ -201,5 +183,3 @@ msgstr ""
 "{$signature}<br />"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "Ez az e-mail a Szerzőnek lesz küldve akkor, amikor a Szerkesztő egyből visszautasítja a benyújtott kéziratot, még a lektorálási szakasz előtt."

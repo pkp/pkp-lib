@@ -27,7 +27,7 @@ use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\mail\mailables\MailDiscussionMessage;
+use PKP\mail\mailables\DiscussionMessage;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
@@ -635,7 +635,7 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            $mailable = new MailDiscussionMessage($request->getContext(), $this->getSubmission());
+            $mailable = new DiscussionMessage($request->getContext(), $this->getSubmission());
             $emailTemplate = Repo::emailTemplate()->getByKey($request->getContext()->getId(), $mailable::getEmailTemplateKey());
             $mailable
                 ->body($emailTemplate->getLocalizedData('body'))

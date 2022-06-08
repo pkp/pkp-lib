@@ -69,9 +69,6 @@ msgstr ""
 "رابط الطلب: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "هذه الرسالة يعنونها محرر القسم إلى طالب النشر يعلمه فيها بقرار هيئة التحرير بأن طلبه قد أرسل إلى محكم خارجي."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "قرار هيئة التحرير"
 
@@ -84,9 +81,6 @@ msgstr ""
 "<br />\n"
 "رابط الطلب: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "هذه الرسالة يعنونها مدير التحرير أو محرر القسم إلى المؤلف لإبلاغه بأن عمله قد تم إرساله إلى مرحلة الإنتاج."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "قرار هيئة التحرير"
@@ -101,9 +95,6 @@ msgstr ""
 "قرارنا هو: بعض التنقيحات مطلوبة"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "هذه الرسالة يعنونها محرر القسم إلى طالب النشر يعلمه فيها بالقرار النهائي لهيئة التحرير بأن مؤلفه بحاجة إلى بعض التنقيحات."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "قرار هيئة التحرير"
 
@@ -116,9 +107,6 @@ msgstr ""
 "<br />\n"
 "قرارنا هو: إعادة التقديم مجدداً"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "هذه الرسالة يعنونها محرر القسم إلى طالب النشر يعلمه فيها بالقرار النهائي لهيئة التحرير بشأن طلبه، ملخصه (إعادة تقديم طلب النشر)."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "قرار هيئة التحرير"
@@ -133,9 +121,6 @@ msgstr ""
 "قرارنا هو: الرفض"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "هذه الرسالة يعنونها محرر القسم إلى طالب النشر يعلمه فيها بالقرار النهائي لهيئة التحرير بشأن طلبه، ملخصه (رفض الطلب)."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "توصيات المحرر"
 
@@ -146,9 +131,6 @@ msgstr ""
 "<br />\n"
 "إن التوصيات المتعلقة بطلب النشر في {$contextName}، &quot;{$submissionTitle}&quot; هي: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "هذه الرسالة يعنونها المحرر المشارك في تقديم التوصيات أو محرر القسم إلى جهة التحرير المعنية باتخاذ القرار لإشعارها بالتوصية النهائية الخاصة بطلب نشر مقدم إلى المجلة."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "إلتماس نسخة التدقيق"
@@ -186,5 +168,3 @@ msgstr ""
 "إن قرارنا هو: رفض النشر"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "هذه الرسالة تعنون إلى المؤلف إذا رفض المحرر طلبه بشكل مبدئي قبل الدخول في مرحلة التحكيم"

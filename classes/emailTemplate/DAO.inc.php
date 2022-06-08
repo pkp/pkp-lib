@@ -20,6 +20,7 @@ use PKP\core\EntityDAO;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
+use PKP\mail\Mailable;
 
 class DAO extends EntityDAO
 {
@@ -102,6 +103,9 @@ class DAO extends EntityDAO
     public function delete(EmailTemplate $emailTemplate)
     {
         parent::_delete($emailTemplate);
+
+        // Remove template from mailable_templates table
+        DB::table('mailable_templates')->where('email_id', $emailTemplate->getId())->delete();
     }
 
     /**

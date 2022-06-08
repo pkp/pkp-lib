@@ -76,9 +76,6 @@ msgstr ""
 "Käsikirjoituksen URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them that their submission is being sent to an external review."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Toimittajan päätös"
 
@@ -92,9 +89,6 @@ msgstr ""
 "<br />\n"
 "Käsikirjoituksen URL: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them that their submission is being sent to production."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Toimittajan päätös"
@@ -110,9 +104,6 @@ msgstr ""
 "Päätöksemme on: Vaatii korjauksia"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them of a final \"revisions required\" decision regarding their submission."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Toimittajan päätös"
 
@@ -126,9 +117,6 @@ msgstr ""
 "<br />\n"
 "Päätöksemme on: Lähetettävä uudelleen arvioitavaksi"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them of a final \"resubmit\" decision regarding their submission."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Toimittajan päätös"
@@ -144,9 +132,6 @@ msgstr ""
 "Päätöksemme on: Käsikirjoitus on hylätty"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them of a final \"decline\" decision regarding their submission."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Toimittajan suositus"
 
@@ -158,9 +143,6 @@ msgstr ""
 "Julkaisun {$contextName} käsikirjoitusta &quot;{$submissionTitle}&quot; "
 "koskeva suositus on: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "This email from the recommending Editor or Section Editor to the decision making Editors or Section Editors notifies them of a final recommendation regarding the submission."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Teknistä toimittamista pyydetään"
@@ -204,5 +186,3 @@ msgstr ""
 "Päätöksemme on: Käsikirjoitus on hylätty"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "This email is sent to the author if the editor declines their submission initially, before the review stage"

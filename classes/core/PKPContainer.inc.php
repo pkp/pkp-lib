@@ -333,6 +333,17 @@ class PKPContainer extends Container
         stream_context_set_default($opts);
         libxml_set_streams_context($context);
     }
+
+    /**
+     * Override Laravel method; always false.
+     * Prevents the undefined method error when the Log Manager tries to determine the driver
+     *
+     * @return bool
+     */
+    public function runningUnitTests()
+    {
+        return false;
+    }
 }
 
 if (!PKP_STRICT_MODE) {

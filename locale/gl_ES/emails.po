@@ -61,13 +61,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "Xustificante de recepción da revisión do artigo"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Este correo electrónico do editor/a ou do editor/a de sección vai dirixido a "
-"un autor/a para notificarlle que o seu manuscrito se enviou a unha revisión "
-"externa."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -83,12 +76,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Decisión do editor/a"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Este correo electrónico do editor/a ou do editor/a de sección diríxese ao "
-"autor/a para notificarlle que o seu envío se traslada a produción."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -101,13 +88,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decisión do editor/a"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Este correo electrónico do editor/a ou do editor/a de sección diríxese a un "
-"autor/a para notificarlle que a decisión final é que o seu envío \"necesita "
-"revisións\"."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -122,13 +102,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decisión do editor/a"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Este correo electrónico do editor/a ou do editor/a de sección diríxese a un "
-"autor/a para notificarlle que se tomou a decisión final de mandar de novo a "
-"revisión o seu envío."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -142,13 +115,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decisión do editor/a"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Este correo electrónico do editor/a ou do editor/a de sección diríxese a un "
-"autor/a para notificarlle que se tomou a decisión final de \"rexeitar\" o "
-"seu envío."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -161,14 +127,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Decisión do editor/a"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Este correo electrónico do editor/a ou do editor/a de sección que fan "
-"recomendacións para os editores/as ou editores/as de sección que toman as "
-"decisións notifícalles que se fixo unha recomendación final concernente ao "
-"envío."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -209,12 +167,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Solicitude de corrección"
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Este correo electrónico diríxese ao autor/a se o editor/a rexeita o envío "
-"inicialmente, antes da fase de revisión"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

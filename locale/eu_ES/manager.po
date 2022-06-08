@@ -614,3 +614,31 @@ msgstr "Titulua"
 
 msgid "manager.setup.publishing"
 msgstr "Argitalpen zehaztasunak"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko eskaera onartzen duela eta lana garaiz bukatuko duela esateko."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko eskaerari erantzunez, ezin duela egin esateko."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazioa egiteko epea pasatu dela gogorarazteko."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Mezu hau automatikoki bidaltzen da ebaluatzaile baten epea amaitu eta erantzun ez duenean (ikus Konfigurazioko 2. urratseko Ebaluazio-aukerak) eta klik bakarreko ebaluatzaile-sarbidea desgaituta dagoenean. Programatutako atazak (scheduled_tasks) gaituta eta konfiguratuta egon behar dute (ikus konfigurazio-fitxategia)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra hautatzen denean."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra hautatzen denean."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Atalen Editoreak Berrikusleari bidalitako mezu honetan berrikusleari eskatzen dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo baztertu dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, titulua eta aurkezpena, berrikuspena egiteko muga, eta nola sartu bidalitakora.  Mezu hau erabiltzen da Aldizkariaren Konfigurazioan, 2. urratsean Berrikuspen Estandarraren Prozesua hautatzen denean. (Bestela, ikus BERRIKUSPENA_ESKAKIZUNA_ERANTSIA_ONDORENGOA.)"
+
+#, fuzzy

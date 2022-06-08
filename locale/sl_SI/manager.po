@@ -2308,33 +2308,53 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Potrdi email (Site)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Ta email se pošlje, ko urednik razreši recenzenta s prispevka."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Recenzent razrešen"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Ta email se pošlje, ko je urednik ponovno dodeli prispevek recenzentu, ki je "
 "prvotno prispevek zavrnil."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Recenzent ponovno dodeljen"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Ta email se pošlje, ko je prispevku dodeljen recenzent."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Recenzent dodeljen"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Ta email se pošlje vsem sodelujočim v diskusiji, ko je diskusiji dodano novo "
 "sporočilo."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Novo sporočilo v diskusiji"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Ta email pošlje recenzent uredniku rubrike kot odgovor na prošnjo za opravljanje recnezije in ga obvešča, da je sprejel recenzijo in jo namerava opraviti do predvidenega datuma."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ta email pošlje recenzent urendiku rubrike kot odgovor na prošnjo za recenzijo v primeru, ko obvešča urednika rubrike, da recenzijo zavrne."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Ta email pošlje urednik rubrike recenzentu kot opomnik za opravljanje recenzije."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Ta email se pošlje recenzentu avtomatično, ko poteče rok za opravljanje recenzije (več v recenzijskih nastavitveh v Nastavitve > Potek dela > Recenzija) in je izključena opcija za recenzentski dostop z enim klikom. Opozorilo: administrator spletišča mora v nastavitveni datoteki spletišča nastaviti \"Scheduled tasks\"."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Ta email se pošlje avtomatsko, ko recenzent prekorači rok za potrditev opravljanja recenzije (več: Recenzijske nastavitve pri Nastavitve  > Potek dela > Recenzija) in je izključena opcija za recenzentski dostop z enim klikom. Opozorilo: administrator spletišča mora v nastavitveni datoteki spletišča nastaviti \"Scheduled tasks\"."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Ta email pošilja urednik rubrike recenzentu s prošnjo, da recenzent potrdi ali zavrne oipravljanje recenzije. Vsebuje informaciej o prispevku kot so naslov in izvleček, datum do dokončanja recenzije ter dostopom do prispevka. Email se uporablja, ko je v nastavitvah izbran standarden recnezijski proces (Upravljanje > Nastavitve > Potek dela > Recenzija."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Ta email pošlje urednik rubrike recenzentu s prošnjo za opravljanje ali zavrnitev recenzije v drugem ali kasnejšem recenzentskem krogu. Vsebuje informacije o prispevku kot so naslov in izvleček, datum do dokončanja recenzije ter dostopom do prispevka. Email se uporablja, kadar je uporabljen standardni recenzisjki proces (Upravljanje > Nastavitve > Potek dela > Recenzija)."
 
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Faza uredniškega postopka v kateri je bila sprejeta odločitev."

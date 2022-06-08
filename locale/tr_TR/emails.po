@@ -76,9 +76,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Editörden veya Bölüm Editörden bir Yazar'a gönderilen bu e-posta, gönderinin harici bir hakeme gönderildiğini bildirir."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Aday makalenizin yayınlanması için sonraki adımlar"
 
@@ -92,9 +89,6 @@ msgstr ""
 "<br />\n"
 "Gönderi URL'si: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Editörden veya Bölüm Editörden Yazar'a gönderilen bu e-posta, makalelerin basım aşamasına gönderildiklerini bildirir."
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Aday makalenizin değerlendirme süreci tamamlandı ve düzeltme talebi"
@@ -111,9 +105,6 @@ msgstr ""
 "Kararımız: Düzeltme Gerekli"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them of a final decision regarding their submission."
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Editör Kararı"
 
@@ -127,12 +118,6 @@ msgstr ""
 "<br />\n"
 "Kararımız: Hakem Değerlendirmesi İçin Tekrar Gönder"
 
-#, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Bu e-posta, Editörden veya Bölüm Editörü'nden bir yazara makalesi ile ilgili "
-"\"değerlendirme için yeniden gönder\" şeklindeki nihai kararı bildirmek için "
-"gönderilir."
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Editör Kararı"
@@ -148,9 +133,6 @@ msgstr ""
 "Kararımız: Makale Reddedildi"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "This email from the Editor or Section Editor to an Author notifies them of a final decision regarding their submission."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Editör Tavsiyesi"
 
@@ -161,9 +143,6 @@ msgstr ""
 "<br />\n"
 "{$contextName}, &quot;{$submissionTitle}&quot; adlı gönderi ile ilgili öneri: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Düzenleyici Editörden veya Bölüm Editörden, karar veren editörleri veya Bölüm Editörleri'ne gönderilen bu e-postalar, onlara gönderiyle ilgili nihai bir öneriyi bildirir."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Sayfa düzeni için rica"
@@ -199,7 +178,3 @@ msgstr ""
 "Değerlendirme sonucu karar:  Aday Makale Reddedildi"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Bu e-posta, editör bir makaleyi ön değerlendirme aşamasında hakem "
-"değerlendirme aşamasından önce reddettiğinde makalenin yazarına gönderilir."

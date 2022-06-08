@@ -65,9 +65,6 @@ msgstr ""
 "Enlace: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Este correo electrónico del editor/a, o del editor/a de sección, notifica al autor/a que su envío se traslada a un revisor/a externo."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decisión del editor/a"
 
@@ -82,9 +79,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Este correo electrónico del editor/a, o del editor/a de sección, notifica al autor/a que su envío se traslada a producción."
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decisión del editor/a"
 
@@ -97,9 +91,6 @@ msgstr ""
 "<br />\n"
 "Nuestra decisión es: Necesita revisiones"
 
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Este correo electrónico del editor/a o editor/a de sección al autor/a le notifica que la decisión final respecto a su envío es que \"necesita revisiones\"."
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decisión del editor/a"
@@ -114,9 +105,6 @@ msgstr ""
 "Nuestra decisión es: Volver a enviar a revisión"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Este correo electrónico del editor/a o editor/a de sección al autor/a le notifica sobre la decisión final de volver a revisar su envío."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Decisión del editor/a"
 
@@ -130,9 +118,6 @@ msgstr ""
 "Nuestra decisión es: Rechazar el envío"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Este correo electrónico del editor/a o editor/a de sección al autor/a le notifica sobre la decisión final de \"rechazar\" su envío."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Recomendación del editor/a"
 
@@ -143,9 +128,6 @@ msgstr ""
 "<br />\n"
 "La recomendación respecto al envío a {$contextName}, &quot;{$submissionTitle}&quot; es: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "Este correo electrónico del editor/a o editor/a de sección que aconseja para los editores/as o editores/as de sección que toman las decisiones les notifica sobre la recomendación final respecto al envío."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Petición de corrección"
@@ -191,5 +173,3 @@ msgstr ""
 "Nuestra decisión es: Rechazar el envío"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "Este correo electrónico se envía al autor/a si el editor/a rechaza su envío inicialmente, antes de la fase de revisión"

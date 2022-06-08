@@ -2220,3 +2220,48 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Contenu de la revue"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Ce courriel est envoyé par l'évaluateur-trice au,à la rédacteur-trice de rubrique en réponse à une demande d'évaluation, pour l'aviser que la demande a été acceptée et que l'évaluation sera complétée au plus tard à la date spécifiée."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Ce courriel est envoyé par l'évaluateur-trice au,à la rédacteur-trice de rubrique en réponse à la demande d'évaluation, pour l'aviser qu'il ou elle ne peut effectuer l'évaluation."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "Ce courriel est envoyé par le,la rédacteur-trice de rubrique pour rappeler à un,une évaluateur-trice que son évaluation est due."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Ce courriel est envoyé automatiquement lorsque la date d'échéance de remise d'une évaluation est révolue (voir Options d'évaluation sous Paramètres > Flux des travaux > Évaluation) et que l'accès de l'évaluateur-trice en un clic est désactivé. Les tâches planifiées doivent être activées et configurées (voir le fichier de configuration du site)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Ce courriel est envoyé automatiquement lorsque la date d'échéance de confirmation d'un,une évaluateur-trice est révolue (voir Options d'évaluation sous Paramètres &gt; Flux des travaux &gt; Évaluation) et que l'accès de l'évaluateur-trice en un clic est désactivé. Les tâches planifiées doivent être activées et configurées (voir le fichier de configuration du site)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Ce courriel du,de la rédacteur-trice à un,une évaluateur-trice demande que l"
+"'évaluateur-trice accepte ou refuse la tâche d'évaluation d'une soumission. "
+"Il fournit de l'information sur la soumission, tel son titre et un résumé, "
+"la date d'échéance pour l'évaluation, et comment accéder à la soumission. Ce "
+"message est utilisé quand « Processus d'évaluation standard » est "
+"sélectionné dans Configuration de la revue > Paramètres > Flux des travaux > "
+"Évaluation. (Autrement voir « Demande d'évaluation d'un article (en pièce "
+"jointe) ».)"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Ce courriel du,de la rédacteur-trice de rubrique à un,une évaluateur-trice "
+"demande que l'évaluateur-trice accepte ou décline la tâche d'évaluation "
+"d'une soumission pour un cycle subséquent d'évaluation. Il contient des "
+"informations sur la soumission tel que son titre et un résumé, la date "
+"d'échéance pour faire l'évaluation, et comment accéder à la soumission. Ce "
+"message est utilisé quand « Processus d'évaluation standard » est "
+"sélectionné dans Configuration de la revue > Paramètres > Flux des travaux > "
+"Évaluation (Autrement voir « Demande d'évaluation d'un article (cycle "
+"subséquent) ».)"
+
+#, fuzzy

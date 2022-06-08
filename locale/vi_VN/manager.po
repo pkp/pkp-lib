@@ -2271,3 +2271,56 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Nội dung tạp chí"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Email này được gửi bởi một phản biện cho Biên tập viên chuyên mục để phản "
+"hồi với yêu cầu đánh giá cũng để thông báo cho Biên tập viên chuyên mục rằng "
+"yêu cầu xem xét lại đã được chấp nhận và sẽ được hoàn thành vào ngày cụ thể."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Email này được gửi bởi Người phản biện đến Biên tập viên chuyên mục để phản "
+"hồi về yêu cầu đánh giá cũng để thông báo cho Biên tập viên chuyên mục biết "
+"rằng yêu cầu đánh giá đã bị từ chối."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Email này được gửi bởi một Biên tập viên để nhắc nhở người review rằng "
+"review của họ đến hạn nộp. Email này được sử dụng khi Biên tập viên gửi nhắc "
+"nhở đến người review một cách thủ công"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Email này được gửi tự động khi người review không hoàn thành việc review "
+"trong hạn thời gian. Việc tự động hóa nhắc nhở được bật ở mục thiết đặt "
+"Review."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Email này được gửi tự động khi hết hạn xác nhận của người phản biện (xem Tùy "
+"chọn đánh giá trong Cài đặt> Quy trình làm việc> phản biện) và quyền truy "
+"cập của người phản biện không cần đăng nhập bị vô hiệu hóa. Các tác vụ theo "
+"lịch trình phải được bật và định cấu hình (xem tập tin cấu hình trang)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Email này từ Biên tập viên chuyên mục tới Người phản biện yêu cầu họ chấp "
+"nhận hoặc từ chối nhiệm vụ đánh giá nội dung bài gửi. Nó cung cấp thông tin "
+"về bài gửi như tiêu đề và tóm tắt, ngày đến hạn gửi bài đánh giá và cách "
+"truy cập bài gửi. Thông báo này được sử dụng khi Quy trình phản biện tiêu "
+"chuẩn được chọn trong Quản lý> Cài đặt> Quy trình làm việc> Phản biện."
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Email này từ biên tập viên chuyên mục tới phản biện để một yêu cầu người "
+"phản biện chấp nhận hoặc từ chối nhiệm vụ đánh giá bài gửi một vòng thứ hai "
+"hoặc cao hơn. Nó cung cấp thông tin về bài gửi như tiêu đề và tóm tắt, ngày "
+"đến hạn nộp đán giá và cách truy cập bài gửi. Thông báo này được sử dụng khi "
+"Quy trình phản biện tiêu chuẩn được chọn trong Quản lý > Cài đặt > Quy trình "
+"làm việc > Phản biện."
+
+#, fuzzy

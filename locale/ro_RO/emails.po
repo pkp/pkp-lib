@@ -63,13 +63,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "Recunoaștere revizuire articol"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Acest e-mail este trimis de editor sau de editorul de secțiune către un "
-"autor, pe care îl notifică cu privire la trimiterea manuscrisului la "
-"revizori."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -85,12 +78,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Decizia Editorului"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Acest e-mail este trimis de editor sau de editorul de secțiune către un "
-"autor pentru a-l notifica că manuscrisul va fi trimis pentru producție."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -103,13 +90,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decizia Editorului"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Acest e-mail este trimis de editor sau de editorul de secțiune, către un "
-"autor, pe care îl notifică cu privire la o decizie finală de „revizuire a "
-"manuscrisului”."
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -124,13 +104,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decizia Editorului"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Acest e-mail este trimis de editor sau de editorul de secțiune, către un "
-"autor, pe care îl notifică cu privire la o decizie finală de „reînregistrare "
-"a manuscrisului”."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -144,13 +117,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decizia Editorului"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Acest e-mail este trimis de editor sau de editorul de secțiune, către un "
-"autor, pe care îl notifică cu privire la o decizie finală de „respingerea "
-"manuscrisului”."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -163,13 +129,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Decizia Editorului"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Acest e-mail de la editorul care recomandă sau de la editorul de secțiune "
-"către editorii care iau decizii sau editorii de secțiuni, îi notifică pe "
-"aceștia cu privire la recomandarea finală privind manuscrisul."
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -225,7 +184,3 @@ msgstr ""
 "Decizia noastră este: Manuscrisul nu este acceptat"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Acest e-mail este trimis autorului în cazul în care editorul refuză "
-"manuscrisul inițial, înainte de etapa de revizuire"

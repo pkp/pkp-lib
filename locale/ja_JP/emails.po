@@ -52,10 +52,6 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "論文査読のお礼"
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿が外部査読に回されることを著者に通知します。"
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}様:<br />\n"
@@ -71,10 +67,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "編集者の判断"
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "編集者やセクション編集者から著者へのこのメールは、投稿が制作プロセスに入ることを通知します。"
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}様:<br />\n"
@@ -86,10 +78,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "編集者の判断"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿に関する最終的な「改訂を要求」の決定を著者に通知するものです。"
-
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -104,10 +92,6 @@ msgstr ""
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "編集者の判断"
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿に関する最終的な「再投稿」の決定を著者に通知するものです。"
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}様:<br />\n"
@@ -121,10 +105,6 @@ msgstr ""
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "編集者の判断"
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "編集者またはセクション編集者から著者へのこのメールは、投稿に関する最終的な「不採択」の決定を著者に通知するものです。"
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}様:<br />\n"
@@ -137,10 +117,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "編集者の判断"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "推薦編集者またはセクション編集者から意思決定を行う編集者またはセクション編集者へのこのメールは、投稿に関する最終的な査読結果を通知します。"
-
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -175,10 +151,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "原稿整理のお願い"
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "このメールは、査読段階に入る前に編集者が最初から投稿を断った場合、著者に送信されます。"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

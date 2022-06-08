@@ -2346,34 +2346,69 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "E-postayı Doğrula (Site)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Bu e-posta, editör hakemden geri alındığında gönderilir."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Hakemden Geri Alındı"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr "Bu e-posta, editör tarafından hakem yeniden atandığında gönderilir."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Hakem Yeniden Atandı"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Bu e-posta, bir aday makaleye hakem atandığında gönderilir."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Hakem Atandı"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Bu e-posta, tartışmaya yeni bir mesaj eklendiğinde tartışma katılımcılarına "
 "otomatik olarak gönderilir."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Yeni Tartışma Mesajı"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Birincil iletişim kişisinin e-postası"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Bu e-posta, Değerlendirme talebinin kabul edildiğini ve belirtilen tarihe "
+"kadar tamamlanacağını Bölüm Editörüne bildirmek üzere yanıt olarak Hakem "
+"tarafından gönderilir."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Bu elektronik posta gözden geçirme talebine cevap olarak, gözden geçirmenin red edildiğini bildirmek amacıyla Bölüm Editörüne gözden geçirmeyi yapan kişi tarafından gönderilir."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Bu elektronik posta hakemin değerlendirme için belirtilen son tarihin "
+"dolmakta olduğunu hatırlatmak için Bölüm Editörü tarafından hakemlere "
+"gönderilir."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Hakemlik için verilen süre geçtiğinde bu elektronik posta otomatik olarak "
+"gönderilir. Otomatik hatırlatma için süre ayarlamalarına Değerlendirme "
+"Ayarları kısmından erişebilirsiniz."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Bu e-posta, bir hakemin onay tarihi geçtiğinde otomatik olarak gönderilir (Ayarlar> İş Akışı> Gözden geçirme altındaki İnceleme Seçenekleri'ne bakın) ve tek tıklatma hakem erişimi devre dışı bırakılır. Zamanlanmış görevler etkinleştirilmeli ve yapılandırılmalıdır (site yapılandırma dosyası bölümüne bakınız)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Bu eposta Bölüm Editöründen bir hakeme bir çalışmanın hakemlik görevine "
+"davet amacı ile iletir. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Editörden Hakem'e gönderilen bu e-posta, hakemin yeni bir inceleme turu için "
+"hakemliği kabul etmesini veya reddetmesini ister. Başlık ve özet, "
+"değerlendirme son tarihi ve aday makaleye nasıl erişileceği gibi bilgileri "
+"içerir."
 
 msgid "manager.setup.dois"
 msgstr "DOI'ler"
@@ -2421,3 +2456,5 @@ msgstr "DOI Ön Ekleri kayıt ajansları (Örneğin; <a href=\"http://www.crossr
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Dergi İçeriği"
+
+#, fuzzy

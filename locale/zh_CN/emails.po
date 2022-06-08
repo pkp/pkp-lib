@@ -54,10 +54,6 @@ msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "编辑决策"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "此邮件为总编或者栏目编辑发给投稿人告知稿件送审的提醒邮件。"
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -67,10 +63,6 @@ msgstr ""
 "我们决定：将您的稿件送去评审<br />\n"
 "<br />\n"
 "稿件的地址：{$submissionUrl}"
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "此邮件是总编或者栏目编辑发现给投稿人告知稿件安排出版的提醒邮件。"
-
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -97,9 +89,6 @@ msgstr ""
 "我们的决定是："
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "这封电子邮件是由编辑或者区段编辑发送给作者，通知他们关于他们稿件的最后决定。"
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "编辑决定"
 
@@ -113,9 +102,6 @@ msgstr ""
 "我们的决定是："
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "这封电子邮件是由编辑或者区段编辑发送给作者，通知他们关于他们稿件的最后决定。"
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "编辑决定"
 
@@ -127,13 +113,6 @@ msgstr ""
 "我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
 "<br />\n"
 "我们的决定是："
-
-#, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "这封电子邮件是由编辑或者区段编辑发送给作者，通知他们关于他们稿件的最后决定。"
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "此邮件为总编或者栏目编辑发给编辑或者栏目编辑的关于他们对于稿件的去留建议的提醒邮件。"
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
@@ -163,10 +142,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "这封电子邮件是由一位区段编辑寄发给稿件的校样编辑，请他们开始进行校样编辑的工作流程。邮件中含有关于稿件的信息以及如核取得稿件的指引."
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "此邮件为编辑初审后拒绝稿件发给投稿人的提醒邮件"
-
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

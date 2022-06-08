@@ -21,9 +21,12 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
+use PKP\mail\traits\Configurable;
 
 class DecisionInitialDeclineNotifyAuthor extends Mailable
 {
+    use Configurable;
     use Recipient;
     use Sender;
 
@@ -32,6 +35,8 @@ class DecisionInitialDeclineNotifyAuthor extends Mailable
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_INITIAL_DECLINE';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_SUBMISSION];
+    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     public function __construct(Context $context, Submission $submission, Decision $decision)
     {

@@ -2403,6 +2403,39 @@ msgstr ""
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
+"ეს არის რეცენზენტის წერილი, გაგზავნილი განყოფილების რედაქტორთან, იმის "
+"შესახებ, რომ მოთხოვნა რეცენზირებაზე მიღებულია და რეცენზია მოწოდებული იქნება "
+"მითითებულ დროს."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"ეს არის რეცენზენტის წერილი, გაგზავნილი განყოფილების რედაქტორთან, იმის "
+"შესახებ, რომ მოთხოვნა რეცენზირებაზე უარყოფილია."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ რეცენზენტთან იმის შესახებ, "
+"რეცენზიის მოწოდების ვადა უკვე გავიდა."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"ეს წერილი იგზავნება ავტომატურად, როდესაც რეცენზიის მოწოდების ვადა გავიდა ("
+"იხილეთ პარამეტრები > სამუშაო პროცესი > რეცენიზრება) და რეცენზენტს პირდაპირი "
+"წვდომა გამოერთო. დაგეგმილი ამოცანები უნდა ჩაირთოს (იხილეთ საიტის "
+"კონფიგურაციის ფაილი)."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"ეს წერილი იგზავნება ავტომატურად, როდესაც რეცენზენტის მიერ მონაწილების "
+"მიღების დადასტურების თარიღი გასულია (იხილეთ რეცენზირების პარამეტრები: "
+"პარამეტრები > სამუშაო პროცესი > რეცენზირება) და რეცენზენტს გამოერთო "
+"პირდაპირი წვდომა მასალებზე. დაგეგმილი ამოცანები უნდა ჩაირთოს და მოერგოს ("
+"იხილეთ საიტის კონფიგურაციის ფაილი)."
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
 "ეს ელფოსტა ავტომატურად იგზავნება, როდესაც მიმომხილველი მიიღებს განხილვის "
 "მოთხოვნას"
 
@@ -2484,18 +2517,18 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "ელფოსტის (საიტის) დადასტურება"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "ეს ელფოსტა იგზავნება, როდესაც რედაქტორი გააუქმებს მიმომხილველს."
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "ეს ელფოსტა იგზავნება, როდესაც მიმომხილველი, რომელიც არ იყო დანიშნული, "
 "აღდგება რედაქტორის მიერ."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "მიმომხილველი აღდგა."
 
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "ეს ელფოსტა ავტომატურად ეგზავნება დისკუსიის მონაწილეებს, როდესაც დისკუსიას "
 "დაემატება ახალი შეტყობინება."
@@ -2646,7 +2679,7 @@ msgstr ""
 "სანამ ეს კომპონენტი წაიშლება, თქვენ უნდა დააკავშიროთ ყველა დაკავშირებული "
 "წარდგენის ფაილი სხვა კომპონენტთან."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "ახალი დისკუსიის შეტყობინება"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
@@ -2679,9 +2712,6 @@ msgstr "გაგზავნილია განხილვაზე"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "ჩვენ ავირჩიეთ ამ წარდგენის მიღება გადასინჯვის გარეშე."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "მიმომხილველი დანიშნა"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -2835,11 +2865,8 @@ msgstr "რეგისტრირებული"
 msgid "manager.dois.status.needsDoi"
 msgstr "სჭირდება DOI"
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "მიმომხილველი არ არის დანიშნული"
-
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "ეს ელფოსტა იგზავნება მაშინ, როდესაც მიმომხილველი ენიჭება წარდგენას."
 
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "ავტორის სახელები შემოკლებული სტრიქონის სახით"
@@ -3025,3 +3052,23 @@ msgstr "შეიტანეთ DOI-ები"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "შეიტანეთ ყველა"
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"ეს არის განყოფილების რედაქტორის წერილი, რომელიც ეგზავნება რეცენზენტს, "
+"მასალის რეცენზირების მოთხოვნის დადასტურების, ან უარყოფის შესახებ. წერილში "
+"მოცემულია ინფორმაცია მასალის შესახებ, როგორიცაა დასახელება და აბსტრაქტი, "
+"სამუშაოს შესრულების ვადები და წვდომის წესები. ეს შეტყობინება გამოიყენება, თუ "
+"არჩეულია რეცენზირების სტანდარტული პროცესი: მართვა > პარამეტრები > სამუშაო "
+"პროცესი > რეცენზირება."
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"ეს არის განყოფილების რედაქტორის წერილი, რომელიც ეგზავნება რეცენზენტს "
+"მასალების რეცენზირების თანხმობის, ან უარის დასადასტურებლად მეორე და შემდგომ "
+"რაუნდებში. წერილში მოცემულია მასალის სათაური, აბსტრაქტი, შერულების ვადები და "
+"წვდომის წესები. ეს შეტყობინება გამოიყენება, თუ არჩეულია სტანდარტული "
+"რეცენზირება: მართვა > პარამეტრები > სამუშაო პროცესი > რეცენზირება."
+
+#, fuzzy

@@ -1736,3 +1736,33 @@ msgstr "Het DOI voorvoegsel wordt toegekend door de registrerende instantie (bv.
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tijdschriftinhoud"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Deze e-mail wordt door een reviewer naar de sectieredacteur gestuurd als reactie op een review-verzoek dat geaccepteerd is en zal worden voltooid voor de gevraagde datum."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Deze e-mail wordt door de reviewer verstuurd naar de sectieredacteur als reactie op een reviewverzoek om te laten weten dat het verzoek wordt afgewezen."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Deze e-mail wordt door de sectieredacteur verstuurd om een reviewer eraan te "
+"herinneren dat de afgesproken reviewperiode verstreken is."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "Deze e-mail wordt automatisch verstuurd als de afgesproken reviewperiode verstrijkt (zie Review opties onder Tijdschrift inrichten) en een-klik toegang voor reviewers is uitgeschakeld. Scheduled tasks moet ingeschakeld en geconfigureerd zijn (zie het configuratiebestand)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Deze e-mail wordt automatisch verzonden wanneer de datum voor de bevestiging van een reviewopdracht verstreken is (zie Review opties onder Tijdschrift inrichten) en een-klik toegang voor reviewers is uitgeschakeld. Scheduled tasks moet ingeschakeld en geconfigureerd zijn (zie het configuratiebestand)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "Deze e-mail van de sectieredacteur aan een reviewer vraagt aan de reviewer een review te accepteren of te weigeren. Er wordt informatie meegestuurd over de inzending zoals de titel en de samenvatting, de datum waarop de review gereed moet zijn en instructies voor het benaderen van de inzending. Dit bericht word gebruikt wanneer het standaard reviewproces is geselecteerd in stap 2 van het inrichten van het tijdschrift"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "Deze e-mail van de sectieredacteur aan de reviewer vraagt de reviewer een inzending voor een tweede of latere ronde te reviewen. Het bevat informatie over de inzending zoals titel en samenvatting, de uiterste datum voor de review en de gegevens om de inzending te benaderen. Dit bericht wordt gebruikt bij het standaard review proces, zoals gekozen in instellen, stap 2"
+
+#, fuzzy

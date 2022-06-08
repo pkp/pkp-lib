@@ -2200,36 +2200,69 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Проверка адреса почты (сайт)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr "Это письмо отправляется, когда редактор отменяет назначение рецензента."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Назначение рецензентом отменено"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Это письмо отправляется, когда снятый с назначения рецензент снова "
 "назначается редактором."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Рецензент назначен заново"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr "Это письмо отправляется, когда рецензенту назначают материал."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Назначен рецензент"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Это письмо автоматически отправляется участникам обсуждения, когда в "
 "обсуждение добавляется новое сообщение."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Новое сообщение в обсуждении"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Адрес электронной почты основного контактного лица сайта"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "Это письмо рецензента, отправляемое редактору раздела, в ответ на запрос на рецензирование статьи, чтобы уведомить редактора раздела о том, что запрос на рецензирование принят и рецензия будет предоставлена к указанной дате."
+
+msgid "mailable.reviewDecline.description"
+msgstr "Это письмо рецензента, отправляемое редактору раздела, в ответ на запрос на рецензирование статьи, чтобы уведомить редактора раздела о том, что запрос на рецензирование отклонен."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Это письмо отправляется редактором, чтобы напомнить рецензенту о том, что "
+"срок предоставления рецензии уже прошел. Это письмо используется, когда "
+"редактор вручную отправляет напоминание рецензенту"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Это письмо отправляется автоматически, когда рецензент не завершил "
+"рецензирование к заданному сроку. Автоматические напоминания о рецензиях "
+"включены в настройках «Рецензирование»."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "Это письмо отправляется автоматически, когда дата подтверждения рецензентом участия в рецензировании прошла (смотрите Параметры рецензирования в Настройки > Рабочий процесс > Рецензирование) и прямой доступ рецензента по ссылке отключен. Запланированные задачи должны быть включены и настроены (смотрите файл конфигурации сайта)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Это письмо редактора раздела, отправляемое рецензенту, с запросом согласия "
+"или отказа от выполнения рецензирования материала. "
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Это письмо от редактора, отправляемое рецензенту, с запросом согласия или "
+"отказа от выполнения рецензирования материала в дополнительном раунде "
+"рецензирования. В письме приводится информация о материале, такая как "
+"название и аннотация, срок выполнения рецензии и как получить доступ к "
+"самому материалу."
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Присвоить DOI"
@@ -2459,3 +2492,5 @@ msgstr "Префикс DOI назначается регистрационным
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Контент журнала"
+
+#, fuzzy

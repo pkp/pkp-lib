@@ -73,9 +73,6 @@ msgstr ""
 "URL материала: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Это письмо редактора или редактора раздела, отправляемое автору, чтобы уведомить его об отправке материала на внешнее рецензирование."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Следующие шаги для публикации Вашего материала"
 
@@ -92,9 +89,6 @@ msgstr ""
 "уважением,</p>{$signature}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Это письмо редактора или редактора раздела, отправляемое автору, чтобы уведомить его о запуске материала в производство."
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr ""
 "Ваш материал был отрецензирован и мы предлагаем Вам внести в него изменения"
@@ -108,11 +102,6 @@ msgstr ""
 "<br />\n"
 "Наше решение: Требуется корректировка"
 
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Это письмо редактора, запрашивающего от автора изменение материала в "
-"процессе рецензирования."
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr ""
@@ -129,12 +118,6 @@ msgstr ""
 "Наше решение: Отправить на рецензирование повторно"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Это письмо редактора или редактора раздела, отправляемое автору, чтобы "
-"уведомить его о решении «Внести изменения и отправить на рецензирование "
-"повторно» относительно присланного материала."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Ваш материал был отклонен"
 
@@ -148,11 +131,6 @@ msgstr ""
 "Наше решение: Отклонить материал"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Это письмо уведомляет автора, что его материал был отклонён после "
-"рецензирования."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Рекомендация редактора"
 
@@ -167,15 +145,6 @@ msgstr ""
 "рекомендацией.</p><p>Если у вас есть вопросы, пожалуйста, свяжитесь со "
 "мной.</p><p>С уважением,</p><p>{$senderName}</p>"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Это автоматически отправленное письмо уведомляет главного редактора или "
-"редактора раздела, что сделана рекомендация относительно решения по "
-"материалу. Этот шаблон используется, когда редактор может только "
-"рекомендовать решение по материалу, а сохранить его в систему может только "
-"уполномоченный редактор. Эта возможность может быть выбрана при назначении "
-"участников в материал."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
@@ -218,8 +187,3 @@ msgstr ""
 "уважением,</p>{$signature}"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Это письмо отправляется автору, если редактор решает отклонить его материал "
-"на начальной стадии, до этапа рецензирования, так как материал не "
-"соответствует требованиям к публикации в журнале"

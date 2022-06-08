@@ -36,3 +36,82 @@ msgid "manager.setup.publishingDescription"
 msgstr ""
 "ये विवरण तृतीय-पक्ष अभिलेखीय निकायों को प्रदान किए गए मेटाडेटा में शामिल किए "
 "जा सकते हैं।"
+
+# (pofilter) endpunc: Different punctuation at the end
+# (pofilter) simplecaps: Different capitalization
+msgid "mailable.reviewConfirm.description"
+msgstr "यह ईमेल अनुभाग संपादक को समीक्षक द्वारा समीक्षा संपादक के अनुरोध के जवाब में भेजा जाता है कि समीक्षा अनुरोध स्वीकार कर लिया गया है और निर्दिष्ट तिथि तक पूरा हो जाएगा।."
+
+msgid "mailable.reviewDecline.description"
+msgstr "यह ईमेल समीक्षक द्वारा संपादक को खंड संपादक को सूचित करने के लिए समीक्षा अनुरोध के जवाब में भेजा जाता है कि समीक्षा अनुरोध अस्वीकार कर दिया गया है."
+
+# (pofilter) simplecaps: Different capitalization
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "यह ईमेल एक अनुभाग संपादक द्वारा एक समीक्षक को याद दिलाने के लिए भेजा जाता है कि उनकी समीक्षा होने वाली है."
+
+# (pofilter) brackets: Added '{', '}', '(', ')'
+# (pofilter) long: The translation is much longer than the original
+# (pofilter) newlines: Different line endings
+# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$recipientName}, {$ reviewDueDate}, {$signature}, {$submissionTitle}, {$reviewAssignmentUrl}, {$contextName}, {$ PasswordResetUrl}
+# (pofilter) sentencecount: Different number of sentences: 1 ≠ 5
+# (pofilter) startpunc: Different punctuation at the start
+# (pofilter) xmltags: Added XML tags
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "यह ईमेल स्वचालित रूप से तब भेजा जाता है जब एक समीक्षक की नियत तिथि समाप्त हो जाती है (सेटिंग्स> वर्कफ़्लो> समीक्षा के तहत समीक्षा विकल्प देखें) और एक-क्लिक समीक्षक पहुंच अक्षम है। अनुसूचित कार्यों को सक्षम और कॉन्फ़िगर किया जाना चाहिए (साइट कॉन्फ़िगरेशन फ़ाइल देखें)."
+
+# (pofilter) brackets: Added '{', '}'
+# (pofilter) long: The translation is much longer than the original
+# (pofilter) newlines: Different line endings
+# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$recipientName}, {$ reviewDueDate}, {$signature}, {$submissionTitle}, {$reviewAssignmentUrl}, {$contextName}
+# (pofilter) sentencecount: Different number of sentences: 1 ≠ 4
+# (pofilter) startpunc: Different punctuation at the start
+# (pofilter) xmltags: Added XML tags
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr "यह ईमेल स्वचालित रूप से तब भेजा जाता है जब किसी समीक्षक की पुष्टि की नियत तिथि समाप्त हो जाती है (सेटिंग्स> वर्कफ़्लो> समीक्षा के तहत समीक्षा विकल्प देखें) और एक-क्लिक समीक्षक पहुंच अक्षम है। अनुसूचित कार्यों को सक्षम और कॉन्फ़िगर किया जाना चाहिए (साइट कॉन्फ़िगरेशन फ़ाइल देखें)."
+
+# (pofilter) brackets: Added '{', '}'
+# (pofilter) doublespacing: Different use of double spaces
+# (pofilter) long: The translation is much longer than the original
+# (pofilter) newlines: Different line endings
+# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$ responseDueDate}, {$signature}, {$reviewDueDate}, {$submissionTitle}, {$submissionAbstract}, {$recipientName}, {$reviewAssignmentUrl}, {$contextName}
+# (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
+# (pofilter) startpunc: Different punctuation at the start
+# (pofilter) xmltags: Added XML tags
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"अनुभाग संपादक से लेकर समीक्षक तक का यह ईमेल अनुरोध करता है कि समीक्षक किसी "
+"सबमिशन की समीक्षा करने के कार्य को स्वीकार या अस्वीकार करता है। यह प्रस्तुत "
+"करने के बारे में जानकारी प्रदान करता है जैसे शीर्षक और सार, समीक्षा की नियत "
+"तारीख, और प्रस्तुत करने के लिए कैसे उपयोग करें। इस संदेश का उपयोग तब किया "
+"जाता है जब प्रबंधन> सेटिंग्स> वर्कफ़्लो> समीक्षा में मानक समीक्षा प्रक्रिया "
+"का चयन किया जाता है."
+
+# (pofilter) brackets: Added '{', '}', '(', ')'
+# (pofilter) long: The translation is much longer than the original
+# (pofilter) newlines: Different line endings
+# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$ responseDueDate}, {$contextUrl}, {$signature}, {$submissionTitle}, {$reviewDueDate}, {$submissionAbstract}, {$recipientName}, {$reviewAssignmentUrl}, {$contextName}, {$passwordResetUrl}
+# (pofilter) sentencecount: Different number of sentences: 1 ≠ 6
+# (pofilter) startpunc: Different punctuation at the start
+# (pofilter) xmltags: Added XML tags
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "सेक्शन एडिटर से समीक्षक के लिए यह ईमेल अनुरोध करता है कि समीक्षक समीक्षा प्रस्तुत करने या समीक्षा के दूसरे या अधिक दौर के लिए कार्य को स्वीकार या अस्वीकार कर देता है। यह प्रस्तुत करने के बारे में जानकारी प्रदान करता है जैसे शीर्षक और सार, समीक्षा की नियत तारीख, और प्रस्तुत करने के लिए कैसे उपयोग करें। इस संदेश का उपयोग तब किया जाता है जब प्रबंधन> सेटिंग्स> वर्कफ़्लो> समीक्षा में मानक समीक्षा प्रक्रिया का चयन किया जाता है।"
+
+# (pofilter) brackets: Added '{', '}'
+# (pofilter) long: The translation is much longer than the original
+# (pofilter) newlines: Different line endings
+# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$ responseDueDate}, {$signature}, {$reviewDueDate}, {$submissionTitle}, {$submissionAbstract}, {$recipientName}, {$reviewAssignmentUrl}, {$contextName}
+# (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
+# (pofilter) startpunc: Different punctuation at the start
+# (pofilter) xmltags: Added XML tags
+
+#, fuzzy

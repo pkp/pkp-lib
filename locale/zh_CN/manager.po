@@ -1681,3 +1681,33 @@ msgstr "其它模板"
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "删除公告"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "这封电子邮件是由一位审查人寄给区段编辑，回复一份审查邀请，并通知区段编辑说已经接受审查邀请而且会在特定的日期之前完成工作。"
+
+msgid "mailable.reviewDecline.description"
+msgstr "这封电子邮件是由一位审查人寄给区段编辑以回复一份审查邀请，并通知区段编辑要婉谢审查邀请。"
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr "这封电子邮件是由区段编辑发出，提醒一位审查人他们的审查工作已经到期。"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr "这封电子邮件在一位审查人的工作期限日已经超过的时候，会自动发出给他（见「期刊设定」之步骤2，「审查选项」），而审查访问一点即入的功能已经停用。必须启用并且设定排程任务（见网站设定）。"
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"这封电子邮件是由区段编辑寄发给审查人一份邀请函，询问审查人接受或婉谢一份稿件的审查工作。邮件中含有关于稿件标题和摘要的信息，一个审查工作到期日，以及如何访"
+"问稿件的说明信息。在「期刊设定」之步骤2中选择「标准审查流程」选项时，才会用到这份消息。"
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr "这封电子邮件是由区段编辑寄发给审查人一份邀请函，询问审查人接受或婉谢一份稿件的审查工作。邮件中含有关于稿件标题和摘要的信息，一个审查工作到期日，以及如何访问稿件的说明信息。在「期刊设定」之步骤2中选择「标准审查流程」选项时，才会用到这份消息。"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission for a second or greater round of review. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Journal Setup, Step 2."
+
+#, fuzzy

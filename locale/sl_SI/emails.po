@@ -66,9 +66,6 @@ msgstr ""
 "URL povezava do prispevka: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "Ta email pošlje urednik avtorju z obvestilom, da je šel prispevek v recenzijo."
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Uredniška odločitev"
 
@@ -82,9 +79,6 @@ msgstr ""
 "URL povezava do prispevka: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "Ta email pošlje urednik avtorju z obvestilom, da je šel prispevek v produkcijo."
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Uredniška odločitev"
 
@@ -97,9 +91,6 @@ msgstr ""
 "<br />\n"
 "Naša odločitev je: Potrebni so popravki"
 
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr "Ta email pošlje urednik avtorju z obvestilom, da so potrebne določene spremembe prispevka."
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Uredniška odločitev"
@@ -115,9 +106,6 @@ msgstr ""
 "Naša odločitev je: Potreben je ponoven krog recenzije"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr "Ta email pošlje urednik avtorju z obvestilom, da je potrebna ponovna recenzija prispevka."
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Uredniška odločitev"
 
@@ -131,9 +119,6 @@ msgstr ""
 "Naša odločitev je: Prispevek se zavrne"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr "Ta email pošlje urednik avtorju z obvestilom, da je objava prispevka zavrnjena."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Uredniško priporočilo"
 
@@ -144,11 +129,6 @@ msgstr ""
 "<br />\n"
 "Moje priporočilo glede prispevka &quot;{$submissionTitle}&quot; v reviji {$contextName}, je: {$recommendation}"
 
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Email pošlje urednik (rubrike), ki lahko odda le priporočilo, in z njim "
-"obvesti uredništvo o svojem priporočilu glede prispevka."
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Prošnja za lektoriranje"
@@ -193,7 +173,3 @@ msgstr ""
 "Naša odločitev je: Prispevek se zavrne"
 
 #, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Email se pošlje avtorju, če se urednik odloči zavrniti prispevek še pred "
-"postopkom recenzije"

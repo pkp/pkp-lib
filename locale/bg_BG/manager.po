@@ -2087,35 +2087,27 @@ msgstr ""
 msgid "mailable.validateEmailSite.name"
 msgstr "Потвърждаване на имейл (сайт)"
 
-msgid "mailable.mailReviewerUnassigned.description"
+msgid "mailable.reviewerUnassign.description"
 msgstr ""
 "Този имейл се изпраща, когато редактор отмени асосиирането на рецензент."
 
-msgid "mailable.mailReviewerUnassigned.name"
+msgid "mailable.reviewerUnassign.name"
 msgstr "Асосиирането на рецензент е отменено"
 
-msgid "mailable.mailReviewerReinstate.description"
+msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "Този имейл се изпраща, когато рецензент, който е бил асоцииран, но е "
 "премахнат като такъв от подадените материали, бъде възстановен от редактор."
 
-msgid "mailable.mailReviewerReinstate.name"
+msgid "mailable.reviewerReinstate.name"
 msgstr "Рецензентът е възстановен"
 
-msgid "mailable.mailReviewerAssigned.description"
-msgstr ""
-"Този имейл се изпраща, когато рецензентът е асоцииран към подадените "
-"материали."
-
-msgid "mailable.mailReviewerAssigned.name"
-msgstr "Асоцииран е рецензент"
-
-msgid "mailable.mailDiscussionMessage.description"
+msgid "mailable.discussionMessage.description"
 msgstr ""
 "Този имейл се изпраща автоматично до участниците в дискусията, когато към "
 "дискусията се добави ново съобщение."
 
-msgid "mailable.mailDiscussionMessage.name"
+msgid "mailable.discussionMessage.name"
 msgstr "Ново съобщение в дискусия"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
@@ -3138,3 +3130,52 @@ msgstr "Не можете да изпълните тази операция бе
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Неуспешни актуализации на DOI"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Този имейл се изпраща от рецензент до редактора на секции в отговор на "
+"искане за рецензия, за да уведоми редактора на секции, че искането за "
+"рецензия е прието и ще бъде завършено до определената дата."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Този имейл се изпраща от рецензент до редактора на секции в отговор на "
+"искане за рецензия, за да уведоми редактора на секции, че молбата му за "
+"резенция е отхвърлена."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Този имейл се изпраща от редактора, за да напомни на рецензента, че е "
+"изтекъл срокът за подаване на рецензията. Този имейл се използва, когато "
+"редактор ръчно изпраща напомняне до рецензента"
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Този имейл се изпраща автоматично, когато рецензентът не е завършил "
+"рецензията си до крайния срок. Автоматичните напомняния за рецензия се "
+"настройват през \"Настройки за рецензия\"."
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Този имейл се изпраща автоматично, когато изтича срокът за потвърждение от "
+"страна на рецензента (вижте Опции за рецензии в  Настройки > Работен поток  >"
+" Рецензии) и достъпът на рецензент с едно щракване е деактивиран. "
+"Планираните задачи трябва да бъдат активирани и конфигурирани (вижте "
+"конфигурационния файл на сайта)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Този имейл от редактора на секции до рецензент изисква от рецензента да "
+"приеме или отхвърли задачата за преглед на изпратено материал за статия. "
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Този имейл от редактор до рецензент изисква от рецензента да приеме или "
+"отхвърли задачата за рецензия на изпратените материали за следващ етап от "
+"редакцията. Той предоставя информация за изпратеното, като заглавието и "
+"резюмето, краен срок за преглед и как да получите достъп до самите материали."
+
+#, fuzzy

@@ -90,16 +90,6 @@ msgstr ""
 
 # (pofilter) endpunc: Different punctuation at the end
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr "एक लेखक के संपादक या अनुभाग संपादक का यह ईमेल उन्हें सूचित करता है कि उनका प्रस्तुतिकरण बाहरी समीक्षा के लिए भेजा जा रहा है."
-
-# (pofilter) brackets: Added '{', '}'
-# (pofilter) newlines: Different line endings
-# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$authors}, {$submissionTitle}, {$submissionUrl}
-# (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
-# (pofilter) startpunc: Different punctuation at the start
-# (pofilter) xmltags: Added XML tags
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "संपादक का निर्णय"
 #, fuzzy
@@ -112,15 +102,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 # (pofilter) endpunc: Different punctuation at the end
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr "एक लेखक के संपादक या अनुभाग संपादक का यह ईमेल उन्हें सूचित करता है कि उनका सबमिशन उत्पादन के लिए भेजा जा रहा है."
-
-# (pofilter) brackets: Added '{', '}'
-# (pofilter) newlines: Different line endings
-# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$authors}, {$submissionTitle}, {$contextName}
-# (pofilter) startpunc: Different punctuation at the start
-# (pofilter) xmltags: Added XML tags
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "संपादक का निर्णय"
@@ -176,10 +157,6 @@ msgstr ""
 # (pofilter) endpunc: Different punctuation at the end
 # (pofilter) simplecaps: Different capitalization
 #, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr "एडिटिंग या सेक्शन एडिटर्स की सिफारिश करने वाले एडिटर या सेक्शन एडिटर की सिफारिश से यह ईमेल उन्हें सबमिट करने से संबंधित अंतिम सिफारिश के बारे में सूचित करता है।."
-
-# (pofilter) simplecaps: Different capitalization#, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "प्रतिलिपि अनुरोध"
 
@@ -223,12 +200,6 @@ msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"यह ईमेल लेखक को भेजा जाता है अगर संपादक समीक्षा के चरण से पहले शुरू में अपने "
-"प्रस्तुतिकरण को कम कर देता है"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

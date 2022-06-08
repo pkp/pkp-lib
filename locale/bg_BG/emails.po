@@ -64,12 +64,6 @@ msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Решение на редактора"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.description"
-msgstr ""
-"Този имейл от редактора или редактора на секции до автора го уведомява, че "
-"изпратените материали са изпратени за рецензиране."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -85,12 +79,6 @@ msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Решение на редактора"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.description"
-msgstr ""
-"Този имейл от редактора или редактора на секции до автора го уведомява, че "
-"изпратените материали се подготвят за публикация."
-
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -102,12 +90,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Решение на редактора"
-
-#, fuzzy
-msgid "emails.editorDecisionRevisions.description"
-msgstr ""
-"Този имейл от редактора или редактора на секции до автора го уведомява за "
-"окончателно решение „Необходима е редакция“ относно изпратените материали."
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -123,13 +105,6 @@ msgid "emails.editorDecisionResubmit.subject"
 msgstr "Решение на редактора"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.description"
-msgstr ""
-"Този имейл от редактора или редактора на секции до автора го уведомява за "
-"окончателно решение за „Повторно изпращане за рецензия“ във връзка с "
-"изпратените материали."
-
-#, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -143,12 +118,6 @@ msgid "emails.editorDecisionDecline.subject"
 msgstr "Решение на редактора"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.description"
-msgstr ""
-"Този имейл от редактора или редактора на секции до автора ги уведомява за "
-"окончателно решение за „отхвърляне“ във връзка с изпратените материали."
-
-#, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -160,13 +129,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Препоръка на редактора"
-
-#, fuzzy
-msgid "emails.editorRecommendation.description"
-msgstr ""
-"Този имейл от препоръчващия редактор или редактор на секции до редакторите "
-"за вземане на решения или редакторите на раздели ги уведомява за последна "
-"препоръка относно подадените материали."
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
@@ -208,12 +170,6 @@ msgstr "Молба за стилистична проверка"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Решение на редактора"
-
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr ""
-"Този имейл се изпраща на автора, ако редакторът първоначално откаже "
-"изпращането им, преди етапа на рецензия"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"

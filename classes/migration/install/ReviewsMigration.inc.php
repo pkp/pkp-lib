@@ -111,7 +111,7 @@ class ReviewsMigration extends \PKP\migration\Migration
 
         // Associate editor decisions with review rounds
         Schema::table('edit_decisions', function (Blueprint $table) {
-            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds');
+            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds')->onDelete('set null');
         });
     }
 

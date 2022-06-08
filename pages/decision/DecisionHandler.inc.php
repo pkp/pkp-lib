@@ -15,6 +15,7 @@
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
@@ -99,6 +100,14 @@ class DecisionHandler extends Handler
             $this->reviewRound = $reviewRoundDao->getById($reviewRoundId);
             if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== $this->submission->getId()) {
                 $request->getDispatcher()->handle404();
+            }
+
+            // Don't allow the removal process of an review round if it doesn't meet the proper criteria
+            if (in_array($this->decisionType->getDecision(), [Decision::DELETE_EMPTY_EXTERNAL_REVIEW_ROUND])) {
+                $decisionClass = get_class($this->decisionType);
+                if (! $decisionClass::canRemove($this->submission, $reviewRoundId)) {
+                    $request->getDispatcher()->handle404();
+                }
             }
         }
 

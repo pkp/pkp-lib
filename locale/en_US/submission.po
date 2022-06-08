@@ -1448,6 +1448,30 @@ msgstr "Revisions for the submission, {$title}, have been requested."
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that revisions will be required before this submission will be accepted for publication. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments."
 
+msgid "editor.submission.decision.removeEmptyExternalReviewRound"
+msgstr "Remove Review Round"
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.description"
+msgstr "The editor can remove an empty external review round if no reviewer assigned to that round yet."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.log"
+msgstr "{$editorName} has removed an empty external review round."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.completed"
+msgstr "Empty external review round has removed successfully"
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.completed.description"
+msgstr "Empty external review round for the submission, {$title}, have been removed."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has removed an empty external review round from the submission."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.restriction.single.round"
+msgstr "Can not delete an external review round if one or more reviewer already assigned to it."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.restriction.reviewer.assigned"
+msgstr "Can not delete an external review round if one or more reviewer already assigned to it."
+
 msgid "editor.submission.decision.resubmit"
 msgstr "Resubmit for Review"
 

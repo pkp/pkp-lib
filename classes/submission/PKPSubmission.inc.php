@@ -27,10 +27,10 @@ namespace PKP\submission;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\facades\Locale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\mail\Mail;
 
 abstract class PKPSubmission extends \PKP\core\DataObject
@@ -1491,6 +1491,16 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public function getUIDisplayString()
     {
         return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getLocalizedTitle()]);
+    }
+
+    /**
+     * Get the associated External Review Round count for this submission
+     *
+     * @return int Number of external review round associated with this submission
+     */
+    public function getExternalReviewRoundCount(): int
+    {
+        return $this->getDAO()->getExternalReviewRoundCountById($this->getId());
     }
 }
 

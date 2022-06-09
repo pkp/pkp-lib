@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-06-10 16:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -299,3 +299,17 @@ msgstr "Musíte zadat předmět a tělo e-mailu."
 
 msgid "api.dois.403.prefixRequired"
 msgstr "Pro generování identifikátorů DOI je vyžadován prefix DOI."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "Vstupem templateKeys by mělo být pole nebo prázdný řetězec"
+
+msgid "api.mailables.404.templateNotFound"
+msgstr ""
+"Šablonu nebylo možné přiřadit tomuto e-mailu, protože šablona nebyla "
+"nalezena."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Požadovaný email nebyl nalezen."
+
+msgid "api.mailables.400.templateKeysMissing"
+msgstr "Nebyly zadány klíče emailové šablony."

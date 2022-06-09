@@ -105,7 +105,7 @@ class DecisionHandler extends Handler
 
             // Don't allow the removal process of an review round if it doesn't meet the proper criteria
             if ($this->decisionType instanceof RemoveRreviewRoundDecisionTypeContract
-                && in_array($this->decisionType->getDecision(), [Decision::DELETE_EMPTY_EXTERNAL_REVIEW_ROUND, Decision::DELETE_INTERNAL_EXTERNAL_REVIEW_ROUND])) {
+                && in_array($this->decisionType->getDecision(), [Decision::DELETE_EMPTY_EXTERNAL_REVIEW_ROUND, Decision::DELETE_EMPTY_INTERNAL_REVIEW_ROUND])) {
                 $decisionClass = get_class($this->decisionType);
 
                 if (! $decisionClass::canRemove($this->submission, $reviewRoundId)) {

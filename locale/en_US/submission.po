@@ -1467,10 +1467,34 @@ msgid "editor.submission.decision.removeEmptyExternalReviewRound.notifyAuthorsDe
 msgstr "Send an email to the authors to let them know that editor has removed an empty external review round from the submission."
 
 msgid "editor.submission.decision.removeEmptyExternalReviewRound.restriction.single.round"
-msgstr "Can not delete an external review round if one or more reviewer already assigned to it."
+msgstr "Can not delete an external review round if it is the only running review round."
 
 msgid "editor.submission.decision.removeEmptyExternalReviewRound.restriction.reviewer.assigned"
 msgstr "Can not delete an external review round if one or more reviewer already assigned to it."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound"
+msgstr "Remove Review Round"
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.description"
+msgstr "The editor can remove an empty internal review round if no reviewer assigned to that round yet."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.log"
+msgstr "{$editorName} has removed an empty internal review round."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.completed"
+msgstr "Empty internal review round has removed successfully"
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.completed.description"
+msgstr "Empty internal review round for the submission, {$title}, have been removed."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has removed an empty internal review round from the submission."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.restriction.single.round"
+msgstr "Can not delete an internal review round if it is the only running review round."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.restriction.reviewer.assigned"
+msgstr "Can not delete an internal review round if one or more reviewer already assigned to it."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Resubmit for Review"

@@ -1502,6 +1502,16 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     {
         return $this->getDAO()->getExternalReviewRoundCountById($this->getId());
     }
+
+    /**
+     * Get the associated Internal Review Round count for this submission
+     *
+     * @return int Number of internal review round associated with this submission
+     */
+    public function getInternalReviewRoundCount(): int
+    {
+        return $this->getDAO()->getInternalReviewRoundCountById($this->getId());
+    }
 }
 
 // Expose global constants unless operating in strict mode.

@@ -24,6 +24,7 @@ use PKP\context\Context;
 use PKP\core\Dispatcher;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\decision\types\contracts\RemoveRreviewRoundDecisionTypeContract;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -103,8 +104,10 @@ class DecisionHandler extends Handler
             }
 
             // Don't allow the removal process of an review round if it doesn't meet the proper criteria
-            if (in_array($this->decisionType->getDecision(), [Decision::DELETE_EMPTY_EXTERNAL_REVIEW_ROUND])) {
+            if ($this->decisionType instanceof RemoveRreviewRoundDecisionTypeContract
+                && in_array($this->decisionType->getDecision(), [Decision::DELETE_EMPTY_EXTERNAL_REVIEW_ROUND, Decision::DELETE_INTERNAL_EXTERNAL_REVIEW_ROUND])) {
                 $decisionClass = get_class($this->decisionType);
+
                 if (! $decisionClass::canRemove($this->submission, $reviewRoundId)) {
                     $request->getDispatcher()->handle404();
                 }

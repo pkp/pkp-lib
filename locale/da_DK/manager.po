@@ -1,12 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-06-09 06:22+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-06-09 06:27+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -2427,11 +2428,11 @@ msgstr ""
 "bedømmelsen inden forfaldsdatoen. Automatiske påmindelser om bedømmelse kan "
 "slåes til under indstillingerne for Bedømmelse under Workflow."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "Denne e-mail sendes automatisk når en bedømmers bekræftelsesdato er overskredet (se bedømmelsesindstillinger under Indstillinger > Workflow > Bedømmelse) og ’Aktiver adgang for bedømmere ved hjælp af ét klik’ er fravalgt. Tidsfrister og påmindelser skal være defineret."
+msgstr ""
+"Denne e-mail sendes automatisk når en bedømmers bekræftelsesdato er "
+"overskredet."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Denne e-mail fra sektionsredaktøren til en bedømmer anmoder bedømmeren om at "
@@ -3012,3 +3013,6 @@ msgstr "Bekræftelse af bedømmelse"
 
 msgid "mailable.ReviewResponseOverdueAuto.name"
 msgstr "Svar på bedømmelse er overskredet (automatiseret)"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Anmodning om at gennemføre bedømmelse"

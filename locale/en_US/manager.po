@@ -98,6 +98,9 @@ msgstr "Word Count"
 msgid "manager.sections.wordCountInstructions"
 msgstr "Limit abstract word counts for this section (0 for no limit)"
 
+msgid "manager.payment.options.enablePayments"
+msgstr "Payments will be enabled for this server. Note that users will be required to log in to make payments."
+
 msgid "manager.setup"
 msgstr "Server Settings"
 

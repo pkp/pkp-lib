@@ -116,7 +116,7 @@
 		<div class="main_entry">
 			{if $publication->getData('authors')}
 				<section class="item authors">
-					<h2 class="pkp_screen_reader">{translate key="preprint.authors"}</h2>
+					<h2 class="pkp_screen_reader">{translate key="submission.authors"}</h2>
 					<ul class="versions authors">
 					{foreach from=$publication->getData('authors') item=author}
 						<li>

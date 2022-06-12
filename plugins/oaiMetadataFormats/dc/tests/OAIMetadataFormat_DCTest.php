@@ -37,7 +37,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
      */
     protected function getMockedDAOs()
     {
-        return ['OAIDAO', 'GalleyDAO'];
+        return ['OAIDAO'];
     }
 
     /**

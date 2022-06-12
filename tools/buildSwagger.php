@@ -95,7 +95,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                         }
                     } elseif ($propSchema->type === 'object') {
                         $subPropsEdit = $subPropsRead = $subPropsSummary = [];
-                        foreach ($propSchema->properties as $subPropName => $subPropSchema) {
+                        foreach ($propSchema->properties ?? [] as $subPropName => $subPropSchema) {
                             if (empty($subPropSchema->readOnly)) {
                                 $subPropsEdit[$subPropName] = $subPropSchema;
                             }

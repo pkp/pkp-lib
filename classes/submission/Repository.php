@@ -26,7 +26,7 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\doi\exceptions\DoiCreationException;
+use PKP\doi\exceptions\DoiActionException;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -499,7 +499,7 @@ abstract class Repository
      * 1) the suffix pattern can currently be created, and
      * 2) it does not already exist.
      *
-     * @return DoiCreationException[]
+     * @return DoiActionException[]
      */
     abstract public function createDois(Submission $submission): array;
 

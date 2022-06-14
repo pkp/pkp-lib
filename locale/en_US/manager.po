@@ -148,7 +148,7 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Announcement Type"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr "Deposit all"
+msgstr "Deposit All"
 
 msgid "manager.dois.actions.deposit.label"
 msgstr "Deposit DOIs"
@@ -157,10 +157,22 @@ msgid "manager.dois.actions.deposit.prompt"
 msgstr "You are about to send DOI metadata records for {$count} item(s) to {$registrationAgency}. Are you sure you want to deposit these records?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr "Mark DOIs registered"
+msgstr "Mark DOIs Registered"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr "You are about to mark DOI metadata records for {$count} item(s) as registered. Are you sure you want to mark these records as registered?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Mark DOIs Unregistered"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr "You are about to mark DOI metadata records for {$count} item(s) as unregistered. Are you sure you want to mark these records as unregistered?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Mark DOIs Stale"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr "You are about to mark DOI metadata records for {$count} item(s) as stale. The stale status can only be applied to previously submitted DOIs. Are you sure you want to mark these records as stale?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Export DOIs"
@@ -179,6 +191,9 @@ msgstr "Deposit all DOIs"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr "You are about to schedule all outstanding DOI metadata records to be deposited with {$registrationAgency}. Only published items with a DOI will be deposited. Each item's status will be updated when a response is received. Are you sure you want to schedule deposits for all of these items?"
+
+msgid "manager.dois.actions.description"
+msgstr "Take action on {$count} selected item(s)."
 
 msgid "manager.dois.depositStatus"
 msgstr "Deposit Status"
@@ -235,13 +250,19 @@ msgid "manager.dois.update.failedCreation"
 msgstr "DOI Updates Failed"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Some DOI(s) failed to update."
+msgstr "Some DOI(s) could not be updated."
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Items successfully exported"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
 msgstr "Items successfully marked registered"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Items successfully marked unregistered"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Items successfully marked stale"
 
 msgid "manager.dois.notification.assignDoisSuccess"
 msgstr "Items successfully assigned new DOIs"

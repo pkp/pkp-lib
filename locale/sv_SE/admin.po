@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2022-02-15 15:07+0000\n"
+"PO-Revision-Date: 2022-06-15 15:07+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sv_SE/>\n"
@@ -37,10 +37,10 @@ msgid "admin.authSources"
 msgstr "Autentiseringskällor"
 
 msgid "admin.clearDataCache"
-msgstr "Rensa data-cache"
+msgstr "Radera data-cache"
 
 msgid "admin.clearTemplateCache"
-msgstr "Rensa mall-cache"
+msgstr "Radera mall-cache"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr "Ändringarna har sparats i din konfigurationsfil. Kom ihåg att om sidan inte längre fungerar korrekt måste du göra ändringar manuellt i <tt>config.inc.php</tt>."
@@ -130,7 +130,7 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Är du säker på att du vill ta bort samtliga loggar för utförandet av schemalagda åtgärder?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Rensa loggar för utförande av schemalagda åtgärder"
+msgstr "Rensa loggar för schemalagda åtgärder"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Granskningspåminnelse"
@@ -345,3 +345,6 @@ msgstr "Menade något av följande?"
 
 msgid "admin.scheduledTask.depositDois"
 msgstr "Deponera DOI:er hos den inställda organisationen"
+
+msgid "admin.deleteCache"
+msgstr "Radera cache"

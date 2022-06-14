@@ -15,20 +15,22 @@
 
 namespace PKP\security\authorization;
 
+use PKP\core\PKPPageRouter;
+use PKP\core\PKPRequest;
+use PKP\core\PKPRouter;
+use PKP\plugins\HookRegistry;
+use PKP\security\Validation;
+
 class RestrictedSiteAccessPolicy extends AuthorizationPolicy
 {
-    /** @var PKPRouter */
-    public $_router;
+    private PKPRouter $_router;
 
-    /** @var Request */
-    public $_request;
+    private PKPRequest $_request;
 
     /**
      * Constructor
-     *
-     * @param PKPRequest $request
      */
-    public function __construct($request)
+    public function __construct(PKPRequest $request)
     {
         parent::__construct('user.authorization.restrictedSiteAccess');
         $this->_request = $request;
@@ -41,28 +43,24 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::applies()
      */
-    public function applies()
+    public function applies(): bool
     {
         $context = $this->_router->getContext($this->_request);
-        return ($context && $context->getData('restrictSiteAccess'));
+        return $context?->getData('restrictSiteAccess') ?? false;
     }
 
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
-        if ($this->_router instanceof \PKP\core\PKPPageRouter) {
-            $page = $this->_router->getRequestedPage($this->_request);
-        } else {
-            $page = null;
-        }
+        $page = $this->_router instanceof PKPPageRouter
+            ? $this->_router->getRequestedPage($this->_request)
+            : null;
 
-        if (Validation::isLoggedIn() || in_array($page, $this->_getLoginExemptions())) {
-            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
-        } else {
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
-        }
+        return Validation::isLoggedIn() || in_array($page, $this->_getLoginExemptions())
+            ? AuthorizationPolicy::AUTHORIZATION_PERMIT
+            : AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 
     //
@@ -71,10 +69,8 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
     /**
      * Return the pages that can be accessed
      * even while in restricted site mode.
-     *
-     * @return array
      */
-    public function _getLoginExemptions()
+    private function _getLoginExemptions(): array
     {
         $exemptions = ['user', 'login', 'help', 'header', 'sidebar', 'payment'];
         HookRegistry::call('RestrictedSiteAccessPolicy::_getLoginExemptions', [&$exemptions]);

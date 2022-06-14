@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2022-03-10 19:56+0000\n"
+"PO-Revision-Date: 2022-06-15 15:07+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv_SE/>\n"
@@ -2114,3 +2114,32 @@ msgstr "Bifogade filer"
 
 msgid "common.addCCBCC"
 msgstr "Lägg till kopia/hemlig kopia"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Okänt kommando {$command}"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Är du säker på att du vill ändra till {$localeName} för detta e-"
+"postmeddelande? Alla ändringar du gjort i meddelandet kommer gå förlorade."
+
+msgid "common.switchToNamedItem"
+msgstr "Byt till {$name}"
+
+msgid "common.insertContentSearch"
+msgstr "Leta upp innehåll att infoga"
+
+msgid "common.insertContent"
+msgstr "Infoga inehåll"
+
+msgid "common.orUploadFile"
+msgstr "Eller ladda upp en fil"
+
+msgid "common.dragAndDropHere"
+msgstr "Dra och släpp filer hit."
+
+msgid "common.attachSelected"
+msgstr "Bifoga valda"
+
+msgid "common.addFiles"
+msgstr "Lägg till filer"

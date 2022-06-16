@@ -18,6 +18,8 @@
 use APP\core\Application;
 use APP\notification\NotificationManager;
 use Illuminate\Support\Facades\Event;
+use PKP\core\JSONMessage;
+use PKP\core\PKPPageRouter;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
@@ -34,38 +36,34 @@ use PKP\xml\XMLNode;
 
 class PKPAcronPlugin extends GenericPlugin
 {
-    /** @var string $_workingDir */
-    public $_workingDir;
-
-    /** @var array $_tasksToRun */
-    public $_tasksToRun;
+    private array $_tasksToRun;
 
     /**
      * @copydoc Plugin::register()
      *
      * @param null|mixed $mainContextId
      */
-    public function register($category, $path, $mainContextId = null)
+    public function register($category, $path, $mainContextId = null): bool
     {
         $success = parent::register($category, $path, $mainContextId);
-        HookRegistry::register('Installer::postInstall', [&$this, 'callbackPostInstall']);
+        HookRegistry::register('Installer::postInstall', fn (string $hookName, array $args) => $this->_callbackPostInstall($hookName, $args));
 
         if (Application::isUnderMaintenance()) {
             return $success;
         }
         if ($success) {
             $this->addLocaleData();
-            HookRegistry::register('LoadHandler', [&$this, 'callbackLoadHandler']);
-            // Need to reload cron tab on possible enable or disable generic plugin actions.
-            HookRegistry::register('PluginGridHandler::plugin', [$this, 'callbackManage']);
+            HookRegistry::register('LoadHandler', fn (string $hookName, array $args) => $this->_callbackLoadHandler($hookName, $args));
+            // Reload cron tab when a plugin is enabled/disabled
+            Event::listen(PluginEnabledChanged::class, fn (PluginEnabledChanged $event) => $this->_callbackManage($event));
         }
         return $success;
     }
 
     /**
-    * @copydoc Plugin::isSitePlugin()
-    */
-    public function isSitePlugin()
+     * @copydoc Plugin::isSitePlugin()
+     */
+    public function isSitePlugin(): bool
     {
         // This is a site-wide plugin.
         return true;
@@ -74,7 +72,7 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * @copydoc LazyLoadPlugin::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return 'acronPlugin';
     }
@@ -82,7 +80,7 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * @copydoc Plugin::getDisplayName()
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return __('plugins.generic.acron.name');
     }
@@ -90,7 +88,7 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * @copydoc Plugin::getDescription()
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return __('plugins.generic.acron.description');
     }
@@ -98,7 +96,7 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * @copydoc Plugin::getInstallSitePluginSettingsFile()
      */
-    public function getInstallSitePluginSettingsFile()
+    public function getInstallSitePluginSettingsFile(): string
     {
         return PKP_LIB_PATH . "/{$this->getPluginPath()}/settings.xml";
     }
@@ -106,55 +104,42 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * @copydoc Plugin::getActions()
      */
-    public function getActions($request, $actionArgs)
+    public function getActions($request, $actionArgs): array
     {
         $router = $request->getRouter();
-        return array_merge(
-            $this->getEnabled() ? [
-                new LinkAction(
-                    'reload',
-                    new AjaxAction(
-                        $router->url($request, null, null, 'manage', null, ['verb' => 'reload', 'plugin' => $this->getName(), 'category' => 'generic'])
-                    ),
-                    __('plugins.generic.acron.reload'),
-                    null
-                )
-            ] : [],
-            parent::getActions($request, $actionArgs)
-        );
+        $actions = parent::getActions($request, $actionArgs);
+        if ($this->getEnabled()) {
+            $url = $router->url($request, null, null, 'manage', null, ['verb' => 'reload', 'plugin' => $this->getName(), 'category' => 'generic']);
+            array_unshift($actions, new LinkAction('reload', new AjaxAction($url), __('plugins.generic.acron.reload')));
+        }
+        return $actions;
     }
 
     /**
      * @see Plugin::manage()
      */
-    public function manage($args, $request)
+    public function manage($args, $request): JSONMessage
     {
-        switch ($request->getUserVar('verb')) {
-            case 'reload':
-                $this->_parseCrontab();
-                $notificationManager = new NotificationManager();
-                $user = $request->getUser();
-                $notificationManager->createTrivialNotification(
-                    $user->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_SUCCESS,
-                    ['contents' => __('plugins.generic.acron.tasksReloaded')]
-                );
-                return \PKP\db\DAO::getDataChangedEvent();
+        if ($request->getUserVar('verb') !== 'reload') {
+            return parent::manage($args, $request);
         }
-        return parent::manage($args, $request);
+
+        $this->_parseCrontab();
+        $notificationManager = new NotificationManager();
+        $user = $request->getUser();
+        $notificationManager->createTrivialNotification(
+            $user->getId(),
+            PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+            ['contents' => __('plugins.generic.acron.tasksReloaded')]
+        );
+        return \PKP\db\DAO::getDataChangedEvent();
     }
 
     /**
      * Post install hook to flag cron tab reload on every install/upgrade.
-     *
-     * @param string $hookName
-     * @param array $args
-     *
-     * @return bool
-     *
      * @see Installer::postInstall() for the hook call.
      */
-    public function callbackPostInstall($hookName, $args)
+    private function _callbackPostInstall(string $hookName, array $args): bool
     {
         $this->_parseCrontab();
         return false;
@@ -162,54 +147,44 @@ class PKPAcronPlugin extends GenericPlugin
 
     /**
      * Load handler hook to check for tasks to run.
-     *
-     * @param string $hookName
-     * @param array $args
-     *
-     * @return bool
-     *
      * @see PKPPageRouter::loadHandler() for the hook call.
      */
-    public function callbackLoadHandler($hookName, $args)
+    private function _callbackLoadHandler(string $hookName, array $args): bool
     {
         $request = Application::get()->getRequest();
         $router = $request->getRouter();
         // Avoid controllers requests because of the shutdown function usage.
-        if (!is_a($router, 'PKPPageRouter')) {
+        if (!($router instanceof PKPPageRouter)) {
             return false;
         }
 
         $tasksToRun = $this->_getTasksToRun();
-        if (!empty($tasksToRun)) {
-            // Save the current working directory, so we can fix
-            // it inside the shutdown function.
-            $this->_workingDir = getcwd();
-
-            // Save the tasks to be executed.
-            $this->_tasksToRun = $tasksToRun;
-
-            // Need output buffering to send a finish message
-            // to browser inside the shutdown function. Couldn't
-            // do without the buffer.
-            ob_start();
-
-            // This callback will be used as soon as the main script
-            // is finished. It will not stop running, even if the user cancels
-            // the request or the time limit is reach.
-            register_shutdown_function([&$this, 'shutdownFunction']);
+        if (empty($tasksToRun)) {
+            return false;
         }
+
+        // Save the current working directory, so we can fix
+        // it inside the shutdown function.
+        $workingDir = getcwd();
+
+        // Save the tasks to be executed.
+        $this->_tasksToRun = $tasksToRun;
+
+        // Need output buffering to send a finish message
+        // to browser inside the shutdown function. Couldn't
+        // do without the buffer.
+        ob_start();
+
+        // This callback will be used as soon as the main script
+        // is finished. It will not stop running, even if the user cancels
+        // the request or the time limit is reach.
+        register_shutdown_function(fn () => $this->_shutdownFunction($workingDir));
 
         return false;
     }
 
     /**
-     * Syncronize crontab with lazy load plugins management.
-     *
-     * @param string $hookName
-     * @param array $args
-     *
-     * @return bool
-     *
+     * Synchronize crontab with lazy load plugins management.
      * @see PluginHandler::plugin() for the hook call.
      */
     private function _callbackManage(PluginEnabledChanged $event): bool
@@ -230,7 +205,7 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * Shutdown callback.
      */
-    public function shutdownFunction()
+    private function _shutdownFunction(string $workingDir): void
     {
         // Release requests from waiting the processing.
         header('Connection: close');
@@ -246,7 +221,7 @@ class PKPAcronPlugin extends GenericPlugin
 
         // Fix the current working directory. See
         // http://www.php.net/manual/en/function.register-shutdown-function.php#92657
-        chdir($this->_workingDir);
+        chdir($workingDir);
 
         /** @var ScheduledTaskDAO */
         $taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
@@ -254,15 +229,8 @@ class PKPAcronPlugin extends GenericPlugin
             // Strip off the package name(s) to get the base class name
             $className = $task['className'];
             $pos = strrpos($className, '.');
-            if ($pos === false) {
-                $baseClassName = $className;
-            } else {
-                $baseClassName = substr($className, $pos + 1);
-            }
-            $taskArgs = [];
-            if (isset($task['args'])) {
-                $taskArgs = $task['args'];
-            }
+            $baseClassName = $pos === false ? $className : substr($className, $pos + 1);
+            $taskArgs = $task['args'] ?? [];
 
             // There's a race here. Several requests may come in closely spaced.
             // Each may decide it's time to run scheduled tasks, and more than one
@@ -285,15 +253,11 @@ class PKPAcronPlugin extends GenericPlugin
         }
     }
 
-
-    //
-    // Private helper methods.
-    //
     /**
      * Parse all scheduled tasks files and
      * save the result object in database.
      */
-    public function _parseCrontab()
+    private function _parseCrontab(): void
     {
         $xmlParser = new PKPXMLParser();
 
@@ -329,7 +293,7 @@ class PKPAcronPlugin extends GenericPlugin
                 if ($frequency) {
                     $frequencyAttributes = $frequency->getAttributes();
                     if (is_array($frequencyAttributes)) {
-                        foreach ($frequencyAttributes as $key => $value) {
+                        foreach ($frequencyAttributes as $value) {
                             if ($value != 0) {
                                 $setDefaultFrequency = false;
                                 break;
@@ -351,31 +315,29 @@ class PKPAcronPlugin extends GenericPlugin
 
     /**
      * Get all scheduled tasks that needs to be executed.
-     *
-     * @return array
      */
-    public function _getTasksToRun()
+    private function _getTasksToRun(): array
     {
-        $tasksToRun = [];
         $isEnabled = $this->getSetting(0, 'enabled');
+        if (!$isEnabled) {
+            return [];
+        }
 
-        if ($isEnabled) {
-            // Grab the scheduled scheduled tree
+        $tasksToRun = [];
+        // Grab the scheduled scheduled tree
+        $scheduledTasks = $this->getSetting(0, 'crontab');
+        if (is_null($scheduledTasks)) {
+            $this->_parseCrontab();
             $scheduledTasks = $this->getSetting(0, 'crontab');
-            if (is_null($scheduledTasks)) {
-                $this->_parseCrontab();
-                $scheduledTasks = $this->getSetting(0, 'crontab');
-            }
+        }
 
-            foreach ($scheduledTasks as $task) {
-                // We don't allow tasks without frequency, see _parseCronTab().
-                $frequency = new XMLNode();
-                $frequency->setAttribute(key($task['frequency']), current($task['frequency']));
-                $canExecute = ScheduledTaskHelper::checkFrequency($task['className'], $frequency);
-
-                if ($canExecute) {
-                    $tasksToRun[] = $task;
-                }
+        foreach ($scheduledTasks as $task) {
+            // We don't allow tasks without frequency, see _parseCronTab().
+            $frequency = new XMLNode();
+            $frequency->setAttribute(key($task['frequency']), current($task['frequency']));
+            $canExecute = ScheduledTaskHelper::checkFrequency($task['className'], $frequency);
+            if ($canExecute) {
+                $tasksToRun[] = $task;
             }
         }
 

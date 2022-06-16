@@ -16,11 +16,13 @@
 namespace PKP\controllers\grid\plugins;
 
 use APP\notification\NotificationManager;
+use Exception;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\plugins\form\UploadPluginForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
@@ -30,6 +32,7 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\site\Version;
 use PKP\site\VersionCheck;
 
 abstract class PluginGridHandler extends CategoryGridHandler
@@ -112,7 +115,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $router = $request->getRouter();
 
         // Grid level actions.
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES);
         if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
 
             // Install plugin.
@@ -207,12 +210,12 @@ abstract class PluginGridHandler extends CategoryGridHandler
                         0,
                         0, // Major, minor, revision, build
                         Core::getCurrentDate(), // Date installed
-                        1,	// Current
+                        1, // Current
                         'plugins.' . $plugin->getCategory(), // Type
                         basename($plugin->getPluginPath()), // Product
-                        '',	// Class name
-                        0,	// Lazy load
-                        $plugin->isSitePlugin()	// Site wide
+                        '', // Class name
+                        0, // Lazy load
+                        $plugin->isSitePlugin() // Site wide
                     );
                 }
                 $versionDao->insertVersion($pluginVersion, true);
@@ -271,7 +274,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function manage($args, $request)
     {
-        $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
+        $plugin = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
         return $plugin->manage($args, $request);
     }
 
@@ -285,7 +288,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function enable($args, $request)
     {
-        $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
+        $plugin = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
         if ($request->checkCSRF() && $plugin->getCanEnable()) {
             $plugin->setEnabled(true);
             if (empty($args['disableNotification'])) {
@@ -308,7 +311,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function disable($args, $request)
     {
-        $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
+        $plugin = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
         if ($request->checkCSRF() && $plugin->getCanDisable()) {
             $plugin->setEnabled(false);
             if (empty($args['disableNotification'])) {
@@ -412,7 +415,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
             return new JSONMessage(false);
         }
 
-        $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
+        $plugin = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_PLUGIN);
         $category = $plugin->getCategory();
         $productName = basename($plugin->getPluginPath());
 

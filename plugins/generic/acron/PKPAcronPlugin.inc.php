@@ -17,12 +17,12 @@
 
 use APP\core\Application;
 use APP\notification\NotificationManager;
-use PKP\config\Config;
+use Illuminate\Support\Facades\Event;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\notification\PKPNotification;
-
+use PKP\observers\events\PluginEnabledChanged;
 use PKP\plugins\GenericPlugin;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
@@ -57,7 +57,7 @@ class PKPAcronPlugin extends GenericPlugin
             $this->addLocaleData();
             HookRegistry::register('LoadHandler', [&$this, 'callbackLoadHandler']);
             // Need to reload cron tab on possible enable or disable generic plugin actions.
-            HookRegistry::register('PluginGridHandler::plugin', [&$this, 'callbackManage']);
+            HookRegistry::register('PluginGridHandler::plugin', [$this, 'callbackManage']);
         }
         return $success;
     }
@@ -212,29 +212,14 @@ class PKPAcronPlugin extends GenericPlugin
      *
      * @see PluginHandler::plugin() for the hook call.
      */
-    public function callbackManage($hookName, $args)
+    private function _callbackManage(PluginEnabledChanged $event): bool
     {
-        $verb = $args[0];
-        $plugin = $args[4]; /** @var LazyLoadPlugin $plugin */
-
-        // Only interested in plugins that can be enabled/disabled.
-        if (!is_a($plugin, 'LazyLoadPlugin')) {
-            return false;
-        }
-
-        // Only interested in enable/disable actions.
-        if ($verb !== 'enable' && $verb !== 'disable') {
-            return false;
-        }
-
-        // Check if the plugin wants to add its own
-        // scheduled task into the cron tab.
-
+        // Check if the plugin wants to add its own scheduled task into the cron tab.
         foreach (HookRegistry::getHooks('AcronPlugin::parseCronTab') as $hookPriorityList) {
-            foreach ($hookPriorityList as $priority => $callback) {
-                if ($callback[0] == $plugin) {
+            foreach ($hookPriorityList as [$callback]) {
+                if ($callback == $event->plugin) {
                     $this->_parseCrontab();
-                    break;
+                    break 2;
                 }
             }
         }
@@ -263,6 +248,7 @@ class PKPAcronPlugin extends GenericPlugin
         // http://www.php.net/manual/en/function.register-shutdown-function.php#92657
         chdir($this->_workingDir);
 
+        /** @var ScheduledTaskDAO */
         $taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
         foreach ($this->_tasksToRun as $task) {
             // Strip off the package name(s) to get the base class name
@@ -374,8 +360,6 @@ class PKPAcronPlugin extends GenericPlugin
         $isEnabled = $this->getSetting(0, 'enabled');
 
         if ($isEnabled) {
-            $taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
-
             // Grab the scheduled scheduled tree
             $scheduledTasks = $this->getSetting(0, 'crontab');
             if (is_null($scheduledTasks)) {

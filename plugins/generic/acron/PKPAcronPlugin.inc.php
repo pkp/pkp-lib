@@ -41,7 +41,7 @@ class PKPAcronPlugin extends GenericPlugin {
 			$this->addLocaleData();
 			HookRegistry::register('LoadHandler',array(&$this, 'callbackLoadHandler'));
 			// Need to reload cron tab on possible enable or disable generic plugin actions.
-			HookRegistry::register('PluginGridHandler::plugin', array(&$this, 'callbackManage'));
+			HookRegistry::register('Plugin::setEnabled', array(&$this, 'callbackManage'));
 		}
 		return $success;
 	}
@@ -177,23 +177,16 @@ class PKPAcronPlugin extends GenericPlugin {
 	 * @see PluginHandler::plugin() for the hook call.
 	 */
 	function callbackManage($hookName, $args) {
-		$verb = $args[0];
-		$plugin = $args[4]; /* @var $plugin LazyLoadPlugin */
-
-		// Only interested in plugins that can be enabled/disabled.
-		if (!is_a($plugin, 'LazyLoadPlugin')) return false;
-
-		// Only interested in enable/disable actions.
-		if ($verb !== 'enable' && $verb !== 'disable') return false;
+		$plugin = $args[0]; /* @var $plugin LazyLoadPlugin */
 
 		// Check if the plugin wants to add its own
 		// scheduled task into the cron tab.
 
 		foreach (HookRegistry::getHooks('AcronPlugin::parseCronTab') as $hookPriorityList) {
 			foreach ($hookPriorityList as $priority => $callback) {
-				if ($callback[0] == $plugin) {
+				if ($callback[0] === $plugin) {
 					$this->_parseCrontab();
-					break;
+					break 2;
 				}
 			}
 		}

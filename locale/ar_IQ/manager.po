@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-05-21 10:58+0000\n"
+"PO-Revision-Date: 2022-06-18 04:31+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2227,22 +2227,20 @@ msgstr ""
 "هذه الرسالة يولدها الموقع آلياً عندما لا يُكمل المحكم مهمة التحكيم حتى موعد "
 "تسليمها. تمكين تذكيرات التحكيم الآلية يتم من خلال إعدادات التحكيم."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "هذه الرسالة يرسلها النظام آلياً عندما يتباطأ أحد المحكمين عن تقديم إجابة في الموعد المقرر (إنظر خيارات التحكيم ضمن: الإعدادات، المخطط الانسيابي، التحكيم) عندما تكون ميزة وصول المحكم بنقرة واحدة معطلة. يجب أن تكون المهام المجدولة ممكنة ومعدة (إنظر ملف إعدادات الموقع)."
+msgstr ""
+"هذه الرسالة يرسلها النظام آلياً عند تجاوز موعد الاستجابة لالتماس التحكيم."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"هذه الرسالة يرسلها محرر قسم المجلة إلى أحد المحكمين ليلتمس منه قبول مهمة "
-"التحكيم أو رفضها. "
+"هذه الرسالة يرسلها محرر القسم إلى أحد المحكمين ليلتمس منه قبول مهمة التحكيم "
+"أو رفضها. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "هذه الرسالة يعنونها المحرر إلى المحكم ليلتمس منه قبول أو رفض مهمة تحكيم "
-"المؤلَّف لجولة أخرى. الرسالة تشير إلى عنوان المؤلَّف وملخصه وتاريخ استيجاب "
-"التحكيم كما تعطي رابط الوصول إلى المؤلَّف في موقع المجلة نفسه."
+"المؤلَّف لجولة أخرى. الرسالة تعطي معلومات عن طلب التقديم، مثل العنوان "
+"والملخص وتاريخ استيجاب التحكيم مع كيفية الوصول إليه."
 
 msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "تم تسليم العناصر بنجاح لغرض الإيداع"
@@ -2751,3 +2749,26 @@ msgstr "لاحقة معرف المكون الرقمي"
 
 msgid "doi.manager.settings.doiPrefix.required"
 msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "متابعة إلتماس التحكيم"
+
+msgid "mailable.reviewRequest.name"
+msgstr "إلتماس التحكيم"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "تجاوز موعد تسليم التحكيم (مؤتمت)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل من قبل محرر القسم لتأكيد استلام تحكيم كامل، يشكر "
+"فيه المحكم على مساهمته."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "إقرار التحكيم"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "لا يمكنك استدعاء هذه العملية بدون تمكين معرفات المكونات الرقمية."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "فشلت تحديثات معرفات المكونات الرقمية"

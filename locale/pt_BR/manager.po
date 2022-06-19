@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-06-10 16:26+0000\n"
+"PO-Revision-Date: 2022-06-20 14:31+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2374,13 +2374,11 @@ msgstr ""
 "Este e-mail é enviado automaticamente quando o prazo para um avaliador "
 "responder a uma solicitação de avaliação expirar."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Mensagem do Editor de Seção para solicitar ao Avaliador que indique a "
-"disponibilidade ou não para realizar uma avaliação. "
+"disponibilidade ou não de avaliar uma submissão. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Este e-mail do Editor para um Avaliador, que solicita ao usuário aceitar ou "
@@ -2944,3 +2942,6 @@ msgstr ""
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Agradecimento da avaliação"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Solicitação de Avaliação Subsequente"

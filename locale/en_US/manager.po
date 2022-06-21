@@ -2546,6 +2546,9 @@ msgstr "We have invited the authors to submit revisions."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr "We have invited the authors to submit a revised version for further review."
 
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Invited reviewer to the submission has been unassigned."
+
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Submission Accepted"
 
@@ -2558,17 +2561,17 @@ msgstr "Submission Sent Back to Copyediting"
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr "This email notifies the author that their submission has been sent back to the copyediting stage."
 
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Submission Sent Back to Review"
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Submission Sent Back from Copyediting"
 
-msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back to the review stage."
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back from the copyediting stage."
 
-msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "Submission Sent Back to Submission"
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Review Round Cancelled"
 
-msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back to the submission stage."
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr "This email notifies the author that a review round for their submission has been cancelled."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
 msgstr "Submission Declined"

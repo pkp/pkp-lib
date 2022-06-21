@@ -42,7 +42,7 @@ class NewExternalReviewRound extends DecisionType
         return Decision::NEW_EXTERNAL_ROUND;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }
@@ -110,7 +110,7 @@ class NewExternalReviewRound extends DecisionType
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         /** @var ReviewRound $reviewRound */
-        $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getNewStageId());
+        $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getNewStageId($submission, $decision->getData('reviewRoundId')));
         $this->createReviewRound($submission, $this->getStageId(), $reviewRound->getRound() + 1);
 
         parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);

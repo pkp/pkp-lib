@@ -2665,9 +2665,6 @@ msgstr ""
 "Denne e-mail informerer forfatteren om, at deres indsendelse er blevet "
 "accepteret til publicering."
 
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Indsendelse sendt tilbage til bedømmelse"
-
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "

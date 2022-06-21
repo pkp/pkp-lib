@@ -17,10 +17,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Collector;
 use APP\submission\Submission;
-
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;

@@ -17,6 +17,7 @@
 
 namespace PKP\submission\reviewRound;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 
 class ReviewRoundDAO extends \PKP\db\DAO
@@ -197,14 +198,14 @@ class ReviewRoundDAO extends \PKP\db\DAO
         }
 
         $result = $this->retrieve(
-            'SELECT * FROM review_rounds WHERE submission_id = ?' .
+            $sql = 'SELECT * FROM review_rounds WHERE submission_id = ?' .
             ($stageId ? ' AND stage_id = ?' : '') .
             ($round ? ' AND round = ?' : '') .
             ' ORDER BY stage_id ASC, round ASC',
             $params
         );
 
-        return new DAOResultFactory($result, $this, '_fromRow');
+        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params);
     }
 
     /**
@@ -374,6 +375,29 @@ class ReviewRoundDAO extends \PKP\db\DAO
         $reviewRound->setStatus((int)$row['status']);
 
         return $reviewRound;
+    }
+
+    /**
+     * Get the number of review rounds in a submission
+     *
+     * @param  int $submissionId  Submission id for which review round count need to be determined
+     * @param  int $stageId  Review stage id for which review round count need to be determined
+     *
+     * @throws \Exception
+     *
+     * @return int      Number of internal review round associated with this submission
+     *
+     */
+    public function getReviewRoundCountBySubmissionId(int $submissionId, ?int $stageId = null)
+    {
+        if (!is_null($stageId) && !in_array($stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
+            throw new \Exception('Not a valid review stage');
+        }
+
+        return DB::table('review_rounds')
+            ->where('submission_id', $submissionId)
+            ->when(!is_null($stageId), fn ($query) => $query->where('stage_id', $stageId))
+            ->count();
     }
 }
 

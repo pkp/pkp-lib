@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file classes/mail/mailables/DecisionBackToCopyeditingNotifyAuthor.php
+ * @file classes/mail/mailables/DecisionBackFromCopyeditingNotifyAuthor.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DecisionBackToCopyeditingNotifyAuthor
+ * @class DecisionBackFromCopyeditingNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION
- *  decision is made.
+ * @brief Email sent to the author(s) when following decisions are made :
+ *      Decision::BACK_FROM_COPYEDITING
  */
 
 namespace PKP\mail\mailables;
@@ -24,17 +24,17 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 
-class DecisionBackToCopyeditingNotifyAuthor extends Mailable
+class DecisionBackFromCopyeditingNotifyAuthor extends Mailable
 {
     use Configurable;
     use Recipient;
     use Sender;
 
-    protected static ?string $name = 'mailable.decision.backToCopyediting.notifyAuthor.name';
-    protected static ?string $description = 'mailable.decision.backToCopyediting.notifyAuthor.description';
-    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_BACK_TO_COPYEDITING';
+    protected static ?string $name = 'mailable.decision.backFromCopyediting.notifyAuthor.name';
+    protected static ?string $description = 'mailable.decision.backFromCopyediting.notifyAuthor.description';
+    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_BACK_FROM_COPYEDITING';
     protected static bool $supportsTemplates = true;
-    protected static array $groupIds = [self::GROUP_PRODUCTION];
+    protected static array $groupIds = [self::GROUP_COPYEDITING];
     protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 

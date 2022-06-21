@@ -1,14 +1,18 @@
 <?php
 /**
- * @file classes/decision/types/BackToSubmissionFromCopyediting.php
+ * @file classes/decision/types/BackFromCopyediting.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class decision
+ * @class BackFromCopyediting
  *
- * @brief A decision to return a submission to the external review stage.
+ * @brief A decision to return a submission back from the copyediting stage. It follows as
+ *   if has any external review round, back to external review stage.
+ *   if has any internal review round but no external review sound, back to internal review stage.
+ *   if has no internal and external review round, backt to submission stage.
+ *
  */
 
 namespace PKP\decision\types;
@@ -20,34 +24,21 @@ use PKP\components\fileAttachers\FileStage;
 use PKP\components\fileAttachers\Library;
 use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\mail\mailables\DecisionBackToSubmissionNotifyAuthor;
+use PKP\mail\mailables\DecisionBackFromCopyeditingNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class BackToSubmissionFromCopyediting extends DecisionType
+class BackFromCopyediting extends DecisionType
 {
     use NotifyAuthors;
-
-    public function getDecision(): int
-    {
-        return Decision::BACK_TO_SUBMISSION_FROM_COPYEDITING;
-    }
-
-    public function getStageId(): int
-    {
-        return WORKFLOW_STAGE_ID_EDITING;
-    }
-
-    public function getNewStageId(): int
-    {
-        return WORKFLOW_STAGE_ID_SUBMISSION;
-    }
 
     public function getNewStatus(): ?int
     {
@@ -59,29 +50,69 @@ class BackToSubmissionFromCopyediting extends DecisionType
         return null;
     }
 
+    public function getDecision(): int
+    {
+        return Decision::BACK_FROM_COPYEDITING;
+    }
+
+    public function getStageId(): int
+    {
+        return WORKFLOW_STAGE_ID_EDITING;
+    }
+
+    /**
+     * Determine the possible new stage id for this decision
+     *
+     * The determining process follows as :
+     *
+     * If there is any external review round associated with it,
+     * new stage need to be external review stage
+     *
+     * If there is no external review round associated with it but there is internal review round,
+     * new stage need to be internal review stage
+     *
+     * If there is no external or internal review round associated with it
+     * new stage need to submission stage
+     */
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+            return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+        }
+
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+            return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
+        }
+
+        return WORKFLOW_STAGE_ID_SUBMISSION;
+    }
+
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToSubmission', [], $locale);
+        return __('editor.submission.decision.backFromCopyediting', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToSubmissionFromCopyediting.description', [], $locale);
+        return __('editor.submission.decision.backFromCopyediting.description', [], $locale);
     }
 
     public function getLog(): string
     {
-        return 'editor.submission.decision.backToSubmissionFromCopyediting.log';
+        return __('editor.submission.decision.backFromCopyediting.log');
     }
 
     public function getCompletedLabel(): string
     {
-        return __('editor.submission.decision.backToSubmission.completed');
+        return __('editor.submission.decision.backFromCopyediting.completed');
     }
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.backToSubmission.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.backFromCopyediting.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
@@ -110,7 +141,7 @@ class BackToSubmissionFromCopyediting extends DecisionType
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->sendAuthorEmail(
-                        new DecisionBackToSubmissionNotifyAuthor($context, $submission, $decision),
+                        new DecisionBackFromCopyeditingNotifyAuthor($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission,
@@ -130,11 +161,11 @@ class BackToSubmissionFromCopyediting extends DecisionType
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
-            $mailable = new DecisionBackToSubmissionNotifyAuthor($context, $submission, $fakeDecision);
+            $mailable = new DecisionBackFromCopyeditingNotifyAuthor($context, $submission, $fakeDecision);
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
-                __('editor.submission.decision.backToSubmission.notifyAuthorsDescription'),
+                __('editor.submission.decision.backFromCopyediting.notifyAuthorsDescription'),
                 $authors,
                 $mailable
                     ->sender($editor)
@@ -151,12 +182,12 @@ class BackToSubmissionFromCopyediting extends DecisionType
      * Get the submission file stages that are permitted to be attached to emails
      * sent in this decision
      *
-     * @return array<int>
+     * @return int[]
      */
     protected function getAllowedAttachmentFileStages(): array
     {
         return [
-            SubmissionFile::SUBMISSION_FILE_FINAL
+            SubmissionFile::SUBMISSION_FILE_FINAL,
         ];
     }
 

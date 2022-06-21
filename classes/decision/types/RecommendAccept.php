@@ -29,7 +29,7 @@ class RecommendAccept extends DecisionType
         return Decision::RECOMMEND_ACCEPT;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

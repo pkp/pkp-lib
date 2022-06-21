@@ -22,6 +22,7 @@ use Exception;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\facades\Locale;
@@ -90,7 +91,7 @@ trait IsRecommendation
         $fakeDecision = $this->getFakeDecision($submission, $editor);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
         $editors = $steps->getDecidingEditors();
-        $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $reviewRound->getId());
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), DecisionType::REVIEW_ASSIGNMENT_COMPLETED);
         $mailable = new RecommendationNotifyEditors($context, $submission, $fakeDecision, $reviewAssignments);
 
         $steps->addStep((new Email(

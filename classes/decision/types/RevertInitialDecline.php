@@ -37,7 +37,7 @@ class RevertInitialDecline extends DecisionType
         return Decision::REVERT_INITIAL_DECLINE;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

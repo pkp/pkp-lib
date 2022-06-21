@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields
- * @brief Describe upgrade/downgrade Removes duplicated user_settings, as well as the deprecated fields "assoc_id" and "assoc_type".
+ * @brief Removes duplicated user_settings, as well as the deprecated fields "assoc_id" and "assoc_type".
  */
 
 namespace PKP\migration\upgrade\v3_4_0;

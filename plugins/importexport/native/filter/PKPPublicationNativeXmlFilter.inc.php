@@ -89,7 +89,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         $this->addIdentifiers($doc, $entityNode, $entity);
 
-        $entityNode->setAttribute('locale', $entity->getData('locale'));
         $entityNode->setAttribute('version', $entity->getData('version') ?: 1);
         $entityNode->setAttribute('status', $entity->getData('status'));
         if ($primaryContactId = $entity->getData('primaryContactId')) {
@@ -107,11 +106,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
             $entityNode->setAttribute('access_status', $entity->getData('accessStatus'));
         } else {
             $entityNode->setAttribute('access_status', '0');
-        }
-
-        $entityLanguages = $entity->getData('language');
-        if ($entityLanguages) {
-            $entityNode->setAttribute('language', $entityLanguages);
         }
 
         if ($datePublished = $entity->getData('datePublished')) {

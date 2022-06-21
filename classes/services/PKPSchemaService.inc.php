@@ -377,7 +377,7 @@ class PKPSchemaService
                 }
                 break;
             case 'object':
-                foreach ($propSchema->properties as $subPropName => $subPropSchema) {
+                foreach ($propSchema->properties ?? [] as $subPropName => $subPropSchema) {
                     $rules = $this->addPropValidationRules($rules, $ruleKey . '.' . $subPropName, $subPropSchema);
                 }
                 break;
@@ -523,7 +523,7 @@ class PKPSchemaService
                 return $value;
             case 'object':
                 $value = [];
-                foreach ($propSchema->properties as $subPropName => $subPropSchema) {
+                foreach ($propSchema->properties ?? [] as $subPropName => $subPropSchema) {
                     if (!property_exists($propSchema->default, $subPropName)) {
                         continue;
                     }

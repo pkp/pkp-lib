@@ -491,6 +491,7 @@ class Filter extends \PKP\core\DataObject
 
         // Save a reference to the last valid input
         $this->_input = & $input;
+        $this->_output = null;
 
         // Process the filter
         $preliminaryOutput = & $this->process($input);
@@ -499,8 +500,12 @@ class Filter extends \PKP\core\DataObject
         HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
 
         // Validate the filter output
-        if ((!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) || $returnErrors) {
+        $isValidOutput = $preliminaryOutput !== null && $this->supports($input, $preliminaryOutput);
+        if ($isValidOutput || $returnErrors) {
             $this->_output = & $preliminaryOutput;
+        }
+        if (!$isValidOutput) {
+            error_log('Filter output validation failed, expected "' . $this->getOutputType()->getTypeName() . '", but found "' . gettype($preliminaryOutput) . '"');
         }
 
         // Return processed data

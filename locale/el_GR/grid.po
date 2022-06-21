@@ -129,10 +129,10 @@ msgid "grid.action.upgrade"
 msgstr "Αναβάθμιση"
 
 msgid "grid.action.order"
-msgstr "Παραγγελία"
+msgstr "Αναδιάταξη"
 
 msgid "grid.action.cancelOrdering"
-msgstr "Ακύρωση παραγγελίας"
+msgstr "Ακύρωση Αναδιάταξης"
 
 msgid "grid.action.extendAll"
 msgstr "Επέκταση όλων"

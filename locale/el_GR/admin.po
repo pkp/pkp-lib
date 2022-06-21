@@ -161,35 +161,14 @@ msgstr "Πλατφόρμα λειτουργικού συστήματος"
 msgid "admin.settings"
 msgstr "Ρυθμίσεις"
 
-msgid "admin.settings.aboutDescription"
-msgstr "Σχετικά με τον ιστότοπο"
-
 msgid "admin.settings.contactEmail"
 msgstr "Ηλεκτρονική διεύθυνση Υπεύθυνου Επικοινωνίας"
 
 msgid "admin.settings.contactName"
 msgstr "Ονοματεπώνυμο Υπεύθυνου Επικοινωνίας"
 
-msgid "admin.settings.form.contactEmailRequired"
-msgstr "Απαιτείται η διεύθυνση ηλεκτρονικού ταχυδρομείου του Υπεύθυνου Επικοινωνίας."
-
-msgid "admin.settings.form.contactNameRequired"
-msgstr "Απαιτείται το ονοματεπώνυμο του Υπεύθυνου Επικοινωνίας."
-
-msgid "admin.settings.form.minPasswordLengthRequired"
-msgstr "Πρέπει να εισάγετε έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες."
-
-msgid "admin.settings.form.titleRequired"
-msgstr "Απαιτείται η συμπλήρωση του τίτλου."
-
 msgid "admin.settings.defaultMetricDescription"
 msgstr "Η εγκατάστασή σας έχει ρυθμιστεί ώστε να καταγράφει περισσότερες από μία μετρήσεις χρήσης. Τα στατιστικά στοιχεία χρήσης θα εμφανίζονται σε διάφορα συγκείμενα. Σε κάποιες περιπτώσεις χρησιμοποιείται ένα μοναδικό στατιστικό χρήσης (π.χ. για την εμφάνιση ενός καταλόγου των πιο δημοφιλών άρθρων ή για την ταξινόμηση των αποτελεσμάτων μίας αναζήτησης). Παρακαλούμε ορίστε ένα από τα διαμορφωμένα σύνολα ως προεπιλογή."
-
-msgid "admin.settings.homeHeaderImage.altText"
-msgstr "Λογότυπο ιστοτόπου"
-
-msgid "admin.settings.homeHeaderImageInvalid"
-msgstr "Μη έγκυρος τύπος αρχείου εικόνας λογοτύπου. Αποδεκτοί τύποι αρχείων είναι οι .gif, .jpg, ή .png."
 
 msgid "admin.settings.introduction"
 msgstr "Εισαγωγή"
@@ -207,7 +186,7 @@ msgid "admin.settings.siteStyleSheet"
 msgstr "Αρχείο γραφικής μορφοποίησης ιστοτόπου"
 
 msgid "admin.settings.siteLogo"
-msgstr "Λογότυπο ιστοτόπου"
+msgstr "Site Logo"
 
 msgid "admin.settings.siteTitle"
 msgstr "Τίτλος ιστοτόπου"
@@ -288,14 +267,7 @@ msgid "admin.fileLoader.emailSubject"
 msgstr "Φορτωτής αρχείων"
 
 msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Αντιγράψτε τη λίστα αρχείων προσβασης apache access log file(s) στον τρέχοντα κατάλογο αρχείων στο μενού UsageStatsPlugin, φιλτράροντας τις καταχωρήσεις που σχετίζονται με αυτή την εγκατάσταση. Η ενέργεια πρέπει να πραγματοποιηθεί από Χρήστη με δικαιώματα πρόσβασης στα αρχεία apache.\n"
-"\n"
-"Αυτό το εργαλείο θα αντιγράψει μόνο τα αρχεία που δεν βρίσκονται ήδη στη λίστα usageStats (στάδιο, επεξεργασία, αρχειοθέτηση, απόρριψη).\n"
-"\n"
-"Usage: {$scriptName} path/to/apache/log/file.log\n"
-"Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n"
-"\t"
+msgstr "Αντιγράψτε τη λίστα αρχείων προσβασης apache access log file(s) στον τρέχοντα κατάλογο αρχείων στο μενού UsageStatsPlugin, φιλτράροντας τις καταχωρήσεις που σχετίζονται με αυτή την εγκατάσταση. Η ενέργεια πρέπει να πραγματοποιηθεί από Χρήστη με δικαιώματα πρόσβασης στα αρχεία apache.\n\n Αυτό το εργαλείο θα αντιγράψει μόνο τα αρχεία που δεν βρίσκονται ήδη στη λίστα usageStats (στάδιο, επεξεργασία, αρχειοθέτηση, απόρριψη).\n\nUsage: {$scriptName} path/to/apache/log/file.log\nUsage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n\t"
 
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
 msgstr "Σφάλμα: ο προσωρινός φάκελος δε μπορεί να δημιουργηθεί {$tmpDir}"
@@ -329,3 +301,15 @@ msgstr "Δημοσίευση των προγραμματισμένων για δ
 
 msgid "admin.settings.about"
 msgstr "Σχετικά με τον ιστότοπο"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Μαζικά μηνύματα ηλεκτρονικού ταχυδρομείου"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Περιορίστε τα μαζικά μηνύματα ηλεκτρονικού ταχυδρομείου"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Απενεργοποίηση ρόλων"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Μόνο ένας διαχειριστής επιτρέπεται να τροποποιήσει αυτήν τη ρύθμιση."

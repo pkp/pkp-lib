@@ -177,7 +177,7 @@ msgid "manager.dois.actions.depositAll.label"
 msgstr "Deposit all DOIs"
 
 msgid "manager.dois.actions.depositAll.prompt"
-msgstr "You are about to schedule all outstanding DOI metadata records to be deposited with {$registrationAgency}. Each item's individual status will be updated when a response is received. Are you sure you want to schedule deposits for all of these items?"
+msgstr "You are about to schedule all outstanding DOI metadata records to be deposited with {$registrationAgency}. Only published items with a DOI will be deposited. Each item's status will be updated when a response is received. Are you sure you want to schedule deposits for all of these items?"
 
 msgid "manager.dois.depositStatus"
 msgstr "Deposit Status"

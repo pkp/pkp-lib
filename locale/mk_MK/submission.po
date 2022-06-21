@@ -1309,6 +1309,7 @@ msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "Поднесокот мора повторно да биде поднесен за уште една рунда на рецензија."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Корекциите се поднесени."
 

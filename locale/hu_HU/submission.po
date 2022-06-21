@@ -1766,6 +1766,7 @@ msgstr "{$count} ennyi {$total} benyújtásból"
 msgid "submission.howToCite.downloadCitation"
 msgstr "Idézés letöltése"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Felülvizsgálat elküldve."
 

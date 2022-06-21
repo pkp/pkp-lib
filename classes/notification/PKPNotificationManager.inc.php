@@ -172,6 +172,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 return __('payment.type.publication.required');
             case PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT:
+            case PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER:
                 $notificationSettings = $this->getNotificationSettings($notification->getId());
                 return $notificationSettings['contents'];
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
@@ -417,6 +418,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => ['settingName' => 'notificationNewAnnouncement',
                 'emailSettingName' => 'emailNotificationNewAnnouncement',
                 'settingKey' => 'notification.type.newAnnouncement'],
+            PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER => ['settingName' => 'notificationEditorialReminder',
+                'emailSettingName' => 'emailNotificationEditorialReminder',
+                'settingKey' => 'notification.type.editorialReminder'],
             PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT => ['settingName' => 'notificationEditorialReport',
                 'emailSettingName' => 'emailNotificationEditorialReport',
                 'settingKey' => 'notification.type.editorialReport']

@@ -1911,6 +1911,7 @@ msgstr "Материал қайта қарауға жіберілді."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Материалды қайта қарауға жіберу керек."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Жаңа нұсқалар жіберілді."
 

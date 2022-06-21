@@ -614,6 +614,7 @@ msgstr "დაამატეთ ახალი პასუხი დისკ
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "მოითხოვნილია შესწორებები."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "შესწორებები შევიდა."
 

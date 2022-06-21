@@ -1476,6 +1476,7 @@ msgstr "投稿は、別の査読ラウンドに再提出されました。"
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "投稿は、別の査読ラウンドのために再提出する必要があります。"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "改訂版が提出されました。"
 

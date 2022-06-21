@@ -2320,6 +2320,9 @@ msgstr "The URL to a page where the user can recover a lost password"
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "The URL to view all of a user's assigned submissions."
 
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "The URL for a user to view and edit their profile."
+
 msgid "emailTemplate.variable.decision.name"
 msgstr "The name of the decision that was taken."
 
@@ -2331,6 +2334,12 @@ msgstr "The stage of the editorial workflow this decision was taken in."
 
 msgid "emailTemplate.variable.decision.round"
 msgstr "The round of review this decision was taken in, if the decision is related to a review stage."
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "A list of submissions with outstanding tasks"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "The number of submissions assigned to this editor"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "The full name of the recipient or all recipients"
@@ -2610,3 +2619,9 @@ msgstr "The submission's current publication is missing"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr "The submission's child {$child} failed to be processed"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Editorial Reminder"
+
+msgid "mailable.editorialReminder.description"
+msgstr "An automated email sent to editors with outstanding tasks"

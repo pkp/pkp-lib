@@ -1832,6 +1832,9 @@ msgstr "Statistics report summary."
 msgid "notification.type.editorialReport.contents"
 msgstr "This is a kind reminder for you to check your journal's health through the editorial report."
 
+msgid "notification.type.editorialReminder"
+msgstr "Weekly email of outstanding tasks"
+
 msgid "semicolon"
 msgstr "{$label}:"
 

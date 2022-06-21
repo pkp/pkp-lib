@@ -87,6 +87,7 @@ class PKPNotification extends \PKP\core\DataObject
     public const NOTIFICATION_TYPE_EDITORIAL_REPORT = 0x100002A;
 
     public const NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION = 0x100002B;
+    public const NOTIFICATION_TYPE_EDITORIAL_REMINDER = 0x100002C;
 
     /**
      * get user id associated with this notification

@@ -139,6 +139,15 @@ msgstr "Deposit DOIs with configured registration agency"
 msgid "admin.scheduledTask.downloadLog"
 msgstr "Your {$softwareName} installation automatically executed and finished this task and you can download the log file here: {$url}"
 
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Send an email to each editor reminding them of their outstanding tasks"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Identifying editors to remind in context {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr "Dispatched {$count} jobs to send editorial email reminders to users {$userIds} in context {$contextId}"
+
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Are you sure you want to delete all scheduled task execution logs?"
 

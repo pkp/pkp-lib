@@ -1960,6 +1960,7 @@ msgstr "Sila pilih jenis fail untuk setiap muat naik."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Penyerahan mesti diserahkan semula untuk pusingan ulasan yang lain."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Semakan telah dihantar."
 

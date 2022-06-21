@@ -2094,6 +2094,7 @@ msgstr "A submissão foi ressubmetida para outra rodada de avaliação."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "A submissão deve ser ressubmetida para outra rodada de avaliação."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisões foram submetidas."
 

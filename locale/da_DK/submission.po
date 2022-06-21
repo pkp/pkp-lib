@@ -1487,6 +1487,7 @@ msgstr "Download citationer"
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) blev fjernet som en {$userGroupName}."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Rettelserne er blevet indsendt."
 

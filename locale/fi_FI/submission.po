@@ -1560,6 +1560,7 @@ msgstr "Suosittele toimituksellista päätöstä käsikirjoitukseen liittyen."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Tallennetut suositukset"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Uusi versioita on lähetetty."
 

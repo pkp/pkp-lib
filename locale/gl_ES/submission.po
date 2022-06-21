@@ -587,6 +587,7 @@ msgstr "O envío volveuse a enviar para outra rolda de revisión."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "O envío debe enviarse de novo para outra rolda de revisión."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisións enviadas."
 

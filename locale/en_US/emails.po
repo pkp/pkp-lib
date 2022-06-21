@@ -272,3 +272,18 @@ msgstr ""
 "<p>I wish you success if you consider submitting your work elsewhere.</p>"
 "<p>Kind regards,</p>"
 "{$signature}"
+
+msgid "emails.editorialReminder.subject"
+msgstr "Outstanding editorial tasks for {$contextName}"
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+"<p>Dear {$recipientName},</p>"
+"<p>You are currently assigned to {$numberOfSubmissions} submissions in <a href=\"{$contextUrl}\">{$contextName}</a>. The following submissions are <b>waiting for your response</b>.</p>"
+"{$outstandingTasks}"
+"<p>View all of your assignments in your <a href=\"{$submissionsUrl}\">submission dashboard</a>.</p>"
+"<p>This is an automated email from {$contextName}. You are receiving this email because you are an editor. To unsubscribe from these emails, please visit your <a href=\"{$userProfileUrl}\">user profile</a>.</p>"
+"<p>If you have any questions about your assignments, please contact {$contactName} at {$contactEmail}.</p>"
+
+msgid "emails.editorialReminder.description"
+msgstr "An automated email sent to editors with outstanding tasks"

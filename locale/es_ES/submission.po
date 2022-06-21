@@ -1047,6 +1047,7 @@ msgstr "No tiene archivos para revisar en este momento."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Revisiones solicitadas."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisiones enviadas."
 

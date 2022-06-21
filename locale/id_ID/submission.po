@@ -1607,6 +1607,7 @@ msgstr "Naskah sudah dikirim ulang untuk review tahap berikutnya."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Naskah harus dikirim ulang untuk review tahap berikutnya."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisi telah dikirim."
 

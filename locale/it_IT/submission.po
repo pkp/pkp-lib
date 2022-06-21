@@ -1165,6 +1165,7 @@ msgstr "Non ci sono file da revisionare da parte tua in questo momento."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Le revisioni sono state richieste."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Le revisioni sono state inviate."
 

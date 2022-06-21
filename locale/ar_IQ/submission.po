@@ -1222,6 +1222,7 @@ msgstr "ليس لديك ملفات لتحكيمها حالياً."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "تم التماس التنقيحات."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "تم تسليم التنقيحات."
 

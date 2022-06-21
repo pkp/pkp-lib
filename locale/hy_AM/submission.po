@@ -555,6 +555,7 @@ msgstr "Ներկայացումը կրկին ներկայացվել է գրախո
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Ներկայացումը պետք է նորից ներկայացվի գրախոսման մեկ այլ փուլի համար:"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ներկայացվել են վերանայումներ։"
 

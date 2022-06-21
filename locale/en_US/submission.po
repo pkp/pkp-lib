@@ -1248,7 +1248,7 @@ msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Revisions have been requested."
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Revisions have been submitted."
+msgstr "Revisions have been submitted and a decision is needed."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "The submission must be resubmitted for another review round."
@@ -1288,6 +1288,12 @@ msgstr "New editorial recommendations have been submitted."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "All recommendations are in and a decision is needed."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Inactive for more than {$days} days in the {$stage} stage."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "A new submission is waiting to be sent for review or declined."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Participants"

@@ -1246,6 +1246,7 @@ msgstr "На данный момент нет файлов, которые вы 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Новые версии были запрошены."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Новые версии были отправлены."
 

@@ -1044,6 +1044,7 @@ msgstr "Innleveringen er levert til ny fagfellevurderingsrunde."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Innleveringen må sendes inn på ny for en ny fagfellevurderingsrunde."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revideringer er levert inn."
 

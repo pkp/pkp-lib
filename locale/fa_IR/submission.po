@@ -1345,6 +1345,7 @@ msgstr "هیچ فایلی برای بررسی در این مرحله وجود ن
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "نیازمند انجام اصلاحات"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "اصلاحات ثبت شد."
 

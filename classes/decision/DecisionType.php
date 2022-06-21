@@ -43,6 +43,10 @@ abstract class DecisionType
     public const ACTION_PAYMENT = 'payment';
     public const ACTION_DISCUSSION = 'discussion';
 
+    public const REVIEW_ASSIGNMENT_COMPLETED = 1;
+    public const REVIEW_ASSIGNMENT_ACTIVE = 2;
+    public const REVIEW_ASSIGNMENT_CONFIRMED = 3;
+
     /**
      * Get a label/title when this decision has been completed
      *
@@ -100,7 +104,7 @@ abstract class DecisionType
      * Get the workflow stage a submission should be promoted to, if the decision should
      * result in moving the submission to another stage
      */
-    abstract public function getNewStageId(): ?int;
+    abstract public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int;
 
     /**
      * The decision can only be taken when the submission is in this workflow stage
@@ -195,19 +199,21 @@ abstract class DecisionType
             Repo::submission()->updateStatus($submission, $this->getNewStatus());
         }
 
-        if ($this->getNewStageId()) {
-            $submission->setData('stageId', $this->getNewStageId());
+        $newStageId = $this->getNewStageId($submission, (int)$decision->getData('reviewRoundId'));
+
+        if ($newStageId) {
+            $submission->setData('stageId', $newStageId);
             Repo::submission()->dao->update($submission);
 
             // Create a new review round if there is not an existing round
             // when promoting to a review stage, or reset the review round
             // status if one already exists
-            if (in_array($this->getNewStageId(), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
+            if (in_array($newStageId, [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
                 /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getNewStageId());
+                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $newStageId);
                 if (!is_a($reviewRound, ReviewRound::class)) {
-                    $this->createReviewRound($submission, $this->getNewStageId(), 1);
+                    $this->createReviewRound($submission, $newStageId, 1);
                 } else {
                     $reviewRoundDao->updateStatus($reviewRound, null);
                 }

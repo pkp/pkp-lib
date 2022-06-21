@@ -37,7 +37,7 @@ class InitialDecline extends DecisionType
         return Decision::INITIAL_DECLINE;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

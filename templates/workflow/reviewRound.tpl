@@ -17,7 +17,7 @@
 	<div class="pkp_workflow_sidebar">
 		{if !$isAssignedAsAuthor}
 			{capture assign=reviewDecisionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}{/capture}
-			{load_url_in_div id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions" refreshOn="decisionActionUpdated"}
+			{load_url_in_div id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions" refreshOn="update:decisions"}
 		{/if}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
 	</div>

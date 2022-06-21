@@ -27,8 +27,20 @@ use PKP\core\DataObject;
 
 class Decision extends DataObject
 {
+    public const SEND_TO_PRODUCTION = 7;
     public const INITIAL_DECLINE = 9;
+    public const RECOMMEND_ACCEPT = 11;
+    public const RECOMMEND_PENDING_REVISIONS = 12;
+    public const RECOMMEND_RESUBMIT = 13;
+    public const RECOMMEND_DECLINE = 14;
+    public const NEW_EXTERNAL_ROUND = 16;
+    public const REVERT_DECLINE = 17;
     public const REVERT_INITIAL_DECLINE = 18;
+    public const SKIP_EXTERNAL_REVIEW = 19;
+    public const BACK_FROM_PRODUCTION = 31;
+    public const BACK_FROM_COPYEDITING = 32;
+    public const CANCEL_REVIEW_ROUND = 33;
+
 
     /**
      * Get the decision type for this decision
@@ -46,4 +58,11 @@ class Decision extends DataObject
 if (!PKP_STRICT_MODE) {
     // Some constants are not redefined here because they never existed as global constants
     define('SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE', Decision::INITIAL_DECLINE);
+    define('SUBMISSION_EDITOR_RECOMMEND_ACCEPT', Decision::RECOMMEND_ACCEPT);
+    define('SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS', Decision::RECOMMEND_PENDING_REVISIONS);
+    define('SUBMISSION_EDITOR_RECOMMEND_RESUBMIT', Decision::RECOMMEND_RESUBMIT);
+    define('SUBMISSION_EDITOR_RECOMMEND_DECLINE', Decision::RECOMMEND_DECLINE);
+    define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', Decision::REVERT_DECLINE);
+    define('SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION', Decision::SEND_TO_PRODUCTION);
+    define('SUBMISSION_EDITOR_DECISION_NEW_ROUND', Decision::NEW_EXTERNAL_ROUND);
 }

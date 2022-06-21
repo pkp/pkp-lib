@@ -30,6 +30,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\emailtemplate\EmailTemplate;
 use PKP\facades\Locale;
@@ -387,7 +388,9 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewerForm->readInputData();
         if ($reviewerForm->validate()) {
             $reviewAssignment = $reviewerForm->execute();
-            return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+            $json = DAO::getDataChangedEvent($reviewAssignment->getId());
+            $json->setGlobalEvent('update:decisions');
+            return $json;
         } else {
             // There was an error, redisplay the form
             return new JSONMessage(true, $reviewerForm->fetch($request));
@@ -425,7 +428,9 @@ class PKPReviewerGridHandler extends GridHandler
         $editReviewForm->readInputData();
         if ($editReviewForm->validate()) {
             $editReviewForm->execute();
-            return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+            $json = DAO::getDataChangedEvent($reviewAssignment->getId());
+            $json->setGlobalEvent('update:decisions');
+            return $json;
         } else {
             return new JSONMessage(false);
         }
@@ -474,7 +479,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->initData();
 
         return new JSONMessage(true, $unassignReviewerForm->fetch($request));
@@ -531,7 +536,9 @@ class PKPReviewerGridHandler extends GridHandler
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }
 
-        return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+        $json = DAO::getDataChangedEvent($reviewAssignment->getId());
+        $json->setGlobalEvent('update:decisions');
+        return $json;
     }
 
     /**
@@ -565,7 +572,9 @@ class PKPReviewerGridHandler extends GridHandler
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }
 
-        return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+        $json = DAO::getDataChangedEvent($reviewAssignment->getId());
+        $json->setGlobalEvent('update:decisions');
+        return $json;
     }
 
     /**
@@ -676,7 +685,9 @@ class PKPReviewerGridHandler extends GridHandler
             PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
         );
 
-        return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+        $json = DAO::getDataChangedEvent($reviewAssignment->getId());
+        $json->setGlobalEvent('update:decisions');
+        return $json;
     }
 
     /**

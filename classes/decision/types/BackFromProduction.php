@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/BackToReview.php
+ * @file classes/decision/types/BackFromProduction.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief A decision to return a submission to the external review stage.
+ * @brief A decision to return a submission back from the production stage.
  */
 
 namespace PKP\decision\types;
@@ -24,29 +24,29 @@ use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\mail\mailables\DecisionBackToReviewNotifyAuthor;
+use PKP\mail\mailables\DecisionBackFromProductionNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class BackToReview extends DecisionType
+class BackFromProduction extends DecisionType
 {
     use NotifyAuthors;
 
     public function getDecision(): int
     {
-        return Decision::BACK_TO_REVIEW;
+        return Decision::BACK_FROM_PRODUCTION;
     }
 
     public function getStageId(): int
     {
-        return WORKFLOW_STAGE_ID_EDITING;
+        return WORKFLOW_STAGE_ID_PRODUCTION;
     }
 
-    public function getNewStageId(): int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): int
     {
-        return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+        return WORKFLOW_STAGE_ID_EDITING;
     }
 
     public function getNewStatus(): ?int
@@ -61,27 +61,27 @@ class BackToReview extends DecisionType
 
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToReview', [], $locale);
+        return __('editor.submission.decision.backToCopyediting', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToReview.description', [], $locale);
+        return __('editor.submission.decision.backToCopyediting.description', [], $locale);
     }
 
     public function getLog(): string
     {
-        return 'editor.submission.decision.backToReview.log';
+        return 'editor.submission.decision.backToCopyediting.log';
     }
 
     public function getCompletedLabel(): string
     {
-        return __('editor.submission.decision.backToReview.completed');
+        return __('editor.submission.decision.backToCopyediting.completed');
     }
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.backToReview.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.backToCopyediting.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
@@ -110,7 +110,7 @@ class BackToReview extends DecisionType
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->sendAuthorEmail(
-                        new DecisionBackToReviewNotifyAuthor($context, $submission, $decision),
+                        new DecisionBackFromProductionNotifyAuthor($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission,
@@ -130,11 +130,11 @@ class BackToReview extends DecisionType
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
-            $mailable = new DecisionBackToReviewNotifyAuthor($context, $submission, $fakeDecision);
+            $mailable = new DecisionBackFromProductionNotifyAuthor($context, $submission, $fakeDecision);
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
-                __('editor.submission.decision.backToReview.notifyAuthorsDescription'),
+                __('editor.submission.decision.backToCopyediting.notifyAuthorsDescription'),
                 $authors,
                 $mailable
                     ->sender($editor)
@@ -156,7 +156,7 @@ class BackToReview extends DecisionType
     protected function getAllowedAttachmentFileStages(): array
     {
         return [
-            SubmissionFile::SUBMISSION_FILE_FINAL,
+            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
         ];
     }
 
@@ -182,8 +182,8 @@ class BackToReview extends DecisionType
             __('email.addAttachment.submissionFiles.attach')
         ))
             ->withFileStage(
-                SubmissionFile::SUBMISSION_FILE_FINAL,
-                __('submission.finalDraft')
+                SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+                __('editor.submission.production.productionReadyFiles')
             );
 
         $attachers[] = new Library(

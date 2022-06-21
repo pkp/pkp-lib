@@ -40,7 +40,7 @@ class Resubmit extends DecisionType
         return Decision::RESUBMIT;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }
@@ -100,7 +100,7 @@ class Resubmit extends DecisionType
                     $this->validateNotifyAuthorsAction($action, $actionErrorKey, $validator, $submission);
                     break;
                 case $this->ACTION_NOTIFY_REVIEWERS:
-                    $this->validateNotifyReviewersAction($action, $actionErrorKey, $validator, $submission, $reviewRoundId);
+                    $this->validateNotifyReviewersAction($action, $actionErrorKey, $validator, $submission, $reviewRoundId, self::REVIEW_ASSIGNMENT_COMPLETED);
                     break;
             }
         }
@@ -113,7 +113,7 @@ class Resubmit extends DecisionType
         foreach ($actions as $action) {
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
-                    $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $decision->getData('reviewRoundId'));
+                    $reviewAssignments = $this->getReviewAssignments($submission->getId(), $decision->getData('reviewRoundId'), self::REVIEW_ASSIGNMENT_COMPLETED);
                     $emailData = $this->getEmailDataFromAction($action);
                     $this->sendAuthorEmail(
                         new DecisionResubmitNotifyAuthor($context, $submission, $decision, $reviewAssignments),
@@ -142,7 +142,7 @@ class Resubmit extends DecisionType
 
         $fakeDecision = $this->getFakeDecision($submission, $editor, $reviewRound);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
-        $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $reviewRound->getId());
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), self::REVIEW_ASSIGNMENT_COMPLETED);
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {

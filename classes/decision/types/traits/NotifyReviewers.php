@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/traits/NotifyReviewers.php
+ * @file classes/decision/types/traits/NotifyReviewers.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief Helper functions for decisions that may request a payment
+ * @brief Helper functions for decisions that send a notification to reviewers.
  */
 
 namespace PKP\decision\types\traits;
@@ -23,8 +23,8 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\mail\EmailData;
-use PKP\mail\Mailable;
 use PKP\mail\mailables\DecisionNotifyReviewer;
+use PKP\mail\mailables\ReviewerUnassign;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
@@ -32,45 +32,11 @@ use PKP\user\User;
 trait NotifyReviewers
 {
     protected string $ACTION_NOTIFY_REVIEWERS = 'notifyReviewers';
-
-    /** @copydoc DecisionType::addEmailDataToMailable() */
-    abstract protected function addEmailDataToMailable(Mailable $mailable, User $user, EmailData $email): Mailable;
-
-    /** @copydoc DecisionType::getAssignedAuthorIds() */
-    abstract protected function getAssignedAuthorIds(Submission $submission): array;
-
-    /** @copydoc InExternalReviewRound::getCompletedReviewerIds() */
-    abstract protected function getCompletedReviewerIds(Submission $submission, int $reviewRoundId): array;
-
-    /** @copydoc DecisionType::setRecipientError() */
-    abstract protected function setRecipientError(string $actionErrorKey, array $invalidRecipientIds, Validator $validator);
-
-    /**
-     * Validate the decision action to notify reviewers
-     */
-    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId)
-    {
-        $errors = $this->validateEmailAction($action, $submission, $this->getAllowedAttachmentFileStages());
-        foreach ($errors as $key => $propErrors) {
-            foreach ($propErrors as $propError) {
-                $validator->errors()->add($actionErrorKey . '.' . $key, $propError);
-            }
-        }
-        if (empty($action['recipients'])) {
-            $validator->errors()->add($actionErrorKey . '.recipients', __('validator.required'));
-            return;
-        }
-        $reviewerIds = $this->getCompletedReviewerIds($submission, $reviewRoundId);
-        $invalidRecipients = array_diff($action['recipients'], $reviewerIds);
-        if (count($invalidRecipients)) {
-            $this->setRecipientError($actionErrorKey, $invalidRecipients, $validator);
-        }
-    }
-
+    
     /**
      * Send the email to the reviewers
      */
-    protected function sendReviewersEmail(DecisionNotifyReviewer $mailable, EmailData $email, User $editor, Submission $submission)
+    protected function sendReviewersEmail(DecisionNotifyReviewer|ReviewerUnassign $mailable, EmailData $email, User $editor, Submission $submission)
     {
         /** @var DecisionNotifyReviewer $mailable */
         $mailable = $this->addEmailDataToMailable($mailable, $editor, $email);
@@ -84,14 +50,16 @@ trait NotifyReviewers
             Mail::send($mailable->recipients([$recipient], $email->locale));
 
             // Update the ReviewAssignment to indicate the reviewer has been acknowledged
-            /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-            $reviewAssignment = $reviewAssignmentDao->getReviewAssignment($mailable->getDecision()->getData('reviewRoundId'), $recipient->getId());
-            if ($reviewAssignment) {
-                $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
-                $reviewAssignment->stampModified();
-                $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
-                $reviewAssignmentDao->updateObject($reviewAssignment);
+            if (is_a($mailable, DecisionNotifyReviewer::class)) {
+                /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+                $reviewAssignment = $reviewAssignmentDao->getReviewAssignment($mailable->getDecision()->getData('reviewRoundId'), $recipient->getId());
+                if ($reviewAssignment) {
+                    $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
+                    $reviewAssignment->stampModified();
+                    $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
+                    $reviewAssignmentDao->updateObject($reviewAssignment);
+                }
             }
         }
 
@@ -105,5 +73,31 @@ trait NotifyReviewers
                 'subject' => $email->subject,
             ]
         );
+    }
+
+    /**
+     * Validate the decision action to notify reviewers
+     */
+    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId, string $reviewAssignmentStatus)
+    {
+        $errors = $this->validateEmailAction($action, $submission, $this->getAllowedAttachmentFileStages());
+
+        foreach ($errors as $key => $propErrors) {
+            foreach ($propErrors as $propError) {
+                $validator->errors()->add($actionErrorKey . '.' . $key, $propError);
+            }
+        }
+
+        if (empty($action['recipients'])) {
+            $validator->errors()->add($actionErrorKey . '.recipients', __('validator.required'));
+            return;
+        }
+
+        $reviewerIds = $this->getReviewerIds($submission->getId(), $reviewRoundId, $reviewAssignmentStatus);
+        $invalidRecipients = array_diff($action['recipients'], $reviewerIds);
+
+        if (count($invalidRecipients)) {
+            $this->setRecipientError($actionErrorKey, $invalidRecipients, $validator);
+        }
     }
 }

@@ -46,7 +46,7 @@ class SendToProduction extends DecisionType
         return WORKFLOW_STAGE_ID_EDITING;
     }
 
-    public function getNewStageId(): int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): int
     {
         return WORKFLOW_STAGE_ID_PRODUCTION;
     }

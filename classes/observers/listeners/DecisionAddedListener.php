@@ -42,7 +42,7 @@ class DecisionAddedListener
     {
         $context = $event->context;
         $doiCreationTime = $context->getData(Context::SETTING_DOI_CREATION_TIME);
-        $workflowStageId = $event->decisionType->getNewStageId();
+        $workflowStageId = $event->decisionType->getNewStageId($event->submission, $event->decision->getData('reviewRoundId'));
 
         if (
             $doiCreationTime === Repo::doi()::CREATION_TIME_COPYEDIT

@@ -22,13 +22,15 @@ use PKP\components\fileAttachers\ReviewFiles;
 use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
+use PKP\decision\types\traits\WithReviewAssignments;
 
 trait InExternalReviewRound
 {
+    use WithReviewAssignments;
+
     /** @copydoc DecisionType::getStageId() */
     public function getStageId(): int
     {
@@ -45,30 +47,6 @@ trait InExternalReviewRound
     protected function getReviewFileStage(): int
     {
         return SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
-    }
-
-    /**
-     * Get the assigned reviewers who completed their review
-     *
-     * @return array<int>
-     */
-    protected function getCompletedReviewerIds(Submission $submission, int $reviewRoundId): array
-    {
-        $userIds = [];
-        /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId(
-            $submission->getId(),
-            $reviewRoundId,
-            $this->getStageId()
-        );
-        foreach ($reviewAssignments as $reviewAssignment) {
-            if (!in_array($reviewAssignment->getStatus(), ReviewAssignment::REVIEW_COMPLETE_STATUSES)) {
-                continue;
-            }
-            $userIds[] = (int) $reviewAssignment->getReviewerId();
-        }
-        return $userIds;
     }
 
     /**
@@ -146,27 +124,5 @@ trait InExternalReviewRound
         );
 
         return $attachers;
-    }
-
-    /**
-     * Get the completed review assignments for this round
-     */
-    protected function getCompletedReviewAssignments(int $submissionId, int $reviewRoundId): array
-    {
-        /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId(
-            $submissionId,
-            $reviewRoundId,
-            $this->getStageId()
-        );
-        $completedReviewAssignments = [];
-        foreach ($reviewAssignments as $reviewAssignment) {
-            if (in_array($reviewAssignment->getStatus(), ReviewAssignment::REVIEW_COMPLETE_STATUSES)) {
-                $completedReviewAssignments[] = $reviewAssignment;
-            }
-        }
-
-        return $completedReviewAssignments;
     }
 }

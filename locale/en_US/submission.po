@@ -1362,6 +1362,18 @@ msgstr "Notify Reviewers"
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr "Send an email to the reviewers to thank them for their review and let them know that a decision was taken."
 
+msgid "editor.submission.decision.backToSubmissionFromExternalReview.notifyReviewers.description"
+msgstr "Send an email to the reviewers to let them know that submission has been moved back to submission stage."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.notifyReviewers.description"
+msgstr "Send an email to the reviewers to let them know that submission has been moved back to internal review stage."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.notifyReviewers.description"
+msgstr "Send an email to the reviewers to let them know that submission has been sent back to previous external review round."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.notifyReviewers.description"
+msgstr "Send an email to the reviewers to let them know that submission has been sent back to previous internal review round."
+
 msgid "editor.submission.decision.accept"
 msgstr "Accept Submission"
 
@@ -1389,8 +1401,20 @@ msgstr "Sent Back to Submission"
 msgid "editor.submission.decision.backToSubmission.completed.description"
 msgstr "The submission, {$title}, was sent back to the submission stage."
 
+msgid "editor.submission.decision.backToSubmission.restriction"
+msgstr "Can not moved back to submission stage if submission has any review round associated with it."
+
 msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that their submission is being sent back to the submission stage. Explain why this decision was made and inform the author of what further work will be undertaken before moving the submission forward."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back to the previous external review round."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back to the previous internal review round."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back to the internal Review stage."
 
 msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
 msgstr "Revert the decision to accept this submission and send it back to the submission stage."
@@ -1464,6 +1488,163 @@ msgstr "Revisions for the submission, {$title}, have been requested."
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that revisions will be required before this submission will be accepted for publication. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments."
 
+msgid "editor.submission.decision.removeEmptyExternalReviewRound"
+msgstr "Remove Review Round"
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.description"
+msgstr "The editor can remove an empty external review round if no reviewer assigned to that round yet."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.log"
+msgstr "{$editorName} has removed an empty external review round."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.completed"
+msgstr "Empty external review round has removed successfully"
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.completed.description"
+msgstr "Empty external review round for the submission, {$title}, have been removed."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has removed an empty external review round from the submission."
+
+msgid "editor.submission.decision.removeEmptyExternalReviewRound.restriction"
+msgstr "Can not delete an external review round if it is the only running review round or has any reviewer assigned to it."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound"
+msgstr "Remove Review Round"
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.description"
+msgstr "The editor can remove an empty internal review round if no reviewer assigned to that round yet."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.log"
+msgstr "{$editorName} has removed an empty internal review round."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.completed"
+msgstr "Empty internal review round has removed successfully"
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.completed.description"
+msgstr "Empty internal review round for the submission, {$title}, have been removed."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has removed an empty internal review round from the submission."
+
+msgid "editor.submission.decision.removeEmptyInternalReviewRound.restriction"
+msgstr "Can not delete an internal review round if it is the only running review round or any reviewer assigned to it."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound"
+msgstr "Back To Submission"
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.description"
+msgstr "The editor can back out from an internal review round to submission stage if no review assignment has completed."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.log"
+msgstr "{$editorName} has backed out from internal review round to submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.completed"
+msgstr "Back out to submission stage from internal review."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.completed.description"
+msgstr "Has backed out to submission stage from internal review for the submission, {$title}."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has backed out from internal review round stage to submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.notifyReviewersDescription"
+msgstr "Send an email to the assigned reviewers to let them know that editor has backed out from internal review round stage to submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.restriction"
+msgstr "Can not back out to submission from internal review round if there is multipe round available or has any review submitted or completed."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound"
+msgstr "Back To Submission"
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.description"
+msgstr "The editor can back out from an external review round to submission stage if no review assignment has completed."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.log"
+msgstr "{$editorName} has backed out from external review round to submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.completed"
+msgstr "Back out to submission stage from external review."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.completed.description"
+msgstr "Has backed out to submission stage from external review for the submission, {$title}."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has backed out from external review round stage to submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.notifyReviewersDescription"
+msgstr "Send an email to the assigned reviewers to let them know that editor has backed out from external review round stage to submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromExternalReviewRound.restriction"
+msgstr "Can not back out to submission from external review round if there is multipe round available or has any review submitted or completed."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound"
+msgstr "Back To Internal Review"
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.description"
+msgstr "The editor can back out from external review stage to internal review stage if no review assignment has completed."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.log"
+msgstr "{$editorName} has backed out from external review stage to internal review stage."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.completed"
+msgstr "Back out to internal review from external review."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.completed.description"
+msgstr "Has backed out to internal review stage from external review for the submission, {$title}."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that editor has backed out from external review round stage to internal review stage."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.notifyReviewersDescription"
+msgstr "Send an email to the assigned reviewers to let them know that editor has backed out from external review round stage to internal review stage."
+
+msgid "editor.submission.decision.backToInternalReviewFromExternalReviewRound.restriction"
+msgstr "Can only back out from an external review stage to internal review stage when submission has only one external review round availabel, has no submitted or confirmed reviews by reviewer and submission has one or more internal review round associated with it."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound"
+msgstr "Back To Previous Round"
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.description"
+msgstr "The editor can back out from the current external review round to previous round if no review assignment has completed."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.log"
+msgstr "{$editorName} has backed out from current external review round to previous round."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.completed"
+msgstr "Backed out to previous external round from current round."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.completed.description"
+msgstr "Has backed out to previous external review round for the submission, {$title}."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.notifyReviewersDescription"
+msgstr "Send an email to the assigned reviewers to let them know that editor has backed out from current external review round stage to previous round."
+
+msgid "editor.submission.decision.backToPreviousInternalReviewRound.restriction"
+msgstr "Can only back to previous internal review round if there is multiple round associated with submission with no associated reviewer has any completed or submitted review available."
+
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound"
+msgstr "Back To Previous Round"
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.description"
+msgstr "The editor can back out from the current external review round to previous round if no review assignment has completed."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.log"
+msgstr "{$editorName} has backed out from current external review round to previous round."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.completed"
+msgstr "Backed out to previous external round from current round."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.completed.description"
+msgstr "Has backed out to previous external review round for the submission, {$title}."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.notifyReviewersDescription"
+msgstr "Send an email to the assigned reviewers to let them know that editor has backed out from current external review round stage to previous round."
+
+msgid "editor.submission.decision.backToPreviousExternalReviewRound.restriction"
+msgstr "Can only back to previous external review round if there is multiple round associated with submission with no associated reviewer has any completed or submitted review available."
+
 msgid "editor.submission.decision.resubmit"
 msgstr "Resubmit for Review"
 
@@ -1517,6 +1698,48 @@ msgstr "The submission, {$title}, was sent to the production stage."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that this submission has been sent to the production stage."
+
+msgid "editor.submission.decision.backToReview"
+msgstr "Back to Review"
+
+msgid "editor.submission.decision.backToReview.description"
+msgstr "Revert the decision to accept this submission and send it back to the review stage."
+
+msgid "editor.submission.decision.backToReview.log"
+msgstr "{$editorName} reverted the decision to accept this submission and sent it back to the review stage."
+
+msgid "editor.submission.decision.backToReview.completed"
+msgstr "Sent Back to Review"
+
+msgid "editor.submission.decision.backToReview.completed.description"
+msgstr "The submission, {$title}, was sent back to the review stage."
+
+msgid "editor.submission.decision.backToReview.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back to the review stage. Explain why this decision was made and inform the author of what further review will be undertaken."
+
+msgid "editor.submission.decision.backToReview.restriction"
+msgstr "Can not back out to external review stage if there is no external review roound associated with submission."
+
+msgid "editor.submission.decision.backToInternalReview"
+msgstr "Back to Internal Review"
+
+msgid "editor.submission.decision.backToInternalReview.description"
+msgstr "Revert the decision to accept this submission and send it back to the internal review stage."
+
+msgid "editor.submission.decision.backToInternalReview.log"
+msgstr "{$editorName} reverted the decision to accept this submission and sent it back to the internal review stage."
+
+msgid "editor.submission.decision.backToInternalReview.completed"
+msgstr "Sent Back to Internal Review"
+
+msgid "editor.submission.decision.backToInternalReview.completed.description"
+msgstr "The submission, {$title}, was sent back to the internal review stage."
+
+msgid "editor.submission.decision.backToInternalReview.restriction"
+msgstr "Submission can be moved back to internal review stage only if there is no external review round associated with it and submission has one or more internal review round associated with it."
+
+msgid "editor.submission.decision.backToInternalReview.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back to the internal review stage. Explain why this decision was made and inform the author of what further review will be undertaken."
 
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Back to Copyediting"

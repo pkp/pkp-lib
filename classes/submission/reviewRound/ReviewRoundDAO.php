@@ -17,6 +17,7 @@
 
 namespace PKP\submission\reviewRound;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 
 class ReviewRoundDAO extends \PKP\db\DAO
@@ -197,14 +198,14 @@ class ReviewRoundDAO extends \PKP\db\DAO
         }
 
         $result = $this->retrieve(
-            'SELECT * FROM review_rounds WHERE submission_id = ?' .
+            $sql = 'SELECT * FROM review_rounds WHERE submission_id = ?' .
             ($stageId ? ' AND stage_id = ?' : '') .
             ($round ? ' AND round = ?' : '') .
             ' ORDER BY stage_id ASC, round ASC',
             $params
         );
 
-        return new DAOResultFactory($result, $this, '_fromRow');
+        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params);
     }
 
     /**
@@ -374,6 +375,20 @@ class ReviewRoundDAO extends \PKP\db\DAO
         $reviewRound->setStatus((int)$row['status']);
 
         return $reviewRound;
+    }
+
+    /**
+     * Get assigned reviewers count to a review round by given review round id
+     *
+     * @param  int $id  Review round id for this assigned reviewers count need to determine
+     *
+     * @return int      Number of reviewers assigned to this review round
+     */
+    public function getAssignmentCountByid(int $id): int
+    {
+        return DB::table('review_assignments')
+            ->where('review_round_id', $id)
+            ->count();
     }
 }
 

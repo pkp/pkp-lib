@@ -23,6 +23,7 @@ use PKP\decision\steps\Email;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewers;
+use PKP\decision\types\traits\withReviewRound;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\DecisionResubmitNotifyAuthor;
 use PKP\security\Role;
@@ -32,6 +33,7 @@ use PKP\user\User;
 class Resubmit extends DecisionType
 {
     use InExternalReviewRound;
+    use withReviewRound;
     use NotifyAuthors;
     use NotifyReviewers;
 

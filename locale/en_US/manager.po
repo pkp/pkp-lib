@@ -2546,6 +2546,18 @@ msgstr "We have invited the authors to submit revisions."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr "We have invited the authors to submit a revised version for further review."
 
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToSubmissionFromExternalReview"
+msgstr "The submission has been sent back to submission stage to revise editorial decision."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToInternalReviewFromExternalReview"
+msgstr "The submission has been sent back to internal review stage to revise editorial decision."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToSubmissionFromInternalReview"
+msgstr "The submission has been sent back to submission stage to revise editorial decision."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToPreviousExternalReviewRound"
+msgstr "The submission has been sent back to previous external review round to revise editorial decision."
+
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Submission Accepted"
 
@@ -2569,6 +2581,48 @@ msgstr "Submission Sent Back to Submission"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr "This email notifies the author that their submission has been sent back to the submission stage."
+
+msgid "mailable.decision.backToPreviousExternalReviewRound.notifyAuthor.name"
+msgstr "Submission Sent Back to Previous Extarnal Review Round"
+
+msgid "mailable.decision.backToPreviousExternalReviewRound.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the previous external review round."
+
+msgid "mailable.decision.backToPreviousInternalReviewRound.notifyAuthor.name"
+msgstr "Submission Sent Back to Previous Internal Review Round"
+
+msgid "mailable.decision.backToPreviousInternalReviewRound.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the previous internal review round."
+
+msgid "mailable.decision.backToSubmission.notifyReviewer.name"
+msgstr "Submission Sent Back to Submission Stage"
+
+msgid "mailable.decision.backToSubmission.notifyReviewer.description"
+msgstr "This email notifies the reviewers who has accepted the review request that the submission has been sent back to submission stage."
+
+msgid "mailable.decision.backToInternalReview.notifyAuthor.name"
+msgstr "Submission Sent Back to Internal Review"
+
+msgid "mailable.decision.backToInternalReview.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the internal review stage."
+
+msgid "mailable.decision.backToInternalReviewFromExternalReview.notifyReviewer.name"
+msgstr "Submission Sent Back to Internal Review Stage"
+
+msgid "mailable.decision.backToInternalReviewFromExternalReview.notifyReviewer.description"
+msgstr "This email notifies the reviewers who has accepted the review request that the submission has been sent back to internal review stage."
+
+msgid "mailable.decision.backToPreviousExternalReviewRound.notifyReviewer.name"
+msgstr "Submission Sent Back to Previous Round"
+
+msgid "mailable.decision.backToPreviousExternalReviewRound.notifyReviewer.description"
+msgstr "This email notifies the reviewers who has accepted the review request that the submission has been sent back to previous external review round."
+
+msgid "mailable.decision.backToPreviousInternalReviewRound.notifyReviewer.name"
+msgstr "Submission Sent Back to Previous Round"
+
+msgid "mailable.decision.backToPreviousInternalReviewRound.notifyReviewer.description"
+msgstr "This email notifies the reviewers who has accepted the review request that the submission has been sent back to previous internal review round."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
 msgstr "Submission Declined"

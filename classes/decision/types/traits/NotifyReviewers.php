@@ -48,7 +48,7 @@ trait NotifyReviewers
     /**
      * Validate the decision action to notify reviewers
      */
-    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId)
+    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId, bool $forCompletedReviewer = true)
     {
         $errors = $this->validateEmailAction($action, $submission, $this->getAllowedAttachmentFileStages());
         foreach ($errors as $key => $propErrors) {
@@ -60,7 +60,9 @@ trait NotifyReviewers
             $validator->errors()->add($actionErrorKey . '.recipients', __('validator.required'));
             return;
         }
-        $reviewerIds = $this->getCompletedReviewerIds($submission, $reviewRoundId);
+        $reviewerIds = $forCompletedReviewer
+            ? $this->getCompletedReviewerIds($submission, $reviewRoundId)
+            : $this->getActiveReviewersId($submission, $reviewRoundId);
         $invalidRecipients = array_diff($action['recipients'], $reviewerIds);
         if (count($invalidRecipients)) {
             $this->setRecipientError($actionErrorKey, $invalidRecipients, $validator);

@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/traits/InExternalReviewRound.php
+ * @file classes/decision/types/traits/InExternalReviewRound.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -26,12 +26,12 @@ use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
-trait InExternalReviewRound
+trait InInternalReviewRound
 {
     /** @copydoc DecisionType::getStageId() */
     public function getStageId(): int
     {
-        return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+        return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
     }
 
     /** Helper method so self::getFileAttachers() can be extended for other review stages */

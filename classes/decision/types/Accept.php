@@ -25,6 +25,7 @@ use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewers;
+use PKP\decision\types\traits\withReviewRound;
 use PKP\mail\mailables\DecisionAcceptNotifyAuthor;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\security\Role;
@@ -35,6 +36,7 @@ use PKP\user\User;
 class Accept extends DecisionType
 {
     use InExternalReviewRound;
+    use withReviewRound;
     use NotifyAuthors;
     use NotifyReviewers;
 

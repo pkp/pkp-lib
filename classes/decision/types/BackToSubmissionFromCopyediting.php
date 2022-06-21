@@ -23,16 +23,19 @@ use PKP\context\Context;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
+use PKP\decision\types\contracts\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
+use PKP\decision\types\traits\withReviewRound;
 use PKP\mail\mailables\DecisionBackToSubmissionNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class BackToSubmissionFromCopyediting extends DecisionType
+class BackToSubmissionFromCopyediting extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
+    use withReviewRound;
 
     public function getDecision(): int
     {
@@ -92,6 +95,10 @@ class BackToSubmissionFromCopyediting extends DecisionType
             return;
         }
 
+        if (!$this->canRetract($submission, $reviewRoundId)) {
+            $validator->errors()->add('restriction', __('editor.submission.decision.backToSubmission.restriction'));
+        }
+
         foreach ((array) $props['actions'] as $index => $action) {
             $actionErrorKey = 'actions.' . $index;
             switch ($action['id']) {
@@ -145,6 +152,26 @@ class BackToSubmissionFromCopyediting extends DecisionType
         }
 
         return $steps;
+    }
+
+    /**
+     * Determine if can back out to submission stage directly from copy editing stage
+     */
+    public function canRetract(Submission $submission, ?int $reviewRoundId): bool
+    {
+        // if has any external review round asscoiated
+        // can not back out to submission stage directly from copy editing stage
+        if ($this->hasReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+            return false;
+        }
+
+        // if has any internal review round asscoiated
+        // can not back out to submission stage directly from copy editing stage
+        if ($this->hasReviewRound($submission, WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

@@ -25,6 +25,8 @@ use PKP\context\Context;
 use PKP\core\Dispatcher;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\decision\types\contracts\DecisionRemovable;
+use PKP\decision\types\contracts\DecisionRetractable;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -82,6 +84,7 @@ class DecisionHandler extends Handler
         $this->setupTemplate($request);
         $dispatcher = $request->getDispatcher();
         $context = $request->getContext();
+        $reviewRoundId = (int) $request->getUserVar('reviewRoundId');
 
         $this->decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
         $this->submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -93,7 +96,6 @@ class DecisionHandler extends Handler
 
         // Don't allow a decision in a review stage unless there is a valid review round
         if (in_array($this->decisionType->getStageId(), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
-            $reviewRoundId = (int) $request->getUserVar('reviewRoundId');
             if (!$reviewRoundId) {
                 $request->getDispatcher()->handle404();
             }
@@ -102,6 +104,16 @@ class DecisionHandler extends Handler
             if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== $this->submission->getId()) {
                 $request->getDispatcher()->handle404();
             }
+        }
+
+        // For a retractable decision, don't allow if it can not be retracted
+        if ($this->decisionType instanceof DecisionRetractable && !$this->decisionType->canRetract($this->submission, $reviewRoundId)) {
+            $request->getDispatcher()->handle404();
+        }
+
+        // For a removable decision, don't allow if it can not be removed
+        if ($this->decisionType instanceof DecisionRemovable && !$this->decisionType->canRemove($this->submission, $reviewRoundId)) {
+            $request->getDispatcher()->handle404();
         }
 
         // Don't allow a recommendation unless at least one deciding editor exists

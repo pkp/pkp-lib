@@ -180,7 +180,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Default email templates.
         Schema::create('email_templates_default', function (Blueprint $table) {
             $table->bigInteger('email_id')->autoIncrement();
-            $table->string('email_key', 64)->comment('Unique identifier for this email.');
+            $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->smallInteger('can_disable')->default(0);
             $table->smallInteger('can_edit')->default(0);
             $table->bigInteger('from_role_id')->nullable();
@@ -191,9 +191,9 @@ class CommonMigration extends \PKP\migration\Migration
 
         // Default data for email templates.
         Schema::create('email_templates_default_data', function (Blueprint $table) {
-            $table->string('email_key', 64)->comment('Unique identifier for this email.');
+            $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->string('locale', 14)->default('en_US');
-            $table->string('subject', 120);
+            $table->string('subject', 255);
             $table->text('body')->nullable();
             $table->text('description')->nullable();
             $table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
@@ -202,7 +202,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Templates for emails.
         Schema::create('email_templates', function (Blueprint $table) {
             $table->bigInteger('email_id')->autoIncrement();
-            $table->string('email_key', 64)->comment('Unique identifier for this email.');
+            $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->bigInteger('context_id');
             $table->smallInteger('enabled')->default(1);
             $table->unique(['email_key', 'context_id'], 'email_templates_email_key');

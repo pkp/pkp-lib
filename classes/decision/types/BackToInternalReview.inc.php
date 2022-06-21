@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/BackToReview.php
+ * @file classes/decision/types/BackToInternalReview..inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief A decision to return a submission to the external review stage.
+ * @brief A decision to return a submission to the internal review stage from copy editing stage
  */
 
 namespace PKP\decision\types;
@@ -26,20 +26,20 @@ use PKP\decision\steps\Email;
 use PKP\decision\types\contracts\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\withReviewRound;
-use PKP\mail\mailables\DecisionBackToReviewNotifyAuthor;
+use PKP\mail\mailables\DecisionBackToInternalReviewNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class BackToReview extends DecisionType implements DecisionRetractable
+class BackToInternalReview extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
     use withReviewRound;
 
     public function getDecision(): int
     {
-        return Decision::BACK_TO_REVIEW;
+        return Decision::BACK_TO_INTERNAL_REVIEW;
     }
 
     public function getStageId(): int
@@ -49,7 +49,7 @@ class BackToReview extends DecisionType implements DecisionRetractable
 
     public function getNewStageId(): int
     {
-        return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+        return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
     }
 
     public function getNewStatus(): ?int
@@ -64,27 +64,27 @@ class BackToReview extends DecisionType implements DecisionRetractable
 
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToReview', [], $locale);
+        return __('editor.submission.decision.backToInternalReview', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToReview.description', [], $locale);
+        return __('editor.submission.decision.backToInternalReview.description', [], $locale);
     }
 
     public function getLog(): string
     {
-        return 'editor.submission.decision.backToReview.log';
+        return 'editor.submission.decision.backToInternalReview.log';
     }
 
     public function getCompletedLabel(): string
     {
-        return __('editor.submission.decision.backToReview.completed');
+        return __('editor.submission.decision.backToInternalReview.completed');
     }
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.backToReview.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.backToInternalReview.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
@@ -96,7 +96,7 @@ class BackToReview extends DecisionType implements DecisionRetractable
         }
 
         if (!$this->canRetract($submission, $reviewRoundId)) {
-            $validator->errors()->add('restriction', __('editor.submission.decision.backToReview.restriction'));
+            $validator->errors()->add('restriction', __('editor.submission.decision.backToInternalReview.restriction'));
         }
 
         foreach ((array) $props['actions'] as $index => $action) {
@@ -117,7 +117,7 @@ class BackToReview extends DecisionType implements DecisionRetractable
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->sendAuthorEmail(
-                        new DecisionBackToReviewNotifyAuthor($context, $submission, $decision),
+                        new DecisionBackToInternalReviewNotifyAuthor($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission,
@@ -137,11 +137,11 @@ class BackToReview extends DecisionType implements DecisionRetractable
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
-            $mailable = new DecisionBackToReviewNotifyAuthor($context, $submission, $fakeDecision);
+            $mailable = new DecisionBackToInternalReviewNotifyAuthor($context, $submission, $fakeDecision);
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
-                __('editor.submission.decision.backToReview.notifyAuthorsDescription'),
+                __('editor.submission.decision.backToInternalReview.notifyAuthorsDescription'),
                 $authors,
                 $mailable
                     ->sender($editor)
@@ -155,13 +155,20 @@ class BackToReview extends DecisionType implements DecisionRetractable
     }
 
     /**
-     * Determine if can back out to external review stage from the copy editing stage
+     * Determine if can back out to internal review stage from copy editing stage
      */
     public function canRetract(Submission $submission, ?int $reviewRoundId): bool
     {
-        // if there is no external review round associated with it
-        // can not back out to external review stage
-        if (!$this->hasReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+        // If has any external review reound associated with it
+        // can not back out to internal review stage directly
+        // need to back out to external review stage first
+        if ($this->hasReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+            return false;
+        }
+
+        // If has no internal review round associated with it
+        // can not back to internal review stage
+        if (!$this->hasReviewRound($submission, WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
             return false;
         }
 

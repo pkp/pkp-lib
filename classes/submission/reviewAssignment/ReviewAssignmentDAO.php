@@ -19,6 +19,7 @@ namespace PKP\submission\reviewAssignment;
 
 use APP\facades\Repo;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 use PKP\db\DAORegistry;
 
@@ -644,6 +645,18 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     {
         return 'SELECT r.*, r2.review_revision FROM review_assignments r
 			LEFT JOIN review_rounds r2 ON (r.review_round_id = r2.review_round_id)';
+    }
+
+    /**
+     * Delete review assignments by review round ID.
+     *
+     * @param  int $reviewRoundId
+     */
+    public function deleteByReviewRoundId($reviewRoundId): int
+    {
+        return DB::table('review_assignments')
+            ->where('review_round_id', $reviewRoundId)
+            ->delete();
     }
 }
 

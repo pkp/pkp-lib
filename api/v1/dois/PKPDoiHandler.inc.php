@@ -22,6 +22,7 @@ use PKP\core\APIResponse;
 use PKP\doi\exceptions\DoiCreationException;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
+use PKP\Jobs\Doi\DepositSubmission;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
@@ -366,27 +367,20 @@ class PKPDoiHandler extends APIHandler
             return $response->withStatus(400)->withJsonError('api.dois.400.invalidPubObjectIncluded');
         }
 
-        /** @var Submission[] $submissions */
-        $submissions = [];
-        foreach ($requestIds as $id) {
-            $submissions[] = Repo::submission()->get($id);
-        }
-
-        if (empty($submissions[0])) {
-            return $response->withStatus(404)->withJsonError('apis.dois.404.doiNotFound');
-        }
-
         $agency = $context->getConfiguredDoiAgency();
         if ($agency === null) {
             return $response->withStatus(400)->withJsonError('api.dois.400.noRegistrationAgencyConfigured');
         }
 
-        $responseData = $agency->depositSubmissions($submissions, $context);
-        if ($responseData['hasErrors']) {
-            return $response->withStatus(400)->withJsonError($responseData['responseMessage']);
+        $doiIdsToUpdate = [];
+        foreach ($requestIds as $submissionId) {
+            dispatch(new DepositSubmission($submissionId, $context, $agency));
+            array_merge($doiIdsToUpdate, Repo::doi()->getDoisForSubmission($submissionId));
         }
 
-        return $response->withJson(['responseMessage' => $responseData['responseMessage']], 200);
+        Repo::doi()->markSubmitted($doiIdsToUpdate);
+
+        return $response->withStatus(200);
     }
 
     /**

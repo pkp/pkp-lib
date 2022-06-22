@@ -57,6 +57,7 @@ class EditorialReminder extends BaseJob
                 ->assignedTo([$this->editorId])
                 ->filterByContextIds([$this->contextId])
                 ->filterByStatus([Submission::STATUS_QUEUED])
+                ->filterByIncomplete(false)
         );
 
         $outstanding = [];

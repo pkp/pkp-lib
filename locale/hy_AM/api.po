@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-10 16:26+0000\n"
+"PO-Revision-Date: 2022-06-25 09:31+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
@@ -269,7 +269,7 @@ msgstr ""
 "տվյալ համատեքստի համար:"
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Դուք չեք կարող խմբագրել նյութի DOI-ն, որն այս համատեքստում չէ"
+msgstr "Դուք չեք կարող խմբագրել նյութի DOI-ն, որն այս համատեքստում չէ:"
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr "Ֆայլը այս նիշքի փուլ տեղափոխելիս պետք է տրամադրեք վերանայման փուլի ID:"

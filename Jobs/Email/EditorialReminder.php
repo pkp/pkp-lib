@@ -24,6 +24,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\Support\Jobs\BaseJob;
@@ -50,6 +51,15 @@ class EditorialReminder extends BaseJob
         if (!$this->isSubscribed()) {
             return;
         }
+
+        /** @var Context $context */
+        $context = Services::get('context')->get($this->contextId);
+        $editor = Repo::user()->get($this->editorId);
+
+        // Don't use the request locale because this job is
+        // run during a scheduled task
+        $requestLocale = Locale::getLocale();
+        Locale::setLocale($this->getLocale($editor, $context));
 
         $submissionIds = Repo::submission()->getIds(
             Repo::submission()
@@ -123,27 +133,25 @@ class EditorialReminder extends BaseJob
             return;
         }
 
-        /** @var Context $context */
-        $context = Services::get('context')->get($this->contextId);
-        $editor = Repo::user()->get($this->editorId);
-
         // Context or user was removed since job was created, or the user was disabled
         if (!$context || !$editor) {
             return;
         }
 
-        $locale = $this->getLocale($editor, $context);
         $mailable = new MailablesEditorialReminder($context);
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
         $mailable
             ->setOutstandingTasks($outstanding, $submissions, $submissionIds->count())
-            ->from($context->getContactEmail(), $context->getName($locale))
+            ->from($context->getContactEmail(), $context->getLocalizedName($locale))
             ->recipients([$editor])
-            ->subject($emailTemplate->getData('subject', $locale))
-            ->body($emailTemplate->getData('body', $locale));
+            ->subject($emailTemplate->getLocalizedData('subject'))
+            ->body($emailTemplate->getLocalizedData('body'));
 
         Mail::send($mailable);
+
+        // Restore the current locale after the email is sent
+        Locale::setLocale($requestLocale);
     }
 
     /**
@@ -170,7 +178,7 @@ class EditorialReminder extends BaseJob
         $locale = $context->getPrimaryLocale();
 
         // A user's locales may not be an array due to bug with data structure
-        // See:
+        // See: https://github.com/pkp/pkp-lib/issues/8023
         if ($editor->getLocales() === false) {
             return $locale;
         }

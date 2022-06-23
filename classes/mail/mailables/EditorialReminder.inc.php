@@ -16,6 +16,7 @@
 namespace PKP\mail\mailables;
 
 use APP\core\Application;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
@@ -61,6 +62,7 @@ class EditorialReminder extends Mailable
         foreach ($outstanding as $submissionId => $task) {
             /** @var Submission $submission */
             $submission = $submissions[$submissionId];
+            /** @var Publication $publication */
             $publication = $submission->getCurrentPublication();
             $url = Application::get()->getRequest()->getDispatcher()->url(
                 Application::get()->getRequest(),
@@ -76,7 +78,13 @@ class EditorialReminder extends Mailable
         <td style="color: red; vertical-align: top; width: 25px;">⬤</td>
         <td style="vertical-align: top">
             ' . $task . '<br />
-            <a href="' . $url . '">' . $submission->getId() . ' — ' . $publication->getShortAuthorString()  . ' — ' . $publication->getLocalizedFullTitle() . '</a><br />
+            <a href="' . $url . '">'
+                . $submission->getId()
+                . ' — '
+                . htmlspecialchars($publication->getShortAuthorString())
+                . ' — '
+                . htmlspecialchars($publication->getLocalizedFullTitle())
+                . '</a><br />
             <br />
         </td>
     </tr>';

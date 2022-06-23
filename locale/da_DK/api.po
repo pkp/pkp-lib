@@ -286,5 +286,5 @@ msgstr ""
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Du skal angive et emne og en beskedtekst i e-mailen."
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "Et DOI prefiks er påkrævet for at generere DOI'er."

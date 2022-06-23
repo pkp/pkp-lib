@@ -285,5 +285,5 @@ msgstr ""
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Էլ․ փոստի համար պետք է նշեք թեման և նյութը:"
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "DOI-ներ ստեղծելու համար պահանջվում է DOI նախածանց:"

@@ -274,5 +274,5 @@ msgstr "Ne morete urejati DOI elementa, ki ni v tem kontekstu"
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Navesti morate zadevo in vsebino emaila."
 
-msgid "api.dois.400.prefixRequired"
+msgid "api.dois.403.prefixRequired"
 msgstr "Za pripravo DOI-jev je potrebna DOI predpona."

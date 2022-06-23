@@ -84,7 +84,7 @@
 							{if $isUserLoggedInAs}
 								<icon icon="user-circle" class="app__userNav__isLoggedInAsWarning"></icon>
 							{/if}
-							<span class="-screenReader">{$currentUser->getData('username')}</span>
+							<span class="-screenReader">{$currentUser->getData('userName')}</span>
 						</template>
 						<nav aria-label="{translate key="common.navigation.user"}">
 							{if $supportedLocales|@count > 1}
@@ -107,8 +107,8 @@
 							{if $isUserLoggedInAs}
 								<div class="pkpDropdown__section">
 									<div class="app__userNav__loggedInAs">
-										{translate key="manager.people.signedInAs" username=$currentUser->getData('username')}
-										<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('username')}</a>.
+										{translate key="manager.people.signedInAs" username=$currentUser->getData('userName')}
+										<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('userName')}</a>.
 									</div>
 								</div>
 							{/if}
@@ -127,7 +127,7 @@
 									<li>
 										{if $isUserLoggedInAs}
 											<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
-												{translate key="user.logOutAs" username=$currentUser->getData('username')}
+												{translate key="user.logOutAs" username=$currentUser->getData('userName')}
 											</a>
 										{else}
 											<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">

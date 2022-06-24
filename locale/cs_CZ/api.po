@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-10 16:26+0000\n"
+"PO-Revision-Date: 2022-06-25 09:31+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -280,7 +280,7 @@ msgstr ""
 "pro daný kontext."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Nelze upravovat DOI položky, která není v tomto kontextu"
+msgstr "Nelze upravovat DOI položky, která není v tomto kontextu."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""

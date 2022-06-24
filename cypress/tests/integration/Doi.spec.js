@@ -74,23 +74,55 @@ describe('DOI tests', function() {
 			.find('span.value').contains('https://doi.org/10.1234/');
 	});
 
-	it('Check Publication/Galley Marked Registered', function() {
+	it ('Check Submission Filter Behaviour (pre-deposit)', function() {
+		cy.login('dbarnes', null, 'publicknowledge');
+
+		cy.get('a:contains("DOIs")').click();
+		cy.get('button#preprint-doi-management-button').click();
+
+		// Needs DOI
+		cy.get('#preprint-doi-management button:contains("Needs DOI")').click();
+		cy.get('#preprint-doi-management ul.listPanel__itemsList').find('li').its('length').should('eq', 18);
+
+
+		// Unpublished
+		cy.get('#preprint-doi-management button:contains("Unpublished")').click();
+		cy.get('#preprint-doi-management ul.listPanel__itemsList').find('li').its('length').should('eq', 1);
+		cy.contains('Corino — The influence of lactation on the quantity and quality of cashmere production');
+
+		// Unregistered
+		cy.get('#preprint-doi-management button:contains("Unregistered")').click();
+		cy.get('#preprint-doi-management ul.listPanel__itemsList').find('li').its('length').should('eq', 1);
+		cy.contains('Woods — Finocchiaro: Arguments About Arguments');
+	});
+
+	it('Check Submission Marked Registered', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
 
 		cy.get('a:contains("DOIs")').click();
 		cy.get('button#preprint-doi-management-button').click();
 
 		// Select the first preprint
-		cy.get(`input[name="submission[]"][value=${submissionId}]`).check()
+		cy.get(`input[name="submission[]"][value=${submissionId}]`).check();
 
 		// Select mark registered from bulk actions
 		cy.get('#preprint-doi-management button:contains("Bulk Actions")').click({multiple: true});
 		cy.get('button#openBulkMarkRegistered').click();
 
 		// Confirm assignment
-		cy.get('div[data-modal="bulkActions"] button:contains("Mark DOIs registered")').click();
+		cy.get('div[data-modal="bulkActions"] button:contains("Mark DOIs Registered")').click();
 		cy.get('.app__notifications').contains('Items successfully marked registered', {timeout:20000});
 
 		cy.get(`#list-item-submission-${submissionId} .pkpBadge`).contains('Registered');
 	});
+
+	it('Check Submission Filter Behaviour (post-deposit)', function() {});
+
+	it('Check unpublished Submission Marked Registered displays error', function () {});
+
+	it('Check Submission Marked Stale', function() {});
+
+	it('Check Submission Marked Unregistered', function() {});
+
+	it('Check invalid Submission Marked Stale displays error', function() {});
 });

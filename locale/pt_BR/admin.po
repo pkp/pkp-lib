@@ -1,10 +1,9 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-05-07 03:02+0000\n"
+"PO-Revision-Date: 2020-06-07 13:56+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -37,10 +36,10 @@ msgid "admin.authSources"
 msgstr "Fontes de Autenticação"
 
 msgid "admin.clearDataCache"
-msgstr "Excluir caches de dados"
+msgstr "Limpar Caches de dados"
 
 msgid "admin.clearTemplateCache"
-msgstr "Excluir caches de template"
+msgstr "Limpar Caches de template"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr "O documento de configuração foi atualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário atualizar manualmente o arquivo <tt>config.inc.php</tt>."
@@ -325,189 +324,18 @@ msgstr "Publicar submissões agendadas para esta publicação"
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Tem a certeza que deseja alterar o idioma principal do site? Nomes de "
-"usuários, que são necessários no idioma principal do site, serão copiados do "
+"Tem certeza de que gostaria de alterar o idioma principal? Nomes de "
+"usuários, que são exigidos no idioma principal do site, serão copiados do "
 "idioma principal quando ausentes."
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
-"Somente um administrador tem permissão para modificar esta configuração."
+msgstr "Apenas o administrador pode alterar esta configuração."
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Desabilitar Papéis"
+msgstr "Desativar Papéis"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr "Restringir Emails em Massa"
+msgstr "Restringir E-mails em massa"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr "E-mails em Massa"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Notificação de relatório editorial"
-
-msgid "admin.jobs.createdAt"
-msgstr "Criado em {$createdAt}"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Criado em"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Tentativas"
-
-msgid "admin.jobs.list.queueName"
-msgstr "Fila"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Tarefa"
-
-msgid "admin.jobs.list.id"
-msgstr "ID"
-
-msgid "navigation.tools.jobs"
-msgstr "Tarefas"
-
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Ver tarefas em espera"
-
-msgid "admin.jobs.totalCount"
-msgstr "Existe um total de <strong>{$total}</strong> tarefa(s) em espera"
-
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Quis dizer algum dos seguintes?"
-
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "A opção {$option} não existe."
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Existem {$total} tarefas em espera"
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Todas as tarefas eliminadas!"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Foi impossível eliminar todas as tarefas."
-
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "A Tarefa foi excluída!"
-
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "ID da Tarefa inválida"
-
-msgid "admin.cli.tool.jobs.purge.without.id"
-msgstr ""
-"Deve passar pelo menos um ID da Tarefa, '--all' ou '--queue=' para usar este "
-"comando"
-
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Próxima"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Anterior"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Atual"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Paginação"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Criado em"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Disponível em"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Reservado em"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Tentativas"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Nome de exibição da Tarefa"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Fila"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Tarefas em lista de espera"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "A opção não pode estar vazia! Verifique o método de uso."
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Exibir os parâmetros de uso de Tarefas"
-
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Adicionar uma tarefa de teste à fila padrão"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Disponibilizar o comando de uso Tarefas"
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Exibir a quantidade de tarefas em fila"
-
-msgid "admin.cli.tool.jobs.available.options.purge.description"
-msgstr ""
-"Limpe uma tarefa específica na fila com base em seu ID. Se você quiser "
-"limpar tudo, passe o parâmetro --all. Se você deseja limpar tudo de uma fila "
-"específica, passe o parâmetro --queue="
-
-msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr ""
-"Lista todos as tarefas em fila. Se você deseja paginar os resultados, use os "
-"parâmetros --page= e --perPage="
-
-msgid "admin.cli.tool.available.commands"
-msgstr "Comandos disponíveis para o `{$namespace}` namespace:"
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr "comando [argumentos]"
-
-msgid "admin.cli.tool.usage.title"
-msgstr "Uso:"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "Deposito de DOIs com agência de registro configurada"
-
-msgid "navigation.tools.jobs.view"
-msgstr "Ver Tarefas"
-
-msgid "navigation.tools.jobs.description"
-msgstr ""
-"Visualize todas as tarefas enfileiradas no sistema e rastreie tentativas com "
-"falha."
-
-msgid "admin.systemInformation.view"
-msgstr "Ver informações do sistema"
-
-msgid "admin.systemInformation.description"
-msgstr ""
-"Exiba informações sobre a versão e as definições de configuração do sistema "
-"e do servidor."
-
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Excluir registros (logs) de tarefas"
-
-msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
-"Exclua todos os registros (logs) de processos de tarefas agendadas que foram "
-"executados."
-
-msgid "admin.expireSessions.description"
-msgstr ""
-"Todos os usuários serão imediatamente desconectados do sistema, incluindo "
-"você, e precisarão fazer login novamente."
-
-msgid "admin.deleteCache.description"
-msgstr ""
-"Exclua os arquivos de cache do sistema.  Isso só deve ser feito em ambientes "
-"de desenvolvimento."
-
-msgid "admin.deleteCache"
-msgstr "Excluir caches"
-
-msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr "Remover usuários expirados não validados"
+msgstr "E-mails em massa"

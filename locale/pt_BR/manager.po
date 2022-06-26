@@ -1,13 +1,10 @@
-# Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
-# Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-06-04 19:36+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2021-02-06 03:57+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -27,13 +24,13 @@ msgid "manager.website.imageFileRequired"
 msgstr "Um arquivo de imagem é requerido. Certifique-se de que escolheu e enviou um arquivo."
 
 msgid "manager.announcements"
-msgstr "Notícias"
+msgstr "Anúncios"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Deseja realmente excluir permanentemente a notícia {$title}?"
+msgstr "Deseja realmente excluir permanentemente o anúncio {$title}?"
 
 msgid "manager.announcements.create"
-msgstr "Criar nova notícia"
+msgstr "Criar novo anúncio"
 
 msgid "manager.announcements.createTitle"
 msgstr "Criar"
@@ -66,7 +63,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Escolha o mês e/ou dia além do ano de expiração."
 
 msgid "manager.announcements.form.description"
-msgstr "Notícia"
+msgstr "Corpo da notícia"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "O texto completo da notícia."
@@ -99,7 +96,7 @@ msgid "manager.announcements.form.typeIdValid"
 msgstr "Escolha um tipo válido de notícia."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Não há notícias criadas."
+msgstr "Não há anúncios criados."
 
 msgid "manager.announcements.title"
 msgstr "Título"
@@ -112,11 +109,11 @@ msgstr "Tipos de notícia"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
-"Aviso! Todas as notícias deste tipo serão excluídas. Deseja realmente "
-"continuar e excluir este tipo de notícia?"
+"Aviso! Todos os anúncios deste tipo serão excluídos. Deseja realmente "
+"continuar e excluir este tipo de anúncio?"
 
 msgid "manager.announcementTypes.create"
-msgstr "Criar Tipo de Notícia"
+msgstr "Criar Tipo de Anúncio"
 
 msgid "manager.announcementTypes.createTitle"
 msgstr "Criar"
@@ -128,7 +125,7 @@ msgid "manager.announcementTypes.editTitle"
 msgstr "Editar"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Salvar e criar outra"
+msgstr "Salvar e criar outro"
 
 msgid "manager.announcementTypes.form.typeNameExists"
 msgstr "Já existe um tipo de notícia com esse nome."
@@ -621,12 +618,6 @@ msgstr "Por localização geográfica"
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
 
-msgid "manager.setup.publishing"
-msgstr "Detalhes da publicação"
-
-msgid "manager.setup.publishingDescription"
-msgstr "O nome da editora aparecerá na página Sobre a revista."
-
 msgid "manager.setup.authorGuidelines"
 msgstr "Diretrizes para autores"
 
@@ -674,7 +665,7 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Envie um lembrete por e-mail se um avaliador não tiver enviado uma "
-"recomendação dentro desta quantidade de dias após a data limite para "
+"recomendação dentro desta quantidade de dias após a data de vencimento da "
 "avaliação."
 
 msgid "manager.setup.sponsors.note"
@@ -819,6 +810,9 @@ msgstr "Status"
 
 msgid "manager.plugins.settings"
 msgstr "Configurações"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "O comando tar não está disponível. Por favor, configure-o corretamente em seu \"config.inc.php\"."
 
 msgid "manager.plugins.upload"
 msgstr "Enviar novo plugin"
@@ -1301,10 +1295,7 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "O conteúdo não é codificado como {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr ""
-"O arquivo de importação inclui um autor '{$authorName}', com o grupo de "
-"usuários '{$userGroupName}'. Não há grupo de usuários definido na instalação "
-"de destino com um grupo de usuários com este nome."
+msgstr "Grupo de usuário desconhecido {$param}"
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Uploader desconhecido {$param}"
@@ -1423,11 +1414,11 @@ msgid "manager.navigationMenus.archives.description"
 msgstr "Link para sua edição anteriore."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr "Link para a página exibindo suas notícias."
+msgstr "Link para a página exibindo seus anúncios."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
-"Este link apenas será exibido se você tiver habilitado a aba notícias em "
+"Este link apenas será exibido se você tiver habilitado a aba anúncios em "
 "Configurações > Website."
 
 msgid "manager.navigationMenus.login.description"
@@ -1487,10 +1478,11 @@ msgstr "Usuários cadastrados"
 msgid "manager.setup.theme.notFound"
 msgstr "O tema selecionado não está instalado ou habilitado."
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Apresentar um link para <button type=\"button\">Garantindo uma Avaliação "
-"Anônima</button> durante a transferência"
+"Apresentar link <button type=\"button\">Garantindo uma Avaliação "
+"Cega</button> durante a transferência"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Modo de Avaliação Padrão"
@@ -2064,873 +2056,5 @@ msgstr "Licença"
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/ano)"
 
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"O arquivo de submissão {$id} foi ignorado por que está anexado a um registro "
-"que não será importado, como uma designação de avaliação ou discussão."
-
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Selecione o tipo de metadados que estes arquivos podem receber. \"Documento\""
-" deve ser selecionado para os arquivos principais de publicação, como o "
-"arquivo PDF baixável, portanto estes arquivos herdam os metadados da "
-"publicação. Do contrário, escolha \"Conteúdo Suplementar\" para a maioria "
-"dos tipos de aquivos. \"Arte\" é apropriado para arquivos que requerem "
-"metadados de créditos, legenda e licenciamento distintos."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Metadados do Arquivo"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Estes são arquivos suplementares, como datasets e materiais de pesquisa, e "
-"serão exibidos separadamente dos arquivos principais de publicação."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Estes são arquivos dependentes, como imagens exibidas por um arquivo HTML, e "
-"não serão exibidas com conteúdos publicados."
-
-msgid "manager.setup.genres.label"
-msgstr "Tipo de Arquivo"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Tem certeza que deseja ativar esta seção?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Tem certeza que deseja desativar esta seção?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Desativar esta seção e não permitir que novas submissões sejam feitas a ela."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Customizado"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Data e Hora (Curto)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Data e Hora"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Hora"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Data (curto)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Data"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Escolha o formato de preferência para datas e horas. Um formato customizado "
-"pode ser inserido usando os <a href='https://www.php.net/manual/pt_BR/"
-"function.strftime.php#refsect1-function.strftime-parameters'>caracteres de "
-"formato</a> especiais."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Formatos de Data e Hora"
-
-msgid "manager.setup.dateTime"
-msgstr "Data e Hora"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Enviar outro email"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "O email foi enviado com sucesso a todos os destinatários."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Enviando o email. Por favor não feche o navegador até que o envio seja "
-"finalizado."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Você está prestes a enviar um email para um total de {$total} usuários. Tem "
-"certeza que deseja enviar este email?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Enviar Email"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Enviar uma cópia deste email para mim em {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Selecione os usuários que devem receber a sua notificação por email."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Notificar"
-
 msgid "manager.setup.disableSubmissions"
 msgstr "Desabilitar Submissões"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Gerador de Relatórios Customizados"
-
-msgid "manager.people.signedInAs"
-msgstr "Você está atualmente logado como {$username}"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Selecione os usuários para serem exportados para um arquivo Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Exportar para Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "O modelo de email foi redefinido com sucesso."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Os modelos de email padrão foram restaurados."
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Excluir Notícia"
-
-msgid "notification.localeSettingsCannotBeSaved"
-msgstr ""
-"Não foi possível salvar a configuração de idioma. Pelo menos um idioma deve "
-"ser habilitado para cada opção"
-
-msgid "manager.emails.otherTemplates"
-msgstr "Outros Modelos"
-
-msgid "plugins.importexport.common.cliError"
-msgstr "ERRO:"
-
-msgid "plugins.importexport.common.error.unknownContext"
-msgstr "O caminho especificado da revista, \"{$contextPath}\", não existe."
-
-msgid "plugins.importexport.publication.exportFailed"
-msgstr "O processo falhou ao analisar publicações"
-
-msgid "plugins.importexport.author.exportFailed"
-msgstr "O processo falhou ao analisar os autores"
-
-msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
-
-msgid "plugins.importexport.native.common.error.filter.configuration.count"
-msgstr ""
-"Configuração de filtro errada [{$filterName}]: {$filterCount} ocorrências. "
-"Deveria existir apenas um."
-
-msgid "plugins.importexport.native.common.any"
-msgstr "Itens genéricos"
-
-msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "Baixe o arquivo exportado no botão abaixo."
-
-msgid "plugins.importexport.native.export.completed"
-msgstr "A exportação foi concluída com sucesso."
-
-msgid "plugins.importexport.native.export.download.results"
-msgstr "Baixar arquivo exportado"
-
-msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Exportar resultados de submissões"
-
-msgid "plugins.importexport.native.processFailed"
-msgstr "O processo falhou. Verifique abaixo os erros / avisos."
-
-msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "UserGroup ausente para o nome do autor {$param}"
-
-msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "Um ou mais desses endereços de e-mail não são válidos."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.description"
-msgstr ""
-"Uma cópia do e-mail de confirmação da submissão será enviada para qualquer "
-"um dos endereços de e-mail inseridos aqui. Separe vários endereços de e-mail "
-"com uma vírgula. Exemplo: um@exemplo.com.br, dois@ exemplo.com.br"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "Notificar qualquer pessoa"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "Não"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "Sim, envie uma cópia para {$email}"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Notificar o contato principal"
-
-msgid "manager.setup.submissionsNotifications"
-msgstr "Notificações"
-
-msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "Link para a submissão no sistema editorial"
-
-msgid "emailTemplate.variable.submission.authors"
-msgstr "Nomes completos dos autores"
-
-msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Nomes dos autores na forma encurtada"
-
-msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "Resumo da submissão"
-
-msgid "emailTemplate.variable.submission.submissionId"
-msgstr "Número de identificação da submissão"
-
-msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "Título da submissão"
-
-msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr "Editors designados para esta submissão que podem tomar decisão"
-
-msgid "emailTemplate.variable.site.siteContactName"
-msgstr "Nome completo do contato principal do website"
-
-msgid "emailTemplate.variable.sender.signature"
-msgstr "Assinatura de e-mail do remetente"
-
-msgid "emailTemplate.variable.sender.senderEmail"
-msgstr "E-mail do remetente"
-
-msgid "emailTemplate.variable.sender.senderName"
-msgstr "Nome completo do remetente"
-
-msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr "Link para o convite da avaliação"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Prazo para conclusão da avaliação"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Prazo para o avaliador aceitar ou recusar o convite"
-
-msgid "emailTemplate.variable.recipient.username"
-msgstr "Login do destinatário ou destinatários"
-
-msgid "emailTemplate.variable.recipient.userFullName"
-msgstr "Nome completo do destinatário ou destinatários"
-
-msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr "Link para página onde o usuário pode recuperar senha esquecida"
-
-msgid "mailable.validateEmailSite.description"
-msgstr ""
-"Este e-mail é enviado automaticamente para um novo usuário quando ele se "
-"registra no site, quando as configurações exigem que o endereço de e-mail "
-"seja validado."
-
-msgid "mailable.validateEmailSite.name"
-msgstr "Validar e-mail (site)"
-
-msgid "mailable.reviewerUnassign.description"
-msgstr ""
-"Este e-mail é enviado quando um editor cancela a atribuição de um avaliador."
-
-msgid "mailable.reviewerUnassign.name"
-msgstr "Avaliador não atribuído"
-
-msgid "mailable.reviewerReinstate.description"
-msgstr ""
-"Este e-mail é enviado quando um avaliador que não estava atribuído é "
-"reintegrado por um editor."
-
-msgid "mailable.reviewerReinstate.name"
-msgstr "Avaliador reintegrado"
-
-msgid "mailable.discussionMessage.description"
-msgstr ""
-"Este e-mail é enviado automaticamente aos participantes da discussão quando "
-"uma nova mensagem é adicionada à discussão."
-
-msgid "mailable.discussionMessage.name"
-msgstr "Nova mensagem de discussão"
-
-msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr "O e-mail do contato principal do site"
-
-msgid "mailable.reviewConfirm.description"
-msgstr "Mensagem enviada pelo Avaliador ao Editor de Seção, em resposta à solicitação de avaliação, para notificar disponibilidade para realizar a tarefa e de que a mesma será concluída no prazo especificado."
-
-msgid "mailable.reviewDecline.description"
-msgstr "Mensagem enviada pelo Avaliador ao Editor de Seção, em resposta à solicitação de avaliação, para notificar sua NÃO disponibilidade para realizar a tarefa, rejeitando a solicitação."
-
-#, fuzzy
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Mensagem enviada pelo Editor ao Avaliador como lembrete da tarefa de "
-"avaliação em andamento ainda não concluída. Este e-mail é usado quando um "
-"editor envia manualmente um lembrete ao avaliador"
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Mensagem enviada automaticamente ao avaliador quando a data de conclusão de "
-"avaliação for ultrapassada. Os lembretes de avaliação automatizados são "
-"ativados nas configurações de avaliação."
-
-#, fuzzy
-msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr ""
-"Este e-mail é automaticamente enviando quando o prazo para confirmação de um "
-"avaliador vence (veja as opções para avaliação em Configurações > Fluxo de "
-"trabalho > Avaliação) e a opção de habilitar acesso 1-clique para o "
-"avaliador está desabilitada. Tarefas agendadas devem ser habilitadas e "
-"configuradas (veja o arquivo de configuração do site)."
-
-#, fuzzy
-msgid "mailable.reviewRequest.description"
-msgstr ""
-"Mensagem do Editor de Seção para solicitar ao Avaliador que indique a "
-"disponibilidade ou não para realizar uma avaliação. "
-
-#, fuzzy
-msgid "mailable.reviewRequestSubsequent.description"
-msgstr ""
-"Este e-mail do Editor para um Avaliador, que solicita ao usuário aceitar ou "
-"recusar a tarefa de avaliar uma submissão para uma rodada adicional de "
-"avaliação. Ele fornece informações sobre a submissão, como o título e "
-"resumo, uma data de limite de avaliação, e como acessar a própria submissão."
-
-msgid "manager.dois.actions.deposit.all"
-msgstr "Depositar tudo"
-
-msgid "doi.manager.settings.registrationAgency.none"
-msgstr "Nenhum"
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
-msgstr ""
-"Os DOIs podem ser automaticamente criados e depositados em uma agência de "
-"registro. Para usar esse recurso, localize e instale um plug-in da agência "
-"de registro apropriada."
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr "Nenhuma agência de registro ativada"
-
-msgid "doi.manager.settings.registrationAgency.description"
-msgstr ""
-"Por favor, selecione a agência de registro que você gostaria de usar ao "
-"depositar DOIs."
-
-msgid "doi.manager.settings.registrationAgency"
-msgstr "Agência de Registro"
-
-msgid "doi.manager.settings.doiSuffixLegacyUser"
-msgstr ""
-"Padrão personalizado e definido pelo usuário anteriormente disponível. Não "
-"está mais em uso."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Use o  padrão."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Um sufixo DOI pode assumir qualquer formato, mas deve ser único entre todos "
-"os objetos de publicação com o mesmo prefixo DOI atribuído:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Sufixo DOI"
-
-msgid "doi.manager.settings.enableFor"
-msgstr "{$objects} terá(ão) um DOI atribuído"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Itens com DOIs"
-
-msgid "manager.setup.doiPrefix"
-msgstr "Prefixo DOI"
-
-msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "Nunca"
-
-msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "Após a publicação"
-
-msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Quando uma submissão deve ter um DOI atribuído?"
-
-msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Atribuição automática de DOI"
-
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "O prefixo DOI é obrigatório e deve estar no seguinte formato: 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Isso é atribuído por uma agência de registro do DOI, como <a href=\""
-"https://www.crossref.org\" target=\"_new\">Crossref</a> ou <a href=\"https://"
-"datacite.org /\" target=\"new\">DataCite</a>. Exemplo: 10.xxxx"
-
-msgid "doi.manager.setup.automaticDeposit.description"
-msgstr ""
-"O registro e os metadados do DOI podem ser depositados automaticamente na "
-"agência de registro selecionada sempre que um item com DOI for publicado.  O "
-"depósito automático acontecerá em intervalos programados e o status de "
-"registro de cada DOI pode ser monitorado na página de gerenciamento do DOI."
-
-msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr "Ativar depósito automático"
-
-msgid "doi.manager.setup.automaticDeposit"
-msgstr "Depósito automático"
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "Prefixo DOI"
-
-msgid "manager.setup.enableDois.enable"
-msgstr "Ativar DOIs"
-
-msgid "manager.setup.dois.registration"
-msgstr "Registro"
-
-msgid "manager.setup.dois.setup"
-msgstr "Configuração"
-
-msgid "manager.setup.dois"
-msgstr "DOIs"
-
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"A seguinte mensagem foi retornada por {$registrationAgency} e contém "
-"detalhes sobre o registro:"
-
-msgid "manager.dois.registrationAgency.errorMessagePreamble"
-msgstr ""
-"O seguinte erro foi retornado por {$registrationAgency} e contém detalhes "
-"sobre a causa do erro:"
-
-msgid "manager.dois.title"
-msgstr "DOIs"
-
-msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr "Itens enviados com sucesso para depósito"
-
-msgid "manager.dois.notification.assignDoisSuccess"
-msgstr "Itens atribuídos com sucesso a novos DOIs"
-
-msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "Itens marcados registrados com sucesso"
-
-msgid "manager.dois.notification.exportSuccess"
-msgstr "Itens exportados com sucesso"
-
-msgid "manager.dois.update.partialFailure"
-msgstr "Alguns DOI(s) falharam ao atualizar."
-
-msgid "manager.dois.status.stale"
-msgstr "Obsoleto"
-
-msgid "manager.dois.status.error"
-msgstr "Erro"
-
-msgid "manager.dois.status.registered"
-msgstr "Registrado"
-
-msgid "manager.dois.status.submitted"
-msgstr "Submetido"
-
-msgid "manager.dois.status.unregistered"
-msgstr "Não registrado"
-
-msgid "manager.dois.registration.depositDois"
-msgstr "Depositar DOI(s)"
-
-msgid "manger.dois.update.success"
-msgstr "DOIs atualizados com sucesso"
-
-msgid "manager.dois.registration.viewRecord.title"
-msgstr "Mensagem de registro bem-sucedido"
-
-msgid "manager.dois.registration.viewRecord"
-msgstr "Visualizar registro"
-
-msgid "manager.dois.registration.viewError.title"
-msgstr "Mensagem de erro de registro"
-
-msgid "manager.dois.registration.viewError"
-msgstr "Visualizar erro"
-
-msgid "manager.dois.registration.notPublishedDescription"
-msgstr "Este item não pode ser depositado até que seja publicado."
-
-msgid "manager.dois.registration.notSubmittedDescription"
-msgstr "Os metadados deste item não foram enviados para {$registrationAgency}."
-
-msgid "manager.dois.registration.submittedDescription"
-msgstr "Os metadados deste item foram enviados para {$registrationAgency}."
-
-msgid "manager.dois.publicationStatus"
-msgstr "Status da publicação"
-
-msgid "manager.dois.depositStatus"
-msgstr "Status do Depósito"
-
-msgid "manager.dois.actions.depositAll.prompt"
-msgstr ""
-"Está prestes a agendar todos os registros de metadados DOI pendentes para "
-"serem depositados em {$registrationAgency}. O status individual de cada item "
-"será atualizado quando uma resposta for recebida. Deseja realmente agendar "
-"depósitos para todos esses itens?"
-
-msgid "manager.dois.actions.depositAll.label"
-msgstr "Deposite todos os DOIs"
-
-msgid "manager.dois.actions.assign.prompt"
-msgstr ""
-"Está prestes a atribuir novos DOIs a {$count} item(ns) para qualquer item "
-"elegível que ainda não tenha um DOI atribuído. Deseja realmente atribuir "
-"DOIs a estes itens?"
-
-msgid "manager.dois.actions.assign.label"
-msgstr "Atribuir DOIs"
-
-msgid "manager.dois.actions.export.prompt"
-msgstr ""
-"Está prestes a exportar registros de metadados DOI para {$count} item(ns) "
-"para {$registrationAgency}. Deseja realmente exportar estes registos?"
-
-msgid "manager.dois.actions.export.label"
-msgstr "Exportar DOIs"
-
-msgid "manager.dois.actions.markRegistered.prompt"
-msgstr ""
-"Está prestes a marcar registros de metadados DOI para {$count} item(ns) como "
-"registrados. Deseja realmente marcar estes registos como registados?"
-
-msgid "manager.dois.actions.markRegistered.label"
-msgstr "Marcar DOIs registrados"
-
-msgid "manager.dois.actions.deposit.prompt"
-msgstr ""
-"Está prestes a enviar registros de metadados DOI para {$count} item(ns) para "
-"{$registrationAgency}. Deseja realmente depositar estes registos?"
-
-msgid "manager.dois.actions.deposit.label"
-msgstr "Depositar DOIs"
-
-msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr "Envie uma notificação por e-mail para todos os autores da submissão."
-
-msgid "manager.setup.notifyAllAuthors.description"
-msgstr ""
-"Quem deve receber um e-mail de notificação quando uma decisão editorial é "
-"registrada?"
-
-msgid "manager.setup.notifyAllAuthors"
-msgstr "Notificar todos os autores"
-
-msgid "mailable.decision.recommendation.notifyEditors.description"
-msgstr ""
-"Esta mensagem notifica um Editor sênior ou Editor de Seção que uma "
-"recomendação editorial foi feita em relação a uma de suas submissões "
-"atribuídas. Esta mensagem é usada quando um editor só pode recomendar uma "
-"decisão editorial e requer que um editor autorizado registre as decisões "
-"editoriais. Essa opção pode ser selecionada ao atribuir participantes a uma "
-"submissão."
-
-msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "Recomendação feita"
-
-msgid "mailable.decision.skipReview.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão está sendo enviada "
-"diretamente para a fase de edição de texto e não será avaliada por pares."
-
-msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Avaliação ignorada"
-
-msgid "mailable.decision.sendToProduction.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que sua submissão está sendo enviada para a "
-"fase de editoração."
-
-msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr "Enviado para Editoração"
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão está sendo enviada para a "
-"fase de avaliação."
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr "Enviado para avaliação"
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que uma decisão anterior de recusar a "
-"submissão sem avaliação está sendo revertida."
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr "Reintegrar submissão recusada sem Avaliação"
-
-msgid "mailable.decision.revertDecline.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que uma decisão anterior de recusar a "
-"submissão após a avaliação por pares está sendo revertida."
-
-msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr "Reintegrar submissão recusada"
-
-msgid "mailable.decision.resubmit.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de uma decisão de \"revisar e ressubmeter\" em "
-"relação à sua submissão."
-
-msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr "Ressubmeter para avaliação"
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de uma decisão de solicitar revisões durante a "
-"avaliação por pares."
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr "Revisões Solicitadas"
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que uma nova rodada de avaliação está "
-"começando para sua submissão."
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr "Nova rodada de avaliação iniciada"
-
-msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Submissão Recusada"
-
-msgid "mailable.decision.decline.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão foi recusada após a "
-"avaliação por pares."
-
-msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr "Submissão Recusada"
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão foi enviada de volta ao "
-"estágio de submissão."
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "Submissão enviada de volta para estágio de submissão"
-
-msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão foi enviada de volta à "
-"fase de avaliação."
-
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Submissão enviada de volta para avaliação"
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão foi enviada de volta ao "
-"estágio de edição de texto."
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "Submissão enviada de volta para Edição de Texto"
-
-msgid "mailable.decision.accept.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que sua submissão foi aceita para publicação."
-
-msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr "Submissão Aceita"
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
-"Convidamos os autores a enviar uma versão revisada para avaliação adicional."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
-msgstr "Convidamos os autores a submeterem revisões."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr "Optamos por recusar esta submissão."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "Optamos por aceitar esta submissão sem revisões."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
-msgstr ""
-"Uma breve descrição dessa decisão que deve ser compartilhada em uma "
-"notificação por e-mail enviada aos avaliadores sobre essa decisão."
-
-msgid "mailable.decision.notifyReviewer.description"
-msgstr ""
-"Este e-mail é enviado por um Editor a um Avaliador para notificá-lo de que "
-"uma decisão foi tomada em relação a uma submissão que ele avaliou."
-
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Agradecimento do Avaliador"
-
-msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr "Uma cópia da mensagem de e-mail que foi enviada ao autor da submissão"
-
-msgid "mailable.decision.notifyOtherAuthors.description"
-msgstr ""
-"Este e-mail é enviado para notificar os autores de uma submissão que não "
-"foram designados como participantes de que uma decisão foi tomada. "
-"Geralmente são todos os outros, exceto o autor que o submete."
-
-msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr "Notificar outros autores"
-
-msgid "emailTemplate.variable.submission.submittingAuthorName"
-msgstr ""
-"Os nomes dos autores atribuídos ao fluxo de trabalho de submissão. "
-"Geralmente este é o autor da submissão"
-
-msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr "URL do autor para a submissão"
-
-msgid "emailTemplate.variable.reviewType.open"
-msgstr ""
-"Este periódico realiza avaliação por pares aberta. Os avaliadores verão seu "
-"nome e afiliação, bem como os nomes e afiliações de seus coautores. Da mesma "
-"forma, você verá os nomes e afiliações dos avaliadores."
-
-msgid "emailTemplate.variable.reviewType.anonymous"
-msgstr ""
-"Este periódico realiza avaliação por pares “avaliador anônimo”. Seu nome e "
-"os de seus coautores ficarão visíveis para os avaliadores; no entanto, as "
-"identidades dos avaliadores permanecerão anônimas."
-
-msgid "emailTemplate.variable.reviewType.doubleAnonymous"
-msgstr ""
-"Este periódico realiza avaliação por pares anônima dupla. Os avaliadores não "
-"verão nenhuma informação de identificação sobre você ou seus coautores. Da "
-"mesma forma, você não saberá quem avaliou sua submissão e não receberá "
-"notícias diretamente dos avaliadores."
-
-msgid "emailTemplate.variable.reviewType"
-msgstr ""
-"Uma descrição do método de avaliação padrão, como duplo anônimo ou aberto."
-
-msgid "emailTemplate.variable.recommendation"
-msgstr "A decisão recomendada, como Aceitar Submissão"
-
-msgid "emailTemplate.variable.decision.round"
-msgstr ""
-"A rodada de avaliação em que esta decisão foi tomada, se a decisão estiver "
-"relacionada a um estágio de avaliação."
-
-msgid "emailTemplate.variable.decision.stage"
-msgstr ""
-"O estágio do fluxo de trabalho editorial em que essa decisão foi tomada."
-
-msgid "emailTemplate.variable.decision.description"
-msgstr "Uma descrição da decisão que foi tomada."
-
-msgid "emailTemplate.variable.decision.name"
-msgstr "O nome da decisão que foi tomada."
-
-msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "A URL para visualizar todos as submissões atribuídas a um usuário."
-
-msgid "emailTemplate.variable.allReviewersComments"
-msgstr ""
-"Todos os comentários de avaliações concluídas. Os nomes dos avaliadores "
-"estão ocultos para avaliações anônimas"
-
-msgid "manager.setup.notifyAllAuthors.assignedAuthors"
-msgstr ""
-"Envie um e-mail apenas para autores atribuídos ao fluxo de trabalho da "
-"submissão. Normalmente, este é o autor da submissão."
-
-msgid "manager.dois.status.needsDoi"
-msgstr "Precisa de DOI"
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "O endereço de correspondência da revista"
-
-msgid "mailable.reviewConfirm.name"
-msgstr "Confirmar avaliação"
-
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Este e-mail é enviado automaticamente quando um avaliador não conclui sua "
-"avaliação até a data de vencimento."
-
-msgid "mailable.reviewRemindAuto.name"
-msgstr "Lembrete de avaliação (automatizado)"
-
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Este e-mail é enviado por um Editor para lembrar a um avaliador que sua "
-"avaliação está atrasada"
-
-msgid "mailable.reviewRemind.name"
-msgstr "Lembrete de avaliação"
-
-msgid "mailable.reviewDecline.description"
-msgstr ""
-"Este e-mail é enviado por um avaliador ao recusar uma solicitação de "
-"avaliação"
-
-msgid "mailable.reviewDecline.name"
-msgstr "Recusar revisão"
-
-msgid "mailable.reviewConfirm.description"
-msgstr ""
-"Este e-mail é enviado automaticamente quando um avaliador aceita uma "
-"solicitação de avaliação"
-
-msgid "emailTemplate.variable.passwordResetUrl"
-msgstr ""
-"URL com hash que é enviado a um usuário para confirmar a redefinição de senha"
-
-msgid "emailTemplate.variable.site.siteSignature"
-msgstr "A assinatura de e-mail do site para e-mails automatizados"
-
-msgid "stats.name.submissionsSkipped"
-msgstr "Outras submissões"
-
-msgid "stats.description.submissionsSkipped"
-msgstr ""
-"Isso inclui submissões que não são contabilizados em outros totais, como os "
-"que ainda estão em andamento e os que parecem ter sido importados."
-
-msgid "manager.genres.alertDelete"
-msgstr ""
-"Antes que este componente possa ser excluído, você deve associar todos os "
-"arquivos de submissão relacionados a um componente diferente."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr "O sufixo DOI pode assumir qualquer forma, desde que seja único entre todos todos os objetos publicados com o mesmo prefixo DOI:"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Use os padrões predefinidos."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Formato DOI"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr "O prefixo DOI é atribuído por agências de registro (ex.: <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) e possui o formato 10.xxxx (ex.: 10.1234):"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Conteúdo"
-
-#, fuzzy
-msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr "A submissão derivada {$child} não foi processada"
-
-msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr "A publicação atual da submissão está ausente"
-
-msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Padrão personalizado (não recomendado)"
-
-msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "Padrão de sufixo DOI personalizado"
-
-msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr "Sufixo DOI"
-
-msgid "doi.manager.settings.doiPrefix.required"
-msgstr "Um prefixo DOI é obrigatório"
-
-msgid "doi.authorization.enabledRequired"
-msgstr "Não pode chamar esta operação sem DOIs habilitados."
-
-msgid "manager.dois.update.failedCreation"
-msgstr "Falha nas atualizações do DOI"

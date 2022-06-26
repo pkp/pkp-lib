@@ -223,7 +223,7 @@ class Locale implements LocaleInterface
             foreach (array_keys($this->paths) as $folder) {
                 foreach (new DirectoryIterator($folder) as $cursor) {
                     if ($cursor->isDir() && $this->isLocaleValid($cursor->getBasename())) {
-                        $locales[$cursor->getBasename()] ??= LocaleMetadata::create($cursor->getBasename());
+                        $locales[$cursor->getBasename()] ??= new LocaleMetadata($cursor->getBasename());
                     }
                 }
             }

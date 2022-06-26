@@ -198,4 +198,15 @@ abstract class PKPTestCase extends TestCase
         // Build the config file name.
         return './lib/pkp/tests/' . $configPath . '/config.' . $config . '.inc.php';
     }
+
+    /**
+     * Creates a regular expression to match the translation, and replaces params by a generic matcher
+     * e.g. The following translation "start {$param} end" would end up as "/^start .*? end$/
+     */
+    protected function localeToRegExp(string $translation): string
+    {
+        $pieces = preg_split('/\{\$[^}]+\}/', $translation);
+        $escapedPieces = array_map(fn ($piece) => preg_quote($piece), $pieces);
+        return '/^' . implode('.*?', $escapedPieces) . '$/u';
+    }
 }

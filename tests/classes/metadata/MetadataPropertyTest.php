@@ -16,12 +16,9 @@
  */
 
 use PKP\metadata\MetadataDescription;
-
-require_mock_env('env1');
+use PKP\metadata\MetadataProperty;
 
 import('lib.pkp.tests.PKPTestCase');
-
-use PKP\metadata\MetadataProperty;
 
 class MetadataPropertyTest extends PKPTestCase
 {

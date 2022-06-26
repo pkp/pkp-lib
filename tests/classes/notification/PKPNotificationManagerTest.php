@@ -49,7 +49,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $requestDummy = $this->getMockBuilder(PKPRequest::class)->getMock();
         $result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
 
-        $this->assertEquals('##notification.type.reviewAssignment##', $result);
+        $this->assertEquals(__('notification.type.reviewAssignment'), $result);
     }
 
     /**

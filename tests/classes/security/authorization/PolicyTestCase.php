@@ -16,7 +16,9 @@
  *  for several types of policy tests.
  */
 
+use APP\core\Request;
 use PKP\core\PKPRequest;
+use PKP\handler\PKPHandler;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\security\UserGroup;

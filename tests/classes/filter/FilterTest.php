@@ -15,6 +15,8 @@
  * @brief Test class for Filter.
  */
 
+use PHPUnit\Framework\MockObject\MockMethod;
+use PKP\facades\Locale;
 use PKP\filter\Filter;
 
 import('lib.pkp.tests.PKPTestCase');
@@ -50,7 +52,6 @@ class FilterTest extends PKPTestCase
         self::assertEquals([], $mockFilter->getErrors());
 
         // Test type validation.
-        $typeDescriptionFactory = TypeDescriptionFactory::getInstance();
         $inputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass1';
         $outputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass2';
         self::assertEquals($inputTypeDescription, $mockFilter->getInputType()->getTypeDescription());
@@ -83,7 +84,8 @@ class FilterTest extends PKPTestCase
 
         // Test unsupported input
         $unsupportedInput = new TestClass2();
-        $this->expectErrorMessage('##filter.input.error.notSupported##');
+
+        $this->expectErrorMessageMatches(self::localeToRegExp(__('filter.input.error.notSupported')));
         self::assertNull($mockFilter->execute($unsupportedInput));
         self::assertNull($mockFilter->getLastInput());
         self::assertNull($mockFilter->getLastOutput());
@@ -102,7 +104,7 @@ class FilterTest extends PKPTestCase
     {
         $mockFilter = $this->getFilterMock();
         $mockFilter->setData('phpVersionMin', '20.0.0');
-        $this->expectErrorMessage('##filter.error.missingRequirements##');
+        $this->expectErrorMessage(__('filter.error.missingRequirements'));
         $testOutput = $mockFilter->execute($testInput);
     }
 

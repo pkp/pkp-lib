@@ -16,8 +16,6 @@
  */
 
 
-require_mock_env('env1');
-
 import('lib.pkp.tests.PKPTestCase');
 
 use PKP\form\Form;

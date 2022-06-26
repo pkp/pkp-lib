@@ -19,8 +19,6 @@
  * @brief Abstract base class for Plugin tests.
  */
 
-require_mock_env('env2');
-
 import('lib.pkp.tests.DatabaseTestCase');
 
 use APP\core\Request;

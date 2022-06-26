@@ -3,11 +3,11 @@
 #
 # USAGE:
 # runAllTests.sh [options]
-#  -C	Include class tests in lib/pkp.
-#  -P	Include plugin tests in lib/pkp.
-#  -c	Include class tests in application.
-#  -p	Include plugin tests in application.
-#  -d   Display debug output from phpunit.
+#  -C Include class tests in lib/pkp.
+#  -P Include plugin tests in lib/pkp.
+#  -c Include class tests in application.
+#  -p Include plugin tests in application.
+#  -d Display debug output from phpunit.
 # If no options are specified, then all tests will be executed.
 #
 # Some tests will certain require environment variables in order to cnfigure
@@ -33,7 +33,6 @@ TESTS_DIR=`readlink -f "lib/pkp/tests"`
 
 # Shortcuts to the test environments.
 TEST_CONF1="--configuration $TESTS_DIR/phpunit-env1.xml"
-TEST_CONF2="--configuration $TESTS_DIR/phpunit-env2.xml"
 
 ### Command Line Options ###
 
@@ -74,7 +73,7 @@ if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_PLUGINS" -eq 1 \) ]; then
-	$phpunit $DEBUG $TEST_CONF2 -v lib/pkp/plugins
+	$phpunit $DEBUG $TEST_CONF1 -v lib/pkp/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
@@ -82,5 +81,5 @@ if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
-	find plugins -maxdepth 3 -name tests -type d | xargs -n 1 $phpunit $DEBUG $TEST_CONF2 -v
+	find plugins -maxdepth 3 -name tests -type d | xargs -n 1 $phpunit $DEBUG $TEST_CONF1 -v
 fi

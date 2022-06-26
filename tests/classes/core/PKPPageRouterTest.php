@@ -19,10 +19,8 @@ use PKP\core\PKPPageRouter;
 
 require_mock_env('env1');
 
-import('classes.core.Request'); // This will import our mock router class.
 import('lib.pkp.tests.classes.core.PKPRouterTestCase');
-import('classes.security.Validation'); // This will import our mock validation class.
-import('classes.i18n.Locale'); // This will import our mock locale.
+import('classes.security.Validation'); // Import our mock validation class before the autoloader grabs the right one.
 
 use PKP\security\Validation;
 

@@ -16,7 +16,7 @@
  */
 
 use APP\core\Application;
-use PKP\core\Dispatcher;
+use APP\core\Request;
 
 import('lib.pkp.tests.PKPTestCase');
 

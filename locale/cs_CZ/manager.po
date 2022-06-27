@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-06-21 18:35+0000\n"
+"PO-Revision-Date: 2022-06-27 20:52+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2925,3 +2925,18 @@ msgstr ""
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Poděkování za recenzi"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Automatický e-mail zaslaný redaktorům s nevyřízenými úkoly"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Redakční připomenutí"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Počet příspěvků přidělených tomuto redaktorovi"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Seznam příspěvků s nevyřízenými úkoly"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele."

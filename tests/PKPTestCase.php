@@ -60,6 +60,7 @@ abstract class PKPTestCase extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->setBackupGlobals(true);
 
         // Rather than using "include_once()", ADOdb uses
@@ -99,6 +100,9 @@ abstract class PKPTestCase extends TestCase
         foreach ($this->getMockedDAOs() as $mockedDao) {
             DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
         }
+
+        Mockery::close();
+        parent::tearDown();
     }
 
     /**

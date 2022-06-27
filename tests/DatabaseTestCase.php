@@ -38,6 +38,7 @@ abstract class DatabaseTestCase extends PKPTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         // Switch off xdebug screaming (there are
         // errors in adodb...).
         PKPTestHelper::xdebugScream(false);
@@ -47,7 +48,6 @@ abstract class DatabaseTestCase extends PKPTestCase
         if (is_array($affectedTables)) {
             PKPTestHelper::backupTables($affectedTables, $this);
         }
-        parent::setUp();
     }
 
     /**
@@ -55,8 +55,6 @@ abstract class DatabaseTestCase extends PKPTestCase
      */
     protected function tearDown(): void
     {
-        parent::tearDown();
-
         $affectedTables = $this->getAffectedTables();
         if (is_array($affectedTables)) {
             PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
@@ -66,5 +64,6 @@ abstract class DatabaseTestCase extends PKPTestCase
 
         // Switch xdebug screaming back on.
         PKPTestHelper::xdebugScream(true);
+        parent::tearDown();
     }
 }

@@ -31,6 +31,7 @@ class QueueTest extends PKPTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->configData = Config::getData();
 
         if ($this->configData['queues']['disable_jobs_run_at_shutdown']) {
@@ -43,8 +44,6 @@ class QueueTest extends PKPTestCase
             'error_log',
             stream_get_meta_data($this->tmpErrorLog)['uri']
         );
-
-        parent::setUp();
     }
 
     /**
@@ -56,6 +55,7 @@ class QueueTest extends PKPTestCase
             'error_log',
             $this->originalErrorLog
         );
+        parent::tearDown();
     }
 
     /**

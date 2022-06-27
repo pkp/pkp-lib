@@ -31,6 +31,7 @@ class PublicationTest extends PKPTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->publication = (new DAO(
             new SubmissionKeywordDAO(),
             new SubmissionSubjectDAO(),
@@ -47,6 +48,7 @@ class PublicationTest extends PKPTestCase
     protected function tearDown(): void
     {
         unset($this->publication);
+        parent::tearDown();
     }
     //
     // Unit tests

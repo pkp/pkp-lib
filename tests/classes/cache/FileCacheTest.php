@@ -109,13 +109,13 @@ class FileCacheTest extends PKPTestCase
     //
     protected function setUp(): void
     {
+        parent::setUp();
         $this->cacheManager = CacheManager::getManager();
         $this->cacheMisses = 0;
 
         if (!is_writable($this->cacheManager->getFileCachePath())) {
             $this->markTestSkipped('File cache path not writable.');
         } else {
-            parent::setUp();
             $this->cacheManager->flush();
         }
     }

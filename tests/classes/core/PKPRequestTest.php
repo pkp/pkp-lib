@@ -29,7 +29,7 @@ class PKPRequestTest extends PKPTestCase
     protected $request;
     private $getRemoteAddrTestConfigData;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         HookRegistry::rememberCalledHooks();
@@ -39,12 +39,13 @@ class PKPRequestTest extends PKPTestCase
         $this->getRemoteAddrTestConfigData = Registry::get('configData');
     }
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         HookRegistry::resetCalledHooks();
 
         // Restore the config data after testTrustXForwardedFor tests
         Registry::set('configData', $this->getRemoteAddrTestConfigData);
+        parent::tearDown();
     }
 
     /**

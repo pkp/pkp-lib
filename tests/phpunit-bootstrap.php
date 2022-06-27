@@ -117,7 +117,7 @@ function import($class)
         $classParts = explode('.', $class);
         $mockClassFile = $mockEnv . '/Mock' . array_pop($classParts) . '.php';
         if (file_exists($mockClassFile)) {
-            require_once($mockClassFile);
+            require_once $mockClassFile;
             return;
         }
     }

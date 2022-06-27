@@ -42,8 +42,8 @@ class PKPRouterTestCase extends PKPTestCase
 
     protected function tearDown(): void
     {
-        parent::tearDown();
         HookRegistry::resetCalledHooks(true);
+        parent::tearDown();
     }
 
     /**

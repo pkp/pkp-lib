@@ -464,12 +464,4 @@ class PKPNotificationManagerTest extends PKPTestCase
 
         return $notification;
     }
-
-    public function tearDown(): void
-    {
-        parent::tearDown();
-
-        // See: http://docs.mockery.io/en/latest/reference/phpunit_integration.html
-        \Mockery::close();
-    }
 }

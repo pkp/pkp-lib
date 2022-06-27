@@ -66,7 +66,7 @@ class PluginTestCase extends DatabaseTestCase
 
         // Mock request and router.
         $mockRequest = $this->getMockBuilder(Request::class)
-            ->setMethods(['getRouter', 'getUser'])
+            ->onlyMethods(['getRouter', 'getUser'])
             ->getMock();
         $router = new PKPRouter();
         $mockRequest->expects($this->any())

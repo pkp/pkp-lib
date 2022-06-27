@@ -43,7 +43,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase
 
         // Mock a ControlledVocab object
         $mockControlledVocab = $this->getMockBuilder(ControlledVocab::class)
-            ->setMethods(['enumerate'])
+            ->onlyMethods(['enumerate'])
             ->getMock();
         $mockControlledVocab->setId(1);
         $mockControlledVocab->setAssocType(ASSOC_TYPE_CITATION);
@@ -57,7 +57,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase
 
         // Mock the ControlledVocabDAO
         $mockControlledVocabDao = $this->getMockBuilder(ControlledVocabDAO::class)
-            ->setMethods(['getBySymbolic'])
+            ->onlyMethods(['getBySymbolic'])
             ->getMock();
 
         // Set up the mock getBySymbolic() method

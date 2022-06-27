@@ -76,7 +76,7 @@ abstract class PolicyTestCase extends PKPTestCase
             // Use a policy to prepare an authorized context
             // with a user group.
             $policy = $this->getMockBuilder(AuthorizationPolicy::class)
-                ->setMethods(['effect'])
+                ->onlyMethods(['effect'])
                 ->getMock();
             $policy->expects($this->any())
                 ->method('effect')
@@ -126,7 +126,8 @@ abstract class PolicyTestCase extends PKPTestCase
 
         // Mock a router.
         $router = $this->getMockBuilder(PKPRouter::class)
-            ->setMethods(['getHandler', 'getRequestedOp', 'getContext'])
+            ->onlyMethods(['getHandler', 'getContext'])
+            ->addMethods(['getRequestedOp'])
             ->getMock();
 
         $router->expects($this->any())

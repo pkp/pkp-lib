@@ -144,7 +144,7 @@ class FilterTest extends PKPTestCase
     {
         // Mock the abstract filter class
         $mockFilter = $this->getMockBuilder(Filter::class)
-            ->setMethods(['process'])
+            ->onlyMethods(['process'])
             ->setConstructorArgs(['class::lib.pkp.tests.classes.filter.TestClass1', $outputType])
             ->getMock();
 

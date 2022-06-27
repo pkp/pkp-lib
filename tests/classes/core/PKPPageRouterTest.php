@@ -33,7 +33,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
     {
         parent::setUp();
         $this->router = $this->getMockBuilder(PKPPageRouter::class)
-            ->setMethods(['getCacheablePages'])
+            ->onlyMethods(['getCacheablePages'])
             ->getMock();
         $this->router->expects($this->any())
             ->method('getCacheablePages')

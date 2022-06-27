@@ -242,7 +242,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
         // Stub a PKPRequest object.
         $requestStub = $this->getMockBuilder(PKPRequest::class)
-            ->setMethods(['getSite', 'getContext', 'getUserVar', 'getDispatcher'])
+            ->onlyMethods(['getSite', 'getContext', 'getUserVar', 'getDispatcher'])
             ->getMock();
 
         // Some site, user and notification data are required for composing the email.
@@ -270,7 +270,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $application = Application::get();
 
         $mockApplication = $this->getMockBuilder(Application::class)
-            ->setMethods(['getContextDepth', 'getContextList'])
+            ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();
 
         // Set up the getContextDepth() method
@@ -289,7 +289,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
         $contextDao = $application->getContextDAO();
         $contextStub = $this->getMockBuilder(get_class($contextDao->newDataObject()))
-            ->setMethods(['getLocalizedName', 'getContactName', 'getContactEmail'])
+            ->onlyMethods(['getLocalizedName', 'getContactName', 'getContactEmail'])
             ->getMock();
         $contextStub->expects($this->any())
             ->method('getLocalizedName')
@@ -315,7 +315,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
         // Stub site.
         $siteStub = $this->getMockBuilder(Site::class)
-            ->setMethods(['getLocalizedContactName', 'getLocalizedTitle', 'getLocalizedContactEmail', 'getPrimaryLocale'])
+            ->onlyMethods(['getLocalizedContactName', 'getLocalizedTitle', 'getLocalizedContactEmail', 'getPrimaryLocale'])
             ->getMock();
 
         $siteStub->expects($this->any())
@@ -339,7 +339,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         // notification manager interaction with it. Avoid
         // calling the mail template original constructor.
         $mailTemplateMock = $this->getMockBuilder(MailTemplate::class)
-            ->setMethods(['setReplyTo', 'addRecipient', 'assignParams', 'send'])
+            ->onlyMethods(['setReplyTo', 'addRecipient', 'assignParams', 'send'])
             ->setConstructorArgs([null, 'en_US', $contextStub])
             ->getMock();
 
@@ -377,8 +377,7 @@ class PKPNotificationManagerTest extends PKPTestCase
      * that is blocked by user. Will be used as return value for the
      * getUserBlockedNotifications method.
      * @param array $emailedNotifications (optional) Each notification type
-     * that user will be also notified by email. Will be used as return value
-     * for the getEmailedNotifications method.
+     * that user will be also notified by email.
      * @param array $extraOpToStub (optional) Method names to be stubbed.
      * Its expectations can be set on the returned object.
      *
@@ -387,16 +386,12 @@ class PKPNotificationManagerTest extends PKPTestCase
     private function getMgrStubForCreateNotificationTests($blockedNotifications = [], $emailedNotifications = [], $extraOpToStub = [])
     {
         $notificationMgrStub = $this->getMockBuilder(PKPNotificationManager::class)
-            ->setMethods(array_merge($extraOpToStub, ['getUserBlockedNotifications', 'getEmailedNotifications', 'getNotificationUrl']))
+            ->onlyMethods(array_merge($extraOpToStub, ['getUserBlockedNotifications', 'getNotificationUrl']))
             ->getMock();
 
         $notificationMgrStub->expects($this->any())
             ->method('getUserBlockedNotifications')
             ->will($this->returnValue($blockedNotifications));
-
-        $notificationMgrStub->expects($this->any())
-            ->method('getEmailedNotifications')
-            ->will($this->returnValue($emailedNotifications));
 
         $notificationMgrStub->expects($this->any())
             ->method('getNotificationUrl')
@@ -414,7 +409,7 @@ class PKPNotificationManagerTest extends PKPTestCase
     private function injectNotificationDaoMock($notification)
     {
         $notificationDaoMock = $this->getMockBuilder(NotificationDAO::class)
-            ->setMethods(['insertObject'])
+            ->onlyMethods(['insertObject'])
             ->getMock();
         $notificationDaoMock->expects($this->once())
             ->method('insertObject')

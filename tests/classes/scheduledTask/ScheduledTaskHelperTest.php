@@ -107,7 +107,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
     private function _getHelper($expectedSubject, $message)
     {
         $helperMock = $this->getMockBuilder(ScheduledTaskHelper::class)
-            ->setMethods(['getMail', 'getMessage'])
+            ->onlyMethods(['getMail', 'getMessage'])
             ->setConstructorArgs(['some@email.com', 'Contact name'])
             ->getMock();
         $helperMock->expects($this->any())
@@ -116,7 +116,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
 
         // Helper will use the Mail::send() method. Mock it.
         $mailMock = $this->getMockBuilder(Mail::class)
-            ->setMethods(['send', 'setBody', 'setSubject'])
+            ->onlyMethods(['send', 'setBody', 'setSubject'])
             ->getMock();
 
         $mailMock->expects($this->any())

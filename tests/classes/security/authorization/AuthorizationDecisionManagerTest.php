@@ -38,7 +38,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
     {
         // Mock a policy that doesn't apply.
         $mockPolicy = $this->getMockBuilder(AuthorizationPolicy::class)
-            ->setMethods(['applies'])
+            ->onlyMethods(['applies'])
             ->getMock();
         $mockPolicy->expects($this->any())
             ->method('applies')
@@ -64,7 +64,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
 
         // Mock a policy that permits access.
         $permitPolicy = $this->getMockBuilder(AuthorizationPolicy::class)
-            ->setMethods(['effect'])
+            ->onlyMethods(['effect'])
             ->setConstructorArgs(['message 3'])
             ->getMock();
         $permitPolicy->expects($this->any())
@@ -113,7 +113,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         // as well as different combining algorithms.
         $denyPolicy = new AuthorizationPolicy();
         $permitPolicy = $this->getMockBuilder(AuthorizationPolicy::class)
-            ->setMethods(['effect'])
+            ->onlyMethods(['effect'])
             ->getMock();
         $permitPolicy->expects($this->any())
             ->method('effect')
@@ -169,7 +169,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
     {
         // Create a policy with a call-on-deny advice.
         $policy = $this->getMockBuilder(AuthorizationPolicy::class)
-            ->setMethods(['callOnDeny'])
+            ->addMethods(['callOnDeny'])
             ->getMock();
         $policy->expects($this->once())
             ->method('callOnDeny')

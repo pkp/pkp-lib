@@ -203,7 +203,7 @@ class PKPRouterTestCase extends PKPTestCase
         $application = Application::get();
         $contextDao = $application->getContextDAO();
         $mockDao = $this->getMockBuilder(get_class($contextDao))
-            ->setMethods(['getByPath'])
+            ->onlyMethods(['getByPath'])
             ->getMock();
         DAORegistry::registerDAO('SomeContextDAO', $mockDao);
 
@@ -310,7 +310,7 @@ class PKPRouterTestCase extends PKPTestCase
     ) {
         // Mock application object without calling its constructor.
         $mockApplication = $this->getMockBuilder(Application::class)
-            ->setMethods(['getContextDepth', 'getContextList'])
+            ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();
 
         // Set up the getContextDepth() method
@@ -332,7 +332,7 @@ class PKPRouterTestCase extends PKPTestCase
 
         // Mock request
         $this->request = $this->getMockBuilder(Request::class)
-            ->setMethods(['isPathInfoEnabled'])
+            ->onlyMethods(['isPathInfoEnabled'])
             ->getMock();
         $this->request->setRouter($this->router);
         $this->request->expects($this->any())
@@ -357,11 +357,11 @@ class PKPRouterTestCase extends PKPTestCase
         $contextDao = $application->getContextDAO();
         $contextClassName = get_class($contextDao->newDataObject());
         $mockFirstContextDao = $this->getMockBuilder(get_class($contextDao))
-            ->setMethods(['getByPath'])
+            ->onlyMethods(['getByPath'])
             ->getMock();
         if (!$firstContextIsNull) {
             $firstContextInstance = $this->getMockBuilder($contextClassName)
-                ->setMethods(['getPath', 'getSetting'])
+                ->onlyMethods(['getPath', 'getSetting'])
                 ->getMock();
             $firstContextInstance->expects($this->any())
                 ->method('getPath')

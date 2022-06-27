@@ -46,7 +46,7 @@ class DispatcherTest extends PKPTestCase
 
         // Mock application object without calling its constructor.
         $mockApplication = $this->getMockBuilder(Application::class)
-            ->setMethods(['getContextDepth', 'getContextList'])
+            ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();
 
         // Set up the getContextDepth() method

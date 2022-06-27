@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-03-18 17:42+0000\n"
+"PO-Revision-Date: 2022-06-27 20:52+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -2332,3 +2332,9 @@ msgstr "{$editorName} doporučil/a, aby byly vyžádány úpravy."
 
 msgid "submission.list.viewAllSubmissions"
 msgstr "Zobrazit všechny příspěvky"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Nový příspěvek čeká na odeslání ke kontrole nebo na odmítnutí."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Neaktivní déle než {$days} dní ve fázi {$stage}."

@@ -15,13 +15,13 @@
  * @brief Tests for the PKPPageRouter class.
  */
 
-use PKP\core\PKPPageRouter;
+namespace PKP\tests\classes\core;
 
 require_mock_env('env1');
-
-import('lib.pkp.tests.classes.core.PKPRouterTestCase');
 import('classes.security.Validation'); // Import our mock validation class before the autoloader grabs the right one.
 
+use PKP\core\Core;
+use PKP\core\PKPPageRouter;
 use PKP\security\Validation;
 
 /**

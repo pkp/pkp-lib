@@ -19,16 +19,18 @@
  * @brief Tests for the Locale class.
  */
 
+namespace PKP\tests\classes\i18n;
+
+use Mockery;
 use Mockery\MockInterface;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
-
-import('lib.pkp.tests.PKPTestCase');
+use PKP\tests\PKPTestCase;
 
 class LocaleTest extends PKPTestCase
 {
-    private PKP\i18n\Locale $_locale;
+    private \PKP\i18n\Locale $_locale;
     private array $_supportedLocales = ['en_US' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt_PT' => 'Portuguese (Portugal)'];
     private string $_primaryLocale = 'pt_BR';
 

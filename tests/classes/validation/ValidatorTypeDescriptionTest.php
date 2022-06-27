@@ -15,8 +15,9 @@
  * @brief Test class for ValidatorTypeDescription and TypeDescription.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\validation;
 
+use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorTypeDescription;
 
 class ValidatorTypeDescriptionTest extends PKPTestCase

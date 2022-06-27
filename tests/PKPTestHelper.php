@@ -12,12 +12,18 @@
  * @brief Class that implements functionality common to all PKP test types.
  */
 
-define('PKP_TEST_ENTIRE_DB', 1);
+namespace PKP\tests;
 
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
+use PKP\config\Config;
 use PKP\db\DAO;
 
 abstract class PKPTestHelper
 {
+    public const PKP_TEST_ENTIRE_DB = 1;
+
     //
     // Public helper methods
     //
@@ -30,24 +36,10 @@ abstract class PKPTestHelper
     public static function backupTables($tables, $test)
     {
         $dao = new DAO();
-        $driver = Config::getVar('database', 'driver');
         foreach ($tables as $table) {
-            switch ($driver) {
-                case 'mysql':
-                case 'mysqli':
-                    $createLikeSql = "CREATE TABLE backup_${table} LIKE ${table}";
-                    break;
-                case 'postgres':
-                case 'postgres64':
-                case 'postgres7':
-                case 'postgres8':
-                case 'postgres9':
-                    $createLikeSql = "CREATE TABLE backup_${table} (LIKE ${table})";
-                    break;
-                default:
-                    $test->fail("Unknown driver \"${driver}\"");
-                    return;
-            }
+            $createLikeSql = DB::getDefaultConnection() instanceof MySqlConnection
+                ? "CREATE TABLE backup_${table} LIKE ${table}"
+                : "CREATE TABLE backup_${table} (LIKE ${table})";
 
             $sqls = [
                 "DROP TABLE IF EXISTS backup_${table}",
@@ -92,10 +84,9 @@ abstract class PKPTestHelper
             return;
         }
 
-        $output = $status = null; // For PHP scrutinizer
-        switch (Config::getVar('database', 'driver')) {
-            case 'mysql':
-            case 'mysqli':
+        $output = $status = null;
+        switch (DB::getDefaultConnection()) {
+            case MySqlConnection::class:
                 exec(
                     $cmd = 'zcat ' .
                     escapeshellarg($filename) .
@@ -114,11 +105,7 @@ abstract class PKPTestHelper
                     $test->fail("Error while restoring database from \"${filename}\" (command: \"${cmd}\").");
                 }
                 break;
-            case 'postgres':
-            case 'postgres64':
-            case 'postgres7':
-            case 'postgres8':
-            case 'postgres9':
+            case PostgresConnection::class:
                 // WARNING: Does not send a password.
                 exec(
                     $cmd = 'zcat ' .
@@ -165,4 +152,8 @@ abstract class PKPTestHelper
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(PKPTestHelper::class, 'PKPTestHelper');
 }

@@ -15,11 +15,15 @@
  * @brief Test class for FormValidatorPost.
  */
 
+namespace PKP\tests\classes\form\validation;
+
+use APP\core\Application;
 use APP\core\Request;
+use Mockery;
 use PKP\core\Registry;
 use PKP\form\Form;
-
-import('lib.pkp.tests.PKPTestCase');
+use PKP\form\validation\FormValidatorPost;
+use PKP\tests\PKPTestCase;
 
 class FormValidatorPostTest extends PKPTestCase
 {
@@ -53,7 +57,7 @@ class FormValidatorPostTest extends PKPTestCase
     {
         // Instantiate test validator
         $form = new Form('some template');
-        $validator = new \PKP\form\validation\FormValidatorPost($form, 'some.message.key');
+        $validator = new FormValidatorPost($form, 'some.message.key');
 
         $this->markTestSkipped('Disabled for static invocation of Request.');
 

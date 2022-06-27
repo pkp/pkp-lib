@@ -19,15 +19,17 @@
  * @brief Abstract base class for Plugin tests.
  */
 
-import('lib.pkp.tests.DatabaseTestCase');
+namespace PKP\tests\plugins;
 
 use APP\core\Request;
 use APP\install\Install;
+use DOMDocument;
 use PKP\config\Config;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\site\VersionCheck;
+use PKP\tests\DatabaseTestCase;
 
 class PluginTestCase extends DatabaseTestCase
 {

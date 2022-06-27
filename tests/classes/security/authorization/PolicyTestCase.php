@@ -16,19 +16,23 @@
  *  for several types of policy tests.
  */
 
+namespace PKP\tests\classes\security\authorization;
+
 use APP\core\Request;
-use PKP\core\PKPRequest;
+use APP\core\Application;
+use PKP\core\PKPRouter;
+use PKP\core\Registry;
 use PKP\handler\PKPHandler;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\security\UserGroup;
-
-import('lib.pkp.tests.PKPTestCase');
-
-define('ROLE_ID_TEST', 0x9999);
+use PKP\tests\PKPTestCase;
+use PKP\user\User;
 
 abstract class PolicyTestCase extends PKPTestCase
 {
+    protected const ROLE_ID_TEST = 0x9999;
+
     /** @var array of context object(s) */
     private $contextObjects;
 
@@ -98,12 +102,12 @@ abstract class PolicyTestCase extends PKPTestCase
         // of the authorization context manipulation policy.
         $policy = $this->getAuthorizationContextManipulationPolicy();
         $userGroup = new UserGroup();
-        $userGroup->setRoleId(ROLE_ID_TEST);
-        $policy->addAuthorizedContextObject(ASSOC_TYPE_USER_GROUP, $userGroup);
+        $userGroup->setRoleId(self::ROLE_ID_TEST);
+        $policy->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP, $userGroup);
 
         // Add user roles array to the authorized context.
-        $userRoles = [ROLE_ID_TEST, Role::ROLE_ID_SITE_ADMIN];
-        $policy->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $userRoles);
+        $userRoles = [self::ROLE_ID_TEST, Role::ROLE_ID_SITE_ADMIN];
+        $policy->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $userRoles);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 

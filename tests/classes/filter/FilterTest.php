@@ -15,13 +15,10 @@
  * @brief Test class for Filter.
  */
 
-use PHPUnit\Framework\MockObject\MockMethod;
-use PKP\facades\Locale;
-use PKP\filter\Filter;
+namespace PKP\tests\classes\filter;
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.tests.classes.filter.TestClass1');
-import('lib.pkp.tests.classes.filter.TestClass2');
+use PKP\filter\Filter;
+use PKP\tests\PKPTestCase;
 
 class FilterTest extends PKPTestCase
 {

@@ -21,9 +21,11 @@
  * return values.
  */
 
-use PKP\filter\PrimitiveTypeDescription;
+namespace PKP\tests\classes\filter;
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\filter\PrimitiveTypeDescription;
+use PKP\tests\PKPTestCase;
+use stdClass;
 
 class PrimitiveTypeDescriptionTest extends PKPTestCase
 {
@@ -34,39 +36,39 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
     public function testInstantiateAndCheck()
     {
         $typeDescription = new PrimitiveTypeDescription('string');
-        self::assertTrue($typeDescription->isCompatible($object = 'some string'));
-        self::assertFalse($typeDescription->isCompatible($object = 5));
-        self::assertFalse($typeDescription->isCompatible($object = [5]));
+        self::assertTrue($typeDescription->isCompatible('some string'));
+        self::assertFalse($typeDescription->isCompatible(5));
+        self::assertFalse($typeDescription->isCompatible([5]));
 
         self::assertEquals('string', $typeDescription->getTypeName());
         self::assertEquals('primitive::string', $typeDescription->getTypeDescription());
 
         $typeDescription = new PrimitiveTypeDescription('integer');
-        self::assertTrue($typeDescription->isCompatible($object = 2));
-        self::assertFalse($typeDescription->isCompatible($object = 'some string'));
-        self::assertFalse($typeDescription->isCompatible($object = 5.5));
-        self::assertFalse($typeDescription->isCompatible($object = new stdClass()));
+        self::assertTrue($typeDescription->isCompatible(2));
+        self::assertFalse($typeDescription->isCompatible('some string'));
+        self::assertFalse($typeDescription->isCompatible(5.5));
+        self::assertFalse($typeDescription->isCompatible(new stdClass()));
 
         $typeDescription = new PrimitiveTypeDescription('float');
-        self::assertTrue($typeDescription->isCompatible($object = 2.5));
-        self::assertFalse($typeDescription->isCompatible($object = 'some string'));
-        self::assertFalse($typeDescription->isCompatible($object = 5));
+        self::assertTrue($typeDescription->isCompatible(2.5));
+        self::assertFalse($typeDescription->isCompatible('some string'));
+        self::assertFalse($typeDescription->isCompatible(5));
 
         $typeDescription = new PrimitiveTypeDescription('boolean');
-        self::assertTrue($typeDescription->isCompatible($object = true));
-        self::assertTrue($typeDescription->isCompatible($object = false));
-        self::assertFalse($typeDescription->isCompatible($object = 1));
-        self::assertFalse($typeDescription->isCompatible($object = ''));
+        self::assertTrue($typeDescription->isCompatible(true));
+        self::assertTrue($typeDescription->isCompatible(false));
+        self::assertFalse($typeDescription->isCompatible(1));
+        self::assertFalse($typeDescription->isCompatible(''));
 
         $typeDescription = new PrimitiveTypeDescription('integer[]');
-        self::assertTrue($typeDescription->isCompatible($object = [2]));
-        self::assertTrue($typeDescription->isCompatible($object = [2, 5]));
-        self::assertFalse($typeDescription->isCompatible($object = 2));
+        self::assertTrue($typeDescription->isCompatible([2]));
+        self::assertTrue($typeDescription->isCompatible([2, 5]));
+        self::assertFalse($typeDescription->isCompatible(2));
 
         $typeDescription = new PrimitiveTypeDescription('integer[1]');
-        self::assertTrue($typeDescription->isCompatible($object = [2]));
-        self::assertFalse($typeDescription->isCompatible($object = [2, 5]));
-        self::assertFalse($typeDescription->isCompatible($object = 2));
+        self::assertTrue($typeDescription->isCompatible([2]));
+        self::assertFalse($typeDescription->isCompatible([2, 5]));
+        self::assertFalse($typeDescription->isCompatible(2));
     }
 
     /**

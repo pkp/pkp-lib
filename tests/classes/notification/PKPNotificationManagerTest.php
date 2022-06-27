@@ -15,12 +15,13 @@
  * @brief Tests for the PKPNotificationManager class.
  */
 
-
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\notification;
 
 use APP\core\Application;
 use APP\notification\Notification;
 use Illuminate\Support\Facades\App;
+use Mockery;
+use Mockery\MockInterface;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -30,12 +31,12 @@ use PKP\notification\NotificationSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\site\Site;
+use PKP\tests\PKPTestCase;
 use PKP\user\User;
-
-define('NOTIFICATION_ID', 1);
 
 class PKPNotificationManagerTest extends PKPTestCase
 {
+    private const NOTIFICATION_ID = 1;
     private $notificationMgr;
 
     /**
@@ -99,7 +100,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         // Setup any assoc type and id that have content definition in notification manager,
         // so we can check it later when sending the email.
         $nonTrivialNotification->setType(PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
-        $nonTrivialNotification->setAssocType(ASSOC_TYPE_ANNOUNCEMENT);
+        $nonTrivialNotification->setAssocType(Application::ASSOC_TYPE_ANNOUNCEMENT);
 
         $fixtureObjects = $this->getFixtureCreateNotificationSendEmail($nonTrivialNotification);
         [$notificationMgrStub, $requestStub] = $fixtureObjects;
@@ -269,6 +270,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         // Stub context.
         $application = Application::get();
 
+        /** @var Application|MockInterface */
         $mockApplication = $this->getMockBuilder(Application::class)
             ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();
@@ -362,9 +364,14 @@ class PKPNotificationManagerTest extends PKPTestCase
             ->will($this->returnValue($mailTemplateMock));
 
         // Register a UserDao stub to return the test user.
-        App::instance(\PKP\user\DAO::class, \Mockery::mock(\PKP\user\DAO::class, function ($mock) use ($testUser) {
-            $mock->shouldReceive('get')->with($testUser->getId(), true)->andReturn($testUser);
-        }));
+        App::instance(
+            \PKP\user\DAO::class,
+            Mockery::mock(
+                \PKP\user\DAO::class, function ($mock) use ($testUser) {
+                    $mock->shouldReceive('get')->with($testUser->getId(), true)->andReturn($testUser);
+                }
+            )
+        );
 
         return [$notificationMgrStub, $requestStub];
     }
@@ -414,7 +421,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $notificationDaoMock->expects($this->once())
             ->method('insertObject')
             ->with($this->equalTo($notification))
-            ->will($this->returnValue(NOTIFICATION_ID));
+            ->will($this->returnValue(self::NOTIFICATION_ID));
 
         DAORegistry::registerDAO('NotificationDAO', $notificationDaoMock);
     }
@@ -431,7 +438,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $notificationSettingsDaoMock->expects($this->any())
             ->method('updateNotificationSetting')
             ->with(
-                $this->equalTo(NOTIFICATION_ID),
+                $this->equalTo(self::NOTIFICATION_ID),
                 $this->equalTo(key($notificationParams)),
                 $this->equalTo(current($notificationParams))
             );
@@ -447,6 +454,7 @@ class PKPNotificationManagerTest extends PKPTestCase
      */
     private function getTrivialNotification()
     {
+        /** @var NotificationDAO */
         $notificationDao = DAORegistry::getDAO('NotificationDAO');
         $notification = $notificationDao->newDataObject();
         $anyTestInteger = 1;

@@ -15,10 +15,14 @@
  * @brief Tests for the Dispatcher class.
  */
 
+namespace PKP\tests\classes\core;
+
 use APP\core\Application;
 use APP\core\Request;
-
-import('lib.pkp.tests.PKPTestCase');
+use Mockery\MockInterface;
+use PKP\config\Config;
+use PKP\core\PKPApplication;
+use PKP\tests\PKPTestCase;
 
 class DispatcherTest extends PKPTestCase
 {
@@ -45,6 +49,7 @@ class DispatcherTest extends PKPTestCase
         parent::setUp();
 
         // Mock application object without calling its constructor.
+        /** @var Application|MockInterface */
         $mockApplication = $this->getMockBuilder(Application::class)
             ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();

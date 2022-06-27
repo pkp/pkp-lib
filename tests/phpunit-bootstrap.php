@@ -176,3 +176,15 @@ error_reporting(E_ALL & ~E_STRICT & ~E_DEPRECATED);
 // Show errors in the UI
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
+
+spl_autoload_register(function ($class) {
+    $prefix = 'PKP\\tests';
+    $rootPath = BASE_SYS_DIR . '/lib/pkp/tests';
+    customAutoload($rootPath, $prefix, $class);
+});
+
+spl_autoload_register(function ($class) {
+    $prefix = 'APP\\tests';
+    $rootPath = BASE_SYS_DIR . '/tests';
+    customAutoload($rootPath, $prefix, $class);
+});

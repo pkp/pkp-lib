@@ -13,11 +13,12 @@
  *
  * @brief Test class for the Queues process
  */
-import('lib.pkp.tests.PKPTestCase');
+
+namespace PKP\tests\classes\queues;
 
 use Illuminate\Support\Facades\Queue;
-
 use PKP\config\Config;
+use PKP\tests\PKPTestCase;
 
 class QueueTest extends PKPTestCase
 {

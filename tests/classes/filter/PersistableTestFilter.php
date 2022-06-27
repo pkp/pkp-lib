@@ -13,6 +13,8 @@
  * @brief Test class to be used to test the FilterDAO.
  */
 
+namespace PKP\tests\classes\filter;
+
 use PKP\filter\FilterSetting;
 use PKP\filter\PersistableFilter;
 
@@ -39,4 +41,8 @@ class PersistableTestFilter extends PersistableFilter
     {
         return 'lib.pkp.tests.classes.filter.PersistableTestFilter';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(PersistableTestFilter::class, 'PersistableTestFilter');
 }

@@ -15,8 +15,9 @@
  * @brief Test class for ValidatorORCID.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\validation;
 
+use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorORCID;
 
 class ValidatorORCIDTest extends PKPTestCase

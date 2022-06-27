@@ -15,11 +15,12 @@
  * @brief Test class for FormValidatorLocale.
  */
 
-
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\form\validation;
 
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorLocale;
+use PKP\tests\PKPTestCase;
 
 class FormValidatorLocaleTest extends PKPTestCase
 {
@@ -29,7 +30,7 @@ class FormValidatorLocaleTest extends PKPTestCase
     public function testGetMessage()
     {
         $form = new Form('some template');
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('##some.message.key## (English)', $formValidator->getMessage());
     }
 
@@ -39,39 +40,39 @@ class FormValidatorLocaleTest extends PKPTestCase
     public function testGetFieldValue()
     {
         $form = new Form('some template');
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
         $form->setData('testData', null);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
         $form->setData('testData', ['en_US' => null]);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
         $form->setData('testData', ['en_US' => 0]);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('0', $formValidator->getFieldValue());
 
         $form->setData('testData', ['en_US' => '0']);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('0', $formValidator->getFieldValue());
 
         $form->setData('testData', ' some text ');
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
         $form->setData('testData', ['de_DE' => ' some text ']);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
         $form->setData('testData', ['en_US' => ' some text ']);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('some text', $formValidator->getFieldValue());
 
         $form->setData('testData', ['en_US' => [' some text ']]);
-        $formValidator = new \PKP\form\validation\FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame([' some text '], $formValidator->getFieldValue());
     }
 }

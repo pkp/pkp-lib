@@ -15,9 +15,11 @@
  * @brief Test class for MetadataDescription.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\metadata;
 
+use APP\core\Application;
 use PKP\metadata\MetadataDescription;
+use PKP\tests\PKPTestCase;
 
 class MetadataDescriptionTest extends PKPTestCase
 {
@@ -61,7 +63,7 @@ class MetadataDescriptionTest extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', ASSOC_TYPE_CITATION);
+        $this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', Application::ASSOC_TYPE_CITATION);
     }
 
     /**

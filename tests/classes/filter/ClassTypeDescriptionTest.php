@@ -15,11 +15,10 @@
  * @brief Test class for ClassTypeDescription.
  */
 
-use PKP\filter\ClassTypeDescription;
+namespace PKP\tests\classes\filter;
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.tests.classes.filter.TestClass1');
-import('lib.pkp.tests.classes.filter.TestClass2');
+use PKP\filter\ClassTypeDescription;
+use PKP\tests\PKPTestCase;
 
 class ClassTypeDescriptionTest extends PKPTestCase
 {

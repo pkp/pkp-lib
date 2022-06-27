@@ -15,10 +15,12 @@
  * @brief Test class for FormValidatorCustom.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\form\validation;
 
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\tests\PKPTestCase;
 
 class FormValidatorCustomTest extends PKPTestCase
 {
@@ -37,25 +39,25 @@ class FormValidatorCustomTest extends PKPTestCase
         // "optional" and the test field is empty. We make sure this is the
         // case by returning 'false' for the custom validation function.
         $form->setData('testData', '');
-        $validator = new \PKP\form\validation\FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $validationFunction, [false]);
+        $validator = new FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $validationFunction, [false]);
         self::assertTrue($validator->isValid());
         self::assertSame(null, $this->checkedValue);
 
         // Simulate valid data
         $form->setData('testData', 'xyz');
-        $validator = new \PKP\form\validation\FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $validationFunction, [true]);
+        $validator = new FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $validationFunction, [true]);
         self::assertTrue($validator->isValid());
         self::assertSame('xyz', $this->checkedValue);
 
         // Simulate invalid data
         $form->setData('testData', 'xyz');
-        $validator = new \PKP\form\validation\FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $validationFunction, [false]);
+        $validator = new FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $validationFunction, [false]);
         self::assertFalse($validator->isValid());
         self::assertSame('xyz', $this->checkedValue);
 
         // Simulate valid data with negation of the user function return value
         $form->setData('testData', 'xyz');
-        $validator = new \PKP\form\validation\FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $validationFunction, [false], true);
+        $validator = new FormValidatorCustom($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $validationFunction, [false], true);
         self::assertTrue($validator->isValid());
         self::assertSame('xyz', $this->checkedValue);
     }

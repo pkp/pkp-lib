@@ -15,8 +15,11 @@
  * @brief Tests for the Config class.
  */
 
+namespace PKP\tests\classes\config;
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\tests\PKPTestCase;
 
 class ConfigTest extends PKPTestCase
 {

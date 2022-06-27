@@ -15,11 +15,17 @@
  * @brief Base tests class for PKPRouter tests.
  */
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
+namespace PKP\tests\classes\core;
 
+use APP\core\Application;
 use APP\core\Request;
+use AssertionError;
+use Mockery\MockInterface;
 use PKP\core\PKPRouter;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+use PKP\tests\PKPTestCase;
 
 /**
  * @backupGlobals enabled
@@ -309,6 +315,7 @@ class PKPRouterTestCase extends PKPTestCase
         $contextList = ['firstContext']
     ) {
         // Mock application object without calling its constructor.
+        /** @var Application|MockInterface */
         $mockApplication = $this->getMockBuilder(Application::class)
             ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();

@@ -16,6 +16,9 @@
  *  testing purposes.
  */
 
+namespace PKP\tests\classes\metadata;
+
+use APP\core\Application;
 use PKP\metadata\MetadataProperty;
 use PKP\metadata\MetadataSchema;
 
@@ -31,7 +34,7 @@ class TestSchema extends MetadataSchema
             'test-schema',
             'test',
             'lib.pkp.tests.classes.metadata.TestSchema',
-            ASSOC_TYPE_CITATION
+            Application::ASSOC_TYPE_CITATION
         );
 
         $this->addProperty('not-translated-one', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_ONE);
@@ -40,4 +43,8 @@ class TestSchema extends MetadataSchema
         $this->addProperty('translated-many', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
         $this->addProperty('composite-translated-many', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(TestSchema::class, 'TestSchema');
 }

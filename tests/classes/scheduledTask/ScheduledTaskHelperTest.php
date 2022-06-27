@@ -15,11 +15,12 @@
  * @brief Tests for the ScheduledTask class.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\scheduledTask;
 
+use PKP\config\Config;
 use PKP\mail\Mail;
-use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\tests\PKPTestCase;
 
 class ScheduledTaskHelperTest extends PKPTestCase
 {

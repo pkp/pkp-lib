@@ -74,11 +74,13 @@
 			"PKP\\plugins\\": "plugins/",
 			"APP\\plugins\\": "../../plugins/",
 			"PKP\\Support\\": "Support/",
-			"PKP\\Domains\\": "Domains/",
-			"PKP\\Jobs\\": "Jobs/",
 			"APP\\Support\\": "../../Support/",
+			"PKP\\Domains\\": "Domains/",
 			"APP\\Domains\\": "../../Domains/",
-			"APP\\Jobs\\": "../../Jobs/"
+			"PKP\\Jobs\\": "Jobs/",
+			"APP\\Jobs\\": "../../Jobs/",
+			"PKP\\tests\\": "tests/",
+			"APP\\tests\\": "../../tests/"
 		}
 	}
 }

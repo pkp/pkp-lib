@@ -15,10 +15,14 @@
  * @brief Test class for FilterDAO.
  */
 
+namespace PKP\tests\classes\filter;
+
+use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
-
-import('lib.pkp.tests.DatabaseTestCase');
+use PKP\filter\GenericMultiplexerFilter;
+use PKP\filter\GenericSequencerFilter;
+use PKP\tests\DatabaseTestCase;
 
 class FilterDAOTest extends DatabaseTestCase
 {
@@ -103,6 +107,7 @@ class FilterDAOTest extends DatabaseTestCase
     public function testCompositeFilterCrud()
     {
         $this->markTestSkipped();
+        /** @var FilterDAO */
         $filterDao = DAORegistry::getDAO('FilterDAO');
 
         // sub-filter 1

@@ -15,9 +15,10 @@
  * @brief Tests for the DataObject class.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\core;
 
 use PKP\core\DataObject;
+use PKP\tests\PKPTestCase;
 
 class DataObjectTest extends PKPTestCase
 {

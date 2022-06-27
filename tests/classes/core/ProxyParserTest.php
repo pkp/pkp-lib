@@ -15,9 +15,10 @@
  * @brief Tests for the Proxy Parser class.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\core;
 
 use PKP\Support\ProxyParser;
+use PKP\tests\PKPTestCase;
 
 class ProxyParserTest extends PKPTestCase
 {

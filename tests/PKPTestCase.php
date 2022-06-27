@@ -17,14 +17,16 @@
  * @brief Class that implements functionality common to all PKP unit test cases.
  */
 
-// Include PHPUnit
-import('lib.pkp.tests.PKPTestHelper');
+namespace PKP\tests;
 
+use APP\core\Application;
 use APP\core\PageRouter;
-
+use Mockery;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\Dispatcher;
+use PKP\core\Registry;
 use PKP\db\DAORegistry;
 
 abstract class PKPTestCase extends TestCase
@@ -213,4 +215,8 @@ abstract class PKPTestCase extends TestCase
         $escapedPieces = array_map(fn ($piece) => preg_quote($piece), $pieces);
         return '/^' . implode('.*?', $escapedPieces) . '$/u';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(PKPTestCase::class, 'PKPTestCase');
 }

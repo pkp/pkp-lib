@@ -15,8 +15,10 @@
  * @brief Tests for the FileCache class.
  */
 
+namespace PKP\tests\classes\cache;
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\cache\CacheManager;
+use PKP\tests\PKPTestCase;
 
 class FileCacheTest extends PKPTestCase
 {

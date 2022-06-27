@@ -15,8 +15,9 @@
  * @brief Test class for ValidatorUrl.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\validation;
 
+use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorUrl;
 
 class ValidatorUrlTest extends PKPTestCase

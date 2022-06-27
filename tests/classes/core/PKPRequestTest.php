@@ -15,11 +15,12 @@
  * @brief Tests for the PKPRequest class.
  */
 
+namespace PKP\tests\classes\core;
+
 use APP\core\Request;
 use PKP\core\Registry;
 use PKP\plugins\HookRegistry;
-
-import('lib.pkp.tests.PKPTestCase');
+use PKP\tests\PKPTestCase;
 
 /**
  * @backupGlobals enabled

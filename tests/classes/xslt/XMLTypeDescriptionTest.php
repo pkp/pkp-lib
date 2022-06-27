@@ -15,8 +15,11 @@
  * @brief Test class for XMLTypeDescription.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\xslt;
 
+use DOMDocument;
+use PKP\tests\PKPTestCase;
+use PKP\tests\PKPTestHelper;
 use PKP\xslt\XMLTypeDescription;
 
 class XMLTypeDescriptionTest extends PKPTestCase
@@ -66,16 +69,16 @@ class XMLTypeDescriptionTest extends PKPTestCase
 
         // Try passing in the document as a string
         $document =
-            '<addressBook>
-			  <card>
-			    <name>John Smith</name>
-			    <email>js@example.com</email>
-			  </card>
-			  <card>
-			    <name>Fred Bloggs</name>
-			    <email>fb@example.net</email>
-			  </card>
-			</addressBook>';
+          '<addressBook>
+            <card>
+              <name>John Smith</name>
+              <email>js@example.com</email>
+            </card>
+            <card>
+              <name>Fred Bloggs</name>
+              <email>fb@example.net</email>
+            </card>
+          </addressBook>';
         self::assertTrue($typeDescription->isCompatible($document));
 
 

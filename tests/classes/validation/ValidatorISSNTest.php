@@ -15,8 +15,9 @@
  * @brief Test class for ValidatorISSN.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\validation;
 
+use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorISSN;
 
 class ValidatorISSNTest extends PKPTestCase

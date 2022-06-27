@@ -15,9 +15,11 @@
  * @brief Tests for the PKPComponentRouter class.
  */
 
-import('lib.pkp.tests.classes.core.PKPRouterTestCase');
+namespace PKP\tests\classes\core;
 
 use PKP\core\PKPComponentRouter;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
 
 /**
  * @backupGlobals enabled

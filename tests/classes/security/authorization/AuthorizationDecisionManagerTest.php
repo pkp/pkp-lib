@@ -15,8 +15,10 @@
  * @brief Test class for the AuthorizationDecisionManager class
  */
 
-import('lib.pkp.tests.classes.security.authorization.PolicyTestCase');
+namespace PKP\tests\classes\security\authorization;
 
+use APP\core\Application;
+use Mockery\MockInterface;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
@@ -97,11 +99,11 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         $this->decisionManager->addPolicy($this->getAuthorizationContextManipulationPolicy());
 
         // Make sure that the authorization context is initially empty.
-        self::assertNull($this->decisionManager->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
+        self::assertNull($this->decisionManager->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
 
         // Check whether the authorized context is correctly returned from the policy.
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $this->decisionManager->decide());
-        self::assertInstanceOf('UserGroup', $this->decisionManager->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
+        self::assertInstanceOf('UserGroup', $this->decisionManager->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
     }
 
     /**
@@ -168,6 +170,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
     public function testCallOnDeny()
     {
         // Create a policy with a call-on-deny advice.
+        /** @var AuthorizationPolicy|MockInterface */
         $policy = $this->getMockBuilder(AuthorizationPolicy::class)
             ->addMethods(['callOnDeny'])
             ->getMock();

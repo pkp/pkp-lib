@@ -15,9 +15,10 @@
  * @brief Tests for the \PKP\doi\DoiGenerator
  */
 
-use PKP\doi\DoiGenerator;
+namespace PKP\tests\classes\doi;
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\doi\DoiGenerator;
+use PKP\tests\PKPTestCase;
 
 class DoiGeneratorTest extends PKPTestCase
 {

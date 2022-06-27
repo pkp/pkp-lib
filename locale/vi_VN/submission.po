@@ -1433,6 +1433,7 @@ msgstr "Bài gửi đã được gửi lại cho vòng phản biện khác."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Bài gửi phải được gửi lại cho vòng phản biện khác."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Các bản sửa đổi đã được gửi."
 

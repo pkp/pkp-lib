@@ -197,6 +197,7 @@ msgstr "پێشکەشکردنەکە بۆ خولێکی دیکەی هەڵسەنگا
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "پێشکەشکردنەکە دەبێت بۆ قۆناغی دووەمی هەڵسەنگاندن پێشکەش بکرێتەوە."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "پێداچونەوەکان پێشکەش کران."
 

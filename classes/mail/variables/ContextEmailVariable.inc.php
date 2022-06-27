@@ -31,6 +31,7 @@ class ContextEmailVariable extends Variable
     public const MAILING_ADDRESS = 'mailingAddress';
     public const PASSWORD_LOST_URL = 'passwordLostUrl';
     public const SUBMISSIONS_URL = 'submissionsUrl';
+    public const USER_PROFILE_URL = 'userProfileUrl';
 
     protected Context $context;
 
@@ -57,7 +58,8 @@ class ContextEmailVariable extends Variable
             self::CONTACT_EMAIL => __('emailTemplate.variable.context.contactEmail'),
             self::MAILING_ADDRESS => __('emailTemplate.variable.context.mailingAddress'),
             self::PASSWORD_LOST_URL => __('emailTemplate.variable.context.passwordLostUrl'),
-            self::SUBMISSIONS_URL => __('emailTemplate.variable.context.passwordLostUrl'),
+            self::SUBMISSIONS_URL => __('emailTemplate.variable.context.submissionsUrl'),
+            self::USER_PROFILE_URL => __('emailTemplate.variable.context.userProfileUrl'),
         ];
     }
 
@@ -73,6 +75,7 @@ class ContextEmailVariable extends Variable
             self::MAILING_ADDRESS => (string) $this->context->getData('mailingAddress'),
             self::PASSWORD_LOST_URL => $this->getPasswordLostUrl(),
             self::SUBMISSIONS_URL => $this->getSubmissionsUrl(),
+            self::USER_PROFILE_URL => $this->getUserProfileUrl(),
         ];
     }
 
@@ -106,8 +109,23 @@ class ContextEmailVariable extends Variable
         return $request->getDispatcher()->url(
             $request,
             PKPApplication::ROUTE_PAGE,
-            null,
+            $this->context->getPath(),
             'submissions',
+        );
+    }
+
+    /**
+     * URL to the user profile page
+     */
+    protected function getUserProfileUrl(): string
+    {
+        $request = PKPApplication::get()->getRequest();
+        return $request->getDispatcher()->url(
+            $request,
+            PKPApplication::ROUTE_PAGE,
+            $this->context->getPath(),
+            'user',
+            'profile'
         );
     }
 }

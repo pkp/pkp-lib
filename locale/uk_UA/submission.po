@@ -1168,6 +1168,7 @@ msgstr "Наразі немає файлів для виправлення."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Запит на нові версії зроблений."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Нові версії були надіслані."
 

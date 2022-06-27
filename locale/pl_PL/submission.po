@@ -1500,6 +1500,7 @@ msgstr "\"{$name}\" ({$username}) jest usunięty z {$userGroupName}."
 msgid "submission.howToCite.downloadCitation"
 msgstr "Pobierz cytowania"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Poprawki zostały przesłane."
 

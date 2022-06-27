@@ -1195,6 +1195,7 @@ msgstr "Manuscrisul a fost redepus pentru o nouă rundă de revizie."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Manuscrisul va trebui redepus pentru o altă rundă de revizie."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Reviziile au fost încărcate."
 

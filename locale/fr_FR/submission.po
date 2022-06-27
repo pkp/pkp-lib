@@ -1616,6 +1616,7 @@ msgstr "Discussions"
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "La soumission doit être complète avant qu'un rédacteur la considère."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Des révisions ont été déposées."
 

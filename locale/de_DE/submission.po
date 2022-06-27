@@ -1193,6 +1193,7 @@ msgstr "Momentan liegen keine Dateien für Sie zur Überarbeitung vor."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Überarbeitungen wurden angefordert."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Überarbeitungen wurden eingereicht."
 

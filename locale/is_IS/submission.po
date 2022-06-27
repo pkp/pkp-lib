@@ -1138,6 +1138,7 @@ msgstr "Búið er að endursenda innsendinguna fyrir nýja umferð ritrýni."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Það þarf að senda innsendinguna aftur inn fyrir næstu umferð ritrýni."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ritrýni hefur verið send inn."
 

@@ -1471,6 +1471,7 @@ msgstr "Byl(a) jste přidán(a) k diskusi nazvané \"{$queryTitle}\" ohledně p�
 msgid "submission.howToCite.downloadCitation"
 msgstr "Stánhout citace"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Úpravy rukopisu byly odevzdány."
 

@@ -1883,6 +1883,7 @@ msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "La tramesa s'ha de tornar a enviar per fer-hi una altra ronda de revisió."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "S'han tramès les revisions."
 

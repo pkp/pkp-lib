@@ -1193,6 +1193,7 @@ msgstr "Vous n'avez aucun fichier à évaluer pour le moment."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Les révisions ont été demandées."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Les révisions ont été soumises."
 

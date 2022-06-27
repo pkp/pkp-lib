@@ -1177,6 +1177,7 @@ msgstr "Şu anda gözden geçirebileceğiniz bir dosya yok."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Düzeltmeler talep edildi."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Düzeltmeler gönderildi."
 

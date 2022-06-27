@@ -99,6 +99,7 @@ class PKPNotificationSettingsForm extends Form
             ],
             ['categoryKey' => 'user.role.editors',
                 'settings' => [
+                    PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
                     PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
                 ]
             ],

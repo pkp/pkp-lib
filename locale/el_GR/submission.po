@@ -1526,6 +1526,7 @@ msgstr "Επιμέλεια"
 msgid "submission.copyediting"
 msgstr "Επιμέλεια"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Οι αναθεωρήσεις έχουν υποβληθεί."
 

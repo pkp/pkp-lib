@@ -1549,6 +1549,7 @@ msgstr "Introduza os direitos."
 msgid "submission.submit.form.citationsRequired"
 msgstr "Introduza as referências."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisões foram submetidas."
 

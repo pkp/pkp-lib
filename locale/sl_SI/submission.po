@@ -1188,6 +1188,7 @@ msgstr "Trenutno za vas ni novih datotek za pregledati."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Zahtevani so popravki."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Popravki so bili oddani."
 

@@ -1374,6 +1374,7 @@ msgstr ""
 "Подаването на материали трябва да бъде изпратено отново за друг кръг за "
 "рецензиране."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Подадени са ревизии."
 

@@ -1176,6 +1176,7 @@ msgstr "Du har inga filer att granska för tillfället."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Bearbetningar begärda."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Bearbetningar har skickats in."
 

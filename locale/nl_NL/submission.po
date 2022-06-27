@@ -1176,6 +1176,7 @@ msgstr "U heeft geen bestanden om te reviewen."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Er werden revisies gevraagd."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisies zijn ingediend."
 

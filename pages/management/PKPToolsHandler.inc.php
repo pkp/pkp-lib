@@ -130,7 +130,8 @@ class PKPToolsHandler extends ManagementHandler {
 		$submissionDao->resetPermissions($context->getId());
 
 		$user = $request->getUser();
-		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.setup.resetPermissions.success')));
+		$notificationMgr = new NotificationManager();
+		$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.setup.resetPermissions.success')));
 
 		// This is an ugly hack to force the PageHandler to return JSON, so this
 		// method can communicate properly with the AjaxFormHandler. Returning a

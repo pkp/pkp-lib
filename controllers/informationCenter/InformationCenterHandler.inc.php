@@ -108,7 +108,8 @@ abstract class InformationCenterHandler extends Handler {
 		$noteDao->deleteById($noteId);
 
 		$user = $request->getUser();
-		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNote')));
+		$notificationMgr = new NotificationManager();
+		$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNote')));
 
 		$json = new JSONMessage(true);
 		$jsonViewNotesResponse = $this->viewNotes($args, $request);

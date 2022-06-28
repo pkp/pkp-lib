@@ -61,7 +61,8 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$this->setupTemplate($request);
 		$user = $request->getUser();
 		if (!$request->getUserVar('suppressNotification')) {
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
 		}
 
 		return DAO::getDataChangedEvent();

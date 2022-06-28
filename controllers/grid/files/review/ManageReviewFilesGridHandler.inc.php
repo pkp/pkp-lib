@@ -69,7 +69,8 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
 
 			$this->setupTemplate($request);
 			$user = $request->getUser();
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.updatedReviewFiles')));
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.updatedReviewFiles')));
 
 			// Let the calling grid reload itself
 			return DAO::getDataChangedEvent();

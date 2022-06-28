@@ -419,8 +419,8 @@ class PKPDoiHandler extends APIHandler
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
-            $failedDoiActions = array_map(function(int $id) {
-                $submissionTitle = Repo::submission()->get($id)->getCurrentPublication()->getLocalizedFullTitle();
+            $failedDoiActions = array_map(function (int $id) {
+                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
                 return new DoiActionException($submissionTitle, $submissionTitle, DoiActionException::SUBMISSION_NOT_PUBLISHED);
             }, $invalidIds);
 
@@ -432,7 +432,9 @@ class PKPDoiHandler extends APIHandler
                         },
                         $failedDoiActions
                     )
-                ], 400);
+                ],
+                400
+            );
         }
 
         foreach ($requestIds as $id) {
@@ -474,8 +476,8 @@ class PKPDoiHandler extends APIHandler
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
-            $failedDoiActions = array_map(function(int $id) {
-                $submissionTitle = Repo::submission()->get($id)->getCurrentPublication()->getLocalizedFullTitle();
+            $failedDoiActions = array_map(function (int $id) {
+                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
                 return new DoiActionException($submissionTitle, $submissionTitle, DoiActionException::INCORRECT_SUBMISSION_CONTEXT);
             }, $invalidIds);
 
@@ -487,7 +489,9 @@ class PKPDoiHandler extends APIHandler
                         },
                         $failedDoiActions
                     )
-                ], 400);
+                ],
+                400
+            );
         }
 
         foreach ($requestIds as $id) {
@@ -524,9 +528,9 @@ class PKPDoiHandler extends APIHandler
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
-            $failedDoiActions = array_map(function(int $id) {
-                $submissionTitle = Repo::submission()->get($id)->getCurrentPublication()->getLocalizedFullTitle();
-                return new DoiActionException($submissionTitle, $submissionTitle, DoiActionException::INCORRECT_STALE_STATUS_SUBMISSION);
+            $failedDoiActions = array_map(function (int $id) {
+                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
+                return new DoiActionException($submissionTitle, $submissionTitle, DoiActionException::INCORRECT_STALE_STATUS);
             }, $invalidIds);
 
             return $response->withJson(
@@ -537,7 +541,9 @@ class PKPDoiHandler extends APIHandler
                         },
                         $failedDoiActions
                     )
-                ], 400);
+                ],
+                400
+            );
         }
 
         foreach ($requestIds as $id) {

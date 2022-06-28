@@ -270,7 +270,6 @@ abstract class Repository
             'status' => Doi::STATUS_UNREGISTERED,
         ];
 
-        HookRegistry::call('Doi::markUnregistered', [&$editParams]);
         $this->edit($doi, $editParams);
     }
 

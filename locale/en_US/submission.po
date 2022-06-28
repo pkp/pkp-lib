@@ -2169,8 +2169,8 @@ msgstr "The abstract is too long. It shoud be {$limit} words or less. It is curr
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"
 
-msgid "doi.submission.incorrectStaleStatus"
-msgstr "Could not set DOI status to stale for the following submission: {$pubObjectTitle}. The DOI must currently have the \"Registered\" or \"Submitted\" status."
+msgid "doi.incorrectStaleStatus"
+msgstr "Failed to mark the DOI stale for {$pubObjectTitle}. The DOI cannot be marked stale because they have not yet been registered or submitted."
 
 msgid "doi.submission.notPublished"
-msgstr "Could not set DOI status for the following submission: {$pubObjectTitle}. The submission must be published first."
+msgstr "Failed to mark the DOI registered for {$pubObjectTitle}. The submission must be published before the status can be updated."

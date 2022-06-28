@@ -19,8 +19,7 @@ class DoiActionException extends \Exception
     public const REPRESENTATION_MISSING_ISSUE = 'doi.submission.issueMissing.representation';
     public const INCORRECT_SUBMISSION_CONTEXT = 'doi.submission.incorrectContext';
     public const INCORRECT_ISSUE_CONTEXT = 'doi.issue.incorrectContext';
-    public const INCORRECT_STALE_STATUS_SUBMISSION = 'doi.submission.incorrectStaleStatus';
-    public const INCORRECT_STALE_STATUS_ISSUE = 'doi.issue.incorrectStaleStatus';
+    public const INCORRECT_STALE_STATUS = 'doi.incorrectStaleStatus';
     public const SUBMISSION_NOT_PUBLISHED = 'doi.submission.notPublished';
     public const ISSUE_NOT_PUBLISHED = 'doi.issue.notPublished';
 

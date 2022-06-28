@@ -7,7 +7,7 @@
 
     <tabs :track-history="true">
         {if $displaySubmissionsTab}
-            <tab id="preprint-doi-management" label="{translate key="common.publications"}">
+            <tab id="submission-doi-management" label="{translate key="common.publications"}">
                 <h1>{translate key="common.publications"}</h1>
                 <doi-list-panel
                         v-bind="components.submissionDoiListPanel"

@@ -11,62 +11,33 @@ describe('DOI tests', function() {
 	const submissionId = 19;
 	const publicationId = 20;
 	const galleyId = 20;
+	const unpublishedSubmissionId = 1;
 
-	function checkDoiInput(input) {
-		const val = input.val();
-		expect(val).to.match(/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{4}-[0-9abcdefghjkmnpqrstvwxyz]{2}[0-9]{2}/);
-	}
+	const loginAndGoToDoiPage = () => {
+		cy.login('dbarnes', null, 'publicknowledge');
+		cy.get('a:contains("DOIs")').click();
+		cy.get('button#submission-doi-management-button').click();
+	};
+
+	const clearFilter = () => {
+		cy.get('#submission-doi-management button:contains("Clear filter")').click();
+	};
 
 	it('Check DOI Configuration', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
-
-		cy.get('a:contains("Distribution")').click();
-
-		cy.get('button#dois-button').click();
-
-		// DOI is or can be enabled
-		cy.get('input[name="enableDois"]').check();
-		cy.get('input[name="enableDois"]').should('be.checked');
-
-		// Check all content
-		cy.get('input[name="enabledDoiTypes"][value="publication"]').check();
-		cy.get('input[name="enabledDoiTypes"][value="representation"]').check();
-
-		// Declare DOI Prefix
-		cy.get('input[name=doiPrefix]').focus().clear().type('10.1234');
-
-		// Save
-		cy.get('#doisSetup button').contains('Save').click();
-		cy.get('#doisSetup [role="status"]').contains('Saved');
+		cy.checkDoiConfig(['publication', 'representation']);
 	});
 
-	it('Check Publication/Galley DOI Assignments', function() {
-		cy.login('dbarnes', null, 'publicknowledge');
-
-		cy.get('a:contains("DOIs")').click();
-		cy.get('button#preprint-doi-management-button').click();
-
-		// Select the first article
-		cy.get(`input[name="submission[]"][value=${submissionId}]`).check()
-
-		// Select assign DOIs from bulk actions
-		cy.get('#preprint-doi-management button:contains("Bulk Actions")').click({multiple: true});
-		cy.get('button#openBulkAssign').click();
-
-		// Confirm assignment
-		cy.get('div[data-modal="bulkActions"] button:contains("Assign DOIs")').click();
-		cy.get('.app__notifications').contains('Items successfully assigned new DOIs', {timeout:20000});
+	it('Check DOI Assignments and Visibility', function() {
+		cy.log('Check Submission Assignment');
+		loginAndGoToDoiPage();
+		cy.assignDois(submissionId);
 
 		cy.get(`#list-item-submission-${submissionId} button.expander`).click();
-		cy.get(`input#${submissionId}-preprint-${publicationId}`)
-			.should(($input) => checkDoiInput($input));
-		cy.get(`input#${submissionId}-galley-${galleyId}`)
-			.should(($input) => checkDoiInput($input));
-	});
+		cy.checkDoiAssignment(`${submissionId}-preprint-${publicationId}`);
+		cy.checkDoiAssignment(`${submissionId}-galley-${galleyId}`);
 
-	it('Check Publication/Galley DOI visible', function() {
-		cy.login('dbarnes', null, 'publicknowledge');
-
+		cy.log('Check Submission Visibility');
 		// Select a submission
 		cy.visit(`/index.php/publicknowledge/preprint/view/${submissionId}`);
 
@@ -74,55 +45,37 @@ describe('DOI tests', function() {
 			.find('span.value').contains('https://doi.org/10.1234/');
 	});
 
-	it ('Check Submission Filter Behaviour (pre-deposit)', function() {
-		cy.login('dbarnes', null, 'publicknowledge');
+	it('Check filters and mark registered', function() {
+		cy.log('Check Submission Filter Behaviour (pre-deposit)');
+		loginAndGoToDoiPage();
 
-		cy.get('a:contains("DOIs")').click();
-		cy.get('button#preprint-doi-management-button').click();
+		cy.checkDoiFilterResults('Needs DOI', 'Williamson — Self-Organization in Multi-Level Institutions in Networked Environments', 18);
+		cy.checkDoiFilterResults('Unpublished', 'No items found.', 0);
+		cy.checkDoiFilterResults('Unregistered', 'Woods — Finocchiaro: Arguments About Arguments', 1);
+		clearFilter();
 
-		// Needs DOI
-		cy.get('#preprint-doi-management button:contains("Needs DOI")').click();
-		cy.get('#preprint-doi-management ul.listPanel__itemsList').find('li').its('length').should('eq', 18);
+		cy.log('Check Submission Marked Registered');
+		cy.checkDoiMarkedStatus('Registered', submissionId, true, 'Registered');
 
+		cy.log('Check Submission Filter Behaviour (post-deposit)');
+		cy.checkDoiFilterResults('Submitted', 'No items found.', 0);
+		cy.checkDoiFilterResults('Registered', 'Woods — Finocchiaro: Arguments About Arguments', 1);
 
-		// Unpublished
-		cy.get('#preprint-doi-management button:contains("Unpublished")').click();
-		cy.get('#preprint-doi-management ul.listPanel__itemsList').find('li').its('length').should('eq', 1);
-		cy.contains('Corino — The influence of lactation on the quantity and quality of cashmere production');
-
-		// Unregistered
-		cy.get('#preprint-doi-management button:contains("Unregistered")').click();
-		cy.get('#preprint-doi-management ul.listPanel__itemsList').find('li').its('length').should('eq', 1);
-		cy.contains('Woods — Finocchiaro: Arguments About Arguments');
 	});
 
-	it('Check Submission Marked Registered', function() {
-		cy.login('dbarnes', null, 'publicknowledge');
+	it('Check Marked Status Behaviour', function() {
+		loginAndGoToDoiPage();
 
-		cy.get('a:contains("DOIs")').click();
-		cy.get('button#preprint-doi-management-button').click();
+		cy.log('Check unpublished Submission Marked Registered displays error');
+		cy.checkDoiMarkedStatus('Registered', unpublishedSubmissionId, false, 'Unpublished');
 
-		// Select the first preprint
-		cy.get(`input[name="submission[]"][value=${submissionId}]`).check();
+		cy.log('Check Submission Marked Stale');
+		cy.checkDoiMarkedStatus('Stale', submissionId, true, 'Stale');
 
-		// Select mark registered from bulk actions
-		cy.get('#preprint-doi-management button:contains("Bulk Actions")').click({multiple: true});
-		cy.get('button#openBulkMarkRegistered').click();
+		cy.log('Check Submission Marked Unregistered');
+		cy.checkDoiMarkedStatus('Unregistered', submissionId, true, 'Unregistered');
 
-		// Confirm assignment
-		cy.get('div[data-modal="bulkActions"] button:contains("Mark DOIs Registered")').click();
-		cy.get('.app__notifications').contains('Items successfully marked registered', {timeout:20000});
-
-		cy.get(`#list-item-submission-${submissionId} .pkpBadge`).contains('Registered');
+		cy.log('Check invalid Submission Marked Stale displays error');
+		cy.checkDoiMarkedStatus('Stale', submissionId, false, 'Unregistered');
 	});
-
-	it('Check Submission Filter Behaviour (post-deposit)', function() {});
-
-	it('Check unpublished Submission Marked Registered displays error', function () {});
-
-	it('Check Submission Marked Stale', function() {});
-
-	it('Check Submission Marked Unregistered', function() {});
-
-	it('Check invalid Submission Marked Stale displays error', function() {});
 });

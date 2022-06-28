@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-11 01:44+0000\n"
+"PO-Revision-Date: 2022-06-29 13:31+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -537,3 +537,16 @@ msgstr "Ջնջել քեշերը"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Հեռացրեք չվավերացված ժամկետանց օգտվողներին"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Առաքված {$count} աշխատանքներ՝ խմբագրական էլ․ փոստի հիշեցումներ ուղարկելու "
+"համար {$userIds} օգտատերերին {$contextId} համատեքստում"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Խմբագիրների նույնականացում՝ հիշեցնելու այս համատեքստում {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Ուղարկեք նամակ յուրաքանչյուր խմբագրին՝ հիշեցնելով նրանց իրենց չմարված "
+"առաջադրանքների մասին"

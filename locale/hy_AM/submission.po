@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-21 10:40+0000\n"
+"PO-Revision-Date: 2022-06-29 13:31+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -2454,3 +2454,9 @@ msgstr "Նշանակեք խմբագրի այս փուլի խմբագրական �
 
 msgid "submission.list.viewAllSubmissions"
 msgstr "Դիտել բոլոր հայտերը"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Նոր ներկայացումը սպասում է, որպեսզի ուղարկվի վերանայման կամ մերժման:"
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Անգործուն է ավելի քան {$days} օր {$stage} փուլում:"

@@ -142,6 +142,8 @@ class CategoryForm extends Form
             $sortOption = $category->getSortOption() ? $category->getSortOption() : Repo::submission()->getDefaultSortOption();
             $this->setData('sortOption', $sortOption);
         }
+
+        return parent::initData();
     }
 
     /**

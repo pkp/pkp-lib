@@ -20,14 +20,18 @@ class EmailReviewerForm extends Form {
 	/** @var ReviewAssignment The review assignment to use for this contact */
 	var $_reviewAssignment;
 
+	/** @var Submission */
+	var $_submission;
+
 	/**
 	 * Constructor.
 	 * @param $reviewAssignment ReviewAssignment The review assignment to use for this contact.
 	 */
-	function __construct($reviewAssignment) {
+	function __construct($reviewAssignment, $submission) {
 		parent::__construct('controllers/grid/users/reviewer/form/emailReviewerForm.tpl');
 
 		$this->_reviewAssignment = $reviewAssignment;
+		$this->_submission = $submission;
 
 		$this->addCheck(new FormValidator($this, 'subject', 'required', 'email.subjectRequired'));
 		$this->addCheck(new FormValidator($this, 'message', 'required', 'email.bodyRequired'));
@@ -69,14 +73,14 @@ class EmailReviewerForm extends Form {
 	 * Send the email
 	 * @param $submission Submission
 	 */
-	function execute($submission) {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
 		$request = Application::get()->getRequest();
 		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$email = new SubmissionMailTemplate($submission);
+		$email = new SubmissionMailTemplate($this->_submission);
 
 		$email->addRecipient($toUser->getEmail(), $toUser->getFullName());
 		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());

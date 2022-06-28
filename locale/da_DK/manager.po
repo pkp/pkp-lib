@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-06-22 08:26+0000\n"
+"PO-Revision-Date: 2022-06-28 13:04+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -3019,3 +3019,18 @@ msgstr "Anmodning om at gennemføre bedømmelse"
 
 msgid "mailable.reviewRequestSubsequent.name"
 msgstr "Efterfølgende anmodning om bedømmelse"
+
+msgid "mailable.editorialReminder.description"
+msgstr "En automatisk e-mail sendt til redaktører med uafsluttede opgaver"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Redaktionel påmindelse"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Antallet af indsendelser, der er tildelt denne redaktør"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "En liste af indsendelser med uafsluttede opgaver"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL til en side, hvor brugeren kan se og redigere sin profil."

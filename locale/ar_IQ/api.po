@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-03-22 17:35+0000\n"
+"PO-Revision-Date: 2022-06-18 04:31+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
@@ -249,3 +249,18 @@ msgstr ""
 
 msgid "api.400.requireEmailSubjectBody"
 msgstr "ينبغي عليك توفير موضوع البريد الالكتروني ومتنه."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "مفاتيح القالب ينبغي أن تكون مصفوفة أو نصًا خاليًا"
+
+msgid "api.mailables.404.templateNotFound"
+msgstr "تعذر تعيين القالب لهذا البريد الالكتروني لأنه تعذر العثور على القالب."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "تعذر العثور على البريد الالكتروني الذي طلبته."
+
+msgid "api.mailables.400.templateKeysMissing"
+msgstr "لم يتم تحديد مفاتيح قالب البريد الالكتروني."
+
+msgid "api.dois.400.prefixRequired"
+msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا لتوليد معرفات المكونات الرقمية."

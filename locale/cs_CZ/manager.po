@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-06-27 20:52+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2355,23 +2355,22 @@ msgstr ""
 "stanoveného termínu. Automatické připomenutí recenze lze nastavit v "
 "nastavení recenze."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "Tento email se automaticky odesílá, jakmile uplyne datum splatnosti potvrzení recenzenta (viz Možnosti kontroly v sekci Nastavení> Pracovní postup> Kontrola) a přístup k recenznímu kontrole je zakázán. Plánované úlohy musí být povoleny a konfigurovány (viz konfigurační soubor webu)."
+msgstr ""
+"Tento e-mail je automaticky odeslán po uplynutí lhůty pro odpověď recenzenta "
+"na žádost o recenzi."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Tento email od editora sekce pro recenzenta žádá, aby recenzent přijal nebo "
-"odmítl úkol zpracovat recenzi příspěvku. "
+"Tento e-mail od editora sekce recenzentovi žádá, aby recenzent přijal nebo "
+"odmítl úkol posoudit předložený příspěvek. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Tento e-mail od editora recenzentovi žádá, aby recenzent přijal nebo odmítl "
-"úkol posoudit předložený příspěvek v dalším kole recenzního řízení. Obsahuje "
-"informace o příspěvku, jako je název a abstrakt, datum uzávěrky recenze a "
-"způsob přístupu k samotnému příspěvku."
+"Tento e-mail od redaktora recenzentovi žádá, aby recenzent přijal nebo "
+"odmítl úkol recenzovat předložený příspěvek v dalším kole recenzního řízení. "
+"Poskytuje informace o příspěvku, jako je název a abstrakt, datum uzávěrky "
+"recenze a způsob přístupu k samotnému příspěvku."
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Žádný"
@@ -2542,7 +2541,8 @@ msgstr "Stav uložení"
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
 "Chystáte se naplánovat uložení všech zbývajících metadatových záznamů DOI u "
-"{$registrationAgency}. Stav jednotlivých položek bude aktualizován po "
+"{$registrationAgency}. Uloženy budou pouze ty položky, které byly vydány a "
+"bylo jim přiděleno DOI. Stav jednotlivých položek bude aktualizován po "
 "obdržení odpovědi. Jste si jisti, že chcete naplánovat vklady pro všechny "
 "tyto položky?"
 
@@ -2908,3 +2908,35 @@ msgstr "Tuto operaci nelze vyvolat bez povolených DOI."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Aktualizace DOI selhala"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Požadavek na následnou recenzi"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Požadavek na recenzi"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Uplynula lhůta na reakci na požadavek na recenzi (automatizované)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Tento e-mail zasílá redaktor sekce, aby potvrdil přijetí dokončené recenze a "
+"poděkoval recenzentovi za jeho příspěvky."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Poděkování za recenzi"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Automatický e-mail zaslaný redaktorům s nevyřízenými úkoly"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Redakční připomenutí"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Počet příspěvků přidělených tomuto redaktorovi"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Seznam příspěvků s nevyřízenými úkoly"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele."

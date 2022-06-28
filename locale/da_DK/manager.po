@@ -1,11 +1,12 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-06-22 08:26+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2427,31 +2428,31 @@ msgstr ""
 "bedømmelsen inden forfaldsdatoen. Automatiske påmindelser om bedømmelse kan "
 "slåes til under indstillingerne for Bedømmelse under Workflow."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "Denne e-mail sendes automatisk når en bedømmers bekræftelsesdato er overskredet (se bedømmelsesindstillinger under Indstillinger > Workflow > Bedømmelse) og ’Aktiver adgang for bedømmere ved hjælp af ét klik’ er fravalgt. Tidsfrister og påmindelser skal være defineret."
+msgstr ""
+"Denne e-mail sendes automatisk, når en bedømmers bekræftelsesdato er "
+"overskredet."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Denne e-mail fra sektionsredaktøren til en bedømmer anmoder bedømmeren om at "
 "acceptere eller afvise at bedømme et manuskript. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Denne mail sendes af redaktøren til en bedømmer, der bedes oplyse om "
-"vedkommende vil påtage sig at bedømme et indlæg i en yderligere  "
-"bedømmelsesrunde. Det indeholder informationer om indlægget så som titel og "
-"resumé, forfaldsdato for indlevering af bedømmelse samt hvordan man får "
-"adgang til indlægget."
+"Denne e-mail sendes af redaktøren til en bedømmer, der bedes oplyse om "
+"vedkommende vil påtage sig at bedømme en indsendelse i en yderligere "
+"bedømmelsesrunde. Den indeholder informationer om indsendelsen så som titel "
+"og resumé, forfaldsdato for indlevering af bedømmelse samt hvordan man får "
+"adgang til indsendelsen."
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
-"Du er ved at planlægge alle udestående fortegnelser over DOI metadata til "
-"deponering ved {$registrationAgency}. Hvert elements individuelle status vil "
-"blive opdateret, når et svar modtages. Er du sikker på, at du ønsker at "
-"planlægge deponering for alle disse elementer?"
+"Du er ved at planlægge, at alle udestående DOI metadata-fortegnelser bliver "
+"deponeret ved {$registrationAgency}. Kun publicerede elementer med en DOI "
+"vil blive deponerede. Hvert elements status vil blive opdateret, når et svar "
+"modtages. Er du sikker på, at du ønsker at planlægge deponering for alle "
+"disse elementer?"
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Ingen"
@@ -3001,3 +3002,20 @@ msgstr "Du kan ikke vælge denne handling uden at have DOI'er slået til."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI opdatering mislykkedes"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Denne e-mail sendes af en sektionsredaktør for at bekræfte modtagelsen af en "
+"færdig bedømmelse og takke bedømmeren for vedkommendes bidrag."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Bekræftelse af bedømmelse"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Svar på bedømmelse er overskredet (automatiseret)"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Anmodning om at gennemføre bedømmelse"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Efterfølgende anmodning om bedømmelse"

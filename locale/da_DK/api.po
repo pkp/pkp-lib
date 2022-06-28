@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-06-25 09:31+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "da_DK/>\n"
@@ -263,7 +263,7 @@ msgid "api.dois.404.doiNotFound"
 msgstr "Den DOI, du efterspurgte, blev ikke fundet."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Du kan ikke redigere et emnes DOI som ikke findes i denne kontekst"
+msgstr "Du kan ikke redigere et emnes DOI, som ikke findes i denne kontekst."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -288,3 +288,14 @@ msgstr "Du skal angive et emne og en beskedtekst i e-mailen."
 
 msgid "api.dois.403.prefixRequired"
 msgstr "Et DOI prefiks er påkrævet for at generere DOI'er."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Den e-mail, du anmodede om, blev ikke fundet."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "templateKeys input skal være et skema eller tom streng"
+
+msgid "api.mailables.404.templateNotFound"
+msgstr ""
+"Skabelonen kunne ikke tildeles denne e-mail, fordi skabelonen ikke blev "
+"fundet."

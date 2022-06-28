@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-06-04 19:36+0000\n"
+"PO-Revision-Date: 2022-06-20 14:31+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2369,22 +2369,16 @@ msgstr ""
 "avaliação for ultrapassada. Os lembretes de avaliação automatizados são "
 "ativados nas configurações de avaliação."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Este e-mail é automaticamente enviando quando o prazo para confirmação de um "
-"avaliador vence (veja as opções para avaliação em Configurações > Fluxo de "
-"trabalho > Avaliação) e a opção de habilitar acesso 1-clique para o "
-"avaliador está desabilitada. Tarefas agendadas devem ser habilitadas e "
-"configuradas (veja o arquivo de configuração do site)."
+"Este e-mail é enviado automaticamente quando o prazo para um avaliador "
+"responder a uma solicitação de avaliação expirar."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Mensagem do Editor de Seção para solicitar ao Avaliador que indique a "
-"disponibilidade ou não para realizar uma avaliação. "
+"disponibilidade ou não de avaliar uma submissão. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Este e-mail do Editor para um Avaliador, que solicita ao usuário aceitar ou "
@@ -2934,3 +2928,20 @@ msgstr "Não pode chamar esta operação sem DOIs habilitados."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Falha nas atualizações do DOI"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Solicitação de Avaliação"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Lembrete de resposta atrasada (automatizada)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Este e-mail é enviado por um Editor de Seção para confirmar o recebimento de "
+"uma avaliação concluída e agradecer ao avaliador por suas contribuições."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Agradecimento da avaliação"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Solicitação de Avaliação Subsequente"

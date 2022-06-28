@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-06-10 16:26+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3143,19 +3143,15 @@ msgstr ""
 "искане за рецензия, за да уведоми редактора на секции, че молбата му за "
 "резенция е отхвърлена."
 
-#, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
 "Този имейл се изпраща от редактора, за да напомни на рецензента, че е "
-"изтекъл срокът за подаване на рецензията. Този имейл се използва, когато "
-"редактор ръчно изпраща напомняне до рецензента"
+"изтекъл срокът за подаване на рецензията."
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Този имейл се изпраща автоматично, когато рецензентът не е завършил "
-"рецензията си до крайния срок. Автоматичните напомняния за рецензия се "
-"настройват през \"Настройки за рецензия\"."
+"рецензията си до крайния срок."
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
@@ -3165,11 +3161,10 @@ msgstr ""
 "Планираните задачи трябва да бъдат активирани и конфигурирани (вижте "
 "конфигурационния файл на сайта)."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Този имейл от редактора на секции до рецензент изисква от рецензента да "
-"приеме или отхвърли задачата за преглед на изпратено материал за статия. "
+"приеме или отхвърли задачата за преглед на изпратен материал за статия. "
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3178,4 +3173,20 @@ msgstr ""
 "редакцията. Той предоставя информация за изпратеното, като заглавието и "
 "резюмето, краен срок за преглед и как да получите достъп до самите материали."
 
-#, fuzzy
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Следваща заявка за рецензия"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Заявка за рецензия"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Просрочен отговор за рецензия (автоматичен)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Този имейл се изпраща от редактор на раздел, за да потвърди получаването на "
+"завършена рецензия и да благодари на рецензента за неговия принос."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Признание за рецензия"

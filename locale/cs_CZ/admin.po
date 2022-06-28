@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-05-07 03:02+0000\n"
+"PO-Revision-Date: 2022-06-27 20:52+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -497,3 +497,14 @@ msgstr "Smazat cache"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Odstranění neověřených uživatelů s prošlou platností"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Odesláno {$count} úkolů v rámci redakčních e-mailových upomínek uživatelům "
+"{$userIds} v kontextu {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Identifikace editorů, které je třeba upomínat v kontextu {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Odeslání e-mailu každému redaktorovi s připomenutím nesplněných úkolů"

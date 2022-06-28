@@ -2,8 +2,8 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-23 14:45+0000\n"
-"Last-Translator: Gints Buda <gints.buda@gmail.com>\n"
+"PO-Revision-Date: 2022-06-20 14:31+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "lv_LV/>\n"
 "Language: lv_LV\n"
@@ -16,3 +16,47 @@ msgstr ""
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Vai tiešām vēlaties neatgriezeniski dzēst šo iesniegumu?"
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Šī recenzēšanas kārta nav atrasta."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Jūs nevarat nosūtīt e-pastu šādiem adresātiem: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Redaktors netika atpazīts, un, iespējams, viņam nav atļaujas reģistrēt "
+"lēmumu par šo iesniegto materiālu."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Jums nav atļauts ierakstīt lēmumu par šo iesniegto materiālu."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Mainīt lēmumu"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Iesniegtais materiāls pieņemts recenzēšanai."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Nosūtīts ražošanai."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Nosūtīts jaunai recenzēšanas kārtai."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "iesniegtais materiāls publicēts."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Iesniegtais materiāls pieņemts."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Iesniegtais materiāls noraidīts."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Lēmums reģistrēts"
+
+msgid "editor.submissionLibrary"
+msgstr "Bibliotēka"
+
+msgid "editor.activityLog"
+msgstr "Aktivitāšu žurnāls"

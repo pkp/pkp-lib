@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-03-18 17:42+0000\n"
+"PO-Revision-Date: 2022-06-15 15:07+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -1298,7 +1298,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Innehållet är inte kodat som {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Okänd användargrupp {$param}"
+msgstr ""
+"Importfilen inkluderar en författare '{$authorName}' från användargruppen "
+"'{$userGroupName}'. Det finns ingen användargrupp med detta namn i den "
+"tilltänkta destinationen."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Okänd uppladdare {$param}"
@@ -2248,10 +2251,14 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL till en sida där användaren kan återställa sitt lösenord"
 
 msgid "mailable.reviewConfirm.description"
-msgstr "Det här e-postmeddelandet skickas från en granskare till sektionsredaktören som svar på en förfrågan om granskning för att meddela sektionsredaktören att granskaren accepterar förfrågan om granskning och att hen kommer att färdigställa denna till angiven deadline."
+msgstr ""
+"Detta e-postmeddelande skickas automatiskt när en granskare accepterar en "
+"granskningsförfrågan"
 
 msgid "mailable.reviewDecline.description"
-msgstr "Det här e-postmeddelandet skickas från en granskare till sektionsredaktören som svar på en förfrågan om granskning för att meddela sektionsredaktören att granskaren tackar nej till granskningsuppdraget."
+msgstr ""
+"Det här e-postmeddelandet skickas när en granskare avböjer en "
+"granskningsförfrågan"
 
 #, fuzzy
 msgid "mailable.reviewRemind.description"
@@ -2303,10 +2310,10 @@ msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "Vid vilken punkt i publiceringsprocessen ska DOI tilldelas?"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Automatisk generering av DOI"
+msgstr "Automatisk tilldelning av DOI"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "DOI-prefix krävs och måste vara i formatet 10.xxxx..."
+msgstr "DOI-prefix krävs och måste vara i formatet 10.xxxx."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -2316,7 +2323,10 @@ msgstr ""
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Anger om DOI:er deponeras automatiskt till den inställda organisationen."
+"DOI:n kan registreras automatiskt hos den valda organisationen när ett "
+"objekt med DOI publiceras. Automatisk registrering sker vid bestämda "
+"intervaller och varje DOI:s status kan kontrolleras genom sidan för DOI-"
+"hantering."
 
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Aktivera automatisk deponering"
@@ -2672,18 +2682,59 @@ msgid "manager.dois.status.needsDoi"
 msgstr "DOI saknas"
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr "Ett DOI-suffix kan ha vilket format som helst, men måste vara unikt bland de publiceringsobjekt som tilldelats samma DOI-prefix:"
+msgstr "Välj vilket format som ska användas när DOI genereras."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Använd default-mönster."
+msgstr "Default"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI-suffix"
+msgstr "DOI-format"
 
 msgid "doi.manager.settings.doiPrefix.description"
-msgstr "DOI-prefix delas ut av t.ex. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a> och är i formatet 10.xxxx (t.ex. 10.1234):"
+msgstr ""
+"DOI-prefix delas ut av t.ex. <a href=\"http://www.crossref.org\" target=\""
+"_new\">Crossref</a> och är i formatet 10.xxxx (t.ex. 10.1234)."
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidskriftens innehåll"
 
-#, fuzzy
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Verifiera e-post (site)"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Webbsidans e-postsignatur för automatiska e-postmeddelanden"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Tidskriftens postadress"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Övriga bidrag"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Detta inkluderar bidrag som inte räknas in i totalsummorna, t.ex. bidrag som "
+"är under bearbetning och bidrag som har importerats."
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Du kan inte utföra detta kommando utan att aktivera DOI:er"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Eget mönster (ej rekommenderat)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Eget DOI-suffixmönster"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI-suffix"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Ett DOI-prefix krävs"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Innan detta objekt kan raderas måste du koppla alla relaterade filer till "
+"ett annat objekt"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI-uppdatering misslyckades"

@@ -117,6 +117,8 @@ class CategoryForm extends Form {
 			$sortOption = $category->getSortOption() ? $category->getSortOption() : $submissionDao->getDefaultSortOption();
 			$this->setData('sortOption', $sortOption);
 		}
+
+		return parent::initData();
 	}
 
 	/**

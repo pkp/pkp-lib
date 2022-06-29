@@ -1,9 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2022-06-29 13:31+0000\n"
-"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Last-Translator: Artashes Mirzoyan <amirzoyan@sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
 "Language: hy_AM\n"
@@ -1917,8 +1918,8 @@ msgstr "UserGroup բացակայում է հեղինակի անունը {$param}
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
-"Ներմուծման նիշքը ներառում է '{$authorName}' հեղինակ, '{$userGroupName}' "
-"օգտվողների խմբի հետ: Այս անունով օգտատերերի խմբում սահմանված օգտատերերի "
+"Ներմուծման ֆայլը ներառում է «{$ authorName}» հեղինակ, «{$ userGroupName}» "
+"օգտվողների խմբի հետ: Այս անունով օգտատերերի խմբի մեջ սահմանված օգտատերերի "
 "խումբ չկա:"
 
 msgid "plugins.importexport.common.error.encodingError"

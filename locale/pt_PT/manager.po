@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-06-29 13:31+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2337,16 +2337,11 @@ msgstr ""
 "sua revisão no prazo previsto. Lembretes automáticos de revisão estão ativos "
 "em Configurações de Revisão."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Este e-mail é enviado automaticamente quando o prazo de confirmação de um "
-"revisor expira (consulte Opções de revisão em Configurações > Fluxo de "
-"trabalho > Revisão) e o acesso com um clique como revisor está desativado. "
-"As tarefas agendadas devem ser ativadas e configuradas (consulte o ficheiro "
-"de configuração do site)."
+"Este e-mail é enviado automaticamente quando o prazo de resposta de um "
+"revisor a um pedido de revisor foi ultrapassado."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Este e-mail é enviado pelo Editor de Secção para o Revisor a solicitar que "
@@ -2570,9 +2565,9 @@ msgstr "Estado do Depósito"
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
 "Está prestes a agendar o depósito de todos os registos de matadados DOI na "
-"{$registrationAgency}. O estado de cada item individual será atualizado "
-"quando for recebida uma resposta. Deseja realmente agendar o depósito de "
-"todos os itens?"
+"{$registrationAgency}. Apenas itens publicados com um DOI serão depositados. "
+"O estado de cada item será atualizado quando for recebida uma resposta. "
+"Deseja realmente agendar o depósito de todos os itens?"
 
 msgid "manager.setup.notifyAllAuthors"
 msgstr "Notificar Todos os Autores"
@@ -2902,3 +2897,29 @@ msgstr "Não pode realizar esta operação sem DOIs ativados."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Atualizações de DOI falhou"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Pedido de Revisão Subsequente"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Pedido de Revisão"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Lembrete de resposta atrasada (automatizada)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Este e-mail é enviado por um Editor de Secção para confirmar a receção de "
+"uma revisão concluída e agradecer ao revisor pelas suas contribuições."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Agradacimento da avaliação"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "O número de submissão designado a este editor"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Uma lista e submissões com tarefas pendentes"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "O URL para um utilizador visualizar e editar o seu perfil."

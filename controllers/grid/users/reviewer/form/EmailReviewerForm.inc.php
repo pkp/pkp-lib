@@ -25,7 +25,8 @@ class EmailReviewerForm extends Form {
 
 	/**
 	 * Constructor.
-	 * @param $reviewAssignment ReviewAssignment The review assignment to use for this contact.
+	 * @param ReviewAssignment $reviewAssignment The review assignment to use for this contact.
+	 * @param Submission $submission The submission of this review assignment
 	 */
 	function __construct($reviewAssignment, $submission) {
 		parent::__construct('controllers/grid/users/reviewer/form/emailReviewerForm.tpl');
@@ -71,7 +72,6 @@ class EmailReviewerForm extends Form {
 
 	/**
 	 * Send the email
-	 * @param $submission Submission
 	 */
 	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */

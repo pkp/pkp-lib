@@ -33,6 +33,7 @@ abstract class PKPTestCase extends TestCase
 {
     private $daoBackup = [];
     private $registryBackup = [];
+    private array $containerBackup = [];
     private $mockedRegistryKeys = [];
 
     /**
@@ -55,6 +56,17 @@ abstract class PKPTestCase extends TestCase
     protected function getMockedRegistryKeys()
     {
         return $this->mockedRegistryKeys;
+    }
+
+    /**
+     * Override this method if you want to backup/restore
+     * singleton entries from the container before/after the test.
+     *
+     * @return string[] A list of container classes/identifiers to backup and restore.
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [];
     }
 
     /**
@@ -86,6 +98,11 @@ abstract class PKPTestCase extends TestCase
         foreach ($this->getMockedRegistryKeys() as $mockedRegistryKey) {
             $this->registryBackup[$mockedRegistryKey] = Registry::get($mockedRegistryKey);
         }
+
+        // Backup container keys.
+        foreach ($this->getMockedContainerKeys() as $mockedContainer) {
+            $this->containerBackup[$mockedContainer] = app($mockedContainer);
+        }
     }
 
     /**
@@ -93,6 +110,11 @@ abstract class PKPTestCase extends TestCase
      */
     protected function tearDown(): void
     {
+        // Restore container keys.
+        foreach ($this->getMockedContainerKeys() as $mockedContainer) {
+            app()->instance($mockedContainer, $this->containerBackup[$mockedContainer]);
+        }
+
         // Restore registry keys.
         foreach ($this->getMockedRegistryKeys() as $mockedRegistryKey) {
             Registry::set($mockedRegistryKey, $this->registryBackup[$mockedRegistryKey]);

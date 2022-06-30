@@ -26,12 +26,18 @@ class PKPAuthorForm extends Form {
 	 * Constructor.
 	 */
 	function __construct($publication, $author) {
-		parent::__construct('controllers/grid/users/author/form/authorForm.tpl');
+		$submission = Services::get('submission')->get($publication->getData('submissionId'));
+		$context = Services::get('context')->get($submission->getData('contextId'));
+
+		parent::__construct(
+			'controllers/grid/users/author/form/authorForm.tpl', 
+			true, 
+			$publication->getData('locale'), 
+			$context->getSupportedSubmissionLocaleNames()
+		);
+		
 		$this->setPublication($publication);
 		$this->setAuthor($author);
-
-		// the publication locale should be the default/required locale
-		$this->setDefaultFormLocale($publication->getData('locale'));
 
 		// Validation checks for this form
 		$form = $this;

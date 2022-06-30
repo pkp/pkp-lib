@@ -19,7 +19,6 @@
 #  DBPASSWORD=zzz: Database password
 #  FILESDIR=files: Pathname to use for storing server-side submission files
 #  DBTYPE=MySQL: Name of database driver (MySQL or PostgreSQL)
-#  TIMEOUT=30: Selenium timeout; optional, 30 seconds by default
 #
 
 set -e # Fail on first error
@@ -27,12 +26,6 @@ set -e # Fail on first error
 # We recommend using Travis (https://travis-ci.org/) for continuous-integration
 # based testing. Review the Travis configuration file (.travis.yml) as a
 # reference for running the test locally, should you choose to do so.
-
-# Identify the tests directory.
-TESTS_DIR=`readlink -f "lib/pkp/tests"`
-
-# Shortcuts to the test environments.
-TEST_CONF1="--configuration $TESTS_DIR/phpunit-env1.xml"
 
 ### Command Line Options ###
 
@@ -48,7 +41,7 @@ DO_COVERAGE=0
 DEBUG=""
 
 # Parse arguments
-while getopts "bCPcpfdH" opt; do
+while getopts "CPcpdR" opt; do
 	case "$opt" in
 		C)	DO_ALL=0
 			DO_PKP_CLASSES=1
@@ -64,22 +57,37 @@ while getopts "bCPcpfdH" opt; do
 			;;
 		d)	DEBUG="--debug"
 			;;
+		R)	DO_COVERAGE=1
+			;;
 	esac
 done
-phpunit='php lib/pkp/lib/vendor/phpunit/phpunit/phpunit'
+PHPUNIT='php lib/pkp/lib/vendor/phpunit/phpunit/phpunit --configuration lib/pkp/tests/phpunit.xml --testdox --no-interaction'
+
+# Where to look for tests
+TEST_SUITES='--testsuite '
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
-	$phpunit $DEBUG $TEST_CONF1 -v lib/pkp/tests/classes
+	TEST_SUITES="${TEST_SUITES}LibraryClasses,"
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_PLUGINS" -eq 1 \) ]; then
-	$phpunit $DEBUG $TEST_CONF1 -v lib/pkp/plugins
+	TEST_SUITES="${TEST_SUITES}LibraryPlugins,"
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
-	$phpunit $DEBUG $TEST_CONF1 -v tests/classes
+	TEST_SUITES="${TEST_SUITES}ApplicationClasses,"
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
-	find plugins -maxdepth 3 -name tests -type d | xargs -n 1 $phpunit $DEBUG $TEST_CONF1 -v
+	TEST_SUITES="${TEST_SUITES}ApplicationPlugins,"
+fi
+
+if [ "$DO_COVERAGE" -eq 1 ]; then
+	export XDEBUG_MODE=coverage
+fi
+
+$PHPUNIT $DEBUG -v ${TEST_SUITES%%,}
+
+if [ "$DO_COVERAGE" -eq 1 ]; then
+	cat lib/pkp/tests/results/coverage.txt
 fi

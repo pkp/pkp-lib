@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
     cacheResult="true"
     beStrictAboutOutputDuringTests="true"
     backupGlobals="false"
@@ -8,14 +9,23 @@
     bootstrap="phpunit-bootstrap.php"
     colors="true"
     convertErrorsToExceptions="true"
+    testdox="true"
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
     processIsolation="false"
-    stopOnFailure="true"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+    stopOnFailure="true">
     <testsuites>
-        <testsuite name="Common Test Suite">
+        <testsuite name="LibraryClasses">
             <directory suffix="Test.php">classes</directory>
+        </testsuite>
+        <testsuite name="ApplicationClasses">
+            <directory suffix="Test.php">../../../tests/classes</directory>
+        </testsuite>
+        <testsuite name="LibraryPlugins">
+            <directory suffix="Test.php">../plugins/*/*/tests</directory>
+        </testsuite>
+        <testsuite name="ApplicationPlugins">
+            <directory suffix="Test.php">../../../plugins/*/*/tests</directory>
         </testsuite>
     </testsuites>
     <coverage>
@@ -28,13 +38,7 @@
             <directory suffix=".php">./../Support</directory>
         </include>
         <report>
-            <html outputDirectory="results/coverage-html/" />
+            <text outputFile="results/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
         </report>
     </coverage>
-    <logging>
-        <testdoxHtml outputFile="results/coverage-tmp/logging.html"/>
-    </logging>
-    <php>
-        <server name="PKP_MOCK_ENV" value="env1"/>
-    </php>
 </phpunit>

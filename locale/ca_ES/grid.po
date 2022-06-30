@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2021-09-10 09:05+0000\n"
+"PO-Revision-Date: 2022-06-30 10:07+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ca_ES/>\n"
@@ -713,3 +713,17 @@ msgstr "Eliminar aquest grup d'usuaris/àries"
 
 msgid "grid.action.uninstall"
 msgstr "Desinstal·lar"
+
+msgid "contributor.listPanel.preview"
+msgstr "Vista prèvia"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Configureu el contacte principal"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Segur que voleu eliminar {$name} com a colaborador/a? Aquesta acció no es "
+"pot desfer."
+
+msgid "grid.action.saveOrdering"
+msgstr "Desar l'ordre"

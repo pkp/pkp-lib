@@ -146,7 +146,8 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 			$this->_logEvent($request, $this->submissionFile, SUBMISSION_LOG_NOTE_POSTED, 'SubmissionFileLog');
 
 			$user = $request->getUser();
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));
 
 			$jsonViewNotesResponse = $this->viewNotes($args, $request);
 			$json = new JSONMessage(true);

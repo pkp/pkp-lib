@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-06-30 10:07+0000\n"
+"PO-Revision-Date: 2022-07-01 11:31+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ca_ES/>\n"
@@ -727,3 +727,23 @@ msgstr ""
 
 msgid "grid.action.saveOrdering"
 msgstr "Desar l'ordre"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Complet"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Llistes de publicació"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abreviat"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Mostrar"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Els col·laboradors/ores d'aquesta publicació s'identificaran en aquesta "
+"revista en els següents formats."

@@ -23,8 +23,8 @@ use PKP\tests\PKPTestCase;
 
 class MetadataDescriptionTest extends PKPTestCase
 {
-    private $metadataDescription;
-    private static $testStatements = [
+    private MetadataDescription $metadataDescription;
+    private static array $testStatements = [
         ['not-translated-one', 'nto', null],
 
         ['not-translated-many', 'ntm1', null],
@@ -38,7 +38,7 @@ class MetadataDescriptionTest extends PKPTestCase
         ['translated-many', 'tm2_en', 'en_US'],
         ['translated-many', 'tm2_de', 'de_DE']
     ];
-    private static $testStatementsData = [
+    private static array $testStatementsData = [
         'not-translated-one' => 'nto',
         'not-translated-many' => [
             0 => 'ntm1',

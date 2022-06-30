@@ -18,14 +18,14 @@
 namespace PKP\tests\classes\security\authorization;
 
 use APP\core\Application;
-use Mockery\MockInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
 
 class AuthorizationDecisionManagerTest extends PolicyTestCase
 {
-    private $decisionManager;
+    private AuthorizationDecisionManager $decisionManager;
 
     protected function setUp(): void
     {
@@ -170,7 +170,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
     public function testCallOnDeny()
     {
         // Create a policy with a call-on-deny advice.
-        /** @var AuthorizationPolicy|MockInterface */
+        /** @var AuthorizationPolicy|MockObject */
         $policy = $this->getMockBuilder(AuthorizationPolicy::class)
             ->addMethods(['callOnDeny'])
             ->getMock();

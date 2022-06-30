@@ -22,10 +22,10 @@ use PKP\tests\PKPTestCase;
 
 class QueueTest extends PKPTestCase
 {
-    protected $configData;
+    protected array $configData;
 
     protected $tmpErrorLog;
-    protected $originalErrorLog;
+    protected string $originalErrorLog;
 
     /**
      * @see PKPTestCase::setUp()

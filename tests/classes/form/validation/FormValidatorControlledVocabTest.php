@@ -18,7 +18,7 @@
 namespace PKP\tests\classes\form\validation;
 
 use APP\core\Application;
-use Mockery\MockInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
 use PKP\db\DAORegistry;
@@ -46,7 +46,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         $form = new Form('some template');
 
         // Mock a ControlledVocab object
-        /** @var ControlledVocab|MockInterface */
+        /** @var ControlledVocab|MockObject */
         $mockControlledVocab = $this->getMockBuilder(ControlledVocab::class)
             ->onlyMethods(['enumerate'])
             ->getMock();

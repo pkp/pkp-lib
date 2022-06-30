@@ -24,7 +24,7 @@ use PKP\validation\ValidatorUrl;
 
 class FormValidatorTest extends PKPTestCase
 {
-    private $form;
+    private Form $form;
 
     protected function setUp(): void
     {

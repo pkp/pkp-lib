@@ -22,8 +22,7 @@ use PKP\tests\PKPTestCase;
 
 class DataObjectTest extends PKPTestCase
 {
-    /** @var DataObject */
-    protected $dataObject;
+    protected DataObject $dataObject;
 
     protected function setUp(): void
     {

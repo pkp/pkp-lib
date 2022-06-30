@@ -34,10 +34,10 @@ abstract class PolicyTestCase extends PKPTestCase
     protected const ROLE_ID_TEST = 0x9999;
 
     /** @var array of context object(s) */
-    private $contextObjects;
+    private ?array $contextObjects = null;
 
-    /** @var AuthorizationContext internal state variable that contains the policy that will be used to manipulate the authorization context */
-    private $authorizationContextManipulationPolicy;
+    /** @var AuthorizationPolicy internal state variable that contains the policy that will be used to manipulate the authorization context */
+    private ?AuthorizationPolicy $authorizationContextManipulationPolicy = null;
 
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()

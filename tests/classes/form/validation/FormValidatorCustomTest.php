@@ -24,7 +24,7 @@ use PKP\tests\PKPTestCase;
 
 class FormValidatorCustomTest extends PKPTestCase
 {
-    private $checkedValue;
+    private ?string $checkedValue = null;
 
     /**
      * @covers FormValidatorCustom

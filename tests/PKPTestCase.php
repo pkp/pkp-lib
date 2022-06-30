@@ -31,10 +31,10 @@ use PKP\db\DAORegistry;
 
 abstract class PKPTestCase extends TestCase
 {
-    private $daoBackup = [];
-    private $registryBackup = [];
+    private array $daoBackup = [];
+    private array $registryBackup = [];
     private array $containerBackup = [];
-    private $mockedRegistryKeys = [];
+    private array $mockedRegistryKeys = [];
 
     /**
      * Override this method if you want to backup/restore
@@ -42,7 +42,7 @@ abstract class PKPTestCase extends TestCase
      *
      * @return array A list of DAO names to backup and restore.
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
         return [];
     }
@@ -53,7 +53,7 @@ abstract class PKPTestCase extends TestCase
      *
      * @return array A list of registry keys to backup and restore.
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
         return $this->mockedRegistryKeys;
     }

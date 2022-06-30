@@ -20,7 +20,8 @@ namespace PKP\tests\classes\core;
 use APP\core\Application;
 use APP\core\Request;
 use AssertionError;
-use Mockery\MockInterface;
+use PHPUnit\Framework\MockObject\MockObject;
+use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -32,12 +33,11 @@ use PKP\tests\PKPTestCase;
  */
 class PKPRouterTestCase extends PKPTestCase
 {
-    public const
-        PATHINFO_ENABLED = true,
-    PATHINFO_DISABLED = false;
+    public const PATHINFO_ENABLED = true;
+    public const PATHINFO_DISABLED = false;
 
-    protected $router;
-    protected $request;
+    protected PKPRouter $router;
+    protected PKPRequest $request;
 
     /**
      * @see PKPTestCase::getMockedRegistryKeys()
@@ -323,7 +323,7 @@ class PKPRouterTestCase extends PKPTestCase
         $contextList = ['firstContext']
     ) {
         // Mock application object without calling its constructor.
-        /** @var Application|MockInterface */
+        /** @var Application|MockObject */
         $mockApplication = $this->getMockBuilder(Application::class)
             ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();

@@ -17,6 +17,7 @@
 
 namespace PKP\tests\classes\form\validation;
 
+use Closure;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorArrayCustom;
@@ -24,17 +25,17 @@ use PKP\tests\PKPTestCase;
 
 class FormValidatorArrayCustomTest extends PKPTestCase
 {
-    private $checkedValues = [];
-    private $form;
-    private $subfieldValidation;
-    private $localeFieldValidation;
+    private array $checkedValues = [];
+    private Form $form;
+    private Closure $subfieldValidation;
+    private Closure $localeFieldValidation;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->form = new Form('some template');
-        $this->subfieldValidation = [$this, 'userFunctionForSubfields'];
-        $this->localeFieldValidation = [$this, 'userFunctionForLocaleFields'];
+        $this->subfieldValidation = fn (...$args) => $this->userFunctionForSubfields(...$args);
+        $this->localeFieldValidation = fn (...$args) => $this->userFunctionForLocaleFields(...$args);
     }
 
     /**

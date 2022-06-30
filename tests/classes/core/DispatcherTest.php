@@ -19,19 +19,20 @@ namespace PKP\tests\classes\core;
 
 use APP\core\Application;
 use APP\core\Request;
-use Mockery\MockInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PKP\config\Config;
+use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\tests\PKPTestCase;
 
 class DispatcherTest extends PKPTestCase
 {
-    public const
-        PATHINFO_ENABLED = true,
-        PATHINFO_DISABLED = false;
+    public const PATHINFO_ENABLED = true;
+    public const PATHINFO_DISABLED = false;
 
-    private $dispatcher;
-    private $request;
+    private Dispatcher $dispatcher;
+    private PKPRequest $request;
 
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()
@@ -49,7 +50,7 @@ class DispatcherTest extends PKPTestCase
         parent::setUp();
 
         // Mock application object without calling its constructor.
-        /** @var Application|MockInterface */
+        /** @var Application|MockObject */
         $mockApplication = $this->getMockBuilder(Application::class)
             ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();

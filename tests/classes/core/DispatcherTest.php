@@ -36,9 +36,9 @@ class DispatcherTest extends PKPTestCase
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
-        return ['application', 'dispatcher'];
+        return [...parent::getMockedRegistryKeys(), 'application', 'dispatcher'];
     }
 
     /**

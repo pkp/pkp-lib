@@ -40,6 +40,22 @@ class PKPNotificationManagerTest extends PKPTestCase
     private $notificationMgr;
 
     /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'request', 'application'];
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [...parent::getMockedContainerKeys(), \PKP\user\DAO::class];
+    }
+
+    /**
      * @covers PKPNotificationManager::getNotificationMessage
      */
     public function testGetNotificationMessage()
@@ -184,9 +200,9 @@ class PKPNotificationManagerTest extends PKPTestCase
     /**
      * @see PKPTestCase::getMockedDAOs()
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
-        return ['NotificationDAO', 'NotificationSettingsDAO'];
+        return [...parent::getMockedDAOs(), 'NotificationDAO', 'NotificationSettingsDAO'];
     }
 
     protected function setUp(): void

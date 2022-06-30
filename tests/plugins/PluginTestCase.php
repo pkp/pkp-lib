@@ -21,6 +21,7 @@
 
 namespace PKP\tests\plugins;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\install\Install;
 use DOMDocument;
@@ -47,9 +48,9 @@ class PluginTestCase extends DatabaseTestCase
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
-        return ['request', 'hooks'];
+        return [...parent::getMockedRegistryKeys(), 'request', 'hooks'];
     }
 
     /**

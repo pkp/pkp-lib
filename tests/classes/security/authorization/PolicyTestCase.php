@@ -42,9 +42,9 @@ abstract class PolicyTestCase extends PKPTestCase
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
-        return ['user'];
+        return [...parent::getMockedRegistryKeys(), 'user'];
     }
 
     /**

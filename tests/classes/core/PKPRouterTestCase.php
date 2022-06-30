@@ -39,6 +39,14 @@ class PKPRouterTestCase extends PKPTestCase
     protected $router;
     protected $request;
 
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'application'];
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

@@ -28,24 +28,25 @@ use PKP\tests\PKPTestCase;
 class PKPRequestTest extends PKPTestCase
 {
     protected $request;
-    private $getRemoteAddrTestConfigData;
+
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'configData'];
+    }
 
     protected function setUp(): void
     {
         parent::setUp();
         HookRegistry::rememberCalledHooks();
         $this->request = new Request();
-
-        // Save the config data for testTrustXForwardedFor tests
-        $this->getRemoteAddrTestConfigData = Registry::get('configData');
     }
 
     protected function tearDown(): void
     {
         HookRegistry::resetCalledHooks();
-
-        // Restore the config data after testTrustXForwardedFor tests
-        Registry::set('configData', $this->getRemoteAddrTestConfigData);
         parent::tearDown();
     }
 

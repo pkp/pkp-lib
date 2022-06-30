@@ -26,6 +26,14 @@ use PKP\db\DAORegistry;
  */
 class PKPComponentRouterTest extends PKPRouterTestCase
 {
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'request', 'user'];
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

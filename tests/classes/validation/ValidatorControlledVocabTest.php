@@ -30,9 +30,9 @@ class ValidatorControlledVocabTest extends PKPTestCase
     /**
      * @see PKPTestCase::getMockedDAOs()
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
-        return ['ControlledVocabDAO'];
+        return [...parent::getMockedDAOs(), 'ControlledVocabDAO'];
     }
 
     /**

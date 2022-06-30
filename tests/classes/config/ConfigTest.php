@@ -24,6 +24,14 @@ use PKP\tests\PKPTestCase;
 class ConfigTest extends PKPTestCase
 {
     /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'configData', 'configFile'];
+    }
+
+    /**
      * @covers Config::getConfigFileName
      */
     public function testGetDefaultConfigFileName()
@@ -79,7 +87,7 @@ class ConfigTest extends PKPTestCase
         // keep the test less verbose.
         self::assertEquals($expectedResult, $result['general']);
 
-        $result = &Config::getData();
+        $result = & Config::getData();
         self::assertEquals($expectedResult, $result['general']);
     }
 

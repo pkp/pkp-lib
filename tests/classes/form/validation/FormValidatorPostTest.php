@@ -18,7 +18,6 @@
 namespace PKP\tests\classes\form\validation;
 
 use APP\core\Application;
-use APP\core\Request;
 use Mockery;
 use PKP\core\Registry;
 use PKP\form\Form;
@@ -27,26 +26,26 @@ use PKP\tests\PKPTestCase;
 
 class FormValidatorPostTest extends PKPTestCase
 {
-    private Request $_request;
     private bool $_isPosted = false;
+
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'request'];
+    }
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->_request = Application::get()->getRequest();
-        $mock = Mockery::mock($this->_request)
+        $request = Application::get()->getRequest();
+        $mock = Mockery::mock($request)
             // Custom isPost()
-            ->shouldReceive('isPost')->andReturn(fn () => $this->_isPosted)
+            ->shouldReceive('isPost')->andReturnUsing(fn () => $this->_isPosted)
             ->getMock();
         // Replace the request singleton by a mock
         Registry::set('request', $mock);
-    }
-
-    protected function tearDown(): void
-    {
-        // Restores the original request instance
-        Registry::set('request', $this->_request);
-        parent::tearDown();
     }
 
     /**

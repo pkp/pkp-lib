@@ -70,8 +70,6 @@ class FileCacheTest extends PKPTestCase
      */
     public function testCacheMiss()
     {
-        $this->markTestSkipped();
-
         // Get the file cache.
         $fileCache = $this->getCache();
 
@@ -88,8 +86,8 @@ class FileCacheTest extends PKPTestCase
         // Check to see that we got it without a second miss
         self::assertTrue($val2 == null);
 
-        // WARNING: This will trigger bug #8039 until fixed.
-        self::assertTrue($this->cacheMisses == 1);
+        // When an item isn't found, the cache is reset
+        self::assertTrue($this->cacheMisses == 2);
     }
 
     //
@@ -117,9 +115,8 @@ class FileCacheTest extends PKPTestCase
 
         if (!is_writable($this->cacheManager->getFileCachePath())) {
             $this->markTestSkipped('File cache path not writable.');
-        } else {
-            $this->cacheManager->flush();
         }
+        $this->cacheManager->flush();
     }
 
     /**
@@ -127,6 +124,6 @@ class FileCacheTest extends PKPTestCase
      */
     protected function getCache()
     {
-        return $this->cacheManager->getFileCache('testCache', 0, [$this, '_cacheMiss']);
+        return $this->cacheManager->getFileCache('testCache', 0, fn (...$args) => $this->_cacheMiss(...$args));
     }
 }

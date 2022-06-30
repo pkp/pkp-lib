@@ -77,7 +77,7 @@ class DispatcherTest extends PKPTestCase
     public function testUrl()
     {
         if (Config::getVar('general', 'disable_path_info')) {
-            $this->markTestSkipped();
+            $this->markTestSkipped('The config [general].disable_path_info is enabled');
         }
         $baseUrl = $this->request->getBaseUrl();
 

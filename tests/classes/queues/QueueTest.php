@@ -36,7 +36,7 @@ class QueueTest extends PKPTestCase
         $this->configData = Config::getData();
 
         if ($this->configData['queues']['disable_jobs_run_at_shutdown']) {
-            $this->markTestSkipped('Config [\'queues\'][\'disable_jobs_run_at_shutdown\'] isn\'t disabled.');
+            $this->markTestSkipped("Cannot test queues with the config [queues].disable_jobs_run_at_shutdown enabled.");
         }
 
         $this->originalErrorLog = ini_get('error_log');

@@ -38,7 +38,6 @@ class XMLTypeDescriptionTest extends PKPTestCase
      */
     public function testInstantiateAndCheck()
     {
-        $this->markTestSkipped();
         // Xdebug's scream parameter will disable the @ operator
         // that we need for XML validation.
         PKPTestHelper::xdebugScream(false);
@@ -49,7 +48,8 @@ class XMLTypeDescriptionTest extends PKPTestCase
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-valid.xml');
         self::assertTrue($typeDescription->isCompatible($testXmlDom));
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-invalid.xml');
-        self::assertFalse($typeDescription->isCompatible($testXmlDom));
+        $this->expectWarning();
+        $typeDescription->isCompatible($testXmlDom);
 
         // Test with xsd validation
         $typeDescription = new XMLTypeDescription('schema(' . dirname(__FILE__) . '/xsdsample.xsd)');

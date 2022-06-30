@@ -37,10 +37,11 @@ class ClassTypeDescriptionTest extends PKPTestCase
     /**
      * @covers ClassTypeDescription
      */
-    public function testInstantiateWithInvalidTypeDescriptor1()
+    public function testInstantiateWithInvalidTypeDescriptor()
     {
         // An unknown type name will cause an error.
         $this->expectError();
+        $this->expectOutputRegex('/' . preg_quote(htmlspecialchars('Trying to instantiate a "class" type description with an invalid type name "ClassWithoutPackage"')) . '/');
         $typeDescription = new ClassTypeDescription('ClassWithoutPackage');
     }
 }

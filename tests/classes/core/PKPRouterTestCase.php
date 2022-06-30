@@ -95,7 +95,6 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testIsCacheable()
     {
-        $this->markTestSkipped(); // Not currently working
         $this->request = new Request();
         self::assertFalse($this->router->isCacheable($this->request));
     }
@@ -168,7 +167,6 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testGetRequestedContextPathWithFullContextParameters()
     {
-        $this->markTestSkipped('Plugins (or something) appear to interfere with the expectations of the called hook list test in Travis environment');
         $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
         HookRegistry::resetCalledHooks(true);
         $_GET['firstContext'] = 'context1';
@@ -188,8 +186,6 @@ class PKPRouterTestCase extends PKPTestCase
 
     /**
      * @covers PKPRouter::getRequestedContextPaths
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
      */
     public function testGetRequestedContextPathWithPartialContextParameters()
     {

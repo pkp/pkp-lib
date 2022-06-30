@@ -111,8 +111,6 @@ class LocaleTest extends PKPTestCase
      */
     public function testGetLocalesWithCountryName()
     {
-        $this->markTestSkipped('TODO: Will be fixed by the issue #8040');
-
         $expectedLocalesWithCountry = [
             'en_US' => 'English (United States)',
             'pt_BR' => 'Portuguese (Brazil)',

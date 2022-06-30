@@ -18,6 +18,7 @@
 namespace PKP\tests\classes\core;
 
 use APP\core\Request;
+use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\plugins\HookRegistry;
 use PKP\tests\PKPTestCase;
@@ -27,7 +28,7 @@ use PKP\tests\PKPTestCase;
  */
 class PKPRequestTest extends PKPTestCase
 {
-    protected $request;
+    protected PKPRequest $request;
 
     /**
      * @see PKPTestCase::getMockedRegistryKeys()

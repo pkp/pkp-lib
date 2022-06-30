@@ -106,7 +106,7 @@ class FilterDAOTest extends DatabaseTestCase
 
     public function testCompositeFilterCrud()
     {
-        $this->markTestSkipped();
+        $this->markTestSkipped('Broken test skipped');
         /** @var FilterDAO */
         $filterDao = DAORegistry::getDAO('FilterDAO');
 

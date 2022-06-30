@@ -67,12 +67,11 @@ class ConfigTest extends PKPTestCase
      */
     public function testReloadDataAndGetData()
     {
-        $this->markTestSkipped();
-        Config::setConfigFileName('lib/pkp/tests/config/config.mysql.inc.php');
+        Config::setConfigFileName('lib/pkp/tests/config/config.TEMPLATE.mysql.inc.php');
         $result = Config::reloadData();
         $expectedResult = [
             'installed' => true,
-            'base_url' => 'http://pkp.sfu.ca/ojs',
+            'base_url' => 'https://pkp.sfu.ca/ojs',
             'session_cookie_name' => 'OJSSID',
             'session_lifetime' => 30,
             'scheduled_tasks' => false,
@@ -98,7 +97,7 @@ class ConfigTest extends PKPTestCase
      */
     public function testGetVar()
     {
-        self::assertEquals('mysql', Config::getVar('database', 'driver'));
+        self::assertEquals('mysqli', Config::getVar('database', 'driver'));
         self::assertNull(Config::getVar('general', 'non-existent-config-var'));
         self::assertNull(Config::getVar('non-existent-config-section', 'non-existent-config-var'));
     }
@@ -110,7 +109,7 @@ class ConfigTest extends PKPTestCase
      */
     public function testGetVarFromOtherConfig()
     {
-        Config::setConfigFileName('lib/pkp/tests/config/config.pgsql.inc.php');
+        Config::setConfigFileName('lib/pkp/tests/config/config.TEMPLATE.pgsql.inc.php');
         self::assertEquals('pgsql', Config::getVar('database', 'driver'));
     }
 }

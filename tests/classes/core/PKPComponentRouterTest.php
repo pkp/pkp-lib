@@ -42,9 +42,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase
 
     public function testSupports()
     {
-        // This method only exists to override and neutralize the parent class'
-        // testSupports() which is not relevant for component routers.
-        $this->markTestSkipped();
+        $this->markTestSkipped('The method PKPRouter::testSupports() is not relevant for component routers');
     }
 
     /**
@@ -110,9 +108,8 @@ class PKPComponentRouterTest extends PKPRouterTestCase
      * @covers PKPComponentRouter::_retrieveServiceEndpointParts
      * @covers PKPComponentRouter::_validateServiceEndpointParts
      */
-    public function testSupportsWithPathinfoUnsuccessfulComponentFileDoesNotExist()
+    public function testSupportsWithPathinfoAndComponentFileDoesNotExist()
     {
-        $this->markTestSkipped();
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
         $_SERVER = [
@@ -120,7 +117,8 @@ class PKPComponentRouterTest extends PKPRouterTestCase
             'PATH_INFO' => '/context1/$$$call$$$/inexistent/component/fetch-grid'
         ];
         self::assertEquals('inexistent.ComponentHandler', $this->router->getRequestedComponent($this->request));
-        self::assertFalse($this->router->supports($this->request));
+        // @see PKPComponentRouter::supports() for details
+        self::assertTrue($this->router->supports($this->request));
     }
 
     /**

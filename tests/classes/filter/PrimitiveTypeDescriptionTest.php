@@ -72,35 +72,26 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
     }
 
     /**
-     * @covers PrimitiveTypeDescription
-     * @covers TypeDescription
+     * Provides test data
      */
-    public function testInstantiateWithInvalidTypeDescriptor1()
+    public function typeDescriptorDataProvider(): array
     {
-        // An unknown type name will cause an error.
-        $this->expectError();
-        $typeDescription = new PrimitiveTypeDescription('xyz');
+        return [
+            'An unknown type name will cause an error' => ['xyz'],
+            'We don\'t allow multi-dimensional arrays' => ['integer[][]'],
+            'An invalid cardinality will also cause an error' => ['integer[x]'],
+        ];
     }
 
     /**
      * @covers PrimitiveTypeDescription
      * @covers TypeDescription
+     * @dataProvider typeDescriptorDataProvider
      */
-    public function testInstantiateWithInvalidTypeDescriptor2()
+    public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {
-        // We don't allow multi-dimensional arrays.
         $this->expectError();
-        $typeDescription = new PrimitiveTypeDescription('integer[][]');
-    }
-
-    /**
-     * @covers PrimitiveTypeDescription
-     * @covers TypeDescription
-     */
-    public function testInstantiateWithInvalidTypeDescriptor3()
-    {
-        // An invalid cardinality will also cause an error.
-        $this->expectError();
-        $typeDescription = new PrimitiveTypeDescription('integer[x]');
+        $this->expectOutputRegex('/' . preg_quote(htmlspecialchars("Trying to instantiate a \"primitive\" type description with an invalid type name \"$type\"")) . '/');
+        $typeDescription = new PrimitiveTypeDescription($type);
     }
 }

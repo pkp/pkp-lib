@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-09-10 09:05+0000\n"
+"PO-Revision-Date: 2022-07-01 11:31+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ca_ES/>\n"
@@ -441,8 +441,8 @@ msgstr "El nom es obligatori."
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Com preferiu que se us adrecin? Aquí podeu afegir encapçalaments, segons "
-"noms i sufixos si ho desitgeu."
+"Proporcioneu el nom complet tal com l'autor/a hauria de ser identificat en "
+"l'obra publicada. Exemple: Dr. Alan P. Mwandenga"
 
 msgid "user.preferredPublicName"
 msgstr "Nom públic preferit"

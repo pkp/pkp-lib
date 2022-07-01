@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-07-02 03:50+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "sl_SI/>\n"
@@ -269,10 +269,23 @@ msgstr ""
 "jo je treba zahtevati za dani kontekst."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Ne morete urejati DOI elementa, ki ni v tem kontekstu"
+msgstr "Ne morete urejati DOI elementa, ki ni v tem kontekstu."
 
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Navesti morate zadevo in vsebino emaila."
 
 msgid "api.dois.403.prefixRequired"
 msgstr "Za pripravo DOI-jev je potrebna DOI predpona."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "Vhodni parameter templateKeys mora biti niz ali prazen string"
+
+msgid "api.mailables.404.templateNotFound"
+msgstr ""
+"Predloga ni mogla biti dodeljena temu emailu, ker je ni bilo mogoče najti."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Zahtevanega emaila ni bilo moč najti."
+
+msgid "api.mailables.400.templateKeysMissing"
+msgstr "Ključniki emaila niso specificirani."

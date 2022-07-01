@@ -50,7 +50,6 @@ class ConfigTest extends PKPTestCase
     }
 
     /**
-     * @depends testSetConfigFileName
      * @covers Config::reloadData
      */
     public function testReloadDataWithNonExistentConfigFile()
@@ -62,7 +61,6 @@ class ConfigTest extends PKPTestCase
     }
 
     /**
-     * @depends testSetConfigFileName
      * @covers Config::reloadData
      */
     public function testReloadDataAndGetData()
@@ -91,19 +89,18 @@ class ConfigTest extends PKPTestCase
     }
 
     /**
-     * @depends testReloadDataAndGetData
      * @covers Config::getVar
      * @covers Config::getData
      */
     public function testGetVar()
     {
+        Config::setConfigFileName('lib/pkp/tests/config/config.TEMPLATE.mysql.inc.php');
         self::assertEquals('mysqli', Config::getVar('database', 'driver'));
         self::assertNull(Config::getVar('general', 'non-existent-config-var'));
         self::assertNull(Config::getVar('non-existent-config-section', 'non-existent-config-var'));
     }
 
     /**
-     * @depends testGetVar
      * @covers Config::getVar
      * @covers Config::getData
      */

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-05-06 12:44+0000\n"
+"PO-Revision-Date: 2022-07-02 03:50+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -2142,3 +2142,9 @@ msgstr "Dodaj Kp/Skp"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Neznan ukaz {$command}"
+
+msgid "notification.type.editorialReminder"
+msgstr "Tedenski email z odprtimi nalogami"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"

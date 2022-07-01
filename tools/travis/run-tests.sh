@@ -48,4 +48,4 @@ if [ -d "cypress/tests/integration" ]; then
 fi
 
 # Run the unit tests.
-./lib/pkp/tools/runAllTests.sh -CcPpd
+./lib/pkp/tools/runAllTests.sh -CcPpdR

@@ -64,7 +64,7 @@ class GenericCache
     public function get($id)
     {
         $result = $this->getCache($id);
-        if (is_object($result) && $result instanceof generic_cache_miss) {
+        if (is_object($result) && !is_null($this->fallback) && $result instanceof generic_cache_miss) {
             $result = call_user_func_array($this->fallback, [$this, $id]);
         }
         return $result;

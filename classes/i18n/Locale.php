@@ -124,7 +124,8 @@ class Locale implements LocaleInterface
         $request = $this->_getRequest();
         $locale = $request->getUserVar('setLocale')
             ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
-            ?: $request->getCookieVar('currentLocale');
+            ?: $request->getCookieVar('currentLocale')
+            ?: $request->getPreferredLanguage($this->_getSupportedLocales());
         $this->setLocale($locale);
         return $this->locale;
     }

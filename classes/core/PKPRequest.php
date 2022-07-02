@@ -65,7 +65,6 @@ class PKPRequest
     /** @var string user agent */
     public string $_userAgent;
 
-
     /**
      * get the router instance
      */
@@ -784,6 +783,16 @@ class PKPRequest
                 ? $publicFileManager->getContextFilesPath($context->getId())
                 : $publicFileManager->getSiteFilesPath()
         ]);
+    }
+
+    /**
+     * Returns the preferred language.
+     *
+     * @param string[] $locales An array of ordered available locales
+     */
+    public function getPreferredLanguage(array $locales): ?string
+    {
+        return (new \Illuminate\Http\Request(server: $_SERVER))->getPreferredLanguage($locales);
     }
 }
 

@@ -67,6 +67,39 @@
 				</select>
 			</label>
 		</div>
+                <div class="language">
+			<label>
+				<span class="label">
+					{translate key="user.profile.preferredLanguage"}
+					<span class="required" aria-hidden="true">*</span>
+					<span class="pkp_screen_reader">
+						{translate key="common.required"}
+					</span>
+				</span>
+				<select name="preferredLanguage" id="preferredLanguage" required aria-required="true">
+					{html_options options=$availableLocales selected=$preferredLanguage}
+				</select>
+			</label>
+                </div>
+                        {if count($availableLocales) > 1}
+                <div class="workingLanguages">
+                        <label>
+				<span class="label">
+					{translate key="user.workingLanguages"}
+					<span class="required" aria-hidden="true">*</span>
+					<span class="pkp_screen_reader">
+						{translate key="common.required"}
+					</span>
+				</span>
+				{foreach from=$availableLocales key=localeKey item=localeName}
+                                        <span class="label"><input type="checkbox" name="locales[]" id="locales-{$localeKey}" value="{$localeKey}"
+                                                                   {if $locales && in_array($localeKey, $locales)} checked{/if} >
+                                         {$localeName|escape}</span>
+                                {/foreach}
+			</label>
+                </div>
+                        {/if}
+
 	</div>
 </fieldset>
 

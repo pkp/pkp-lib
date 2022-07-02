@@ -15,6 +15,9 @@
 
 namespace PKP\core;
 
+
+use Symfony\Component\HttpFoundation\AcceptHeader;
+
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\config\Config;
@@ -430,6 +433,79 @@ class PKPRequest
     {
         return ($_SERVER['REQUEST_METHOD'] ?? '');
     }
+
+
+    /**
+     * Returns the preferred language.
+     * (copy from Symfony\Component\HttpFoundation\Request)
+     */
+    public function getPreferredLanguage(): ?string
+    {
+        $preferredLanguages = $this->getLanguages();
+
+        $site = $this->getSite();
+        $locales = $site->getSupportedLocales();
+        if (empty($locales)) {
+            return $preferredLanguages[0] ?? null;
+        }
+
+        if (!$preferredLanguages) {
+            return $locales[0];
+        }
+
+        $extendedPreferredLanguages = [];
+        foreach ($preferredLanguages as $language) {
+            $extendedPreferredLanguages[] = $language;
+            if (false !== $position = strpos($language, '_')) {
+                $superLanguage = substr($language, 0, $position);
+                if (!\in_array($superLanguage, $preferredLanguages)) {
+                    $extendedPreferredLanguages[] = $superLanguage;
+                }
+            }
+        }
+
+        $preferredLanguages = array_values(array_intersect($extendedPreferredLanguages, $locales));
+
+        return $preferredLanguages[0] ?? $locales[0];
+    }
+
+
+    /**
+     * Gets a list of languages acceptable by the client browser ordered in the user browser preferences.
+     * (copy from Symfony\Component\HttpFoundation\Request)
+     */
+    public function getLanguages(): array
+    {
+        $langs = [];
+        $languages = AcceptHeader::fromString($_SERVER['HTTP_ACCEPT_LANGUAGE'])->all();
+
+        foreach ($languages as $lang => $acceptHeaderItem) {
+            if (str_contains($lang, '-')) {
+                $codes = explode('-', $lang);
+                if ('i' === $codes[0]) {
+                    // Language not listed in ISO 639 that are not variants
+                    // of any listed language, which can be registered with the
+                    // i-prefix, such as i-cherokee
+                    if (\count($codes) > 1) {
+                        $lang = $codes[1];
+                    }
+                } else {
+                    for ($i = 0, $max = \count($codes); $i < $max; ++$i) {
+                        if (0 === $i) {
+                            $lang = strtolower($codes[0]);
+                        } else {
+                            $lang .= '_'.strtoupper($codes[$i]);
+                        }
+                    }
+                }
+            }
+
+            $langs[] = $lang;
+        }
+
+        return $langs;
+    }
+
 
     /**
      * Determine whether the request is a POST request

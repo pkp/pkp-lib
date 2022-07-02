@@ -50,6 +50,7 @@ class DAO extends \PKP\core\EntityDAO
         'mailingAddress' => 'mailing_address',
         'billingAddress' => 'billing_address',
         'country' => 'country',
+        'preferredLanguage' => 'preferred_language',
         'locales' => 'locales',
         'gossip' => 'gossip',
         'dateLastEmail' => 'date_last_email',

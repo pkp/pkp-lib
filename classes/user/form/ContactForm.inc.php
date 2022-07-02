@@ -47,16 +47,23 @@ class ContactForm extends BaseProfileForm
      */
     public function fetch($request, $template = null, $display = false)
     {
+        $user = $this->getUser();
         $site = $request->getSite();
         $countries = [];
         foreach (Locale::getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();
         }
         asort($countries);
+        $userLocales = $user->getLocales();
+        if (empty($userLocales)) {
+            $userLocales = [$request->getPreferredLanguage()];
+        }
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'countries' => $countries,
             'availableLocales' => $site->getSupportedLocaleNames(),
+            'locales' => $userLocales,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -76,7 +83,7 @@ class ContactForm extends BaseProfileForm
             'signature' => $user->getSignature(null), // Localized
             'mailingAddress' => $user->getMailingAddress(),
             'affiliation' => $user->getAffiliation(null), // Localized
-            'locales' => $user->getLocales(),
+            'preferredLanguage' => $user->getPreferredLanguage(),
         ];
     }
 
@@ -88,7 +95,7 @@ class ContactForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'locales',
+            'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'preferredLanguage','locales',
         ]);
 
         if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
@@ -109,6 +116,7 @@ class ContactForm extends BaseProfileForm
         $user->setPhone($this->getData('phone'));
         $user->setMailingAddress($this->getData('mailingAddress'));
         $user->setAffiliation($this->getData('affiliation'), null); // Localized
+        $user->setPreferredLanguage($this->getData('preferredLanguage'));
 
         $request = Application::get()->getRequest();
         $site = $request->getSite();

@@ -78,6 +78,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('billing_address', 255)->nullable();
             $table->string('country', 90)->nullable();
             $table->string('locales', 255)->nullable();
+            $table->string('preferred_language', 10)->nullable();
             $table->text('gossip')->nullable();
             $table->datetime('date_last_email')->nullable();
             $table->datetime('date_registered');

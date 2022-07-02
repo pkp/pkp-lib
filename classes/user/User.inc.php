@@ -215,6 +215,27 @@ class User extends Identity
     }
 
     /**
+     * Get user's corresponding language.
+     *
+     * @return string
+     */
+    public function getPreferredLanguage()
+    {
+        $preferredLanguage = $this->getData('preferredLanguage');
+        return $preferredLanguage;
+    }
+
+    /**
+     * Set user's corresponding languages.
+     *
+     * @param string $preferredLanguage
+     */
+    public function setPreferredLanguage($preferredLanguage)
+    {
+        $this->setData('preferredLanguage', $preferredLanguage);
+    }
+
+    /**
      * Get user's working languages.
      *
      * @return array
@@ -234,7 +255,6 @@ class User extends Identity
     {
         $this->setData('locales', $locales);
     }
-
     /**
      * Get date user last sent an email.
      *

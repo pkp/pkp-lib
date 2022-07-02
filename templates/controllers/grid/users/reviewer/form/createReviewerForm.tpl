@@ -63,6 +63,23 @@
 		{fbvElement type="interests" id="interests" interests=$interests}
 	{/fbvFormSection}
 
+        {fbvFormSection}
+                {fbvElement type="select" label="user.profile.preferredLanguage" name="preferredLanguage" id="preferredLanguage" required=true  from=$availableLocales selected=$preferredLanguage translate=false size=$fbvStyles.size.MEDIUM}
+        {/fbvFormSection}
+
+	{if count($availableLocales) > 1}
+		{fbvFormSection title="user.workingLanguages" list=true}
+			{foreach from=$availableLocales key=localeKey item=localeName}
+				{if $locales && in_array($localeKey, $locales)}
+					{assign var="checked" value=true}
+				{else}
+					{assign var="checked" value=false}
+				{/if}
+				{fbvElement type="checkbox" name="locales[]" id="locales-$localeKey" value=$localeKey checked=$checked label=$localeName|escape translate=false}
+			{/foreach}
+		{/fbvFormSection}
+	{/if}
+
 	{fbvFormSection title="user.affiliation"}
 		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}

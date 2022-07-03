@@ -78,7 +78,6 @@ abstract class LazyLoadPlugin extends Plugin {
 			$contextId = 0;
 		}
 		$this->updateSetting($contextId, 'enabled', $enabled, 'bool');
-		HookRegistry::call('Plugin::setEnabled', [$this, $enabled]);
 	}
 
 	/**

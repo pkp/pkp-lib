@@ -246,10 +246,13 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		if ($request->checkCSRF() && $plugin->getCanEnable()) {
 			$plugin->setEnabled(true);
+			$message = NOTIFICATION_TYPE_PLUGIN_ENABLED;
+			$messageParams = array('pluginName' => $plugin->getDisplayName());
+			HookRegistry::call('PluginGridHandler::plugin', array('enable', $args, $message, $messageParams, $plugin));
 			if (empty($args['disableNotification'])) {
 				$user = $request->getUser();
 				$notificationManager = new NotificationManager();
-				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_ENABLED, array('pluginName' => $plugin->getDisplayName()));
+				$notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
 			}
 			return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 		}
@@ -266,10 +269,13 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		if ($request->checkCSRF() && $plugin->getCanDisable()) {
 			$plugin->setEnabled(false);
+			$message = NOTIFICATION_TYPE_PLUGIN_DISABLED;
+			$messageParams = array('pluginName' => $plugin->getDisplayName());
+			HookRegistry::call('PluginGridHandler::plugin', array('disable', $args, $message, $messageParams, $plugin));
 			if (empty($args['disableNotification'])) {
 				$user = $request->getUser();
 				$notificationManager = new NotificationManager();
-				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_DISABLED, array('pluginName' => $plugin->getDisplayName()));
+				$notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
 			}
 			return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 		}

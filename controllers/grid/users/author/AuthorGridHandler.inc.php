@@ -303,7 +303,12 @@ class AuthorGridHandler extends GridHandler {
 
 		// Form handling
 		import('controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($this->getPublication(), $author);
+		$authorForm = new AuthorForm(
+			$this->getPublication(), 
+			$author,  
+			$request->getContext()
+		);
+
 		$authorForm->initData();
 
 		return new JSONMessage(true, $authorForm->fetch($request));
@@ -325,7 +330,12 @@ class AuthorGridHandler extends GridHandler {
 
 		// Form handling
 		import('controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($publication, $author);
+		$authorForm = new AuthorForm(
+			$publication, 
+			$author,
+			$request->getContext()
+		);
+
 		$authorForm->readInputData();
 		if ($authorForm->validate()) {
 			$authorId = $authorForm->execute();

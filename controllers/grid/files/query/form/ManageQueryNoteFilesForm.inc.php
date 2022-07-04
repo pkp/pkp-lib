@@ -57,8 +57,8 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($stageSubmissionFiles, $fileStage = null) {
-		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_QUERY);
+	function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_QUERY, ...$functionArgs);
 	}
 
 	/**

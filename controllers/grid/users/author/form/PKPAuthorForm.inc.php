@@ -16,6 +16,9 @@
 import('lib.pkp.classes.form.Form');
 
 class PKPAuthorForm extends Form {
+	/** The context associated with the contributor being edited **/
+	var $_context;
+
 	/** The publication associated with the contributor being edited **/
 	var $_publication;
 
@@ -25,13 +28,17 @@ class PKPAuthorForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function __construct($publication, $author) {
-		parent::__construct('controllers/grid/users/author/form/authorForm.tpl');
+	function __construct($publication, $author, $context) {
+		parent::__construct(
+			'controllers/grid/users/author/form/authorForm.tpl', 
+			true, 
+			$publication->getData('locale'), 
+			$context->getSupportedSubmissionLocaleNames()
+		);
+		
+		$this->setContext($context);
 		$this->setPublication($publication);
 		$this->setAuthor($author);
-
-		// the publication locale should be the default/required locale
-		$this->setDefaultFormLocale($publication->getData('locale'));
 
 		// Validation checks for this form
 		$form = $this;
@@ -88,6 +95,21 @@ class PKPAuthorForm extends Form {
 		$this->_publication = $publication;
 	}
 
+	/**
+	 * Get the Context
+	 * @return Context
+	 */
+	function getContext() {
+		return $this->_context;
+	}
+
+	/**
+	 * Set the Context
+	 * @param Context
+	 */
+	function setContext($context) {
+		$this->_context = $context;
+	}
 
 	//
 	// Overridden template methods
@@ -212,8 +234,7 @@ class PKPAuthorForm extends Form {
 		}
 
 		if ($this->getData('primaryContact')) {
-			$submission = Services::get('submission')->get($publication->getData('submissionId'));
-			$context = Services::get('context')->get($submission->getData('contextId'));
+			$context = $this->getContext();
 			$params = ['primaryContactId' => $authorId];
 			$errors = Services::get('publication')->validate(
 				VALIDATE_ACTION_EDIT,

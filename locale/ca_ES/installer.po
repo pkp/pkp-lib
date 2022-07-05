@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2022-07-01 11:31+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/ca_ES/>\n"
@@ -206,3 +207,9 @@ msgstr ""
 #, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Error en executar la classe de migració <tt>{$class}</tt>."
+
+msgid "installer.timezoneInstructions"
+msgstr "La zona horària d'aquest sistema."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Heu de seleccionar una zona horària."

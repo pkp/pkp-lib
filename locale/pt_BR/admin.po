@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-05-07 03:02+0000\n"
+"PO-Revision-Date: 2022-06-28 13:47+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -511,3 +511,14 @@ msgstr "Excluir caches"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Remover usuários expirados não validados"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Disparou {$count} jobs para enviar lembretes editoriais por e-mail para "
+"usuários {$userIds} no contexto {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Identificando editores para lembrar no contexto {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Envie um e-mail para cada editor lembrando-os de suas tarefas pendentes"

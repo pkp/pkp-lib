@@ -21,6 +21,7 @@ use PKP\core\JSONMessage;
 use PKP\log\EventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
+use APP\notification\NotificationManager;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler
 {
@@ -112,10 +113,11 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
             $notesForm->execute();
 
             // Save to event log
-            $this->_logEvent($request, $this->_submission, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'SubmissionLog');
+            $this->_logEvent($request, $this->_submission, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'PKP\log\SubmissionLog');
 
             $user = $request->getUser();
-            NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
+            $notificationManager = new NotificationManager();
+            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
 
             $jsonViewNotesResponse = $this->viewNotes($args, $request);
             $json = new JSONMessage(true);

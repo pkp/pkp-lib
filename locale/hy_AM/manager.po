@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-22 08:26+0000\n"
+"PO-Revision-Date: 2022-07-03 10:31+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -250,10 +251,13 @@ msgstr "Ամսաթիվ"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"Ընտրեք նախընտրելի ձևաչափը ամսաթվերի և ժամերի համար: Հատուկ ձևաչափ կարելի է "
+"<a href=\"https://www.php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters\">Ընտրեք "
+"նախընտրելի ձևաչափը ամսաթվերի և ժամերի համար: Հատուկ ձևաչափ կարելի է "
 "մուտքագրել՝ օգտագործելով \n"
-"<a href='http://php.net/manual/en/function.strftime.php#refsect1-function"
-".strftime-parameters'>ձևաչափի նիշեր</a>:"
+"<a href=\"https://www.php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters\">ձևաչափի "
+"նիշեր</a>:"
 
 msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "Ամսաթվի և ժամի ձևաչափեր"
@@ -1917,8 +1921,8 @@ msgstr "UserGroup բացակայում է հեղինակի անունը {$param}
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
-"Ներմուծման նիշքը ներառում է '{$authorName}' հեղինակ, '{$userGroupName}' "
-"օգտվողների խմբի հետ: Այս անունով օգտատերերի խմբում սահմանված օգտատերերի "
+"Ներմուծման ֆայլը ներառում է «{$ authorName}» հեղինակ, «{$ userGroupName}» "
+"օգտվողների խմբի հետ: Այս անունով օգտատերերի խմբի մեջ սահմանված օգտատերերի "
 "խումբ չկա:"
 
 msgid "plugins.importexport.common.error.encodingError"
@@ -2020,9 +2024,8 @@ msgid "manager.setup.metadata.type.description"
 msgstr ""
 "Ներկայացման հիմնական բովանդակության բնույթը կամ ժանրը: Տեսակը սովորաբար "
 "«Տեքստ» է, բայց կարող է լինել նաև «Տվյալների հավաքածու», «Պատկեր» կամ "
-"սրանցից որևէ մեկը  <a target=\"_blank\" href=\"http://dublincore.org/"
-"documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core "
-"տեսակներ</a>:"
+"սրանցից որևէ մեկը  <a target=\"_blank\" href=\"https://www.dublincore.org/"
+"specifications/dublin-core/dcmi-terms/\">Dublin Core տեսակներ</a>:"
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr "Հեղինակից պահանջեք տրամադրել խորագրերը նախքան ներկայացումն ընդունելը:"
@@ -3075,3 +3078,18 @@ msgstr ""
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Վերանայեք հաստատումը"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Ինքնաշխատ էլ․  նամակ ուղարկված խմբագիրներին՝ չմարված առաջադրանքներով"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Խմբագրական հիշեցում"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Այս խմբագրին նշանակված ներկայացումների քանակը"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Չկատարված առաջադրանքների համար ներկայացումների ցանկը"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Օգտատիրոջ՝ իր պրոֆիլը դիտելու և խմբագրելու URL-ը:"

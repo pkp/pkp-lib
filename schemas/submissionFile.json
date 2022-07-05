@@ -169,9 +169,9 @@
 		},
 		"locale": {
 			"type": "string",
-			"apiSummary": "true",
+			"apiSummary": true,
 			"description": "The primary locale of the submission this file is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
-			"readOnly": "true"
+			"readOnly": true
 		},
 		"mimetype": {
 			"type": "string",

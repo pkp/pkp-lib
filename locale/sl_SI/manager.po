@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-06-04 03:53+0000\n"
+"PO-Revision-Date: 2022-07-02 03:50+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -2344,17 +2344,22 @@ msgstr "Ta email pošlje urednik rubrike recenzentu kot opomnik za opravljanje r
 msgid "mailable.reviewRemindAuto.description"
 msgstr "Ta email se pošlje recenzentu avtomatično, ko poteče rok za opravljanje recenzije (več v recenzijskih nastavitveh v Nastavitve > Potek dela > Recenzija) in je izključena opcija za recenzentski dostop z enim klikom. Opozorilo: administrator spletišča mora v nastavitveni datoteki spletišča nastaviti \"Scheduled tasks\"."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "Ta email se pošlje avtomatsko, ko recenzent prekorači rok za potrditev opravljanja recenzije (več: Recenzijske nastavitve pri Nastavitve  > Potek dela > Recenzija) in je izključena opcija za recenzentski dostop z enim klikom. Opozorilo: administrator spletišča mora v nastavitveni datoteki spletišča nastaviti \"Scheduled tasks\"."
+msgstr ""
+"Ta email se pošlje avtomatsko, ko recenzent prekorači rok za potrditev "
+"opravljanja recenzije."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
-msgstr "Ta email pošilja urednik rubrike recenzentu s prošnjo, da recenzent potrdi ali zavrne oipravljanje recenzije. Vsebuje informaciej o prispevku kot so naslov in izvleček, datum do dokončanja recenzije ter dostopom do prispevka. Email se uporablja, ko je v nastavitvah izbran standarden recnezijski proces (Upravljanje > Nastavitve > Potek dela > Recenzija."
+msgstr ""
+"Ta email pošilja urednik rubrike recenzentu s prošnjo, da recenzent potrdi "
+"ali zavrne oipravljanje recenzije. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
-msgstr "Ta email pošlje urednik rubrike recenzentu s prošnjo za opravljanje ali zavrnitev recenzije v drugem ali kasnejšem recenzentskem krogu. Vsebuje informacije o prispevku kot so naslov in izvleček, datum do dokončanja recenzije ter dostopom do prispevka. Email se uporablja, kadar je uporabljen standardni recenzisjki proces (Upravljanje > Nastavitve > Potek dela > Recenzija)."
+msgstr ""
+"Ta email pošlje urednik rubrike recenzentu s prošnjo za opravljanje ali "
+"zavrnitev recenzije v drugem ali kasnejšem recenzentskem krogu. Vsebuje "
+"informacije o prispevku kot so naslov in izvleček, datum do dokončanja "
+"recenzije ter dostopom do prispevka."
 
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Faza uredniškega postopka v kateri je bila sprejeta odločitev."
@@ -2579,9 +2584,10 @@ msgstr "Status depozitov"
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
 "Zahtevali boste, da se pri {$registrationAgency} deponirajo vsi DOI zapisi, "
-"ki še niso deponirati. Status vsakega posameznega DOI zapisa bo posodobljen, "
-"ko bo prišel odziv. Ste prepričani, da želite oddati zahtevo po deponiranju "
-"vseh teh zapisov?"
+"ki še niso deponirati. Deponirani bodo le objavljeni zapisi z dodeljenim DOI-"
+"jem. Status vsakega posameznega DOI zapisa bo posodobljen, ko bo prišel "
+"odziv. Ste prepričani, da želite oddati zahtevo po deponiranju vseh teh "
+"zapisov?"
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Deponirajte vse DOI-je"
@@ -2891,3 +2897,35 @@ msgstr "DOI predpona je obvezna"
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Napaka pri DOI posodobitvi"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Avtomatski email, ki je poslan urednikom z odprtimi nalogami"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Uredniški opomnik"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Naknadna prošnja za recenzijo"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Zahteva za recenzijo"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Opravljanje recenzije zamuja (avtomatsko)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Ta email pošlje urednik kot potrditev sprejema opravljene recenzije in kot "
+"zahvalo recenzentu za opravljeno recenzijo."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Zahvala za recenzijo"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Število prispevkov dodeljenih temu uredniku"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Seznam prispevkov z odprtimi nalogami"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL za uporabnika, da lahko vidi in ureja uporabniški račun."

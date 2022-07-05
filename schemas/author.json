@@ -11,7 +11,7 @@
 		"affiliation": {
 			"type": "string",
 			"description": "The scholarly institution this contributor is employed by or affiliated with.",
-			"multilingual": "true",
+			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
 				"nullable"
@@ -20,7 +20,7 @@
 		"biography": {
 			"type": "string",
 			"description": "An optional bio statement about this contributor.",
-			"multilingual": "true",
+			"multilingual": true,
 			"validation": [
 				"nullable"
 			]
@@ -37,7 +37,7 @@
 		},
 		"familyName": {
 			"type": "string",
-			"multilingual": "true",
+			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
 				"nullable"
@@ -51,7 +51,7 @@
 		},
 		"givenName": {
 			"type": "string",
-			"multilingual": "true",
+			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
 				"nullable"
@@ -79,7 +79,7 @@
 		"preferredPublicName": {
 			"type": "string",
 			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
-			"multilingual": "true",
+			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
 				"nullable"
@@ -91,7 +91,7 @@
 		},
 		"seq": {
 			"type": "integer",
-			"description": "The order in which this contributor should appear in a list of contriibutors.",
+			"description": "The order in which this contributor should appear in a list of contributors.",
 			"apiSummary": true
 		},
 		"submissionLocale": {

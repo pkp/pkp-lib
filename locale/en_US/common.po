@@ -903,6 +903,9 @@ msgstr "weeks"
 msgid "common.width"
 msgstr "Width"
 
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
 msgid "common.year"
 msgstr "Year"
 

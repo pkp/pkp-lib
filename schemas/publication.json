@@ -88,7 +88,7 @@
 		"coverage": {
 			"type": "string",
 			"description": "Optional metadata that usually indicates a work's location, time period or jurisdiction.",
-			"multilingual": "true",
+			"multilingual": true,
 			"validation": [
 				"nullable"
 			]

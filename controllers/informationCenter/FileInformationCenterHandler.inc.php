@@ -163,10 +163,11 @@ class FileInformationCenterHandler extends InformationCenterHandler
             $notesForm->execute();
 
             // Save to event log
-            $this->_logEvent($request, $this->submissionFile, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'SubmissionFileLog');
+            $this->_logEvent($request, $this->submissionFile, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'PKP\log\SubmissionFileLog');
 
             $user = $request->getUser();
-            NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
+            $notificationManager = new NotificationManager();
+            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
 
             $jsonViewNotesResponse = $this->viewNotes($args, $request);
             $json = new JSONMessage(true);

@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-21 10:40+0000\n"
+"PO-Revision-Date: 2022-07-03 10:31+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -753,10 +753,10 @@ msgid "submission.type.tip"
 msgstr ""
 "Ներկայացման տեսակը սովորաբար «պատկեր», «տեքստ» կամ այլ մուլտիմեդիա "
 "տեսակներից է, ներառյալ «ծրագրային ապահովումը» կամ «ինտերակտիվը»: Խնդրում ենք "
-"ընտրել ձեր ներկայացման համար առավել համապատասխանը: Օրինակները կարելի է գտնել "
-"<a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
-"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
-"usageguide/generic.shtml#type</a>"
+"ընտրել ձեր ներկայացման համար առավել համապատասխանը:  Օրինակները կարելի է "
+"գտնել <a target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Վերնագիր և համառոտագիր"
@@ -2454,3 +2454,9 @@ msgstr "Նշանակեք խմբագրի այս փուլի խմբագրական �
 
 msgid "submission.list.viewAllSubmissions"
 msgstr "Դիտել բոլոր հայտերը"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Նոր ներկայացումը սպասում է, որպեսզի ուղարկվի վերանայման կամ մերժման:"
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Անգործուն է ավելի քան {$days} օր {$stage} փուլում:"

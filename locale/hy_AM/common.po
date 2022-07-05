@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-22 08:57+0000\n"
+"PO-Revision-Date: 2022-06-30 09:32+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -2223,3 +2223,9 @@ msgstr "Տեղադրեք բովանդակությունը"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Անհայտ հրաման {$command}"
+
+msgid "notification.type.editorialReminder"
+msgstr "Չմարված առաջադրանքների շաբաթական էլ․ առաքում"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"

@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2021-03-04 17:09+0000\n"
+"PO-Revision-Date: 2022-06-30 10:07+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca_ES/>\n"
@@ -311,7 +312,7 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Esteu segur que voleu eliminar tots els registres d'execució de tasques programats?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Neteja els registres d'execució de tasques programats"
+msgstr "Neteja els registres de tasques programades"
 
 msgid "admin.error.utilExecutionProblem"
 msgstr "L'execució del programa \"{$utilPath}\" ha produït el següent error: {$output}"

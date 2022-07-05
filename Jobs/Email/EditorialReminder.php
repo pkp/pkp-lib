@@ -143,7 +143,7 @@ class EditorialReminder extends BaseJob
 
         $mailable
             ->setOutstandingTasks($outstanding, $submissions, $submissionIds->count())
-            ->from($context->getContactEmail(), $context->getLocalizedName($locale))
+            ->from($context->getContactEmail(), $context->getLocalizedName(Locale::getLocale()))
             ->recipients([$editor])
             ->subject($emailTemplate->getLocalizedData('subject'))
             ->body($emailTemplate->getLocalizedData('body'));

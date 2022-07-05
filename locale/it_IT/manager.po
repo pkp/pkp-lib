@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2022-01-11 15:10+0000\n"
+"PO-Revision-Date: 2022-07-05 10:42+0000\n"
 "Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it_IT/>\n"
@@ -2425,4 +2425,60 @@ msgstr "Questa email dal section editor al revisore richiede che quest'ultimo ac
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Questo messaggio viene inviato dall'editor a un revisore chiedendogli di accettare o rifiutare l'incarico di revisione di una proposta per un secondo o successivo round di revisione. Esso fornisce informazioni come il titolo e l'abstract, una data di scadenza e modalità di accesso alla stessa proposta."
 
-#, fuzzy
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "I metadati di questa voce sono stati inviati a {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Stato della pubblicazione"
+
+msgid "manager.dois.depositStatus"
+msgstr "Stato del deposito"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"State per programmare tutti i record di metadati DOI in sospeso da "
+"depositare presso {$registrationAgency}. Verranno depositati solo gli "
+"articoli pubblicati con un DOI. Lo stato di ciascun elemento sarà aggiornato "
+"quando verrà ricevuta una risposta. Siete sicuri di voler pianificare il "
+"deposito di tutti questi elementi?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Depositare tutti i DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Si stanno per assegnare nuovi DOI agli articoli {$count} per tutti gli "
+"articoli idonei che non hanno già un DOI assegnato. Siete sicuri di voler "
+"assegnare i DOI a questi elementi?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Assegnare le DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Si stanno per esportare i record di metadati DOI per {$count} voci per "
+"{$registrationAgency}. Siete sicuri di voler esportare questi record?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Esportare i DOI"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Stai per contrassegnare i record di metadati DOI per le voci {$count} come "
+"registrati. Siete sicuri di voler contrassegnare questi record come "
+"registrati?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Contrassegnare i DOI registrati"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"State per inviare i record di metadati DOI per {$count} voci a "
+"{$registrationAgency}. Siete sicuri di voler depositare questi record?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Depositare le DOI"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Depositare tutti"

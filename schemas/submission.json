@@ -75,7 +75,7 @@
 		"reviewAssignments": {
 			"type": "array",
 			"description": "Information about pending and completed review assignments.",
-			"readOnly": "true",
+			"readOnly": true,
 			"items": {
 				"type": "object",
 				"properties": {

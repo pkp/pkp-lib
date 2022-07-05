@@ -83,7 +83,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$userListQO = $this->getQueryBuilder($args)->getQuery();
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');
+		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData', [], $userListQO->toSql(), $userListQO->getBindings());
 
 		return $queryResults->toIterator();
 	}

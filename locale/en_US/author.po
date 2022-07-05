@@ -1,15 +1,19 @@
+# Jonas Raoni Soares da Silva <weblate@raoni.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-13T08:00:00+02:00\n"
+"PO-Revision-Date: 2022-07-03 13:31+0000\n"
+"Last-Translator: Jonas Raoni Soares da Silva <weblate@raoni.org>\n"
+"Language-Team: English (United States) <http://translate.pkp.sfu.ca/projects/"
+"ops/author/en_US/>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-13T08:00:00+02:00\n"
-"PO-Revision-Date: 2019-11-13T08:00:00+02:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit"
 msgstr "New Submission"
@@ -54,7 +58,9 @@ msgid "author.submit.form.sectionRequired"
 msgstr "Please select an appropriate server section for this submission."
 
 msgid "author.submit.languageInstructions"
-msgstr "English=en; French=fr; Spanish=es. <a href=\"http://www.loc.gov/standards/iso639-2/php/code_list.php\" target=\"_blank\">Additional codes</a>."
+msgstr ""
+"English=en; French=fr; Spanish=es. <a href=\"https://www.loc.gov/standards/"
+"iso639-2/php/code_list.php\" target=\"_blank\">Additional codes</a>."
 
 msgid "author.submit.form.abstractRequired"
 msgstr "Please enter the abstract of your preprint."
@@ -70,4 +76,3 @@ msgstr "The server has been notified of your submission, and you've been emailed
 
 msgid "author.submit.proceedToPublish"
 msgstr "Proceed to post"
-

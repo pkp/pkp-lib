@@ -722,7 +722,7 @@ abstract class Repository
             $query = $queryDao->getById($note->getAssocId());
 
             // The note should be associated with a query. If not, fail.
-            if ($query->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY) {
+            if (is_null($query) || ($query->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY)) {
                 return null;
             }
 

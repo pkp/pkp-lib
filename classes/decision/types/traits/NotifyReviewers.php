@@ -39,8 +39,8 @@ trait NotifyReviewers
     /** @copydoc DecisionType::getAssignedAuthorIds() */
     abstract protected function getAssignedAuthorIds(Submission $submission): array;
 
-    /** @copydoc InExternalReviewRound::getCompletedReviewerIds() */
-    abstract protected function getCompletedReviewerIds(Submission $submission, int $reviewRoundId): array;
+    /** @copydoc WithReviewAssignment::getReviewerIds() */
+    abstract protected function getReviewerIds(int $submissionId, int $reviewRoundId, int $reviewAssignmentState): array;
 
     /** @copydoc DecisionType::setRecipientError() */
     abstract protected function setRecipientError(string $actionErrorKey, array $invalidRecipientIds, Validator $validator);
@@ -48,22 +48,24 @@ trait NotifyReviewers
     /**
      * Validate the decision action to notify reviewers
      */
-    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId, bool $forCompletedReviewer = true)
+    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId, string $reviewAssignmentState)
     {
         $errors = $this->validateEmailAction($action, $submission, $this->getAllowedAttachmentFileStages());
+
         foreach ($errors as $key => $propErrors) {
             foreach ($propErrors as $propError) {
                 $validator->errors()->add($actionErrorKey . '.' . $key, $propError);
             }
         }
+
         if (empty($action['recipients'])) {
             $validator->errors()->add($actionErrorKey . '.recipients', __('validator.required'));
             return;
         }
-        $reviewerIds = $forCompletedReviewer
-            ? $this->getCompletedReviewerIds($submission, $reviewRoundId)
-            : $this->getActiveReviewersId($submission, $reviewRoundId);
+
+        $reviewerIds = $this->getReviewerIds($submission->getId(), $reviewRoundId, $reviewAssignmentState);
         $invalidRecipients = array_diff($action['recipients'], $reviewerIds);
+
         if (count($invalidRecipients)) {
             $this->setRecipientError($actionErrorKey, $invalidRecipients, $validator);
         }

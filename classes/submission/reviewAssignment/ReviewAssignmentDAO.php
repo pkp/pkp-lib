@@ -651,12 +651,18 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      * Delete review assignments by review round ID.
      *
      * @param  int $reviewRoundId
+     *
+     * @return int Number of deleted review assignments.
      */
     public function deleteByReviewRoundId($reviewRoundId): int
     {
         return DB::table('review_assignments')
+            ->select(['review_id', 'review_round_id'])
             ->where('review_round_id', $reviewRoundId)
-            ->delete();
+            ->get()
+            ->pluck('review_id')
+            ->map(fn ($reviewId) => $this->deleteById($reviewId))
+            ->count();
     }
 }
 

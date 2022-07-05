@@ -18,12 +18,10 @@ use APP\submission\Submission;
 use PKP\decision\DecisionType;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\IsRecommendation;
-use PKP\decision\types\traits\withReviewRound;
 
 class RecommendRevisions extends DecisionType
 {
     use InExternalReviewRound;
-    use withReviewRound;
     use IsRecommendation;
 
     public function getDecision(): int

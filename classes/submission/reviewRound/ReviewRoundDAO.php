@@ -378,16 +378,25 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get assigned reviewers count to a review round by given review round id
+     * Get the associated Review Round count for a submission from given submission id
      *
-     * @param  int $id  Review round id for this assigned reviewers count need to determine
+     * @param  int $submissionId  Submission id for which review round count need to be determined
+     * @param  int $stageId  Review stage id for which review round count need to be determined
      *
-     * @return int      Number of reviewers assigned to this review round
+     * @throws \Exception
+     *
+     * @return int      Number of internal review round associated with this submission
+     *
      */
-    public function getAssignmentCountByid(int $id): int
+    public function getReviewRoundCountBySubmissionId(int $submissionId, ?int $stageId = null)
     {
-        return DB::table('review_assignments')
-            ->where('review_round_id', $id)
+        if (!is_null($stageId) && !in_array($stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
+            throw new \Exception('Not a valid review stage');
+        }
+
+        return DB::table('review_rounds')
+            ->where('submission_id', $submissionId)
+            ->when(!is_null($stageId), fn ($query) => $query->where('stage_id', $stageId))
             ->count();
     }
 }

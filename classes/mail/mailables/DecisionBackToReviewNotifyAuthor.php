@@ -9,8 +9,8 @@
  *
  * @class DecisionBackToReviewNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_BACK_TO_REVIEW
- *  decision is made.
+ * @brief Email sent to the author(s) when following decisions are made :
+ *
  */
 
 namespace PKP\mail\mailables;

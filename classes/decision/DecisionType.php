@@ -43,6 +43,10 @@ abstract class DecisionType
     public const ACTION_PAYMENT = 'payment';
     public const ACTION_DISCUSSION = 'discussion';
 
+    public const REVIEW_ASSIGNMENT_COMPLETED = 1;
+    public const REVIEW_ASSIGNMENT_ACTIVE = 2;
+    public const REVIEW_ASSIGNMENT_CONFIRMED = 3;
+
     /**
      * Get a label/title when this decision has been completed
      *

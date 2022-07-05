@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_4_0/EmailTemplatesVarcharLengthUpdate.inc.php
+ * @file classes/migration/upgrade/v3_4_0/I2890_EmailTemplatesVarcharLengthUpdate.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class EmailTemplatesVarcharLengthUpdate
+ * @class I2890_EmailTemplatesVarcharLengthUpdate
  */
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PKP\migration\Migration;
 
-class EmailTemplatesVarcharLengthUpdate extends Migration
+class I2890_EmailTemplatesVarcharLengthUpdate extends Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('email_templates', function (Blueprint $table) {
             $table->string('email_key', 255)->change();
@@ -40,7 +40,7 @@ class EmailTemplatesVarcharLengthUpdate extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('email_templates', function (Blueprint $table) {
             $table->string('email_key', 64)->change();

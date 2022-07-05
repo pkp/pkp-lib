@@ -14,7 +14,6 @@
 
 namespace PKP\decision\types;
 
-use APP\core\Application;
 use APP\decision\Decision;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
@@ -23,23 +22,22 @@ use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\types\contracts\DecisionRetractable;
+use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewers;
-use PKP\decision\types\traits\withReviewRound;
 use PKP\mail\mailables\DecisionBackToSubmissionNotifyAuthor;
-use PKP\mail\mailables\DecisionBackToSubmissionNotifyReviewer;
+use PKP\mail\mailables\DecisionReviewerUnassignedNotifyReviewer;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 
 class BackToSubmissionFromExternalReview extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
     use NotifyReviewers;
-    use withReviewRound;
     use InExternalReviewRound;
 
     public function getDecision(): int
@@ -64,7 +62,7 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
 
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToSubmissionFromExternalReviewRound', [], $locale);
+        return __('editor.submission.decision.backToSubmission', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
@@ -96,12 +94,12 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
 
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
-        if (!isset($props['actions'])) {
-            return;
-        }
-
         if (!$this->canRetract($submission, $reviewRoundId)) {
             $validator->errors()->add('restriction', __('editor.submission.decision.backToSubmissionFromExternalReviewRound.restriction'));
+        }
+
+        if (!isset($props['actions'])) {
+            return;
         }
 
         foreach ((array) $props['actions'] as $index => $action) {
@@ -111,7 +109,7 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
                     $this->validateNotifyAuthorsAction($action, $actionErrorKey, $validator, $submission);
                     break;
                 case $this->ACTION_NOTIFY_REVIEWERS:
-                    $this->validateNotifyReviewersAction($action, $actionErrorKey, $validator, $submission, $reviewRoundId, false);
+                    $this->validateNotifyReviewersAction($action, $actionErrorKey, $validator, $submission, $reviewRoundId, self::REVIEW_ASSIGNMENT_ACTIVE);
                     break;
             }
         }
@@ -134,7 +132,7 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
                     break;
                 case $this->ACTION_NOTIFY_REVIEWERS:
                     $this->sendReviewersEmail(
-                        new DecisionBackToSubmissionNotifyReviewer($context, $submission, $decision),
+                        new DecisionReviewerUnassignedNotifyReviewer($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission
@@ -143,11 +141,9 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
             }
         }
 
-        $request = Application::get()->getRequest();
-
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewRoundId = (int)$request->getUserVar('reviewRoundId');
+        $reviewRoundId = $decision->getData('reviewRoundId');
 
         $reviewAssignmentDao->deleteByReviewRoundId($reviewRoundId);
         $reviewRoundDao->deleteById($reviewRoundId);
@@ -176,14 +172,14 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
             ));
         }
 
-        $reviewAssignments = $this->getActiveReviewAssignments($submission->getId(), $reviewRound->getId());
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), self::REVIEW_ASSIGNMENT_ACTIVE);
         if (count($reviewAssignments)) {
             $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);
-            $mailable = new DecisionBackToSubmissionNotifyReviewer($context, $submission, $fakeDecision);
+            $mailable = new DecisionReviewerUnassignedNotifyReviewer($context, $submission, $fakeDecision);
             $steps->addStep((new Email(
                 $this->ACTION_NOTIFY_REVIEWERS,
                 __('editor.submission.decision.notifyReviewers'),
-                __('editor.submission.decision.backToSubmissionFromExternalReview.notifyReviewers.description'),
+                __('editor.submission.decision.reviewerUnassigned.notifyReviewers.description'),
                 $reviewers,
                 $mailable->sender($editor),
                 $context->getSupportedFormLocales(),
@@ -203,28 +199,33 @@ class BackToSubmissionFromExternalReview extends DecisionType implements Decisio
             return false;
         }
 
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
         // If thers is multiple external review round associated
         // can not back out
-        if ($this->hasMultipleReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+        if ($reviewRoundDao->getReviewRoundCountBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) > 1) {
             return false;
         }
 
         // if there is any completed review by reviewer
         // can not back out
-        if ($this->hasCompletedReviewAssginment($submission, $reviewRoundId)) {
+        $completedReviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRoundId, self::REVIEW_ASSIGNMENT_COMPLETED);
+        if (count($completedReviewAssignments) > 0) {
             return false;
         }
 
         // if there is any submitted review by reviewer that is not cancelled
         // can not back out
-        if ($this->hasConfirmedReviewer($submission, $reviewRoundId)) {
+        $confirmedReviewerIds = $this->getReviewerIds($submission->getId(), $reviewRoundId, self::REVIEW_ASSIGNMENT_CONFIRMED);
+        if (count($confirmedReviewerIds) > 0) {
             return false;
         }
 
         // Only applicable for OMP
         // For OMP, need to check if it has any internal review round available
         // before backing out to submission from external review
-        if ($this->hasReviewRound($submission, WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
             return false;
         }
 

@@ -300,34 +300,4 @@ class DAO extends EntityDAO
 
         parent::deleteById($id);
     }
-
-    /**
-     * Get the associated External Review Round count for a submission from given submission id
-     *
-     * @param  int $id  Submission id for which external review round count need to be determined
-     *
-     * @return int      Number of external review round associated with this submission
-     */
-    public function getExternalReviewRoundCountById(int $id): int
-    {
-        return DB::table('review_rounds')
-            ->where('submission_id', $id)
-            ->where('stage_id', WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)
-            ->count();
-    }
-
-    /**
-     * Get the associated Internal Review Round count for a submission from given submission id
-     *
-     * @param  int $id  Submission id for which internal review round count need to be determined
-     *
-     * @return int      Number of internal review round associated with this submission
-     */
-    public function getInternalReviewRoundCountById(int $id): int
-    {
-        return DB::table('review_rounds')
-            ->where('submission_id', $id)
-            ->where('stage_id', WORKFLOW_STAGE_ID_INTERNAL_REVIEW)
-            ->count();
-    }
 }

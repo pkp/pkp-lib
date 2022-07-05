@@ -1524,26 +1524,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     {
         return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getLocalizedTitle()]);
     }
-
-    /**
-     * Get the associated External Review Round count for this submission
-     *
-     * @return int Number of external review round associated with this submission
-     */
-    public function getExternalReviewRoundCount(): int
-    {
-        return $this->getDAO()->getExternalReviewRoundCountById($this->getId());
-    }
-
-    /**
-     * Get the associated Internal Review Round count for this submission
-     *
-     * @return int Number of internal review round associated with this submission
-     */
-    public function getInternalReviewRoundCount(): int
-    {
-        return $this->getDAO()->getInternalReviewRoundCountById($this->getId());
-    }
 }
 
 // Expose global constants unless operating in strict mode.

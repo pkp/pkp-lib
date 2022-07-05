@@ -20,22 +20,24 @@ use PKP\components\fileAttachers\FileStage;
 use PKP\components\fileAttachers\Library;
 use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\types\contracts\DecisionRetractable;
+use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\withReviewRound;
+use PKP\decision\types\traits\WithReviewAssignment;
 use PKP\mail\mailables\DecisionBackToSubmissionNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
 class BackToSubmissionFromCopyediting extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
-    use withReviewRound;
+    use WithReviewAssignment;
 
     public function getDecision(): int
     {
@@ -91,12 +93,12 @@ class BackToSubmissionFromCopyediting extends DecisionType implements DecisionRe
     {
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
-        if (!isset($props['actions'])) {
-            return;
-        }
-
         if (!$this->canRetract($submission, $reviewRoundId)) {
             $validator->errors()->add('restriction', __('editor.submission.decision.backToSubmission.restriction'));
+        }
+
+        if (!isset($props['actions'])) {
+            return;
         }
 
         foreach ((array) $props['actions'] as $index => $action) {
@@ -159,15 +161,18 @@ class BackToSubmissionFromCopyediting extends DecisionType implements DecisionRe
      */
     public function canRetract(Submission $submission, ?int $reviewRoundId): bool
     {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
         // if has any external review round asscoiated
         // can not back out to submission stage directly from copy editing stage
-        if ($this->hasReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
             return false;
         }
 
         // if has any internal review round asscoiated
         // can not back out to submission stage directly from copy editing stage
-        if ($this->hasReviewRound($submission, WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
             return false;
         }
 

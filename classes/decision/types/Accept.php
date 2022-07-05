@@ -25,7 +25,6 @@ use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewers;
-use PKP\decision\types\traits\withReviewRound;
 use PKP\mail\mailables\DecisionAcceptNotifyAuthor;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\security\Role;
@@ -36,7 +35,6 @@ use PKP\user\User;
 class Accept extends DecisionType
 {
     use InExternalReviewRound;
-    use withReviewRound;
     use NotifyAuthors;
     use NotifyReviewers;
 
@@ -105,7 +103,7 @@ class Accept extends DecisionType
                     $this->validateNotifyAuthorsAction($action, $actionErrorKey, $validator, $submission);
                     break;
                 case $this->ACTION_NOTIFY_REVIEWERS:
-                    $this->validateNotifyReviewersAction($action, $actionErrorKey, $validator, $submission, $reviewRoundId);
+                    $this->validateNotifyReviewersAction($action, $actionErrorKey, $validator, $submission, $reviewRoundId, self::REVIEW_ASSIGNMENT_COMPLETED);
                     break;
             }
         }
@@ -118,7 +116,7 @@ class Accept extends DecisionType
         foreach ($actions as $action) {
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
-                    $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $decision->getData('reviewRoundId'));
+                    $reviewAssignments = $this->getReviewAssignments($submission->getId(), $decision->getData('reviewRoundId'), self::REVIEW_ASSIGNMENT_COMPLETED);
                     $emailData = $this->getEmailDataFromAction($action);
                     $this->sendAuthorEmail(
                         new DecisionAcceptNotifyAuthor($context, $submission, $decision, $reviewAssignments),
@@ -147,7 +145,7 @@ class Accept extends DecisionType
 
         $fakeDecision = $this->getFakeDecision($submission, $editor, $reviewRound);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
-        $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $reviewRound->getId());
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), self::REVIEW_ASSIGNMENT_COMPLETED);
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {

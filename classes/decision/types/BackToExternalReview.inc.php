@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/BackToReview.php
+ * @file classes/decision/types/BackToExternalReview.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -16,50 +16,35 @@ namespace PKP\decision\types;
 use APP\decision\Decision;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
-use PKP\components\fileAttachers\FileStage;
-use PKP\components\fileAttachers\Library;
-use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\types\contracts\DecisionRetractable;
+use PKP\decision\types\interfaces\DecisionRetractable;
+use PKP\decision\types\traits\InCopyEditing;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\withReviewRound;
+use PKP\decision\types\traits\WithReviewAssignment;
 use PKP\mail\mailables\DecisionBackToReviewNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submissionFile\SubmissionFile;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 
-class BackToReview extends DecisionType implements DecisionRetractable
+class BackToExternalReview extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
-    use withReviewRound;
+    use WithReviewAssignment;
+    use InCopyEditing;
 
     public function getDecision(): int
     {
-        return Decision::BACK_TO_REVIEW;
-    }
-
-    public function getStageId(): int
-    {
-        return WORKFLOW_STAGE_ID_EDITING;
+        return Decision::BACK_TO_EXTERNAL_REVIEW;
     }
 
     public function getNewStageId(): int
     {
         return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
-    }
-
-    public function getNewStatus(): ?int
-    {
-        return null;
-    }
-
-    public function getNewReviewRoundStatus(): ?int
-    {
-        return null;
     }
 
     public function getLabel(?string $locale = null): string
@@ -159,59 +144,15 @@ class BackToReview extends DecisionType implements DecisionRetractable
      */
     public function canRetract(Submission $submission, ?int $reviewRoundId): bool
     {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
         // if there is no external review round associated with it
         // can not back out to external review stage
-        if (!$this->hasReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+        if (!$reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
             return false;
         }
 
         return true;
-    }
-
-    /**
-     * Get the submission file stages that are permitted to be attached to emails
-     * sent in this decision
-     *
-     * @return array<int>
-     */
-    protected function getAllowedAttachmentFileStages(): array
-    {
-        return [
-            SubmissionFile::SUBMISSION_FILE_FINAL,
-        ];
-    }
-
-    /**
-     * Get the file attacher components supported for emails in this decision
-     */
-    protected function getFileAttachers(Submission $submission, Context $context): array
-    {
-        $attachers = [
-            new Upload(
-                $context,
-                __('common.upload.addFile'),
-                __('common.upload.addFile.description'),
-                __('common.upload.addFile')
-            ),
-        ];
-
-        $attachers[] = (new FileStage(
-            $context,
-            $submission,
-            __('submission.submit.submissionFiles'),
-            __('email.addAttachment.submissionFiles.submissionDescription'),
-            __('email.addAttachment.submissionFiles.attach')
-        ))
-            ->withFileStage(
-                SubmissionFile::SUBMISSION_FILE_FINAL,
-                __('submission.finalDraft')
-            );
-
-        $attachers[] = new Library(
-            $context,
-            $submission
-        );
-
-        return $attachers;
     }
 }

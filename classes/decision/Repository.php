@@ -28,8 +28,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\decision\types\contracts\DecisionRemovable;
-use PKP\decision\types\contracts\DecisionRetractable;
+use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\observers\events\DecisionAdded;
@@ -380,78 +379,19 @@ abstract class Repository
     }
 
     /**
-     * Get a list of all retractable decision types available
-     *
-     * @return array<DecisionType>
-     */
-    public function getRetractableDecisionTypes(): array
-    {
-        return $this
-            ->getDecisionTypes()
-            ->filter(fn ($decision) => $decision instanceof DecisionRetractable)
-            ->toArray();
-    }
-
-    /**
      * Get a list of retractable decision types available for given stage
      *
-     * @return array<DecisionType>
-     */
-    public function getRetractableDecisionTypesByStageId(int $stageId): array
-    {
-        return collect($this->getRetractableDecisionTypes())
-            ->filter(fn ($decision) => $decision->getStageId() === $stageId)
-            ->toArray();
-    }
-
-    /**
-     * Get a list of retractable decision types available for given stage
-     *
-     *
-     * @return array<DecisionType>
+     * @return DecisionType[]
      */
     public function getApplicableRetractableDecisionTypes(int $stageId, ...$params): array
     {
-        return collect($this->getRetractableDecisionTypesByStageId($stageId))
-            ->filter(fn ($decision) => $decision->canRetract(...$params))
-            ->toArray();
-    }
-
-    /**
-     * Get a list of all removable decision types available
-     *
-     * @return array<DecisionType>
-     */
-    public function getRemovableDecisionTypes(): array
-    {
         return $this
             ->getDecisionTypes()
-            ->filter(fn ($decision) => $decision instanceof DecisionRemovable)
-            ->toArray();
-    }
-
-    /**
-     * Get a list of removable decision types available for given stage
-     *
-     * @return array<DecisionType>
-     */
-    public function getRemovableDecisionTypesByStageId(int $stageId): array
-    {
-        return collect($this->getRemovableDecisionTypes())
-            ->filter(fn ($decision) => $decision->getStageId() === $stageId)
-            ->toArray();
-    }
-
-    /**
-     * Get a list of removable decision types available for given stage
-     *
-     *
-     * @return array<DecisionType>
-     */
-    public function getApplicableRemovableDecisionTypes(int $stageId, ...$params): array
-    {
-        return collect($this->getRemovableDecisionTypesByStageId($stageId))
-            ->filter(fn ($decision) => $decision->canRemove(...$params))
+            ->filter(
+                fn ($decision) => $decision instanceof DecisionRetractable
+                                        && $decision->getStageId() === $stageId
+                                        && $decision->canRetract(...$params)
+            )
             ->toArray();
     }
 

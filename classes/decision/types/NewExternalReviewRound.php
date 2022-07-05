@@ -25,7 +25,6 @@ use PKP\decision\steps\Email;
 use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\withReviewRound;
 use PKP\mail\mailables\DecisionNewReviewRoundNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
@@ -36,7 +35,6 @@ use PKP\user\User;
 class NewExternalReviewRound extends DecisionType
 {
     use InExternalReviewRound;
-    use withReviewRound;
     use NotifyAuthors;
 
     public function getDecision(): int

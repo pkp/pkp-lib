@@ -25,8 +25,7 @@ use PKP\context\Context;
 use PKP\core\Dispatcher;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
-use PKP\decision\types\contracts\DecisionRemovable;
-use PKP\decision\types\contracts\DecisionRetractable;
+use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -108,11 +107,6 @@ class DecisionHandler extends Handler
 
         // For a retractable decision, don't allow if it can not be retracted
         if ($this->decisionType instanceof DecisionRetractable && !$this->decisionType->canRetract($this->submission, $reviewRoundId)) {
-            $request->getDispatcher()->handle404();
-        }
-
-        // For a removable decision, don't allow if it can not be removed
-        if ($this->decisionType instanceof DecisionRemovable && !$this->decisionType->canRemove($this->submission, $reviewRoundId)) {
             $request->getDispatcher()->handle404();
         }
 

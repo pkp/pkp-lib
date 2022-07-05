@@ -23,7 +23,7 @@ use PKP\context\Context;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\types\contracts\DecisionRetractable;
+use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\mailables\DecisionBackToCopyeditingNotifyAuthor;
 use PKP\security\Role;

@@ -181,9 +181,10 @@ class PKPFileService
      */
     public function formatFilename($path, $filename)
     {
-        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        preg_match("/(\\.\\w{1,3})?\\.\\w+$/", $path, $extension); #extended matching which also captures .tar.gz extensions
+        $extension = substr($extension[0], 1); # Remove leading dot
         $newFilename = $filename;
-        if (!empty($extension) && substr($newFilename, (strlen($extension) * -1)) != $extension) {
+        if (!empty($extension) && strcasecmp(substr($newFilename, (strlen($extension) * -1)), $extension) != 0) {
             $newFilename .= '.' . $extension;
         }
 

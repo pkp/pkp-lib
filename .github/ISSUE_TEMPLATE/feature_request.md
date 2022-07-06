@@ -11,7 +11,7 @@ assignees: ''
 Example: Our editors need a way to [...]
 
 **Describe the solution you'd like**
-Tell us how you would like this solution to be solved.
+Tell us how you would like this problem to be solved.
 
 **Who is asking for this feature?**
 Tell us what kind of users are requesting this feature. Example: Journal Editors, Journal Administrators, Technical Support, Authors, Reviewers, etc.

@@ -22,6 +22,7 @@ use PKP\log\SubmissionFileLog;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
+use APP\notification\NotificationManager;
 
 abstract class InformationCenterHandler extends Handler
 {

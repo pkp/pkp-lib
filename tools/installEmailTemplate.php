@@ -38,7 +38,7 @@ class installEmailTemplates extends CommandLineTool
         $this->_emailKey = array_shift($this->argv);
         $this->_locales = array_shift($this->argv);
 
-        if ($this->_emailKey === null || $this->_locales === null) {
+        if ($this->_emailKey === null) {
             $this->usage();
             exit;
         }
@@ -53,7 +53,7 @@ class installEmailTemplates extends CommandLineTool
             . "Usage:\n"
             . "\t{$this->scriptName} emailKey aa_BB[,cc_DD,...] [path/to/emails.po]\n"
             . "\t\temailKey: The email key of the email to install, e.g. ANNOUNCEMENT\n"
-            . "\t\taa_BB[,cc_DD,...]: The comma-separated list of locales to install\n";
+            . "\t\taa_BB[,cc_DD,...]: The optional comma-separated list of locales to install. If none provided will be determined by site's installed locales\n";
     }
 
     /**
@@ -62,10 +62,14 @@ class installEmailTemplates extends CommandLineTool
     public function execute()
     {
         // Load the necessary locale data
-        $locales = explode(',', $this->_locales);
+        $locales = explode(',', $this->_locales ?? '');
 
         // Install to the database
-        Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $locales, $this->_emailKey);
+        Repo::emailTemplate()->dao->installEmailTemplates(
+            Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
+            $locales,
+            $this->_emailKey
+        );
     }
 }
 

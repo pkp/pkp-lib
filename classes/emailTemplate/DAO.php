@@ -17,10 +17,13 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\mail\Mailable;
+use PKP\site\Site;
+use PKP\site\SiteDAO;
 
 class DAO extends EntityDAO
 {
@@ -265,6 +268,21 @@ class DAO extends EntityDAO
         if (!isset($data['email'])) {
             return false;
         }
+
+        // if locales is empty, it will use the site's installed locales
+        $locales = array_filter(array_map('trim', $locales));
+        if (empty($locales)) {
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $site = $siteDao->getSite(); /** @var Site $site */
+            $locales = $site->getInstalledLocales();
+        }
+
+        // filter out any invalid locales that is not supported by site
+        $allLocales = array_keys(Locale::getLocales());
+        if (!empty($invalidLocales = array_diff($locales, $allLocales))) {
+            $locales = array_diff($locales, $invalidLocales);
+        }
+
         foreach ($data['email'] as $entry) {
             $attrs = $entry['attributes'];
             if ($emailKey && $emailKey != $attrs['key']) {

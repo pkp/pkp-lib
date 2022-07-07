@@ -20,6 +20,11 @@ namespace PKP\note;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
+use APP\facades\Repo;
+use PKP\submissionFile\SubmissionFile;
+use APP\core\Application;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 
 class NoteDAO extends \PKP\db\DAO
 {
@@ -120,6 +125,35 @@ class NoteDAO extends \PKP\db\DAO
             $params
         );
         return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params); // Counted in QueriesGridCellProvider
+    }
+
+    /**
+     * Retrieve all Notes by assoc id/type
+     *
+     * @param int $assocId ASSOC_TYPE_...
+     * @param int $assocType Assoc ID (per $assocType)
+     * @param int $userId Optional user ID
+     *
+     * @return LazyCollection of Notes
+     */
+    public function getAllByAssoc($assocType, $assocId, $userId = null)
+    {
+        $query = DB::table('notes')
+            ->where('assoc_id', '=', $assocId)
+            ->where('assoc_type', '=', $assocType);
+
+        if ($userId) {
+            $query->where('user_id', '=', $userId);
+        }
+
+        $rows = $query->select(['*'])->get();
+        
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $this->_fromRow(get_object_vars($row));
+            }
+        });
+         
     }
 
     /**
@@ -288,16 +322,29 @@ class NoteDAO extends \PKP\db\DAO
      */
     public function deleteById($noteId, $userId = null)
     {
-        $params = [(int) $noteId];
-        if ($userId) {
-            $params[] = (int) $userId;
-        }
+        try {
+            DB::beginTransaction();
 
-        $this->update(
-            'DELETE FROM notes WHERE note_id = ?' .
-            ($userId ? ' AND user_id = ?' : ''),
-            $params
-        );
+            $submissionFileCollector = Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$noteId]);
+
+            Repo::submissionFile()->deleteMany($submissionFileCollector);
+
+            $query = DB::table('notes')
+                ->where('note_id', '=', $noteId);
+            
+            if ($userId) {
+                $query->where('user_id', '=', $userId);
+            }
+
+            $query->delete();
+
+            DB::commit();
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            throw $ex;
+        }
     }
 
     /**
@@ -308,8 +355,8 @@ class NoteDAO extends \PKP\db\DAO
      */
     public function deleteByAssoc($assocType, $assocId)
     {
-        $notes = $this->getByAssoc($assocType, $assocId);
-        while ($note = $notes->next()) {
+        $notes = $this->getAllByAssoc($assocType, $assocId);
+        foreach ($notes as $note) {
             $this->deleteObject($note);
         }
     }

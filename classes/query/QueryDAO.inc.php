@@ -24,6 +24,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
+use Illuminate\Support\Facades\DB;
 
 class QueryDAO extends \PKP\db\DAO
 {
@@ -271,28 +272,39 @@ class QueryDAO extends \PKP\db\DAO
      */
     public function deleteById($queryId, $assocType = null, $assocId = null)
     {
-        $params = [(int) $queryId];
-        if ($assocType) {
-            $params[] = (int) $assocType;
-            $params[] = (int) $assocId;
-        }
-        if ($this->update(
-            'DELETE FROM queries WHERE query_id = ?' .
-            ($assocType ? ' AND assoc_type = ? AND assoc_id = ?' : ''),
-            $params
-        )) {
-            $this->update('DELETE FROM query_participants WHERE query_id = ?', [(int) $queryId]);
+        try {
+            DB::beginTransaction();
 
             // Remove associated notes
             $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $noteDao->deleteByAssoc(ASSOC_TYPE_QUERY, $queryId);
+            $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
+
+            // Remove associated participants
+            DB::table('query_participants')
+                ->where('query_id', '=', $queryId)
+                ->delete();
 
             // Remove associated notifications
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notifications = $notificationDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
+            $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
             while ($notification = $notifications->next()) {
                 $notificationDao->deleteObject($notification);
             }
+
+            $queryQueries = DB::table('queries')
+                ->where('query_id', '=', $queryId);
+            
+            if ($assocType) {
+                $queryQueries->where('assoc_type', '=', $assocType)
+                    ->where('assoc_id', '=', $assocId);
+            }
+
+            $queryQueries->delete();
+
+            DB::commit();
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            throw $ex;
         }
     }
 

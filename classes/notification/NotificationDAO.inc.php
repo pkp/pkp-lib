@@ -234,25 +234,29 @@ class NotificationDAO extends \PKP\db\DAO
      * @param int $notificationId
      * @param int $userId
      *
-     * @return bool
      */
     public function deleteById($notificationId, $userId = null)
     {
-        $params = [(int) $notificationId];
-        if (isset($userId)) {
-            $params[] = (int) $userId;
-        }
-        if ($this->update(
-            'DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
-            $params
-        )) {
-            // If a notification was deleted (possibly validating
-            // $userId in the process) delete associated settings.
+        try {
+            DB::beginTransaction();
+
             $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDaoDao */
             $notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
-            return true;
+
+            $query = DB::table('notifications')
+                ->where('notification_id', '=', $notificationId);
+            
+            if ($userId) {
+                $query->where('user_id', '=', $userId);
+            }
+
+            $query->delete();
+
+            DB::commit();
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            throw $ex;
         }
-        return false;
     }
 
     /**

@@ -21,42 +21,36 @@ class Registry
     /**
      * Get a static reference to the registry data structure.
      *
-     * @return array
      */
-    public static function &_getRegistry()
+    public static function &_getRegistry(): array
     {
         static $registry = [];
         return $registry;
     }
 
     /**
-     * Get the value of an item in the registry.
+     * Get the value of an item in the registry (optionally setting a default).
      *
-     * @param string $key
-     * @param bool $createIfEmpty Whether or not to create the entry if none exists
-     * @param mixed $createWithDefault If $createIfEmpty, this value will be used as a default
+     * @param bool $createIfEmpty Whether or not to create an entry if none exists
+     * @param mixed $default If $createIfEmpty, this value will be used as a default
      */
-    public static function &get($key, $createIfEmpty = false, $createWithDefault = null)
+    public static function &get(string $key, bool $createIfEmpty = false, mixed $default = null): mixed
     {
         $registry = & self::_getRegistry();
 
-        $result = null;
         if (isset($registry[$key])) {
-            $result = & $registry[$key];
-        } elseif ($createIfEmpty) {
-            $result = $createWithDefault;
-            self::set($key, $result);
+            return $registry[$key];
         }
-        return $result;
+        if ($createIfEmpty) {
+            self::set($key, $default);
+        }
+        return $default;
     }
 
     /**
      * Set the value of an item in the registry.
-     * The item will be added if it does not already exist.
-     *
-     * @param string $key
      */
-    public static function set($key, &$value)
+    public static function set(string $key, mixed &$value): void
     {
         $registry = & self::_getRegistry();
         $registry[$key] = & $value;
@@ -64,10 +58,8 @@ class Registry
 
     /**
      * Remove an item from the registry.
-     *
-     * @param string $key
      */
-    public static function delete($key)
+    public static function delete(string $key): void
     {
         $registry = & self::_getRegistry();
         if (isset($registry[$key])) {
@@ -75,7 +67,10 @@ class Registry
         }
     }
 
-    public static function clear()
+    /**
+     * Clear the registry of all contents.
+     */
+    public static function clear(): void
     {
         $registry = & self::_getRegistry();
         foreach (array_keys($registry) as $key) {

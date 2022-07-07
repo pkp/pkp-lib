@@ -184,5 +184,3 @@ msgstr ""
 "Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
 "<br />\n"
 "Päätöksemme on: Käsikirjoitus on hylätty"
-
-#, fuzzy

@@ -94,5 +94,3 @@ msgstr ""
 "dokončenia recenzie a prístup k samotnému príspevku. Táto správa sa používa "
 "v prípade, že je v časti Správa> Nastavenia> Pracovný postup> Kontrola "
 "vybraná možnosť Štandardná kontrola."
-
-#, fuzzy

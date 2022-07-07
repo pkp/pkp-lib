@@ -113,5 +113,3 @@ msgstr "सेक्शन एडिटर से समीक्षक के �
 # (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
 # (pofilter) startpunc: Different punctuation at the start
 # (pofilter) xmltags: Added XML tags
-
-#, fuzzy

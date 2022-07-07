@@ -183,5 +183,3 @@ msgstr ""
 " » à  la revue {$contextName}.<br />\n"
 "<br />\n"
 "Notre décision est de refuser votre soumission."
-
-#, fuzzy

@@ -189,5 +189,3 @@ msgstr ""
 "“{$submissionTitle}”.<br />\n"
 "<br />\n"
 "Cho-dhùin sinn an tagradh a dhiùltadh"
-
-#, fuzzy

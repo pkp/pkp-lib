@@ -193,5 +193,3 @@ msgstr ""
 "<p>Portanto a nossa decisão é: <strong>Recusar Submissão</strong></p>\n"
 "<p>Desejo-lhe sucesso se você considerar enviar trabalhos para outro "
 "periódico. </p> <p> Atenciosamente, </p> {$signature}"
-
-#, fuzzy

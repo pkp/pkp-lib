@@ -172,5 +172,3 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Onze beslissing is: Weiger inzending"
-
-#, fuzzy

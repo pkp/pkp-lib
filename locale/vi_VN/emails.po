@@ -180,5 +180,3 @@ msgstr ""
 "{$contextName}, &quot;{$submissionTitle}&quot;.<br />\t\t\n"
 "<br />\n"
 "Quyết định của chúng tôi là: Từ chối"
-
-#, fuzzy

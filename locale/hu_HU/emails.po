@@ -181,5 +181,3 @@ msgstr ""
 "<br /> \n"
 "Üdvözlettel,<br />\n"
 "{$signature}<br />"
-
-#, fuzzy

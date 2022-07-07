@@ -188,5 +188,3 @@ msgstr ""
 "požadavky pro zveřejnění v {$contextName}.</p><p>Přeji Vám úspěch, pokud "
 "budete uvažovat o zaslání práce do jiného časopisu.</p><p>S "
 "pozdravem,</p>{$signature}"
-
-#, fuzzy

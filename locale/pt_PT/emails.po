@@ -193,5 +193,3 @@ msgstr ""
 "&quot;{$submissionTitle}&quot; foi tomada uma decisão.<br />\n"
 "<br />\n"
 "A decisão é: Rejeitar a Submissão"
-
-#, fuzzy

@@ -170,5 +170,3 @@ msgstr ""
 "Wir sind zu einer Entscheidung hinsichtlich Ihrer Einreichung für {$contextName}, &quot;{$submissionTitle}&quot; gekommen.<br />\n"
 "<br />\n"
 "Wir haben entschieden, Ihre Einreichung abzulehnen."
-
-#, fuzzy

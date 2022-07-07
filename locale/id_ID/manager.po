@@ -2426,5 +2426,3 @@ msgstr ""
 "apakah menerima atau menolak permohonan review untuk tahap review tambahan. "
 "Email ini berisi informasi tentang naskah yang mencakup  judul dan abstrak, "
 "tenggat review, dan cara mengakses naskah."
-
-#, fuzzy

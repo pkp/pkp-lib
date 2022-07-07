@@ -176,5 +176,3 @@ msgstr ""
 "aday makaleniz ile ilgili değerlendirme süreci tamamlanmıştır.<br />\n"
 "<br />\n"
 "Değerlendirme sonucu karar:  Aday Makale Reddedildi"
-
-#, fuzzy

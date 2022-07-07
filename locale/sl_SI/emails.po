@@ -171,5 +171,3 @@ msgstr ""
 "prispevka &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Naša odločitev je: Prispevek se zavrne"
-
-#, fuzzy

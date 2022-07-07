@@ -1764,5 +1764,3 @@ msgstr "Deze e-mail van de sectieredacteur aan een reviewer vraagt aan de review
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Deze e-mail van de sectieredacteur aan de reviewer vraagt de reviewer een inzending voor een tweede of latere ronde te reviewen. Het bevat informatie over de inzending zoals titel en samenvatting, de uiterste datum voor de review en de gegevens om de inzending te benaderen. Dit bericht wordt gebruikt bij het standaard review proces, zoals gekozen in instellen, stap 2"
-
-#, fuzzy

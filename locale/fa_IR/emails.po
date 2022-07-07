@@ -1347,5 +1347,3 @@ msgstr ""
 "در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
 "<br />\n"
 "تصمیم نهایی: عدم پذیرش"
-
-#, fuzzy

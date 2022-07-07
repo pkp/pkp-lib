@@ -182,5 +182,3 @@ msgstr ""
 "{$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Decizia noastră este: Manuscrisul nu este acceptat"
-
-#, fuzzy

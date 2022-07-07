@@ -178,5 +178,3 @@ msgstr ""
 "&quot;{$submissionTitle}&quot; inviato a {$contextName} .<br />\n"
 "<br />\n"
 "Ci rincresce informarla che non ci è possibile accettare il suo contributo"
-
-#, fuzzy

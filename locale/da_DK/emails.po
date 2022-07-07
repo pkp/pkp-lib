@@ -230,5 +230,3 @@ msgstr ""
 "at den ikke egner sig til udgivelse i {$contextName}.</p><p>Jeg håber, du "
 "kan få artiklen optaget i et andet tidsskrift.</p><p>Med venlig "
 "hilsen</p>{$signature}"
-
-#, fuzzy

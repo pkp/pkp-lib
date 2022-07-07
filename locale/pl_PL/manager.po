@@ -2290,5 +2290,3 @@ msgstr ""
 "przygotowanie recenzji tekstu, jego tytuł i abstrakt oraz informacje o "
 "dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
 "pracować będzie w systemie"
-
-#, fuzzy

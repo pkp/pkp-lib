@@ -184,5 +184,3 @@ msgstr ""
 "zgłoszonego do czasopisma \"{$contextName}\".<br />\n"
 "<br />\n"
 "Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
-
-#, fuzzy

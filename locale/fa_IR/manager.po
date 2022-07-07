@@ -1537,5 +1537,3 @@ msgstr "This email from the Section Editor to a Reviewer requests that the revie
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"
-
-#, fuzzy

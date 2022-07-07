@@ -58,5 +58,3 @@ msgstr ""
 "gheibhear greim air an tagradh e fhèin. Seo an teachdaireachd a thèid a "
 "chleachdadh nuair a thaghar am pròiseas lèirmheis stannardach fo “Stiùireadh”"
 " > “Roghainnean” > “Sruth-obrach” > “Lèirmheas”."
-
-#, fuzzy

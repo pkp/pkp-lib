@@ -2537,5 +2537,3 @@ msgstr ""
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Ce courriel du rédacteur de section à un rapporteur demande que le rapporteur accepte ou refuse la tâche d'examiner une soumission pour une deuxième fois ou plus. Il fournit des informations sur la soumission, comme le titre et le résumé, la date d'échéance de l'examen et la façon d'accéder à la soumission elle-même. Ce message est utilisé lorsque le processus de révision standard est sélectionné dans Administration> Paramètres> Flux des travaux> Révision et que l'accès d'un relecteur est activé."
-
-#, fuzzy

@@ -171,5 +171,3 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Nuestra decisión es: Rechazar el envío"
-
-#, fuzzy

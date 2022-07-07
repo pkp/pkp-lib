@@ -166,5 +166,3 @@ msgstr ""
 "لقد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}، &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "إن قرارنا هو: رفض النشر"
-
-#, fuzzy

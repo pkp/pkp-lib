@@ -2491,5 +2491,3 @@ msgstr ""
 "acceder ao propio envío. Esta mensaxe utilízase cando se selecciona o "
 "proceso de revisión estándar en Xestión > Configuración > Fluxo de traballo >"
 " Revisión."
-
-#, fuzzy

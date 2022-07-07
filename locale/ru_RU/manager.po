@@ -2492,5 +2492,3 @@ msgstr "Префикс DOI назначается регистрационным
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Контент журнала"
-
-#, fuzzy

@@ -162,5 +162,3 @@ msgstr ""
 "Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Vårt beslut är att: Refusera bidrag"
-
-#, fuzzy

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-04-29 13:35+0000\n"
+"PO-Revision-Date: 2022-07-09 18:41+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2139,3 +2139,9 @@ msgstr "إدراج المحتوى"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "أمر غير معروف {$command}"
+
+msgid "notification.type.editorialReminder"
+msgstr "البريد الالكتروني الأسبوعي للمهام المعلقة"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"

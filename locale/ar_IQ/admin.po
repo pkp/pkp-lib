@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-05-21 10:58+0000\n"
+"PO-Revision-Date: 2022-07-08 01:57+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -490,3 +490,14 @@ msgstr "حذف المخبوءات"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "إزالة حسابات المستخدمين منتهية الصلاحية التي لم يتم التحقق منها"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"توجيه {$count} من المهام بشأن إرسال رسائل تذكير المحررين إلى {$userIds} ضمن "
+"سياق {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "تحديد المحررين المراد تذكيرهم في سياق {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "أرسل بريدًا الكترونيًا إلى كل محرر لتذكيرهم بمهامهم المعلقة"

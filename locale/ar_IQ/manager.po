@@ -1778,7 +1778,7 @@ msgid "stats.allUsers"
 msgstr "كل المستخدمين"
 
 msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}\السنة)"
+msgstr "{$count} ({$average}\\السنة)"
 
 msgid "stats.daily"
 msgstr "يومياً"

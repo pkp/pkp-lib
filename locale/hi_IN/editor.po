@@ -13,6 +13,5 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-# (pofilter) endpunc: Different punctuation at the end
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "क्या आप वाकई इस सबमिशन को स्थायी रूप से हटाना चाहते हैं?"

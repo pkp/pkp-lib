@@ -163,7 +163,6 @@ msgstr "ინსტალაციამდე ნაბიჯები"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. შემდეგი ფაილები და დირექტორიები (და მათი შინაარსი) უნდა იყოს დაწერილი:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt>იწერება (არასავალდებულო): {$writable_config}</li>\n"

@@ -520,7 +520,6 @@ msgstr "Staður"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tHluturinn {$contextObjectName} er stilltur til að skrá fleiri en einn notkunarmælikvarða. Tölfræði um notkun verður birt í hverju og einu samhengi. \n"
 "\t\tÍ ákveðnum tilfellum þarf að nýta eina tölfræðinotkun, t.d. til að sýna flokkaðan lista af algengustu innsendingum  eða til að raða leitarniðurstöðum. Vinsamlega veldur einn af mælikvörðunum sem búið er að stilla sem sjálfgefinn.\n"
 "\t"

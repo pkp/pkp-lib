@@ -695,7 +695,6 @@ msgstr "Veuillez sélectionner un fichier d'abord"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVotre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
 "\n"
 "Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour ordonner les résultats de la recherche. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.\n"

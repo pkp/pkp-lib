@@ -532,7 +532,6 @@ msgstr "Thành phố"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t{$contextObjectName} của bạn được định cấu hình để ghi lại nhiều chỉ số sử dụng. Số liệu thống kê sử dụng \n"
 "sẽ được hiển thị trong một số ngữ cảnh.\n"
 "\n"

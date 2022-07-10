@@ -150,7 +150,6 @@ msgstr "这封电子邮件是由一位区段编辑寄发给稿件的校样编辑
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "我们对于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 形成了一个最终共识。<br />\n"

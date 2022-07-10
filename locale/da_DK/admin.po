@@ -272,7 +272,6 @@ msgstr "Ryd logfiler over planlagte opgaver"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tDin installation er konfigureret til at optage mere end én brugsparameter. Brugsstatistikker vises i flere sammenhænge.\n"
 "  Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. en visning af en ordnet liste over mest viste indlæg eller en rangering af søgeresultater. Vælg \n"
 "  venligst en af de konfigurerede beregninger som standard.\n"

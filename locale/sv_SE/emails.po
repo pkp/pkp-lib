@@ -158,7 +158,6 @@ msgstr "Redaktörsbeslut"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

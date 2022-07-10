@@ -292,7 +292,6 @@ msgstr "Bu dil sitenin birincil dilidir. Başka bir dili birincil dil olarak se�
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tSistem kurulumunuz birden fazla kullanım istatistiği kaydedecek şekilde yapılandırıldı. Kullanım istatistikleri birden fazla şekilde görüntülenecek.\n"
 "Bazı durumlarda tek bir kullanım istatistiği kullanılması gereklidir. ör. en çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya, arama sonuçlarını derecelendirmek için. Lütfen yapılandırılmış metriklerden birini varsayılan olarak seçin.\n"
 "\t"

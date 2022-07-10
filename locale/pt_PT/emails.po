@@ -160,7 +160,6 @@ msgstr "A sua submissão foi recusada"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Em relação à sua submissão à revista {$contextName}, &quot;{$submissionTitle}&quot; foi tomada uma decisão.<br />\n"

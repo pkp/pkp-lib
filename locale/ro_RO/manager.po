@@ -1550,7 +1550,6 @@ msgstr "Oraș"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t{$contextObjectName} este configurat pentru a înregistra mai multe valori de utilizare. Statisticile de utilizare vor fi afișate în mai multe contexte.\n"
 "\t\tExistă cazuri în care trebuie utilizată o singură statistică, de ex. pentru a afișa o listă ordonată a celor mai utilizate înregistrări de manuscrise sau pentru a se clasifica\n"
 "\t\trezultatele căutării. Vă rugăm să selectați una dintre valorile configurate ca implicită.\n"

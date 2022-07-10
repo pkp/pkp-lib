@@ -158,7 +158,6 @@ msgstr "Decisione dell'editor"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\tGentilissimo {$authors}:<br />\n"
 "<br />\n"
 "Abbiamo preso una decisione in merito al suo manoscritto dal titolo &quot;{$submissionTitle}&quot; inviato a {$contextName} .<br />\n"

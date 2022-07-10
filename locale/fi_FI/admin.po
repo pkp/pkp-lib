@@ -165,7 +165,6 @@ msgstr "Pääasiallinen yhteyshenkilön nimi"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tAsennuksesi on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.\n"
 "\t"
 

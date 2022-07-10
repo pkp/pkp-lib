@@ -1478,7 +1478,6 @@ msgstr "Kota"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t{$contextObjectName} Anda diatur untuk merekam lebih dari satu metrik pemakaian. Statistik pemakaian akan ditampilkan pada beberapa konteks.\n"
 "\t\tBeberapa kasus mengharuskan mengguakan hanya satu statistik pemakaian tunggal, misalnya untuk menampilkan secara berurutan atau merangking\n"
 "\t\thasil pencarian . Silakan pilih satu sebagai pilihan tetap.\n"

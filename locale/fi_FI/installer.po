@@ -162,7 +162,6 @@ msgstr "Esiasennuksen vaiheet"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Seuraavista tiedostoista ja hakemistoista (ja niiden sisällöstä) on tehtävä kirjoituskelpoisia:</p> <ul> <li><tt>config.inc.php</tt> on kirjoituskelpoinen (valinnainen): {$writable_config}</li> <li><tt>public/</tt> on kirjoituskelpoinen: {$writable_public}</li> <li><tt>cache/</tt> on kirjoituskelpoinen: {$writable_cache}</li> <li><tt>cache/t_cache/</tt> on kirjoituskelpoinen: {$writable_templates_cache}</li> <li><tt>cache/t_compile/</tt> on kirjoituskelpoinen: {$writable_templates_compile}</li> <li><tt>cache/_db</tt> on kirjoituskelpoinen: {$writable_db_cache}</li> </ul> <p>2. Ladattujen tiedostojen tallentamista varten on luotava hakemisto ja se on tehtävä kirjoituskelpoiseksi (ks. “Tiedostoasetukset” alla).</p>\n"
 "\t"
 

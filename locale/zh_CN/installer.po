@@ -174,7 +174,6 @@ msgstr "<p>您的PHP安装未启用XSL模块。 请启用它，或在config.inc.
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. 以下文件和目录（及其内容）必须可写：</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> 是可写的（可选）： {$writable_config}</li>\n"

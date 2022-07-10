@@ -154,7 +154,6 @@ msgstr "Email ini dari Editor Bagian ke Copyeditor naskah agar memulai proses co
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Kami telah sampai pada keputusan mengenai naskah Anda {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

@@ -178,7 +178,6 @@ msgstr "A cím kötelező"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tA telepítése úgy van beállítva, hogy egynél több használati statisztikát tároljon. A használati statisztikák többféle összefüggésben jelennek meg.\n"
 "\t\tVannak esetek, amikor egyszeri statisztikát kell használnia, pl. egy rendezett listához a legtöbbet használt cikkekről vagy rangsorolni a találatokat.\n"
 "\t\tKérjük, válasszon egyet a beállított lehetőségek közül, amelyik az alapértelmezett lesz.\n"

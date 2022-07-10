@@ -1355,7 +1355,6 @@ msgstr "Raporu oluşturmak için kullanılacak sütunları tanımlayın. Burada 
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t{$contextObjectName} özelliği birden fazla kullanım metriği kaydetmek için yapılandırılmıştır. Kullanım istatistikleri birkaç bağlamda görüntülenecektir.\n"
 "Tek kullanımlık istatistiğin kullanılması gereken durumlar vardır. Örn. En çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya sıralamak için\n"
 "arama sonuçları. Lütfen yapılandırılmış metriklerden birini varsayılan olarak seçin.\n"

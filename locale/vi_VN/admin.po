@@ -146,7 +146,6 @@ msgstr "Giới thiệu"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tCài đặt của bạn được định cấu hình để ghi lại nhiều hơn một số liệu sử dụng. Số liệu thống kê sử dụng sẽ được hiển thị trong một số ngữ cảnh.\n"
 "Có những trường hợp phải sử dụng một thống kê sử dụng duy nhất, ví dụ: để hiển thị danh sách có thứ tự các bài nộp được sử dụng nhiều nhất hoặc để xếp hạng\n"
 "kết quả tìm kiếm. Vui lòng chọn một trong các chỉ số đã định cấu hình làm mặc định.\n"

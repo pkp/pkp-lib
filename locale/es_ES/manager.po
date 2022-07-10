@@ -476,7 +476,6 @@ msgstr "Stats &amp; Reports"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tTu {$contextObjectName} está conifigurado para registrar más de una métrica de uso. Se mostrarán las estadísticas de uso en varios contextos.\n"
 "\t\tHay casos en los que solo se debe usar una única estadística de uso, p.ej. para mostrar una lista ordenada de los envíos más usados o para clasificar\n"
 "\t\tlos resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.\n"

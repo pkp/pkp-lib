@@ -286,7 +286,6 @@ msgstr "Katalogstien «{$path}» må være i den offentlige katalogen."
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tInstalleringen din er konfigurert til å registrere mer enn ett mål på bruk.\n"
 "<br>Bruksstatistikken vil bli vist i flere sammenhenger. I noen tilfeller vil ett sett med bruksdata bli brukt, for eksempel til å vise en ordnet liste over de mest brukte artiklene eller til å rangere søkeresultater.\n"
 "<br>Velg ett av de konfigurerte målene som standard.\n"

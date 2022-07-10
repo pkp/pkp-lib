@@ -279,7 +279,6 @@ msgstr "Zainstaluj tłumaczenie"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tTwój system jest skonfigurowany, aby wykorzystywać więcej niż jedną metrykę. Statystyki mogą być wyświetlane w wielu kontekstach. \n"
 "\tNiektóre konteksty wymagają użycia pojedynczej metryki, np. w celu wyświetlenia listy punktowanej najczęściej wyświetlanych zgłoszeń lub w celu stopniowania list wyników wyszukiwania. \n"
 "\tWybierz jedną z metryk jako domyślną.\n"

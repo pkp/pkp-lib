@@ -472,7 +472,6 @@ msgstr "Statistike in poročila"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVaša {$contextObjectName} namestitev beleži več kot le eno metriko uporabe, ki so prikazane v različnih kontekstih.\n"
 "\t\tV nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo izberite eno od konfiguriranih metrik kot privzeto.\n"
 "\t"

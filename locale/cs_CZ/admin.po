@@ -289,7 +289,6 @@ msgstr "Chyba: Soubor {$filePath} neexistuje, nebo je k němu zakázaný příst
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVaše instalace je nakonfigurována k zaznamenávání více, než jedné metriky přístupů. Statistika přístupů bude zobrazována v různých souvislostech.\n"
 "  Jsou případy, kdy je třeba použít pouze jedna statistika přístupů, např. při zobrazování uspořádaného seznamu nejpoužívanějších příspěvků, nebo při hodnocení\n"
 "  výsledků vyhledávání. Zvolte, prosím, jednu z metrik jako výchozí.\n"

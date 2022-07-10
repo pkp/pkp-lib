@@ -645,7 +645,6 @@ msgstr "Bruk skjemaet under for å sette maksimumsverdiene for ordene du vil sø
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tDin {$contextObjectName} er konfigurert til å registrere mer enn ett mål på bruk. Brukerstatistikken vil bli vist i flere sammenhenger.\n"
 "\t\tI noen tilfeller vil ett enkelt statistisk mål må brukes, f.eks. for å vise en ordnet liste over de mest brukte innleveringene eller til å rangere søkeresultater. Velg ett av de\n"
 "\t\tkonfigurerte målene som standard.\n"

@@ -204,7 +204,6 @@ msgstr "Logo stranice"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVaša instalacija je konfigurisana za bilježenje više mjernih podataka. Statistika upotrebe prikazat će se u nekoliko konteksta.\n"
 "  Postoje slučajevi u kojima se mora koristiti jedna statistika upotrebe, npr. za prikaz uređene liste najčešće korištenih predatih radova ili za rangiranja\n"
 "  rezultata pretrage. Molimo odaberite jednu od konfigurisanih mjernih vrijednosti kao zadanu.\n"

@@ -682,7 +682,6 @@ msgstr "Požadovat vyjádření ke konfliktu zájmů pro recenzenty."
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVáš {$contextObjectName} je nakonfigurován tak, aby zaznamenal více než jednu metriku přístupů. Statistika přístupů se zobrazí v několika kontextech.\n"
 "Existují případy, kdy může být použita pouze jedna statistika přístupů, např. při zobrazení uspořádaného seznamu nejčastěji čtených příspěvků nebo při hodnocení.\n"
 "výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchozí.\n"

@@ -511,7 +511,6 @@ msgstr "Statisztikák &amp; Jelentések"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tAz ön {$contextObjectName} úgy van konfigurálva, hogy egynél több rekordot eredményez ez a használati statisztika. A használati statisztikákat különféle összefüggésben is meg lehet jeleníteni.\n"
 "\t\tVannak olyan esetek, amikor a szimpla használati statisztika a jó választás, pl. egy rendszerezett listát megjeleníteni a leggyakrabban használt cikkekről vagy a keresési eredményeket rangsorolni. Kérjük, válasszon alapértelmezettként egyet a bekonfigurált statisztikák közül.\n"
 "\t"

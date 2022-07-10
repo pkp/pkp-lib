@@ -511,7 +511,6 @@ msgstr "Statistiques et rapports"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVotre {$contextObjectName} a été configuré-e pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
 "\t\tIl y a des cas où seule une statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des articles les plus consultés ou pour classer les résultats de recherche.\n"
 "\t\tVeuillez sélectionner l'une des  mesures configurées par défaut.\n"

@@ -163,7 +163,6 @@ msgstr "Installationsförberedelser"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Nedanstående filer och kataloger (och deras innehåll) måste vara skrivbara:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> är skrivbar (valfritt): {$writable_config}</li>\n"

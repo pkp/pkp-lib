@@ -163,7 +163,6 @@ msgstr "Ön Yükleme Adımları"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Aşağıdaki dosyalar ve dizinler (ve içerikleri) yazılabilir olmalıdır:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> yazılabilir (opsiyonel): {$writable_config}</li>\n"

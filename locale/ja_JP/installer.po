@@ -24,7 +24,6 @@ msgstr "<p>PHP のインストールで XSL モジュールが有効になって
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. 以下のファイルとディレクトリ（配下のすべてのコンテンツを含む）を書き込みができるようにする必要があります。</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt>は書き込み可（オプション）: {$writable_config}</li>\n"

@@ -267,7 +267,6 @@ msgstr "Promemoria per la scadenza dell'abbonamento"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tLa tua installazione è configurata per registrare più di una metrica d'uso. Le statistiche d'uso sono visualizzate in diversi contesti. Ci sono casi dove una singola metodologia va usata, ad esempio per visualizzare una lista delle pubblicazioni più usate o per ordinare risultati di ricerca. Per favore scegli una delle metriche configurate come default.\n"
 "\t"
 

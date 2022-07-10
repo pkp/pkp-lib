@@ -172,7 +172,6 @@ msgstr "Passos previs a la instal·lació"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Els fitxers i directoris següents (i el seu contingut) han de tenir permisos d'escriptura.</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> té permisos d'escriptura (opcional): {$writable_config}</li>\n"

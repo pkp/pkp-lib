@@ -622,7 +622,6 @@ msgstr "Diretrizes para autores"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tSeu {$contextObjectName} está configurado para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em diferentes contextos.\n"
 "Há casos em que uma única estatística de uso devem ser utilizada, por exemplo, para exibir uma lista ordenada de submissões mais utilizados ou para classificação de resultados da pesquisa. Por favor selecione uma das métricas configuradas como padrão.\n"
 "\t"

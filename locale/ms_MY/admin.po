@@ -267,7 +267,6 @@ msgstr "Pengenalan"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tPemasangan anda dikonfigurasikan untuk merekodkan lebih daripada satu metrik penggunaan. Statistik penggunaan akan dipaparkan dalam beberapa konteks.\n"
 "\t\tTerdapat kes di mana satu statistik penggunaan mesti digunakan, mis. untuk memaparkan senarai tersusun bagi penyerahan yang paling banyak digunakan atau untuk menentukan kedudukan\n"
 "\t\tKeputusan Carian. Sila pilih salah satu metrik yang dikonfigurasikan sebagai lalai.\n"

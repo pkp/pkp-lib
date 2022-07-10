@@ -24,7 +24,6 @@ msgstr "<p> Cài đặt PHP của bạn chưa bật mô-đun XSL. Bật nó lên
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p> 1. Các tệp và thư mục sau (và nội dung của chúng) phải có thể ghi được: </p>\n"
 "<ul>\n"
 "<li> <tt> config.inc.php </tt> có thể ghi (tùy chọn): {$ writeable_config} </li>\n"

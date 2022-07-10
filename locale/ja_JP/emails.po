@@ -155,7 +155,6 @@ msgstr "原稿整理のお願い"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}様:<br />\n"
 "<br />\n"
 "下記の投稿について結論に達しましたので、連絡いたします。\n"

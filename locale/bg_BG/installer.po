@@ -25,7 +25,6 @@ msgstr "<p>Вашата PHP инсталация няма активиран XSL
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Следните файлове и директории (и тяхното съдържание) трябва да бъдат направени за запис:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> може да се записва (по избор): {$writable_config}</li>\n"

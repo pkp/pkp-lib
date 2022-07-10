@@ -174,7 +174,6 @@ msgstr "<p>Instalasi PHP Anda tidak mengaktifkan modul XSL. Aktifkan, atau konfi
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. File dan direktori berikut (dan isinya) harus dibuat dapat ditulis:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> dapat ditulis (opsional): {$writable_config}</li>\n"

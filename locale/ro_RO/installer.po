@@ -24,7 +24,6 @@ msgstr "<p>Instalarea dvs. PHP nu are modulul XSL activat. Fie activați-l, fie 
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Următoarele fișiere și directoare (și conținutul lor) trebuie să fie scrise:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> este scris (opțional): {$writable_config}</li>\n"

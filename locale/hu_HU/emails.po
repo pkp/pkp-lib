@@ -175,7 +175,6 @@ msgstr "Szerkesztői döntés"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\tTisztelt {$authors}!<br />\n"
 "<br />\n"
 "Értesítjük, hogy a(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle}&quot; című kézirata elutasításra került.<br />\n"

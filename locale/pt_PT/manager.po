@@ -642,7 +642,6 @@ msgstr "Use o formulário abaixo para definir os valores máximos para os termos
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tO {$contextObjectName} está configurada para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em vários contextos.\n"
 "  Existem casos em que uma estatística de uso único deve ser usada, ex. para exibir uma lista ordenada de submissões mais utilizadas ou para classificar\n"
 "  resultados da pesquisa. Selecione uma das métricas configuradas como padrão.\n"

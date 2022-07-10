@@ -161,7 +161,6 @@ msgstr "Кроки підготовки до встановлення"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Наступні файли і каталоги (та їх вміст) потрібно зробити доступними для запису:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> доступний для запису (не обов'язково): {$writable_config}</li>\n"

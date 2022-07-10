@@ -163,7 +163,6 @@ msgstr "Předinstalační kroky"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Následující soubory a složky (a jejich obsah) musí být zapisovatelné:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> je zapisovatelný (volitelné): {$writable_config}</li>\n"

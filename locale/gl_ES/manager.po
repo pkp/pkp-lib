@@ -246,7 +246,6 @@ msgstr "Cidade"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tO seu {$contextObjectName} está configurado para gravar máis dunha métrica de uso. As estatísticas de uso amosaranse en varios contextos.\n"
 "\t\tHai casos nos que se debe empregar unha única estatística de uso, por exemplo para amosar unha lista ordenada dos envíos máis usados ou para clasificar os resultados da procura. Seleccione unha das métricas configuradas como predeterminada.\n"
 "\t"

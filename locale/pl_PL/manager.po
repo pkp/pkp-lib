@@ -594,7 +594,6 @@ msgstr "Poprzednie rundy recenzji dla recenzentów tego zgłoszenia"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tTwój {$contextObjectName} jest skonfigurowany tak, aby uwzględniać więcej niż jedną metrykę. Statystyki zostaną wyświetlone w wielu kontekstach. Istnieją przypadki, w których jedna metryka musi zostać wykorzystana, np. do wyświetlenia listy najczęściej otwieranych zgłoszeń lub w celu stopniowania wyników wyszukiwania. Wybierz jedną ze skonfigurowanych metryk jako domyślną.\n"
 "\t"
 

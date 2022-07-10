@@ -252,7 +252,6 @@ msgstr "网站 Logo"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t您的安装已配置为记录多个指标。 使用情况统计信息将在多个上下文中显示。\n"
 "   在某些情况下，必须使用单个使用情况统计，例如 显示最常用提交的有序列表或对搜索结果进行排序。 请在配置的指标中选择一个作为默认指标。\n"
 "\t"

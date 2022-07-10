@@ -174,7 +174,6 @@ msgstr "<p>Le module XSL de votre installation PHP n'est pas activé. Veuillez l
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Les fichiers et répertoires suivants (et leur contenu) doivent être accessibles en écriture :</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> est accessible en écriture (optionnel) : {$writable_config}</li>\n"

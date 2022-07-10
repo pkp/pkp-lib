@@ -142,7 +142,6 @@ msgstr "So'rovni nusxalash"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}: <br />\n"
 "<br/>\n"
 "Biz sizning {$contextName}, & quot; {$submissionTitle} & quot; ga yuborishingiz bo'yicha qarorga keldik. <br />\n"

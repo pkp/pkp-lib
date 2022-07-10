@@ -475,7 +475,6 @@ msgstr "Estadístiques i informes"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tEl vostre {$contextObjectName} està configurat per registrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.\n"
 "\t\tHi ha casos en què heu d'utilitzar una sola estadística d'ús, p. ex., per mostrar una llista ordenada de les tramses més utilitzades o per classificar\n"
 "\t\tels resultats de la cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.\n"

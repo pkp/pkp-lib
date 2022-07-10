@@ -176,7 +176,6 @@ msgstr "Nom de la personne-ressource principale"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tVotre installation OJS est paramétrée pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
 "Il y a des cas où seule une statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des articles les plus consultés\n"
 "ou pour classer les résultats de recherche. Veuillez sélectionner l'une des mesures configurées par défaut.\n"

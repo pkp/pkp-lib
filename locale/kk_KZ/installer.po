@@ -22,7 +22,6 @@ msgstr "<p>Сіздің PHP орнатуыңыз XSL модулін қамтым
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Келесі файлдар мен каталогтар (және олардың мазмұны) жазылатын етіп жасалуы керек:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> жазылады (міндетті емес): {$writable_config}</li>\n"

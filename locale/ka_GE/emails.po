@@ -151,7 +151,6 @@ msgstr "ლიტერატურული რედაქტირები�
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "We have reached a decision regarding your submission to {$contextName}, &quot;{$submissionTitle}&quot;..<br />\n"

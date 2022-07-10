@@ -150,7 +150,6 @@ msgstr "Žiadosť o redigovanie príspevku"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Dosiahli sme rozhodnutie ohľadom vášho príspevku pre {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

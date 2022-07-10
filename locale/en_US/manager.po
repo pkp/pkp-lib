@@ -646,7 +646,6 @@ msgstr "Stats &amp; Reports"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tYour {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.\n"
 "\t\tThere are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank\n"
 "\t\tsearch results. Please select one of the configured metrics as a default.\n"

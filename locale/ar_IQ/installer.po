@@ -163,7 +163,6 @@ msgstr "خطوات ما قبل التنصيب"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. الملفات وحوافظ الملفات الآتية (ومحتوياتها) يجب أن تكون قابلة للتعديل:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> قابل للتعديل (إختيارياً): {$writable_config}</li>\n"

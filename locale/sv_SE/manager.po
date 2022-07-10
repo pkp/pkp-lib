@@ -472,7 +472,6 @@ msgstr "Statistik &amp; Rapporter"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t{$contextObjectName} är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.\n"
 "\t\tDet finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för\n"
 "\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som default.\n"

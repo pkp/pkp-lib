@@ -155,7 +155,6 @@ msgstr "Решение на редактора"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Достигнахме решение относно вашето подаване на материали до {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

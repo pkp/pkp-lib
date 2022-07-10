@@ -154,7 +154,6 @@ msgstr "Quyết định của ban biên tập"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\tKính gửi {$authors},<br />\n"
 "<br />\n"
 "Chúng tôi đã đạt được một quyết định liên quan đến bài gửi của bạn {$contextName}, &quot;{$submissionTitle}&quot;.<br />\t\t\n"

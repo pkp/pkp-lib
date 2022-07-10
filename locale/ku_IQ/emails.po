@@ -149,7 +149,6 @@ msgstr "داواکاریی وردبینیکردن"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "ئێمە لەبارەی پێشکەشکردنەکەت {$contextName}, &quot;{$submissionTitle}&quot; بڕیارمان دا.<br />\n"

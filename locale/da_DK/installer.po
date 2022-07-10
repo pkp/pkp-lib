@@ -163,7 +163,6 @@ msgstr "Præ-installationstrin"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Følgende filer og mapper (og deres indhold) skal gøres skrivbar:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> er skrivbar (ikke obligatorisk): {$writable_config}</li>\n"

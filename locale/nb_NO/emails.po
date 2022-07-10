@@ -153,7 +153,6 @@ msgstr "Denne e-posten sendes av en seksjonsredaktør til en språkvasker for å
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}», som du sendte inn til {$contextName}.<br />\n"

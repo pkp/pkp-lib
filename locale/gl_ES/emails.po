@@ -151,7 +151,6 @@ msgstr "Solicitude de corrección"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Tomamos unha decisión respecto ao seu envío a {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

@@ -1009,7 +1009,6 @@ msgstr "En registreret bruger skal indskrives."
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tDin {$contextObjectName} er konfigureret til at registrere flere bruger-parametre. Brugerstatistik vises i flere sammenhænge.\n"
 "  Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. når en ordnet liste over mest viste indsendelser fremvises eller når et søgeresultat rangeres. \n"
 "  Vælg en af følgende parametre som standard.\n"

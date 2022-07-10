@@ -158,7 +158,6 @@ msgstr "Uredniška odločitev"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "V uredništvu revije {$contextName} smo sprejeli odločitev glede vašega prispevka &quot;{$submissionTitle}&quot;.<br />\n"

@@ -163,7 +163,6 @@ msgstr "Passos P´re-Instalação"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Os seguintes ficheiros e pastas (e os seus conteúdos) devem ser editáveis:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> é editável (opcional): {$writable_config}</li>\n"

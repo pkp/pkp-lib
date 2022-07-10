@@ -154,7 +154,6 @@ msgstr "Decizia editorului"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Am ajuns la o decizie privind manuscrisul înregistrat de dumneavoastră {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

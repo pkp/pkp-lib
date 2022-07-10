@@ -158,7 +158,6 @@ msgstr "Toimittajan päätös"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\tHyvä {$authors},<br />\n"
 "<br />\n"
 "Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"

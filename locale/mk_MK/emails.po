@@ -151,7 +151,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Донесовме одлука во однос на вашиот поднесок до {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"

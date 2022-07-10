@@ -1804,7 +1804,6 @@ msgstr "Plugin Metadata melaksanakan piawaian meta-data tambahan."
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t{$contextObjectName} anda dikonfigurasikan untuk merekodkan lebih daripada satu metrik penggunaan. Statistik penggunaan akan dipaparkan dalam beberapa konteks.\n"
 "\t\tTerdapat kes di mana satu statistik penggunaan mesti digunakan, mis. untuk memaparkan senarai tersusun bagi penyerahan yang paling banyak digunakan atau untuk menentukan kedudukan\n"
 "\t\tKeputusan Carian. Sila pilih salah satu metrik yang dikonfigurasikan sebagai lalai.\n"

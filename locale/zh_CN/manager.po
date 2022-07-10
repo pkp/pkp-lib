@@ -797,7 +797,6 @@ msgstr "城市"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\t您的 {$contextObjectName} 已配置为记录多个使用量指标。 使用情况统计信息将在多个上下文中显示。\n"
 "\t\t在某些情况下，必须使用单个使用情况统计信息，例如 显示最常用提交的有序列表或对搜索结果进行排名。\n"
 "\t\t请选择一个配置的指标作为默认指标。\n"

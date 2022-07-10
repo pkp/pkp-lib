@@ -26,7 +26,6 @@ msgstr "<p>Ձեր PHP-ի տեղադրումը չունի միացված XSL մո
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Հետևյալ նիշքերը և գրացուցակները (և դրանց պարունակությունը) պետք է լինեն գրելու համար.</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> գրվող է (կամընտրական): {$writable_config}</li>\n"

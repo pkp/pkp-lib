@@ -169,7 +169,6 @@ msgstr "Nome do contato principal"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tSua instalação está configurada para gravar mais de uma métrica de uso. Estatísticas de uso serão mostradas de diferentes modos.\n"
 "\t\tExistem casos onde uma única estatística de uso deve ser usada, por exemplo: para mostrar uma lista ordenada das submissões mais usadas\n"
 "\t\tou para rankear resultados de busca. Por favor selecione uma das métricas configuradas como padrão.\n"

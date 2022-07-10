@@ -158,7 +158,6 @@ msgstr "Απόφαση Επιμελητή"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Έχουμε λάβει μία απόφαση σχετικά με την υποβολή σας &quot;{$submissionTitle}&quot; στο περιοδικό {$contextName}.<br />\n"

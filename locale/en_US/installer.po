@@ -167,7 +167,6 @@ msgstr "Pre-Installation Steps"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. The following files and directories (and their contents) must be made writable:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>\n"

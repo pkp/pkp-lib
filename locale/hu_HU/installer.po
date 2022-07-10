@@ -166,7 +166,6 @@ msgstr "Telepítés előtti lépések"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. A következő fájlokat és könyvtárakat (és azok tartalmát) írhatóvá kell tenni:</p>\n"
 "<ul>\n"
 "<li><tt> config.inc.php</tt> írható (opcionális): {$writable_config}</li>\n"

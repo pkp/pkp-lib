@@ -782,7 +782,6 @@ msgstr "Cambia"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"\n"
 "\t\tIl  {$contextObjectName} è configurato per registrare l'uso con più di una metrica. Le metriche d'uso sono visualizzate in numerosi contesti.  Ci sono casi dove deve essere usata una sola metrica, ad esempio per fare la lista delle proposte più usate o per ordinare i risultati di una ricerca. Per favore scegli una metrica di default.\n"
 "\t"
 

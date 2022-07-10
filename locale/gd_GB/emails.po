@@ -155,7 +155,6 @@ msgstr "Co-dhùnadh deasaiche"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 "Thàinig sinn gu co-dhùnadh a thaobh an tagraidh agad gu {$contextName}, “{$submissionTitle}”.<br />\n"

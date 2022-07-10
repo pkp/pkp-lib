@@ -163,7 +163,6 @@ msgstr "Prednamestitveni koraki"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Nasldenje datoteke in mape (vključno z vsebino) morajo imeti pravico pisanja:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> omogočeno pisanje (opcijsko): {$writable_config}</li>\n"

@@ -25,7 +25,6 @@ msgstr "<p>Pemasangan PHP anda tidak mendayakan modul XSL. Sama ada dayakannya a
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Fail dan direktori berikut (dan kandungannya) mesti boleh ditulis:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> boleh ditulis (pilihan): {$writable_config}</li>\n"

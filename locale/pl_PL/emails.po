@@ -161,7 +161,6 @@ msgstr "Decyzja redakcji"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\tSzanowna Pani/ Szanowny Panie,<br />\n"
 "<br />\n"
 "podjęliśmy decyzję w sprawie tekstu  &quot;{$submissionTitle}&quot;, zgłoszonego do czasopisma \"{$contextName}\".<br />\n"

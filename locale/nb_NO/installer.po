@@ -177,7 +177,6 @@ msgstr "<p> PHP-innstallasjonen din har ikke aktivert den nødvendige XSL-module
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. De følgende filene og mappene (og deres innhold) må være overskrivbare:</p>\n"
 "\t<ul>\n"
 "\t\t<li><tt>config.inc.php</tt> er overskrivbar (valgfritt): {$writable_config}</li>\n"

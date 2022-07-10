@@ -25,7 +25,6 @@ msgstr "<p>PHP uppsetningin þín er ekki með  XSL eininguna virkjaða.  Þú �
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
-"\n"
 "\t\t<p>1. Eftirfarandi skrár og skráarsvæði (og innihald þeirra) þarf að gera skrifanleg:</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> er skrifanlegt (valkvætt): {$writable_config}</li>\n"

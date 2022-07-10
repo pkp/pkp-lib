@@ -153,7 +153,6 @@ msgstr "Permintaan Copyediting"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\t{$authors}: <br />\n"
 "<br />\n"
 "Kami telah membuat keputusan mengenai penyerahan anda ke {$contextName}, &quot; {$submissionTitle} &quot ;. <br />\n"

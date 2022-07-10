@@ -196,7 +196,6 @@ msgstr "Әдеби редакциялауға сұраныс"
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
 "\t\t\tСәлеметсіз бе {$authors}! <br />\n"
 "\n"
 "<br />\n"

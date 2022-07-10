@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2020-02-13T21:07:39+00:00\n"
 "PO-Revision-Date: 2020-02-13T21:07:39+00:00\n"
-"Language: \n"
+"Language: hu_HU\n"
 
 msgid "plugins.generic.usageEvent.displayName"
 msgstr "Használati esemény"

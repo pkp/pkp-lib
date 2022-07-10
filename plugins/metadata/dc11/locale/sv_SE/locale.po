@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-11-19T11:06:27+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:27+00:00\n"
-"Language: \n"
+"Language: sv_SE\n"
 
 msgid "plugins.metadata.dc11.displayName"
 msgstr "Dublin Core 1.1-metadata"

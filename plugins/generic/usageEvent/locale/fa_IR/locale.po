@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-11-19T11:06:24+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:24+00:00\n"
-"Language: \n"
+"Language: fa_IR\n"
 
 msgid "plugins.generic.usageEvent.displayName"
 msgstr "رخداد کارکرد"

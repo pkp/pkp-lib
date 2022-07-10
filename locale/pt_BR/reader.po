@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
 "PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
-"Language: \n"
+"Language: pt_BR\n"
 
 msgid "comments.anonymous"
 msgstr "Usuário anônimo"

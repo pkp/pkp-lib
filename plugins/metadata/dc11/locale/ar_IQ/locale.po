@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:25+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:25+00:00\n"
 "Language: ar_IQ\n"
+"Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : ((n == 2) ? 2 : ((n % 100 >= 3 && n % 100 <= 10) ? 3 : ((n % 100 >= 11 && n % 100 <= 99) ? 4 : 5))));\n"
 
 msgid "plugins.metadata.dc11.displayName"
 msgstr "البيانات الوصفية Dublin Core 1.1"

@@ -48,5 +48,3 @@ msgstr ""
 
 msgid "emails.subscriptionNotify.description"
 msgstr "Ovaj imejl obaveštava registrovane čitaoce da je urednik napravio nalog za njihovu pretplatu. Imejl poruka sadrži URL časopisa kao i instrukcije za pristup."
-
-

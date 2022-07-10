@@ -34,6 +34,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.submissionAck.description"
 msgstr "Εφόσον έχει ενεργοποιηθεί η αντίστοιχη επιλογή, το παρόν μήνυμα αποστέλλεται αυτόματα σε έναν Συγγραφέα, κατά την ολοκλήρωση της διαδικασίας υποβολής άρθρου. Ευχαριστεί τον Συγγραφέα για την υποβολή και παρέχει πληροφορίες σχετικά με την παρακολούθηση της υποβολής."
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Επιβεβαίωση υποβολής αξιολόγησης"
@@ -48,6 +49,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewAck.description"
 msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή Ενότητας στον Αξιολογητή, ως επιβεβαίωση τη λήψης της ολοκληρωμένης αξιολόγησης."
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Απόφαση Επιμελητή"
@@ -148,6 +150,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή Ενότητας στον Επιμελητή Κειμένου της υποβολής, για να ξεκινήσει η διαδικασία της επιμέλειας. Παρέχει πληροφορίες σχετικά με την υποβολή και τον τρόπο πρόσβασης σε αυτήν."
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Απόφαση Επιμελητή"

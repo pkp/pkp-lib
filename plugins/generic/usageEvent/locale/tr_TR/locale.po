@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:25+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:25+00:00\n"
 "Language: tr_TR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "plugins.generic.usageEvent.displayName"
 msgstr "Kullanım Etkinliği"

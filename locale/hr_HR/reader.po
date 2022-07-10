@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
 "PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
 "Language: hr_HR\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 
 msgid "comments.anonymous"
 msgstr "Anonimni korisnik"

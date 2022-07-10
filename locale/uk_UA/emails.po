@@ -5,14 +5,12 @@ msgstr ""
 "POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
 "PO-Revision-Date: 2020-04-29 16:43+0000\n"
 "Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
-"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ojs/emails/"
-"uk_UA/>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ojs/emails/uk_UA/>\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
@@ -36,6 +34,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.submissionAck.description"
 msgstr "Якщо розсилання таких листів дозволене, цей лист автоматично надсилається автору, коли він або вона завершує процес подання рукопису до журналу. У ньому міститься інформація про відстеження редакційного опрацювання рукопису та подяка автору за подання."
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Подяка за рецензування статті"
@@ -50,13 +49,13 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewAck.description"
 msgstr "Цим листом редактор розділу підтверджує отримання готової рецензії та дякує рецензенту за його внесок."
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Ми прийняли рішення щодо вашого Подання до {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Ми прийняли рішення щодо вашого Подання до {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Наше рішення: Відправити на Рецензування<br />\n"
 "<br />\n"
@@ -65,19 +64,20 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Рішення Редакції"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Редагування вашого подання &quot;{$submissionTitle},&quot; завершено. Ми "
-"надсилаємо його на публікацію.<br />\n"
+"Редагування вашого подання &quot;{$submissionTitle},&quot; завершено. Ми надсилаємо його на публікацію.<br />\n"
 "<br />\n"
 "URL Подання: {$submissionUrl}"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Рішення Редакції"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Рішення редактора"
@@ -87,8 +87,7 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "Шановний|Шановна {$authors}:<br />\n"
 "<br />\n"
-"Ми прийняли рішення стосовно Вашого подання \"{$submissionTitle}\" до "
-"видання \"{$contextName}\".<br />\n"
+"Ми прийняли рішення стосовно Вашого подання \"{$submissionTitle}\" до видання \"{$contextName}\".<br />\n"
 "<br />\n"
 "Наше рішення: Необхідні Виправлення"
 
@@ -101,8 +100,7 @@ msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "Шановний|Шановна {$authors}:<br />\n"
 "<br />\n"
-"Ми прийняли рішення стосовно Вашого подання\"{$submissionTitle}\" до видання "
-"\"{$contextName}\".<br />\n"
+"Ми прийняли рішення стосовно Вашого подання\"{$submissionTitle}\" до видання \"{$contextName}\".<br />\n"
 "<br />\n"
 "Наше рішення: Відправити на повторне рецензування"
 
@@ -115,8 +113,7 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "Шановний|Шановна {$authors}:<br />\n"
 "<br />\n"
-"Ми прийняли рішення стосовно Вашого подання \"{$submissionTitle}\" до "
-"видання \"{$contextName}\".<br />\n"
+"Ми прийняли рішення стосовно Вашого подання \"{$submissionTitle}\" до видання \"{$contextName}\".<br />\n"
 "<br />\n"
 "Наше рішення: Відмовити у поданні"
 
@@ -125,11 +122,11 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"Щодо подання {$submissionTitle}, надісланому до {$contextName}, можу "
-"рекомендувати наступне: {$recommendation}"
+"Щодо подання {$submissionTitle}, надісланому до {$contextName}, можу рекомендувати наступне: {$recommendation}"
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Рекомендації Редактора"
+
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Запит на літературне редагування"

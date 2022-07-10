@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2020-02-13T21:07:39+00:00\n"
 "PO-Revision-Date: 2020-02-13T21:07:39+00:00\n"
 "Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "plugins.generic.acron.name"
 msgstr "Acron Plugin"

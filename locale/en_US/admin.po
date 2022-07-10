@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
 "PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
 "Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Setting Name"

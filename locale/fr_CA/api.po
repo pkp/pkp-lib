@@ -6,13 +6,12 @@ msgstr ""
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2021-07-07 11:03+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
-"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"api/fr_CA/>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fr_CA/>\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 "X-Generator: Weblate 3.9.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T03:04:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
@@ -110,29 +109,19 @@ msgid "api.submissions.403.userCantEdit"
 msgstr "Vous n'êtes pas autorisé-e à modifier cette publication."
 
 msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"Le répertoire des fichiers publics est introuvable ou encore les fichiers ne "
-"peuvent pas y être enregistrés. Veuillez contacter votre administrateur-"
-"trice afin de résoudre ce problème."
+msgstr "Le répertoire des fichiers publics est introuvable ou encore les fichiers ne peuvent pas y être enregistrés. Veuillez contacter votre administrateur-trice afin de résoudre ce problème."
 
 msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"Vous n'avez pas assez d'espace dans votre répertoire utilisateur. Le fichier "
-"que vous téléversez est de {$ fileUploadSize} ko alors qu'il ne vous reste "
-"que {$ dirSizeLeft} ko."
+msgstr "Vous n'avez pas assez d'espace dans votre répertoire utilisateur. Le fichier que vous téléversez est de {$ fileUploadSize} ko alors qu'il ne vous reste que {$ dirSizeLeft} ko."
 
 msgid "api.publicFiles.403.unauthorized"
 msgstr "Vous n'êtes pas autorisé-e à téléverser des fichiers."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr ""
-"Le fichier que vous avez téléversé ne correspond pas à l'extension du "
-"fichier. Cela peut se produire lorsqu'un fichier a été renommé en un type "
-"incompatible, par exemple en changeant photo.png en photo.jpg."
+msgstr "Le fichier que vous avez téléversé ne correspond pas à l'extension du fichier. Cela peut se produire lorsqu'un fichier a été renommé en un type incompatible, par exemple en changeant photo.png en photo.jpg."
 
 msgid "api.publicFiles.400.extensionNotSupported"
-msgstr ""
-"Vous ne pouvez téléverser que les types de fichiers suivants : {$ fileTypes}."
+msgstr "Vous ne pouvez téléverser que les types de fichiers suivants : {$ fileTypes}."
 
 msgid "api.publicFiles.400.invalidImage"
 msgstr "L'image que vous avez téléversée n'est pas valide."
@@ -150,39 +139,28 @@ msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Il n'est pas possible de modifier l'heure de création."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr ""
-"Vous ne pouvez pas modifier l'association de fichier sans passer un « "
-"assocType » et un « assocId »."
+msgstr "Vous ne pouvez pas modifier l'association de fichier sans passer un « assocType » et un « assocId »."
 
 msgid "api.emails.403.notAllowedUserGroup"
-msgstr ""
-"Vous n'êtes pas autorisé-e à envoyer un courriel aux utilisateurs-trices de "
-"un ou plusieurs des rôles sélectionnés."
+msgstr "Vous n'êtes pas autorisé-e à envoyer un courriel aux utilisateurs-trices de un ou plusieurs des rôles sélectionnés."
 
 msgid "api.emails.400.missingUserGroups"
-msgstr ""
-"Vous devez indiquer les rôles utilisateurs qui doivent recevoir ce courriel."
+msgstr "Vous devez indiquer les rôles utilisateurs qui doivent recevoir ce courriel."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Les paramètres régionaux suivants ne sont pas supportés : {$locales}."
 
 msgid "api.500.apiSecretKeyMissing"
-msgstr ""
-"Le jeton API ne peut être utilisé pour accéder à ce site car "
-"l'administrateur.trice n'a pas configuré de clé secrète."
+msgstr "Le jeton API ne peut être utilisé pour accéder à ce site car l'administrateur.trice n'a pas configuré de clé secrète."
 
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "Le jeton API n'a pu être validé à cause de l'erreur suivante : {$error}"
 
 msgid "api.400.invalidApiToken"
-msgstr ""
-"Le jeton API n'a pas pu être validé. Cela peut indiquer une erreur dans le "
-"jeton API, ou bien qu'il n'est plus valide."
+msgstr "Le jeton API n'a pas pu être validé. Cela peut indiquer une erreur dans le jeton API, ou bien qu'il n'est plus valide."
 
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr ""
-"Vous n'avez pas l'autorisation d'accéder à ces fichiers dans ce cycle "
-"d'évaluation."
+msgstr "Vous n'avez pas l'autorisation d'accéder à ces fichiers dans ce cycle d'évaluation."
 
 msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
 msgstr "Vous n'avez pas l'autorisation d'ajouter ou modifier ces fichiers."
@@ -195,36 +173,25 @@ msgstr "Le cycle d'évaluation spécifié ne fait pas partie de cette soumission
 
 #, fuzzy
 msgid "api.submissionsFiles.400.noParams"
-msgstr ""
-"Aucun changement n'a été trouvé dans la requête d'édition de ce fichier."
+msgstr "Aucun changement n'a été trouvé dans la requête d'édition de ce fichier."
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr ""
-"Vous devez spécifier un cycle d'évaluation lorsque vous demander des "
-"fichiers dans une étape d'évaluation."
+msgstr "Vous devez spécifier un cycle d'évaluation lorsque vous demander des fichiers dans une étape d'évaluation."
 
 #, fuzzy
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr ""
-"Vous ne pouvez pas associer un fichier de cette étape  avec un cycle "
-"d'évaluation."
+msgstr "Vous ne pouvez pas associer un fichier de cette étape  avec un cycle d'évaluation."
 
 #, fuzzy
 msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr ""
-"Vous ne pouvez pas associer un fichier de cette étape avec une assignation "
-"d'évaluation."
+msgstr "Vous ne pouvez pas associer un fichier de cette étape avec une assignation d'évaluation."
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr ""
-"Vous ne pouvez pas associer un fichier à cette étape avec un autre fichier "
-"de soumission."
+msgstr "Vous ne pouvez pas associer un fichier à cette étape avec un autre fichier de soumission."
 
 #, fuzzy
 msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr ""
-"Vous ne pouvez pas associer un fichier de cette étape avec une note de "
-"discussion."
+msgstr "Vous ne pouvez pas associer un fichier de cette étape avec une note de discussion."
 
 #, fuzzy
 msgid "api.submissionFiles.400.noFileStageId"

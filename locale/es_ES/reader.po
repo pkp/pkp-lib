@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
 "PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
 "Language: es_ES\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 
 msgid "comments.anonymous"
 msgstr "Usuario anónimo"

@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
 "PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
 "Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "manager.website.information"
 msgstr "Informatie"
@@ -1745,9 +1746,7 @@ msgstr "Deze e-mail wordt door de reviewer verstuurd naar de sectieredacteur als
 
 #, fuzzy
 msgid "mailable.reviewRemind.description"
-msgstr ""
-"Deze e-mail wordt door de sectieredacteur verstuurd om een reviewer eraan te "
-"herinneren dat de afgesproken reviewperiode verstreken is."
+msgstr "Deze e-mail wordt door de sectieredacteur verstuurd om een reviewer eraan te herinneren dat de afgesproken reviewperiode verstreken is."
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"

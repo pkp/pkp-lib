@@ -5,14 +5,12 @@ msgstr ""
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
 "PO-Revision-Date: 2020-12-17 17:52+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
-"Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/ojs/emails/ar_IQ/"
-">\n"
+"Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/ojs/emails/ar_IQ/>\n"
 "Language: ar_IQ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : ((n == 2) ? 2 : ((n % 100 >= 3 && n % 100 <= 10) ? 3 : ((n % 100 >= 11 && n % 100 <= 99) ? 4 : 5))));\n"
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
@@ -35,10 +33,8 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.submissionAck.description"
-msgstr ""
-"عند تمكين هذه الرسالة، سيتم إرسالها تلقائياً للمؤلف بمجرد إكماله خطوات تقديم "
-"طلب النشر إلى المجلة. يتعرف المؤلف من خلالها على إمكانية متابعة طلبه عبر "
-"موقع المجلة كما يشكره على تقديم طلبه لها."
+msgstr "عند تمكين هذه الرسالة، سيتم إرسالها تلقائياً للمؤلف بمجرد إكماله خطوات تقديم طلب النشر إلى المجلة. يتعرف المؤلف من خلالها على إمكانية متابعة طلبه عبر موقع المجلة كما يشكره على تقديم طلبه لها."
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "إشعار تحكيم المؤلَّف"
@@ -53,6 +49,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewAck.description"
 msgstr "هذه الرسالة يصدرها محرر القسم لتأكيد استلامه لتقييمات وملاحظات المحكم الكاملة، وليشكره على مساهمته في عملية التحكيم."
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "قرار هيئة التحرير"
@@ -153,6 +150,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "هذه الرسالة يعنونها محرر القسم إلى مدقق القسم مطالباً إياه بالشروع في عملية معالجة نسخة المؤلَّف قيد المعالجة، وهي توفر له معلومات عن طلب النشر وكيفية الوصول إليه ضمن موقع المجلة."
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "قرار المحرر"

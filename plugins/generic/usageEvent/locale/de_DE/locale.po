@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T07:05:58-07:00\n"
 "PO-Revision-Date: 2019-09-30T07:05:58-07:00\n"
 "Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "plugins.generic.usageEvent.displayName"
 msgstr "Nutzungsereignis"

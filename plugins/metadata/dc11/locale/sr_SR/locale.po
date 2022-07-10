@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:27+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:27+00:00\n"
 "Language: sr_SR\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 
 msgid "plugins.metadata.dc11.displayName"
 msgstr "Dublin Core 1.1 meta-data"

@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:24+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:24+00:00\n"
 "Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 
 msgid "plugins.generic.usageEvent.displayName"
 msgstr "Zdarzenie użycia"

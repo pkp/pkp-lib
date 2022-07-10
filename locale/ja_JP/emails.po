@@ -3,8 +3,7 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-12-12 11:16+0000\n"
 "Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
-"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/ojs/emails/"
-"ja_JP/>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/ojs/emails/ja_JP/>\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,17 +13,14 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.submissionAck.description"
-msgstr ""
-"このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できる"
-"ことを伝える同時に、著者に投稿に対するお礼をしています。"
+msgstr "このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できることを伝える同時に、著者に投稿に対するお礼をしています。"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}様<br />\n"
 "<br />\n"
-"雑誌『{$contextName}』に原稿「{$submissionTitle}」をご投稿いただき、ありがとうございました。本誌が使用しているオンライン雑"
-"誌管理システムでは、雑誌のWebサイトにログインすることにより、編集過程の進捗状況を確認することができます。<br />\n"
+"雑誌『{$contextName}』に原稿「{$submissionTitle}」をご投稿いただき、ありがとうございました。本誌が使用しているオンライン雑誌管理システムでは、雑誌のWebサイトにログインすることにより、編集過程の進捗状況を確認することができます。<br />\n"
 "<br />\n"
 "原稿のURL: {$submissionUrl}<br />\n"
 "ユーザー名: {$recipientUsername}<br />\n"
@@ -36,6 +32,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.submissionAck.subject"
 msgstr "投稿のお礼"
+
 #, fuzzy
 msgid "emails.reviewAck.description"
 msgstr "このメールは、セクション編集者から査読者に査読が完了したことを確認し、その貢献に感謝するものです。"
@@ -45,12 +42,12 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}様:<br />\n"
 "<br />\n"
-"雑誌『{$contextName}』への投稿原稿「{$submissionTitle}」の査読をしていただき、ありがとうございました。本誌が発行する論文の"
-"品質向上に対する貴殿の貢献に対し感謝いたします。"
+"雑誌『{$contextName}』への投稿原稿「{$submissionTitle}」の査読をしていただき、ありがとうございました。本誌が発行する論文の品質向上に対する貴殿の貢献に対し感謝いたします。"
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "論文査読のお礼"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -66,6 +63,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "編集者の判断"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -78,6 +76,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "編集者の判断"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -91,6 +90,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "編集者の判断"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
@@ -104,6 +104,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "編集者の判断"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -117,6 +118,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "編集者の判断"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -126,19 +128,17 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "編集者の査読結果"
+
 #, fuzzy
 msgid "emails.copyeditRequest.description"
-msgstr ""
-"このメールは、セクション編集者からコピーエディタに原稿整理作業を開始するよう依頼するものです。メールでは、投稿物に関する情報とアクセス方法を提供しています"
-"。"
+msgstr "このメールは、セクション編集者からコピーエディタに原稿整理作業を開始するよう依頼するものです。メールでは、投稿物に関する情報とアクセス方法を提供しています。"
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}様:<br />\n"
 "<br />\n"
-"誌『{$contextName}』への投稿原稿「{$submissionTitle}」の原稿整理作業をお願いいたしたくメールを差し上げました。以下の手順に"
-"従って作業してください。<br />\n"
+"誌『{$contextName}』への投稿原稿「{$submissionTitle}」の原稿整理作業をお願いいたしたくメールを差し上げました。以下の手順に従って作業してください。<br />\n"
 "1. 下記の投稿URLをクリックしてください。<br />\n"
 "2. 「原稿ファイル」で利用可能なファイルを開き、必要に応じて「原稿整理 ディスカッション」を追加しながら、原稿整理作業を行います。<br />\n"
 "3. 整理したファイルを保存し、原稿整理 パネルにアップロードします。<br />\n"
@@ -151,6 +151,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "原稿整理のお願い"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

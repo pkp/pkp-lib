@@ -6,14 +6,12 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
 "PO-Revision-Date: 2021-12-26 09:24+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
-"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/ru_RU/>\n"
+"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/submission/ru_RU/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "author.editPublishedDisabled"
@@ -1900,15 +1898,6 @@ msgstr "Аннотация слишком длинная. Она должна б
 
 msgid "publication.wordCount"
 msgstr "Число слов: {$count}/{$limit}"
-
-msgid "notification.type.revertDecline"
-msgstr "Решение об отклонении этого материала было отменено."
-
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Отклонение материала было отменено."
-
-msgid "editor.submission.decision.revertDecline"
-msgstr "Отменить отклонение материала"
 
 msgid "category.category"
 msgstr "Категории"

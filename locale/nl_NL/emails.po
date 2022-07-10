@@ -33,11 +33,8 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.submissionAck.description"
-msgstr ""
-"Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar een auteur "
-"als die de inzendprocedure van een manuscript bij het tijdschrift voltooit. "
-"Het verstrekt informatie over het volgen van de inzending tijdens de "
-"procedure en de auteur wordt bedankt voor de inzending."
+msgstr "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar een auteur als die de inzendprocedure van een manuscript bij het tijdschrift voltooit. Het verstrekt informatie over het volgen van de inzending tijdens de procedure en de auteur wordt bedankt voor de inzending."
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Artikel review bevestiging"
@@ -52,6 +49,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewAck.description"
 msgstr "Deze e-mail wordt door de sectieredacteur verstuurd om de ontvangst van een review te bevestigen en de reviewer te bedanken voor zijn bijdrage."
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Redacteursbeslissing"
@@ -61,8 +59,7 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"We hebben een beslissing genomen over uw inzending voor {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"We hebben een beslissing genomen over uw inzending voor {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Onze belissing is: Doorsturen aan reviewer<br />\n"
 "<br />\n"
@@ -154,10 +151,8 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.copyeditRequest.description"
-msgstr ""
-"Deze e-mail wordt door de sectieredacteur naar de tekstredacteur van een "
-"inzending gestuurd om te vragen het redactieproces te starten. Het bevat "
-"informatie over de inzending en hoe die te benaderen."
+msgstr "Deze e-mail wordt door de sectieredacteur naar de tekstredacteur van een inzending gestuurd om te vragen het redactieproces te starten. Het bevat informatie over de inzending en hoe die te benaderen."
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Redacteursbeslissing"
@@ -168,7 +163,6 @@ msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"We hebben een beslissing genomen over uw inzending voor {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"We hebben een beslissing genomen over uw inzending voor {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Onze beslissing is: Weiger inzending"

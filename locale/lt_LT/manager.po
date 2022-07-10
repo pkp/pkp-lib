@@ -1,3 +1,7 @@
+msgid ""
+msgstr ""
+"Language: lt_LT\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > 19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? 1 : 2);\n"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI Suffix"
@@ -12,20 +16,10 @@ msgid "doi.manager.settings.doiObjects"
 msgstr "Žurnalo turinys"
 
 msgid "doi.manager.settings.description"
-msgstr ""
-"Sukonfiguruokite DOI įskiepį, kad galėtumėte valdyti ir naudoti DOI "
-"sistemoje:"
+msgstr "Sukonfiguruokite DOI įskiepį, kad galėtumėte valdyti ir naudoti DOI sistemoje:"
 
 msgid "doi.readerDisplayName"
 msgstr "DOI"
 
 msgid "doi.displayName"
 msgstr "DOI"
-
-
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI Suffix"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Žurnalo turinys"

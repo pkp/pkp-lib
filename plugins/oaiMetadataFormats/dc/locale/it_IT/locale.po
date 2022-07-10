@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:34+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:34+00:00\n"
 "Language: it_IT\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 
 msgid "plugins.oaiMetadata.dc.displayName"
 msgstr "DC Metadata Format"

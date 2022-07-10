@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
 "PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
 "Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -1702,6 +1703,7 @@ msgstr ""
 "<li>Remove any name in the author field</li>\n"
 "<li>Click OK</li>\n"
 "<li>Save the document</li></ul></li></ul>\n"
+""
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Review Schedule"
@@ -2098,4 +2100,3 @@ msgstr "Could not import XML Node"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Unknown command {$command}"
-

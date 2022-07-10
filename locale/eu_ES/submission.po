@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
 "PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
 "Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "submission.agencies"
 msgstr "Agentziak"

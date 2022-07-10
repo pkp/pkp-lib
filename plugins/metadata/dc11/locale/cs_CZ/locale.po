@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:25+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:25+00:00\n"
 "Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n >= 2 && n <= 4) ? 1 : 2);\n"
 
 msgid "plugins.metadata.dc11.displayName"
 msgstr "Metadata Dublin Core 1.1"

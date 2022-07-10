@@ -10,6 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:06:26+00:00\n"
 "PO-Revision-Date: 2019-11-19T11:06:26+00:00\n"
 "Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 
 msgid "plugins.metadata.dc11.displayName"
 msgstr "فراداده هسته دوبلین "

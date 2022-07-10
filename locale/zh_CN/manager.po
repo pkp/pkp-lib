@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
 "PO-Revision-Date: 2021-11-02 21:57+0000\n"
 "Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
-"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/manager/zh_CN/>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -760,9 +759,7 @@ msgid "manager.statistics.reports.filters"
 msgstr "过滤器"
 
 msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"定义将用于生成报告的列。 您在此处选择的列不仅定义了将在报告内显示的数据，而且还定义了统计的汇总级别。 例如，如果选择“ "
-"ID”，“类型”和“月”列，则报告将汇总一个月内来自对象的所有视图，并将该数据显示在一行中。 如果选择“天”而不是“月”，则每个对象每天都有一行。"
+msgstr "定义将用于生成报告的列。 您在此处选择的列不仅定义了将在报告内显示的数据，而且还定义了统计的汇总级别。 例如，如果选择“ ID”，“类型”和“月”列，则报告将汇总一个月内来自对象的所有视图，并将该数据显示在一行中。 如果选择“天”而不是“月”，则每个对象每天都有一行。"
 
 msgid "manager.statistics.reports.columns"
 msgstr "列"
@@ -954,9 +951,7 @@ msgid "manager.plugins.deleteSuccess"
 msgstr "插件 \"{$pluginName}\" 已成功删除"
 
 msgid "manager.plugins.deleteError"
-msgstr ""
-"无法从文件系统中删除插件\" {$pluginName}\"。 这可能是权限问题。 "
-"请确保Web服务器能够写入插件目录（包括子目录），但不要忘记稍后再次对其进行保护。"
+msgstr "无法从文件系统中删除插件\" {$pluginName}\"。 这可能是权限问题。 请确保Web服务器能够写入插件目录（包括子目录），但不要忘记稍后再次对其进行保护。"
 
 msgid "manager.plugins.deleteDescription"
 msgstr "通过点击删除，您将从服务器的文件系统中删除此插件。"
@@ -1071,9 +1066,7 @@ msgid "manager.setup.principalContact"
 msgstr "主要联系人"
 
 msgid "manager.setup.peerReview.description"
-msgstr ""
-"概述针对读者和作者的同行评审政策和流程。 "
-"该描述通常包括通常用于审阅提交内容的审阅者数量，要求审阅者判断提交内容的标准，进行审阅所需的预期时间以及用于选择审阅者的原则。"
+msgstr "概述针对读者和作者的同行评审政策和流程。 该描述通常包括通常用于审阅提交内容的审阅者数量，要求审阅者判断提交内容的标准，进行审阅所需的预期时间以及用于选择审阅者的原则。"
 
 msgid "manager.setup.pageFooter.description"
 msgstr "输入您想要显示在网站底部的任何图像，文本或HTML代码。"
@@ -1268,8 +1261,7 @@ msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "选择要附加的库文件"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr ""
-"<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> {$downloadUrl} </blockquote> </p>"
+msgstr "<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> {$downloadUrl} </blockquote> </p>"
 
 msgid "settings.libraryFiles.category.other"
 msgstr "其他"
@@ -1434,10 +1426,7 @@ msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "导航菜单类型"
 
 msgid "manager.navigationMenus.form.submenuWarning"
-msgstr ""
-"当一个菜单项打开子菜单时，并非所有设备都会遵循其链接。 "
-"例如，如果您有一个“关于”项目，该项目通过“联系人”和“编辑团队”打开一个子菜单，则可能无法在所有设备上访问“关于”链接。 "
-"在默认菜单中，这是通过创建第二个菜单项“关于期刊”来处理的，该菜单项出现在子菜单中。"
+msgstr "当一个菜单项打开子菜单时，并非所有设备都会遵循其链接。 例如，如果您有一个“关于”项目，该项目通过“联系人”和“编辑团队”打开一个子菜单，则可能无法在所有设备上访问“关于”链接。 在默认菜单中，这是通过创建第二个菜单项“关于期刊”来处理的，该菜单项出现在子菜单中。"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "了解有关何时显示或隐藏此菜单项的更多信息。"
@@ -1479,9 +1468,7 @@ msgid "manager.navigationMenus.form.pathRegEx"
 msgstr "路径字段只能包含字母数字字符以及“.”，“ /”，“-”和“ _”。"
 
 msgid "manager.navigationMenus.form.viewInstructions"
-msgstr ""
-"<p>可以在以下页面访问此页面：<blockquote> {$pagesPath} </blockquote> ...其中％PATH％是在上面输入的路径。"
-" <strong>注意：</strong>不能有两个页面具有相同的路径。 使用系统内置的路径可能会导致您无法使用重要功能。</p>"
+msgstr "<p>可以在以下页面访问此页面：<blockquote> {$pagesPath} </blockquote> ...其中％PATH％是在上面输入的路径。 <strong>注意：</strong>不能有两个页面具有相同的路径。 使用系统内置的路径可能会导致您无法使用重要功能。</p>"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "内容"
@@ -1598,10 +1585,7 @@ msgid "manager.setup.dateTime.longDate"
 msgstr "日期"
 
 msgid "manager.setup.dateTime.description"
-msgstr ""
-"选择日期和时间的首选格式。 可以使用特殊的<a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-"
-"parameters'>格式化字符</a>输入自定义格式。"
+msgstr "选择日期和时间的首选格式。 可以使用特殊的<a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>格式化字符</a>输入自定义格式。"
 
 msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "日期和时间格式"
@@ -1637,8 +1621,7 @@ msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr "一个或多个电子邮件地址无效。"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
-msgstr ""
-"确认提交的电子邮件将被发送到此处输入的电子邮件地址。 用逗号分隔多个电子邮件地址。 示例：one@example.com,two@example.com"
+msgstr "确认提交的电子邮件将被发送到此处输入的电子邮件地址。 用逗号分隔多个电子邮件地址。 示例：one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
 msgstr "通知任何人"
@@ -1698,9 +1681,7 @@ msgstr "这封电子邮件在一位审查人的工作期限日已经超过的时
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr ""
-"这封电子邮件是由区段编辑寄发给审查人一份邀请函，询问审查人接受或婉谢一份稿件的审查工作。邮件中含有关于稿件标题和摘要的信息，一个审查工作到期日，以及如何访"
-"问稿件的说明信息。在「期刊设定」之步骤2中选择「标准审查流程」选项时，才会用到这份消息。"
+msgstr "这封电子邮件是由区段编辑寄发给审查人一份邀请函，询问审查人接受或婉谢一份稿件的审查工作。邮件中含有关于稿件标题和摘要的信息，一个审查工作到期日，以及如何访问稿件的说明信息。在「期刊设定」之步骤2中选择「标准审查流程」选项时，才会用到这份消息。"
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"

@@ -10,8 +10,9 @@ msgstr ""
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
 "Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-23T01:47:56 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 
+# localization file for fr_CA. Last revision 2019-10-23T01:47:56 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "grid.noItems"
 msgstr "Aucun élément"
 
@@ -671,4 +672,3 @@ msgstr "Aucun menu de navigation"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Choisir un type..."
-

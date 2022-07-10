@@ -2,8 +2,7 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-23 14:53+0000\n"
 "Last-Translator: Omer Chaudhry <omerch92@gmail.com>\n"
-"Language-Team: Urdu (Pakistan) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"user/ur_PK/>\n"
+"Language-Team: Urdu (Pakistan) <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ur_PK/>\n"
 "Language: ur_PK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,8 +16,7 @@ msgstr "آپ کو اس مرحلے تک رسائی کا حق حاصل نہیں�
 
 #, fuzzy
 msgid "user.authorization.managerRequired"
-msgstr ""
-"آگے بھڑنے سے پہلے آپ کو ایک مدیر یوزر (مدیر تحریر) لازما تفویض کرنا ہوگا۔"
+msgstr "آگے بھڑنے سے پہلے آپ کو ایک مدیر یوزر (مدیر تحریر) لازما تفویض کرنا ہوگا۔"
 
 #, fuzzy
 msgid "user.authorization.userGroupRequired"

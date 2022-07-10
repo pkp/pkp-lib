@@ -62,6 +62,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "संपादक का निर्णय"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -74,6 +75,7 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "संपादक का निर्णय"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -86,9 +88,11 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "संपादक का निर्णय"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "संपादक का निर्णय"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -133,16 +137,14 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.copyeditRequest.description"
-msgstr ""
-"यह ईमेल एक सेक्शन एडिटर द्वारा सबमिशन की कॉपीडिटर को सबमिट करने के लिए भेजा "
-"जाता है ताकि वे कॉपीएडिटिंग  करने की प्रक्रिया शुरू कर सकें। यह सबमिशन और इसे"
-" एक्सेस करने के तरीके के बारे में जानकारी प्रदान करता है."
+msgstr "यह ईमेल एक सेक्शन एडिटर द्वारा सबमिशन की कॉपीडिटर को सबमिट करने के लिए भेजा जाता है ताकि वे कॉपीएडिटिंग  करने की प्रक्रिया शुरू कर सकें। यह सबमिशन और इसे एक्सेस करने के तरीके के बारे में जानकारी प्रदान करता है."
 
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
+""
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

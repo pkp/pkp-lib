@@ -10,6 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Предоставете форматиран списък с референции за произведения, цитирани в това подаване на материали. Моля, отделете отделните препратки с празен ред."

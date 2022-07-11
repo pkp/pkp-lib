@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "user.privacyLink"
 msgstr "Dữ liệu của bạn được lưu trữ theo <a href=\"{$privacyUrl}\" target=\"_blank\"> tuyên bố về quyền riêng tư </a> của chúng tôi."

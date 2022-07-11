@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "plugins.oaiMetadata.dc.description"
 msgstr "Structure les métadonnées dans un format conforme au format Dublin Core."

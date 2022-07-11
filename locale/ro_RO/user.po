@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 0 || n % 100 >= 2 && n % 100 <= 19) ? 1 : 2);\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Introduceți adresa de e-mail a contului de mai jos și un e-mail va fi trimis cu instrucțiuni despre modul de resetare a parolei."

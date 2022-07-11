@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "plugins.generic.usageEvent.description"
 msgstr "Buat hook yang menyajikan aktivitas pemakaian sesuai format yang ditentukan."

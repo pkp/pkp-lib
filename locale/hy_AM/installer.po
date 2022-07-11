@@ -11,6 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "installer.unsupportedPhpError"
 msgstr "Ձեր կայանի PHP տարբերակը չի աջակցվում այս ծրագրաշարի կողմից: Կրկնակի ստուգեք տեղադրման պահանջները docs/README -ում:"

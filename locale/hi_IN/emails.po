@@ -142,8 +142,7 @@ msgstr "यह ईमेल एक सेक्शन एडिटर द्व�
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 "\t\t\t{$authors}:<br />\n"
-"<br />\n"
-""
+"<br />"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

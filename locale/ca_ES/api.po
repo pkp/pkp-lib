@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr "L'arxiu que heu carregat no coincideix amb l'extensió de l'arxiu. Això pot succeir quan un arxiu s'ha reanomenat a un tipus d'arxiu incompatible, per exemple en canviar photo.png a photo.jpg."

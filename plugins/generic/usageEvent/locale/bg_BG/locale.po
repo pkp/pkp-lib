@@ -10,6 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "plugins.generic.usageEvent.description"
 msgstr "Създава кука (точка на обработка), която предоставя събитие за използване в определен формат."

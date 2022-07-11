@@ -10,6 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "reviewer.submission.enterCompetingInterests"
 msgstr "本誌には、査読者からの潜在的な競合する利益の開示に関するポリシーがあります。 このポリシーを確認してください。"

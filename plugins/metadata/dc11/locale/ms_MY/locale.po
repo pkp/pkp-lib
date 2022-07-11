@@ -10,6 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"
 
 msgid "plugins.metadata.dc11.description"
 msgstr "Menyumbang skema Dublin Core versi 1.1 dan penyesuai aplikasi."

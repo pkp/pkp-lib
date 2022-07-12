@@ -42,6 +42,8 @@ class TestEntityDAO extends \PKP\core\EntityDAO
         'id' => 'test_id',
         'integerColumn' => 'integer_column',
         'nullableIntegerColumn' => 'nullable_integer_column',
+        'arrayColumn' => 'array_column',
+        'nullableArrayColumn' => 'nullable_array_column',
     ];
 
     /**
@@ -85,6 +87,8 @@ class EntityDAOTest extends PKPTestCase
             $table->bigInteger('test_id')->autoIncrement();
             $table->bigInteger('integer_column')->nullable(false);
             $table->bigInteger('nullable_integer_column')->nullable(true);
+            $table->string('array_column')->default('[]');
+            $table->string('nullable_array_column')->nullable(true);
         });
         Schema::create('test_entity_settings', function (Blueprint $table) {
             $table->bigInteger('test_id');
@@ -117,6 +121,25 @@ class EntityDAOTest extends PKPTestCase
                     },
                     "nonlocalizedSettingString": {
                         "type": "string"
+                    },
+                    "arrayColumn": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "validation": [
+                                "regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+                            ]
+                        }
+                    },
+                    "nullableArrayColumn": {
+                        "type": "array",
+                        "validation": ["nullable"],
+                        "items": {
+                            "type": "string",
+                            "validation": [
+                                "regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+                            ]
+                        }
                     }
                 }
             }');
@@ -144,6 +167,8 @@ class EntityDAOTest extends PKPTestCase
         $testEntity->setData('integerColumn', 3);
         $testEntity->setData('nullableIntegerColumn', 4);
         $testEntity->setData('nonlocalizedSettingString', 'test string');
+        $testEntity->setData('arrayColumn', []);
+        $testEntity->setData('nullableArrayColumn', null);
 
         // Store the data object to the DB
         $testEntityDao->insert($testEntity);
@@ -169,6 +194,8 @@ class EntityDAOTest extends PKPTestCase
             'integerColumn' => 5,
             'nonlocalizedSettingString' => 'another test string',
             'nullableIntegerColumn' => null,
+            'arrayColumn' => [],
+            'nullableArrayColumn' => null,
         ], $fetchedEntity->_data);
 
         // Delete the entity and make sure it's gone.
@@ -200,17 +227,102 @@ class EntityDAOTest extends PKPTestCase
         $testEntityDao->delete($testEntity);
     }
 
-    public function testNotNullablePrimaryColumn()
+    public function testEmptyPrimaryTableInsertion()
     {
         $testEntityDao = app(TestEntityDAO::class);
 
         // Create a data object for storage
         $testEntity = new DataObject();
-        $testEntity->setData('integerColumn', null); // Invalid
 
         $this->expectException(\Exception::class);
 
         // Store the data object to the DB
         $testEntityDao->insert($testEntity);
+    }
+
+    public function testNotNullableIntergerColumnOnNullGiven()
+    {
+        $testEntityDao = app(TestEntityDAO::class);
+
+        // Create a data object for storage
+        $testEntity = new DataObject();
+        $testEntity->setData('integerColumn', null); // null into non-nullable
+        $testEntity->setData('nullableIntegerColumn', 4);
+
+        // Store the data object to the DB
+        $testEntityDao->insert($testEntity);
+        $insertedId = $testEntity->getId();
+
+        // Retrieve the data object from the DB
+        $fetchedEntity = $testEntityDao->get($insertedId);
+
+        $this->assertNotNull($fetchedEntity->_data['integerColumn']);
+        $this->assertEquals(0, $fetchedEntity->_data['integerColumn']);
+
+        // Delete the entity and make sure it's gone.
+        $testEntityDao->delete($testEntity);
+    }
+
+    public function testNotNullableArrayColumn()
+    {
+        $testEntityDao = app(TestEntityDAO::class);
+
+        // Create a data object for storage
+        $testEntity = new DataObject();
+        $testEntity->setData('integerColumn', 3);
+        $testEntity->setData('arrayColumn', []);
+
+        // Store the data object to the DB
+        $testEntityDao->insert($testEntity);
+        $insertedId = $testEntity->getId();
+
+        // Retrieve the data object from the DB
+        $fetchedEntity = $testEntityDao->get($insertedId);
+        $this->assertIsArray($fetchedEntity->_data['arrayColumn']);
+
+        // Delete the entity and make sure it's gone.
+        $testEntityDao->delete($testEntity);
+    }
+
+    public function testNotNullableArrayColumnOnNullGiven()
+    {
+        $testEntityDao = app(TestEntityDAO::class);
+
+        // Create a data object for storage
+        $testEntity = new DataObject();
+        $testEntity->setData('integerColumn', 3);
+        $testEntity->setData('arrayColumn', null); // null for non-nullable column
+
+        // Store the data object to the DB
+        $testEntityDao->insert($testEntity);
+        $insertedId = $testEntity->getId();
+
+        // Retrieve the data object from the DB
+        $fetchedEntity = $testEntityDao->get($insertedId);
+        $this->assertIsArray($fetchedEntity->_data['arrayColumn']);
+
+        // Delete the entity and make sure it's gone.
+        $testEntityDao->delete($testEntity);
+    }
+
+    public function testNullableArrayColumn()
+    {
+        $testEntityDao = app(TestEntityDAO::class);
+
+        // Create a data object for storage
+        $testEntity = new DataObject();
+        $testEntity->setData('integerColumn', 3);
+        $testEntity->setData('nullableArrayColumn', null);
+
+        // Store the data object to the DB
+        $testEntityDao->insert($testEntity);
+        $insertedId = $testEntity->getId();
+
+        // Retrieve the data object from the DB
+        $fetchedEntity = $testEntityDao->get($insertedId);
+        $this->assertNull($fetchedEntity->_data['nullableArrayColumn']);
+
+        // Delete the entity and make sure it's gone.
+        $testEntityDao->delete($testEntity);
     }
 }

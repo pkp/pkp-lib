@@ -330,7 +330,10 @@ class DAO
                 if (!is_null($decodedValue)) {
                     return $decodedValue;
                 } else {
-                    return unserialize($value);
+                    $unserializeValue = unserialize($value);
+                    return is_array($unserializeValue) || is_object($unserializeValue)
+                        ? $unserializeValue
+                        : [];
                 }
                 // no break
             case 'date':
@@ -394,7 +397,7 @@ class DAO
         switch ($type) {
             case 'object':
             case 'array':
-                $value = json_encode($value, JSON_UNESCAPED_UNICODE);
+                $value = json_encode($value ?? [], JSON_UNESCAPED_UNICODE);
                 break;
             case 'bool':
             case 'boolean':

@@ -153,7 +153,6 @@ class NoteDAO extends \PKP\db\DAO
                 yield $this->_fromRow(get_object_vars($row));
             }
         });
-         
     }
 
     /**
@@ -322,29 +321,20 @@ class NoteDAO extends \PKP\db\DAO
      */
     public function deleteById($noteId, $userId = null)
     {
-        try {
-            DB::beginTransaction();
+        $submissionFileCollector = Repo::submissionFile()
+            ->getCollector()
+            ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$noteId]);
 
-            $submissionFileCollector = Repo::submissionFile()
-                ->getCollector()
-                ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$noteId]);
+        Repo::submissionFile()->deleteMany($submissionFileCollector);
 
-            Repo::submissionFile()->deleteMany($submissionFileCollector);
-
-            $query = DB::table('notes')
-                ->where('note_id', '=', $noteId);
-            
-            if ($userId) {
-                $query->where('user_id', '=', $userId);
-            }
-
-            $query->delete();
-
-            DB::commit();
-        } catch (\Exception $ex) {
-            DB::rollBack();
-            throw $ex;
+        $query = DB::table('notes')
+            ->where('note_id', '=', $noteId);
+        
+        if ($userId) {
+            $query->where('user_id', '=', $userId);
         }
+
+        $query->delete();
     }
 
     /**

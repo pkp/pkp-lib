@@ -1,9 +1,10 @@
+# Manolis Saldaris <omanos@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-08-04 12:43+0000\n"
+"PO-Revision-Date: 2022-07-08 12:08+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/el_GR/>\n"
@@ -1778,7 +1779,7 @@ msgid "submission.publisherId.enable"
 msgstr "Ενεργοποίηση για {$objects}"
 
 msgid "submission.publisherId"
-msgstr ""
+msgstr "Αναγνωριστικό Εκδότη"
 
 msgid "submission.identifiers"
 msgstr "Αναγνωριστικά"
@@ -1967,3 +1968,16 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Δεν είναι δυνατή η επεξεργασία των συγγραφέων αυτής της δημοσίευσης επειδή "
 "έχει ήδη δημοσιευτεί."
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Το αναγνωριστικό εκδότη μπορεί να χρησιμοποιηθεί για την εγγραφή του "
+"αναγνωριστικού από μια εξωτερική βάση δεδομένων. Για παράδειγμα, τα στοιχεία "
+"που εξάγονται για κατάθεση στο PubMed μπορεί να περιλαμβάνουν το "
+"αναγνωριστικό εκδότη. Αυτό δεν πρέπει να χρησιμοποιείται για DOI."
+
+msgid "submission.copyrightOther"
+msgstr "Δήλωση πνευματικών δικαιωμάτων"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Προσαρμοσμένη δήλωση πνευματικών δικαιωμάτων"

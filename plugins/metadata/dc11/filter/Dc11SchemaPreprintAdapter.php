@@ -23,10 +23,14 @@ namespace APP\plugins\metadata\dc11\filter;
 use PKP\plugins\HookRegistry;
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\oai\ops\OAIDAO;
+use APP\plugins\PubIdPlugin;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\metadata\MetadataDataObjectAdapter;
+use PKP\metadata\MetadataDescription;
+use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
@@ -128,9 +132,9 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
         // Type
         $driverType = 'info:eu-repo/semantics/preprint';
-        $dc11Description->addStatement('dc:type', $driverType, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
+        $dc11Description->addStatement('dc:type', $driverType, MetadataDescription::METADATA_DESCRIPTION_UNKNOWN_LOCALE);
         $driverVersion = 'info:eu-repo/semantics/draft';
-        $dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
+        $dc11Description->addStatement('dc:type', $driverVersion, MetadataDescription::METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
         $galleys = Repo::galley()->getMany(
             Repo::galley()
@@ -172,13 +176,16 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         }
 
         // Public identifiers
-        $pubIdPlugins = (array) PluginRegistry::loadCategory('pubIds', true, $server->getId());
-        foreach ($pubIdPlugins as $pubIdPlugin) {
-            if ($pubPreprintId = $submission->getStoredPubId($pubIdPlugin->getPubIdType())) {
+        $publicIdentifiers = [
+            'doi',
+            ...array_map(fn (PubIdPlugin $plugin) => $plugin->getPubIdType(), (array) PluginRegistry::loadCategory('pubIds', true, $submission->getId()))
+        ];
+        foreach ($publicIdentifiers as $publicIdentifier) {
+            if ($pubPreprintId = $submission->getStoredPubId($publicIdentifier)) {
                 $dc11Description->addStatement('dc:identifier', $pubPreprintId);
             }
             foreach ($galleys as $galley) {
-                if ($pubGalleyId = $galley->getStoredPubId($pubIdPlugin->getPubIdType())) {
+                if ($pubGalleyId = $galley->getStoredPubId($publicIdentifier)) {
                     $dc11Description->addStatement('dc:relation', $pubGalleyId);
                 }
             }

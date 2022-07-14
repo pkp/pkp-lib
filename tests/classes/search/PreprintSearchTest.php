@@ -15,19 +15,24 @@
  * @brief Test class for the PreprintSearch class
  */
 
-import('lib.pkp.tests.PKPTestCase');
-import('classes.search.PreprintSearch');
-import('lib.pkp.classes.core.PKPRouter');
+namespace APP\tests\classes\search;
 
-define('SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT', 1);
-define('SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN', 2);
-
+use APP\core\Application;
+use APP\search\PreprintSearch;
+use APP\search\PreprintSearchDAO;
+use APP\server\SectionDAO;
 use APP\server\Server;
+use APP\server\ServerDAO;
+use PKP\core\PKPRouter;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+use PKP\tests\PKPTestCase;
 
 class PreprintSearchTest extends PKPTestCase
 {
-    /** @var array */
-    private $_retrieveResultsParams;
+    private const SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT = 1;
+
+    private array $_retrieveResultsParams;
 
     //
     // Implementing protected template methods from PKPTestCase
@@ -35,14 +40,9 @@ class PreprintSearchTest extends PKPTestCase
     /**
      * @see PKPTestCase::getMockedDAOs()
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
-        $mockedDaos = parent::getMockedDAOs();
-        $mockedDaos += [
-            'PreprintSearchDAO',
-            'ServerDAO', 'SectionDAO'
-        ];
-        return $mockedDaos;
+        return [...parent::getMockedDAOs(), 'PreprintSearchDAO', 'ServerDAO', 'SectionDAO'];
     }
 
     /**
@@ -83,8 +83,6 @@ class PreprintSearchTest extends PKPTestCase
      */
     public function testRetrieveResults()
     {
-        $this->markTestSkipped(); // Temporarily disabled!
-
         // Make sure that no hook is being called.
         HookRegistry::clear('SubmissionSearch::retrieveResults');
 
@@ -100,13 +98,8 @@ class PreprintSearchTest extends PKPTestCase
         self::assertInstanceOf('ItemIterator', $searchResult);
         $firstResult = $searchResult->next();
         self::assertArrayHasKey('preprint', $firstResult);
-        self::assertEquals(SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT, $firstResult['preprint']->getId());
+        self::assertEquals(self::SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT, $firstResult['preprint']->getId());
         self::assertEquals('', $error);
-
-        $this->registerMockPreprintSearchDAO(); // This is necessary to instantiate a fresh iterator.
-        $keywords = [null => 'test'];
-        $searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error);
-        self::assertTrue($searchResult->eof());
     }
 
     /**
@@ -114,10 +107,8 @@ class PreprintSearchTest extends PKPTestCase
      */
     public function testRetrieveResultsViaPluginHook()
     {
-        $this->markTestSkipped(); // Temporarily disabled!
-
         // Diverting a search to the search plugin hook.
-        HookRegistry::register('SubmissionSearch::retrieveResults', [$this, 'callbackRetrieveResults']);
+        HookRegistry::register('SubmissionSearch::retrieveResults', fn (...$args) => $this->callbackRetrieveResults(...$args));
 
         $testCases = [
             [null => 'query'], // Simple Search - "All"
@@ -141,24 +132,21 @@ class PreprintSearchTest extends PKPTestCase
             $server = new Server();
             $keywords = $testCase;
             $preprintSearch = new PreprintSearch();
+            HookRegistry::resetCalledHooks(true);
             $searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error, $testFromDate, $testToDate);
 
             // Check the parameters passed into the callback.
-            $expectedPage = 1;
-            $expectedItemsPerPage = 20;
-            $expectedTotalResults = 3;
-            $expectedError = '';
-            $expectedParams = [
-                $server, $testCase, $testFromDate, $testToDate,
-                $expectedPage, $expectedItemsPerPage, $expectedTotalResults,
-                $expectedError
-            ];
-            self::assertEquals($expectedParams, $this->_retrieveResultsParams);
+            foreach ([
+                $server, $testCase, $testFromDate, $testToDate, $orderBy = 'score', $orderDir = 'desc',
+                $exclude = [], $page = 1, $itemsPerPage = 20, $totalResults = 3, $error = '',
+                //the last item, the result,  will be checked later on
+            ] as $position => $expected) {
+                self::assertEquals($expected, $this->_retrieveResultsParams[$position]);
+            }
 
-            // Test and clear the call history of the hook registry.
+            // Test the call history of the hook registry.
             $calledHooks = HookRegistry::getCalledHooks();
-            self::assertEquals('SubmissionSearch::retrieveResults', $calledHooks[0][0]);
-            HookRegistry::resetCalledHooks(true);
+            self::assertCount(1, array_filter($calledHooks, fn ($hook) => $hook[0] === 'SubmissionSearch::retrieveResults'));
 
             // Test whether the result from the hook is being returned.
             self::assertInstanceOf('VirtualArrayIterator', $searchResult);
@@ -169,7 +157,7 @@ class PreprintSearchTest extends PKPTestCase
             // Test the search result.
             $firstResult = $searchResult->next();
             self::assertArrayHasKey('preprint', $firstResult);
-            self::assertEquals(SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN, $firstResult['preprint']->getId());
+            self::assertEquals(self::SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT, $firstResult['preprint']->getId());
             self::assertEquals('', $error);
         }
 
@@ -186,20 +174,19 @@ class PreprintSearchTest extends PKPTestCase
      *
      * @see SubmissionSearch::retrieveResults()
      */
-    public function callbackRetrieveResults($hook, $params)
+    public function callbackRetrieveResults($hook, $params): bool
     {
         // Save the test parameters
         $this->_retrieveResultsParams = $params;
 
         // Test returning count by-ref.
-        $totalCount = & $params[6];
+        $totalCount = & $params[9];
         $totalCount = 3;
 
         // Mock a result set and return it.
-        $results = [
-            3 => SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN
-        ];
-        return $results;
+        $results = & $params[11];
+        $results = [3 => self::SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT];
+        return true;
     }
 
 
@@ -214,12 +201,12 @@ class PreprintSearchTest extends PKPTestCase
     {
         // Mock an PreprintSearchDAO.
         $preprintSearchDAO = $this->getMockBuilder(PreprintSearchDAO::class)
-            ->setMethods(['getPhraseResults'])
+            ->onlyMethods(['getPhraseResults'])
             ->getMock();
 
         // Mock a result set.
         $searchResult = [
-            SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT => [
+            self::SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT => [
                 'count' => 3,
                 'server_id' => 2,
                 'publicationDate' => '2013-05-01 20:30:00'
@@ -243,11 +230,12 @@ class PreprintSearchTest extends PKPTestCase
     {
         // Mock a ServerDAO.
         $serverDAO = $this->getMockBuilder(ServerDAO::class)
-            ->setMethods(['getById'])
+            ->onlyMethods(['getById'])
             ->getMock();
 
         // Mock a server.
         $server = new Server();
+        $server->setId(1);
 
         // Mock the getById() method.
         $serverDAO->expects($this->any())
@@ -266,7 +254,7 @@ class PreprintSearchTest extends PKPTestCase
     {
         // Mock a SectionDAO.
         $sectionDao = $this->getMockBuilder(SectionDAO::class)
-            ->setMethods(['getSection'])
+            ->onlyMethods(['getById'])
             ->getMock();
 
         // Mock a section.
@@ -274,7 +262,7 @@ class PreprintSearchTest extends PKPTestCase
 
         // Mock the getSection() method.
         $sectionDao->expects($this->any())
-            ->method('getSection')
+            ->method('getById')
             ->will($this->returnValue($section));
 
         // Register the mock DAO.

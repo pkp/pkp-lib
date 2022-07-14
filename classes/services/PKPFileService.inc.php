@@ -181,13 +181,14 @@ class PKPFileService
      */
     public function formatFilename($path, $filename)
     {
-        preg_match("/(\\.\\w{1,3})?\\.\\w+$/", $path, $extension); #extended matching which also captures .tar.gz extensions
-        $extension = substr($extension[0], 1); # Remove leading dot
         $newFilename = $filename;
-        if (!empty($extension) && strcasecmp(substr($newFilename, (strlen($extension) * -1)), $extension) != 0) {
-            $newFilename .= '.' . $extension;
+        # pattern extended to also capture captures .tar.gz extensions
+        if (preg_match('/(\\.\\w{1,3})?\\.\\w+$/', $path, $extension)) {
+            # If $newFilename has no/not the correct extension: Append extension
+            if (strcasecmp(substr($newFilename, (strlen($extension[0]) * -1)), $extension[0]) != 0) {
+                $newFilename .= $extension[0];
+            }
         }
-
         HookRegistry::call('File::formatFilename', [&$newFilename, $path, $filename]);
 
         return $newFilename;

@@ -15,8 +15,6 @@
  * @brief Test class for the PreprintSearch class
  */
 
-require_mock_env('env1');
-
 import('lib.pkp.tests.PKPTestCase');
 import('classes.search.PreprintSearch');
 import('lib.pkp.classes.core.PKPRouter');

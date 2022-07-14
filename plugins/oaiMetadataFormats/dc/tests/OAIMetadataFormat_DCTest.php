@@ -19,8 +19,6 @@
  * @brief Test class for OAIMetadataFormat_DC.
  */
 
-require_mock_env('env2');
-
 import('lib.pkp.tests.PKPTestCase');
 
 use APP\facades\Repo;

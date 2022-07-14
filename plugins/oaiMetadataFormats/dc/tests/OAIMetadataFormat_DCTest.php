@@ -163,6 +163,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $server->setPath('server-path');
         $server->setData('onlineIssn', 'onlineIssn');
         $server->setData('printIssn', null);
+        $server->setData(Server::SETTING_ENABLE_DOIS, true);
         $server->setId($serverId);
 
         // Section

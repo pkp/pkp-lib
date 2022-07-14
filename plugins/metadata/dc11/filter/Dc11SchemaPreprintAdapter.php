@@ -176,10 +176,10 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         }
 
         // Public identifiers
-        $publicIdentifiers = [
-            'doi',
-            ...array_map(fn (PubIdPlugin $plugin) => $plugin->getPubIdType(), (array) PluginRegistry::loadCategory('pubIds', true, $submission->getId()))
-        ];
+        $publicIdentifiers = array_map(fn (PubIdPlugin $plugin) => $plugin->getPubIdType(), (array) PluginRegistry::loadCategory('pubIds', true, $submission->getId()));
+        if ($server->areDoisEnabled()) {
+            $publicIdentifiers[] = 'doi';
+        }
         foreach ($publicIdentifiers as $publicIdentifier) {
             if ($pubPreprintId = $submission->getStoredPubId($publicIdentifier)) {
                 $dc11Description->addStatement('dc:identifier', $pubPreprintId);

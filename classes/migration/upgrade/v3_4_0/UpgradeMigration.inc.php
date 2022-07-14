@@ -22,6 +22,9 @@ use APP\core\Services;
 
 class UpgradeMigration extends \PKP\migration\Migration
 {
+    private const ASSOC_TYPE_QUERY = 0x010000a; // PKPApplication::ASSOC_TYPE_QUERY
+    private const SUBMISSION_FILE_QUERY = 18; // SubmissionFile::SUBMISSION_FILE_QUERY
+
     /**
      * Run the migrations.
      */
@@ -87,7 +90,7 @@ class UpgradeMigration extends \PKP\migration\Migration
         // pkp/pkp-lib#6073: Delete SubmissionFiles/Notes entries that correspond to nonexistent queries.
         $orphanedIds = DB::table('notes AS n')
             ->leftJoin('queries AS q', 'n.assoc_id', '=', 'q.query_id')
-            ->where('n.assoc_type', '=', Application::ASSOC_TYPE_QUERY)
+            ->where('n.assoc_type', '=', self::ASSOC_TYPE_QUERY)
             ->whereNull('q.query_id')
             ->pluck('n.note_id', 'n.assoc_id');
 
@@ -96,7 +99,7 @@ class UpgradeMigration extends \PKP\migration\Migration
             $notesFileRows = DB::table('submission_files as sf')
                 ->join('files as f', 'sf.file_id', '=', 'f.file_id')
                 ->where('sf.assoc_id', '=', $noteId)
-                ->where('sf.file_stage', '=', SubmissionFile::SUBMISSION_FILE_QUERY)
+                ->where('sf.file_stage', '=', self::SUBMISSION_FILE_QUERY)
                 ->get([
                         'sf.submission_file_id as submissionFileId',
                         'sf.file_id as fileId',

@@ -83,7 +83,7 @@ file and commit it to the new stable branch.
 7. Place the release notes, upgrade instructions, readme, and any relevant DTDs
     on the OPS website:
 
-    http://pkp.sfu.ca/ops/README-<VERSION>
-    http://pkp.sfu.ca/ops/RELEASE-<VERSION>
-    http://pkp.sfu.ca/ops/UPGRADE-<VERSION>
-    http://pkp.sfu.ca/ops/dtds
+    https://pkp.sfu.ca/ops/README-<VERSION>
+    https://pkp.sfu.ca/ops/RELEASE-<VERSION>
+    https://pkp.sfu.ca/ops/UPGRADE-<VERSION>
+    https://pkp.sfu.ca/ops/dtds

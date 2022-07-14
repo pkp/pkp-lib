@@ -13,7 +13,7 @@
 	</h2>
 
 	<div class="content">
-		<a href="http://pkp.sfu.ca/ops/">
+		<a href="https://pkp.sfu.ca/ops/">
 			{translate key="common.software"}
 		</a>
 	</div>

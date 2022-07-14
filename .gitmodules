@@ -21,7 +21,7 @@
 	url = https://github.com/pkp/ui-library
 [submodule "plugins/generic/pdfJsViewer"]
 	path = plugins/generic/pdfJsViewer
-	url = http://github.com/pkp/pdfJsViewer.git
+	url = https://github.com/pkp/pdfJsViewer.git
 [submodule "plugins/blocks/browse"]
 	path = plugins/blocks/browse
 	url = https://github.com/pkp/browse

@@ -33,7 +33,7 @@ msgid "admin.languages.installNewLocalesInstructions"
 msgstr "Select any additional locales to install support for in this system. Locales must be installed before they can be used by hosted servers. See the OPS documentation for information on adding support for new languages."
 
 msgid "admin.languages.localeInstalled"
-msgstr "The "{$locale}" locale has been installed."
+msgstr "The \"{$locale}\" locale has been installed."
 
 msgid "admin.systemConfiguration"
 msgstr "OPS Configuration"

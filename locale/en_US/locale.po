@@ -312,14 +312,14 @@ msgstr ""
 "\t<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>"
 "\t<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>"
 "</ul>"
-"<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>"
+"<p>2. A directory to store uploaded files must be created and made writable (see \"File Settings\" below).</p>"
 
 msgid "installer.upgradeInstructions"
 msgstr ""
 "<h4>OPS Version {$version}</h4>"
-<p>Thank you for downloading the Public Knowledge Project's <strong>Open Preprint Systems</strong>. Before proceeding, please read the <a href=\"{$baseUrl}/docs/README.md\">README</a> and <a href=\"{$baseUrl}/docs/UPGRADE.md\">UPGRADE</a> files included with this software. For more information about the Public Knowledge Project and its software projects, please visit the <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP web site</a>. If you have bug reports or technical support inquiries about Open Preprint Systems, see the <a href=\"http://forum.pkp.sfu.ca\" target=\"_blank\">support forum</a> or visit PKP's online <a href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">bug reporting system</a>. Although the support forum is the preferred method of contact, you can also email the team at <a href=\"mailto:pkp.contact@gmail.com\">pkp.contact@gmail.com</a>.</p>"
+"<p>Thank you for downloading the Public Knowledge Project's <strong>Open Preprint Systems</strong>. Before proceeding, please read the <a href=\"{$baseUrl}/docs/README.md\">README</a> and <a href=\"{$baseUrl}/docs/UPGRADE.md\">UPGRADE</a> files included with this software. For more information about the Public Knowledge Project and its software projects, please visit the <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP web site</a>. If you have bug reports or technical support inquiries about Open Preprint Systems, see the <a href=\"http://forum.pkp.sfu.ca\" target=\"_blank\">support forum</a> or visit PKP's online <a href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">bug reporting system</a>. Although the support forum is the preferred method of contact, you can also email the team at <a href=\"mailto:pkp.contact@gmail.com\">pkp.contact@gmail.com</a>.</p>"
 "<p>It is <strong>strongly recommended</strong> that you back up your database, files directory, and OPS installation directory before proceeding.</p>"
-"<p>If you are running in <a href=\"http://www.php.net/features.safe-mode\" target=\"_blank\">PHP Safe Mode</a>, please ensure that the max_execution_time directive in your php.ini configuration file is set to a high limit. If this or any other time limit (e.g. Apache's "Timeout" directive) is reached and the upgrade process is interrupted, manual intervention will be required.</p>"
+"<p>If you are running in <a href=\"http://www.php.net/features.safe-mode\" target=\"_blank\">PHP Safe Mode</a>, please ensure that the max_execution_time directive in your php.ini configuration file is set to a high limit. If this or any other time limit (e.g. Apache's \"Timeout\" directive) is reached and the upgrade process is interrupted, manual intervention will be required.</p>"
 
 msgid "installer.localeSettingsInstructions"
 msgstr "For complete Unicode (UTF-8) support, select UTF-8 for all character set settings. Please note that full Unicode support requires PHP to be compiled with support for the <a href=\"http://www.php.net/mbstring\" target=\"_blank\">mbstring</a> library (enabled by default in most recent PHP installations). You may experience problems using extended character sets if your server does not meet these requirements."
@@ -339,7 +339,7 @@ msgid "installer.additionalLocalesInstructions"
 msgstr "Select any additional languages to support in this system. These languages will be available for use by servers hosted on the site. Additional languages can also be installed at any time from the site administration interface."
 
 msgid "installer.filesDirInstructions"
-msgstr "Enter full pathname to an existing directory where uploaded files are to be kept. This directory should not be directly web-accessible. <strong>Please ensure that this directory exists and is writable prior to installation.</strong> Windows path names should use forward slashes, e.g. "C:/myserver/files"."
+msgstr "Enter full pathname to an existing directory where uploaded files are to be kept. This directory should not be directly web-accessible. <strong>Please ensure that this directory exists and is writable prior to installation.</strong> Windows path names should use forward slashes, e.g. \"C:/myserver/files\"."
 
 msgid "installer.databaseSettingsInstructions"
 msgstr "OPS requires access to a SQL database to store its data. See the system requirements above for a list of supported databases. In the fields below, provide the settings to be used to connect to the database."
@@ -351,8 +351,8 @@ msgid "installer.upgradeApplication"
 msgstr "Upgrade Open Preprint Systems"
 
 msgid "installer.overwriteConfigFileInstructions"
-msgstr "<h4>IMPORTANT!</h4>
-<p>The installer could not automatically overwrite the configuration file. Before attempting to use the system, please open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.</p>"
+msgstr "<h4>IMPORTANT!</h4>"
+"<p>The installer could not automatically overwrite the configuration file. Before attempting to use the system, please open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.</p>"
 
 msgid "installer.installationComplete"
 msgstr ""
@@ -366,7 +366,7 @@ msgstr ""
 
 msgid "installer.upgradeComplete"
 msgstr "<p>Upgrade of OPS to version {$version} has completed successfully.</p>"
-"<p>Don't forget to set the "installed" setting in your config.inc.php configuration file back to <em>On</em>.</p>"
+"<p>Don't forget to set the \"installed\" setting in your config.inc.php configuration file back to <em>On</em>.</p>"
 "<p>If you have questions or comments, please visit the <a href=\"http://forum.pkp.sfu.ca\" target=\"_new\">support forum</a>.</p>"
 
 msgid "site.upgradeAvailable.admin"
@@ -382,7 +382,7 @@ msgid "log.editor.recommendation"
 msgstr "A moderator recommendation ({$decision}) for preprint {$submissionId} was recorded by {$editorName}."
 
 msgid "notification.type.submissionSubmitted"
-msgstr "A new preprint , "{$title}," has been submitted."
+msgstr "A new preprint , \"{$title}\", has been submitted."
 
 msgid "notification.type.newAnnouncement"
 msgstr "A new announcement has been created."
@@ -418,7 +418,7 @@ msgid "user.profile.form.hideOtherContexts"
 msgstr "Hide other servers"
 
 msgid "search.cli.rebuildIndex.indexing"
-msgstr "Indexing "{$serverName}""
+msgstr "Indexing \"{$serverName}\""
 
 msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
 msgstr "This search implementation does not allow per-server re-indexing."

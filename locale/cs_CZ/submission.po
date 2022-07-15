@@ -637,7 +637,7 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Rozšířená metadata"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Registrační email pro Crossref\"
+msgstr "Registrační email pro Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr "Zadejte platný registrační email pro Crossref. Svůj email můžete bezplatně zaregistrovat na webových stránkách Crossref."

@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hy_AM/>\n"
 "Language: hy_AM\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Այս օգտատերը նշանակված չէ որպես հայցվող փաստաթղթի գրախոսող։"
@@ -76,7 +77,7 @@ msgid "reviewer.submission.hasCompetingInterests"
 msgstr "Ես կարող եմ ունենալ մրցակցային շահեր (Նշեք ստորև)"
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr "Ես մրցակցող որևէ  շահ չունեմ"
+msgstr "Ես մրցակցող որևէ շահ չունեմ"
 
 msgid "reviewer.submission.enterCompetingInterests"
 msgstr ""

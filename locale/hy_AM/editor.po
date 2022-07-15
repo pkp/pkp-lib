@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-21 10:40+0000\n"
+"PO-Revision-Date: 2022-07-15 15:49+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Գրադարան"
@@ -73,7 +73,7 @@ msgid "editor.review.reviewDueDate"
 msgstr "Գրախոսման վերջնաժամկետ"
 
 msgid "editor.review.reviewDue"
-msgstr "Գրախոսություն ըստ  {$date}"
+msgstr "Գրախոսություն ըստ {$date}"
 
 msgid "editor.review.revertDecision"
 msgstr "Վերադարձնել որոշումը"
@@ -169,7 +169,7 @@ msgid "editor.submissionReview.skipEmail"
 msgstr "էլ. փոստով ծանուցում չուղարկել"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Ուղարկել ծանուցում  էլ. փոստով խմբագրին(ներին): {$editorNames}"
+msgstr "Ուղարկել ծանուցում էլ. փոստով խմբագրին(ներին): {$editorNames}"
 
 msgid "editor.submissionReview.sendEmail"
 msgstr "էլ. փոստով ծանուցում ուղարկել հեղինակին՝ {$authorName}"
@@ -235,7 +235,7 @@ msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Հոդվածն ընդունված է գրախոսման:"
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Ուղարկել  հրապարակման։"
+msgstr "Ուղարկել հրապարակման։"
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Հոդվածը հրապարակված է:"
@@ -256,7 +256,7 @@ msgid "reviewer.list.daysSinceLastAssignment"
 msgstr "{$days} օր առաջ"
 
 msgid "reviewer.list.reviewerRating"
-msgstr "Գրախոսման վարկանիշ՝  {$rating}"
+msgstr "Գրախոսման վարկանիշ՝ {$rating}"
 
 msgid "reviewer.list.cancelledReviews"
 msgstr "Գրախոսման հարցումները չեղարկված են"
@@ -391,7 +391,7 @@ msgstr "Նշանակել աուդիտոր"
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr ""
 "Եթե չհաստատեք ֆայլի պատճենահանումը հնարավոր չի լինի դա ուղարկել թողարկման: "
-"Դուք ցանկանու՞մ  եք  մերժել ֆայլը?"
+"Դուք ցանկանու՞մ եք մերժել նիշքը։"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr ""
@@ -413,10 +413,10 @@ msgid "editor.review.errorReinstatingReviewer"
 msgstr "Գրախոսողին վերականգնելու հետ կապված սխալ կա: Խնդրում ենք փորձել կրկին:"
 
 msgid "editor.submission.review.currentFiles"
-msgstr "{$round} փուլի գրախոսման  ընթացիկ ֆայլեր"
+msgstr "{$round} փուլի գրախոսման ընթացիկ նիշքեր"
 
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Ցուցադրել ֆայլերը բոլոր  հասանելի աշխատանքի փուլերից:"
+msgstr "Ցուցադրել նիշքերը հասանելի աշխատանքի բոլոր փուլերից:"
 
 msgid "editor.submission.findAndSelectUser"
 msgstr "Տեղադրել օգտագործող"
@@ -498,8 +498,8 @@ msgstr "Գրախոսողի հետաքրքրություններ"
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr ""
-"Մերժել այս  սրբագրումը, որպեսզի ցույց տաք, որ սրբագրումը դեռ ավարտված չէ, և "
-"ֆայլը պատրաստ չէ հրապարակման։"
+"Մերժել այս սրբագրումը, որպեսզի ցույց տաք, որ սրբագրումը դեռ ավարտված չէ, և "
+"նիշքը պատրաստ չէ հրապարակման։"
 
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""

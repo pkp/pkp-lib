@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-03 10:31+0000\n"
+"PO-Revision-Date: 2022-07-15 15:49+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Ներկայացնել որպես"
@@ -292,7 +292,7 @@ msgstr "ISBNdb API բանալի"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Խնդրում ենք մուտքագրել վավեր Crossref գրանցման էլ.  հասցե։ Դուք կարող եք "
+"Խնդրում ենք մուտքագրել վավեր Crossref գրանցման էլ. հասցե։ Դուք կարող եք "
 "անվճար գրանցել ձեր էլ. փոստը Crossref -ի վեբ կայքում:"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
@@ -613,7 +613,7 @@ msgstr "Խնդրում ենք ընտրել այն նիշքը, որը ցանկա�
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
 "Վերբեռնված նիշքի անունը նման է նախկինում վերբեռնված \"{$revisedFileName}\" -"
-"ի անվանմանը: Արդյո՞ք այս նիշքը նախատեսված է փոխարինելու  \"{$revisedFileName}"
+"ի անվանմանը: Արդյո՞ք այս նիշքը նախատեսված է փոխարինելու \"{$revisedFileName}"
 "\" -ին: Եթե այո, ապա ընտրեք ստորև ներկայացված նիշքը: Հակառակ դեպքում, նախքան "
 "շարունակելը, ընտրեք «Սա գոյություն ունեցող նիշքի վերանայումը չէ»:"
 
@@ -1139,7 +1139,7 @@ msgstr "Նույնացուցիչներ"
 
 msgid "submission.outdatedVersion"
 msgstr ""
-"Սա հնացած տարբերակ է, որը հրապարակվել է {$datePublished} -ում: Կարդացեք  <a "
+"Սա հնացած տարբերակ է, որը հրապարակվել է {$datePublished} -ում: Կարդացեք <a "
 "href=\"{$urlRecentVersion}\">վերջին տարբերակը</a>:"
 
 msgid "submission.versionIdentity"
@@ -1208,7 +1208,7 @@ msgstr ""
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
-"Հեղինակներին այժմ թույլատրվում է խմբագրել մետատվյալները, երբ ներկայացումը  "
+"Հեղինակներին այժմ թույլատրվում է խմբագրել մետատվյալները, երբ ներկայացումը "
 "{stage} փուլում է:"
 
 msgid "submission.event.viewEmail"

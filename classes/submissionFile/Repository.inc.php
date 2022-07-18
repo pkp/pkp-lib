@@ -721,11 +721,6 @@ abstract class Repository
             $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
             $query = $queryDao->getById($note->getAssocId());
 
-            // The note should be associated with a query. If not, fail.
-            if ($query?->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY) {
-                return null;
-            }
-
             // The query will have an associated file stage.
             return $query ? $query->getStageId() : null;
         }

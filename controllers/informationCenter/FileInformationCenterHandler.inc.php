@@ -23,6 +23,7 @@ use PKP\log\EventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use APP\notification\NotificationManager;
 
 class FileInformationCenterHandler extends InformationCenterHandler
 {

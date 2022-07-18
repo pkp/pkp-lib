@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-07-11 12:48+0000\n"
+"PO-Revision-Date: 2022-07-18 15:16+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "submission.agencies"
 msgstr "Agentury"
@@ -995,7 +995,9 @@ msgid "submission.event.fileRevised"
 msgstr "Úprava \"{$name}\" pro soubor {$submissionFileId}) byla nahrána."
 
 msgid "submission.event.participantAdded"
-msgstr "Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako {$userGroupName}."
+msgstr ""
+"Uživatel {$name} ({$username}) byl přiřazen k příspěvku jako "
+"{$userGroupName}."
 
 msgid "submission.event.subjectPrefix"
 msgstr "Email byl odeslán:"
@@ -1094,7 +1096,11 @@ msgid "submission.upload.possibleRevision"
 msgstr "Byla detekována možná duplicita nebo úprava"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Název nahraného souboru se podobá názvu dříve nahraného souboru\"{$revisedFileName}.\"  Je tento soubor určen k nahrazení \"{$revisedFileName}\"? Pokud ano, vyberte níže uvedený soubor. V opačném případě vyberte \"Nejedná se o revizi stávajícího souboru\", než budete pokračovat."
+msgstr ""
+"Název nahraného souboru se podobá názvu dříve nahraného souboru\""
+"{$revisedFileName}.\" Je tento soubor určen k nahrazení \"{$revisedFileName}"
+"\"? Pokud ano, vyberte níže uvedený soubor. V opačném případě vyberte "
+"\"Nejedná se o revizi stávajícího souboru\", než budete pokračovat."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Zvolte soubor, který chcete revidovat."
@@ -1286,13 +1292,13 @@ msgid "submission.documents"
 msgstr "Dokumenty příspěvku"
 
 msgid "notification.type.copyeditorRequest"
-msgstr "Byl jste požádán(a) o kontrolu redakčních úprav pro  \"{$title}\"."
+msgstr "Byl jste požádán(a) o kontrolu redakčních úprav pro \"{$title}\"."
 
 msgid "notification.type.layouteditorRequest"
-msgstr "Byl jste požádán(a) o kontrolu layoutu pro  \"{$title}\"."
+msgstr "Byl jste požádán(a) o kontrolu layoutu pro \"{$title}\"."
 
 msgid "notification.type.indexRequest"
-msgstr "Byl jste požádán(a) o vytvoření indexu pro  \"{$title}\"."
+msgstr "Byl jste požádán(a) o vytvoření indexu pro \"{$title}\"."
 
 msgid "notification.type.editorDecisionTitle"
 msgstr "Aktuální rozhodnutí editora."
@@ -1477,9 +1483,8 @@ msgstr "Byl(a) jste přidán(a) k diskusi nazvané \"{$queryTitle}\" ohledně p�
 msgid "submission.howToCite.downloadCitation"
 msgstr "Stánhout citace"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Úpravy rukopisu byly odevzdány."
+msgstr "Úpravy rukopisu byly odevzdány a je třeba udělat rozhodnutí."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Vypršel termín pro recenzi."
@@ -1503,10 +1508,10 @@ msgid "editor.submission.changeRecommendation"
 msgstr "Změnit doporučení"
 
 msgid "editor.submission.recommendation.display"
-msgstr "Doporučení:  {$recommendation}"
+msgstr "Doporučení: {$recommendation}"
 
 msgid "editor.submission.allRecommendations.display"
-msgstr "Doporučení:  {$recommendations}"
+msgstr "Doporučení: {$recommendations}"
 
 msgid "editor.submission.recommendation"
 msgstr "Doporučení"
@@ -2177,7 +2182,7 @@ msgstr ""
 "anonymizovat všechny připomínky recenzentů."
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Byly vyžádány úpravy příspěvku  {$title}."
+msgstr "Byly vyžádány úpravy příspěvku {$title}."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Jsou vyžadovány úpravy textu"

@@ -10,19 +10,30 @@
 # Script to create an OPS package for distribution.
 #
 # Usage: buildpkg.sh <version> [<tag>]
+#   Select your own repository with $GITREP
+#   Select your own prefix with $PREFIX
 #
 #
 
-GITREP=git://github.com/pkp/ops.git
+GITREP=${GITREP:-'https://github.com/pkp/ops.git'}
 
 if [ -z "$1" ]; then
-	echo "Usage: $0 <version> [<tag>-<branch>]";
-	exit 1;
+	echo "Usage: $0 <version> <tag-or-branch>"
+	echo "	version: an arbitrary version identifier (to become part of the output filename)"
+	echo "	tag-or-branch: a git tag or branch (to be checked out from the repository)"
+	echo ""
+	echo "  This command will checkout the <tag-or-branch> from \$GITREP (default: from PKP)"
+	echo "  and will build the application with git submodules, composer, and npm dependencies"
+	echo "  and then will remove development and testing files (git, node, travis, etc.)"
+	echo "  and then will tar the application as \$PREFIX-<version>.tar.gz in the current directory."
+        echo "  The default \$PREFIX and \$GITREP can be overriden by setting these environment variables."
+        echo "  A temporary directory will be created and removed from the current working directory."
+	exit 1
 fi
 
 VERSION=$1
 TAG=$2
-PREFIX=ops
+PREFIX=${PREFIX:-'ops'}
 BUILD=$PREFIX-$VERSION
 TMPDIR=`mktemp -d $PREFIX.XXXXXX` || exit 1
 
@@ -39,11 +50,9 @@ plugins/auth/ldap									\
 plugins/importexport/sample								\
 plugins/importexport/duracloud								\
 lib/pkp/tests										\
-.git											\
 .openshift										\
 .scrutinizer.yml									\
 .travis.yml										\
-lib/pkp/.git										\
 lib/pkp/captainhook.json								\
 lib/pkp/lib/vendor/smarty/smarty/demo							\
 lib/pkp/lib/vendor/alex198710/pnotify/.git						\
@@ -65,7 +74,6 @@ plugins/generic/citationStyleLanguage/lib/vendor/symfony/config/Tests/			\
 plugins/generic/citationStyleLanguage/lib/vendor/symfony/yaml/Tests/			\
 plugins/generic/citationStyleLanguage/lib/vendor/guzzle/guzzle/tests/Guzzle/Tests/	\
 plugins/generic/citationStyleLanguage/lib/vendor/symfony/config/Tests/			\
-plugins/generic/citationStyleLanguage/lib/vendor/citation-style-language/locales/.git	\
 lib/pkp/lib/vendor/symfony/translation/Tests/						\
 lib/pkp/lib/vendor/symfony/process/Tests/						\
 lib/pkp/lib/vendor/pimple/pimple/src/Pimple/Tests/					\
@@ -108,11 +116,14 @@ echo -n "Checking out corresponding submodules ... "
 git submodule -q update --init --recursive >/dev/null || exit 1
 echo "Done"
 
-echo "Installing composer dependencies:"
-echo -n " - lib/pkp ... "
-composer.phar --working-dir=lib/pkp install --no-dev
-echo "Done"
-
+for i in `find . -name composer.json`
+do
+  COMPOSERWD=`echo $i | sed 's/composer.json//'`
+  echo -n " - $COMPOSERWD ... "
+  composer.phar --working-dir=$COMPOSERWD install --no-dev
+  echo "Done"
+done
+ 
 echo -n "Installing node dependencies... "
 npm install
 echo "Done"
@@ -124,6 +135,7 @@ echo "Done"
 echo -n "Preparing package ... "
 cp config.TEMPLATE.inc.php config.inc.php
 find . \( -name .gitignore -o -name .gitmodules -o -name .keepme \) -exec rm '{}' \;
+find . -name .git -prune -exec rm -rf '{}' \;
 rm -rf $EXCLUDE
 echo "Done"
 

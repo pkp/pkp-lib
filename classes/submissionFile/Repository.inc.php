@@ -713,7 +713,9 @@ abstract class Repository
             // Get the associated note.
             $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
             $note = $noteDao->getById($submissionFile->getData('assocId'));
-            if (!$note) {
+
+            // The note should be associated with a query. If not, fail.
+            if ($note?->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY) {
                 return null;
             }
 

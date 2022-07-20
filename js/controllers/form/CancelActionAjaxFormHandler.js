@@ -83,12 +83,13 @@
 	 * @inheritDoc
 	 */
 	$.pkp.controllers.form.CancelActionAjaxFormHandler.prototype.
-			containerCloseHandler = function(input, event) {
+			containerCloseHandler = function(input, event, informationObject) {
 
-		this.handleCancelAction();
-
-		return /** @type {boolean} */ (
-				this.parent('containerCloseHandler', input, event));
+		var result = /** @type {boolean} */ (
+				this.parent('containerCloseHandler', input, event, informationObject));
+		if (result) {
+			this.handleCancelAction();
+		}
 	};
 
 

@@ -6,6 +6,9 @@ contact_links:
   - name: Software Support
     url: https://forum.pkp.sfu.ca/c/questions/5
     about: Need help? Post in our software support forum if you need help debugging your journal, press, or preprint server.
+  - name: Technical Proposals
+    url: https://github.com/pkp/pkp-lib/discussions
+    about: Propose changes to the software's code, such as the adoption of a new library, tool or development technique.
   - name: Community Forum
     url: https://forum.pkp.sfu.ca/
     about: Got a question? Visit our community forum to get help, ask a question, and connect with our publishing community.

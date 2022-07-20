@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Community Forum
-    url: https://forum.pkp.sfu.ca/
-    about: Got a question? Visit our community forum to get help, ask a question, and connect with our publishing community.
-  - name: Software Support
-    url: https://forum.pkp.sfu.ca/c/questions/5
-    about: Need help? Post in our software support forum if you need help debugging your journal, press, or preprint server.
   - name: Feature Request or Suggestion
     url: https://forum.pkp.sfu.ca/c/questions/feature-requests/8
     about: Suggest improvements to our software in our feature request forum, where our community meets to discuss and prioritize new features.
+  - name: Software Support
+    url: https://forum.pkp.sfu.ca/c/questions/5
+    about: Need help? Post in our software support forum if you need help debugging your journal, press, or preprint server.
+  - name: Community Forum
+    url: https://forum.pkp.sfu.ca/
+    about: Got a question? Visit our community forum to get help, ask a question, and connect with our publishing community.

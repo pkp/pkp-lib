@@ -16,15 +16,9 @@ namespace PKP\migration\upgrade\v3_4_0;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use APP\core\Application;
-use PKP\submissionFile\SubmissionFile;
-use APP\core\Services;
 
 class UpgradeMigration extends \PKP\migration\Migration
 {
-    private const ASSOC_TYPE_QUERY = 0x010000a; // PKPApplication::ASSOC_TYPE_QUERY
-    private const SUBMISSION_FILE_QUERY = 18; // SubmissionFile::SUBMISSION_FILE_QUERY
-
     /**
      * Run the migrations.
      */
@@ -85,67 +79,6 @@ class UpgradeMigration extends \PKP\migration\Migration
             Schema::table('user_settings', function (Blueprint $table) {
                 $table->dropColumn('setting_type');
             });
-        }
-
-        // pkp/pkp-lib#6073: Delete SubmissionFiles/Notes entries that correspond to nonexistent queries.
-        $orphanedIds = DB::table('notes AS n')
-            ->leftJoin('queries AS q', 'n.assoc_id', '=', 'q.query_id')
-            ->where('n.assoc_type', '=', self::ASSOC_TYPE_QUERY)
-            ->whereNull('q.query_id')
-            ->pluck('n.note_id', 'n.assoc_id');
-
-        foreach ($orphanedIds as $neQueryId => $noteId) {
-            error_log("Removing submission files that relates to the entry ID ${noteId} which will be deleted as orphan object");
-            $notesFileRows = DB::table('submission_files as sf')
-                ->join('files as f', 'sf.file_id', '=', 'f.file_id')
-                ->where('sf.assoc_id', '=', $noteId)
-                ->where('sf.file_stage', '=', self::SUBMISSION_FILE_QUERY)
-                ->get([
-                        'sf.submission_file_id as submissionFileId',
-                        'sf.file_id as fileId',
-                        'f.path as filePath'
-                    ]);
-
-            foreach ($notesFileRows as $submissionFileRow) {
-                $submissionFileId = $submissionFileRow->submissionFileId;
-                $submissionFileFileId = $submissionFileRow->fileId;
-                $submissionFilePath = $submissionFileRow->filePath;
-
-                error_log("Removing submission file revisions that relate to the submission file entry ID ${submissionFileId} which will be deleted.");
-                DB::table('submission_file_revisions')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                error_log("Removing review round files that relate to the submission file entry ID ${submissionFileId} which will be deleted.");
-                DB::table('review_round_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                error_log("Removing review files that relate to the submission file entry ID ${submissionFileId} which will be deleted.");
-                DB::table('review_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                // Create entry in files and revisions tables for every submission_file
-                $fileService = Services::get('file');
-
-                if ($fileService->fs->has($submissionFilePath) && !$fileService->fs->delete($submissionFilePath)) {
-                    error_log("A submission file was expected but not found at ${submissionFilePath}.");
-                }
-
-                DB::table('submission_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                DB::table('files')
-                    ->where('file_id', '=', $submissionFileFileId)
-                    ->delete();
-            }
-
-            error_log("Removing orphaned note entry ID ${noteId} with not existing query ${neQueryId}");
-            DB::table('notes')
-                ->where('note_id', '=', $noteId)
-                ->delete();
         }
     }
 

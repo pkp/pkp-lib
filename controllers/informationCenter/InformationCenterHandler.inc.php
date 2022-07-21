@@ -23,6 +23,7 @@ use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use APP\notification\NotificationManager;
+use PKP\core\ArrayItemIterator;
 
 abstract class InformationCenterHandler extends Handler
 {
@@ -153,7 +154,8 @@ abstract class InformationCenterHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $templateMgr->assign('notes', $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()));
+        $notes = $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId())->toArray();
+        $templateMgr->assign('notes', new ArrayItemIterator($notes));
 
         $user = $request->getUser();
         $templateMgr->assign('currentUserId', $user->getId());

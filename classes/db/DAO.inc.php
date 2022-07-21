@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\DB;
 
 use PKP\cache\CacheManager;
 use PKP\core\JSONMessage;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class DAO
 {
@@ -43,7 +43,7 @@ class DAO
             // Call hooks based on the object name. Results
             // in hook calls named e.g. "sessiondao::_Constructor"
             $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-            if (HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::_Constructor', [$this])) {
+            if (Hook::run(strtolower_codesafe(end($classNameParts)) . '::_Constructor', [$this])) {
                 return;
             }
         }
@@ -68,7 +68,7 @@ class DAO
             // in hook calls named e.g. "sessiondao::_getsession"
             // (always lower case).
             $value = null;
-            if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
+            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
                 return $value;
             }
         }
@@ -95,7 +95,7 @@ class DAO
             // this method is only called by a subclass. Results
             // in hook calls named e.g. "sessiondao::_getsession"
             $value = null;
-            if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
+            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
                 return $value;
             }
         }
@@ -161,7 +161,7 @@ class DAO
             // in hook calls named e.g. "sessiondao::_updateobject"
             // (all lowercase)
             $value = null;
-            if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
+            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
                 return $value;
             }
         }
@@ -456,7 +456,7 @@ class DAO
         // in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
+        Hook::run(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
 
         return $returner;
     }
@@ -478,7 +478,7 @@ class DAO
         // in hook calls named e.g. "sessiondao::getLocaleFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
+        Hook::run(strtolower_codesafe(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
 
         return $returner;
     }

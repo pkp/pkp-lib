@@ -1669,117 +1669,11 @@ msgstr ""
 msgid "manager.setup.publishing"
 msgstr "Detalii de publicare"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Rezultate restrânse după țară, regiune și / sau oraș."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "După locația geografică"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Sau selectați intervalul după:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Selectați intervalul de raport"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "După tipul obiectului și / sau ID-ul obiectului"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "După context"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Următorul url poate fi utilizat pentru a genera raportul cu setările curente "
-"ale formularului. Doar copiați-l și deschideți-l în browser. Puteți, de "
-"asemenea, să îl stocați ca generator de url de raport personalizat în "
-"marcajele dvs."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Raport URL"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Trebuie să selectați cel puțin o coloană pentru a genera raportul."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Unul sau mai multe nume de oraș, separate prin virgulă (de exemplu, numele "
-"orașului 1, numele orașului 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Folosiți formatul AAAAMMZZ."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Folosiți formatul AAAALL."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descendent"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendent"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direcţie"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Comandați prin"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Luna curentă"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ieri"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Definiți unul sau mai multe ID-uri de obiect, separate prin virgulă (de "
-"exemplu, 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID obiect"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tip de obiect"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Obiect care nu se găsește în baza de date"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtre"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Definiți coloanele care vor fi utilizate pentru a construi raportul. "
-"Coloanele pe care le selectați aici nu numai că definesc datele care vor fi "
-"prezentate în rapoarte, dar definesc și nivelul de agregare a statisticilor. "
-"De exemplu, dacă alegeți coloane ID, tip și lună, raportul va însuma toate "
-"vizualizările pentru un obiect dintr-o lună și va prezenta datele într-un "
-"rând. Dacă alegeți Ziua în loc de Lună, fiecare obiect va avea un rând "
-"pentru fiecare zi."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Coloane"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ascundeți opțiunile avansate"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opțiuni avansate"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generați raport personalizat"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Șabloane de raport implicite"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Elementele cu caractere italice și marcate cu * reprezintă date care sunt "
-"opționale pentru modul curent de numărare a statisticilor în sistem (tip "
-"metric). Este posibil să aveți sau nu aceste date, în funcție de "
-"configurația pluginului dvs. responsabil de statistici."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Statistici generale:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -1797,19 +1691,6 @@ msgstr "Regiune"
 
 msgid "stats.city"
 msgstr "Oraș"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t{$contextObjectName} este configurat pentru a înregistra mai multe "
-"valori de utilizare. Statisticile de utilizare vor fi afișate în mai multe "
-"contexte.\n"
-"\t\tExistă cazuri în care trebuie utilizată o singură statistică, de ex. "
-"pentru a afișa o listă ordonată a celor mai utilizate înregistrări de "
-"manuscrise sau pentru a se clasifica\n"
-"\t\trezultatele căutării. Vă rugăm să selectați una dintre valorile "
-"configurate ca implicită.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Stats &amp; Rapoarte"

@@ -540,53 +540,11 @@ msgstr "Град"
 msgid "stats.region"
 msgstr "Регион"
 
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Напредне опције"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Сакриј напредне опције"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Колоне"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Филтери"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Објекат није пронађен у бази података"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Тип објекта"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID објекта"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Јуче"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Тренутни месец"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Поређај по"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Смер"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Узлазно"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Силазно"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Користи ГГГГMM формат."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Користи ГГГГMMDD формат"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "По контексту"
 
 msgid "manager.affiliationAndSupport"
 msgstr "Спонзор"
@@ -639,36 +597,6 @@ msgstr "Учитај почетне вредности"
 #, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Генератор извештаја"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Сакупи статистике по:"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Предефинисани шаблони извештаја"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Генериши прилагођени извештај"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Један или више градова одвојених зарезом (нпр. Град1, Град2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Морате одабрати барем једну колону за генерисање извештаја."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL извештаја"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Одаберите опсег извештаја"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Или одаберите опсег по:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "По гео локацији"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Сузи резултате по земљи, региону и/или граду."
 
 msgid "manager.setup.additionalContent.description"
 msgstr "Све што унесете овде пиће приказано на почетној страници."
@@ -1213,26 +1141,8 @@ msgstr "Препоручене смернице укључују библиог�
 msgid "manager.setup.favicon"
 msgstr "Омиљена сличица-Favicon"
 
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Следећи url се може користити за генерисање извештаја према тренутним подешавањима. Копирајте url у ваш интернет прегледач и притисните enter. Можете га меморисати и користити као ваш посебан генератор извештаја."
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "По типу објекта и/или id објекта"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr "Ваш {$contextObjectName} је конфигурисан да забележи више од једног начина мерења употребе сајта. Статистика употребе ће бити приказана у неколико контекста. У неким случајевима један начин статистике мора бити употребљена, нпр. да се прикаже листа са пореданим резултатима највише употребљених пријављених чаланак или да се рангирају резултати претраге. Молимо вас да одаберет један од начина мерења као почетни."
-
 msgid "manager.statistics.reports.description"
 msgstr "Систем генерише извештаје који прате детаље у вези употребе вашег сајта и пријављених чаланак у датом временском периоду. Извештаји се генеришу у CSV формату који се могу прегледати у програму за табеларни рачун."
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Ставке написане курзивом и означене са * представљају податке који су опциони за тренутни начин бројања статистике у систему (начин мерења). Ви можете, а не морате имати те податке овисно о конфигурацији вашег додатка за статистику."
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Дефинишите колоне које ћете користити за прављење извештаја. Одабране колоне неће само одредити који ће подаци бити узети за прављење извештаја него ће дефинисати и ниво агрегације у статистици. На пример, ако одаберете колоне ID, Тип и Месец извештај ће сумирати све прегледе за објекте у једном месецу и приказати податке у једном реду. Ако одаберете Дан уместо Месеца сваки објекат ће имати ред за сваки дан."
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Дефинишите један или више id објекта и одвојите зарезом (нпр. 1,2,3,4,5)."
 
 msgid "about.editorialPOLICY"
 msgstr "about.editorialPOLICY"

@@ -510,13 +510,6 @@ msgstr "Szerepkörök"
 msgid "manager.statistics"
 msgstr "Statisztikák &amp; Jelentések"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tAz ön {$contextObjectName} úgy van konfigurálva, hogy egynél több rekordot eredményez ez a használati statisztika. A használati statisztikákat különféle összefüggésben is meg lehet jeleníteni.\n"
-"\t\tVannak olyan esetek, amikor a szimpla használati statisztika a jó választás, pl. egy rendszerezett listát megjeleníteni a leggyakrabban használt cikkekről vagy a keresési eredményeket rangsorolni. Kérjük, válasszon alapértelmezettként egyet a bekonfigurált statisztikák közül.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Város"
 
@@ -530,98 +523,11 @@ msgstr "Jelentés generáló"
 msgid "manager.statistics.reports.description"
 msgstr "A rendszer olyan jelentéseket készít, amelyekkel nyomonkövethető az oldal használat és a beküldések egy bizonyos megadott időintervallumban. A jelentések CSV formátumban készülnek, amelyek táblázatkezelőben tekinthetők meg."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Összesített statisztika:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "A dőlt betűs és a csillaggal jelzett tételeknél választható, hogy a jelenlegi módszerrel számolja össze a statisztikát a rendszer (mérés típus). Attól függően kap adatot, hogy milyen a statisztikai bővítmény beállítása."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Alapértelmezett jelentés sablonok"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Egyedi jelentés készítése"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Bővített beállítások"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Bővített beállítások elrejtése"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Oszlopok"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Oszlopok definiálása, amik a jelentésben szerepelni fognak. Az itt kiválasztott oszlopoknál nem csak azt kell megadni, hogy mely adatok kerüljenek bele, hanem a statisztika összesítési szintjét is. Például ha kiválasztja az ID, Típus és Hónap oszlopot, akkor a jelentés minden nézetet összegezni fog adattípusra és hónapra vonatkozóan és soronként jeleníti meg a kapott eredményeket. Ha napot választ hónap helyett, akkor naponta külön sorba kerülnek az eredmények."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Szűrők"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Az objektum nem található az adatbázisban"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Objektum típus"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Objektum azonosító"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Egy vagy több objektum azonosító definiálása, vesszővel elválasztva(pl. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Tegnap"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Aktuális hónap"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Rendezés"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Irány"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Növekvő"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Csökkenő"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Haszhnálja az YYYYMM formátumot."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Használja az YYYYMMDD formátumot."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Egy vagy több városnév, vesszővel elválasztva (pl. Város neve 1,Város neve 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Legalább egy oszlopot ki kell választania a jelentés elkészítéséhez."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Jelentés URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "A következő URL az aktuális űrlapbeállítások alapján a jelentés elkészítéséhez használható. Csak másolja ki és nyissa meg egy böngészőben. Eltárolhatja az egyedi jelentés készítő URL címeit a könyvjelzői között."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Szövegkörnyezet alapján"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Objektum típus és/vagy objektum azonosító alapján"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Válassza ki a jelentés tartományát"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Vagy válasszon tartományt az alábbiak szerint:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "földrajzi elhelyezkedés alapján"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Országhoz, régióhoz és/vagy városhoz közeli eredmények."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Szponzor"
@@ -2413,9 +2319,6 @@ msgstr "Értesítések"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Beküldések letiltása"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Egyedi jelentés készítő"
 
 msgid "manager.people.signedInAs"
 msgstr "Jelenleg bejelentkezve, mint {$username}"

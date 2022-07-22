@@ -644,25 +644,11 @@ msgstr "Pesquisar por Nome"
 msgid "manager.reviewerSearch.form.instructions"
 msgstr "Use o formulário abaixo para definir os valores máximos para os termos que deseja pesquisar. O formulário é pré-preenchido com as médias calculadas para estes campos."
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tO {$contextObjectName} está configurada para gravar mais de uma métrica "
-"de uso. As estatísticas de uso serão exibidas em vários contextos.\n"
-"  Existem casos em que uma estatística de uso único deve ser usada, ex. para "
-"exibir uma lista ordenada de submissões mais utilizadas ou para classificar\n"
-"  resultados da pesquisa. Selecione uma das métricas configuradas como "
-"padrão.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Cidade"
 
 msgid "stats.region"
 msgstr "Região"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Agregar estatísticas por:"
 
 msgid "manager.reviewFormElements.viewable"
 msgstr "Visível (para autores)"
@@ -733,95 +719,11 @@ msgstr "Tem certeza de que deseja activar este formulário de revisão? Uma vez 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr "Tem certeza de que deseja desactivar este formulário de revisão? Já não estará disponível para novas tarefas de revisão."
 
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Os itens em itálico e marcados com * significa dados que são opcionais para o modo actual de registar estatísticas no sistema (tipo métrico). Pode ter estes dados ou não, dependendo da configuração do seu plugin de estatísticas."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Modelos de relatório padrão"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Gerar relatório personalizado"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opções Avançadas"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ocultar Opções Avançadas"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Colunas"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definir as colunas que serão usadas para criar o relatório. As colunas que selecionou aqui não só definem quais dados serão apresentados dentro dos relatórios, mas também definem o nível de agregação das estatísticas. Por exemplo, se escolher as colunas ID, Type e Month, o relatório somará todas as visualizações de um publicação de um mês e apresentará estes dados numa linha. Se escolher Dia em vez de Mês, cada publicação terá uma linha para cada dia."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtros"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "A publicação não foi encontrada na base de dados"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipo de Publicação"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "iD publicação"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Defina uma ou mais iDs de publicações, separados por vírgulas (e.g. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ontem"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mês actual"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordenar por"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direcção"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendente"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descendente"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Usar o formato AAAAMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Usar o formato AAAAMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Um ou mais nomes de cidades, separados por vírgulas (por exemplo, Nome da Cidade 1, Nome da Cidade 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Deve seleccionar pelo menos uma coluna para gerar o relatório."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Reportar URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "O seguinte URL pode ser usado para gerar o relatório com as configurações de formulário actual. Basta copiá-lo e abri-lo no seu navegador. Também pode armazená-lo como o gerador de url de relatório personalizado nos seus marcadores."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Por contexto"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Por tipo de publicação e/ou iD publicação"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Seleccionar intervalo relatório"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ou seleccionar intervalo por:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Por geo localização"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Restringir resultados por país, região e/ou cidade."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
@@ -2130,9 +2032,6 @@ msgstr "Notificar"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Desativar Submissões"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Gerador de Relatórios Personalizados"
 
 msgid "manager.people.signedInAs"
 msgstr "Tem acesso como {$username}"

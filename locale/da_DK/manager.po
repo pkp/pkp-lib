@@ -755,9 +755,6 @@ msgstr "Rapportgenerator"
 msgid "manager.statistics.reports.description"
 msgstr "Systemet genererer rapporter, som registrerer de oplysninger, der er forbundet med brugen af webstedet og indsendelser over en given tidsperiode. Der genereres rapporter i CSV-format, og der kræves et regnearksprogram  for at få vist disse rapporter."
 
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generér brugerdefineret rapport"
-
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Send en påmindelse, hvis bedømmeren ikke har sendt en indstilling inden for "
@@ -1066,120 +1063,17 @@ msgstr "Godkendelsesfejl:"
 msgid "manager.people.existingUserRequired"
 msgstr "En registreret bruger skal indskrives."
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tDin {$contextObjectName} er konfigureret til at registrere flere bruger-"
-"parametre. Brugerstatistik vises i flere sammenhænge.\n"
-"  Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. når "
-"en ordnet liste over mest viste indsendelser fremvises eller når et "
-"søgeresultat rangeres. \n"
-"  Vælg en af følgende parametre som standard.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "By"
 
 msgid "stats.region"
 msgstr "Region"
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Samlet statistik af:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Elementer i kursiv og markeret med * repræsenterer data, der ikke er "
-"obligatorisk i forhold til den nuværende måde at optælle statistikker i "
-"systemet på. Du kan have adgang til disse data eller ej, afhængigt af din "
-"statistik-plugin-konfiguration."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Standard rapportskabeloner"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Avancerede indstillinger"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Skjul avancerede indstillinger"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolonner"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Angiv de kolonner, der skal bruges til at generere rapporten. De kolonner, du vælger her, definerer ikke kun hvilke data, der vil blive præsenteret i rapporterne, men definerer også akkumuleringsniveauet for statistikken. Hvis du f.eks. vælger ID-, Type- og Månedkolonner, opsummerer rapporten alle visninger fra et objekt fra en måned og vil præsentere disse data i en række. Hvis du vælger dag i stedet for måned, vil hvert objekt have en række for hver dag."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtre"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objektet ikke fundet i databasen"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Objekttype"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Objekt-id"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definér et eller flere objekt-id'er, kommasepareret (f.eks. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "I går"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Indeværende måned"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sortér efter"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Retning"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Stigende"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Aftagende"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Brug ÅÅÅÅMM-format."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Brug ÅÅÅÅMMDD-format."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Et eller flere bynavne, kommaseparert (f.eks. Bynavn 1,Bynavn 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Du skal vælge mindst én kolonne for at generere rapporten."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Rapport-URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Følgende url kan bruges til at generere rapporten med de nuværende "
-"formularindstillinger. Du skal bare kopiere den og åbne den i din browser. "
-"Du kan også gemme den som din brugerdefinerede rapport-url-generator i dine "
-"bogmærkesamling."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Efter sammenhæng"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Efter objekttype og/eller objekt-id"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Vælg rapportinterval"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Eller vælg interval efter:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Efter geografisk lokation"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Begræns søgeresultaterne via land, region og/eller by."
 
 msgid "manager.setup.layout.sidebar"
 msgstr "Side-menu"
@@ -2236,9 +2130,6 @@ msgstr ""
 "format kan indtastes ved hjælp af de specielle <a href=\"https://www.php.net/"
 "manual/en/function.strftime.php#refsect1-function.strftime-parameters\""
 ">formatskrifttyper</a>."
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Brugerdefineret rapportgenerator"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Udvælg de brugere, der skal eksporteres til en Excel/CSV-fil."

@@ -473,11 +473,6 @@ msgstr "Rollen"
 msgid "manager.statistics"
 msgstr "Statistieken & rapporten"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"Uw {$contextObjectName} is geconfigureerd voor meer dan een gebruiksmeting. Gebruiksstatistieken worden in verschillende contexten getoond.\n"
-"\t\tSoms wordt een enkele statistiek getoond, bv, om een lijst van meestgebruikte artikels te tonen of om zoekresultaten te wegen. Kies een van de methodes als standaard."
-
 msgid "stats.city"
 msgstr "Stad"
 
@@ -491,98 +486,11 @@ msgstr "Rapporteringstool"
 msgid "manager.statistics.reports.description"
 msgstr "Het systeem maakt rapporten met gegevens over het bezoek van de website en inzendingen over een bepaalde tijdperiode. Rapporten worden gegenereerd in CSV formaat, dat met een spreadheet programma kan worden bekeken."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Groepeer statistieken per:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Items in cusief en gemarkeerd met * geven optionele gegevens weer voor de geselecteerde telmethode in het systeem (type van gebruiksmeting). De gegevens kunnen wel of niet beschikbaar zijn, afhankelijk van de instelling van uw statistieken plugin."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Standaard rapportsjablonen"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Genereer aangepast rapport"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Geavanceerde opties"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Verberg geavanceerde opties"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolommen"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definieer de kolommen die zullen worden gebruikt voor het rapport. De kolommen die hier worden geselecteerd bepalen niet alleen welke gegevens zullen worden opgenomen in de rapporten, maar ook de onderverdeling van de statistieken. Wanneer bijvoorbeeld de kolommen ID, Type en Maand worden gekozen, zal het rapport alle gebruiksstatistieken van één maand presenteren in één rij. Wanneer wordt gekozen voor Dag, zal elk object een nieuwe rij krijgen voor elke dag."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filters"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Object werd niet gevonden in de databank"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Objecttype"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Object id"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definieer een of meer object id's, gescheiden door komma's (bv. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Gisteren"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Huidige maand"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sorteer op"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Richting"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Oplopend"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Aflopend"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Gebruik het formaat JJJJMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Gebruik het formaat JJJJMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Eén of meer namen van steden, gescheiden door komma's (bv. stad 1,stad 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Selecteer minstens één kolom om het rapport te genereren."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL voor het rapport"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "De volgende URL kan worden gebruikt om het rapport opnieuw te genereren met de huidige instellingen, door de URL te kopiëren en plakken in uw browser. Door de URL te bookmarken, kan hij ook werken als aangepaste rapportengenerator."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Op context"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Op objecttype en/of object id"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Selecteer bereik van het rapport"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Of selecteer bereik op:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Op geolocatie"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Reduceer resultaten op land, regio en/of stad."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"

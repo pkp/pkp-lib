@@ -699,91 +699,11 @@ msgstr "外观"
 msgid "manager.website.information"
 msgstr "信息"
 
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "选择报告范围"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "按对象类型和/或对象ID"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "根据上下文"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "以下网址可用于使用当前表单设置生成的报告。 只需将其复制并在浏览器中打开即可。 也可以将其作为自定义报告URL生成器存储在您的书签中。"
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "报告 URL"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "您必须至少选择一列才能生成报告。"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "一个或多个城市名称，以逗号分隔（例如，城市名称1,城市名称2）"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "使用 YYYYMMDD 格式。"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "使用 YYYYMM 格式。"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "递减"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "递增"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "方向"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "排序方式"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "当前月份"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "昨天"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "定义一个或多个对象ID，以逗号分隔（例如1,2,3,4,5）。"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "对象 ID"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "对象类型"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "在数据库中找不到对象"
-
-msgid "manager.statistics.reports.filters"
-msgstr "过滤器"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"定义将用于生成报告的列。 您在此处选择的列不仅定义了将在报告内显示的数据，而且还定义了统计的汇总级别。 例如，如果选择“ "
-"ID”，“类型”和“月”列，则报告将汇总一个月内来自对象的所有视图，并将该数据显示在一行中。 如果选择“天”而不是“月”，则每个对象每天都有一行。"
-
-msgid "manager.statistics.reports.columns"
-msgstr "列"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "隐藏高级选项"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "高级选项"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "生成自定义报告"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "默认报告模板"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "斜体并标有 * 的项目表示这些数据对于当前系统中统计信息计数方式（度量类型）而言是可选的。 您是否可以得到该数据，取决于您的统计信息插件配置。"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "汇总统计信息："
 
 msgid "manager.statistics.reports.description"
 msgstr "系统生成报告，跟踪给定时间段内与网站使用情况和提交相关的详细信息。 报告以CSV格式生成，需要电子表格应用程序以查看。"
@@ -797,14 +717,6 @@ msgstr "地区"
 
 msgid "stats.city"
 msgstr "城市"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t您的 {$contextObjectName} 已配置为记录多个使用量指标。 使用情况统计信息将在多个上下文中显示。\n"
-"\t\t在某些情况下，必须使用单个使用情况统计信息，例如 显示最常用提交的有序列表或对搜索结果进行排名。\n"
-"\t\t请选择一个配置的指标作为默认指标。\n"
-"\t"
 
 msgid "manager.reviewerSearch.change"
 msgstr "修改"
@@ -1164,15 +1076,6 @@ msgstr "出版细节"
 
 msgid "manager.setup.publishingDescription"
 msgstr "出版这份期刊的组织单位名称会出现在这份期刊的「期刊介绍」中。"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "按国家，地区和/或城市缩小结果范围。"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "按照地理位置"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "或选择范围："
 
 msgid "manager.publication.editorialStage"
 msgstr "编辑"
@@ -1657,9 +1560,6 @@ msgstr "通知"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "禁用提交"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "自定义报告生成器"
 
 msgid "manager.people.signedInAs"
 msgstr "您目前以 {$username} 的身份登录"

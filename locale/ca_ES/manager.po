@@ -477,14 +477,6 @@ msgstr "Rols"
 msgid "manager.statistics"
 msgstr "Estadístiques i informes"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tEl vostre {$contextObjectName} està configurat per registrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.\n"
-"\t\tHi ha casos en què heu d'utilitzar una sola estadística d'ús, p. ex., per mostrar una llista ordenada de les tramses més utilitzades o per classificar\n"
-"\t\tels resultats de la cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Ciutat"
 
@@ -498,92 +490,14 @@ msgstr "Generador d’informes"
 msgid "manager.statistics.reports.description"
 msgstr "El sistema genera informes que fan un seguiment dels detalls relacionats amb l'ús del lloc i de les comunicacions durant un període determinat de temps. Els informes es generen en format CSV. Aquest format es pot visualitzar amb una aplicació de full de càlcul."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Agrupa les estadístiques per:"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Plantilles d'informe predeterminades"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Genera un informe personalitzat"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opcions avançades"
-
-msgid "manager.statistics.reports.advancedOptions.label"
-msgstr "Personalitzeu les opcions relacionades amb les columnes, els filtres i la distribució del contingut. Si canvieu alguna d'aquestes opcions, és possible que la plantilla de l'informe no es generi de la forma esperada."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Columnes"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Indiqueu el nombre de columnes que voleu que tingui l'informe. El nombre de columnes que seleccioneu no només determina quina informació s'inclourà als informes mateixos, sinó que també indica el nivell d'agrupació de les estadístiques. Per exemple, si trieu les columnes Identificació, Tipus i Mes, l'informe sumarà totes les visualitzacions d'un objecte en un mes i mostrarà aquesta dada en una sola fila. Si trieu la columna Dia en lloc de la columna Mes, cada objecte tindrà una fila per dia."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtres"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipus d'objecte"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Id. de l'objecte"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Indiqueu la identificació d'un o més objectes, separats per una coma (p. ex. 1,2,3,4,5)."
-
 msgid "manager.statistics.reports.today"
 msgstr "Avui"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mes actual"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordena per"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direcció"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendent"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descendent"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Feu servir el format AAAAMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Feu servir el format AAAAMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "El nom d'una o més ciutats, separats per una coma (p. ex. Nom de la ciutat 1,Nom de la ciutat 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Cal que seleccioneu com a mínim una columna per generar l'informe."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL de l'informe"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Podeu utilitzar l'URL següent per generar l'informe a partir de la configuració d'aquest formulari. Només l'heu de copiar, enganxar-lo a la barra del navegador i prémer la tecla d'introducció. Podeu desar l'URL que genera el vostre informe personalitzat a favorits."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Per context"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Per tipus d'objecte i/o identificador de l'objecte"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Selecciona l'interval de l'informe"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "O bé selecciona l'interval per:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Per geolocalització"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Redueix els resultats per país, regió i/o ciutat."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinadors"
@@ -2181,22 +2095,6 @@ msgstr "Tot el que introduïu aquí apareixerà a la pàgina d'inici."
 msgid "manager.setup.additionalContent"
 msgstr "Contingut addicional"
 
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ahir"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "No s'ha trobat l'objecte a la base de dades"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ocultar les opcions avançades"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Els elements en cursiva i marcats amb un asterisc (*) són dades opcionals "
-"per a l'actual sistema de recompte estadístic del sistema (tipus mètric). "
-"Podeu tenir dades o no, en funció de la configuració del mòdul "
-"d'estadístiques."
-
 msgid "manager.reviewerSearch.change"
 msgstr "Canviar"
 
@@ -2409,9 +2307,6 @@ msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
 "No s'ha pogut desar la configuració d'idioma. Com a mínim ha d'activar-se un "
 "idioma per a cada opció"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Generador d'informes personalitzat"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Seleccioneu els usuaris/àries que s'han d'exportar a l'arxiu Excel/CSV."

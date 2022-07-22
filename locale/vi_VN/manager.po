@@ -456,114 +456,11 @@ msgstr ""
 "Các chi tiết này có thể được bao gồm trong siêu dữ liệu được cung cấp cho "
 "các cơ quan lưu trữ của bên thứ ba."
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Thu hẹp kết quả theo quốc gia, khu vực và/hoặc thành phố."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Theo vị trí địa lý"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Hoặc chọn phạm vi theo:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Chọn phạm vi báo cáo"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Theo loại đối tượng và/hoặc id đối tượng"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Theo ngữ cảnh (tạp chí)"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Có thể sử dụng url sau để tạo báo cáo với cài đặt biểu mẫu hiện tại. Chỉ cần "
-"sao chép nó và mở nó trong trình duyệt của bạn. Bạn cũng có thể lưu trữ nó "
-"dưới dạng trình tạo url báo cáo tùy chỉnh trong dấu trang của mình."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL báo cáo"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Bạn phải chọn ít nhất một cột để tạo báo cáo."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Một hoặc nhiều tên thành phố, được phân tách bằng dấu phẩy (ví dụ: Tên thành "
-"phố 1, Tên thành phố 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Sử dụng định dạng (Năm-Tháng-ngày)  YYYYMMDD."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Sử dụng định dạng (Năm-Tháng) NNNNTT."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Giảm dần"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Tăng dần"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Chiều"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sắp xếp theo"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Tháng hiện tại"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ngày hôm qua"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Xác định một hoặc nhiều id đối tượng, được phân tách bằng dấu phẩy (ví dụ: "
-"1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Mã Đối tượng"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Loại đối tượng"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Không tìm thấy đối tượng trong cơ sở dữ liệu"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Bộ lọc"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Xác định các cột sẽ được sử dụng để xây dựng báo cáo. Các cột bạn chọn ở đây "
-"không chỉ xác định dữ liệu nào sẽ được trình bày bên trong báo cáo mà còn "
-"xác định mức độ tổng hợp của thống kê. Ví dụ: nếu bạn chọn cột ID, Loại và "
-"Tháng, báo cáo sẽ tổng hợp tất cả các chế độ xem từ một đối tượng từ một "
-"tháng và sẽ trình bày dữ liệu đó trong một hàng. Nếu bạn chọn Ngày thay vì "
-"Tháng, mỗi đối tượng sẽ có một hàng cho mỗi ngày."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Các cột (để tạo báo cáo)"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ẩn Tuỳ chọn Nâng cao"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Tuỳ chọn Nâng cao"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Tạo báo cáo tùy chỉnh"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Mẫu báo cáo mặc định"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Các mục in nghiêng và được đánh dấu * đại diện cho dữ liệu tùy chọn đối với "
-"cách thống kê đếm hiện tại trong hệ thống (loại số liệu). Bạn có thể có dữ "
-"liệu đó hoặc không, tùy thuộc vào cấu hình plugin thống kê của bạn."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Thống kê tổng hợp theo:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -580,19 +477,6 @@ msgstr "Khu vực"
 
 msgid "stats.city"
 msgstr "Thành phố"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t{$contextObjectName} của bạn được định cấu hình để ghi lại nhiều chỉ số "
-"sử dụng. Số liệu thống kê sử dụng \n"
-"sẽ được hiển thị trong một số ngữ cảnh.\n"
-"\n"
-"Có những trường hợp phải sử dụng một thống kê sử dụng duy nhất, ví dụ: để "
-"hiển thị danh sách có thứ tự các bài nộp \n"
-"được sử dụng nhiều nhất hoặc để xếp hạng kết quả tìm kiếm. \n"
-"Vui lòng chọn một trong các chỉ số đã định cấu hình làm mặc định.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Thống kê &amp; Báo cáo"

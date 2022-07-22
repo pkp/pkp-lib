@@ -482,14 +482,6 @@ msgstr "Ролі"
 msgid "manager.statistics"
 msgstr "Статистика та звіти"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tВаш {$contextObjectName} налаштовано для запису більш ніж однієї метрики використання. Статистика використання відображатиметься в декількох контекстах.\n"
-"\t\tТрапляється, що має бути застосована лише одна статистика використання, наприклад, щоб відобразити впорядкований список найвживаніших подань або відранжувати\n"
-"\t\tрезультати пошуку. Будь ласка, оберіть одну з налаштованих метрик, як усталену.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Місто"
 
@@ -503,102 +495,11 @@ msgstr "Генератор звітів"
 msgid "manager.statistics.reports.description"
 msgstr "Система генерує звіти, які відстежують деталі, пов'язані з використанням сайту та подань за певний період часу. Звіти створюються у форматі CSV, для перегляду якого потрібний табличний процесор."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Зібрати статистику за:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Елементи виділені курсивом і позначені * представляють дані, необов'язкові "
-"для поточного способу підрахунку статистики в системі (тип метрики). Ви "
-"можете отримати ці дані чи ні, залежно від налаштувань вашого плагіна "
-"статистики."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Усталені шаблони звітів"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Створити спеціальний звіт"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Додаткові налаштування"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Приховати додаткові налаштування"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Стовпці"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Визначте стовпці, які використовуватимуться для створення звіту. Вибрані тут стовпці не лише визначають, які дані будуть представлені в звітах, але також визначать рівень збору статистики. Наприклад, якщо ви виберете стовпці «ID», «Тип» і «Місяць», звіт порахує всі перегляди об'єкту за однин місяць і представить ці дані в одному рядку. Якщо ви виберете \"День\" замість \"Місяць\", у кожного об'єкта буде окремий рядок для кожного дня."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Фільтри"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Об'єкт не знайдено в базі даних"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Тип об'єкту"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID об'єкту"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Визначте один або декілька ID об'єктів, розділених комами (наприклад 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Вчора"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Поточний місяць"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Впорядкування за"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Напрям"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "За зростанням"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "За спаданням"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Використайте формат YYYYMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Використайте формат YYYYMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Одна або декілька назв міст, розділених комами (наприклад, Назва міста 1, Назва міста 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Щоб створити звіт, потрібно вибрати хоча б один стовпець."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL-адреса звіту"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Наступна URL-адреса може використовуватися для створення звіту за допомогою поточних параметрів, вказаних в формі. Просто скопіюйте її та відкрийте у своєму браузері. Ви також можете зберегти її у своїх закладках як URL-адресу генератора власних звітів."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "За вмістом"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "За типом об'єкта та/або ID об'єкта"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Вибрати діапазон для звіту"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Або вибрати діапазон за:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "За географічним розташуванням"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Відібрати результати за країною, регіоном та/або містом."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Спонсорство"

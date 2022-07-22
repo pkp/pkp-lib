@@ -1544,115 +1544,11 @@ msgstr "Rincian Terbitan"
 msgid "manager.setup.publishingDescription"
 msgstr "Nama organisasi yang menerbitkan jurnal dapat disertakan dalam metadata yang diberikan ke badan pengarsipan luar."
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Persempit pencarian berdasarkan negara, wilayah dan/atau kota."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Berdasarkan lokasi geografi"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Atau pilih rentang berdasarkan:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Pilih rentang laporan"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Berdasarkan tipe objek dan/atau id objek"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Berdasarkan konteks"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Tautan berikut dapat digunakan untuk menghasilkan laporan dengan pengaturan "
-"sekarang. salin dan buka di browser. Kamu dapat juga menyimpannya sebagai "
-"generator tautan laporan buatan sendiri di bookmark kamu."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL Laporan"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Anda wajib memilih minimal satu kolom untuk membuat laporan."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Satu nama kota atau lebih, pisahkan dengan tanda koma (contoh, Nama Kota "
-"1,Nama Kota 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Gunakan format TTTTBBHH."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Gunakan format TTTTBB."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Urut ke atas"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Urut ke atas"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Arah"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Urutkan berdasarkan"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Bulan ini"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Kemarin"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Tentukan satu ojke atau lebih, pisahkan dengan tanda koma (contoh, "
-"1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Id objek"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipe Objek"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objek tidak ditemukan dalam database"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filter"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Tentukan kolom yang akan digunakan untuk membuat laporan. Kolom yang Anda "
-"pilihtidak hanya menentukan data mana yang akan disajikan dalam laporan, "
-"tetapi juga menentukan tingkat agregasi statistik. Misalnya, jika Anda "
-"memilih ID, kolom Jenis dan Bulan, laporan akan menjumlahkan semua tampilan "
-"dari objek dalam satu bulan dan akan menyajikannya dalam satu baris. Jika "
-"Anda memilih Hari, setiap objek akan memiliki baris untuk setiap hari."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolom"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Sembunyikan Pilihan Lanjut"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Pilihan Lajut"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Buat laporan baru"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Template laporan bawaan"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Bagian yang dicetak miring dan ditandai dengan * menunjukkan bahwa data "
-"tesrsebut bersifat pilihan pada metode penghitungan statistik dalam sistem ("
-"tipe metrik). Anda bisa memperoleh data tersebut atau tidak, bergantung pada "
-"pengaturan plugin statistik yang Anda terapkan."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Agregasi statistik pada:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -1670,16 +1566,6 @@ msgstr "Wilayah"
 
 msgid "stats.city"
 msgstr "Kota"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t{$contextObjectName} Anda diatur untuk merekam lebih dari satu metrik "
-"pemakaian. Statistik pemakaian akan ditampilkan pada beberapa konteks.\n"
-"\t\tBeberapa kasus mengharuskan mengguakan hanya satu statistik pemakaian "
-"tunggal, misalnya untuk menampilkan secara berurutan atau merangking\n"
-"\t\thasil pencarian . Silakan pilih satu sebagai pilihan tetap.\n"
-"\t"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
@@ -2176,9 +2062,6 @@ msgstr "Semua Pengguna"
 
 msgid "grid.category.categoryDetails"
 msgstr "Rincian kategori"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Pembuat Laporan Kastem"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/tahun)"

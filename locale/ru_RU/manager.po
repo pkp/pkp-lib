@@ -529,14 +529,6 @@ msgstr "Роли"
 msgid "manager.statistics"
 msgstr "Статистика и отчеты"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tВаша {$contextObjectName} настроен на запись нескольких метрик использования. Статистика использования будет отображаться в нескольких контекстах.\n"
-"\t\tЕсть случаи, когда должна быть применена только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых статей или отранжировать\n"
-"\t\tрезультаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Город"
 
@@ -549,101 +541,11 @@ msgstr "Отчеты"
 msgid "manager.statistics.reports.description"
 msgstr "Система генерирует отчеты, которые помогают отследить детали, связанные с использованием сайта и материалов за заданный период времени. Отчеты генерируются в формате CSV, который требует для просмотра наличия табличного процессора."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Агрегировать статистику по:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Элементы набранные курсивом и отмеченные * представляют собой данные, которые являются необязательными для установленного сейчас способа подсчета статистики в системе (типа метрики). Вы можете получить эти данные или не получить в зависимости от настроек вашего модуля статистики."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Шаблоны отчетов по умолчанию"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Сгенерировать пользовательский отчет"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Генератор пользовательских отчетов"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Дополнительные настройки"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Скрыть дополнительные настройки"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Столбцы"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Укажите столбцы, которые будут использоваться для построения отчета. Столбцы, которые вы выберете здесь, не только определяют то, какие данные будут в отчетах, но также определяют уровень агрегирования статистики. Например, если вы выберете столбцы «ID», «Тип» и «Месяц», отчет будет суммировать все просмотры объекта, которые были в один месяц, и представлять данные в одной строке. Если вы выберете «День» вместо «Месяц», каждый объект будет иметь отдельную строку для каждого дня."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Фильтры"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Объект не найден в базе данных"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Тип объекта"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID объекта"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Задайте один или несколько ID объектов, разделяя их запятыми (например, 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Вчера"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Текущий месяц"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Сортировка по"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Направление"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "По возрастанию"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "По убыванию"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Используйте формат ГГГГММ."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Используйте формат ГГГГММДД."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Одно или несколько названий городов, разделенные запятыми(например, Название города 1,Название города 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Вы должны выбрать минимум один столбец для построения отчета."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL-адрес отчета"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Следующий URL-адрес может быть использован для генерации отчета с заданными на текущий момент настройками в форме. Просто скопируйте этот адрес и откройте его в браузере. Вы также можете сохранить этот адрес в закладках браузера как URL-адрес генератора вашего пользовательского отчета."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "По контексту"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "По типу объекта и/или ID объекта"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Выбрать диапазон для отчета"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Или выбирать диапазон по:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "По географическому положению"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Фильтровать результаты по странам, регионам и/или городам."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Спонсорство"
@@ -2052,9 +1954,6 @@ msgstr "Уведомить"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Отключить отправку материалов"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Генератор пользовательских отчетов"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Выберите пользователей для экспорта в файл Excel/CSV."

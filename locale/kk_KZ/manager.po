@@ -496,119 +496,11 @@ msgstr "DOI"
 msgid "manager.affiliationAndSupport"
 msgstr "Демеушілік"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Нәтижелерді ел, аймақ және/немесе қала бойынша сүзіңіз."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Географиялық орналасуына қарай"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Немесе диапазонды келесі арқылы таңдаңыз:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Есепке арналған аумақты таңдаңыз"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Нысан түрі және/немесе нысан идентификаторы бойынша"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Контекст бойынша"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Келесі URL мекенжайын формада ағымдағы конфигурацияланған параметрлері бар "
-"есепті жасау үшін пайдалануға болады. Бұл мекенжайды көшіріп алып, браузерде "
-"ашыңыз. Сондай-ақ, бұл мекенжайды шолғыш бетбелгілерінде реттелетін есеп "
-"генераторының URL мекенжайы ретінде сақтауға болады."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Есептің  URL адресі"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Есепті құрастыру үшін кемінде бір бағанды таңдау керек."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Үтірмен бөлінген бір немесе бірнеше қала атаулары (мысалы, қала атауы 1, "
-"қала атауы 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "ЖЖЖЖММ форматын пайдаланыңыз."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "ЖЖЖЖММ форматын пайдаланыңыз."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Кемуіне қарай"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Өсуіне қарай"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Бағыт"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "бойынша сорттау"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Ағымдағы ай"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Кеше"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Үтірмен бөлінген бір немесе бірнеше мүмкіндік идентификаторларын көрсетіңіз ("
-"мысалы, 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Объектінің IDі"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Объект түрі"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Нысан дерекқорда табылмады"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Фильтрлер"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Есепті құрастыру үшін пайдаланылатын бағандарды көрсетіңіз. Мұнда таңдалған "
-"бағандар есептерде қандай деректер болатынын анықтап қана қоймайды, сонымен "
-"қатар статистиканың жинақталу деңгейін анықтайды. Мысалы, «Идентификатор», "
-"«Түр» және «Ай» бағандарын таңдасаңыз, есеп бір айда болған барлық нысан "
-"көріністерін қорытындылайды және деректерді бір жолда ұсынады. «Айдың» "
-"орнына «Күнді» таңдасаңыз, әрбір нысанда әр күн үшін бөлек жол болады."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Бағандар"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Қосымша параметрлерді жасыру"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Қосымша параметрлер"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Пайдаланушының есеп генераторы"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Пайдаланушы есебін жасаңыз"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Әдепкі есеп шаблондары"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Курсиппен жазылған және * белгісімен белгіленген элементтер жүйедегі "
-"статистиканы есептеудің ағымдағы орнатылған әдісі (метрикалық түрі) үшін "
-"міндетті емес деректерді көрсетеді. Сіз бұл деректерді статистикалық "
-"модульдің параметрлеріне байланысты алуыңыз немесе алмауыңыз мүмкін."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Жиынтық статистикасы бойынша:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -624,17 +516,6 @@ msgstr "Аймақ"
 
 msgid "stats.city"
 msgstr "Қала"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tСіздің {$contextObjectName} бірнеше пайдалану көрсеткіштерін жазуға "
-"орнатылған. Қолдану статистикасы бірнеше контексте көрсетіледі.\n"
-"Бір ғана қолдану статистикасы қолданылуы керек жағдайлар бар, мысалы, ең көп "
-"қолданылатын мақалалардың реттелген тізімін көрсету немесе \n"
-"іздеу нәтижелерін сұрыптау. Әдепкі көрсеткіш ретінде конфигурацияланған "
-"көрсеткіштердің бірін таңдаңыз.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Статистика және есептер"

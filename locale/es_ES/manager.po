@@ -477,14 +477,6 @@ msgstr "Tareas"
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tTu {$contextObjectName} está conifigurado para registrar más de una métrica de uso. Se mostrarán las estadísticas de uso en varios contextos.\n"
-"\t\tHay casos en los que solo se debe usar una única estadística de uso, p.ej. para mostrar una lista ordenada de los envíos más usados o para clasificar\n"
-"\t\tlos resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Ciudad"
 
@@ -498,86 +490,11 @@ msgstr "Generador de informes"
 msgid "manager.statistics.reports.description"
 msgstr "El sistema genera informes que clasifican los detalles asociados con el uso del sitio web y de los envíos durante un período de tiempo determinado. Los informes se generan en formato CSV, que requiere una aplicación de hoja de cálculo para visualizarlos."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Agregue estadísticas mediante:"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Plantillas de informe por defecto"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generador de informes personalizados"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opciones avanzadas"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Columnas"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Define las columnas que se usarán para elaborar el informe. Las columnas que seleccione aquí no solo definirán los datos presentados en el informe, sino que también definirán el nivel de agregación de las estadísticas. Por ejemplo, si elige columnas de Id., Tipo y Mes, el informe sumará todas las visualizaciones de un objeto durante un mes y presentará dichos datos en una fila. Si elige Día en lugar de Mes, cada objeto tendrá una fila para cada día."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtros"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipo de objeto"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Id. del objeto"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Defina uno o más id. del objeto separados por una coma (p. ej., 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mes actual"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordenar por"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Dirección"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendente"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descendente"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Utilizar formato de fecha AAAAMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Utilizar formato de fecha AAAAMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Uno o más nombres de ciudad, separados por una coma (p. ej., Nombre ciudad 1,Nombre ciudad 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Debe seleccionar al menos una columna para crear el informe."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Dirección URL del informe"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "La siguiente URL puede usarse para crear el informe con la configuración del formulario actual. Sólo tiene que copiarla, pegarla en el navegador y presionar Intro. Puede usar sus favoritos para almacenar el generador de URL de informe personalizado."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Por contexto"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Por tipo de objeto o Id. del objeto"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Seleccionar rango del informe"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "O seleccionar rango por:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Por geolocalización"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Resultados reducidos por país, región y/o ciudad."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
@@ -961,15 +878,6 @@ msgstr "Ajustes de distribución"
 msgid "manager.reviewerSearch.change"
 msgstr "Cambia"
 
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ocultar las opciones avanzadas"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objeto no encontrado en la base de datos"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ayer"
-
 msgid "manager.setup.additionalContent"
 msgstr "Contenido adicional"
 
@@ -1290,9 +1198,6 @@ msgstr ""
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Ninguno / Revisión de formulario libre"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Los ítems en cursiva y señalados con un asterisco (*) son datos opcionales para el actual método de cálculo de estadísticas en el sistema (tipo métrico). Puede tener estos datos o no, según su configuración del módulo de estadísticas."
 
 msgid "manager.userSearch.searchByName"
 msgstr "Buscar usuario/a por nombre"
@@ -2331,9 +2236,6 @@ msgstr "Notificar al contacto principal"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Notificaciones"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Generador de informes personalizado"
 
 msgid "manager.emails.otherTemplates"
 msgstr "Otras plantillas"

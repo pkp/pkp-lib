@@ -464,9 +464,6 @@ msgstr "نقش‌ها"
 msgid "manager.statistics"
 msgstr "آمار و گزارشات"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr "{$contextObjectName} از چندین معیار اندازه‌گیری برای ذخیره آمار استفاده می‌کند. اما در برخی موارد نیاز است که از یک معیار استفاده شود، برای مثال در نمایش لیست مقالات بیشتر مشاهده شده. لطفاً یک معیار اندازه‌گیری را به عنوان معیار پیش‌فرض انتخاب کنید."
-
 msgid "stats.city"
 msgstr "شهر"
 
@@ -480,98 +477,11 @@ msgstr "تولیدگر گزارش "
 msgid "manager.statistics.reports.description"
 msgstr "سیستم بر اساس جزئیات مشخص شده و بر پایه میزان استفاده از سامانه و مقالات ارسالی در بازه زمانی داده شده، گزارشی تولید خواهد نمود. این گزارش در فرمت CSV تولید می‌شود."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "آمار کل توسط:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "گزینه‌هایی که به صورت مورب‌اند یا با * مشخص شده‌اند، بیان کننده داده‌هایی هستند که برای سیستم آماری سامانه اختیاری‌اند. ممکن است در گزارش این داده‌ها وجود داشته باشند یا نه که وابسته به فعال بودن افزونه‌های مرتبط به آن‌هاست."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "الگوی پیش‌فرض گزارش"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "تولید گزارش سفارشی"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "گزینه‌های پیشرفته"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "مخفی کردن گزینه‌های پیشرفته"
-
-msgid "manager.statistics.reports.columns"
-msgstr "ستون‌ها"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "ستون‌هایی که در تولید این گزارش استفاده می‌شوند را تعریف کنید. ستون‌های تعریف شده هم برای مشخص کردن داده‌های داخل گزارش و هم مشخص کننده نحوه تجمیع آن‌هاست. برای مثال، اگر ستون‌های شناسه، نوع و ماه را انتخاب کنید، در گزارش تمامی داده‌های آن ماه جمع شده و در یک سطر قرار می‌گیرد. اگر به‌ جای ماه، روز انتخاب شود، داده‌های هر روز با هم جمع خواهد شد."
-
-msgid "manager.statistics.reports.filters"
-msgstr "فیلترها"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "داده در پایگاه داده یافت نشد"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "نوع داده"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "شناسه داده"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "یک یا چند شناسه داده تعریف کنید. با کاما از هم جدا شود (برای مثال 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "دیروز"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "ماه جاری"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "مرتب‌سازی بر اساس"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "جهت"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "صعودی"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "نزولی"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "استفاده از فرمت YYYYMM ."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "استفاده از فرمت YYYYMMDD ."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "اسم یک یا چند شهر که با کاما از هم جدا شده‌اند (برای مثال: تبریز، اصفهان، شیراز)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "برای تولید گزارش حداقل باید یک ستون انتخاب شود."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "آدرس گزارش"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "آدرس زیر برای تولید گزارش بر اساس تنظیمات انجام یافته است. می‌توانید آن را در مرورگر خود مشاهده کنید."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "بر اساس محتوا"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "بر اساس نوع یا شناسه داده"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "انتخاب بازه گزارش"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "یا انتخاب بازه بر اساس:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "بر اساس موقعیت جغرافیایی"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "محدودتر کردن نتایج بر اساس شهر، منطقه و یا کشور"
 
 msgid "manager.affiliationAndSupport"
 msgstr "حامی مالی"

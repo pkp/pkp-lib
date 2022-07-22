@@ -542,9 +542,6 @@ msgstr ""
 "Myndaskrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
 "hlaðið upp skrá."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Safna upp tölfræði eftir:"
-
 msgid "manager.statistics.reports.description"
 msgstr ""
 "Kerfið býr til skýrslur yfir upplýsingar tengdar notkun á vefnum og "
@@ -559,18 +556,6 @@ msgstr "Svæði"
 
 msgid "stats.city"
 msgstr "Staður"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tHluturinn {$contextObjectName} er stilltur til að skrá fleiri en einn "
-"notkunarmælikvarða. Tölfræði um notkun verður birt í hverju og einu "
-"samhengi. \n"
-"\t\tÍ ákveðnum tilfellum þarf að nýta eina tölfræðinotkun, t.d. til að sýna "
-"flokkaðan lista af algengustu innsendingum  eða til að raða "
-"leitarniðurstöðum. Vinsamlega veldur einn af mælikvörðunum sem búið er að "
-"stilla sem sjálfgefinn.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Tölfræði & AMP; Skýrslur"
@@ -620,114 +605,11 @@ msgstr "Upplýsingar um útgáfu"
 msgid "manager.affiliationAndSupport"
 msgstr "Stuðningsaðili"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Takmarka niðurstöður eftir landi, svæði og/eða stað."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Eftir landfræðilegri staðsetningu"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Eða veldu afmörkun eftir:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Veldu afmörkun skýrslu"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Eftir tegund hlutar og/eða kenni"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Eftir samhengi"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Eftirfarandi vefslóð má nota til að búa til skýrsluna með gildandi "
-"stillingum.  Afritaðu vefslóðina og opnaðu í vafra. Þú getur líka vistað "
-"hana sem \"vefslóðasmið\"  í þínum bókmerkjum."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Vefslóð skýrslu"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Þú verður að velja a.m.k. einn dálk til að búa til skýrsluna."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Eitt eða fleiri staðarheiti, aðgreind með kommu (t.d. Staður 1, Staður 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Notaðu AAAAMMDD sniðið."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Notaðu AAAAMM sniðið."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Lækkandi"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Hækkandi"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Átt"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Raðað eftir"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Núverandi mánuður"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Í gær"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Skilgreindu eitt eða fleiri kenni fyrir hlut og aðgreindu með kommu (t.d. "
-"1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Kenni hlutar"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tegund hlutar"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Hlutur fannst ekki í gagnagrunni"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Síur"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Skilgreindu dálkana sem eiga að vera á skýrslunni.  Dálkarnir sem þú velur "
-"hér ráða bæði hvaða gögn eru birt á skýrslunni og hvernig tölfræði er safnað "
-"upp.  Dæmi: Ef þú velur kenni, tegund og mánuði sem dálka, mun skýrslan taka "
-"saman alla \"skoðun\" viðkomandi atriðis í einum mánuði og birta gögnin í "
-"einni línu.  Ef þú velur dag í staðinn fyrir mánuð mun hvert atriði fá eina "
-"línu per dag."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Dálkar"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Fela ítarlega valkosti"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Ítarlegir valkostir"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Skýrslusmiður"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Búa til sérsniðna skýrslu"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Sjálfgefið skýrslusniðmát"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Atriði með skáskrift og *merkingu, eru fyrir gögn sem eru valkvæð fyrir "
-"núverandi aðferð við að safna tölfræði í kerfinu (tegund mælikvarða).  "
-"Uppsetning tölfræðiviðbótar ræður því hvort þú hafir viðkomandi gögn eða "
-"ekki."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Ekkert / Opið ritrýnieyðublað"

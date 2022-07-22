@@ -735,121 +735,17 @@ msgstr "Platform ID is required"
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tYour {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.\n"
-"\t\tThere are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank\n"
-"\t\tsearch results. Please select one of the configured metrics as a default.\n"
-"\t"
-
-msgid "manager.statistics.city"
-msgstr "City"
-
-msgid "manager.statistics.region"
-msgstr "Region"
-
 msgid "manager.statistics.reports"
 msgstr "Reports"
 
 msgid "manager.statistics.reports.description"
 msgstr "The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Aggregate stats by:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Default report templates"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generate custom report"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Custom Report Generator"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Advanced Options"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Hide Advanced Options"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Columns"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filters"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Object not found in database"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Object Type"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Object id"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Define one or more object ids, comma separated (e.g. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Yesterday"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Current month"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Order by"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direction"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascending"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descending"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Use the YYYYMM format."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Use the YYYYMMDD format."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "One or more city names, comma separated (e.g. City Name 1,City Name 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "You have to select at least one column to generate the report."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Report URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "By context"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "By object type and/or object id"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Select report range"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Or select range by:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "By geo location"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Narrow results by country, region and/or city."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"

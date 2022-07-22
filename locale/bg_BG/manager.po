@@ -821,120 +821,11 @@ msgstr "DOI"
 msgid "manager.affiliationAndSupport"
 msgstr "Спонсор"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Стесняване на резултатите по държава, регион и/или град."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "По географско местоположение"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Или изберете диапазон от:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Изберете диапазон на отчета"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "По тип обект и/или идентификатор на обект"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "По контекст"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Следният URL може да се използва за генериране на отчета с текущите "
-"настройки на формуляра. Просто го копирайте и го отворете в браузъра си. "
-"Можете също да го съхраните като вашия персонализиран генератор на URL "
-"адреси на отчети във вашите отметки."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL адрес на отчета"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Трябва да изберете поне една колона, за да генерирате отчета."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Едно или повече имена на градове, разделени със запетая (напр. Име на град "
-"1, Име на град 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Използване на формат ГГГГММДД."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Използване на формат ГГГГММ."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Низходящо"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Възходящо"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Посока"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Подредба по"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Текущ месец"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Вчера"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Дефинирайте един или повече идентификатори на обекти, разделени със запетая ("
-"напр. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Идентификатор на обекта"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Тип на обекта"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Обектът не е намерен в базата данни"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Филтри"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Определете колоните, които ще се използват за изграждане на отчета. "
-"Колоните, които избирате тук, не само определят кои данни ще бъдат "
-"представени в отчетите, но също така определят нивото на агрегиране на "
-"статистическите данни. Например, ако изберете колони ID, Тип и Месец, "
-"отчетът ще сумира всички изгледи от обект от един месец и ще представи тези "
-"данни в един ред. Ако изберете Ден вместо Месец, всеки обект ще има ред за "
-"всеки ден."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Колини"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Скриване на разширените опции"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Разширени опции"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Генератор на персонализирани отчети"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Генериране на персонализиран отчет"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Шаблони за отчети по подразбиране"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Елементите в курсив и маркирани със * представляват данни, които не са "
-"задължителни за текущия начин на отчитане на статистиката в системата (тип "
-"метрика). Може да имате тези данни или не, в зависимост от конфигурацията на "
-"добавката (пългин) за статистика."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Обобщена статистика от:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -951,19 +842,6 @@ msgstr "Регион"
 
 msgid "stats.city"
 msgstr "Град"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tВашият {$contextObjectName} е конфигуриран да записва повече от един "
-"показател за използване. Статистиката за употреба ще се показва в няколко "
-"контекста.\n"
-"\t\tИма случаи, когато трябва да се използва единична статистика за "
-"използване, напр. за показване на подреден списък с най-използваните "
-"материали или за класиране\n"
-"\t\tна резултати от търсенето. Моля, изберете един от конфигурираните "
-"показатели по подразбиране.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Статистика и отчети"

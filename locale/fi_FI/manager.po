@@ -467,12 +467,6 @@ msgstr "Roolit"
 msgid "manager.statistics"
 msgstr "Tilastot &amp; Raportit"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tSinun {$contextObjectName}si on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Kaupunki"
 
@@ -486,98 +480,11 @@ msgstr "Raporttigeneraattori"
 msgid "manager.statistics.reports.description"
 msgstr "Järjestelmä luo raportteja, jotka jäljittävät sivuston käyttöön ja käsikirjoituksiin liittyviä tietoja tietyltä aikaväliltä. Raportit luodaan CSV-muodossa, jonka katseleminen edellyttää taulukkolaskentasovellusta."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Kokoa tilastot:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Kursivoidut ja tähdellä (*) merkityt kohdat ovat tietoja, jotka ovat vapaavalintaisia järjestelmän tämänhetkisessä tilastojen laskemistavassa (mittarityyppi). Sinulla joko on kyseiset tiedot tai ne saattavat puuttua tilastointilisäosasi määrityksistä riippuen."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Raporttien oletusmallipohjat"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Luo mukautettu raportti"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Lisävalinnat"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Piilota lisävalinnat"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Sarakkeet"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Määritä sarakkeet, joita käytetään raportin muodostamiseen. Tässä valitsemasi sarakkeet määrittävät raporteissa esitettyjen tietojen lisäksi myös tilastojen koontitason. Jos esimerkiksi valitset tunniste-, tyyppi- ja kuukausisarakkeet, raportti laskee yhteen kaikki objektin katselukerrat yhdeltä kuukaudelta ja esittää tiedot yhdellä rivillä. Jos valitset kuukauden sijaan päivä-sarakkeen, kullakin objektilla on rivi jokaiselle päivälle."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Suodattimet"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objektia ei löydy tietokannasta"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Objektityyppi"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Objektitunniste"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Määritä yksi tai useampi objektitunniste (erota pilkulla, esim. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Eilen"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Kuluva kuukausi"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Järjestä"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Suunta"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Nouseva"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Laskeva"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Käytä VVVVKK-muotoa."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Käytä VVVVKKPP-muotoa."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Yksi tai useampia kaupungin nimiä (erota pilkulla, esim. Kaupungin nimi 1,Kaupungin nimi 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Sinun on valittava vähintään yksi sarake luodaksesi raportin."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Raportin URL-osoite"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Seuraavaa URL-osoitetta voidaan käyttää raportin luomiseen tämänhetkisillä lomakkeen asetuksilla. Kopioi se, liitä selaimesi osoiteriville ja paina enteriä. Suosikkien avulla voit tallentaa mukautetun raportin URL-osoite-generaattorin."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Kontekstin mukaan"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Objektityypin ja/tai objektitunnisteen mukaan"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Valitse raportin aikaväli"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Tai valitse aikaväli:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Maantieteellisen sijainnin mukaan"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Rajaa tuloksia maan, alueen ja/tai kaupungin mukaan."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Tukija"
@@ -2130,9 +2037,6 @@ msgstr "Ilmoita"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Ota käsikirjoitusten lähetys pois päältä"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Mukautettu raportti -työkalu"
 
 msgid "manager.people.signedInAs"
 msgstr "Olet kirjautuneena tunnuksella {$username}"

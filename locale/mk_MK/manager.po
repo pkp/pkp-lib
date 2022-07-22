@@ -770,117 +770,11 @@ msgstr ""
 "Овие детали може да бидат вклучени во метаподатоците доставени до архивски "
 "тела на трети страни."
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Стесни ги резултати според земја, регион и / или град."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Според географска локација"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Или избери посег по:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Изберете опсег за извештаи"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Според типот на објектот и / или ИД на објектот"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "По содржина"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Следното урл може да се користи за генерирање на извештајот со тековните "
-"поставки за формата. Само копирајте го и отворете го во вашиот прелистувач. "
-"Можете исто така да го чувате како генератор на урл за кориснички извештаи "
-"во вашите обележувачи."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "УРЛ на извештајот"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Треба да изберете најмалку една колона за да го генерирате извештајот."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Едно или повеќе имиња на градови, одделени со запирки (на пр. Име на град 1, "
-"име на град 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Користи ГГГГMMДД формат."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Користи ГГГГMM формат."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Паѓачко"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Растечко"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Насока"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Нарачано од"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Тековниот месец"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Вчера"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Дефинирајте една или повеќеИД на предмети, одделени со запирка (на пр. "
-"1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ИД на објект"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Вид на објект"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Предметот не е пронајден во базата на податоци"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Филтери"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Дефинирајте ги колоните што ќе се користат за изградба на извештајот. "
-"Колумните што ќе ги изберете тука не само што дефинираат кои податоци ќе "
-"бидат презентирани во извештаите, туку го дефинира и нивото на агрегација на "
-"статистиката. На пример, ако изберете колони за ИД, тип и месец, извештајот "
-"ќе ги сумира сите прегледи од еден предмет од еден месец и ќе ги презентира "
-"тие податоци во еден ред. Ако изберете ден наместо месец, секој предмет ќе "
-"има ред за секој ден."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Колони"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Сокриј ги напредните опции"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Напредни опции"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Генерирај прилагоден извештај"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Стандардни обрасци за извештаи"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Предметите во италик и обележана со * претставуваат податоци што се "
-"незадолжителни на тековниот начин на броење на статистиката во системот (тип "
-"на метрика). Можеби ги имате тие податоци или не, во зависност од "
-"конфигурацијата на вашиот плагин за статистика."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Собери статистики по:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -898,19 +792,6 @@ msgstr "Регион"
 
 msgid "stats.city"
 msgstr "Град"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tВашиот {$contextObjectName} е конфигурирано да снима повеќе од една "
-"метрика за употреба. Статистиката за употреба ќе биде прикажана во неколку "
-"контексти.\n"
-"Постојат случаи кога мора да се користи статистика за единечна употреба, на "
-"пр. да се прикаже нарачана листа со најчесто користени поднесоци или да се "
-"рангира\n"
-"Резултати од пребарувањето. Изберете една од конфигурираните метрика како "
-"стандардна.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Статистики и Извештаи"
@@ -1479,9 +1360,6 @@ msgstr "Извести"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Оневозможи поднесок"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Генератор на избран извештај"
 
 msgid "manager.people.signedInAs"
 msgstr "Сега сте логиран како  {$username}"

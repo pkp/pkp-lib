@@ -474,16 +474,6 @@ msgstr "Vloge"
 msgid "manager.statistics"
 msgstr "Statistike in poročila"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tVaša {$contextObjectName} namestitev beleži več kot le eno metriko "
-"uporabe, ki so prikazane v različnih kontekstih.\n"
-"\t\tV nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni "
-"red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo "
-"izberite eno od konfiguriranih metrik kot privzeto.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Mesto"
 
@@ -497,98 +487,11 @@ msgstr "Generator poročil"
 msgid "manager.statistics.reports.description"
 msgstr "Sistem pripravi poročila s podrobnimi podatki o uporabi spletišča in prispevkih v določenem časovnem obdobju. Poročila so pripravljena v CSV formatu, kar pomeni, da za ogled potrebujete preglednico."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Združi statistike po:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Postavke v poševni pisavi in označene z * predstavljajo podatke, ki so opcijski v izbranem načinu štetja v sistemu (metrični sistem). Lahko imate te podatke ali ne, odvisno od vaših nastavitev vtičnika za statistike."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Privzeta predloga poročil"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Pripravi poročilo po meri"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Napredne možnosti"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Skrij napredne možnosti"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Stolpci"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Določite stolpce, ki se bodo uporabili za pripravo poročila. Stolpci, ki jih boste tukaj izbrali, ne bodo le definirali, katteri podatki bodo predstavljeni, ampak tudi nivo združevanja. Npr. če izberete stolpce ID, tip in mesec, bo poročilo seštelo vse vpoglede v objekt v enem mesecu in prikazalo podatek v eni vrstici. Če namesto meseca izberete dan, potem bo v poročilu vsak objekt imel vrstico za vsak dan."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtri"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objekt ne obstaja v bazi podatkov"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tip objekta"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID objekta"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Podatje enega ali več IDjev objektov, razdeljene z vejico (npr. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Včeraj"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Trenutni mesec"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Urejeno po"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Urejenost"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Naraščajoče"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Padajoče"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Uporabite YYYYMM format."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Uporabite YYYYMMDD format."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Eden ali več imen mest, razdeljenih z vejico (npr. Maribor, Ljubljana)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Za pripravo poročila morate izbrati vsaj en stolpec."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL poročila"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Spodnji URL se lahko uporabi, da se avtomatsko pripravi poročilo s trenutnimi nastavitvami. Enostavno skopirajte URL v brskalnik in ga odprite. Lahko ga tudi shranite med vaše zaznamke."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Po kontekstu"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Po tipu objekta in /ali IDju objekta"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Izberite časovni obseg poročila"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ali izberite obseg po:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Po geo-lokaciji"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Zoži rezultate po državi, regiji in/ali mestu."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
@@ -2150,9 +2053,6 @@ msgstr "Obvesti"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Onemogoči oddajo prispevkov"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Pripravi poročilo po meri"
 
 msgid "manager.people.signedInAs"
 msgstr "Prijavljeni ste kot {$username}"

@@ -804,16 +804,6 @@ msgstr "Deve essere inserito un utente esistente."
 msgid "manager.reviewerSearch.change"
 msgstr "Cambia"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tIl  {$contextObjectName} è configurato per registrare l'uso con più di "
-"una metrica. Le metriche d'uso sono visualizzate in numerosi contesti.  Ci "
-"sono casi dove deve essere usata una sola metrica, ad esempio per fare la "
-"lista delle proposte più usate o per ordinare i risultati di una ricerca. "
-"Per favore scegli una metrica di default.\n"
-"\t"
-
 msgid "stats.city"
 msgstr "Città"
 
@@ -827,99 +817,11 @@ msgstr "Generatore report"
 msgid "manager.statistics.reports.description"
 msgstr "Il sistema genera reports che riportano i dettagli collegati con l'uso del sito e degli articoli in un periodo di tempo determinato. I reports sono generati in formato CSV ed è necessario un foglio elettronico per gestirli."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Aggrega statistiche per:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "I punti in corsivi e marcati con * sono dati opzionali per le statistiche nel sistema (tipo metrica). Puoi avere questi dati o no, dipende dalla configurazione del plugin statistiche."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Templates report di default"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Genera report personalizzato"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opzioni avanzate"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Nascondi opzioni avanzate"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Colonne"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definisci le colonne che verranno utilizzate per creare il report. Le colonne selezionate qui non solo definiscono quali dati verranno presentati all'interno dei report, ma definiscono anche il livello di aggregazione delle statistiche. Ad esempio, se si scelgono le colonne ID, Tipo e Mese, il report sommerà tutte le viste da un oggetto da un mese e presenterà tali dati in una riga. Se scegli Giorno anziché Mese, ogni oggetto avrà una riga per ogni giorno."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtri"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Oggetto non trovato nel DB"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipo oggetto"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Id oggetto"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Definisci uno o più ID oggetto, separandoli con le virgole (e.s. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ieri"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mese corrente"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordinato per"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direzione"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendente"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Discendente"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Usa il formato YYYYMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Usa il formato YYYYMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Uno o più nomi di città, separate da virgola (es. Città 1,Città 2,Città 3)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Devi selezionare almeno una colonna pe generare il report."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL del report"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Questo url pu essere usato per generare il report con gli attuali parametri del form. Basta che lo copi e lo metti nel browser. Puoi anche salvalo nei tuoi bookmarck come tuo report personalizzato."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Per contesto"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Per tipo oggetto e/o id oggetto"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Seleziona l'intervallo di date per il report"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "O seleziona l'intervallo per:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Per localizzazione geografica"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Restringi i risultati per paese, regione e/o città."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
@@ -2108,9 +2010,6 @@ msgstr "Notifiche"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Disabilita le proposte"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Generatore di rapporti personalizzati"
 
 msgid "manager.people.signedInAs"
 msgstr "Al momento sei loggato come {$username}"

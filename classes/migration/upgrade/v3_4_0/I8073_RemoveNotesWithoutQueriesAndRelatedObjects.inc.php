@@ -25,6 +25,8 @@ use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use PKP\file\FileManager;
 use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemException;
+use League\Flysystem\UnableToDeleteFile;
 
 class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 {
@@ -95,9 +97,19 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
                 $filesystem = new Filesystem($adapter);
 
-                if ($filesystem->has($submissionFilePath) && !$filesystem->delete($submissionFilePath)) {
+                if ($filesystem->has($submissionFilePath)) {
+                    error_log("A submission file was found at ${submissionFilePath}. Trying to delete it...");
+                    try {
+                        $filesystem->delete($submissionFilePath);
+                        error_log("A submission file at ${submissionFilePath} was successfully deleted.");
+                    } catch (FilesystemException | UnableToDeleteFile $exception) {
+                        $exceptionMessage = $exception->getMessage();
+                        error_log("A submission file was found at ${submissionFilePath} but could not be deleted because of: ${exceptionMessage}.");
+                    }
+                } else {
                     error_log("A submission file was expected but not found at ${submissionFilePath}.");
                 }
+                
 
                 DB::table('submission_files')
                     ->where('submission_file_id', '=', $submissionFileId)

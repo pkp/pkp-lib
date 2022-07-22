@@ -162,18 +162,6 @@ msgstr "Lungimea minimă a parolei (caractere)"
 msgid "admin.settings.introduction"
 msgstr "Introducere"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tInstalarea dvs. este configurată pentru înregistrarea mai multor sisteme "
-"de măsură. Statisticile vor fi afișate în mai multe contexte.\n"
-"\t\tExistă cazuri în care trebuie utilizat un singur sistem statistic, de "
-"ex. pentru a afișa o listă ordonată a celor mai utilizate înregistrări de "
-"manuscrise \n"
-"\t\tsau pentru a clasifica rezultatele căutării. Vă rugăm să selectați una "
-"din valorile configurate ca implicită.\n"
-"\t"
-
 msgid "admin.settings.contactName"
 msgstr "Numele principalei persoane de contact"
 

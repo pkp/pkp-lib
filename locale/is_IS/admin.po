@@ -115,17 +115,6 @@ msgstr "Minimum password length (characters)"
 msgid "admin.settings.introduction"
 msgstr "Introduction"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tYour installation is configured to record more than one usage metric. "
-"Usage statistics will be displayed in several contexts.\n"
-"\t\tThere are cases where a single usage statistic must be used, e.g. to "
-"display an ordered list of most-used submissions or to rank\n"
-"\t\tsearch results. Please select one of the configured metrics as a default."
-"\n"
-"\t"
-
 msgid "admin.settings.contactName"
 msgstr "Name of principal contact"
 

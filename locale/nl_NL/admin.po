@@ -164,12 +164,6 @@ msgstr "E-mailadres van de eerste contactpersoon"
 msgid "admin.settings.contactName"
 msgstr "Naam van de eerste contactpersoon"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"Uw OJS installatie is geconfigureerd voor meer dan een gebruiksmeting. Gebruiksstatistieken worden in verschillende contexten getoond.\n"
-"\t\tSoms wordt een enkele statistiek getoond, bv, om een lijst van meestgebruikte artikels te tonen of om\n"
-"\t\tzoekresultaten te wegen. Kies een van de methodes als standaard."
-
 msgid "admin.settings.introduction"
 msgstr "Introductie"
 

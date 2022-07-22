@@ -273,16 +273,6 @@ msgstr "Nome del  task per il carico delle statistiche d'uso"
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Il file {$file} non può essere aperto ed è stato scartato."
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tLa tua installazione è configurata per registrare più di una metrica "
-"d'uso. Le statistiche d'uso sono visualizzate in diversi contesti. Ci sono "
-"casi dove una singola metodologia va usata, ad esempio per visualizzare una "
-"lista delle pubblicazioni più usate o per ordinare risultati di ricerca. Per "
-"favore scegli una delle metriche configurate come default.\n"
-"\t"
-
 msgid "admin.fileLoader.moveFileFailed"
 msgstr "Il file {$filename} non può essre mosso da {$currentFilePath} a {$destinationPath}"
 

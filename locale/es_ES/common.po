@@ -672,9 +672,6 @@ msgstr "Cargando"
 msgid "common.plugins"
 msgstr "Módulos"
 
-msgid "common.metric"
-msgstr "Métrica"
-
 msgid "common.count"
 msgstr "Total"
 
@@ -701,9 +698,6 @@ msgstr "Notas:"
 
 msgid "defaultMetric.title"
 msgstr "Métrica predeterminada"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Métricas disponibles"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Subir archivo de revisión"
@@ -1507,12 +1501,6 @@ msgstr "Eliminando"
 
 msgid "common.filterAdd"
 msgstr "Añadir filtro: {$filterTitle}"
-
-msgid "common.from"
-msgstr "Desde"
-
-msgid "common.until"
-msgstr "Hasta"
 
 msgid "common.lessThan"
 msgstr "{$value} o menos"

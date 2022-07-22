@@ -432,14 +432,8 @@ msgstr "Clear filter: {$filterTitle}"
 msgid "common.findTemplate"
 msgstr "Find Template"
 
-msgid "common.from"
-msgstr "From"
-
 msgid "common.fromWithValue"
 msgstr "From: {$value}"
-
-msgid "common.until"
-msgstr "Until"
 
 msgid "common.go"
 msgstr "Go"
@@ -918,9 +912,6 @@ msgstr "Loading"
 msgid "common.plugins"
 msgstr "Plugins"
 
-msgid "common.metric"
-msgstr "Metric"
-
 msgid "common.count"
 msgstr "Count"
 
@@ -950,9 +941,6 @@ msgstr "Notes:"
 
 msgid "defaultMetric.title"
 msgstr "Default Metric"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Available Metrics"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Upload Review File"

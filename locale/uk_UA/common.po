@@ -415,12 +415,6 @@ msgstr "Додати фільтр: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Скасувати фільтр: {$filterTitle}"
 
-msgid "common.from"
-msgstr "З"
-
-msgid "common.until"
-msgstr "До"
-
 msgid "common.go"
 msgstr "Вперед"
 
@@ -820,9 +814,6 @@ msgstr "Завантаження"
 msgid "common.plugins"
 msgstr "Плагіни"
 
-msgid "common.metric"
-msgstr "Метрика"
-
 msgid "common.count"
 msgstr "Підрахунок"
 
@@ -852,9 +843,6 @@ msgstr "Примітки:"
 
 msgid "defaultMetric.title"
 msgstr "Метрична за умовчанням"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Доступна метрика"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Завантажте файл перегляду"

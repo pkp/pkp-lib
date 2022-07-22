@@ -1086,14 +1086,8 @@ msgstr "Ver Perfil"
 msgid "common.plugins"
 msgstr "Plugins"
 
-msgid "common.metric"
-msgstr "Métrica"
-
 msgid "defaultMetric.title"
 msgstr "Métrica Padrão"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Métricas Disponíveis"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Upload Ficheiro Revisão"
@@ -1538,12 +1532,6 @@ msgstr "Adicionar filtro: {$filterTitle}"
 
 msgid "common.filterRemove"
 msgstr "Limpar filtro: {$filterTitle}"
-
-msgid "common.from"
-msgstr "De"
-
-msgid "common.until"
-msgstr "Até"
 
 msgid "common.lessThan"
 msgstr "{$value} ou menos"

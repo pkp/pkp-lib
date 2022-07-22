@@ -750,9 +750,6 @@ msgstr "Carregando"
 msgid "common.plugins"
 msgstr "Plugins"
 
-msgid "common.metric"
-msgstr "Métrico"
-
 msgid "common.count"
 msgstr "Contagem"
 
@@ -779,9 +776,6 @@ msgstr "Anotações:"
 
 msgid "defaultMetric.title"
 msgstr "Padrão Métrico"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Métricas Disponíveis"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Enviar arquivo para avaliação"
@@ -1608,14 +1602,8 @@ msgstr "{$value} ou menor"
 msgid "common.lastActivity"
 msgstr "Última atividade registrada em {$date}."
 
-msgid "common.until"
-msgstr "Até"
-
 msgid "common.fromWithValue"
 msgstr "De: {$value}"
-
-msgid "common.from"
-msgstr "De"
 
 msgid "common.filterAdd"
 msgstr "Adicionar filtro: {$filterTitle}"

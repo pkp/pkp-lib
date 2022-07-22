@@ -1183,12 +1183,6 @@ msgstr "{$width}&times;{$height} pixels"
 msgid "common.fileUploaderError"
 msgstr "Il sistema per caricare i files sta girando. Se non lo vedi è possibile che nessuno dei suoi runtimes riesca funzionare con questo browser. Per favore contatta il gestore per il supporto."
 
-msgid "common.from"
-msgstr "A partire da"
-
-msgid "common.until"
-msgstr "Fino a"
-
 msgid "common.favicon.altText"
 msgstr "Favicon"
 
@@ -1234,17 +1228,11 @@ msgstr "Componente"
 msgid "common.homepageImage.altText"
 msgstr "Immagine della homepage"
 
-msgid "common.metric"
-msgstr "Metrica"
-
 msgid "common.count"
 msgstr "Conteggio"
 
 msgid "defaultMetric.title"
 msgstr "Metrica di default"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Metriche disponibili"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Carica file revisione"

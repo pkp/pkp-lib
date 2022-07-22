@@ -775,9 +775,6 @@ msgstr "Töltődik"
 msgid "common.plugins"
 msgstr "Pluginok"
 
-msgid "common.metric"
-msgstr "Metric"
-
 msgid "common.count"
 msgstr "Számol"
 
@@ -804,9 +801,6 @@ msgstr "Megjegyzések:"
 
 msgid "defaultMetric.title"
 msgstr "Alapértelmezett Metric"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Elérhető Metrics"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Lektori fájl feltöltése"
@@ -1559,12 +1553,6 @@ msgstr "{$round} fordulói státusz"
 
 msgid "common.deleting"
 msgstr "Törlés folyamatban"
-
-msgid "common.from"
-msgstr "Ettől"
-
-msgid "common.until"
-msgstr "Eddig"
 
 msgid "common.saving"
 msgstr "Mentés folyamatban"

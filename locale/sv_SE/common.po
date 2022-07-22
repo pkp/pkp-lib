@@ -416,12 +416,6 @@ msgstr "Lägg till filter: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Rensa filter: {$filterTitle}"
 
-msgid "common.from"
-msgstr "Från"
-
-msgid "common.until"
-msgstr "Till"
-
 msgid "common.go"
 msgstr "Fortsätt"
 
@@ -800,9 +794,6 @@ msgstr "Laddar"
 msgid "common.plugins"
 msgstr "Plugins"
 
-msgid "common.metric"
-msgstr "Mått"
-
 msgid "common.count"
 msgstr "Antal"
 
@@ -832,9 +823,6 @@ msgstr "Meddelanden:"
 
 msgid "defaultMetric.title"
 msgstr "Defaultmått"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Tillgängliga mått"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Ladda upp granskningsfil"

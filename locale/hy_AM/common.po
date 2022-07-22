@@ -177,9 +177,6 @@ msgstr "Գլխավոր"
 msgid "common.height"
 msgstr "Բարձրություն"
 
-msgid "common.until"
-msgstr "Մինչև"
-
 msgid "common.fromWithValue"
 msgstr "Սկսած: {$value}"
 
@@ -1263,17 +1260,11 @@ msgstr "Նշված հղումը անվավեր է։Խնդրում ենք ստո�
 msgid "email.body"
 msgstr "Մարմին"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Հասանելի չափիչներ"
-
 msgid "defaultMetric.title"
 msgstr "Դեֆոլտ չափիչ"
 
 msgid "debug.notes.missingLocaleKey"
 msgstr "Լեզվի ֆայլում բացակայում է բանալին \"{$key}\"։"
-
-msgid "common.metric"
-msgstr "Չափում"
 
 msgid "common.viewWithName"
 msgstr "Դիտել {$name}"
@@ -1575,9 +1566,6 @@ msgstr "Միացնել"
 
 msgid "common.off"
 msgstr "Անջատել"
-
-msgid "common.from"
-msgstr "Սկսած"
 
 msgid "notification.settings"
 msgstr "Հաղորդագրության կարգաբերումներ"

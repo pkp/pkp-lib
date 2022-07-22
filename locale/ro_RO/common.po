@@ -424,14 +424,8 @@ msgstr "Înălțime"
 msgid "common.go"
 msgstr "Mergi"
 
-msgid "common.until"
-msgstr "Până când"
-
 msgid "common.fromWithValue"
 msgstr "Din: {$value}"
-
-msgid "common.from"
-msgstr "Din"
 
 msgid "common.filterRemove"
 msgstr "Elimină filtrul: {$filterTitle}"
@@ -687,9 +681,6 @@ msgstr "N/A"
 msgid "common.percentage"
 msgstr "{$percentage}%"
 
-msgid "common.metric"
-msgstr "Metric"
-
 msgid "notification.reviewerThankedEmail"
 msgstr "Email de mulțumire trimis revizorului."
 
@@ -755,9 +746,6 @@ msgstr "Înregistrare"
 
 msgid "navigation.search"
 msgstr "Caută"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Metrica disponibilă"
 
 msgid "defaultMetric.title"
 msgstr "Metrica implicită"

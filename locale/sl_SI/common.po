@@ -413,12 +413,6 @@ msgstr "Dodaj filter: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Odstrani filter: {$filterTitle}"
 
-msgid "common.from"
-msgstr "Od"
-
-msgid "common.until"
-msgstr "Do"
-
 msgid "common.go"
 msgstr "Pojdi"
 
@@ -776,9 +770,6 @@ msgstr "Nalaganje"
 msgid "common.plugins"
 msgstr "Vtičniki"
 
-msgid "common.metric"
-msgstr "Metrično"
-
 msgid "common.count"
 msgstr "Število"
 
@@ -805,9 +796,6 @@ msgstr "Opombe:"
 
 msgid "defaultMetric.title"
 msgstr "Privzeto metrika"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Razpoložljive metrike"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Naloži recenzentsko datoteko"

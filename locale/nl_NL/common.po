@@ -407,12 +407,6 @@ msgstr "Voeg filter toe: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Verwijder filter: {$filterTitle}"
 
-msgid "common.from"
-msgstr "Van"
-
-msgid "common.until"
-msgstr "Tot"
-
 msgid "common.go"
 msgstr "Ga"
 
@@ -797,9 +791,6 @@ msgstr "Laden..."
 msgid "common.plugins"
 msgstr "Plugins"
 
-msgid "common.metric"
-msgstr "Meting"
-
 msgid "common.count"
 msgstr "Aantal"
 
@@ -829,9 +820,6 @@ msgstr "Notities:"
 
 msgid "defaultMetric.title"
 msgstr "Standaardmeting"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Beschikbare metingen"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Upload bestand voor review"

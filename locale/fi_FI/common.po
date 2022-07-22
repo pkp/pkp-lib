@@ -751,9 +751,6 @@ msgstr "Ladataan"
 msgid "common.plugins"
 msgstr "Lisäosat"
 
-msgid "common.metric"
-msgstr "Mittari"
-
 msgid "common.count"
 msgstr "Määrä"
 
@@ -780,9 +777,6 @@ msgstr "Muistiinpanot:"
 
 msgid "defaultMetric.title"
 msgstr "Oletusmittari"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Saatavilla olevat mittarit"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Lataa arviointitiedosto"
@@ -1475,12 +1469,6 @@ msgstr "Siirry alatunnisteeseen"
 
 msgid "common.downloadPdf"
 msgstr "Lataa PDF"
-
-msgid "common.from"
-msgstr "Alkaen"
-
-msgid "common.until"
-msgstr "Saakka"
 
 msgid "common.saving"
 msgstr "Tallentaa"

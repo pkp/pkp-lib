@@ -501,14 +501,8 @@ msgstr "Височина"
 msgid "common.go"
 msgstr "Изпълни"
 
-msgid "common.until"
-msgstr "До"
-
 msgid "common.fromWithValue"
 msgstr "От: {$value}"
-
-msgid "common.from"
-msgstr "От"
 
 msgid "common.filterRemove"
 msgstr "Изчистване на филтър: {$filterTitle}"
@@ -769,9 +763,6 @@ msgstr "Публичен (отворен) достъп"
 msgid "common.count"
 msgstr "Брояч"
 
-msgid "common.metric"
-msgstr "Метрика"
-
 msgid "common.plugins"
 msgstr "Плъгини (модули)"
 
@@ -950,9 +941,6 @@ msgstr "Качване на файл"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Качване на файл с рецензия"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Достъпни метрики"
 
 msgid "defaultMetric.title"
 msgstr "Метрика по подразбиране"

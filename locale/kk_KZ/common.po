@@ -418,12 +418,6 @@ msgstr "Биіктігі"
 msgid "common.go"
 msgstr "Алға"
 
-msgid "common.until"
-msgstr "Дейін"
-
-msgid "common.from"
-msgstr "бастап"
-
 msgid "common.filterRemove"
 msgstr "Сүзгіні тазалау: {$filterTitle}"
 
@@ -977,9 +971,6 @@ msgstr "Файлды жүктеп салу"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Рецензияны жүктеу"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Қолжетімді көрсеткіштер"
-
 msgid "defaultMetric.title"
 msgstr "Әдепкі көрсеткіш"
 
@@ -1009,9 +1000,6 @@ msgstr "Жалпыға қолжетімділік"
 
 msgid "common.count"
 msgstr "Санау"
-
-msgid "common.metric"
-msgstr "Көрсеткіш"
 
 msgid "common.plugins"
 msgstr "Плагиндер"

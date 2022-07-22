@@ -426,14 +426,8 @@ msgstr "Ajouter le filtre : {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Enlever le filtre : {$filterTitle}"
 
-msgid "common.from"
-msgstr "De"
-
 msgid "common.fromWithValue"
 msgstr "De : {$value}"
-
-msgid "common.until"
-msgstr "Jusqu'à"
 
 msgid "common.go"
 msgstr "Continuer"
@@ -851,9 +845,6 @@ msgstr "Chargement..."
 msgid "common.plugins"
 msgstr "Plugiciels"
 
-msgid "common.metric"
-msgstr "Mesure"
-
 msgid "common.count"
 msgstr "Décompte"
 
@@ -883,9 +874,6 @@ msgstr "Notes :"
 
 msgid "defaultMetric.title"
 msgstr "Mesure par défaut"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Mesures disponibles"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Téléverser le fichier d'évaluation"

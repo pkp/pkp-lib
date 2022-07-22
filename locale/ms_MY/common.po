@@ -475,14 +475,8 @@ msgstr "Tinggi"
 msgid "common.go"
 msgstr "Pergi"
 
-msgid "common.until"
-msgstr "Sehingga"
-
 msgid "common.fromWithValue"
 msgstr "Dari: {$value}"
-
-msgid "common.from"
-msgstr "Dari"
 
 msgid "common.filterRemove"
 msgstr "Kosongkan penapis: {$filterTitle}"
@@ -1241,9 +1235,6 @@ msgstr "Muat Naik Fail"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Muat naik Fail Ulasan"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Metrik Tersedia"
-
 msgid "defaultMetric.title"
 msgstr "Metrik Lalai"
 
@@ -1273,9 +1264,6 @@ msgstr "Akses Awam"
 
 msgid "common.count"
 msgstr "Hitung"
-
-msgid "common.metric"
-msgstr "Metrik"
 
 msgid "common.plugins"
 msgstr "Plugins"

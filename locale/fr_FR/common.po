@@ -1316,17 +1316,11 @@ msgstr "Non lu"
 msgid "common.plugins"
 msgstr "Modules externes"
 
-msgid "common.metric"
-msgstr "Métrique"
-
 msgid "common.count"
 msgstr "Décompte"
 
 msgid "defaultMetric.title"
 msgstr "Métrique (par défaut)"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Mesures disponibles"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Transférer le fichier de révision"
@@ -1594,12 +1588,6 @@ msgid "notification.addedReviewerNoEmail"
 msgstr ""
 "{$reviewerName} a été choisi pour évaluer cette soumission et n'a pas reçu "
 "de courriel de notification."
-
-msgid "common.from"
-msgstr "Depuis"
-
-msgid "common.until"
-msgstr "Jusqu'à"
 
 msgid "semicolon"
 msgstr "{$label} :"

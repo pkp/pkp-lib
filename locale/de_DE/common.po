@@ -412,12 +412,6 @@ msgstr "Filter hinzufügen: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Filter löschen: {$filterTitle}"
 
-msgid "common.from"
-msgstr "Von"
-
-msgid "common.until"
-msgstr "Bis"
-
 msgid "common.go"
 msgstr "Los"
 
@@ -796,9 +790,6 @@ msgstr "Laden"
 msgid "common.plugins"
 msgstr "Plugins"
 
-msgid "common.metric"
-msgstr "Metrik"
-
 msgid "common.count"
 msgstr "Anzahl"
 
@@ -828,9 +819,6 @@ msgstr "Anmerkungen:"
 
 msgid "defaultMetric.title"
 msgstr "Standard-Metrik"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Verfügbare Metriken"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Begutachtungsdatei hochladen"

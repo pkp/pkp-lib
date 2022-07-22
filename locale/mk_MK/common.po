@@ -454,14 +454,8 @@ msgstr "Висина"
 msgid "common.go"
 msgstr "Оди"
 
-msgid "common.until"
-msgstr "До"
-
 msgid "common.fromWithValue"
 msgstr "Од: {$value}"
-
-msgid "common.from"
-msgstr "Од"
 
 msgid "common.filterRemove"
 msgstr "Исчисти филтер: {$filterTitle}"
@@ -1032,9 +1026,6 @@ msgstr "Прилкачи фајл"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Прикачи рецензиран фајл"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Достапни метрики"
-
 msgid "defaultMetric.title"
 msgstr "Примарна метрика"
 
@@ -1064,9 +1055,6 @@ msgstr "Јавен достап"
 
 msgid "common.count"
 msgstr "Преброј"
-
-msgid "common.metric"
-msgstr "Метрика"
 
 msgid "common.plugins"
 msgstr "Плагини"

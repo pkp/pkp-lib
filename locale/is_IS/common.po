@@ -302,9 +302,6 @@ msgstr "Tungumálaskráin \"{$localeFile}\" lesinn inn frá  XML"
 msgid "debug.notes.localeListLoad"
 msgstr "Tungumálalistinn \"{$localeList}\" lesinn inn frá XML"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Mælikvarðar í boði"
-
 msgid "defaultMetric.title"
 msgstr "Sjálfgefinn mælikvarði"
 
@@ -325,9 +322,6 @@ msgstr "Opinber aðgangur"
 
 msgid "common.count"
 msgstr "Fjöldi"
-
-msgid "common.metric"
-msgstr "Mál"
 
 msgid "common.plugins"
 msgstr "Viðbótarforrit"
@@ -774,9 +768,6 @@ msgstr "Hæð"
 msgid "common.go"
 msgstr "Ræsa"
 
-msgid "common.until"
-msgstr "þar til"
-
 msgid "common.fileUploaderError"
 msgstr ""
 "Flutningur á skrá er í gangi. Ef svo virðist ekki vera, er mögulegt að "
@@ -793,9 +784,6 @@ msgstr "Upp kom óþekkt villa við tengingu við gagnagrunn."
 
 msgid "common.fromWithValue"
 msgstr "Frá: {$value}"
-
-msgid "common.from"
-msgstr "Frá"
 
 msgid "common.filterRemove"
 msgstr "Hreinsa síu: {$filterTitle}"

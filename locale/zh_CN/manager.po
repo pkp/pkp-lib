@@ -792,10 +792,10 @@ msgstr "系统生成报告，跟踪给定时间段内与网站使用情况和提
 msgid "manager.statistics.reports"
 msgstr "报告生成器"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "地区"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "城市"
 
 msgid "manager.statistics.defaultMetricDescription"

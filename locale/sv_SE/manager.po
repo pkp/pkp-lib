@@ -479,10 +479,10 @@ msgstr ""
 "\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som default.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Stad"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy

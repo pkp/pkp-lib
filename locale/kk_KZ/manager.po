@@ -619,10 +619,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Есептер"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Аймақ"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Қала"
 
 msgid "manager.statistics.defaultMetricDescription"

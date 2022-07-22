@@ -292,10 +292,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Informes"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Rexión"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Cidade"
 
 msgid "manager.statistics.defaultMetricDescription"

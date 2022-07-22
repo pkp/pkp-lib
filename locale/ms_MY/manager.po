@@ -2065,10 +2065,10 @@ msgstr "Laporan"
 msgid "plugins.categories.auth"
 msgstr "Plugin Kebenaran"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Wilayah"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Bandar"
 
 msgid "plugins.categories.metadata.description"

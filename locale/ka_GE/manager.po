@@ -135,10 +135,10 @@ msgstr "შეცვლა"
 msgid "manager.roles"
 msgstr "როლები"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "ქალაქი"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "რეგიონი"
 
 msgid "manager.statistics.reports"

@@ -682,10 +682,10 @@ msgstr "Ada Göre Kullanıcı Ara"
 msgid "manager.reviewerSearch.change"
 msgstr "Değiştir"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Şehir"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Bölge"
 
 #, fuzzy

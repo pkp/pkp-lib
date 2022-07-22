@@ -484,10 +484,10 @@ msgstr ""
 "izberite eno od konfiguriranih metrik kot privzeto.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Mesto"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Regija"
 
 #, fuzzy

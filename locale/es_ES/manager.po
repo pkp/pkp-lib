@@ -485,10 +485,10 @@ msgstr ""
 "\t\tlos resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Ciudad"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Región"
 
 #, fuzzy

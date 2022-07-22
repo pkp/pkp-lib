@@ -526,10 +526,10 @@ msgstr ""
 "\t\tVeuillez sélectionner l'une des  mesures configurées par défaut.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Ville"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Région"
 
 #, fuzzy

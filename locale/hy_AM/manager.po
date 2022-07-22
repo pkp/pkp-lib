@@ -675,10 +675,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Հաշվետվություններ"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Տարածաշրջան"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Քաղաք"
 
 msgid "manager.statistics.defaultMetricDescription"

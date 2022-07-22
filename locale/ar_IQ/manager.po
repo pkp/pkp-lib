@@ -519,10 +519,10 @@ msgstr ""
 "\t\tأو عند تقييم نتائج البحث في الموقع. لطفاً، عليك اختيار أحد هذه المقاييس ليكون بمثابة المقياس الافتراضي.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "المدينة"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "المنطقة"
 
 #, fuzzy

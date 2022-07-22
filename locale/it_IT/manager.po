@@ -814,10 +814,10 @@ msgstr ""
 "Per favore scegli una metrica di default.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Città"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Regione"
 
 #, fuzzy

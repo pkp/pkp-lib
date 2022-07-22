@@ -490,10 +490,10 @@ msgstr ""
 "\t\tрезультати пошуку. Будь ласка, оберіть одну з налаштованих метрик, як усталену.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Місто"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Регіон"
 
 #, fuzzy

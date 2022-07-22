@@ -1665,10 +1665,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Pembuat Laporan"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Wilayah"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Kota"
 
 msgid "manager.statistics.defaultMetricDescription"

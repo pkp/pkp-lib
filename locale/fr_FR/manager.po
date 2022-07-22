@@ -545,10 +545,10 @@ msgstr "Retélécharger les paramètres par défaut"
 msgid "manager.reviewerSearch.searchByName.short"
 msgstr "Recherche par nom"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Ville"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Région"
 
 msgid "manager.statistics.reports.generateReport"

@@ -467,10 +467,10 @@ msgstr "آمار و گزارشات"
 msgid "manager.statistics.defaultMetricDescription"
 msgstr "{$contextObjectName} از چندین معیار اندازه‌گیری برای ذخیره آمار استفاده می‌کند. اما در برخی موارد نیاز است که از یک معیار استفاده شود، برای مثال در نمایش لیست مقالات بیشتر مشاهده شده. لطفاً یک معیار اندازه‌گیری را به عنوان معیار پیش‌فرض انتخاب کنید."
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "شهر"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "منطقه"
 
 #, fuzzy

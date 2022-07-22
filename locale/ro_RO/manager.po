@@ -1792,10 +1792,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Generator de raport"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Regiune"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Oraș"
 
 msgid "manager.statistics.defaultMetricDescription"

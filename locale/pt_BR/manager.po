@@ -543,10 +543,10 @@ msgstr "Formulários"
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Restaurar padrões"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Cidade"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Região"
 
 msgid "manager.statistics.reports.aggregationColumns"

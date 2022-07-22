@@ -1676,10 +1676,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "レポート"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "地域"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "都市"
 
 msgid "manager.statistics.defaultMetricDescription"

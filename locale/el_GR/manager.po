@@ -846,10 +846,10 @@ msgstr ""
 msgid "manager.statistics.reports.aggregationColumns"
 msgstr "Συγκεντρωτικά στατιστικά κατά:"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Περιφέρεια"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Πόλη"
 
 msgid "manager.statistics.defaultMetricDescription"

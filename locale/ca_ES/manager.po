@@ -485,10 +485,10 @@ msgstr ""
 "\t\tels resultats de la cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Ciutat"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Província"
 
 #, fuzzy

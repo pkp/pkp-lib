@@ -554,10 +554,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Skýrslur"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Svæði"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Staður"
 
 msgid "manager.statistics.defaultMetricDescription"

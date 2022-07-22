@@ -534,10 +534,10 @@ msgstr "Pronađi korisnika po imenu"
 msgid "manager.reviewerSearch.change"
 msgstr "Promeni"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Grad"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 msgid "manager.statistics.reports.advancedOptions"

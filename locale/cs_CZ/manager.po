@@ -696,10 +696,10 @@ msgstr ""
 "výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchozí.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Město"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy

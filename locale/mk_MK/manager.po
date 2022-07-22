@@ -893,10 +893,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Генератор на извештаи"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Регион"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Град"
 
 msgid "manager.statistics.defaultMetricDescription"

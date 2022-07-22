@@ -362,10 +362,10 @@ msgstr "زانیاری"
 msgid "manager.statistics.reports"
 msgstr "ڕاپۆرت دروستکەر"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "هەرێم"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "شار"
 
 msgid "manager.reviewerSearch.interests"

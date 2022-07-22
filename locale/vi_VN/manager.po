@@ -575,10 +575,10 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Tạo Báo cáo"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Khu vực"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Thành phố"
 
 msgid "manager.statistics.defaultMetricDescription"

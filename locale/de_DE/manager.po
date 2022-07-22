@@ -487,10 +487,10 @@ msgstr ""
 "\t\tBitte wählen Sie eine der Nutzungsmetriken als Standard aus.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Stadt"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy

@@ -525,10 +525,10 @@ msgstr "Podaj zainteresowania recenzenta, oddzielone przecinkami..."
 msgid "manager.setup.layout.blockManagement"
 msgstr "Zarządzanie paskiem bocznym"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Miasto"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 msgid "plugins.categories.metadata"

@@ -478,10 +478,10 @@ msgstr ""
 "Uw {$contextObjectName} is geconfigureerd voor meer dan een gebruiksmeting. Gebruiksstatistieken worden in verschillende contexten getoond.\n"
 "\t\tSoms wordt een enkele statistiek getoond, bv, om een lijst van meestgebruikte artikels te tonen of om zoekresultaten te wegen. Kies een van de methodes als standaard."
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Stad"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Regio"
 
 #, fuzzy

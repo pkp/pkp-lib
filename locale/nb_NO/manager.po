@@ -706,10 +706,10 @@ msgstr ""
 "\t\tkonfigurerte målene som standard.\n"
 "\t"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "By"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy

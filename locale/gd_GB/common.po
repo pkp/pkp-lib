@@ -437,14 +437,8 @@ msgstr "Cuir criathrag ris: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Falamhaich a’ chriathrag: {$filterTitle}"
 
-msgid "common.from"
-msgstr "O"
-
 msgid "common.fromWithValue"
 msgstr "O: {$value}"
-
-msgid "common.until"
-msgstr "Gu"
 
 msgid "common.go"
 msgstr "Siuthad"

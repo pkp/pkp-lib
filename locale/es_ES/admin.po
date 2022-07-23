@@ -154,6 +154,12 @@ msgstr "Recordatorio de revisión"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatorio de caducidad de subscripción"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tarea de carga de archivo de estadísticas de uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "El archivo {$file} no pudo abrirse y fue rechazado."
+
 msgid "admin.server.apacheVersion"
 msgstr "Versión Apache"
 
@@ -183,13 +189,6 @@ msgstr "Correo electrónico del contacto principal"
 
 msgid "admin.settings.contactName"
 msgstr "Nombre del contacto principal"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tSe ha configurado su instalación para registrar más de una métrica de uso. Se mostrarán las estadísticas de uso en varios contextos.\n"
-"\t\tEn algunos casos deberá utilizarse una sola estadística de uso, p. ej., para mostrar una lista ordenada de los envíos más utilizados o para clasificar resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.\n"
-"\t"
 
 msgid "admin.settings.introduction"
 msgstr "Introducción"

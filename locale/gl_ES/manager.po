@@ -169,118 +169,11 @@ msgstr "Contido adicional"
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Resultados estreitos por país, rexión e/ou cidade."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Por situación xeográfica"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ou selecciona rago por:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Selecciona o rango do informe"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Por tipo de obxecto e/ou identificador de obxecto"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Por contexto"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"A seguinte URL pode usarse para xerar o informe coa configuración actual do "
-"formulario. Só tes que copiala e abrila no teu navegador. Tamén podes "
-"gardala nos teus marcadores."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL do informe"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Tes que seleccionar polo menos unha columna para xerar o informe."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Un ou máis nomes de cidade, separados por comas (por exemplo, cidade 1, "
-"cidade 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Poña a data no formato AAAAMMDD."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Poña a data no formato AAAAMM."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descendente"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendente"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Enderezo"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordenar por"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mes actual"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Onte"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Define un ou máis identificadores de obxecto, separados por comas (por "
-"exemplo, 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Id. do obxecto"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipo de obxecto"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Obxecto non atopado na base de datos"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtros"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Define as columnas que se usarán para construír o informe. As columnas que "
-"selecciones aquí non só definen que datos se presentarán dentro dos "
-"informes, senón que tamén definen o nivel de agregación das estatísticas. "
-"Por exemplo, se escolle columnas ID, Tipo e Mes, o informe sumará todas as "
-"vistas dun obxecto dun mes e presentará eses datos nunha fila. Se escolle "
-"Día en lugar de Mes, cada obxecto terá unha fila para cada día."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Columnas"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ocultar opcións avanzadas"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opcións avanzadas"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Xerador de informes personalizado"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Xerar informe personalizado"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Modelos de informe predeterminados"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Os elementos en cursiva e marcados con * representan datos que son opcionais "
-"ao xeito actual de contar as estatísticas no sistema (tipo métrico). É "
-"posible que teña ou non eses datos, dependendo da configuración do "
-"complemento estatístico."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Estatísticas agregadas por:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -292,22 +185,11 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Informes"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Rexión"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Cidade"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tO seu {$contextObjectName} está configurado para gravar máis dunha "
-"métrica de uso. As estatísticas de uso amosaranse en varios contextos.\n"
-"\t\tHai casos nos que se debe empregar unha única estatística de uso, por "
-"exemplo para amosar unha lista ordenada dos envíos máis usados ou para "
-"clasificar os resultados da procura. Seleccione unha das métricas "
-"configuradas como predeterminada.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Estatísticas e informes"

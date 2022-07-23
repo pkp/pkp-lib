@@ -15,8 +15,6 @@
 
 namespace PKP\context;
 
-use APP\core\Application;
-
 class PKPSection extends \PKP\core\DataObject
 {
     /**
@@ -130,17 +128,6 @@ class PKPSection extends \PKP\core\DataObject
     public function setReviewFormId($reviewFormId)
     {
         $this->setData('reviewFormId', $reviewFormId);
-    }
-
-    /**
-     * Get section main page views.
-     *
-     * @return int
-     */
-    public function getViews()
-    {
-        $application = Application::get();
-        return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SECTION, $this->getId());
     }
 
     /**

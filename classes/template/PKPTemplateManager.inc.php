@@ -1030,6 +1030,13 @@ class PKPTemplateManager extends Smarty
                             ];
                         }
 
+                        if ($request->getContext()->isInstitutionStatsEnabled($request->getSite())) {
+                            $menu['institutions'] = [
+                                'name' => __('institution.institutions'),
+                                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                                'isCurrent' => $request->getRequestedPage() === 'management' && in_array('institutions', (array) $request->getRequestedArgs()),
+                            ];
+                        }
                         $menu['settings'] = [
                             'name' => __('navigation.settings'),
                             'submenu' => [

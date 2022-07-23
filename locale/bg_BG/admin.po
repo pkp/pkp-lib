@@ -26,6 +26,12 @@ msgstr "Стойност на настройката"
 msgid "admin.systemInfo.settingName"
 msgstr "Име на настройката"
 
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Файл {$file} не можа да се отвори и беше отхвърлен."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Статистика за ползване на задача за зареждане на файлове"
+
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Изтриване на отчетите (logs) за планираните задачи"
 
@@ -317,19 +323,6 @@ msgstr "Минимална дължина на паролата (знаци)"
 
 msgid "admin.settings.introduction"
 msgstr "Въведение"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tВашата инсталация е конфигурирана да записва повече от един показател за "
-"използване. Статистическите данни за употребата ще се показват в няколко "
-"контекста.\n"
-"\t\tИма случаи, когато трябва да се използва единна статистика за употреба, "
-"напр. за показване на подреден списък с най-често използваните материали или "
-"за класиране\n"
-"\t\tна резултати от търсенето. Моля, изберете един от конфигурираните "
-"показатели по подразбиране.\n"
-"\t"
 
 msgid "admin.settings.contactName"
 msgstr "Име на контактното лице"

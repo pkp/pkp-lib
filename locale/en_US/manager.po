@@ -252,6 +252,30 @@ msgstr "Items successfully submitted for deposit"
 msgid "manager.genres.alertDelete"
 msgstr "Before this component can be deleted, you must associate all related submission files with a different component."
 
+msgid "manager.institutions.edit"
+msgstr "Edit Institution"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry ID for this institution."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP ranges"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr "Valid values include an IP address (e.g. 142.58.103.1), IP range (e.g. 142.58.103.1 - 142.58.103.4), IP range with wildcard '*' (e.g. 142.58.*.*), and an IP range with CIDR (e.g. 142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Delete Institution"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Are you sure you want to continue and delete this institution?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Invalid IP range"
+
 msgid "manager.publication.submissionStage"
 msgstr "Submission"
 
@@ -642,22 +666,74 @@ msgstr "Use the form below to set the maximum values for the terms you wish to s
 msgid "manager.roles"
 msgstr "Roles"
 
+msgid "manager.setup.statistics"
+msgstr "Statistics"
+
+msgid "manager.settings.statistics.compressStatsLogs.description"
+msgstr "Choose what to do with the archived log files."
+
+msgid "manager.settings.statistics.compressStatsLogs.default"
+msgstr "Leave the archived log files as they are"
+
+msgid "manager.settings.statistics.compressStatsLogs.compress"
+msgstr "Compress archives"
+
+msgid "manager.settings.statistics.keepDaily"
+msgstr "Daily metrics"
+
+msgid "manager.settings.statistics.keepDaily.description"
+msgstr "The COUNTER and Geo usage statistics are summarized per month. After that the daily records are deleted. Select this option if you would like to keep the daily records in the database. Be aware that this will significantly increase your database."
+
+msgid "manager.settings.statistics.keepDaily.option"
+msgstr "Keep the daily metrics in the database"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geo usage statistics"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr "Choose what usage statistics geographical data you would like to collect. This will influence the possible statistics reports you can retrieve, and will also have an impact on the database size."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Do not collect any Geo data"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Country"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Country and region"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Country, region and city"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institution usage statistics"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr "Select this option if you would like to manage institutions and collect their usage statistics. This will influence the possible statistics reports you can retrieve, and will also have an impact on the database size."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Enable institution management and usage statistics"
+
+msgid "manager.settings.statistics.sushiPlatform"
+msgstr "Platform for COUNTER SUSHI Statistics"
+
+msgid "manager.settings.statistics.sushiPlatform.description"
+msgstr "This software provides usage statistics according to the COUNTER SUSHI protocol. This protocol requests that a platform is specified. By default, the journal will be designated as the platform for all statistics. However, if all of the journals on this site are published, owned or operated by the same provider, you may wish to designate the site as the platform."
+
+msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use the site as the platform for all journals."
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr "The platform ID MUST only contain ASCII letters (a–z, A–Z), digits (0–9), underscores (_), dots (.) and forward slashes (/), and the length MUST NOT exceed 17 characters. Note that the platform ID is used in various columns and therefore should be as short as possible, but still recognizable. The platform ID usually should be based on the name, a well-known unique abbreviation or the domain of the publisher or platform. A short standard identifier like GRID or ROR (without the https://) also could be used."
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Platform ID is required"
+
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tYour {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.\n"
-"\t\tThere are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank\n"
-"\t\tsearch results. Please select one of the configured metrics as a default.\n"
-"\t"
-
-msgid "manager.statistics.city"
-msgstr "City"
-
-msgid "manager.statistics.region"
-msgstr "Region"
 
 msgid "manager.statistics.reports"
 msgstr "Reports"
@@ -665,101 +741,11 @@ msgstr "Reports"
 msgid "manager.statistics.reports.description"
 msgstr "The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Aggregate stats by:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Default report templates"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generate custom report"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Custom Report Generator"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Advanced Options"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Hide Advanced Options"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Columns"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filters"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Object not found in database"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Object Type"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Object id"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Define one or more object ids, comma separated (e.g. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Yesterday"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Current month"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Order by"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direction"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascending"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descending"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Use the YYYYMM format."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Use the YYYYMMDD format."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "One or more city names, comma separated (e.g. City Name 1,City Name 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "You have to select at least one column to generate the report."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Report URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "By context"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "By object type and/or object id"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Select report range"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Or select range by:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "By geo location"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Narrow results by country, region and/or city."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
@@ -1101,6 +1087,9 @@ msgstr "A contact person who can assist editors, authors and reviewers with any 
 
 msgid "manager.setup.theme"
 msgstr "Theme"
+
+msgid "manager.setup.institutions"
+msgstr "Institutions"
 
 msgid "manager.setup.theme.description"
 msgstr "New themes may be installed from the Plugins tab at the top of this page."
@@ -2121,6 +2110,9 @@ msgstr "Category Details"
 msgid "stats.allUsers"
 msgstr "All Users"
 
+msgid "stats.city"
+msgstr "City"
+
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
 
@@ -2209,6 +2201,9 @@ msgstr "Description for {$stat}"
 msgid "stats.editorialActivity"
 msgstr "Editorial Activity"
 
+msgid "stats.suppFileViews"
+msgstr "Supplementary File Views"
+
 msgid "stats.fileViews"
 msgstr "File Views"
 
@@ -2221,6 +2216,9 @@ msgstr "Monthly"
 msgid "stats.pdf"
 msgstr "PDF"
 
+msgid "stats.region"
+msgstr "Region"
+
 msgid "stats.searchSubmissionDescription"
 msgstr "Search by title, author and ID"
 
@@ -2230,11 +2228,17 @@ msgstr "Active Submissions"
 msgid "stats.total"
 msgstr "Total"
 
+msgid "stats.unique"
+msgstr "Unique"
+
 msgid "stats.totalWithinDateRange"
 msgstr "Total Within Date Range"
 
 msgid "stats.trends"
 msgstr "Trends"
+
+msgid "stats.unknown"
+msgstr "unknown"
 
 msgid "stats.userStatistics"
 msgstr "User Statistics"

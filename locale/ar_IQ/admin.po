@@ -145,6 +145,12 @@ msgstr "تذكير التحكيم"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "تذكير انتهاء صلاحية الاشتراك"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "مهمة تحميل ملف إحصائيات الاستعمال"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "تعذر فتح الملف {$file} ولذا تم رفضه."
+
 msgid "admin.server.apacheVersion"
 msgstr "رقم نسخة Apache"
 
@@ -174,14 +180,6 @@ msgstr "البريد الالكتروني لعنوان الاتصال الأسا
 
 msgid "admin.settings.contactName"
 msgstr "اسم عنوان الاتصال الأساسي"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tإن نظامك مهيأ لتسجيل أكثر من مقياس استعمال واحد. إحصائيات الاستعمال سيتم عرضها في عدة سياقات.\n"
-"\t\tهناك حالات لا بد فيها من استعمال إحصائية واحدة، مثلاً: عرض قائمة مرتبة بأكثر طلبات النشر استعمالاً\n"
-"\t\tأو عند تقييم نتائج البحث في الموقع. لطفاً، عليك اختيار أحد هذه المقاييس ليكون بمثابة المقياس الافتراضي.\n"
-"\t"
 
 msgid "admin.settings.introduction"
 msgstr "المقدمة"

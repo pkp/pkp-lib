@@ -234,19 +234,14 @@ msgstr "Lembrete Revisão"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Lembrete expiração da assinatura"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tarefa do carregador de ficheiro de Estatísticas de Uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "O ficheiro {$file} não pode ser aberto e foi rejeitado."
+
 msgid "admin.settings"
 msgstr "Configurações"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tA sua instalação foi configurada para registar mais do que uma métrica "
-"de uso. As métricas de uso serão disponibilizadas em vários contextos.\n"
-"  Existem casos onde deve ser usada apenas uma métrica de uso, por exemplo, "
-"para exibir uma lista ordenada das submissões mais usadas ou\n"
-"  classificar os resultados da pesquisa. Selecione uma das métricas "
-"configuradas como padrão.\n"
-"\t"
 
 msgid "admin.settings.siteLogo"
 msgstr "Logo Portal"

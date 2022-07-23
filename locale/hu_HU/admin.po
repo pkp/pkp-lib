@@ -135,6 +135,12 @@ msgstr "Lektori emlékeztető"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Emlékeztető az előfizetés lejáratáról"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Használati statisztika file töltési feladata"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "A {$file} fájlt nem lehetett megnyitni és elvetésre került."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache verzió"
 
@@ -176,14 +182,6 @@ msgstr "A minimális jelszó hosszúság legalább 4 karakter."
 
 msgid "admin.settings.form.titleRequired"
 msgstr "A cím kötelező"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tA telepítése úgy van beállítva, hogy egynél több használati statisztikát tároljon. A használati statisztikák többféle összefüggésben jelennek meg.\n"
-"\t\tVannak esetek, amikor egyszeri statisztikát kell használnia, pl. egy rendezett listához a legtöbbet használt cikkekről vagy rangsorolni a találatokat.\n"
-"\t\tKérjük, válasszon egyet a beállított lehetőségek közül, amelyik az alapértelmezett lesz.\n"
-"\t"
 
 msgid "admin.settings.homeHeaderImage.altText"
 msgstr "Oldal logo"

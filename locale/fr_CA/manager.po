@@ -514,22 +514,10 @@ msgstr "Rôles"
 msgid "manager.statistics"
 msgstr "Statistiques et rapports"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tVotre {$contextObjectName} a été configuré-e pour enregistrer plus d'une "
-"mesure d'utilisation. Les statistiques d'utilisation seront affichées dans "
-"plusieurs contextes.\n"
-"\t\tIl y a des cas où seule une statistique d'utilisation doit être "
-"utilisée, par exemple pour afficher une liste ordonnée des articles les plus "
-"consultés ou pour classer les résultats de recherche.\n"
-"\t\tVeuillez sélectionner l'une des  mesures configurées par défaut.\n"
-"\t"
-
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Ville"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Région"
 
 #, fuzzy
@@ -539,100 +527,11 @@ msgstr "Générateur de rapports"
 msgid "manager.statistics.reports.description"
 msgstr "Le système génère des rapports qui donnent des informations quant à l'utilisation du site et la consultation des soumissions pour une période donnée. Les rapports sont générés au format CSV lequel nécessite un tableur pour la visualisation."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Statistiques agrégées par :"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Les éléments en italique et marqués d'un astérisque (*) représentent les données facultatives pour le mode actuel de décompte des statistiques dans le système (type métrique). Vous pouvez avoir ces données ou non, dépendamment de votre configuration des plugiciels de statistiques."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Modèles de rapport par défaut"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Générer un rapport personnalisé"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Options avancées"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Masquer les options avancées"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Colonnes"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Définir les colonnes qui seront utilisées pour construire le rapport. Les colonnes que vous sélectionnez ici précisent non seulement les données qui apparaîtront dans les rapports, mais également le niveau d'agrégation des statistiques. Par exemple, si vous choisissez les colonnes « ID », « Type » et « Mois », le rapport effectuera la somme de tous les consultations d'un objet pour un mois particulier et affichera les données sur une ligne. Si vous choisissez « Jour » au lieu de « Mois », chaque objet affichera une ligne pour chaque jour."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtres"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objet introuvable dans la base de données."
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Type d'objet"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Identifiant (ID) de l'objet"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Définir un ou plusieur identifiant(s) d'objet, séparés par une virgule (par "
-"exemple 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Hier"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mois actuel"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Trier par"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Ordre"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Croissant"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Décroissant"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Utiliser le format AAAAMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Utiliser le format AAAAMMJJ."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Un ou plusieurs noms de villes séparés par une virgule (par exemple Ville 1, Ville 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Vous devez choisir au moins une colonne pour pourvoir produire le rapport."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Signaler l'URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "L'adresse URL suivante peut être utilisée pour produire le rapport selon les configurations actuelles du formulaire. Il suffit de la copier/coller dans votre navigateur Web. Vous pouvez également utiliser vos favoris pour conserver cet URL en tant que générateur de rapports personnalisés."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Par contexte"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Par type d'objet et/ou identifiant (ID) de l'objet"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Choisir la période du rapport"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ou choisir la période par :"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Par l'emplacement géographique"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Limiter les résultats selon le pays, la région ou la ville."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Organisme subventionnaire"
@@ -2139,9 +2038,6 @@ msgstr "Avis"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Désactiver les soumissions"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Générateur de rapports personnalisés"
 
 msgid "manager.people.signedInAs"
 msgstr "Vous êtes actuellement connecté-e en tant que {$username}"

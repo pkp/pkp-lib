@@ -1075,9 +1075,6 @@ msgstr "ファイルのアップロード"
 msgid "editor.submissionReview.uploadFile"
 msgstr "査読ファイルのアップロード"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "使用可能なメトリック"
-
 msgid "defaultMetric.title"
 msgstr "デフォルトのメトリック"
 
@@ -1086,9 +1083,6 @@ msgstr "公共アクセス"
 
 msgid "common.count"
 msgstr "カウント"
-
-msgid "common.metric"
-msgstr "メトリック"
 
 msgid "common.user.nonexistent"
 msgstr "[Nonexistent user]"
@@ -1240,14 +1234,8 @@ msgstr "最近活動記録日: {$date}"
 msgid "common.itemsPerPage"
 msgstr "ページごとの要素"
 
-msgid "common.until"
-msgstr "まで"
-
 msgid "common.fromWithValue"
 msgstr "{$value} から"
-
-msgid "common.from"
-msgstr "から"
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "スパム送信を防ぐための検証チェックを完了する必要があります。"

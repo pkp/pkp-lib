@@ -141,6 +141,12 @@ msgstr "Нагадування рецензенту"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Нагадування про закінчення терміну дії підписки"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Завдання завантажувача файлів статистики використання"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Не вдалося відкрити файл {$file} і він був відхилений."
+
 msgid "admin.server.apacheVersion"
 msgstr "Версія Apache"
 
@@ -182,14 +188,6 @@ msgstr "Необхідно вказати мінімальну довжину п
 
 msgid "admin.settings.form.titleRequired"
 msgstr "Необхідно вказати назву."
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tВаша установка налаштована для запису більш ніж одного показника використання. Статистика використання відображатиметься в декількох контекстах.\n"
-"\t\tТрапляються випадки, коли має бути використана лише одна статистика використання, наприклад, щоб відобразити впорядкований список матеріалів, які використовуються найчастіше або ранжувати результати пошуку.\n"
-"\t\tБудь ласка, оберіть одну з налаштованих метрик як усталену.\n"
-"\t"
 
 msgid "admin.settings.homeHeaderImage.altText"
 msgstr "Логотип сайту"

@@ -1104,17 +1104,11 @@ msgstr "Nahrávání"
 msgid "common.plugins"
 msgstr "Pluginy"
 
-msgid "common.metric"
-msgstr "Metrika"
-
 msgid "common.count"
 msgstr "Počet"
 
 msgid "defaultMetric.title"
 msgstr "Výchozí metrika"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Dostupné metriky"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Nahrání upraveného souboru"
@@ -1485,12 +1479,6 @@ msgstr "{$label}:"
 
 msgid "common.deleting"
 msgstr "Mazání"
-
-msgid "common.from"
-msgstr "Od"
-
-msgid "common.until"
-msgstr "Do"
 
 msgid "common.saving"
 msgstr "Ukládání"

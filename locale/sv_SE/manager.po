@@ -471,18 +471,10 @@ msgstr "Roller"
 msgid "manager.statistics"
 msgstr "Statistik &amp; Rapporter"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t{$contextObjectName} är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.\n"
-"\t\tDet finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för\n"
-"\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som default.\n"
-"\t"
-
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Stad"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy
@@ -492,98 +484,11 @@ msgstr "Rapportgenerator"
 msgid "manager.statistics.reports.description"
 msgstr "Systemet genererar rapporter som spårar detaljer kopplade till webbplatsens användande och inskickade bidrag för en given tidsperiod. Rapporterna genereras i CSV-format som kräver ett kalkylbladsprogram för att kunna visas."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Sammanställ statistik för:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Kursiverade objekt markerade med * representerar data som är valfria för det aktuella sättet att räkna statistik i systemet (metrisk). Du kan eventuellt ha datan, beroende på konfigurationen av ditt statistikplugin."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Rapportmallar, default"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generera anpassad rapport"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Avancerade alternativ"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Göm avancerade alternativ"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolumner"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definiera kolumnerna som kommer användas för att skapa rapporten. Kolumnerna du väljer här definierar vilka data och hur data presenteras i rapporterna. Till exempel, om du väljer kolumnerna ID, Typ och Månad kommer rapporten att sammanställa alla visningar av ett objekt från en månad och presentera dessa data i en rad. Om du väljer Dag i stället för Månad kommer varje objekt ha en rad för varje dag."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filter"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objektet hittades inte i databasen"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Objekttyp"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Objekt-ID"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definiera ett eller flera ID, separerade med komma (t.ex. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Igår"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Nuvarande månad"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sortera efter"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Riktning"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Stigande"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Fallande"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Använd formatet ÅÅÅÅMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Använd formatet ÅÅÅÅMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "En eller flera städer, separerade med komma (t.ex. Stad 1,Stad 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Du måste välja åtminstone en kolumn för att generera rapporten."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Rapport-URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Följande URL kan användas för att generera rapporten med nuvarande inställningar. Kopiera och klistra in den i din webbläsare. Du kan också spara den bland dina favoriter."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Efter sammanhang"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Efter objekttyp och/eller objekt-ID"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Välj intervall för rapporten"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Eller välj intervall efter:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Geografisk plats"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Avgränsa reslutat efter land, region och/eller stad."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
@@ -2092,9 +1997,6 @@ msgstr "Meddela användare"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Inaktivera bidrag"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Anpassad rapport"
 
 msgid "manager.people.signedInAs"
 msgstr "Du är inloggad som {$username}"

@@ -26,11 +26,13 @@
 namespace PKP\submission;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
-use PKP\facades\Locale;
+use APP\statistics\StatisticsHelper;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\mail\Mail;
 
 abstract class PKPSubmission extends \PKP\core\DataObject
@@ -95,6 +97,24 @@ abstract class PKPSubmission extends \PKP\core\DataObject
                 return $publication;
             }
         }
+    }
+
+    /**
+     * Get the first publication
+     *
+     * Returns the first created publication
+     *
+     * @return Publication|null
+     */
+    public function getOriginalPublication()
+    {
+        $publishedPublications = $this->getPublishedPublications();
+        if (empty($publishedPublications)) {
+            return null;
+        }
+        return array_reduce($publishedPublications, function ($a, $b) {
+            return $a && $a->getId() < $b->getId() ? $a : $b;
+        });
     }
 
     /**
@@ -1475,12 +1495,24 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get views of the submission.
      *
+     * @deprecated 3.4
+     *
      * @return int
      */
     public function getViews()
     {
-        $application = Application::getApplication();
-        return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+        $filters = [
+            'dateStart' => StatisticsHelper::STATISTICS_EARLIEST_DATE,
+            'dateEnd' => date('Y-m-d', strtotime('yesterday')),
+            'contextIds' => [$this->getData('contextId')],
+            'submissionIds' => [$this->getId()],
+            'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION],
+        ];
+        $metrics = Services::get('publicationStats')
+            ->getQueryBuilder($filters)
+            ->getSum([])
+            ->value('metric');
+        return $metrics ? $metrics : 0;
     }
 
     /**

@@ -234,6 +234,12 @@ msgstr "Připomenutí recenze"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Připomenutí vypršení předplatného"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Úloha nahrání souboru statistik využití"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Soubor {$file} nelze načíst a byl odmítnut."
+
 msgid "admin.settings"
 msgstr "Nastavení"
 
@@ -287,18 +293,6 @@ msgstr "Chyba: nezle otevřít dočasnou složku {$tmpDir}"
 
 msgid "admin.copyAccessLogFileTool.error.acessingFile"
 msgstr "Chyba: Soubor {$filePath} neexistuje, nebo je k němu zakázaný přístup."
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tVaše instalace je nakonfigurována k zaznamenávání více, než jedné "
-"metriky přístupů. Statistika přístupů bude zobrazována v různých "
-"souvislostech.\n"
-"  Jsou případy, kdy je třeba použít pouze jedna statistika přístupů, např. "
-"při zobrazování uspořádaného seznamu nejpoužívanějších příspěvků, nebo při "
-"hodnocení\n"
-"  výsledků vyhledávání. Zvolte, prosím, jednu z metrik jako výchozí.\n"
-"\t"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""

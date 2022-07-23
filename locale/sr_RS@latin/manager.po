@@ -534,59 +534,17 @@ msgstr "Pronađi korisnika po imenu"
 msgid "manager.reviewerSearch.change"
 msgstr "Promeni"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Grad"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Napredne opcije"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Sakrij napredne opcije"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolone"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filteri"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objekat nije pronađen u bazi podataka"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tip objekta"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID objekta"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Juče"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Trenutni mesec"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Poređaj po"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Smer"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Uzlazno"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Silazno"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Koristi GGGGMM format."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Koristi GGGGMMDD format"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Po kontekstu"
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
@@ -639,36 +597,6 @@ msgstr "Učitaj početne vrednosti"
 #, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generator izveštaja"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Sakupi statistike po:"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Predefinisani šabloni izveštaja"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generiši prilagođeni izveštaj"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Jedan ili više gradova odvojenih zarezom (npr. Grad1, Grad2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Morate odabrati barem jednu kolonu za generisanje izveštaja."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL izveštaja"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Odaberite opseg izveštaja"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ili odaberite opseg po:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Po geo lokaciji"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Suzi rezultate po zemlji, regionu i/ili gradu."
 
 msgid "manager.setup.additionalContent.description"
 msgstr "Sve što unesete ovde biće prikazano na početnoj stranici."
@@ -1213,26 +1141,8 @@ msgstr "Preporučene smernice uključuju bibliografske standarde i formate uz pr
 msgid "manager.setup.favicon"
 msgstr "Omiljena sličica-Favicon"
 
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Sledeći url se može koristiti za generisanje izveštaja prema trenutnim podešavanjima. Kopirajte url u vaš internet pregledač i pritisnite enter. Možete ga memorisati i koristiti kao vaš poseban generator izveštaja."
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Po tipu objekta i/ili id objekta"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr "Vaš {$contextObjectName} je konfigurisan da zabeleži više od jednog načina merenja upotrebe sajta. Statistika upotrebe će biti prikazana u nekoliko konteksta. U nekim slučajevima jedan način statistike mora biti upotrebljena, npr. da se prikaže lista sa poredanim rezultatima najviše upotrebljenih prijavljenih čalanak ili da se rangiraju rezultati pretrage. Molimo vas da odaberet jedan od načina merenja kao početni."
-
 msgid "manager.statistics.reports.description"
 msgstr "Sistem generiše izveštaje koji prate detalje u vezi upotrebe vašeg sajta i prijavljenih čalanak u datom vremenskom periodu. Izveštaji se generišu u CSV formatu koji se mogu pregledati u programu za tabelarni račun."
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Stavke napisane kurzivom i označene sa * predstavljaju podatke koji su opcioni za trenutni način brojanja statistike u sistemu (način merenja). Vi možete, a ne morate imati te podatke ovisno o konfiguraciji vašeg dodatka za statistiku."
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definišite kolone koje ćete koristiti za pravljenje izveštaja. Odabrane kolone neće samo odrediti koji će podaci biti uzeti za pravljenje izveštaja nego će definisati i nivo agregacije u statistici. Na primer, ako odaberete kolone ID, Tip i Mesec izveštaj će sumirati sve preglede za objekte u jednom mesecu i prikazati podatke u jednom redu. Ako odaberete Dan umesto Meseca svaki objekat će imati red za svaki dan."
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definišite jedan ili više id objekta i odvojite zarezom (npr. 1,2,3,4,5)."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "DOI sufiks može biti u bilo kojoj formi, ali mora biti jedinstven među svim objektima objavljivanja koji koriste isti DOI prefiks:"

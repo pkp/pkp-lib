@@ -135,35 +135,14 @@ msgstr "შეცვლა"
 msgid "manager.roles"
 msgstr "როლები"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "ქალაქი"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "რეგიონი"
 
 msgid "manager.statistics.reports"
 msgstr "ანგარიშგებები"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "დამატებითი პარამეტრები"
-
-msgid "manager.statistics.reports.columns"
-msgstr "სვეტები"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "გუშინ"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "დახარისხება"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "მიმართულება"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "ზრდადობით"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "კლებადობით"
 
 msgid "manager.setup.publishing"
 msgstr "გამოცემის დეტალები"
@@ -866,9 +845,6 @@ msgstr ""
 "ტერმინებისთვის, რომელთა ძებნა გსურთ. ფორმა წინასწარ არის დასახლებული ამ "
 "ველების გამოანგარიშებული საშუალოებით."
 
-msgid "manager.statistics.reports.filters"
-msgstr "ფილტრები"
-
 msgid "manager.affiliationAndSupport"
 msgstr "სპონსორი"
 
@@ -1448,23 +1424,6 @@ msgstr "{$numTotal} ({$numNew} new)"
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
 
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"შემდეგი url შეიძლება გამოყენებულ იქნას ანგარიშის შესაქმნელად მიმდინარე "
-"ფორმის პარამეტრებით. უბრალოდ დააკოპირეთ იგი და გახსენით თქვენს ბრაუზერში. "
-"თქვენ ასევე შეგიძლიათ შეინახოთ, როგორც თქვენი საკუთარი რეპორტის url "
-"გენერატორი თქვენს სანიშნეებში."
-
-msgid "manager.statistics.reports.objectType"
-msgstr "ობიექტის ტიპი"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"ელემენტები დახრილი და მონიშნულია * წარმოადგენს მონაცემებს, რომლებიც "
-"არასავალდებულოა სისტემაში არსებული სტატისტიკის დათვლის ამჟამინდელი მეთოდით ("
-"მეტრული ტიპი). შეიძლება ეს მონაცემები გქონდეთ თუ არა, ეს დამოკიდებულია "
-"თქვენი სტატისტიკის მოდულის კონფიგურაციაზე."
-
 msgid "manager.workflow.title"
 msgstr "სამუშაო პროცესის პარამეტრები"
 
@@ -1581,9 +1540,6 @@ msgstr "ბლოკების პლაგინი"
 msgid "manager.userSearch.searchByName"
 msgstr "მოძებნეთ მომხმარებელი სახელით"
 
-msgid "manager.statistics.reports.reportUrl"
-msgstr "ანგარიშის URL"
-
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
 "სთხოვეთ ავტორს, გაამჟღავნოს ნებისმიერი დამხმარე სააგენტო წარდგენის დროს."
@@ -1624,78 +1580,12 @@ msgstr "აქ შეყვანილი ყველაფერი გამ
 msgid "manager.setup.additionalContent"
 msgstr "დამატებითი შინაარსი"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "ვიწრო შედეგები ქვეყნის, რეგიონისა და/ან ქალაქის მიხედვით."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "გეო მდებარეობის მიხედვით"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "ან აირჩიეთ დიაპაზონი შემდეგით:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "ანგარიშის დიაპაზონის არჩევა"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "ობიექტის ტიპის ან/და ობიექტის იდენტიფიკატორის მიხედვით"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "კონტექსტის მიხედვით"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"განსაზღვრეთ ერთი ან მეტი ობიექტის ID, მძიმით გამოყოფილი (მაგ. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ობიექტის იდენტიფიკატორი"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "ობიექტი ვერ მოიძებნა მონაცემთა ბაზაში"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"განსაზღვრეთ სვეტები, რომლებიც გამოყენებული იქნება ანგარიშის შესაქმნელად. "
-"თქვენს მიერ არჩეულ სვეტებში არა მხოლოდ განსაზღვრულია რომელი მონაცემები "
-"იქნება წარმოდგენილი ანგარიშების შიგნით, არამედ განისაზღვრება სტატისტიკის "
-"აგრეგაციის დონე. მაგალითად, თუ ID, Type და თვის სვეტებს აირჩევთ, ანგარიში "
-"აჯამებს ობიექტის ყველა ხედვას ერთი თვის განმავლობაში და ამ მონაცემებს "
-"აჩვენებს ერთ მწკრივში. თუ თქვენ აირჩევთ დღეს თვის ნაცვლად, თითოეულ ობიექტს "
-"ექნება მწკრივი ყოველი დღისთვის."
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "დამატებითი პარამეტრების დამალვა"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "მორგებული ანგარიშების გენერატორი"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "შექმენით მორგებული ანგარიში"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "ნაგულისხმევი ანგარიშის შაბლონები"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "მთლიანი სტატისტიკის მიხედვით:"
-
 msgid "manager.statistics.reports.description"
 msgstr ""
 "სისტემა ქმნის ანგარიშებს, რომლებიც თვალყურს ადევნებს დეტალებს, რომლებიც "
 "დაკავშირებულია საიტის გამოყენებასთან და გაგზავნასთან მოცემული პერიოდის "
 "განმავლობაში. ანგარიშები წარმოიქმნება CSV ფორმატში, რომლის სანახავად საჭიროა "
 "ცხრილების პროგრამა."
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tთქვენი {$textObjectName} კონფიგურირებულია, რომ ჩაწეროს ერთზე მეტი "
-"გამოყენების მეტრი. გამოყენების სტატისტიკა ნაჩვენები იქნება რამდენიმე "
-"კონტექსტში.\n"
-"\t\tარის შემთხვევები, როდესაც გამოყენებული უნდა იქნას ერთიანი გამოყენების "
-"სტატისტიკური მონაცემები, მაგ., ყველაზე ხშირად გამოყენებული წარდგენების "
-"მოწესრიგებული ჩამონათვალის ჩვენება ან რანჟირება\n"
-"\t\tძიების შედეგები. გთხოვთ, ნაგულისხმევად აირჩიოთ ერთ-ერთი კონფიგურირებული "
-"მეტრი.\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "სტატისტიკა და ანგარიშები"
@@ -2183,22 +2073,11 @@ msgstr "შეტანის გაუქმება"
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "პასუხის შეხსენება"
 
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "ანგარიშის შესაქმნელად უნდა აირჩიოთ მინიმუმ ერთი სვეტი."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"ერთი ან მეტი ქალაქის სახელი, მძიმით გამოყოფილი (მაგ. ქალაქის სახელი 1, "
-"ქალაქის სახელი 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "გამოიყენეთ YYYYMMDD ფორმატი."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "გამოიყენეთ YYYYMM ფორმატი."
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "მიმდინარე თვე"
 
 msgid "plugins.importexport.submission.cli.display"
 msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""

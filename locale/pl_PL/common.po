@@ -956,17 +956,11 @@ msgstr "Żaden plik nie został przesłany lub niepoprawny typ pliku!"
 msgid "common.plugins"
 msgstr "Wtyczki"
 
-msgid "common.metric"
-msgstr "Metryka"
-
 msgid "common.count"
 msgstr "Zlicz"
 
 msgid "defaultMetric.title"
 msgstr "Domyślna metryka"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Dostępne metryki"
 
 msgid "email.subjectRequired"
 msgstr "Podaj tytuł wiadomości."
@@ -1544,12 +1538,6 @@ msgstr "Menu zostało usunięte"
 
 msgid "common.deleting"
 msgstr "Usuwanie"
-
-msgid "common.from"
-msgstr "Od"
-
-msgid "common.until"
-msgstr "Do"
 
 msgid "common.saving"
 msgstr "Zapisywanie"

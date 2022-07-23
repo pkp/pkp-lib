@@ -1118,17 +1118,11 @@ msgstr "Превуци фајл овде да започенш доставља�
 msgid "common.viewProfile"
 msgstr "Погледај профил"
 
-msgid "common.metric"
-msgstr "Метрика"
-
 msgid "common.count"
 msgstr "Преброј"
 
 msgid "defaultMetric.title"
 msgstr "Примарна метрика"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Доступне метрике"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Додај рецензиран фајл"

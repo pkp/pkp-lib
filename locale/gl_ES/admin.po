@@ -11,17 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tConfigurouse a súa instalación para rexistrar máis dunha métrica de uso. "
-"Amosaranse as estatísticas de uso en varios contextos.\n"
-"\t\tNalgúns casos utilizarase unha soa estatística de uso, p. ex., para "
-"amosar unha listaxe ordeada dos envíos máis utilizados ou para clasificar "
-"resultados de procura. Seleccione unha das medidas configuradas como "
-"predeterminadas.\n"
-"\t"
-
 msgid "admin.settings.contactName"
 msgstr "Nome do contacto principal"
 

@@ -1807,67 +1807,31 @@ msgstr "Penaja"
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Rasmi"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Hasil tipis mengikut negara, wilayah dan/atau bandar."
-
 msgid "manager.plugins.pluginGallery.latestCompatible"
 msgstr "Keluaran Serasi Terkini"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Mengikut lokasi geo"
 
 msgid "manager.plugins.pluginGallery.installation"
 msgstr "Pemasangan"
 
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Atau pilih julat mengikut:"
-
 msgid "manager.plugins.pluginGallery.overview"
 msgstr "Gambaran keseluruhan"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Pilih julat laporan"
 
 msgid "manager.plugins.pluginGallery"
 msgstr "Galeri Plugin"
 
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Mengikut jenis objek dan/atau id objek"
-
 msgid "manager.plugins.installed"
 msgstr "Plugin yang Dipasang"
 
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Mengikut konteks"
-
 msgid "manager.plugins.uploadFailed"
 msgstr "Sila pastikan fail telah dipilih untuk dimuat naik."
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Url berikut boleh digunakan untuk menjana laporan dengan tetapan borang "
-"semasa. Hanya salin dan buka dalam pelayar anda. Anda juga boleh "
-"menyimpannya sebagai penjana url laporan custom anda dalam penanda halaman "
-"anda."
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
 "Borang ini membolehkan anda memuat naik dan memasang plugin baharu. Sila "
 "pastikan plugin dimampatkan sebagai fail .tar.gz."
 
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL Laporan"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Anda perlu memilih sekurang-kurangnya satu kolum untuk menjana laporan."
-
 msgid "manager.plugins.upload"
 msgstr "Muat Naik Plugin Baharu"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Satu atau lebih nama bandar, dipisahkan koma (cth. Nama Bandar 1, Nama "
-"Bandar 2)"
 
 msgid "manager.plugins.fileSelectError"
 msgstr "Sila pilih fail dahulu"
@@ -1888,14 +1852,8 @@ msgstr ""
 "fungsinya. Kategori tersebut disenaraikan di bawah, dan dalam setiap "
 "kategori, set plugin semasanya."
 
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Menurun"
-
 msgid "manager.plugins.deleteSuccess"
 msgstr "Plugin \"{$ pluginName}\" berjaya dipadamkan"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Menaik"
 
 msgid "manager.plugins.deleteError"
 msgstr ""
@@ -1904,16 +1862,10 @@ msgstr ""
 "direktori plugin (termasuk subdirektori) tetapi jangan lupa untuk "
 "mengamankannya semula kemudian."
 
-msgid "manager.statistics.reports.orderDir"
-msgstr "Arah"
-
 msgid "manager.plugins.deleteDescription"
 msgstr ""
 "Dengan mengklik padam, anda akan memadamkan plugin daripada sistem fail "
 "pelayan."
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Urutan mengikut"
 
 msgid "manager.plugins.deleteConfirm"
 msgstr "Adakah anda pasti mahu memadamkan plugin ini daripada sistem?"
@@ -1921,35 +1873,20 @@ msgstr "Adakah anda pasti mahu memadamkan plugin ini daripada sistem?"
 msgid "grid.action.installPlugin"
 msgstr "Pasang atau naik taraf plugin ini"
 
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Bulan semasa"
-
 msgid "manager.plugins.upgradeConfirm"
 msgstr "Adakah anda pasti ingin menaik taraf plugin ini?"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Semalam"
 
 msgid "manager.plugins.installConfirm"
 msgstr "Adakah anda pasti mahu memasang plugin ini?"
 
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Tentukan satu atau lebih id objek, dipisahkan koma (mis. 1,2,3,4,5)."
-
 msgid "manager.plugins.delete"
 msgstr "Padam Plugin"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Id objek"
 
 msgid "manager.plugins.copyError"
 msgstr ""
 "Plugin tidak berjaya disalin. Ini mungkin masalah kebenaran. Sila pastikan "
 "bahawa pelayan web dapat menulis ke direktori plugin (termasuk subdirektori) "
 "tetapi jangan lupa untuk mengamankannya semula kemudian."
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Jenis Objek"
 
 msgid "plugins.categories.pubIds.description"
 msgstr "Plugin ini melaksanakan sokongan untuk pengenalpasti awam."
@@ -1960,27 +1897,11 @@ msgstr "Plugin Pengenalpasti Awam"
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Plugin format ini menyatakan metadata dalam komunikasi OAI."
 
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objek tidak ditemui dalam pangkalan data"
-
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Plugin OAI Format Metadata"
 
-msgid "manager.statistics.reports.filters"
-msgstr "Penapis"
-
 msgid "plugins.categories.themes"
 msgstr "Plugin Tema"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Tentukan kolum yang akan digunakan untuk membina laporan. Kolum yang anda "
-"pilih di sini bukan sahaja menentukan data yang akan dibentangkan di dalam "
-"laporan, tetapi juga mentakrifkan tahap pengagregatan statistik. Contohnya, "
-"jika anda memilih kolum ID, Jenis dan Bulan, laporan akan menjumlahkan semua "
-"paparan daripada objek dari satu bulan dan akan membentangkan data tersebut "
-"dalam satu baris. Jika anda memilih Hari dan bukannya Bulan, setiap objek "
-"akan mempunyai baris untuk setiap hari."
 
 msgid "plugins.categories.themes.description"
 msgstr "Plugin Tema boleh digunakan untuk menukar rupa sistem."
@@ -1988,63 +1909,35 @@ msgstr "Plugin Tema boleh digunakan untuk menukar rupa sistem."
 msgid "plugins.categories.reports"
 msgstr "Plugin Laporan"
 
-msgid "manager.statistics.reports.columns"
-msgstr "Kolum"
-
 msgid "plugins.categories.reports.description"
 msgstr ""
 "Plugin Laporan digunakan untuk melaksanakan pelbagai jenis laporan dan "
 "ekstrak data."
 
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Sembunyikan Pilihan Lanjutan"
-
 msgid "plugins.categories.paymethod"
 msgstr "Plugin Pembayaran"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Pilihan Lanjutan"
 
 msgid "plugins.categories.paymethod.description"
 msgstr ""
 "Plugin Kaedah Pembayaran melaksanakan sokongan untuk pelbagai cara "
 "pemprosesan pembayaran dalam talian."
 
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Penjana Laporan Custom"
-
 msgid "plugins.categories.importexport"
 msgstr "Import/Eksport Plugin"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Hasilkan laporan custom"
 
 msgid "plugins.categories.importexport.description"
 msgstr ""
 "Import/Export Plugin boleh digunakan untuk memindahkan kandungan ke dan dari "
 "sistem lain."
 
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Templat laporan lalai"
-
 msgid "plugins.categories.generic"
 msgstr "Plugin Generik"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Item dalam italic dan ditanda dengan * mewakili data yang menjadi pilihan "
-"kepada cara semasa mengira statistik dalam sistem (jenis metrik). Anda "
-"mungkin mempunyai data itu atau tidak, bergantung pada konfigurasi plugin "
-"statistik anda."
 
 msgid "plugins.categories.gateways"
 msgstr "Plugin Gateway"
 
 msgid "plugins.categories.gateways.description"
 msgstr "Plugin Gateway menyediakan data langsung kepada sistem luaran."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Statistik agregat mengikut:"
 
 msgid "plugins.categories.blocks.description"
 msgstr ""
@@ -2065,27 +1958,14 @@ msgstr "Laporan"
 msgid "plugins.categories.auth"
 msgstr "Plugin Kebenaran"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Wilayah"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Bandar"
 
 msgid "plugins.categories.metadata.description"
 msgstr "Plugin Metadata melaksanakan piawaian meta-data tambahan."
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t{$contextObjectName} anda dikonfigurasikan untuk merekodkan lebih "
-"daripada satu metrik penggunaan. Statistik penggunaan akan dipaparkan dalam "
-"beberapa konteks.\n"
-"\t\tTerdapat kes di mana satu statistik penggunaan mesti digunakan, mis. "
-"untuk memaparkan senarai tersusun bagi penyerahan yang paling banyak "
-"digunakan atau untuk menentukan kedudukan\n"
-"\t\tKeputusan Carian. Sila pilih salah satu metrik yang dikonfigurasikan "
-"sebagai lalai.\n"
-"\t"
 
 msgid "plugins.categories.metadata"
 msgstr "Plugin Metadata"

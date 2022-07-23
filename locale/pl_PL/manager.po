@@ -525,10 +525,10 @@ msgstr "Podaj zainteresowania recenzenta, oddzielone przecinkami..."
 msgid "manager.setup.layout.blockManagement"
 msgstr "Zarządzanie paskiem bocznym"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Miasto"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 msgid "plugins.categories.metadata"
@@ -594,117 +594,17 @@ msgstr "Włącz/wyłącz filtr dla aktywnych recenzji."
 msgid "manager.reviewerSearch.form.previousReviewRounds"
 msgstr "Poprzednie rundy recenzji dla recenzentów tego zgłoszenia"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tTwój {$contextObjectName} jest skonfigurowany tak, aby uwzględniać "
-"więcej niż jedną metrykę. Statystyki zostaną wyświetlone w wielu "
-"kontekstach. Istnieją przypadki, w których jedna metryka musi zostać "
-"wykorzystana, np. do wyświetlenia listy najczęściej otwieranych zgłoszeń lub "
-"w celu stopniowania wyników wyszukiwania. Wybierz jedną ze skonfigurowanych "
-"metryk jako domyślną.\n"
-"\t"
-
-#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generator raportów"
 
 msgid "manager.statistics.reports.description"
 msgstr "System generuje raporty zawierające statystyki wykorzystania strony oraz zgłoszeń przez zadany okres czasu. Raporty są generowane w postaci plików CSV, które można otworzyć za pomocą programu obsługującego arkusze kalkulacyjne."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Gromadź statystyki wg:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Elementy pisane kursywą oraz oznaczone * reprezentują dane opcjonalne dla aktualnie wykorzystywanego sposobu zliczania statystyk. Możesz posiadać te dane lub nie w zależności od konfiguracji wtyczki."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Domyślne szablony raportów"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generuj niestandardowy raport"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Ustawienia zaawansowane"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ukryj ustawienia zaawansowane"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolumny"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Określ kolumny do zbudowania raportu. Wybrane kolumny definiują dane oraz poziom agregacji statystyk. Przykładowo, jeżeli wybierzesz ID, typ oraz miesiąc, raport będzie stanowił sumę wyświetleń obiektu w skali miesiąca a dane zostaną zaprezentowane w jednym wierszu. Jeżeli wybierzesz dzień zamiast miesiąca, każdy obiekt będzie posiadał osobny wiersz dla każdego dnia."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtry"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Obiekt nie został znaleziony w bazie danych"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Typ obiektu"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID obiektu"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Określ jeden lub więcej obiektów, oddzielone przecinkiem (np. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Wczoraj"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Aktualny miesiąc"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sortuj wg"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Kierunek"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Rosnąco"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Malejąco"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Użyj formatu RRRRMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Użyj formatu RRRRMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Jedno lub więcej miast, oddzielone przecinkiem (np. Wrocław, Warszawa, Białystok)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Musisz zaznaczyć co najmniej jedną kolumnę, aby wygenerować raport."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL raportu"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Adres URL może zostać wykorzystany, aby uruchomić generowanie raportu. Skopiuj go i otwórz w swojej przeglądarce. Link możesz zapisać w zakładkach dla łatwego dostępu."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Wg kontekstu"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Wg typu obiektu oraz/lub ID obiektu"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Wybierz zakres"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Lub wybierz wg:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Wg geo-lokacji"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Filtruj wyniki wg kraju, regionu oraz/lub miasta."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Instytucja finansująca"
@@ -2226,9 +2126,6 @@ msgstr "Wytyczne  dla recenzentów"
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Skasuj ogłoszenie"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Raport własny"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Wybierz użytkowników do eksportu w formacie Excel/CSV."

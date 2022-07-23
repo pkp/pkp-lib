@@ -138,6 +138,12 @@ msgstr "یادآوری داوری"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "یادآوری اتمام اشتراک"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "وظیفه بارگزار فایل آمار کارکرد"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "فایل {$file} نمیتواند باز شود و نادیده گرفته می شود."
+
 msgid "admin.server.apacheVersion"
 msgstr "نسخه آپاچی"
 
@@ -167,9 +173,6 @@ msgstr "ایمیل اطلاعات تماس اصلی"
 
 msgid "admin.settings.contactName"
 msgstr "نام اطلاعات تماس اصلی"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr "در تنظیمات نصب شما، چندین معیار اندازه‌گیری تعیین شده است. اما در برخی موارد نیاز است که از یک معیار استفاده شود، برای مثال در نمایش لیست مقالات بیشتر مشاهده شده. لطفاً یک معیار اندازه‌گیری را به عنوان معیار پیش‌فرض انتخاب کنید."
 
 msgid "admin.settings.introduction"
 msgstr "معرفی"

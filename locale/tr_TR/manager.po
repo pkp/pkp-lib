@@ -682,96 +682,21 @@ msgstr "Ada Göre Kullanıcı Ara"
 msgid "manager.reviewerSearch.change"
 msgstr "Değiştir"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Şehir"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Bölge"
 
 #, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Rapor Oluştur"
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Toplu istatistikler:"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Varsayılan rapor şablonları"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Özel rapor oluştur"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Gelişmiş Seçenekler"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Gelişmiş Seçenekleri Gizle"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Sütunlar"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtreler"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Öğe veri tabanında bulunamadı"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Öğe Türleri"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Öğe no"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Virgülle ayrılmış bir veya daha fazla nesne kimliğini tanımlayın (örn. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Dün"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Bu ay"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "göre sırala"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Yön"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Artan"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Azalan"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "YYYYAA biçimini kullanın."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "YYYYAAGG biçimini kullanın."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Bir veya daha fazla şehir adı, virgülle ayrılmış (ör. Şehir Adı 1, Şehir Adı 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Raporu oluşturmak için en az bir sütun seçmelisiniz."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Rapor URL'si"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "İçeriğe göre"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Öğe türü ve / veya öğe kimliğine göre"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Rapor aralığı seçin"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "veya aralık seçin:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Coğrafik bölgeye göre"
 
 msgid "plugins.categories.pubIds"
 msgstr "Genel Belirleyici Ekletirleri"
@@ -1088,9 +1013,6 @@ msgstr "Raporlar"
 msgid "settings.libraryFiles.category.other"
 msgstr "Diğer"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Sonuçları ülke, bölge ve / veya şehre göre daralt."
-
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
@@ -1365,28 +1287,6 @@ msgstr "\"{$pluginName}\" eklentisi dosya sisteminden silinemedi. Bu bir izin so
 
 msgid "manager.statistics.reports.description"
 msgstr "Sistem, belirli bir süre boyunca site kullanımı ve gönderimlerle ilgili ayrıntıları izleyen raporlar üretir. Raporlar, görüntülenecek bir elektronik tablo uygulaması gerektiren CSV biçiminde oluşturulur."
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "İtalik olarak yazılmış ve * ile işaretlenmiş öğeler, sistemdeki istatistik sayımının geçerli yoluna (metrik tip) göre isteğe bağlı verileri temsil eder. İstatistik eklentisi yapılandırmanıza bağlı olarak bu verilere sahip olabilirsiniz."
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Raporu oluşturmak için kullanılacak sütunları tanımlayın. Burada seçtiğiniz sütunlar yalnızca raporlarda hangi verilerin sunulacağını değil, aynı zamanda istatistiklerin toplama düzeyini de tanımlar. Örneğin, Kimlik, Yazım ve Ay sütunlarını seçerseniz, rapor bir nesneden bir aydaki tüm görünümleri toplar ve bu verileri tek bir satırda gösterir. Ay yerine Gün'ü seçerseniz, her nesnenin her gün için bir satırı olacaktır."
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t{$contextObjectName} özelliği birden fazla kullanım metriği kaydetmek "
-"için yapılandırılmıştır. Kullanım istatistikleri birkaç bağlamda "
-"görüntülenecektir.\n"
-"Tek kullanımlık istatistiğin kullanılması gereken durumlar vardır. Örn. En "
-"çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya sıralamak "
-"için\n"
-"arama sonuçları. Lütfen yapılandırılmış metriklerden birini varsayılan "
-"olarak seçin.\n"
-"\t"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Geçerli form ayarları ile rapor oluşturmak için aşağıdaki URL kullanılabilir. Sadece kopyalayın ve tarayıcınızda açın. Ayrıca, özel rapor URL'niz olarak favorilerinizde saklayabilirsiniz."
 
 msgid "manager.setup.homepageImage"
 msgstr "Ana Sayfa Görseli"
@@ -2202,9 +2102,6 @@ msgstr "Varsayılan e-posta şablonları geri yüklendi."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Duyuruyu Sil"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Özel Rapor Oluşturucu"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Excel/CSV olarak dışarı aktarılacak kullanıcıları seçin."

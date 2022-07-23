@@ -1076,12 +1076,6 @@ msgstr "Filtre ekle: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Filtre temizle: {$filterTitle}"
 
-msgid "common.from"
-msgstr "den"
-
-msgid "common.until"
-msgstr "kadar"
-
 msgid "common.homepageNavigationLabel"
 msgstr "Ana Sayfa"
 
@@ -1316,9 +1310,6 @@ msgstr "Yüklemeye başlamak için buraya sürükleyip bırakın"
 msgid "common.viewProfile"
 msgstr "Profil Görüntüle"
 
-msgid "common.metric"
-msgstr "Metrik"
-
 msgid "common.count"
 msgstr "Say"
 
@@ -1327,9 +1318,6 @@ msgstr "Genel Erişim"
 
 msgid "defaultMetric.title"
 msgstr "Varsayılan Metrik"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Kullanılabilir Metrikler"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Değerlendirilmiş Dosyayı Yükle"

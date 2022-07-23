@@ -431,12 +431,6 @@ msgstr "Προσθήκη φίλτρου: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Καθαρισμός φίλτρου: {$filterTitle}"
 
-msgid "common.from"
-msgstr "Από"
-
-msgid "common.until"
-msgstr "Έως"
-
 msgid "common.go"
 msgstr "Μετάβαση"
 
@@ -836,9 +830,6 @@ msgstr "Φόρτωση ..."
 msgid "common.plugins"
 msgstr "Πρόσθετα"
 
-msgid "common.metric"
-msgstr "Μετρικό"
-
 msgid "common.count"
 msgstr "Καταμέτρηση"
 
@@ -868,9 +859,6 @@ msgstr "Σημειώσεις:"
 
 msgid "defaultMetric.title"
 msgstr "Καθορισμένο μετρικό"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Διαθέσιμα μετρικά"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Μεταφόρτωση αρχείου αξιολόγησης"

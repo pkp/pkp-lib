@@ -1090,14 +1090,8 @@ msgstr "最近的活动记录在{$date}。"
 msgid "common.itemsPerPage"
 msgstr "每页项目"
 
-msgid "common.until"
-msgstr "直到"
-
 msgid "common.fromWithValue"
 msgstr "来自: {$value}"
-
-msgid "common.from"
-msgstr "来自"
 
 msgid "common.filterRemove"
 msgstr "清除过滤器：{$filterTitle}"
@@ -1525,14 +1519,8 @@ msgstr "删除的提交。"
 msgid "form.multilingualLabel"
 msgstr "{$localeName} 中的 {$label}"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "可用公制"
-
 msgid "defaultMetric.title"
 msgstr "默认公制"
-
-msgid "common.metric"
-msgstr "公制"
 
 msgid "notification.editStageParticipant"
 msgstr "阶段分配已更改。"

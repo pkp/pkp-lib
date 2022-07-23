@@ -575,9 +575,6 @@ msgstr "Tải tập tin"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Tải lên tập tin phản biện"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Các chỉ số có sẵn"
-
 msgid "defaultMetric.title"
 msgstr "Chỉ số mặc định"
 
@@ -607,9 +604,6 @@ msgstr "Truy cập công khai"
 
 msgid "common.count"
 msgstr "Đếm"
-
-msgid "common.metric"
-msgstr "Chỉ số"
 
 msgid "common.plugins"
 msgstr "Các trình cắm"
@@ -1021,14 +1015,8 @@ msgstr "Chiều cao"
 msgid "common.go"
 msgstr "Đi đến"
 
-msgid "common.until"
-msgstr "Cho đến"
-
 msgid "common.fromWithValue"
 msgstr "Từ: {$value}"
-
-msgid "common.from"
-msgstr "Từ"
 
 msgid "common.filterRemove"
 msgstr "Xoá bộ lọc: {$filterTitle}"

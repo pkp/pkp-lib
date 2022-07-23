@@ -823,6 +823,19 @@
 				"regex:/^[a-zA-Z0-9]+([\\-_][a-zA-Z0-9]+)*$/"
 			],
 			"apiSummary": true
+		},
+		"enableGeoUsageStats": {
+			"type": "string",
+			"description": "Whether to track usage statistics by location, and whether to track at the country, region or city level.",
+			"default": "",
+			"validation": [
+				"in:disabled,country,country+region,country+region+city"
+			]
+		},
+		"enableInstitutionUsageStats": {
+			"type": "boolean",
+			"description": "Whether to track usage statistics by institutions. Requires institutional IP ranges to be configured.",
+			"default": false
 		}
 	}
 }

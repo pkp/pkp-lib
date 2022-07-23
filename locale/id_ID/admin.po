@@ -281,19 +281,14 @@ msgstr "Tema Situs"
 msgid "admin.settings.siteLogo"
 msgstr "Logo Situs"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tInstalasi Anda diatur untuk mencatat lebih dari satu metrik pemakaian. "
-"statistik pemakaian akan ditampilkan dalam beberapa konteks.\n"
-"\t\tAda beberapa kasus di mana hanya satu statistik penggunakan yang boleh "
-"digunakan, misalnya untuk menampilkan daftar urut naskah yang paling banyak "
-"digunakan atau untuk mengurutkan\n"
-"\t\thasil pencarian. Pilih satu metrik sebagai pengaturan bawaan.\n"
-"\t"
-
 msgid "admin.settings"
 msgstr "Pengaturan"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "File {$file} tidak bisa dibuka sehingga ditolak."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Beban loader file statistik pemakaian"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Pengingat masa habis berlangganan"

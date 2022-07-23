@@ -695,21 +695,10 @@ msgstr ""
 "etter. Skjemaet er fylt inn med de beregnede gjennomsittene for disse "
 "verdiene."
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tDin {$contextObjectName} er konfigurert til å registrere mer enn ett mål "
-"på bruk. Brukerstatistikken vil bli vist i flere sammenhenger.\n"
-"\t\tI noen tilfeller vil ett enkelt statistisk mål må brukes, f.eks. for å "
-"vise en ordnet liste over de mest brukte innleveringene eller til å rangere "
-"søkeresultater. Velg ett av de\n"
-"\t\tkonfigurerte målene som standard.\n"
-"\t"
-
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "By"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy
@@ -722,112 +711,11 @@ msgstr ""
 "og innleveringene til siden over en gitt periode. Rapportene er generert i "
 "et CSV-format. Du må ha et regnearksprogram for å se dette."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Organiser statistikk ut fra:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Elementer i kursiv og markert med en * viser til data som er valgfritt i den "
-"nåværende beregningen av statistikk i systemet (hva som telles). Om du har "
-"denne type data eller ikke, avhenger av konfigurasjonen av programtillegg "
-"for statistikk."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Standard rapportmaler"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Egendefinert rapport"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Avanserte valg"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Skjul avanserte valg"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Kolonner"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Definer kolonnene til å bygge rapporten. Kolonnene du velger her definerer "
-"ikke bare hvilke data som vil bli presentert i rapporten, men også "
-"aggregeringsnivået til statistikken. For eksempel: Dersom du velger "
-"kolonnene «ID», «Type» og «Måned», vil rapporten summere alle visningene av "
-"et objekt for en måned og vil presentere de dataene på en linje. Dersom du "
-"velger «Dag» i stedet for «Måned», vil hvert objekt hav en linje for hver "
-"dag."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtre"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Ingen treff i databasen"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Type objekt"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Objekt-ID"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definer en eller flere objekt-ID. Skill med komma (f.eks. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "I går"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Inneværende måned"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sorter etter"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Retning"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Stigende"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Synkende"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Bruk formatet: ÅÅÅÅMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Bruk formatet: ÅÅÅÅMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Ett eller flere bynavn. Skill med komma (f.eks. bynavn 1, bynavn 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Du må velge minst en kolonne for å generere rapporten."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Rapportens URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Følgende URL kan brukes til å generere rapporten med det nåværende "
-"skjemainnstillingene. Bare kopier det, lim det inn i nettleseren din og "
-"trykk «Enter»."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Etter kontekst"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Etter type objekt og/eller objekt-ID"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Velg rapportomfang"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Eller velg område etter:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Etter sted"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Snevre inn resultatene etter land, region og/eller by."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
@@ -2331,9 +2219,6 @@ msgstr "Varsle"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Deaktiver innleveringer"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Brukerdefinert rapportgenerator"
 
 msgid "manager.people.signedInAs"
 msgstr "Du er for øyeblikket logget inn som {$username}"

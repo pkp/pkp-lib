@@ -550,120 +550,11 @@ msgstr "DOI -ներ"
 msgid "manager.affiliationAndSupport"
 msgstr "Հովանավոր"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Նեղացրեք արդյունքներ ըստ երկրի, տարածաշրջանի և/կամ քաղաքի:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Ըստ աշխարհագրական դիրքի"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Կամ ընտրեք միջակայքը ըստ՝"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Ընտրեք հաշվետվության միջակայքը"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Ըստ օբյեկտի տեսակի և/կամ օբյեկտի ID-ի"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Ըստ համատեքստի"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Հետևյալ url-ը կարող է օգտագործվել ընթացիկ ձևի կարգավորումներով "
-"հաշվետվություն ստեղծելու համար: Պարզապես պատճենեք այն և բացեք այն ձեր "
-"դիտակում: Դուք կարող եք նաև պահել այն որպես ձեր հատուկ հաշվետվության url "
-"գեներատոր ձեր էջանիշերում:"
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Հաշվետվության URL"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Հաշվետվությունը ստեղծելու համար դուք պետք է ընտրեք առնվազն մեկ սյունակ:"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Մեկ կամ մի քանի քաղաքների անուններ՝ բաժանված ստորակետերով (օրինակ՝ քաղաքի "
-"անվանումը 1, քաղաքի անվանումը 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Օգտագործեք ՏՏՏՏԱԱՕՕ ձևաչափը։"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Օգտագործեք ՏՏՏՏԱԱ ձևաչափը։"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Ըստ նվազման"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ըստ աճման"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Ուղղություն"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Տեսակավորել ըստ"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Ընթացիկ ամիս"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Երեկ"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Սահմանեք մեկ կամ մի քանի օբյեկտի ID՝ ստորակետերով բաժանված (օրինակ՝ "
-"1,2,3,4,5):"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Օբյեկտի id"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Օբյեկտի տեսակը"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Օբյեկտը չի գտնվել տվյալների շտեմարանում"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Զտիչներ"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Սահմանեք սյունակները, որոնք կօգտագործվեն հաշվետվությունը պատրաստելու համար: "
-"Այստեղ ձեր ընտրած սյունակները ոչ միայն սահմանում են, թե որ տվյալները "
-"կներկայացվեն հաշվետվություններում, այլ նաև սահմանում են վիճակագրության "
-"համախմբման մակարդակը: Օրինակ, եթե ընտրեք ID, Տեսակ և Ամիս սյունակները, "
-"հաշվետվությունը կամփոփի առարկայի մեկ ամսվա բոլոր դիտումները և կներկայացնի "
-"այդ տվյալները մեկ տողում: Եթե Ամսվա փոխարեն ընտրեք Օր, ապա յուրաքանչյուր "
-"առարկա կունենա տող յուրաքանչյուր օրվա համար:"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Սյունակներ"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Թաքցրեք հավելյալ հնարավորությունները"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Հավելյալ հնարավորություններ"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Անհատականացված հաշվետվության գեներատոր"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Ստեղծեք անհատականացված հաշվետվություն"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Հաշվետվության կանխադրված ձևանմուշներ"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Նյութերը որոնք շեղագիր են և նշված են * -ով ներկայացնում են տվյալներ, որոնք "
-"կամընտրական են համակարգում վիճակագրության հաշվառման ընթացիկ եղանակին ("
-"մետրրիկային տեսակը): Դուք կարող եք ունենալ այդ տվյալները, թե ոչ՝ կախված է "
-"ձեր վիճակագրության հավելվածի կազմաձևից:"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Համախառն վիճակագրություն ըստ՝"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -675,24 +566,11 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "Հաշվետվություններ"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Տարածաշրջան"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Քաղաք"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tՁեր {$contextObjectName} -ը կազմաձևված է մեկից ավելի օգտագործման "
-"չափումներ գրանցելու համար: Օգտագործման վիճակագրությունը կցուցադրվի մի քանի "
-"համատեքստում:\n"
-"\t\tԿան դեպքեր, երբ պետք է օգտագործվի մեկ օգտագործման վիճակագրություն, "
-"օրինակ. ցուցադրելու ամենաշատ օգտագործվող հայտերի պատվիրված ցանկը կամ "
-"դասակարգելու համար\n"
-"\t\tորոնման արդյունքները. Խնդրում ենք որպես կանխադրված ընտրել կազմաձևված "
-"չափորոշիչներից մեկը:\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "Վիճակագրություն &amp; հաշվետվություններ"

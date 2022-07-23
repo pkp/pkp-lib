@@ -479,18 +479,10 @@ msgstr "Rollen"
 msgid "manager.statistics"
 msgstr "Statistiken &amp; Berichte"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tIhr {$contextObjectName} ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.\n"
-"\t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Artikel angezeigt werden soll oder um Suchergebnisse zu gewichten.\n"
-"\t\tBitte wählen Sie eine der Nutzungsmetriken als Standard aus.\n"
-"\t"
-
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Stadt"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy
@@ -500,98 +492,11 @@ msgstr "Berichtserstellung"
 msgid "manager.statistics.reports.description"
 msgstr "Das System erstellt Berichte, die die Details der Verarbeitung von Beiträgen aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/innen sowie Rubriken über einen festgelegten Zeitraum nachzeichnen. Die Berichte werden im CSV-Format erstellt, die mit einer Tabellenkalkulation betrachtet werden können."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Erzeuge Statistiken nach:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Elemente, die kursiv gesetzt und mit * markiert sind, stehen für optionale Daten für die momentane Statistikmethode in OJS sind (gewählte Metrik). Abhängig von Ihrer Konfiguration des Statistik-Plugins haben Sie diese Daten oder nicht."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Standard-Berichtsvorlagen"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Benutzerdefinierten Bericht erzeugen"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Erweiterte Einstellungen"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Erweiterte Einstellungen verbergen"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Spalten"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definieren Sie die Spalten, die zum Erzeugen des Berichts benutzt werden. Die Spalten, die Sie auswählen legen nicht nur fest, welche Daten im Bericht angzeigt werden, sondern definieren auch die Aggregationsstufe der Statistik. Wenn Sie zum Beispiel die Spalten ID, Typ und Monat auswählen, wird der Repurt alle Aufrufe eines Objekts in einem Monat summieren und diese Information in einer Zeile anzeigen. Wenn Sie stattdessen Tag statt Monat auswählen, wird jedes Objekt eine Zeile für jeden Tag erhalten."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filter"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objekt nicht in Datenbank gefunden"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Objekttyp"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Objekt-ID"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definieren Sie eine oder mehrere Objekt-ID, jeweils mit Komma getrennt (z.B. 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Gestern"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Aktueller Monat"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Sortieren nach"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Richtung"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Aufsteigend"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Absteigend"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Benutzen Sie das YYYYMM-Format."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Benutzen Sie das YYYYMMDD-Format."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Ein oder mehrere Städtenamen, jeweils mit Komma getrennt (z.B. Stadt 1,Stadt 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Sie müssen mindestens eine Spalte auswählen, um den Bericht zu erzeugen."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Bericht-URL"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Die folgende URL kann benutzt werden, um den Bericht mit den aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Nach Kontext"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Nach Objekttyp oder Objekt-ID"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Wähle Berichtszeitraum"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Oder wähle Zeitraum nach:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Nach Standort"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Ergebnisse nach Land, Region und/oder Stadt filtern.."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
@@ -2119,9 +2024,6 @@ msgstr "Benachrichtigen"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Einreichungen deaktivieren"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Benutzerdefinierte Berichterstellung"
 
 msgid "manager.people.signedInAs"
 msgstr "Sie sind derzeit als {$username} angemeldet"

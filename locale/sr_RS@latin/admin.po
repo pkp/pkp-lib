@@ -308,11 +308,6 @@ msgstr "Greška: ne mogu da izvršim \"{$utilPath}\".  Proverite vaše podešava
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nema lokalizacija dostupnih za preuzimanje"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"Vaša instalacija je podešena da prati više od jedne statistike. Statistike korišćenja biće prikazane u više različitih konteksta.\n"
-"\t\tPostoje slučajevi gde je potrebno koristiti samo jednu statistiku, npr. prikazivanje složene liste najkorišćenijih predaja ili prilikom rangiranja rezultata pretrage. Molimo vas da podesite jednu od podešenih metrika kao primarnu."
-
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr "Iskopirajte pristupne log fajlove za apache, filtrirajući upise vezane za ovu instalaciju u direktorij za fajlove unutar UsageStatsPlugin status/stage direktorija. Morate obezbediti privilegije za čitanje i pristup apache log fajlovima. Ovaj alat će iskopirati samo one fajlove  koji nisu već u direktorijima  za usageStats (status, obrada, arhiviraj, odbij)."
 

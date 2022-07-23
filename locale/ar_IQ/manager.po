@@ -511,18 +511,10 @@ msgstr "الأدوار"
 msgid "manager.statistics"
 msgstr "الإحصائيات والتقارير"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tإن {$contextObjectName} في نظامك مهيأ لتسجيل أكثر من مقياس استعمال واحد. إحصائيات الاستعمال سيتم عرضها في عدة سياقات.\n"
-"\t\tهناك حالات لا بد فيها من استعمال إحصائية واحدة، مثلاً: عرض قائمة مرتبة بأكثر طلبات النشر استعمالاً\n"
-"\t\tأو عند تقييم نتائج البحث في الموقع. لطفاً، عليك اختيار أحد هذه المقاييس ليكون بمثابة المقياس الافتراضي.\n"
-"\t"
-
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "المدينة"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "المنطقة"
 
 #, fuzzy
@@ -532,98 +524,11 @@ msgstr "منشئ التقرير"
 msgid "manager.statistics.reports.description"
 msgstr "النظام ينشئ تقارير تحصي التفاصيل المتعلقة باستعمال الموقع وطلبات النشر فيه خلال فترة زمنية معينة. هذه التقارير تكون بشكل ملفات بصيغة CSV ما يعني أنها تتطلب تشغيل برنامج لمعالجة الجداول لمعاينتها."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "تجميع البيانات حسب:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "الفقرات ذات الحروف المائلة والمعلمة بالنجمة * تمثل البيانات الإختيارية بالنسبة إلى الطريقة الحالية لحساب الإحصائية في النظام (نوعية المقياس). قد تتوافر لديك هذه المعلومات أو لا اعتماداً على إعدادات البرنامج الإضافي للإحصائيات."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "قوالب التقرير الإفتراضية"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "أنشئ تقريراً مخصصاً"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "الخيارات المتقدمة"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "إخفاء الخيارات المتقدمة"
-
-msgid "manager.statistics.reports.columns"
-msgstr "إختر العمود"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "حدد الأعمدة التي ستستعمل لإنشاء التقرير. الأعمدة التي تختارها هنا لا تحدد فقط أي من البيانات سيكون متاحاً ضمن التقرير فحسب، بل ستحدد أيضاً مستوى التجميع لتلك البيانات. على سبيل المثال؛ إذا اخترت حقول: الرمز، النوع، والتاريخ، فإن التقرير سيجمع كل المشاهدات لمكون ما لشهر واحد وسيعرض هذه البيانات في سطر واحد. إذا اخترت اليوم بدلاً من الشهر، فكل مكون سيكون له سطر واحد لكل يوم."
-
-msgid "manager.statistics.reports.filters"
-msgstr "التصفية"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "المكون غير موجود في قاعدة البيانات"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "نوعية المكون"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "رمز المكون"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "حدد واحداً أو أكثر من رموز المكون وافصل بينها بفارزة إنجليزية (مثلاً: 1,2,3,4,5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "البارحة"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "الشهر الحالي"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "نوعية الفرز"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "الاتجاه"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "تصاعدي"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "تنازلي"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "استعمل التنسيق YYYYMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "استعمل التنسيق YYYYMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "واحداً أو أكثر من أسماء المدن مع الفصل بينها بفارزة إنجليزية (مثلاً: المدينة 1, المدينة 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "عليك أن تختار عموداً واحداً على الأقل لإنشاء التقرير."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "رابط التقرير"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "الرابط الآتي يمكن أن يستعمل لإنشاء التقرير بإعدادات النموذج الحالية. فقط، إنسخها إلى مستعرض الإنترنت ثم اضغط enter. بإمكانك استعمال المحفوظات في المستعرض لحفظ روابط التقارير المخصصة التي تصنعها."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "حسب السياق"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "حسب نوعية المكون و/أو رمزه"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "اختر مدى التقرير"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "أو اختر المدى حسب:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "حسب الموقع الجغرافي"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "ضيِّق النتائج حسب الدولة، المنطقة و/أو المدينة."
 
 msgid "manager.affiliationAndSupport"
 msgstr "الراعي"
@@ -2045,9 +1950,6 @@ msgstr "لقد تمت استعادة قوالب البريد الالكترون�
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "حذف الإعلان"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "منشئ التقارير المخصص"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "إختر المستخدمين المطلوب تصديرهم إلى ملف Excel/CSV."

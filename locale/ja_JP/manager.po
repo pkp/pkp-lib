@@ -1568,105 +1568,11 @@ msgstr "出版の詳細"
 msgid "manager.affiliationAndSupport"
 msgstr "スポンサー"
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "国、地域、都市で絞り込みます。"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "地理的な位置で"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "または、範囲を選択します:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "レポート範囲の選択"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "オブジェクト種別やオブジェクトIDによって"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "文脈で"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"以下のURLを使用すると、現在のフォーム設定でレポートを生成することができます。このURLをコピーしてブラウザで開いてください。また、このURLをカスタム"
-"レポートURLジェネレータとしてブックマークに保存することもできます。"
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "レポートURL"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "レポートを作成するには、少なくとも1つの列を選択する必要があります。"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "コンマで区切られた1つ以上の都市名（例：都市名1,都市名2）"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "YYYYMMDD 形式を使用します。"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "YYYYMM 形式を使用します。"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "降順"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "昇順"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "向き"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "並び替え"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "今月"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "コンマで区切られた1つまたは複数のオブジェクトIDを定義します（例：1,2,3,4,5）。"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"レポートの作成に使用する列を定義します。ここで選択した列は、レポート内に表示されるデータを定義するだけでなく、統計の集約レベルも定義します。例えば、ID、"
-"種別、月の3つの列を選択した場合、レポートは1ヶ月間のオブジェクトのすべてのビューを合計し、そのデータを1行に表示します。「月」ではなく「日」を選択した場"
-"合、各オブジェクトは日ごとに行を持つことになります。"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "オブジェクトID"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "オブジェクト種別"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "データベースにオブジェクトが存在しない"
-
-msgid "manager.statistics.reports.filters"
-msgstr "フィルター"
-
-msgid "manager.statistics.reports.columns"
-msgstr "列"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "詳細オプションを隠す"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "詳細オプション"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "カスタムレポートジェネレーター"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "カスタムレポートの生成"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "デフォルトのレポートテンプレート"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"イタリック体で*マークがついている項目は、現在のシステムの統計の数え方（メートル法）ではオプションとなっているデータです。統計プラグインの設定によって、そ"
-"のデータがある場合とない場合があります。"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "統計情報を次で集約:"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -1676,20 +1582,11 @@ msgstr ""
 msgid "manager.statistics.reports"
 msgstr "レポート"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "地域"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "都市"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tお使いの {$contextObjectName} "
-"は、複数の使用状況の指標を記録するように設定されています。使用状況の統計情報は、複数のコンテキストで表示されます。\n"
-"\t\t最も使用された投稿の順序付きリストを表示したり、検索結果をランク付けしたりするなど、単一の使用統計を使用しなければならない場合があります。\n"
-"\t\t設定されたメトリクスの1つをデフォルトとして選択してください。\n"
-"\t"
 
 msgid "manager.statistics"
 msgstr "統計 &amp; レポート"
@@ -2219,9 +2116,6 @@ msgstr "外観"
 
 msgid "manager.website.information"
 msgstr "情報"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "昨日"
 
 msgid "manager.publication.reviewStage"
 msgstr "査読"

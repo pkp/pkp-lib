@@ -735,134 +735,17 @@ msgstr ""
 "Αυτές οι λεπτομέρειες μπορεί να περιλαμβάνονται στα μεταδεδομένα που "
 "εμφανίζονται στην σελίδα \"Σχετικά με το περιοδικό\"."
 
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Περιορίστε τα αποτελέσματα κατά χώρα, περιοχή και/ή πόλη."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Κατά γεωγραφική περιοχή"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ή επιλέξτε την έκταση κατά:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Επιλέξτε την έκταση της αναφοράς"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Κατά τύπο και/ή ID αντικειμένου"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Κατά πλαίσιο"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Ο ακόλουθος σύνδεσμος μπορεί να χρησιμοποιηθεί για τη δημιουργία μιας "
-"αναφοράς με τις τρέχουσες ρυθμίσεις φόρμας.  Μπορείτε να το αντιγράψετε και "
-"να τον δείτε στον περιηγητή σας.  Επίσης μπορείτε να την αποθηκεύσετε στους "
-"σελιδοδείκτες σας."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "Σύνδεσμος Αναφοράς"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr ""
-"Πρέπει να επιλέξετε τουλάχιστον μία στήλη για να δημιουργηθεί η αναφορά."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Ένα ή περισσότερα ονόματα πόλεων χωρισμένα με κόμμα (πχ Πόλη 1, Πόλη 2)"
-
 msgid "manager.statistics.reports.day.label"
 msgstr "Χρησιμοποιήστε την μορφή ΕΕΕΕΜΜΗΗ."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Χρησιμοποιήστε την μορφή ΕΕΕΕΜΜ."
 
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Φθίνουσα"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Αύξουσα"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Κατεύθυνση"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ταξινόμηση κατά"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Τρέχων μήνας"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Χθες"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Ορίστε ένα ή περισσότερα IDs αντικειμένων χωρισμένα με κόμμα (π.χ. "
-"1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID αντικειμένου"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Τύπος Αντικειμένου"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Δεν βρέθηκε το αντικείμενο στη βάση δεδομένων"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Φίλτρα"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Καθορίστε τις στήλες που θα χρησιμοποιηθούν για την δημιουργία της "
-"αναφοράς.  Οι στήλες που θα επιλέξετε εδώ όχι μόνο καθορίζουν ποια δεδομένα "
-"θα παρουσιαστούν μέσα στις αναφορές, αλλά καθορίζουν και το βαθμό "
-"συσσωμάτωσης στα στατιστικά.  Για παράδειγμα αν επιλέξετε τις στήλες ID, "
-"Τύπος και Μήνας, η αναφορά θα αθροίσει όλες τις προβολές ενός αντικειμένου "
-"σε ένα μήνα και θα παρουσιάσει τα δεδομένα σε μία γραμμή.  Αν επιλέξετε "
-"Ημέρα αντί για Μήνα, κάθε αντικείμενο θα έχει μία γραμμή για κάθε μέρα."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Στήλες"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Απόκρυψη Σύνθετων Επιλογών"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Σύνθετες επιλογές"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Δημιουργία μη τυποποιημένης Αναφοράς"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Προεπιλεγμένα Πρότυπα Αναφορών"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Αντικείμενα με πλάγια γραφή και σημειωμένα με * αντιπροσωπεύουν μη "
-"υποχρεωτικά δεδομένα για τον τρόπο υπολογισμού των στατιστικών στο σύστημα "
-"(μετρικό). Η ύπαρξη αυτών των δεδομένων εξαρτάται από την διαμόρφωση του "
-"πρόσθετου στατιστικών."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Συγκεντρωτικά στατιστικά κατά:"
-
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Περιφέρεια"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Πόλη"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tTo {$contextObjectName} σας έχει ρυθμιστεί για να καταγράψει περισσότερα "
-"από ένα μετρικά συστήματα χρήσης. Τα στατιστικά χρήσης θα εμφανιστεί σε "
-"πολλαπλά πλαίσια.\n"
-"\t\tΥπάρχουν περιπτώσεις όπου ένα μοναδικό στατιστικό χρήσης πρέπει να "
-"χρησιμοποιηθεί, π.χ.η προβολή μιας λίστας των πιο δημοφιλών άρθρων ή η "
-"ταξινόμηση των αποτελεσμάτων αναζήτησης. Επιλέξτε ένα από τα μετρικά "
-"συστήματα ως προκαθορισμένο.\n"
-"\t"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""

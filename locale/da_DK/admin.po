@@ -263,6 +263,12 @@ msgstr "Påmindelse om bedømmelse"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påmindelse om abonnementsophør"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Brugerstatistik over fil-loader-opgave"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Filen {$file} kunne ikke åbnes og blev afvist."
+
 msgid "admin.systemInfo.settingName"
 msgstr "Navn på indstilling"
 
@@ -276,17 +282,6 @@ msgstr ""
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Ryd logfiler over planlagte opgaver"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tDin installation er konfigureret til at optage mere end én "
-"brugsparameter. Brugsstatistikker vises i flere sammenhænge.\n"
-"  Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. en "
-"visning af en ordnet liste over mest viste indlæg eller en rangering af "
-"søgeresultater. Vælg \n"
-"  venligst en af de konfigurerede beregninger som standard.\n"
-"\t"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr ""

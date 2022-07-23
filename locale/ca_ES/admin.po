@@ -163,6 +163,12 @@ msgstr "Recordatori de revisió"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatori de caducitat de la subscripció"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "L'arxiu {$file} no s'ha pogut obrir i s'ha rebutjat."
+
 msgid "admin.server.apacheVersion"
 msgstr "Versió d’Apache"
 
@@ -195,13 +201,6 @@ msgstr "Adreça electrònica del contacte principal"
 
 msgid "admin.settings.contactName"
 msgstr "Nom del contacte principal"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tLa instal·lació està configurada per enregistrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.\n"
-"\t\tHi ha casos en què s'ha d'utilitzar una estadística d'ús, p.ex. per mostrar una llista ordenada de les trameses més emprades o bé per ordenar els resultats d'una cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.\n"
-"\t"
 
 msgid "admin.settings.introduction"
 msgstr "Introducció"

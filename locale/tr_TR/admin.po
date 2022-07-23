@@ -257,6 +257,12 @@ msgstr "Değerlendirme hatırlatıcısı"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Abonelik sona erme hatırlatıcısı"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Kullanım istatistikleri dosya yükleyici görevi"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "{$file} dosyası açılamadı ve reddedildi."
+
 msgid "admin.settings.siteLogo"
 msgstr "Site Logosu"
 
@@ -315,18 +321,6 @@ msgid "admin.languages.cantDisable"
 msgstr ""
 "Bu dil sitenin birincil dilidir. Başka bir dili birincil dil olarak seçmeden "
 "önce bunu silemezsiniz."
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tSistem kurulumunuz birden fazla kullanım istatistiği kaydedecek şekilde "
-"yapılandırıldı. Kullanım istatistikleri birden fazla şekilde görüntülenecek."
-"\n"
-"Bazı durumlarda tek bir kullanım istatistiği kullanılması gereklidir. ör. en "
-"çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya, arama "
-"sonuçlarını derecelendirmek için. Lütfen yapılandırılmış metriklerden birini "
-"varsayılan olarak seçin.\n"
-"\t"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""

@@ -114,9 +114,6 @@ msgstr "Cargar arquivo"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Cargar arquivo de revisión"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Métricas dispoñibeis"
-
 msgid "defaultMetric.title"
 msgstr "Métrica predeterminada"
 
@@ -146,9 +143,6 @@ msgstr "Acceso público"
 
 msgid "common.count"
 msgstr "Total"
-
-msgid "common.metric"
-msgstr "Métrica"
 
 msgid "common.plugins"
 msgstr "Módulos"
@@ -591,14 +585,8 @@ msgstr "Altura"
 msgid "common.go"
 msgstr "Ir"
 
-msgid "common.until"
-msgstr "Ata"
-
 msgid "common.fromWithValue"
 msgstr "Dende: {$value}"
-
-msgid "common.from"
-msgstr "Dende"
 
 msgid "common.filterRemove"
 msgstr "Limpar filtros: {$filterTitle}"

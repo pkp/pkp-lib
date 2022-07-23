@@ -687,9 +687,6 @@ msgstr "Carregant"
 msgid "common.plugins"
 msgstr "Mòduls"
 
-msgid "common.metric"
-msgstr "Mètrica"
-
 msgid "common.count"
 msgstr "Recompte"
 
@@ -716,9 +713,6 @@ msgstr "Notes:"
 
 msgid "defaultMetric.title"
 msgstr "Mètrica predeterminada"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Mètriques disponibles"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Carrega un fitxer de revisió"
@@ -2003,14 +1997,8 @@ msgstr "{$value} o menys"
 msgid "common.lastActivity"
 msgstr "Darrera activitat registrada el {$date}."
 
-msgid "common.until"
-msgstr "Fins a"
-
 msgid "common.fromWithValue"
 msgstr "Des de: {$value}"
-
-msgid "common.from"
-msgstr "Des de"
 
 msgid "common.filterRemove"
 msgstr "Netejar filtre: {$filterTitle}"

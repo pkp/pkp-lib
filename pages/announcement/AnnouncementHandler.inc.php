@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncementHandler
+ * @class AnnouncementHandler
  * @ingroup pages_announcement
  *
  * @brief Handle requests for public announcement functions.

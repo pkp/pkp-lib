@@ -684,22 +684,10 @@ msgstr "Vytvořit nový formulář pro recenzenty"
 msgid "manager.setup.competingInterests.required"
 msgstr "Požadovat vyjádření ke konfliktu zájmů pro recenzenty."
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tVáš {$contextObjectName} je nakonfigurován tak, aby zaznamenal více než "
-"jednu metriku přístupů. Statistika přístupů se zobrazí v několika kontextech."
-"\n"
-"Existují případy, kdy může být použita pouze jedna statistika přístupů, "
-"např. při zobrazení uspořádaného seznamu nejčastěji čtených příspěvků nebo "
-"při hodnocení.\n"
-"výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchozí.\n"
-"\t"
-
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Město"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Region"
 
 #, fuzzy
@@ -733,98 +721,11 @@ msgstr "Jste si jisti, že chcete vytvořit kopii tohoto formuláře pro recenze
 msgid "manager.reviewForms.confirmDelete"
 msgstr "Jste si jisti, že chcete smazat tento formulář pro recenzenty?"
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Agregovat statistiky podle:"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Položky kurzívou a označené * označují data, která jsou volitelná pro aktuální způsob počítání statistik v systému (typ metriky). Můžete mít tato data nebo ne, v závislosti na konfiguraci pluginů statistik."
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Výchozí šablony zpráv"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Generovat specifickou zprávu"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Rozšířené možnosti"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Skrýt rozšířené možnosti"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Sloupce"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Definujte sloupce, které budou použity k sestavení sestavy. Zde vybrané sloupce určují nejen to, která data budou prezentována uvnitř přehledů, ale také určují úroveň agregace statistik. Pokud například vybíráte sloupce ID, Typ a Měsíc, sestava shrne všechny pohledy z objektu z jednoho měsíce a tyto údaje uvede v jednom řádku. Pokud vyberete den namísto měsíce, každý objekt bude mít řádek pro každý den."
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtry"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objekt nebyl nalezen v databázi"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Typ objektu"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ID objektu"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Definujte jedno, nebo více ID objektů, oddělujte je čárkami (např. 1, 2, 3, 4, 5)."
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Včera"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Tento měsíc"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Řazeno dle"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Směr"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Vzestupně"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Sestupně"
-
 msgid "manager.statistics.reports.month.label"
 msgstr "Použijte formát RRRRMM."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Použijte formát RRRRMMDD."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Jeden, nebo více názvů města, oddělených čárkou (např. Město 1, Město 2)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Před generací přehledu musíte zvolit alespoň jeden sloupec."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL přehledu"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Následující adresa URL může být použita k vygenerování sestavy s aktuálním nastavením formuláře. Stačí adresu zkopírovat a otevřít ji ve vašem prohlížeči. Můžete si adresu také uložit v záložkách vašeho prohlížeče."
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Podle kontextu"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Podle typu objektu a/nebo ID objektu"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Vyberte rozsah přehledu"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Nebo vyberte rozsah podle:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Podle geografického umístění"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Z´úžit výsledky podle státu, regionu a/nebo města."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
@@ -2153,9 +2054,6 @@ msgstr "Oznámit"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Zakázat příspěvky"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Generátor vlastních sestav"
 
 msgid "manager.people.signedInAs"
 msgstr "Aktuálně jste přihlášeni jako {$username}"

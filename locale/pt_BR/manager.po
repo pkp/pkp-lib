@@ -543,80 +543,17 @@ msgstr "Formulários"
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Restaurar padrões"
 
-msgid "manager.statistics.city"
+msgid "stats.city"
 msgstr "Cidade"
 
-msgid "manager.statistics.region"
+msgid "stats.region"
 msgstr "Região"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Agregar estatísticas por:"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Gerar relatório personalizado"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opções avançadas"
-
-msgid "manager.statistics.reports.columns"
-msgstr "Colunas"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Filtros"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipo de Objeto"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "Identificador do Objeto"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "Defina um ou mais identificadores, separados por vírgula (ex. 1,3,5,7)."
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mês atual"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordenar por"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Direção"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Crescente"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Decrescente"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Use o formato ano/mês."
 
 msgid "manager.statistics.reports.day.label"
 msgstr "Use o formato ano/mês/dia."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "Um ou mais nomes de cidades, separadas por vírgula (ex. Brasília,São Paulo,Curitiba)"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Selecione ao menos uma coluna para gerar o relatório."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL do relatório"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Por contexto"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Por tipo de objeto e/ou identificador"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Selecione o alcance do relatório"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ou selecione o alcance por:"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Por localização geográfica"
 
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
@@ -629,30 +566,6 @@ msgstr "O nome da editora aparecerá na página Sobre a revista."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Diretrizes para autores"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tSeu {$contextObjectName} está configurado para gravar mais de uma "
-"métrica de uso. As estatísticas de uso serão exibidas em diferentes "
-"contextos.\n"
-"Há casos em que uma única estatística de uso devem ser utilizada, por "
-"exemplo, para exibir uma lista ordenada de submissões mais utilizados ou "
-"para classificação de resultados da pesquisa. Por favor selecione uma das "
-"métricas configuradas como padrão.\n"
-"\t"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Modelos de relatórios padrão"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr "Defina as colunas que serão utilizadas para a construção do relatório. As colunas que você selecionar aqui não só definirão quais dados serão apresentados dentro dos relatórios, mas também definem o nível de agregação das estatísticas. Por exemplo, se você escolher as colunas ID, Tipo e Mês, o relatório irá somar todas as visualizações de um objeto a partir de um mês e vai apresentar os dados em uma linha. Se você optar por dia em vez de mês, cada objeto terá uma linha para cada dia."
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "A seguinte URL pode ser usado para gerar o relatório com as definições atuais. Basta copiar ela e colar em seu navegador. Você pode usar seus favoritos para armazenar a URL do seu gerador de relatório personalizado."
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Restringir resultados por país, região e / ou cidade."
 
 msgid "manager.setup.competingInterests"
 msgstr "Conflito de Interesses"
@@ -1141,15 +1054,6 @@ msgstr "Tem certeza que deseja apagar este formulário de avaliação?"
 msgid "manager.reviewFormElements.included"
 msgstr "Incluído na mensagem ao autor"
 
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ocultar Opções Avançadas"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Objeto não encontrado na base de dados"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Ontem"
-
 msgid "manager.plugins.installConfirm"
 msgstr "Tem certeza que deseja instalar este plugin?"
 
@@ -1179,9 +1083,6 @@ msgstr "Atualizado"
 
 msgid "manager.plugins.noCompatibleVersion.short"
 msgstr "Não disponível"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Os itens em itálico e marcados com * representam dados que são opcionais para a atual forma de contar as estatísticas no sistema (tipo de métrica). Você pode ter estes dados ou não, dependendo da configuração do plugin de estatísticas."
 
 msgid "manager.setup.additionalContent"
 msgstr "Conteúdo Adicional"
@@ -2165,9 +2066,6 @@ msgstr "Notificar"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Desabilitar Submissões"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Gerador de Relatórios Customizados"
 
 msgid "manager.people.signedInAs"
 msgstr "Você está atualmente logado como {$username}"

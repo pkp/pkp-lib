@@ -419,14 +419,8 @@ msgstr "إضافة التصفية: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "تصفير التصفية: {$filterTitle}"
 
-msgid "common.from"
-msgstr "من"
-
 msgid "common.fromWithValue"
 msgstr "من: {$value}"
-
-msgid "common.until"
-msgstr "حتى"
 
 msgid "common.go"
 msgstr "إذهب"
@@ -851,9 +845,6 @@ msgstr "تحميل..."
 msgid "common.plugins"
 msgstr "الإضافات"
 
-msgid "common.metric"
-msgstr "المقياس"
-
 msgid "common.count"
 msgstr "العدد"
 
@@ -883,9 +874,6 @@ msgstr "ملاحظات:"
 
 msgid "defaultMetric.title"
 msgstr "المقياس الافتراضي"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "المقاييس المتاحة"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "رفع الملف للتحكيم"

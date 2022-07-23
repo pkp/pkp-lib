@@ -1736,9 +1736,6 @@ msgstr "Last opp"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Last opp fil"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Tilgjengelige verdier"
-
 msgid "defaultMetric.title"
 msgstr "Standardverdi"
 
@@ -1747,9 +1744,6 @@ msgstr "Offentlig tilgang"
 
 msgid "common.count"
 msgstr "Antall"
-
-msgid "common.metric"
-msgstr "Verdi"
 
 msgid "common.viewProfile"
 msgstr "Se profil"
@@ -1905,14 +1899,8 @@ msgstr "Elementer per side"
 msgid "common.homepageNavigationLabel"
 msgstr "Hjem"
 
-msgid "common.until"
-msgstr "Til"
-
 msgid "common.fromWithValue"
 msgstr "Fra: {$value}"
-
-msgid "common.from"
-msgstr "Fra"
 
 msgid "common.filterRemove"
 msgstr "Fjern filter: {$filterTitle}"

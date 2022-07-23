@@ -900,9 +900,6 @@ msgstr "დანართის დამატება"
 msgid "editor.submissionReview.uploadFile"
 msgstr "განხილვის ფაილის ატვირთვა"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "ხელმისაწვდომი მეტრიკები"
-
 msgid "defaultMetric.title"
 msgstr "ნაგულისხმევი მეტრიკა"
 
@@ -926,9 +923,6 @@ msgstr "მონაცემთა ბაზის მოთხოვნებ�
 
 msgid "common.publicAccess"
 msgstr "საჯარო წვდომა"
-
-msgid "common.metric"
-msgstr "მეტრული"
 
 msgid "common.viewWithName"
 msgstr "ნახვა {$name}"
@@ -1151,14 +1145,8 @@ msgstr "მთავარი გვერდის სათაური"
 msgid "common.go"
 msgstr "გადასვლა"
 
-msgid "common.until"
-msgstr "სანამ"
-
 msgid "common.fromWithValue"
 msgstr "გამგზავნი: {$value}"
-
-msgid "common.from"
-msgstr "გამგზავნი"
 
 msgid "common.filterRemove"
 msgstr "ფილტრის გასუფთავება: {$filterTitle}"

@@ -1237,9 +1237,6 @@ msgstr "Unggah File"
 msgid "editor.submissionReview.uploadFile"
 msgstr "Unggah File Review"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Metrik Tersedia"
-
 msgid "defaultMetric.title"
 msgstr "Metrik Bawaan"
 
@@ -1248,9 +1245,6 @@ msgstr "AKses Publik"
 
 msgid "common.count"
 msgstr "Jumlah"
-
-msgid "common.metric"
-msgstr "Metrik"
 
 msgid "common.plugins"
 msgstr "Plugin"
@@ -1428,14 +1422,8 @@ msgstr "Beranda"
 msgid "common.go"
 msgstr "Lanjut"
 
-msgid "common.until"
-msgstr "Hingga"
-
 msgid "common.fromWithValue"
 msgstr "Dari: {$value}"
-
-msgid "common.from"
-msgstr "Dari"
 
 msgid "common.filterRemove"
 msgstr "Hapus filter: {$filterTitle}"

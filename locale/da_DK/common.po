@@ -1340,17 +1340,11 @@ msgstr "Emner"
 msgid "common.component"
 msgstr "Dele"
 
-msgid "common.metric"
-msgstr "Mål"
-
 msgid "common.count"
 msgstr "Antal"
 
 msgid "defaultMetric.title"
 msgstr "Standardmål"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Tilgængelige mål"
 
 msgid "email.senderName"
 msgstr "Afsenders navn"
@@ -1499,12 +1493,6 @@ msgstr "Sletter"
 
 msgid "common.downloadPdf"
 msgstr "Download PDF"
-
-msgid "common.from"
-msgstr "Fra"
-
-msgid "common.until"
-msgstr "Indtil"
 
 msgid "common.saving"
 msgstr "Gemmer"

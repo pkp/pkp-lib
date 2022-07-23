@@ -139,6 +139,12 @@ msgstr "Erinnerung an Begutachtung"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Erinnerung an Ende des Abonnements"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Task zum Laden der Nutzungsstatistik-Datei"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Die Datei {$file} konnte nicht geöffnet werden und wurde zurückgewiesen."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache-Version"
 
@@ -168,14 +174,6 @@ msgstr "E-Mail-Adresse des Hauptkontakts"
 
 msgid "admin.settings.contactName"
 msgstr "Name des Hauptkontakts"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tIhre Installation ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.\n"
-"\t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Beiträge angezeigt werden soll oder um\n"
-"\t\tSuchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.\n"
-"\t"
 
 msgid "admin.settings.introduction"
 msgstr "Einführung"

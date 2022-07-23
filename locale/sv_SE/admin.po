@@ -138,6 +138,12 @@ msgstr "Granskningspåminnelse"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påminnelse om att prenumeration går ut"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Filladdningsuppgift för användningsstatistik"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Det gick inte att öppna filen {$file} och den var därför avvisad."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache-version"
 
@@ -167,14 +173,6 @@ msgstr "E-postadress till primär kontakt"
 
 msgid "admin.settings.contactName"
 msgstr "Namn på primär kontakt"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tDin installation är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.\n"
-"\t\tDet finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för\n"
-"\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som default.\n"
-"\t"
 
 msgid "admin.settings.introduction"
 msgstr "Introduktion"

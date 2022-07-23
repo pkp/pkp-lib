@@ -148,6 +148,12 @@ msgstr "Rappel d'évaluation"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Rappel d'expiration d'abonnement"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tâche de versement du fichier de statistiques d'utilisation"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Le fichier {$file} n'a pas pu être ouvert et a été rejeté."
+
 msgid "admin.server.apacheVersion"
 msgstr "Version Apache"
 
@@ -177,19 +183,6 @@ msgstr "Courriel de la personne-ressource principale"
 
 msgid "admin.settings.contactName"
 msgstr "Nom de la personne-ressource principale"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tVotre installation OJS est paramétrée pour enregistrer plus d'une mesure "
-"d'utilisation. Les statistiques d'utilisation seront affichées dans "
-"plusieurs contextes.\n"
-"Il y a des cas où seule une statistique d'utilisation doit être utilisée, "
-"par exemple pour afficher une liste ordonnée des articles les plus "
-"consultés\n"
-"ou pour classer les résultats de recherche. Veuillez sélectionner l'une des "
-"mesures configurées par défaut.\n"
-"\t"
 
 msgid "admin.settings.introduction"
 msgstr "Introduction"

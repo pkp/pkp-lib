@@ -425,14 +425,8 @@ msgstr "Добавить фильтр: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Сбросить фильтр: {$filterTitle}"
 
-msgid "common.from"
-msgstr "От"
-
 msgid "common.fromWithValue"
 msgstr "От: {$value}"
-
-msgid "common.until"
-msgstr "По"
 
 msgid "common.go"
 msgstr "Выполнить"
@@ -872,9 +866,6 @@ msgstr "Идёт загрузка"
 msgid "common.plugins"
 msgstr "Модули"
 
-msgid "common.metric"
-msgstr "Метрика"
-
 msgid "common.count"
 msgstr "Счетчик"
 
@@ -904,9 +895,6 @@ msgstr "Примечания:"
 
 msgid "defaultMetric.title"
 msgstr "Метрика по умолчанию"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Доступные метрики"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Загрузить файл рецензии"

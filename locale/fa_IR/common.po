@@ -387,12 +387,6 @@ msgstr "نوع فایل"
 msgid "common.fileUploaderError"
 msgstr "سامانه آپلود فایل در حال بارگذاری است. در صورت عدم نمایش صحیح، احتمال آن می‌رود که این سامانه در مرورگر شما پشتیبانی نمی‌شود. برای حل این مشکل با مدیر سایت تماس حاصل فرمایید."
 
-msgid "common.from"
-msgstr "از"
-
-msgid "common.until"
-msgstr "تا"
-
 msgid "common.go"
 msgstr "برو"
 
@@ -753,9 +747,6 @@ msgstr "در حال بارگذاری ..."
 msgid "common.plugins"
 msgstr "افزونه‌ها"
 
-msgid "common.metric"
-msgstr "معیار اندازه‌گیری"
-
 msgid "common.count"
 msgstr "تعداد"
 
@@ -782,9 +773,6 @@ msgstr "یادداشت‌ها:"
 
 msgid "defaultMetric.title"
 msgstr "معیار اندازه‌گیری پیش‌فرض"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "معیارهای اندازه‌گیری موجود"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "آپلود فایل داوری"

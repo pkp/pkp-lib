@@ -12,11 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.statistics.reports.filters.byObject.description"
-msgstr ""
-"Restrinja los resultados por tipo de objeto (servidor, preimpresión, tipos "
-"de archivo) y/o por uno o más identificadores de objeto."
-
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Vistas de la página principal del servidor"
 
@@ -64,16 +59,6 @@ msgstr "Conteo de vistas de preprint (solo para autores)"
 
 msgid "manager.statistics.statistics"
 msgstr "Estadísticas del servidor"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\t\tSu servidor está configurado para registrar más de una métrica de uso. "
-"Las estadísticas de uso se mostrarán en varios contextos. \n"
-"Hay casos en los que se debe utilizar una única estadística de uso, por ej. "
-"para mostrar una lista ordenada de las preimpresiones más utilizadas o para "
-"clasificar \n"
-"los resultados de la búsqueda. Seleccione una de las métricas configuradas "
-"como predeterminada."
 
 msgid "manager.setup.userRegistration"
 msgstr "registro de usuario"

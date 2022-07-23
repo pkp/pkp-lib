@@ -12,11 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.statistics.reports.filters.byObject.description"
-msgstr ""
-"Restrinja os resultados por tipo de objeto (servidor, preprint, tipo de "
-"arquivo) e/ou por um ou mais identificadores de objeto."
-
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Número de visualizações da página principal do servidor"
 
@@ -64,15 +59,6 @@ msgstr "Contagem de visualizações do preprint (apenas para autores)"
 
 msgid "manager.statistics.statistics"
 msgstr "Estatísticas do servidor"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\t\t→→Seu servidor está configurado para registrar mais de uma métrica de "
-"uso. As estatísticas de uso serão mostradas em vários contextos.→→ Há casos "
-"nos quais se deve utilizar uma única estatística de uso, por ex. para "
-"mostrar uma lista ordenada dos preprints mais utilizados ou para "
-"classificar→→os resultados da busca. Selecione uma das métricas configuradas "
-"como predeterminada."
 
 msgid "manager.setup.userRegistration"
 msgstr "Registro de usuário"

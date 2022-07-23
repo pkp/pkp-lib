@@ -24,25 +24,33 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\submission\RepresentationDAOInterface;
 
-define('REQUIRES_XSL', false);
-
-define('ASSOC_TYPE_PREPRINT', PKPApplication::ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
-define('ASSOC_TYPE_GALLEY', PKPApplication::ASSOC_TYPE_REPRESENTATION);
-
-define('ASSOC_TYPE_SERVER', 0x0000100);
-
-define('METRIC_TYPE_COUNTER', 'ops::counter');
-
 class Application extends PKPApplication
 {
+    public const ASSOC_TYPE_PREPRINT = self::ASSOC_TYPE_SUBMISSION;
+    public const ASSOC_TYPE_GALLEY = self::ASSOC_TYPE_REPRESENTATION;
+    public const ASSOC_TYPE_SERVER = 0x0000100;
+    public const REQUIRES_XSL = false;
+
     /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        if (!PKP_STRICT_MODE && !class_exists('\Application')) {
-            class_alias('\APP\core\Application', '\Application');
+        if (!PKP_STRICT_MODE) {
+            foreach ([
+                'REQUIRES_XSL',
+                'ASSOC_TYPE_PREPRINT',
+                'ASSOC_TYPE_GALLEY',
+                'ASSOC_TYPE_SERVER',
+            ] as $constantName) {
+                if (!defined($constantName)) {
+                    define($constantName, constant('self::' . $constantName));
+                }
+            }
+            if (!class_exists('\Application')) {
+                class_alias('\APP\core\Application', '\Application');
+            }
         }
 
         // Add application locales
@@ -113,9 +121,11 @@ class Application extends PKPApplication
         return array_merge(parent::getDAOMap(), [
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
             'ServerDAO' => 'APP\server\ServerDAO',
-            'MetricsDAO' => 'APP\statistics\MetricsDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
             'SectionDAO' => 'APP\server\SectionDAO',
+            'TemporaryTotalsDAO' => 'APP\statistics\TemporaryTotalsDAO',
+            'TemporaryItemInvestigationsDAO' => 'APP\statistics\TemporaryItemInvestigationsDAO',
+            'TemporaryItemRequestsDAO' => 'APP\statistics\TemporaryItemRequestsDAO',
         ]);
     }
 

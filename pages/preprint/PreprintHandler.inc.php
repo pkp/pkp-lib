@@ -14,13 +14,18 @@
  *
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\observers\events\Usage;
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 
 use Firebase\JWT\JWT;
+use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 
 use PKP\submissionFile\SubmissionFile;
@@ -101,7 +106,6 @@ class PreprintHandler extends Handler
         }
 
         $this->preprint = $submission;
-
         // Get the requested publication or if none requested get the current publication
         $subPath = empty($args) ? 0 : array_shift($args);
         if ($subPath === 'version') {
@@ -280,7 +284,9 @@ class PreprintHandler extends Handler
             }
 
             if (!HookRegistry::call('PreprintHandler::view', [&$request, &$preprint, $publication])) {
-                return $templateMgr->display('frontend/pages/preprint.tpl');
+                $templateMgr->display('frontend/pages/preprint.tpl');
+                event(new Usage(Application::ASSOC_TYPE_SUBMISSION, $context, $preprint));
+                return;
             }
         } else {
 
@@ -374,6 +380,17 @@ class PreprintHandler extends Handler
 
                 $filename = Services::get('file')->formatFilename($submissionFile->getData('path'), $submissionFile->getLocalizedData('name'));
 
+                // if the file is a gallay file (i.e. not a dependent file e.g. CSS or images), fire an usage event.
+                if ($this->galley->getData('submissionFileId') == $this->fileId) {
+                    $assocType = Application::ASSOC_TYPE_SUBMISSION_FILE;
+                    $genreDao = DAORegistry::getDAO('GenreDAO');
+                    $genre = $genreDao->getById($submissionFile->getData('genreId'));
+                    // TO-DO: is this correct ?
+                    if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                        $assocType = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
+                    }
+                    event(new Usage($assocType, $request->getContext(), $this->preprint, $this->galley, $submissionFile));
+                }
                 $returner = true;
                 HookRegistry::call('FileManager::downloadFileFinished', [&$returner]);
 

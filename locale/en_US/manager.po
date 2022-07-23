@@ -272,12 +272,6 @@ msgstr "Provide metadata to third-party indexing services through the <a href=\"
 msgid "manager.setup.userRegistration"
 msgstr "User Registration"
 
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\t\tYour server is configured to record more than one usage metric. Usage statistics will be displayed in several contexts."
-"\t\tThere are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used preprints or to rank"
-"\t\tsearch results. Please select one of the configured metrics as a default."
-
 msgid "manager.statistics.statistics"
 msgstr "Server Statistics"
 
@@ -319,9 +313,6 @@ msgstr "Preprint abstract page views"
 
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Server main page views"
-
-msgid "manager.statistics.reports.filters.byObject.description"
-msgstr "Narrow results by object type (server, preprint, file types) and/or by one or more object id(s)."
 
 msgid "grid.category.path"
 msgstr "Path"
@@ -652,3 +643,6 @@ msgstr "The submitted DOI is not valid"
 
 msgid "api.issue.403.canEditPublishedDoi"
 msgstr "Only DOIs can be edited after a publication has been published"
+
+msgid "manager.institutions.noContext"
+msgstr "This institution's press could not be found."

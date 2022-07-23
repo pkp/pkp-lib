@@ -193,11 +193,6 @@ msgstr "Preprint-Server-Bibliothek"
 msgid "grid.category.path"
 msgstr "Pfad"
 
-msgid "manager.statistics.reports.filters.byObject.description"
-msgstr ""
-"Schränken Sie die Ergebnisse nach Objekttyp (Server, Preprint, Dateitypen) "
-"und/oder nach einer oder mehreren Objekt-ID(s) ein."
-
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Server-Hauptseitenaufrufe"
 
@@ -244,15 +239,6 @@ msgstr "Anzahl der Preprints (nur für Autoren)"
 
 msgid "manager.statistics.statistics"
 msgstr "Server-Statistik"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\t\tIhr Server ist so konfiguriert, dass er mehr als eine Nutzungsmetrik "
-"aufzeichnet. Die Nutzungsstatistiken werden in verschiedenen Kontexten "
-"angezeigt. \t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik "
-"verwendet werden muss, z. B. um eine geordnete Liste der meistgenutzten "
-"Preprints anzuzeigen oder um\t\t Suchergebnisse zu ordnen. Bitte wählen Sie "
-"eine der konfigurierten Metriken als Standard aus."
 
 msgid "manager.setup.userRegistration"
 msgstr "Benutzerregistrierung"

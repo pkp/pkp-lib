@@ -300,9 +300,6 @@ msgstr "Öz"
 msgid "preprint.details"
 msgstr "Detaylar"
 
-msgid "publication.version"
-msgstr "Sürüm {$version}"
-
 msgid "common.publications"
 msgstr "Ön Baskı"
 

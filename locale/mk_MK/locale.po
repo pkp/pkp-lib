@@ -297,9 +297,6 @@ msgstr "Апстракт"
 msgid "preprint.details"
 msgstr "Детали"
 
-msgid "publication.version"
-msgstr "Верзија {$version}"
-
 msgid "common.publications"
 msgstr "Отпечатоци"
 

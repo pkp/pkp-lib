@@ -149,7 +149,7 @@
 			{/if}
 
 			{* DOI *}
-			{assign var=doiObject value=$currentPublication->getData('doiObject')}
+			{assign var=doiObject value=$publication->getData('doiObject')}
 			{if $doiObject}
 				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
 				<section class="item doi">

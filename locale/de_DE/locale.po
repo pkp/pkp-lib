@@ -310,9 +310,6 @@ msgstr "Abstract"
 msgid "preprint.details"
 msgstr "Details"
 
-msgid "publication.version"
-msgstr "Version {$version}"
-
 msgid "common.publications"
 msgstr "Preprints"
 

@@ -72,9 +72,6 @@ msgstr "Preprint"
 msgid "common.publications"
 msgstr "Preprints"
 
-msgid "publication.version"
-msgstr "Version {$version}"
-
 msgid "preprint.details"
 msgstr "Details"
 

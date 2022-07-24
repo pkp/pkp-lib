@@ -120,28 +120,19 @@ class Repository extends \PKP\publication\Repository
     {
         $newId = parent::version($publication);
 
+        $context = Application::get()->getRequest()->getContext();
+
         $galleys = $publication->getData('galleys');
+        $isDoiVersioningEnabled = $context->getData(Context::SETTING_DOI_VERSIONING);
         if (!empty($galleys)) {
             foreach ($galleys as $galley) {
                 $newGalley = clone $galley;
                 $newGalley->setData('id', null);
                 $newGalley->setData('publicationId', $newId);
+                if ($isDoiVersioningEnabled) {
+                    $newGalley->setData('doiId', null);
+                }
                 Repo::galley()->add($newGalley);
-            }
-        }
-
-        // Version DOI if the pattern includes the publication id
-        // FIXME: Move DOI versioning logic out of pubIdPlugin
-        $context = $this->request->getContext();
-        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-        $doiPubIdPlugin = $pubIdPlugins['doipubidplugin'] ?? null;
-        if ($doiPubIdPlugin) {
-            $pattern = $doiPubIdPlugin->getSetting($context->getId(), 'doiPublicationSuffixPattern');
-            if (strpos($pattern, '%b')) {
-                $publication = $this->get($newId);
-                $this->edit($publication, [
-                    'pub-id::doi' => $doiPubIdPlugin->versionPubId($publication),
-                ]);
             }
         }
 

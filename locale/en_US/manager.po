@@ -35,6 +35,16 @@ msgstr "Use default patterns.<br />%j.%a for preprints<br />%j.%a.g%g for galley
 msgid "doi.manager.settings.doiCreationTime.copyedit"
 msgstr "Upon reaching the production stage"
 
+msgid "doi.manager.settings.doiVersioning.description"
+msgstr "Assign a new DOI to each publication version? "
+"Most preprint servers will want to use the default option (yes) to ensure preprint versions are correctly assigned DOIs."
+
+msgid "doi.manager.settings.doiVersioning.yes"
+msgstr "Yes, assign a unique DOI to every version of a preprint."
+
+msgid "doi.manager.settings.doiVersioning.no"
+msgstr "No, all versions of a preprint should have the same DOI."
+
 msgid "manager.language.ui"
 msgstr "UI"
 

@@ -242,9 +242,6 @@ msgstr "Résumé"
 msgid "preprint.details"
 msgstr "Renseignements"
 
-msgid "publication.version"
-msgstr "Version {$version}"
-
 msgid "common.publications"
 msgstr "Prépublications"
 

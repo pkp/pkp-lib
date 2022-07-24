@@ -14,7 +14,7 @@
  */
 
 namespace APP\API\v1\_dois;
- 
+
 use APP\facades\Repo;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
@@ -54,7 +54,12 @@ class BackendDoiHandler extends \PKP\API\v1\_dois\PKPBackendDoiHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        if ($galley->getData('contextId') !== $context->getId()) {
+        $publicationId = $galley->getData('publicationId');
+        $publication = Repo::publication()->get((int)$publicationId);
+        $submissionId = $publication->getData('submissionId');
+        $submission = Repo::submission()->get((int) $submissionId);
+
+        if ($submission->getData('contextId') !== $context->getId()) {
             return $response->withStatus(403)->withJsonError('api.dois.403.editItemOutOfContext');
         }
 
@@ -68,14 +73,12 @@ class BackendDoiHandler extends \PKP\API\v1\_dois\PKPBackendDoiHandler
 
         Repo::galley()->edit($galley, ['doiId' => $doi->getId()]);
 
-        $publicationId = $galley->getData('publicationId');
-        $publication = Repo::publication()->get((int)$publicationId);
-        $submissionId = $publication->getData('submissionId');
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
+        // Re-fetch submission and publication to reflect changes in galley
         $submission = Repo::submission()->get((int)$submissionId);
+        $publication = Repo::publication()->get((int) $publicationId);
         $galley = Repo::galley()->get($galley->getId());
 
         $galleyProps = Repo::galley()->getSchemaMap($submission, $publication, $genres)->map($galley);

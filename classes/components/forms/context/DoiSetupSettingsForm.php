@@ -17,6 +17,7 @@ namespace APP\components\forms\context;
 use APP\facades\Repo;
 use PKP\components\forms\context\PKPDoiSetupSettingsForm;
 use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldRadioInput;
 use PKP\context\Context;
 
 class DoiSetupSettingsForm extends PKPDoiSetupSettingsForm
@@ -40,6 +41,22 @@ class DoiSetupSettingsForm extends PKPDoiSetupSettingsForm
                 ]
             ],
             'value' => $context->getData(Context::SETTING_ENABLED_DOI_TYPES) ? $context->getData(Context::SETTING_ENABLED_DOI_TYPES) : [],
-        ]), [FIELD_POSITION_BEFORE, Context::SETTING_DOI_PREFIX]);
+        ]), [FIELD_POSITION_BEFORE, Context::SETTING_DOI_PREFIX])
+            ->addField(new FieldRadioInput(Context::SETTING_DOI_VERSIONING, [
+                'label' => __('doi.manager.settings.doiVersioning'),
+                'description' => __('doi.manager.settings.doiVersioning.description'),
+                'groupId' => self::DOI_SETTINGS_GROUP,
+                'options' => [
+                    [
+                        'value' => true,
+                        'label' => __('doi.manager.settings.doiVersioning.yes')
+                    ],
+                    [
+                        'value' => false,
+                        'label' => __('doi.manager.settings.doiVersioning.no')
+                    ]
+                ],
+                'value' => $context->getData(Context::SETTING_DOI_VERSIONING) === null ? true : (bool) $context->getData(Context::SETTING_DOI_VERSIONING)
+            ]));
     }
 }

@@ -59,11 +59,17 @@ msgstr "The following locales are not supported: {$locales}."
 msgid "api.dois.403.editItemOutOfContext"
 msgstr "You cannot edit an item's DOI that is not in this context."
 
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "The publication type was not recognized"
+
 msgid "api.dois.404.contextNotFound"
 msgstr "This endpoint is not available from the site-wide namespace, and must be requested for a given context."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "The DOI you requested was not found."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "The publication object you requested was not found."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr "Unpublished items cannot be exported/deposited. Please deselect unpublished items and try again."

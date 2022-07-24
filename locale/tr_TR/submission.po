@@ -2408,3 +2408,6 @@ msgstr "Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden g�
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Editör yazışmaları için ana iletişim."
+
+msgid "publication.version"
+msgstr "Sürüm {$version}"

@@ -968,7 +968,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        $newId = Repo::publication()->version($publication, $request);
+        $newId = Repo::publication()->version($publication);
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();

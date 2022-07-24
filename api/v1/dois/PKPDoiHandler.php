@@ -33,6 +33,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
 
 use Slim\Http\Request as SlimRequest;
 use Slim\Http\Response;
@@ -232,7 +233,7 @@ class PKPDoiHandler extends APIHandler
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_DOI, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DOI, $slimRequest->getParsedBody());
         $params['contextId'] = $context->getId();
 
         $errors = Repo::doi()->validate(null, $params);
@@ -252,12 +253,17 @@ class PKPDoiHandler extends APIHandler
     }
 
     /**
-     * Edit a DOI
+     * Edit a DOI.
+     *
+     * When a pub object type and id are provided as body parameters, the DOI should only be modified for that pub object.
+     * To prevent the DOI from being modified for other objects it may be assigned to, we must create a new DOI
+     * and assign it to the object instead of editing the old DOI.
+     *
+     * When a pub object type and id are NOT provided, this function will only edit the DOI with ID of `doiId`
+     * without any side effects.
      */
     public function edit(SlimRequest $slimRequest, APIResponse $response, array $args): Response
     {
-        $request = $this->getRequest();
-
         $doi = Repo::doi()->get((int) $args['doiId']);
 
         if (!$doi) {
@@ -269,28 +275,59 @@ class PKPDoiHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.dois.403.editItemOutOfContext');
         }
 
-        $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_DOI, $slimRequest->getParsedBody());
-        $params['id'] = $doi->getId();
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DOI, $slimRequest->getParsedBody());
 
         $errors = Repo::doi()->validate($doi, $params);
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        Repo::doi()->edit($doi, $params);
+        $pubObjectType = $slimRequest->getParsedBodyParam('pubObjectType');
+        $pubObjectId = $slimRequest->getParsedBodyParam('pubObjectId');
 
-        $doi = Repo::doi()->get($doi->getId());
+        // Default behaviour, only edits DOI
+        if (empty($pubObjectType) && empty($pubObjectId)) {
+            Repo::doi()->edit($doi, $params);
+            $doi = Repo::doi()->get($doi->getId());
 
-        return $response->withJson(Repo::doi()->getSchemaMap()->map($doi), 200);
+            return $response->withJson(Repo::doi()->getSchemaMap()->map($doi), 200);
+        }
+
+        $pubObjectHandler = $this->getPubObjectHandler($pubObjectType);
+        if (is_null($pubObjectHandler)) {
+            return $response->withStatus(403)->withJsonError('api.dois.403.pubTypeNotRecognized');
+        }
+
+        // Check pubObject for doiId
+        $pubObject = $this->getViaPubObjectHandler($pubObjectHandler, $pubObjectId);
+        if ($pubObject?->getData('doiId') != $doi->getId()) {
+            return $response->withStatus(404)->withJsonError('api.dois.404.pubObjectNotFound');
+        }
+
+        // Copy DOI object data
+        $newDoi = clone $doi;
+        $newDoi->unsetData('id');
+        $newDoi->setAllData(array_merge($newDoi->getAllData(), ['doi' => $params['doi']]));
+        $newDoiId = Repo::doi()->add($newDoi);
+
+        // Update pubObject with new DOI and remove elsewhere if no longer in use
+        $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, $newDoiId);
+        if (!Repo::doi()->isAssigned($doi->getId(), $pubObjectType)) {
+            Repo::doi()->delete($doi);
+        }
+
+        return $response->withJson(Repo::doi()->getSchemaMap()->map($newDoi), 200);
     }
 
     /**
      * Delete a DOI
+     *
+     * When a pub object type and id are provided as body parameters, the DOI should only be deleted for that object.
+     * To prevent the DOI from being removed for other objects it may be assigned to, we remove the doiId from the
+     * pubObject then check if it's in use anywhere else before removing the DOI object directly.
      */
     public function delete(SlimRequest $slimRequest, APIResponse $response, array $args): Response
     {
-        $request = $this->getRequest();
-
         $doi = Repo::doi()->get((int) $args['doiId']);
 
         if (!$doi) {
@@ -304,7 +341,32 @@ class PKPDoiHandler extends APIHandler
 
         $doiProps = Repo::doi()->getSchemaMap()->map($doi);
 
-        Repo::doi()->delete($doi);
+        $pubObjectType = $slimRequest->getParsedBodyParam('pubObjectType');
+        $pubObjectId = $slimRequest->getParsedBodyParam('pubObjectId');
+
+        // Default behaviour, directly delete DOI
+        if (empty($pubObjectType) && empty($pubObjectId)) {
+            Repo::doi()->delete($doi);
+
+            return $response->withJson($doiProps, 200);
+        }
+
+        $pubObjectHandler = $this->getPubObjectHandler($pubObjectType);
+        if (is_null($pubObjectHandler)) {
+            return $response->withStatus(403)->withJsonError('api.dois.403.pubTypeNotRecognized');
+        }
+
+        // Check pubObject for doiId
+        $pubObject = $this->getViaPubObjectHandler($pubObjectHandler, $pubObjectId);
+        if ($pubObject?->getData('doiId') != $doi->getId()) {
+            return $response->withStatus(404)->withJsonError('api.dois.404.pubObjectNotFound');
+        }
+
+        // Remove reference to DOI from pubObject and remove DOI object if no longer in use elsewhere
+        $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, null);
+        if (!Repo::doi()->isAssigned($doi->getId(), $pubObjectType)) {
+            Repo::doi()->delete($doi);
+        }
 
         return $response->withJson($doiProps, 200);
     }
@@ -626,5 +688,46 @@ class PKPDoiHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.403.unauthorized');
         }
         return $response->withStatus(200);
+    }
+
+    /**
+     * Gets a "handler" (either a repo or DAO) for a pub object to perform DOI-related operations.
+     * See PKPDoiHandler::edit() and PKPDoiHandler::delete().
+     *
+     * @param string $type One of Repo::doi()::TYPE_*
+     *
+     * @return mixed Returns either a repo or, for pub objects without repos, a DAO
+     */
+    protected function getPubObjectHandler(string $type): mixed
+    {
+        return match ($type) {
+            Repo::doi()::TYPE_PUBLICATION => Repo::publication(),
+            Repo::doi()::TYPE_REPRESENTATION => Repo::galley(),
+            default => null,
+        };
+    }
+
+    /**
+     * Retrieve the pub object with the given ID.
+     *
+     * @param $pubObjectHandler mixed Either a repo or DAO for the pub object type
+     * @param $pubObjectId int
+     *
+     * @return mixed The actual pub object
+     */
+    protected function getViaPubObjectHandler(mixed $pubObjectHandler, int $pubObjectId): mixed
+    {
+        return $pubObjectHandler->get($pubObjectId);
+    }
+
+    /**
+     * Edit the DOI ID for the given pub object via the "handler" (repo or DAO).
+     *
+     * @param $pubObjectHandler mixed Either a repo or DAO for the pub object type
+     * @param $pubObject mixed The pub object th edit
+     */
+    protected function editViaPubObjectHandler(mixed $pubObjectHandler, mixed $pubObject, ?int $doiId): void
+    {
+        $pubObjectHandler->edit($pubObject, ['doiId' => $doiId]);
     }
 }

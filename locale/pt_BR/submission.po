@@ -2754,3 +2754,6 @@ msgstr ""
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Contato principal para correspondência editorial."
+
+msgid "publication.version"
+msgstr "Versão {$version}"

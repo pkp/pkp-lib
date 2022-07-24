@@ -252,7 +252,7 @@ msgid "manager.dois.registration.viewRecord.title"
 msgstr "Successful Registration Message"
 
 msgid "manger.dois.update.success"
-msgstr "DOIs successfully updated"
+msgstr "DOI(s) successfully updated"
 
 msgid "manager.dois.registration.depositDois"
 msgstr "Deposit DOI(s)"
@@ -279,7 +279,7 @@ msgid "manager.dois.update.failedCreation"
 msgstr "DOI Updates Failed"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Some DOI(s) could not be updated."
+msgstr "Some DOI(s) could not be updated"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Items successfully exported"
@@ -873,8 +873,20 @@ msgstr ""
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "None"
 
+msgid "doi.manager.settings.doiVersioning"
+msgstr "DOI Versioning"
+
 msgid "doi.authorization.enabledRequired"
 msgstr "You cannot call this operation without DOIs enabled."
+
+msgid "doi.manager.versions.countStatement"
+msgstr "There are {$count} versions."
+
+msgid "doi.manager.versions.view"
+msgstr "View all"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOIs for all versions"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "The DOI contains invalid characters."

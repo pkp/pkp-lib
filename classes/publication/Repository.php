@@ -36,6 +36,7 @@ use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
 
@@ -315,6 +316,12 @@ abstract class Repository
         $newPublication->setData('status', Submission::STATUS_QUEUED);
         $newPublication->setData('version', $publication->getData('version') + 1);
         $newPublication->stampModified();
+
+        $context = Application::get()->getRequest()->getContext();
+
+        if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+            $newPublication->setData('doiId', null);
+        }
         $newId = $this->add($newPublication);
         $newPublication = Repo::publication()->get($newId);
 
@@ -333,7 +340,7 @@ abstract class Repository
         }
 
         if (!empty($newPublication->getData('citationsRaw'))) {
-            $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+            $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var \PKP\citation\CitationDAO $citationDao */
             $citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
         }
 
@@ -446,9 +453,6 @@ abstract class Repository
 
         $newPublication = Repo::publication()->get($newPublication->getId());
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
-
-        // Create DOIs
-        $_failureResults = Repo::submission()->createDois($submission);
 
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {

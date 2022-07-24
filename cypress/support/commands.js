@@ -699,6 +699,27 @@ Cypress.Commands.add('checkDoiConfig', doiTypes => {
 	cy.get('#doisSetup [role="status"]').contains('Saved');
 });
 
+Cypress.Commands.add('assignDoisByTitle', (title, itemType = 'submission') => {
+	cy.get(
+		`#${itemType}-doi-management .listPanel__item:contains("${title}") input[name="${itemType}[]"]`
+	).check();
+
+	// Select assign DOIs from bulk actions
+	cy.get(`#${itemType}-doi-management button:contains("Bulk Actions")`).click({
+		multiple: true
+	});
+	cy.get('button:contains("Assign DOIs")').click();
+
+	// Confirm assignment
+	cy.get(
+		'div[data-modal="bulkActions"] button:contains("Assign DOIs")'
+	).click();
+	cy.get('.app__notifications').contains(
+		'Items successfully assigned new DOIs',
+		{timeout: 20000}
+	);
+});
+
 Cypress.Commands.add('assignDois', (itemId, itemType = 'submission') => {
 	cy.get(`input[name="${itemType}[]"][value=${itemId}]`).check();
 

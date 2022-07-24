@@ -26,6 +26,8 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\UserGroupDAO;
+use PKP\submission\GenreDAO;
 
 use Slim\Http\Request as SlimRequest;
 
@@ -75,7 +77,7 @@ class PKPBackendDoiHandler extends APIHandler
 
 
     /**
-     * @throws Exception
+     * @throws \Exception
      */
     public function editPublication(SlimRequest $slimRequest, APIResponse $response, array $args): \Slim\Http\Response
     {

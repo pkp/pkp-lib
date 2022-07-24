@@ -29,6 +29,8 @@ class Collector implements CollectorInterface
 
     public ?array $contextIds = null;
 
+    public ?array $doiIds = null;
+
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
@@ -61,17 +63,26 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterByDoiIds(?array $doiIds): self
+    {
+        $this->doiIds = $doiIds;
+        return $this;
+    }
+
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as g')
             ->select(['g.*'])
-            ->when(!is_null($this->publicationIds), function ($qb) {
+            ->when(!is_null($this->publicationIds), function (Builder $qb) {
                 $qb->whereIn('g.publication_id', $this->publicationIds);
             })
-            ->when(!is_null($this->contextIds), function ($qb) {
+            ->when(!is_null($this->contextIds), function (Builder $qb) {
                 $qb->join('publications as p', 'p.publication_id', '=', 'g.publication_id')
                     ->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
                     ->whereIn('s.context_id', $this->contextIds);
+            })
+            ->when(!is_null($this->doiIds), function (Builder $qb) {
+                $qb->whereIn('g.doi_id', $this->doiIds);
             })
             ->orderBy('g.seq', 'asc');
 

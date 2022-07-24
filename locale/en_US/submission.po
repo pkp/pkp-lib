@@ -2317,3 +2317,6 @@ msgstr "Data Availability Statement"
 
 msgid "submission.dataAvailability.tip"
 msgstr "State whether you have made evidence supporting this work available, and if so, where and how it can be accessed"
+
+msgid "publication.version"
+msgstr "Version {$version}"

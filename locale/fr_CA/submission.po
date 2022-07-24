@@ -2035,3 +2035,6 @@ msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langu
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Personne-ressource principale pour la correspondance éditoriale."
+
+msgid "publication.version"
+msgstr "Version {$version}"

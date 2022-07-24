@@ -25,6 +25,7 @@ class Collector implements CollectorInterface
     public \APP\publication\DAO $dao;
     public ?array $contextIds;
     public ?array $submissionIds;
+    public ?array $doiIds = null;
     public ?int $count;
     public ?int $offset;
 
@@ -66,6 +67,12 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterByDoiIds(?array $doiIds): self
+    {
+        $this->doiIds = $doiIds;
+        return $this;
+    }
+
     /**
      * Limit the number of objects retrieved
      */
@@ -101,6 +108,10 @@ class Collector implements CollectorInterface
         if (isset($this->submissionIds)) {
             $qb->whereIn('p.submission_id', $this->submissionIds);
         }
+
+        $qb->when($this->doiIds !== null, function (Builder $qb) {
+            $qb->whereIn('p.doi_id', $this->doiIds);
+        });
 
         if (isset($this->count)) {
             $qb->limit($this->count);

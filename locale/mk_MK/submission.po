@@ -2113,3 +2113,6 @@ msgstr ""
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Главен контакт за уреднички допис."
+
+msgid "publication.version"
+msgstr "Верзија {$version}"

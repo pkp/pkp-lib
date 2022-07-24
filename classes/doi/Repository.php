@@ -283,7 +283,6 @@ abstract class Repository
     {
         $enabledDoiTypes = $context->getData(Context::SETTING_ENABLED_DOI_TYPES) ?? [];
         if ($this->_checkIfSubmissionValidForDeposit($enabledDoiTypes)) {
-
             // If there is no configured registration agency, nothing can be deposited.
             $agency = $context->getConfiguredDoiAgency();
             if (!$agency) {
@@ -308,6 +307,23 @@ abstract class Repository
             // Mark submission DOIs as submitted
             Repo::doi()->markSubmitted($submissionData['doiIds']);
         }
+    }
+
+    /**
+     * Checks whether a DOI object is referenced by ID on any pub objects for a given pub object type.
+     *
+     * @param string $pubObjectType One of Repo::doi()::TYPE_* constants
+     */
+    public function isAssigned(int $doiId, string $pubObjectType): bool
+    {
+        return match ($pubObjectType) {
+            Repo::doi()::TYPE_PUBLICATION => Repo::publication()
+                ->getCollector()
+                ->filterByDoiIds([$doiId])
+                ->getIds()
+                ->count(),
+            default => false,
+        };
     }
 
     /**
@@ -339,10 +355,9 @@ abstract class Repository
     abstract protected function getValidSubmissionDoiTypes(): array;
 
     /**
-     * Gets all relevant DOI IDs related to a submission
-     * NB: Assumes current publication only and only enabled DOI types
+     * Gets all DOI IDs related to a submission
      *
-     * @return array DOI IDs
+     * @return array<int> DOI IDs
      */
     abstract public function getDoisForSubmission(int $submissionId): array;
 

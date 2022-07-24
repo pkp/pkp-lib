@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPDoiListPanel
+ *
  * @ingroup classes_components_list
  *
  * @brief A ListPanel component for viewing and editing DOIs
@@ -43,8 +44,11 @@ abstract class PKPDoiListPanel extends ListPanel
 
     public ?\stdClass $registrationAgencyInfo = null;
 
-    /** @var array Which publishing objecst have DOIs enabled */
+    /** @var array Which publishing objects have DOIs enabled */
     public array $enabledDoiTypes = [];
+
+    /** @var bool Whether to include a DOI per publication version */
+    public bool $versionDois = false;
 
     /** @var string DOI API url for handling DOI operations */
     public $doiApiUrl = '';
@@ -68,6 +72,7 @@ abstract class PKPDoiListPanel extends ListPanel
         $config['itemsMax'] = $this->itemsMax;
         $config['itemType'] = $this->itemType;
         $config['enabledDoiTypes'] = $this->enabledDoiTypes;
+        $config['versionDois'] = $this->versionDois;
         $config['registrationAgencyInfo'] = $this->registrationAgencyInfo;
         $config['doiPrefix'] = $this->doiPrefix;
         $config['filters'][] = [
@@ -157,6 +162,7 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.status.registered',
             'manager.dois.status.error',
             'manager.dois.status.stale',
+            'manager.dois.status.needsDoi',
             'manager.dois.notification.assignDoisSuccess',
             'manager.dois.notification.depositQueuedSuccess',
             'manager.dois.actions.depositAll.label',
@@ -177,6 +183,12 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.actions.description',
             'manager.dois.title',
             'manager.dois.actions.bulkActions',
+            'publication.version',
+            'doi.manager.versions.countStatement',
+            'doi.manager.versions.view',
+            'doi.manager.versions.modalTitle',
+            'common.save',
+            'common.edit',
         ]);
 
         $this->setAppConfig($config);

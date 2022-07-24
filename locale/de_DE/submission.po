@@ -1997,3 +1997,6 @@ msgstr "Es werden Einreichungen in verschiedenen Sprachen akzeptiert. Wählen Si
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Hauptkontakt für die redaktionelle Korrespondenz."
+
+msgid "publication.version"
+msgstr "Version {$version}"

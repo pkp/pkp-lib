@@ -78,6 +78,7 @@ abstract class PKPDoisHandler extends Handler
         $context = $request->getContext();
 
         $enabledDoiTypes = $context->getData(Context::SETTING_ENABLED_DOI_TYPES) ?? [];
+        $versionDois = $context->getData(Context::SETTING_DOI_VERSIONING);
 
         $templateMgr = TemplateManager::getManager($request);
 
@@ -86,6 +87,7 @@ abstract class PKPDoisHandler extends Handler
             'doiApiUrl' => $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'dois'),
             'lazyLoad' => true,
             'enabledDoiTypes' => $enabledDoiTypes,
+            'versionDois' => $versionDois,
             'registrationAgencyInfo' => $this->_getRegistrationAgencyInfo($context),
         ];
 

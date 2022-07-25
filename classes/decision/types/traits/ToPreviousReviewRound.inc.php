@@ -23,7 +23,7 @@ use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\mail\mailables\DecisionBackToPreviousReviewRoundNotifyAuthor;
-use PKP\mail\mailables\DecisionReviewerUnassignedNotifyReviewer;
+use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
@@ -31,7 +31,7 @@ use PKP\user\User;
 
 trait ToPreviousReviewRound
 {
-    use NotifyReviewers;
+    use NotifyReviewersOfUnassignment;
     use NotifyAuthors;
 
     public function getNewStatus(): ?int
@@ -111,7 +111,7 @@ trait ToPreviousReviewRound
                     break;
                 case $this->ACTION_NOTIFY_REVIEWERS:
                     $this->sendReviewersEmail(
-                        new DecisionReviewerUnassignedNotifyReviewer($context, $submission, $decision),
+                        new ReviewerUnassign($context, $submission, null, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission
@@ -156,7 +156,7 @@ trait ToPreviousReviewRound
 
         if (count($reviewAssignments)) {
             $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);
-            $mailable = new DecisionReviewerUnassignedNotifyReviewer($context, $submission, $fakeDecision);
+            $mailable = new ReviewerUnassign($context, $submission, null, $fakeDecision);
             $steps->addStep((new Email(
                 $this->ACTION_NOTIFY_REVIEWERS,
                 __('editor.submission.decision.notifyReviewers'),

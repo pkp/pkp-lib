@@ -28,7 +28,7 @@ use PKP\submissionFile\SubmissionFile;
 
 trait InExternalReviewRound
 {
-    use WithReviewAssignment;
+    use WithReviewAssignments;
 
     /** @copydoc DecisionType::getStageId() */
     public function getStageId(): int

@@ -378,7 +378,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the associated Review Round count for a submission from given submission id
+     * Get the number of review rounds in a submission
      *
      * @param  int $submissionId  Submission id for which review round count need to be determined
      * @param  int $stageId  Review stage id for which review round count need to be determined

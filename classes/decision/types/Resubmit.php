@@ -22,7 +22,7 @@ use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\NotifyReviewers;
+use PKP\decision\types\traits\NotifyReviewersOfAcknowledgement;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\DecisionResubmitNotifyAuthor;
 use PKP\security\Role;
@@ -33,7 +33,7 @@ class Resubmit extends DecisionType
 {
     use InExternalReviewRound;
     use NotifyAuthors;
-    use NotifyReviewers;
+    use NotifyReviewersOfAcknowledgement;
 
     public function getDecision(): int
     {

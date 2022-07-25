@@ -26,7 +26,7 @@ use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\WithReviewAssignment;
+use PKP\decision\types\traits\WithReviewAssignments;
 use PKP\mail\mailables\DecisionBackToSubmissionNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
@@ -37,7 +37,7 @@ use PKP\user\User;
 class BackToSubmissionFromCopyediting extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
-    use WithReviewAssignment;
+    use WithReviewAssignments;
 
     public function getDecision(): int
     {

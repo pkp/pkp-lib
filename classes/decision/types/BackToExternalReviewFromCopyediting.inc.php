@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/BackToExternalReview.inc.php
+ * @file classes/decision/types/BackToExternalReviewFromCopyediting.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -22,20 +22,20 @@ use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\types\interfaces\DecisionRetractable;
-use PKP\decision\types\traits\InCopyEditing;
+use PKP\decision\types\traits\InCopyeditingStage;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\WithReviewAssignment;
+use PKP\decision\types\traits\WithReviewAssignments;
 use PKP\mail\mailables\DecisionBackToReviewNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 
-class BackToExternalReview extends DecisionType implements DecisionRetractable
+class BackToExternalReviewFromCopyediting extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
-    use WithReviewAssignment;
-    use InCopyEditing;
+    use WithReviewAssignments;
+    use InCopyeditingStage;
 
     public function getDecision(): int
     {

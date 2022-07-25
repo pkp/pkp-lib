@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/decision/types/traits/InExternalReviewRound.inc.php
+ * @file classes/decision/types/traits/InCopyeditingStage.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -21,7 +21,7 @@ use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
 use PKP\submissionFile\SubmissionFile;
 
-trait InCopyEditing
+trait InCopyeditingStage
 {
     public function getStageId(): int
     {

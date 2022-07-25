@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/traits/NotifyReviewers.php
+ * @file classes/decision/types/traits/NotifyReviewersOfAcknowledgement.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief Helper functions for decisions that may request a payment
+ * @brief Helper functions for decisions that notify reviewers of a decision taken as a result of their completed review.
  */
 
 namespace PKP\decision\types\traits;
@@ -18,58 +18,18 @@ use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Validation\Validator;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\mail\EmailData;
-use PKP\mail\Mailable;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
 
-trait NotifyReviewers
+trait NotifyReviewersOfAcknowledgement
 {
-    protected string $ACTION_NOTIFY_REVIEWERS = 'notifyReviewers';
-
-    /** @copydoc DecisionType::addEmailDataToMailable() */
-    abstract protected function addEmailDataToMailable(Mailable $mailable, User $user, EmailData $email): Mailable;
-
-    /** @copydoc DecisionType::getAssignedAuthorIds() */
-    abstract protected function getAssignedAuthorIds(Submission $submission): array;
-
-    /** @copydoc WithReviewAssignment::getReviewerIds() */
-    abstract protected function getReviewerIds(int $submissionId, int $reviewRoundId, int $reviewAssignmentState): array;
-
-    /** @copydoc DecisionType::setRecipientError() */
-    abstract protected function setRecipientError(string $actionErrorKey, array $invalidRecipientIds, Validator $validator);
-
-    /**
-     * Validate the decision action to notify reviewers
-     */
-    protected function validateNotifyReviewersAction(array $action, string $actionErrorKey, Validator $validator, Submission $submission, int $reviewRoundId, string $reviewAssignmentState)
-    {
-        $errors = $this->validateEmailAction($action, $submission, $this->getAllowedAttachmentFileStages());
-
-        foreach ($errors as $key => $propErrors) {
-            foreach ($propErrors as $propError) {
-                $validator->errors()->add($actionErrorKey . '.' . $key, $propError);
-            }
-        }
-
-        if (empty($action['recipients'])) {
-            $validator->errors()->add($actionErrorKey . '.recipients', __('validator.required'));
-            return;
-        }
-
-        $reviewerIds = $this->getReviewerIds($submission->getId(), $reviewRoundId, $reviewAssignmentState);
-        $invalidRecipients = array_diff($action['recipients'], $reviewerIds);
-
-        if (count($invalidRecipients)) {
-            $this->setRecipientError($actionErrorKey, $invalidRecipients, $validator);
-        }
-    }
+    use ToNotifyReviewers;
 
     /**
      * Send the email to the reviewers

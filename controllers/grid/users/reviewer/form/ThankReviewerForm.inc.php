@@ -15,13 +15,18 @@
 
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
-use PKP\form\Form;
-use PKP\mail\mailables\ReviewAcknowledgement;
 use Illuminate\Support\Facades\Mail;
-use Symfony\Component\Mailer\Exception\TransportException;
-use PKP\notification\PKPNotification;
 use PKP\context\ContextDAO;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\form\Form;
+use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\mailables\ReviewAcknowledgement;
+use PKP\notification\PKPNotification;
+use PKP\plugins\HookRegistry;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class ThankReviewerForm extends Form
 {

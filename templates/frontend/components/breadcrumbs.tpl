@@ -14,7 +14,7 @@
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
 
-<nav class="cmp_breadcrumbs" role="navigation" aria-label="{translate key="navigation.breadcrumbLabel"}">
+<nav class="cmp_breadcrumbs" role="navigation">
 	<ol>
 		<li>
 			<a href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">

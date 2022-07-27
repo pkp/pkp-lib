@@ -28,7 +28,7 @@ class PKPRouterTestCase extends PKPTestCase
 {
     public const
         PATHINFO_ENABLED = true,
-        PATHINFO_DISABLED = false;
+    PATHINFO_DISABLED = false;
 
     protected $router;
     protected $request;
@@ -84,22 +84,6 @@ class PKPRouterTestCase extends PKPTestCase
         $this->markTestSkipped(); // Not currently working
         $this->request = new Request();
         self::assertFalse($this->router->isCacheable($this->request));
-    }
-
-    /**
-     * @covers PKPRouter::getRequestedContextPath
-     * @covers PKPRouter::getRequestedContextPaths
-     */
-    public function testGetRequestedContextPathWithInvalidLevel()
-    {
-        // Context depth = 1 but we try to access context level 2
-        $this->_setUpMockEnvironment(self::PATHINFO_ENABLED, 1, ['oneContext']);
-        if (version_compare(phpversion(), '8.0.0', '<')) {
-            $this->expectError();
-        } else {
-            $this->expectException(AssertionError::class);
-        }
-        $this->router->getRequestedContextPath($this->request, 2);
     }
 
     /**

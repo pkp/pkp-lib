@@ -13,8 +13,8 @@
  * @brief Mock implementation of the Locale class
  */
 
-use PKP\i18n\Locale;
 use PKP\facades\Locale as LocaleFacade;
+use PKP\i18n\Locale;
 
 import('lib.pkp.tests.mock.env1.MockLocaleMetadata');
 
@@ -30,7 +30,6 @@ class MockLocale extends Locale
      * @param $key string
      * @param $params array named substitution parameters
      * @param $locale string the locale to use
-     * @return string
      */
     public function get($key, array $params = [], $locale = null): string
     {

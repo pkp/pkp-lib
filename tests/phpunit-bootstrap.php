@@ -88,7 +88,7 @@ function require_mock_env($mockEnv)
  * so we can drop in mock classes, especially to mock
  * static method calls.
  *
- * @see bootstrap.inc.php
+ * @see bootstrap.php
  *
  * @param string $class
  */
@@ -114,7 +114,7 @@ function import($class)
     // the requested class.
     foreach ($mockEnvArray as $mockEnv) {
         $classParts = explode('.', $class);
-        $mockClassFile = $mockEnv . '/Mock' . array_pop($classParts) . '.inc.php';
+        $mockClassFile = $mockEnv . '/Mock' . array_pop($classParts) . '.php';
         if (file_exists($mockClassFile)) {
             require_once($mockClassFile);
             return;
@@ -122,7 +122,11 @@ function import($class)
     }
 
     // No mock implementation found, do the normal import
-    require_once('./' . str_replace('.', '/', $class) . '.inc.php');
+    if (file_exists($filename = './' . str_replace('.', '/', $class) . '.php')) {
+        require_once($filename);
+    } else {
+        require_once('./' . str_replace('.', '/', $class) . '.inc.php');
+    }
 }
 
 /**

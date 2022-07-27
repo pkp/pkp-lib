@@ -35,11 +35,6 @@ require_once './lib/pkp/includes/functions.inc.php';
 
 // Register custom autoloader functions for namespaces
 spl_autoload_register(function ($class) {
-    $prefix = 'PKP\\';
-    $rootPath = BASE_SYS_DIR . '/lib/pkp/classes';
-    customAutoload($rootPath, $prefix, $class);
-});
-spl_autoload_register(function ($class) {
     $prefix = 'APP\\';
     $rootPath = BASE_SYS_DIR . '/classes';
     customAutoload($rootPath, $prefix, $class);

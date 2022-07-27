@@ -228,7 +228,9 @@ class SessionManager {
 			($sessionId === false) ? session_id() : $sessionId,
 			$expireTime,
 			ini_get('session.cookie_path'),
-			$domain
+			$domain,
+			false,
+			true
 		);
 	}
 

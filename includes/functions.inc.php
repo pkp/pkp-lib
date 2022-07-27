@@ -75,32 +75,32 @@ function fatalError($reason)
                         $args .= ', ';
                     }
                     switch (gettype($a)) {
-                    case 'integer':
-                    case 'double':
-                        $args .= $a;
-                        break;
-                    case 'string':
-                        $a = htmlspecialchars(substr($a, 0, 64)) . ((strlen($a) > 64) ? '...' : '');
-                        $args .= "\"${a}\"";
-                        break;
-                    case 'array':
-                        $args .= 'Array(' . count($a) . ')';
-                        break;
-                    case 'object':
-                        $args .= 'Object(' . get_class($a) . ')';
-                        break;
-                    case 'resource':
-                        $args .= 'Resource(' . strstr($a, '#') . ')';
-                        break;
-                    case 'boolean':
-                        $args .= $a ? 'True' : 'False';
-                        break;
-                    case 'NULL':
-                        $args .= 'Null';
-                        break;
-                    default:
-                        $args .= 'Unknown';
-                }
+                        case 'integer':
+                        case 'double':
+                            $args .= $a;
+                            break;
+                        case 'string':
+                            $a = htmlspecialchars(substr($a, 0, 64)) . ((strlen($a) > 64) ? '...' : '');
+                            $args .= "\"${a}\"";
+                            break;
+                        case 'array':
+                            $args .= 'Array(' . count($a) . ')';
+                            break;
+                        case 'object':
+                            $args .= 'Object(' . get_class($a) . ')';
+                            break;
+                        case 'resource':
+                            $args .= 'Resource(' . strstr($a, '#') . ')';
+                            break;
+                        case 'boolean':
+                            $args .= $a ? 'True' : 'False';
+                            break;
+                        case 'NULL':
+                            $args .= 'Null';
+                            break;
+                        default:
+                            $args .= 'Unknown';
+                    }
                 }
             }
             $class = $bt['class'] ?? '';
@@ -331,39 +331,6 @@ function ucfirst_codesafe($str)
 function cleanFileVar($var)
 {
     return preg_replace('/[^\w\-]/u', '', $var);
-}
-
-/**
- * Helper function to define custom autoloader
- *
- * @param string $rootPath
- * @param string $prefix
- * @param string $class
- *
- */
-function customAutoload($rootPath, $prefix, $class)
-{
-    if (substr($class, 0, strlen($prefix)) !== $prefix) {
-        return;
-    }
-
-    $class = substr($class, strlen($prefix));
-    $parts = explode('\\', $class);
-
-    // we expect at least one folder in the namespace
-    // there is no class defined directly under classes/ folder
-    if (count($parts) < 2) {
-        return;
-    }
-
-    $className = cleanFileVar(array_pop($parts));
-    $parts = array_map('cleanFileVar', $parts);
-
-    $subParts = join('/', $parts);
-    $filePath = "{$rootPath}/{$subParts}/{$className}.inc.php";
-    if (is_file($filePath)) {
-        require_once($filePath);
-    }
 }
 
 /**

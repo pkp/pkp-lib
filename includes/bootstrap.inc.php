@@ -33,12 +33,5 @@ chdir(BASE_SYS_DIR);
 // System-wide functions
 require_once './lib/pkp/includes/functions.inc.php';
 
-// Register custom autoloader functions for namespaces
-spl_autoload_register(function ($class) {
-    $prefix = 'APP\\';
-    $rootPath = BASE_SYS_DIR . '/classes';
-    customAutoload($rootPath, $prefix, $class);
-});
-
 // Initialize the application environment
 return new \APP\core\Application();

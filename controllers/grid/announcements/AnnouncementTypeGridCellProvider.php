@@ -13,6 +13,8 @@
  * @brief Cell provider for title column of an announcement type grid.
  */
 
+namespace PKP\controllers\grid\announcements;
+
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;

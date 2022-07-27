@@ -211,6 +211,8 @@ class PKPComponentRouter extends PKPRouter
                 $componentFileNamePart = str_replace('.', '/', $component);
                 switch (true) {
                     case file_exists("${componentFileNamePart}.php"):
+                        $className = 'APP\\' . strtr($componentFileNamePart, '/', '\\');
+                        $componentInstance = new $className();
                         break;
 
                     case file_exists("${componentFileNamePart}.inc.php"):
@@ -218,7 +220,8 @@ class PKPComponentRouter extends PKPRouter
                         break;
 
                     case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.php"):
-                        $component = 'lib.pkp.' . $component;
+                        $className = 'PKP\\' . strtr($componentFileNamePart, '/', '\\');
+                        $componentInstance = new $className();
                         break;
 
                     case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.inc.php"):

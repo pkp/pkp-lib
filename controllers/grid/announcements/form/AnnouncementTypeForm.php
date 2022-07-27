@@ -15,9 +15,10 @@
  * @brief Form for manager to create/edit announcement types.
  */
 
+namespace PKP\controllers\grid\announcements\form;
 
 use APP\template\TemplateManager;
-
+use PKP\db\DAORegistry;
 use PKP\form\Form;
 
 class AnnouncementTypeForm extends Form

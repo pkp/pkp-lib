@@ -13,18 +13,19 @@
  * @brief Handle announcement type grid requests.
  */
 
+namespace PKP\controllers\grid\announcements;
+
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\announcements\form\AnnouncementTypeForm;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
-
 use PKP\security\Role;
-
-import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
 
 class AnnouncementTypeGridHandler extends GridHandler
 {

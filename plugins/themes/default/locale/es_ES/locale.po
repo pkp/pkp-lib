@@ -22,9 +22,6 @@ msgstr ""
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
 msgstr "Imagen de fondo del encabezado"
 
-msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
-msgstr "Mostrar el resumen de la revista en la página de inicio."
-
 msgid "plugins.themes.default.option.colour.description"
 msgstr "Elige un color para el encabezado."
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_4_0/I6782_Metrics.inc.php
+ * @file classes/migration/upgrade/v3_4_0/I6782_MetricsSubmission.inc.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -18,7 +18,7 @@ use PKP\config\Config;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
-class I6782_Metrics extends Migration
+class I6782_MetricsSubmission extends Migration
 {
     private const ASSOC_TYPE_SUBMISSION = 0x0100009;
     private const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;

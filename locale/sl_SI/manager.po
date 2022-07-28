@@ -2230,20 +2230,6 @@ msgstr ""
 msgid "mailable.discussionMessage.name"
 msgstr "Novo sporočilo v diskusiji"
 
-msgid "mailable.reviewConfirm.description"
-msgstr "Ta email pošlje recenzent uredniku rubrike kot odgovor na prošnjo za opravljanje recnezije in ga obvešča, da je sprejel recenzijo in jo namerava opraviti do predvidenega datuma."
-
-msgid "mailable.reviewDecline.description"
-msgstr "Ta email pošlje recenzent urendiku rubrike kot odgovor na prošnjo za recenzijo v primeru, ko obvešča urednika rubrike, da recenzijo zavrne."
-
-#, fuzzy
-msgid "mailable.reviewRemind.description"
-msgstr "Ta email pošlje urednik rubrike recenzentu kot opomnik za opravljanje recenzije."
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr "Ta email se pošlje recenzentu avtomatično, ko poteče rok za opravljanje recenzije (več v recenzijskih nastavitveh v Nastavitve > Potek dela > Recenzija) in je izključena opcija za recenzentski dostop z enim klikom. Opozorilo: administrator spletišča mora v nastavitveni datoteki spletišča nastaviti \"Scheduled tasks\"."
-
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Ta email se pošlje avtomatsko, ko recenzent prekorači rok za potrditev "
@@ -2755,24 +2741,6 @@ msgstr ""
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr "Izberite vzorec, ki naj se uporabi za generiranje DOI-jev."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Privzet vzorec"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Oblika DOI"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"DOI predpono dodeli registracijska agencija, kot je <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a>) ali <a href=\""
-"https://datacite.org/\" target=\"new\">DataCite</a>.  Je oblike 10.xxxx"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Vsebina revije"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr "Podrejenega elementa prispevka {$child} ni bilo mogoče obdelati"

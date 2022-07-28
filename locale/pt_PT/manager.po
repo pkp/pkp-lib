@@ -2213,29 +2213,6 @@ msgstr ""
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "O e-mail do contacto principal do site"
 
-msgid "mailable.reviewConfirm.description"
-msgstr "Este e-mail é enviado pelo Revisor ao Editor de Secção, em resposta ao pedido de revisão, para notificar a disponibilidade para realizar a tarefa e de que a mesma será concluída no prazo especificado."
-
-msgid "mailable.reviewDecline.description"
-msgstr ""
-"Este e-mail é enviado pelo Revisor ao Editor de Secção, em resposta ao "
-"pedido de revisão, para notificar da sua inisponibilidade para realizar a "
-"tarefa, rejeitando a revisão."
-
-#, fuzzy
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Este e-mail é enviado pelo Editor ao Revisor como lembrete da tarefa de "
-"revisão em curso. Este e-mail é usado quando um editor envia manualmente um "
-"lembrete ao revisor"
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Este e-mail é enviado automaticamente quando o revisor ainda não concluiu a "
-"sua revisão no prazo previsto. Lembretes automáticos de revisão estão ativos "
-"em Configurações de Revisão."
-
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Este e-mail é enviado automaticamente quando o prazo de resposta de um "
@@ -2741,23 +2718,6 @@ msgstr ""
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr "A assinatura do e-mail do website para e-mail automáticos"
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"O sufixo DOI pode ter vários formatos, mas deve ser único para todas as "
-"publicações que usem o mesmo prefixo:"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Usar padrão por omissão."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Formato DOI"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr "O prefixo DOI é atribuído pelas agências de registo (ex: <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) e é definido no formato 10.xxxx (ex. 10.1234):"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Conteúdo da Revista"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Padrão personalizado (não recomendado)"

@@ -2468,20 +2468,3 @@ msgstr "DOIs abliefern"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Alle abliefern"
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr "Ein DOI-Suffix kann in beliebiger Form sein, muss aber eindeutig unter allen Publikationsobjekten, denen derselbe DOI-Präfix zugewiesen wird:"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Die Standardmuster benutzen."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI-Suffix"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr "Der DOI-Präfix wird von Registrierungsagenturen (z.B. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) vergeben und hat das Format 10.xxxx (z.B. 10.1234):"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Zeitschrifteninhalt"
-
-#, fuzzy

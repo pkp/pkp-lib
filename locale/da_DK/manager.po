@@ -2299,26 +2299,6 @@ msgstr "Ny besked under drøftelser"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-mail på webstedets primære kontaktperson"
 
-msgid "mailable.reviewConfirm.description"
-msgstr "Denne e-mail sendes af en bedømmer til sektionsredaktøren som svar på en bedømmelsesforespørgsel og underretter sektionsredaktøren om, at bedømmelsesforespørgslen er blevet accepteret, og at bedømmelsen vil være fuldført til den angivne dato."
-
-msgid "mailable.reviewDecline.description"
-msgstr "Denne e-mail sendes af en bedømmer til sektionsredaktøren som svar på en bedømmelsesforespørgsel og underretter sektionsredaktøren om, at bedømmelsesforespørgslen er blevet afvist."
-
-#, fuzzy
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Denne e-mail sendes af redaktøren til en bedømmer for at minde vedkommende "
-"om, at bedømmelsen skal afleveres. Denne e-mail bruges, når redaktøren "
-"manuelt vil sende en påmindelse til bedømmeren"
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Denne e-mail sendes automatisk, når en bedømmer ikke har færdigggjort "
-"bedømmelsen inden forfaldsdatoen. Automatiske påmindelser om bedømmelse kan "
-"slåes til under indstillingerne for Bedømmelse under Workflow."
-
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Denne e-mail sendes automatisk, når en bedømmers bekræftelsesdato er "
@@ -2851,24 +2831,6 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Førend denne komponent kan slettes, må du knytte alle relaterede "
 "indsendelsesfiler til en anden komponent."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr "Vælg det format, der skal bruges, når der genereres et DOI."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Standard"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI format"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"DOI-præfikset tildeles af registreringsorganisationer (f.eks. <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a> eller  <a href=\""
-"https://datacite.org/\" target=\"new\">DataCite</a>) og er i formatet 10.xxxx"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Tidsskriftsindhold"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr "Indsendelsens fil {$child} kunne ikke behandles"

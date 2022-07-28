@@ -2115,24 +2115,6 @@ msgstr "رسالة جديدة من المناقشة"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "عنوان البريد الالكتروني لجهة الاتصال الرئيسية في الموقع"
 
-msgid "mailable.reviewConfirm.description"
-msgstr "هذه الرسالة يعنونها المحكم إلى محرر القسم استجابة لالتماس سابق أرسله له الأخير. المحكم يبلغ المحرر بقبوله للتحكيم المذكور خلال مدة الاستيجاب المطلوبة منه."
-
-msgid "mailable.reviewDecline.description"
-msgstr "هذه الرسالة يعنونها المحكم إلى محرر القسم استجابة لالتماس سابق أرسله له الأخير. المحكم يعتذر فيها عن قبول التحكيم للمؤلَّف المذكور."
-
-#, fuzzy
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"هذه الرسالة يُذكر بها المحرر محكماً قد استوجب إكمال تقييمه لمؤلَّف ما. هذه "
-"الرسالة تُستعمل عندما يرسل المحرر تذكيرًا يدويًا إلى المحكم"
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"هذه الرسالة يولدها الموقع آلياً عندما لا يُكمل المحكم مهمة التحكيم حتى موعد "
-"تسليمها. تمكين تذكيرات التحكيم الآلية يتم من خلال إعدادات التحكيم."
-
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "هذه الرسالة يرسلها النظام آلياً عند تجاوز موعد الاستجابة لالتماس التحكيم."
@@ -2610,26 +2592,6 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "قبل أن يتسنى حذف هذا المكون، عليك ربط كل ملفات طلب التقديم ذات الصلة بمكون "
 "آخر."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"لاحقة معرف المكون الرقمي يمكنها أن تكون بأي تنسيق، لكنها لا بد أن تكون فريدة "
-"ما بين كل المكونات المنشورة المنضوية تحت نفس البادئة:"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "استعمل الأنماط الافتراضية."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "لاحقة DOI"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"إن معرف المكون الرقمي يتم تعيينه من قبل وكالات التسجيل (كما في <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a>) وهو بالتنسيق الآتي  "
-"10.xxxx (مثلاً 10.1234):"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "محتوى المجلة"
 
 msgid "stats.name.submissionsSkipped"
 msgstr "طلبات التقديم الأخرى"

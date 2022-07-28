@@ -2239,26 +2239,6 @@ msgstr "Nová diskusní zpráva"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-mail hlavní kontaktní osoby webové stránky"
 
-msgid "mailable.reviewConfirm.description"
-msgstr "Tento email posílá recenzent editorovi sekce v odpovědi na žádost o zpracování recenze, aby mu oznámil, že žádost přijal a zpracuje recenzi ve stanoveném termínu."
-
-msgid "mailable.reviewDecline.description"
-msgstr "Tento email posílá recenzent editorovi sekce v odpovědi na žádost o zpracování recenze, aby mu oznámil, že recenzi nemůže zpracovat."
-
-#, fuzzy
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Tento e-mail zasílá editor, aby recenzentovi připomněl, že má dokončit "
-"recenzi příspěvku. Tento e-mail se používá, když editor ručně zašle "
-"recenzentovi upomínku"
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Tento e-mail se automaticky odešle, pokud recenzent nedokončí recenzi do "
-"stanoveného termínu. Automatické připomenutí recenze lze nastavit v "
-"nastavení recenze."
-
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Tento e-mail je automaticky odeslán po uplynutí lhůty pro odpověď recenzenta "
@@ -2770,24 +2750,6 @@ msgid "stats.description.submissionsSkipped"
 msgstr ""
 "Zahrnuje příspěvky, které nejsou započítány do jiných součtů, například ty, "
 "které jsou stále v procesu, a ty, které se zdají být importovány."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr "Vyberte formát, který má aplikace použít při generování DOI."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Výchozí"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Suffix DOI"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Prefix DOI je přidělován registračními agenturami např. <a href=\"https://www"
-".crossref.org\" target=\"_new\">Crossref</a>) nebo <a href=\"https://datacite"
-".org/\" target=\"new\">DataCite</a>. Např. 10.xxxx"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Obsah časopisu"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Vlastní vzor (nedoporučuje se)"

@@ -2963,26 +2963,6 @@ msgstr ""
 "тези, които все още са в етам на редакиране и тези, които изглежда са "
 "импортирани."
 
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Суфиксът на DOI може да има произволна форма, но трябва да е уникален "
-"измежду всички публикувани обекти с един и същ DOI префикс:"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Използвайте стандартни шаблони."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI формат"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Префиксът на DOI се определя от регистрираща агенция (например,  <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a>) и е във формата "
-"10.xxxx (например, 10.1234):"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Съдържание на списание"
-
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
 "Обработването на свързаните материали - {$child} на подадения материал не бе "
@@ -3008,28 +2988,6 @@ msgstr "Не можете да изпълните тази операция бе
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Неуспешни актуализации на DOI"
-
-msgid "mailable.reviewConfirm.description"
-msgstr ""
-"Този имейл се изпраща от рецензент до редактора на секции в отговор на "
-"искане за рецензия, за да уведоми редактора на секции, че искането за "
-"рецензия е прието и ще бъде завършено до определената дата."
-
-msgid "mailable.reviewDecline.description"
-msgstr ""
-"Този имейл се изпраща от рецензент до редактора на секции в отговор на "
-"искане за рецензия, за да уведоми редактора на секции, че молбата му за "
-"резенция е отхвърлена."
-
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Този имейл се изпраща от редактора, за да напомни на рецензента, че е "
-"изтекъл срокът за подаване на рецензията."
-
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Този имейл се изпраща автоматично, когато рецензентът не е завършил "
-"рецензията си до крайния срок."
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""

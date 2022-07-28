@@ -21,11 +21,3 @@ msgstr "DOI"
 
 msgid "doi.displayName"
 msgstr "DOI"
-
-
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI Suffix"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Žurnalo turinys"

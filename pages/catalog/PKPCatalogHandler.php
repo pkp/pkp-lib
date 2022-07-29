@@ -13,12 +13,14 @@
  * @brief Handle requests for the public-facing catalog.
  */
 
+namespace PKP\pages\catalog;
+
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-
+use PKP\config\Config;
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 

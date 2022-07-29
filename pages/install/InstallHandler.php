@@ -13,6 +13,8 @@
  * @brief Handle installation requests.
  */
 
+namespace PKP\pages\install;
+
 use APP\core\Application;
 use APP\handler\Handler;
 use APP\template\TemplateManager;

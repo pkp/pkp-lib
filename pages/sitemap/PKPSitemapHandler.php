@@ -13,14 +13,16 @@
  * @brief Produce a sitemap in XML format for submitting to search engines.
  */
 
+namespace PKP\pages\sitemap;
+
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
-
 use DOMDocument;
+use PKP\db\DAORegistry;
+use PKP\navigationMenu\NavigationMenuItem;
 
 define('SITEMAP_XSD_URL', 'https://www.sitemaps.org/schemas/sitemap/0.9');
-
-use PKP\navigationMenu\NavigationMenuItem;
 
 class PKPSitemapHandler extends Handler
 {

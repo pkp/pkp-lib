@@ -13,8 +13,7 @@
  * @brief Handle requests for Tool pages.
  */
 
-// Import the base ManagementHandler.
-import('lib.pkp.pages.management.ManagementHandler');
+namespace PKP\pages\management;
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 

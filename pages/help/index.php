@@ -16,5 +16,4 @@
  *
  */
 $op = 'index';
-define('HANDLER_CLASS', 'HelpHandler');
-import('lib.pkp.pages.help.HelpHandler');
+define('HANDLER_CLASS', 'PKP\pages\help\HelpHandler');

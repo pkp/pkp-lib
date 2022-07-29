@@ -13,13 +13,17 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+namespace PKP\pages\workflow;
+
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -266,10 +270,10 @@ abstract class PKPWorkflowHandler extends Handler
             ]
         );
 
-        $citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
-        $publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
-        $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-        $contributorForm = new PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
+        $citationsForm = new \PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+        $publicationLicenseForm = new \PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
+        $titleAbstractForm = new \PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
+        $contributorForm = new \PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
 
         $authorItems = [];
         foreach ($latestPublication->getData('authors') as $contributor) {
@@ -379,7 +383,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
         if ($metadataEnabled || in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
             $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-            $metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+            $metadataForm = new \PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
             $templateMgr->setConstants([
                 'FORM_METADATA' => FORM_METADATA,
             ]);
@@ -397,7 +401,7 @@ abstract class PKPWorkflowHandler extends Handler
             }
         }
         if ($identifiersEnabled) {
-            $identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
+            $identifiersForm = new \PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
             $templateMgr->setConstants([
                 'FORM_PUBLICATION_IDENTIFIERS' => FORM_PUBLICATION_IDENTIFIERS,
             ]);
@@ -407,8 +411,8 @@ abstract class PKPWorkflowHandler extends Handler
 
         // Add the revision decision/recommendation forms if this app supports a review stage
         if (count(array_intersect([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW], Application::getApplicationStages() ?? []))) {
-            $selectRevisionDecisionForm = new PKP\components\forms\decision\SelectRevisionDecisionForm();
-            $selectRevisionRecommendationForm = new PKP\components\forms\decision\SelectRevisionRecommendationForm();
+            $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
+            $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
             $state['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();
             $state['components'][$selectRevisionRecommendationForm->id] = $selectRevisionRecommendationForm->getConfig();
             $templateMgr->setConstants([

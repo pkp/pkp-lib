@@ -13,12 +13,16 @@
  * @brief Handle requests for viewing notifications.
  */
 
+namespace PKP\pages\notification;
+
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\notification\form\PKPNotificationsUnsubscribeForm;
 
 class NotificationHandler extends Handler

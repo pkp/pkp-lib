@@ -12,11 +12,14 @@
  * @brief Handle requests for user's dashboard.
  */
 
+namespace PKP\pages\dashboard;
+
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
-
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 

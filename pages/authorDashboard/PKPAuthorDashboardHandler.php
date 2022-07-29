@@ -13,12 +13,15 @@
  * @brief Handle requests for the author dashboard.
  */
 
+namespace PKP\pages\authorDashboard;
+
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-
 use Illuminate\Support\Enumerable;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
@@ -231,9 +234,9 @@ abstract class PKPAuthorDashboardHandler extends Handler
             ['submissionId' => $submission->getId()]
         );
 
-        $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-        $citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
-        $contributorForm = new PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
+        $titleAbstractForm = new \PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
+        $citationsForm = new \PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+        $contributorForm = new \PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
 
         // Import constants
         import('classes.components.forms.publication.PublishForm');
@@ -339,7 +342,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         }
         if ($metadataEnabled) {
             $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-            $metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+            $metadataForm = new \PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
             $templateMgr->setConstants([
                 'FORM_METADATA' => FORM_METADATA,
             ]);

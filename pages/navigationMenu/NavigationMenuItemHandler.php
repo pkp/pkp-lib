@@ -13,10 +13,12 @@
  * @brief Handle requests for navigationMenuItem functions.
  */
 
-use APP\core\Services;
+namespace PKP\pages\navigationMenu;
 
+use APP\core\Services;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\security\Role;
 
 class NavigationMenuItemHandler extends Handler

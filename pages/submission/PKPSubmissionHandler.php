@@ -13,12 +13,14 @@
  * @brief Base handler for submission requests.
  */
 
+namespace PKP\pages\submission;
+
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
-
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 

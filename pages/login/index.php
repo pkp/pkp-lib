@@ -27,7 +27,6 @@ switch ($op) {
     case 'savePassword':
     case 'signInAsUser':
     case 'signOutAsUser':
-        define('HANDLER_CLASS', 'LoginHandler');
-        import('lib.pkp.pages.login.LoginHandler');
+        define('HANDLER_CLASS', 'PKP\pages\login\LoginHandler');
         break;
 }

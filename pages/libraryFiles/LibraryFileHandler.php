@@ -12,8 +12,10 @@
  * @brief Class defining a handler for library file access
  */
 
-use APP\file\LibraryFileManager;
+namespace PKP\pages\libraryFiles;
 
+use PKP\db\DAORegistry;
+use APP\file\LibraryFileManager;
 use APP\handler\Handler;
 use APP\facades\Repo;
 use PKP\user\Collector;

@@ -13,15 +13,17 @@
  * @brief Handle requests for reviewer functions.
  */
 
+namespace PKP\pages\reviewer;
+
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\submission\reviewer\ReviewerSubmissionDAO;
-
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;

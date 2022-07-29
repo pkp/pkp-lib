@@ -13,6 +13,8 @@
  * @brief Handle login/logout requests.
  */
 
+namespace PKP\pages\login;
+
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;

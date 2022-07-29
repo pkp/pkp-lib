@@ -20,7 +20,6 @@ switch ($op) {
     case 'index':
     case 'view':
     case 'preview':
-        define('HANDLER_CLASS', 'NavigationMenuItemHandler');
-        import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
+        define('HANDLER_CLASS', 'PKP\pages\navigationMenu\NavigationMenuItemHandler');
         break;
 }

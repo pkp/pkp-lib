@@ -1368,9 +1368,6 @@ msgstr "Одобрить корректуры"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?"
 
-msgid "editor.submission.decision.revertDecline"
-msgstr "Отменить отклонение материала"
-
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Назначить редактора, чтобы включить решения редакции для этого этапа."
 
@@ -1503,9 +1500,6 @@ msgstr "Начат новый раунд рецензирования."
 msgid "notification.type.editorDecisionDecline"
 msgstr "Материал отклонен."
 
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Отклонение материала было отменено."
-
 msgid "notification.uploadedResponse"
 msgstr "Загружен ответ."
 
@@ -1514,9 +1508,6 @@ msgstr "Редактор должен быть назначен до начал�
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Новая версия представления была создана"
-
-msgid "notification.type.revertDecline"
-msgstr "Решение об отклонении этого материала было отменено."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Файлы, прикрепленные рецензентом"

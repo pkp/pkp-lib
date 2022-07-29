@@ -273,12 +273,6 @@ msgstr "Получатель"
 msgid "manager.emails.subjectWithValue"
 msgstr "Тема: {$subject}"
 
-msgid "manager.export.usersToCsv.label"
-msgstr "Экспорт в Excel/CSV"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Выберите пользователей для экспорта в файл Excel/CSV."
-
 msgid "manager.filesBrowser"
 msgstr "Браузер файлов"
 
@@ -560,9 +554,6 @@ msgstr "Шаблоны отчетов по умолчанию"
 msgid "manager.statistics.reports.generateReport"
 msgstr "Сгенерировать пользовательский отчет"
 
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Генератор пользовательских отчетов"
-
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Дополнительные настройки"
 
@@ -718,30 +709,6 @@ msgstr "Отправить копию на этот адрес электрон�
 
 msgid "manager.setup.notifications.description"
 msgstr "Авторам автоматически отправляется письмо электронной почты с подтверждением отправки их материала. Вы можете отправить копии этого письма электронной почты следующим:"
-
-msgid "manager.setup.notifyUsers"
-msgstr "Уведомить"
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Выберите пользователей, которые должны получить Ваше уведомление электронной почтой."
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Отправить копию этого письма мне на адрес {$email}."
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Отправить письмо"
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr "Вы собираетесь отправить письмо электронной почтой {$total} пользователям. Вы уверены, что хотите отправить это письмо?"
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr "Отправляем письмо. Пожалуйста, не переходите на другие страницы, пока отправка не завершится."
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "Письмо было успешно отправлено всем получателям по электронной почте."
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Отправить ещё одно письмо"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Правила открытого доступа"

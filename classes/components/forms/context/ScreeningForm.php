@@ -56,7 +56,7 @@ class ScreeningForm extends FormComponent
             'pageId' => 'default',
         ])
             ->addField(new FieldHTML('screening', [
-                'description' => $screeningPluginRules,
+                'description' => $screeningPluginRules ?? null,
                 'groupId' => 'default',
             ]));
     }

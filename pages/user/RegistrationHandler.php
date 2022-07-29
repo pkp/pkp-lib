@@ -77,7 +77,7 @@ class RegistrationHandler extends UserHandler
             } else {
                 event(new UserRegisteredSite($user, $request->getSite()));
             }
-        } catch(TransportException $e) {
+        } catch (TransportException $e) {
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
                 $userId,

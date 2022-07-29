@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/admin/AdminHandler.inc.php
+ * @file pages/admin/AdminHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

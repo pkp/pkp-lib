@@ -23,6 +23,8 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\UnassignReviewerForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -45,15 +47,7 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\user\User;
-use ReinstateReviewerForm;
-use ReviewerGridCellProvider;
-use ReviewerGridRow;
 use Symfony\Component\Mailer\Exception\TransportException;
-
-// FIXME: Add namespacing
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
-use UnassignReviewerForm;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -389,7 +383,6 @@ class PKPReviewerGridHandler extends GridHandler
         $formClassName = $this->_getReviewerFormClassName($selectionType);
 
         // Form handling
-        import('lib.pkp.controllers.grid.users.reviewer.form.' . $formClassName);
         $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
         $reviewerForm->readInputData();
         if ($reviewerForm->validate()) {
@@ -411,7 +404,6 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function editReview($args, $request)
     {
-        import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
         $editReviewForm = new \EditReviewForm($reviewAssignment);
         $editReviewForm->initData();
@@ -428,7 +420,6 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function updateReview($args, $request)
     {
-        import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
         $editReviewForm = new \EditReviewForm($reviewAssignment);
         $editReviewForm->readInputData();
@@ -483,7 +474,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
         $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->initData();
 
@@ -504,7 +494,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
         $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->initData();
 
@@ -524,7 +513,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
         $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->readInputData();
 
@@ -559,7 +547,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
         $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->readInputData();
 
@@ -706,7 +693,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Initialize form.
-        import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
         $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->initData();
 
@@ -786,7 +772,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Form handling
-        import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
         $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->readInputData();
         if ($thankReviewerForm->validate()) {
@@ -818,7 +803,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Initialize form.
-        import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
         $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->initData();
 
@@ -839,7 +823,6 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Form handling
-        import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
         $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->readInputData();
         if ($reviewReminderForm->validate()) {
@@ -868,7 +851,6 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
         // Form handling.
-        import('lib.pkp.controllers.grid.users.reviewer.form.EmailReviewerForm');
         $emailReviewerForm = new \EmailReviewerForm($reviewAssignment, $submission);
         if (!$request->isPost()) {
             $emailReviewerForm->initData();
@@ -937,7 +919,6 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         $requestArgs = array_merge($this->getRequestArgs(), ['reviewAssignmentId' => $reviewAssignment->getId()]);
-        import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerGossipForm');
         $reviewerGossipForm = new \ReviewerGossipForm($user, $requestArgs);
 
         // View form
@@ -1003,7 +984,6 @@ class PKPReviewerGridHandler extends GridHandler
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
         // Form handling.
-        import('lib.pkp.controllers.grid.users.reviewer.form.' . $formClassName);
         $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
         $reviewerForm->initData();
         $reviewerForm->setUserRoles($userRoles);
@@ -1022,11 +1002,11 @@ class PKPReviewerGridHandler extends GridHandler
     {
         switch ($selectionType) {
             case self::REVIEWER_SELECT_ADVANCED_SEARCH:
-                return 'AdvancedSearchReviewerForm';
+                return '\PKP\controllers\grid\users\reviewer\form\AdvancedSearchReviewerForm';
             case self::REVIEWER_SELECT_CREATE:
-                return 'CreateReviewerForm';
+                return '\PKP\controllers\grid\users\reviewer\form\CreateReviewerForm';
             case self::REVIEWER_SELECT_ENROLL_EXISTING:
-                return 'EnrollExistingReviewerForm';
+                return '\PKP\controllers\grid\users\reviewer\form\EnrollExistingReviewerForm';
         }
         assert(false);
     }

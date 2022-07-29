@@ -16,18 +16,13 @@
 namespace PKP\submission\reviewer\form;
 
 use APP\template\TemplateManager;
+use PKP\controllers\confirmationModal\linkAction\ViewCompetingInterestGuidelinesLinkAction;
+use PKP\controllers\modals\review\ReviewerViewMetadataLinkAction;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-
 use PKP\linkAction\request\ConfirmationModal;
 use PKP\submission\reviewer\ReviewerAction;
-
-// FIXME: Add namespacing
-use ReviewerViewMetadataLinkAction;
-
-import('lib.pkp.controllers.confirmationModal.linkAction.ViewCompetingInterestGuidelinesLinkAction');
-use ViewCompetingInterestGuidelinesLinkAction;
 
 class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 {
@@ -83,7 +78,6 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         //
 
         // "View metadata" action.
-        import('lib.pkp.controllers.modals.review.ReviewerViewMetadataLinkAction');
         $viewMetadataLinkAction = new ReviewerViewMetadataLinkAction($request, $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
         $templateMgr->assign('viewMetadataAction', $viewMetadataLinkAction);
 

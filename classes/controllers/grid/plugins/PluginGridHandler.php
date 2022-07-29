@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\plugins;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\plugins\form\UploadPluginForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
@@ -28,20 +29,8 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
-
 use PKP\security\Role;
 use PKP\site\VersionCheck;
-
-// FIXME: Add namespacing
-import('lib.pkp.controllers.grid.plugins.PluginGridCellProvider');
-use PluginCategoryGridRow;
-
-import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
-use PluginGridCellProvider;
-
-import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
-import('lib.pkp.controllers.grid.plugins.PluginCategoryGridRow');
-use UploadPluginForm;
 
 abstract class PluginGridHandler extends CategoryGridHandler
 {
@@ -159,7 +148,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $pluginName = $request->getUserVar('pluginName');
 
         if (is_null($category)) {
-            $category = PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE;
+            $category = PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE;
         }
 
         return ['category' => $category, 'pluginName' => $pluginName];
@@ -171,7 +160,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
     public function renderFilter($request, $filterData = [])
     {
         $categoriesSymbolic = $this->loadData($request, null);
-        $categories = [PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE => __('grid.plugin.allCategories')];
+        $categories = [PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE => __('grid.plugin.allCategories')];
         foreach ($categoriesSymbolic as $category) {
             $categories[$category] = __("plugins.categories.${category}");
         }

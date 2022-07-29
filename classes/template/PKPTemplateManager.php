@@ -952,7 +952,6 @@ class PKPTemplateManager extends Smarty
 
                 // Get a count of unread tasks
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
                 $unreadTasksCount = (int) $notificationDao->getNotificationCount(false, $request->getUser()->getId(), null, Notification::NOTIFICATION_LEVEL_TASK);
 
                 // Get a URL to load the tasks grid

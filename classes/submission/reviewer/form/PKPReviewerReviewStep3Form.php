@@ -20,19 +20,16 @@ use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionLog;
 
+use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormResponse;
 use PKP\security\Role;
 use PKP\submission\SubmissionComment;
-
-// FIXME: Add namespacing
-import('lib.pkp.controllers.confirmationModal.linkAction.ViewReviewGuidelinesLinkAction');
-use ViewReviewGuidelinesLinkAction;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 {

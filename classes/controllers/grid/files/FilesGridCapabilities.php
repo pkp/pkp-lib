@@ -16,10 +16,7 @@
 
 namespace PKP\controllers\grid\files;
 
-use DownloadAllLinkAction;
-
-// FIXME: Namespacing
-import('lib.pkp.controllers.grid.files.fileList.linkAction.DownloadAllLinkAction');
+use PKP\controllers\grid\files\fileList\linkAction\DownloadAllLinkAction;
 use PKP\file\FileArchive;
 
 class FilesGridCapabilities

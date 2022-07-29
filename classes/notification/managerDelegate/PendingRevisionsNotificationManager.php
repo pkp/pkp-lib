@@ -18,7 +18,7 @@ namespace PKP\notification\managerDelegate;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\Notification;
-
+use PKP\controllers\api\file\linkAction\AddRevisionLinkAction;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
@@ -72,7 +72,6 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 
-        import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');
         $uploadFileAction = new AddRevisionLinkAction(
             $request,
             $lastReviewRound,

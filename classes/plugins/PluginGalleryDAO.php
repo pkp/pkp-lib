@@ -18,12 +18,12 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-
 use DOMDocument;
 use DOMElement;
-
 use PKP\cache\CacheManager;
+
 use PKP\cache\FileCache;
+use PKP\controllers\grid\plugins\PluginGalleryGridHandler;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 
@@ -66,7 +66,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
             // apply search filters if any supplied.
             if (
                 $plugin &&
-                ($category == '' || $category == PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
+                ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
                 ($search == '' || PKPString::strpos(PKPString::strtolower(serialize($plugin)), PKPString::strtolower($search)) !== false)
             ) {
                 $plugins[$index] = $plugin;

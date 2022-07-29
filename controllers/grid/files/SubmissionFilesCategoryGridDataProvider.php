@@ -52,7 +52,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function setDataProvider($gridDataProvider)
     {
-        assert(is_a($gridDataProvider, 'SubmissionFilesGridDataProvider'));
+        assert($gridDataProvider instanceof SubmissionFilesGridDataProvider);
         parent::setDataProvider($gridDataProvider);
     }
 

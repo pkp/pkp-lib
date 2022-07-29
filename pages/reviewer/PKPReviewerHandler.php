@@ -15,18 +15,18 @@
 
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
-use APP\template\TemplateManager;
-
-use PKP\core\JSONMessage;
-use PKP\notification\PKPNotification;
-use PKP\submission\reviewer\form\ReviewerReviewForm;
-use PKP\submission\reviewer\ReviewerAction;
-use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\core\PKPApplication;
 use APP\submission\reviewer\ReviewerSubmissionDAO;
+
+use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
+use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
-use Illuminate\Support\Facades\Mail;
+use PKP\notification\PKPNotification;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\form\ReviewerReviewForm;
+use PKP\submission\reviewer\ReviewerAction;
 
 class PKPReviewerHandler extends Handler
 {
@@ -204,8 +204,7 @@ class PKPReviewerHandler extends Handler
         PKPRequest $request,
         ReviewerSubmission $reviewerSubmission,
         ReviewAssignment $reviewAssignment
-    ): ReviewerReviewForm
-    {
+    ): ReviewerReviewForm {
         switch ($step) {
             case 1:
                 return new \PKP\submission\reviewer\form\PKPReviewerReviewStep1Form($request, $reviewerSubmission, $reviewAssignment);

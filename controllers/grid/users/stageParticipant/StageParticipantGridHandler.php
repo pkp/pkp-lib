@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\users\stageParticipant;
 
+use APP\controllers\grid\users\stageParticipant\form\StageParticipantNotifyForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
@@ -493,7 +494,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         $this->setupTemplate($request);
 
-        import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
         $notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
         $notifyForm->initData();
 
@@ -512,7 +512,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         $this->setupTemplate($request);
 
-        import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
         $notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
         $notifyForm->readInputData();
 
@@ -567,7 +566,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
             ]);
             $template->replaceParams();
 
-            import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
             $notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
             return new JSONMessage(
                 true,

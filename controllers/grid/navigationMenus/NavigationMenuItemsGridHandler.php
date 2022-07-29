@@ -168,7 +168,6 @@ class NavigationMenuItemsGridHandler extends GridHandler
             $contextId = $context->getId();
         }
 
-        import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
         $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
         $navigationMenuItemForm->readInputData();
@@ -238,9 +237,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
             $contextId = $context->getId();
         }
 
-        import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
         $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
-
         $navigationMenuItemForm->initData();
 
         return new JSONMessage(true, $navigationMenuItemForm->fetch($request));

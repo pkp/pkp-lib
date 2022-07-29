@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\eventLog;
 
+use APP\core\Application;
 use PKP\controllers\grid\DateGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -133,7 +134,7 @@ class SubmissionEventLogGridHandler extends GridHandler
                 null,
                 new DateGridCellProvider(
                     $cellProvider,
-                    \Application::get()->getRequest()->getContext()->getLocalizedDateFormatShort()
+                    Application::get()->getRequest()->getContext()->getLocalizedDateFormatShort()
                 )
             )
         );

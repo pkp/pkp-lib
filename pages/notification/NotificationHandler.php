@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/notification/NotificationHandler.inc.php
+ * @file pages/notification/NotificationHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

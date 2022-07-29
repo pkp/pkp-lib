@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/management/PKPToolsHandler.inc.php
+ * @file pages/management/PKPToolsHandler.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

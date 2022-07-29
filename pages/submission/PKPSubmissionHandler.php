@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/submission/PKPSubmissionHandler.inc.php
+ * @file pages/submission/PKPSubmissionHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

@@ -13,12 +13,15 @@
  * @brief Representation of an preprint galley grid row.
  */
 
+namespace APP\controllers\grid\preprintGalleys;
+
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
+use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 
 class PreprintGalleyGridRow extends GridRow
 {

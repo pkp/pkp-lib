@@ -13,9 +13,10 @@
  * @brief Class defining an AJAX API for file manipulation.
  */
 
-// Import the base handler.
-import('lib.pkp.controllers.api.file.PKPManageFileApiHandler');
+namespace APP\controllers\api\file;
 
+use PKP\db\DAO;
+use PKP\controllers\api\file\PKPManageFileApiHandler;
 use PKP\core\JSONMessage;
 use PKP\security\Role;
 

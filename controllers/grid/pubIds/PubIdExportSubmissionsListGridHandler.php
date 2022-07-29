@@ -13,8 +13,9 @@
  * @brief Handle exportable submissions with pub ids list grid requests.
  */
 
-import('controllers.grid.submissions.ExportPublishedSubmissionsListGridHandler');
+namespace APP\controllers\grid\pubIds;
 
+use APP\controllers\grid\submissions\ExportPublishedSubmissionsListGridHandler;
 use APP\facades\Repo;
 use PKP\controllers\grid\GridColumn;
 

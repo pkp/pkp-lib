@@ -12,6 +12,9 @@
 * @brief Grid cell provider for section grid
  */
 
+namespace APP\controllers\grid\settings\sections;
+
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;

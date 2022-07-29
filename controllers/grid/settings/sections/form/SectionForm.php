@@ -13,8 +13,9 @@
  * @brief Form for adding/editing a section
  */
 
-import('lib.pkp.controllers.grid.settings.sections.form.PKPSectionForm');
+namespace APP\controllers\grid\settings\sections\form;
 
+use PKP\controllers\grid\settings\sections\form\PKPSectionForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;

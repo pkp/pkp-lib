@@ -13,9 +13,9 @@
  * @brief A handler to load final publishing confirmation checks
  */
 
-// Import the base Handler.
-import('lib.pkp.controllers.modals.publish.PublishHandler');
+namespace APP\controllers\modals\publish;
 
+use PKP\controllers\modals\publish\PublishHandler;
 use PKP\security\Role;
 
 class OPSPublishHandler extends PublishHandler

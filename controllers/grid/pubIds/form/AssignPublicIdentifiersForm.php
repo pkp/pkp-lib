@@ -13,8 +13,9 @@
  * @brief Displays the assign pub id form.
  */
 
-import('lib.pkp.controllers.grid.pubIds.form.PKPAssignPublicIdentifiersForm');
+namespace APP\controllers\grid\pubIds\form;
 
+use PKP\controllers\grid\pubIds\form\PKPAssignPublicIdentifiersForm;
 use APP\template\TemplateManager;
 
 class AssignPublicIdentifiersForm extends PKPAssignPublicIdentifiersForm

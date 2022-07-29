@@ -13,6 +13,9 @@
  * @brief Handle plugin grid requests.
  */
 
+namespace APP\controllers\grid\settings\plugins;
+
+use PKP\controllers\grid\plugins\PluginGridRow;
 use PKP\controllers\grid\plugins\PluginGridHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PluginAccessPolicy;

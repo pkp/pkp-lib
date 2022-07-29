@@ -13,8 +13,9 @@
  * @brief Displays a pub ids form.
  */
 
-import('lib.pkp.controllers.tab.pubIds.form.PKPPublicIdentifiersForm');
+namespace APP\controllers\tab\pubIds\form;
 
+use PKP\controllers\tab\pubIds\form\PKPPublicIdentifiersForm;
 use APP\template\TemplateManager;
 use PKP\galley\Galley;
 

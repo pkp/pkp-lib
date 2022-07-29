@@ -15,6 +15,8 @@
  * @brief Preprint galley editing form.
  */
 
+namespace APP\controllers\grid\preprintGalleys\form;
+
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\template\TemplateManager;

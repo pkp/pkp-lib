@@ -13,6 +13,9 @@
  * @brief Handle preprint galley grid requests.
  */
 
+namespace APP\controllers\grid\preprintGalleys;
+
+use APP\controllers\grid\preprintGalleys\form\PreprintGalleyForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;

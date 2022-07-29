@@ -13,9 +13,11 @@
  * @brief Handle section grid requests.
  */
 
-import('lib.pkp.controllers.grid.settings.SetupGridHandler');
-import('controllers.grid.settings.sections.SectionGridRow');
+namespace APP\controllers\grid\settings\sections;
 
+use APP\controllers\grid\settings\sections\form\SectionForm;
+use PKP\controllers\grid\settings\SetupGridHandler;
+use APP\controllers\grid\settings\sections\SectionGridRow;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;

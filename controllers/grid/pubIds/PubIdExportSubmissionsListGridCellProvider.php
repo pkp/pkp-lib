@@ -13,8 +13,9 @@
  * @brief Class for a cell provider that can retrieve labels from submissions with pub ids
  */
 
-import('controllers.grid.submissions.ExportPublishedSubmissionsListGridCellProvider');
+namespace APP\controllers\grid\pubIds;
 
+use APP\controllers\grid\submissions\ExportPublishedSubmissionsListGridCellProvider;
 
 class PubIdExportSubmissionsListGridCellProvider extends ExportPublishedSubmissionsListGridCellProvider
 {

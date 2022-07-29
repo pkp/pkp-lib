@@ -13,9 +13,10 @@
  * @brief Handle AJAX operations for workflow tabs.
  */
 
-// Import the base Handler.
-import('lib.pkp.controllers.tab.workflow.PKPWorkflowTabHandler');
+namespace APP\controllers\tab\workflow;
 
+use PKP\db\DAORegistry;
+use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
 use APP\template\TemplateManager;
 use PKP\decision\DecisionType;
 use PKP\security\Role;

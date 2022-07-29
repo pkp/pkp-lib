@@ -13,6 +13,8 @@
  * @brief Base class for a cell provider for preprint galleys.
  */
 
+namespace APP\controllers\grid\preprintGalleys;
+
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;

@@ -13,8 +13,9 @@
  * @brief Handle exportable representations with pub ids list grid requests.
  */
 
-import('controllers.grid.pubIds.PubIdExportRepresentationsListGridCellProvider');
+namespace APP\controllers\grid\pubIds;
 
+use APP\controllers\grid\pubIds\PubIdExportRepresentationsListGridCellProvider;
 use APP\facades\Repo;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;

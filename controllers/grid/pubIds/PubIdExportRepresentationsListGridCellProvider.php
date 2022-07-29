@@ -13,6 +13,8 @@
  * @brief Class for a cell provider that can retrieve labels from representations with pub ids
  */
 
+namespace APP\controllers\grid\pubIds;
+
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;

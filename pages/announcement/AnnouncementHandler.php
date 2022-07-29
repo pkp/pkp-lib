@@ -13,9 +13,11 @@
  * @brief Handle requests for public announcement functions.
  */
 
+namespace PKP\pages\announcement;
+
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 

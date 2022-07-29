@@ -13,6 +13,8 @@
  * @brief Base class for all management page handlers.
  */
 
+namespace PKP\pages\management;
+
 use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\core\Request;
 use APP\facades\Repo;
@@ -117,8 +119,8 @@ class ManagementHandler extends Handler
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        $contactForm = new PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
-        $mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
+        $contactForm = new \PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
+        $mastheadForm = new \APP\components\forms\context\MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
 
         $templateMgr->setState([
             'components' => [

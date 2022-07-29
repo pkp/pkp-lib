@@ -13,11 +13,16 @@
  * @brief Handle requests for DOI management functions.
  */
 
+namespace PKP\pages\dois;
+
 use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\handler\Handler;
+use APP\template\TemplateManager;
 use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPDoiSetupSettingsForm;
 use PKP\context\Context;
+use PKP\core\PKPApplication;
+use PKP\plugins\HookRegistry;
 use PKP\plugins\IPKPDoiRegistrationAgency;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
@@ -125,9 +130,9 @@ abstract class PKPDoisHandler extends Handler
     }
 
 
-    protected function _getRegistrationAgencyInfo(\PKP\context\Context $context): stdClass
+    protected function _getRegistrationAgencyInfo(\PKP\context\Context $context): \stdClass
     {
-        $info = new stdClass();
+        $info = new \stdClass();
         $info->isConfigured = false;
         $info->displayName = '';
         $info->errorMessageKey = null;

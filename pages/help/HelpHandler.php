@@ -13,8 +13,9 @@
  * @brief Handle requests for help functions.
  */
 
-use APP\handler\Handler;
+namespace PKP\pages\about;
 
+use APP\handler\Handler;
 use PKP\core\JSONMessage;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;

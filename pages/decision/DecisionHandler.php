@@ -13,6 +13,8 @@
  * @brief Handle requests to take an editorial decision.
  */
 
+namespace PKP\pages\decision;
+
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;

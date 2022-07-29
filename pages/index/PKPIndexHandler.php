@@ -13,6 +13,8 @@
  * @brief Handle site index requests.
  */
 
+namespace PKP\pages\index;
+
 use APP\facades\Repo;
 use APP\handler\Handler;
 

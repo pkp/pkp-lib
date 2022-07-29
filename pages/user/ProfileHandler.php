@@ -13,12 +13,12 @@
  * @brief Handle requests for modifying user profiles.
  */
 
-// FIXME: Add namespacing
-import('pages.user.UserHandler');
+namespace PKP\pages\user;
 
+use APP\core\Application;
+use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\security\authorization\PKPSiteAccessPolicy;
-
 use PKP\security\authorization\UserRequiredPolicy;
 
 class ProfileHandler extends UserHandler

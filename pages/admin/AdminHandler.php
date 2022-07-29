@@ -13,6 +13,8 @@
  * @brief Handle requests for site administration functions.
  */
 
+namespace PKP\pages\admin;
+
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
@@ -288,9 +290,9 @@ class AdminHandler extends Handler
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        $contextForm = new APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
-        $themeForm = new PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
-        $indexingForm = new PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+        $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
+        $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
+        $indexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
 
         $components = [
             FORM_CONTEXT => $contextForm->getConfig(),
@@ -301,7 +303,7 @@ class AdminHandler extends Handler
         $bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
         if ($bulkEmailsEnabled) {
             $userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
-            $restrictBulkEmailsForm = new PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
+            $restrictBulkEmailsForm = new \PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
             $components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();
         }
 

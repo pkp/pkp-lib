@@ -13,14 +13,15 @@
  * @brief Handle requests for statistics pages.
  */
 
+namespace PKP\pages\stats;
+
 use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
@@ -363,7 +364,7 @@ class PKPStatsHandler extends Handler
 
         $context = $request->getContext();
         $selfUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'stats', 'users');
-        $reportForm = new PKP\components\forms\statistics\users\ReportForm($selfUrl, $context);
+        $reportForm = new \PKP\components\forms\statistics\users\ReportForm($selfUrl, $context);
 
         $templateMgr->setState([
             'components' => [

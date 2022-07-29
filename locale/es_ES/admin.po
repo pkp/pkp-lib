@@ -1,11 +1,13 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Juan Francisco Vinueza Cobos <tallergrafico@ucuenca.edu.ec>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-08-04 09:04+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2022-07-15 00:35+0000\n"
+"Last-Translator: Juan Francisco Vinueza Cobos <tallergrafico@ucuenca.edu.ec>"
+"\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -13,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nombre de configuración"
@@ -327,3 +329,14 @@ msgstr "Restringir correos electrónicos masivos"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Correos electrónicos masivos"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Paginación"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Borrar caché del sistema. Esto solo debería efectuarse en ambientes de "
+"desarrollo."
+
+msgid "admin.deleteCache"
+msgstr "Borrar caché"

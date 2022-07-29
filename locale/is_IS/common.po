@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-20 16:56+0000\n"
+"PO-Revision-Date: 2022-07-18 15:16+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "common.designation"
 msgstr "Útnefning"
@@ -1168,7 +1168,7 @@ msgid "navigation.infoForReaders.long"
 msgstr "Upplýsingar fyrir lesendur"
 
 msgid "navigation.infoForReaders"
-msgstr "Fyrir lesendur"
+msgstr "Til lesenda"
 
 msgid "navigation.home"
 msgstr "Heim"

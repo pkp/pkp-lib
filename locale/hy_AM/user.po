@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"PO-Revision-Date: 2022-07-15 15:49+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy_AM/>\n"
@@ -11,15 +11,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Պահանջվում է օգտանուն։"
 
 msgid "user.privacyLink"
 msgstr ""
-"Ձեր տվյալները պահվում են համաձայն մեր  <a href=\"{$privacyUrl}\" target=\""
-"_blank\">գաղտնիության հայտարարության</a>:"
+"Ձեր տվյալները պահվում են համաձայն մեր <a href=\"{$privacyUrl}\" target="
+"\"_blank\">գաղտնիության հայտարարության</a>:"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -141,7 +141,7 @@ msgstr "Օգնական"
 
 msgid "user.register.registrationCompleted"
 msgstr ""
-"Դուք հաջողությամբ գրանցվել եք:  <a href=\"{$profileUrl}\">Սեղմեք այստեղ</a> "
+"Դուք հաջողությամբ գրանցվել եք: <a href=\"{$profileUrl}\">Սեղմեք այստեղ</a> "
 "ձեր օգտատիրոջ պրոֆիլը լրացնելու համար:"
 
 msgid "user.register.usernameRestriction"
@@ -155,7 +155,7 @@ msgid "user.register.registerAs"
 msgstr "Գրանցվեք {$contextName} -ում որպես..."
 
 msgid "user.register.form.passwordLengthRestriction"
-msgstr "Գաղտնաբառը պետք է առնվազն  լինի {$length} նիշ:"
+msgstr "Գաղտնաբառը պետք է առնվազն լինի {$length} նիշ:"
 
 msgid "user.register.form.usernameExists"
 msgstr "Ընտրված օգտանունն արդեն օգտագործվում է մեկ այլ օգտվողի կողմից:"

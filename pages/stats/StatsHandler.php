@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/stats/StatsHandler.inc.php
+ * @file pages/stats/StatsHandler.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,9 +13,11 @@
  * @brief Handle requests for statistics pages.
  */
 
-use APP\template\TemplateManager;
+namespace APP\pages\stats;
 
-import('lib.pkp.pages.stats.PKPStatsHandler');
+use APP\template\TemplateManager;
+use PKP\pages\stats\PKPStatsHandler;
+use PKP\plugins\HookRegistry;
 
 class StatsHandler extends PKPStatsHandler
 {
@@ -45,7 +47,7 @@ class StatsHandler extends PKPStatsHandler
             return;
         }
 
-        $sectionFilters = APP\components\listPanels\SubmissionsListPanel::getSectionFilters();
+        $sectionFilters = \APP\components\listPanels\SubmissionsListPanel::getSectionFilters();
 
         if (count($sectionFilters) < 2) {
             return;

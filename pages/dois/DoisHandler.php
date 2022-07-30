@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file /pages/dois/DoiManagementHandler.inc.php
+ * @file /pages/dois/DoiManagementHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,9 +13,10 @@
  * @brief Handle requests for DOI management functions.
  */
 
-use APP\components\listPanels\DoiListPanel;
+namespace APP\pages\dois;
 
-import('lib.pkp.pages.dois.PKPDoisHandler');
+use APP\components\listPanels\DoiListPanel;
+use PKP\pages\dois\PKPDoisHandler;
 
 class DoisHandler extends PKPDoisHandler
 {

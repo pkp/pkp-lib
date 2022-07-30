@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/search/SearchHandler.inc.php
+ * @file pages/search/SearchHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -12,6 +12,8 @@
  *
  * @brief Handle site index requests.
  */
+
+namespace APP\pages\search;
 
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -110,8 +112,8 @@ class SearchHandler extends Handler
             $collector->filterByContextIds([(int) $serverId]);
         }
         $yearRange = Repo::publication()->getDateBoundaries($collector);
-        $yearStart = substr($yearRange[0], 0, 4);
-        $yearEnd = substr($yearRange[1], 0, 4);
+        $yearStart = substr($yearRange->min_date_published, 0, 4);
+        $yearEnd = substr($yearRange->max_date_published, 0, 4);
         $templateMgr->assign([
             'yearStart' => $yearStart,
             'yearEnd' => $yearEnd,

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/oai/OAIHandler.inc.php
+ * @file pages/oai/OAIHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,13 +13,14 @@
  * @brief Handle OAI protocol requests.
  */
 
+namespace APP\pages\oai;
+
 define('SESSION_DISABLE_INIT', 1); // FIXME?
 
 use APP\handler\Handler;
 use APP\oai\ops\ServerOAI;
-
+use PKP\config\Config;
 use Firebase\JWT\JWT;
-
 use PKP\oai\OAIConfig;
 
 class OAIHandler extends Handler

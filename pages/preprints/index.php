@@ -18,17 +18,14 @@
 
 switch ($op) {
     case 'index':
-        define('HANDLER_CLASS', 'PreprintsHandler');
-        import('pages.preprints.PreprintsHandler');
+        define('HANDLER_CLASS', 'APP\pages\preprints\PreprintsHandler');
         break;
     case 'category':
     case 'fullSize':
     case 'thumbnail':
-        define('HANDLER_CLASS', 'PKPCatalogHandler');
-        import('lib.pkp.pages.catalog.PKPCatalogHandler');
+        define('HANDLER_CLASS', 'PKP\pages\catalog\PKPCatalogHandler');
         break;
     case 'section':
-        define('HANDLER_CLASS', 'SectionsHandler');
-        import('pages.preprints.SectionsHandler');
+        define('HANDLER_CLASS', 'APP\pages\preprints\SectionsHandler');
         break;
 }

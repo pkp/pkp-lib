@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/sections/SeriesHandler.inc.php
+ * @file pages/sections/SeriesHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -14,10 +14,11 @@
  *
  */
 
+namespace APP\pages\sections;
+
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
-
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\submission\Submission;
 use APP\template\TemplateManager;

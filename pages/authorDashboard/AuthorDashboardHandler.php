@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/authorDashboard/AuthorDashboardHandler.inc.php
+ * @file pages/authorDashboard/AuthorDashboardHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,9 +13,9 @@
  * @brief Handle requests for the author dashboard.
  */
 
-// Import base class
-import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
+namespace APP\pages\authorDashboard;
 
+use PKP\pages\authorDashboard\PKPAuthorDashboardHandler;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
@@ -61,11 +61,10 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             ]
         );
 
-        $relationForm = new APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication);
+        $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication);
 
         // Import constants
-        import('classes.components.forms.publication.RelationForm');
-
+        class_exists(APP\components\forms\publication\RelationForm::class); // Force define of FORM_ID_RELATION
         $templateMgr->setConstants([
             'FORM_ID_RELATION' => FORM_ID_RELATION,
             'FORM_PUBLISH' => FORM_PUBLISH,

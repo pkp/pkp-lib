@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/workflow/WorkflowHandler.inc.php
+ * @file pages/workflow/WorkflowHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -12,6 +12,8 @@
  *
  * @brief Handle requests for the submssion workflow.
  */
+
+namespace APP\pages\workflow;
 
 use APP\core\Application;
 use APP\core\Services;
@@ -24,8 +26,7 @@ use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
-
-import('lib.pkp.pages.workflow.PKPWorkflowHandler');
+use PKP\pages\workflow\PKPWorkflowHandler;
 
 class WorkflowHandler extends PKPWorkflowHandler
 {
@@ -79,8 +80,8 @@ class WorkflowHandler extends PKPWorkflowHandler
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($submissionContext->getId());
 
-        $issueEntryForm = new APP\components\forms\publication\IssueEntryForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
-        $relationForm = new APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
+        $issueEntryForm = new \APP\components\forms\publication\IssueEntryForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
+        $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
 
         import('classes.components.forms.publication.IssueEntryForm'); // Constant import
         import('classes.components.forms.publication.RelationForm'); // Constant import

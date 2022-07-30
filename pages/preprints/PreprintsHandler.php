@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/preprints/PreprintsHandler.inc.php
+ * @file pages/preprints/PreprintsHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,9 +13,10 @@
  * @brief Handle requests for preprints archive functions.
  */
 
+namespace APP\pages\preprints;
+
 use APP\facades\Repo;
 use APP\handler\Handler;
-
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\submission\Submission;
 use APP\template\TemplateManager;

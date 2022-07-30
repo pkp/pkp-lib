@@ -25,8 +25,7 @@ switch ($op) {
     case 'authorizationDenied':
     case 'toggleHelp':
     case 'getInterests':
-        define('HANDLER_CLASS', 'UserHandler');
-        import('pages.user.UserHandler');
+        define('HANDLER_CLASS', 'APP\pages\user\UserHandler');
         break;
     default:
         require_once('lib/pkp/pages/user/index.php');

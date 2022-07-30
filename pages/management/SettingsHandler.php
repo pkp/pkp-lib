@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/management/SettingsHandler.inc.php
+ * @file pages/management/SettingsHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,9 +13,9 @@
  * @brief Handle requests for settings pages.
  */
 
-// Import the base ManagementHandler.
-import('lib.pkp.pages.management.ManagementHandler');
+namespace APP\pages\management;
 
+use PKP\pages\management\ManagementHandler;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 use PKP\facades\Locale;

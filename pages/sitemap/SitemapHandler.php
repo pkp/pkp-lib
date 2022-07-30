@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/sitemap/SitemapHandler.inc.php
+ * @file pages/sitemap/SitemapHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,10 +13,11 @@
  * @brief Produce a sitemap in XML format for submitting to search engines.
  */
 
+namespace APP\pages\sitemap;
+
 use APP\facades\Repo;
 use APP\submission\Submission;
-
-import('lib.pkp.pages.sitemap.PKPSitemapHandler');
+use PKP\pages\sitemap\PKPSitemapHandler;
 
 class SitemapHandler extends PKPSitemapHandler
 {

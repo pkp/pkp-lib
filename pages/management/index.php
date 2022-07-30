@@ -23,8 +23,7 @@ switch ($op) {
     case 'index':
     case 'settings':
     case 'access':
-        import('pages.management.SettingsHandler');
-        define('HANDLER_CLASS', 'SettingsHandler');
+        define('HANDLER_CLASS', 'APP\pages\management\SettingsHandler');
         break;
     case 'tools':
     case 'importexport':

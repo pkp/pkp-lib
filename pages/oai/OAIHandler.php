@@ -28,7 +28,7 @@ class OAIHandler extends Handler
 {
     /**
      * @param array $args
-     * @param \PKP\core\PKPRequest $request
+     * @param \APP\core\Request $request
      */
     public function index($args, $request)
     {

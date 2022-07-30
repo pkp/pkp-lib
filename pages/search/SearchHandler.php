@@ -211,7 +211,7 @@ class SearchHandler extends Handler
     /**
      * Setup common template variables.
      *
-     * @param \PKP\core\PKPRequest $request
+     * @param \APP\core\Request $request
      */
     public function setupTemplate($request)
     {

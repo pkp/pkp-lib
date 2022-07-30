@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\notifications;
 
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;

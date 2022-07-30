@@ -16,6 +16,10 @@
 
 namespace APP\pages\preprint;
 
+use APP\core\Services;
+use PKP\plugins\HookRegistry;
+use PKP\plugins\PluginRegistry;
+use PKP\config\Config;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -23,7 +27,6 @@ use APP\observers\events\Usage;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-
 use Firebase\JWT\JWT;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
@@ -34,16 +37,16 @@ use PKP\submissionFile\SubmissionFile;
 
 class PreprintHandler extends Handler
 {
-    /** @var Context context associated with the request */
+    /** @var \PKP\context\Context context associated with the request */
     public $context;
 
-    /** @var Submission submission associated with the request */
+    /** @var \APP\submission\Submission submission associated with the request */
     public $preprint;
 
-    /** @var Publication publication associated with the request */
+    /** @var \APP\publication\Publication publication associated with the request */
     public $publication;
 
-    /** @var Galley galley associated with the request */
+    /** @var \PKP\galley\Galley galley associated with the request */
     public $galley;
 
     /** @var int fileId associated with the request */
@@ -164,7 +167,7 @@ class PreprintHandler extends Handler
      * View Preprint. (Either preprint landing page or galley view.)
      *
      * @param array $args
-     * @param Request $request
+     * @param \APP\core\Request $request
      */
     public function view($args, $request)
     {
@@ -322,7 +325,7 @@ class PreprintHandler extends Handler
      * For deprecated OPS 2.x URLs; see https://github.com/pkp/pkp-lib/issues/1541
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function viewFile($args, $request)
     {
@@ -337,7 +340,7 @@ class PreprintHandler extends Handler
      * Download an preprint file
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function download($args, $request)
     {
@@ -407,7 +410,7 @@ class PreprintHandler extends Handler
     /**
      * Determines whether a user can view this preprint galley or not.
      *
-     * @param Request $request
+     * @param \APP\core\Request $request
      * @param string $preprintId
      * @param int $galleyId or string
      */

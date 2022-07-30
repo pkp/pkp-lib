@@ -28,7 +28,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
     /**
      * Setup variables for the template
      *
-     * @param Request $request
+     * @param \APP\core\Request $request
      */
     public function setupTemplate($request)
     {
@@ -64,7 +64,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication);
 
         // Import constants
-        class_exists(APP\components\forms\publication\RelationForm::class); // Force define of FORM_ID_RELATION
+        class_exists(\APP\components\forms\publication\RelationForm::class); // Force define of FORM_ID_RELATION
         $templateMgr->setConstants([
             'FORM_ID_RELATION' => FORM_ID_RELATION,
             'FORM_PUBLISH' => FORM_PUBLISH,
@@ -112,7 +112,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
     /**
      * Translate the requested operation to a stage id.
      *
-     * @param Request $request
+     * @param \APP\core\Request $request
      * @param array $args
      *
      * @return int One of the WORKFLOW_STAGE_* constants.

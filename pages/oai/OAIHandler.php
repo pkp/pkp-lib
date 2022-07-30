@@ -17,6 +17,7 @@ namespace APP\pages\oai;
 
 define('SESSION_DISABLE_INIT', 1); // FIXME?
 
+use PKP\plugins\PluginRegistry;
 use APP\handler\Handler;
 use APP\oai\ops\ServerOAI;
 use PKP\config\Config;
@@ -27,7 +28,7 @@ class OAIHandler extends Handler
 {
     /**
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function index($args, $request)
     {

@@ -42,9 +42,9 @@ class PreprintsHandler extends Handler
      * Display the preprint archive listings
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      *
-     * @return null|JSONMessage
+     * @return null|\PKP\core\JSONMessage
      */
     public function index($args, $request)
     {

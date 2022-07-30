@@ -54,7 +54,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     /**
      * Setup variables for the template
      *
-     * @param Request $request
+     * @param \APP\core\Request $request
      */
     public function setupIndex($request)
     {
@@ -137,7 +137,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     protected function getEditorAssignmentNotificationTypeByStageId($stageId)
     {
         if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new Exception('Only the production stage is supported in OPS.');
+            throw new \Exception('Only the production stage is supported in OPS.');
         }
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_PRODUCTION:
@@ -168,7 +168,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     protected function getStageDecisionTypes(int $stageId): array
     {
         if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new Exception('Only the production stage is supported in OPS.');
+            throw new \Exception('Only the production stage is supported in OPS.');
         }
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -192,7 +192,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     protected function getStageRecommendationTypes(int $stageId): array
     {
         if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new Exception('Only the production stage is supported in OPS.');
+            throw new \Exception('Only the production stage is supported in OPS.');
         }
 
         $decisionTypes = [];

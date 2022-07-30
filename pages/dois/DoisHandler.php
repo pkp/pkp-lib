@@ -15,6 +15,7 @@
 
 namespace APP\pages\dois;
 
+use PKP\core\PKPApplication;
 use APP\components\listPanels\DoiListPanel;
 use PKP\pages\dois\PKPDoisHandler;
 

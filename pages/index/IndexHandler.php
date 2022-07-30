@@ -36,7 +36,7 @@ class IndexHandler extends PKPIndexHandler
      * Otherwise, display the index page for the selected server.
      *
      * @param array $args
-     * @param Request $request
+     * @param \APP\core\Request $request
      */
     public function index($args, $request)
     {

@@ -15,6 +15,7 @@
 
 namespace APP\pages\gateway;
 
+use PKP\plugins\PluginRegistry;
 use APP\handler\Handler;
 
 class GatewayHandler extends Handler
@@ -24,7 +25,7 @@ class GatewayHandler extends Handler
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function __construct($request)
     {
@@ -48,7 +49,7 @@ class GatewayHandler extends Handler
      * Index handler.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -59,7 +60,7 @@ class GatewayHandler extends Handler
      * Handle requests for gateway plugins.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function plugin($args, $request)
     {

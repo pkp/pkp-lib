@@ -16,6 +16,7 @@
 
 namespace APP\pages\sections;
 
+use PKP\db\DAORegistry;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -47,9 +48,9 @@ class SectionsHandler extends Handler
      *		@option string page number
      * ]
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      *
-     * @return null|JSONMessage
+     * @return null|\PKP\core\JSONMessage
      */
     public function section($args, $request)
     {

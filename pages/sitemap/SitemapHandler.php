@@ -15,6 +15,7 @@
 
 namespace APP\pages\sitemap;
 
+use PKP\plugins\HookRegistry;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\pages\sitemap\PKPSitemapHandler;

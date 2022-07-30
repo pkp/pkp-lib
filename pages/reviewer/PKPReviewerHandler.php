@@ -17,6 +17,7 @@ namespace PKP\pages\reviewer;
 
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
+use APP\submission\reviewer\ReviewerSubmission;
 use APP\submission\reviewer\ReviewerSubmissionDAO;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;

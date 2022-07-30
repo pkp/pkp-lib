@@ -77,7 +77,7 @@ class HookRegistry
      * Register a hook against the given hook name.
      *
      * @param string $hookName Name of hook to register against
-     * @param object|array $callback Callback pseudo-type
+     * @param callable $callback Callback pseudo-type
      * @param int $hookSequence Optional hook sequence specifier HOOK_SEQUENCE_...
      */
     public static function register($hookName, $callback, $hookSequence = HOOK_SEQUENCE_NORMAL)
@@ -95,7 +95,7 @@ class HookRegistry
      * callback.
      *
      * @param string $hookName The name of the hook to register against
-     * @param string $args Hooks are called with this as the second param
+     * @param mixed $args Hooks are called with this as the second param
      */
     public static function call($hookName, $args = null)
     {

@@ -880,7 +880,6 @@ abstract class PKPWorkflowHandler extends Handler
      * A helper method to get a list of editor recommendations to
      * show on the right panel of the review stage
      *
-     * @return string[]
      */
     abstract protected function getStageRecommendationTypes(int $stageId): array;
 

@@ -742,7 +742,7 @@ class PKPRequest
      * Redirect to the specified page within a PKP Application.
      * Shorthand for a common call to $request->redirect($dispatcher->url($request, PKPApplication::ROUTE_PAGE, ...)).
      *
-     * @param array $context The optional contextual paths
+     * @param mixed $context The optional contextual paths
      * @param string $page The name of the op to redirect to.
      * @param string $op optional The name of the op to redirect to.
      * @param mixed $path string or array containing path info for redirect.

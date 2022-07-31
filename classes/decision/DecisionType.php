@@ -26,6 +26,7 @@ use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
@@ -197,6 +198,10 @@ abstract class DecisionType
     {
         if ($this->getNewStatus()) {
             Repo::submission()->updateStatus($submission, $this->getNewStatus());
+        }
+
+        if ($this instanceof DecisionRetractable) {
+            $this->deduceBackoutableStageId($submission, (int)$decision->getData('reviewRoundId'));
         }
 
         if ($this->getNewStageId()) {

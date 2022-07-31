@@ -2573,6 +2573,24 @@ msgstr "Submission Sent Back to Copyediting"
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr "This email notifies the author that their submission has been sent back to the copyediting stage."
 
+msgid "mailable.decision.backFromProduction.notifyAuthor.name"
+msgstr "Submission Sent Back from Production"
+
+msgid "mailable.decision.backFromProduction.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back from the production stage."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Submission Sent Back from Copyediting"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back from the copy editing stage."
+
+msgid "mailable.decision.backFromExternalReview.notifyAuthor.name"
+msgstr "Submission Sent Back from External Review"
+
+msgid "mailable.decision.backFromExternalReview.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back from current external review round or stage."
+
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Submission Sent Back to Review"
 

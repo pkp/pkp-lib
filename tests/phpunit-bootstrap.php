@@ -55,7 +55,3 @@ $ADODB_CACHE_DIR = CacheManager::getFileCachePath() . '/_db';
 
 // Disable the session initialization
 SessionManager::disable();
-
-// Setup autoload for tests classes that have the filename ending in .inc.php
-spl_autoload_register(fn ($class) => customAutoload(BASE_SYS_DIR . '/lib/pkp/tests', 'PKP\\tests', $class));
-spl_autoload_register(fn (string $class) => customAutoload(BASE_SYS_DIR . '/tests', 'APP\\tests', $class));

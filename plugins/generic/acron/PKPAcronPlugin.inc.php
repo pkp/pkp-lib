@@ -190,7 +190,7 @@ class PKPAcronPlugin extends GenericPlugin
     private function _callbackManage(PluginEnabledChanged $event): bool
     {
         // Check if the plugin wants to add its own scheduled task into the cron tab.
-        foreach (HookRegistry::getHooks('AcronPlugin::parseCronTab') as $hookPriorityList) {
+        foreach (HookRegistry::getHooks('AcronPlugin::parseCronTab') ?? [] as $hookPriorityList) {
             foreach ($hookPriorityList as [$callback]) {
                 if ($callback == $event->plugin) {
                     $this->_parseCrontab();

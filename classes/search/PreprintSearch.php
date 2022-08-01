@@ -42,7 +42,7 @@ class PreprintSearch extends SubmissionSearch
         foreach ($unorderedResults as $submissionId => &$data) {
             // Reference is necessary to permit modification
             $data['score'] = ($resultCount * $data['count']) + $i++;
-            $contextIds[] = $data['journal_id'];
+            $contextIds[] = $data['server_id'];
         }
 
         // If we got a primary sort order then apply it and use score as secondary

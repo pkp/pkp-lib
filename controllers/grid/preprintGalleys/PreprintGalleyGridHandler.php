@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/preprintGalleys/PreprintGalleyGridHandler.inc.php
+ * @file controllers/grid/preprintGalleys/PreprintGalleyGridHandler.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

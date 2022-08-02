@@ -35,8 +35,8 @@ msgstr ""
 
 msgid "admin.languages.download.cannotModifyRegistry"
 msgstr ""
-"Հնարավոր չե ավելացնել նոր տվյալ , լոկալ ռեգիստր ֆալում, մասնավորապես \""
-"registry/locales.xml\"."
+"Հնարավոր չե ավելացնել նոր տվյալ , լոկալ ռեգիստր ֆալում, մասնավորապես "
+"\"registry/locales.xml\"."
 
 msgid "admin.languages.download.cannotOpen"
 msgstr "Հնարավոր չե բացել լեզվի նկարագիրը PKP կայքից"
@@ -116,7 +116,8 @@ msgstr ""
 "կարգավորումը config.inc.php-ի մեջ:."
 
 msgid "admin.error.utilExecutionProblem"
-msgstr "«{$ UtilPath}» ծրագրի կատարումը պարունակում է հետևյալ սխալը՝ {$ Output}"
+msgstr ""
+"«{$ UtilPath}» ծրագրի կատարումը պարունակում է հետևյալ սխալը՝ {$ Output}"
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Հաջողություն: {$filePath} to {$destinationPath}"
@@ -133,7 +134,8 @@ msgid "admin.copyAccessLogFileTool.error.copyingFile"
 msgstr "Սխալ: չի կարող ֆայլը պատճենել {$ filePath} - ից {$ tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Սխալ: {$ FilePath} ֆայլը գոյություն չունի կամ հնարավոր չէ մուտք գործել:"
+msgstr ""
+"Սխալ: {$ FilePath} ֆայլը գոյություն չունի կամ հնարավոր չէ մուտք գործել:"
 
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
 msgstr "Սխալ: {$tmpDir} ժամանակավոր պանակաը չի կարող ստեղծվել"
@@ -528,3 +530,35 @@ msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
 "Ուղարկեք նամակ յուրաքանչյուր խմբագրին՝ հիշեցնելով նրանց իրենց չմարված "
 "առաջադրանքների մասին"
+
+msgid "admin.authSources"
+msgstr "Նույնականացման աղբյուր"
+
+msgid "admin.auth.noneCreated"
+msgstr "Նույնականացման աղբյուր հայտարարված չե։"
+
+msgid "admin.auth.create"
+msgstr "Ստեղծել նույնականացման աղբյուր"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Համեզվա՞ծ եք, որ ուզում եք ջնջել ասյ իդենտիֆիկացիոն աղբյուրը?"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Թարմացրեք DB-IP city lite տվյալների բազան"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Չհաջողվեց վերանվանել DB-IP city lite տվյալների բազայի ֆայլը "
+"{$sourceFilename} դեպի {$targetFilename}:"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Օգտագործման վիճակագրության ֆայլերի բեռնիչի առաջադրանք"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Գրացուցակը {$directory} դատարկ չէ: Սա կարող է ցույց տալ նախկինում ձախողված "
+"գործընթաց կամ միաժամանակ գործող գործընթաց: Այս ֆայլը ավտոմատ կերպով "
+"կվերամշակվի:"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "{$file} ֆայլը չհաջողվեց բացել և այն մերժվեց:"

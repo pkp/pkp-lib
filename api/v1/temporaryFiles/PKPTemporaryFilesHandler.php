@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/contexts/PKPTemporaryFilesHandler.php
+ * @file api/v1/temporaryFiles/PKPTemporaryFilesHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Handle API requests to upload a file and receive a temporary file ID.
  */
 
-namespace PKP\API\v1\contexts;
+namespace PKP\API\v1\temporaryFiles;
 
 use APP\core\Application;
 use APP\core\Services;

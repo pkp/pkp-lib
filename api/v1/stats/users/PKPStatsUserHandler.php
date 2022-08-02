@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/stats/PKPStatsUserHandler.php
+ * @file api/v1/stats/users/PKPStatsUserHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -14,7 +14,7 @@
  *
  */
 
-namespace PKP\API\v1\stats;
+namespace PKP\API\v1\stats\users;
 
 use APP\facades\Repo;
 use PKP\handler\APIHandler;

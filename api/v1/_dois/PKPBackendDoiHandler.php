@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
+use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 

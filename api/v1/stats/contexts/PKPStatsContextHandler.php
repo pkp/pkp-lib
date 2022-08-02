@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/stats/PKPStatsContextHandler.php
+ * @file api/v1/stats/contexts/PKPStatsContextHandler.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -14,7 +14,7 @@
  *
  */
 
-namespace PKP\API\v1\stats;
+namespace PKP\API\v1\stats\contexts;
 
 use APP\core\Services;
 use PKP\core\APIResponse;

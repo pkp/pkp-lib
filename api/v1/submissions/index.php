@@ -17,9 +17,7 @@
  */
 $requestPath = Application::get()->getRequest()->getRequestPath();
 if (strpos($requestPath, '/files')) {
-    import('lib.pkp.api.v1.submissions.PKPSubmissionFileHandler');
-    return new PKPSubmissionFileHandler();
+    return new \PKP\API\v1\submissions\PKPSubmissionFileHandler();
 } else {
-    import('api.v1.submissions.SubmissionHandler');
-    return new SubmissionHandler();
+    return new \APP\API\v1\submissions\SubmissionHandler();
 }

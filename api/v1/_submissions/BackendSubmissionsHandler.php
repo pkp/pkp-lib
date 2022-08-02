@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/_submissions/BackendSubmissionsHandler.inc.php
+ * @file api/v1/_submissions/BackendSubmissionsHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,11 +13,12 @@
  * @brief Handle API requests for backend operations.
  *
  */
+
+namespace APP\API\v1\_submissions;
+ 
 use APP\submission\Collector;
 
-import('lib.pkp.api.v1._submissions.PKPBackendSubmissionsHandler');
-
-class BackendSubmissionsHandler extends PKPBackendSubmissionsHandler
+class BackendSubmissionsHandler extends \PKP\API\v1\_submissions\PKPBackendSubmissionsHandler
 {
     /** @copydoc PKPSubmissionHandler::getSubmissionCollector() */
     protected function getSubmissionCollector(array $queryParams): Collector

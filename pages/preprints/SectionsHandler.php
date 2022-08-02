@@ -14,15 +14,15 @@
  *
  */
 
-namespace APP\pages\sections;
+namespace APP\pages\preprints;
 
-use PKP\db\DAORegistry;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
 
 class SectionsHandler extends Handler

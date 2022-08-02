@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/contexts/PKPUploadPublicFileHandler.php
+ * @file api/v1/uploadPublicFile/PKPUploadPublicFileHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Handle API requests to upload a file to a user's public directory.
  */
 
-namespace PKP\API\v1\contexts;
+namespace PKP\API\v1\_uploadPublicFile;
 
 use APP\core\Application;
 use PKP\file\FileManager;

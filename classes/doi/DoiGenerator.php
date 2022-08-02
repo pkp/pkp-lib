@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/doi/DoiGenerator.inc.php
+ * @file classes/doi/DoiGenerator.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky

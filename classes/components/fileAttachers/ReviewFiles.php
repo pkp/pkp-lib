@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/components/fileAttachers/ReviewFiles.inc.php
+ * @file classes/components/fileAttachers/ReviewFiles.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky

@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/filter/FilterGroup.inc.php
+ * @file classes/filter/FilterGroup.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

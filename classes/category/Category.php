@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/category/Category.inc.php
+ * @file classes/category/Category.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

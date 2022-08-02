@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/grid/users/reviewer/form/ReinstateReviewerForm.inc.php
+ * @file controllers/grid/users/reviewer/form/ReinstateReviewerForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

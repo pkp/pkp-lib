@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/install/NotesMigration.inc.php
+ * @file classes/migration/install/NotesMigration.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

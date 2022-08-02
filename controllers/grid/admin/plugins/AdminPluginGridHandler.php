@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/admin/plugins/AdminPluginGridHandler.inc.php
+ * @file controllers/grid/admin/plugins/AdminPluginGridHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

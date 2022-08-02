@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/scheduledTask/ScheduledTask.inc.php
+ * @file classes/scheduledTask/ScheduledTask.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

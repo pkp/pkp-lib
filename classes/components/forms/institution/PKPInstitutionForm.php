@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/components/form/institution/PKPInstitutionForm.inc.php
+ * @file classes/components/form/institution/PKPInstitutionForm.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

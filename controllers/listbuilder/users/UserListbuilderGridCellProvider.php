@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/listbuilder/users/UserListbuilderGridCellProvider.inc.php
+ * @file controllers/listbuilder/users/UserListbuilderGridCellProvider.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

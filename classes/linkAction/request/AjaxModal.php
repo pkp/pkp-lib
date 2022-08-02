@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/linkAction/request/AjaxModal.inc.php
+ * @file classes/linkAction/request/AjaxModal.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

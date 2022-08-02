@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/observers/listeners/EnvelopeSenderDefault.inc.php
+ * @file classes/observers/listeners/EnvelopeSenderDefault.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

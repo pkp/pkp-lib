@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/grid/files/attachment/ReviewerReviewAttachmentsGridHandler.inc.php
+ * @file controllers/grid/files/attachment/ReviewerReviewAttachmentsGridHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

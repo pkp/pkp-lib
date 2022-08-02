@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/statistics/PKPTemporaryItemRequestsDAO.inc.php
+ * @file classes/statistics/PKPTemporaryItemRequestsDAO.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

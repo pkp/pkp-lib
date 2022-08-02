@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/db/SchemaDAO.inc.php
+ * @file classes/db/SchemaDAO.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

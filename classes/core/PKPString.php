@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/core/PKPString.inc.php
+ * @file classes/core/PKPString.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

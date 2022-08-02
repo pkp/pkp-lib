@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/mailable/Repository.inc.php
+ * @file classes/mailable/Repository.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -14,13 +14,13 @@
 namespace PKP\mail;
 
 use APP\core\Application;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\PKPString;
 use PKP\emailTemplate\EmailTemplate;
-use Exception;
 
 class Repository
 {
@@ -42,6 +42,7 @@ class Repository
     /**
      * Simple check if mailable's name and description contains a search phrase
      * doesn't look up in associated email templates
+     *
      * @param string $className the fully qualified class name of the Mailable
      */
     protected function containsSearchPhrase(string $className, string $searchPhrase): bool
@@ -71,7 +72,9 @@ class Repository
 
     /**
      * Associate mailable with custom templates
+     *
      * @param array<EmailTemplate> $customTemplates
+     *
      * @throws Exception
      */
     public function assignTemplates(string $id, array $customTemplates): void

@@ -4,7 +4,7 @@
  */
 
 /**
- * @file controllers/review/linkAction/UnconsiderReviewLinkAction.inc.php
+ * @file controllers/review/linkAction/UnconsiderReviewLinkAction.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/events/MetadataChanged.inc.php
+ * @file classes/observers/events/MetadataChanged.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/security/Role.inc.php
+ * @file classes/security/Role.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

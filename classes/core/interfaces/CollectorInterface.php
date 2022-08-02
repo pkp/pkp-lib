@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/core/interfaces/CollectorInterface.inc.php
+ * @file classes/core/interfaces/CollectorInterface.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

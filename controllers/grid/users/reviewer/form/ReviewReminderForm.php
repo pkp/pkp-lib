@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/users/reviewer/form/ReviewReminderForm.inc.php
+ * @file controllers/grid/users/reviewer/form/ReviewReminderForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

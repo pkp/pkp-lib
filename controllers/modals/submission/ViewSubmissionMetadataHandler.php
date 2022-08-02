@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/modals/submission/ViewSubmissionMetadataHandler.inc.php
+ * @file controllers/modals/submission/ViewSubmissionMetadataHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/security/authorization/NoteAccessPolicy.inc.php
+ * @file classes/security/authorization/NoteAccessPolicy.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

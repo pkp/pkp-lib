@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/institution/maps/Schema.inc.php
+ * @file classes/institution/maps/Schema.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

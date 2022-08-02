@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/task/PublishSubmissions.inc.php
+ * @file classes/task/PublishSubmissions.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

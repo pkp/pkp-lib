@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/form/validation/FormValidatorEmail.inc.php
+ * @file classes/form/validation/FormValidatorEmail.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

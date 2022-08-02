@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionCommentDAO.inc.php
+ * @file classes/submission/SubmissionCommentDAO.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

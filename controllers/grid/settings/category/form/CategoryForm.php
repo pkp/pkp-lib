@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/controllers/grid/settings/category/form/CategoryForm.inc.php
+ * @file lib/pkp/controllers/grid/settings/category/form/CategoryForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/query/QueryDAO.inc.php
+ * @file classes/query/QueryDAO.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

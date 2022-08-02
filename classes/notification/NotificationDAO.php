@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/notification/NotificationDAO.inc.php
+ * @file classes/notification/NotificationDAO.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

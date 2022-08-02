@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/log/EmailLogEntry.inc.php
+ * @file classes/log/EmailLogEntry.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/task/EditorialReminders.inc.php
+ * @file classes/task/EditorialReminders.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky

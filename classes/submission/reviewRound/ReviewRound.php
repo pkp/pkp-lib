@@ -4,7 +4,7 @@
  * @defgroup submission_reviewRound Review Round
  */
 /**
- * @file classes/submission/reviewRound/ReviewRound.inc.php
+ * @file classes/submission/reviewRound/ReviewRound.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

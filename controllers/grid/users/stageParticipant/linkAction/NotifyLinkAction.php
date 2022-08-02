@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/grid/users/stageParticipant/linkAction/NotifyLinkAction.inc.php
+ * @file controllers/grid/users/stageParticipant/linkAction/NotifyLinkAction.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

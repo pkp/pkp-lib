@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/institution/DAO.inc.php
+ * @file classes/institution/DAO.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

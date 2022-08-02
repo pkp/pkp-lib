@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/validation/ValidatorRegExp.inc.php
+ * @file classes/validation/ValidatorRegExp.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

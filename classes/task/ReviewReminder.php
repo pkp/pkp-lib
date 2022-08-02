@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/task/ReviewReminder.inc.php
+ * @file classes/task/ReviewReminder.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

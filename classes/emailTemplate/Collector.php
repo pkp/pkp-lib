@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/emailTemplate/Collector.inc.php
+ * @file classes/emailTemplate/Collector.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

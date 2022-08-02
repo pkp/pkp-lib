@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/galley/Galley.inc.php
+ * @file classes/galley/Galley.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky

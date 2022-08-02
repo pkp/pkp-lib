@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/PKPStatsEditorialService.inc.php
+ * @file classes/services/PKPStatsEditorialService.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

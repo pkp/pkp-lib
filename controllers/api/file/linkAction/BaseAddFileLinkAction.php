@@ -4,7 +4,7 @@
  */
 
 /**
- * @file controllers/api/file/linkAction/BaseAddFileLinkAction.inc.php
+ * @file controllers/api/file/linkAction/BaseAddFileLinkAction.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/wizard/fileUpload/form/PKPSubmissionFilesUploadBaseForm.inc.php
+ * @file controllers/wizard/fileUpload/form/PKPSubmissionFilesUploadBaseForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

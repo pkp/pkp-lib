@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/controllers/grid/GridCellProvider.inc.php
+ * @file classes/controllers/grid/GridCellProvider.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

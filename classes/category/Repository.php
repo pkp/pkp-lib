@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/category/Repository.inc.php
+ * @file classes/category/Repository.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky

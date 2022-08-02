@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/handler/PKPHandler.inc.php
+ * @file classes/handler/PKPHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

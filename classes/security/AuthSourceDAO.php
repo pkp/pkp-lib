@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/security/AuthSourceDAO.inc.php
+ * @file classes/security/AuthSourceDAO.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

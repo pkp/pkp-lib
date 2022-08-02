@@ -6,7 +6,7 @@
  */
 
 /**
- * @file classes/cache/FileCache.inc.php
+ * @file classes/cache/FileCache.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/observers/events/MessageSendingSite.inc.php
+ * @file classes/observers/events/MessageSendingSite.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

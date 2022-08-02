@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/install/LibraryFilesMigration.inc.php
+ * @file classes/migration/install/LibraryFilesMigration.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

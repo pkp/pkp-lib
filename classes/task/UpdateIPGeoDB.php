@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/task/UpdateIPGeoDB.inc.php
+ * @file classes/task/UpdateIPGeoDB.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

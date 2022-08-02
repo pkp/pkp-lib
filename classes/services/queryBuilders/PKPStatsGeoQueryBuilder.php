@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/queryBuilders/PKPStatsGeoQueryBuilder.inc.php
+ * @file classes/services/queryBuilders/PKPStatsGeoQueryBuilder.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

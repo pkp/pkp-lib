@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/api/file/linkAction/DeleteFileLinkAction.inc.php
+ * @file controllers/api/file/linkAction/DeleteFileLinkAction.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

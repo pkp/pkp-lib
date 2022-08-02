@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/mail/MailTemplate.inc.php
+ * @file classes/mail/MailTemplate.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

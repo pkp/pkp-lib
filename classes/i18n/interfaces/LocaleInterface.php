@@ -8,7 +8,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/i18n/interfaces/LocaleInterface.inc.php
+ * @file classes/i18n/interfaces/LocaleInterface.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

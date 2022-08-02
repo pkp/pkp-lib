@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/xml/XMLNode.inc.php
+ * @file classes/xml/XMLNode.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

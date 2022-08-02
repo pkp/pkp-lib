@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/security/authorization/internal/SubmissionFileAssignedQueryAccessPolicy.inc.php
+ * @file classes/security/authorization/internal/SubmissionFileAssignedQueryAccessPolicy.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

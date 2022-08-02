@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/eventLog/SubmissionEventLogGridHandler.inc.php
+ * @file controllers/grid/eventLog/SubmissionEventLogGridHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

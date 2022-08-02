@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/PKPStatsGeoService.inc.php
+ * @file classes/services/PKPStatsGeoService.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

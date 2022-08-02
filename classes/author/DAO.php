@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/author/DAO.inc.php
+ * @file classes/author/DAO.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -180,9 +180,9 @@ class DAO extends EntityDAO
     {
         $authorIds = $this->getIds(
             Repo::author()
-            ->getCollector()
-            ->filterByPublicationIds([$publicationId])
-            ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
+                ->getCollector()
+                ->filterByPublicationIds([$publicationId])
+                ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
         );
         foreach ($authorIds as $seq => $authorId) {
             DB::table('authors')->where('author_id', '=', $authorId)->update(['seq' => $seq]);

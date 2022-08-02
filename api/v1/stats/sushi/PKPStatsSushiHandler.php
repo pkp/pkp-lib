@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/stats/sushi/PKPStatsSushiHandler.inc.php
+ * @file api/v1/stats/sushi/PKPStatsSushiHandler.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for COUNTER R5 SUSHI statistics.
  *
  */
+
+namespace PKP\API\v1\stats\sushi;
 
 use APP\facades\Repo;
 use APP\sushi\PR;

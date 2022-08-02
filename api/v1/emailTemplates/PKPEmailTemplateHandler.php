@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/emailTemplates/PKPEmailTemplateHandler.inc.php
+ * @file api/v1/emailTemplates/PKPEmailTemplateHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,6 +11,8 @@
  *
  * @brief Base class to handle API requests for email templates.
  */
+
+namespace PKP\API\v1\emailTemplates;
 
 use PKP\facades\Repo;
 use PKP\handler\APIHandler;

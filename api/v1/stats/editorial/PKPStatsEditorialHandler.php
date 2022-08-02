@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/stats/PKPStatsEditorialHandler.inc.php
+ * @file api/v1/stats/PKPStatsEditorialHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for publication statistics.
  *
  */
+
+namespace PKP\API\v1\stats;
 
 use APP\core\Services;
 use PKP\handler\APIHandler;

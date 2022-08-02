@@ -11,7 +11,8 @@
  *
  * @brief Base class to handle API requests for mailables.
  */
-namespace PKP\api\v1\mailables;
+
+namespace PKP\API\v1\mailables;
 
 use APP\facades\Repo;
 use PKP\handler\APIHandler;

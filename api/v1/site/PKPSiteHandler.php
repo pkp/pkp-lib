@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/site/PKPSiteHandler.inc.php
+ * @file api/v1/site/PKPSiteHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,12 +12,16 @@
  * @brief Base class to handle API requests for the site object.
  */
 
+namespace PKP\API\v1\site;
+
+use APP\core\Application;
+use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-
 use PKP\services\PKPSchemaService;
 
 class PKPSiteHandler extends APIHandler

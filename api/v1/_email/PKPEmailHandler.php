@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/_email/PKPEmailHandler.inc.php
+ * @file api/v1/_email/PKPEmailHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -14,13 +14,15 @@
  *
  */
 
+namespace PKP\API\v1\_email;
+
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
 use PKP\core\APIResponse;
-use PKP\handler\APIHandler;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
+use PKP\handler\APIHandler;
 use PKP\mail\Mail;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;

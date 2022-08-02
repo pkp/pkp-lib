@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/_payments/PKPBackendPaymentsSettingsHandler.inc.php
+ * @file api/v1/_payments/PKPBackendPaymentsSettingsHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -14,8 +14,11 @@
  *  settings.
  */
 
+namespace PKP\API\v1\_payments;
+
 use APP\core\Services;
 use PKP\handler\APIHandler;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;

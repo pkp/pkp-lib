@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/contexts/PKPContextHandler.inc.php
+ * @file api/v1/contexts/PKPContextHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,13 +12,17 @@
  * @brief Base class to handle API requests for contexts (journals/presses).
  */
 
+namespace PKP\API\v1\contexts;
+
+use APP\core\Application;
+use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
-
 use PKP\services\PKPSchemaService;
 
 class PKPContextHandler extends APIHandler

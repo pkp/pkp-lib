@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/dois/PKPDoiHandler.inc.php
+ * @file api/v1/dois/PKPDoiHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -14,15 +14,18 @@
  *
  */
 
+namespace PKP\API\v1\dois;
+
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
-
 use PKP\context\Context;
 use PKP\core\APIResponse;
 use PKP\doi\exceptions\DoiCreationException;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\Jobs\Doi\DepositSubmission;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
@@ -479,10 +482,12 @@ class PKPDoiHandler extends APIHandler
                         },
                         $failedDoiCreations
                     )
-                ], 400);
+                ],
+                400
+            );
         }
 
-        return $response->withJson(['failedDoiCreations' => $failedDoiCreations],200);
+        return $response->withJson(['failedDoiCreations' => $failedDoiCreations], 200);
     }
 
     /**

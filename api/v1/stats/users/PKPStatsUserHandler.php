@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/stats/PKPStatsUserHandler.inc.php
+ * @file api/v1/stats/PKPStatsUserHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for publication statistics.
  *
  */
+
+namespace PKP\API\v1\stats;
 
 use APP\facades\Repo;
 use PKP\handler\APIHandler;
@@ -80,8 +82,10 @@ class PKPStatsUserHandler extends APIHandler
         $collector = Repo::user()->getCollector();
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
-                case 'registeredAfter': $collector->filterRegisteredAfter($value); break;
-                case 'registeredBefore': $collector->filterRegisteredBefore($value); break;
+                case 'registeredAfter': $collector->filterRegisteredAfter($value);
+                    break;
+                case 'registeredBefore': $collector->filterRegisteredBefore($value);
+                    break;
                 case 'status': switch ($value) {
                     case 'disabled':
                         $collector->filterByStatus($collector::STATUS_DISABLED);

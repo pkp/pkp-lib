@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/_library/PKPLibraryHandler.inc.php
+ * @file api/v1/_library/PKPLibraryHandler.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for announcement operations.
  *
  */
+
+namespace PKP\API\v1\_library;
 
 use APP\core\Application;
 use APP\core\Services;

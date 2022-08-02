@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/contexts/PKPUploadPublicFileHandler.inc.php
+ * @file api/v1/contexts/PKPUploadPublicFileHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,8 +12,12 @@
  * @brief Handle API requests to upload a file to a user's public directory.
  */
 
+namespace PKP\API\v1\contexts;
+
+use APP\core\Application;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -172,15 +176,15 @@ class PKPUploadPublicFileHandler extends APIHandler
                 switch ($fileManager->getUploadErrorCode($filename)) {
                     case UPLOAD_ERR_INI_SIZE:
                     case UPLOAD_ERR_FORM_SIZE:
-                    return $response->withStatus(400)->withJsonError('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
+                        return $response->withStatus(400)->withJsonError('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
                     case UPLOAD_ERR_PARTIAL:
-                    return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
+                        return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
                     case UPLOAD_ERR_NO_FILE:
-                    return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
+                        return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
                     case UPLOAD_ERR_NO_TMP_DIR:
                     case UPLOAD_ERR_CANT_WRITE:
                     case UPLOAD_ERR_EXTENSION:
-                    return $response->withStatus(400)->withJsonError('api.files.400.config');
+                        return $response->withStatus(400)->withJsonError('api.files.400.config');
                 }
             }
             return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');

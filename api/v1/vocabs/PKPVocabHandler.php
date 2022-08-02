@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/vocabs/PKPVocabHandler.inc.php
+ * @file api/v1/vocabs/PKPVocabHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for controlled vocab operations.
  *
  */
+
+namespace PKP\API\v1\vocabs;
 
 use APP\core\Application;
 use PKP\core\APIResponse;

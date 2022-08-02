@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/institutions/PKPInstitutionHandler.inc.php
+ * @file api/v1/institutions/PKPInstitutionHandler.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for institution operations.
  *
  */
+
+namespace PKP\API\v1\institutions;
 
 use APP\facades\Repo;
 use PKP\core\APIResponse;

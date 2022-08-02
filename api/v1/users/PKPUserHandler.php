@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/users/PKPUserHandler.inc.php
+ * @file api/v1/users/PKPUserHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Base class to handle API requests for user operations.
  *
  */
+
+namespace PKP\API\v1\users;
 
 use APP\facades\Repo;
 use PKP\core\APIResponse;
@@ -108,15 +110,20 @@ class PKPUserHandler extends APIHandler
         // Convert from $params array to what the Collector expects
         $orderBy = null;
         switch ($params['orderBy'] ?? 'id') {
-            case 'id': $orderBy = $collector::ORDERBY_ID; break;
-            case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
-            case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
+            case 'id': $orderBy = $collector::ORDERBY_ID;
+                break;
+            case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME;
+                break;
+            case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME;
+                break;
             default: throw new Exception('Unknown orderBy specified');
         }
         $orderDirection = null;
         switch ($params['orderDirection'] ?? 'ASC') {
-            case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
-            case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
+            case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC;
+                break;
+            case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC;
+                break;
             default: throw new Exception('Unknown orderDirection specified');
         }
 
@@ -275,7 +282,7 @@ class PKPUserHandler extends APIHandler
                     }
                     break;
 
-                // Always convert roleIds to array
+                    // Always convert roleIds to array
                 case 'reviewerIds':
                 case 'roleIds':
                     if (is_string($val)) {
@@ -310,7 +317,7 @@ class PKPUserHandler extends APIHandler
                     $returnParams[$param] = $val;
                     break;
 
-                // Enforce a maximum count per request
+                    // Enforce a maximum count per request
                 case 'count':
                     $returnParams[$param] = min(100, (int) $val);
                     break;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/submissions/PKPSubmissionHandler.inc.php
+ * @file api/v1/submissions/PKPSubmissionHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Handle API requests for submission operations.
  *
  */
+
+namespace PKP\API\v1\submissions;
 
 use APP\core\Application;
 use APP\core\Request;

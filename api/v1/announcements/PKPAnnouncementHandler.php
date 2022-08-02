@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/announcements/PKPAnnouncementHandler.inc.php
+ * @file api/v1/announcements/PKPAnnouncementHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -14,6 +14,8 @@
  *
  */
 
+namespace PKP\API\v1\announcements;
+
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
@@ -24,7 +26,6 @@ use PKP\plugins\HookRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-
 use PKP\services\PKPSchemaService;
 
 class PKPAnnouncementHandler extends APIHandler
@@ -199,7 +200,6 @@ class PKPAnnouncementHandler extends APIHandler
         $announcement = Repo::announcement()->get($id);
 
         if (filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN)) {
-            import('lib.pkp.classes.notification.managerDelegate.AnnouncementNotificationManager');
             $announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
             $announcementNotificationManager->initialize($announcement);
 

@@ -65,6 +65,8 @@
 		"psr-4": {
 			"PKP\\controllers\\": "controllers/",
 			"APP\\controllers\\": "../../controllers/",
+			"PKP\\API\\": "api/",
+			"APP\\API\\": "../../api/",
 			"PKP\\pages\\": "pages/",
 			"APP\\pages\\": "../../pages/",
 			"PKP\\": "classes/",

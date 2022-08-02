@@ -56,8 +56,8 @@
 			prototype.uploadFileHandler_ = function(sourceElement, event, rowId) {
 
 		// FIXME: Inter-widget messaging is needed here.
-		var selector = 'a[id^="component-grid-preprintgalleys-preprintgalleygrid-row-' +
-				rowId + '-addFile-button-"]';
+		var selector = 'a[id^="component-grid-preprintgalleys-preprintgalleygrid-' +
+				'row-' + rowId + '-addFile-button-"]';
 		$.when($(selector)).then(function() {
 			$(function() {
 				$(selector).click();

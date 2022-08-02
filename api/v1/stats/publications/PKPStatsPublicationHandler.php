@@ -651,7 +651,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     /**
      * Validate, filter, sanitize the params
      *
-     * @throws Exception
+     * @throws \Exception
      */
     protected function validateParams(array $allowedParams): array
     {
@@ -661,15 +661,15 @@ abstract class PKPStatsPublicationHandler extends APIHandler
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
-            throw new Exception($result, 400);
+            throw new \Exception($result, 400);
         }
 
         if (array_key_exists('orderDirection', $allowedParams) && !in_array($allowedParams['orderDirection'], [StatisticsHelper::STATISTICS_ORDER_ASC, StatisticsHelper::STATISTICS_ORDER_DESC])) {
-            throw new Exception('api.stats.400.invalidOrderDirection', 400);
+            throw new \Exception('api.stats.400.invalidOrderDirection', 400);
         }
 
         if (array_key_exists('timelineInterval', $allowedParams) && !$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
-            return new Exception('api.stats.400.invalidTimelineInterval', 400);
+            return new \Exception('api.stats.400.invalidTimelineInterval', 400);
         }
 
         // Identify submissions which should be included in the results when a searchPhrase is passed
@@ -678,7 +678,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $allowedParams['submissionIds'] = $this->_processSearchPhrase($allowedParams['searchPhrase'], $allowedSubmissionIds);
 
             if (empty($allowedParams['submissionIds'])) {
-                throw new Exception('', 200);
+                throw new \Exception('', 200);
             }
             unset($allowedParams['searchPhrase']);
         }

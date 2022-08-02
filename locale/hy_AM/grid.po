@@ -85,7 +85,8 @@ msgid "grid.artworkFile.caption"
 msgstr "Մակագրություն"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Կատարված են սրբագրման ուղղումներ: Դուք կարող եք անտեսել այս առաջադրանքը"
+msgstr ""
+"Կատարված են սրբագրման ուղղումներ: Դուք կարող եք անտեսել այս առաջադրանքը"
 
 msgid "grid.plugin.disable"
 msgstr "Իսկապե՞ս ուզում եք անջատել այս փլագինը:"
@@ -718,3 +719,9 @@ msgstr "Կարգաբերումներ"
 
 msgid "grid.noItems"
 msgstr "Չկան նյութեր"
+
+msgid "grid.user.authSource"
+msgstr "Նույնականացման աղբյուր"
+
+msgid "grid.action.addInstitution"
+msgstr "Ավելացնել հաստատություն"

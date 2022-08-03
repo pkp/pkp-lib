@@ -301,7 +301,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $dispatcher->setApplication($mockApplication);
 
         $contextDao = $application->getContextDAO();
-        $contextStub = $this->getMockBuilder(get_class($contextDao->newDataObject()))
+        $contextStub = $this->getMockBuilder($contextDao->newDataObject()::class)
             ->onlyMethods(['getLocalizedName', 'getContactName', 'getContactEmail'])
             ->getMock();
         $contextStub->expects($this->any())

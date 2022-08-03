@@ -19,7 +19,6 @@ namespace PKP\tests\classes\core;
 
 use APP\core\Application;
 use APP\core\Request;
-use AssertionError;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
@@ -212,7 +211,7 @@ class PKPRouterTestCase extends PKPTestCase
         // Simulate a context DAO
         $application = Application::get();
         $contextDao = $application->getContextDAO();
-        $mockDao = $this->getMockBuilder(get_class($contextDao))
+        $mockDao = $this->getMockBuilder($contextDao::class)
             ->onlyMethods(['getByPath'])
             ->getMock();
         DAORegistry::registerDAO('SomeContextDAO', $mockDao);
@@ -220,7 +219,7 @@ class PKPRouterTestCase extends PKPTestCase
         // Set up the mock DAO get-by-path method which
         // should be called with the context path from
         // the path info.
-        $expectedResult = $this->getMockBuilder(get_class($contextDao->newDataObject()))->getMock();
+        $expectedResult = $this->getMockBuilder($contextDao->newDataObject()::class)->getMock();
         $mockDao->expects($this->once())
             ->method('getByPath')
             ->with('contextPath')
@@ -366,8 +365,8 @@ class PKPRouterTestCase extends PKPTestCase
     {
         $application = Application::get();
         $contextDao = $application->getContextDAO();
-        $contextClassName = get_class($contextDao->newDataObject());
-        $mockFirstContextDao = $this->getMockBuilder(get_class($contextDao))
+        $contextClassName = $contextDao->newDataObject()::class;
+        $mockFirstContextDao = $this->getMockBuilder($contextDao::class)
             ->onlyMethods(['getByPath'])
             ->getMock();
         if (!$firstContextIsNull) {

@@ -19,6 +19,7 @@ use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 
 class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
 {
@@ -94,7 +95,6 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
                 }
 
                 $submissionFile = Repo::submissionFile()->get($element->getData('submissionFileId'));
-                import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
                 return [new DownloadFileLinkAction($request, $submissionFile, WORKFLOW_STAGE_ID_PRODUCTION, $element->getLabel())];
         }
         return parent::getCellActions($request, $row, $column, $position);

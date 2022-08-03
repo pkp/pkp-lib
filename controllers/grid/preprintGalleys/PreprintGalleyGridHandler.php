@@ -33,7 +33,10 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
-
+use APP\controllers\grid\preprintGalleys\PreprintGalleyGridCellProvider;
+use APP\controllers\grid\preprintGalleys\PreprintGalleyGridRow;
+use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
+use APP\controllers\grid\preprintGalleys\form\PreprintGalleyForm;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 
@@ -128,7 +131,6 @@ class PreprintGalleyGridHandler extends GridHandler
         parent::initialize($request, $args);
         $this->setTitle('submission.layout.galleys');
 
-        import('controllers.grid.preprintGalleys.PreprintGalleyGridCellProvider');
         $cellProvider = new PreprintGalleyGridCellProvider($this->getSubmission(), $this->getPublication(), $this->canEdit());
 
         // Columns
@@ -197,7 +199,6 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function getRowInstance()
     {
-        import('controllers.grid.preprintGalleys.PreprintGalleyGridRow');
         return new PreprintGalleyGridRow(
             $this->getSubmission(),
             $this->getPublication(),
@@ -248,7 +249,6 @@ class PreprintGalleyGridHandler extends GridHandler
     public function identifiers($args, $request)
     {
         $representation = Repo::galley()->get($request->getUserVar('representationId'));
-        import('controllers.tab.pubIds.form.PublicIdentifiersForm');
         $form = new PublicIdentifiersForm($representation);
         $form->initData();
         return new JSONMessage(true, $form->fetch($request));
@@ -266,7 +266,6 @@ class PreprintGalleyGridHandler extends GridHandler
     {
         $representationDao = Application::getRepresentationDAO();
         $representation = $representationDao->getById($request->getUserVar('representationId'));
-        import('controllers.tab.pubIds.form.PublicIdentifiersForm');
         $form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]));
         $form->readInputData();
         if ($form->validate()) {
@@ -294,7 +293,6 @@ class PreprintGalleyGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $representationDao = Application::getRepresentationDAO();
         $representation = $representationDao->getById($request->getUserVar('representationId'));
-        import('controllers.tab.pubIds.form.PublicIdentifiersForm');
         $form = new PublicIdentifiersForm($representation);
         $form->clearPubId($request->getUserVar('pubIdPlugIn'));
         return new JSONMessage(true);
@@ -310,7 +308,6 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function addGalley($args, $request)
     {
-        import('controllers.grid.preprintGalleys.form.PreprintGalleyForm');
         $galleyForm = new PreprintGalleyForm(
             $request,
             $this->getSubmission(),
@@ -400,7 +397,6 @@ class PreprintGalleyGridHandler extends GridHandler
     public function editGalleyTab($args, $request)
     {
         // Form handling
-        import('controllers.grid.preprintGalleys.form.PreprintGalleyForm');
         $galleyForm = new PreprintGalleyForm(
             $request,
             $this->getSubmission(),
@@ -423,7 +419,6 @@ class PreprintGalleyGridHandler extends GridHandler
     {
         $galley = $this->getGalley();
 
-        import('controllers.grid.preprintGalleys.form.PreprintGalleyForm');
         $galleyForm = new PreprintGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley);
         $galleyForm->readInputData();
 

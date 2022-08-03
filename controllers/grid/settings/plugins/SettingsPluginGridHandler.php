@@ -20,6 +20,7 @@ use PKP\controllers\grid\plugins\PluginGridHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PluginAccessPolicy;
 use PKP\security\Role;
+use PKP\controllers\grid\plugins\PluginGridRow;
 
 class SettingsPluginGridHandler extends PluginGridHandler
 {
@@ -74,7 +75,6 @@ class SettingsPluginGridHandler extends PluginGridHandler
      */
     protected function getRowInstance()
     {
-        import('lib.pkp.controllers.grid.plugins.PluginGridRow');
         return new PluginGridRow($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
     }
 

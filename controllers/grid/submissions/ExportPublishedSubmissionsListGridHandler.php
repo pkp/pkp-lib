@@ -22,6 +22,7 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
+use APP\controllers\grid\submissions\ExportPublishedSubmissionsListGridCellProvider;
 
 class ExportPublishedSubmissionsListGridHandler extends GridHandler
 {
@@ -274,7 +275,6 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
     {
         // Fetch the authorized roles.
         $authorizedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        import('controllers.grid.submissions.ExportPublishedSubmissionsListGridCellProvider');
         return new ExportPublishedSubmissionsListGridCellProvider($this->_plugin, $authorizedRoles);
     }
 }

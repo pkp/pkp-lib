@@ -30,7 +30,6 @@ switch ($op) {
     case 'statistics':
     case 'permissions':
     case 'resetPermissions':
-        import('lib.pkp.pages.management.PKPToolsHandler');
-        define('HANDLER_CLASS', 'PKPToolsHandler');
+        define('HANDLER_CLASS', 'PKP\pages\management\PKPToolsHandler');
         break;
 }

@@ -85,7 +85,6 @@ class PreprintGalleyGridRow extends GridRow
 
                 $galley = $this->getData();
                 if ($galley->getRemoteUrl() == '') {
-                    import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
                     $this->addAction(new AddFileLinkAction(
                         $request,
                         $this->getSubmission()->getId(),

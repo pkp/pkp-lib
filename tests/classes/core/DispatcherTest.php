@@ -66,7 +66,7 @@ class DispatcherTest extends PKPTestCase
             ->will($this->returnValue(['firstContext', 'secondContext']));
 
         $this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
-        $this->dispatcher->addRouterName('\PKP\core\PKPPageRouter', 'page');
+        $this->dispatcher->addRouterName(\PKP\core\PKPPageRouter::class, 'page');
 
         $this->request = new Request();
     }

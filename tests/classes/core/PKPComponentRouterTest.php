@@ -278,7 +278,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         $this->router->route($this->request);
 
         self::assertNotNull($serviceEndpoint);
-        self::assertInstanceOf('\PKP\controllers\grid\notifications\NotificationsGridHandler', $handler);
+        self::assertInstanceOf(\PKP\controllers\grid\notifications\NotificationsGridHandler::class, $handler);
         $firstContextDao = DAORegistry::getDAO('FirstContextDAO');
         self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
     }

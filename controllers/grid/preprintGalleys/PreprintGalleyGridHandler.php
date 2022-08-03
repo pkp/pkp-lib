@@ -16,6 +16,7 @@
 namespace APP\controllers\grid\preprintGalleys;
 
 use APP\controllers\grid\preprintGalleys\form\PreprintGalleyForm;
+use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
@@ -33,10 +34,6 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
-use APP\controllers\grid\preprintGalleys\PreprintGalleyGridCellProvider;
-use APP\controllers\grid\preprintGalleys\PreprintGalleyGridRow;
-use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
-use APP\controllers\grid\preprintGalleys\form\PreprintGalleyForm;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 

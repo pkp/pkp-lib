@@ -16,18 +16,15 @@
 namespace APP\controllers\grid\settings\sections;
 
 use APP\controllers\grid\settings\sections\form\SectionForm;
-use PKP\controllers\grid\settings\SetupGridHandler;
-use APP\controllers\grid\settings\sections\SectionGridRow;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\settings\SetupGridHandler;
 use PKP\core\JSONMessage;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use APP\controllers\grid\settings\sections\SectionGridCellProvider;
-use APP\controllers\grid\settings\sections\form\SectionForm;
 use PKP\security\Role;
 
 class SectionGridHandler extends SetupGridHandler

@@ -15,11 +15,10 @@
 
 namespace APP\controllers\grid\preprintGalleys;
 
-use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use APP\facades\Repo;
+use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
-use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 
 class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
 {

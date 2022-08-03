@@ -15,7 +15,7 @@
  */
 
 namespace APP\API\v1\_submissions;
- 
+
 use APP\submission\Collector;
 
 class BackendSubmissionsHandler extends \PKP\API\v1\_submissions\PKPBackendSubmissionsHandler

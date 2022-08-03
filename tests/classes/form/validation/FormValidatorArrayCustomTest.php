@@ -27,15 +27,15 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 {
     private array $checkedValues = [];
     private Form $form;
-    private Closure $subfieldValidation;
-    private Closure $localeFieldValidation;
+    private array $subfieldValidation;
+    private array $localeFieldValidation;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->form = new Form('some template');
-        $this->subfieldValidation = fn (...$args) => $this->userFunctionForSubfields(...$args);
-        $this->localeFieldValidation = fn (...$args) => $this->userFunctionForLocaleFields(...$args);
+        $this->subfieldValidation = [$this, 'userFunctionForSubfields'];
+        $this->localeFieldValidation = [$this, 'userFunctionForLocaleFields'];
     }
 
     /**

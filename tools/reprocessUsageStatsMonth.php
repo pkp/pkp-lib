@@ -16,7 +16,7 @@
 use APP\core\Services;
 use APP\tasks\UsageStatsLoader;
 
-require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 class ReprocessUsageStatsMonth extends \PKP\cliTool\CommandLineTool
 {

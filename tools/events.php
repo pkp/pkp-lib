@@ -33,7 +33,7 @@ use Symfony\Component\Console\Output\StreamOutput;
 use Throwable;
 
 define('APP_ROOT', dirname(__FILE__, 4));
-require_once APP_ROOT . '/tools/bootstrap.inc.php';
+require_once APP_ROOT . '/tools/bootstrap.php';
 
 class commandEvents extends CommandLineTool
 {
@@ -167,7 +167,7 @@ class commandEvents extends CommandLineTool
         $eventServiceProvider->getEvents();
 
         $filePath = $cacheManager->getFileCachePath();
-        $files = glob("$filePath/fc-event*.php");
+        $files = glob("{$filePath}/fc-event*.php");
         foreach ($files as $file) {
             if (!file_exists($file)) {
                 $this->getOutput()->error('Cached file was not created');

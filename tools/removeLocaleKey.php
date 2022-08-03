@@ -13,7 +13,7 @@
  * @brief Remove a locale key from all locale files.
  */
 
-require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
 {

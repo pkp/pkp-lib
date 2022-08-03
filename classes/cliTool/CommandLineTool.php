@@ -38,7 +38,7 @@ chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
-require_once './lib/pkp/includes/bootstrap.inc.php';
+require_once './lib/pkp/includes/bootstrap.php';
 SessionManager::disable();
 
 class CommandLineTool

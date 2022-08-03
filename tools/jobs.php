@@ -34,7 +34,7 @@ use Symfony\Component\Console\Output\StreamOutput;
 use Throwable;
 
 define('APP_ROOT', dirname(__FILE__, 4));
-require_once APP_ROOT . '/tools/bootstrap.inc.php';
+require_once APP_ROOT . '/tools/bootstrap.php';
 
 class commandInterface
 {

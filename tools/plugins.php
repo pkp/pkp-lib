@@ -17,7 +17,7 @@ use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginGalleryDAO;
 
-require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 
 class PluginsTool extends \PKP\cliTool\CommandLineTool

@@ -17,7 +17,7 @@
 use APP\core\Services;
 
 define('APP_ROOT', dirname(__FILE__, 4));
-require(APP_ROOT . '/tools/bootstrap.inc.php');
+require(APP_ROOT . '/tools/bootstrap.php');
 
 class buildSwagger extends \PKP\cliTool\CommandLineTool
 {
@@ -131,7 +131,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                             $summaryPropSchema->properties = $subPropsSchemaSummary;
                         }
 
-                        // All non-object props
+                    // All non-object props
                     } else {
                         if (!empty($propSchema->multilingual)) {
                             if ($propSchema->type === 'array') {

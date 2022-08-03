@@ -13,7 +13,7 @@
  * @brief Generate example metric data.
  */
 
-require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 use APP\core\Application;
 use APP\facades\Repo;

@@ -13,7 +13,7 @@
  * @brief Move a locale key from an application's locale files to the pkp-lib locale files.
  */
 
-require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
 {
@@ -109,7 +109,7 @@ class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
 
             $lines = explode("\n", file_get_contents($localeSourceFile));
             foreach ($lines as $i => $line) {
-                if ($line === "msgid \"$this->msgidMatch\"") {
+                if ($line === "msgid \"{$this->msgidMatch}\"") {
                     $isMovingLine = true;
                 } elseif (trim($line) === '#, fuzzy' || substr($line, 0, 5) === 'msgid') {
                     $isMovingLine = false;

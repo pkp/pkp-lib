@@ -160,7 +160,7 @@ function normalizeMockEnvironment($mockEnv)
 }
 
 // Set up minimal PKP application environment
-require_once('./lib/pkp/includes/bootstrap.inc.php');
+require_once('./lib/pkp/includes/bootstrap.php');
 
 // Make sure ADOdb doesn't "clean up" our /tmp folder.
 $ADODB_CACHE_DIR = CacheManager::getFileCachePath() . '/_db';

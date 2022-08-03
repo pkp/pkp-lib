@@ -20,6 +20,7 @@ namespace PKP\tests\classes\core;
 use PKP\core\PKPComponentRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 
 /**
  * @backupGlobals enabled
@@ -271,10 +272,13 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         Registry::set('request', $this->request);
         $user = new \PKP\user\User();
         Registry::set('user', $user);
+        $serviceEndpoint = $this->router->getRpcServiceEndpoint($this->request);
+        $handler = $serviceEndpoint[0];
+        $handler->addPolicy(new UserRolesRequiredPolicy($this->request), true);
         $this->router->route($this->request);
 
-        self::assertNotNull($serviceEndpoint = & $this->router->getRpcServiceEndpoint($this->request));
-        self::assertInstanceOf('\PKP\controllers\grid\notifications\NotificationsGridHandler', $handler = & $serviceEndpoint[0]);
+        self::assertNotNull($serviceEndpoint);
+        self::assertInstanceOf('\PKP\controllers\grid\notifications\NotificationsGridHandler', $handler);
         $firstContextDao = DAORegistry::getDAO('FirstContextDAO');
         self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
     }

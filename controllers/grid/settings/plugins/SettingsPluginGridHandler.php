@@ -15,12 +15,11 @@
 
 namespace APP\controllers\grid\settings\plugins;
 
-use PKP\controllers\grid\plugins\PluginGridRow;
 use PKP\controllers\grid\plugins\PluginGridHandler;
+use PKP\controllers\grid\plugins\PluginGridRow;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PluginAccessPolicy;
 use PKP\security\Role;
-use PKP\controllers\grid\plugins\PluginGridRow;
 
 class SettingsPluginGridHandler extends PluginGridHandler
 {

@@ -18,7 +18,6 @@ use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
-use APP\submission\SubmissionFileDAO;
 use Exception;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
@@ -112,10 +111,8 @@ trait IsRecommendation
     /**
      * Create a query (discussion) among deciding editors
      * and add attachments to the head note
-     *
-     * @return array<int>
      */
-    protected function addRecommendationQuery(EmailData $email, Submission $submission, User $editor, Context $context)
+    protected function addRecommendationQuery(EmailData $email, Submission $submission, User $editor, Context $context): void
     {
         /** @var QueryDAO $queryDao */
         $queryDao = DAORegistry::getDAO('QueryDAO');
@@ -187,10 +184,7 @@ trait IsRecommendation
             $filepath,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
-        /** @var SubmissionFileDAO $submissionFileDao */
-        $submissionFileDao = DAORegistry::getDao('SubmissionFileDAO');
-        $submissionFile = $submissionFileDao->newDataObject();
-        $submissionFile->setAllData([
+        $submissionFile = Repo::submissionFile()->newDataObject([
             'fileId' => $fileId,
             'name' => [
                 Locale::getLocale() => $filename

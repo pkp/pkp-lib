@@ -31,14 +31,8 @@ msgstr ""
 "<br />\n"
 "إن كان لديك أي استفسارات، لطفاً تواصل معي. شكراً على اعتبارك هذه المجلة جديرة بعملك.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"عند تمكين هذه الرسالة، سيتم إرسالها تلقائياً للمؤلف بمجرد إكماله خطوات تقديم "
-"طلب النشر إلى المجلة. يتعرف المؤلف من خلالها على إمكانية متابعة طلبه عبر "
-"موقع المجلة كما يشكره على تقديم طلبه لها."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "إشعار تحكيم المؤلَّف"
@@ -150,9 +144,6 @@ msgstr ""
 "رابط الطلب: {$submissionUrl}<br />\n"
 "اسم الدخول: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "هذه الرسالة يعنونها محرر القسم إلى مدقق القسم مطالباً إياه بالشروع في عملية معالجة نسخة المؤلَّف قيد المعالجة، وهي توفر له معلومات عن طلب النشر وكيفية الوصول إليه ضمن موقع المجلة."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "قرار المحرر"

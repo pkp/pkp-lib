@@ -12,13 +12,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Email này, khi được bật, sẽ tự động được gửi cho tác giả khi người đó hoàn "
-"thành quá trình gửi bản thảo cho tạp chí. Nó cung cấp thông tin về việc theo "
-"dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Kính gửi {$recipientName},<br />\n"
@@ -34,7 +27,7 @@ msgstr ""
 "Nếu bạn có bất kỳ câu hỏi, xin vui lòng liên hệ với chúng tôi. Cảm ơn bạn đã "
 "coi tạp chí này là công bố nghiên cứu của bạn.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -139,13 +132,6 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Yêu cầu biên tập bản thảo"
-
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Email này được gửi bởi một biên tập viên chuyên mục tới biên tập viên bản "
-"thảo rằng họ bắt đầu quá trình biên tập bản thảo. Nó cung cấp thông tin về "
-"bài gửi và làm thế nào để truy cập vào nó."
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"

@@ -54,7 +54,7 @@ class SiteEmailVariable extends Variable
        [
            self::SITE_TITLE => $this->site->getLocalizedData('title', $locale),
            self::SITE_CONTACT => $this->site->getLocalizedData('contactName', $locale),
-           self::SITE_EMAIL => $this->site->getData('contactEmail'),
+           self::SITE_EMAIL => $this->site->getLocalizedData('contactEmail', $locale),
            self::SITE_SIGNATURE => '<p>' .
                $this->site->getLocalizedData('contactName', $locale) . '<br/>' .
                $this->site->getLocalizedData('title', $locale) .

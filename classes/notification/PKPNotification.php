@@ -89,6 +89,9 @@ class PKPNotification extends \PKP\core\DataObject
     public const NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION = 0x100002B;
     public const NOTIFICATION_TYPE_EDITORIAL_REMINDER = 0x100002C;
 
+    // Maximum number of notifications that can be sent per job
+    public const NOTIFICATION_CHUNK_SIZE_LIMIT = 100;
+
     /**
      * get user id associated with this notification
      *

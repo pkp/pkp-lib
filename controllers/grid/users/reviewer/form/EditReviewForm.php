@@ -23,11 +23,14 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\core\PKPApplication;
+use PKP\mail\mailables\EditReviewNotify;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
-
-use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
+use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
 
 class EditReviewForm extends Form
 {
@@ -37,14 +40,12 @@ class EditReviewForm extends Form
     /** @var ReviewRound */
     public $_reviewRound;
 
-    /**
-     * Constructor.
-     *
-     * @param ReviewAssignment $reviewAssignment
-     */
-    public function __construct($reviewAssignment)
+    protected Submission $submission;
+
+    public function __construct(ReviewAssignment $reviewAssignment, Submission $submission)
     {
         $this->_reviewAssignment = $reviewAssignment;
+        $this->submission = $submission;
         assert($this->_reviewAssignment instanceof ReviewAssignment);
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -164,15 +165,36 @@ class EditReviewForm extends Form
             $request = Application::get()->getRequest();
             $context = $request->getContext();
 
-            $notificationManager->createNotification(
+            $notification = $notificationManager->createNotification(
                 $request,
                 $reviewAssignment->getReviewerId(),
                 PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
                 $context->getId(),
-                ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK
             );
+
+            // Check if user is subscribed to this type of notification emails
+            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+            if ($notification && !in_array(PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                        $reviewer->getId(),
+                        (int) $context->getId()))
+            ) {
+                $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
+                $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment, $notification);
+                $mailable
+                    ->sender($request->getUser())
+                    ->recipients([$reviewer])
+                    ->subject($template->getLocalizedData('subject'))
+                    ->body($template->getLocalizedData('body'));
+
+                Mail::send($mailable);
+            }
         }
 
         $reviewAssignment->setDateDue($this->getData('reviewDueDate'));

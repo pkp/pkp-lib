@@ -34,15 +34,8 @@ msgstr ""
 "W razie dodatkowych pytań proszę o kontakt.<br />\n"
 "<br />\n"
 "Z wyrazami szacunku,\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Wiadomość jest automatycznie wysyłana do autora po zgłoszeniu tekstu do "
-"czasopisma. Dostarcza informacji o możliwości obserwowania procesu "
-"redakcyjnego zgłoszenia oraz podziękowania dla autora za dokonanie "
-"zgłoszenia."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Podziękowanie za wykonanie recenzji"
@@ -167,9 +160,6 @@ msgstr ""
 "WWW tekstu: {$submissionUrl}<br />\n"
 "Nazwa użytkownika: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Ta wiadomość jest wysyłana przez redaktora prowadzącego do korektora i zawiera prośbę o wykonanie korekty wraz z informacją o lokalizacji plików do korekty."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Decyzja redakcji"

@@ -19,6 +19,10 @@
 
 namespace PKP\notification;
 
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+
 class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 {
     /** @var string The setting which holds the notification status */
@@ -172,6 +176,27 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
         );
 
         return $token;
+    }
+
+    /**
+     * Retrieves IDs of all users subscribed to the notification of specific type
+     *
+     * @param string[] $blockedNotificationKey list of the NotificationSubscriptionSettingsDAO::BLOCKED_* constants
+     * @param int[] $blockedNotificationType list of the PKPNotification::NOTIFICATION_TYPE_* constants
+     */
+    public function getSubscribedUserIds(array $blockedNotificationKey, array $blockedNotificationType, array $contextIds, ?array $roleIds = null): Collection
+    {
+        return DB::table('users as u')->select('u.user_id')
+            ->whereNotIn('u.user_id', fn (Builder $q) =>
+                $q->select('nss.user_id')->from('notification_subscription_settings as nss')
+                    ->whereIn('setting_name', $blockedNotificationKey)
+                    ->whereIn('setting_value', $blockedNotificationType)
+            )->whereExists(fn (Builder $q) => $q->from('user_user_groups', 'uug')
+                    ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                    ->whereColumn('uug.user_id', '=', 'u.user_id')
+                    ->whereIn('ug.context_id', $contextIds)
+                    ->when(!is_null($roleIds), fn (Builder $q) => $q->whereIn('ug.role_id', $roleIds))
+            )->pluck('user_id');
     }
 }
 

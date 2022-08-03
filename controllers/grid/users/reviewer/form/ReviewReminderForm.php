@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
-
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
@@ -29,7 +29,6 @@ use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
-use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -83,8 +82,8 @@ class ReviewReminderForm extends Form
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $mailable->sender($user)->recipients([$reviewer]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
+        $mailable->sender($user)->recipients($reviewer);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));
 
         $this->setData('stageId', $reviewAssignment->getStageId());
@@ -138,10 +137,9 @@ class ReviewReminderForm extends Form
 
         // Create ReviewRemind email and populate with data
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $mailable->sender($user)->recipients([$reviewer]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable->getEmailTemplateKey());
+        $mailable->sender($user)->recipients($reviewer);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
-        $mailable->setData(Locale::getLocale());
 
         // Finally, send email and handle Symfony transport exceptions
         try {

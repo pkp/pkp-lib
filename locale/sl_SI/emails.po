@@ -31,11 +31,8 @@ msgstr ""
 "<br />\n"
 "Če imate kakršnokoli vprašanje, se lahko obrnete name. Hvala, da ste izbrali našo revijo za objavo vašega dela.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "Email, če je vključen, se avtomatično pošlje avtorju na koncu oddaje rokopisa v revijo. Vključuje informacijo o sledenju prispevku skozi uredniški postopek in zahvalo za oddan prispevek."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Zahvala za recenzijo prispevka"
@@ -154,9 +151,6 @@ msgstr ""
 "Povezava do prispevka: $submissionUrl}<br />\n"
 "Uporabniško ime: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Ta email pošlje urednik rubrike lektorju prispevka s prošnjo za lektoriranje. Vsebuje kratka navodila za lektoranje in dostop do prispevka."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Uredniška odločitev"

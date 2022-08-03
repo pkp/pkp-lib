@@ -17,10 +17,8 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
-
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
@@ -250,10 +248,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                 $notificationType,
                 $contextId,
                 ASSOC_TYPE_SUBMISSION,
-                $submissionId,
-                Notification::NOTIFICATION_LEVEL_NORMAL,
-                null,
-                true
+                $submissionId
             );
         }
     }

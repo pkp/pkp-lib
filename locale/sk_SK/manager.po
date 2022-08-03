@@ -95,4 +95,51 @@ msgstr ""
 "v prípade, že je v časti Správa> Nastavenia> Pracovný postup> Kontrola "
 "vybraná možnosť Štandardná kontrola."
 
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Tento email je odoslaný zaregistrovanému používateľovi, keď si úspešne "
+"obnoví svoje heslo postupom uvedeným v PASSWORD_RESET_CONFIRM emaili."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Tento email je odoslaný zaregistrovanému používateľovi, keď uvedie, že "
+"zabudol svoje heslo alebo sa nemôže prihlásiť. Obsahuje adresu URL, ktorú "
+"môže navštíviť a obnoviť si svoje heslo."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Tento email je odoslaný novo zaregistrovanému používateľovi ako privítanie "
+"do systému a poskytne mu informáciu o jeho používateľskom mene a hesle."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Tento email je zaslaný novo zaregistrovanému recenzentovi ako privítanie do "
+"systému a poskytne mu informáciu o jeho používateľskom mene a hesle."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
+"dokončí proces odosielania príspevku do časopisu. Obsahuje informácie o "
+"možnosti sledovania príspevku počas redakčného spracovania a poďakovanie "
+"autorovi za príspevok."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Tento email, ak je povolené, je automaticky odoslaný ostatným autorom "
+"článku, ktorí nie sú používateľmi v rámci OJS uvedenými počas procesu "
+"podania príspevku."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Tento email je automaticky odoslaný príslušnému editorovi článku, ak autor "
+"odošle revidovanú verziu článku."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Tento email je posielaný, ak je vytvorené nové oznámenie."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Tento e-mail je automaticky zasielaný mesačne editorom a správcom časopisov, "
+"aby im poskytol prehľad o stave systému."

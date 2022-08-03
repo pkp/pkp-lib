@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\core\Core;
-
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
@@ -166,7 +166,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
                     $userId,
                     PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
                     $this->submission->getContextId(),
-                    ASSOC_TYPE_SUBMISSION,
+                    PKPApplication::ASSOC_TYPE_SUBMISSION,
                     $this->submission->getId(),
                     Notification::NOTIFICATION_LEVEL_TASK
                 );

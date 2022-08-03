@@ -21,11 +21,21 @@ use PKP\controllers\grid\queries\form\QueryNoteForm;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
+use PKP\note\Note;
+use APP\facades\Repo;
+use APP\core\Application;
+use Illuminate\Support\Facades\Mail;
+use PKP\controllers\grid\queries\traits\StageMailable;
+use APP\notification\NotificationManager;
 
 class QueryNotesGridHandler extends GridHandler
 {
+    use StageMailable;
+
     /** @var User */
     public $_user;
 
@@ -195,6 +205,7 @@ class QueryNotesGridHandler extends GridHandler
         $queryNoteForm->readInputData();
         if ($queryNoteForm->validate()) {
             $note = $queryNoteForm->execute();
+            $this->insertedNoteNotify($note);
             return \PKP\db\DAO::getDataChangedEvent($this->getQuery()->getId());
         } else {
             return new JSONMessage(true, $queryNoteForm->fetch($request));
@@ -249,5 +260,69 @@ class QueryNotesGridHandler extends GridHandler
 
         $noteDao->deleteObject($note);
         return \PKP\db\DAO::getDataChangedEvent($note->getId());
+    }
+
+    /**
+     * Sends notification and email to the query participants
+     */
+    protected function insertedNoteNotify(Note $note): void
+    {
+        $notificationManager = new NotificationManager();
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $query = $queryDao->getById($note->getData('assocId'));
+        $sender = Repo::user()->get($note->getData('userId'));
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $submission = $this->getSubmission();
+        $title = $query->getHeadNote()->getData('title');
+
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+        foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
+            // Delete any prior notifications of the same type (e.g. prior "new" comments)
+            $notificationDao->deleteByAssoc(
+                PKPApplication::ASSOC_TYPE_QUERY,
+                $query->getId(),
+                $userId,
+                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                $context->getId()
+            );
+
+            // No need to additionally notify the posting user.
+            if ($userId == $sender->getId()) {
+                continue;
+            }
+
+            // Notify the user of a new query.
+            $notification = $notificationManager->createNotification(
+                $request,
+                $userId,
+                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                $request->getContext()->getId(),
+                PKPApplication::ASSOC_TYPE_QUERY,
+                $query->getId(),
+                Notification::NOTIFICATION_LEVEL_TASK
+            );
+
+            // Check if user is subscribed to this type of notification emails
+            if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                        $userId,
+                        (int) $context->getId()))
+            ) {
+                continue;
+            }
+
+            $mailable = $this->getStageMailable($context, $submission);
+            $recipient = Repo::user()->get($userId);
+            $mailable->sender($sender)
+                ->recipients([$recipient])
+                ->subject($title)
+                ->body($note->getData('contents'));
+
+            Mail::send($mailable);
+        }
     }
 }

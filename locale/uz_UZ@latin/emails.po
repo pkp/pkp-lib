@@ -14,13 +14,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Bu elektron pochta, qo'lyozmani jurnalga topshirish jarayonini tugatgandan "
-"so'ng, avtomatik ravishda muallifga yuboriladi. U yuborish jarayonini "
-"kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Hurmatli {$recipientName},</p><p>{$contextName} ga yuborganingiz uchun "
@@ -34,7 +27,7 @@ msgstr ""
 "kirishingiz mumkin</p><p>Agar sizda biron bir savol bo'lsa, <a href=\""
 "{$submissionUrl}\">yuborish paneli< /a>.</p><p> orqali men bilan bog'laning. "
 "Ushbu jurnalni ish joyingiz deb hisoblaganingiz uchun "
-"tashakkur.</p>{$signature}"
+"tashakkur.</p>{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -133,13 +126,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Tahririyat tavsiyanomasi"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Bu elektron pochta bo'limi muharriri tomonidan nusxa ko'chirish jarayonini "
-"boshlashlarini so'rash uchun yuboruvchi nusxa ko'chiruvchisiga yuboriladi. U "
-"ariza va unga qanday kirish haqida ma'lumot beradi."
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

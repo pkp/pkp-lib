@@ -29,16 +29,8 @@ msgstr ""
 "<br />\n"
 "Si vous avez des questions, n'hésitez pas à communiquer avec nous. Nous vous remercions d'avoir pensé à notre revue pour la publication de vos travaux.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Ce courriel, lorsqu'activé, est envoyé automatiquement à un auteur ou une "
-"auteure quand il ou elle a complété le processus de soumission d'un "
-"manuscrit à la revue. Il fournit les informations relatives au suivi de la "
-"soumission à travers le processus éditorial, et remercie l'auteur ou "
-"l'auteure pour sa soumission."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Accusé de réception de l'évaluation d'une soumission"
@@ -163,9 +155,6 @@ msgstr ""
 "URL de la soumission : {$submissionUrl}<br />\n"
 "Nom d'utilisateur-trice : {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Ce courriel est envoyé par le Rédacteur de rubrique à un Réviseur, pour lui demander de commencer le processus de révision. Il fournit l'information sur la soumission et comment accéder à celle-ci."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Décision éditoriale"

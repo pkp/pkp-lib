@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/mail/mailables/ReviewResponseOverdueAuto.php
+ * @file classes/mail/mailables/ReviewResponseRemindAuto.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewResponseOverdueAuto
+ * @class ReviewResponseRemindAuto
  * @ingroup mail_mailables
  *
  * @brief Email is sent automatically to a reviewer as a reminder after a deadline for response
@@ -23,11 +23,14 @@ use PKP\mail\traits\Recipient;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 
 class ReviewResponseRemindAuto extends Mailable
 {
     use Configurable;
-    use Recipient;
+    use Recipient {
+        recipients as traitRecipients;
+    }
     use PasswordResetUrl;
 
     protected static ?string $name = 'mailable.ReviewResponseOverdueAuto.name';
@@ -37,25 +40,11 @@ class ReviewResponseRemindAuto extends Mailable
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;
-    protected ReviewAssignment $reviewAssignment;
 
     public function __construct(ReviewAssignment $reviewAssignment, PKPSubmission $submission, Context $context)
     {
         parent::__construct(func_get_args());
         $this->context = $context;
-        $this->reviewAssignment = $reviewAssignment;
-    }
-
-    /**
-     * @copydoc Mailable::setData()
-     */
-    public function setData(?string $locale = null)
-    {
-        parent::setData($locale);
-
-        // Old REVIEW_REMIND_AUTO template contains additional variable not supplied by _Variable classes
-        $reviewerId = $this->reviewAssignment->getData('reviewerId');
-        $this->setPasswordResetUrl($reviewerId, $this->context->getData('urlPath'));
     }
 
     /**
@@ -65,5 +54,15 @@ class ReviewResponseRemindAuto extends Mailable
     {
         $variables = parent::getDataDescriptions();
         return self::addPasswordResetUrlDescription($variables);
+    }
+
+    /**
+     * Old REVIEW_REMIND_AUTO template contains additional variable not supplied by _Variable classes
+     */
+    public function recipients(User $recipient, ?string $locale = null): Mailable
+    {
+        $this->traitRecipients([$recipient], $locale);
+        $this->setPasswordResetUrl($recipient, $this->context->getData('urlPath'));
+        return $this;
     }
 }

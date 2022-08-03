@@ -31,15 +31,8 @@ msgstr ""
 "If you have any questions, please contact me. Thank you for considering this "
 "journal as a venue for your work..<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"ეს წერილი (თუ ეს შესაძლებლობა ჩართულია) ავტომატურად გაეგზავნება ავტორს, "
-"როდესაც ის დაასრულებს მასალების გაგზავნის პროცესს ჟურნალში. წერილში "
-"მოცემულია ინფორმაცია მასალების გავლის შესახებ სარედაქციო პროცესში და "
-"სამადლობელო სიტყვები გამოგზავნილი მასალების შესახებ."
 #, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
@@ -155,14 +148,6 @@ msgstr ""
 "{$contextName} URL: {$contextUrl}<br />\n"
 "Submission URL: {$submissionUrl}<br />\n"
 "Username: {$recipientUsername}"
-
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ მასალის ლიტერატურულ "
-"რედაქტორთან რედაქტირების დაწყების მოთხოვნის შესახებ. წერილში მოცემულია "
-"ინფორმაცია მასალის შესახებ და იმის შესახებაც, თუ როგორ უნდა მიიღოს წვდომა ამ "
-"მასალაზე."
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"

@@ -23,11 +23,14 @@ use PKP\mail\traits\Recipient;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 
 class ReviewRemindAuto extends Mailable
 {
     use Configurable;
-    use Recipient;
+    use Recipient {
+        recipients as traitRecipients;
+    }
     use PasswordResetUrl;
 
     protected static ?string $name = 'mailable.reviewRemindAuto.name';
@@ -37,25 +40,11 @@ class ReviewRemindAuto extends Mailable
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;
-    protected ReviewAssignment $reviewAssignment;
 
     public function __construct(ReviewAssignment $reviewAssignment, PKPSubmission $submission, Context $context)
     {
         parent::__construct(func_get_args());
         $this->context = $context;
-        $this->reviewAssignment = $reviewAssignment;
-    }
-
-    /**
-     * @copydoc Mailable::setData()
-     */
-    public function setData(?string $locale = null)
-    {
-        parent::setData($locale);
-
-        // Old REVIEW_REMIND_AUTO template contains additional variable not supplied by _Variable classes
-        $reviewerId = $this->reviewAssignment->getData('reviewerId');
-        $this->setPasswordResetUrl($reviewerId, $this->context->getData('urlPath'));
     }
 
     /**
@@ -65,5 +54,15 @@ class ReviewRemindAuto extends Mailable
     {
         $variables = parent::getDataDescriptions();
         return self::addPasswordResetUrlDescription($variables);
+    }
+
+    /**
+     * Old REVIEW_REMIND_AUTO template contains additional variable not supplied by _Variable classes
+     */
+    public function recipients(User $recipient, ?string $locale = null): Mailable
+    {
+        $this->traitRecipients([$recipient], $locale);
+        $this->setPasswordResetUrl($recipient, $this->context->getData('urlPath'));
+        return $this;
     }
 }

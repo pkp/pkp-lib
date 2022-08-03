@@ -16,14 +16,9 @@
 namespace PKP\controllers\grid\users\queries\form;
 
 use APP\core\Application;
-use APP\notification\Notification;
-use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
-
 use PKP\form\Form;
-use PKP\notification\PKPNotification;
-use PKP\security\Validation;
 
 class QueryNoteForm extends Form
 {
@@ -141,6 +136,7 @@ class QueryNoteForm extends Form
         $note->setUserId($request->getUser()->getId());
         $note->setContents($this->getData('comment'));
         $noteDao->updateObject($note);
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
 
         // Check whether the query needs re-opening
         $query = $this->getQuery();
@@ -154,40 +150,9 @@ class QueryNoteForm extends Form
             }
         }
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-
         // Always include current user to query participants
         if (!in_array($user->getId(), $queryDao->getParticipantIds($query->getId()))) {
             $queryDao->insertParticipant($query->getId(), $user->getId());
-        }
-
-        $notificationManager = new NotificationManager();
-        foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
-            // Delete any prior notifications of the same type (e.g. prior "new" comments)
-            $notificationDao->deleteByAssoc(
-                ASSOC_TYPE_QUERY,
-                $query->getId(),
-                $userId,
-                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
-                $request->getContext()->getId()
-            );
-
-            // No need to additionally notify the posting user.
-            if ($userId == $user->getId()) {
-                continue;
-            }
-
-            // Notify the user of a new query.
-            $notificationManager->createNotification(
-                $request,
-                $userId,
-                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
-                $request->getContext()->getId(),
-                ASSOC_TYPE_QUERY,
-                $query->getId(),
-                Notification::NOTIFICATION_LEVEL_TASK
-            );
         }
 
         parent::execute(...$functionArgs);

@@ -33,15 +33,8 @@ msgstr ""
 "Ma tha ceist sam bith agad, cuir fios thugam. Mòran taing airson an t-iris-"
 "leabhar seo a thaghadh mar dhòigh foillseachaidh dha d’ obair.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Thèid am post-d seo, ma bhios e an comas, a chur gu fèin-obrachail gu ùghdar "
-"nuair a choileanas iad tagradh le bhith a’ chur sgrìobhainn chun an iris-"
-"leabhair. Tha e ag innse mar as urrainnear an tagradh a thracadh tron "
-"phròiseas agus tha e a’ toirt taing dhan ùghdar airson an tagraidh."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Freagairt mu lèirmheas artaigil"
@@ -169,12 +162,6 @@ msgstr ""
 "URL an tagraidh: {$submissionUrl}<br />\n"
 "Ainm-cleachdaiche: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Thèid am post-d seo a chur grinn-deasaiche tagraidh le deasaiche earrainn "
-"airson iarraidh orra tòiseachadh air a’ ghrinn-deasachadh. Tha e a’ toirt "
-"seachad fiosrachadh mun tagradh agus mar a gheibhear cothrom air."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Co-dhùnadh deasaiche"

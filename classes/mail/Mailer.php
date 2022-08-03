@@ -25,6 +25,7 @@ use PKP\cache\FileCache;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\mail\traits\Configurable;
 use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
 use PKP\plugins\HookRegistry;
@@ -42,6 +43,11 @@ class Mailer extends IlluminateMailer
      * @var null
      */
     protected $views = null;
+
+    /**
+     * Maximum number of notification emails that can be sent per job
+     */
+    public const BULK_EMAIL_SIZE_LIMIT = 50;
 
     /**
      * Creates new Mailer instance without binding with View

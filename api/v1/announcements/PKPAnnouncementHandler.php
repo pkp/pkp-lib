@@ -18,15 +18,21 @@ namespace PKP\API\v1\announcements;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
-use PKP\db\DAORegistry;
+use PKP\mail\Mailer;
+use PKP\notification\PKPNotification;
 use PKP\handler\APIHandler;
-use PKP\notification\managerDelegate\AnnouncementNotificationManager;
+use PKP\Jobs\Notifications\NewAnnouncementMailUsers;
+use PKP\Jobs\Notifications\NewAnnouncementNotifyUsers;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use Illuminate\Support\Facades\Bus;
+use PKP\facades\Locale;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
+use Exception;
+use PKP\db\DAORegistry;
 
 class PKPAnnouncementHandler extends APIHandler
 {
@@ -178,8 +184,9 @@ class PKPAnnouncementHandler extends APIHandler
     public function add($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
+        $context = $request->getContext();
 
-        if (!$request->getContext()) {
+        if (!$context) {
             throw new Exception('You can not add an announcement without sending a request to the API endpoint of a particular context.');
         }
 
@@ -187,8 +194,8 @@ class PKPAnnouncementHandler extends APIHandler
         $params['assocType'] = Application::get()->getContextAssocType();
         $params['assocId'] = $request->getContext()->getId();
 
-        $primaryLocale = $request->getContext()->getPrimaryLocale();
-        $allowedLocales = $request->getContext()->getSupportedFormLocales();
+        $primaryLocale = $context->getPrimaryLocale();
+        $allowedLocales = $context->getSupportedFormLocales();
         $errors = Repo::announcement()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
@@ -196,26 +203,51 @@ class PKPAnnouncementHandler extends APIHandler
         }
 
         $announcement = Repo::announcement()->newDataObject($params);
-        $id = Repo::announcement()->add($announcement);
-        $announcement = Repo::announcement()->get($id);
+        $announcementId = Repo::announcement()->add($announcement);
+        $sendEmail = (bool) filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN);
+        $contextId = $context->getId();
 
-        if (filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN)) {
-            $announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
-            $announcementNotificationManager->initialize($announcement);
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
-            $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao  */
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $allUsers = $userGroupDao->getUsersByContextId($request->getContext()->getId());
-            while ($user = $allUsers->next()) {
-                if ($user->getDisabled()) {
-                    continue;
-                }
-                $blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $user->getId(), $request->getContext()->getId());
-                if (!in_array(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT, $blockedEmails)) {
-                    $announcementNotificationManager->notify($user);
-                }
+        // Notify users
+        $userIdsToNotify = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
+            [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY],
+            [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
+            [$contextId]
+        );
+
+        $jobs = [];
+        foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
+            $notifyJob = new NewAnnouncementNotifyUsers(
+                $notifyUserIds,
+                $contextId,
+                $announcementId
+            );
+            $jobs[] = $notifyJob;
+        }
+
+        // Email users
+        if ($sendEmail) {
+            $userIdsToMail = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
+                [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY],
+                [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
+                [$contextId]
+            );
+
+            foreach ($userIdsToMail->chunk(Mailer::BULK_EMAIL_SIZE_LIMIT) as $mailUserIds) {
+                $mailJob = new NewAnnouncementMailUsers(
+                    $mailUserIds,
+                    $contextId,
+                    $announcementId,
+                    $request->getUser(),
+                    Locale::getLocale()
+                );
+                $jobs[] = $mailJob;
             }
         }
+
+        Bus::batch($jobs)->dispatch();
 
         return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
     }

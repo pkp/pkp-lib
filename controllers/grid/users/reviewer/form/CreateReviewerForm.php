@@ -19,11 +19,14 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\mail\MailTemplate;
+use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\user\InterestManager;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class CreateReviewerForm extends ReviewerForm
 {
@@ -148,17 +151,26 @@ class CreateReviewerForm extends ReviewerForm
 
         if (!$this->getData('skipEmail')) {
             // Send welcome email to user
-            $mail = new MailTemplate('REVIEWER_REGISTER');
-            if ($mail->isEnabled()) {
-                $request = Application::get()->getRequest();
-                $context = $request->getContext();
-                $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-                $mail->assignParams(['recipientUsername' => $this->getData('username'), 'password' => $password, 'recipientName' => $user->getFullName()]);
-                $mail->addRecipient($user->getEmail(), $user->getFullName());
-                if (!$mail->send($request)) {
-                    $notificationMgr = new NotificationManager();
-                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
-                }
+            $request = Application::get()->getRequest();
+            $context = $request->getContext();
+            $mailable = new ReviewerRegister($context);
+            $mailable->recipients($user);
+            $mailable->sender($request->getUser());
+            $mailable->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
+            $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerRegister::getEmailTemplateKey());
+            $mailable->subject($template->getLocalizedData('subject'));
+            $mailable->body($template->getLocalizedData('body'));
+
+            try {
+                Mail::send($mailable);
+            } catch (TransportException $e) {
+                $notificationMgr = new NotificationManager();
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                error_log($e->getMessage());
             }
         }
 

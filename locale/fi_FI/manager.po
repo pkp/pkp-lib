@@ -2123,4 +2123,41 @@ msgstr "This email from the Section Editor to a Reviewer requests that the revie
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission for a second or greater round of review. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Management > Settings > Workflow > Review."
 
+msgid "mailable.passwordReset.description"
+msgstr "This email is sent to a registered user when they have successfully reset their password following the process described in the PASSWORD_RESET_CONFIRM email."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Tämä sähköpostiviesti lähetetään rekisteröityneelle käyttäjälle, joka "
+"ilmoittaa unohtaneensa salasanansa tai joka ei pysty kirjautumaan. Viesti "
+"sisältää ULR:n, jonka kautta salasana voidaan vaihtaa."
+
+msgid "mailable.userRegister.description"
+msgstr "This email is sent to a newly registered user to welcome them to the system and provide them with a record of their username and password."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Tämä sähköpostiviesti voidaan lähettää automaattisesti kirjoittajalle "
+"käsikirjoituksen lähettämisen päätteeksi. Viesti sisältää ohjeita "
+"käsikirjoituksen seuraamisesta toimitusprosessissa sekä kiittää kirjoittajaa "
+"käsikirjoituksen lähettämisestä."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "This email, when enabled, is automatically sent to the other authors who are not users specified during the submission process."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "This email is automatically sent to the assigned editor when author uploads a revised version of an article."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Tämä sähköpostiviesti lähetetään, kun uusi ilmoitus on luotu."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Tämä sähköposti lähetetään joka kuukausi automaattisesti toimittajille ja "
+"julkaisun hallinnoijille ja he näkevät siitä julkaisun toimitustyötä "
+"koskevan tilanteen."

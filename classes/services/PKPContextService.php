@@ -33,7 +33,6 @@ use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
-
 use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;

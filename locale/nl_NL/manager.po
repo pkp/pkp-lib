@@ -1673,4 +1673,39 @@ msgstr "Deze e-mail van de sectieredacteur aan een reviewer vraagt aan de review
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Deze e-mail van de sectieredacteur aan de reviewer vraagt de reviewer een inzending voor een tweede of latere ronde te reviewen. Het bevat informatie over de inzending zoals titel en samenvatting, de uiterste datum voor de review en de gegevens om de inzending te benaderen. Dit bericht wordt gebruikt bij het standaard review proces, zoals gekozen in instellen, stap 2"
 
+msgid "mailable.passwordReset.description"
+msgstr "Deze e-mail wordt verstuurd naar een geregistreerde gebruiker als ze met succes hun wachtwoord hebben veranderd volgens de procedure die is beschreven in de PASSWORD_RESET_CONFIRM e-mail."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Deze e-mail wordt gestuurd naar een geregistreerde gebruiker die heeft aangegeven zijn wachtwoord vergeten te zijn of niet in te kunnen loggen. Het bevat een URL die ze kunnen volgen om hun wachtwoord te herstellen."
+
+msgid "mailable.userRegister.description"
+msgstr "Deze e-mail wordt verstuurd naar alle nieuw geregistreerde gebruikers om ze welkom te heten bij het tijdschrift en om ze te voorzien van een kopie van hun gebruikersnaam en wachtwoord."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Deze e-mail wordt naar iedere nieuwe reviewer gestuurd om ze welkom te heten bij het systeem en ze van een kopie van hun gebruikersnaam en wachtwoord te voorzien."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar een auteur "
+"als die de inzendprocedure van een manuscript bij het tijdschrift voltooit. "
+"Het verstrekt informatie over het volgen van de inzending tijdens de "
+"procedure en de auteur wordt bedankt voor de inzending."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar de andere auteurs die niet geregistreerd zijn als gebruikers van OJS.."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Deze e-mail wordt automatisch verstuurd naar de redacteur als de auteur een herziene versie van een artikel laadt."
+
+msgid "mailable.announcementNotify.description"
+msgstr ""
+"Deze e-mail wordt verzonden wanneer er een nieuwe aankondiging is gemaakt."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Deze e-mail wordt maandelijks automatisch naar redacteuren en "
+"tijdschriftbeheerders gestuurd om hen een overzicht van de systeemgezondheid "
+"te geven."

@@ -2310,4 +2310,39 @@ msgstr ""
 "Email ini berisi informasi tentang naskah yang mencakup  judul dan abstrak, "
 "tenggat review, dan cara mengakses naskah."
 
+msgid "mailable.passwordReset.description"
+msgstr "Email ini dikirimkan ke pengguna terdaftar saat proses reset password berhasil sesuai prosedur di email PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Email ini dikirimkan ke pengguna terdaftar ketika lupa sandi atau tidak dapat login. Email ini memberikan URL untuk melakukan reset sandi."
+
+msgid "mailable.userRegister.description"
+msgstr "Email ini dikirimkan ke pengguna baru untuk menyambut dan memberikan informasi nama pengguna dan sandi."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Email ini dikirimkan ke reviewer baru untuk menyambut dan memberikan informasi nama pengguna dan sandi."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Email ini, jika diaktifkan, secara otomatis dikirimkan ke penulis ketika "
+"mereka mengirimkan naskahnya ke jurnal. Email ini berisi informasi tentang "
+"pemantauan naskah melalui proses editorial dan ucaan terima kasih atas "
+"naskah yang dikirimkan."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Email ini, jika diaktifkan, secara otomatis dikirimkan ke semua penulis yang "
+"tertera di dalam naskah yang bukan pengirim naskah langsung."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Email ini dikirim secara otomatis ke editor yang ditugaskan saat penulis mengunggah naskah versi revisi."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Surel ini dikirim ketika terdapat pengumuman baru."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Email ini dikirim secara otomatis per bulan kepada editor dan manajer jurnal "
+"untuk menyediakan pratinjau kestabilan sistem."

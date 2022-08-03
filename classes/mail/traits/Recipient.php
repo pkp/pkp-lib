@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Recipient
- * @ingroup mail
+ * @ingroup mail_traits
  *
  * @brief Mailable trait to set the recipients to an array of Users
  */
@@ -17,6 +17,7 @@ namespace PKP\mail\traits;
 
 use BadMethodCallException;
 use InvalidArgumentException;
+use PKP\identity\Identity;
 use PKP\mail\Mailable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\user\User;
@@ -50,8 +51,8 @@ trait Recipient
     {
         $to = [];
         foreach ($recipients as $recipient) {
-            if (!is_a($recipient, User::class)) {
-                throw new InvalidArgumentException('Expecting an array consisting of instances of ' . User::class . ' to be passed to ' . static::class . '::' . __FUNCTION__);
+            if (!is_a($recipient, Identity::class)) {
+                throw new InvalidArgumentException('Expecting an array consisting of instances of ' . Identity::class . ' to be passed to ' . static::class . '::' . __FUNCTION__);
             }
             $to[] = [
                 'email' => $recipient->getEmail(),

@@ -2188,4 +2188,37 @@ msgstr ""
 "dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
 "pracować będzie w systemie"
 
+msgid "mailable.passwordReset.description"
+msgstr "Wiadomość jest przesyłana do zarejestrowanych użytkowników po zresetowaniu hasła."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Wiadomość jest przesyłana do zarejestrowanych użytkowników w celu potwierdzenia zresetowania hasła. Załączony jest link do strony resetowania hasła."
+
+msgid "mailable.userRegister.description"
+msgstr "Wiadomość jest wysyłana do nowych użytkowników systemu. Zawiera powitanie i dane do zalogowania."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Wiadomość jest wysyłana do nowych recenzentów, celem powitania ich i przesłania danych do logowania."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Wiadomość jest automatycznie wysyłana do autora po zgłoszeniu tekstu do "
+"czasopisma. Dostarcza informacji o możliwości obserwowania procesu "
+"redakcyjnego zgłoszenia oraz podziękowania dla autora za dokonanie "
+"zgłoszenia."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Jeżeli jest włączona, ta wiadomość jest automatycznie wysyłana do innych autorów, którzy nie posiadają kont w OJS."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Wiadomość automatycznie przesyłana do redaktora prowadzącego, po przesłaniu przez autora poprawionej wersji tekstu."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Ten email jest wysyłany, kiedy pojawiło się nowe ogłoszenie."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Ten email jest automatycznie wysyłany każdego miesiąca do redaktorów i "
+"menedżerów czasopisma, aby dostarczyć im przegląd stanu systemu."

@@ -2782,3 +2782,48 @@ msgstr "Uma lista e submissões com tarefas pendentes"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "O URL para um utilizador visualizar e editar o seu perfil."
+
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Este e-mail é enviado a um utilizador registado quando este atualizou com "
+"sucesso a senha seguindo o processo descrito no e-mail "
+"PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Este e-mail é enviado ao utilizador registado quando o mesmo solicita a "
+"atualização da senha, quando esqueceu a senha ou encontra problemas para "
+"aceder à revista. O link fornecido permite ao utilizador concluir a "
+"atualização da senha."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Mensagem enviada aos utilizadores recém-registados no sistema, para dar-lhes "
+"as boas vindas e fornecer o nome de utilizador e senha."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Mensagem de boas-vindas enviada a novo revisor registado no sistema, com nome de utilizador e senha para acesso."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Este e-mail,  quando ativo, é enviado automaticamente ao autor quando "
+"submete um trabalho à revista. Oferece informações sobre como acompanhar o "
+"trabalho pelo processo editorial e agradece a submissão ao autor."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Este e-mail, quando ativo, é enviado automaticamente para os autores "
+"nomeados que não o autor que submeteu o trabalho."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Este e-mail é enviado automaticamente ao Editor designado quando o autor envia uma versão revista de um artigo."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Este email é enviado quando uma nova notícia é criada."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Este email é enviado automaticamente todos os meses aos editores e editores-"
+"gestores para os informar do estado da revista."

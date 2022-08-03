@@ -13,12 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できる"
-"ことを伝える同時に、著者に投稿に対するお礼をしています。"
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}様<br />\n"
@@ -31,7 +25,7 @@ msgstr ""
 "<br />\n"
 "何かご不明な点がございましたら、ご連絡ください。研究成果の発表の場として、本誌をご検討いただき、誠にありがとうございました。<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -126,12 +120,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "編集者の査読結果"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"このメールは、セクション編集者からコピーエディタに原稿整理作業を開始するよう依頼するものです。メールでは、投稿物に関する情報とアクセス方法を提供しています"
-"。"
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

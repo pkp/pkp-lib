@@ -29,15 +29,8 @@ msgstr ""
 "<br />\n"
 "Neemt u alstublieft contact op als u vragen heeft. Dank u voor het overwegen van dit tijdschrift als podium voor u werk.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar een auteur "
-"als die de inzendprocedure van een manuscript bij het tijdschrift voltooit. "
-"Het verstrekt informatie over het volgen van de inzending tijdens de "
-"procedure en de auteur wordt bedankt voor de inzending."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Artikel review bevestiging"
@@ -152,12 +145,6 @@ msgstr ""
 "URL inzending: {$submissionUrl}<br />\n"
 "Gerbruikersnaam: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Deze e-mail wordt door de sectieredacteur naar de tekstredacteur van een "
-"inzending gestuurd om te vragen het redactieproces te starten. Het bevat "
-"informatie over de inzending en hoe die te benaderen."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Redacteursbeslissing"

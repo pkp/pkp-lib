@@ -2317,4 +2317,46 @@ msgstr ""
 "fagfellevurderingsprosess er valgt under  Innstillinger > Arbeidsflyt > "
 "Fagfellevurdering."
 
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Denne e-posten sendes til en bruker som har fornyet passordet sitt som "
+"beskrevet i PASSWORD_RESET_CONFIRM e-posten."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Denne e-posten sendes til registrerte brukere når de melder fra om at de har glemt passordet sitt, eller at de ikke klarer å logge inn. Den gir en URL-lenke brukeren kan følge for å fornye passordet sitt."
+
+msgid "mailable.userRegister.description"
+msgstr "Denne e-posten sendes for å ønske nyregistrerte brukere velkommen som brukere av nettstedet, og gir dem opplysning om brukernavn og passord."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Denne e-posten sendes til nyregistrerte fagfeller for å ønske dem velkommen "
+"til systemet og tildele dem brukernavn og passord."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Når denne funksjonen er slått på, sendes denne e-posten automatisk til "
+"forfattere, så snart innleveringen til tidsskriftet er fullført. E-posten "
+"gir informasjon om hvordan innleveringen kan følges gjennom den "
+"redaksjonelle prosessen og takker forfatteren for bidraget."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Denne e-posten sendes automatisk (dersom den er aktivert) til de andre "
+"forfatterne som er oppgitt i innleveringen, som ikke har brukerkonto på "
+"plattformen."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Denne e-posten sendes automatisk til redaktøren når forfatteren laster opp "
+"en revidert versjon av en artikkel."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Denne e-posten blir sendt når et nytt oppslag opprettes."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Denne e-posten blir automatisk sendt en gang i måneden til redaktører og "
+"redaksjonsledere for å gi dem en oversikt over systemets tilstand."

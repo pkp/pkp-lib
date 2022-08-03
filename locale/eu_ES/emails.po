@@ -22,13 +22,7 @@ msgstr ""
 "<br />\n"
 "Berrezarri nire pasahitza: {$passwordResetUrl}<br />\n"
 "<br />\n"
-"{$signature}"
-
-msgid "emails.passwordResetConfirm.description"
-msgstr "Pasahitza ahaztu duten erabiltzaile erregistratuei edo webgunean sartu ezinda dabiltzanei bidaltzen zaie mezu hau. Pasahitza berrezartzeko URL bat ematen du."
-
-msgid "emails.passwordReset.subject"
-msgstr "Pasahitza berrezarrita"
+"{$siteContactName}"
 
 msgid "emails.passwordReset.body"
 msgstr ""
@@ -37,10 +31,7 @@ msgstr ""
 "Zure erabiltzaile-izena: {$recipientUsername}<br />\n"
 "Pasahitza: {$password}<br />\n"
 "<br />\n"
-"{$signature}"
-
-msgid "emails.passwordReset.description"
-msgstr "Mezu hau bidaltzen zaie PASSWORD_RESET_CONFIRM mezuan azaldutako prozesuaren bidez pasahitza ondo berrezartzea lortu duten erabiltzaile erregistratuei."
+"{$siteContactName}"
 
 msgid "emails.userRegister.subject"
 msgstr "Aldizkarian erregistratzea"
@@ -56,9 +47,6 @@ msgstr ""
 "<br />\n"
 "Eskerrik asko,<br />\n"
 "{$signature}"
-
-msgid "emails.userRegister.description"
-msgstr "Erabiltzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
 #, fuzzy
 msgid "emails.userValidateContext.subject"
@@ -92,9 +80,6 @@ msgstr ""
 "Eskerrik asko,<br />\n"
 "{$signature}"
 
-msgid "emails.reviewerRegister.description"
-msgstr "Ebaluatzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
-
 #, fuzzy
 msgid "emails.issuePublishNotify.subject"
 msgstr "Zenbaki berria argitaratu da"
@@ -108,10 +93,6 @@ msgstr ""
 "<br />\n"
 "Eskerrik asko gure lana interesez jarraitzeagatik,<br />\n"
 "{$signature}"
-
-#, fuzzy
-msgid "emails.issuePublishNotify.description"
-msgstr "Mezu hau erabiltzaile erregistratuei bidaltzen zaie, Editorearen hasierako orriko \"Jakinarazi erabiltzaileei\" estekaren bidez. Zenbaki berria atera dela jakinarazten die irakurleei, eta URLa ematen die aldizkaria bisita dezaten."
 
 msgid "emails.lockssExistingArchive.subject"
 msgstr "{$contextName} aldizkaria artxiboan gehitzeko eskaera"
@@ -171,11 +152,7 @@ msgstr ""
 "<br />\n"
 "Galderaren bat baduzu, jar zaitez harremanetan nirekin. Eskerrik asko zure lana bidaltzeko aldizkari hau aintzakotzat hartzeagatik.<br />\n"
 "<br />\n"
-"{$signature}"
-
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana bidaltzeagatik."
+"{$contextSignature}"
 
 msgid "emails.submissionComment.subject"
 msgstr "Bidalketari buruzko iruzkina"
@@ -220,10 +197,6 @@ msgstr ""
 "Erabiltzaile-izena: {$recipientUsername}<br />\n"
 "<br />\n"
 "Eskerrik asko."
-
-#, fuzzy
-msgid "emails.editorAssign.description"
-msgstr "Mezu honek Ataleko editore bati jakinarazten dio Editoreak bidalketa baten edizio-prozesua gainbegiratzeko izendatu duela. Artikuluari buruzko informazioa eta aldizkariaren gunean sartzeko datuak ematen ditu."
 
 #, fuzzy
 msgid "emails.reviewResponseOverdueAuto.subject"
@@ -409,10 +382,6 @@ msgstr ""
 "Erabiltzaile-izena: {$recipientUsername}"
 
 #, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Mezu hau Ataleko editoreak Zuzentzaileari bidaltzen dio, artikuluaren zuzenketa-prozesua egin dezala eskatzeko. Artikuluari buruzko informazioa eta fitxategia hartzeko datuak ematen ditu."
-
-#, fuzzy
 msgid "emails.layoutRequest.subject"
 msgstr "Galeradak eskatzea"
 
@@ -433,9 +402,6 @@ msgstr ""
 "Orain ezin badiozu lan honi heldu, edo galderaren bat egin nahi badiguzu, jar zaitez harremanetan nirekin, mesedez. Eskerrik asko aldizkariari egiten diozun ekarpenagatik."
 
 #, fuzzy
-msgid "emails.layoutRequest.description"
-msgstr "Mezu hau Ataleko editoreak Maketatzaileari bidaltzen dio, artikuluaren maketazioa egin dezala eskatzeko. Artikuluari buruzko informazioa eta fitxategia hartzeko datuak ematen ditu."
-
 msgid "emails.layoutComplete.subject"
 msgstr "Galeradak eginda"
 
@@ -451,9 +417,6 @@ msgstr ""
 "{$senderName}"
 
 #, fuzzy
-msgid "emails.layoutComplete.description"
-msgstr "Mezu hau Maketatzaileak Ataleko editoreari bidaltzen dio, maketazioa eginda dagoela jakinarazteko."
-
 msgid "emails.layoutAck.subject"
 msgstr "Maketazioaren hartu-agiria"
 
@@ -634,89 +597,10 @@ msgstr ""
 "<br />\n"
 "Galderaren bat baduzu, jar zaitez harremanetan nirekin, mesedez.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$subscriptionSignature}"
 
 msgid "emails.subscriptionNotify.description"
 msgstr "Mezu honek irakurle erregistratuari jakinarazten dio Kudeatzaileak harpidetza egin diola. Aldizkariaren URLa eta aldizkarian sartzeko argibideak ematen ditu."
-
-msgid "emails.openAccessNotify.subject"
-msgstr "Zenbakia sarrera librekoa da orain"
-
-msgid "emails.openAccessNotify.body"
-msgstr ""
-"Irakurle:<br />\n"
-"<br />\n"
-"{$contextName} aldizkariak sarrera libreko egin du ondoren zehazten dugun zenbakia. Honekin batera bidaltzen dizugun Aurkibidea aztertzera eta gure webgunean ({$contextUrl}) artikuluak irakurtzera gonbidatzen zaitugu.<br />\n"
-"<br />\n"
-"Eskerrik asko gure lana interesez jarraitzeagatik,<br />\n"
-"{$signature}"
-
-msgid "emails.openAccessNotify.description"
-msgstr "Mezu hau bidaltzen zaie zenbakia sarrera libreko egiten denean jakinarazpena jaso nahi dutela esan duten erabiltzaile erregistratuei."
-
-msgid "emails.subscriptionBeforeExpiry.subject"
-msgstr "Harpidetza-amaieraren jakinarazpena"
-
-msgid "emails.subscriptionBeforeExpiry.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"{$contextName} aldizkariko harpidetza amaitzera doakizu.<br />\n"
-"<br />\n"
-"{$subscriptionType}<br />\n"
-"Amaiera-data: {$expiryDate}<br />\n"
-"<br />\n"
-"Aldizkarian sartzen jarraitu ahal izateko, joan aldizkariaren webgunera eta berritu harpidetza, mesedez. Sisteman saioa hasteko zure erabiltzaile-izena, &quot;{$recipientUsername}&quot;, erabil dezakezu.<br />\n"
-"<br />\n"
-"Galderaren bat baduzu, jar zaitez harremanetan nirekin, mesedez.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.subscriptionBeforeExpiry.description"
-msgstr "Mezu honek harpidedunari jakinarazten dio harpidetza amaitzera doakiola. Aldizkariaren URLa eta aldizkarian sartzeko argibideak ematen ditu."
-
-msgid "emails.subscriptionAfterExpiry.subject"
-msgstr "Harpidetza amaitu da"
-
-msgid "emails.subscriptionAfterExpiry.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"{$contextName} aldizkariko harpidetza amaitu zaizu.<br />\n"
-"<br />\n"
-"{$subscriptionType}<br />\n"
-"Amaiera-data: {$expiryDate}<br />\n"
-"<br />\n"
-"Harpidetza berritzeko, zoaz aldizkariaren webgunera, mesedez. Sisteman saioa hasteko zure erabiltzaile-izena, &quot;{$recipientUsername}&quot;, erabil dezakezu.<br />\n"
-"<br />\n"
-"Galderaren bat baduzu, jar zaitez harremanetan nirekin, mesedez.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.subscriptionAfterExpiry.description"
-msgstr "Mezu honek harpidedunari jakinarazten dio harpidetza amaitu zaiola. Aldizkariaren URLa eta aldizkarian sartzeko argibideak ematen ditu."
-
-msgid "emails.subscriptionAfterExpiryLast.subject"
-msgstr "Harpidetza amaitu da - Azkeneko jakinarazpena"
-
-msgid "emails.subscriptionAfterExpiryLast.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"{$contextName} aldizkariko harpidetza amaitu zaizu.<br />\n"
-"Mesedez, kontuan izan hau dela azkeneko jakinarazpena, ez dizugula berriz gogoraraziko.<br />\n"
-"<br />\n"
-"{$subscriptionType}<br />\n"
-"Amaiera-data: {$expiryDate}<br />\n"
-"<br />\n"
-"Harpidetza berritzeko, zoaz aldizkariaren webgunera, mesedez. Sisteman saioa hasteko zure erabiltzaile-izena, &quot;{$recipientUsername}&quot;, erabil dezakezu.<br />\n"
-"<br />\n"
-"Galderaren bat baduzu, jar zaitez harremanetan nirekin, mesedez.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.subscriptionAfterExpiryLast.description"
-msgstr "Mezu honek harpidedunari jakinarazten dio harpidetza amaitu zaiola. Aldizkariaren URLa eta aldizkarian sartzeko argibideak ematen ditu."
 
 msgid "emails.notification.subject"
 msgstr "{$contextName} gunearen jakinarazpen berria"
@@ -730,7 +614,7 @@ msgstr ""
 "<br />\n"
 "Esteka: {$notificationUrl}<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Editorearen erabakia"
@@ -804,9 +688,6 @@ msgstr ""
 "<br />\n"
 "Harpidetza URLa: {$subscriptionUrl}"
 
-msgid "emails.subscriptionPurchaseIndl.description"
-msgstr "Mezu honek Harpidetza-kudeatzaileari jakinarazten dio harpidetza indibidual bat erosi dutela linean. Harpidetza-datuen laburpena ematen du eta erositako harpidetzara bizkor joateko esteka."
-
 msgid "emails.subscriptionPurchaseInstl.subject"
 msgstr "Harpidetza-erosketa: Erakundeena"
 
@@ -837,9 +718,6 @@ msgstr ""
 "<br />\n"
 "Harpidetza URLa: {$subscriptionUrl}"
 
-msgid "emails.subscriptionPurchaseInstl.description"
-msgstr "Mezu honek Harpidetza-kudeatzaileari jakinarazten dio erakunde-harpidetza bat erosi dutela linean. Harpidetza-datuen laburpena ematen du eta erositako harpidetzara bizkor joateko esteka."
-
 msgid "emails.subscriptionRenewIndl.subject"
 msgstr "Harpidetza-berritzea: Indibiduala"
 
@@ -857,9 +735,6 @@ msgstr ""
 "{$membership}<br />\n"
 "<br />\n"
 "Harpidetza hau ikusi edo editatzeko, erabili ondorengo URLa."
-
-msgid "emails.subscriptionRenewIndl.description"
-msgstr "Mezu honek Harpidetza-kudeatzaileari jakinarazten dio harpidetza indibidual bat berritu dutela linean. Harpidetza-datuen laburpena ematen du eta berritutako harpidetzara bizkor joateko esteka."
 
 msgid "emails.subscriptionRenewInstl.subject"
 msgstr "Harpidetza-berritzea: Erakundeena"
@@ -890,9 +765,6 @@ msgstr ""
 "Harpidetza hau ikusi edo editatzeko, erabili ondorengo URLa.<br />\n"
 "<br />\n"
 "Harpidetza URLa: {$subscriptionUrl}"
-
-msgid "emails.subscriptionRenewInstl.description"
-msgstr "Mezu honek Harpidetza-kudeatzaileari jakinarazten dio erakunde-harpidetza bat berritu dutela linean. Harpidetza-datuen laburpena ematen du eta berritutako harpidetzara bizkor joateko esteka."
 
 msgid "emails.citationEditorAuthorQuery.subject"
 msgstr "Aipuak editatzea"
@@ -986,11 +858,8 @@ msgid "emails.revisedVersionNotify.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"&quot;{$submissionTitle}&quot; artikuluaren bertsio berrikusia gora kargatu du {$authors} egileak.<br />\n"
+"&quot;{$submissionTitle}&quot; artikuluaren bertsio berrikusia gora kargatu du {$submitterName} egileak.<br />\n"
 "<br />\n"
 "URL aurkezpena: {$submissionUrl}<br />\n"
 "<br />\n"
 "{$signature}"
-
-msgid "emails.revisedVersionNotify.description"
-msgstr "Mezu hau automatikoki bidaltzen zaio dagokion editoreari, egileak artikulu baten bertsio berrikusia gora kargatzen duenean."

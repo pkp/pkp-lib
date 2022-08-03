@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Sender
- * @ingroup mail
+ * @ingroup mail_traits
  *
  * @brief Mailable trait to set the sender to a User
  */

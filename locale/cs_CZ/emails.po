@@ -32,14 +32,8 @@ msgstr ""
 "pod uživatelským jménem {$recipientUsername}</p><p>Pokud máte jakékoli "
 "dotazy, kontaktujte mě prosím ze <a href=\"{$submissionUrl}\">stránky "
 "příspěvku</a>.</p><p>Děkujeme, že jste si naše periodikum vybrali pro váš "
-"příspěvek.</p>{$signature}"
+"příspěvek.</p>{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Pokud je tato možnost povolena, je tento e-mail automaticky odeslán autorovi "
-"při odeslání příspěvku do časopisu. Obsahuje informace o sledování příspěvku "
-"v redakčním procesu a poděkování autorovi za příspěvek."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Poděkování za zpracování recenze článku"
@@ -170,12 +164,6 @@ msgstr ""
 "URL příspěvku: {$submissionUrl}<br />\n"
 "Uživatelské jméno: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Tento e-mail zasílá editor technickému redaktorovi příspěvku s žádostí o "
-"zahájení závěrečných úprav příspěvku. Poskytuje informace o příspěvku a o "
-"přístupu k němu."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Váš příspěvek byl odmítnut"

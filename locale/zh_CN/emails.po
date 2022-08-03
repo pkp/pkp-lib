@@ -30,11 +30,8 @@ msgstr ""
 "<br />\n"
 "如果您有任何问题，请与我们联络。再次感谢您考虑本期刊出版您的作品。<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "这封电子邮件，一旦启用，就会在作者完成投稿一份稿件到期刊的流程之后，会自动地寄发给作者。邮件中提供了有关追踪稿件编辑进度的信息，以及感谢作者的投稿。"
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "文章审查感谢函"
@@ -139,9 +136,6 @@ msgstr ""
 "<br />\n"
 "如果您目前无法进行这份工作，或者对这项工作有任何的疑问，请直接回信与我联络。非常感谢您同意为这份期刊进行这份重要的工作。"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "这封电子邮件是由一位区段编辑寄发给稿件的校样编辑，请他们开始进行校样编辑的工作流程。邮件中含有关于稿件的信息以及如核取得稿件的指引."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

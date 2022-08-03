@@ -17,10 +17,8 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 
@@ -88,8 +86,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
                     $type,
                     $submission->getData('contextId'),
                     ASSOC_TYPE_SUBMISSION,
-                    $submissionId,
-                    Notification::NOTIFICATION_LEVEL_NORMAL
+                    $submissionId
                 );
             } elseif ($notification && $isPublished != $forPublicationState) {
                 // Delete existing notification.

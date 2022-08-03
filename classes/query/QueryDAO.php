@@ -18,11 +18,16 @@
 namespace PKP\query;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\mail\Mailable;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 
 class QueryDAO extends \PKP\db\DAO
@@ -379,16 +384,37 @@ class QueryDAO extends \PKP\db\DAO
 
         // Add task for assigned participants
         $notificationMgr = new NotificationManager();
+        $recommenderUser = Repo::user()->get($recommenderUserId);
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+        $contextId = Application::get()->getRequest()->getContext()->getId();
         foreach ($discussionParticipantsIds as $discussionParticipantsId) {
             $notificationMgr->createNotification(
                 Application::get()->getRequest(),
                 $discussionParticipantsId,
                 Notification::NOTIFICATION_TYPE_NEW_QUERY,
-                Application::get()->getRequest()->getContext()->getId(),
+                $contextId,
                 Application::ASSOC_TYPE_QUERY,
                 $query->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK
             );
+
+            // Check if the user is unsubscribed
+            $notificationSubscriptionSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                $discussionParticipantsId,
+                $contextId
+            );
+            if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
+                continue;
+            }
+            $recipient = Repo::user()->get($discussionParticipantsId);
+            $mailable = new Mailable();
+            $mailable->to($recipient->getEmail(), $recipient->getFullName());
+            $mailable->from($recommenderUser->getEmail(), $recommenderUser->getFullName());
+            $mailable->subject($title);
+            $mailable->body($content);
+            Mail::send($mailable);
         }
 
         return $query->getId();

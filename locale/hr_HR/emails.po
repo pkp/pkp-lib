@@ -32,11 +32,8 @@ msgstr ""
 "U slučaju da imate bilo kakvih pitanja, molimo vas da nam se obratite.<br />\n"
 "<br />\n"
 "Srdačno,<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "Ovaj se obrazac e-pošte automatski šalje autoru kada su on ili ona završili postupak prijave priloga časopisu. Poruka daje informacije o tome kako mogu pratiti prilog kroz uređivački postupak."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Zaprimljena recenzija članka"
@@ -72,5 +69,3 @@ msgstr ""
 "Srdačno,"
 
 #, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Ovim obrascem e-pošte urednik rubrike šalje lektoru zamolbu da započne s lekturom priloga. Poruka pruža osnovne informacije o prilogu i kako mu pristupiti."

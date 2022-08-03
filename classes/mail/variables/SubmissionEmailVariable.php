@@ -124,11 +124,8 @@ class SubmissionEmailVariable extends Variable
             PKPApplication::ROUTE_PAGE,
             null,
             'workflow',
-            'index',
-            [
-                $this->submission->getId(),
-                $this->submission->getData('stageId'),
-            ]
+            'access',
+            $this->submission->getId()
         );
     }
 

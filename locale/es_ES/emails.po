@@ -30,11 +30,8 @@ msgstr ""
 "<br />\n"
 "Si tiene alguna duda puede ponerse en contacto conmigo. Gracias por elegir esta editorial para mostrar su trabajo.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "Este correo electrónico, si está activado, se envía automáticamente a un autor/a cuando completa el proceso de envío de un manuscrito a la editorial. Proporciona información sobre el seguimiento del envío en el proceso y agradece al autor/a el envío."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Acuse de recibo de revisión de artículo"
@@ -154,9 +151,6 @@ msgstr ""
 "URL del envío: {$submissionUrl}<br />\n"
 "Nombre de usuario/a: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Este correo es enviado por un/a Editor/a de Sección a un/a corrector/a de un envío para pedirles que comiencen un proceso de corrección. Le proporciona información sobre en el envío y cómo acceder a él."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Decisión del editor/a"

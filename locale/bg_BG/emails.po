@@ -13,14 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
-"приключи процеса на изпращане на ръкопис към списанието. Той предоставя "
-"информация за проследяване на подаването на ръкописа и благодари на автора "
-"за изпращането."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -36,7 +28,7 @@ msgstr ""
 "Ако имате въпроси, моля свържете се с нас. Благодарим ви, че разглеждате "
 "това списание като подходящо място за публикуване на вашия труд. <br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -137,14 +129,6 @@ msgstr ""
 "<br />\n"
 "Препоръката относно подадените материали до {$contextName}, "
 "&quot;{$submissionTitle}&quot; е: {$recommendation}"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Този имейл се изпраща от редактор на секции до редактора за стилистична "
-"проверка със заявка да бъде започнат процеса на  стилистична проверка. Той "
-"предоставя информация за изпратените материали и как да бъде получен достъп "
-"до тях."
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

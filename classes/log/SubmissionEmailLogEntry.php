@@ -21,6 +21,7 @@ class SubmissionEmailLogEntry extends EmailLogEntry
 {
     // Author events						0x20000000
     public const SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION = 0x20000001;
+    public const SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK = 0x20000002;
 
     // Editor events						0x30000000
     public const SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR = 0x30000001;
@@ -63,6 +64,13 @@ class SubmissionEmailLogEntry extends EmailLogEntry
     public const SUBMISSION_EMAIL_LAYOUT_NOTIFY_EDITOR = 0x70000001;
     public const SUBMISSION_EMAIL_LAYOUT_THANK_EDITOR = 0x70000002;
     public const SUBMISSION_EMAIL_LAYOUT_NOTIFY_COMPLETE = 0x70000003;
+
+    // Index events                         0x80000000
+    public const SUBMISSION_EMAIL_INDEX_NOTIFY_INDEXER = 0x80000001;
+    public const SUBMISSION_EMAIL_INDEX_NOTIFY_COMPLETE = 0x80000002;
+
+    // Discussion
+    public const SUBMISSION_EMAIL_DISCUSSION_NOTIFY = 0x90000001;
 
     /**
      * Set the submission ID for the log entry.

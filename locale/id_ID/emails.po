@@ -31,15 +31,8 @@ msgstr ""
 "<br />\n"
 "Jika ada pertanyaan, silakan hubungi kami. Terimakasih telah mempercayakan publikasi karya Anda di jurnal kami.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Email ini, jika diaktifkan, secara otomatis dikirimkan ke penulis ketika "
-"mereka mengirimkan naskahnya ke jurnal. Email ini berisi informasi tentang "
-"pemantauan naskah melalui proses editorial dan ucaan terima kasih atas "
-"naskah yang dikirimkan."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Ucapan Terimakasih atas Review Artikel"
@@ -153,9 +146,6 @@ msgstr ""
 "URL Naskah: {$submissionUrl}<br />\n"
 "Nama pengguna: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Email ini dari Editor Bagian ke Copyeditor naskah agar memulai proses copyediting.  Email ini memuat informasi terkait penyerahan naskah dan bagaimana mengaksesnya."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

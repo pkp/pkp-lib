@@ -24,12 +24,12 @@ namespace PKP\form;
 
 use APP\core\Application;
 use APP\notification\NotificationManager;
-
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\session\SessionManager;
+use PKP\form\validation\FormValidator;
 
 class Form
 {

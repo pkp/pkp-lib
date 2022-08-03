@@ -21,15 +21,23 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
-
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
+use PKP\facades\Locale;
+use PKP\core\PKPApplication;
+use PKP\controllers\grid\queries\traits\StageMailable;
 
 abstract class PKPStageParticipantNotifyForm extends Form
 {
+	use StageMailable;
+
     /** @var int The file/submission ID this form is for */
     public $_itemId;
 
@@ -98,15 +106,17 @@ abstract class PKPStageParticipantNotifyForm extends Form
             }
         }
 
-        $stageTemplates = $this->_getStageTemplates();
-        $currentStageId = $this->getStageId();
-        $templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId] ?? []);
+        $context = $request->getContext();
+        $mailable = $this->getStageMailable($context, $submission);
 
-        $templateKeyToSubject = function ($templateKey) use ($submission) {
-            $mailTemplate = $this->_getMailTemplate($submission, $templateKey);
-            $mailTemplate->assignParams([]);
-            $mailTemplate->replaceParams();
-            return $mailTemplate->getSubject();
+        $currentStageId = $this->getStageId();
+        $stageTemplates = $this->getStageTemplates();
+        $templateKeys = array_merge($templateKeys, $stageTemplates ?? []);
+
+        $templateKeyToSubject = function ($templateKey) use ($context, $submission, $mailable) {
+            $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+            $data = $mailable->getData(Locale::getLocale());
+            return Mail::compileParams($template->getLocalizedData('subject'), $data);
         };
 
         $templates = array_combine($templateKeys, array_map($templateKeyToSubject, $templateKeys));
@@ -166,97 +176,115 @@ abstract class PKPStageParticipantNotifyForm extends Form
      */
     public function sendMessage($userId, $submission, $request)
     {
-        $template = $this->getData('template');
-        $fromUser = $request->getUser();
-
-        $email = $this->_getMailTemplate($submission, $template, false);
-        $email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
-
         $user = Repo::user()->get($userId);
-        if (isset($user)) {
-            $email->addRecipient($user->getEmail(), $user->getFullName());
-            $email->setBody($this->getData('message'));
+        if (!isset($user)) {
+            return;
+        }
 
-            $submissionUrl = Repo::submission()->getWorkflowUrlByUserRoles($submission, $user->getId());
+        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $context = $contextDao->getById($submission->getData('contextId'));
+        $templateKey = $this->getData('template');
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+        if (!$template) {
+            $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
+        }
 
-            // Parameters for various emails
-            $email->assignParams([
-                // COPYEDIT_REQUEST, LAYOUT_REQUEST, INDEX_REQUEST, LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN, EDITOR_ASSIGN
-                'recipientName' => $user->getFullName(),
-                'recipientUsername' => $user->getUsername(),
-                'submissionUrl' => $submissionUrl,
-                // AUTHOR ASSIGN, AUTHOR NOTIFY
-                'authorName' => $user->getFullName(),
-            ]);
+        $fromUser = $request->getUser();
+        $mailable = $this->getStageMailable($context, $submission);
+        $mailable->sender($fromUser)
+            ->recipients([$user]);
+        $mailableBody = $this->getData('message');
+        $mailable->addData(['authorName' => $user->getFullName()]); // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
+        $mailableData = $mailable->getData();
+        $mailableSubject = Mail::compileParams($template->getLocalizedData('subject'), $mailableData);
+        $mailable->body($mailableBody)
+            ->subject($mailableSubject);
 
-            $suppressNotificationEmail = false;
+        $logDao = null;
+        try {
+            Mail::send($mailable);
+            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+        } catch (TransportException $e) {
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification(
+                $request->getUser()->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            error_log($e->getMessage());
+        }
 
-            if (!$email->send($request)) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
-            } else {
-                $suppressNotificationEmail = true;
-            }
+        // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
+        switch ($templateKey) {
+            case 'EDITOR_ASSIGN':
+                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_ASSIGN, $mailable, $submission);
+                break;
+            case 'COPYEDIT_REQUEST':
+                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_COPYEDITOR, $mailable, $submission);
+                break;
+            case 'LAYOUT_REQUEST':
+                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_LAYOUT_NOTIFY_EDITOR, $mailable, $submission);
+                break;
+            case 'INDEX_REQUEST':
+                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_INDEX_NOTIFY_INDEXER, $mailable, $submission);
+                break;
+            case 'LAYOUT_COMPLETE':
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_LAYOUT_NOTIFY_COMPLETE, $mailable, $submission);
+                break;
+            case 'INDEX_COMPLETE':
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_INDEX_NOTIFY_COMPLETE, $mailable, $submission);
+                break;
+            default:
+                !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
+                break;
+        }
 
-            // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
-            switch ($template) {
-                case 'EDITOR_ASSIGN':
-                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId(), $suppressNotificationEmail);
-                    break;
-                case 'COPYEDIT_REQUEST':
-                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
-                    break;
-                case 'LAYOUT_REQUEST':
-                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
-                    break;
-                case 'INDEX_REQUEST':
-                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
-                    break;
-            }
+        // Create a query
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $query = $queryDao->newDataObject();
+        $query->setAssocType(ASSOC_TYPE_SUBMISSION);
+        $query->setAssocId($submission->getId());
+        $query->setStageId($this->_stageId);
+        $query->setSequence(REALLY_BIG_NUMBER);
+        $queryDao->insertObject($query);
+        $queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
-            // Create a query
-            $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $query = $queryDao->newDataObject();
-            $query->setAssocType(ASSOC_TYPE_SUBMISSION);
-            $query->setAssocId($submission->getId());
-            $query->setStageId($this->_stageId);
-            $query->setSequence(REALLY_BIG_NUMBER);
-            $queryDao->insertObject($query);
-            $queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submission->getId());
+        // Add the current user and message recipient as participants.
+        $queryDao->insertParticipant($query->getId(), $user->getId());
+        if ($user->getId() != $request->getUser()->getId()) {
+            $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
+        }
 
-            // Add the current user and message recipient as participants.
-            $queryDao->insertParticipant($query->getId(), $user->getId());
-            if ($user->getId() != $request->getUser()->getId()) {
-                $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
-            }
+        // Create a head note
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $headNote = $noteDao->newDataObject();
+        $headNote->setUserId($request->getUser()->getId());
+        $headNote->setAssocType(ASSOC_TYPE_QUERY);
+        $headNote->setAssocId($query->getId());
+        $headNote->setDateCreated(Core::getCurrentDate());
+        $headNote->setTitle($mailableSubject);
+        $headNote->setContents($mailableBody);
+        $noteDao->insertObject($headNote);
 
-            // Create a head note
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $headNote = $noteDao->newDataObject();
-            $headNote->setUserId($request->getUser()->getId());
-            $headNote->setAssocType(ASSOC_TYPE_QUERY);
-            $headNote->setAssocId($query->getId());
-            $headNote->setDateCreated(Core::getCurrentDate());
-            $headNote->setTitle($email->getSubject());
-            $headNote->setContents($email->getBody());
-            $noteDao->insertObject($headNote);
-
-            if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-                $submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->updateNotification(
-                    $request,
-                    [
-                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                        PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
-                    ],
-                    null,
-                    ASSOC_TYPE_SUBMISSION,
-                    $submission->getId()
-                );
-            }
+        if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+            $submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->updateNotification(
+                $request,
+                [
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                ],
+                null,
+                ASSOC_TYPE_SUBMISSION,
+                $submission->getId()
+            );
         }
     }
 
@@ -282,6 +310,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
                 'recipientName' => __('user.role.editor'),
             ];
             case 'EDITOR_ASSIGN': return [
+                'recipientName' => __('user.name'),
                 'recipientUsername' => __('user.username'),
                 'signature' => __('user.role.editor'),
                 'submissionUrl' => __('common.url'),
@@ -308,7 +337,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
      * @param int $submissionId Submission ID
      * @param bool $suppressEmail Indicates whether not to send the Notification email to the user.
      */
-    private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId, $suppressEmail = false)
+    private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(
@@ -326,11 +355,9 @@ abstract class PKPStageParticipantNotifyForm extends Form
                 $userId,
                 $type,
                 $context->getId(),
-                ASSOC_TYPE_SUBMISSION,
+                PKPApplication::ASSOC_TYPE_SUBMISSION,
                 $submissionId,
-                Notification::NOTIFICATION_LEVEL_TASK,
-                null,
-                $suppressEmail
+                Notification::NOTIFICATION_LEVEL_TASK
             );
         }
     }
@@ -362,20 +389,18 @@ abstract class PKPStageParticipantNotifyForm extends Form
     }
 
     /**
-     * return app-specific stage templates.
-     *
-     * @return array
+     * FIXME should be retrieved from a database based on a record in email_template_assignments table after
+     * API implementation pkp/pkp-lib#7706
      */
-    abstract protected function _getStageTemplates();
-
-    /**
-     * Return app-specific mail template.
-     *
-     * @param Submission $submission
-     * @param string $templateKey
-     * @param bool $includeSignature
-     *
-     * @return SubmissionMailTemplate
-     */
-    abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
+    protected function getStageTemplates(): array
+    {
+        $map = [
+            WORKFLOW_STAGE_ID_SUBMISSION => ['EDITOR_ASSIGN'],
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => ['EDITOR_ASSIGN'],
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => ['EDITOR_ASSIGN'],
+            WORKFLOW_STAGE_ID_EDITING => ['EDITOR_ASSIGN', 'COPYEDIT_REQUEST'],
+            WORKFLOW_STAGE_ID_PRODUCTION => ['EDITOR_ASSIGN', 'LAYOUT_REQUEST', 'LAYOUT_COMPLETE'],
+        ];
+        return $map[$this->getStageId()];
+    }
 }

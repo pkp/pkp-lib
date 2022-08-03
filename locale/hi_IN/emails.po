@@ -37,21 +37,11 @@ msgstr ""
 "<br />\n"
 "यदि आपके पास किसी तरह का प्रश्न है, तो कृपया मुझ से सम्पर्क करें। अपने काम के लिए इस जर्नल को एक स्थान के रूप में विचार करने के लिए धन्यवाद.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 # (pofilter) endpunc: Different punctuation at the end
 # (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
 # (pofilter) simplecaps: Different capitalization
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "सक्षम होने पर, यह ईमेल स्वचालित रूप से एक लेखक को भेजा जाता है, जब वह जर्नल को पांडुलिपि प्रस्तुत करने की प्रक्रिया को पूरा करता है। यह प्रक्रिया के माध्यम से सबमिशन पर नज़र रखने के बारे में जानकारी प्रदान करता है और प्रस्तुत करने के लिए लेखक को धन्यवाद देता है."
-
-# (pofilter) brackets: Added '{', '}'
-# (pofilter) newlines: Different line endings
-# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$submitterName}, {$signature}, {$submissionTitle}, {$contextName}
-# (pofilter) sentencecount: Different number of sentences: 1 ≠ 3
-# (pofilter) startcaps: Different capitalization at the start
-# (pofilter) xmltags: Added XML tags#, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "लेख समीक्षा आभार"
 
@@ -188,13 +178,6 @@ msgstr ""
 # (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
 # (pofilter) simplecaps: Different capitalization
 #, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"यह ईमेल एक सेक्शन एडिटर द्वारा सबमिशन की कॉपीडिटर को सबमिट करने के लिए भेजा "
-"जाता है ताकि वे कॉपीएडिटिंग  करने की प्रक्रिया शुरू कर सकें। यह सबमिशन और इसे"
-" एक्सेस करने के तरीके के बारे में जानकारी प्रदान करता है."
-
-# (pofilter) simplecaps: Different capitalization#, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 "\n"

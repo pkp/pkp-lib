@@ -13,14 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Este correo electrónico, se está activado, envíase automaticamente ao autor/"
-"a unha vez que completou o proceso de envío dun manuscrito á revista. "
-"Proporciona información sobre o seguimento do dito manuscrito no proceso "
-"editorial e agradécelle ao autor/a o seu envío."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -36,7 +28,7 @@ msgstr ""
 "Se ten algunha dúbida, pode poñerse en contacto con nós. Grazas por escoller "
 "esta revista como medio de difusión do seu traballo.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -137,13 +129,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Recomendación do editor/a"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Este correo é enviado por un editor/a de sección a un corrector/a dun envío "
-"para solicitarlle que comece o proceso de corrección.  Proporciona "
-"información sobre o envío e como acceder a el."
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

@@ -21,10 +21,13 @@ use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-
 use PKP\log\SubmissionLog;
+use PKP\mail\mailables\ReviewCompleteNotifyEditors;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormResponse;
@@ -147,12 +150,16 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
         // Send notification
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCompleteNotifyEditors::getEmailTemplateKey());
         $receivedList = []; // Avoid sending twice to the same user.
 
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
         while ($stageAssignment = $stageAssignments->next()) {
             $userId = $stageAssignment->getUserId();
             $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $submission->getContextId());
@@ -162,14 +169,34 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 continue;
             }
 
-            $notificationMgr->createNotification(
+            $notification = $notificationMgr->createNotification(
                 Application::get()->getRequest(),
                 $userId,
                 PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 $submission->getContextId(),
-                ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId()
             );
+
+            // Check if user is subscribed to this type of notification emails
+            if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                        $userId,
+                        (int) $context->getId()))
+            ) {
+                continue;
+            }
+
+            $user = Repo::user()->get($userId);
+            $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment, $notification);
+            $mailable
+                ->from($context->getData('contactEmail'), $context->getData('contactName'))
+                ->recipients([$user])
+                ->subject($template->getLocalizedData('subject'))
+                ->body($template->getLocalizedData('body'));
+
+            Mail::send($mailable);
 
             $receivedList[] = $userId;
         }
@@ -191,7 +218,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Remove the task
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationDao->deleteByAssoc(
-            ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
             $reviewAssignment->getId(),
             $reviewAssignment->getReviewerId(),
             PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT

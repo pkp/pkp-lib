@@ -15,15 +15,11 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\notification\Notification;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
-
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Repo;
-use PKP\mail\Mail;
-use PKP\mail\MailTemplate;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 use PKP\user\User;
@@ -107,63 +103,8 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
             null,
             null,
             Notification::NOTIFICATION_LEVEL_NORMAL,
-            ['contents' => $this->_announcement->getLocalizedTitle()],
-            false,
-            function ($mail) use ($user) {
-                return $this->_setupMessage($mail, $user);
-            }
+            ['contents' => $this->_announcement->getLocalizedTitle()]
         );
-    }
-
-    /**
-     * @copydoc PKPNotificationManager::getMailTemplate()
-     *
-     * @param null|mixed $emailKey
-     */
-    protected function getMailTemplate($emailKey = null): MailTemplate
-    {
-        $contextId = $this->_announcement->getAssocId();
-        $context = Application::get()->getRequest()->getContext();
-        if ($context->getId() != $contextId) {
-            $context = Services::get('context')->get($contextId);
-        }
-        return new MailTemplate('ANNOUNCEMENT', null, $context, false);
-    }
-
-    /**
-     * Setups a customized message for the given user.
-     *
-     * @param Mail $mail The message which will be customized
-     * @param User $user The user who will be notified
-     *
-     * @return Mail The prepared message
-     */
-    private function _setupMessage(Mail $mail, User $user): Mail
-    {
-        $mail->assignParams($this->_getMessageParams($user));
-        return $mail;
-    }
-
-    /**
-     * Retrieves the message parameters.
-     *
-     * @return array An array with the parameters and their values
-     */
-    private function _getMessageParams(): array
-    {
-        return [
-            'title' => $this->_announcement->getLocalizedTitle(),
-            'summary' => $this->_announcement->getLocalizedDescriptionShort(),
-            'announcement' => $this->_announcement->getLocalizedDescription(),
-            'url' => Application::get()->getRequest()->getDispatcher()->url(
-                Application::get()->getRequest(),
-                PKPApplication::ROUTE_PAGE,
-                Application::get()->getRequest()->getContext()->getData('path'),
-                'announcement',
-                'view',
-                $this->_announcement->getId()
-            ),
-        ];
     }
 }
 

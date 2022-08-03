@@ -2453,14 +2453,53 @@ msgstr "The names of the authors assigned to the submission workflow. Usually th
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr "Hashed URL which is sent to a user to confirm the password reset"
 
-msgid "mailable.discussionMessage.name"
-msgstr "New Discussion Message"
-
-msgid "mailable.discussionMessage.description"
-msgstr "This email is automatically sent to discussion participants when a new message is added to the discussion."
+msgid "emailTemplate.variable.password"
+msgstr "New random user password"
 
 msgid "mailable.reviewerReinstate.name"
 msgstr "Reviewer Reinstate"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "The full name of a user who uploaded a submission file"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "The title of the announcement"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Short description of the announcement"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "The URL to the announcement"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "The number of submissions received this month"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "The number of declined submissions"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "The number of accepted submissions"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "The number of skipped submissions"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Th total number of submissions received"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "The month of the report"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Issue identification, including volume, number, year, and title"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "The year of the report"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "The link to the editorial activity page"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "The link to the published articles statistics page"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr "This email is sent when a reviewer that was unassigned is reinstated by an editor."
@@ -2659,3 +2698,98 @@ msgstr "Editorial Reminder"
 
 msgid "mailable.editorialReminder.description"
 msgstr "An automated email sent to editors with outstanding tasks"
+
+msgid "mailable.passwordReset.name"
+msgstr "Password Reset"
+
+msgid "mailable.passwordReset.description"
+msgstr "This email is sent to a registered user when they have successfully reset their password following the process described in the PASSWORD_RESET_CONFIRM email."
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Password Reset Confirm"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "This email is sent to a registered user when they indicate that they have forgotten their password or are unable to login. It provides a URL they can follow to reset their password."
+
+msgid "mailable.userRegister.name"
+msgstr "User Register"
+
+msgid "mailable.userRegister.description"
+msgstr "This email is sent to a newly registered user to welcome them to the system and provide them with a record of their username and password."
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Reviewer Register"
+
+msgid "mailable.reviewerRegister.description"
+msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
+
+msgid "mailable.submissionAck.name"
+msgstr "Submission Acknowledgement"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"This email, when enabled, is automatically sent to an author when they submit to the journal. It provides "
+"information about tracking the submission through the editorial process and thanks the author for the submission."
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "Submission Confirmation"
+
+msgid "mailable.submissionAckNotUser.description"
+msgstr "This email, when enabled, is automatically sent to authors named on a submission who are not the submitting author."
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Discussion Submission"
+
+msgid "mailable.discussionSubmission.description"
+msgstr "This email is sent on the submission stage to notify a user about submission"
+
+msgid "mailable.discussionReview.name"
+msgstr "Discussion Review"
+
+msgid "mailable.discussionReview.description"
+msgstr "This email is sent on the review workflow stage to notify a user about submission"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Discussion Copyediting"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr "This email is sent on the copyediting stage to notify a user about submission"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Dicussion Production"
+
+msgid "mailable.discussionProduction.description"
+msgstr "This email is sent on the production stage to notify a user about submission"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Revised Version Notification"
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "This email is automatically sent to the assigned editor when author uploads a revised version of an article."
+
+msgid "mailable.announcementNotify.description"
+msgstr "This email is sent when a new announcement is created."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Statistics Report Notification"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr "This email is automatically sent monthly to editors and journal managers to provide them a system health overview."
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Publication Version Notification"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr "This email automatically notifies assigned editors about new version of the publication"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Edit Review Notification"
+
+msgid "mailable.editReviewNotify.description"
+msgstr "This email automatically notifies the reviewer about modified review details"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Reviewer Commented Notify Editors"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr "This email is automatically sent to assigned editors when reviewer makes review recommendation"

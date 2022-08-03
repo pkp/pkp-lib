@@ -2428,4 +2428,39 @@ msgstr ""
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Ce courriel du rédacteur de section à un rapporteur demande que le rapporteur accepte ou refuse la tâche d'examiner une soumission pour une deuxième fois ou plus. Il fournit des informations sur la soumission, comme le titre et le résumé, la date d'échéance de l'examen et la façon d'accéder à la soumission elle-même. Ce message est utilisé lorsque le processus de révision standard est sélectionné dans Administration> Paramètres> Flux des travaux> Révision et que l'accès d'un relecteur est activé."
 
+msgid "mailable.passwordReset.description"
+msgstr "Ce courriel est envoyé aux utilisateurs inscrits lorsqu'ils ont réussi à réinitialiser leur mot de passe en ayant suivi la procédure décrite dans le courriel « Confirmation de la réinitialisation du mot de passe »."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Ce courriel est envoyé aux utilisateurs qui nous signalent avoir oublié leur mot de passe ou qui sont incapables d'ouvrir une session. Il fournit le lien URL pour réinitialiser leur mot de passe."
+
+msgid "mailable.userRegister.description"
+msgstr "Ce courriel est envoyé aux utilisateurs nouvellement inscrits pour leur souhaiter la bienvenue à la revue et leur faire connaître leur nom d'utilisateur et leur mot de passe."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Ce courriel est envoyé à un rapporteur nouvellement inscrit, afin de l'accueillir dans le système et lui offrir un enregistrement de son nom d'utilisateur et mot de passe."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Ce courriel, lorsqu'activé, est envoyé automatiquement à un auteur ou une "
+"auteure quand il ou elle a complété le processus de soumission d'un "
+"manuscrit à la revue. Il fournit les informations relatives au suivi de la "
+"soumission à travers le processus éditorial, et remercie l'auteur ou "
+"l'auteure pour sa soumission."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteurs, i.e. ceux qui ne sont pas l'utilisateur enregistré faisant la soumission."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Ce courriel est envoyé automatiquement au rédacteur attribué quand un auteur téléverse une version révisée d'un article."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Ce courriel est envoyé automatiquement chaque mois aux rédacteurs et "
+"rédactrices en chef et aux directeurs et directrices de revues pour leur "
+"fournir un aperçu de l'intégrité du système."

@@ -2494,4 +2494,40 @@ msgstr ""
 "'accedir-hi. Aquest missatge s'utilitza quan el procés de revisió estàndard "
 "s'ha seleccionat a Gestió > Configuració > Flux de treball > Revisió."
 
+msgid "mailable.passwordReset.description"
+msgstr "Aquest missatge de correu electrònic s'envia a un usuari registrat per a notificar-li que la seva contrasenya s'ha reinicialitzat amb èxit després d'haver seguit el procés descrit al missatge de correu electrònic PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Aquest missatge de correu electrònic s'envia a un usuari registrat si ha indicat que no recorda la seva contrasenya o que no pot iniciar la sessió. Inclou un URL per a la reinicialització de la contrasenya."
+
+msgid "mailable.userRegister.description"
+msgstr "Aquest missatge de correu electrònic s'envia a un usuari que s'acaba de registrar a la revista per a donar-li la benvinguda al sistema i fer-li arribar el seu nom d'usuari i la seva contrasenya."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Aquest missatge de correu electrònic s'envia a un revisor que s'acaba de registrar per a donar-li la benvinguda al sistema i fer-li arribar el seu nom d'usuari i la seva contrasenya."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Si està activat, aquest correu electrònic s'envia automàticament als autors/"
+"ores quan completen el procés de tramesa d'un manuscrit a la revista. "
+"Proporciona informació sobre el seguiment de la tramesa durant el procés "
+"editorial i agraeix a l'autor/a la seva contribució a la revista."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Aquest correu electrònic, quan està habilitat, s'envia automàticament als altres autors/ores que no són usuaris/àries a l'OMP especificats durant el procés de tramesa."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Aquest correu electrònic s'envia automàticament a l'editor/a assignat quan l'"
+"autor/a carrega una versió revisada d'un article."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Aquest correu electrònic s'envia quan es crea un avís nou."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Aquest correu electrònic s'envia automàticament cada mes a editors/ores i "
+"administradors/ores de revistes per donar-los una visió general de la salut "
+"del sistema."

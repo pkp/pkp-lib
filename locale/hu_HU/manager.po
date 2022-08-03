@@ -2541,4 +2541,28 @@ msgstr "Ez az emailt a Rovatszerkesztő küldi a Lektornak, megkérve, hogy vál
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Ezt az emailt a Rovatszerkesztő küldi a Szakmai Lektornak, megkérve, hogy vállalja el, vagy, ha nem alkalmas, akkor utasítsa el a beküldött anyag lektorálási feladatát a második vagy további lektorálási körökben. Ez információt ad a beküldött anyagról, úgymint cím, absztrakt, a lektorálási határideje, valamint hogyan lehet hozzáférni magához az anyaghoz. Ezt az üzenetet akkor kell használni, ha az általános lektorálási folyamat van kiválasztva a folyóirat menedzselése részben > Beállítások > Munkafolyamat > Szakmai lektorálás."
 
+msgid "mailable.passwordReset.description"
+msgstr "Ez az email egy regisztrált felhasználónak kerül kiküldésre, amikor sikeresen visszaállításra került jelszava, követve a PASSWORD_RESET_CONFIRM levélben írtakat."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Ez a levél egy regisztrált felhasználónak kerül kiküldésre, amikor jelzi, hogy elfelejtette a jelszavát, és nem tud bejelentkezni. Tartalmaz egy linket, amire kattintva visszaállítható a jelszava."
+
+msgid "mailable.userRegister.description"
+msgstr "Ez az email az újonnan regisztrált felhasználóknak kerül kiküldésre, köszöntésként, felhasználónevük, jelszavuk megadásával."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Ez az email az újonnan regisztrált lektoroknak kerül kiküldésre, köszöntésként és a felhasználónevük, jelszavuk elküldéséhez."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr "Ez az email, ha be van kapcsolva, akkor automatikusan kiküldésre kerül a Szerzőnek, amikor a folyóirathoz beküldte kéziratát. Információt ad a benyújtási folyamatról és megköszöni a Szerzőnek a benyújtott kéziratot."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Ha be van kapcsolva ez az email, akkor automatikusan értesítést küld azoknak a Szerzőknek, akik a benyújtás idején nem szerepelnek aktívan ennek a beküldésnek a munkafolyamatában."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Ez az email automatikus értesítést küld a kijelölt szerkesztőnek, amikor a szerző a cikk átdolgozott változatát feltöltötte."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr "Ez az email automatikusan kerül kiküldésre a szerkesztőknek és folyóirat menedzsereknek a folyóiratukkal kapcsolatos tájékoztatásul."

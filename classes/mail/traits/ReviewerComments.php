@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerComments
- * @ingroup mail
+ * @ingroup mail_traits
  *
  * @brief Mailable trait to add reviewer comments to a mailable's variables
  */
@@ -24,7 +24,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 
 trait ReviewerComments
 {
-    public static string $allReviewerComments = 'allReviewerComments';
+    protected static string $allReviewerComments = 'allReviewerComments';
 
     /**
      * Add the reviewer comments to the list of registered variables

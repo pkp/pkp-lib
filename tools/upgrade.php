@@ -15,7 +15,7 @@
  * Note: Some functions require fopen wrappers to be enabled.
  */
 
-require(dirname(__FILE__) . '/bootstrap.inc.php');
+require(dirname(__FILE__) . '/bootstrap.php');
 
 use PKP\cliTool\UpgradeTool;
 

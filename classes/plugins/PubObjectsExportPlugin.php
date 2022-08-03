@@ -32,6 +32,7 @@ use PKP\plugins\HookRegistry;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
+use APP\plugins\PubObjectCache;
 
 // The statuses.
 define('EXPORT_STATUS_ANY', '');
@@ -59,9 +60,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      */
     public function getCache()
     {
-        if (!is_a($this->_cache, 'PubObjectCache')) {
+        if (!($this->_cache instanceof PubObjectCache)) {
             // Instantiate the cache.
-            import('classes.plugins.PubObjectCache');
             $this->_cache = new PubObjectCache();
         }
         return $this->_cache;

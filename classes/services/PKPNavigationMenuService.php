@@ -17,7 +17,6 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use NavigationMenuItemHandler;
 
 use PKP\core\PKPApplication;
 
@@ -667,9 +666,7 @@ class PKPNavigationMenuService
 
             // It is -- attach the custom NMI handler.
             define('HANDLER_CLASS', 'NavigationMenuItemHandler');
-            import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
-
-            NavigationMenuItemHandler::setPage($customNMI);
+            \PKP\pages\navigationMenu\NavigationMenuItemHandler::setPage($customNMI);
 
             return true;
         }

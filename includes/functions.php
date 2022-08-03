@@ -18,6 +18,8 @@
  * Emulate a Java-style import statement.
  * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
  *
+ * @deprecated 3.4.0
+ *
  * @param string $class the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
  */
 if (!function_exists('import')) {
@@ -152,6 +154,8 @@ function fatalError($reason)
  * parameter needs to be last in the parameter list
  * to be forward compatible with this potential use
  * case.
+ *
+ * @deprecated 3.4.0
  *
  * @param string $fullyQualifiedClassName
  * @param string|array $expectedTypes the class

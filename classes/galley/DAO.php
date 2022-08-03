@@ -270,7 +270,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         if ($issueId) {
             $params[] = (int) $issueId;
         }
-        import('classes.plugins.PubObjectsExportPlugin');
+        import('classes.plugins.PubObjectsExportPlugin'); // Constant
         if ($pubIdSettingName && $pubIdSettingValue && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) {
             $params[] = $pubIdSettingValue;
         }

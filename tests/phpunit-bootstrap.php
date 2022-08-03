@@ -88,6 +88,7 @@ function require_mock_env($mockEnv)
  * so we can drop in mock classes, especially to mock
  * static method calls.
  *
+ * @deprecated 3.4.0
  * @see bootstrap.php
  *
  * @param string $class

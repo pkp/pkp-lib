@@ -447,6 +447,7 @@ class Installer
                     $migration = new $fullClassName($this, $action['attr']);
                 } else {
                     // Migration is specified using old-style class.name.like.this
+                    // This behaviour is DEPRECATED as of 3.4.0
                     import($fullClassName);
                     $shortClassName = substr($fullClassName, strrpos($fullClassName, '.') + 1);
                     $this->log(sprintf('migration: %s', $shortClassName));

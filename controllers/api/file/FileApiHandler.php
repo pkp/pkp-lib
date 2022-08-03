@@ -24,6 +24,7 @@ use APP\handler\Handler;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\file\FileArchive;
+use PKP\pages\libraryFiles\LibraryFileHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -134,8 +135,7 @@ class FileApiHandler extends Handler
      */
     public function downloadLibraryFile($args, $request)
     {
-        import('lib.pkp.pages.libraryFiles.LibraryFileHandler');
-        $libraryFileHandler = new \LibraryFileHandler($this);
+        $libraryFileHandler = new LibraryFileHandler($this);
         return $libraryFileHandler->downloadLibraryFile($args, $request);
     }
 

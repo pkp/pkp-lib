@@ -50,7 +50,7 @@ abstract class SchemaDAO extends DAO
      *
      * @param int $objectId
      *
-     * @return \PKP\core\DataObject?
+     * @return ?\PKP\core\DataObject
      */
     public function getById($objectId)
     {

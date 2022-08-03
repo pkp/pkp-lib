@@ -95,7 +95,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Return the object representing the next row.
      *
-     * @return object?
+     * @return ?Object
      */
     public function next()
     {

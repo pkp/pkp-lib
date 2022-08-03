@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/manager/form/ReviewFormElementForm.php
+ * @file controllers/grid/settings/reviewForms/form/ReviewFormElementForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -16,13 +16,12 @@
  *
  */
 
-namespace classes\manager\form;
+namespace PKP\controllers\grid\settings\reviewForms\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-
 use PKP\reviewForm\ReviewFormElement;
 use PKP\security\Validation;
 

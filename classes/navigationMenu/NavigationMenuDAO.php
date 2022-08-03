@@ -42,7 +42,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      * @param int $navigationMenuId navigation menu ID
      * @param int $contextId Context Id
      *
-     * @return NavigationMenu?
+     * @return ?NavigationMenu
      */
     public function getById($navigationMenuId, $contextId = null)
     {
@@ -93,7 +93,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      * @param int $contextId Context Id
      * @param string $title
      *
-     * @return NavigationMenu?
+     * @return ?NavigationMenu
      */
     public function getByTitle($contextId, $title)
     {

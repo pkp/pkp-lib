@@ -111,7 +111,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
      *
      * @param ControlledVocab $controlledVocab
      *
-     * @return int? New insert ID on insert, or null on error
+     * @return ?int New insert ID on insert, or null on error
      */
     public function insertObject($controlledVocab, $dieOnError = true)
     {
@@ -198,7 +198,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
      * @param int $assocType
      * @param int $assocId
      *
-     * @return ControlledVocab?
+     * @return ?ControlledVocab
      */
     public function getBySymbolic($symbolic, $assocType = 0, $assocId = 0)
     {

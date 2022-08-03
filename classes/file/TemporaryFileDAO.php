@@ -27,7 +27,7 @@ class TemporaryFileDAO extends \PKP\db\DAO
      * @param int $fileId
      * @param int $userId
      *
-     * @return TemporaryFile?
+     * @return ?TemporaryFile
      */
     public function getTemporaryFile($fileId, $userId)
     {

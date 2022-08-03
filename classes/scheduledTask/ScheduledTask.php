@@ -28,7 +28,7 @@ abstract class ScheduledTask
     /** @var array task arguments */
     private $_args;
 
-    /** @var string? This process id. */
+    /** @var ?string This process id. */
     private $_processId = null;
 
     /** @var string File path in which execution log messages will be written. */

@@ -83,7 +83,7 @@ abstract class ContextDAO extends SchemaDAO
      *
      * @param string $path
      *
-     * @return Context?
+     * @return ?Context
      */
     public function getByPath($path)
     {

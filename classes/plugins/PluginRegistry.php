@@ -103,7 +103,7 @@ class PluginRegistry
      * @param string $category category name
      * @param string $name plugin name
      *
-     * @return Plugin?
+     * @return ?Plugin
      */
     public static function getPlugin($category, $name)
     {
@@ -203,7 +203,7 @@ class PluginRegistry
      *  (e.g. when executing CLI commands). Then the main context
      *  can be given as an explicit ID.
      *
-     * @return Plugin?
+     * @return ?Plugin
      */
     public static function loadPlugin($category, $pathName, $mainContextId = null)
     {
@@ -273,7 +273,7 @@ class PluginRegistry
      * @param string $file
      * @param string $classToCheck set null to maintain pre-2.3.x backwards compatibility
      *
-     * @return Plugin?
+     * @return ?Plugin
      */
     public static function _instantiatePlugin($category, $categoryDir, $file, $classToCheck = null)
     {

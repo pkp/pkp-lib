@@ -204,7 +204,7 @@ class APIHandler extends PKPHandler
      * Get the entity ID for a specified parameter name.
      * (Parameter names are generally defined in authorization policies
      *
-     * @return int|string?
+     * @return int|string|null
      */
     public function getEntityId($parameterName)
     {

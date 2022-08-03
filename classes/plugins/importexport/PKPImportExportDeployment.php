@@ -451,7 +451,7 @@ class PKPImportExportDeployment
      *
      * @param int $authorId
      *
-     * @return int?
+     * @return ?int
      */
     public function getAuthorDBId($authorId)
     {

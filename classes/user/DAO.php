@@ -137,8 +137,7 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Retrieve a user by username.
      *
-     *
-     * @return User?
+     * @return ?User
      */
     public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
@@ -155,8 +154,7 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Retrieve a user by email address.
      *
-     *
-     * @return User?
+     * @return ?User
      */
     public function getByEmail(string $email, bool $allowDisabled = false): ?User
     {
@@ -176,7 +174,7 @@ class DAO extends \PKP\core\EntityDAO
      * @param string $authstr
      * @param bool $allowDisabled
      *
-     * @return User?
+     * @return ?User
      */
     public function getUserByAuthStr($authstr, $allowDisabled = true): ?User
     {
@@ -194,7 +192,7 @@ class DAO extends \PKP\core\EntityDAO
      * @param string $password encrypted password
      * @param bool $allowDisabled
      *
-     * @return User?
+     * @return ?User
      */
     public function getUserByCredentials($username, $password, $allowDisabled = true): ?User
     {

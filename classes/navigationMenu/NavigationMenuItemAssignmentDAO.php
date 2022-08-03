@@ -28,7 +28,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      *
      * @param int $navigationMenuItemAssignmentId
      *
-     * @return NavigationMenuItemAssignment?
+     * @return ?NavigationMenuItemAssignment
      */
     public function getById($navigationMenuItemAssignmentId)
     {

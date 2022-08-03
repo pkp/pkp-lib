@@ -169,9 +169,6 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
 
     /**
      * Retrieves the localized month name for the given date and locale
-     *
-     * @param \DateTimeInterface Date object
-     * @
      */
     public function _getLocalizedMonthName(\DateTimeInterface $date, ?string $locale = null): string
     {

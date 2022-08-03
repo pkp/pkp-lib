@@ -609,7 +609,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      * @param int $submissionId
      * @param int $reviewerId
      *
-     * @return ReviewAssignment?
+     * @return ?ReviewAssignment
      */
     public function getLastReviewRoundReviewAssignmentByReviewer($submissionId, $reviewerId)
     {

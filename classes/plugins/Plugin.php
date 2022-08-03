@@ -228,7 +228,7 @@ abstract class Plugin
     /**
      * Get the installation migration for this plugin.
      *
-     * @return Illuminate\Database\Migrations\Migration?
+     * @return ?Illuminate\Database\Migrations\Migration
      */
     public function getInstallMigration()
     {

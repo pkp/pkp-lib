@@ -129,7 +129,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param int $stageId One of the Stage_id_* constants.
      * @param int $round The review round to be retrieved.
      *
-     * @return ReviewRound?
+     * @return ?ReviewRound
      */
     public function getReviewRound($submissionId, $stageId, $round)
     {
@@ -238,7 +238,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param int $submissionId
      * @param int $stageId
      *
-     * @return ReviewRound?
+     * @return ?ReviewRound
      */
     public function getLastReviewRoundBySubmissionId($submissionId, $stageId = null)
     {
@@ -292,7 +292,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * Update the review round status.
      *
      * @param ReviewRound $reviewRound
-     * @param int? $status Optionally pass a REVIEW_ROUND_STATUS_... to set a
+     * @param ?int $status Optionally pass a REVIEW_ROUND_STATUS_... to set a
      *  specific status. If not included, will determine the appropriate status
      *  based on ReviewRound::determineStatus().
      */

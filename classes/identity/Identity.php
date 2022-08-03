@@ -307,7 +307,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get localized country
      *
-     * @return string?
+     * @return ?string
      */
     public function getCountryLocalized()
     {

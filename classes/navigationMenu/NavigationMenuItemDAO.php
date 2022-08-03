@@ -30,7 +30,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      *
      * @param int $navigationMenuItemId
      *
-     * @return NavigationMenuItem?
+     * @return ?NavigationMenuItem
      */
     public function getById($navigationMenuItemId)
     {
@@ -50,7 +50,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      * @param int $contextId Context Id
      * @param string $path
      *
-     * @return NavigationMenuItem?
+     * @return ?NavigationMenuItem
      */
     public function getByPath($contextId, $path)
     {
@@ -105,7 +105,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      * @param string $menuItemType
      * @param string $menuItemTitleLocaleKey
      *
-     * @return NavigationMenuItem?
+     * @return ?NavigationMenuItem
      */
     public function getByTypeAndTitleLocaleKey($contextId, $menuItemType, $menuItemTitleLocaleKey)
     {

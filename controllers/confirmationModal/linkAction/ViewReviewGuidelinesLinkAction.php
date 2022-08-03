@@ -55,7 +55,7 @@ class ViewReviewGuidelinesLinkAction extends LinkAction
     /**
      * Get the guidelines for the specified stage.
      *
-     * @return string?
+     * @return ?string
      */
     public function getGuidelines()
     {

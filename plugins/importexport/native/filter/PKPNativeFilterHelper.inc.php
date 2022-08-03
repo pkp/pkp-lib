@@ -23,7 +23,7 @@ class PKPNativeFilterHelper
      * @param DOMDocument $doc
      * @param Publication $object
      *
-     * @return DOMElement?
+     * @return ?DOMElement
      */
     public function createPublicationCoversNode($filter, $doc, $object)
     {

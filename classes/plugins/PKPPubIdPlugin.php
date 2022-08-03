@@ -432,7 +432,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      *
      * @param object $pubObject
      *
-     * @return string?
+     * @return ?string
      */
     public function getPubObjectType($pubObject)
     {

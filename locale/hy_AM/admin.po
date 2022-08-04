@@ -562,3 +562,140 @@ msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "{$file} ֆայլը չհաջողվեց բացել և այն մերժվեց:"
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"{$file} նիշքը հին մատյանի նիշքի ձևաչափով է, որը հնարավոր չէ մշակել և "
+"այդպիսով հետ կտեղափոխվի փուլավորման պանակ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"{$lineNumber} տողը մատյան նիշքում սխալ ձևաչափով է և, հետևաբար, բաց կթողնվի:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Մատյան անվավեր գրառում {$lineNumber} տողում {$file} մատյան նիշքում՝ {$error}:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Ժամը վավեր ամսաթիվ չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "Ներկայացման ID-ն ամբողջ թիվ չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "Ներկայացուցչական ID-ն ամբողջ թիվ չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Երկիրը երկու այբբենական նիշով տող չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "Հաստատությունների ID-ները զանգված չեն:"
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Սխալ է տեղի ունեցել {$file} մատյան նիշքը {$line Number} տողում մշակելիս՝ "
+"{$msg}"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Նիշք չհաջողվեց ապասեղմել: Աղբյուր gz-նիշքը՝ {$filePath} հնարավոր չէ բացել "
+"gzopen-ով:"
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Նիշքը չհաջողվեց ապասեղմել: Նպատակային նիշք՝ը {$filePath} չհաջողվեց բացել:"
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Նիշքը չհաջողվեց ապասեղմել: Աղբյուր gz-նիշքը՝ {$file} հնարավոր չէ կարդալ "
+"gzread-ով:"
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Նիշքը չհաջողվեց ապասեղմել: Նպատակային նիշքը {$filePath} չի կարող գրվել "
+"fwrite-ով:"
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Նիշքը չհաջողվեց ապասեղմել: Բացված նպատակակետ նիշքը {$filePath} չհաջողվեց "
+"փակել fclose-ով:"
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Նիշքը չհաջողվեց ապասեղմել: Բացված աղբյուրgz-նիշքը՝ {$filePath} հնարավոր չէ "
+"փակել gzclose-ով:"
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Նիշքը չհաջողվեց ապասեղմել: Ապասեղմված աղբյուրի gz-ֆայլը {$filePath} "
+"չհաջողվեց հեռացնել կապը չեղարկելով:"
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: Նշանակման gz-նիշքը {$filePath} չհաջողվեց բացել "
+"gzopen-ով:"
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: {$filePath} սկզբնաղբյուր նիշքը չհաջողվեց բացել fopen-"
+"ով:"
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: {$filePath} սկզբնաղբյուր նիշքը չհաջողվեց կարդալ "
+"fread-ով:"
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: Destinatin gz-նիշքը՝ {$filePath} չի կարող գրվել "
+"gzwrite-ով:"
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: Բացված սկզբնաղբյուր նիշքը {$filePath} չհաջողվեց "
+"փակել fclose-ով:"
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: Բացված նպատակակետ gz-նիշքը {$filePath} չի կարող "
+"փակվել gzclose-ով:"
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Նիշքը չհաջողվեց սեղմել: Սեղմված սկզբնաղբյուր նիշքը {$filePath} չհաջողվեց "
+"հեռացնել հղումը հեռացնելով:"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Աշխատանքը, որը բեռնում է օգտագործման վիճակագրության տվյալները {$file} "
+"նիշքից, ձախողվեց, և նիշքը չհաջողվեց տեղափոխել {$archivedFilePath}-ից "
+"{$stagingPath}:"
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Աշխատանքը, որը բեռնում է օգտագործման վիճակագրության տվյալները {$file} "
+"նիշքից, ձախողվեց: Նիշքը տեղափոխվել է փուլավորման պանակ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"{$file} մատյան նիշքը բաց է թողնվել, քանի որ այդ ամսվա վիճակագրությունն արդեն "
+"հաշվարկված է: Նախորդ ամսվա վիճակագրությունը վերահաշվարկելու համար դուք պետք "
+"է վերականգնեք այդ ամսվա բոլոր մատյան նիշքերը և օգտագործեք CLI գործիքը՝ "
+"վիճակագրությունը վերամշակելու համար:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Համատեքստի ID-ն ամբողջ թիվ չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Assoc տեսակը չի աջակցվում:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Նիշքի տեսակը չի աջակցվում:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Տարածաշրջանը մինչև երեք այբբենական նիշ երկարությամբ տող չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Ետնամասային աշխատանքը, որը կմշակի գրանցամատյանի {$file} նիշքը և կպահի "
+"վիճակագրության տվյալները, ուղարկվել է:"

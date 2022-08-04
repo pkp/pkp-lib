@@ -1,8 +1,134 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-08-04 12:40+0000\n"
+"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/is/>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Leiðbeiningar"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Hlaða niður og ritrýna"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Ljúka"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Skoða alla innsendinguna"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Ritrýni skrár"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Hafna beiðni um ritrýni"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Þú getur skráð skilaboð til ritstjóra um ástæðu höfnunar í svæðinu fyrir "
+"neðan."
+
+msgid "reviewer.step1.request"
+msgstr "Beiðni um ritrýni"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Halda áfram í skref #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Skila ritrýni"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Vista til að nota síðar"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Ég á engra hagsmuna að gæta"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Ég hef mögulega hagsmunaárekstra (Tilgreindu fyrir neðan)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Hagsmunaárekstrar"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Leiðbeiningar um ritrýni"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Þessi útgefandi hefur ekki sett upp neinar leiðbeiningar um ritrýni."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Smelltu á skráarheitin fyrir neðan til að hlaða niður skrám sem tengjast "
+"þessari innsendingu."
+
+msgid "reviewer.complete"
+msgstr "Ritrýni skilað"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Ertu viss um að þú viljir skila inn ritrýni?"
+
+msgid "reviewer.aboutDueDates"
+msgstr "Um loka dagsetningar"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Fyrir höfund og ritstjóra"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Fyrir ritstjóra engöngu"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Senda á ritrýna"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Þessi notandi er ekki tengdur sem ritrýnir fyrir umbeðið skjal."
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Beiðni"
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Sláðu inn, eða afritaðu ritrýnina á þessu hadriti yfir í eyðublaðið fyrir "
+"neðan."
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Þú hefur verið valinn sem mögulegur ritrýnir fyrir eftirfarandi handrit. Hér "
+"fyrir neðan er yfirlit yfir handritið sem og tímalína fyrir ritrýnina. Við "
+"vonum að þú sjáir þér fært að taka þátt."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Samþykkja Ritrýni, halda áfram í skref #2"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Leiðbeiningar fyrir ritrýna"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Þessi útgefandi er með stefnu fyrir ritrýni varðandi mögulega hagsmuna "
+"árekstra. Vinsamlega skoðaðu stefnuna."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Lestu inn skrár sem þú vilt bera undir ritstjóra og/eða höfund, þar með "
+"talið leiðrétta útgáfu af upphaflegri ritrýni skrá(m)."
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Takk fyrir að ljúka ritrýni fyrir þetta handrit. Ritrýnin hefur verið "
+"móttekin. Við þökkum þér fyir þitt framlag til að bæta gæði efnis sem við "
+"gefum út. Ritstjóri verður í sambandi við þig ef þörf er á frekari "
+"upplýsingum."
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Þú ert beðinn um að samþykkja eða hafna beiðni um ritrýni fyrir loka dag "
+"svars og að ljúka ritrýni fyrir loka dag ritrýni."
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Senda blint afrit af þessum pósti á eftirfarandi ritrýna."

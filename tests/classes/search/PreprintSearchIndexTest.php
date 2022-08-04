@@ -82,7 +82,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testUpdateFileIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::submissionFileChanged', fn (...$args) => $this->callbackUpdateFileIndex(...$args));
+        HookRegistry::register('PreprintSearchIndex::submissionFileChanged', [$this, 'callbackUpdateFileIndex']);
 
         // Simulate updating an preprint file via hook.
         $submissionFile = new SubmissionFile();
@@ -121,7 +121,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testDeleteTextIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::submissionFileDeleted', fn (...$args) => $this->callbackDeleteTextIndex(...$args));
+        HookRegistry::register('PreprintSearchIndex::submissionFileDeleted', [$this, 'callbackDeleteTextIndex']);
 
         // The search DAO should not be called.
         $this->registerMockPreprintSearchDAO($this->never(), $this->never());
@@ -165,7 +165,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testRebuildIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::rebuildIndex', fn (...$args) => $this->callbackRebuildIndex(...$args));
+        HookRegistry::register('PreprintSearchIndex::rebuildIndex', [$this, 'callbackRebuildIndex']);
 
         // Test log output.
         $this->expectOutputString('Some log message from the plug-in.');
@@ -215,7 +215,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testIndexPreprintMetadataViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::preprintMetadataChanged', fn (...$args) => $this->callbackIndexPreprintMetadata(...$args));
+        HookRegistry::register('PreprintSearchIndex::preprintMetadataChanged', [$this, 'callbackIndexPreprintMetadata']);
 
         // Simulate indexing via hook.
         $preprint = new Submission();
@@ -252,7 +252,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testIndexSubmissionFilesViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::submissionFilesChanged', fn (...$args) => $this->callbackIndexSubmissionFiles(...$args));
+        HookRegistry::register('PreprintSearchIndex::submissionFilesChanged', [$this, 'callbackIndexSubmissionFiles']);
 
         // The file DAOs should not be called.
         $this->registerFileDAOs(false);
@@ -345,7 +345,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         self::assertEquals('PreprintSearchIndex::preprintMetadataChanged', $hook);
 
         [$preprint] = $params;
-        self::assertInstanceOf('\APP\submission\Submission', $preprint);
+        self::assertInstanceOf(Submission::class, $preprint);
 
         // Returning "true" is required so that the default submissionMetadataChanged()
         // code won't run.
@@ -363,7 +363,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         self::assertEquals('PreprintSearchIndex::submissionFilesChanged', $hook);
 
         [$preprint] = $params;
-        self::assertInstanceOf('\APP\submission\Submission', $preprint);
+        self::assertInstanceOf(Submission::class, $preprint);
 
         // Returning "true" is required so that the default submissionMetadataChanged()
         // code won't run.

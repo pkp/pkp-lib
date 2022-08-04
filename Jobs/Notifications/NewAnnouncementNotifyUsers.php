@@ -45,8 +45,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $announcement = Repo::announcement()->get($this->announcementId);
         // Announcement was removed
         if (!$announcement) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
-            return;
+            throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
         $announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);

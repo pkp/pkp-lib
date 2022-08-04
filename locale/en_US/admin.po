@@ -164,6 +164,9 @@ msgstr "Subscription expiry reminder"
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Remove unvalidated expired users"
 
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Process pending queue jobs"
+
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Update DB-IP city lite database"
 
@@ -457,6 +460,9 @@ msgstr "command [arguments]"
 msgid "admin.cli.tool.available.commands"
 msgstr "Available commands for the `{$namespace}` namespace:"
 
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr "Can not run queue jobs because the application maintenance mode is enabled."
+
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr "List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage="
 
@@ -464,7 +470,19 @@ msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr "Purge a specific queued job based on his Id. If you would like to purge all, pass the parameter --all. If you would like to purge all from a specific queue, pass the parameter --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Add a test job into the default queue"
+msgstr "Add a test job into the test queue. use the optional parameters --only= and pass 'failed' or 'success' to dispatch failable or successful job."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr "Run an infinite daemon worker process that will continue to process jobs. Use --help flag to see available options associated with this command."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr "Dispatch available jobs into the queue. if you would like to dispatch a job into a specific queue, pass the parameter --queue=QUEUE_NAME. Also can just pass --test to run the test job and --once to run one job at a time"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Completed running {$jobCount} jobs in the queue named {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "No jobs available to run in the queue named {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "Display the queued jobs quantity"
@@ -516,6 +534,15 @@ msgstr "Next"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr "You should pass at least a Job ID, '--all' or '--queue=' to use this command"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr "Dispatched test job that is bound to failed in queue named {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr "Dispatched test job that is bound to success in queue named {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr "Invalid test job option. It can only take 'failed' or 'success' for '--only=' option".
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Invalid job ID"
@@ -576,3 +603,54 @@ msgstr "Job that loads the usage stats data from the file {$file} failed, and th
 
 msgid "admin.job.compileMetrics.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed. The file has been moved to the stage directory."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "work command options"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "usage : [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Available options for work command"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "The name of the queue connection to work[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "The name of the queue to work[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "The name of the worker[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr "The number of seconds to wait before retrying a job that encountered an uncaught exception[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "The memory limit in megabytes[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "The number of seconds a child process can run[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr "Number of seconds to sleep when no job is available[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr "Number of times to attempt a job before logging it failed[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "Force the worker to run even in maintenance mode[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Stop when the queue is empty[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "The number of jobs to process before stopping[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr "The maximum number of seconds the worker should run[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Number of seconds to rest between jobs[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Run the worker deamon for test queue"

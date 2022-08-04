@@ -103,6 +103,13 @@ class PKPRequest
      */
     public function &getDispatcher()
     {
+        if ( ! $this->_dispatcher ) {
+
+            $application = Application::get();
+
+            $this->setDispatcher($application->getDispatcher());
+        }
+        
         return $this->_dispatcher;
     }
 

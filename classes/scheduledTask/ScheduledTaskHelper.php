@@ -140,6 +140,14 @@ class ScheduledTaskHelper
             }
         }
 
+        if ($isValid) {
+            // Check second
+            $second = $frequency->getAttribute('second');
+            if (isset($second)) {
+                $isValid = self::_isInRange($second, (int)date('s'), $lastRunTime, 'sec', strtotime('-1 minute'), strtotime('-1 second'));
+            }
+        }
+
         return $isValid;
     }
 

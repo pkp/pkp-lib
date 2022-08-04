@@ -11,8 +11,10 @@
     it('Check if Jobs page is alive and with contents', function() {
         cy.login('admin', 'admin', 'publicknowledge');
 
-        // Add two test jobs on queue
-        cy.exec('php lib/pkp/tools/jobs.php test');
+        // purge all existing jobs in any of the queues
+        cy.exec('php lib/pkp/tools/jobs.php purge --all');
+
+        // Add two test jobs[successable and failable] on queue
         cy.exec('php lib/pkp/tools/jobs.php test');
 
         cy.get('a:contains("Administration")').click();
@@ -24,6 +26,14 @@
           .should('have.length', 2)
           .should('be.visible');
 
+        // purge all existing jobs in the test queue
         cy.exec('php lib/pkp/tools/jobs.php purge --queue=queuedTestJob');
+
+        cy.reload();
+        cy.waitJQuery();
+
+        cy.get('.pkpTable')
+          .find('span:contains("queuedTestJob")')
+          .should('have.length', 0);
     });
 })

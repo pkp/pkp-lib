@@ -54,7 +54,7 @@ class NewAnnouncementMailUsers extends BaseJob
         $announcement = Repo::announcement()->get($this->announcementId);
         // Announcement was removed
         if (!$announcement) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
+            throw new JobException(JobException::INVALID_PAYLOAD);
             return;
         }
 

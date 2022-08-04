@@ -3,27 +3,31 @@
 declare(strict_types=1);
 
 /**
- * @file Support/Jobs/Entities/TestJob.php
+ * @file Support/Jobs/Entities/TestJobFailure.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class TestJob
+ * @class TestJobFailure
  * @ingroup support_jobs_entities
  *
- * @brief Example TestJob with a valid FQN (@see https://www.php.net/manual/pt_BR/language.namespaces.rules.php)
+ * @brief Example failed TestJob with a valid FQN (@see https://www.php.net/manual/pt_BR/language.namespaces.rules.php)
  */
 
 namespace PKP\Support\Jobs\Entities;
 
 use Exception;
-
+use Illuminate\Bus\Batchable;
 use PKP\Domains\Jobs\Job;
 use PKP\Support\Jobs\BaseJob;
 
-class TestJob extends BaseJob
+class TestJobFailure extends BaseJob
 {
+    use Batchable;
+    
+    public $tries = 1;
+    
     public function __construct()
     {
         $this->connection = config('queue.default');

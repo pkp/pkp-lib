@@ -13,7 +13,7 @@
  * @brief Form for installing languages.
  */
 
-namespace PKP\controllers\grid\languages;
+namespace PKP\controllers\grid\languages\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;

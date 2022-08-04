@@ -40,7 +40,7 @@ class Resubmit extends DecisionType
         return Decision::RESUBMIT;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

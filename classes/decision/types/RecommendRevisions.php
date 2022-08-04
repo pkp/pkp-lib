@@ -29,7 +29,7 @@ class RecommendRevisions extends DecisionType
         return Decision::RECOMMEND_PENDING_REVISIONS;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

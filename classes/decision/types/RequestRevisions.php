@@ -40,7 +40,7 @@ class RequestRevisions extends DecisionType
         return Decision::PENDING_REVISIONS;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

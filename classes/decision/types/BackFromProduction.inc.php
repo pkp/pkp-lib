@@ -45,7 +45,7 @@ class BackFromProduction extends DecisionType implements DecisionRetractable
         return WORKFLOW_STAGE_ID_PRODUCTION;
     }
 
-    public function getNewStageId(): int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): int
     {
         return WORKFLOW_STAGE_ID_EDITING;
     }
@@ -154,14 +154,6 @@ class BackFromProduction extends DecisionType implements DecisionRetractable
     public function canRetract(Submission $submission, ?int $reviewRoundId): bool
     {
         return true;
-    }
-
-    /**
-     * Determine the possible backout stage id for this decision
-     */
-    public function deduceBackoutableStageId(Submission $submission, ?int $reviewRoundId): ?int
-    {
-        return WORKFLOW_STAGE_ID_EDITING;
     }
 
     /**

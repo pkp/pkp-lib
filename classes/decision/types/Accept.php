@@ -43,7 +43,7 @@ class Accept extends DecisionType
         return Decision::ACCEPT;
     }
 
-    public function getNewStageId(): int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): int
     {
         return WORKFLOW_STAGE_ID_EDITING;
     }

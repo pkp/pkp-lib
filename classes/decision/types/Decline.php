@@ -40,7 +40,7 @@ class Decline extends DecisionType
         return Decision::DECLINE;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

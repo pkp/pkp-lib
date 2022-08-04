@@ -29,7 +29,7 @@ class RecommendDecline extends DecisionType
         return Decision::RECOMMEND_DECLINE;
     }
 
-    public function getNewStageId(): ?int
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
         return null;
     }

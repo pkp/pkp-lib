@@ -44,8 +44,6 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
     use NotifyReviewersOfUnassignment;
     use InExternalReviewRound;
 
-    protected ?int $backoutStageId = null;
-
     public function getNewStatus(): ?int
     {
         return null;
@@ -61,9 +59,34 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
         return Decision::BACK_FROM_EXTERNAL_REVIEW;
     }
 
-    public function getNewStageId(): ?int
+    /**
+     * Determine the possible new stage id for this decision
+     *
+     * The determining process follows as :
+     *
+     * If there is more than one external review round associated with it
+     * new stage need to be external review stage
+     *
+     * If there is only one external review round associated with it but there is internal review round also associated with it,
+     * new stage need to be internal review stage
+     *
+     * If there is no external or internal review round associated with it
+     * new stage need to submission stage
+     */
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
-        return $this->backoutStageId;
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        if ($reviewRoundDao->getReviewRoundCountBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) > 1) {
+            return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+        }
+
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+            return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
+        }
+
+        return WORKFLOW_STAGE_ID_SUBMISSION;
     }
 
     public function getLabel(?string $locale = null): string
@@ -222,42 +245,5 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
         }
 
         return true;
-    }
-
-    /**
-     * Determine the possible backout stage id for this decision
-     *
-     * The determining process follows as :
-     *
-     * If there is more than one external review round associated with it
-     * backoutable stage need to be external review stage
-     *
-     * If there is only one external review round associated with it but there is internal review round also associated with it,
-     * backoutable stage need to be internal review stage
-     *
-     * If there is no external or internal review round associated with it
-     * backoutable stage need to submission stage
-     */
-    public function deduceBackoutableStageId(Submission $submission, ?int $reviewRoundId): ?int
-    {
-        if ($this->backoutStageId) {
-            return $this->backoutStageId;
-        }
-
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-
-        if ($reviewRoundDao->getReviewRoundCountBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) > 1) {
-            $this->backoutStageId = WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
-            return $this->backoutStageId;
-        }
-
-        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
-            $this->backoutStageId = WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
-            return $this->backoutStageId;
-        }
-
-        $this->backoutStageId = WORKFLOW_STAGE_ID_SUBMISSION;
-        return $this->backoutStageId;
     }
 }

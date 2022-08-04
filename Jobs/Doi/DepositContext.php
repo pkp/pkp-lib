@@ -52,9 +52,7 @@ class DepositContext extends BaseJob
         $context = $contextDao->getById($this->contextId);
 
         if (!$context) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
-
-            return;
+            throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
         // NB: Only run at context level if automatic deposit is enabled. Otherwise, automatic deposit will always run,

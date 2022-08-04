@@ -52,16 +52,16 @@ trait Attributes
     }
 
     /**
-     * Return the job's delay value
+     * Return the job's backoff value
      *
      */
-    public function getDelayAttribute(): ?string
+    public function getBackoffAttribute(): ?string
     {
-        if (!$this->payload['delay']) {
+        if (!$this->payload['backoff']) {
             return null;
         }
 
-        return $this->payload['delay'];
+        return $this->payload['backoff'];
     }
 
     /**

@@ -17,54 +17,162 @@ declare(strict_types=1);
 
 namespace PKP\core;
 
-use APP\core\Application;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Queue\WorkerOptions;
-
-use PKP\config\Config;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Queue\Worker;
 use PKP\Domains\Jobs\Job as PKPJobModel;
+use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
+use PKP\Domains\Jobs\Repositories\Job as JobRepository;
+use PKP\Domains\Jobs\WorkerConfiguration;
 
-class PKPQueueProvider
-{
-    public function runJobsAtShutdown(): void
+class PKPQueueProvider extends IlluminateQueueServiceProvider
+{   
+    /**
+     * Specific queue to target to run the associated jobs
+     */
+    protected ?string $queue = null;
+
+    /**
+     * Set a specific queue to target to run the associated jobs
+     */
+    public function forQueue(string $queue) : self
     {
-        $disableRun = Config::getVar('queues', 'disable_jobs_run_at_shutdown', false);
+        $this->queue = $queue;
+        
+        return $this;
+    }
 
-        if ($disableRun || Application::isUnderMaintenance()) {
-            return;
-        }
-
-        $job = PKPJobModel::isAvailable()
-            ->notExceededAttempts()
+    /**
+     * Get a job model builder instance to query the jobs table
+     */
+    public function getJobModelBuilder() : Builder
+    {
+        return PKPJobModel::isAvailable()
             ->nonEmptyQueue()
-            ->notQueue(PKPJobModel::TESTING_QUEUE)
-            ->limit(1)
-            ->first();
+            ->when($this->queue, fn($query) => $query->onQueue($this->queue))
+            ->when(is_null($this->queue), fn($query) => $query->notQueue(PKPJobModel::TESTING_QUEUE))
+            ->notExceededAttempts();
+    }
+
+    /**
+     * Get the worker options object
+     */
+    public function getWorkerOptions(array $options = []): WorkerOptions
+    {
+        return new WorkerOptions(
+            ...array_values(WorkerConfiguration::withOptions($options)->getWorkerOptions())
+        );
+    }
+
+    /**
+     * Run the queue worker via an infinite loop daemon
+     */
+    public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = []): void
+    {
+        $laravelContainer = PKPContainer::getInstance();
+
+        $laravelContainer['queue.worker']->daemon(
+            $connection,
+            $queue,
+            $this->getWorkerOptions($workerOptions)
+        );
+    }
+    
+    /**
+     * Run the queue worker to process queue the jobs
+     */
+    public function runJobInQueue(): void
+    {
+        $job = $this->getJobModelBuilder()->limit(1)->first();
 
         if ($job === null) {
             return;
         }
 
         $laravelContainer = PKPContainer::getInstance();
-        $options = new WorkerOptions(
-            'default',
-            $job->getDelay(),
-            $job->getAllowedMemory(),
-            $job->getTimeout(),
-            $job->getSleep(),
-            $job->getMaxAttempts(),
-            $job->getForceFlag(),
-            $job->getStopWhenEmptyFlag(),
-        );
 
         $laravelContainer['queue.worker']->runNextJob(
             'database',
             $job->queue,
-            $options
+            $this->getWorkerOptions()
         );
     }
 
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Queue::failing(function (JobFailed $event) {
+            
+            error_log($event->exception->__toString());
+
+            app('queue.failer')->log(
+                $event->connectionName,
+                $event->job->getQueue(),
+                $event->job->getRawBody(),
+                $event->exception
+            );
+        });
+    }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
     public function register()
     {
-        register_shutdown_function([$this, 'runJobsAtShutdown']);
+        parent::register();
+
+        $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
+
+        $this->app->bind(
+            JobRepositoryInterface::class,
+            JobRepository::class
+        );
     }
+
+    /**
+     * Register the queue worker.
+     *
+     * @return void
+     */
+    protected function registerWorker()
+    {
+        $this->app->singleton('queue.worker', function ($app) {
+            $isDownForMaintenance = function () {
+                return $this->app->isDownForMaintenance();
+            };
+
+            $resetScope = function () use ($app) {
+                if (method_exists($app['db'], 'getConnections')) {
+                    foreach ($app['db']->getConnections() as $connection) {
+                        $connection->resetTotalQueryDuration();
+                        $connection->allowQueryDurationHandlersToRunAgain();
+                    }
+                }
+
+                $app->forgetScopedInstances();
+
+                return Facade::clearResolvedInstances();
+            };
+
+            return new Worker(
+                $app['queue'],
+                $app['events'],
+                $app[ExceptionHandler::class],
+                $isDownForMaintenance,
+                $resetScope
+            );
+        });
+    }
+    
 }

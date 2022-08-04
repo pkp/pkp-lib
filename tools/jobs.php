@@ -17,11 +17,21 @@ declare(strict_types=1);
 
 namespace PKP\tools;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use Carbon\Carbon;
+use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
+use Illuminate\Contracts\Queue\Job;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
-use PKP\Support\Jobs\Entities\TestJob;
+use PKP\config\Config;
+use PKP\Domains\Jobs\Job as PKPJobModel;
+use PKP\Domains\Jobs\WorkerConfiguration;
+use PKP\Support\Jobs\Entities\TestJobFailure;
+use PKP\Support\Jobs\Entities\TestJobSuccess;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
@@ -70,6 +80,8 @@ class commandJobs extends CommandLineTool
         'test' => 'admin.cli.tool.jobs.available.options.test.description',
         'total' => 'admin.cli.tool.jobs.available.options.total.description',
         'help' => 'admin.cli.tool.jobs.available.options.help.description',
+        'run' => 'admin.cli.tool.jobs.available.options.run.description',
+        'work' => 'admin.cli.tool.jobs.available.options.work.description',
         'usage' => 'admin.cli.tool.jobs.available.options.usage.description',
     ];
 
@@ -155,14 +167,23 @@ class commandJobs extends CommandLineTool
 
     /**
      * Get the parameter list passed on CLI
-     *
+     * 
+     * @return array|null
      */
     public function getParameterList(): ?array
     {
         return $this->parameterList;
     }
 
-    protected function getParameterValue(string $parameter, string $default = null): ?string
+    /**
+     * Get the value of a specific parameter
+     * 
+     * @param string $parameter
+     * @param mixed $default
+     * 
+     * @return mixed
+     */
+    protected function getParameterValue(string $parameter, mixed $default = null): mixed
     {
         if (!isset($this->getParameterList()[$parameter])) {
             return $default;
@@ -180,19 +201,7 @@ class commandJobs extends CommandLineTool
         $this->getCommandInterface()->line(__('admin.cli.tool.usage.parameters') . PHP_EOL);
         $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.available.commands', ['namespace' => 'jobs']) . '</comment>');
 
-        $width = $this->getColumnWidth(array_keys(self::AVAILABLE_OPTIONS));
-
-        foreach (self::AVAILABLE_OPTIONS as $commandName => $description) {
-            $spacingWidth = $width - Helper::width($commandName);
-            $this->getCommandInterface()->line(
-                sprintf(
-                    '  <info>%s</info>%s%s',
-                    $commandName,
-                    str_repeat(' ', $spacingWidth),
-                    __($description)
-                )
-            );
-        }
+        $this->printUsage(self::AVAILABLE_OPTIONS);
     }
 
     /**
@@ -293,6 +302,95 @@ class commandJobs extends CommandLineTool
     }
 
     /**
+     * Run daemon worker process to continue handle jobs
+     */
+    protected function work(): void
+    {
+        $parameterList = $this->getParameterList();
+
+        if (in_array('--help', $parameterList)) {
+            $this->workerOptionsHelp();
+            return;
+        }
+
+        if ( Application::isUnderMaintenance() ) {
+            $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.maintenance.message'));
+            return;
+        }
+
+        $connection = $parameterList['connection'] ?? Config::getVar('queues', 'default_connection', 'database');
+        $queue = $parameterList['queue'] ?? Config::getVar('queues', 'default_queue', 'queue');
+
+        if (in_array('--test', $parameterList)) {
+            $queue = PKPJobModel::TESTING_QUEUE;
+        }
+
+        $this->listenForEvents();
+
+        app('pkpJobQueue')->runJobsViaDaemon(
+            $connection, 
+            $queue, 
+            $this->gatherWorkerOptions($parameterList)
+        );
+    }
+
+    /**
+     * Dispatch jobs into the queue
+     */
+    protected function run(): void
+    {
+        if ( Application::isUnderMaintenance() ) {
+            $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.maintenance.message'));
+            return;
+        }
+
+        $parameterList = $this->getParameterList();
+
+        $queue = $parameterList['queue'] ?? Config::getVar('queues', 'default_queue', 'queue');
+
+        if (in_array('--test', $parameterList)) {
+            $queue = PKPJobModel::TESTING_QUEUE;
+        }
+
+        $jobQueue = app('pkpJobQueue');
+
+        if ($queue && is_string($queue)) {
+            $jobQueue = $jobQueue->forQueue($queue);
+        }
+
+        $jobBuilder = $jobQueue->getJobModelBuilder();
+
+        if (($jobCount = $jobBuilder->count()) <= 0) {
+            $this->getCommandInterface()->getOutput()->info(
+                __(
+                    'admin.cli.tool.jobs.available.options.run.empty.description',
+                    ['queueName' => $queue,]
+                )
+            );
+
+            return;
+        }
+
+        $this->listenForEvents();
+
+        while ($jobBuilder->count()) {
+            $jobQueue->runJobInQueue();
+
+            if ( in_array('--once', $parameterList) ) {
+                $jobCount = 1;
+                break;
+            }
+        }
+
+        $this->getCommandInterface()->getOutput()->success(
+            __(
+                'admin.cli.tool.jobs.available.options.run.completed.description',
+                ['jobCount' => $jobCount, 'queueName' => $queue,]
+            )
+        );
+    }
+
+    /**
      * Purge queued jobs
      */
     protected function purge(): void
@@ -356,9 +454,157 @@ class commandJobs extends CommandLineTool
      */
     protected function test(): void
     {
-        dispatch(new TestJob());
+        $queue = PKPJobModel::TESTING_QUEUE;
+        $runnableJob = $this->getParameterList()['only'] ?? null;
 
-        $this->getCommandInterface()->getOutput()->success('Dispatched job!');
+        if ($runnableJob && !in_array($runnableJob, ['failed', 'success'])) {
+            throw new CommandInvalidArgumentException(__('admin.cli.tool.jobs.test.invalid.option'));
+        }
+
+        if (!$runnableJob || $runnableJob === 'failed') {
+            dispatch(new TestJobFailure());
+
+            $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.test.job.failed.dispatch.message', ['queueName' => $queue]));
+        }
+
+        if (!$runnableJob || $runnableJob === 'success') {
+            dispatch(new TestJobSuccess());
+
+            $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.test.job.success.dispatch.message', ['queueName' => $queue]));
+        }
+    }
+
+    /**
+     * Gather worker daemon options
+     *
+     * @param array $parameters
+     * @return array
+     */
+    protected function gatherWorkerOptions(array $parameters = []): array
+    {
+        $workerConfig = new WorkerConfiguration;
+
+        return [
+            'name'          => $this->getParameterValue('--name', $workerConfig->getName()),
+            'backoff'       => $this->getParameterValue('--backoff', $workerConfig->getBackoff()),
+            'memory'        => $this->getParameterValue('--memory', $workerConfig->getMemory()),
+            'timeout'       => $this->getParameterValue('--timeout', $workerConfig->getTimeout()),
+            'sleep'         => $this->getParameterValue('--sleep', $workerConfig->getSleep()),
+            'maxTries'      => $this->getParameterValue('--tries', $workerConfig->getMaxTries()),
+            'force'         => $this->getParameterValue('--force', in_array('--force', $parameters) ? true : $workerConfig->getForce()),
+            'stopWhenEmpty' => $this->getParameterValue('--stop-when-empty', in_array('--stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
+            'maxJobs'       => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
+            'maxTime'       => $this->getParameterValue('--max-time', $workerConfig->getMaxTime()),
+            'rest'          => $this->getParameterValue('--rest', $workerConfig->getRest()),
+        ];
+    }
+
+    /**
+     * Listen for the queue events in order to update the console output.
+     *
+     * @return void
+     */
+    protected function listenForEvents(): void
+    {
+        $events = app()['events'];
+        
+        $events->listen(JobProcessing::class, function ($event) {
+            $this->writeOutput($event->job, 'starting');
+        });
+
+        $events->listen(JobProcessed::class, function ($event) {
+            $this->writeOutput($event->job, 'success');
+        });
+
+        $events->listen(JobFailed::class, function ($event) {
+            $this->writeOutput($event->job, 'failed');
+        });
+    }
+
+    /**
+     * Write the status output for the queue worker.
+     *
+     * @param  \Illuminate\Contracts\Queue\Job  $job
+     * @param  string  $status
+     * 
+     * @return void
+     */
+    protected function writeOutput(Job $job, $status): void
+    {
+        match($status) {
+            'starting'  => $this->writeStatus($job, 'Processing', 'comment'),
+            'success'   => $this->writeStatus($job, 'Processed', 'info'),
+            'failed'    => $this->writeStatus($job, 'Failed', 'error'),
+        };
+    }
+
+    /**
+     * Format the status output for the queue worker.
+     *
+     * @param  \Illuminate\Contracts\Queue\Job  $job
+     * @param  string  $status
+     * @param  string  $type
+     * @return void
+     */
+    protected function writeStatus(Job $job, $status, $type): void
+    {
+        $this->getCommandInterface()->getOutput()->writeln(sprintf(
+            "<{$type}>[%s][%s] %s</{$type}> %s",
+            Carbon::now()->format('Y-m-d H:i:s'),
+            $job->getJobId(),
+            str_pad("{$status}:", 11), $job->resolveName()
+        ));
+    }
+
+    /**
+     * Print work command options information.
+     */
+    protected function workerOptionsHelp(): void
+    {
+        $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.jobs.work.options.title') . '</comment>');
+        $this->getCommandInterface()->line(__('admin.cli.tool.jobs.work.options.usage') . PHP_EOL);
+        $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.jobs.work.options.description') . '</comment>');
+
+        $workerConfig = new WorkerConfiguration;
+
+        $options = [
+            '--connection[=CONNECTION]' => __('admin.cli.tool.jobs.work.option.connection.description',     ['default' => Config::getVar('queue', 'default_connection', 'database')]),
+            '--queue[=QUEUE]'           => __('admin.cli.tool.jobs.work.option.queue.description',          ['default' => Config::getVar('queue', 'default_queue', 'queue')]),
+            '--name[=NAME]'             => __('admin.cli.tool.jobs.work.option.name.description',           ['default' => $workerConfig->getName()]),
+            '--backoff[=BACKOFF]'       => __('admin.cli.tool.jobs.work.option.backoff.description',        ['default' => $workerConfig->getBackoff()]),
+            '--memory[=MEMORY]'         => __('admin.cli.tool.jobs.work.option.memory.description',         ['default' => $workerConfig->getMemory()]),
+            '--timeout[=TIMEOUT]'       => __('admin.cli.tool.jobs.work.option.timeout.description',        ['default' => $workerConfig->getTimeout()]),
+            '--sleep[=SLEEP]'           => __('admin.cli.tool.jobs.work.option.sleep.description',          ['default' => $workerConfig->getSleep()]),
+            '--tries[=TRIES]'           => __('admin.cli.tool.jobs.work.option.tries.description',          ['default' => $workerConfig->getMaxTries()]),
+            '--force'                   => __('admin.cli.tool.jobs.work.option.force.description',          ['default' => $workerConfig->getForce() ? 'true' : 'false']),
+            '--stop-when-empty'         => __('admin.cli.tool.jobs.work.option.stopWhenEmpty.description',  ['default' => $workerConfig->getStopWhenEmpty() ? 'true' : 'false']),
+            '--max-jobs[=MAX-JOBS]'     => __('admin.cli.tool.jobs.work.option.maxJobs.description',        ['default' => $workerConfig->getMaxJobs()]),
+            '--max-time[=MAX-TIME]'     => __('admin.cli.tool.jobs.work.option.maxTime.description',        ['default' => $workerConfig->getMaxTime()]),
+            '--rest[=REST]'             => __('admin.cli.tool.jobs.work.option.rest.description',           ['default' => $workerConfig->getRest()]),
+            '--test'                    => __('admin.cli.tool.jobs.work.option.test.description'),
+        ];
+
+        $this->printUsage($options, false);
+    }
+
+    /**
+     * Print given options in a pretty way.
+     */
+    protected function printUsage(array $options, bool $shouldTranslate = true): void
+    {
+        $width = $this->getColumnWidth(array_keys($options));
+
+        foreach ($options as $commandName => $description) {
+            $spacingWidth = $width - Helper::width($commandName);
+            $this->getCommandInterface()->line(
+                sprintf(
+                    '  <info>%s</info>%s%s',
+                    $commandName,
+                    str_repeat(' ', $spacingWidth),
+                    $shouldTranslate ? __($description) : $description
+                )
+            );
+        }
     }
 
     /**

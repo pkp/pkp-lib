@@ -410,7 +410,7 @@ class PKPString
             $config->set('Cache.SerializerPath', 'cache');
             $purifier = new \HTMLPurifier($config);
         }
-        return $purifier->purify($input);
+        return $purifier->purify((string) $input);
     }
 
     /**

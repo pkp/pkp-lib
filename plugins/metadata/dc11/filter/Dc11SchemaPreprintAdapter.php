@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @file plugins/metadata/dc11/filter/Dc11SchemaPreprintAdapter.inc.php
+ * @file plugins/metadata/dc11/filter/Dc11SchemaPreprintAdapter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dc11SchemaPreprintAdapter
@@ -18,6 +18,9 @@
  *  a Submission object.
  */
 
+namespace APP\plugins\metadata\dc11\filter;
+
+use PKP\plugins\HookRegistry;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
@@ -234,4 +237,8 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\metadata\dc11\filter\Dc11SchemaPreprintAdapter', '\Dc11SchemaPreprintAdapter');
 }

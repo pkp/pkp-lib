@@ -82,5 +82,5 @@ if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
-	find plugins -maxdepth 3 -name tests -type d -exec $phpunit $DEBUG $TEST_CONF2 -v "{}" ";"
+	find plugins -maxdepth 3 -name tests -type d | xargs -n 1 $phpunit $DEBUG $TEST_CONF2 -v
 fi

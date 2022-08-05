@@ -6,8 +6,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
 "PO-Revision-Date: 2022-06-28 13:47+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/admin/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,19 +31,27 @@ msgid "admin.clearTemplateCache"
 msgstr "Excluir caches de template"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "O documento de configuração foi atualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário atualizar manualmente o arquivo <tt>config.inc.php</tt>."
+msgstr ""
+"O documento de configuração foi atualizado com sucesso. Caso as alterações "
+"incorram em erros no sistema será necessário atualizar manualmente o arquivo "
+"<tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Deseja realmente limpar o Cache das templates compiladas?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Deseja realmente expirar todas as sessões de todos os usuários? Todos os usuário conectados serão forçados a acessar novamente o sistema (incluindo o usuário atual)."
+msgstr ""
+"Deseja realmente expirar todas as sessões de todos os usuários? Todos os "
+"usuário conectados serão forçados a acessar novamente o sistema (incluindo o "
+"usuário atual)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Conteúdo do arquivo de configuração"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "Tem certeza que deseja apagar permanentemente a {$contextName} e todo seu conteudo?"
+msgstr ""
+"Tem certeza que deseja apagar permanentemente a {$contextName} e todo seu "
+"conteudo?"
 
 msgid "admin.currentVersion"
 msgstr "Versão Atual"
@@ -52,7 +60,10 @@ msgid "admin.dateInstalled"
 msgstr "Data de instalação"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "As configurações atuais são exibidas abaixo. Para alterar as configurações é necessário editar o arquivo <tt>config.inc.php</tt> manualmente em um editor de texto, substituindo-o com o conteúdo do campo a seguir."
+msgstr ""
+"As configurações atuais são exibidas abaixo. Para alterar as configurações é "
+"necessário editar o arquivo <tt>config.inc.php</tt> manualmente em um editor "
+"de texto, substituindo-o com o conteúdo do campo a seguir."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Exibir Configuração Atual"
@@ -61,7 +72,9 @@ msgid "admin.expireSessions"
 msgstr "Expirar sessões de usuários"
 
 msgid "admin.languages.cantDisable"
-msgstr "Este idioma é o padrão do site. Você não pode desativá-lo até que escolha outro idioma padrão."
+msgstr ""
+"Este idioma é o padrão do site. Você não pode desativá-lo até que escolha "
+"outro idioma padrão."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -114,10 +127,14 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Tarefa não produziu log."
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Sua instalação {$softwareName} executou automaticamente e finalizou esta tarefa. Você pode baixar o arquivo de registros (logs) aqui: {$url}"
+msgstr ""
+"Sua instalação {$softwareName} executou automaticamente e finalizou esta "
+"tarefa. Você pode baixar o arquivo de registros (logs) aqui: {$url}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Você tem certeza de que deseja excluir todos os registros de execução de tarefas agendadas?"
+msgstr ""
+"Você tem certeza de que deseja excluir todos os registros de execução de "
+"tarefas agendadas?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Limpar Registros (logs) de Tarefas Agendadas"
@@ -177,7 +194,9 @@ msgid "admin.settings.siteLanguage"
 msgstr "Idioma do Portal"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as configuração de mime_type, permissões e dono de pasta."
+msgstr ""
+"Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as "
+"configuração de mime_type, permissões e dono de pasta."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Folha de Estilos do Portal (CSS)"
@@ -201,7 +220,9 @@ msgid "admin.siteSetup"
 msgstr "Configuração do Portal"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "O documento de configuração <tt>config.inc.php</tt> não existe, não possui permissão de leitura ou está corrompido."
+msgstr ""
+"O documento de configuração <tt>config.inc.php</tt> não existe, não possui "
+"permissão de leitura ou está corrompido."
 
 msgid "admin.systemInformation"
 msgstr "Informações sobre o Sistema"
@@ -246,13 +267,16 @@ msgid "admin.version"
 msgstr "Versão"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "O caminho base {$path} deve estar dentro do diretório de arquivos públicos."
+msgstr ""
+"O caminho base {$path} deve estar dentro do diretório de arquivos públicos."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "O diretório {$path} não é um diretório ou não é acessível."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "O arquivo {$filename} não pôde ser movido de {$currentFilePath} para {$destinationPath}"
+msgstr ""
+"O arquivo {$filename} não pôde ser movido de {$currentFilePath} para "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "O arquivo {$filename} foi processado e arquivado."
@@ -271,8 +295,8 @@ msgstr ""
 "Esta ferramenta irá apenas copiar os arquivos que já não estão dentro dos "
 "diretórios do usageStats (stage, processing, archive, reject).\n"
 "\n"
-"Uso: {$scriptName}  path/to/apache/log/file.log\n"
-"Uso (processando todos os arquivos dentro de um diretório): {$scriptName}  "
+"Uso: {$scriptName} path/to/apache/log/file.log\n"
+"Uso (processando todos os arquivos dentro de um diretório): {$scriptName} "
 "path/to/apache/directory\n"
 "\t"
 
@@ -283,13 +307,16 @@ msgid "admin.copyAccessLogFileTool.error.acessingFile"
 msgstr "Erro: Arquivo {$filePath} não existe ou não pode ser acessado."
 
 msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Erro: não foi possível copiar o arquivo {$filePath} para {$tmpFilePath}"
+msgstr ""
+"Erro: não foi possível copiar o arquivo {$filePath} para {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.error.deletingFile"
 msgstr "Erro: não foi possível apagar o arquivo {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Aviso: o arquivo {$filePath} já existe dentro do diretório de estatísticas de uso."
+msgstr ""
+"Aviso: o arquivo {$filePath} já existe dentro do diretório de estatísticas "
+"de uso."
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Sucesso: {$filePath} para {$destinationPath}"
@@ -298,7 +325,9 @@ msgid "admin.error.utilExecutionProblem"
 msgstr "\"{$utilPath}\" retornou o seguinte erro após executado: {$output}"
 
 msgid "admin.error.executingUtil"
-msgstr "Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuração de {$utilVar} em config.inc.php."
+msgstr ""
+"Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuração de "
+"{$utilVar} em config.inc.php."
 
 msgid "admin.settings.siteLogo"
 msgstr "Logotipo do Site"
@@ -489,7 +518,7 @@ msgstr ""
 
 msgid "admin.deleteCache.description"
 msgstr ""
-"Exclua os arquivos de cache do sistema.  Isso só deve ser feito em ambientes "
+"Exclua os arquivos de cache do sistema. Isso só deve ser feito em ambientes "
 "de desenvolvimento."
 
 msgid "admin.deleteCache"
@@ -507,4 +536,171 @@ msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr "Identificando editores para lembrar no contexto {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr "Envie um e-mail para cada editor lembrando-os de suas tarefas pendentes"
+msgstr ""
+"Envie um e-mail para cada editor lembrando-os de suas tarefas pendentes"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Deseja realmente excluir permanentemente esta fonte de autenticação?"
+
+msgid "admin.auth.create"
+msgstr "Criar fonte de autenticação"
+
+msgid "admin.auth.noneCreated"
+msgstr "Nenhuma fonte de autenticação definida."
+
+msgid "admin.authSources"
+msgstr "Fontes de Autenticação"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Atualizar banco de dados DB-IP city lite"
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"O arquivo {$file} está no formato de arquivo de log antigo que não pode ser "
+"processado e, portanto, será movido de volta para o diretório de estágio."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"A linha {$lineNumber} no arquivo de log {$file} está no formato errado e, "
+"portanto, será ignorada."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Entrada de log inválida na linha {$lineNumber} no arquivo de log {$file}: "
+"{$error}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Hora não é uma data válida."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "O ID de submissão não é um número inteiro."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "O tipo Assoc não é suportado."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "O tipo de arquivo não é suportado."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "País não é uma sequência de dois caracteres alfabéticos."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "IDs de instituição não é um array."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"A tarefa em segundo plano que processará o arquivo de log {$file} e "
+"armazenará os dados estatísticos foi despachada."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo de destino {$filePath} não "
+"pôde ser aberto fopen."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo gz de origem {$file} não "
+"pôde ser lido com gzread."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo de destino aberto "
+"{$filePath} não pôde ser fechado com fclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo gz de origem descompactado "
+"{$filePath} não pôde ser removido com unlink."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo gz de destino {$filePath} não "
+"pôde ser aberto com gzopen."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo fonte {$filePath} não pôde ser "
+"aberto com fopen."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo gz de destino {$filePath} não "
+"pôde ser escrito com gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo fonte aberto {$filePath} não "
+"pôde ser fechado com fclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo de origem compactado "
+"{$filePath} não pôde ser removido com unlink."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Arquivo de log {$file} ignorado porque as estatísticas daquele mês já foram "
+"calculadas. Para recalcular as estatísticas de um mês anterior, você deve "
+"restaurar todos os arquivos de log desse mês e usar a ferramenta CLI para "
+"reprocessar as estatísticas."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "O ID de contexto não é um número inteiro."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "O ID de representação não é um número inteiro."
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Falha ao renomear o arquivo de banco de dados DB-IP city lite "
+"{$sourceFilename} para {$targetFilename}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "A região não tem até três caracteres alfanuméricos."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"O diretório {$directory} não está vazio. Isso pode indicar um processo com "
+"falha anterior ou um processo em execução simultaneamente. Este arquivo será "
+"reprocessado automaticamente."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Ocorreu um erro ao processar o arquivo de log {$file} na linha "
+"{$lineNumber}: {$msg}"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo gz de origem {$filePath} não "
+"pôde ser aberto com gzopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo de destino {$filePath} não "
+"pôde ser escrito com fwrite."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"O arquivo não pôde ser descompactado. O arquivo gz de código aberto "
+"{$filePath} não pôde ser fechado com gzclose."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo de origem {$filePath} não pôde "
+"ser lido com fread."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"O arquivo não pôde ser compactado. O arquivo gz de destino aberto "
+"{$filePath} não pôde ser fechado com gzclose."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"A tarefa que carrega os dados de estatísticas de uso do arquivo {$file} "
+"falhou e o arquivo não pôde ser movido de {$archivedFilePath} para "
+"{$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Falha na tarefa que carrega os dados de estatísticas de uso do arquivo "
+"{$file}. O arquivo foi movido para o diretório stage."

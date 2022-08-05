@@ -41,7 +41,7 @@ class PKPOAIMetadataFormatPlugin_DC extends \PKP\plugins\OAIMetadataFormatPlugin
 
     public function getFormatClass()
     {
-        return 'OAIMetadataFormat_DC';
+        return '\APP\plugins\oaiMetadataFormats\dc\OAIMetadataFormat_DC';
     }
 
     public static function getMetadataPrefix()

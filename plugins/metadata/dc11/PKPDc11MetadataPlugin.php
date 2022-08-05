@@ -16,6 +16,8 @@
  * @brief Abstract base class for Dublin Core version 1.1 metadata plugins
  */
 
+namespace PKP\plugins\metadata\dc11;
+
 use PKP\plugins\MetadataPlugin;
 
 class PKPDc11MetadataPlugin extends MetadataPlugin
@@ -61,7 +63,6 @@ class PKPDc11MetadataPlugin extends MetadataPlugin
     public function getSchemaObject($format)
     {
         assert($this->supportsFormat($format));
-        import('plugins.metadata.dc11.schema.Dc11Schema');
-        return new Dc11Schema();
+        return new \APP\plugins\metadata\dc11\schema\Dc11Schema();
     }
 }

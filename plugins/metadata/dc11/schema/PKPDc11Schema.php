@@ -21,6 +21,8 @@
  *  For details see <http://dublincore.org/documents/dces/>,
  */
 
+namespace PKP\plugins\metadata\dc11\schema;
+
 use PKP\metadata\MetadataProperty;
 use PKP\metadata\MetadataSchema;
 

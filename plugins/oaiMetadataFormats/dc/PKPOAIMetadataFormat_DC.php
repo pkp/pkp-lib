@@ -14,10 +14,13 @@
  * @brief OAI metadata format class -- Dublin Core.
  */
 
-use PKP\metadata\MetadataDescription;
-use PKP\oai\OAIMetadataFormat;
+namespace PKP\plugins\oaiMetadataFormats\dc;
 
-class PKPOAIMetadataFormat_DC extends OAIMetadataFormat
+use PKP\core\PKPString;
+use PKP\metadata\MetadataDescription;
+use PKP\oai\OAIUtils;
+
+class PKPOAIMetadataFormat_DC extends \PKP\oai\OAIMetadataFormat
 {
     /**
      * @copydoc OAIMetadataFormat::toXML
@@ -26,8 +29,7 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat
      */
     public function toXml($dataObject, $format = null)
     {
-        import('plugins.metadata.dc11.schema.Dc11Schema');
-        $dcDescription = $dataObject->extractMetadata(new Dc11Schema());
+        $dcDescription = $dataObject->extractMetadata(new \APP\plugins\metadata\dc11\schema\Dc11Schema());
 
         $response = "<oai_dc:dc\n" .
             "\txmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\"\n" .

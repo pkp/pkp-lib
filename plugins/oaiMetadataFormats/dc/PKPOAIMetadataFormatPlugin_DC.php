@@ -14,9 +14,9 @@
  * @brief dc metadata format plugin for OAI.
  */
 
-use PKP\plugins\OAIMetadataFormatPlugin;
+namespace PKP\plugins\oaiMetadataFormats\dc;
 
-class PKPOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin
+class PKPOAIMetadataFormatPlugin_DC extends \PKP\plugins\OAIMetadataFormatPlugin
 {
     /**
      * Get the name of this plugin. The name must be unique within

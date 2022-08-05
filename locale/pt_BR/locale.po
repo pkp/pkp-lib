@@ -1,7 +1,7 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-26 20:26+0000\n"
+"PO-Revision-Date: 2022-08-05 20:18+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "installer.installationInstructions"
 msgstr ""
@@ -303,7 +303,7 @@ msgstr "Título da Série"
 
 #, fuzzy
 msgid "section.sections"
-msgstr "Série"
+msgstr "Séries"
 
 #, fuzzy
 msgid "section.section"
@@ -380,3 +380,167 @@ msgstr "A prova solicitada não pôde ser encontrada."
 
 msgid "doi.manager.settings.publications"
 msgstr "Preprints"
+
+msgid "installer.allowFileUploads"
+msgstr ""
+"Seu servidor atualmente permite uploads de arquivos: "
+"<strong>{$allowFileUploads}</strong>"
+
+msgid "installer.maxFileUploadSize"
+msgstr ""
+"Seu servidor atualmente permite um tamanho máximo de upload de arquivo de: "
+"<strong>{$maxFileUploadSize}</strong>"
+
+msgid "installer.localeInstructions"
+msgstr ""
+"O idioma principal a ser usado para este sistema. Consulte a documentação do "
+"OPS se estiver interessado em suporte para idiomas não listados aqui."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Selecione quaisquer idiomas adicionais para suporte neste sistema. Esses "
+"idiomas estarão disponíveis para uso pelos servidores hospedados no site. "
+"Idiomas adicionais também podem ser instalados a qualquer momento a partir "
+"da interface de administração do site."
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+"Digite o nome do caminho completo para um diretório existente onde os "
+"arquivos carregados devem ser mantidos. Este diretório não deve ser "
+"diretamente acessível pela web. <strong>Certifique-se de que este diretório "
+"existe e é gravável antes da instalação.</strong> Os nomes de caminho do "
+"Windows devem usar barras, por exemplo, \"C:/meuservidor/arquivos\"."
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+"OPS requer acesso a um banco de dados SQL para armazenar seus dados. "
+"Consulte os requisitos do sistema acima para obter uma lista de bancos de "
+"dados suportados. Nos campos abaixo, forneça as configurações a serem usadas "
+"para se conectar ao banco de dados."
+
+msgid "installer.installApplication"
+msgstr "Instalar Open Preprint Systems"
+
+msgid "installer.upgradeApplication"
+msgstr "Atualizar Open Preprint Systems"
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+"<h4>IMPORTANTE!</h4><p>O instalador não pôde substituir automaticamente o "
+"arquivo de configuração. Antes de tentar usar o sistema, abra <tt>config.inc."
+"php</tt> em um editor de texto adequado e substitua seu conteúdo pelo "
+"conteúdo do campo de texto abaixo.</p>"
+
+msgid "installer.installationComplete"
+msgstr ""
+"<p>A instalação do OPS foi concluída com sucesso.</p>\n"
+"<p>Para começar a usar o sistema, <a href=\"{$loginUrl}\">faça login</a> com "
+"o nome de usuário e a senha inseridos na página anterior.</p>\n"
+"<p>Se você deseja fazer parte da comunidade PKP, você pode:</p>\n"
+"<ol>\n"
+"<li>Leia o <a href=\"https://pkp.sfu.ca/category/news/\" target=\"_new\""
+">blog PKP</a> e siga o <a href=\"https://pkp .sfu.ca/category/News/feed/\" "
+"target=\"_new\">Feed RSS</a> para notícias e atualizações.</li>\n"
+"<li>Visite o <a href=\"https://forum.pkp.sfu.ca\" target=\"_new\">fórum de "
+"suporte</a> se tiver dúvidas ou comentários.</li>\n"
+"</ol>"
+
+msgid "installer.upgradeComplete"
+msgstr ""
+"<p>A atualização do OPS para a versão {$version} foi concluída com sucesso.</"
+"p><p>Não se esqueça de definir a configuração \"instalado\" em seu arquivo "
+"de configuração config.inc.php para <em>On</em>.</p><p>Se você tiver dúvidas "
+"ou comentários, visite o <a href=\"https://forum.pkp.sfu.ca\" target=\"_new\""
+">fórum de suporte</a>.</p>"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Há uma nova versão do OPS disponível! Você está usando o OPS "
+"{$currentVersion}. A versão mais recente é OPS {$latestVersion}. Visite <a "
+"href=\"https://pkp.sfu.ca/ops/ops_download/\" target=\"_new\">esta página</"
+"a> para baixar a versão mais recente e encontrar instruções de atualização."
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+"Há uma nova versão do OPS disponível! Você está usando o OPS "
+"{$currentVersion}. A versão mais recente é OPS {$latestVersion}. Entre em "
+"contato com o administrador do site ({$siteAdminName}, <a href=\"mailto"
+":{$siteAdminEmail}\">{$siteAdminEmail}</a>) para notificá-los sobre esta "
+"nova versão. Mais informações podem ser encontradas <a href=\"https://pkp.sfu"
+".ca/ops/ops_download/\" target=\"_new\">aqui</a>."
+
+msgid "log.editor.decision"
+msgstr ""
+"Uma decisão do moderador ({$decision}) para a preprint {$submissionId} foi "
+"registrada por {$editorName}."
+
+msgid "log.editor.recommendation"
+msgstr ""
+"Uma recomendação do moderador ({$decision}) para o preprint {$submissionId} "
+"foi registrada por {$editorName}."
+
+msgid "notification.type.submissionSubmitted"
+msgstr "Um novo preprint, \"{$title}\", foi submetida."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Um novo anúncio foi criado."
+
+msgid "notification.type.submissions"
+msgstr "Eventos de Submissão"
+
+msgid "notification.type.reviewing"
+msgstr "Revisando Eventos"
+
+msgid "notification.type.public"
+msgstr "Anúncios Públicos"
+
+msgid "notification.type.editorAssignmentTask"
+msgstr ""
+"Um novo preprint foi enviado para a qual um moderador precisa ser designado."
+
+msgid "notification.type.awaitingRepresentations"
+msgstr "Aguardando Composições."
+
+msgid "user.authorization.noContext"
+msgstr "Nenhum servidor no contexto!"
+
+msgid "notification.type.approveSubmission"
+msgstr "Esta submissão está atualmente aguardando aprovação."
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr "Aguardando aprovação."
+
+msgid "user.profile.form.showOtherContexts"
+msgstr "Registre-se em outros servidores"
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr "Ocultar outros servidores"
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr "Indexando \"{$serverName}\""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr "Esta implementação de pesquisa não permite reindexação por servidor."
+
+msgid "catalog.sortBy"
+msgstr "Ordem de preprints"
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr "Escolha como solicitar preprints nesta categoria."
+
+msgid "preprint.subject"
+msgstr "Palavras-chave"
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr "Moderadores atribuídos"
+
+msgid "installer.localeSettingsInstructions"
+msgstr ""
+"Para suporte completo a Unicode (UTF-8), selecione UTF-8 para todas as "
+"configurações de conjunto de caracteres. Observe que o suporte total a "
+"Unicode requer que o PHP seja compilado com suporte para a biblioteca <a "
+"href=\"https://www.php.net/mbstring\" target=\"_blank\">mbstring</a> ("
+"ativada por padrão na maioria dos instalações PHP recentes). Você pode ter "
+"problemas ao usar conjuntos de caracteres estendidos se seu servidor não "
+"atender a esses requisitos.<br /><br />Seu servidor atualmente suporta "
+"mbstring: <strong>{$supportsMBString}</strong>"

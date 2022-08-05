@@ -34,3 +34,6 @@
 [submodule "plugins/generic/citationStyleLanguage"]
 	path = plugins/generic/citationStyleLanguage
 	url = https://github.com/pkp/citationStyleLanguage.git
+[submodule "plugins/generic/acron"]
+	path = plugins/generic/acron
+	url = https://github.com/pkp/acron

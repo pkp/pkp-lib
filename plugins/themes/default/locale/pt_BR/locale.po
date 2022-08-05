@@ -1,10 +1,11 @@
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:58:35-07:00\n"
-"PO-Revision-Date: 2020-02-18 17:36+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2022-08-05 20:18+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "themes-default/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.themes.default.name"
 msgstr "Tema Padrão"
@@ -66,3 +67,24 @@ msgstr "Imagem de fundo do cabeçalho"
 
 msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
 msgstr "Mostrar o índice do servidor na página inicial."
+
+msgid "plugins.themes.default.option.displayStats.label"
+msgstr "Opções de exibição de estatísticas de uso"
+
+msgid "plugins.themes.default.option.displayStats.none"
+msgstr "Não exiba o gráfico de estatísticas de uso da submissão para o leitor."
+
+msgid "plugins.themes.default.option.displayStats.bar"
+msgstr "Use o tipo de barra do gráfico para exibição de estatísticas de uso."
+
+msgid "plugins.themes.default.option.displayStats.line"
+msgstr "Use o tipo de linha do gráfico para exibição de estatísticas de uso."
+
+msgid "plugins.themes.default.displayStats.monthInitials"
+msgstr "Jan Fev Mar Abr Mai Jun Jul Ago Set Out Nov Dez"
+
+msgid "plugins.themes.default.displayStats.downloads"
+msgstr "Downloads"
+
+msgid "plugins.themes.default.displayStats.noStats"
+msgstr "Os dados de download ainda não estão disponíveis."

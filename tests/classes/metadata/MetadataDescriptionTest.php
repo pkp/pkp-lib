@@ -15,14 +15,16 @@
  * @brief Test class for MetadataDescription.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\metadata;
 
+use APP\core\Application;
 use PKP\metadata\MetadataDescription;
+use PKP\tests\PKPTestCase;
 
 class MetadataDescriptionTest extends PKPTestCase
 {
-    private $metadataDescription;
-    private static $testStatements = [
+    private MetadataDescription $metadataDescription;
+    private static array $testStatements = [
         ['not-translated-one', 'nto', null],
 
         ['not-translated-many', 'ntm1', null],
@@ -36,7 +38,7 @@ class MetadataDescriptionTest extends PKPTestCase
         ['translated-many', 'tm2_en', 'en_US'],
         ['translated-many', 'tm2_de', 'de_DE']
     ];
-    private static $testStatementsData = [
+    private static array $testStatementsData = [
         'not-translated-one' => 'nto',
         'not-translated-many' => [
             0 => 'ntm1',
@@ -61,7 +63,7 @@ class MetadataDescriptionTest extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', ASSOC_TYPE_CITATION);
+        $this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', Application::ASSOC_TYPE_CITATION);
     }
 
     /**

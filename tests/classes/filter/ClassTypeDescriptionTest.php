@@ -15,11 +15,10 @@
  * @brief Test class for ClassTypeDescription.
  */
 
-use PKP\filter\ClassTypeDescription;
+namespace PKP\tests\classes\filter;
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.tests.classes.filter.TestClass1');
-import('lib.pkp.tests.classes.filter.TestClass2');
+use PKP\filter\ClassTypeDescription;
+use PKP\tests\PKPTestCase;
 
 class ClassTypeDescriptionTest extends PKPTestCase
 {
@@ -38,10 +37,11 @@ class ClassTypeDescriptionTest extends PKPTestCase
     /**
      * @covers ClassTypeDescription
      */
-    public function testInstantiateWithInvalidTypeDescriptor1()
+    public function testInstantiateWithInvalidTypeDescriptor()
     {
         // An unknown type name will cause an error.
         $this->expectError();
+        $this->expectOutputRegex('/' . preg_quote(htmlspecialchars('Trying to instantiate a "class" type description with an invalid type name "ClassWithoutPackage"')) . '/');
         $typeDescription = new ClassTypeDescription('ClassWithoutPackage');
     }
 }

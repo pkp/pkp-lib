@@ -15,10 +15,11 @@
  * @brief Test class for the PolicySet class
  */
 
+namespace PKP\tests\classes\security\authorization;
+
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
-
-import('lib.pkp.tests.PKPTestCase');
+use PKP\tests\PKPTestCase;
 
 class PolicySetTest extends PKPTestCase
 {

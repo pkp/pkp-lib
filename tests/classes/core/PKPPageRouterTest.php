@@ -15,15 +15,12 @@
  * @brief Tests for the PKPPageRouter class.
  */
 
+namespace PKP\tests\classes\core;
+
+use Mockery;
+use Mockery\MockInterface;
+use PKP\core\Core;
 use PKP\core\PKPPageRouter;
-
-require_mock_env('env1');
-
-import('classes.core.Request'); // This will import our mock router class.
-import('lib.pkp.tests.classes.core.PKPRouterTestCase');
-import('classes.security.Validation'); // This will import our mock validation class.
-import('classes.i18n.Locale'); // This will import our mock locale.
-
 use PKP\security\Validation;
 
 /**
@@ -35,7 +32,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
     {
         parent::setUp();
         $this->router = $this->getMockBuilder(PKPPageRouter::class)
-            ->setMethods(['getCacheablePages'])
+            ->onlyMethods(['getCacheablePages'])
             ->getMock();
         $this->router->expects($this->any())
             ->method('getCacheablePages')
@@ -88,6 +85,14 @@ class PKPPageRouterTest extends PKPRouterTestCase
      */
     public function testIsCacheableWithPathinfoSuccess()
     {
+        // Creates a mocked Validation only for this test (due to the @runInSeparateProcess)
+        $mockValidation = new class {
+            public function __construct(public bool $isLogged = false) {
+                /** @var MockInterface */
+                $mock = Mockery::mock('overload:' . Validation::class);
+                $mock->shouldReceive('isLoggedIn')->andReturnUsing(fn () => $this->isLogged);
+            }
+        };
         $this->setTestConfiguration('request1', 'classes/core/config'); // installed
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         $_GET = [];
@@ -97,10 +102,8 @@ class PKPPageRouterTest extends PKPRouterTestCase
         ];
 
         self::assertTrue($this->router->isCacheable($this->request, true));
-
-        Validation::setIsLoggedIn(true);
+        $mockValidation->isLogged = true;
         self::assertFalse($this->router->isCacheable($this->request, true));
-        Validation::setIsLoggedIn(false);
     }
 
     /**
@@ -124,8 +127,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
 
     /**
      * @covers PKPPageRouter::isCacheable
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
      */
     public function testIsCacheableWithoutPathinfoSuccess()
     {
@@ -136,15 +137,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
             'page' => 'cacheable'
         ];
         self::assertTrue($this->router->isCacheable($this->request, true));
-    }
-
-    /**
-     * @covers PKPRouter::getCacheFilename
-     */
-    public function testGetCacheFilename()
-    {
-        // Override parent test
-        $this->markTestSkipped();
     }
 
     /**

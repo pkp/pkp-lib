@@ -16,9 +16,7 @@
  *        be used to clean up after each test case.
  */
 
-
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.tests.PKPTestHelper');
+namespace PKP\tests;
 
 abstract class DatabaseTestCase extends PKPTestCase
 {
@@ -38,6 +36,7 @@ abstract class DatabaseTestCase extends PKPTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         // Switch off xdebug screaming (there are
         // errors in adodb...).
         PKPTestHelper::xdebugScream(false);
@@ -47,7 +46,6 @@ abstract class DatabaseTestCase extends PKPTestCase
         if (is_array($affectedTables)) {
             PKPTestHelper::backupTables($affectedTables, $this);
         }
-        parent::setUp();
     }
 
     /**
@@ -55,16 +53,19 @@ abstract class DatabaseTestCase extends PKPTestCase
      */
     protected function tearDown(): void
     {
-        parent::tearDown();
-
         $affectedTables = $this->getAffectedTables();
         if (is_array($affectedTables)) {
             PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
-        } elseif ($affectedTables === PKP_TEST_ENTIRE_DB) {
+        } elseif ($affectedTables === PKPTestHelper::PKP_TEST_ENTIRE_DB) {
             PKPTestHelper::restoreDB($this);
         }
 
         // Switch xdebug screaming back on.
         PKPTestHelper::xdebugScream(true);
+        parent::tearDown();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(DatabaseTestCase::class, 'DatabaseTestCase');
 }

@@ -15,18 +15,14 @@
  * @brief Test class for FilterHelper.
  */
 
+namespace PKP\tests\classes\filter;
+
 use PKP\filter\CompositeFilter;
 use PKP\filter\FilterGroup;
 use PKP\filter\FilterHelper;
 use PKP\filter\FilterSetting;
 use PKP\filter\PersistableFilter;
-
-import('lib.pkp.tests.PKPTestCase');
-
-class OtherCompositeFilter extends CompositeFilter
-{
-    // A test class.
-}
+use PKP\tests\PKPTestCase;
 
 class FilterHelperTest extends PKPTestCase
 {

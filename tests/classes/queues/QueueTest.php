@@ -13,28 +13,30 @@
  *
  * @brief Test class for the Queues process
  */
-import('lib.pkp.tests.PKPTestCase');
+
+namespace PKP\tests\classes\queues;
 
 use Illuminate\Support\Facades\Queue;
-
 use PKP\config\Config;
+use PKP\tests\PKPTestCase;
 
 class QueueTest extends PKPTestCase
 {
-    protected $configData;
+    protected array $configData;
 
     protected $tmpErrorLog;
-    protected $originalErrorLog;
+    protected string $originalErrorLog;
 
     /**
      * @see PKPTestCase::setUp()
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->configData = Config::getData();
 
         if ($this->configData['queues']['disable_jobs_run_at_shutdown']) {
-            $this->markTestSkipped('Config [\'queues\'][\'disable_jobs_run_at_shutdown\'] isn\'t disabled.');
+            $this->markTestSkipped("Cannot test queues with the config [queues].disable_jobs_run_at_shutdown enabled.");
         }
 
         $this->originalErrorLog = ini_get('error_log');
@@ -43,8 +45,6 @@ class QueueTest extends PKPTestCase
             'error_log',
             stream_get_meta_data($this->tmpErrorLog)['uri']
         );
-
-        parent::setUp();
     }
 
     /**
@@ -56,6 +56,7 @@ class QueueTest extends PKPTestCase
             'error_log',
             $this->originalErrorLog
         );
+        parent::tearDown();
     }
 
     /**

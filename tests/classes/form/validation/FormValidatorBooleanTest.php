@@ -15,9 +15,11 @@
  * @brief Test class for FormValidatorBoolean.
  */
 
-use PKP\form\Form;
+namespace PKP\tests\classes\form\validation;
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\form\Form;
+use PKP\form\validation\FormValidatorBoolean;
+use PKP\tests\PKPTestCase;
 
 class FormValidatorBooleanTest extends PKPTestCase
 {
@@ -30,7 +32,7 @@ class FormValidatorBooleanTest extends PKPTestCase
         $form = new Form('some template');
 
         // Instantiate test validator
-        $validator = new \PKP\form\validation\FormValidatorBoolean($form, 'testData', 'some.message.key');
+        $validator = new FormValidatorBoolean($form, 'testData', 'some.message.key');
 
         $form->setData('testData', '');
         self::assertTrue($validator->isValid());

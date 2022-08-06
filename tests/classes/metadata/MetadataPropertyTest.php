@@ -15,13 +15,14 @@
  * @brief Test class for MetadataProperty.
  */
 
+namespace PKP\tests\classes\metadata;
+
+use InvalidArgumentException;
+use PKP\db\DAORegistry;
 use PKP\metadata\MetadataDescription;
-
-require_mock_env('env1');
-
-import('lib.pkp.tests.PKPTestCase');
-
 use PKP\metadata\MetadataProperty;
+use PKP\tests\PKPTestCase;
+use stdClass;
 
 class MetadataPropertyTest extends PKPTestCase
 {
@@ -178,10 +179,12 @@ class MetadataPropertyTest extends PKPTestCase
     {
         // Build a test vocabulary. (Assoc type and id are 0 to
         // simulate a site-wide vocabulary).
+        /** @var ControlledVocabDAO */
         $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
         $testControlledVocab = $controlledVocabDao->_build('test-controlled-vocab', 0, 0);
 
         // Make a vocabulary entry
+        /** @var ControlledVocabEntryDAO */
         $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
         $testControlledVocabEntry = $controlledVocabEntryDao->newDataObject();
         $testControlledVocabEntry->setName('testEntry', 'en_US');

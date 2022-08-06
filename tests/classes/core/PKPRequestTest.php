@@ -15,37 +15,40 @@
  * @brief Tests for the PKPRequest class.
  */
 
+namespace PKP\tests\classes\core;
+
+use APP\core\Request;
 use PKP\core\PKPRequest;
-
-require_mock_env('env1');
-
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
+use PKP\core\Registry;
+use PKP\plugins\HookRegistry;
+use PKP\tests\PKPTestCase;
 
 /**
  * @backupGlobals enabled
  */
 class PKPRequestTest extends PKPTestCase
 {
-    protected $request;
-    private $getRemoteAddrTestConfigData;
+    protected PKPRequest $request;
 
-    public function setUp(): void
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'configData'];
+    }
+
+    protected function setUp(): void
     {
         parent::setUp();
         HookRegistry::rememberCalledHooks();
         $this->request = new Request();
-
-        // Save the config data for testTrustXForwardedFor tests
-        $this->getRemoteAddrTestConfigData = Registry::get('configData');
     }
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         HookRegistry::resetCalledHooks();
-
-        // Restore the config data after testTrustXForwardedFor tests
-        Registry::set('configData', $this->getRemoteAddrTestConfigData);
+        parent::tearDown();
     }
 
     /**

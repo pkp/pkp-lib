@@ -19,17 +19,68 @@
  * @brief Tests for the Locale class.
  */
 
+namespace PKP\tests\classes\i18n;
+
+use Mockery;
+use Mockery\MockInterface;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
-
-require_mock_env('env1');
-
-import('classes.i18n.Locale'); // This will import our mock Locale class
-import('lib.pkp.tests.PKPTestCase');
+use PKP\tests\PKPTestCase;
 
 class LocaleTest extends PKPTestCase
 {
+    private \PKP\i18n\Locale $_locale;
+    private array $_supportedLocales = ['en_US' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt_PT' => 'Portuguese (Portugal)'];
+    private string $_primaryLocale = 'pt_BR';
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        // Save the underlying Locale implementation and replaces it by a generic mock
+        $this->_locale = Locale::getFacadeRoot();
+        $mock = Mockery::mock($this->_locale::class)
+            ->makePartial()
+            // Custom locales
+            ->shouldReceive('getLocales')
+            ->andReturn(
+                [
+                    'en_US' => $this->_createMetadataMock('en_US', true),
+                    'pt_BR' => $this->_createMetadataMock('pt_BR'),
+                    'pt_PT' => $this->_createMetadataMock('pt_PT'),
+                    'de_DE' => $this->_createMetadataMock('de_DE')
+                ]
+            )
+            // Forward get() calls to the real locale, in order to use the already loaded translations
+            ->shouldReceive('get')
+            ->andReturnUsing(fn (...$args) => $this->_locale->get(...$args))
+            // Custom supported locales
+            ->shouldReceive('getSupportedLocales')
+            ->andReturnUsing(fn () => $this->_supportedLocales)
+            // Custom primary locale
+            ->shouldReceive('getPrimaryLocale')
+            ->andReturnUsing(fn () => $this->_primaryLocale)
+            ->getMock();
+
+        Locale::swap($mock);
+    }
+
+    protected function tearDown(): void
+    {
+        // Restores the original locale instance
+        Locale::swap($this->_locale);
+        parent::tearDown();
+    }
+
+    private function _createMetadataMock(string $locale, bool $isComplete = false): MockInterface
+    {
+        return Mockery::mock(LocaleMetadata::class, [$locale])
+            ->makePartial()
+            ->shouldReceive('isComplete')
+            ->andReturn($isComplete)
+            ->getMock();
+    }
+
     /**
      * @covers Locale
      */
@@ -60,8 +111,6 @@ class LocaleTest extends PKPTestCase
      */
     public function testGetLocalesWithCountryName()
     {
-        $this->markTestSkipped('TODO: Will be fixed by the issue #8040');
-
         $expectedLocalesWithCountry = [
             'en_US' => 'English (United States)',
             'pt_BR' => 'Portuguese (Brazil)',
@@ -112,20 +161,18 @@ class LocaleTest extends PKPTestCase
         self::assertEquals('en_US', LocaleConversion::getLocaleFrom3LetterIso('eng'));
 
         // The primary locale will be used if that helps to disambiguate.
-        Locale::setSupportedLocales(['en_US' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt_PT' => 'Portuguese (Portugal)']);
-        Locale::setPrimaryLocale('pt_BR');
         self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-        Locale::setPrimaryLocale('pt_PT');
+        $this->_primaryLocale  = 'pt_PT';
         self::assertEquals('pt_PT', LocaleConversion::getLocaleFrom3LetterIso('por'));
 
         // If the primary locale doesn't help then use the first supported locale found.
-        Locale::setPrimaryLocale('en_US');
+        $this->_primaryLocale  = 'en_US';
         self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-        Locale::setSupportedLocales(['en_US' => 'English', 'pt_PT' => 'Portuguese (Portugal)', 'pt_BR' => 'Portuguese (Brazil)']);
+        $this->_supportedLocales = ['en_US' => 'English', 'pt_PT' => 'Portuguese (Portugal)', 'pt_BR' => 'Portuguese (Brazil)'];
         self::assertEquals('pt_PT', LocaleConversion::getLocaleFrom3LetterIso('por'));
 
         // If the locale isn't even in the supported locales then use the first locale found.
-        Locale::setSupportedLocales(['en_US' => 'English']);
+        $this->_supportedLocales = ['en_US' => 'English'];
         self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
 
         // Unknown language.

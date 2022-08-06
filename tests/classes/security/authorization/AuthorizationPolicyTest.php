@@ -15,9 +15,11 @@
  * @brief Test class for AuthorizationPolicy
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\security\authorization;
 
+use APP\core\Application;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\tests\PKPTestCase;
 
 class AuthorizationPolicyTest extends PKPTestCase
 {
@@ -35,18 +37,18 @@ class AuthorizationPolicyTest extends PKPTestCase
         self::assertNull($policy->getAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY));
 
         // Test authorized context objects.
-        self::assertFalse($policy->hasAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
+        self::assertFalse($policy->hasAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
         $someContextObject = new \PKP\core\DataObject();
         $someContextObject->setData('test1', 'test1');
-        $policy->addAuthorizedContextObject(ASSOC_TYPE_USER_GROUP, $someContextObject);
-        self::assertTrue($policy->hasAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
-        self::assertEquals($someContextObject, $policy->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
-        self::assertEquals([ASSOC_TYPE_USER_GROUP => $someContextObject], $policy->getAuthorizedContext());
+        $policy->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP, $someContextObject);
+        self::assertTrue($policy->hasAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
+        self::assertEquals($someContextObject, $policy->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
+        self::assertEquals([Application::ASSOC_TYPE_USER_GROUP => $someContextObject], $policy->getAuthorizedContext());
 
         // Test authorized context.
         $someOtherContextObject = new \PKP\core\DataObject();
         $someOtherContextObject->setData('test2', 'test2');
-        $authorizedContext = [ASSOC_TYPE_USER_GROUP => $someOtherContextObject];
+        $authorizedContext = [Application::ASSOC_TYPE_USER_GROUP => $someOtherContextObject];
         $policy->setAuthorizedContext($authorizedContext);
         self::assertEquals($authorizedContext, $policy->getAuthorizedContext());
 

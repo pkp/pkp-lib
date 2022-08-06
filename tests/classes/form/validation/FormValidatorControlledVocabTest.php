@@ -15,21 +15,25 @@
  * @brief Test class for FormValidatorControlledVocab.
  */
 
-use PKP\controlledVocab\ControlledVocab;
+namespace PKP\tests\classes\form\validation;
 
+use APP\core\Application;
+use PHPUnit\Framework\MockObject\MockObject;
+use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
-
-import('lib.pkp.tests.PKPTestCase');
+use PKP\tests\PKPTestCase;
 
 class FormValidatorControlledVocabTest extends PKPTestCase
 {
     /**
      * @see PKPTestCase::getMockedDAOs()
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
-        return ['ControlledVocabDAO'];
+        return [...parent::getMockedDAOs(), 'ControlledVocabDAO'];
     }
 
     /**
@@ -42,11 +46,12 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         $form = new Form('some template');
 
         // Mock a ControlledVocab object
+        /** @var ControlledVocab|MockObject */
         $mockControlledVocab = $this->getMockBuilder(ControlledVocab::class)
-            ->setMethods(['enumerate'])
+            ->onlyMethods(['enumerate'])
             ->getMock();
         $mockControlledVocab->setId(1);
-        $mockControlledVocab->setAssocType(ASSOC_TYPE_CITATION);
+        $mockControlledVocab->setAssocType(Application::ASSOC_TYPE_CITATION);
         $mockControlledVocab->setAssocId(333);
         $mockControlledVocab->setSymbolic('testVocab');
 
@@ -57,19 +62,19 @@ class FormValidatorControlledVocabTest extends PKPTestCase
 
         // Mock the ControlledVocabDAO
         $mockControlledVocabDao = $this->getMockBuilder(ControlledVocabDAO::class)
-            ->setMethods(['getBySymbolic'])
+            ->onlyMethods(['getBySymbolic'])
             ->getMock();
 
         // Set up the mock getBySymbolic() method
         $mockControlledVocabDao->expects($this->any())
             ->method('getBySymbolic')
-            ->with('testVocab', ASSOC_TYPE_CITATION, 333)
+            ->with('testVocab', Application::ASSOC_TYPE_CITATION, 333)
             ->will($this->returnValue($mockControlledVocab));
 
         DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDao);
 
         // Instantiate validator
-        $validator = new \PKP\form\validation\FormValidatorControlledVocab($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', ASSOC_TYPE_CITATION, 333);
+        $validator = new \PKP\form\validation\FormValidatorControlledVocab($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', Application::ASSOC_TYPE_CITATION, 333);
 
         $form->setData('testData', '1');
         self::assertTrue($validator->isValid());

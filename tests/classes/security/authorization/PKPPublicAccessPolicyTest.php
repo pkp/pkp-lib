@@ -15,10 +15,10 @@
  * @brief Test class for the PKPPublicAccessPolicy class
  */
 
+namespace PKP\tests\classes\security\authorization;
+
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PKPPublicAccessPolicy;
-
-import('lib.pkp.tests.classes.security.authorization.PolicyTestCase');
 
 class PKPPublicAccessPolicyTest extends PolicyTestCase
 {

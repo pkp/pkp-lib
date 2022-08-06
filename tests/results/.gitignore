@@ -1,4 +1,1 @@
-error.log
-testdox.txt
-coverage*.php
-*.png
+!.gitignore

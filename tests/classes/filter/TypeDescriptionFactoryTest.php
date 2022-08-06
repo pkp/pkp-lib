@@ -15,11 +15,10 @@
  * @brief Test class for TypeDescriptionFactory.
  */
 
-use PKP\filter\TypeDescriptionFactory;
+namespace PKP\tests\classes\filter;
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.tests.classes.filter.TestClass1');
-import('lib.pkp.tests.classes.filter.TestClass2');
+use PKP\filter\TypeDescriptionFactory;
+use PKP\tests\PKPTestCase;
 
 class TypeDescriptionFactoryTest extends PKPTestCase
 {

@@ -17,21 +17,24 @@
  * @brief Class that implements functionality common to all PKP unit test cases.
  */
 
-// Include PHPUnit
-import('lib.pkp.tests.PKPTestHelper');
+namespace PKP\tests;
 
+use APP\core\Application;
 use APP\core\PageRouter;
-
+use Mockery;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\Dispatcher;
+use PKP\core\Registry;
 use PKP\db\DAORegistry;
 
 abstract class PKPTestCase extends TestCase
 {
-    private $daoBackup = [];
-    private $registryBackup = [];
-    private $mockedRegistryKeys = [];
+    private array $daoBackup = [];
+    private array $registryBackup = [];
+    private array $containerBackup = [];
+    private array $mockedRegistryKeys = [];
 
     /**
      * Override this method if you want to backup/restore
@@ -39,7 +42,7 @@ abstract class PKPTestCase extends TestCase
      *
      * @return array A list of DAO names to backup and restore.
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
         return [];
     }
@@ -50,9 +53,20 @@ abstract class PKPTestCase extends TestCase
      *
      * @return array A list of registry keys to backup and restore.
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
         return $this->mockedRegistryKeys;
+    }
+
+    /**
+     * Override this method if you want to backup/restore
+     * singleton entries from the container before/after the test.
+     *
+     * @return string[] A list of container classes/identifiers to backup and restore.
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [];
     }
 
     /**
@@ -60,6 +74,7 @@ abstract class PKPTestCase extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->setBackupGlobals(true);
 
         // Rather than using "include_once()", ADOdb uses
@@ -83,6 +98,11 @@ abstract class PKPTestCase extends TestCase
         foreach ($this->getMockedRegistryKeys() as $mockedRegistryKey) {
             $this->registryBackup[$mockedRegistryKey] = Registry::get($mockedRegistryKey);
         }
+
+        // Backup container keys.
+        foreach ($this->getMockedContainerKeys() as $mockedContainer) {
+            $this->containerBackup[$mockedContainer] = app($mockedContainer);
+        }
     }
 
     /**
@@ -90,6 +110,11 @@ abstract class PKPTestCase extends TestCase
      */
     protected function tearDown(): void
     {
+        // Restore container keys.
+        foreach ($this->getMockedContainerKeys() as $mockedContainer) {
+            app()->instance($mockedContainer, $this->containerBackup[$mockedContainer]);
+        }
+
         // Restore registry keys.
         foreach ($this->getMockedRegistryKeys() as $mockedRegistryKey) {
             Registry::set($mockedRegistryKey, $this->registryBackup[$mockedRegistryKey]);
@@ -99,6 +124,9 @@ abstract class PKPTestCase extends TestCase
         foreach ($this->getMockedDAOs() as $mockedDao) {
             DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
         }
+
+        Mockery::close();
+        parent::tearDown();
     }
 
     /**
@@ -198,4 +226,19 @@ abstract class PKPTestCase extends TestCase
         // Build the config file name.
         return './lib/pkp/tests/' . $configPath . '/config.' . $config . '.inc.php';
     }
+
+    /**
+     * Creates a regular expression to match the translation, and replaces params by a generic matcher
+     * e.g. The following translation "start {$param} end" would end up as "/^start .*? end$/
+     */
+    protected function localeToRegExp(string $translation): string
+    {
+        $pieces = preg_split('/\{\$[^}]+\}/', $translation);
+        $escapedPieces = array_map(fn ($piece) => preg_quote($piece), $pieces);
+        return '/^' . implode('.*?', $escapedPieces) . '$/u';
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(PKPTestCase::class, 'PKPTestCase');
 }

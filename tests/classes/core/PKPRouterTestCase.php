@@ -15,23 +15,36 @@
  * @brief Base tests class for PKPRouter tests.
  */
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
+namespace PKP\tests\classes\core;
 
+use APP\core\Application;
 use APP\core\Request;
+use PHPUnit\Framework\MockObject\MockObject;
+use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+use PKP\tests\PKPTestCase;
 
 /**
  * @backupGlobals enabled
  */
 class PKPRouterTestCase extends PKPTestCase
 {
-    public const
-        PATHINFO_ENABLED = true,
-    PATHINFO_DISABLED = false;
+    public const PATHINFO_ENABLED = true;
+    public const PATHINFO_DISABLED = false;
 
-    protected $router;
-    protected $request;
+    protected PKPRouter $router;
+    protected PKPRequest $request;
+
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'application'];
+    }
 
     protected function setUp(): void
     {
@@ -42,8 +55,8 @@ class PKPRouterTestCase extends PKPTestCase
 
     protected function tearDown(): void
     {
-        parent::tearDown();
         HookRegistry::resetCalledHooks(true);
+        parent::tearDown();
     }
 
     /**
@@ -81,7 +94,6 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testIsCacheable()
     {
-        $this->markTestSkipped(); // Not currently working
         $this->request = new Request();
         self::assertFalse($this->router->isCacheable($this->request));
     }
@@ -154,7 +166,6 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testGetRequestedContextPathWithFullContextParameters()
     {
-        $this->markTestSkipped('Plugins (or something) appear to interfere with the expectations of the called hook list test in Travis environment');
         $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
         HookRegistry::resetCalledHooks(true);
         $_GET['firstContext'] = 'context1';
@@ -174,8 +185,6 @@ class PKPRouterTestCase extends PKPTestCase
 
     /**
      * @covers PKPRouter::getRequestedContextPaths
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
      */
     public function testGetRequestedContextPathWithPartialContextParameters()
     {
@@ -202,15 +211,15 @@ class PKPRouterTestCase extends PKPTestCase
         // Simulate a context DAO
         $application = Application::get();
         $contextDao = $application->getContextDAO();
-        $mockDao = $this->getMockBuilder(get_class($contextDao))
-            ->setMethods(['getByPath'])
+        $mockDao = $this->getMockBuilder($contextDao::class)
+            ->onlyMethods(['getByPath'])
             ->getMock();
         DAORegistry::registerDAO('SomeContextDAO', $mockDao);
 
         // Set up the mock DAO get-by-path method which
         // should be called with the context path from
         // the path info.
-        $expectedResult = $this->getMockBuilder(get_class($contextDao->newDataObject()))->getMock();
+        $expectedResult = $this->getMockBuilder($contextDao->newDataObject()::class)->getMock();
         $mockDao->expects($this->once())
             ->method('getByPath')
             ->with('contextPath')
@@ -309,8 +318,9 @@ class PKPRouterTestCase extends PKPTestCase
         $contextList = ['firstContext']
     ) {
         // Mock application object without calling its constructor.
+        /** @var Application|MockObject */
         $mockApplication = $this->getMockBuilder(Application::class)
-            ->setMethods(['getContextDepth', 'getContextList'])
+            ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();
 
         // Set up the getContextDepth() method
@@ -332,7 +342,7 @@ class PKPRouterTestCase extends PKPTestCase
 
         // Mock request
         $this->request = $this->getMockBuilder(Request::class)
-            ->setMethods(['isPathInfoEnabled'])
+            ->onlyMethods(['isPathInfoEnabled'])
             ->getMock();
         $this->request->setRouter($this->router);
         $this->request->expects($this->any())
@@ -355,13 +365,13 @@ class PKPRouterTestCase extends PKPTestCase
     {
         $application = Application::get();
         $contextDao = $application->getContextDAO();
-        $contextClassName = get_class($contextDao->newDataObject());
-        $mockFirstContextDao = $this->getMockBuilder(get_class($contextDao))
-            ->setMethods(['getByPath'])
+        $contextClassName = $contextDao->newDataObject()::class;
+        $mockFirstContextDao = $this->getMockBuilder($contextDao::class)
+            ->onlyMethods(['getByPath'])
             ->getMock();
         if (!$firstContextIsNull) {
             $firstContextInstance = $this->getMockBuilder($contextClassName)
-                ->setMethods(['getPath', 'getSetting'])
+                ->onlyMethods(['getPath', 'getSetting'])
                 ->getMock();
             $firstContextInstance->expects($this->any())
                 ->method('getPath')

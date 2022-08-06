@@ -19,17 +19,18 @@
  * @brief Abstract base class for Plugin tests.
  */
 
-require_mock_env('env2');
+namespace PKP\tests\plugins;
 
-import('lib.pkp.tests.DatabaseTestCase');
-
+use APP\core\Application;
 use APP\core\Request;
 use APP\install\Install;
+use DOMDocument;
 use PKP\config\Config;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\site\VersionCheck;
+use PKP\tests\DatabaseTestCase;
 
 class PluginTestCase extends DatabaseTestCase
 {
@@ -47,9 +48,9 @@ class PluginTestCase extends DatabaseTestCase
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
-        return ['request', 'hooks'];
+        return [...parent::getMockedRegistryKeys(), 'request', 'hooks'];
     }
 
     /**
@@ -68,7 +69,7 @@ class PluginTestCase extends DatabaseTestCase
 
         // Mock request and router.
         $mockRequest = $this->getMockBuilder(Request::class)
-            ->setMethods(['getRouter', 'getUser'])
+            ->onlyMethods(['getRouter', 'getUser'])
             ->getMock();
         $router = new PKPRouter();
         $mockRequest->expects($this->any())

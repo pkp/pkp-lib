@@ -15,8 +15,9 @@
  * @brief Test class for ValidatorEmail.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\validation;
 
+use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorEmail;
 
 class ValidatorEmailTest extends PKPTestCase

@@ -13,6 +13,7 @@
  * Any frequently-used functions that cannot be put into an appropriate class should be added here.
  */
 
+use PKP\config\Config;
 
 /**
  * Emulate a Java-style import statement.

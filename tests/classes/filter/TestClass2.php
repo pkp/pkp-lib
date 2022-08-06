@@ -13,7 +13,13 @@
  * @brief Test class to be used/instantiated by ClassTypeDescriptionTest.
  */
 
+namespace PKP\tests\classes\filter;
+
 class TestClass2
 {
     // Just an empty class to test instantiation.
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias(TestClass2::class, 'TestClass2');
 }

@@ -15,26 +15,31 @@
  * @brief Tests for the Dispatcher class.
  */
 
-use APP\core\Application;
-use PKP\core\Dispatcher;
+namespace PKP\tests\classes\core;
 
-import('lib.pkp.tests.PKPTestCase');
+use APP\core\Application;
+use APP\core\Request;
+use PHPUnit\Framework\MockObject\MockObject;
+use PKP\config\Config;
+use PKP\core\Dispatcher;
+use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
+use PKP\tests\PKPTestCase;
 
 class DispatcherTest extends PKPTestCase
 {
-    public const
-        PATHINFO_ENABLED = true,
-        PATHINFO_DISABLED = false;
+    public const PATHINFO_ENABLED = true;
+    public const PATHINFO_DISABLED = false;
 
-    private $dispatcher;
-    private $request;
+    private Dispatcher $dispatcher;
+    private PKPRequest $request;
 
     /**
      * @copydoc PKPTestCase::getMockedRegistryKeys()
      */
-    protected function getMockedRegistryKeys()
+    protected function getMockedRegistryKeys(): array
     {
-        return ['application', 'dispatcher'];
+        return [...parent::getMockedRegistryKeys(), 'application', 'dispatcher'];
     }
 
     /**
@@ -45,8 +50,9 @@ class DispatcherTest extends PKPTestCase
         parent::setUp();
 
         // Mock application object without calling its constructor.
+        /** @var Application|MockObject */
         $mockApplication = $this->getMockBuilder(Application::class)
-            ->setMethods(['getContextDepth', 'getContextList'])
+            ->onlyMethods(['getContextDepth', 'getContextList'])
             ->getMock();
 
         // Set up the getContextDepth() method
@@ -60,7 +66,7 @@ class DispatcherTest extends PKPTestCase
             ->will($this->returnValue(['firstContext', 'secondContext']));
 
         $this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
-        $this->dispatcher->addRouterName('\PKP\core\PKPPageRouter', 'page');
+        $this->dispatcher->addRouterName(\PKP\core\PKPPageRouter::class, 'page');
 
         $this->request = new Request();
     }
@@ -71,7 +77,7 @@ class DispatcherTest extends PKPTestCase
     public function testUrl()
     {
         if (Config::getVar('general', 'disable_path_info')) {
-            $this->markTestSkipped();
+            $this->markTestSkipped('The config [general].disable_path_info is enabled');
         }
         $baseUrl = $this->request->getBaseUrl();
 

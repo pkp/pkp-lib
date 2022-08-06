@@ -14,6 +14,8 @@
  * @brief Test class for the Publication class
  */
 
+namespace PKP\tests\classes\publication;
+
 use APP\publication\DAO;
 use PKP\citation\CitationDAO;
 use PKP\services\PKPSchemaService;
@@ -22,8 +24,8 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
+use PKP\tests\PKPTestCase;
 
-import('lib.pkp.tests.PKPTestCase');
 class PublicationTest extends PKPTestCase
 {
     /**
@@ -31,6 +33,7 @@ class PublicationTest extends PKPTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->publication = (new DAO(
             new SubmissionKeywordDAO(),
             new SubmissionSubjectDAO(),
@@ -47,6 +50,7 @@ class PublicationTest extends PKPTestCase
     protected function tearDown(): void
     {
         unset($this->publication);
+        parent::tearDown();
     }
     //
     // Unit tests

@@ -15,9 +15,11 @@
  * @brief Tests for the JSON class.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\core;
 
 use PKP\core\JSONMessage;
+use PKP\tests\PKPTestCase;
+use stdClass;
 
 class JSONTest extends PKPTestCase
 {
@@ -40,8 +42,8 @@ class JSONTest extends PKPTestCase
 
         // Render the JSON message.
         $expectedString = '{"status":true,"content":"test content",' .
-                '"elementId":"0","events":[{"name":"someEvent","data":{"eventDataKey":["item1","item2"]}}],' .
-                '"testObj":{"someInt":5,"someFloat":5.5}}';
+            '"elementId":"0","events":[{"name":"someEvent","data":{"eventDataKey":["item1","item2"]}}],' .
+            '"testObj":{"someInt":5,"someFloat":5.5}}';
         self::assertEquals($expectedString, $json->getString());
     }
 }

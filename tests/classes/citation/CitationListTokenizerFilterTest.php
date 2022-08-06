@@ -15,9 +15,10 @@
  * @brief Test class for CitationListTokenizerFilter.
  */
 
-use PKP\citation\CitationListTokenizerFilter;
+namespace PKP\tests\classes\citation;
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\citation\CitationListTokenizerFilter;
+use PKP\tests\PKPTestCase;
 
 class CitationListTokenizerFilterTest extends PKPTestCase
 {

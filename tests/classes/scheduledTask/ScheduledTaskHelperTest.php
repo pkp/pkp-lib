@@ -15,11 +15,12 @@
  * @brief Tests for the ScheduledTask class.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\scheduledTask;
 
+use PKP\config\Config;
 use PKP\mail\Mail;
-use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\tests\PKPTestCase;
 
 class ScheduledTaskHelperTest extends PKPTestCase
 {
@@ -107,7 +108,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
     private function _getHelper($expectedSubject, $message)
     {
         $helperMock = $this->getMockBuilder(ScheduledTaskHelper::class)
-            ->setMethods(['getMail', 'getMessage'])
+            ->onlyMethods(['getMail', 'getMessage'])
             ->setConstructorArgs(['some@email.com', 'Contact name'])
             ->getMock();
         $helperMock->expects($this->any())
@@ -116,7 +117,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
 
         // Helper will use the Mail::send() method. Mock it.
         $mailMock = $this->getMockBuilder(Mail::class)
-            ->setMethods(['send', 'setBody', 'setSubject'])
+            ->onlyMethods(['send', 'setBody', 'setSubject'])
             ->getMock();
 
         $mailMock->expects($this->any())

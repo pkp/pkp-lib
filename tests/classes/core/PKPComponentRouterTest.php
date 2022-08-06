@@ -15,19 +15,26 @@
  * @brief Tests for the PKPComponentRouter class.
  */
 
-require_mock_env('env1');
-
-import('classes.core.Request'); // This will import our mock request class.
-import('classes.i18n.Locale'); // This will import our mock Locale class.
-import('lib.pkp.tests.classes.core.PKPRouterTestCase');
+namespace PKP\tests\classes\core;
 
 use PKP\core\PKPComponentRouter;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 
 /**
  * @backupGlobals enabled
  */
 class PKPComponentRouterTest extends PKPRouterTestCase
 {
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'request', 'user'];
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -36,9 +43,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase
 
     public function testSupports()
     {
-        // This method only exists to override and neutralize the parent class'
-        // testSupports() which is not relevant for component routers.
-        $this->markTestSkipped();
+        $this->markTestSkipped('The method PKPRouter::testSupports() is not relevant for component routers');
     }
 
     /**
@@ -104,9 +109,8 @@ class PKPComponentRouterTest extends PKPRouterTestCase
      * @covers PKPComponentRouter::_retrieveServiceEndpointParts
      * @covers PKPComponentRouter::_validateServiceEndpointParts
      */
-    public function testSupportsWithPathinfoUnsuccessfulComponentFileDoesNotExist()
+    public function testSupportsWithPathinfoAndComponentFileDoesNotExist()
     {
-        $this->markTestSkipped();
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
         $_SERVER = [
@@ -114,7 +118,8 @@ class PKPComponentRouterTest extends PKPRouterTestCase
             'PATH_INFO' => '/context1/$$$call$$$/inexistent/component/fetch-grid'
         ];
         self::assertEquals('inexistent.ComponentHandler', $this->router->getRequestedComponent($this->request));
-        self::assertFalse($this->router->supports($this->request));
+        // @see PKPComponentRouter::supports() for details
+        self::assertTrue($this->router->supports($this->request));
     }
 
     /**
@@ -267,10 +272,13 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         Registry::set('request', $this->request);
         $user = new \PKP\user\User();
         Registry::set('user', $user);
+        $serviceEndpoint = $this->router->getRpcServiceEndpoint($this->request);
+        $handler = $serviceEndpoint[0];
+        $handler->addPolicy(new UserRolesRequiredPolicy($this->request), true);
         $this->router->route($this->request);
 
-        self::assertNotNull($serviceEndpoint = & $this->router->getRpcServiceEndpoint($this->request));
-        self::assertInstanceOf('\PKP\controllers\grid\notifications\NotificationsGridHandler', $handler = & $serviceEndpoint[0]);
+        self::assertNotNull($serviceEndpoint);
+        self::assertInstanceOf(\PKP\controllers\grid\notifications\NotificationsGridHandler::class, $handler);
         $firstContextDao = DAORegistry::getDAO('FirstContextDAO');
         self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
     }

@@ -15,10 +15,12 @@
  * @brief Test class for FormValidatorLength.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\form\validation;
 
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorLength;
+use PKP\tests\PKPTestCase;
 
 class FormValidatorLengthTest extends PKPTestCase
 {
@@ -53,13 +55,13 @@ class FormValidatorLengthTest extends PKPTestCase
         ];
 
         foreach ($tests as $test) {
-            $validator = new \PKP\form\validation\FormValidatorLength($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $test[0], $test[1]);
+            $validator = new FormValidatorLength($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $test[0], $test[1]);
             self::assertSame($test[2], $validator->isValid());
         }
 
         // Test optional validation type
         $form->setData('testData', '');
-        $validator = new \PKP\form\validation\FormValidatorLength($form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', '==', 4);
+        $validator = new FormValidatorLength($form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', '==', 4);
         self::assertTrue($validator->isValid());
     }
 }

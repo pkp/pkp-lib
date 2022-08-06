@@ -15,8 +15,11 @@
  * @brief Test class for XMLTypeDescription.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+namespace PKP\tests\classes\xslt;
 
+use DOMDocument;
+use PKP\tests\PKPTestCase;
+use PKP\tests\PKPTestHelper;
 use PKP\xslt\XMLTypeDescription;
 
 class XMLTypeDescriptionTest extends PKPTestCase
@@ -24,9 +27,10 @@ class XMLTypeDescriptionTest extends PKPTestCase
     /**
      * @see PHPUnit_Framework_TestCase::tearDown()
      */
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         PKPTestHelper::xdebugScream(true);
+        parent::tearDown();
     }
 
     /**
@@ -34,7 +38,6 @@ class XMLTypeDescriptionTest extends PKPTestCase
      */
     public function testInstantiateAndCheck()
     {
-        $this->markTestSkipped();
         // Xdebug's scream parameter will disable the @ operator
         // that we need for XML validation.
         PKPTestHelper::xdebugScream(false);
@@ -45,7 +48,8 @@ class XMLTypeDescriptionTest extends PKPTestCase
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-valid.xml');
         self::assertTrue($typeDescription->isCompatible($testXmlDom));
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-invalid.xml');
-        self::assertFalse($typeDescription->isCompatible($testXmlDom));
+        $this->expectWarning();
+        $typeDescription->isCompatible($testXmlDom);
 
         // Test with xsd validation
         $typeDescription = new XMLTypeDescription('schema(' . dirname(__FILE__) . '/xsdsample.xsd)');
@@ -65,16 +69,16 @@ class XMLTypeDescriptionTest extends PKPTestCase
 
         // Try passing in the document as a string
         $document =
-            '<addressBook>
-			  <card>
-			    <name>John Smith</name>
-			    <email>js@example.com</email>
-			  </card>
-			  <card>
-			    <name>Fred Bloggs</name>
-			    <email>fb@example.net</email>
-			  </card>
-			</addressBook>';
+          '<addressBook>
+            <card>
+              <name>John Smith</name>
+              <email>js@example.com</email>
+            </card>
+            <card>
+              <name>Fred Bloggs</name>
+              <email>fb@example.net</email>
+            </card>
+          </addressBook>';
         self::assertTrue($typeDescription->isCompatible($document));
 
 

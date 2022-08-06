@@ -33,19 +33,16 @@ class LocaleMetadata
 {
     use ExportableTrait;
 
-    /** Locale identification */
-    public string $locale;
-
     private ?object $_parsedLocale = null;
 
     /**
      * Constructor
      */
-    public static function create(string $locale): self
+    public function __construct(
+        /** Locale identification */
+        public ?string $locale = null
+    )
     {
-        $instance = new static();
-        $instance->locale = $locale;
-        return $instance;
     }
 
     /**
@@ -149,13 +146,6 @@ class LocaleMetadata
     public function getIsoAlpha3(): string
     {
         return $this->_getLanguage()->getAlpha3();
-    }
-
-    /**
-     * Private constructor
-     */
-    private function __construct()
-    {
     }
 
     /**

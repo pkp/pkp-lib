@@ -15,15 +15,39 @@
  * @brief Test class for FormValidatorPost.
  */
 
+namespace PKP\tests\classes\form\validation;
+
+use APP\core\Application;
+use Mockery;
+use PKP\core\Registry;
 use PKP\form\Form;
-
-require_mock_env('env1');
-
-import('lib.pkp.tests.PKPTestCase');
-import('classes.core.Request'); // This will import the mock request
+use PKP\form\validation\FormValidatorPost;
+use PKP\tests\PKPTestCase;
 
 class FormValidatorPostTest extends PKPTestCase
 {
+    private bool $_isPosted = false;
+
+    /**
+     * @see PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'request'];
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $request = Application::get()->getRequest();
+        $mock = Mockery::mock($request)
+            // Custom isPost()
+            ->shouldReceive('isPost')->andReturnUsing(fn () => $this->_isPosted)
+            ->getMock();
+        // Replace the request singleton by a mock
+        Registry::set('request', $mock);
+    }
+
     /**
      * @covers FormValidatorPost
      * @covers FormValidator
@@ -32,15 +56,12 @@ class FormValidatorPostTest extends PKPTestCase
     {
         // Instantiate test validator
         $form = new Form('some template');
-        $validator = new \PKP\form\validation\FormValidatorPost($form, 'some.message.key');
+        $validator = new FormValidatorPost($form, 'some.message.key');
 
-        $this->markTestSkipped('Disabled for static invocation of Request.');
-
-        $request = Application::get()->getRequest();
-        $request->setRequestMethod('POST');
+        $this->_isPosted = true;
         self::assertTrue($validator->isValid());
 
-        $request->setRequestMethod('GET');
+        $this->_isPosted = false;
         self::assertFalse($validator->isValid());
     }
 }

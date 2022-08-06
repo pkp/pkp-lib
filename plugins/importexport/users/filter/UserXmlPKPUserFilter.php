@@ -20,7 +20,7 @@ use PKP\db\DAORegistry;
 use PKP\mail\MailTemplate;
 use PKP\user\InterestManager;
 
-class UserXmlPKPUserFilter extends NativeImportFilter
+class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
     /**
      * Constructor

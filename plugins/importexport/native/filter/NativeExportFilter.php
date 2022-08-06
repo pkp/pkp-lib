@@ -129,3 +129,7 @@ class NativeExportFilter extends PKPImportExportFilter
         $this->opts = $opts;
     }
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\importexport\native\filter\NativeExportFilter', '\NativeExportFilter');
+}

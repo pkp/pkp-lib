@@ -14,6 +14,8 @@
  * other statistics plugins.
  */
 
+namespace PKP\plugins\generic\usageEvent;
+
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
@@ -201,7 +203,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         $templateMgr = $args[0]; /** @var TemplateManager $templateMgr */
 
         // We are just interested in page requests.
-        if (!is_a($router, 'PageRouter')) {
+        if (!($router instanceof \APP\core\PageRouter)) {
             return false;
         }
 
@@ -227,7 +229,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         if (in_array($assocType, $htmlPageAssocTypes)) {
             // HTML pages with no file downloads.
             $mimeType = 'text/html';
-        } elseif (is_a($pubObject, 'IssueGalley')) {
+        } elseif ($pubObject instanceof \APP\issue\IssueGalley) {
             $mimeType = $pubObject->getFileType();
         } else {
             // Files.
@@ -431,7 +433,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
             // First check for a context index page view.
             if (($page == 'index' || empty($page)) && $op == 'index') {
                 $pubObject = $templateMgr->getTemplateVars('currentContext');
-                if (is_a($pubObject, 'Context')) {
+                if ($pubObject instanceof \PKP\context\Context) {
                     $assocType = Application::getContextAssocType();
                     $canonicalUrlOp = '';
                     $canonicalUrlPage = 'index';

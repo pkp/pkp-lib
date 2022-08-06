@@ -17,7 +17,7 @@ namespace PKP\plugins\importexport\users\filter;
 
 use PKP\db\DAORegistry;
 
-class NativeXmlUserGroupFilter extends NativeImportFilter
+class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
     /**
      * Constructor
@@ -132,4 +132,8 @@ class NativeXmlUserGroupFilter extends NativeImportFilter
             fatalError('unable to find "name" userGroup node element.  Check import XML document structure for validity.');
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\importexport\users\filter\NativeXmlUserGroupFilter', '\NativeXmlUserGroupFilter');
 }

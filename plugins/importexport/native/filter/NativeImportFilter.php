@@ -128,3 +128,7 @@ class NativeImportFilter extends PKPImportExportFilter
         return $importFilter->execute($doc);
     }
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\importexport\native\filter\NativeImportFilter', '\NativeImportFilter');
+}

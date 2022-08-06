@@ -15,15 +15,23 @@
  * @brief Test class for the PreprintSearchIndex class
  */
 
-import('classes.i18n.Locale'); // Causes mocked Locale class to be loaded
+namespace APP\tests\classes\search;
 
-import('lib.pkp.tests.PKPTestCase');
-import('classes.submission.Submission');
-
-use Illuminate\Support\Facades\App;
+use APP\core\Application;
+use APP\publication\Publication;
+use APP\search\PreprintSearchDAO;
+use APP\search\PreprintSearchIndex;
+use APP\server\ServerDAO;
+use APP\submission\Submission;
+use Mockery;
+use Mockery\MockInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PKP\core\ArrayItemIterator;
 use PKP\db\DAORegistry;
-use PKP\galley\DAO as GalleyDAO;
+use PKP\plugins\HookRegistry;
+use PKP\submissionFile\Collector as SubmissionFileCollector;
+use PKP\submissionFile\SubmissionFile;
+use PKP\tests\PKPTestCase;
 
 class PreprintSearchIndexTest extends PKPTestCase
 {
@@ -33,13 +41,17 @@ class PreprintSearchIndexTest extends PKPTestCase
     /**
      * @see PKPTestCase::getMockedDAOs()
      */
-    protected function getMockedDAOs()
+    protected function getMockedDAOs(): array
     {
-        $mockedDaos = parent::getMockedDAOs();
-        $mockedDaos += [
-            'PreprintSearchDAO', 'ServerDAO',
-        ];
-        return $mockedDaos;
+        return [...parent::getMockedDAOs(), 'PreprintSearchDAO', 'ServerDAO'];
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [...parent::getMockedContainerKeys(), SubmissionFileCollector::class];
     }
 
     /**
@@ -73,7 +85,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         HookRegistry::register('PreprintSearchIndex::submissionFileChanged', [$this, 'callbackUpdateFileIndex']);
 
         // Simulate updating an preprint file via hook.
-        import('lib.pkp.classes.submissionFile.SubmissionFile');
         $submissionFile = new SubmissionFile();
         $submissionFile->setId(2);
         $preprintSearchIndex = Application::getSubmissionSearchIndex();
@@ -141,7 +152,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         HookRegistry::clear('PreprintSearchIndex::rebuildIndex');
 
         // Test log output.
-        $this->expectOutputString("##search.cli.rebuildIndex.clearingIndex## ... ##search.cli.rebuildIndex.done##\n");
+        $this->expectOutputString(__('search.cli.rebuildIndex.clearingIndex') . ' ... ' . __('search.cli.rebuildIndex.done') . "\n");
 
         // Test rebuilding the index with a mock database back-end.
         $preprintSearchIndex = Application::getSubmissionSearchIndex();
@@ -173,20 +184,25 @@ class PreprintSearchIndexTest extends PKPTestCase
      */
     public function testIndexPreprintMetadata()
     {
-        $this->markTestSkipped(); // Temporarily disabled!
-
         // Make sure that no hook is being called.
         HookRegistry::clear('PreprintSearchIndex::preprintMetadataChanged');
 
-        // FIXME: getAuthors function removed
-        // Mock an preprint so that the authors are not
-        // being retrieved from the database.
-        $preprint = $this->getMockBuilder(Preprint::class)
-            ->setMethods(['getAuthors'])
+        /** @var Publication|MockObject */
+        $publication = $this->getMockBuilder(Publication::class)
+            ->onlyMethods([])
+            ->getMock();
+        $publication->setData('authors', []);
+        $publication->setData('subjects', []);
+        $publication->setData('keywords', []);
+        $publication->setData('disciplines', []);
+
+        /** @var Submission|MockObject */
+        $preprint = $this->getMockBuilder(Submission::class)
+            ->onlyMethods(['getCurrentPublication'])
             ->getMock();
         $preprint->expects($this->any())
-            ->method('getAuthors')
-            ->will($this->returnValue([]));
+            ->method('getCurrentPublication')
+            ->will($this->returnValue($publication));
 
         // Test indexing an preprint with a mock environment.
         $preprintSearchIndex = $this->getMockPreprintSearchIndex($this->atLeastOnce());
@@ -219,8 +235,6 @@ class PreprintSearchIndexTest extends PKPTestCase
      */
     public function testIndexSubmissionFiles()
     {
-        $this->markTestSkipped(); // Temporarily disabled!
-
         // Make sure that no hook is being called.
         HookRegistry::clear('PreprintSearchIndex::submissionFilesChanged');
         $this->registerFileDAOs(true);
@@ -229,6 +243,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprint = new Submission();
         $preprintSearchIndex = Application::getSubmissionSearchIndex();
         $preprintSearchIndex->submissionFilesChanged($preprint);
+        $this->assertTrue(true);
     }
 
     /**
@@ -330,7 +345,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         self::assertEquals('PreprintSearchIndex::preprintMetadataChanged', $hook);
 
         [$preprint] = $params;
-        self::assertInstanceOf('\APP\submission\Submission', $preprint);
+        self::assertInstanceOf(Submission::class, $preprint);
 
         // Returning "true" is required so that the default submissionMetadataChanged()
         // code won't run.
@@ -348,7 +363,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         self::assertEquals('PreprintSearchIndex::submissionFilesChanged', $hook);
 
         [$preprint] = $params;
-        self::assertInstanceOf('\APP\submission\Submission', $preprint);
+        self::assertInstanceOf(Submission::class, $preprint);
 
         // Returning "true" is required so that the default submissionMetadataChanged()
         // code won't run.
@@ -367,7 +382,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     {
         // Mock an PreprintSearchDAO.
         $preprintSearchDao = $this->getMockBuilder(PreprintSearchDAO::class)
-            ->setMethods(['clearIndex', 'deleteSubmissionKeywords'])
+            ->onlyMethods(['clearIndex', 'deleteSubmissionKeywords'])
             ->getMock();
 
         // Test the clearIndex() method.
@@ -392,7 +407,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     {
         // Mock a ServerDAO.
         $serverDao = $this->getMockBuilder(ServerDAO::class)
-            ->setMethods(['getAll'])
+            ->onlyMethods(['getAll'])
             ->getMock();
 
         // Mock an empty result set.
@@ -409,21 +424,19 @@ class PreprintSearchIndexTest extends PKPTestCase
     }
 
     /**
-     * Mock and register an GalleyDAO as a test back end for
+     * Mock and register an SubmissionFile collector as a test back end for
      * the PreprintSearchIndex class.
      */
-    private function registerFileDAOs($expectMethodCall)
+    private function registerFileDAOs(bool $expectMethodCall)
     {
-        // Mock file DAOs.
-        App::instance(GalleyDAO::class, \Mockery::mock(GalleyDAO::class, function ($mock) use ($expectMethodCall) {
-            if ($expectMethodCall) {
-                $mock->shouldReceive('getBySubmissionId')->andReturn([]);
-            } else {
-                $mock->shouldNotReceive('getBySubmissionId');
-            }
-        }));
-
-        // FIXME: GalleyDAO::getBySubmissionId returns iterator; array expected here. Fix expectations.
+        /** @var SubmissionFileCollector|MockInterface */
+        $mock = Mockery::mock(
+            app(SubmissionFileCollector::class),
+            fn (MockInterface $mock) => $expectMethodCall
+                ? $mock->shouldReceive('filterBySubmissionIds')->andReturn($mock)
+                : $mock->shouldNotReceive('filterBySubmissionIds')
+        );
+        app()->instance(SubmissionFileCollector::class, $mock);
     }
 
     /**
@@ -434,9 +447,9 @@ class PreprintSearchIndexTest extends PKPTestCase
     private function getMockPreprintSearchIndex($expectedCall)
     {
         // Mock PreprintSearchIndex.
-        /** @var PreprintSearchIndex $preprintSearchIndex */
+        /** @var PreprintSearchIndex|MockObject $preprintSearchIndex */
         $preprintSearchIndex = $this->getMockBuilder(PreprintSearchIndex::class)
-            ->setMethods(['_updateTextIndex'])
+            ->onlyMethods(['_updateTextIndex'])
             ->getMock();
 
         // Check for _updateTextIndex() calls.

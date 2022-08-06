@@ -143,7 +143,7 @@ class ServerOAI extends OAI
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $currentVersion = $versionDao->getCurrentVersion();
         $info->toolkitVersion = $currentVersion->getVersionString();
-        $info->toolkitURL = 'http://pkp.sfu.ca/ops/';
+        $info->toolkitURL = 'https://pkp.sfu.ca/ops/';
 
         return $info;
     }

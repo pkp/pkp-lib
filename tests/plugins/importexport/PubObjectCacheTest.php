@@ -18,32 +18,31 @@
  * is used symlinked in both plug-ins.
  */
 
-use APP\facades\Repo;
+namespace APP\tests\plugins\importexport;
 
-import('lib.pkp.tests.PKPTestCase');
-import('classes/issue/Issue');
-import('classes/preprint/Submission');
-import('plugins.importexport.medra.classes.PubObjectCache');
+use APP\facades\Repo;
+use APP\plugins\PubObjectCache;
+use APP\submission\Submission;
+use PKP\tests\PKPTestCase;
 
 class PubObjectCacheTest extends PKPTestCase
 {
     /**
      * @covers PubObjectCache
      */
-    public function testAddIssue()
+    public function testAddSubmission()
     {
-        $nullVar = null;
         $cache = new PubObjectCache();
 
-        $issue = new Issue();
-        $issue->setId('1');
+        $submission = new Submission();
+        $submission->setId('1');
 
-        self::assertFalse($cache->isCached('issues', $issue->getId()));
-        $cache->add($issue, $nullVar);
-        self::assertTrue($cache->isCached('issues', $issue->getId()));
+        self::assertFalse($cache->isCached('submissions', $submission->getId()));
+        $cache->add($submission, null);
+        self::assertTrue($cache->isCached('submissions', $submission->getId()));
 
-        $retrievedIssue = $cache->get('issues', $issue->getId());
-        self::assertEquals($issue, $retrievedIssue);
+        $retrievedIssue = $cache->get('submissions', $submission->getId());
+        self::assertEquals($submission, $retrievedIssue);
     }
 
     /**
@@ -51,7 +50,6 @@ class PubObjectCacheTest extends PKPTestCase
      */
     public function testAddPreprint()
     {
-        $nullVar = null;
         $cache = new PubObjectCache();
 
         $preprint = new Submission();
@@ -61,7 +59,7 @@ class PubObjectCacheTest extends PKPTestCase
         self::assertFalse($cache->isCached('preprints', $preprint->getId()));
         self::assertFalse($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId')));
         self::assertFalse($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprint->getId()));
-        $cache->add($preprint, $nullVar);
+        $cache->add($preprint, null);
         self::assertTrue($cache->isCached('preprints', $preprint->getId()));
         self::assertFalse($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId')));
         self::assertTrue($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprint->getId()));

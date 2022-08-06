@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlPreprintGalleyFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlPreprintGalleyFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,12 +13,12 @@
  * @brief Class that converts a Native XML document to a set of publication formats.
  */
 
+namespace APP\plugins\importexport\native\filter;
+
 use APP\facades\Repo;
 use PKP\galley\Galley;
 
-import('lib.pkp.plugins.importexport.native.filter.NativeXmlRepresentationFilter');
-
-class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
+class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\filter\NativeXmlRepresentationFilter
 {
     //
     // Implement template methods from NativeImportFilter
@@ -119,4 +119,8 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
         // representation proof files
         return $representation;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\importexport\native\filter\NativeXmlPreprintGalleyFilter', '\NativeXmlPreprintGalleyFilter');
 }

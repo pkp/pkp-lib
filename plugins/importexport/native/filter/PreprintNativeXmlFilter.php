@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/PreprintNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/PreprintNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,9 +13,9 @@
  * @brief Class that converts a Preprint to a Native XML document.
  */
 
-import('lib.pkp.plugins.importexport.native.filter.SubmissionNativeXmlFilter');
+namespace APP\plugins\importexport\native\filter;
 
-class PreprintNativeXmlFilter extends SubmissionNativeXmlFilter
+class PreprintNativeXmlFilter extends \PKP\plugins\importexport\native\filter\SubmissionNativeXmlFilter
 {
     //
     // Implement template methods from PersistableFilter
@@ -46,4 +46,8 @@ class PreprintNativeXmlFilter extends SubmissionNativeXmlFilter
 
         return $submissionNode;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\importexport\native\filter\PreprintNativeXmlFilter', '\PreprintNativeXmlFilter');
 }

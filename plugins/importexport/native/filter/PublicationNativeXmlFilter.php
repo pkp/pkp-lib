@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/PublicationNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/PublicationNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,9 +13,12 @@
  * @brief Class that converts a Publication to a Native XML document.
  */
 
-import('lib.pkp.plugins.importexport.native.filter.PKPPublicationNativeXmlFilter');
+namespace APP\plugins\importexport\native\filter;
 
-class PublicationNativeXmlFilter extends PKPPublicationNativeXmlFilter
+use PKP\plugins\importexport\native\filter\PKPNativeFilterHelper;
+use PKP\db\DAORegistry;
+
+class PublicationNativeXmlFilter extends \PKP\plugins\importexport\native\filter\PKPPublicationNativeXmlFilter
 {
     //
     // Implement template methods from PersistableFilter
@@ -72,7 +75,6 @@ class PublicationNativeXmlFilter extends PKPPublicationNativeXmlFilter
         }
 
         // cover images
-        import('lib.pkp.plugins.importexport.native.filter.PKPNativeFilterHelper');
         $nativeFilterHelper = new PKPNativeFilterHelper();
         $coversNode = $nativeFilterHelper->createPublicationCoversNode($this, $doc, $entity);
         if ($coversNode) {
@@ -81,4 +83,8 @@ class PublicationNativeXmlFilter extends PKPPublicationNativeXmlFilter
 
         return $entityNode;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\importexport\native\filter\PublicationNativeXmlFilter', '\PublicationNativeXmlFilter');
 }

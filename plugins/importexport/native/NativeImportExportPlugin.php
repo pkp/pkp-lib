@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/NativeImportExportPlugin.inc.php
+ * @file plugins/importexport/native/NativeImportExportPlugin.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,9 +13,9 @@
  * @brief Native XML import/export plugin
  */
 
-import('lib.pkp.plugins.importexport.native.PKPNativeImportExportPlugin');
+namespace APP\plugins\importexport\native;
 
-class NativeImportExportPlugin extends PKPNativeImportExportPlugin
+class NativeImportExportPlugin extends \PKP\plugins\importexport\native\PKPNativeImportExportPlugin
 {
     /**
      * @see ImportExportPlugin::display()

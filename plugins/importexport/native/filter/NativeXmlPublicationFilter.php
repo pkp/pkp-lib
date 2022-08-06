@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlPublicationFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlPublicationFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,9 +13,12 @@
  * @brief Class that converts a Native XML document to a set of publications.
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeXmlPKPPublicationFilter');
+namespace APP\plugins\importexport\native\filter;
 
-class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter
+use PKP\plugins\importexport\native\filter\PKPNativeFilterHelper;
+use PKP\db\DAORegistry;
+
+class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter\NativeXmlPKPPublicationFilter
 {
     //
     // Implement template methods from PersistableFilter
@@ -93,7 +96,6 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter
                 $publication->setData('pages', $n->textContent);
                 break;
             case 'covers':
-                import('lib.pkp.plugins.importexport.native.filter.PKPNativeFilterHelper');
                 $nativeFilterHelper = new PKPNativeFilterHelper();
                 $nativeFilterHelper->parsePublicationCovers($this, $n, $publication);
                 break;
@@ -123,7 +125,7 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter
         }
         // Caps on class name for consistency with imports, whose filter
         // group names are generated implicitly.
-        $currentFilter = PKPImportExportFilter::getFilter('native-xml=>' . $importClass, $deployment);
+        $currentFilter = \PKP\plugins\importexport\PKPImportExportFilter::getFilter('native-xml=>' . $importClass, $deployment);
         return $currentFilter;
     }
 
@@ -137,4 +139,8 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter
     {
         return $this->importWithXMLNode($n);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\importexport\native\filter\NativeXmlPublicationFilter', '\NativeXmlPublicationFilter');
 }

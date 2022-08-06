@@ -18,7 +18,7 @@
 
 	<p>{translate key="user.login.resetPasswordInstructions"}</p>
 
-	<form class="cmp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+	<form class="cmp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post" role="form">
 		{csrf}
 
 		<div class="fields">

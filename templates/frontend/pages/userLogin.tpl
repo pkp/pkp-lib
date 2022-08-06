@@ -25,7 +25,7 @@
 		</p>
 	{/if}
 
-	<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}">
+	<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}" role="form">
 		{csrf}
 
 		{if $error}

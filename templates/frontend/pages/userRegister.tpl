@@ -17,7 +17,7 @@
 		{translate key="user.register"}
 	</h1>
 
-	<form class="cmp_form register" id="register" method="post" action="{url op="register"}">
+	<form class="cmp_form register" id="register" method="post" action="{url op="register"}" role="form">
 		{csrf}
 
 		{if $source}

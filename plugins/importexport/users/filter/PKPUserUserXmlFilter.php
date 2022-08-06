@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/users/filter/PKPUserUserXmlFilter.inc.php
+ * @file plugins/importexport/users/filter/PKPUserUserXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,8 +13,12 @@
  * @brief Base class that converts a set of users to a User XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\users\filter;
 
+use DOMDocument;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
+use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\user\InterestManager;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
@@ -84,7 +88,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
      * @param DOMDocument $doc
      * @param User $user
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createPKPUserNode($doc, $user)
     {
@@ -172,9 +176,13 @@ class PKPUserUserXmlFilter extends NativeExportFilter
 
         $userGroupsArray = $userGroups->toArray();
         $userGroupsDoc = $exportFilter->execute($userGroupsArray);
-        if ($userGroupsDoc->documentElement instanceof DOMElement) {
+        if ($userGroupsDoc->documentElement instanceof \DOMElement) {
             $clone = $doc->importNode($userGroupsDoc->documentElement, true);
             $rootNode->appendChild($clone);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\importexport\users\filter\PKPUserUserXmlFilter', '\PKPUserUserXmlFilter');
 }

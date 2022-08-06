@@ -117,7 +117,7 @@ class PluginTestCase extends DatabaseTestCase
     {
         foreach ($configFiles as $configFile) {
             if (file_exists($configFile)) {
-                $xmlDom = new DOMDocument();
+                $xmlDom = new \DOMDocument();
                 $xmlDom->load($configFile);
                 self::assertTrue($xmlDom->validate());
                 unset($xmlDom);

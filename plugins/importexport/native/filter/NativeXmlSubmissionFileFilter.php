@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlSubmissionFileFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlSubmissionFileFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Base class that converts a Native XML document to a submission file
  */
 
+namespace PKP\plugins\importexport\native\filter;
+
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
@@ -21,9 +23,8 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
+use PKP\plugins\PluginRegistry;
 use PKP\submissionFile\SubmissionFile;
-
-import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 class NativeXmlSubmissionFileFilter extends NativeImportFilter
 {
@@ -76,7 +77,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Handle a submission file element
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return SubmissionFile|null Null if skipping this file
      */
@@ -179,7 +180,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Handle metadata in subelements
         $allRevisionIds = [];
         for ($childNode = $node->firstChild; $childNode !== null; $childNode = $childNode->nextSibling) {
-            if (is_a($childNode, 'DOMElement')) {
+            if ($childNode instanceof \DOMElement) {
                 switch ($childNode->tagName) {
                     case 'id':
                         $this->parseIdentifier($childNode, $submissionFile);
@@ -273,7 +274,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Handle a revision element
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return int|null The new file id if successful
      */
@@ -283,7 +284,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         $submission = $deployment->getSubmission();
 
         for ($childNode = $node->firstChild; $childNode !== null; $childNode = $childNode->nextSibling) {
-            if (is_a($childNode, 'DOMElement')) {
+            if ($childNode instanceof \DOMElement) {
                 switch ($childNode->tagName) {
                     case 'href':
                         $temporaryFileManager = new TemporaryFileManager();
@@ -369,7 +370,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the representation object accordingly
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      * @param SubmissionFile $submissionFile
      */
     public function parseIdentifier($element, $submissionFile)

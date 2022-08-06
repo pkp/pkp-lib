@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeImportFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeImportFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Base class that converts a Native XML document to a DataObject
  */
 
+namespace PKP\plugins\importexport\native\filter;
+
 use PKP\plugins\importexport\PKPImportExportFilter;
 
 class NativeImportFilter extends PKPImportExportFilter
@@ -23,7 +25,7 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * @see Filter::process()
      *
-     * @param DOMDocument|string $document
+     * @param \DOMDocument|string $document
      *
      * @return array Array of imported documents
      */
@@ -32,16 +34,16 @@ class NativeImportFilter extends PKPImportExportFilter
         // If necessary, convert $document to a DOMDocument.
         if (is_string($document)) {
             $xmlString = $document;
-            $document = new DOMDocument();
+            $document = new \DOMDocument();
             $document->loadXml($xmlString);
         }
-        assert(is_a($document, 'DOMDocument'));
+        assert($document instanceof \DOMDocument);
 
         $importedObjects = [];
         if ($document->documentElement->tagName == $this->getPluralElementName()) {
             // Multiple element (plural) import
             for ($n = $document->documentElement->firstChild; $n !== null; $n = $n->nextSibling) {
-                if (!is_a($n, 'DOMElement')) {
+                if (!($n instanceof \DOMElement)) {
                     continue;
                 }
                 $object = $this->handleElement($n);
@@ -85,7 +87,7 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * Handle a singular element import
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      */
     public function handleElement($node)
     {
@@ -95,7 +97,7 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * Parse a localized element
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      *
      * @return array Array("locale_KEY", "Localized Text")
      */
@@ -107,12 +109,12 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * Import node to a given parent node
      *
-     * @param DOMElement $n The parent node
+     * @param \DOMElement $n The parent node
      * @param string $filter The filter to execute it's import function
      */
     public function importWithXMLNode($n, $filter = null)
     {
-        $doc = new DOMDocument();
+        $doc = new \DOMDocument();
         $doc->appendChild($doc->importNode($n, true));
         $importFilter = null;
         if ($filter) {

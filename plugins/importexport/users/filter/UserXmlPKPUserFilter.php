@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/users/filter/UserXmlPKPUserFilter.inc.php
+ * @file plugins/importexport/users/filter/UserXmlPKPUserFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,11 +13,12 @@
  * @brief Base class that converts a User XML document to a set of users
  */
 
+namespace PKP\plugins\importexport\users\filter;
+
 use APP\facades\Repo;
+use PKP\db\DAORegistry;
 use PKP\mail\MailTemplate;
 use PKP\user\InterestManager;
-
-import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 class UserXmlPKPUserFilter extends NativeImportFilter
 {
@@ -59,7 +60,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle a user_groups element
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return array Array of UserGroup objects
      */
@@ -70,7 +71,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         assert(count($importFilters) == 1); // Assert only a single unserialization filter
         $importFilter = array_shift($importFilters);
         $importFilter->setDeployment($this->getDeployment());
-        $userGroupDoc = new DOMDocument();
+        $userGroupDoc = new \DOMDocument();
         $userGroupDoc->appendChild($userGroupDoc->importNode($node, true));
         return $importFilter->execute($userGroupDoc);
     }
@@ -78,7 +79,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle a users element
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return array Array of User objects
      */
@@ -96,84 +97,102 @@ class UserXmlPKPUserFilter extends NativeImportFilter
 
         // Handle metadata in subelements
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
-            case 'username': $user->setUsername($n->textContent); break;
-            case 'givenname':
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $site->getPrimaryLocale();
-                }
-                $user->setGivenName($n->textContent, $locale);
-                break;
-            case 'familyname':
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $site->getPrimaryLocale();
-                }
-                $user->setFamilyName($n->textContent, $locale);
-                break;
-            case 'affiliation':
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $site->getPrimaryLocale();
-                }
-                $user->setAffiliation($n->textContent, $locale);
-                break;
-            case 'country': $user->setCountry($n->textContent); break;
-            case 'email': $user->setEmail($n->textContent); break;
-            case 'url': $user->setUrl($n->textContent); break;
-            case 'orcid': $user->setOrcid($n->textContent); break;
-            case 'phone': $user->setPhone($n->textContent); break;
-            case 'billing_address': $user->setBillingAddress($n->textContent); break;
-            case 'mailing_address': $user->setMailingAddress($n->textContent); break;
-            case 'biography':
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $site->getPrimaryLocale();
-                }
-                $user->setBiography($n->textContent, $locale);
-                break;
-            case 'gossip': $user->setGossip($n->textContent); break;
-            case 'signature':
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $site->getPrimaryLocale();
-                }
-                $user->setSignature($n->textContent, $locale);
-                break;
-            case 'date_registered': $user->setDateRegistered($n->textContent); break;
-            case 'date_last_login': $user->setDateLastLogin($n->textContent); break;
-            case 'date_last_email': $user->setDateLastEmail($n->textContent); break;
-            case 'date_validated': $user->setDateValidated($n->textContent); break;
-            case 'inline_help':$n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ; break;
-            case 'auth_id': $user->setAuthId($n->textContent); break;
-            case 'auth_string': $user->setAuthString($n->textContent); break;
-            case 'disabled_reason': $user->setDisabledReason($n->textContent); break;
-            case 'locales': $user->setLocales(preg_split('/:/', $n->textContent)); break;
-            case 'password':
-                if ($n->getAttribute('must_change') == 'true') {
-                    $user->setMustChangePassword(true);
-                }
+                    case 'username': $user->setUsername($n->textContent);
+                        break;
+                    case 'givenname':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $site->getPrimaryLocale();
+                        }
+                        $user->setGivenName($n->textContent, $locale);
+                        break;
+                    case 'familyname':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $site->getPrimaryLocale();
+                        }
+                        $user->setFamilyName($n->textContent, $locale);
+                        break;
+                    case 'affiliation':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $site->getPrimaryLocale();
+                        }
+                        $user->setAffiliation($n->textContent, $locale);
+                        break;
+                    case 'country': $user->setCountry($n->textContent);
+                        break;
+                    case 'email': $user->setEmail($n->textContent);
+                        break;
+                    case 'url': $user->setUrl($n->textContent);
+                        break;
+                    case 'orcid': $user->setOrcid($n->textContent);
+                        break;
+                    case 'phone': $user->setPhone($n->textContent);
+                        break;
+                    case 'billing_address': $user->setBillingAddress($n->textContent);
+                        break;
+                    case 'mailing_address': $user->setMailingAddress($n->textContent);
+                        break;
+                    case 'biography':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $site->getPrimaryLocale();
+                        }
+                        $user->setBiography($n->textContent, $locale);
+                        break;
+                    case 'gossip': $user->setGossip($n->textContent);
+                        break;
+                    case 'signature':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $site->getPrimaryLocale();
+                        }
+                        $user->setSignature($n->textContent, $locale);
+                        break;
+                    case 'date_registered': $user->setDateRegistered($n->textContent);
+                        break;
+                    case 'date_last_login': $user->setDateLastLogin($n->textContent);
+                        break;
+                    case 'date_last_email': $user->setDateLastEmail($n->textContent);
+                        break;
+                    case 'date_validated': $user->setDateValidated($n->textContent);
+                        break;
+                    case 'inline_help':$n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ;
+                        break;
+                    case 'auth_id': $user->setAuthId($n->textContent);
+                        break;
+                    case 'auth_string': $user->setAuthString($n->textContent);
+                        break;
+                    case 'disabled_reason': $user->setDisabledReason($n->textContent);
+                        break;
+                    case 'locales': $user->setLocales(preg_split('/:/', $n->textContent));
+                        break;
+                    case 'password':
+                        if ($n->getAttribute('must_change') == 'true') {
+                            $user->setMustChangePassword(true);
+                        }
 
-                if ($n->getAttribute('is_disabled') == 'true') {
-                    $user->setDisabled(true);
-                }
+                        if ($n->getAttribute('is_disabled') == 'true') {
+                            $user->setDisabled(true);
+                        }
 
-                if ($n->getAttribute('encryption')) {
-                    $encryption = $n->getAttribute('encryption');
-                }
+                        if ($n->getAttribute('encryption')) {
+                            $encryption = $n->getAttribute('encryption');
+                        }
 
-                $passwordValueNodeList = $n->getElementsByTagNameNS($deployment->getNamespace(), 'value');
-                if ($passwordValueNodeList->length == 1) {
-                    $password = $passwordValueNodeList->item(0);
-                    $user->setPassword($password->textContent);
-                } else {
-                    $this->addError(__('plugins.importexport.user.error.userHasNoPassword', ['username' => $user->getUsername()]));
-                }
+                        $passwordValueNodeList = $n->getElementsByTagNameNS($deployment->getNamespace(), 'value');
+                        if ($passwordValueNodeList->length == 1) {
+                            $password = $passwordValueNodeList->item(0);
+                            $user->setPassword($password->textContent);
+                        } else {
+                            $this->addError(__('plugins.importexport.user.error.userHasNoPassword', ['username' => $user->getUsername()]));
+                        }
 
-                break;
-        }
+                        break;
+                }
             }
         }
 
@@ -296,7 +315,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle a singular element import.
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      */
     public function handleElement($node)
     {
@@ -304,7 +323,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         $context = $deployment->getContext();
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 $this->handleChildElement($n);
             }
         }
@@ -313,7 +332,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle an element whose parent is the submission element.
      *
-     * @param DOMElement $n
+     * @param \DOMElement $n
      */
     public function handleChildElement($n)
     {

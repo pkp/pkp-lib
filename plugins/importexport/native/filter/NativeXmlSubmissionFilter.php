@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlSubmissionFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlSubmissionFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,10 +13,11 @@
  * @brief Base class that converts a Native XML document to a set of submissions
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
+namespace PKP\plugins\importexport\native\filter;
 
 use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\core\Core;
 use PKP\observers\events\BatchMetadataChanged;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -74,7 +75,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Handle a singular element import.
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      */
     public function handleElement($node)
     {
@@ -118,7 +119,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
      * Populate the submission object from the node
      *
      * @param Submission $submission
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return Submission
      */
@@ -136,7 +137,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Handle an element whose parent is the submission element.
      *
-     * @param DOMElement $n
+     * @param \DOMElement $n
      * @param Submission $submission
      */
     public function handleChildElement($n, $submission)
@@ -163,7 +164,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the submission object accordingly
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      * @param Submission $submission
      */
     public function parseIdentifier($element, $submission)
@@ -181,13 +182,13 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * @see Filter::process()
      *
-     * @param DOMDocument|string $document
+     * @param \DOMDocument|string $document
      *
      * @return array Array of imported documents
      */
     public function &process(&$document)
     {
-        $importedObjects =& parent::process($document);
+        $importedObjects = & parent::process($document);
 
         $deployment = $this->getDeployment();
 
@@ -197,7 +198,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
             assert($submission instanceof Submission);
             $publication = $submission->getCurrentPublication();
             if (!isset($publication)) {
-                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(),  __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
+                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
             }
             $submissionIds[] = $submission->getId();
         }
@@ -210,15 +211,15 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Parse a submission child and add it to the submission.
      *
-     * @param DOMElement $n
+     * @param \DOMElement $n
      * @param Submission $submission
      */
-    function parseChild($n, $submission) 
+    public function parseChild($n, $submission)
     {
         $importFilter = $this->getImportFilter($n->tagName);
         assert(isset($importFilter)); // There should be a filter
 
-        $submissionChildDoc = new DOMDocument();
+        $submissionChildDoc = new \DOMDocument();
         $submissionChildDoc->appendChild($submissionChildDoc->importNode($n, true));
         $ret = $importFilter->execute($submissionChildDoc);
 

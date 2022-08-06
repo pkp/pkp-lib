@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/users/PKPUserImportExportDeployment.inc.php
+ * @file plugins/importexport/users/PKPUserImportExportDeployment.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -14,6 +14,9 @@
  * application's specifics.
  */
 
+namespace PKP\plugins\importexport\users;
+
+use APP\core\Application;
 use PKP\plugins\importexport\PKPImportExportDeployment;
 
 class PKPUserImportExportDeployment extends PKPImportExportDeployment

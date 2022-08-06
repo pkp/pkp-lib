@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/PKPNativeImportExportPlugin.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportPlugin.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,14 +13,12 @@
  * @brief Native XML import/export plugin
  */
 
-import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIDeployment');
-import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
+namespace PKP\plugins\importexport\native;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
-
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 
@@ -62,7 +60,6 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
         }
         if ($success && $this->getEnabled()) {
             $this->addLocaleData();
-            $this->import('NativeImportExportDeployment');
         }
         return $success;
     }
@@ -130,7 +127,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                     [
                         'apiUrl' => $apiUrl,
                         'count' => 100,
-                        'getParams' => new stdClass(),
+                        'getParams' => new \stdClass(),
                         'lazyLoad' => true,
                     ]
                 );
@@ -267,12 +264,9 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
      */
     public function executeCLI($scriptName, &$args)
     {
-        try 
-        {
+        try {
             $cliDeployment = new PKPNativeImportExportCLIDeployment($scriptName, $args);
-        } 
-        catch (BadMethodCallException $ex)
-        {
+        } catch (BadMethodCallException $ex) {
             $this->cliToolkit->echoCLIError($ex->getMessage());
             $this->usage($scriptName);
             return true;

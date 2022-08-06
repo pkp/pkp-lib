@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/RepresentationNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/RepresentationNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,7 +13,9 @@
  * @brief Base class that converts a representation to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\native\filter;
+
+use PKP\plugins\PluginRegistry;
 
 class RepresentationNativeXmlFilter extends NativeExportFilter
 {
@@ -49,12 +51,12 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
      *
      * @param Representation $representation
      *
-     * @return DOMDocument
+     * @return \DOMDocument
      */
     public function &process(&$representation)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new \DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -72,10 +74,10 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a representation node.
      *
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param Representation $representation
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createRepresentationNode($doc, $representation)
     {
@@ -116,8 +118,8 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a representation node.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $representationNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $representationNode
      * @param Representation $representation
      */
     public function addIdentifiers($doc, $representationNode, $representation)
@@ -148,12 +150,11 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Add a single pub ID element for a given plugin to the representation.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $representationNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $representationNode
      * @param Representation $representation
-     * @param PubIdPlugin $pubIdPlugin
      *
-     * @return DOMElement|null
+     * @return ?\DOMElement
      */
     public function addPubIdentifier($doc, $representationNode, $representation, $pubIdType)
     {

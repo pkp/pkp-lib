@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/users/PKPUserImportExportPlugin.inc.php
+ * @file plugins/importexport/users/PKPUserImportExportPlugin.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,12 +13,16 @@
  * @brief User XML import/export plugin
  */
 
+namespace PKP\plugins\importexport\users;
+
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\ImportExportPlugin;
+use PKP\user\User;
 
 abstract class PKPUserImportExportPlugin extends ImportExportPlugin
 {
@@ -225,7 +229,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
 
         $users = [];
         foreach ($ids as $id) {
-            if (is_a($id, 'User')) {
+            if ($id instanceof User) {
                 $users[] = $id;
             } else {
                 $user = Repo::user()->get($id, true);

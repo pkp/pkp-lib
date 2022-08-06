@@ -16,7 +16,4 @@
  *
  */
 
-
-require_once('UserImportExportPlugin.inc.php');
-
-return new UserImportExportPlugin();
+return new \PKP\plugins\importexport\user\UserImportExportPlugin();

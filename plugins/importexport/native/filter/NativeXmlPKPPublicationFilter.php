@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlPKPPublicationFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlPKPPublicationFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,10 +13,12 @@
  * @brief Base class that converts a Native XML document to a set of publications
  */
 
+namespace PKP\plugins\importexport\native\filter;
+
 use APP\facades\Repo;
 use APP\publication\Publication;
-
-import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
 {
@@ -70,7 +72,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Handle a singular element import.
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      */
     public function handleElement($node)
     {
@@ -97,7 +99,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $deployment->setPublication($publication);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 $this->handleChildElement($n, $publication);
             }
         }
@@ -111,7 +113,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      * Populate the entity object from the node
      *
      * @param PKPPublication $publication
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return Publication
      */
@@ -127,7 +129,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Handle an element whose parent is the publication element.
      *
-     * @param DOMElement $n
+     * @param \DOMElement $n
      * @param PKPPublication $publication
      */
     public function handleChildElement($n, $publication)
@@ -148,7 +150,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
             $controlledVocabulary = [];
             for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
-                if (is_a($nc, 'DOMElement')) {
+                if ($nc instanceof \DOMElement) {
                     $controlledVocabulary[] = $nc->textContent;
                 }
             }
@@ -162,26 +164,26 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             $publication->setData($n->tagName, $publicationNew->getData($n->tagName));
         } else {
             switch ($n->tagName) {
-            // Otherwise, delegate to specific parsing code
-            case 'id':
-                $this->parseIdentifier($n, $publication);
-                break;
-            case 'authors':
-                $this->parseAuthors($n, $publication);
-                break;
-            case 'citations':
-                $this->parseCitations($n, $publication);
-                break;
-            case 'copyrightYear':
-                $publication->setData('copyrightYear', $n->textContent);
-                break;
-            case 'licenseUrl':
-                $publication->setData('licenseUrl', $n->textContent);
-                break;
-            default:
-                $deployment = $this->getDeployment();
-                $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
-        }
+                // Otherwise, delegate to specific parsing code
+                case 'id':
+                    $this->parseIdentifier($n, $publication);
+                    break;
+                case 'authors':
+                    $this->parseAuthors($n, $publication);
+                    break;
+                case 'citations':
+                    $this->parseCitations($n, $publication);
+                    break;
+                case 'copyrightYear':
+                    $publication->setData('copyrightYear', $n->textContent);
+                    break;
+                case 'licenseUrl':
+                    $publication->setData('licenseUrl', $n->textContent);
+                    break;
+                default:
+                    $deployment = $this->getDeployment();
+                    $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+            }
         }
     }
 
@@ -191,7 +193,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the publication object accordingly
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      * @param PKPPublication $publication
      */
     public function parseIdentifier($element, $publication)
@@ -242,13 +244,13 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse an authors element
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      * @param PKPPublication $publication
      */
     public function parseAuthors($node, $publication)
     {
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 assert($n->tagName == 'author');
                 $this->parseAuthor($n, $publication);
             }
@@ -258,7 +260,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse an author and add it to the submission.
      *
-     * @param DOMElement $n
+     * @param \DOMElement $n
      * @param Publication $publication
      */
     public function parseAuthor($n, $publication)
@@ -269,7 +271,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse a publication citation and add it to the publication.
      *
-     * @param DOMElement $n
+     * @param \DOMElement $n
      * @param PKPPublication $publication
      */
     public function parseCitations($n, $publication)

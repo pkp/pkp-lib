@@ -22,6 +22,7 @@ use PKP\config\Config;
 use PKP\core\Dispatcher;
 use PKP\core\PKPString;
 use PKP\core\Registry;
+use PKP\db\DAORegistry;
 use PKP\db\DBResultRange;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/PKPNativeImportExportDeployment.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportDeployment.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,6 +13,8 @@
  * @brief Base class configuring the native import/export process to an
  * application's specifics.
  */
+
+namespace PKP\plugins\importexport\native;
 
 use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\submissionFile\SubmissionFile;

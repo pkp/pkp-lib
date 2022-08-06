@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/users/filter/UserGroupNativeXmlFilter.inc.php
+ * @file plugins/importexport/users/filter/UserGroupNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,9 +13,12 @@
  * @brief Base class that converts a set of user groups to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\users\filter;
 
-class UserGroupNativeXmlFilter extends NativeExportFilter
+use DOMDocument;
+use PKP\db\DAORegistry;
+
+class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\NativeExportFilter
 {
     /**
      * Constructor
@@ -78,7 +81,7 @@ class UserGroupNativeXmlFilter extends NativeExportFilter
      * @param DOMDocument $doc
      * @param UserGroup $userGroup
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createUserGroupNode($doc, $userGroup)
     {
@@ -104,4 +107,8 @@ class UserGroupNativeXmlFilter extends NativeExportFilter
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', htmlspecialchars(join(':', array_keys($assignedStages)), ENT_COMPAT, 'UTF-8')));
         return $userGroupNode;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\importexport\users\filter\UserGroupNativeXmlFilter', '\UserGroupNativeXmlFilter');
 }

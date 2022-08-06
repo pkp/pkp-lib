@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,7 +13,9 @@
  * @brief Base class that converts a set of authors to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\native\filter;
+
+use PKP\db\DAORegistry;
 
 class PKPAuthorNativeXmlFilter extends NativeExportFilter
 {
@@ -49,12 +51,12 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
      *
      * @param array $authors Array of authors
      *
-     * @return DOMDocument
+     * @return \DOMDocument
      */
     public function &process(&$authors)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new \DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -77,10 +79,10 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return an author node.
      *
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param \PKP\author\Author $author
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createPKPAuthorNode($doc, $author)
     {

@@ -14,6 +14,7 @@
  */
 
 use APP\facades\Repo;
+use PKP\db\DAORegistry;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 

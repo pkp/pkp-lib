@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/PKPNativeImportExportCLIDeployment.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportCLIDeployment.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -12,6 +12,8 @@
  *
  * @brief CLI Deployment for Import/Export operations
  */
+
+namespace PKP\plugins\importexport\native;
 
 class PKPNativeImportExportCLIDeployment
 {
@@ -70,7 +72,7 @@ class PKPNativeImportExportCLIDeployment
             case 'usage':
                 break;
             default:
-                throw new BadMethodCallException(__('plugins.importexport.common.error.unknownCommand', ['command' => $this->command]));
+                throw new \BadMethodCallException(__('plugins.importexport.common.error.unknownCommand', ['command' => $this->command]));
         }
     }
 

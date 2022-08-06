@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeExportFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeExportFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,6 +12,8 @@
  *
  * @brief Base class that converts a DataObject to a Native XML document
  */
+
+namespace PKP\plugins\importexport\native\filter;
 
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\xslt\XMLTypeDescription;
@@ -77,8 +79,8 @@ class NativeExportFilter extends PKPImportExportFilter
      * Create a set of child nodes of parentNode containing the
      * localeKey => value data representing translated content.
      *
-     * @param DOMDocument $doc
-     * @param DOMNode $parentNode
+     * @param \DOMDocument $doc
+     * @param \DOMNode $parentNode
      * @param string $name Node name
      * @param array $values Array of locale key => value mappings
      */
@@ -99,12 +101,12 @@ class NativeExportFilter extends PKPImportExportFilter
     /**
      * Create an optional node with a name and value.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $parentNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $parentNode
      * @param string $name
      * @param string|null $value
      *
-     * @return DOMElement|null
+     * @return ?\DOMElement
      */
     public function createOptionalNode($doc, $parentNode, $name, $value)
     {

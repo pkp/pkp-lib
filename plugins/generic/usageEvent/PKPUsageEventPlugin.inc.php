@@ -16,9 +16,10 @@
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\plugins\GenericPlugin;
-
 use PKP\plugins\HookRegistry;
+use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 
 // User classification types.

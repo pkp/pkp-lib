@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/PKPNativeImportExportCLIToolKit.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportCLIToolKit.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -12,6 +12,9 @@
  *
  * @brief CLI Toolkit class
  */
+
+namespace PKP\plugins\importexport\native;
+
 use Colors\Color;
 
 class PKPNativeImportExportCLIToolKit

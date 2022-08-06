@@ -34,6 +34,7 @@ namespace PKP\metadata;
 
 use InvalidArgumentException;
 use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 use PKP\validation\ValidatorControlledVocab;
 
 use PKP\validation\ValidatorFactory;

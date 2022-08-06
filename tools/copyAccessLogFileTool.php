@@ -16,6 +16,7 @@
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
+use PKP\plugins\PluginRegistry;
 use PKP\task\FileLoader;
 
 class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool

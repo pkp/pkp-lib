@@ -1,6 +1,6 @@
 <?php
 /**
- * @file plugins/importexport/native/filter/PKPNativeFilterHelper.inc.php
+ * @file plugins/importexport/native/filter/PKPNativeFilterHelper.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,6 +12,8 @@
  * @brief Class that provides native import/export filter-related helper methods.
  */
 
+namespace PKP\plugins\importexport\native\filter;
+
 use APP\file\PublicFileManager;
 
 class PKPNativeFilterHelper
@@ -20,10 +22,10 @@ class PKPNativeFilterHelper
      * Create and return an object covers node.
      *
      * @param NativeExportFilter $filter
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param Publication $object
      *
-     * @return ?DOMElement
+     * @return ?\DOMElement
      */
     public function createPublicationCoversNode($filter, $doc, $object)
     {
@@ -61,7 +63,7 @@ class PKPNativeFilterHelper
      * Parse out the object covers.
      *
      * @param NativeExportFilter $filter
-     * @param DOMElement $node
+     * @param \DOMElement $node
      * @param Publication $object
      */
     public function parsePublicationCovers($filter, $node, $object)
@@ -71,7 +73,7 @@ class PKPNativeFilterHelper
         $coverImages = [];
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
                     case 'cover':
                         $coverImage = $this->parsePublicationCover($filter, $n, $object);
@@ -90,7 +92,7 @@ class PKPNativeFilterHelper
      * Parse out the cover and store it in the object.
      *
      * @param NativeExportFilter $filter
-     * @param DOMElement $node
+     * @param \DOMElement $node
      * @param Publication $object
      */
     public function parsePublicationCover($filter, $node, $object)
@@ -108,7 +110,7 @@ class PKPNativeFilterHelper
         $coverImage = [];
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
                     case 'cover_image':
                         $coverImage['uploadName'] = $n->textContent;

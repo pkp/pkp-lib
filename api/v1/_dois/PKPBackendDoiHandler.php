@@ -17,6 +17,7 @@
 namespace PKP\API\v1\_dois;
 
 use APP\facades\Repo;
+use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;

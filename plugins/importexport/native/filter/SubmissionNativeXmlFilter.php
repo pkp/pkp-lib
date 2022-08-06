@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/SubmissionNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/SubmissionNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,10 +13,13 @@
  * @brief Base class that converts a set of submissions to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\native\filter;
 
 use APP\facades\Repo;
+use PKP\db\DAORegistry;
+use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\submissionFile\SubmissionFile;
+use PKP\workflow\WorkflowStageDAO;
 
 class SubmissionNativeXmlFilter extends NativeExportFilter
 {
@@ -54,12 +57,12 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
      *
      * @param array $submissions Array of submissions
      *
-     * @return DOMDocument
+     * @return \DOMDocument
      */
     public function &process(&$submissions)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new \DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -87,10 +90,10 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a submission node.
      *
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param Submission $submission
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createSubmissionNode($doc, $submission)
     {
@@ -118,8 +121,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a submission node.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $submissionNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $submissionNode
      * @param Submission $submission
      */
     public function addIdentifiers($doc, $submissionNode, $submission)
@@ -135,8 +138,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Add the submission files to its DOM element.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $submissionNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $submissionNode
      * @param Submission $submission
      */
     public function addFiles($doc, $submissionNode, $submission)
@@ -165,8 +168,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Add the submission files to its DOM element.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $submissionNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $submissionNode
      * @param Submission $submission
      */
     public function addPublications($doc, $submissionNode, $submission)
@@ -177,7 +180,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
         foreach ($publications as $publication) {
             $publicationDoc = $currentFilter->execute($publication);
 
-            if ($publicationDoc && $publicationDoc->documentElement instanceof DOMElement) {
+            if ($publicationDoc && $publicationDoc->documentElement instanceof \DOMElement) {
                 $clone = $doc->importNode($publicationDoc->documentElement, true);
                 $submissionNode->appendChild($clone);
             } else {

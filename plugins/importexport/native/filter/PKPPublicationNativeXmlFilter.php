@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/PKPPublicationNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/PKPPublicationNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,9 +13,12 @@
  * @brief Base class that converts a PKPPublication to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use PKP\db\DAORegistry;
+use PKP\plugins\importexport\PKPImportExportFilter;
+use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -51,12 +54,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      *
      * @param PKPPublication $entity
      *
-     * @return DOMDocument
+     * @return \DOMDocument
      */
     public function &process(&$entity)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new \DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -74,10 +77,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return an entity node.
      *
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param PKPPublication $entity
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createEntityNode($doc, $entity)
     {
@@ -132,8 +135,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a submission node.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $entityNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $entityNode
      * @param PKPPublication $entity
      */
     public function addIdentifiers($doc, $entityNode, $entity)
@@ -164,11 +167,11 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Add a single pub ID element for a given plugin to the document.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $entityNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $entityNode
      * @param PKPPublication $entity
      *
-     * @return DOMElement|null
+     * @return ?\DOMElement
      */
     public function addPubIdentifier($doc, $entityNode, $entity, $pubIdType)
     {
@@ -186,8 +189,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Add the publication metadata for a publication to its DOM element.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $entityNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $entityNode
      * @param PKPPublication $entity
      */
     public function addMetadata($doc, $entityNode, $entity)
@@ -228,8 +231,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Add publication's controlled vocabulary to its DOM element.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $entityNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $entityNode
      * @param string $controlledVocabulariesNodeName Parent node name
      * @param string $controlledVocabularyNodeName Item node name
      * @param array $controlledVocabulary Associative array (locale => array of items)
@@ -254,8 +257,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Add the author metadata for a submission to its DOM element.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $entityNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $entityNode
      * @param PKPPublication $entity
      */
     public function addAuthors($doc, $entityNode, $entity)
@@ -265,7 +268,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         $authors = $entity->getData('authors')->toArray();
         $authorsDoc = $currentFilter->execute($authors);
 
-        if ($authorsDoc && $authorsDoc->documentElement instanceof DOMElement) {
+        if ($authorsDoc && $authorsDoc->documentElement instanceof \DOMElement) {
             $clone = $doc->importNode($authorsDoc->documentElement, true);
             $entityNode->appendChild($clone);
         } else {
@@ -279,8 +282,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Add the representations of a publication to its DOM element.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $entityNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $entityNode
      * @param Publication $entity
      */
     public function addRepresentations($doc, $entityNode, $entity)
@@ -331,11 +334,11 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a Citations node.
      *
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param NativeImportExportDeployment $deployment
      * @param Publication $publication
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     private function createCitationsNode($doc, $deployment, $publication)
     {

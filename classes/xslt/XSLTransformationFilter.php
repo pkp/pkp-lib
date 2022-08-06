@@ -55,7 +55,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Get the XSL
      *
-     * @return DOMDocument|string a document, xsl string or file name
+     * @return \DOMDocument|string a document, xsl string or file name
      */
     public function &getXSL()
     {
@@ -75,7 +75,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Set the XSL
      *
-     * @param DOMDocument|string $xsl
+     * @param \DOMDocument|string $xsl
      */
     public function setXSL(&$xsl)
     {
@@ -143,9 +143,9 @@ class XSLTransformationFilter extends PersistableFilter
      *
      * @see Filter::process()
      *
-     * @param DOMDocument|string $xml
+     * @param \DOMDocument|string $xml
      *
-     * @return DOMDocument|string
+     * @return \DOMDocument|string
      */
     public function &process(&$xml)
     {

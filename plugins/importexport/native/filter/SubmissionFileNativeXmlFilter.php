@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/SubmissionFileNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/SubmissionFileNativeXmlFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,12 +13,14 @@
  * @brief Base class that converts a submissionFile to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
+namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileNativeXmlFilter extends NativeExportFilter
@@ -54,12 +56,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
      *
      * @param SubmissionFile $submissionFile
      *
-     * @return DOMDocument
+     * @return \DOMDocument
      */
     public function &process(&$submissionFile)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new \DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -77,10 +79,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a submissionFile node.
      *
-     * @param DOMDocument $doc
+     * @param \DOMDocument $doc
      * @param SubmissionFile $submissionFile
      *
-     * @return DOMElement
+     * @return \DOMElement
      */
     public function createSubmissionFileNode($doc, $submissionFile)
     {
@@ -114,7 +116,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
             $submissionFileNode->setAttribute('direct_sales_price', $submissionFile->getData('directSalesPrice'));
         }
 
-        
+
         if ($genre) {
             $submissionFileNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
         }
@@ -195,8 +197,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a submission node.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $revisionNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $revisionNode
      * @param SubmissionFile $submissionFile
      */
     public function addIdentifiers($doc, $revisionNode, $submissionFile)
@@ -224,11 +226,11 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Add a single pub ID element for a given plugin to the document.
      *
-     * @param DOMDocument $doc
-     * @param DOMElement $revisionNode
+     * @param \DOMDocument $doc
+     * @param \DOMElement $revisionNode
      * @param SubmissionFile $submissionFile
      *
-     * @return DOMElement|null
+     * @return ?\DOMElement
      */
     public function addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdType)
     {
@@ -250,4 +252,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     {
         return 'submission_file';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\importexport\native\filter\SubmissionFileNativeXmlFilter', '\SubmissionFileNativeXmlFilter');
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlRepresentationFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlRepresentationFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -13,7 +13,10 @@
  * @brief Base class that converts a Native XML document to a set of authors
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
+namespace PKP\plugins\importexport\native\filter;
+
+use APP\core\Application;
+use PKP\plugins\PluginRegistry;
 
 class NativeXmlRepresentationFilter extends NativeImportFilter
 {
@@ -43,7 +46,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
     /**
      * Handle a Representation element
      *
-     * @param DOMElement $node
+     * @param \DOMElement $node
      *
      * @return Representation
      */
@@ -67,18 +70,21 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
-            case 'id': $this->parseIdentifier($n, $representation); break;
-            case 'name':
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $publication->getData('locale');
-                }
-                $representation->setName($n->textContent, $locale);
-                break;
-            case 'seq': $representation->setSequence($n->textContent); break;
-            case 'remote': $representation->setRemoteURL($n->getAttribute('src')); break;
+                    case 'id': $this->parseIdentifier($n, $representation);
+                        break;
+                    case 'name':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $publication->getData('locale');
+                        }
+                        $representation->setName($n->textContent, $locale);
+                        break;
+                    case 'seq': $representation->setSequence($n->textContent);
+                        break;
+                    case 'remote': $representation->setRemoteURL($n->getAttribute('src'));
+                        break;
 
-        }
+                }
             }
         }
 
@@ -88,7 +94,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the representation object accordingly
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      * @param Representation $representation
      */
     public function parseIdentifier($element, $representation)

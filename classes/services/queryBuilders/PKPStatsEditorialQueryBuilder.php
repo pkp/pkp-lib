@@ -18,6 +18,9 @@ namespace PKP\services\queryBuilders;
 
 use APP\decision\Decision;
 use APP\facades\Repo;
+use Exception;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\decision\DecisionType;
 use PKP\submission\PKPSubmission;
@@ -447,16 +450,13 @@ abstract class PKPStatsEditorialQueryBuilder
 
     /**
      * Retrieves a suitable diff by days clause according to the active database driver
-     *
-     * @return string
      */
-    private function _dateDiff(string $leftDate, string $rightDate)
+    private function _dateDiff(string $leftDate, string $rightDate): string
     {
-        switch (\Config::getVar('database', 'driver')) {
-            case 'mysql':
-            case 'mysqli':
-                return 'DATEDIFF(' . $leftDate . ',' . $rightDate . ')';
-        }
-        return "DATE_PART('day', " . $leftDate . ' - ' . $rightDate . ')';
+        return match (DB::connection()::class) {
+            MySqlConnection::class => 'DATEDIFF(' . $leftDate . ',' . $rightDate . ')',
+            PostgresConnection::class => "DATE_PART('day', " . $leftDate . ' - ' . $rightDate . ')',
+            default => throw new Exception('Unknown database type')
+        };
     }
 }

@@ -38,7 +38,7 @@ elif [[ "$TEST" == "mysql" ]]; then
 	sudo mysql -u root -e "CREATE DATABASE \`${DBNAME}\` DEFAULT CHARACTER SET utf8"
 	sudo mysql -u root -e "CREATE USER \`${DBUSERNAME}\`@${DBHOST} IDENTIFIED BY '${DBPASSWORD}'"
 	sudo mysql -u root -e "GRANT ALL ON \`${DBNAME}\`.* TO \`${DBUSERNAME}\`@localhost WITH GRANT OPTION"
-	export DBTYPE=MySQLi
+	export DBTYPE=MySQL
 fi
 
 # Use the template configuration file.

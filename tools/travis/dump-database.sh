@@ -9,7 +9,7 @@
 # Script to dump a copy of the database.
 #
 # Requires the following environment vars to be set:
-# - DBTYPE: Database type (MySQL/MySQLi/PostgreSQL)
+# - DBTYPE: Database type (MySQL/PostgreSQL)
 # - DBUSERNAME: Database username
 # - DBPASSWORD: Database password
 # - DBNAME: Database name
@@ -23,7 +23,7 @@ case "$DBTYPE" in
 	PostgreSQL)
 		pg_dump --clean --username=$DBUSERNAME --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
 		;;
-	MySQL|MySQLi)
+	MySQL)
 		mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
 		;;
 	*)

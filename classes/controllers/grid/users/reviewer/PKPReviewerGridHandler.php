@@ -474,7 +474,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->initData();
 
         return new JSONMessage(true, $unassignReviewerForm->fetch($request));

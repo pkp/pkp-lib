@@ -25,6 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
+use PKP\decision\types\traits\WithReviewAssignments;
 
 trait InExternalReviewRound
 {

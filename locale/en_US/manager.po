@@ -2567,12 +2567,6 @@ msgstr "Submission Accepted"
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr "This email notifies the author that their submission has been accepted for publication."
 
-msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "Submission Sent Back to Copyediting"
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back to the copyediting stage."
-
 msgid "mailable.decision.backFromProduction.notifyAuthor.name"
 msgstr "Submission Sent Back from Production"
 
@@ -2590,30 +2584,6 @@ msgstr "Submission Sent Back from External Review"
 
 msgid "mailable.decision.backFromExternalReview.notifyAuthor.description"
 msgstr "This email notifies the author that their submission has been sent back from current external review round or stage."
-
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Submission Sent Back to Review"
-
-msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back to the review stage."
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "Submission Sent Back to Submission"
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back to the submission stage."
-
-msgid "mailable.decision.backToPreviousReviewRound.notifyAuthor.name"
-msgstr "Submission Sent Back to Previous Review Round"
-
-msgid "mailable.decision.backToPreviousReviewRound.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back to the previous review round."
-
-msgid "mailable.decision.backToPreviousInternalReviewRound.notifyReviewer.name"
-msgstr "Submission Sent Back to Previous Round"
-
-msgid "mailable.decision.backToPreviousInternalReviewRound.notifyReviewer.description"
-msgstr "This email notifies the reviewers who has accepted the review request that the submission has been sent back to previous internal review round."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
 msgstr "Submission Declined"

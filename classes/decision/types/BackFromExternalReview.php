@@ -1,18 +1,21 @@
 <?php
-
 /**
- * @file classes/decision/types/traits/ToPreviousReviewRound.inc.php
+ * @file classes/decision/types/BackFromExternalReview.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class decision
+ * @class BackFromExternalReview
  *
- * @brief Helper functions for decisions taken in review round to return back to previous round
+ * @brief A decision to return a submission back from the external review stage
+ *   if has more than one external review round, remains in the external review stage
+ *   if has any internal review round, back to internal review stage
+ *   if has no internal review round, back to submission stage.
+ *
  */
 
-namespace PKP\decision\types\traits;
+namespace PKP\decision\types;
 
 use APP\decision\Decision;
 use APP\submission\Submission;
@@ -22,17 +25,24 @@ use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\mail\mailables\DecisionBackToPreviousReviewRoundNotifyAuthor;
+use PKP\decision\types\interfaces\DecisionRetractable;
+use PKP\decision\types\traits\CanRetractReviewRound;
+use PKP\decision\types\traits\InExternalReviewRound;
+use PKP\decision\types\traits\NotifyAuthors;
+use PKP\decision\types\traits\NotifyReviewersOfUnassignment;
+use PKP\mail\mailables\DecisionBackFromExternalReviewNotifyAuthor;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Role;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 
-trait ToPreviousReviewRound
+class BackFromExternalReview extends DecisionType implements DecisionRetractable
 {
-    use NotifyReviewersOfUnassignment;
     use NotifyAuthors;
+    use NotifyReviewersOfUnassignment;
+    use InExternalReviewRound;
+    use CanRetractReviewRound;
 
     public function getNewStatus(): ?int
     {
@@ -44,24 +54,64 @@ trait ToPreviousReviewRound
         return null;
     }
 
+    public function getDecision(): int
+    {
+        return Decision::BACK_FROM_EXTERNAL_REVIEW;
+    }
+
+    /**
+     * Determine the possible new stage id for this decision
+     *
+     * The determining process follows as :
+     *
+     * If there is more than one external review round associated with it
+     * new stage need to be external review stage
+     *
+     * If there is only one external review round associated with it but there is internal review round also associated with it,
+     * new stage need to be internal review stage
+     *
+     * If there is no external or internal review round associated with it
+     * new stage need to submission stage
+     */
+    public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        if ($reviewRoundDao->getReviewRoundCountBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) > 1) {
+            return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
+        }
+
+        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+            return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
+        }
+
+        return WORKFLOW_STAGE_ID_SUBMISSION;
+    }
+
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToPreviousReviewRound', [], $locale);
+        return __('editor.submission.decision.backFromExternalReview', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
     {
-        return __('editor.submission.decision.backToPreviousReviewRound.description', [], $locale);
+        return __('editor.submission.decision.backFromExternalReview.description', [], $locale);
+    }
+
+    public function getLog(): string
+    {
+        return __('editor.submission.decision.backFromExternalReview.log');
     }
 
     public function getCompletedLabel(): string
     {
-        return __('editor.submission.decision.backToPreviousReviewRound.completed');
+        return __('editor.submission.decision.backFromExternalReview.completed');
     }
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.backToPreviousReviewRound.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.backFromExternalReview.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
@@ -74,7 +124,7 @@ trait ToPreviousReviewRound
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
         if (!$this->canRetract($submission, $reviewRoundId)) {
-            $validator->errors()->add('restriction', __('editor.submission.decision.backToPreviousReviewRound.restriction'));
+            $validator->errors()->add('restriction', __('editor.submission.decision.backFromExternalReview.restriction'));
         }
 
         if (!isset($props['actions'])) {
@@ -102,7 +152,7 @@ trait ToPreviousReviewRound
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->sendAuthorEmail(
-                        new DecisionBackToPreviousReviewRoundNotifyAuthor($context, $submission, $decision),
+                        new DecisionBackFromExternalReviewNotifyAuthor($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission,
@@ -138,11 +188,11 @@ trait ToPreviousReviewRound
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
 
         if (count($authors)) {
-            $mailable = new DecisionBackToPreviousReviewRoundNotifyAuthor($context, $submission, $fakeDecision);
+            $mailable = new DecisionBackFromExternalReviewNotifyAuthor($context, $submission, $fakeDecision);
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
-                __('editor.submission.decision.backToPreviousReviewRound.notifyAuthorsDescription'),
+                __('editor.submission.decision.backFromExternalReview.notifyAuthorsDescription'),
                 $authors,
                 $mailable
                     ->sender($editor)

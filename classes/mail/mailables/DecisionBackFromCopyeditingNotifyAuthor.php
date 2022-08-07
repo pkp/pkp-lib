@@ -1,17 +1,16 @@
 <?php
 
 /**
- * @file classes/mail/mailables/DecisionBackToPreviousReviewRoundNotifyAuthor.inc.php
+ * @file classes/mail/mailables/DecisionBackFromCopyeditingNotifyAuthor.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DecisionBackToPreviousReviewRoundNotifyAuthor
+ * @class DecisionBackFromCopyeditingNotifyAuthor
  *
- * @brief Email sent to the author(s) when the following decision is made:
- *   Decision::BACK_TO_PREVIOUS_EXTERNAL_REVIEW_ROUND
- *   Decision::BACK_TO_PREVIOUS_INTERNAL_REVIEW_ROUND
+ * @brief Email sent to the author(s) when following decisions are made :
+ *      Decision::BACK_FROM_COPYEDITING
  */
 
 namespace PKP\mail\mailables;
@@ -25,17 +24,17 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 
-class DecisionBackToPreviousReviewRoundNotifyAuthor extends Mailable
+class DecisionBackFromCopyeditingNotifyAuthor extends Mailable
 {
     use Configurable;
     use Recipient;
     use Sender;
 
-    protected static ?string $name = 'mailable.decision.backToPreviousReviewRound.notifyAuthor.name';
-    protected static ?string $description = 'mailable.decision.backToPreviousReviewRound.notifyAuthor.description';
-    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_BACK_TO_PREVIOUS_REVIEW_ROUND_NOTIFY_AUTHOR';
+    protected static ?string $name = 'mailable.decision.backFromCopyediting.notifyAuthor.name';
+    protected static ?string $description = 'mailable.decision.backFromCopyediting.notifyAuthor.description';
+    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_BACK_FROM_COPYEDITING';
     protected static bool $supportsTemplates = true;
-    protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $groupIds = [self::GROUP_COPYEDITING];
     protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 

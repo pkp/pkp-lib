@@ -23,6 +23,7 @@ use PKP\plugins\GenericPlugin;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\core\Core;
 
 // User classification types.
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');

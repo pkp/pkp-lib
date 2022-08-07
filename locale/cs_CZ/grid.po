@@ -160,7 +160,8 @@ msgid "grid.action.deleteSection"
 msgstr "Smazat sekci"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Potvrďte tuto redakční úpravu souboru, aby mohl být odeslán do další fáze"
+msgstr ""
+"Potvrďte tuto redakční úpravu souboru, aby mohl být odeslán do další fáze"
 
 msgid "grid.action.editorialHistory"
 msgstr "Historie úprav"
@@ -376,10 +377,15 @@ msgid "grid.user.error"
 msgstr "Při správě tohoto uživatele došlo k chybě. Prosím, zkuste to znovu."
 
 msgid "grid.user.errorEmail"
-msgstr "Při odesílání tohoto emailu došlo k chybě. Ujistěte se, že konfigurace e-mailového serveru funguje a/nebo se obraťte na správce systému."
+msgstr ""
+"Při odesílání tohoto emailu došlo k chybě. Ujistěte se, že konfigurace e-"
+"mailového serveru funguje a/nebo se obraťte na správce systému."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Nemáte dostatečná oprávnění k správě tohoto uživatele. Chcete-li spravovat uživatele, musíte být buď správcem webu, nebo spravovat všechny role, do kterých je tento uživatel zapsán."
+msgstr ""
+"Nemáte dostatečná oprávnění k správě tohoto uživatele. Chcete-li spravovat "
+"uživatele, musíte být buď správcem webu, nebo spravovat všechny role, do "
+"kterých je tento uživatel zapsán."
 
 msgid "grid.user.mustProvideName"
 msgstr "Uveďte, prosím, napřed minimálně příjmení uživatele."
@@ -424,7 +430,7 @@ msgid "grid.user.step1"
 msgstr "Krok 1: Vyplňte údaje o uživateli"
 
 msgid "grid.user.step2"
-msgstr "Krok 2:  Přidejte role pro {$userFullName}"
+msgstr "Krok 2: Přidejte role pro {$userFullName}"
 
 msgid "grid.user.addRoles"
 msgstr "Přidat role"
@@ -439,7 +445,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Vyberte, prosím, uživatele"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Přihlásit se jako tento uživatel? Všechny akce, které provedete, budou přiřazeny tomuto uživateli."
+msgstr ""
+"Přihlásit se jako tento uživatel? Všechny akce, které provedete, budou "
+"přiřazeny tomuto uživateli."
 
 msgid "grid.user.mergeUsers"
 msgstr "Sloučit uživatele"
@@ -454,7 +462,10 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Všichni uživatelé s rolí"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Opravdu chcete sloučit účet s uživatelským jménem \"{$oldUsername}\" do účtu s uživatelským jménem \"{$newUsername}\"? Účet s uživatelským jménem \"{$oldUsername}\" bude definitivně smazán. Tuto akci nelze vrátit."
+msgstr ""
+"Opravdu chcete sloučit účet s uživatelským jménem \"{$oldUsername}\" do účtu "
+"s uživatelským jménem \"{$newUsername}\"? Účet s uživatelským jménem "
+"\"{$oldUsername}\" bude definitivně smazán. Tuto akci nelze vrátit."
 
 msgid "grid.preparedEmails.title"
 msgstr "Připravené šablony emailů"
@@ -559,7 +570,9 @@ msgid "grid.task.status.unfinished"
 msgstr "Úloha nebyla dokončena"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Tato recenze byla ukončena. Klikněte na ikonu poznámky nalevo, pokud si ji chcete přečíst."
+msgstr ""
+"Tato recenze byla ukončena. Klikněte na ikonu poznámky nalevo, pokud si ji "
+"chcete přečíst."
 
 msgid "grid.columns.auditor"
 msgstr "Posuzovatel"
@@ -628,7 +641,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Role {$userGroupName} je základní a nemůže být odebrána."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Nelze odebrat roli  {$userGroupName}. Počet uživatelů, kteří ji mají v současnosti přiřazeno je:  {$usersCount}."
+msgstr ""
+"Nelze odebrat roli {$userGroupName}. Počet uživatelů, kteří ji mají v "
+"současnosti přiřazeno je: {$usersCount}."
 
 msgid "grid.userGroup.removed"
 msgstr "Role {$userGroupName} byla odebrána."
@@ -643,7 +658,9 @@ msgid "grid.submission.itemTitle"
 msgstr "Autor; Název"
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr "Zahrnout i nedokončené příspěvky, jejichž podávání nebylo tímto autorem ukončeno."
+msgstr ""
+"Zahrnout i nedokončené příspěvky, jejichž podávání nebylo tímto autorem "
+"ukončeno."
 
 msgid "grid.action.addNavigationMenu"
 msgstr "Přidat menu"
@@ -705,3 +722,9 @@ msgstr ""
 
 msgid "grid.action.saveOrdering"
 msgstr "Uložit pořadí"
+
+msgid "grid.user.authSource"
+msgstr "Zdroj ověření"
+
+msgid "grid.action.addInstitution"
+msgstr "Přidat instituci"

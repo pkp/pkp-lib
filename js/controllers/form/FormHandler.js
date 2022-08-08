@@ -553,7 +553,9 @@
 		$form.find('.hasDatepicker').datepicker('hide');
 		if (this.formChangesTracked) {
 			if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
-				informationObject.closePermitted = false;
+				if (informationObject) {
+					informationObject.closePermitted = false;
+				}
 				return false;
 			} else {
 				this.trigger('unregisterAllForms');

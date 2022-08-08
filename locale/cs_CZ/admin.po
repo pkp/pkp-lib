@@ -570,3 +570,120 @@ msgstr ""
 "byly vypočteny. Chcete-li přepočítat statistiky za předchozí měsíc, musíte "
 "obnovit všechny soubory protokolu z tohoto měsíce a použít nástroj CLI k "
 "opětovnému zpracování statistik."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "ID příspěvku není celé číslo."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Typ Assoc není podporován."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Zkratka státu není řetězec dvou abecedních znaků."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Zkratka regionu není až tři alfanumerické znaky dlouhý řetězec."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "ID institucí není pole."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Úloha na pozadí, která zpracuje soubor protokolu {$file} a uloží statistická "
+"data, byla odeslána."
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Zdrojový soubor gz {$filePath} se "
+"nepodařilo otevřít pomocí gzopen."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Cílový soubor {$filePath} se nepodařilo "
+"otevřít pomocí fopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Cílový soubor {$filePath} se nepodařilo "
+"zapsat pomocí fwrite."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Dekomprimovaný zdrojový gz-soubor "
+"{$filePath} se nepodařilo odstranit pomocí unlink."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Zdrojový soubor {$filePath} se nepodařilo "
+"otevřít pomocí fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Zdrojový soubor {$filePath} se nepodařilo "
+"přečíst pomocí fread."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Otevřený zdrojový soubor {$filePath} se "
+"nepodařilo uzavřít pomocí fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Otevřený cílový gz-soubor {$filePath} se "
+"nepodařilo uzavřít pomocí gzclose."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Úloha, která načítá data statistik použití ze souboru {$file}, selhala a "
+"soubor nebylo možné přesunout z {$archivedFilePath} do {$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Úloha, která načítá data statistik použití ze souboru {$file}, selhala. "
+"Soubor byl přesunut do adresáře etapy."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Čas není platným datem."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "ID kontextu není celé číslo."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "ID reprezentace není celé číslo."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Typ souboru není podporován."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Při zpracování souboru protokolu {$file} došlo k chybě na řádku "
+"{$lineNumber}: {$msg}"
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Zdrojový gz-soubor {$file} se nepodařilo "
+"přečíst pomocí gzread."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Otevřený cílový soubor {$filePath} se "
+"nepodařilo uzavřít pomocí fclose."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Otevřený zdrojový gz-soubor {$filePath} "
+"se nepodařilo uzavřít pomocí gzclose."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Cílový soubor gz {$filePath} se "
+"nepodařilo otevřít pomocí gzopen."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Cílový soubor gz {$filePath} nebylo možné "
+"zapsat pomocí gzwrite."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Komprimovaný zdrojový soubor {$filePath} "
+"nebylo možné odstranit pomocí unlink."

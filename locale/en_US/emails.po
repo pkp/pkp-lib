@@ -310,10 +310,10 @@ msgstr ""
 "<p>Kind regards,</p>\n"
 "<p>{$signature}</p>\n"
 
-msgid "emails.editorDecisionBackFromExternalReview.subject"
+msgid "emails.editorDecisionCancelReviewRound.subject"
 msgstr "Your submission has been sent back from external review stage"
 
-msgid "emails.editorDecisionBackFromExternalReview.body"
+msgid "emails.editorDecisionCancelReviewRound.body"
 msgstr ""
 "<p>Dear {$recipientName},</p>\n"
 "<p>Your submission, {$submissionTitle}, has been sent back to from the external review stage. \n"

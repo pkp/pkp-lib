@@ -1383,7 +1383,7 @@ msgstr "The submission, {$title}, has been accepted for publication and sent to 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that their submission has been accepted for publication."
 
-msgid "editor.submission.decision.backFromExternalReview.notifyAuthorsDescription"
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that a subsequent review round has been closed."
 
 msgid "editor.submission.decision.decline"
@@ -1452,25 +1452,25 @@ msgstr "Revisions for the submission, {$title}, have been requested."
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that revisions will be required before this submission will be accepted for publication. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments."
 
-msgid "editor.submission.decision.backFromExternalReview"
+msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancel Review Round"
 
-msgid "editor.submission.decision.backFromExternalReview.description"
+msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr "The editor can back out from the current review round to previous round or stage if no review assignment has completed."
 
-msgid "editor.submission.decision.backFromExternalReview.log"
+msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName} has backed out from current external review round or stage."
 
-msgid "editor.submission.decision.backFromExternalReview.completed"
+msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Cancelled the latest round of review."
 
-msgid "editor.submission.decision.backFromExternalReview.completed.description"
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "The review round for the submission, {$title}, has been cancelled."
 
-msgid "editor.submission.decision.backFromExternalReview.notifyReviewersDescription"
+msgid "editor.submission.decision.cancelReviewRound.notifyReviewersDescription"
 msgstr "Send an email to the assigned reviewers to let them know that editor has cancelled the current round of review."
 
-msgid "editor.submission.decision.backFromExternalReview.restriction"
+msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr "Can only cancel review round if no associated reviewer has any completed or submitted review available."
 
 msgid "editor.submission.decision.resubmit"

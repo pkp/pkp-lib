@@ -1,17 +1,15 @@
 <?php
 /**
- * @file classes/decision/types/BackFromExternalReview.inc.php
+ * @file classes/decision/types/CancelReviewRound.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class BackFromExternalReview
+ * @class CancelReviewRound
  *
- * @brief A decision to return a submission back from the external review stage
- *   if has more than one external review round, remains in the external review stage
- *   if has any internal review round, back to internal review stage
- *   if has no internal review round, back to submission stage.
+ * @brief A decision to cancel a review round and send the submission back
+ *   to the previous review round or workflow stage.
  *
  */
 
@@ -30,14 +28,14 @@ use PKP\decision\types\traits\CanRetractReviewRound;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewersOfUnassignment;
-use PKP\mail\mailables\DecisionBackFromExternalReviewNotifyAuthor;
+use PKP\mail\mailables\DecisionCancelReviewRoundNotifyAuthor;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 
-class BackFromExternalReview extends DecisionType implements DecisionRetractable
+class CancelReviewRound extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
     use NotifyReviewersOfUnassignment;
@@ -56,7 +54,7 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
 
     public function getDecision(): int
     {
-        return Decision::BACK_FROM_EXTERNAL_REVIEW;
+        return Decision::CANCEL_REVIEW_ROUND;
     }
 
     /**
@@ -91,27 +89,27 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
 
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backFromExternalReview', [], $locale);
+        return __('editor.submission.decision.cancelReviewRound', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
     {
-        return __('editor.submission.decision.backFromExternalReview.description', [], $locale);
+        return __('editor.submission.decision.cancelReviewRound.description', [], $locale);
     }
 
     public function getLog(): string
     {
-        return __('editor.submission.decision.backFromExternalReview.log');
+        return __('editor.submission.decision.cancelReviewRound.log');
     }
 
     public function getCompletedLabel(): string
     {
-        return __('editor.submission.decision.backFromExternalReview.completed');
+        return __('editor.submission.decision.cancelReviewRound.completed');
     }
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.backFromExternalReview.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.cancelReviewRound.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
@@ -124,7 +122,7 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
         if (!$this->canRetract($submission, $reviewRoundId)) {
-            $validator->errors()->add('restriction', __('editor.submission.decision.backFromExternalReview.restriction'));
+            $validator->errors()->add('restriction', __('editor.submission.decision.cancelReviewRound.restriction'));
         }
 
         if (!isset($props['actions'])) {
@@ -152,7 +150,7 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->sendAuthorEmail(
-                        new DecisionBackFromExternalReviewNotifyAuthor($context, $submission, $decision),
+                        new DecisionCancelReviewRoundNotifyAuthor($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission,
@@ -188,11 +186,11 @@ class BackFromExternalReview extends DecisionType implements DecisionRetractable
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
 
         if (count($authors)) {
-            $mailable = new DecisionBackFromExternalReviewNotifyAuthor($context, $submission, $fakeDecision);
+            $mailable = new DecisionCancelReviewRoundNotifyAuthor($context, $submission, $fakeDecision);
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
-                __('editor.submission.decision.backFromExternalReview.notifyAuthorsDescription'),
+                __('editor.submission.decision.cancelReviewRound.notifyAuthorsDescription'),
                 $authors,
                 $mailable
                     ->sender($editor)

@@ -17,7 +17,7 @@ namespace PKP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\journal\Journal;
+use PKP\context\Context;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
@@ -291,7 +291,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
     /**
      * Creates SubmissionAcknowledgement mailable and populates it with data
      */
-    protected function setSubmissionAckMailable(Journal $context, User $user): SubmissionAcknowledgement
+    protected function setSubmissionAckMailable(Context $context, User $user): SubmissionAcknowledgement
     {
         $submissionAck = new SubmissionAcknowledgement($context, $this->submission);
         $submissionAckTemplate = Repo::emailTemplate()->getByKey($context->getId(), SubmissionAcknowledgement::getEmailTemplateKey());
@@ -335,7 +335,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
     /**
      * Creates SubmissionAckNotAuthor mailable and populates it with data
      */
-    protected function setSubmissionAckNotAuthorMailable(Journal $context, User $user): SubmissionAcknowledgementNotAuthor
+    protected function setSubmissionAckNotAuthorMailable(Context $context, User $user): SubmissionAcknowledgementNotAuthor
     {
         $submissionAckNotAuthor = new SubmissionAcknowledgementNotAuthor($context, $this->submission, $user);
         $submissionAckNotAuthorTemplate = Repo::emailTemplate()->getByKey($context->getId(), SubmissionAcknowledgementNotAuthor::getEmailTemplateKey());

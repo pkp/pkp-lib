@@ -439,9 +439,9 @@ msgstr "Tilføj en test opgave til default køen"
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
-"Slet en specifik opgave i køen baseret på dets ID .Hvis du vil slette dem "
-"alle, brug parameteret --all. Hvis du vil slette alle opgaver i en specifik "
-"kø, brug parameteret  --queue="
+"Slet en specifik opgave i køen baseret på dets ID. Hvis du vil slette dem "
+"alle: Brug parameteren --all. Hvis du vil slette alle opgaver i en specifik "
+"kø: Brug parameteret --queue="
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
@@ -530,7 +530,7 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
-"Send en e-mail til  hver redaktør for at minde dem om deres uafsluttede "
+"Send en e-mail til hver redaktør for at minde dem om deres uafsluttede "
 "opgaver"
 
 msgid "admin.auth.confirmDelete"
@@ -613,3 +613,86 @@ msgstr "Filtypen understøttes ikke."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
 msgstr "Region er ikke en op til tre alfa-nummeriske karakterer lang streng."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Assoc type understøttes ikke."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Destinationsfilen {$filePath} kunne ikke "
+"åbnes med fopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Destinationsfilen {$filePath} kunne ikke "
+"skrives med fwrite."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Den åbne kilde-gz-fil {$filePath} kunne ikke "
+"lukkes med gzclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Den dekomprimerede kilde-gz-fil {$filePath} "
+"kunne ikke fjernes med unlink."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Kildefilen {$filePath} kunne ikke åbnes med "
+"fopen."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Opgave, der indlæser brugsstatistikdata fra filen {$file}, fejlede. Filen er "
+"blevet flyttet til stage direktivet."
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Kilde-gz-filen {$filePath} kunne ikke åbnes "
+"med gzopen."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Kilde-gz-filen {$filePath} kunne ikke læses "
+"af gzopen."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Den åbne destinationsfil {$filePath} kunne "
+"ikke lukkes med fclose."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Destinations-gz-filen {$filePath} kunne ikke "
+"åbnes med gzopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Kildefilen {$filePath} kunne ikke læses af "
+"fread."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Destinations-gz-filen {$filePath} kunne ikke "
+"skrives med gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Den åbne kildefil {$filePath} kunne ikke "
+"lukkes med fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Den åbne destinations-gz-fil {$filePath} "
+"kunne ikke lukkes med gzclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Filen kunne ikke dekomprimeres. Den dekomprimerede kildefil {$filePath} "
+"kunne ikke fjernes med unlink."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Opgave, der indlæser brugsstatistikdata fra filen {$file} fejlede, og filen "
+"kunne ikke flyttes fra {$archivedFilePath} til {$stagingPath}."

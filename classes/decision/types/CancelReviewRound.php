@@ -26,7 +26,7 @@ use PKP\decision\steps\Email;
 use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\NotifyReviewersOfUnassignment;
+use PKP\decision\types\traits\NotifyReviewers;
 use PKP\mail\mailables\DecisionCancelReviewRoundNotifyAuthor;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Role;
@@ -37,7 +37,7 @@ use PKP\user\User;
 class CancelReviewRound extends DecisionType implements DecisionRetractable
 {
     use NotifyAuthors;
-    use NotifyReviewersOfUnassignment;
+    use NotifyReviewers;
     use InExternalReviewRound;
 
     public function getNewStatus(): ?int

@@ -24,7 +24,7 @@ use PKP\decision\steps\Email;
 use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\NotifyReviewersOfAcknowledgement;
+use PKP\decision\types\traits\NotifyReviewers;
 use PKP\mail\mailables\DecisionAcceptNotifyAuthor;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\security\Role;
@@ -36,7 +36,7 @@ class Accept extends DecisionType
 {
     use InExternalReviewRound;
     use NotifyAuthors;
-    use NotifyReviewersOfAcknowledgement;
+    use NotifyReviewers;
 
     public function getDecision(): int
     {

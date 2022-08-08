@@ -20,7 +20,6 @@
 
 namespace APP\plugins\metadata\dc11\filter;
 
-use PKP\plugins\HookRegistry;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\oai\ops\OAIDAO;

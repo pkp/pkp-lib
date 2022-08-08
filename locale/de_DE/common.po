@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2022-08-08 09:30+0000\n"
+"PO-Revision-Date: 2022-08-09 07:17+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de_DE/>\n"
@@ -1419,7 +1419,7 @@ msgstr "Meine Warteschlange"
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei "
-"Einreichungen gewährleistet werden,  die Identitäten von Autor/innen und "
+"Einreichungen gewährleistet werden, die Identitäten von Autor/innen und "
 "Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und "
 "Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) "
 "sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen "
@@ -1781,7 +1781,7 @@ msgid "validator.size.string"
 msgstr "Dies muss {$size} Zeichen enthalten."
 
 msgid "validator.size.file"
-msgstr "Dies müssen  {$size} Kilobyte sein."
+msgstr "Dies müssen {$size} Kilobyte sein."
 
 msgid "validator.size.numeric"
 msgstr "Dies muss {$size} groß sein."
@@ -1842,16 +1842,16 @@ msgid "validator.mimes"
 msgstr "Dies muss eine Datei des Typs {$values} sein."
 
 msgid "validator.max.array"
-msgstr "Dies darf nicht mehr als  {$max} Elemente enthalten."
+msgstr "Dies darf nicht mehr als {$max} Elemente enthalten."
 
 msgid "validator.max.string"
-msgstr "Dies darf nicht mehr als  {$max} Zeichen lang sein."
+msgstr "Dies darf nicht mehr als {$max} Zeichen lang sein."
 
 msgid "validator.max.file"
-msgstr "Dies darf nicht größer als  {$max} Kilobyte sein."
+msgstr "Dies darf nicht größer als {$max} Kilobyte sein."
 
 msgid "validator.max.numeric"
-msgstr "Dies darf nicht größer als  {$max} sein."
+msgstr "Dies darf nicht größer als {$max} sein."
 
 msgid "validator.localeKey"
 msgstr ""
@@ -1903,7 +1903,7 @@ msgid "validator.different"
 msgstr "{$attribute} und {$other} müssen verschieden sein."
 
 msgid "validator.date_format"
-msgstr "Dies stimmt nicht mit dem Format  {$format} überein."
+msgstr "Dies stimmt nicht mit dem Format {$format} überein."
 
 msgid "validator.date"
 msgstr "Dies ist kein gültiges Datum."
@@ -2092,3 +2092,84 @@ msgstr "Auswahl aufheben"
 
 msgid "common.attachSelected"
 msgstr "Ausgewählte anhängen"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Gutachtendateien anhängen"
+
+msgid "common.searching"
+msgstr "Suchend"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Eingereichte Dateien anhängen"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Unbekannter Befehl {$command}"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Dateien, die von Gutachtenden hochgeladen wurden, anhängen"
+
+msgid "common.insertContent"
+msgstr "Inhalt einfügen"
+
+msgid "common.insertContentSearch"
+msgstr "Inhalt zum Einfügen suchen"
+
+msgid "common.loadTemplate"
+msgstr "Eine Vorlage laden"
+
+msgid "common.keepWorking"
+msgstr "Weiterarbeiten"
+
+msgid "common.numberedMore"
+msgstr "{$number} mehr"
+
+msgid "common.switchTo"
+msgstr "Wechseln zu"
+
+msgid "common.switchToNamedItem"
+msgstr "Wechseln zu {$name}"
+
+msgid "common.upload.addFile.description"
+msgstr "Datei vom Computer hochladen."
+
+msgid "common.viewError"
+msgstr "Fehler ansehen"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Dateien aus der Bibliothek"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Dateien aus der Bibliothek anhängen"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Dateien aus der Einreichung und Herausgeberbibliothek anhängen."
+
+msgid "email.attachmentNotFound"
+msgstr "Die Datei {$fileName} konnte nicht angehangen werden."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Sind Sie sicher, dass Sie zu {$localeName} wechseln möchten, um diese E-Mail "
+"zu verfassen? Alle Änderungen, die Sie am Betreff und am Text der E-Mail "
+"vorgenommen haben, gehen verloren."
+
+msgid "institution.institutions"
+msgstr "Einrichtungen"
+
+msgid "notification.type.editorialReminder"
+msgstr "Wöchentliche E-Mail mit ausstehenden Aufgaben"
+
+msgid "common.showAllSteps"
+msgstr "Zeige alle Schritte"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, anhängen."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, wie "
+"beispielsweise Revisionen oder Dateien, anhängen."

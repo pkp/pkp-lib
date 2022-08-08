@@ -28,7 +28,6 @@ use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\mailables\DecisionBackFromCopyeditingNotifyAuthor;
 use PKP\security\Role;
@@ -37,7 +36,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class BackFromCopyediting extends DecisionType implements DecisionRetractable
+class BackFromCopyediting extends DecisionType
 {
     use NotifyAuthors;
 
@@ -177,14 +176,6 @@ class BackFromCopyediting extends DecisionType implements DecisionRetractable
         }
 
         return $steps;
-    }
-
-    /**
-     * Determine if decision can be retractable that is to backout to previous state/stage
-     */
-    public function canRetract(Submission $submission, ?int $reviewRoundId): bool
-    {
-        return true;
     }
 
     /**

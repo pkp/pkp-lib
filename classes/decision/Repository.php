@@ -28,7 +28,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\observers\events\DecisionAdded;
@@ -376,23 +375,6 @@ abstract class Repository
         return $sentRevisions;
 
         return true;
-    }
-
-    /**
-     * Get a list of retractable decision types available for given stage
-     *
-     * @return DecisionType[]
-     */
-    public function getApplicableRetractableDecisionTypes(int $stageId, ...$params): array
-    {
-        return $this
-            ->getDecisionTypes()
-            ->filter(
-                fn ($decision) => $decision instanceof DecisionRetractable
-                                        && $decision->getStageId() === $stageId
-                                        && $decision->canRetract(...$params)
-            )
-            ->toArray();
     }
 
     /**

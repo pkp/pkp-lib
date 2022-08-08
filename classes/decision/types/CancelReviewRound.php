@@ -24,7 +24,6 @@ use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\types\interfaces\DecisionRetractable;
-use PKP\decision\types\traits\CanRetractReviewRound;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewersOfUnassignment;
@@ -40,7 +39,6 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
     use NotifyAuthors;
     use NotifyReviewersOfUnassignment;
     use InExternalReviewRound;
-    use CanRetractReviewRound;
 
     public function getNewStatus(): ?int
     {
@@ -140,6 +138,32 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
                     break;
             }
         }
+    }
+
+    /**
+     * Determine if the review round can be cancelled
+     *
+     * The determining process follows as:
+     *      If there is any submitted review by reviewer that is not cancelled, can not back out
+     *      If there is any completed review by reviewer, can not back out
+     */
+    public function canRetract(Submission $submission, ?int $reviewRoundId): bool
+    {
+        if (!$reviewRoundId) {
+            return false;
+        }
+
+        $confirmedReviewerIds = $this->getReviewerIds($submission->getId(), $reviewRoundId, self::REVIEW_ASSIGNMENT_CONFIRMED);
+        if (count($confirmedReviewerIds) > 0) {
+            return false;
+        }
+
+        $completedReviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRoundId, self::REVIEW_ASSIGNMENT_COMPLETED);
+        if (count($completedReviewAssignments) > 0) {
+            return false;
+        }
+
+        return true;
     }
 
     public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)

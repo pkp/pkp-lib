@@ -23,7 +23,6 @@ use PKP\context\Context;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\types\interfaces\DecisionRetractable;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\mailables\DecisionBackFromProductionNotifyAuthor;
 use PKP\security\Role;
@@ -31,7 +30,7 @@ use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class BackFromProduction extends DecisionType implements DecisionRetractable
+class BackFromProduction extends DecisionType
 {
     use NotifyAuthors;
 
@@ -146,14 +145,6 @@ class BackFromProduction extends DecisionType implements DecisionRetractable
         }
 
         return $steps;
-    }
-
-    /**
-     * Determine if can back out to copy editing
-     */
-    public function canRetract(Submission $submission, ?int $reviewRoundId): bool
-    {
-        return true;
     }
 
     /**

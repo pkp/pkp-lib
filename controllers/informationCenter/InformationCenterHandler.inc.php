@@ -154,8 +154,8 @@ abstract class InformationCenterHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $notes = $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId())->toArray();
-        $templateMgr->assign('notes', new ArrayItemIterator($notes));
+        $notes = $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId());
+        $templateMgr->assign('notes', $notes);
 
         $user = $request->getUser();
         $templateMgr->assign('currentUserId', $user->getId());

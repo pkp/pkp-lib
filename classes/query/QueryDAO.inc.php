@@ -272,22 +272,6 @@ class QueryDAO extends \PKP\db\DAO
      */
     public function deleteById($queryId, $assocType = null, $assocId = null)
     {
-        // Remove associated notes
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
-
-        // Remove associated participants
-        DB::table('query_participants')
-            ->where('query_id', '=', $queryId)
-            ->delete();
-
-        // Remove associated notifications
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
-        while ($notification = $notifications->next()) {
-            $notificationDao->deleteObject($notification);
-        }
-
         $queryQueries = DB::table('queries')
             ->where('query_id', '=', $queryId);
         
@@ -296,7 +280,23 @@ class QueryDAO extends \PKP\db\DAO
                 ->where('assoc_id', '=', $assocId);
         }
 
-        $queryQueries->delete();
+        if ($queryQueries->count()) {
+            // Remove associated notes
+            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+            $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
+
+            // Remove associated participants: will be removed by onDelete CASCADE on foreign key query_id column
+
+            // Remove associated notifications
+            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+            $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
+            while ($notification = $notifications->next()) {
+                $notificationDao->deleteObject($notification);
+            }
+
+            $queryQueries->delete();
+        }
+        
     }
 
     /**

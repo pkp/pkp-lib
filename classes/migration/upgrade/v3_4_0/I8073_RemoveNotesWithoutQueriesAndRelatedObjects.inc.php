@@ -38,6 +38,53 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
     public function up(): void
     {
+        // Does not have the foreign key reference
+        Schema::table('notification_settings', function (Blueprint $table) {
+            $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
+        });
+
+        // Does have the foreign key reference but not the CASCADE
+        Schema::table('submission_files', function (Blueprint $table) {
+            $table->dropForeign('submission_files_file_id_foreign');
+            $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
+        });
+
+        // Does have the foreign key reference but not the CASCADE
+        Schema::table('submission_file_revisions', function (Blueprint $table) {
+            $table->dropForeign('submission_file_revisions_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+
+            $table->dropForeign('submission_file_revisions_file_id_foreign');
+            $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
+        });
+
+        Schema::table('submission_file_settings', function (Blueprint $table) {
+            $table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
+        });
+
+        // Does not have the foreign key reference
+        Schema::table('submission_file_settings', function (Blueprint $table) {
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+        });
+
+        // Does have the foreign key reference but not the CASCADE
+        Schema::table('review_files', function (Blueprint $table) {
+            $table->dropForeign('review_files_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+        });
+
+        // Does have the foreign key reference but not the CASCADE
+        Schema::table('review_round_files', function (Blueprint $table) {
+            $table->dropForeign('review_round_files_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+        });
+
+        // Does not have the foreign key reference
+        Schema::table('query_participants', function (Blueprint $table) {
+            $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+
         $orphanedIds = DB::table('notes AS n')
             ->leftJoin('queries AS q', 'n.assoc_id', '=', 'q.query_id')
             ->where('n.assoc_type', '=', self::ASSOC_TYPE_QUERY)
@@ -45,7 +92,6 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
             ->pluck('n.note_id', 'n.assoc_id');
 
         foreach ($orphanedIds as $neQueryId => $noteId) {
-            error_log("Removing submission files that relates to the note entry ID ${noteId} which will be deleted as orphan object");
             $notesFileRows = DB::table('submission_files as sf')
                 ->join('files as f', 'sf.file_id', '=', 'f.file_id')
                 ->where('sf.assoc_type', '=', self::ASSOC_TYPE_NOTE)
@@ -61,21 +107,6 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                 $submissionFileId = $submissionFileRow->submissionFileId;
                 $submissionFileFileId = $submissionFileRow->fileId;
                 $submissionFilePath = $submissionFileRow->filePath;
-
-                error_log("Removing submission file revisions that relate to the submission file entry ID ${submissionFileId} which will be deleted.");
-                DB::table('submission_file_revisions')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                error_log("Removing review round files that relate to the submission file entry ID ${submissionFileId} which will be deleted.");
-                DB::table('review_round_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                error_log("Removing review files that relate to the submission file entry ID ${submissionFileId} which will be deleted.");
-                DB::table('review_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
 
                 // Create a Filesystem object with the appropriate adapter to access the actual files
                 $umask = Config::getVar('files', 'umask', 0022);
@@ -98,22 +129,14 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                 $filesystem = new Filesystem($adapter);
 
                 if ($filesystem->has($submissionFilePath)) {
-                    error_log("A submission file was found at ${submissionFilePath}. Trying to delete it...");
                     try {
                         $filesystem->delete($submissionFilePath);
-                        error_log("A submission file at ${submissionFilePath} was successfully deleted.");
+                        error_log("A submission file that was attached to an orphaned note with ID ${noteId} at ${submissionFilePath} was successfully deleted.");
                     } catch (FilesystemException | UnableToDeleteFile $exception) {
                         $exceptionMessage = $exception->getMessage();
-                        error_log("A submission file was found at ${submissionFilePath} but could not be deleted because of: ${exceptionMessage}.");
+                        error_log("A submission file that was attached to an orphaned note with ID ${noteId} was found at ${submissionFilePath} but could not be deleted because of: ${exceptionMessage}.");
                     }
-                } else {
-                    error_log("A submission file was expected but not found at ${submissionFilePath}.");
                 }
-                
-
-                DB::table('submission_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
 
                 DB::table('files')
                     ->where('file_id', '=', $submissionFileFileId)
@@ -129,6 +152,41 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
     public function down(): void
     {
-        throw new DowngradeNotSupportedException('Downgrade unsupported due to removed data');
+        Schema::table('notification_settings', function (Blueprint $table) {
+            $table->dropForeign('notification_settings_notification_id_foreign');
+        });
+
+        Schema::table('submission_files', function (Blueprint $table) {
+            $table->dropForeign('submission_files_file_id_foreign');
+            $table->foreign('file_id')->references('file_id')->on('files');
+        });
+
+        Schema::table('submission_file_revisions', function (Blueprint $table) {
+            $table->dropForeign('submission_file_revisions_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+
+            $table->dropForeign('submission_file_revisions_file_id_foreign');
+            $table->foreign('file_id')->references('file_id')->on('files');
+        });
+
+        Schema::table('submission_file_settings', function (Blueprint $table) {
+            $table->bigInteger('submission_file_id')->nullable(false)->change();
+            $table->dropForeign('submission_file_settings_submission_file_id_foreign');
+        });
+
+        Schema::table('review_files', function (Blueprint $table) {
+            $table->dropForeign('review_files_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+        });
+
+        Schema::table('review_round_files', function (Blueprint $table) {
+            $table->dropForeign('review_round_files_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+        });
+
+        Schema::table('query_participants', function (Blueprint $table) {
+            $table->dropForeign('query_participants_query_id_foreign');
+            $table->dropForeign('query_participants_user_id_foreign');
+        });
     }
 }

@@ -89,7 +89,7 @@ class NoteDAO extends \PKP\db\DAO
      * @return LazyCollection<Note>
      */
     public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, bool $isAdmin = false, 
-        bool $orderData = true, int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = self::SORT_DIRECTION_DESC) : LazyCollection
+        int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = self::SORT_DIRECTION_DESC) : LazyCollection
     {
         $query = DB::table('notes')
             ->where('assoc_id', '=', $assocId)
@@ -106,33 +106,31 @@ class NoteDAO extends \PKP\db\DAO
             });
         }
 
-        if ($orderData) {
-            // Sanitize sort ordering
-            switch ($orderBy) {
-                case self::NOTE_ORDER_ID:
-                    $orderSanitized = 'note_id';
-                    break;
-                case self::NOTE_ORDER_DATE_CREATED:
-                default:
-                    $orderSanitized = 'date_created';
-            }
-            switch ($sortDirection) {
-                case self::SORT_DIRECTION_ASC:
-                    $directionSanitized = 'ASC';
-                    break;
-                case self::SORT_DIRECTION_DESC:
-                default:
-                    $directionSanitized = 'DESC';
-            }
-
-            $query->orderBy($orderSanitized, $directionSanitized);
+        // Sanitize sort ordering
+        switch ($orderBy) {
+            case self::NOTE_ORDER_ID:
+                $orderSanitized = 'note_id';
+                break;
+            case self::NOTE_ORDER_DATE_CREATED:
+            default:
+                $orderSanitized = 'date_created';
         }
+        switch ($sortDirection) {
+            case self::SORT_DIRECTION_ASC:
+                $directionSanitized = 'ASC';
+                break;
+            case self::SORT_DIRECTION_DESC:
+            default:
+                $directionSanitized = 'DESC';
+        }
+
+        $query->orderBy($orderSanitized, $directionSanitized);
 
         $rows = $query->select(['*'])->get();
         
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
-                yield $this->_fromRow(get_object_vars($row));
+                yield $row->note_id => $this->_fromRow(get_object_vars($row));
             }
         });
     }
@@ -303,12 +301,6 @@ class NoteDAO extends \PKP\db\DAO
      */
     public function deleteById($noteId, $userId = null)
     {
-        $submissionFileCollector = Repo::submissionFile()
-            ->getCollector()
-            ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$noteId]);
-
-        Repo::submissionFile()->deleteMany($submissionFileCollector);
-
         $query = DB::table('notes')
             ->where('note_id', '=', $noteId);
         
@@ -316,7 +308,15 @@ class NoteDAO extends \PKP\db\DAO
             $query->where('user_id', '=', $userId);
         }
 
-        $query->delete();
+        if ($query->count()) {
+            $submissionFileCollector = Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$noteId]);
+
+            Repo::submissionFile()->deleteMany($submissionFileCollector);
+
+            $query->delete();
+        }
     }
 
     /**
@@ -331,8 +331,7 @@ class NoteDAO extends \PKP\db\DAO
             $assocType, 
             $assocId, 
             null,
-            true,
-            false
+            true
         );
 
         foreach ($notes as $note) {

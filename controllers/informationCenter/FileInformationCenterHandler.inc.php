@@ -135,10 +135,10 @@ class FileInformationCenterHandler extends InformationCenterHandler
         $sourceSubmissionFileId = $this->submissionFile->getData('sourceSubmissionFileId');
         
         if (!is_null($sourceSubmissionFileId)) {
-            $notes = $noteDao->getByAssoc($this->_getAssocType(), $sourceSubmissionFileId)->toArray();
+            $notes = $noteDao->getByAssoc($this->_getAssocType(), $sourceSubmissionFileId);
         }
         
-        $templateMgr->assign('notes', new ArrayItemIterator($notes));
+        $templateMgr->assign('notes', $notes);
 
         $user = $request->getUser();
         $templateMgr->assign([

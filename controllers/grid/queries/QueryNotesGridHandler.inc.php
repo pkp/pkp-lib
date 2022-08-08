@@ -163,8 +163,7 @@ class QueryNotesGridHandler extends GridHandler
     public function loadData($request, $filter = null)
     {
         return $this->getQuery()
-            ->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC, $this->getCanManage(null))
-            ->toArray();
+            ->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC, $this->getCanManage(null));
     }
 
     //

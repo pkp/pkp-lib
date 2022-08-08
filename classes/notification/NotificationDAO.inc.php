@@ -237,9 +237,6 @@ class NotificationDAO extends \PKP\db\DAO
      */
     public function deleteById($notificationId, $userId = null)
     {
-        $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDaoDao */
-        $notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
-
         $query = DB::table('notifications')
             ->where('notification_id', '=', $notificationId);
         
@@ -247,6 +244,7 @@ class NotificationDAO extends \PKP\db\DAO
             $query->where('user_id', '=', $userId);
         }
 
+        // related notification_settings will be deleted due to foreign key constrain
         $query->delete();
     }
 

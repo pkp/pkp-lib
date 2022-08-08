@@ -21,6 +21,7 @@ use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\note\NoteDAO;
 use Illuminate\Support\LazyCollection;
+use PKP\core\PKPApplication;
 
 class Query extends \PKP\core\DataObject
 {
@@ -148,7 +149,7 @@ class Query extends \PKP\core\DataObject
     public function getReplies(?int $userId = null, int $sortBy = NoteDAO::NOTE_ORDER_ID, int $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC, bool $isAdmin = false) : LazyCollection
     {
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $isAdmin, true, $sortBy, $sortOrder);
+        return $noteDao->getByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId(), null, $isAdmin, $sortBy, $sortOrder);
     }
 }
 

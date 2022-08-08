@@ -91,18 +91,6 @@ class NotificationSettingsDAO extends \PKP\db\DAO
             }
         }
     }
-
-    /**
-     * Delete all settings for a notification
-     *
-     * @param int $notificationId
-     */
-    public function deleteSettingsByNotificationId($notificationId)
-    {
-        return DB::table('notification_settings')
-            ->where('notification_id', '=', $notificationId)
-            ->delete();
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -82,7 +82,7 @@ class NewNoteForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         $templateMgr->assign([
-            'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId())->toArray(),
+            'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
             'submitNoteText' => $this->getSubmitNoteLocaleKey(),
             'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
         ]);

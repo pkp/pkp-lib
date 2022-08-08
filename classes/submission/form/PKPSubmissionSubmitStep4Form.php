@@ -17,13 +17,25 @@ namespace PKP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\journal\Journal;
+use APP\log\SubmissionEventLogEntry;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionLog;
+use PKP\mail\mailables\SubmissionAcknowledgement;
+use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
+use PKP\security\UserGroupDAO;
+use PKP\user\User;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
@@ -210,7 +222,128 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
             }
         }
 
+        $this->sendEmail();
+
         return $this->submissionId;
+    }
+
+    /**
+     * Sends email to the submission's authors
+     */
+    protected function sendEmail(): void
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $user = $request->getUser();
+        $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+
+        $submissionAck = $this->setSubmissionAckMailable($context, $user);
+
+        try {
+            Mail::send($submissionAck);
+            $logDao->logMailable(
+                SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
+                $submissionAck,
+                $this->submission
+            );
+        } catch (TransportException $e) {
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification(
+                $request->getUser()->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            error_log($e->getMessage());
+        }
+
+        $submissionAckNotAuthor = $this->setSubmissionAckNotAuthorMailable($context, $user);
+
+        foreach ($this->emailRecipients as $authorEmailRecipient) {
+            $submissionAckNotAuthor->recipients([$authorEmailRecipient]);
+
+            try {
+                Mail::send($submissionAckNotAuthor);
+                $logDao->logMailable(
+                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
+                    $submissionAckNotAuthor,
+                    $this->submission
+                );
+            } catch (TransportException $e) {
+                $notificationMgr = new NotificationManager();
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                error_log($e->getMessage());
+            }
+        }
+
+        // Log submission.
+        SubmissionLog::logEvent(
+            $request,
+            $this->submission,
+            SubmissionEventLogEntry::SUBMISSION_LOG_SUBMISSION_SUBMIT,
+            'submission.event.submissionSubmitted'
+        );
+    }
+
+    /**
+     * Creates SubmissionAcknowledgement mailable and populates it with data
+     */
+    protected function setSubmissionAckMailable(Journal $context, User $user): SubmissionAcknowledgement
+    {
+        $submissionAck = new SubmissionAcknowledgement($context, $this->submission);
+        $submissionAckTemplate = Repo::emailTemplate()->getByKey($context->getId(), SubmissionAcknowledgement::getEmailTemplateKey());
+        $submissionAck->from($this->context->getData('contactEmail'), $this->context->getData('contactName'))
+            ->recipients([$user]);
+
+        // Add primary contact and e-mail addresses as specified in the journal submission settings
+        if ($this->context->getData('copySubmissionAckPrimaryContact')) {
+            $submissionAck->bcc($context->getData('contactEmail'), $context->getData('contactName'));
+        }
+
+        $submissionAckAddresses = $this->context->getData('copySubmissionAckAddress');
+        if (!empty($submissionAckAddresses)) {
+            $submissionAckAddressArray = explode(',', $submissionAckAddresses);
+            foreach ($submissionAckAddressArray as $submissionAckAddress) {
+                $submissionAck->bcc($submissionAckAddress);
+            }
+        }
+
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_SUB_EDITOR);
+
+        // Cycle through all the userGroups for this role
+        while ($userGroup = $userGroups->next()) {
+            // FIXME: #6692# Should this be getting users just for a specific user group?
+            $collector = Repo::user()->getCollector();
+            $collector->assignedTo($this->submissionId, WORKFLOW_STAGE_ID_SUBMISSION, $userGroup->getId());
+            $users = Repo::user()->getMany($collector);
+            foreach ($users as $user) {
+                $submissionAck->bcc($user->getEmail(), $user->getFullName());
+            }
+        }
+
+        $submissionAck
+            ->subject($submissionAckTemplate->getLocalizedData('subject'))
+            ->body($submissionAckTemplate->getLocalizedData('body'));
+
+        return $submissionAck;
+    }
+
+    /**
+     * Creates SubmissionAckNotAuthor mailable and populates it with data
+     */
+    protected function setSubmissionAckNotAuthorMailable(Journal $context, User $user): SubmissionAcknowledgementNotAuthor
+    {
+        $submissionAckNotAuthor = new SubmissionAcknowledgementNotAuthor($context, $this->submission, $user);
+        $submissionAckNotAuthorTemplate = Repo::emailTemplate()->getByKey($context->getId(), SubmissionAcknowledgementNotAuthor::getEmailTemplateKey());
+        $submissionAckNotAuthor->from($this->context->getData('contactEmail'), $this->context->getData('contactName'))
+            ->subject($submissionAckNotAuthorTemplate->getLocalizedData('subject'))
+            ->body($submissionAckNotAuthorTemplate->getLocalizedData('body'));
+
+        return $submissionAckNotAuthor;
     }
 }
 

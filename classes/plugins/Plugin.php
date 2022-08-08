@@ -537,7 +537,7 @@ abstract class Plugin
      */
     public function import($class)
     {
-        require_once($this->getPluginPath() . '/' . str_replace('.', '/', $class) . '.inc.php');
+        require_once $this->getPluginPath() . '/' . str_replace('.', '/', $class) . '.inc.php';
     }
 
     /*

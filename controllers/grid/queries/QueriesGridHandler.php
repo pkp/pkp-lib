@@ -28,6 +28,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\queries\form\QueryForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;

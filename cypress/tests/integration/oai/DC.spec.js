@@ -8,7 +8,7 @@
  */
 
 describe('Dublin Core OAI tests', function() {
-	it('Exercise records', function() {
+	it.skip('Exercise records', function() {
 		cy.request('index.php/index/oai?verb=ListRecords&metadataPrefix=oai_dc').then(response => {
 			var identifier = null;
 

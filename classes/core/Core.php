@@ -174,7 +174,7 @@ class Core
             // Split the path info into its constituents. Save all non-context
             // path info in $contextPaths[$contextDepth]
             // by limiting the explode statement.
-            $contextPaths = explode('/', trim($urlInfo, '/'), $contextDepth + 1);
+            $contextPaths = explode('/', trim((string) $urlInfo, '/'), $contextDepth + 1);
             // Remove the part of the path info that is not relevant for context (if present)
             unset($contextPaths[$contextDepth]);
         } else {
@@ -486,7 +486,7 @@ class Core
     private static function _getUserVar($url, $varName, $userVars = [])
     {
         $returner = null;
-        parse_str(parse_url($url, PHP_URL_QUERY), $userVarsFromUrl);
+        parse_str((string) parse_url($url, PHP_URL_QUERY), $userVarsFromUrl);
         if (isset($userVarsFromUrl[$varName])) {
             $returner = $userVarsFromUrl[$varName];
         }

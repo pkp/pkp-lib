@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2022-08-09 07:17+0000\n"
+"PO-Revision-Date: 2022-08-10 03:41+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -2098,9 +2098,8 @@ msgstr "A submissão foi ressubmetida para outra rodada de avaliação."
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "A submissão deve ser ressubmetida para outra rodada de avaliação."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Revisões foram submetidas."
+msgstr "As revisões foram enviadas e uma decisão é necessária."
 
 msgid "submission.submit.form.citationsRequired"
 msgstr "Por favor, insira as referências."
@@ -2678,3 +2677,13 @@ msgstr ""
 
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr "Inativo por mais de {$days} dias no estágio {$stage}."
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Falha ao marcar o DOI como obsoleto para {$pubObjectTitle}. O DOI não pode "
+"ser marcado como obsoleto porque ainda não foi registrado ou enviado."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Falha ao marcar o DOI como registrado para {$pubObjectTitle}. A submissão "
+"deve ser publicada antes que o status possa ser atualizado."

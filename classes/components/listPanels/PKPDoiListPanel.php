@@ -132,12 +132,18 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.actions.deposit.prompt',
             'manager.dois.actions.markRegistered.label',
             'manager.dois.actions.markRegistered.prompt',
+            'manager.dois.actions.markUnregistered.label',
+            'manager.dois.actions.markUnregistered.prompt',
+            'manager.dois.actions.markStale.label',
+            'manager.dois.actions.markStale.prompt',
             'manager.dois.actions.export.label',
             'manager.dois.actions.export.prompt',
             'manager.dois.actions.assign.label',
             'manager.dois.actions.assign.prompt',
             'manager.dois.notification.exportSuccess',
             'manager.dois.notification.markRegisteredSuccess',
+            'manager.dois.notification.markUnregisteredSuccess',
+            'manager.dois.notification.markStaleSuccess',
             'manager.dois.registration.submittedDescription',
             'manager.dois.registration.notSubmittedDescription',
             'manager.dois.registration.viewError',
@@ -163,7 +169,9 @@ abstract class PKPDoiListPanel extends ListPanel
             'common.selectNone',
             'list.expandAll',
             'list.collapseAll',
-            'manager.dois.update.failedCreation'
+            'manager.dois.update.failedCreation',
+            'plugins.importexport.common.action.export',
+            'manager.dois.actions.description',
         ]);
 
         $this->setAppConfig($config);

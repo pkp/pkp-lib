@@ -638,3 +638,109 @@ Cypress.Commands.add('checkFilters', filters => {
 	cy.get('button:contains("Filters")').click();
 });
 
+Cypress.Commands.add('checkDoiConfig', doiTypes => {
+	cy.get('a:contains("Distribution")').click();
+
+	cy.get('button#dois-button').click();
+
+	// DOI is or can be enabled
+	cy.get('input[name="enableDois"]').check();
+	cy.get('input[name="enableDois"]').should('be.checked');
+
+	// Check all content
+	doiTypes.forEach(doiType => {
+		cy.get(`input[name="enabledDoiTypes"][value="${doiType}"]`).check();
+	});
+
+	// Declare DOI Prefix
+	cy.get('input[name=doiPrefix]')
+		.focus()
+		.clear()
+		.type('10.1234');
+
+	// Select automatic DOI creation time
+	cy.get('select[name="doiCreationTime"]').select('copyEditCreationTime');
+
+	// Save
+	cy.get('#doisSetup button')
+		.contains('Save')
+		.click();
+	cy.get('#doisSetup [role="status"]').contains('Saved');
+});
+
+Cypress.Commands.add('assignDois', (itemId, itemType = 'submission') => {
+	cy.get(`input[name="${itemType}[]"][value=${itemId}]`).check();
+
+	// Select assign DOIs from bulk actions
+	cy.get(`#${itemType}-doi-management button:contains("Bulk Actions")`).click({
+		multiple: true
+	});
+	cy.get('button:contains("Assign DOIs")').click();
+
+	// Confirm assignment
+	cy.get(
+		'div[data-modal="bulkActions"] button:contains("Assign DOIs")'
+	).click();
+	cy.get('.app__notifications').contains(
+		'Items successfully assigned new DOIs',
+		{timeout: 20000}
+	);
+});
+
+Cypress.Commands.add('checkDoiAssignment', (selectorId) => {
+	cy.get(`input#${selectorId}`).should($input => {
+		const val = $input.val();
+		expect(val).to.match(
+			/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{4}-[0-9abcdefghjkmnpqrstvwxyz]{2}[0-9]{2}/
+			);
+	});
+});
+
+Cypress.Commands.add('checkDoiFilterResults', (filterName, textToCheck, expectedCount, itemType = 'submission') => {
+	if (filterName === 'Unpublished') {
+		// 'Unpublished' is ambiguious so we must specify which 'Unpublished' button we mean
+		cy.get(`#${itemType}-doi-management button:contains("${filterName}")`)
+			.first()
+			.click();
+	} else {
+		cy.get(
+			`#${itemType}-doi-management button:contains("${filterName}")`
+		).click();
+	}
+
+	// Wait for data to finish loading
+	cy.get(`#${itemType}-doi-management .pkpSpinner`).should('not.exist');
+	cy.get(`#${itemType}-doi-management .listPanel__items`).contains(textToCheck);
+
+	if (expectedCount !== 0) {
+		cy.get(`#${itemType}-doi-management ul.listPanel__itemsList`)
+			.find('li')
+			.its('length')
+			.should('eq', expectedCount);
+	} else {
+		cy.get(`#${itemType}-doi-management .listPanel__empty`);
+	}
+});
+
+Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedStatus, itemType = 'submission') => {
+
+	// Select the item
+	cy.get(`input[name="${itemType}[]"][value=${itemId}]`).check()
+
+	// Select mark [status] from bulk actions
+	cy.get(`#${itemType}-doi-management button:contains("Bulk Actions")`).click({multiple: true});
+	cy.get(`button:contains("Mark DOIs ${status}")`).click();
+	cy.get(`div[data-modal="bulkActions"] button:contains("Mark DOIs ${status}")`).click();
+
+	// Check success or failure message
+	if (isValid) {
+		cy.get('.app__notifications').contains(`Items successfully marked ${status}`, {matchCase: false, timeout:20000});
+	} else {
+		cy.get('div[data-modal="failedDoiActionModal"]').contains('Failed to mark the DOI', {timeout:20000});
+	}
+
+	cy.get(`#list-item-${itemType}-${itemId} .pkpBadge`).contains(expectedStatus);
+	if (!isValid) {
+		cy.get(`#${itemType}-doi-management .modal button:contains('Close')`).click();
+	}
+});

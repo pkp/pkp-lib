@@ -261,6 +261,19 @@ abstract class Repository
     }
 
     /**
+     * Manually sets DOI status to Doi::STATUS_UNREGISTERED.
+     */
+    public function markUnregistered(int $doiId)
+    {
+        $doi = $this->get($doiId);
+        $editParams = [
+            'status' => Doi::STATUS_UNREGISTERED,
+        ];
+
+        $this->edit($doi, $editParams);
+    }
+
+    /**
      * Schedules DOI deposits with the active registration agency for all valid and
      * unregistered/stale publication items. Items are added as a queued job to be
      * completed asynchronously.

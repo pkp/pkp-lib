@@ -686,6 +686,8 @@ class QueriesGridHandler extends GridHandler
 
                 Mail::send($mailable);
             }
+
+            return \PKP\db\DAO::getDataChangedEvent($query->getId());
         }
 
         // If this was new (placeholder) query that didn't validate, remember whether or not

@@ -441,7 +441,6 @@ msgstr ""
 msgid "manager.statistics"
 msgstr "Estatísticas &amp; Relatórios"
 
-#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Gerador de Relatórios"
 
@@ -2422,7 +2421,7 @@ msgstr ""
 "resumo, uma data de limite de avaliação, e como acessar a própria submissão."
 
 msgid "manager.dois.actions.deposit.all"
-msgstr "Depositar tudo"
+msgstr "Depositar Tudo"
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Nenhum"
@@ -2544,7 +2543,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Itens exportados com sucesso"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Alguns DOI(s) falharam ao atualizar."
+msgstr "Não foi possível atualizar algum(ns) DOI(s)."
 
 msgid "manager.dois.status.stale"
 msgstr "Obsoleto"
@@ -2628,7 +2627,7 @@ msgstr ""
 "registrados. Deseja realmente marcar estes registos como registados?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr "Marcar DOIs registrados"
+msgstr "Marcar DOIs Registrados"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
@@ -2927,7 +2926,6 @@ msgstr ""
 "Antes que este componente possa ser excluído, você deve associar todos os "
 "arquivos de submissão relacionados a um componente diferente."
 
-#, fuzzy
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr "A submissão derivada {$child} não foi processada"
 
@@ -3167,3 +3165,31 @@ msgstr ""
 "exclusiva bem conhecida ou no domínio do editor ou da plataforma. Um "
 "identificador padrão curto como GRID ou ROR (sem o https://) também pode ser "
 "usado."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Marcar DOIs Não Registrado"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Está prestes a marcar registros de metadados DOI para {$count} item(ns) como "
+"não registrados. Tem certeza de que deseja marcar esses registros como não "
+"registrados?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Marcar DOIs como obsoletos"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Está prestes a marcar registros de metadados DOI para {$count} item(ns) como "
+"obsoletos. O status obsoleto só pode ser aplicado a DOIs enviados "
+"anteriormente. Tem certeza de que deseja marcar esses registros como "
+"obsoletos?"
+
+msgid "manager.dois.actions.description"
+msgstr "Realize ações em {$count} item(ns) selecionado(s)."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Itens não registrados marcados com sucesso"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Itens obsoletos marcados com sucesso"

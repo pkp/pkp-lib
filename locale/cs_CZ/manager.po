@@ -2601,7 +2601,7 @@ msgid "manager.dois.actions.deposit.label"
 msgstr "Uložení DOI"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr "Uložení všech"
+msgstr "Uložit vše"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3120,3 +3120,30 @@ msgstr ""
 "mělo vycházet z názvu, známé jedinečné zkratky nebo domény vydavatele či "
 "platformy. Lze také použít krátký standardní identifikátor, jako je GRID "
 "nebo ROR (bez https://)."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Označit DOI jako neregistrované"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Chystáte se označit metadatové záznamy DOI pro položky {$count} jako "
+"neregistrované. Jste si jisti, že chcete tyto záznamy označit jako "
+"neregistrované?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Chystáte se označit metadatové záznamy DOI pro položku (položky) {$count} "
+"jako zastaralé. Stav \"zastaralé\" lze použít pouze pro dříve odeslané DOI. "
+"Jste si jisti, že chcete tyto záznamy označit jako zastaralé?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Označit DOI jako zastaralé"
+
+msgid "manager.dois.actions.description"
+msgstr "Proveďte akci na {$count} vybraných položkách."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Položky úspěšně označené jako neregistrované"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Položky úspěšně označené jako zastaralé"

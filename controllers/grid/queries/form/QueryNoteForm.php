@@ -1,24 +1,25 @@
 <?php
 
 /**
- * @file controllers/grid/users/queries/form/QueryNoteForm.php
+ * @file controllers/grid/queries/form/QueryNoteForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteForm
- * @ingroup controllers_grid_users_queries_form
+ * @ingroup controllers_grid_queries_form
  *
  * @brief Form for adding/editing a new query note.
  */
 
-namespace PKP\controllers\grid\users\queries\form;
+namespace PKP\controllers\grid\queries\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\core\Core;
 
 class QueryNoteForm extends Form
 {

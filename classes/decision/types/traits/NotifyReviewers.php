@@ -31,6 +31,8 @@ use PKP\user\User;
 
 trait NotifyReviewers
 {
+    protected string $ACTION_NOTIFY_REVIEWERS = 'notifyReviewers';
+    
     /**
      * Send the email to the reviewers
      */

@@ -2549,41 +2549,29 @@ msgstr "We have invited the authors to submit a revised version for further revi
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr "Invited reviewer to the submission has been unassigned."
 
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToSubmissionFromExternalReview"
-msgstr "The submission has been sent back to submission stage to revise editorial decision."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToInternalReviewFromExternalReview"
-msgstr "The submission has been sent back to internal review stage to revise editorial decision."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToSubmissionFromInternalReview"
-msgstr "The submission has been sent back to submission stage to revise editorial decision."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.backToPreviousExternalReviewRound"
-msgstr "The submission has been sent back to previous external review round to revise editorial decision."
-
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Submission Accepted"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr "This email notifies the author that their submission has been accepted for publication."
 
-msgid "mailable.decision.backFromProduction.notifyAuthor.name"
-msgstr "Submission Sent Back from Production"
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Submission Sent Back to Copyediting"
 
-msgid "mailable.decision.backFromProduction.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back from the production stage."
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the copyediting stage."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
 msgstr "Submission Sent Back from Copyediting"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back from the copy editing stage."
+msgstr "This email notifies the author that their submission has been sent back from the copyediting stage."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr "Submission Sent Back from External Review"
+msgstr "Review Round Cancelled"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
-msgstr "This email notifies the author that their submission has been sent back from current external review round or stage."
+msgstr "This email notifies the author that a review round for their submission has been cancelled."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
 msgstr "Submission Declined"

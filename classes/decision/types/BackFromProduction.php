@@ -61,27 +61,27 @@ class BackFromProduction extends DecisionType
 
     public function getLabel(?string $locale = null): string
     {
-        return __('editor.submission.decision.backFromProduction', [], $locale);
+        return __('editor.submission.decision.backToCopyediting', [], $locale);
     }
 
     public function getDescription(?string $locale = null): string
     {
-        return __('editor.submission.decision.backFromProduction.description', [], $locale);
+        return __('editor.submission.decision.backToCopyediting.description', [], $locale);
     }
 
     public function getLog(): string
     {
-        return 'editor.submission.decision.backFromProduction.log';
+        return 'editor.submission.decision.backToCopyediting.log';
     }
 
     public function getCompletedLabel(): string
     {
-        return __('editor.submission.decision.backFromProduction.completed');
+        return __('editor.submission.decision.backToCopyediting.completed');
     }
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.backFromProduction.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.backToCopyediting.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
@@ -134,7 +134,7 @@ class BackFromProduction extends DecisionType
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
-                __('editor.submission.decision.backFromProduction.notifyAuthorsDescription'),
+                __('editor.submission.decision.backToCopyediting.notifyAuthorsDescription'),
                 $authors,
                 $mailable
                     ->sender($editor)

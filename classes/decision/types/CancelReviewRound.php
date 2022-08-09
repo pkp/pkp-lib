@@ -120,7 +120,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
         if (!$this->canRetract($submission, $reviewRoundId)) {
-            $validator->errors()->add('restriction', __('editor.submission.decision.cancelReviewRound.restriction'));
+            $validator->errors()->add('reviewRoundId', __('editor.submission.decision.cancelReviewRound.restriction'));
         }
 
         if (!isset($props['actions'])) {

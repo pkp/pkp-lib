@@ -30,8 +30,8 @@ class DecisionBackFromProductionNotifyAuthor extends Mailable
     use Recipient;
     use Sender;
 
-    protected static ?string $name = 'mailable.decision.backFromProduction.notifyAuthor.name';
-    protected static ?string $description = 'mailable.decision.backFromProduction.notifyAuthor.description';
+    protected static ?string $name = 'mailable.decision.backToCopyediting.notifyAuthor.name';
+    protected static ?string $description = 'mailable.decision.backToCopyediting.notifyAuthor.description';
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_BACK_FROM_PRODUCTION';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_PRODUCTION];

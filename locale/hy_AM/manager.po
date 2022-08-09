@@ -1016,7 +1016,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Նյութերը հաջողությամբ արտահանվեցին"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Որոշ DOI-ներ չհաջողվեց թարմացնել:"
+msgstr "Որոշ DOI-ներ հնարավոր չէ թարմացնել:"
 
 msgid "manager.dois.status.stale"
 msgstr "Հնացած"
@@ -1102,7 +1102,7 @@ msgstr ""
 "գրանցված:"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr "Նշեք DOI-երը գրանցված"
+msgstr "Նշեք DOI-երը Գրանցված"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
@@ -1114,7 +1114,7 @@ msgid "manager.dois.actions.deposit.label"
 msgstr "Ավանդադրեք DOI-ները"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr "Ավանդադրեք բոլորը"
+msgstr "Ավանդադրեք Բոլորը"
 
 msgid "manager.announcementTypes.typeName"
 msgstr "Հայտարարության տեսակ"
@@ -3104,3 +3104,31 @@ msgstr ""
 
 msgid "stats.suppFileViews"
 msgstr "Լրացուցիչ նիշքերի դիտումներ"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Դուք պատրաստվում եք նշել DOI մետատվյալներով գրառումները {$count} "
+"թղարկման(ումների) համար որպես հնացած: Հնացած կարգավիճակը կարող է կիրառվել "
+"միայն նախկինում ներկայացված DOI-ների վրա: Իսկապե՞ս ուզում եք այս գրառումները "
+"նշել որպես հնացած:"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Նշել DOI-ը Չգրանցված"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Դուք պատրաստվում եք նշել DOI մետատվյալներով գրառումները {$count} "
+"թողարկման(ումների) համար որպես չգրանցված: Իսկապե՞ս ուզում եք նշել այս "
+"գրառումները որպես չգրանցված:"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Նշել DOI-ը հնացած"
+
+msgid "manager.dois.actions.description"
+msgstr "Գործողություն կատարեք {$count} ընտրված նյութ(եր)ի նկատմամբ:"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Նյութերը հաջողությամբ նշվել են որպես չգրանցված"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Նյութերը հաջողությամբ նշվեցին որպես հնացած"

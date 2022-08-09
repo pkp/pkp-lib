@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"PO-Revision-Date: 2022-08-10 03:41+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Ներկայացնել որպես"
@@ -555,9 +555,8 @@ msgstr "Ներկայացումը կրկին ներկայացվել է գրախո
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Ներկայացումը պետք է նորից ներկայացվի գրախոսման մեկ այլ փուլի համար:"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Ներկայացվել են վերանայումներ։"
+msgstr "Ներկայացվել են վերանայումներ և անհրաժեշտ է որոշում։"
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Վերանայումներ են պահանջվել:"
@@ -2460,3 +2459,13 @@ msgstr "Նոր ներկայացումը սպասում է, որպեսզի ուղ
 
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr "Անգործուն է ավելի քան {$days} օր {$stage} փուլում:"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Չհաջողվեց նշել {$pubObjectTitle} -ի հնացած DOI-ը: DOI-ն չի կարող նշվել որպես "
+"հնացած, քանի որ դրանք դեռ գրանցված կամ ներկայացված չեն:"
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Չհաջողվեց նշել {$pubObjectTitle} -ի համար գրանցված DOI-ը: Ներկայացումը պետք "
+"է հրապարակվի, նախքան կարգավիճակը թարմացվի:"

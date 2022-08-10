@@ -53,7 +53,7 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('site_settings', function (Blueprint $table) {
             $table->string('setting_name', 255);
             $table->string('locale', 14)->default('');
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->unique(['setting_name', 'locale'], 'site_settings_pkey');
         });
 
@@ -98,7 +98,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('user_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->index(['user_id'], 'user_settings_user_id');
             $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
@@ -152,7 +152,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('notification_id');
             $table->string('locale', 14)->nullable();
             $table->string('setting_name', 64);
-            $table->text('setting_value');
+            $table->mediumText('setting_value');
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_pkey');
         });
@@ -161,7 +161,7 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('notification_subscription_settings', function (Blueprint $table) {
             $table->bigInteger('setting_id')->autoIncrement();
             $table->string('setting_name', 64);
-            $table->text('setting_value');
+            $table->mediumText('setting_value');
             $table->bigInteger('user_id');
             $table->bigInteger('context');
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
@@ -212,7 +212,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('email_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->index(['email_id'], 'email_settings_email_id');
             $table->unique(['email_id', 'locale', 'setting_name'], 'email_settings_pkey');
         });
@@ -239,7 +239,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('plugin_name', 80);
             $table->bigInteger('context_id');
             $table->string('setting_name', 80);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->index(['plugin_name'], 'plugin_settings_plugin_name');
             $table->unique(['plugin_name', 'context_id', 'setting_name'], 'plugin_settings_pkey');

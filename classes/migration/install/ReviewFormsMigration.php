@@ -40,7 +40,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->bigInteger('review_form_id');
                 $table->string('locale', 14)->default('');
                 $table->string('setting_name', 255);
-                $table->text('setting_value')->nullable();
+                $table->mediumText('setting_value')->nullable();
                 $table->string('setting_type', 6);
                 $table->index(['review_form_id'], 'review_form_settings_review_form_id');
                 $table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_pkey');
@@ -66,7 +66,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->bigInteger('review_form_element_id');
                 $table->string('locale', 14)->default('');
                 $table->string('setting_name', 255);
-                $table->text('setting_value')->nullable();
+                $table->mediumText('setting_value')->nullable();
                 $table->string('setting_type', 6);
                 $table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');
                 $table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_pkey');

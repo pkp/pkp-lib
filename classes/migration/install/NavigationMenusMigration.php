@@ -64,7 +64,7 @@ class NavigationMenusMigration extends \PKP\migration\Migration
             $table->bigInteger('navigation_menu_item_assignment_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
             $table->index(['navigation_menu_item_assignment_id'], 'assignment_settings_navigation_menu_item_assignment_id');
             $table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');

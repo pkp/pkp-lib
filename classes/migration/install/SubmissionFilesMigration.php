@@ -50,7 +50,7 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->bigInteger('submission_file_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->default('string')->comment('(bool|int|float|string|object|date)');
             $table->index(['submission_file_id'], 'submission_file_settings_id');
             $table->unique(['submission_file_id', 'locale', 'setting_name'], 'submission_file_settings_pkey');

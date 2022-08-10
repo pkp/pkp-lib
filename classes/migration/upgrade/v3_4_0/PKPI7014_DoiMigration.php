@@ -30,7 +30,7 @@ abstract class PKPI7014_DoiMigration extends Migration
             $table->bigInteger('doi_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
 
             $table->unique(['doi_id', 'locale', 'setting_name'], 'doi_settings_pkey');
             $table->index(['doi_id'], 'doi_settings_doi_id');

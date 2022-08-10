@@ -42,7 +42,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->bigInteger('user_group_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->unique(['user_group_id', 'locale', 'setting_name'], 'user_group_settings_pkey');
         });

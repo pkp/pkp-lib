@@ -38,7 +38,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->bigInteger('citation_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
             $table->index(['citation_id'], 'citation_settings_citation_id');
             $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_pkey');
@@ -61,7 +61,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->bigInteger('metadata_description_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
             $table->index(['metadata_description_id'], 'metadata_description_settings_id');
             $table->unique(['metadata_description_id', 'locale', 'setting_name'], 'metadata_descripton_settings_pkey');
@@ -95,7 +95,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->bigInteger('filter_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
             $table->index(['filter_id'], 'filter_settings_id');
             $table->unique(['filter_id', 'locale', 'setting_name'], 'filter_settings_pkey');

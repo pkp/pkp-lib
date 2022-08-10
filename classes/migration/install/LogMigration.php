@@ -41,7 +41,7 @@ class LogMigration extends \PKP\migration\Migration
         Schema::create('event_log_settings', function (Blueprint $table) {
             $table->bigInteger('log_id');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->index(['log_id'], 'event_log_settings_log_id');
             $table->unique(['log_id', 'setting_name'], 'event_log_settings_pkey');

@@ -45,7 +45,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
             $table->bigInteger('controlled_vocab_entry_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
             $table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');
             $table->unique(['controlled_vocab_entry_id', 'locale', 'setting_name'], 'c_v_e_s_pkey');

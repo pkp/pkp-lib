@@ -61,7 +61,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('publication_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->index(['publication_id'], 'publication_settings_publication_id');
             $table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_pkey');
         });
@@ -89,7 +89,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('author_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->index(['author_id'], 'author_settings_author_id');
             $table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_pkey');
         });

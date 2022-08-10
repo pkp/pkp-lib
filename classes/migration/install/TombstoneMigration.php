@@ -39,7 +39,7 @@ class TombstoneMigration extends \PKP\migration\Migration
             $table->bigInteger('tombstone_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->index(['tombstone_id'], 'data_object_tombstone_settings_tombstone_id');
             $table->unique(['tombstone_id', 'locale', 'setting_name'], 'data_object_tombstone_settings_pkey');

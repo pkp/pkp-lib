@@ -15,38 +15,16 @@
 
 namespace APP\controllers\grid\users\stageParticipant\form;
 
-use APP\mail\PreprintMailTemplate;
 use PKP\controllers\grid\users\stageParticipant\form\PKPStageParticipantNotifyForm;
 
 class StageParticipantNotifyForm extends PKPStageParticipantNotifyForm
 {
     /**
-     * Return app-specific stage templates.
-     *
-     * @return array
+     * FIXME should be retrieved from a database based on a record in email_template_assignments table after
+     * API implementation pkp/pkp-lib#7706
      */
-    protected function _getStageTemplates()
+    protected function getStageTemplates(): array
     {
-        return [
-            WORKFLOW_STAGE_ID_PRODUCTION => ['EDITOR_ASSIGN']
-        ];
-    }
-
-    /**
-     * return app-specific mail template.
-     *
-     * @param Submission $submission
-     * @param string $templateKey
-     * @param bool $includeSignature optional
-     *
-     * @return array
-     */
-    protected function _getMailTemplate($submission, $templateKey, $includeSignature = true)
-    {
-        if ($includeSignature) {
-            return new PreprintMailTemplate($submission, $templateKey);
-        } else {
-            return new PreprintMailTemplate($submission, $templateKey, null, null, null, false);
-        }
+        return ['EDITOR_ASSIGN'];
     }
 }

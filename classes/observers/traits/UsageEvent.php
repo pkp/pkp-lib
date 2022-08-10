@@ -67,6 +67,7 @@ trait UsageEvent
         $this->representation = $representation;
         $this->submissionFile = $submissionFile;
         $this->version = Registry::get('appVersion');
+        $this->request = Application::get()->getRequest();
         $this->canonicalUrl = $this->getCanonicalUrl();
     }
 
@@ -77,9 +78,6 @@ trait UsageEvent
      */
     protected function getTraitCanonicalUrl(): string
     {
-        $application = Application::get();
-        $this->request = $application->getRequest();
-
         $canonicalUrlPage = $canonicalUrlOp = null;
         $canonicalUrlParams = [];
 
@@ -103,7 +101,7 @@ trait UsageEvent
                 break;
             case Application::ASSOC_TYPE_SUBMISSION:
                 $canonicalUrlOp = 'view';
-                if ($application->getName() == 'omp') {
+                if (Application::get()->getName() == 'omp') {
                     $canonicalUrlOp = 'book';
                 }
                 $canonicalUrlParams = [$this->submission->getId()];

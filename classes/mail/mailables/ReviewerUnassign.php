@@ -84,8 +84,8 @@ class ReviewerUnassign extends Mailable
     {
         $class = Decision::class;
         $reviewerUnassignedTypes = collect([
-            'BACK_FROM_EXTERNAL_REVIEW',
-            'BACK_FROM_INTERNAL_REVIEW',
+            'CANCEL_REVIEW_ROUND',
+            'CANCEL_INTERNAL_REVIEW_ROUND',
         ])
             ->map(fn ($type) => defined("{$class}::{$type}") ? constant("{$class}::{$type}") : null)
             ->filter(fn ($type) => !is_null($type))

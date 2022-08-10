@@ -171,8 +171,11 @@ class PluginRegistry
     public static function loadAllPlugins(bool $enabledOnly = false): array
     {
         static $isLoaded;
-        // Retrieve and register categories (order is significant).
-        $isLoaded ??= array_walk(static::getCategories(), fn (string $category) => static::loadCategory($category, $enabledOnly));
+        if ($isLoaded) {
+            // Retrieve and register categories (order is significant).
+            $categories = static::getCategories();
+            $isLoaded = array_walk($categories, fn (string $category) => static::loadCategory($category, $enabledOnly));
+        }
         return static::getAllPlugins();
     }
 

@@ -1546,19 +1546,19 @@ msgid "editor.submission.decision.backToCopyediting"
 msgstr "Back To Copyediting"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr "Send this submission back from the production stage."
+msgstr "Send this submission back to the copyediting stage."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr "{$editorName} sent this submission back from the production stage."
+msgstr "{$editorName} sent this submission back to the copyediting stage."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr "Sent Back from Production"
+msgstr "Sent Back to Copyediting"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "The submission, {$title}, was sent back from the production stage."
+msgstr "The submission, {$title}, was sent back to the copyediting stage."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
-msgstr "Send an email to the authors to let them know that this submission has been sent back from the production stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
+msgstr "Send an email to the authors to let them know that this submission has been sent back to the copyediting stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Accept and Skip Review"

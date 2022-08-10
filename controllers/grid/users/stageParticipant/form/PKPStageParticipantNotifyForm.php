@@ -387,20 +387,4 @@ abstract class PKPStageParticipantNotifyForm extends Form
     {
         return true;
     }
-
-    /**
-     * FIXME should be retrieved from a database based on a record in email_template_assignments table after
-     * API implementation pkp/pkp-lib#7706
-     */
-    protected function getStageTemplates(): array
-    {
-        $map = [
-            WORKFLOW_STAGE_ID_SUBMISSION => ['EDITOR_ASSIGN'],
-            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => ['EDITOR_ASSIGN'],
-            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => ['EDITOR_ASSIGN'],
-            WORKFLOW_STAGE_ID_EDITING => ['EDITOR_ASSIGN', 'COPYEDIT_REQUEST'],
-            WORKFLOW_STAGE_ID_PRODUCTION => ['EDITOR_ASSIGN', 'LAYOUT_REQUEST', 'LAYOUT_COMPLETE'],
-        ];
-        return $map[$this->getStageId()];
-    }
 }

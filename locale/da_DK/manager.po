@@ -2559,7 +2559,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Elementer lykkedes med at blive eksporteret"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Nogle DOI('er) var ikke i stand til at blive opdaterede."
+msgstr "Nogle DOI('er) kunne ikke opdateres."
 
 msgid "manager.dois.status.stale"
 msgstr "Forældet"
@@ -3177,3 +3177,30 @@ msgstr ""
 
 msgid "stats.suppFileViews"
 msgstr "Visninger af supplerende filer"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Marker DOI'er som uregistrerede"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Du er ved at markere metadata-optegnelser over DOI for {$count} elementer "
+"som uregistrerede. Er du sikker på, at du vil markere disse optegnelser som "
+"uregistrerede?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Du er ved at markere metadata-optegnelser over DOI for {$count} elementer "
+"som forældede. Forældet-status kan kun angives til tidligere indsendte "
+"DOI'er. Er du sikker på, at du vil markere disse optegnelser som forældede?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Marker DOI'er som forældede"
+
+msgid "manager.dois.actions.description"
+msgstr "Udfør handling for {$count} valgte element(er)."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Elementer blev markeret som uregistrerede"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Elementer blev markeret som forældede"

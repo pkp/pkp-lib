@@ -30,4 +30,14 @@ class Usage
     {
         $this->traitConstruct($assocType, $context, $submission, $publicationFormat, $submissionFile);
     }
+
+    /**
+     * Get the canonical URL for the usage object
+     *
+     * @throws Exception
+     */
+    protected function getCanonicalUrl(): string
+    {
+        return $this->getTraitCanonicalUrl();
+    }
 }

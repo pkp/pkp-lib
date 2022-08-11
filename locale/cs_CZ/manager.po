@@ -2964,18 +2964,16 @@ msgstr ""
 "Tento email je zaslán nově registrovanému recenzentovi jako přivítání do "
 "systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Pokud je tato možnost povolena, je tento e-mail automaticky odeslán autorovi "
 "při odeslání příspěvku do časopisu. Obsahuje informace o sledování příspěvku "
 "v redakčním procesu a poděkování autorovi za příspěvek."
 
-#, fuzzy
 msgid "mailable.submissionAckNotUser.description"
 msgstr ""
 "Pokud je tato funkce povolena, je tento e-mail automaticky zasílán autorům "
-"uvedeným v příspěvku, kteří nejsou kontaktním  autorem."
+"uvedeným v příspěvku, kteří nejsou kontaktním autorem."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -2987,8 +2985,8 @@ msgstr "Tento email je posílán, pokud je vytvořeno nové oznámení."
 
 msgid "mailable.statisticsReportNotify.description"
 msgstr ""
-"Tento e-mail je automaticky zasílán měsíčně měsíčně editorům a správcům "
-"časopisů, aby jim poskytl přehled o stavu systému."
+"Tento e-mail je automaticky zasílán měsíčně editorům a správcům časopisů, "
+"aby jim poskytl přehled o stavu systému."
 
 msgid "manager.people.authSource"
 msgstr "Zdroj ověření"
@@ -3147,3 +3145,127 @@ msgstr "Položky úspěšně označené jako neregistrované"
 
 msgid "manager.dois.notification.markStaleSuccess"
 msgstr "Položky úspěšně označené jako zastaralé"
+
+msgid "emailTemplate.variable.password"
+msgstr "Nové náhodné uživatelské heslo"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Úplné jméno uživatele, který nahrál soubor příspěvku"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Název oznámení"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Stručný popis oznámení"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "Adresa URL oznámení"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Počet příspěvků přijatých tento měsíc"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Počet odmítnutých příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Počet přijatých příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "Počet vynechaných příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Celkový počet přijatých příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Měsíc vydání zprávy"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Rok vydání zprávy"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Odkaz na stránku s redakčními aktivitami"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Odkaz na stránku se statistikami publikovaných článků"
+
+msgid "mailable.passwordReset.name"
+msgstr "Obnovení hesla"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Potvrzení obnovení hesla"
+
+msgid "mailable.userRegister.name"
+msgstr "Registrace uživatelů"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Registrace recenzentů"
+
+msgid "mailable.submissionAck.name"
+msgstr "Poděkování za podání příspěvku"
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "Potvrzení podání příspěvku"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Předkládání diskusí"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Tento e-mail je odeslán ve fázi podání, aby upozornil uživatele na podání"
+
+msgid "mailable.discussionReview.name"
+msgstr "Diskuse k recenzi"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Tento e-mail je odeslán ve fázi pracovního postupu recenze, aby upozornil "
+"uživatele na pokrok ve zpracování příspěvku"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Diskuse ve fázi copyeditingu"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Diskuse v produkční fázi"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Tento e-mail je odeslán v produkční fázi, aby upozornil uživatele na pokrok "
+"ve zpracování příspěvku"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Oznámení revidované verze"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Oznámení o statistické zprávě"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Oznámení o publikované verzi"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Tento e-mail automaticky informuje recenzenta o změněných podrobnostech "
+"recenze"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Identifikace čísla, včetně svazku, čísla, roku a názvu"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Tento e-mail je odeslán ve fázi copyeditingu, aby upozornil uživatele na "
+"pokrok ve zpracování příspěvku"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Tento e-mail automaticky informuje přidělené redaktory o publikování nové "
+"verze"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Editovat oznámení o recenzi"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Komentář recenzenta: Upozornit redakci"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán přiděleným redaktorům, když recenzent "
+"odevzdá recenzní doporučení"

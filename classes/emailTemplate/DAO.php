@@ -278,8 +278,8 @@ class DAO extends EntityDAO
 
             DB::table('email_templates_default')->insert([
                 'email_key' => $attrs['key'],
-                'can_disable' => $attrs['can_disable'] ? 1 : 0,
-                'can_edit' => $attrs['can_edit'] ? 1 : 0,
+                'can_disable' => ($attrs['can_disable'] ?? false) ? 1 : 0,
+                'can_edit' => ($attrs['can_edit'] ?? false) ? 1 : 0,
                 'from_role_id' => isset($attrs['from_role_id']) ? ((int) $attrs['from_role_id']) : null,
                 'to_role_id' => isset($attrs['to_role_id']) ? ((int) $attrs['to_role_id']) : null,
                 'stage_id' => isset($attrs['stage_id']) ? ((int) $attrs['stage_id']) : null,

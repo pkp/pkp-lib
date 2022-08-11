@@ -542,7 +542,7 @@ class FormBuilderVocabulary
                     }
                     break;
                 case 'id': break; // if we don't do this, the textarea ends up with two id attributes because FBV_id is also set.
-                default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
+                default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars((string) $value, ENT_QUOTES) . '" ';
             }
         }
 

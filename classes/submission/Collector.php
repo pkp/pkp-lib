@@ -25,7 +25,7 @@ use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 
@@ -426,7 +426,7 @@ abstract class Collector implements CollectorInterface
         }
 
         // Add app-specific query statements
-        HookRegistry::call('Submission::Collector', [&$q, $this]);
+        Hook::call('Submission::Collector', [&$q, $this]);
 
         return $q;
     }

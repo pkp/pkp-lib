@@ -23,7 +23,7 @@ use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -142,7 +142,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        HookRegistry::call('API::stats::publications::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publications::params', [&$allowedParams, $slimRequest]);
 
         // Check/validate, filter and sanitize the request params
         try {
@@ -215,7 +215,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        HookRegistry::call('API::stats::publications::timeline::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publications::timeline::params', [&$allowedParams, $slimRequest]);
 
         $statsService = Services::get('publicationStats');
         // Check/validate, filter and sanitize the request params
@@ -253,7 +253,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'dateEnd',
         ]);
 
-        HookRegistry::call('API::stats::publication::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publication::params', [&$allowedParams, $slimRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
@@ -300,7 +300,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'timelineInterval',
         ]);
 
-        HookRegistry::call('API::stats::publication::timeline::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publication::timeline::params', [&$allowedParams, $slimRequest]);
 
         $allowedParams['contextIds'] = [$request->getContext()->getId()];
         $allowedParams['submissionIds'] = [$submission->getId()];
@@ -349,7 +349,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        HookRegistry::call('API::stats::publications::files::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publications::files::params', [&$allowedParams, $slimRequest]);
 
         // Check/validate, filter and sanitize the request params
         try {
@@ -428,7 +428,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        HookRegistry::call('API::stats::publications::countries::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publications::countries::params', [&$allowedParams, $slimRequest]);
 
         // Check/validate, filter and sanitize the request params
         try {
@@ -506,7 +506,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        HookRegistry::call('API::stats::publications::regions::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publications::regions::params', [&$allowedParams, $slimRequest]);
 
         // Check/validate, filter and sanitize the request params
         try {
@@ -590,7 +590,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        HookRegistry::call('API::stats::publications::cities::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::publications::cities::params', [&$allowedParams, $slimRequest]);
 
         // Check/validate, filter and sanitize the request params
         try {

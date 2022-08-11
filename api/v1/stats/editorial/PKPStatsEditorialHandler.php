@@ -18,10 +18,10 @@ namespace PKP\API\v1\stats\editorial;
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-
 use PKP\security\Role;
 
 abstract class PKPStatsEditorialHandler extends APIHandler
@@ -104,7 +104,7 @@ abstract class PKPStatsEditorialHandler extends APIHandler
             }
         }
 
-        \HookRegistry::call('API::stats::editorial::params', [&$params, $slimRequest]);
+        Hook::call('API::stats::editorial::params', [&$params, $slimRequest]);
 
         $params['contextIds'] = [$request->getContext()->getId()];
 
@@ -156,7 +156,7 @@ abstract class PKPStatsEditorialHandler extends APIHandler
             }
         }
 
-        \HookRegistry::call('API::stats::editorial::averages::params', [&$params, $slimRequest]);
+        Hook::call('API::stats::editorial::averages::params', [&$params, $slimRequest]);
 
         $params['contextIds'] = [$request->getContext()->getId()];
 

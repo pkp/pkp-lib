@@ -17,7 +17,7 @@
 
 namespace PKP\oai;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 abstract class PKPOAIDAO extends \PKP\db\DAO
 {
@@ -217,7 +217,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
         $record = new OAIRecord();
         $record = $this->_doCommonOAIFromRowOperations($record, $row);
 
-        HookRegistry::call('OAIDAO::_returnRecordFromRow', [&$record, &$row]);
+        Hook::call('OAIDAO::_returnRecordFromRow', [&$record, &$row]);
 
         return $record;
     }
@@ -234,7 +234,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
         $record = new OAIIdentifier();
         $record = $this->_doCommonOAIFromRowOperations($record, $row);
 
-        HookRegistry::call('OAIDAO::_returnIdentifierFromRow', [&$record, &$row]);
+        Hook::call('OAIDAO::_returnIdentifierFromRow', [&$record, &$row]);
 
         return $record;
     }

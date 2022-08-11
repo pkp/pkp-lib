@@ -18,7 +18,7 @@
 namespace PKP\context;
 
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class LibraryFileDAO extends \PKP\db\DAO
 {
@@ -157,7 +157,7 @@ class LibraryFileDAO extends \PKP\db\DAO
 
         $this->getDataObjectSettings('library_file_settings', 'file_id', $row['file_id'], $libraryFile);
 
-        HookRegistry::call('LibraryFileDAO::_fromRow', [&$libraryFile, &$row]);
+        Hook::call('LibraryFileDAO::_fromRow', [&$libraryFile, &$row]);
 
         return $libraryFile;
     }

@@ -64,7 +64,7 @@ define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 use Exception;
 
 use PKP\config\Config;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPComponentRouter extends PKPRouter
 {
@@ -201,7 +201,7 @@ class PKPComponentRouter extends PKPRouter
             $allowedPackages = null;
 
             // Give plugins a chance to intervene
-            if (!HookRegistry::call('LoadComponentHandler', [&$component, &$op, &$componentInstance])) {
+            if (!Hook::call('LoadComponentHandler', [&$component, &$op, &$componentInstance])) {
                 if (empty($component)) {
                     return $nullVar;
                 }

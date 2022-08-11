@@ -19,7 +19,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPString;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -168,7 +168,7 @@ class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
         }
 
-        HookRegistry::call('Institution::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Institution::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -177,7 +177,7 @@ class Repository
     public function add(Institution $institution): int
     {
         $id = $this->dao->insert($institution);
-        HookRegistry::call('Institution::add', [$institution]);
+        Hook::call('Institution::add', [$institution]);
         return $id;
     }
 
@@ -186,16 +186,16 @@ class Repository
     {
         $newInstitution = clone $institution;
         $newInstitution->setAllData(array_merge($newInstitution->_data, $params));
-        HookRegistry::call('Institution::edit', [$newInstitution, $institution, $params]);
+        Hook::call('Institution::edit', [$newInstitution, $institution, $params]);
         $this->dao->update($newInstitution);
     }
 
     /** @copydoc DAO::delete() */
     public function delete(Institution $institution): void
     {
-        HookRegistry::call('Institution::delete::before', [$institution]);
+        Hook::call('Institution::delete::before', [$institution]);
         $this->dao->delete($institution);
-        HookRegistry::call('Institution::delete', [$institution]);
+        Hook::call('Institution::delete', [$institution]);
     }
 
     /**

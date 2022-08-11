@@ -17,9 +17,9 @@ namespace PKP\services;
 use APP\core\Application;
 use APP\core\Services;
 use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
-
 use PKP\validation\ValidatorFactory;
 
 class PKPSiteService implements EntityPropertyInterface
@@ -42,7 +42,7 @@ class PKPSiteService implements EntityPropertyInterface
 
         $values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_SITE, $values, $site->getSupportedLocales());
 
-        \HookRegistry::call('Site::getProperties', [&$values, $site, $props, $args]);
+        Hook::call('Site::getProperties', [&$values, $site, $props, $args]);
 
         ksort($values);
 
@@ -169,7 +169,7 @@ class PKPSiteService implements EntityPropertyInterface
             $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
-        \HookRegistry::call('Site::validate', [&$errors, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Site::validate', [&$errors, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -208,7 +208,7 @@ class PKPSiteService implements EntityPropertyInterface
         $newSite = $siteDao->newDataObject();
         $newSite->_data = array_merge($site->_data, $params);
 
-        \HookRegistry::call('Site::edit', [&$newSite, $site, $params, $request]);
+        Hook::call('Site::edit', [&$newSite, $site, $params, $request]);
 
         $siteDao->updateObject($newSite);
         $newSite = $siteDao->getSite();

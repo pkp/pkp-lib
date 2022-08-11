@@ -22,7 +22,7 @@ use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\SubmissionAgencyDAO;
@@ -114,7 +114,7 @@ class PKPVocabHandler extends APIHandler
                 break;
             default:
                 $entries = [];
-                HookRegistry::call('API::vocabs::getMany', [$vocab, &$entries, $slimRequest, $response, $this->request]);
+                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $slimRequest, $response, $this->request]);
         }
 
         $data = [];

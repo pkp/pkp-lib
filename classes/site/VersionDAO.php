@@ -19,7 +19,7 @@ namespace PKP\site;
 
 use APP\core\Application;
 use Illuminate\Support\Facades\DB;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class VersionDAO extends \PKP\db\DAO
 {
@@ -87,7 +87,7 @@ class VersionDAO extends \PKP\db\DAO
             ($row['sitewide'] ?? 0)
         );
 
-        HookRegistry::call('VersionDAO::_returnVersionFromRow', [&$version, &$row]);
+        Hook::call('VersionDAO::_returnVersionFromRow', [&$version, &$row]);
 
         return $version;
     }

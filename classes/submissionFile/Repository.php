@@ -21,6 +21,7 @@ use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -30,10 +31,9 @@ use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionFileLog;
 use PKP\log\SubmissionLog;
-use Illuminate\Support\Facades\Mail;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -250,7 +250,7 @@ abstract class Repository
                 );
         }
 
-        HookRegistry::call(
+        Hook::call(
             'SubmissionFile::validate',
             [
                 &$errors,
@@ -274,7 +274,7 @@ abstract class Repository
 
         $submissionFile = $this->get($submissionFileId);
 
-        HookRegistry::call('SubmissionFile::add', [$submissionFile]);
+        Hook::call('SubmissionFile::add', [$submissionFile]);
 
         $user = $this->request->getUser();
         SubmissionFileLog::logEvent(
@@ -360,7 +360,7 @@ abstract class Repository
         $newSubmissionFile = clone $submissionFile;
         $newSubmissionFile->setAllData(array_merge($newSubmissionFile->_data, $params));
 
-        HookRegistry::call(
+        Hook::call(
             'SubmissionFile::edit',
             [
                 $newSubmissionFile,
@@ -675,7 +675,7 @@ abstract class Repository
 
         $result = !in_array($fileStage, $excludedFileStages) && in_array($submissionFile->getData('mimetype'), $allowedMimetypes);
 
-        HookRegistry::call('SubmissionFile::supportsDependentFiles', [&$result, $submissionFile]);
+        Hook::call('SubmissionFile::supportsDependentFiles', [&$result, $submissionFile]);
 
         return $result;
     }

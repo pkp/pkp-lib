@@ -16,7 +16,7 @@ namespace PKP\category;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -136,7 +136,7 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        HookRegistry::call('Category::Collector', [&$qb, $this]);
+        Hook::call('Category::Collector', [&$qb, $this]);
 
         return $qb;
     }

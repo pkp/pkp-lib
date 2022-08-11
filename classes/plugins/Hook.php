@@ -94,13 +94,13 @@ class Hook
      * ...and $args will receive the array provided here.
      *
      * This function should be considered deprecated in favour of
-     * HookRegistry::run.
+     * Hook::call.
      */
     public static function call(string $hookName, array $args = []): mixed
     {
         // Called only by Unit Test
         // This behaviour is DEPRECATED and not replicated in the preferred
-        // HookRegistry::run function.
+        // Hook::call function.
         if (self::rememberCalledHooks(true)) {
             // Remember the called hooks for testing.
             $calledHooks = & static::getCalledHooks();
@@ -122,7 +122,7 @@ class Hook
      * The signature of a callback function should be:
      *   function callback($hookName, ...) : bool;
      * where ... corresponds to the parameters named/listed in the $args
-     * parameter to HookRegistry::run. These may be named if desired,
+     * parameter to Hook::call. These may be named if desired,
      * and may include references.
      */
     public static function run(string $hookName, $args): bool

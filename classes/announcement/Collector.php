@@ -17,7 +17,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -149,7 +149,7 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        HookRegistry::call('Announcement::Collector', [&$qb, $this]);
+        Hook::call('Announcement::Collector', [&$qb, $this]);
 
         return $qb;
     }

@@ -22,7 +22,7 @@ use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPDoiSetupSettingsForm;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\IPKPDoiRegistrationAgency;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
@@ -89,7 +89,7 @@ abstract class PKPDoisHandler extends Handler
             'registrationAgencyInfo' => $this->_getRegistrationAgencyInfo($context),
         ];
 
-        HookRegistry::call('DoisHandler::setListPanelArgs', [&$commonArgs]);
+        Hook::call('DoisHandler::setListPanelArgs', [&$commonArgs]);
 
         $stateComponents = $this->getAppStateComponents($request, $enabledDoiTypes, $commonArgs);
 

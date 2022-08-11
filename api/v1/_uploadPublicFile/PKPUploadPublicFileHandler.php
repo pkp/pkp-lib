@@ -17,7 +17,7 @@ namespace PKP\API\v1\_uploadPublicFile;
 use APP\core\Application;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -106,7 +106,7 @@ class PKPUploadPublicFileHandler extends APIHandler
         $allowedDirSize = Config::getVar('files', 'public_user_dir_size', 5000) * 1024;
         $allowedFileTypes = ['gif', 'jpg', 'png', 'webp', 'svg'];
 
-        HookRegistry::call('API::uploadPublicFile::permissions', [
+        Hook::call('API::uploadPublicFile::permissions', [
             &$userDir,
             &$isUserAllowed,
             &$allowedDirSize,

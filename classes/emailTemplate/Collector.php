@@ -16,7 +16,7 @@ namespace PKP\emailTemplate;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -231,7 +231,7 @@ class Collector implements CollectorInterface
         $q = $this->commonBuilderBlocks($q);
 
         // Add app-specific query statements
-        HookRegistry::call('EmailTemplate::Collector::default', [$q, $this]);
+        Hook::call('EmailTemplate::Collector::default', [$q, $this]);
 
         return $q;
     }
@@ -311,7 +311,7 @@ class Collector implements CollectorInterface
         $q = $this->commonBuilderBlocks($q);
 
         // Add app-specific query statements
-        HookRegistry::call('EmailTemplate::Collector::custom', [$q, $this]);
+        Hook::call('EmailTemplate::Collector::custom', [$q, $this]);
 
         return $q;
     }

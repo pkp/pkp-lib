@@ -58,7 +58,7 @@ namespace PKP\core;
 
 use PKP\config\Config;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPRouter
 {
@@ -225,7 +225,7 @@ class PKPRouter
                 $userVars
             );
 
-            HookRegistry::call('Router::getRequestedContextPaths', [&$this->_contextPaths]);
+            Hook::call('Router::getRequestedContextPaths', [&$this->_contextPaths]);
         }
 
         return $this->_contextPaths;
@@ -338,7 +338,7 @@ class PKPRouter
             } else {
                 $this->_indexUrl = $request->getBaseUrl() . '/index.php';
             }
-            HookRegistry::call('Router::getIndexUrl', [&$this->_indexUrl]);
+            Hook::call('Router::getIndexUrl', [&$this->_indexUrl]);
         }
 
         return $this->_indexUrl;

@@ -20,6 +20,7 @@ use APP\decision\Decision;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\decision\DecisionType;
+use PKP\plugins\Hook;
 use PKP\submission\PKPSubmission;
 
 abstract class PKPStatsEditorialQueryBuilder
@@ -381,7 +382,7 @@ abstract class PKPStatsEditorialQueryBuilder
                     ->orWhere('s.date_submitted', '<', DB::raw('pi.date_published'));
             });
 
-        \HookRegistry::call('Stats::editorial::queryObject', [&$q, $this]);
+        Hook::call('Stats::editorial::queryObject', [&$q, $this]);
 
         return $q;
     }

@@ -20,7 +20,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\query\QueryDAO;
 use PKP\security\UserGroup;
@@ -75,7 +75,7 @@ class Schema extends \PKP\core\maps\Schema
             'urlPublished',
         ];
 
-        HookRegistry::call('Submission::getSubmissionsListProps', [&$props]);
+        Hook::call('Submission::getSubmissionsListProps', [&$props]);
 
         return $props;
     }

@@ -25,7 +25,7 @@ use PKP\db\DAORegistry;
 
 use PKP\form\Form;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPNotificationSettingsForm extends Form
 {
@@ -106,7 +106,7 @@ class PKPNotificationSettingsForm extends Form
         ];
 
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::getNotificationSettingCategories'), [$this, &$result]);
+        Hook::call(strtolower_codesafe(end($classNameParts) . '::getNotificationSettingCategories'), [$this, &$result]);
 
         return $result;
     }

@@ -103,11 +103,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
         // Themes must initialize their functionality after all theme plugins
         // have been loaded in order to make use of parent/child theme
         // relationships
-        HookRegistry::register('PluginRegistry::categoryLoaded::themes', [$this, 'themeRegistered']);
-        HookRegistry::register('PluginRegistry::categoryLoaded::themes', [$this, 'initAfter']);
+        Hook::add('PluginRegistry::categoryLoaded::themes', [$this, 'themeRegistered']);
+        Hook::add('PluginRegistry::categoryLoaded::themes', [$this, 'initAfter']);
 
         // Allow themes to override plugin template files
-        HookRegistry::register('TemplateResource::getFilename', [$this, '_overridePluginTemplates']);
+        Hook::add('TemplateResource::getFilename', [$this, '_overridePluginTemplates']);
 
         return true;
     }

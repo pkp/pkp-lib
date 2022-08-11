@@ -28,7 +28,7 @@ use Exception;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\statistics\TemporaryInstitutionsDAO;
 
@@ -311,7 +311,7 @@ abstract class PKPUsageStatsLoader extends FileLoader
                 continue;
             }
 
-            HookRegistry::call('Stats::storeUsageEventLogEntry', [$entryData]);
+            Hook::call('Stats::storeUsageEventLogEntry', [$entryData]);
             $this->insertTemporaryUsageStatsData($entryData, $lineNumber, $loadId);
         }
         fclose($fhandle);

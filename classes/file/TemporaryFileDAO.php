@@ -17,7 +17,7 @@
 
 namespace PKP\file;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class TemporaryFileDAO extends \PKP\db\DAO
 {
@@ -68,7 +68,7 @@ class TemporaryFileDAO extends \PKP\db\DAO
         $temporaryFile->setOriginalFileName($row['original_file_name']);
         $temporaryFile->setDateUploaded($this->datetimeFromDB($row['date_uploaded']));
 
-        HookRegistry::call('TemporaryFileDAO::_returnTemporaryFileFromRow', [&$temporaryFile, &$row]);
+        Hook::call('TemporaryFileDAO::_returnTemporaryFileFromRow', [&$temporaryFile, &$row]);
 
         return $temporaryFile;
     }

@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use PKP\core\APIResponse;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use Slim\Http\Request;
@@ -104,7 +104,7 @@ class PKPUserHandler extends APIHandler
 
         $params['contextId'] = $context->getId();
 
-        HookRegistry::call('API::users::params', [&$params, $slimRequest]);
+        Hook::call('API::users::params', [&$params, $slimRequest]);
         $collector = Repo::user()->getCollector();
 
         // Convert from $params array to what the Collector expects
@@ -211,7 +211,7 @@ class PKPUserHandler extends APIHandler
             'status',
         ]);
 
-        HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
+        Hook::call('API::users::reviewers::params', [&$params, $slimRequest]);
         $collector = Repo::user()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->includeReviewerData()
@@ -361,7 +361,7 @@ class PKPUserHandler extends APIHandler
             }
         }
 
-        HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
+        Hook::call('API::users::user::report::params', [&$params, $slimRequest]);
 
         $this->getApp()->getContainer()->get('settings')->replace(['outputBuffering' => false]);
 

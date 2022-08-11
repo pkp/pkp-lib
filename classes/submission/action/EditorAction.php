@@ -34,7 +34,7 @@ use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -80,7 +80,7 @@ class EditorAction
         // been assigned to review this submission.
         $stageId = $reviewRound->getStageId();
         $round = $reviewRound->getRound();
-        if (!$assigned && isset($reviewer) && !HookRegistry::call('EditorAction::addReviewer', [&$submission, $reviewerId])) {
+        if (!$assigned && isset($reviewer) && !Hook::call('EditorAction::addReviewer', [&$submission, $reviewerId])) {
             $reviewAssignment = $reviewAssignmentDao->newDataObject();
             $reviewAssignment->setSubmissionId($submission->getId());
             $reviewAssignment->setReviewerId($reviewerId);
@@ -152,7 +152,7 @@ class EditorAction
             return false;
         }
 
-        if ($reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::setDueDates', [&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate])) {
+        if ($reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::setDueDates', [&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate])) {
 
             // Set the review due date
             $defaultNumWeeks = $context->getData('numWeeksPerReview');

@@ -17,6 +17,7 @@
 namespace PKP\services;
 
 use APP\decision\Decision;
+use PKP\plugins\Hook;
 
 class PKPStatsEditorialService
 {
@@ -159,7 +160,7 @@ class PKPStatsEditorialService
             ],
         ];
 
-        \HookRegistry::call('EditorialStats::overview', [&$overview, $args]);
+        Hook::call('EditorialStats::overview', [&$overview, $args]);
 
         return $overview;
     }
@@ -276,7 +277,7 @@ class PKPStatsEditorialService
             ['submissionsPublished' => $published]
         );
 
-        \HookRegistry::call('EditorialStats::averages', [&$averages, $args]);
+        Hook::call('EditorialStats::averages', [&$averages, $args]);
 
         return $averages;
     }
@@ -475,7 +476,7 @@ class PKPStatsEditorialService
             $qb->filterByContexts($args['contextIds']);
         }
 
-        \HookRegistry::call('Stats::editorial::queryBuilder', [&$qb, $args]);
+        Hook::call('Stats::editorial::queryBuilder', [&$qb, $args]);
 
         return $qb;
     }

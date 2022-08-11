@@ -15,7 +15,7 @@
 
 namespace PKP\template;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPTemplateResource extends \Smarty_Resource_Custom
 {
@@ -83,7 +83,7 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
                 break;
             }
         }
-        HookRegistry::call('TemplateResource::getFilename', [&$filePath, $template]);
+        Hook::call('TemplateResource::getFilename', [&$filePath, $template]);
         return $filePath;
     }
 }

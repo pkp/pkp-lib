@@ -31,7 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\observers\events\DecisionAdded;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -207,7 +207,7 @@ abstract class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('Decision::validate', [&$errors, $props]);
+        Hook::call('Decision::validate', [&$errors, $props]);
 
         return $errors;
     }
@@ -227,7 +227,7 @@ abstract class Repository
         }
         $decision->setData('dateDecided', Core::getCurrentDate());
         $id = $this->dao->insert($decision);
-        HookRegistry::call('Decision::add', [$decision]);
+        Hook::call('Decision::add', [$decision]);
 
         $decision = $this->get($id);
 

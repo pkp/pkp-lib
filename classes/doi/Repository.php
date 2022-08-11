@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\Jobs\Doi\DepositSubmission;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -182,7 +182,7 @@ abstract class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get(PKPSchemaService::SCHEMA_DOI), []);
         }
 
-        HookRegistry::call('Doi::validate', [&$errors, $object, $props]);
+        Hook::call('Doi::validate', [&$errors, $object, $props]);
 
         return $errors;
     }
@@ -191,7 +191,7 @@ abstract class Repository
     public function add(Doi $doi): int
     {
         $id = $this->dao->insert($doi);
-        HookRegistry::call('Doi::add', [$doi]);
+        Hook::call('Doi::add', [$doi]);
 
         return $id;
     }
@@ -202,7 +202,7 @@ abstract class Repository
         $newDoi = clone $doi;
         $newDoi->setAllData(array_merge($newDoi->_data, $params));
 
-        HookRegistry::call('Doi::edit', [$newDoi, $doi, $params]);
+        Hook::call('Doi::edit', [$newDoi, $doi, $params]);
 
         $this->dao->update($newDoi);
     }
@@ -210,9 +210,9 @@ abstract class Repository
     /** @copydoc DAO::delete() */
     public function delete(Doi $doi)
     {
-        HookRegistry::call('Doi::delete::before', [$doi]);
+        Hook::call('Doi::delete::before', [$doi]);
         $this->dao->delete($doi);
-        HookRegistry::call('Doi::delete', [$doi]);
+        Hook::call('Doi::delete', [$doi]);
     }
 
     /**
@@ -256,7 +256,7 @@ abstract class Repository
             'status' => Doi::STATUS_REGISTERED,
         ];
 
-        HookRegistry::call('Doi::markRegistered', [&$editParams]);
+        Hook::call('Doi::markRegistered', [&$editParams]);
         $this->edit($doi, $editParams);
     }
 

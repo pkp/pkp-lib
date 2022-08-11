@@ -32,7 +32,7 @@ use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\UnpublishedEvent;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\UserGroup;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
@@ -229,7 +229,7 @@ abstract class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('Publication::validate', [&$errors, $publication, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Publication::validate', [&$errors, $publication, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -265,7 +265,7 @@ abstract class Repository
             $errors['reviewStage'] = __('publication.required.reviewStage');
         }
 
-        HookRegistry::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
+        Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -298,7 +298,7 @@ abstract class Repository
             $this->edit($publication, ['coverImage' => $value], $this->request);
         }
 
-        HookRegistry::call('Publication::add', [&$publication]);
+        Hook::call('Publication::add', [&$publication]);
 
         // Update a submission's status based on the status of its publications
         Repo::submission()->updateStatus($submission);
@@ -344,7 +344,7 @@ abstract class Repository
 
         $newPublication = Repo::publication()->get($newPublication->getId());
 
-        HookRegistry::call('Publication::version', [&$newPublication, $publication]);
+        Hook::call('Publication::version', [&$newPublication, $publication]);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
         SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
@@ -378,7 +378,7 @@ abstract class Repository
         $newPublication = Repo::publication()->newDataObject(array_merge($publication->_data, $params));
         $newPublication->stampModified();
 
-        HookRegistry::call('Publication::edit', [&$newPublication, $publication, $params, $this->request]);
+        Hook::call('Publication::edit', [&$newPublication, $publication, $params, $this->request]);
 
         $this->dao->update($newPublication);
 
@@ -445,7 +445,7 @@ abstract class Repository
             );
         }
 
-        HookRegistry::call('Publication::publish::before', [&$newPublication, $publication]);
+        Hook::call('Publication::publish::before', [&$newPublication, $publication]);
 
         $this->dao->update($newPublication);
 
@@ -481,7 +481,7 @@ abstract class Repository
             $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
             Repo::doi()->markStale($staleDoiIds);
         }
-        HookRegistry::call(
+        Hook::call(
             'Publication::publish',
             [
                 &$newPublication,
@@ -517,7 +517,7 @@ abstract class Repository
         $newPublication->setData('status', Submission::STATUS_QUEUED);
         $newPublication->stampModified();
 
-        HookRegistry::call(
+        Hook::call(
             'Publication::unpublish::before',
             [
                 &$newPublication,
@@ -557,7 +557,7 @@ abstract class Repository
             $msg
         );
 
-        HookRegistry::call(
+        Hook::call(
             'Publication::unpublish',
             [
                 &$newPublication,
@@ -572,7 +572,7 @@ abstract class Repository
     /** @copydoc DAO::delete() */
     public function delete(Publication $publication)
     {
-        HookRegistry::call('Publication::delete::before', [&$publication]);
+        Hook::call('Publication::delete::before', [&$publication]);
 
         $this->dao->delete($publication);
 
@@ -580,7 +580,7 @@ abstract class Repository
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         Repo::submission()->updateStatus($submission);
 
-        HookRegistry::call('Publication::delete', [&$publication]);
+        Hook::call('Publication::delete', [&$publication]);
     }
 
     /**

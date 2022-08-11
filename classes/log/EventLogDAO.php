@@ -18,7 +18,7 @@
 namespace PKP\log;
 
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class EventLogDAO extends \PKP\db\DAO
 {
@@ -107,7 +107,7 @@ class EventLogDAO extends \PKP\db\DAO
         }
         $entry->setParams($params);
 
-        HookRegistry::call('EventLogDAO::build', [&$entry, &$row]);
+        Hook::call('EventLogDAO::build', [&$entry, &$row]);
 
         return $entry;
     }

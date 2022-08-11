@@ -31,7 +31,7 @@ use PKP\db\DBResultRange;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
@@ -167,7 +167,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             ->filterByUserId($args['userId'])
             ->searchPhrase($args['searchPhrase']);
 
-        HookRegistry::call('Context::getMany::queryBuilder', [&$contextListQB, $args]);
+        Hook::call('Context::getMany::queryBuilder', [&$contextListQB, $args]);
 
         return $contextListQB;
     }
@@ -215,7 +215,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedFormLocales() : $args['supportedLocales'];
         $values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_CONTEXT, $values, $supportedLocales);
 
-        HookRegistry::call('Context::getProperties', [&$values, $context, $props, $args]);
+        Hook::call('Context::getProperties', [&$values, $context, $props, $args]);
 
         ksort($values);
 
@@ -426,7 +426,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('Context::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Context::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -461,7 +461,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         ];
 
         // Allow plugins to extend the $localeParams for new property defaults
-        HookRegistry::call('Context::defaults::localeParams', [&$localeParams, $context, $request]);
+        Hook::call('Context::defaults::localeParams', [&$localeParams, $context, $request]);
 
         $context = Services::get('schema')->setDefaults(
             PKPSchemaService::SCHEMA_CONTEXT,
@@ -525,7 +525,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         // Load all plugins so they can hook in and add their installation settings
         PluginRegistry::loadAllPlugins();
 
-        HookRegistry::call('Context::add', [&$context, $request]);
+        Hook::call('Context::add', [&$context, $request]);
 
         return $context;
     }
@@ -559,7 +559,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $newContext = $contextDao->newDataObject();
         $newContext->_data = array_merge($context->_data, $params);
 
-        HookRegistry::call('Context::edit', [&$newContext, $context, $params, $request]);
+        Hook::call('Context::edit', [&$newContext, $context, $params, $request]);
 
         $contextDao->updateObject($newContext);
         $newContext = $this->get($newContext->getId());
@@ -572,7 +572,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function delete($context)
     {
-        HookRegistry::call('Context::delete::before', [&$context]);
+        Hook::call('Context::delete::before', [&$context]);
 
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
         $announcementTypeDao->deleteByContextId($context->getId());
@@ -617,7 +617,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $contextPath = Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
         $fileManager->rmtree($contextPath);
 
-        HookRegistry::call('Context::delete', [&$context]);
+        Hook::call('Context::delete', [&$context]);
     }
 
     /**
@@ -652,7 +652,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         ];
 
         // Allow plugins to extend the $localeParams for new property defaults
-        HookRegistry::call('Context::restoreLocaleDefaults::localeParams', [&$localeParams, $context, $request, $locale]);
+        Hook::call('Context::restoreLocaleDefaults::localeParams', [&$localeParams, $context, $request, $locale]);
 
         $localeDefaults = Services::get('schema')->getLocaleDefaults(PKPSchemaService::SCHEMA_CONTEXT, $locale, $localeParams);
 

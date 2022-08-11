@@ -22,7 +22,7 @@ use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class ReinstateReviewerForm extends ReviewerNotifyActionForm
 {
@@ -61,7 +61,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
 
         // Reinstate the review assignment.
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::reinstateReview', [&$submission, $reviewAssignment])) {
+        if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::reinstateReview', [&$submission, $reviewAssignment])) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             if (!isset($reviewer)) {
                 return false;

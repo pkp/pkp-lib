@@ -24,7 +24,7 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -372,7 +372,7 @@ class Collector implements CollectorInterface
             ->buildOrderBy($query);
 
         // Add app-specific query statements
-        HookRegistry::call('User::Collector', [$query, $this]);
+        Hook::call('User::Collector', [$query, $this]);
 
         return $query;
     }

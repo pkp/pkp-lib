@@ -21,7 +21,7 @@ define('ROUTER_DEFAULT_OP', 'index');
 use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 
 use PKP\security\Validation;
@@ -242,7 +242,7 @@ class PKPPageRouter extends PKPRouter
         // If a hook has been registered to handle this page, give it the
         // opportunity to load required resources and set the handler.
         $handler = null;
-        if (!HookRegistry::call('LoadHandler', [&$page, &$op, &$sourceFile, &$handler])) {
+        if (!Hook::call('LoadHandler', [&$page, &$op, &$sourceFile, &$handler])) {
             if (file_exists($sourceFile)) {
                 $result = require('./' . $sourceFile);
                 if (is_object($result)) {

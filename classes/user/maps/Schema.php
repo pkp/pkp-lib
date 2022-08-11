@@ -16,7 +16,7 @@ namespace PKP\user\maps;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
 
@@ -187,7 +187,7 @@ class Schema extends \PKP\core\maps\Schema
 
             $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
 
-            HookRegistry::call('UserSchema::getProperties::values', [$this, &$output, $user, $props]);
+            Hook::call('UserSchema::getProperties::values', [$this, &$output, $user, $props]);
 
             ksort($output);
         }

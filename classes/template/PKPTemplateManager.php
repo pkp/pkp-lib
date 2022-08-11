@@ -47,7 +47,7 @@ use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -286,7 +286,7 @@ class PKPTemplateManager extends Smarty
             $nmService = Services::get('navigationMenu');
 
             if (Application::isInstalled()) {
-                HookRegistry::register('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
+                Hook::add('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
             }
         }
 
@@ -385,11 +385,11 @@ class PKPTemplateManager extends Smarty
             } else {
                 $this->assign('hasSidebar', !empty($request->getSite()->getData('sidebar')));
             }
-            HookRegistry::register('Templates::Common::Sidebar', [$this, 'displaySidebar']);
+            Hook::add('Templates::Common::Sidebar', [$this, 'displaySidebar']);
 
             // Clear the cache whenever the active theme is changed
-            HookRegistry::register('Context::edit', [$this, 'clearThemeTemplateCache']);
-            HookRegistry::register('Site::edit', [$this, 'clearThemeTemplateCache']);
+            Hook::add('Context::edit', [$this, 'clearThemeTemplateCache']);
+            Hook::add('Site::edit', [$this, 'clearThemeTemplateCache']);
         }
     }
 
@@ -425,7 +425,7 @@ class PKPTemplateManager extends Smarty
         $request = $this->_request;
 
         // Allow plugins to intervene
-        HookRegistry::call('PageHandler::compileLess', [&$less, &$lessFile, &$args, $name, $request]);
+        Hook::call('PageHandler::compileLess', [&$less, &$lessFile, &$args, $name, $request]);
 
         // Read the stylesheet
         $less->parseFile($lessFile);
@@ -1130,7 +1130,7 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        HookRegistry::call('TemplateManager::setupBackendPage');
+        Hook::call('TemplateManager::setupBackendPage');
     }
 
     /**
@@ -1151,7 +1151,7 @@ class PKPTemplateManager extends Smarty
 
         // Give hooks an opportunity to override
         $result = null;
-        if (HookRegistry::call('TemplateManager::fetch', [$this, $template, $cache_id, $compile_id, &$result])) {
+        if (Hook::call('TemplateManager::fetch', [$this, $template, $cache_id, $compile_id, &$result])) {
             return $result;
         }
 
@@ -1264,7 +1264,7 @@ class PKPTemplateManager extends Smarty
         // the opportunity to modify behavior; otherwise, display
         // the template as usual.
         $output = null;
-        if (HookRegistry::call('TemplateManager::display', [$this, &$template, &$output])) {
+        if (Hook::call('TemplateManager::display', [$this, &$template, &$output])) {
             echo $output;
             return;
         }
@@ -1697,7 +1697,7 @@ class PKPTemplateManager extends Smarty
     public function smartyCallHook($params, $smarty)
     {
         $output = null;
-        HookRegistry::call($params['name'], [&$params, $smarty, &$output]);
+        Hook::call($params['name'], [&$params, $smarty, &$output]);
         return $output;
     }
 

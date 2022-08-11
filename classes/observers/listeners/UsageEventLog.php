@@ -22,7 +22,7 @@ use APP\submission\Submission;
 use Illuminate\Events\Dispatcher;
 use PKP\cache\FileCache;
 use PKP\file\PrivateFileManager;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class UsageEventLog
 {
@@ -90,7 +90,7 @@ class UsageEventLog
      */
     protected function logUsageEvent(array $usageEventLogEntry): void
     {
-        HookRegistry::call('Stats::logUsageEvent', [$usageEventLogEntry]);
+        Hook::call('Stats::logUsageEvent', [$usageEventLogEntry]);
 
         $usageEventLogEntry = json_encode($usageEventLogEntry) . PHP_EOL;
 

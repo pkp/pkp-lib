@@ -17,7 +17,7 @@ namespace PKP\services;
 
 use APP\core\Application;
 use PKP\core\PKPString;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\statistics\PKPStatisticsHelper;
 
 trait PKPStatsServiceTrait
@@ -35,7 +35,7 @@ trait PKPStatsServiceTrait
         $args = array_merge($defaultArgs, $args);
         $timelineQB = $this->getQueryBuilder($args);
 
-        HookRegistry::call('Stats::getTimeline::queryBuilder', [&$timelineQB, $args]);
+        Hook::call('Stats::getTimeline::queryBuilder', [&$timelineQB, $args]);
 
         $orderDirection = 'asc';
         if (array_key_exists('orderDirection', $args)) {

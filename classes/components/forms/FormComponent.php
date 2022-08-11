@@ -17,7 +17,7 @@ namespace PKP\components\forms;
 
 use Exception;
 use PKP\facades\Locale;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 define('FIELD_POSITION_BEFORE', 'before');
 define('FIELD_POSITION_AFTER', 'after');
@@ -277,7 +277,7 @@ class FormComponent
             throw new Exception('FormComponent::getConfig() was called but one or more required property is missing: id, method, action.');
         }
 
-        HookRegistry::call('Form::config::before', $this);
+        Hook::call('Form::config::before', [$this]);
 
         // Add a default page/group if none exist
         if (!$this->groups) {
@@ -317,7 +317,7 @@ class FormComponent
             'errors' => (object) [],
         ];
 
-        \HookRegistry::call('Form::config::after', [&$config, $this]);
+        Hook::call('Form::config::after', [&$config, $this]);
 
         return $config;
     }

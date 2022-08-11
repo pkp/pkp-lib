@@ -21,7 +21,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\submission\form\SubmissionSubmitForm;
@@ -194,7 +194,7 @@ abstract class PKPSubmissionHandler extends Handler
         $submitForm = $this->getForm($step, $context, $submission);
         $submitForm->readInputData();
 
-        if (!HookRegistry::call('SubmissionHandler::saveSubmit', [$step, &$submission, &$submitForm])) {
+        if (!Hook::call('SubmissionHandler::saveSubmit', [$step, &$submission, &$submitForm])) {
             if ($submitForm->validate()) {
                 $submissionId = $submitForm->execute();
                 if (!$submission) {

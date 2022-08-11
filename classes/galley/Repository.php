@@ -20,7 +20,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -160,7 +160,7 @@ class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
         }
 
-        HookRegistry::call('Galley::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Galley::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -169,7 +169,7 @@ class Repository
     public function add(Galley $galley): int
     {
         $id = $this->dao->insert($galley);
-        HookRegistry::call('Galley::add', [$galley]);
+        Hook::call('Galley::add', [$galley]);
 
         return $id;
     }
@@ -180,7 +180,7 @@ class Repository
         $newGalley = clone $galley;
         $newGalley->setAllData(array_merge($newGalley->_data, $params));
 
-        HookRegistry::call('Galley::edit', [$newGalley, $galley, $params]);
+        Hook::call('Galley::edit', [$newGalley, $galley, $params]);
 
         $this->dao->update($newGalley);
     }
@@ -188,7 +188,7 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(Galley $galley): void
     {
-        HookRegistry::call('Galley::delete::before', [$galley]);
+        Hook::call('Galley::delete::before', [$galley]);
         $this->dao->delete($galley);
 
         // Delete related submission files
@@ -203,6 +203,6 @@ class Repository
             Repo::submissionFile()->delete($submissionFile);
         }
 
-        HookRegistry::call('Galley::delete', [$galley]);
+        Hook::call('Galley::delete', [$galley]);
     }
 }

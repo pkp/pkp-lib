@@ -17,7 +17,7 @@ namespace PKP\galley;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -57,7 +57,7 @@ class Collector implements CollectorInterface
             })
             ->orderBy('g.seq', 'asc');
 
-        HookRegistry::call('Galley::Collector', [&$qb, $this]);
+        Hook::call('Galley::Collector', [&$qb, $this]);
 
         return $qb;
     }

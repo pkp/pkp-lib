@@ -21,7 +21,7 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
@@ -147,7 +147,7 @@ class Repository
             $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('Author::validate', [$errors, $author, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Author::validate', [$errors, $author, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -167,7 +167,7 @@ class Repository
         $authorId = $this->dao->insert($author);
         $author = Repo::author()->get($authorId);
 
-        HookRegistry::call('Author::add', [$author]);
+        Hook::call('Author::add', [$author]);
 
         return $author->getId();
     }
@@ -179,7 +179,7 @@ class Repository
     {
         $newAuthor = Repo::author()->newDataObject(array_merge($author->_data, $params));
 
-        HookRegistry::call('Author::edit', [$newAuthor, $author, $params]);
+        Hook::call('Author::edit', [$newAuthor, $author, $params]);
 
         $this->dao->update($newAuthor);
 
@@ -191,12 +191,12 @@ class Repository
      */
     public function delete(Author $author)
     {
-        HookRegistry::call('Author::delete::before', [$author]);
+        Hook::call('Author::delete::before', [$author]);
         $this->dao->delete($author);
 
         $this->dao->resetContributorsOrder($author->getData('publicationId'));
 
-        HookRegistry::call('Author::delete', [$author]);
+        Hook::call('Author::delete', [$author]);
     }
 
     /**

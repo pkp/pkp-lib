@@ -27,7 +27,7 @@ use GuzzleHttp\Psr7\Stream;
 use GuzzleHttp\Psr7\Utils;
 use PKP\config\Config;
 use PKP\core\PKPString;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class FileManager
 {
@@ -346,7 +346,7 @@ class FileManager
     public function downloadByPath($filePath, $mediaType = null, $inline = false, $fileName = null)
     {
         $result = null;
-        if (HookRegistry::call('FileManager::downloadFile', [&$filePath, &$mediaType, &$inline, &$result, &$fileName])) {
+        if (Hook::call('FileManager::downloadFile', [&$filePath, &$mediaType, &$inline, &$result, &$fileName])) {
             return $result;
         }
         if (is_readable($filePath)) {
@@ -374,7 +374,7 @@ class FileManager
         } else {
             $returner = false;
         }
-        HookRegistry::call('FileManager::downloadFileFinished', [&$returner]);
+        Hook::call('FileManager::downloadFileFinished', [&$returner]);
         return $returner;
     }
 
@@ -389,7 +389,7 @@ class FileManager
     {
         if ($this->fileExists($filePath)) {
             $result = null;
-            if (HookRegistry::call('FileManager::deleteFile', [$filePath, &$result])) {
+            if (Hook::call('FileManager::deleteFile', [$filePath, &$result])) {
                 return $result;
             }
             return unlink($filePath);

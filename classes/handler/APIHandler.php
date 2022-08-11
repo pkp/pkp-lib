@@ -19,7 +19,7 @@ use APP\core\Application;
 use APP\core\Services;
 use PKP\config\Config;
 use PKP\core\APIResponse;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\internal\ApiAuthorizationMiddleware;
 use PKP\security\authorization\internal\ApiCsrfMiddleware;
 
@@ -219,7 +219,7 @@ class APIHandler extends PKPHandler
     {
         $app = $this->getApp();
         $endpoints = $this->getEndpoints();
-        HookRegistry::call('APIHandler::endpoints', [&$endpoints, $this]);
+        Hook::call('APIHandler::endpoints', [&$endpoints, $this]);
         foreach ($endpoints as $method => $definitions) {
             foreach ($definitions as $parameters) {
                 $method = strtolower($method);

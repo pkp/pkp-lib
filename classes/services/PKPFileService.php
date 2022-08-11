@@ -23,7 +23,7 @@ use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use PKP\config\Config;
 use PKP\file\FileManager;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPFileService
 {
@@ -52,7 +52,7 @@ class PKPFileService
             LocalFilesystemAdapter::DISALLOW_LINKS
         );
 
-        HookRegistry::call('File::adapter', [&$adapter, $this]);
+        Hook::call('File::adapter', [&$adapter, $this]);
 
         $this->fs = new Filesystem($adapter);
     }
@@ -152,7 +152,7 @@ class PKPFileService
             $dispatcher->handle404();
         }
 
-        if (HookRegistry::call('File::download', [$file, &$filename, $inline])) {
+        if (Hook::call('File::download', [$file, &$filename, $inline])) {
             return;
         }
 
@@ -189,7 +189,7 @@ class PKPFileService
                 $newFilename .= $extension[0];
             }
         }
-        HookRegistry::call('File::formatFilename', [&$newFilename, $path, $filename]);
+        Hook::call('File::formatFilename', [&$newFilename, $path, $filename]);
 
         return $newFilename;
     }

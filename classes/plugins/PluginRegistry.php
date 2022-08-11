@@ -164,7 +164,7 @@ class PluginRegistry
 
         // Fire a hook prior to registering plugins for a category
         // n.b.: this should not be used from a PKPPlugin::register() call to "jump categories"
-        HookRegistry::call('PluginRegistry::loadCategory', [&$category, &$plugins]);
+        Hook::call('PluginRegistry::loadCategory', [&$category, &$plugins]);
 
         // Register the plugins in sequence.
         ksort($plugins);
@@ -180,7 +180,7 @@ class PluginRegistry
 
         // Fire a hook after all plugins of a category have been loaded, so they
         // are able to interact if required
-        HookRegistry::call('PluginRegistry::categoryLoaded::' . $category, [&$plugins]);
+        Hook::call('PluginRegistry::categoryLoaded::' . $category, [&$plugins]);
 
         // Sort the plugins by priority before returning.
         uasort($plugins, function ($a, $b) {
@@ -235,7 +235,7 @@ class PluginRegistry
     {
         $application = Application::get();
         $categories = $application->getPluginCategories();
-        HookRegistry::call('PluginRegistry::getCategories', [&$categories]);
+        Hook::call('PluginRegistry::getCategories', [&$categories]);
         return $categories;
     }
 

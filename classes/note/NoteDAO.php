@@ -19,7 +19,7 @@ namespace PKP\note;
 
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class NoteDAO extends \PKP\db\DAO
 {
@@ -197,7 +197,7 @@ class NoteDAO extends \PKP\db\DAO
         $note->setAssocType($row['assoc_type']);
         $note->setAssocId($row['assoc_id']);
 
-        HookRegistry::call('NoteDAO::_fromRow', [&$note, &$row]);
+        Hook::call('NoteDAO::_fromRow', [&$note, &$row]);
 
         return $note;
     }

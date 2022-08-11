@@ -20,7 +20,7 @@ namespace PKP\reviewForm;
 
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class ReviewFormDAO extends \PKP\db\DAO
 {
@@ -83,7 +83,7 @@ class ReviewFormDAO extends \PKP\db\DAO
 
         $this->getDataObjectSettings('review_form_settings', 'review_form_id', $row['review_form_id'], $reviewForm);
 
-        HookRegistry::call('ReviewFormDAO::_fromRow', [&$reviewForm, &$row]);
+        Hook::call('ReviewFormDAO::_fromRow', [&$reviewForm, &$row]);
 
         return $reviewForm;
     }

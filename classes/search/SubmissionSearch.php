@@ -24,7 +24,7 @@ use PKP\config\Config;
 use PKP\core\PKPString;
 use PKP\core\VirtualArrayIterator;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 abstract class SubmissionSearch
 {
@@ -264,7 +264,7 @@ abstract class SubmissionSearch
 
         // Check whether a search plug-in jumps in to provide ranked search results.
         $totalResults = null;
-        $hookResult = HookRegistry::call(
+        $hookResult = Hook::call(
             'SubmissionSearch::retrieveResults',
             [&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results]
         );

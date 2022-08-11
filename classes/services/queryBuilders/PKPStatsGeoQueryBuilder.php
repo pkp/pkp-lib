@@ -21,7 +21,7 @@ use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
 {
@@ -193,7 +193,7 @@ class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
             }
         }
 
-        HookRegistry::call('StatsGeo::queryObject', [&$q, $this]);
+        Hook::call('StatsGeo::queryObject', [&$q, $this]);
 
         return $q;
     }

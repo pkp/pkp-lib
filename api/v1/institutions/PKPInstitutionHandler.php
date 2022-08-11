@@ -19,7 +19,7 @@ namespace PKP\API\v1\institutions;
 use APP\facades\Repo;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -133,7 +133,7 @@ class PKPInstitutionHandler extends APIHandler
 
         $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
 
-        HookRegistry::call('API::institutions::params', [$collector, $slimRequest]);
+        Hook::call('API::institutions::params', [$collector, $slimRequest]);
 
         $institutions = Repo::institution()->getMany($collector);
 

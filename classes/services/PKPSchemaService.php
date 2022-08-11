@@ -18,7 +18,7 @@ namespace PKP\services;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPSchemaService
 {
@@ -85,7 +85,7 @@ class PKPSchemaService
             $schema = $this->merge($schema, $appSchema);
         }
 
-        HookRegistry::call('Schema::get::' . $schemaName, [&$schema]);
+        Hook::call('Schema::get::' . $schemaName, [&$schema]);
 
         $this->_schemas[$schemaName] = $schema;
 

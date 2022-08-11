@@ -21,7 +21,7 @@ use APP\notification\NotificationManager;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class UnassignReviewerForm extends ReviewerNotifyActionForm
 {
@@ -61,7 +61,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
         // Delete or cancel the review assignment.
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
-        if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::clearReview', [&$submission, $reviewAssignment])) {
+        if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::clearReview', [&$submission, $reviewAssignment])) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
             if (!isset($reviewer)) {
                 return false;

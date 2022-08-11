@@ -31,7 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\workflow\WorkflowStageDAO;
 use PKP\xml\PKPXMLParser;
 
@@ -78,7 +78,7 @@ class UserGroupDAO extends DAO
 
         $this->getDataObjectSettings('user_group_settings', 'user_group_id', $row['user_group_id'], $userGroup);
 
-        HookRegistry::call('UserGroupDAO::_returnFromRow', [&$userGroup, &$row]);
+        Hook::call('UserGroupDAO::_returnFromRow', [&$userGroup, &$row]);
 
         return $userGroup;
     }

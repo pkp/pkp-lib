@@ -25,7 +25,7 @@ namespace PKP\oai;
 
 use APP\core\Application;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 abstract class OAI
 {
@@ -219,7 +219,7 @@ abstract class OAI
     public function metadataFormats($namesOnly = false, $identifier = null)
     {
         $formats = [];
-        HookRegistry::call('OAI::metadataFormats', [$namesOnly, $identifier, &$formats]);
+        Hook::call('OAI::metadataFormats', [$namesOnly, $identifier, &$formats]);
 
         return $formats;
     }

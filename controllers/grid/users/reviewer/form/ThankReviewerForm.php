@@ -27,7 +27,7 @@ use PKP\form\Form;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -122,7 +122,7 @@ class ThankReviewerForm extends Form
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable->getEmailTemplateKey());
         $mailable->body($this->getData('message'))->subject($template->getLocalizedData('subject'));
 
-        HookRegistry::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
+        Hook::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
         if (!$this->getData('skipEmail')) {
             $mailable->setData(Locale::getLocale());
             try {

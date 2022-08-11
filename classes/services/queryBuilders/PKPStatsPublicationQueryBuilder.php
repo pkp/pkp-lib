@@ -20,7 +20,7 @@ use APP\core\Application;
 use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\statistics\PKPStatisticsHelper;
 
 class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
@@ -176,7 +176,7 @@ class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
             }
         }
 
-        HookRegistry::call('StatsPublication::queryObject', [&$q, $this]);
+        Hook::call('StatsPublication::queryObject', [&$q, $this]);
 
         return $q;
     }

@@ -16,7 +16,7 @@ namespace PKP\decision;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -127,7 +127,7 @@ class Collector implements CollectorInterface
             })
             ->orderBy('date_decided', 'asc');
 
-        HookRegistry::call('Decision::Collector', [&$qb, $this]);
+        Hook::call('Decision::Collector', [&$qb, $this]);
 
         return $qb;
     }

@@ -24,7 +24,7 @@ use PKP\db\DAORegistry;
 
 use PKP\db\DAOResultFactory;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class NotificationDAO extends \PKP\db\DAO
 {
@@ -357,7 +357,7 @@ class NotificationDAO extends \PKP\db\DAO
         $notification->setAssocType($row['assoc_type']);
         $notification->setAssocId($row['assoc_id']);
 
-        HookRegistry::call('NotificationDAO::_fromRow', [&$notification, &$row]);
+        Hook::call('NotificationDAO::_fromRow', [&$notification, &$row]);
 
         return $notification;
     }

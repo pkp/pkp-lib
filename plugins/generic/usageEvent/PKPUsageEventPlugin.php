@@ -18,13 +18,13 @@ namespace PKP\plugins\generic\usageEvent;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\plugins\GenericPlugin;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
-use PKP\core\Core;
-use PKP\config\Config;
 
 // User classification types.
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
@@ -47,7 +47,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         if ($success) {
             $eventHooks = $this->getEventHooks();
             foreach ($eventHooks as $hook) {
-                HookRegistry::register($hook, [$this, 'getUsageEvent']);
+                Hook::add($hook, [$this, 'getUsageEvent']);
             }
         }
 
@@ -144,9 +144,9 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
     public function getUsageEvent($hookName, $args)
     {
         // Check if we have a registration to receive the usage event.
-        if (HookRegistry::getHooks('UsageEventPlugin::getUsageEvent')) {
+        if (Hook::getHooks('UsageEventPlugin::getUsageEvent')) {
             $usageEvent = $this->buildUsageEvent($hookName, $args);
-            HookRegistry::call('UsageEventPlugin::getUsageEvent', array_merge([$hookName, $usageEvent], $args));
+            Hook::call('UsageEventPlugin::getUsageEvent', array_merge([$hookName, $usageEvent], $args));
         }
         return false;
     }

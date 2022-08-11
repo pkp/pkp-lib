@@ -18,7 +18,7 @@
 namespace PKP\citation;
 
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class CitationDAO extends \PKP\db\DAO
 {
@@ -113,7 +113,7 @@ class CitationDAO extends \PKP\db\DAO
             }
         }
 
-        HookRegistry::call('CitationDAO::afterImportCitations', [$publicationId, $existingCitations, $importedCitations]);
+        Hook::call('CitationDAO::afterImportCitations', [$publicationId, $existingCitations, $importedCitations]);
     }
 
     /**

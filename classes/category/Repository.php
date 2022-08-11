@@ -16,7 +16,7 @@ namespace PKP\category;
 use APP\core\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -129,7 +129,7 @@ class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
         }
 
-        HookRegistry::call('Category::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Category::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -138,7 +138,7 @@ class Repository
     public function add(Category $category): int
     {
         $id = $this->dao->insert($category);
-        HookRegistry::call('Category::add', [$category]);
+        Hook::call('Category::add', [$category]);
 
         return $id;
     }
@@ -149,7 +149,7 @@ class Repository
         $newCategory = clone $category;
         $newCategory->setAllData(array_merge($newCategory->_data, $params));
 
-        HookRegistry::call('Category::edit', [$newCategory, $category, $params]);
+        Hook::call('Category::edit', [$newCategory, $category, $params]);
 
         $this->dao->update($newCategory);
     }
@@ -157,9 +157,9 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(Category $category)
     {
-        HookRegistry::call('Category::delete::before', [$category]);
+        Hook::call('Category::delete::before', [$category]);
         $this->dao->delete($category);
-        HookRegistry::call('Category::delete', [$category]);
+        Hook::call('Category::delete', [$category]);
     }
 
     /**

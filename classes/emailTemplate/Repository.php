@@ -17,7 +17,7 @@ use APP\emailTemplate\DAO;
 use App\facades\Repo;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -140,7 +140,7 @@ class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('EmailTemplate::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('EmailTemplate::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -150,7 +150,7 @@ class Repository
     {
         $id = $this->dao->insert($emailTemplate);
 
-        HookRegistry::call('EmailTemplate::add', [$emailTemplate]);
+        Hook::call('EmailTemplate::add', [$emailTemplate]);
 
         return $id;
     }
@@ -161,7 +161,7 @@ class Repository
         $newEmailTemplate = clone $emailTemplate;
         $newEmailTemplate->setAllData(array_merge($newEmailTemplate->_data, $params));
 
-        HookRegistry::call('EmailTemplate::edit', [$newEmailTemplate, $emailTemplate, $params]);
+        Hook::call('EmailTemplate::edit', [$newEmailTemplate, $emailTemplate, $params]);
 
         if ($newEmailTemplate->getId()) {
             $this->dao->update($newEmailTemplate);
@@ -173,9 +173,9 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(EmailTemplate $emailTemplate)
     {
-        HookRegistry::call('EmailTemplate::delete::before', [&$emailTemplate]);
+        Hook::call('EmailTemplate::delete::before', [&$emailTemplate]);
         $this->dao->delete($emailTemplate);
-        HookRegistry::call('EmailTemplate::delete', [&$emailTemplate]);
+        Hook::call('EmailTemplate::delete', [&$emailTemplate]);
     }
 
     /**
@@ -204,7 +204,7 @@ class Repository
             $deletedKeys[] = $emailTemplate->getData('key');
             $this->delete($emailTemplate);
         });
-        HookRegistry::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
+        Hook::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
         return $deletedKeys;
     }
 }

@@ -29,7 +29,7 @@ abstract class OAIMetadataFormatPlugin extends Plugin
         }
         $this->addLocaleData();
         if ($this->getEnabled()) {
-            HookRegistry::register('OAI::metadataFormats', [$this, 'callback_formatRequest']);
+            Hook::add('OAI::metadataFormats', [$this, 'callback_formatRequest']);
         }
         return true;
     }

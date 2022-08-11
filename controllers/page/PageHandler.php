@@ -18,7 +18,7 @@ namespace PKP\controllers\page;
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 
@@ -94,10 +94,10 @@ class PageHandler extends Handler
             default:
 
                 // Backwards compatibility. This hook is deprecated.
-                if (HookRegistry::getHooks('PageHandler::displayCss')) {
+                if (Hook::getHooks('PageHandler::displayCss')) {
                     $result = '';
                     $lastModified = null;
-                    HookRegistry::call('PageHandler::displayCss', [$request, &$name, &$result, &$lastModified]);
+                    Hook::call('PageHandler::displayCss', [$request, &$name, &$result, &$lastModified]);
                     if ($lastModified) {
                         header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
                     }
@@ -135,7 +135,7 @@ class PageHandler extends Handler
                         // which allows other types of plugins to handle
                         // requests
                         if (!$styles) {
-                            HookRegistry::call(
+                            Hook::call(
                                 'PageHandler::getCompiledLess',
                                 [
                                     'request' => $request,

@@ -18,7 +18,7 @@
 namespace PKP\security;
 
 use PKP\core\Core;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class AccessKeyDAO extends \PKP\db\DAO
 {
@@ -117,7 +117,7 @@ class AccessKeyDAO extends \PKP\db\DAO
         $accessKey->setAssocId($row['assoc_id']);
         $accessKey->setUserId($row['user_id']);
 
-        HookRegistry::call('AccessKeyDAO::_returnAccessKeyFromRow', [&$accessKey, &$row]);
+        Hook::call('AccessKeyDAO::_returnAccessKeyFromRow', [&$accessKey, &$row]);
 
         return $accessKey;
     }

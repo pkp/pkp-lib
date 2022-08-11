@@ -17,7 +17,7 @@ namespace PKP\core;
 
 use APP\core\Services;
 use PKP\config\Config;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 use PKP\plugins\PluginRegistry;
 use PKP\services\PKPSchemaService;
@@ -153,7 +153,7 @@ class Dispatcher
         PluginRegistry::loadCategory('generic', true);
         PluginRegistry::loadCategory('pubIds', true);
 
-        HookRegistry::call('Dispatcher::dispatch', [$request]);
+        Hook::call('Dispatcher::dispatch', [$request]);
 
         // Reload the context after generic plugins have loaded so that changes to
         // the context schema can take place

@@ -25,7 +25,7 @@ use PKP\facades\Locale;
 use PKP\navigationMenu\NavigationMenu;
 use PKP\navigationMenu\NavigationMenuItem;
 use PKP\navigationMenu\NavigationMenuItemAssignment;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
 
@@ -112,7 +112,7 @@ class PKPNavigationMenuService
             ],
         ];
 
-        HookRegistry::call('NavigationMenus::itemTypes', [&$types]);
+        Hook::call('NavigationMenus::itemTypes', [&$types]);
 
         return $types;
     }
@@ -133,7 +133,7 @@ class PKPNavigationMenuService
             ],
         ];
 
-        HookRegistry::call('NavigationMenus::itemCustomTemplates', [&$templates]);
+        Hook::call('NavigationMenus::itemCustomTemplates', [&$templates]);
 
         return $templates;
     }
@@ -375,7 +375,7 @@ class PKPNavigationMenuService
             }
         }
 
-        HookRegistry::call('NavigationMenus::displaySettings', [$navigationMenuItem, $navigationMenu]);
+        Hook::call('NavigationMenus::displaySettings', [$navigationMenuItem, $navigationMenu]);
 
         $templateMgr->assign('navigationMenuItem', $navigationMenuItem);
     }

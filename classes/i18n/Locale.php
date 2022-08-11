@@ -32,7 +32,7 @@ use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\session\SessionManager;
 use RecursiveDirectoryIterator;
@@ -240,7 +240,7 @@ class Locale implements LocaleInterface
         Repo::emailTemplate()->dao->installEmailTemplateLocaleData(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [$locale]);
         // Load all plugins so they can add locale data if needed
         PluginRegistry::loadAllPlugins();
-        HookRegistry::call('Locale::installLocale', [&$locale]);
+        Hook::call('Locale::installLocale', [&$locale]);
     }
 
     /**
@@ -366,7 +366,7 @@ class Locale implements LocaleInterface
         $locale ??= $this->getLocale();
         $localeBundle = $this->getBundle($locale);
         $value = $number === null ? $localeBundle->translateSingular($key, $params) : $localeBundle->translatePlural($key, $number, $params);
-        if ($value !== null || HookRegistry::call('Locale::translate', [&$value, $key, $params, $number, $locale, $localeBundle])) {
+        if ($value !== null || Hook::call('Locale::translate', [&$value, $key, $params, $number, $locale, $localeBundle])) {
             return $value;
         }
 

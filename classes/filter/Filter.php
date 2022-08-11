@@ -79,7 +79,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\core\RuntimeEnvironment;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Filter extends \PKP\core\DataObject
 {
@@ -497,7 +497,7 @@ class Filter extends \PKP\core\DataObject
         $preliminaryOutput = & $this->process($input);
 
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
+        Hook::call(strtolower_codesafe(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
 
         // Validate the filter output
         $isValidOutput = $preliminaryOutput !== null && $this->supports($input, $preliminaryOutput);

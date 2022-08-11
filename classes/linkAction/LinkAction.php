@@ -21,7 +21,7 @@
 
 namespace PKP\linkAction;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class LinkAction
 {
@@ -59,7 +59,7 @@ class LinkAction
         $this->_title = $title;
         $this->_image = $image;
         $this->_toolTip = $toolTip;
-        HookRegistry::call('LinkAction::construct', [$this]);
+        Hook::call('LinkAction::construct', [$this]);
     }
 
 

@@ -16,7 +16,7 @@ namespace PKP\author;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -223,7 +223,7 @@ class Collector implements CollectorInterface
         }
 
         // Add app-specific query statements
-        HookRegistry::call('Author::Collector', [&$q, $this]);
+        Hook::call('Author::Collector', [&$q, $this]);
 
 
 

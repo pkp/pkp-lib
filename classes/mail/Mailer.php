@@ -28,7 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\mail\traits\Configurable;
 use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -152,7 +152,7 @@ class Mailer extends IlluminateMailer
     public static function getMailables(Context $context): array
     {
         $mailables = static::getMailablesFromCache($context->getId());
-        HookRegistry::call('Mailer::Mailables', [&$mailables]);
+        Hook::call('Mailer::Mailables', [&$mailables]);
 
         return $mailables;
     }

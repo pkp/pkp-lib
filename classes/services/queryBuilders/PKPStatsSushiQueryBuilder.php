@@ -21,7 +21,7 @@ use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
 {
@@ -151,7 +151,7 @@ class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
 
         $q->whereBetween('m.' . StatisticsHelper::STATISTICS_DIMENSION_MONTH, [date_format(date_create($this->dateStart), 'Ym'), date_format(date_create($this->dateEnd), 'Ym')]);
 
-        HookRegistry::call('StatsSushi::queryObject', [&$q, $this]);
+        Hook::call('StatsSushi::queryObject', [&$q, $this]);
 
         return $q;
     }

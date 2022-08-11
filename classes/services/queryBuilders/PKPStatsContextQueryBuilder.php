@@ -18,7 +18,7 @@ namespace PKP\services\queryBuilders;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\statistics\PKPStatisticsHelper;
 
 class PKPStatsContextQueryBuilder extends PKPStatsQueryBuilder
@@ -53,7 +53,7 @@ class PKPStatsContextQueryBuilder extends PKPStatsQueryBuilder
             }
         }
 
-        HookRegistry::call('StatsContext::queryObject', [&$q, $this]);
+        Hook::call('StatsContext::queryObject', [&$q, $this]);
 
         return $q;
     }

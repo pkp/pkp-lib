@@ -18,21 +18,21 @@ namespace PKP\API\v1\announcements;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\mail\Mailer;
-use PKP\notification\PKPNotification;
+use Exception;
+use Illuminate\Support\Facades\Bus;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\Jobs\Notifications\NewAnnouncementMailUsers;
 use PKP\Jobs\Notifications\NewAnnouncementNotifyUsers;
-use PKP\plugins\HookRegistry;
+use PKP\mail\Mailer;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\notification\PKPNotification;
+use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use Illuminate\Support\Facades\Bus;
-use PKP\facades\Locale;
-use PKP\notification\NotificationSubscriptionSettingsDAO;
-use Exception;
-use PKP\db\DAORegistry;
 
 class PKPAnnouncementHandler extends APIHandler
 {
@@ -162,7 +162,7 @@ class PKPAnnouncementHandler extends APIHandler
 
         $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
 
-        HookRegistry::call('API::submissions::params', [$collector, $slimRequest]);
+        Hook::call('API::submissions::params', [$collector, $slimRequest]);
 
         $announcements = Repo::announcement()->getMany($collector);
 

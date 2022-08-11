@@ -47,14 +47,14 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                 // Augment the object with the additional properties required by the pub ID plugin.
                 if ($dao instanceof SchemaDAO) {
                     // Schema-backed DAOs need the schema extended.
-                    HookRegistry::register('Schema::get::' . $dao->schemaName, [$this, 'addToSchema']);
+                    Hook::add('Schema::get::' . $dao->schemaName, [$this, 'addToSchema']);
                 } elseif ($dao instanceof EntityDAO) {
                     // Schema-backed DAOs need the schema extended.
-                    HookRegistry::register('Schema::get::' . $dao->schema, [$this, 'addToSchema']);
+                    Hook::add('Schema::get::' . $dao->schema, [$this, 'addToSchema']);
                 } else {
                     // For non-schema-backed DAOs, DAOName::getAdditionalFieldNames can be used.
                     $classNameParts = explode('\\', get_class($dao)); // Separate namespace info from class name
-                    HookRegistry::register(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, 'getAdditionalFieldNames']);
+                    Hook::add(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, 'getAdditionalFieldNames']);
                 }
             }
         }

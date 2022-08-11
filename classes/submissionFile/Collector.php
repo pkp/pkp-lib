@@ -16,7 +16,7 @@ namespace PKP\submissionFile;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -248,7 +248,7 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        HookRegistry::call('SubmissionFile::Collector::getQueryBuilder', [&$qb, $this]);
+        Hook::call('SubmissionFile::Collector::getQueryBuilder', [&$qb, $this]);
 
         return $qb;
     }

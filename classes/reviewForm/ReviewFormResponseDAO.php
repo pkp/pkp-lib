@@ -18,7 +18,7 @@
 
 namespace PKP\reviewForm;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class ReviewFormResponseDAO extends \PKP\db\DAO
 {
@@ -67,7 +67,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
         $reviewFormResponse->setValue($responseValue);
         $reviewFormResponse->setResponseType($row['response_type']);
 
-        HookRegistry::call('ReviewFormResponseDAO::_returnReviewFormResponseFromRow', [&$reviewFormResponse, &$row]);
+        Hook::call('ReviewFormResponseDAO::_returnReviewFormResponseFromRow', [&$reviewFormResponse, &$row]);
 
         return $reviewFormResponse;
     }

@@ -20,7 +20,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 
 class Repository
@@ -111,7 +111,7 @@ class Repository
     public function add(User $user): int
     {
         $id = $this->dao->insert($user);
-        HookRegistry::call('User::add', [$user]);
+        Hook::call('User::add', [$user]);
 
         return $id;
     }
@@ -122,7 +122,7 @@ class Repository
         $newUser = clone $user;
         $newUser->setAllData(array_merge($newUser->_data, $params));
 
-        HookRegistry::call('User::edit', [$newUser, $user, $params]);
+        Hook::call('User::edit', [$newUser, $user, $params]);
 
         $this->dao->update($newUser);
     }
@@ -130,11 +130,11 @@ class Repository
     /** @copydoc DAO::delete */
     public function delete(User $user)
     {
-        HookRegistry::call('User::delete::before', [&$user]);
+        Hook::call('User::delete::before', [&$user]);
 
         $this->dao->delete($user);
 
-        HookRegistry::call('User::delete', [&$user]);
+        Hook::call('User::delete', [&$user]);
     }
 
     /**
@@ -258,7 +258,7 @@ class Repository
         );
         $report = new Report($dataSource);
 
-        HookRegistry::call('User::getReport', $report);
+        Hook::call('User::getReport', $report);
 
         return $report;
     }
@@ -299,7 +299,7 @@ class Repository
             return false;
         }
 
-        HookRegistry::call('UserAction::mergeUsers', [&$oldUserId, &$newUserId]);
+        Hook::call('UserAction::mergeUsers', [&$oldUserId, &$newUserId]);
 
         $collector = Repo::submissionFile()
             ->getCollector()

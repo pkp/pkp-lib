@@ -26,7 +26,7 @@ use PKP\doi\exceptions\DoiActionException;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\Jobs\Doi\DepositSubmission;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
@@ -208,7 +208,7 @@ class PKPDoiHandler extends APIHandler
 
         $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
 
-        HookRegistry::call('API::dois::params', [$collector, $slimRequest]);
+        Hook::call('API::dois::params', [$collector, $slimRequest]);
 
         $dois = Repo::doi()->getMany($collector);
 

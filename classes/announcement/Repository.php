@@ -17,7 +17,7 @@ use APP\core\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -132,7 +132,7 @@ class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('Announcement::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Announcement::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -142,7 +142,7 @@ class Repository
     {
         $announcement->setData('datePosted', Core::getCurrentDate());
         $id = $this->dao->insert($announcement);
-        HookRegistry::call('Announcement::add', [$announcement]);
+        Hook::call('Announcement::add', [$announcement]);
 
         return $id;
     }
@@ -153,7 +153,7 @@ class Repository
         $newAnnouncement = clone $announcement;
         $newAnnouncement->setAllData(array_merge($newAnnouncement->_data, $params));
 
-        HookRegistry::call('Announcement::edit', [$newAnnouncement, $announcement, $params]);
+        Hook::call('Announcement::edit', [$newAnnouncement, $announcement, $params]);
 
         $this->dao->update($newAnnouncement);
     }
@@ -161,9 +161,9 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(Announcement $announcement)
     {
-        HookRegistry::call('Announcement::delete::before', [$announcement]);
+        Hook::call('Announcement::delete::before', [$announcement]);
         $this->dao->delete($announcement);
-        HookRegistry::call('Announcement::delete', [$announcement]);
+        Hook::call('Announcement::delete', [$announcement]);
     }
 
     /**

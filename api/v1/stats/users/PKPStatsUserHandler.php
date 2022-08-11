@@ -18,7 +18,7 @@ namespace PKP\API\v1\stats\users;
 
 use APP\facades\Repo;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -101,7 +101,7 @@ class PKPStatsUserHandler extends APIHandler
             }
         }
 
-        HookRegistry::call('API::stats::users::params', [$collector, $slimRequest]);
+        Hook::call('API::stats::users::params', [$collector, $slimRequest]);
 
         $collector->filterByContextIds([$request->getContext()->getId()]);
 

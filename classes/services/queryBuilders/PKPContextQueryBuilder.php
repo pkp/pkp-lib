@@ -16,6 +16,7 @@ namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
 
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
@@ -175,7 +176,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
         });
 
         // Add app-specific query statements
-        \HookRegistry::call('Context::getContexts::queryObject', [&$q, $this]);
+        Hook::call('Context::getContexts::queryObject', [&$q, $this]);
         $q->select($this->columns);
 
         return $q;

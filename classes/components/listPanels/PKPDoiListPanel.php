@@ -18,7 +18,7 @@ namespace PKP\components\listPanels;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\doi\Doi;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\submission\PKPSubmission;
 
 abstract class PKPDoiListPanel extends ListPanel
@@ -176,7 +176,7 @@ abstract class PKPDoiListPanel extends ListPanel
 
         $this->setAppConfig($config);
 
-        HookRegistry::call('DoiListPanel::setConfig', [&$config]);
+        Hook::call('DoiListPanel::setConfig', [&$config]);
 
         // Check added here in case hook adds additional getParams
         $config['getParams'] = empty($config['getParams']) ? new \stdClass() : $config['getParams'];

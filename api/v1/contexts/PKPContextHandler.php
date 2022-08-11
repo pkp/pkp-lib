@@ -18,6 +18,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -143,7 +144,7 @@ class PKPContextHandler extends APIHandler
             }
         }
 
-        \HookRegistry::call('API::contexts::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::contexts::params', [&$allowedParams, $slimRequest]);
 
         // Anyone not a site admin should not be able to access contexts that are
         // not enabled

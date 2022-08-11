@@ -18,7 +18,7 @@
 namespace PKP\submission;
 
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class SubmissionCommentDAO extends \PKP\db\DAO
 {
@@ -162,7 +162,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
         $submissionComment->setDateModified($this->datetimeFromDB($row['date_modified']));
         $submissionComment->setViewable($row['viewable']);
 
-        HookRegistry::call('SubmissionCommentDAO::_fromRow', [&$submissionComment, &$row]);
+        Hook::call('SubmissionCommentDAO::_fromRow', [&$submissionComment, &$row]);
 
         return $submissionComment;
     }

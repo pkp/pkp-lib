@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\session\Session;
 use PKP\session\SessionManager;
@@ -114,7 +114,7 @@ class PKPRequest
      */
     public function redirectUrl($url)
     {
-        if (HookRegistry::call('Request::redirect', [&$url])) {
+        if (Hook::call('Request::redirect', [&$url])) {
             return;
         }
 
@@ -200,7 +200,7 @@ class PKPRequest
             // Auto-detection didn't work (e.g. this is a command-line call); use configuration param
             $baseUrl = Config::getVar('general', 'base_url');
         }
-        HookRegistry::call('Request::getBaseUrl', [&$baseUrl]);
+        Hook::call('Request::getBaseUrl', [&$baseUrl]);
         return $baseUrl;
     }
 
@@ -233,7 +233,7 @@ class PKPRequest
             if ($this->_basePath == '/' || $this->_basePath == '\\') {
                 $this->_basePath = '';
             }
-            HookRegistry::call('Request::getBasePath', [&$this->_basePath]);
+            Hook::call('Request::getBasePath', [&$this->_basePath]);
         }
 
         return $this->_basePath;
@@ -268,7 +268,7 @@ class PKPRequest
             $indexUrl = $this->_delegateToRouter('getIndexUrl');
 
             // Call legacy hook
-            HookRegistry::call('Request::getIndexUrl', [&$indexUrl]);
+            Hook::call('Request::getIndexUrl', [&$indexUrl]);
         }
 
         return $indexUrl;
@@ -289,7 +289,7 @@ class PKPRequest
             if (!empty($queryString)) {
                 $completeUrl .= "?${queryString}";
             }
-            HookRegistry::call('Request::getCompleteUrl', [&$completeUrl]);
+            Hook::call('Request::getCompleteUrl', [&$completeUrl]);
         }
 
         return $completeUrl;
@@ -306,7 +306,7 @@ class PKPRequest
 
         if (!isset($requestUrl)) {
             $requestUrl = $this->getProtocol() . '://' . $this->getServerHost() . $this->getRequestPath();
-            HookRegistry::call('Request::getRequestUrl', [&$requestUrl]);
+            Hook::call('Request::getRequestUrl', [&$requestUrl]);
         }
 
         return $requestUrl;
@@ -323,7 +323,7 @@ class PKPRequest
 
         if (!isset($queryString)) {
             $queryString = $_SERVER['QUERY_STRING'] ?? '';
-            HookRegistry::call('Request::getQueryString', [&$queryString]);
+            Hook::call('Request::getQueryString', [&$queryString]);
         }
 
         return $queryString;
@@ -372,7 +372,7 @@ class PKPRequest
             if ($this->isPathInfoEnabled()) {
                 $this->_requestPath .= $_SERVER['PATH_INFO'] ?? '';
             }
-            HookRegistry::call('Request::getRequestPath', [&$this->_requestPath]);
+            Hook::call('Request::getRequestPath', [&$this->_requestPath]);
         }
         return $this->_requestPath;
     }
@@ -398,7 +398,7 @@ class PKPRequest
                 ?? $default));
             // in case of multiple host entries in the header (e.g. multiple reverse proxies) take the first entry
             $this->_serverHost = strtok($this->_serverHost, ',');
-            HookRegistry::call('Request::getServerHost', [&$this->_serverHost, &$default, &$includePort]);
+            Hook::call('Request::getServerHost', [&$this->_serverHost, &$default, &$includePort]);
         }
         if (!$includePort) {
             // Strip the port number, if one is included. (#3912)
@@ -416,7 +416,7 @@ class PKPRequest
     {
         if (!isset($this->_protocol)) {
             $this->_protocol = (!isset($_SERVER['HTTPS']) || strtolower_codesafe($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
-            HookRegistry::call('Request::getProtocol', [&$this->_protocol]);
+            Hook::call('Request::getProtocol', [&$this->_protocol]);
         }
         return $this->_protocol;
     }
@@ -485,7 +485,7 @@ class PKPRequest
                 // If multiple addresses are listed, take the last. (Supports ipv6.)
                 $ipaddr = $matches[0][count($matches[0]) - 1];
             }
-            HookRegistry::call('Request::getRemoteAddr', [&$ipaddr]);
+            Hook::call('Request::getRemoteAddr', [&$ipaddr]);
         }
         return $ipaddr;
     }
@@ -501,7 +501,7 @@ class PKPRequest
         if (!isset($remoteDomain)) {
             $remoteDomain = null;
             $remoteDomain = @getHostByAddr($this->getRemoteAddr());
-            HookRegistry::call('Request::getRemoteDomain', [&$remoteDomain]);
+            Hook::call('Request::getRemoteDomain', [&$remoteDomain]);
         }
         return $remoteDomain;
     }
@@ -523,7 +523,7 @@ class PKPRequest
             if (!isset($this->_userAgent) || $this->_userAgent == false) {
                 $this->_userAgent = '';
             }
-            HookRegistry::call('Request::getUserAgent', [&$this->_userAgent]);
+            Hook::call('Request::getUserAgent', [&$this->_userAgent]);
         }
         return $this->_userAgent;
     }

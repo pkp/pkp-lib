@@ -19,7 +19,7 @@ namespace PKP\API\v1\stats\contexts;
 use APP\core\Services;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -100,7 +100,7 @@ class PKPStatsContextHandler extends APIHandler
             'contextIds',
         ]);
 
-        HookRegistry::call('API::stats::contexts::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::contexts::params', [&$allowedParams, $slimRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
@@ -175,7 +175,7 @@ class PKPStatsContextHandler extends APIHandler
             'contextIds',
         ]);
 
-        HookRegistry::call('API::stats::contexts::timeline::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::contexts::timeline::params', [&$allowedParams, $slimRequest]);
 
         if (!$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
             return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
@@ -225,7 +225,7 @@ class PKPStatsContextHandler extends APIHandler
             'dateEnd',
         ]);
 
-        HookRegistry::call('API::stats::context::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::context::params', [&$allowedParams, $slimRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
@@ -280,7 +280,7 @@ class PKPStatsContextHandler extends APIHandler
 
         $allowedParams['contextIds'] = [$context->getId()];
 
-        HookRegistry::call('API::stats::context::timeline::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::context::timeline::params', [&$allowedParams, $slimRequest]);
 
         if (!$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
             return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');

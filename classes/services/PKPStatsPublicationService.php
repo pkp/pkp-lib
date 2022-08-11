@@ -16,7 +16,7 @@
 namespace PKP\services;
 
 use APP\core\Application;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\queryBuilders\PKPStatsPublicationQueryBuilder;
 use PKP\statistics\PKPStatisticsHelper;
 
@@ -84,7 +84,7 @@ class PKPStatsPublicationService
         unset($args['offset']);
         $metricsQB = $this->getQueryBuilder($args);
 
-        HookRegistry::call('StatsPublication::getCount::queryBuilder', [&$metricsQB, $args]);
+        Hook::call('StatsPublication::getCount::queryBuilder', [&$metricsQB, $args]);
 
         return $metricsQB->getSubmissionIds()->get()->count();
     }
@@ -103,7 +103,7 @@ class PKPStatsPublicationService
         );
         $metricsQB = $this->getQueryBuilder($args);
 
-        HookRegistry::call('StatsPublication::getTotals::queryBuilder', [&$metricsQB, $args]);
+        Hook::call('StatsPublication::getTotals::queryBuilder', [&$metricsQB, $args]);
 
         $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID];
         $metricsQB = $metricsQB->getSum($groupBy);
@@ -129,7 +129,7 @@ class PKPStatsPublicationService
         ];
         $metricsQB = $this->getQueryBuilder($args);
 
-        HookRegistry::call('StatsPublication::getTotalsByType::queryBuilder', [&$metricsQB, $args]);
+        Hook::call('StatsPublication::getTotalsByType::queryBuilder', [&$metricsQB, $args]);
 
         // get abstract, pdf, html and other views for the submission
         $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE, PKPStatisticsHelper::STATISTICS_DIMENSION_FILE_TYPE];
@@ -183,7 +183,7 @@ class PKPStatsPublicationService
         unset($args['offset']);
         $metricsQB = $this->getQueryBuilder($args);
 
-        HookRegistry::call('StatsPublication::getFilesCount::queryBuilder', [&$metricsQB, $args]);
+        Hook::call('StatsPublication::getFilesCount::queryBuilder', [&$metricsQB, $args]);
 
         $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_FILE_ID];
         $metricsQB = $metricsQB->getSum($groupBy);
@@ -204,7 +204,7 @@ class PKPStatsPublicationService
         );
         $metricsQB = $this->getQueryBuilder($args);
 
-        HookRegistry::call('StatsPublication::getFilesTotals::queryBuilder', [&$metricsQB, $args]);
+        Hook::call('StatsPublication::getFilesTotals::queryBuilder', [&$metricsQB, $args]);
 
         $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_FILE_ID];
         $metricsQB = $metricsQB->getSum($groupBy);
@@ -272,7 +272,7 @@ class PKPStatsPublicationService
             }
         }
 
-        HookRegistry::call('StatsPublication::queryBuilder', [&$statsQB, $args]);
+        Hook::call('StatsPublication::queryBuilder', [&$statsQB, $args]);
 
         return $statsQB;
     }

@@ -27,7 +27,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -286,7 +286,7 @@ abstract class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('Submission::validate', [&$errors, $submission, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Submission::validate', [&$errors, $submission, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -370,7 +370,7 @@ abstract class Repository
 
         $this->edit($submission, ['currentPublicationId' => $publicationId]);
 
-        HookRegistry::call('Submission::add', [$submission]);
+        Hook::call('Submission::add', [$submission]);
 
         return $submission->getId();
     }
@@ -382,7 +382,7 @@ abstract class Repository
         $newSubmission->stampLastActivity();
         $newSubmission->stampModified();
 
-        HookRegistry::call('Submission::edit', [$newSubmission, $submission, $params]);
+        Hook::call('Submission::edit', [$newSubmission, $submission, $params]);
 
         $this->dao->update($newSubmission);
     }
@@ -390,11 +390,11 @@ abstract class Repository
     /** @copydoc DAO::delete */
     public function delete(Submission $submission)
     {
-        HookRegistry::call('Submission::delete::before', [&$submission]);
+        Hook::call('Submission::delete::before', [&$submission]);
 
         $this->dao->delete($submission);
 
-        HookRegistry::call('Submission::delete', [$submission]);
+        Hook::call('Submission::delete', [$submission]);
     }
 
     /**
@@ -428,7 +428,7 @@ abstract class Repository
             $newStatus = $this->getStatusByPublications($submission);
         }
 
-        HookRegistry::call('Submission::updateStatus', [&$newStatus, $status, $submission]);
+        Hook::call('Submission::updateStatus', [&$newStatus, $status, $submission]);
 
         if ($status !== $newStatus) {
             $submission->setData('status', $newStatus);

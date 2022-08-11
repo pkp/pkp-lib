@@ -16,7 +16,7 @@ namespace PKP\API\v1\emailTemplates;
 
 use PKP\facades\Repo;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -137,7 +137,7 @@ class PKPEmailTemplateHandler extends APIHandler
             }
         }
 
-        HookRegistry::call('API::emailTemplates::params', [$collector, $slimRequest]);
+        Hook::call('API::emailTemplates::params', [$collector, $slimRequest]);
 
         // Always restrict results to the current context
         $collector->filterByContext($request->getContext()->getId());

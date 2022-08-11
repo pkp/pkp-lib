@@ -21,7 +21,7 @@ use APP\facades\Repo;
 use APP\submission\Collector;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -109,7 +109,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         // submissions
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-        HookRegistry::call('API::submissions::params', [$collector, $slimRequest]);
+        Hook::call('API::submissions::params', [$collector, $slimRequest]);
         if (!$canAccessUnassignedSubmission) {
             if (!is_array($collector->assignedTo)) {
                 $collector->assignedTo([$currentUser->getId()]);

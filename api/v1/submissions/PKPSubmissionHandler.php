@@ -24,13 +24,15 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Collector;
 use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\handler\APIHandler;
+use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\PublicationWritePolicy;
@@ -39,9 +41,7 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
-use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use Illuminate\Support\Facades\Mail;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -274,7 +274,7 @@ class PKPSubmissionHandler extends APIHandler
 
         $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
 
-        HookRegistry::call('API::submissions::params', [$collector, $slimRequest]);
+        Hook::call('API::submissions::params', [$collector, $slimRequest]);
 
         // Prevent users from viewing submissions they're not assigned to,
         // except for journal managers and admins.
@@ -762,11 +762,14 @@ class PKPSubmissionHandler extends APIHandler
             );
 
             // Check if user is subscribed to this type of notification emails
-            if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+            if (!$notification || in_array(
+                PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                $user->getId(),
-                (int) $context->getId()))
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $user->getId(),
+                    (int) $context->getId()
+                )
+            )
             ) {
                 continue;
             }

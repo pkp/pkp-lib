@@ -29,7 +29,7 @@ use PHPMailer\PHPMailer\OAuth;
 use PHPMailer\PHPMailer\PHPMailer;
 use PKP\config\Config;
 use PKP\core\PKPString;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Mail extends \PKP\core\DataObject
 {
@@ -556,7 +556,7 @@ class Mail extends \PKP\core\DataObject
      */
     public function send()
     {
-        if (HookRegistry::call('Mail::send', [$this])) {
+        if (Hook::call('Mail::send', [$this])) {
             return true;
         }
 

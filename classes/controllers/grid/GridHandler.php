@@ -46,7 +46,7 @@ use PKP\core\JSONMessage;
 use PKP\handler\PKPHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class GridHandler extends PKPHandler
 {
@@ -1085,7 +1085,7 @@ class GridHandler extends PKPHandler
     {
         $returner = [];
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
+        Hook::call(strtolower_codesafe(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
         return $returner;
     }
 

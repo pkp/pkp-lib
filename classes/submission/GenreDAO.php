@@ -21,7 +21,7 @@ use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\db\XMLDAO;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class GenreDAO extends DAO
 {
@@ -235,7 +235,7 @@ class GenreDAO extends DAO
 
         $this->getDataObjectSettings('genre_settings', 'genre_id', $row['genre_id'], $genre);
 
-        HookRegistry::call('GenreDAO::_fromRow', [&$genre, &$row]);
+        Hook::call('GenreDAO::_fromRow', [&$genre, &$row]);
 
         return $genre;
     }

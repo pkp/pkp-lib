@@ -110,23 +110,23 @@ abstract class Plugin
         $this->pluginPath = $path;
         $this->pluginCategory = $category;
         if ($this->getInstallMigration()) {
-            HookRegistry::register('Installer::postInstall', [$this, 'updateSchema']);
+            Hook::add('Installer::postInstall', [$this, 'updateSchema']);
         }
         if ($this->getInstallSitePluginSettingsFile()) {
-            HookRegistry::register('Installer::postInstall', [$this, 'installSiteSettings']);
+            Hook::add('Installer::postInstall', [$this, 'installSiteSettings']);
         }
         if ($this->getInstallEmailTemplatesFile()) {
-            HookRegistry::register('Installer::postInstall', [$this, 'installEmailTemplates']);
-            HookRegistry::register('Locale::installLocale', [$this, 'installLocale']);
+            Hook::add('Installer::postInstall', [$this, 'installEmailTemplates']);
+            Hook::add('Locale::installLocale', [$this, 'installLocale']);
         }
         if ($this->getInstallEmailTemplateDataFile()) {
-            HookRegistry::register('Installer::postInstall', [$this, 'installEmailTemplateData']);
+            Hook::add('Installer::postInstall', [$this, 'installEmailTemplateData']);
         }
         if ($this->getContextSpecificPluginSettingsFile()) {
-            HookRegistry::register('Context::add', [$this, 'installContextSpecificSettings']);
+            Hook::add('Context::add', [$this, 'installContextSpecificSettings']);
         }
 
-        HookRegistry::register('Installer::postInstall', [$this, 'installFilters']);
+        Hook::add('Installer::postInstall', [$this, 'installFilters']);
 
         $this->_registerTemplateResource();
         return true;

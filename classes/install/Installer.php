@@ -35,7 +35,7 @@ use PKP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\site\Version;
@@ -118,9 +118,9 @@ class Installer
         PluginRegistry::loadAllPlugins();
         $this->isPlugin = $isPlugin;
 
-        // Give the HookRegistry the opportunity to override this
+        // Give the Hook registry the opportunity to override this
         // method or alter its parameters.
-        if (!HookRegistry::call('Installer::Installer', [$this, &$descriptor, &$params])) {
+        if (!Hook::call('Installer::Installer', [$this, &$descriptor, &$params])) {
             $this->descriptor = $descriptor;
             $this->params = $params;
             $this->actions = [];
@@ -143,7 +143,7 @@ class Installer
      */
     public function destroy()
     {
-        HookRegistry::call('Installer::destroy', [$this]);
+        Hook::call('Installer::destroy', [$this]);
     }
 
     /**
@@ -173,7 +173,7 @@ class Installer
         }
 
         $result = true;
-        HookRegistry::call('Installer::preInstall', [$this, &$result]);
+        Hook::call('Installer::preInstall', [$this, &$result]);
 
         return $result;
     }
@@ -218,7 +218,7 @@ class Installer
     {
         $this->log('post-install');
         $result = true;
-        HookRegistry::call('Installer::postInstall', [$this, &$result]);
+        Hook::call('Installer::postInstall', [$this, &$result]);
         return $result;
     }
 
@@ -270,7 +270,7 @@ class Installer
 
         $result = $this->getErrorType() == 0;
 
-        HookRegistry::call('Installer::parseInstaller', [$this, &$result]);
+        Hook::call('Installer::parseInstaller', [$this, &$result]);
         return $result;
     }
 
@@ -289,7 +289,7 @@ class Installer
         }
 
         $result = true;
-        HookRegistry::call('Installer::executeInstaller', [$this, &$result]);
+        Hook::call('Installer::executeInstaller', [$this, &$result]);
 
         return $result;
     }
@@ -309,7 +309,7 @@ class Installer
         }
 
         $result = true;
-        HookRegistry::call('Installer::updateVersion', [$this, &$result]);
+        Hook::call('Installer::updateVersion', [$this, &$result]);
 
         return $result;
     }

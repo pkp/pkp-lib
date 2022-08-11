@@ -19,7 +19,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PKPDoiRegistrationSettingsForm extends FormComponent
 {
@@ -46,7 +46,7 @@ class PKPDoiRegistrationSettingsForm extends FormComponent
                 'label' => __('doi.manager.settings.registrationAgency.none')
             ]
         ];
-        HookRegistry::call('DoiSettingsForm::setEnabledRegistrationAgencies', [&$registrationAgencies]);
+        Hook::call('DoiSettingsForm::setEnabledRegistrationAgencies', [&$registrationAgencies]);
 
         if (count($registrationAgencies) > 1) {
             $this->addField(new FieldSelect(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY, [

@@ -20,7 +20,7 @@ namespace PKP\log;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class EmailLogDAO extends \PKP\db\DAO
 {
@@ -134,7 +134,7 @@ class EmailLogDAO extends \PKP\db\DAO
         $entry->setSubject($row['subject']);
         $entry->setBody($row['body']);
 
-        HookRegistry::call('EmailLogDAO::build', [&$entry, &$row]);
+        Hook::call('EmailLogDAO::build', [&$entry, &$row]);
 
         return $entry;
     }

@@ -31,7 +31,7 @@ use PKP\log\SubmissionLog;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\UserGroupDAO;
 use PKP\stageAssignment\StageAssignmentDAO;
@@ -72,7 +72,7 @@ class ReviewerAction
         // he has not previously done so.
         if ($reviewAssignment->getDateConfirmed() == null) {
             $mailable = $this->getResponseEmail($submission, $reviewAssignment, $decline, $emailText);
-            HookRegistry::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
+            Hook::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
 
             if (!empty($mailable->to)) {
                 try {

@@ -28,7 +28,7 @@ use PKP\db\DAOResultFactory;
 use PKP\mail\Mailable;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class QueryDAO extends \PKP\db\DAO
 {
@@ -121,7 +121,7 @@ class QueryDAO extends \PKP\db\DAO
         $query->setIsClosed($row['closed']);
         $query->setSequence($row['seq']);
 
-        HookRegistry::call('QueryDAO::_fromRow', [&$query, &$row]);
+        Hook::call('QueryDAO::_fromRow', [&$query, &$row]);
         return $query;
     }
 

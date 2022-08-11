@@ -120,8 +120,7 @@ class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getByContextId($submission->getData('contextId'))->toArray();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

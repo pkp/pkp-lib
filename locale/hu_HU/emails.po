@@ -31,11 +31,8 @@ msgstr ""
 "<br />\n"
 "Ha bármilyen kérdése merülne fel, kérjük vegye fel a szerkesztőséggel a kapcsolatot. Köszönjük, hogy a munkájának megjelentetéséhez folyóiratunkat választotta.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "Ez az email, ha be van kapcsolva, akkor automatikusan kiküldésre kerül a Szerzőnek, amikor a folyóirathoz beküldte kéziratát. Információt ad a benyújtási folyamatról és megköszöni a Szerzőnek a benyújtott kéziratot."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Szakmai lektorálás elfogadása"
@@ -163,9 +160,6 @@ msgstr ""
 "Üdvözlettel,<br />\n"
 "{$signature}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Ezt az emailt a Rovatszerkesztő küldi a kézirat technikai szerkesztőjének, hogy felkérje a technikai szerkesztés munkájára. A levél információkat tartalmaz a kézirattal, illetve elérésével kapcsolatban."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Szerkesztői döntés"

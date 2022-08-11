@@ -20,9 +20,7 @@
 namespace PKP\notification;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use APP\notification\Notification;
-use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
 use PKP\config\Config;
@@ -30,8 +28,6 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-
-use PKP\mail\MailTemplate;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
 {
@@ -157,7 +153,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return Notification object|null
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null)
+    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
     {
         $blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
@@ -172,15 +168,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
             $notification->setLevel((int) $level);
 
             $notificationId = $notificationDao->insertObject($notification);
-
-            // Send notification emails
-            if ($notification->getLevel() != Notification::NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
-                $notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
-
-                if (!in_array($notificationType, $notificationEmailSettings)) {
-                    $this->sendNotificationEmail($request, $notification, $contextId, $mailConfigurator);
-                }
-            }
 
             if ($params) {
                 $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
@@ -312,20 +299,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     }
 
     /**
-     * Get a template mail instance.
-     *
-     * @param string $emailKey
-     *
-     * @return MailTemplate
-     *
-     * @see MailTemplate
-     */
-    protected function getMailTemplate($emailKey = null)
-    {
-        return new MailTemplate($emailKey, null, null, false);
-    }
-
-    /**
      * Get a notification content with a link action.
      *
      * @param LinkAction $linkAction
@@ -340,31 +313,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         return $templateMgr->fetch('controllers/notification/linkActionNotificationContent.tpl');
     }
 
-
-    //
-    // Private helper methods.
-    //
-    /**
-     * Return a string of formatted notifications for display
-     *
-     * @param PKPRequest $request
-     * @param object $notifications DAOResultFactory
-     * @param string $notificationTemplate optional Template to use for constructing an individual notification for display
-     *
-     * @return string
-     */
-    private function formatNotifications($request, $notifications, $notificationTemplate = 'notification/notification.tpl')
-    {
-        $notificationString = '';
-
-        // Build out the notifications based on their associated objects and format into a string
-        while ($notification = $notifications->next()) {
-            $notificationString .= $this->formatNotification($request, $notification, $notificationTemplate);
-        }
-
-        return $notificationString;
-    }
-
     /**
      * Return a fully formatted notification for display
      *
@@ -373,7 +321,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return string
      */
-    private function formatNotification($request, $notification, $notificationTemplate = 'notification/notification.tpl')
+    private function formatNotification($request, $notification, $notificationTemplate)
     {
         $templateMgr = TemplateManager::getManager($request);
 
@@ -401,69 +349,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         }
 
         return $templateMgr->fetch($notificationTemplate);
-    }
-
-    /**
-     * Send an email to a user regarding the notification
-     *
-     * @param PKPRequest $request
-     * @param object $notification Notification
-     * @param int|null $contextId Context ID
-     * @param callable $mailConfigurator If specified, must return a MailTemplate instance. A ready MailTemplate object will be provided as argument
-     */
-    protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null)
-    {
-        $userId = $notification->getUserId();
-        $user = Repo::user()->get($userId, true);
-        if ($user && !$user->getDisabled()) {
-            $context = $request->getContext();
-            if ($contextId && (!$context || $context->getId() != $contextId)) {
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($contextId);
-            }
-
-            $site = $request->getSite();
-            $mail = $this->getMailTemplate('NOTIFICATION');
-
-            if ($context) {
-                $mail->setReplyTo($context->getContactEmail(), $context->getContactName());
-            } else {
-                $mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-            }
-
-            $emailParams = [
-                'notificationContents' => $this->getNotificationContents($request, $notification),
-                'notificationUrl' => $this->getNotificationUrl($request, $notification),
-                'siteTitle' => $context ? $context->getLocalizedName() : $site->getLocalizedTitle(),
-            ];
-
-            $notificationManager = new NotificationManager();
-            if (array_key_exists($notification->getType(), $notificationManager->getNotificationSettingsMap())) {
-                $unsubscribeUrl = $this->getUnsubscribeNotificationUrl($request, $notification);
-
-                $unsubscribeLink = '<br /><a href=\'' . $unsubscribeUrl . '\'>' . __('notification.unsubscribeNotifications') . '</a>';
-                $emailParams = array_merge([
-                    'unsubscribeLink' => $unsubscribeLink,
-                ], $emailParams);
-            } else {
-                // Clear unsubscribe params that are not yet assigned
-                $body = $mail->getBody();
-                $body = str_replace('{$unsubscribeLink}', '', $body);
-
-                $mail->setBody($body);
-            }
-
-            $mail->assignParams($emailParams);
-
-            $mail->addRecipient($user->getEmail(), $user->getFullName());
-            if (is_callable($mailConfigurator)) {
-                $mail = $mailConfigurator($mail);
-            }
-            if (!$mail->send() && $request->getUser()) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
-            }
-        }
     }
 
     /**

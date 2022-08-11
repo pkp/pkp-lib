@@ -2468,3 +2468,39 @@ msgstr "DOIs abliefern"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Alle abliefern"
+
+msgid "mailable.passwordReset.description"
+msgstr "Diese E-Mail wird an registrierte Benutzer/innen gesendet, nachdem sie ihr Passwort erfolgreich nach dem in der PASSWORD_RESET_CONFIRM-E-Mail beschriebenen Verfahren zurückgesetzt haben."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Diese E-Mail wird an registrierte Benutzer/innen der Benachrichtigungs-Mailingliste gesendet, die angegeben haben, dass sie ihr Passwort vergessen haben oder sich nicht einloggen können. Sie liefert eine URL, der die Benutzer/innen folgen können, um ihr Passwort zurückzusetzen."
+
+msgid "mailable.userRegister.description"
+msgstr "Diese E-Mail wird an neu registrierte Benutzer/innen gesendet, um sie beim System willkommen zu heißen und ihnen Benutzer/innennamen und Passwort zu bestätigen."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Diese E-Mail wird an neu registrierte Gutachter/innen gesendet, um sie beim System willkommen zu heißen und ihnen Benutzer/innennamen und Passwort zu bestätigen."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Diese E-Mail wird, sofern aktiviert, automatisch an eine Autorin/einen Autor "
+"gesendet, wenn sie den Einreichungsprozess eines Manuskripts für die "
+"Zeitschrift abgeschlossen haben. Sie liefert Informationen über das "
+"Verfolgen der Einreichung durch den Prozess hindurch und dankt der Autorin/"
+"dem Autor für die Einreichung."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Diese E-Mail wird, sofern aktiviert, automatisch an die weiteren Autor/innen geschickt, die laut Einreichung keine OJS-Benutzeraccounts haben."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Diese E-Mail wird automatisch an die/den zuständige/n Redakteur/in geschickt, wenn ein/e Autor/in eine überarbeitete Fassung eines Artikels hochgeladen hat."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Diese E-Mail wird gesendet, wenn eine neue Ankündigung erstellt wird."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Diese E-Mail wird monatlich an die Redakteure und Journal Manager gesendet "
+"und stellt Statistiken zum Journal zur Verfügung."

@@ -1610,4 +1610,31 @@ msgstr "这封电子邮件是由区段编辑寄发给审查人一份邀请函，
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission for a second or greater round of review. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Journal Setup, Step 2."
 
+msgid "mailable.passwordReset.description"
+msgstr "当注册用户成功依照PASSWORD_RESET_CONFIRM电子邮件的指示重新设定他们的密码时，这封电子邮件会被寄给他们。"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "当注册用户忘记他们的密码或者无法登入的时候，这封电子邮件会寄给他们。信中会提供一个网址让它们能够登入并重置他们的密码。"
+
+msgid "mailable.userRegister.description"
+msgstr "这封电子邮件会被寄给新注册的用户，欢迎他们加入这个系统，并且提供他们一个用户名称和密码的记录。"
+
+msgid "mailable.reviewerRegister.description"
+msgstr "这封电子邮件发送给新注册的审稿人，欢迎他们的加入并提供关于他们的用户名和密码的记录。"
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr "这封电子邮件，一旦启用，就会在作者完成投稿一份稿件到期刊的流程之后，会自动地寄发给作者。邮件中提供了有关追踪稿件编辑进度的信息，以及感谢作者的投稿。"
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "启用此电子邮件后，它将自动发送给不是提交过程中指定的OJS中用户的其他作者。"
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "当作者上传的修订版的一篇文章后，此邮件将被自动发送到指定的编辑"
+
+msgid "mailable.announcementNotify.description"
+msgstr "此邮件当公告发布时将会自动发送。"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr "此为系统自动为总编和期刊管理提供系统运行状况报告的邮件。"

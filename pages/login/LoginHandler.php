@@ -22,7 +22,8 @@ use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\mail\MailTemplate;
+use PKP\mail\mailables\PasswordReset;
+use PKP\mail\mailables\PasswordResetRequested;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -30,6 +31,8 @@ use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\validation\FormValidatorReCaptcha;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class LoginHandler extends Handler
 {
@@ -212,17 +215,20 @@ class LoginHandler extends Handler
         $email = $request->getUserVar('email');
         $user = Repo::user()->getByEmail($email);
 
-        if ($user !== null && ($hash = Validation::generatePasswordResetHash($user->getId())) !== false) {
+        if ($user !== null) {
             // Send email confirming password reset
-            $mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
             $site = $request->getSite();
-            $this->_setMailFrom($request, $mail, $site);
-            $mail->assignParams([
-                'passwordResetUrl' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), ['confirm' => $hash]),
-                'siteTitle' => $site->getLocalizedTitle()
-            ]);
-            $mail->addRecipient($user->getEmail(), $user->getFullName());
-            $mail->send();
+            $context = $request->getContext();
+            $mailable = new PasswordResetRequested($site);
+            $mailable->recipients($user);
+            $mailable->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+            $template = Repo::emailTemplate()->getByKey(
+                $context ? $context->getId() : PKPApplication::CONTEXT_SITE,
+                PasswordResetRequested::getEmailTemplateKey()
+            );
+            $mailable->body($template->getLocalizedData('body'));
+            $mailable->subject($template->getLocalizedData('subject'));
+            Mail::send($mailable);
         }
 
         $templateMgr->assign([
@@ -282,17 +288,26 @@ class LoginHandler extends Handler
 
             // Send email with new password
             $site = $request->getSite();
-            $mail = new MailTemplate('PASSWORD_RESET');
-            $this->_setMailFrom($request, $mail, $site);
-            $mail->assignParams([
-                'recipientUsername' => $user->getUsername(),
-                'password' => $newPassword,
-                'siteTitle' => $site->getLocalizedTitle()
-            ]);
-            $mail->addRecipient($user->getEmail(), $user->getFullName());
-            if (!$mail->send()) {
+            $mailable = new PasswordReset($site, $newPassword);
+            $mailable->recipients([$user]);
+            $mailable->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+            $context = $request->getContext();
+            $template = Repo::emailTemplate()->getByKey(
+                $context ? $context->getId() : Application::CONTEXT_SITE,
+                PasswordReset::getEmailTemplateKey()
+            );
+            $mailable->subject($template->getLocalizedData('subject'));
+            $mailable->body($template->getLocalizedData('body'));
+            try {
+                Mail::send($mailable);
+            } catch (TransportException $e) {
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification(
+                    $user->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                error_log($e->getMessage());
             }
 
             $templateMgr->assign([
@@ -433,21 +448,6 @@ class LoginHandler extends Handler
         } else {
             $this->sendHome($request);
         }
-    }
-
-
-    /**
-     * Helper function - set mail From
-     * can be overriden by child classes
-     *
-     * @param PKPRequest $request
-     * @param MailTemplate $mail
-     * @param Site $site
-     */
-    public function _setMailFrom($request, $mail, $site)
-    {
-        $mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-        return true;
     }
 
     /**

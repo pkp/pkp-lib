@@ -19,10 +19,12 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
+use PKP\submission\form\SubmissionSubmitForm;
 
 abstract class PKPSubmissionHandler extends Handler
 {
@@ -148,8 +150,7 @@ abstract class PKPSubmissionHandler extends Handler
         $this->setupTemplate($request);
 
         if ($step < $this->getStepCount()) {
-            $formClass = "\\APP\\submission\\form\\SubmissionSubmitStep{$step}Form";
-            $submitForm = new $formClass($context, $submission);
+            $submitForm = $this->getForm($step, $context, $submission);
             $submitForm->initData();
             return new JSONMessage(true, $submitForm->fetch($request));
         } elseif ($step == $this->getStepCount()) {
@@ -190,8 +191,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         $this->setupTemplate($request);
 
-        $formClass = "\\APP\submission\\form\\SubmissionSubmitStep{$step}Form";
-        $submitForm = new $formClass($context, $submission);
+        $submitForm = $this->getForm($step, $context, $submission);
         $submitForm->readInputData();
 
         if (!HookRegistry::call('SubmissionHandler::saveSubmit', [$step, &$submission, &$submitForm])) {
@@ -220,6 +220,18 @@ abstract class PKPSubmissionHandler extends Handler
                 return new JSONMessage(true, $submitForm->fetch($request));
             }
         }
+    }
+
+    /**
+     * Get the submission form correspondent to the step specified
+     */
+    protected function getForm(int $step, Context $context, ?Submission $submission): SubmissionSubmitForm
+    {
+        $formClass = "\\APP\\submission\\form\\SubmissionSubmitStep{$step}Form";
+        if (!class_exists($formClass)) {
+            $formClass = "\\PKP\\submission\\form\\PKPSubmissionSubmitStep{$step}Form";
+        }
+        return new $formClass($context, $submission);
     }
 
     //

@@ -2265,4 +2265,53 @@ msgstr ""
 "a lucrării. Acest mesaj este utilizat când Procesul de revizuire standard "
 "este selectat în Management> Setări> Flux de lucru> Revizuire."
 
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Acest e-mail este trimis unui utilizator înregistrat atunci când și-a "
+"resetat parola în urma procesului descris în e-mailul PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Acest e-mail este trimis unui utilizator înregistrat atunci când indică "
+"faptul că și-a uitat parola sau nu se poate autentifica. Oferă o adresă URL "
+"pe care o poate urma pentru a-și reseta parola."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Acest e-mail este trimis unui utilizator nou înregistrat pentru a-i ura bun "
+"venit în sistem și pentru a-i furniza o înregistrare a numelui de utilizator "
+"și a parolei."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Acest e-mail este trimis unui revizor înregistrat pentru a-i ura bun venit "
+"în sistem și pentru a-i furniza o înregistrare a numelui de utilizator și a "
+"parolei."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Acest e-mail, atunci când este activat, este trimis automat unui autor "
+"atunci când finalizează procesul de înregistrare a unui manuscris în jurnal. "
+"Oferă informații despre urmărirea procesului de înregistrare și mulțumește "
+"autorului pentru depunere."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Acest email, atunci când este activat, se trimite automat și celorlalți "
+"autori ai manuscrisului, nu doar autorului înregistrat."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Acest e-mail este trimis automat editorului atribuit atunci când autorul "
+"încarcă o versiune revizuită a unui articol."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Acest e-mail este trimis la crearea unui nou anunț."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Acest e-mail este trimis automat lunar către editorii și managerii de "
+"jurnale pentru a le oferi o imagine de ansamblu asupra funcționării "
+"sistemului."

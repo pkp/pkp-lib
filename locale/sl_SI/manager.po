@@ -2805,3 +2805,34 @@ msgstr "Seznam prispevkov z odprtimi nalogami"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL za uporabnika, da lahko vidi in ureja uporabniški račun."
+
+msgid "mailable.passwordReset.description"
+msgstr "Email se pošlje registriranemu uporabniku, ko uspešno ponastavi svoje geslo, kot je opisano v emailu PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Email se pošlje uporabniku, ko pozabi geslo za prijavo in odda zahtevo za ponastavitev gesla. V emailu se nahaja povezava, ki jo mora uporabnik klikniti za ponastavitev gesla."
+
+msgid "mailable.userRegister.description"
+msgstr "Email se pošlje novoregistriranemu uporabniku kot dobrodošlica, skupaj z uporabniškim imenom in geslom za prijavo v sistem."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Email se pošlje novo registriranim recenzentom kot dobrodošlica, skupaj z uporabniškim imenom in geslom za dostop do spletišča revije."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr "Email, če je vključen, se avtomatično pošlje avtorju na koncu oddaje rokopisa v revijo. Vključuje informacijo o sledenju prispevku skozi uredniški postopek in zahvalo za oddan prispevek."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Ta email, če je vključen, se avtomatično pošlje po uspešni oddaji vsem soavtorjem, ki so navedeni kot soavtorji."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Ta email se avtomatično pošlje uredniku prispevka, ko avtor naloži popravljeno verzijo prispevka."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Email je poslan, ko je objavljeno novo obvestilo."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Ta email je vsak mesec avtomatično poslan urednikom in glavnim urednikom, da "
+"vidijo stanje sistema."

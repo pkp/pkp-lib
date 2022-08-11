@@ -13,14 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Acest e-mail, atunci când este activat, este trimis automat unui autor "
-"atunci când finalizează procesul de înregistrare a unui manuscris în jurnal. "
-"Oferă informații despre urmărirea procesului de înregistrare și mulțumește "
-"autorului pentru depunere."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -38,7 +30,7 @@ msgstr ""
 "considerat acest jurnal un loc de desfășurare a activității dumneavoastră.<"
 "br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -139,13 +131,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Recomandarea editorului"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Acest e-mail este trimis de un editor de secțiune către redactorul unui "
-"manuscris pentru a solicita începerea procesului de redactare. Oferă "
-"informații despre manuscris și modul de accesare a acestuia."
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

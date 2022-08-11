@@ -18,7 +18,6 @@ namespace PKP\notification\managerDelegate;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\db\DAORegistry;
-
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 
@@ -112,9 +111,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
                 $context->getId(),
                 ASSOC_TYPE_SUBMISSION,
                 $assocId,
-                $this->_getNotificationTaskLevel($this->getNotificationType()),
-                null,
-                true // suppressEmail
+                $this->_getNotificationTaskLevel($this->getNotificationType())
             );
         }
     }

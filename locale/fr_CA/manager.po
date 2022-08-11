@@ -2160,4 +2160,40 @@ msgstr ""
 "Évaluation (Autrement voir « Demande d'évaluation d'un article (cycle "
 "subséquent) ».)"
 
+msgid "mailable.passwordReset.description"
+msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e lorsqu'il a réussi à réinitialiser son mot de passe en ayant suivi la procédure décrite dans le courriel « Confirmation de la réinitialisation du mot de passe »."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e qui nous signale avoir oublié son mot de passe ou qui est incapable d'ouvrir une session. Il fournit le lien URL à cliquer pour pouvoir réinitialiser son mot de passe."
+
+msgid "mailable.userRegister.description"
+msgstr "Ce courriel est envoyé à utilisateur-trice nouvellement inscrit-e pour lui souhaiter la bienvenue à la revue et l'informer de son nom d'utilisateur-trice et de son mot de passe."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Ce courriel est envoyé à un,une évaluateur-trice nouvellement inscrit-e, afin de lui souhaiter la bienvenue dans le système et l'informer de son nom d'utilisateur-trice et de son mot de passe."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Ce courriel, lorsqu'activé, est envoyé automatiquement à un-e auteur-e quand "
+"il ou elle a complété le processus de soumission d'un manuscrit à la revue. "
+"Il fournit les informations sur comment suivre la soumission à travers le "
+"processus éditorial, et remercie l'auteur-e pour sa soumission."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteur-e-s qui ne sont pas des utilisateurs-trices de OJS signalés-es comme effectuant la soumission."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Ce courriel est envoyé automatiquement au,à la rédacteur-trice assigné-e "
+"quand un-e auteur-e téléverse une version révisée d'un article."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Ce courriel est envoyé automatiquement chaque mois aux rédacteurs et "
+"rédactrices en chef et aux directeurs et directrices de revues pour leur "
+"fournir un aperçu de l'intégrité du système."

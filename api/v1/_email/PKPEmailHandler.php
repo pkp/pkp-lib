@@ -23,12 +23,13 @@ use PKP\core\APIResponse;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
-use PKP\mail\Mail;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-
+use PKP\mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 use Psr\Http\Message\ServerRequestInterface;
+use Illuminate\Queue\WorkerOptions;
 
 class PKPEmailHandler extends APIHandler
 {
@@ -170,17 +171,14 @@ class PKPEmailHandler extends APIHandler
                         ->filterByUserIds($userIds)
                 );
                 foreach ($users as $user) {
-                    $mail = new Mail();
-                    $mail->setFrom($fromEmail, $fromName);
-                    $mail->setRecipients([
-                        [
-                            'name' => $user->getFullName(),
-                            'email' => $user->getEmail(),
-                        ],
-                    ]);
-                    $mail->setSubject($subject);
-                    $mail->setBody($body);
-                    $mail->send();
+                    $mailable = new Mailable();
+                    $mailable
+                        ->from($fromEmail, $fromName)
+                        ->to($user->getEmail(), $user->getFullName())
+                        ->subject($subject)
+                        ->body($body);
+
+                    Mail::send($mailable);
                 }
             }, [], $queueId);
         }
@@ -212,7 +210,7 @@ class PKPEmailHandler extends APIHandler
         // and piling onto the server like a DDOS attack.
         if (!$countRunning && $countPending) {
             $laravelContainer = PKPContainer::getInstance();
-            $options = new Illuminate\Queue\WorkerOptions();
+            $options = new WorkerOptions();
             $laravelContainer['queue.worker']->runNextJob('database', $args['queueId'], $options);
 
             // Update count of pending jobs

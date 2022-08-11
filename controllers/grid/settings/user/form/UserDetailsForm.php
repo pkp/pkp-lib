@@ -24,11 +24,13 @@ use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
-use PKP\mail\MailTemplate;
+use PKP\mail\mailables\UserCreated;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\InterestManager;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class UserDetailsForm extends UserForm
 {
@@ -359,17 +361,27 @@ class UserDetailsForm extends UserForm
 
             $this->user->setDateRegistered(Core::getCurrentDate());
             Repo::user()->add($this->user);
-            $userId = $this->user->getId();
 
             if ($sendNotify) {
                 // Send welcome email to user
-                $mail = new MailTemplate('USER_REGISTER');
-                $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-                $mail->assignParams(['recipientUsername' => $this->getData('username'), 'password' => $password, 'recipientName' => $this->user->getFullName()]);
-                $mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
-                if (!$mail->send()) {
+                $mailable = new UserCreated($context);
+                $mailable->recipients($this->user);
+                $mailable->sender($request->getUser());
+                $mailable->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
+                $template = Repo::emailTemplate()->getByKey($context->getId(), UserCreated::getEmailTemplateKey());
+                $mailable->body($template->getLocalizedData('body'));
+                $mailable->subject($template->getLocalizedData('subject'));
+
+                try {
+                    Mail::send($mailable);
+                } catch (TransportException $e) {
                     $notificationMgr = new NotificationManager();
-                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                    $notificationMgr->createTrivialNotification(
+                        $request->getUser()->getId(),
+                        PKPNotification::NOTIFICATION_TYPE_ERROR,
+                        ['contents' => __('email.compose.error')]
+                    );
+                    error_log($e->getMessage());
                 }
             }
         }

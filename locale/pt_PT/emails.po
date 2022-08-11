@@ -36,14 +36,8 @@ msgstr ""
 "Agradecemos mais uma vez considerar a nossa revista como meio de transmitir "
 "ao público o seu trabalho científico.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Este e-mail,  quando ativo, é enviado automaticamente ao autor quando "
-"submete um trabalho à revista. Oferece informações sobre como acompanhar o "
-"trabalho pelo processo editorial e agradece a submissão ao autor."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Agradecimento pela revisão"
@@ -174,11 +168,6 @@ msgstr ""
 "URL da Submissão: {$submissionUrl}<br />\n"
 "Nome de utilizador: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Este e-mail é enviado pelo Editor a solicitar a realização de uma tarefa de "
-"edição ao Editor de Texto, com informações sobre e como aceder ao documento."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "A sua submissão foi recusada"

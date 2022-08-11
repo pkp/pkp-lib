@@ -35,15 +35,7 @@ msgstr ""
 "La ringrazio per la preferenza espressa nei confronti di {$contextName}.<br "
 "/>\n"
 "<br />\n"
-"{$signature}"
-
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Questa email, quando è abilitata, viene inviata automaticamente all'autore "
-"nel momento in cui viene completato il processo di sottomissione del "
-"manoscritto. Fornisce informazioni su come tracciare il manoscritto e "
-"ringrazia l'autore per la proposta."
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -159,10 +151,6 @@ msgstr ""
 "{$contextName} URL: {$contextUrl}<br />\n"
 "URL Manoscritto: {$submissionUrl}<br />\n"
 "Username: {$recipientUsername}<br />"
-
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Questa email viene mandata dal section editor al copyeditor della submission per richiedere che comincino con il processo di copyedit. Questa fornisce informazioni sulla submission e su come accedervi."
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"

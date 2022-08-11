@@ -13,14 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Бұл хат (егер қосылған болса) журналға материалды жіберу процесін аяқтаған "
-"кезде авторға автоматты түрде жіберіледі. Хатта материалдың редакциялық "
-"процесс арқылы өтуін қадағалау туралы ақпарат бар және жіберілген материал "
-"үшін авторға алғыс айтылады."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Сәлеметсіз бе {$recipientName}! <br />\n"
@@ -45,7 +37,7 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -170,13 +162,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Редактордың ұсынысы"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Бұл бөлімнің редакторының материалды әдеби редакторға жіберіп, әдеби "
-"редакциялау процесін бастауды сұраған хаты. Хатта материал мен оған қалай "
-"қол жеткізуге болатыны туралы ақпарат бар."
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

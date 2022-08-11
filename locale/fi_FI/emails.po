@@ -34,15 +34,8 @@ msgstr ""
 "Jos teillä on kysyttävää, otattehan yhteyttä minuun. Kiitos, että valitsitte "
 "tämän julkaisun työllenne.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Tämä sähköpostiviesti voidaan lähettää automaattisesti kirjoittajalle "
-"käsikirjoituksen lähettämisen päätteeksi. Viesti sisältää ohjeita "
-"käsikirjoituksen seuraamisesta toimitusprosessissa sekä kiittää kirjoittajaa "
-"käsikirjoituksen lähettämisestä."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Artikkelin arviointi vastaanotettu"
@@ -168,9 +161,6 @@ msgstr ""
 "Käsikirjoituksen URL: {$submissionUrl}<br />\n"
 "Käyttäjätunnus: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "This email is sent by a Section Editor to a submission's Copyeditor to request that they begin the copyediting process. It provides information about the submission and how to access it."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Toimittajan päätös"

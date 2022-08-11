@@ -2381,3 +2381,44 @@ msgstr "Depositare le DOI"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Depositare tutti"
+
+msgid "mailable.passwordReset.description"
+msgstr "Questa email viene mandata ad un utente registrato quando ha resettato la password seguendo il processo descritto nella email PASSWORD_RESETTA_CONFERMA."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Questa email viene mandata ad un utente registrato quando questi indica che ha dimenticato la sua password o non riesce a fare il log in. Fornisce una URL per il reset della password."
+
+msgid "mailable.userRegister.description"
+msgstr "Questa email viene mandata agli utenti appena registrati per dar loro il benvenuto nel sistema e fornirgli una nota della loro username e password."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Questa email viene inviata ad un nuovo revisore quando viene registrato per "
+"la prima volta, inviandogli username e password."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Questa email, quando è abilitata, viene inviata automaticamente all'autore "
+"nel momento in cui viene completato il processo di sottomissione del "
+"manoscritto. Fornisce informazioni su come tracciare il manoscritto e "
+"ringrazia l'autore per la proposta."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Questa mail, quando abilitata, è inviata in automatico ai co-autori "
+"registrati al momento della sottomissione."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Questo messaggio viene inviato automaticamente all'Editor quando un autore "
+"invia una versione revisionata del proprio articolo."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Questo messaggio è inviato quando viene creata una nuova notizia."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Questo report sull'attività del sistema è inviato via email  mensilmente in "
+"automatico agli editors."

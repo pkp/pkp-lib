@@ -526,8 +526,7 @@ abstract class DecisionType
                 Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
                 $submission->getData('contextId'),
                 Application::ASSOC_TYPE_REVIEW_ROUND,
-                $reviewRound->getId(),
-                Notification::NOTIFICATION_LEVEL_NORMAL
+                $reviewRound->getId()
             );
         }
     }

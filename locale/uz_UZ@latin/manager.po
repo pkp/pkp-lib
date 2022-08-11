@@ -34,6 +34,7 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Jurnal tarkibi"
+
 msgid "mailable.reviewConfirm.description"
 msgstr ""
 "Bu elektron pochta sharhlovchisi bo'lim muharririga ko'rib chiqish so'rovi "
@@ -68,6 +69,17 @@ msgstr ""
 "bosish bilan tekshiruvchiga kirish o'chirilganida, bu elektron pochta "
 "avtomatik ravishda yuboriladi. Rejalashtirilgan vazifalar yoqilgan va "
 "sozlangan bo'lishi kerak (sayt konfiguratsiya faylini ko'ring)."
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Bu xat PASSWORD_RESET_CONFIRM elektron pochtasida tasvirlangan jarayondan "
+"so'ng parolni muvaffaqiyatli o'zgartirganida, ro'yxatdan o'tgan "
+"foydalanuvchiga yuboriladi."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Bu elektron pochta ro'yxatdan o'tgan foydalanuvchiga parolni unutganini yoki "
+"tizimga kira olmasligini bildirganda yuboriladi. Parolni tiklash uchun ular "
+"kuzatishi mumkin bo'lgan URL manzilini beradi."
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
@@ -89,4 +101,40 @@ msgstr ""
 "sozlamalar> ish oqimi> ko'rib chiqish bo'limida standart ko'rib chiqish "
 "jarayoni tanlanganida ishlatiladi."
 
+msgid "mailable.userRegister.description"
+msgstr ""
+"Bu elektron pochta yangi ro'yxatdan o'tgan foydalanuvchiga tizimga xush "
+"kelibsizligi va foydalanuvchi nomi va parolini yozib olish uchun yuboriladi."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Bu elektron pochta yangi ro'yxatdan o'tgan sharhlovchiga tizimga xush "
+"kelibsiz va ularga foydalanuvchi nomi va parolini yozib berish uchun "
+"yuboriladi."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Bu elektron pochta, qo'lyozmani jurnalga topshirish jarayonini tugatgandan "
+"so'ng, avtomatik ravishda muallifga yuboriladi. U yuborish jarayonini "
+"kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Bu elektron pochta yoqilganda avtomatik ravishda yuborish jarayonida "
+"ko'rsatilgan OJS ichida bo'lmagan boshqa mualliflarga yuboriladi."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Muallif maqolaning yangilangan versiyasini yuklaganida, bu elektron pochta "
+"avtomatik ravishda tayinlangan muharrirga yuboriladi."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Bu e -pochta yangi e'lon yaratilganda yuboriladi."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Bu elektron pochta har oy muharrirlarga va jurnal menejerlariga tizim "
+"salomatligi haqida umumiy ma'lumot berish uchun avtomatik ravishda "
+"yuboriladi."

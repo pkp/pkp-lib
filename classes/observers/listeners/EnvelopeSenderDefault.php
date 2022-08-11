@@ -60,7 +60,7 @@ class EnvelopeSenderDefault
         // Force default site-wide envelope sender if set
         $configDefaultEnvelopeSender = Config::getVar('email', 'default_envelope_sender');
         if (Config::getVar('email', 'force_default_envelope_sender') && $configDefaultEnvelopeSender) {
-            $event->message->setSender($configDefaultEnvelopeSender);
+            $event->message->sender($configDefaultEnvelopeSender);
             return;
         }
 
@@ -71,13 +71,13 @@ class EnvelopeSenderDefault
 
         // Set the sender provided in the context settings
         if (get_class($event) === MessageSendingContext::class && $sender = $event->context->getData('envelopeSender')) {
-            $event->message->setSender($sender);
+            $event->message->sender($sender);
             return;
         }
 
         // Finally, provide default sender from the config
         if (!$event->message->getSender() && $configDefaultEnvelopeSender) {
-            $event->message->setSender($configDefaultEnvelopeSender);
+            $event->message->sender($configDefaultEnvelopeSender);
         }
     }
 }

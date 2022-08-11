@@ -2344,4 +2344,34 @@ msgstr ""
 "al propio envío. Este mensaje se usa cuando se selecciona el proceso de "
 "revisión estándar en Gestión > Ajustes > Flujo de trabajo > Revisión."
 
+msgid "mailable.passwordReset.description"
+msgstr "Este correo se envía a un/a usuario/a registrado/a una vez han cambiado su contraseña siguiendo el procedimiento descrito en el correo-e PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Este correo se envía a un/a usuario/a registrado/a cuando indican que han olvidado su contraseña o que no se pueden identificar. Proporciona una URL para que cambien su contraseña."
+
+msgid "mailable.userRegister.description"
+msgstr "Este correo se envía a un/a usuario/a que se acaba de registrar para darle la bienvenida al sistema y proporcionarle sus datos de acceso."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Este email se envía a los nuevos revisores para darles la bienvenida al sistema y proporcionarles sus datos de acceso."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr "Este correo electrónico, si está activado, se envía automáticamente a un autor/a cuando completa el proceso de envío de un manuscrito a la editorial. Proporciona información sobre el seguimiento del envío en el proceso y agradece al autor/a el envío."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Este correo electrónico, si está activado, se envía automáticamente a los autores/as que no son usuarios/as del OJS especificado durante el proceso de envío."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Este correo electrónico se envía de forma automática al editor/a asignado cuando el autor/a carga una versión revisada de un artículo."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Se mandará este email tras la creación de un nuevo anuncio."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Este correo electrónico es enviado mensualmente y de manera automática a los "
+"editores y administradores de publicaciones para suministrarles una visión "
+"general de la publicación."

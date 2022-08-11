@@ -2354,4 +2354,46 @@ msgstr "DOI Ön Ekleri kayıt ajansları (Örneğin; <a href=\"http://www.crossr
 msgid "doi.manager.settings.doiObjects"
 msgstr "Dergi İçeriği"
 
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Bu e-posta PASSWORD_RESET_CONFIRM e-postasında gösterilen süreci takip "
+"ederek şifre sıfırlaması yapmış kayıtlı kullanıcılara gönderilmektedir."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Bu e-posta, şifrelerini unuttuğunu  ve/veya giriş yapamadıklarını bildiren "
+"kayıtlı kullanıcılara gönderilmektedir. Şifrelerini sıfırlamak için "
+"izleyebilecekleri bir URL bağlantısı içerir."
+
+msgid "mailable.userRegister.description"
+msgstr "Bu e-posta yeni kaydolmuş kullanıcıya sisteme kabul edildiğini belirtmek ve kullanıcı adı ile şifresini bildirmek amacı ile gönderilmektedir."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Bu e-posta, yeni kayıt olan bir hakeme, sisteme hoş geldiniz mesajı ile birlikte kullanıcı adı ve şifresini iletmek için gönderilir."
+
 #, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Bu eposta etkinleştirildiğinde, yazar dergiye yazı gönderme işlemini "
+"tamamladığında otomatik olarak bu e-posta gönderilir. Bu e-posta yazara "
+"makale gönderdiği için teşekkür mesajı ve makalenin durumunu takip "
+"edebilmesi için gerekli olan bilgileri içerir."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Bu e-posta etkinleştirildiğinde, aday makale başvurusu sırasında belirtilen "
+"diğer yazarlara da e-posta gönderilir."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Bu e-posta, yazar bir makalenin gözden geçirilmiş bir sürümünü yüklediğinde "
+"makaleye atanmış editöre otomatik olarak gönderilir."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Bu e-posta, yeni bir duyuru oluşturulduğunda gönderilir."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Bu e-posta editörler ve dergi yöneticilerine sistem durumu ve istatistikler "
+"hakkında genel bir bakış sağlamak için aylık olarak otomatik gönderilir."

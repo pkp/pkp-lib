@@ -36,15 +36,8 @@ msgstr ""
 "<p>Se você tiver alguma dúvida, entre em contato conosco. Agradecemos por "
 "considerar este periódico para publicar o seu trabalho.</p>\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Mensagem enviada automaticamente pelo sistema ao autor, quando habilitada, "
-"ao ser concluído o processo de submissão de um manuscrito à revista. Oferece "
-"informações sobre os mecanismos para acompanhamento da submissão durante o "
-"processo editorial, e serve como registro e confirmação da submissão."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Agradecimento pela avaliação"
@@ -174,11 +167,6 @@ msgstr ""
 "URL de Submissão: {$submitUrl} <br />\n"
 "Nome de usuário: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Mensagem enviada pelo Editor solicitando a realização de uma tarefa de "
-"edição ao Editor de Texto, com informações sobre e como acessar o documento."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Sua submissão foi recusada"

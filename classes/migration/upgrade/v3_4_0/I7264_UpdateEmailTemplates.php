@@ -156,10 +156,10 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
             ],
             'PASSWORD_RESET_CONFIRM' => [
                 'url' => 'passwordResetUrl',
-                'principalContactSignature' => 'contextSignature',
+                'principalContactSignature' => 'siteContactName',
             ],
             'PASSWORD_RESET' => [
-                'principalContactSignature' => 'contextSignature',
+                'principalContactSignature' => 'siteContactName',
                 'username' => 'recipientUsername',
             ],
             'USER_REGISTER' => [
@@ -353,6 +353,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'contextName' => 'contextName',
                 'contextUrl' => 'contextUrl',
                 'participantUsername' => 'recipientUsername',
+                'contextAcronym' => 'journalAcronym',
             ],
             'LAYOUT_REQUEST' => [
                 'participantName' => 'recipientName',
@@ -427,6 +428,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
             ],
             'STATISTICS_REPORT_NOTIFICATION' => [
                 'principalContactSignature' => 'contextSignature',
+                'name' => 'recipientName',
             ],
             'ANNOUNCEMENT' => [
                 'title' => 'announcementTitle',

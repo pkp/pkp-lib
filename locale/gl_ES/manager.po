@@ -2375,3 +2375,56 @@ msgstr ""
 " Revisión."
 
 #, fuzzy
+
+msgid "mailable.passwordReset.description"
+msgstr ""
+"Este correo envíase a un usuario/a rexistrado/a tras cambiar o seu "
+"contrasinal seguindo o procedemento descrito no correo electrónico "
+"PASSWORD_RESET_CONFIRM."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Este correo envíase a un usuario/a rexistrado/a que indicou que non lembra o "
+"seu contrasinal ou que non pode iniciar a sesión. Proporciona un URL para o "
+"cambio do seu contrasinal."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Este correo electrónico envíaselle a un/unha usuario/a que se acaba de "
+"rexistrar para darlle a benvida ao sistema e facerlle chegar o seu nome de "
+"usuario e o seu contrasinal."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Este correo electrónico envíase a un revisor que se acaba de rexistrar para "
+"darlle a benvida ao sistema e facerlle chegar o seu nome de usuario e o seu "
+"contrasinal."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Este correo electrónico, se está activado, envíase automaticamente ao autor/"
+"a unha vez que completou o proceso de envío dun manuscrito á revista. "
+"Proporciona información sobre o seguimento do dito manuscrito no proceso "
+"editorial e agradécelle ao autor/a o seu envío."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Este correo electrónico, cando está activado, envíase automaticamente aos  "
+"outros autores/as que non son usuarios/as do OJS especificados durante o "
+"proceso de envío."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Este correo electrónico é enviado automaticamente ao editor/a asignado cando "
+"o autor/a carga unha versión revisada dun artigo."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Este correo electrónico envíase cando se crea un novo anuncio."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Este correo electrónico envíase automaticamente cada mes a editores/as e "
+"administradores/as de revistas para ofrecerlles unha visión xeral da "
+"actividade do sistema."

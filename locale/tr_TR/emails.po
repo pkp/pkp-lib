@@ -37,15 +37,8 @@ msgstr ""
 "Emek ürünü çalışmanızı yayınlamak üzere dergimizi tercih ettiğiniz için "
 "teşekkür ederiz.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Bu eposta etkinleştirildiğinde, yazar dergiye yazı gönderme işlemini "
-"tamamladığında otomatik olarak bu e-posta gönderilir. Bu e-posta yazara "
-"makale gönderdiği için teşekkür mesajı ve makalenin durumunu takip "
-"edebilmesi için gerekli olan bilgileri içerir."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Değerlendirme İçin Teşekkür"
@@ -160,9 +153,6 @@ msgstr ""
 "Lütfen eğer sayfa düzenini yapmanız konusunda bir sorun var ise bana bildiriniz.<br />\n"
 "DErgimizin kalitesini arttıran değerli katkılarınız için teşekkür ederiz."
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Yayınlanması için karar verilen yazının sayfa düzeni için gönderilmesinde kullanılır."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Editör Kararı"

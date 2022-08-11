@@ -34,16 +34,19 @@ use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\mail\mailables\DiscussionMessage;
 use PKP\mail\SubmissionMailTemplate;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\log\SubmissionEmailLogEntry;
 
 class QueriesGridHandler extends GridHandler
 {
+	use StageMailable;
+
     /** @var int WORKFLOW_STAGE_ID_... */
     public $_stageId;
 
@@ -637,28 +640,20 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            $mailable = new DiscussionMessage($request->getContext(), $this->getSubmission());
-            $emailTemplate = Repo::emailTemplate()->getByKey($request->getContext()->getId(), $mailable::getEmailTemplateKey());
-            $mailable
-                ->body($emailTemplate->getLocalizedData('body'))
-                ->subject($emailTemplate->getLocalizedData('subject'))
-                ->sender($currentUser);
-
             /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+            $note = $query->getHeadNote();
             foreach ($added as $userId) {
                 $user = Repo::user()->get((int) $userId);
 
-                $notification = $notificationMgr->createNotification(
+                $notificationMgr->createNotification(
                     $request,
                     $userId,
                     PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
                     $request->getContext()->getId(),
                     PKPApplication::ASSOC_TYPE_QUERY,
                     $query->getId(),
-                    Notification::NOTIFICATION_LEVEL_TASK,
-                    null,
-                    true
+                    Notification::NOTIFICATION_LEVEL_TASK
                 );
 
                 // Check if the user is unsubscribed
@@ -670,22 +665,19 @@ class QueriesGridHandler extends GridHandler
                 if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                     continue;
                 }
-
-                $mailable->addData([
-                    'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
-                    'notificationUrl' => $notificationMgr->getNotificationUrl($request, $notification),
-                    'unsubscribeLink' =>
-                        '<br /><a href=\'' .
-                        $notificationMgr->getUnsubscribeNotificationUrl($request, $notification) .
-                        '\'>' .
-                        __('notification.unsubscribeNotifications') .
-                        '</a>'
-                ]);
-
+                $submission = $this->getSubmission();
+                $mailable = $this->getStageMailable($request->getContext(), $submission);
+                $mailable->sender($currentUser);
+                $mailable->body($note->getData('contents'));
+                $mailable->subject($note->getData('title'));
                 $mailable->recipients([$user]);
 
                 Mail::send($mailable);
+                $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+                $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
             }
+
+            return \PKP\db\DAO::getDataChangedEvent($query->getId());
         }
 
         // If this was new (placeholder) query that didn't validate, remember whether or not

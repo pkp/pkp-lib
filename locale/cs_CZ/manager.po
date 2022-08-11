@@ -2806,3 +2806,39 @@ msgstr "Seznam příspěvků s nevyřízenými úkoly"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele."
+
+msgid "mailable.passwordReset.description"
+msgstr "Tento email je zaslán registrovanému uživateli, když úspěšně resetuje své heslo postupem uvedeným v PASSWORD_RESET_CONFIRM emailu."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Tento email je zasílán registrovanému uživateli, když uvede, že zapomněl své heslo nebo se nemůže přihlásit. Obsahuje adresu URL, kterou může následovat a resetovat své heslo."
+
+msgid "mailable.userRegister.description"
+msgstr "Tento email je zaslán nově registrovanému uživateli jako přivítání do systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Tento email je zaslán nově registrovanému recenzentovi jako přivítání do systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Pokud je tato možnost povolena, je tento e-mail automaticky odeslán autorovi "
+"při odeslání příspěvku do časopisu. Obsahuje informace o sledování příspěvku "
+"v redakčním procesu a poděkování autorovi za příspěvek."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr ""
+"Pokud je tato funkce povolena, je tento e-mail automaticky zasílán autorům "
+"uvedeným v příspěvku, kteří nejsou kontaktním  autorem."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Tento email je automaticky odeslán příslušnému editorovi článku, pokud autor odešle revidovanou verzi článku."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Tento email je posílán, pokud je vytvořeno nové oznámení."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Tento e-mail je automaticky zasílán měsíčně měsíčně editorům a správcům "
+"časopisů, aby jim poskytl přehled o stavu systému."

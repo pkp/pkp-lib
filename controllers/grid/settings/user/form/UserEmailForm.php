@@ -20,8 +20,9 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-use PKP\mail\MailTemplate;
+use PKP\mail\Mailable;
 use PKP\notification\PKPNotification;
+use Illuminate\Support\Facades\Mail;
 
 class UserEmailForm extends Form
 {
@@ -88,19 +89,25 @@ class UserEmailForm extends Form
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
-        $email = new MailTemplate();
-
-        $email->addRecipient($toUser->getEmail(), $toUser->getFullName());
-        $email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
-        $email->setSubject($this->getData('subject'));
-        $email->setBody($this->getData('message'));
-        $email->assignParams();
+        $mailable = new Mailable();
+        $mailable
+            ->from($fromUser->getEmail(), $fromUser->getFullName())
+            ->to($toUser->getEmail(), $toUser->getFullName())
+            ->subject($this->getData('subject'))
+            ->body($this->getData('message'));
 
         parent::execute(...$functionArgs);
 
-        if (!$email->send()) {
+        try {
+            Mail::send($mailable);
+        } catch (Exception $e) {
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            $notificationMgr->createTrivialNotification(
+                $request->getUser()->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            error_log($e->getMessage());
         }
     }
 }

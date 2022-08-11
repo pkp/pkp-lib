@@ -27,11 +27,14 @@ use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 
 class ReviewRemind extends Mailable
 {
     use Sender;
-    use Recipient;
+    use Recipient {
+        recipients as traitRecipients;
+    }
     use Configurable;
     use PasswordResetUrl;
 
@@ -56,10 +59,9 @@ class ReviewRemind extends Mailable
     /*
      * Override reviewAssignmentUrl template variable if one-click reviewer access is enabled and add passwordResetUrl
      */
-    public function setData(?string $locale = null): void
+    public function recipients(User $recipient, ?string $locale = null): Mailable
     {
-        parent::setData($locale);
-        $reviewerId = $this->reviewAssignment->getData('reviewerId');
+        $this->traitRecipients([$recipient], $locale);
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
 
@@ -68,7 +70,7 @@ class ReviewRemind extends Mailable
             $expiryDays = ($this->context->getData('numWeeksPerReview') + 4) * 7;
             $accessKey = $accessKeyManager->createKey(
                 $this->context->getId(),
-                $reviewerId,
+                $recipient->getId(),
                 $this->reviewAssignment->getId(), $expiryDays
             );
             $reviewUrlArgs = [
@@ -86,11 +88,13 @@ class ReviewRemind extends Mailable
                     'submission',
                     null,
                     $reviewUrlArgs
-            );
+                );
         }
 
         // Old REVIEW_REMIND template contains additional variable not supplied by _Variable classes
-        $this->setPasswordResetUrl($reviewerId, $this->context->getData('urlPath'));
+        $this->setPasswordResetUrl($recipient, $this->context->getData('urlPath'));
+
+        return $this;
     }
 
     /**

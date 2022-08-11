@@ -2622,3 +2622,35 @@ msgstr ""
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-uppdatering misslyckades"
+
+msgid "mailable.passwordReset.description"
+msgstr "Det här e-postmeddelandet skickas till registrerade användare som bekräftelse på återställt lösenord (enligt beskrivning i PASSWORD_RESET_CONFIRM-mailet)."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr "Det här meddelandet skickas till registrerade användare som meddelar att de har glömt sitt lösenord eller inte kan logga in. E-postmeddelandet innehåller en URL som leder till återställning av lösenordet."
+
+msgid "mailable.userRegister.description"
+msgstr "Det här e-postmeddelandet skickas till nyregistrerade användare för att välkomna dem till systemet och förse dem med dokumentation på deras användarnamn och lösenord."
+
+msgid "mailable.reviewerRegister.description"
+msgstr "Det här e-postmeddelandet skickas till nyregistrerade granskare för välkomna dem till systemet och förse dem med dokumentation på deras användarnamn och lösenord."
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till författare när de skickar in sina manuskript till tidskriften. Meddelandet innehåller information om hur författaren kan följa bidraget genom redaktionella processen samt ett tack för för inskickat bidrag."
+
+#, fuzzy
+msgid "mailable.submissionAckNotUser.description"
+msgstr "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till andra författare knutna till bidraget i inskickningsprocessen men som inte är OJS-användare."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr "Det här e-postmeddelandet skickas automatiskt till den tilldelade redaktören när författaren laddar upp en reviderad version av sin artikel."
+
+msgid "mailable.announcementNotify.description"
+msgstr ""
+"Detta e-post-meddelande skickas när ett nytt publicerat meddelande skapas."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"E-postmeddelandet skickas ut månadsvis till redaktörer och "
+"tidskriftsansvariga för ge en lägesrapport."

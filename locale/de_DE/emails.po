@@ -30,16 +30,8 @@ msgstr ""
 "<br />\n"
 "Für weitere Fragen stehen wir Ihnen gern zur Verfügung. Danke für Ihr Interesse an einer Veröffentlichung in unserer Zeitschrift.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Diese E-Mail wird, sofern aktiviert, automatisch an eine Autorin/einen Autor "
-"gesendet, wenn sie den Einreichungsprozess eines Manuskripts für die "
-"Zeitschrift abgeschlossen haben. Sie liefert Informationen über das "
-"Verfolgen der Einreichung durch den Prozess hindurch und dankt der Autorin/"
-"dem Autor für die Einreichung."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Eingangsbestätigung für ein Gutachten"
@@ -154,9 +146,6 @@ msgstr ""
 "URL des Beitrags: {$submissionUrl}<br />\n"
 "Benutzer/innenname: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Diese E-Mail wird von der/dem Rubrikredakteur/in an die/den Lektor einer Einreichung gesendet, um diese/n zu bitten, mit dem Lektorat zu beginnen. Sie liefert Informationen über die Einreichung und darüber, wie auf sie zuzugreifen ist."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Entscheidung der Redaktion"

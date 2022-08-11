@@ -73,10 +73,10 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      * @param null|mixed $assocId
      * @param null|mixed $params
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null)
+    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
     {
         assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
-        return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail, $mailConfigurator);
+        return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params);
     }
 
     /**

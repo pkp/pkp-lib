@@ -405,7 +405,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function editReview($args, $request)
     {
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new \EditReviewForm($reviewAssignment);
+        $editReviewForm = new \EditReviewForm($reviewAssignment, $this->getSubmission());
         $editReviewForm->initData();
         return new JSONMessage(true, $editReviewForm->fetch($request));
     }
@@ -421,7 +421,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function updateReview($args, $request)
     {
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new \EditReviewForm($reviewAssignment);
+        $editReviewForm = new \EditReviewForm($reviewAssignment, $this->getSubmission());
         $editReviewForm->readInputData();
         if ($editReviewForm->validate()) {
             $editReviewForm->execute();

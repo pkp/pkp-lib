@@ -101,11 +101,9 @@ class EditorAction
                 $reviewerId,
                 PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
                 $submission->getContextId(),
-                ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
-                Notification::NOTIFICATION_LEVEL_TASK,
-                null,
-                true
+                Notification::NOTIFICATION_LEVEL_TASK
             );
 
             // Add log

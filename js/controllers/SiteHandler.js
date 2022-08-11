@@ -298,11 +298,11 @@
 					tinyMCEObject.target.dom.select('li'), 'show');
 		});
 
-		tinyMCEObject.on('LoadContent', function(e) {
+		tinyMCEObject.on('BeforeSetContent', function(e) {
 			var variablesParsed = $.pkp.classes.TinyMCEHelper.prototype.getVariableMap(
 					'#' + $.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id));
 
-			this.setContent(this.getContent().replace(
+			e.content = e.content.replace(
 					/\{\$([a-zA-Z]+)\}(?![^<]*>)/g, function(match, contents, offset, s) {
 						if (variablesParsed[contents] !== undefined) {
 							return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
@@ -310,18 +310,18 @@
 									.html();
 						}
 						return match;
-					}));
+					});
 		});
 
 		// When the field is being saved, replace any tag placeholders
-		tinyMCEObject.on('SaveContent', function(e) {
+		tinyMCEObject.on('GetContent', function(e) {
 			var $content = $('<div>' + e.content + '</div>');
 
 			// Replace tag span elements with the raw tags
 			$content.find('.pkpTag').replaceWith(function() {
 				return '{$' + $(this).attr('data-symbolic') + '}';
 			});
-			this.setContent($content.html());
+			e.content = $content.html();
 		});
 
 		// In fullscreen mode, also present the toolbar.

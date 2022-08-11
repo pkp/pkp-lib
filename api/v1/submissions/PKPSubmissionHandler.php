@@ -28,6 +28,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\handler\APIHandler;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -38,8 +39,9 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
-
+use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use Illuminate\Support\Facades\Mail;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -726,6 +728,7 @@ class PKPSubmissionHandler extends APIHandler
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = Repo::publication()->get((int) $args['publicationId']);
+        $context = $request->getContext();
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -745,16 +748,38 @@ class PKPSubmissionHandler extends APIHandler
                 ->assignedTo($submission->getId())
         );
 
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
         foreach ($usersIterator as $user) {
-            $notificationManager->createNotification(
+            $notification = $notificationManager->createNotification(
                 $request,
                 $user->getId(),
                 PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
                 $submission->getContextId(),
                 Application::ASSOC_TYPE_SUBMISSION,
                 $submission->getId(),
-                Notification::NOTIFICATION_LEVEL_TASK
+                Notification::NOTIFICATION_LEVEL_TASK,
             );
+
+            // Check if user is subscribed to this type of notification emails
+            if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                $user->getId(),
+                (int) $context->getId()))
+            ) {
+                continue;
+            }
+
+            $mailable = new PublicationVersionNotify($context, $submission, $notification);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), PublicationVersionNotify::getEmailTemplateKey());
+            $mailable
+                ->from($context->getData('contactEmail'), $context->getData('contactName'))
+                ->recipients([$user])
+                ->body($template->getLocalizedData('body'))
+                ->subject($template->getLocalizedData('subject'));
+
+            Mail::send($mailable);
         }
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */

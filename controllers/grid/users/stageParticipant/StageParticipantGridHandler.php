@@ -26,19 +26,21 @@ use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
 use PKP\log\SubmissionLog;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
+use Illuminate\Support\Facades\Mail;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
+    use StageMailable;
+
     /**
      * Constructor
      */
@@ -557,20 +559,19 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function fetchTemplateBody($args, $request)
     {
         $templateKey = $request->getUserVar('template');
-        $template = new SubmissionMailTemplate($this->getSubmission(), $templateKey, null, null, false);
+        $context = $request->getContext();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
         if ($template) {
-            $user = $request->getUser();
-            $template->assignParams([
-                'signature' => $user->getSignature(Locale::getLocale()) ?? '',
-                'senderName' => $user->getFullname(),
-            ]);
-            $template->replaceParams();
+            $submission = $this->getSubmission();
+            $mailable = $this->getStageMailable($context, $submission);
+            $mailable->sender($request->getUser());
+            $data = $mailable->getData();
 
-            $notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+            $notifyForm = new StageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
             return new JSONMessage(
                 true,
                 [
-                    'body' => $template->getBody(),
+                    'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
                     'variables' => $notifyForm->getEmailVariableNames($templateKey),
                 ]
             );

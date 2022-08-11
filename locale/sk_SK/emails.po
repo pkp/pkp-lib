@@ -12,14 +12,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
-"dokončí proces odosielania príspevku do časopisu. Obsahuje informácie o "
-"možnosti sledovania príspevku počas redakčného spracovania a poďakovanie "
-"autorovi za príspevok."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -35,7 +27,7 @@ msgstr ""
 "Ak máte nejaké otázky, kontaktujte ma prosím. Ďakujeme, že ste zvolili tento "
 "časopis pre publikovanie Vašej práce.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"
@@ -135,12 +127,6 @@ msgstr ""
 
 msgid "emails.editorRecommendation.subject"
 msgstr "Odporúčania redaktora"
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Tento email posiela editor sekcie redaktorovi, aby ho požiadal o začatie "
-"procesu redigovania. Obsahuje informácie o príspevku a ako sa k nemu dostať."
-
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""

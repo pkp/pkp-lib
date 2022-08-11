@@ -22,10 +22,7 @@ msgstr ""
 "<br />\n"
 "تنظیم مجدد رمز عبور: {$passwordResetUrl}<br />\n"
 "<br />\n"
-"{$signature}"
-
-msgid "emails.passwordResetConfirm.description"
-msgstr "This email is sent to a registered user when they indicate that they have forgotten their password or are unable to login. It provides a URL they can follow to reset their password."
+"{$siteContactName}"
 
 msgid "emails.passwordReset.subject"
 msgstr "رمز عبور دوباره تنظیم شد"
@@ -37,10 +34,7 @@ msgstr ""
 "نام کاربری شما: {$recipientUsername}<br />\n"
 "رمز ورود شما: {$password}<br />\n"
 "<br />\n"
-"{$signature}"
-
-msgid "emails.passwordReset.description"
-msgstr "ایمیلی برای کاربرانی که رمز خود را رست نموده اند"
+"{$siteContactName}"
 
 msgid "emails.userRegister.subject"
 msgstr "ثبت نام کاربر جدید"
@@ -55,9 +49,6 @@ msgstr ""
 "<br />\n"
 "باتشکر<br />\n"
 "{$signature}"
-
-msgid "emails.userRegister.description"
-msgstr "This email is sent to a newly registered user to welcome them to the system and provide them with a record of their username and password."
 
 #, fuzzy
 msgid "emails.userValidateContext.subject"
@@ -91,9 +82,6 @@ msgstr ""
 "با تشکر,<br />\n"
 "{$signature}"
 
-msgid "emails.reviewerRegister.description"
-msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
-
 #, fuzzy
 msgid "emails.issuePublishNotify.subject"
 msgstr "شماره جدید چاپ شد"
@@ -107,10 +95,6 @@ msgstr ""
 "<br />\n"
 "از توجه همیشگی مستمر شما نسبت به این مجله متشکریم.<br />\n"
 "{$signature}"
-
-#, fuzzy
-msgid "emails.issuePublishNotify.description"
-msgstr "This email is sent to registered readers via the \"Notify Users\" link in the Editor's User Home. It notifies readers of a new issue and invites them to visit the journal at a supplied URL."
 
 msgid "emails.lockssNewArchive.subject"
 msgstr "درخواست بایگانی کردن {$contextName}:"
@@ -147,11 +131,7 @@ msgstr ""
 "<br />\n"
 "لطفا چنانچه سوالی دارید، با من تماس بگیرید.<br />\n"
 "<br />\n"
-"{$signature}"
-
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."
+"{$contextSignature}"
 
 msgid "emails.submissionUnsuitable.subject"
 msgstr "نا مناسب بودن مقاله برای مجله"
@@ -211,10 +191,6 @@ msgstr ""
 "نام کاربری: {$recipientUsername}<br />\n"
 "<br />\n"
 "متشکرم"
-
-#, fuzzy
-msgid "emails.editorAssign.description"
-msgstr "This email notifies a Section Editor that the Editor has assigned them the task of overseeing a submission through the editing process. It provides information about the submission and how to access the journal site."
 
 #, fuzzy
 msgid "emails.reviewRequest.subject"
@@ -333,9 +309,6 @@ msgstr ""
 "چنانچه در حال حاضر قادر به انجام امور مذکور نیستید و یا سوالی در این زمینه دارید، لطفا با من تماس بگیرید. پیشاپیش از قبول انجام امور ویراستاری برای این مجله سپاسگزارم."
 
 #, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "This email is sent by a Section Editor to a submission's Copyeditor to request that they begin the copyediting process. It provides information about the submission and how to access it."
-
 msgid "emails.copyeditComplete.subject"
 msgstr "اتمام ویراستاری مقاله"
 
@@ -407,9 +380,6 @@ msgstr ""
 "چنانچه در حال حاضر قادر به انجام این امور نیستید و یا سوالی در این رابطه دارید با من تماس بگیرید. پیشاپیش از همکاری شما با این مجله سپاسگزارم."
 
 #, fuzzy
-msgid "emails.layoutRequest.description"
-msgstr "This email from the Section Editor to the Layout Editor notifies them that they have been assigned the task of performing layout editing on a submission. It provides information about the submission and how to access it."
-
 msgid "emails.layoutComplete.subject"
 msgstr "نسخه های پیش از چاپ کامل شده است"
 
@@ -425,9 +395,6 @@ msgstr ""
 "{$senderName}"
 
 #, fuzzy
-msgid "emails.layoutComplete.description"
-msgstr "This email from the Layout Editor to the Section Editor notifies them that the layout process has been completed."
-
 msgid "emails.layoutAck.subject"
 msgstr "قدردانی بخاطر انجام امور صفحه آرایی"
 
@@ -592,91 +559,10 @@ msgstr ""
 "لطفا توجه کنید درصورتی که دارای اشتراک سازمانی باشید، نیازی به ورود به سیستم ندارید، زیرا این سامانه بصورت اتوماتیک درخواست های اشتراک را تایید می کند.<br />\n"
 "لطفا در صورت وجود سوال در این زمینه، با من تماس بگیرید.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$subscriptionSignature}"
 
 msgid "emails.subscriptionNotify.description"
 msgstr "This email notifies a registered reader that the Manager has created a subscription for them. It provides the journal's URL along with instructions for access."
-
-msgid "emails.openAccessNotify.subject"
-msgstr "اکنون مجله قابل دسترس است"
-
-msgid "emails.openAccessNotify.body"
-msgstr ""
-"خوانندگان گرامی:<br />\n"
-"<br />\n"
-"{$contextName}، شماره جاری خود را بصورت دسترسی آزاد (Open Access) در اختیار خوانندگان قرار داده است. از شما دعوت میگردد که پس از ملاحظه فهرست مقالات در ذیل این نامه، به منظور بررسی مقالات و موضوع های مورد علاقه، از وب سایت مجله دیدن فرمایید.<br />\n"
-"<br />\n"
-"از توجه همیشگی شما نسبت به این مجله متشکریم.<br />\n"
-"<br />\n"
-"آدرس وب سایت مجله: <a href=\"{$contextUrl}\">{$contextUrl}</a><br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.openAccessNotify.description"
-msgstr "This email is sent to registered readers who have requested to receive a notification email when an issue becomes open access."
-
-msgid "emails.subscriptionBeforeExpiry.subject"
-msgstr "یادآوری پایان یافتن مدت اشتراک"
-
-msgid "emails.subscriptionBeforeExpiry.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"اشتراک {$contextName} برای شما درحال اتمام می باشد.<br />\n"
-"<br />\n"
-"{$subscriptionType}<br />\n"
-"jhvdo hkrqh: {$expiryDate}<br />\n"
-"<br />\n"
-"به منظور اطمینان از دسترسی تان به این مجله، لطفا به وب سایت مجله مراجعه کرده و اشتراک خود را تمدید کنید. شما می توانید که با نام کاربری خود &amp;lt;نام کاربری&amp;gt; وارد این سامانه شوید.<br />\n"
-"<br />\n"
-"لطفا در صورت وجود سوال در این زمینه، با من تماس بگیرید.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.subscriptionBeforeExpiry.description"
-msgstr "This email notifies a subscriber that their subscription will soon expire. It provides the journal's URL along with instructions for access."
-
-msgid "emails.subscriptionAfterExpiry.subject"
-msgstr "مدت اشتراک شما پایان یافته است"
-
-msgid "emails.subscriptionAfterExpiry.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"اشتراک {$contextName} برای شما به پایان رسیده است.<br />\n"
-"<br />\n"
-"{$subscriptionType}<br />\n"
-"تاریخ انقضاء: {$expiryDate}<br />\n"
-"<br />\n"
-"به منظور تجدید اشتراک خود، لطفا به وب سایت مجله مراجعه نمائید. شما قادر خواهید بود که با استفاده از نام کاربری خود &amp;lt;نام کاربری&amp;gt; وارد این سامانه شوید.<br />\n"
-"<br />\n"
-"لطفا در صورت وجود سوال در این زمینه، با من تماس بگیرید.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.subscriptionAfterExpiry.description"
-msgstr "This email notifies a subscriber that their subscription has expired. It provides the journal's URL along with instructions for access."
-
-msgid "emails.subscriptionAfterExpiryLast.subject"
-msgstr "اشتراک شما پایان یافت-آخرین یادآوری"
-
-msgid "emails.subscriptionAfterExpiryLast.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"اشتراک {$contextName} برای شما به پایان رسیده است.لطفا توجه کنید که این آخرین یادآوری است که برای شما ارسال خواهد شد.<br />\n"
-"<br />\n"
-"{$subscriptionType}<br />\n"
-"تاریخ انقضاء: {$expiryDate}<br />\n"
-"<br />\n"
-"به منظور تجدید اشتراک خود، لطفا به وب سایت مجله مراجعه نمائید. شما قادر خواهید بود که با استفاده از نام کاربری خود &amp;lt;نام کاربری&amp;gt; وارد شوید.<br />\n"
-"<br />\n"
-"لطفا در صورت وجود سوال در این زمینه، با من تماس بگیرید.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.subscriptionAfterExpiryLast.description"
-msgstr "This email notifies a subscriber that their subscription has expired. It provides the journal's URL along with instructions for access."
 
 msgid "emails.copyeditAck.subject"
 msgstr "تشکر بخاطر ویراستاری ({$submissionId})"
@@ -834,7 +720,7 @@ msgstr ""
 "<br />\n"
 "لینک: {$notificationUrl}<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 msgid "emails.editorDecisionAccept.subject"
 msgstr "تصمیم دبیر"
@@ -908,9 +794,6 @@ msgstr ""
 "<br />\n"
 "Subscription URL: <a href=\"{$subscriptionUrl}\">{$subscriptionUrl}</a>"
 
-msgid "emails.subscriptionPurchaseIndl.description"
-msgstr ""
-
 msgid "emails.subscriptionPurchaseInstl.subject"
 msgstr "خرید اشتراک سازمانی"
 
@@ -941,7 +824,7 @@ msgstr ""
 "<br />\n"
 "آدرس اشتراک: <a href=\"{$subscriptionUrl}\">{$subscriptionUrl}</a>"
 
-msgid "emails.subscriptionPurchaseInstl.description"
+msgid "mailable.subscriptionPurchaseInstitutional.description"
 msgstr ""
 
 msgid "emails.subscriptionRenewIndl.subject"
@@ -963,9 +846,6 @@ msgstr ""
 "برای مشاهده یا ویرایش این اشتراک به آدرس زیر بروید.<br />\n"
 "<br />\n"
 "آدرس اشتراک: <a href=\"{$subscriptionUrl}\">{$subscriptionUrl}</a>"
-
-msgid "emails.subscriptionRenewIndl.description"
-msgstr ""
 
 msgid "emails.subscriptionRenewInstl.subject"
 msgstr "تمدید اشتراک سازمانی"
@@ -996,9 +876,6 @@ msgstr ""
 "برای مشاهده و ویرایش این اشتراک، لطفا به آدرس زیر بروید.<br />\n"
 "<br />\n"
 "آدرس اشتراک: <a href=\"{$subscriptionUrl}\">{$subscriptionUrl}</a>"
-
-msgid "emails.subscriptionRenewInstl.description"
-msgstr ""
 
 msgid "emails.citationEditorAuthorQuery.subject"
 msgstr "ویرایش ارجاع"
@@ -1094,11 +971,7 @@ msgstr ""
 "<br />\n"
 "در صورت داشتن هر گونه سوالی با من تماس حاصل فرمایید. از اینکه نتیجه پژوهش خود را برای این مجله ارسال نمودید، سپاسگذاریم<br />\n"
 "<br />\n"
-"{$signature}"
-
-#, fuzzy
-msgid "emails.submissionAckNotUser.description"
-msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."
+"{$contextSignature}"
 
 msgid "emails.reviewRequestAttachedSubsequent.subject"
 msgstr "درخواست داوری مقاله"
@@ -1162,13 +1035,13 @@ msgid "emails.revisedVersionNotify.body"
 msgstr ""
 "دبیر محترم:<br />\n"
 "<br />\n"
-"نسخه اصلاح شده مقاله &quot;{$submissionTitle}&quot; توسط {$authors} در سامانه آپلود شد..<br />\n"
+"نسخه اصلاح شده مقاله &quot;{$submissionTitle}&quot; توسط {$submitterName} در سامانه آپلود شد..<br />\n"
 "<br />\n"
 "لینک مقاله: {$submissionUrl}<br />\n"
 "<br />\n"
 "{$signature}"
 
-msgid "emails.revisedVersionNotify.description"
+msgid "mailable.revisedVersionNotify.description"
 msgstr "ایمیلی که خودکار پس از آپلود نسخه اصلاحی توسط نویسنده  برای دبیر ارسال می شود"
 
 #, fuzzy
@@ -1200,7 +1073,3 @@ msgstr ""
 "<br />\n"
 "چکیده:<br />\n"
 "{$submissionAbstract}"
-
-#, fuzzy
-msgid "mailable.reviewRequestSubsequent.description"
-msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"

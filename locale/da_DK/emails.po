@@ -32,15 +32,8 @@ msgstr ""
 "blevet logget ud, kan du logge ind igen med dit brugernavn  "
 "{$recipientUsername}</p><p> Hvis du har nogle spørgsmål så kontakt mig via <"
 "a href=\"{$submissionUrl}\">submission dashboard</a>.</p><p>Tak fordi du "
-"valgte dette tidsskrift til at udgive din artikel i.</p>{$signature}"
+"valgte dette tidsskrift til at udgive din artikel i.</p>{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Når denne e-mail er aktiveret, bliver den automatisk sendt til en forfatter, "
-"når vedkommende har indsendt et manuskript til tidsskriftet. Den indeholder "
-"oplysninger om, hvordan forfatteren kan følge manuskriptet igennem "
-"processen, og den takker forfatteren for manuskriptet."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Bekræftelse af bedømmelse af artikel"
@@ -211,13 +204,6 @@ msgstr ""
 "kontakte mig. Tak for dit bidrag til dette tidsskrift.</p><p>Med venlig "
 "hilsen</p>{$signature}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr ""
-"Denne e-mail sendes af en redaktør til manuskriptredaktøren for indsendelsen "
-"og beder vedkommende om at påbegynde manuskriptredigeringsprocessen. Den "
-"indeholder oplysninger om indsendelsen og om, hvordan der opnåes adgang til "
-"det."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Din indsendelse er blevet afvist"

@@ -105,9 +105,8 @@ class ContextEmailVariable extends Variable
      */
     protected function getSubmissionsUrl(): string
     {
-        $request = PKPApplication::get()->getRequest();
-        return $request->getDispatcher()->url(
-            $request,
+        return $this->dispatcher->url(
+            $this->request,
             PKPApplication::ROUTE_PAGE,
             $this->context->getPath(),
             'submissions',
@@ -119,9 +118,8 @@ class ContextEmailVariable extends Variable
      */
     protected function getUserProfileUrl(): string
     {
-        $request = PKPApplication::get()->getRequest();
-        return $request->getDispatcher()->url(
-            $request,
+        return $this->dispatcher->url(
+            $this->request,
             PKPApplication::ROUTE_PAGE,
             $this->context->getPath(),
             'user',

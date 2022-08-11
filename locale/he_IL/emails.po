@@ -13,13 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"דוא\"ל זה, כאשר הוא מופעל, נשלח אוטומטית למחבר כאשר הם משלימים את תהליך הגשת "
-"כתב היד לכתב העת. הוא מספק מידע על מעקב אחר ההגשה בתהליך ומודה למחבר על "
-"המסירה."
-
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -33,7 +26,7 @@ msgstr ""
 "אם יש לך שאלות, אנא צור איתי קשר. תודה ששקלת את כתב העת הזה כמקום לעבודה "
 "שלך.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 #, fuzzy
 msgid "emails.submissionAck.subject"

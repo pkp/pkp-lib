@@ -30,15 +30,8 @@ msgstr ""
 "<br />\n"
 "Si teniu qualsevol dubte o consulta, no dubteu a fer-me-la arribar. Us agraeixo que hàgiu tingut en compte aquesta revista com a mitjà per a difondre la vostra obra.<br />\n"
 "<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
-#, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Si està activat, aquest correu electrònic s'envia automàticament als autors/"
-"ores quan completen el procés de tramesa d'un manuscrit a la revista. "
-"Proporciona informació sobre el seguiment de la tramesa durant el procés "
-"editorial i agraeix a l'autor/a la seva contribució a la revista."
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Justificant de recepció de la revisió de l'article"
@@ -156,9 +149,6 @@ msgstr ""
 "URL de la tramesa: {$submissionUrl}<br />\n"
 "Nom d'usuari/ària: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.description"
-msgstr "Aquest missatge de correu electrònic té un editor de secció com a remitent i s'envia al possible corrector d'una tramesa per a sol·licitar-li que comenci el procés de correcció. Proporciona informació sobre la tramesa i com s'hi ha d'accedir."
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""

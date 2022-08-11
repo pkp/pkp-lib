@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
@@ -26,16 +25,20 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionFileLog;
 use PKP\log\SubmissionLog;
-use PKP\mail\SubmissionMailTemplate;
+use Illuminate\Support\Facades\Mail;
+use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\maps\Schema;
 use PKP\validation\ValidatorFactory;
 
@@ -342,86 +345,7 @@ abstract class Repository
                     throw new Exception('Submission file added to submission that does not exist.');
                 }
 
-                $context = $this->request->getContext();
-                if ($context->getId() != $submission->getData('contextId')) {
-                    $context = Services::get('context')->get($submission->getData('contextId'));
-                }
-
-                $uploader = $this->request->getUser();
-                if (!$uploader || $uploader->getId() != $submissionFile->getData('uploaderUserId')) {
-                    $uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
-                }
-
-                // Fetch the latest notification email timestamp
-                $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-                $submissionEmails = $submissionEmailLogDao->getByEventType(
-                    $submission->getId(),
-                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
-                );
-                $lastNotification = null;
-                $sentDates = [];
-                if ($submissionEmails) {
-                    while ($email = $submissionEmails->next()) {
-                        if ($email->getDateSent()) {
-                            $sentDates[] = $email->getDateSent();
-                        }
-                    }
-                    if (!empty($sentDates)) {
-                        $lastNotification = max(array_map('strtotime', $sentDates));
-                    }
-                }
-
-                $mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
-                $mail->setEventType(
-                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
-                );
-                $mail->setReplyTo(
-                    $context->getData('contactEmail'),
-                    $context->getData('contactName')
-                );
-                // Get editors assigned to the submission, consider also the recommendOnly editors
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage(
-                    $submission->getId(),
-                    $reviewRound->getStageId()
-                );
-                foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                    $editor = $userDao->getById($editorsStageAssignment->getUserId());
-                    // IF no prior notification exists
-                    // OR if editor has logged in after the last revision upload
-                    // OR the last upload and notification was sent more than a day ago,
-                    // THEN send a new notification
-                    if (is_null($lastNotification) || strtotime($editor->getDateLastLogin()) > $lastNotification || strtotime('-1 day') > $lastNotification) {
-                        $mail->addRecipient($editor->getEmail(), $editor->getFullName());
-                    }
-                }
-                // Get uploader name
-                $mail->assignParams([
-                    'authorName' => $uploader->getFullName(),
-                    ContextEmailVariable::CONTEXT_SIGNATURE => $context->getData('contactName'),
-                    'submissionUrl' => $this->request->getDispatcher()->url(
-                        $this->request,
-                        PKPApplication::ROUTE_PAGE,
-                        null,
-                        'workflow',
-                        'index',
-                        [
-                            $submission->getId(),
-                            $reviewRound->getStageId(),
-                        ]
-                    ),
-                ]);
-
-                if ($mail->getRecipients()) {
-                    if (!$mail->send($this->request)) {
-                        $notificationMgr = new NotificationManager();
-                        $notificationMgr->createTrivialNotification(
-                            $this->request->getUser()->getId(),
-                            PKPNotification::NOTIFICATION_TYPE_ERROR,
-                            ['contents' => __('email.compose.error')]
-                        );
-                    }
-                }
+                $this->notifyEditorsRevisionsUploaded($submissionFile, $reviewRound);
             }
         }
 
@@ -767,5 +691,77 @@ abstract class Repository
             ->orderBy('revision_id', 'desc')
             ->select(['f.file_id as fileId', 'f.path', 'f.mimetype'])
             ->get();
+    }
+
+    /**
+     * Sends email to notify editors about new revision of a submission file
+     */
+    protected function notifyEditorsRevisionsUploaded(SubmissionFile $submissionFile): void
+    {
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+        $context = Services::get('context')->get($submission->getData('contextId'));
+        $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'));
+        $user = $this->request->getUser();
+
+        // Fetch the latest notification email timestamp
+        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+        /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+        $submissionEmails = $submissionEmailLogDao->getByEventType(
+            $submission->getId(),
+            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
+        );
+        $lastNotification = null;
+        $sentDates = [];
+        if ($submissionEmails) {
+            while ($email = $submissionEmails->next()) {
+                if ($email->getDateSent()) {
+                    $sentDates[] = $email->getDateSent();
+                }
+            }
+            if (!empty($sentDates)) {
+                $lastNotification = max(array_map('strtotime', $sentDates));
+            }
+        }
+
+        // Get editors assigned to the submission, consider also the recommendOnly editors
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao*/
+        $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
+        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage(
+            $submission->getId(),
+            $reviewRound->getStageId()
+        );
+        $recipients = [];
+        foreach ($editorsStageAssignments as $editorsStageAssignment) {
+            $editor = Repo::user()->get($editorsStageAssignment->getUserId());
+            // IF no prior notification exists
+            // OR if editor has logged in after the last revision upload
+            // OR the last upload and notification was sent more than a day ago,
+            // THEN send a new notification
+            if (is_null($lastNotification) || strtotime($editor->getDateLastLogin()) > $lastNotification || strtotime('-1 day') > $lastNotification) {
+                $recipients[] = $editor;
+            }
+        }
+
+        if (empty($recipients)) {
+            return;
+        }
+
+        $mailable = new RevisedVersionNotify($context, $submission, $uploader, $reviewRound);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), RevisedVersionNotify::getEmailTemplateKey());
+        $mailable->body($template->getLocalizedData('body'))
+            ->subject($template->getLocalizedData('subject'))
+            ->sender($user)
+            ->recipients($recipients)
+            ->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
+
+        Mail::send($mailable);
+        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+        $submissionEmailLogDao->logMailable(
+            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+            $mailable,
+            $submission,
+            $user
+        );
     }
 }

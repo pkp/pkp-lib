@@ -16,21 +16,21 @@
 namespace PKP\mail\variables;
 
 use InvalidArgumentException;
-use PKP\user\User;
+use PKP\identity\Identity;
 
 class RecipientEmailVariable extends Variable
 {
     public const RECIPIENT_FULL_NAME = 'recipientName';
     public const RECIPIENT_USERNAME = 'recipientUsername';
 
-    /** @var iterable<User> */
+    /** @var iterable<Identity> */
     protected iterable $recipients;
 
     public function __construct(iterable $recipients)
     {
         foreach ($recipients as $recipient) {
-            if (!is_a($recipient, User::class)) {
-                throw new InvalidArgumentException('recipient array values should be an instances or ancestors of ' . User::class . ', ' . get_class($recipient) . ' is given');
+            if (!is_a($recipient, Identity::class)) {
+                throw new InvalidArgumentException('recipient array values should be an instances or ancestors of ' . Identity::class . ', ' . get_class($recipient) . ' is given');
             }
         }
 

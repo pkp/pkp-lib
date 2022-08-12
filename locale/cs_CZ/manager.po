@@ -3284,3 +3284,7 @@ msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
 "Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět z "
 "copyeditingu."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že recenzní kolo jeho příspěvku bylo zrušeno."

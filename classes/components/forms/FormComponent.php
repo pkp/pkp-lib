@@ -277,7 +277,7 @@ class FormComponent
             throw new Exception('FormComponent::getConfig() was called but one or more required property is missing: id, method, action.');
         }
 
-        Hook::call('Form::config::before', [$this]);
+        Hook::run('Form::config::before', [$this]);
 
         // Add a default page/group if none exist
         if (!$this->groups) {

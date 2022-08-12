@@ -24,7 +24,7 @@ use APP\notification\Notification;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\pages\workflow\PKPWorkflowHandler;
 
@@ -184,7 +184,7 @@ class WorkflowHandler extends PKPWorkflowHandler
                 break;
         }
 
-        HookRegistry::call('Workflow::Decisions', [&$decisionTypes, $stageId]);
+        Hook::call('Workflow::Decisions', [&$decisionTypes, $stageId]);
 
         return $decisionTypes;
     }
@@ -197,7 +197,7 @@ class WorkflowHandler extends PKPWorkflowHandler
 
         $decisionTypes = [];
 
-        HookRegistry::call('Workflow::Recommendations', [$decisionTypes, $stageId]);
+        Hook::call('Workflow::Recommendations', [$decisionTypes, $stageId]);
 
         return $decisionTypes;
     }

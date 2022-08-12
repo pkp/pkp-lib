@@ -29,7 +29,7 @@ use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\metadata\MetadataDataObjectAdapter;
 use PKP\metadata\MetadataDescription;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
@@ -203,7 +203,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
             $dc11Description->addStatement('dc:rights', $licenseUrl);
         }
 
-        HookRegistry::call('Dc11SchemaPreprintAdapter::extractMetadataFromDataObject', [$this, $submission, $server, &$dc11Description]);
+        Hook::call('Dc11SchemaPreprintAdapter::extractMetadataFromDataObject', [$this, $submission, $server, &$dc11Description]);
 
         return $dc11Description;
     }

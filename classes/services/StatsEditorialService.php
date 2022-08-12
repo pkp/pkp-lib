@@ -16,7 +16,7 @@
 namespace APP\services;
 
 use PKP\decision\Decision;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
 {
@@ -50,7 +50,7 @@ class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
             ],
         ];
 
-        HookRegistry::call('EditorialStats::overview', [&$overview, $args]);
+        Hook::call('EditorialStats::overview', [&$overview, $args]);
 
         return $overview;
     }

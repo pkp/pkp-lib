@@ -55,7 +55,7 @@ class rebuildSearchIndex extends CommandLineTool
 
         // Register a router hook so that we can construct
         // useful URLs to server content.
-        HookRegistry::register('Request::getBaseUrl', [$this, 'callbackBaseUrl']);
+        Hook::add('Request::getBaseUrl', [$this, 'callbackBaseUrl']);
 
         // Let the search implementation re-build the index.
         $preprintSearchIndex = Application::getSubmissionSearchIndex();

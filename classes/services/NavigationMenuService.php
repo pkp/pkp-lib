@@ -18,7 +18,7 @@ namespace APP\services;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Validation;
 
 class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
@@ -31,8 +31,8 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
      */
     public function __construct()
     {
-        HookRegistry::register('NavigationMenus::itemTypes', [$this, 'getMenuItemTypesCallback']);
-        HookRegistry::register('NavigationMenus::displaySettings', [$this, 'getDisplayStatusCallback']);
+        Hook::add('NavigationMenus::itemTypes', [$this, 'getMenuItemTypesCallback']);
+        Hook::add('NavigationMenus::displaySettings', [$this, 'getDisplayStatusCallback']);
     }
 
     /**

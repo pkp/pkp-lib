@@ -24,7 +24,7 @@ use PKP\db\DAORegistry;
 use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
 use PKP\oai\OAIResumptionToken;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class ServerOAI extends OAI
 {
@@ -190,7 +190,7 @@ class ServerOAI extends OAI
     public function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
     {
         $records = null;
-        if (!HookRegistry::call('ServerOAI::records', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
+        if (!Hook::call('ServerOAI::records', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
             $sectionId = null;
             if (isset($set)) {
                 [$serverId, $sectionId] = $this->setSpecToSectionId($set);
@@ -208,7 +208,7 @@ class ServerOAI extends OAI
     public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
     {
         $records = null;
-        if (!HookRegistry::call('ServerOAI::identifiers', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
+        if (!Hook::call('ServerOAI::identifiers', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
             $sectionId = null;
             if (isset($set)) {
                 [$serverId, $sectionId] = $this->setSpecToSectionId($set);
@@ -226,7 +226,7 @@ class ServerOAI extends OAI
     public function sets($offset, $limit, &$total)
     {
         $sets = null;
-        if (!HookRegistry::call('ServerOAI::sets', [$this, $offset, $limit, &$total, &$sets])) {
+        if (!Hook::call('ServerOAI::sets', [$this, $offset, $limit, &$total, &$sets])) {
             $sets = $this->dao->getServerSets($this->serverId, $offset, $limit, $total);
         }
         return $sets;

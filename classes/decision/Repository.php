@@ -17,7 +17,7 @@ use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use Illuminate\Database\Eloquent\Collection;
 use PKP\decision\types\InitialDecline;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Repository extends \PKP\decision\Repository
 {
@@ -31,7 +31,7 @@ class Repository extends \PKP\decision\Repository
                 new Decline(),
                 new RevertDecline(),
             ]);
-            HookRegistry::call('Decision::types', [$decisionTypes]);
+            Hook::call('Decision::types', [$decisionTypes]);
             $this->decisionTypes = $decisionTypes;
         }
 

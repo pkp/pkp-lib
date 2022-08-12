@@ -20,6 +20,7 @@ use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
 use APP\template\TemplateManager;
 use PKP\decision\DecisionType;
 use PKP\security\Role;
+use PKP\plugins\Hook;
 
 class WorkflowTabHandler extends PKPWorkflowTabHandler
 {
@@ -41,7 +42,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
                 $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR);
 
                 while ($assignment = $submitterAssignments->next()) {
-                    \HookRegistry::call('Publication::testAuthorValidatePublish', [&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]);
+                    Hook::call('Publication::testAuthorValidatePublish', [&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]);
                 }
 
                 if (!empty($errors)) {

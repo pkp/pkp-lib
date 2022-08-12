@@ -17,7 +17,7 @@
 namespace APP\pages\preprint;
 
 use APP\core\Services;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\config\Config;
 use APP\core\Application;
@@ -288,7 +288,7 @@ class PreprintHandler extends Handler
                 $templateMgr->addHeader('canonical', '<link rel="canonical" href="' . $url . '">');
             }
 
-            if (!HookRegistry::call('PreprintHandler::view', [&$request, &$preprint, $publication])) {
+            if (!Hook::call('PreprintHandler::view', [&$request, &$preprint, $publication])) {
                 $templateMgr->display('frontend/pages/preprint.tpl');
                 event(new Usage(Application::ASSOC_TYPE_SUBMISSION, $context, $preprint));
                 return;
@@ -301,7 +301,7 @@ class PreprintHandler extends Handler
             }
 
             // Galley: Prepare the galley file download.
-            if (!HookRegistry::call('PreprintHandler::view::galley', [&$request, &$this->galley, &$preprint, $publication])) {
+            if (!Hook::call('PreprintHandler::view::galley', [&$request, &$this->galley, &$preprint, $publication])) {
                 if ($this->publication->getId() !== $this->preprint->getCurrentPublication()->getId()) {
                     $redirectArgs = [
                         $preprint->getBestId(),
@@ -376,7 +376,7 @@ class PreprintHandler extends Handler
                 }
             }
 
-            if (!HookRegistry::call('PreprintHandler::download', [$this->preprint, &$this->galley, &$this->fileId])) {
+            if (!Hook::call('PreprintHandler::download', [$this->preprint, &$this->galley, &$this->fileId])) {
                 $submissionFile = Repo::submissionFile()->get($this->fileId);
 
                 if (!Services::get('file')->fs->has($submissionFile->getData('path'))) {
@@ -397,7 +397,7 @@ class PreprintHandler extends Handler
                     event(new Usage($assocType, $request->getContext(), $this->preprint, $this->galley, $submissionFile));
                 }
                 $returner = true;
-                HookRegistry::call('FileManager::downloadFileFinished', [&$returner]);
+                Hook::call('FileManager::downloadFileFinished', [&$returner]);
 
                 Services::get('file')->download($submissionFile->getData('fileId'), $filename);
             }

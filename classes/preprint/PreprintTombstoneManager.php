@@ -22,7 +22,7 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\oai\OAIUtils;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class PreprintTombstoneManager
 {
@@ -58,7 +58,7 @@ class PreprintTombstoneManager
         $preprintTombstone->setOAISetObjectsIds($oaiSetObjectIds);
         $tombstoneDao->insertObject($preprintTombstone);
 
-        if (HookRegistry::call('PreprintTombstoneManager::insertPreprintTombstone', [$preprintTombstone, $preprint, $context])) {
+        if (Hook::call('PreprintTombstoneManager::insertPreprintTombstone', [$preprintTombstone, $preprint, $context])) {
             return;
         }
     }

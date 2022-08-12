@@ -15,7 +15,7 @@
 
 namespace APP\pages\sitemap;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\pages\sitemap\PKPSitemapHandler;
@@ -49,7 +49,7 @@ class SitemapHandler extends PKPSitemapHandler
         $doc->appendChild($root);
 
         // Enable plugins to change the sitemap
-        HookRegistry::call('SitemapHandler::createServerSitemap', [&$doc]);
+        Hook::call('SitemapHandler::createServerSitemap', [&$doc]);
 
         return $doc;
     }

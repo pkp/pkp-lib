@@ -21,7 +21,7 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
@@ -258,7 +258,7 @@ class Repository extends \PKP\publication\Repository
 
         // By default authors can not publish, but this can be overridden in screening plugins with the hook Publication::canAuthorPublish
         if ($isAuthor) {
-            if (HookRegistry::call('Publication::canAuthorPublish', [$this])) {
+            if (Hook::call('Publication::canAuthorPublish', [$this])) {
                 return true;
             } else {
                 return false;

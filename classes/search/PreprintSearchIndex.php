@@ -18,7 +18,7 @@ namespace APP\search;
 use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\search\SearchFileParser;
 
 use PKP\search\SubmissionSearch;
@@ -33,7 +33,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function submissionMetadataChanged($submission)
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = HookRegistry::call(
+        $hookResult = Hook::call(
             'PreprintSearchIndex::preprintMetadataChanged',
             [$submission]
         );
@@ -97,7 +97,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function submissionFileChanged($preprintId, $type, $submissionFile)
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = HookRegistry::call(
+        $hookResult = Hook::call(
             'PreprintSearchIndex::submissionFileChanged',
             [$preprintId, $type, $submissionFile->getId()]
         );
@@ -142,7 +142,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function submissionFilesChanged($preprint)
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = HookRegistry::call(
+        $hookResult = Hook::call(
             'PreprintSearchIndex::submissionFilesChanged',
             [$preprint]
         );
@@ -190,7 +190,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function submissionFileDeleted($preprintId, $type = null, $assocId = null)
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = HookRegistry::call(
+        $hookResult = Hook::call(
             'PreprintSearchIndex::submissionFileDeleted',
             [$preprintId, $type, $assocId]
         );
@@ -216,7 +216,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     {
         // Trigger a hook to let the indexing back-end know that
         // an preprint was deleted.
-        HookRegistry::call(
+        Hook::call(
             'PreprintSearchIndex::preprintDeleted',
             [$preprintId]
         );
@@ -232,7 +232,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     {
         // Trigger a hook to let the indexing back-end know that
         // the index may be updated.
-        HookRegistry::call(
+        Hook::call(
             'PreprintSearchIndex::preprintChangesFinished'
         );
 
@@ -266,7 +266,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function rebuildIndex($log = false, $server = null, $switches = [])
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = HookRegistry::call(
+        $hookResult = Hook::call(
             'PreprintSearchIndex::rebuildIndex',
             [$log, $server, $switches]
         );

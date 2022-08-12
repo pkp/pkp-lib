@@ -25,7 +25,7 @@ use PKP\context\PKPSectionDAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class SectionDAO extends PKPSectionDAO
 {
@@ -209,7 +209,7 @@ class SectionDAO extends PKPSectionDAO
 
         $this->getDataObjectSettings('section_settings', 'section_id', $row['section_id'], $section);
 
-        HookRegistry::call('SectionDAO::_fromRow', [&$section, &$row]);
+        Hook::call('SectionDAO::_fromRow', [&$section, &$row]);
 
         return $section;
     }

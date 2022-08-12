@@ -19,7 +19,7 @@ namespace APP\core;
 
 use APP\server\Server;
 use PKP\core\PKPRequest;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Request extends PKPRequest
 {
@@ -34,7 +34,7 @@ class Request extends PKPRequest
 
         if (!isset($server)) {
             $server = $this->_delegateToRouter('getRequestedContextPath', 1);
-            HookRegistry::call('Request::getRequestedServerPath', [&$server]);
+            Hook::call('Request::getRequestedServerPath', [&$server]);
         }
 
         return $server;

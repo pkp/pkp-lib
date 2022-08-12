@@ -16,6 +16,7 @@ namespace APP\components\forms\context;
 
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FormComponent;
+use PKP\plugins\Hook;
 
 define('FORM_SCREENING', 'screening');
 
@@ -39,7 +40,7 @@ class ScreeningForm extends FormComponent
         $this->action = $action;
 
         $rules = [];
-        \HookRegistry::call('Settings::Workflow::listScreeningPlugins', [&$rules]);
+        Hook::call('Settings::Workflow::listScreeningPlugins', [&$rules]);
         if (!empty($rules)) {
             $screeningPluginRules = "<table class=\"pkpTable\">\n";
             foreach ($rules as $rule) {

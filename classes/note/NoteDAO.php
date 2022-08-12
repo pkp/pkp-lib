@@ -87,8 +87,8 @@ class NoteDAO extends \PKP\db\DAO
      *
      * @return LazyCollection<Note>
      */
-    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, bool $isAdmin = false, 
-        int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = self::SORT_DIRECTION_DESC) : LazyCollection
+    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, 
+        int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = self::SORT_DIRECTION_DESC, bool $isAdmin = false) : LazyCollection
     {
         $query = DB::table('notes')
             ->where('assoc_id', '=', $assocId)

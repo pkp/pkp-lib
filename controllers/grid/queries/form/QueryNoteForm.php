@@ -21,8 +21,6 @@ use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\core\Core;
 
-use PKP\core\Core;
-
 class QueryNoteForm extends Form
 {
     /** @var array Action arguments */

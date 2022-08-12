@@ -17,13 +17,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 use Illuminate\Support\Facades\DB;
-use PKP\submissionFile\SubmissionFile;
-use APP\core\Services;
-use PKP\install\DowngradeNotSupportedException;
 use PKP\config\Config;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
-use PKP\file\FileManager;
 use League\Flysystem\Filesystem;
 use League\Flysystem\FilesystemException;
 use League\Flysystem\UnableToDeleteFile;
@@ -58,12 +54,9 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
             $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
         });
 
-        Schema::table('submission_file_settings', function (Blueprint $table) {
-            $table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
-        });
-
         // Does not have the foreign key reference
         Schema::table('submission_file_settings', function (Blueprint $table) {
+            $table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
         });
 

@@ -42,18 +42,19 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->index(['submission_id'], 'submission_files_submission_id');
             //  pkp/pkp-lib#5804
             $table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc');
-            $table->foreign('file_id')->references('file_id')->on('files');
+            $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');;
         });
 
         // Article supplementary file metadata.
         Schema::create('submission_file_settings', function (Blueprint $table) {
-            $table->bigInteger('submission_file_id');
+            $table->bigInteger('submission_file_id')->nullable(false)->unsigned();
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->default('string')->comment('(bool|int|float|string|object|date)');
             $table->index(['submission_file_id'], 'submission_file_settings_id');
             $table->unique(['submission_file_id', 'locale', 'setting_name'], 'submission_file_settings_pkey');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
         });
 
         // Submission file revisions
@@ -61,8 +62,8 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->bigIncrements('revision_id');
             $table->bigInteger('submission_file_id')->unsigned();
             $table->bigInteger('file_id')->unsigned();
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
-            $table->foreign('file_id')->references('file_id')->on('files');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+            $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
         });
     }
 

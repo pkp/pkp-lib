@@ -21,7 +21,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 use PKP\core\DataObject;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
 class EntityDAOTest extends PKPTestCase
@@ -48,7 +48,7 @@ class EntityDAOTest extends PKPTestCase
         });
 
         // Inject a test schema
-        HookRegistry::register('Schema::get::test_schema', function ($hookName, $args) {
+        Hook::add('Schema::get::test_schema', function ($hookName, $args) {
             $schema = & $args[0];
             $schema = json_decode('{
                 "title": "Test Schema",

@@ -24,7 +24,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
 /**
@@ -49,13 +49,13 @@ class PKPRouterTestCase extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        HookRegistry::rememberCalledHooks();
+        Hook::rememberCalledHooks();
         $this->router = new PKPRouter();
     }
 
     protected function tearDown(): void
     {
-        HookRegistry::resetCalledHooks(true);
+        Hook::resetCalledHooks(true);
         parent::tearDown();
     }
 
@@ -118,7 +118,7 @@ class PKPRouterTestCase extends PKPTestCase
     public function testGetRequestedContextPathWithFullPathInfo()
     {
         $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-        HookRegistry::resetCalledHooks(true);
+        Hook::resetCalledHooks(true);
         $_SERVER['PATH_INFO'] = '/context1/other/path/vars';
         self::assertEquals(
             ['context1'],
@@ -130,7 +130,7 @@ class PKPRouterTestCase extends PKPTestCase
         );
         self::assertEquals(
             [['Router::getRequestedContextPaths', [['context1']]]],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 
@@ -167,7 +167,7 @@ class PKPRouterTestCase extends PKPTestCase
     public function testGetRequestedContextPathWithFullContextParameters()
     {
         $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        HookRegistry::resetCalledHooks(true);
+        Hook::resetCalledHooks(true);
         $_GET['firstContext'] = 'context1';
         self::assertEquals(
             ['context1'],
@@ -179,7 +179,7 @@ class PKPRouterTestCase extends PKPTestCase
         );
         self::assertEquals(
             [['Router::getRequestedContextPaths', [['context1']]]],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 
@@ -261,7 +261,7 @@ class PKPRouterTestCase extends PKPTestCase
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/base/index.php'
         ];
-        HookRegistry::resetCalledHooks(true);
+        Hook::resetCalledHooks(true);
 
         self::assertEquals('http://mydomain.org/base/index.php', $this->router->getIndexUrl($this->request));
 
@@ -274,16 +274,16 @@ class PKPRouterTestCase extends PKPTestCase
                 ['Request::getBaseUrl', ['http://mydomain.org/base']],
                 ['Router::getIndexUrl', ['http://mydomain.org/base/index.php']]
             ],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
 
         // Calling getIndexUrl() twice should return the same
         // result without triggering the hooks again.
-        HookRegistry::resetCalledHooks(true);
+        Hook::resetCalledHooks(true);
         self::assertEquals('http://mydomain.org/base/index.php', $this->router->getIndexUrl($this->request));
         self::assertEquals(
             [],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 

@@ -20,7 +20,7 @@ namespace PKP\tests\classes\core;
 use APP\core\Request;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
 /**
@@ -41,13 +41,13 @@ class PKPRequestTest extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        HookRegistry::rememberCalledHooks();
+        Hook::rememberCalledHooks();
         $this->request = new Request();
     }
 
     protected function tearDown(): void
     {
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         parent::tearDown();
     }
 
@@ -92,13 +92,13 @@ class PKPRequestTest extends PKPTestCase
      */
     public function testRedirectUrl()
     {
-        HookRegistry::register('Request::redirect', [$this, 'redirectUrlHook']);
+        Hook::add('Request::redirect', [$this, 'redirectUrlHook']);
         $this->request->redirectUrl('http://some.url/');
         self::assertEquals(
             [['Request::redirect', ['http://some.url/']]],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
-        HookRegistry::clear('Request::redirect');
+        Hook::clear('Request::redirect');
     }
 
     /**
@@ -130,16 +130,16 @@ class PKPRequestTest extends PKPTestCase
                 ['Request::getServerHost', [false, false, true]],
                 ['Request::getBaseUrl', ['http://baseurl1/']]
             ],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
 
         // Calling getBaseUrl twice should return the same
         // result without triggering the hooks again.
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         self::assertEquals('http://baseurl1/', $this->request->getBaseUrl());
         self::assertEquals(
             [],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 
@@ -169,16 +169,16 @@ class PKPRequestTest extends PKPTestCase
         // The hook should have been triggered once.
         self::assertEquals(
             [['Request::getBasePath', ['/some/base/path']]],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
 
         // Calling getBasePath twice should return the same
         // result without triggering the hook again.
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         self::assertEquals('/some/base/path', $this->request->getBasePath());
         self::assertEquals(
             [],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 
@@ -208,16 +208,16 @@ class PKPRequestTest extends PKPTestCase
         // The hook should have been triggered once.
         self::assertEquals(
             [['Request::getRequestPath', ['some/script/name']]],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
 
         // Calling getRequestPath() twice should return the same
         // result without triggering the hook again.
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         self::assertEquals('some/script/name', $this->request->getRequestPath());
         self::assertEquals(
             [],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 
@@ -344,16 +344,16 @@ class PKPRequestTest extends PKPTestCase
         // The hook should have been triggered once.
         self::assertEquals(
             [['Request::getProtocol', ['http']]],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
 
         // Calling getProtocol() twice should return the same
         // result without triggering the hook again.
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         self::assertEquals('http', $this->request->getProtocol());
         self::assertEquals(
             [],
-            HookRegistry::getCalledHooks()
+            Hook::getCalledHooks()
         );
     }
 

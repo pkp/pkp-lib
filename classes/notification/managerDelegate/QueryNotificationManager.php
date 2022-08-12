@@ -64,7 +64,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 ]);
             case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 $notes = $query->getReplies(null, NoteDAO::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
-                $latestNote = $notes->next();
+                $latestNote = $notes->first();
                 $user = $latestNote->getUser();
                 return __('submission.query.activity', [
                     'responderName' => $user->getFullName(),

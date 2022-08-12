@@ -17,13 +17,13 @@ namespace PKP\controllers\grid\eventLog;
 
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
-use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
 use PKP\controllers\grid\GridRow;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submissionFile\SubmissionFile;
+use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
 
 class EventLogGridRow extends GridRow
 {

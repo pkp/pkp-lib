@@ -26,6 +26,7 @@ use PKP\log\EventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use APP\notification\NotificationManager;
 
 class FileInformationCenterHandler extends InformationCenterHandler
 {
@@ -132,9 +133,14 @@ class FileInformationCenterHandler extends InformationCenterHandler
         $templateMgr = TemplateManager::getManager($request);
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
 
-        $submissionFile = $this->submissionFile;
-        $notes = $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getData('sourceSubmissionFileId'))->toArray();
-        $templateMgr->assign('notes', new ArrayItemIterator($notes));
+        $notes = [];
+        $sourceSubmissionFileId = $this->submissionFile->getData('sourceSubmissionFileId');
+        
+        if (!is_null($sourceSubmissionFileId)) {
+            $notes = $noteDao->getByAssoc($this->_getAssocType(), $sourceSubmissionFileId);
+        }
+        
+        $templateMgr->assign('notes', $notes);
 
         $user = $request->getUser();
         $templateMgr->assign([

@@ -20,6 +20,10 @@ namespace PKP\note;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
+use APP\facades\Repo;
+use APP\core\Application;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 
 class NoteDAO extends \PKP\db\DAO
 {
@@ -81,13 +85,24 @@ class NoteDAO extends \PKP\db\DAO
      * @param int $orderBy Optional sorting field constant: self::NOTE_ORDER_...
      * @param int $sortDirection Optional sorting order constant: SORT_DIRECTION_...
      *
-     * @return object DAOResultFactory containing matching Note objects
+     * @return LazyCollection<Note>
      */
-    public function getByAssoc($assocType, $assocId, $userId = null, $orderBy = self::NOTE_ORDER_DATE_CREATED, $sortDirection = self::SORT_DIRECTION_DESC, $isAdmin = false)
+    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, bool $isAdmin = false, 
+        int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = self::SORT_DIRECTION_DESC) : LazyCollection
     {
-        $params = [(int) $assocId, (int) $assocType];
+        $query = DB::table('notes')
+            ->where('assoc_id', '=', $assocId)
+            ->where('assoc_type', '=', $assocType);
+
         if ($userId) {
-            $params[] = (int) $userId;
+            $query->where('user_id', '=', $userId);
+        }
+
+        if (!$isAdmin) {
+            $query->where(function ($query) {
+                $query->whereNotNull('title')
+                    ->orWhereNotNull('contents');
+            });
         }
 
         // Sanitize sort ordering
@@ -108,18 +123,15 @@ class NoteDAO extends \PKP\db\DAO
                 $directionSanitized = 'DESC';
         }
 
-        $result = $this->retrieve(
-            $sql = 'SELECT	*
-			FROM	notes
-			WHERE	assoc_id = ?
-				AND assoc_type = ?
-				' . ($userId ? ' AND user_id = ?' : '') .
-                ($isAdmin ? '' : '
-				AND (title IS NOT NULL OR contents IS NOT NULL)') . '
-			ORDER BY ' . $orderSanitized . ' ' . $directionSanitized,
-            $params
-        );
-        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params); // Counted in QueriesGridCellProvider
+        $query->orderBy($orderSanitized, $directionSanitized);
+
+        $rows = $query->select(['*'])->get();
+        
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $row->note_id => $this->_fromRow(get_object_vars($row));
+            }
+        });
     }
 
     /**
@@ -288,16 +300,22 @@ class NoteDAO extends \PKP\db\DAO
      */
     public function deleteById($noteId, $userId = null)
     {
-        $params = [(int) $noteId];
+        $query = DB::table('notes')
+            ->where('note_id', '=', $noteId);
+        
         if ($userId) {
-            $params[] = (int) $userId;
+            $query->where('user_id', '=', $userId);
         }
 
-        $this->update(
-            'DELETE FROM notes WHERE note_id = ?' .
-            ($userId ? ' AND user_id = ?' : ''),
-            $params
-        );
+        if ($query->count()) {
+            $submissionFileCollector = Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$noteId]);
+
+            Repo::submissionFile()->deleteMany($submissionFileCollector);
+
+            $query->delete();
+        }
     }
 
     /**
@@ -308,8 +326,14 @@ class NoteDAO extends \PKP\db\DAO
      */
     public function deleteByAssoc($assocType, $assocId)
     {
-        $notes = $this->getByAssoc($assocType, $assocId);
-        while ($note = $notes->next()) {
+        $notes = $this->getByAssoc(
+            $assocType, 
+            $assocId, 
+            null,
+            true
+        );
+
+        foreach ($notes as $note) {
             $this->deleteObject($note);
         }
     }

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-08-10 03:41+0000\n"
+"PO-Revision-Date: 2022-08-12 19:48+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -2115,7 +2115,7 @@ msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Poslat tento příspěvek zpět do fáze konečných úprav."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr "Zpět do fáze finálních úprav"
+msgstr "Zpět do fáze copyeditingu"
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
@@ -2359,3 +2359,56 @@ msgid "doi.submission.notPublished"
 msgstr ""
 "Nepodařilo se označit DOI registrovaný pro {$pubObjectTitle}. Než bude možné "
 "stav aktualizovat, musí být příspěvek zveřejněn."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém jim oznámíte, že kolo recenzního řízení "
+"bylo uzavřeno."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Zrušit kolo recenzí"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Zrušení aktuálního kola recenze a odeslání příspěvku zpět do předchozího "
+"kola recenze. Pokud se jedná o první kolo recenzního řízení, bude odesláno "
+"zpět do fáze odevzdávání příspěvku."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} zrušil toto kolo recenzního řízení."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Zrušeno poslední kolo recenzního řízení."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Kolo recenzí lze zrušit pouze v případě, že žádný přidružený recenzent nemá "
+"k dispozici žádnou dokončenou nebo odeslanou recenzi."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Zrušit copyediting"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Odeslat tento příspěvek zpět z fáze copyeditingu."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Odesláno zpět z copyeditingu"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "Příspěvek s názvem {$title} byl odeslán zpět z fáze copyeditingu."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Odeslání e-mailu přiděleným recenzentům, abyste jim oznámili, že požadavek "
+"na jejich recenzi byl zrušen."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} odeslal/a tento příspěvek zpět z fáze copyeditingu."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "Recenzní kolo pro příspěvek {$title}, bylo zrušeno."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Pošlete autorům e-mail, ve kterém jim oznámíte, že copyediting je zrušen a "
+"jejich příspěvky budou podrobeny další redakční úpravě."

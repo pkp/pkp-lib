@@ -3269,3 +3269,18 @@ msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
 "Tento e-mail je automaticky odeslán přiděleným redaktorům, když recenzent "
 "odevzdá recenzní doporučení"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Příspěvek odeslán zpět z copyeditingu"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Recenzní kolo bylo zrušeno"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Pozvaný recenzent k příspěvku byl odebrán z role."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět z "
+"copyeditingu."

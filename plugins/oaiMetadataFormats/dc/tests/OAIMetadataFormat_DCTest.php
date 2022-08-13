@@ -73,7 +73,6 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
      */
     public function testToXml()
     {
-        $this->markTestSkipped('Skipped temporarily');
         //
         // Create test data.
         //

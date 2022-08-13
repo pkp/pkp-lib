@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-10 03:41+0000\n"
+"PO-Revision-Date: 2022-08-13 18:59+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -1411,7 +1411,7 @@ msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Ուղարկեք այս ներկայացումը հետ գրական սրբագրման փուլ:"
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr "Վերադարձ գրական սրբագրմանը"
+msgstr "Վերադարձ Դեպի գրական սրբագրմանը"
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
@@ -2469,3 +2469,57 @@ msgid "doi.submission.notPublished"
 msgstr ""
 "Չհաջողվեց նշել {$pubObjectTitle} -ի համար գրանցված DOI-ը: Ներկայացումը պետք "
 "է հրապարակվի, նախքան կարգավիճակը թարմացվի:"
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Նամակ ուղարկեք հեղինակներին, որպեսզի նրանք իմանան, որ գրաղոսման փուլը փակվել "
+"է:"
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Չեղարկել գրախոսման փուլը"
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} -ը չեղարկել է գրախոսման փուլը:"
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Չեղարկվել է գրախոսման վերջին փուլը:"
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "{$title} ներկայացման վերանայման փուլը չեղարկվել է:"
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Չեղարկել գրական խմբագրումը"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Հետ ուղարկեք այս ներկայացումը գրական խմբագրման փուլից:"
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Հետ է ուղարկվել գրական խմբագրումից"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "{$title} ներկայացումը հետ է ուղարկվել գրական խմբագրման փուլից:"
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Նամակ ուղարկեք նշանակված գրաղոսներին՝ տեղեկացնելով, որ գրաղության իրենց "
+"առաջադրանքը չեղարկված է:"
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Նամակ ուղարկեք հեղինակներին՝ տեղեկացնելով, որ գրական խմբագրումը չեղարկված է, "
+"և նրանց նյութը կենթարկվի հետագա խմբագրական վերանայման:"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Չեղարկեք գրախոսման ընթացիկ փուլը և ներկայացումը ուղարկեք վերանայման վերջին "
+"փուլ: Եթե սա գրախոսման առաջին փուլն է, ապա այն հետ կուղարկվի ներկայացման "
+"փուլ:"
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Կարող է չեղարկել վերանայման փուլը միայն այն դեպքում, եթե ոչ մի առնչվող "
+"գրախոս չունի որևէ ավարտված կամ ներկայացված կարծիք:"
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} -ն այս ներկայացումը հետ է ուղարկել գրական խմբագրման փուլից:"

@@ -18,6 +18,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 
 class DataObject
@@ -359,7 +360,7 @@ class DataObject
     {
         // Load meta-data adapters from the database.
         if ($this->getHasLoadableAdapters() && !$this->_extractionAdaptersLoaded) {
-            $filterDao = \DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
+            $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
             $loadedAdapters = $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
             foreach ($loadedAdapters as $loadedAdapter) {
                 $this->addSupportedMetadataAdapter($loadedAdapter);

@@ -182,6 +182,13 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		}
 		cy.on('uncaught:exception', allowException);
 
+		// Setup upload listener
+		cy.server();
+		cy.route({
+			method: "POST",
+			url: /submissions\/\d+\/files$/
+		}).as('fileUploaded');
+
 		// File uploads
 		const primaryFileGenres = ['Article Text', 'Book Manuscript', 'Chapter Manuscript'];
 		data.files.forEach(file => {
@@ -189,20 +196,30 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 				cy.get('input[type=file]').attachFile(
 					{fileContent, 'filePath': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
 				);
-				var $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
+				cy.wait('@fileUploaded').its('status').should('eq', 200);
+				const $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
+				cy.wait(1000);
 				if (primaryFileGenres.includes(file.genre)) {
+					cy.route({
+						method: "PUT",
+						url: /submissions\/\d+\/files\/\d+/
+					}).as('genreDefined');
 					// For some reason this is locating two references to the button,
 					// so just click the last one, which should be the most recently
 					// uploaded file.
 					$row.get('button:contains("' + file.genre + '")').last().click();
-					$row.get('span:contains("' + file.genre + '")');
 				} else {
 					$row.get('button:contains("Other")').last().click();
 					cy.get('#submission-files-container .modal__panel label:contains("' + file.genre + '")').click();
+					cy.route({
+						method: "POST",
+						url: /submissions\/\d+\/files\/\d+/
+					}).as('genreDefined');
 					cy.get('#submission-files-container .modal__panel button:contains("Save")').click();
 				}
-				// Make sure the genre selection is complete before moving to the
-				// next file.
+				cy.wait('@genreDefined').its('status').should('eq', 200);
+				$row.get('span:contains("' + file.genre + '")');
+				// Make sure the genre selection is complete before moving to the next file.
 				$row.get('button:contains("What kind of file is this?")').should('not.exist');
 			});
 		});

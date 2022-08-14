@@ -14,7 +14,7 @@
 	{capture name="searchFormUrl"}{url page="search" op="search" escape=false}{/capture}
 
 	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
-	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
+	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|strval|parse_str:$formUrlParameters}
 
 	<form class="pkp_search" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" method="get" role="search" aria-label="{translate|escape key="submission.search"}">
 		{csrf}

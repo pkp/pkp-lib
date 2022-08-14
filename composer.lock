@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a2fd41e5de0d7df5f714760e354ed15",
+    "content-hash": "356a96297a61cae15712b709f40b2eae",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -4907,16 +4907,16 @@
         },
         {
             "name": "sokil/php-isocodes",
-            "version": "3.3.15",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sokil/php-isocodes.git",
-                "reference": "3342d946e85055592a216520f2091e6001265b78"
+                "reference": "4e2ddacc8ffafb34d4f2eaa59eb7d598028e766b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sokil/php-isocodes/zipball/3342d946e85055592a216520f2091e6001265b78",
-                "reference": "3342d946e85055592a216520f2091e6001265b78",
+                "url": "https://api.github.com/repos/sokil/php-isocodes/zipball/4e2ddacc8ffafb34d4f2eaa59eb7d598028e766b",
+                "reference": "4e2ddacc8ffafb34d4f2eaa59eb7d598028e766b",
                 "shasum": ""
             },
             "require": {
@@ -4929,6 +4929,7 @@
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpmd/phpmd": "@stable",
                 "phpunit/phpunit": ">=7.5.20",
+                "sokil/php-isocodes-db-i18n": "^4.0.0",
                 "squizlabs/php_codesniffer": "^3.4",
                 "symfony/translation": "^4.4.17|^5.2",
                 "vimeo/psalm": "^4.3"
@@ -4936,6 +4937,8 @@
             "suggest": {
                 "ext-gettext": "Required for gettext translation driver",
                 "phpbench/phpbench": "Required to run benchmarks",
+                "sokil/php-isocodes-db-i18n": "If frequent database updates is not necessary, and database with localization is required.",
+                "sokil/php-isocodes-db-only": "If frequent database updates is not necessary, and only database without localization is required.",
                 "symfony/translation": "Translation driver by Symfont project"
             },
             "type": "library",
@@ -4959,9 +4962,49 @@
             "description": "ISO country, subdivision, language, currency and script definitions and their translations. Based on pythons pycountry and Debian's iso-codes.",
             "support": {
                 "issues": "https://github.com/sokil/php-isocodes/issues",
-                "source": "https://github.com/sokil/php-isocodes/tree/3.3.15"
+                "source": "https://github.com/sokil/php-isocodes/tree/4.1.0"
             },
-            "time": "2021-12-02T06:59:55+00:00"
+            "time": "2022-03-16T23:59:52+00:00"
+        },
+        {
+            "name": "sokil/php-isocodes-db-i18n",
+            "version": "4.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sokil/php-isocodes-db-i18n.git",
+                "reference": "7b87c7586c915f895f9fb0e3000d34992f7f7cf7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sokil/php-isocodes-db-i18n/zipball/7b87c7586c915f895f9fb0e3000d34992f7f7cf7",
+                "reference": "7b87c7586c915f895f9fb0e3000d34992f7f7cf7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "sokil/php-isocodes": "^4.0.1"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmytro Sokil",
+                    "email": "dmytro.sokil@gmail.com"
+                }
+            ],
+            "description": "Database and internationalisation filed for ISO country, subdivision, language, currency and script definitions and their translations. Based on pythons pycountry and Debian's iso-codes.",
+            "support": {
+                "issues": "https://github.com/sokil/php-isocodes-db-i18n/issues",
+                "source": "https://github.com/sokil/php-isocodes-db-i18n/tree/4.0.6"
+            },
+            "time": "2022-07-02T16:11:16+00:00"
         },
         {
             "name": "symfony/console",

@@ -479,9 +479,6 @@ msgstr "Разлог за укључивање корисника"
 msgid "grid.user.error"
 msgstr "Дошло је до грешке приликом администрације овог корисника. Покушајте поново."
 
-msgid "grid.user.authSource"
-msgstr "Извор аутентификације"
-
 msgid "grid.user.generatePassword"
 msgstr "Генериши лозинку"
 

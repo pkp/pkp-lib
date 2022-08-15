@@ -750,9 +750,6 @@ msgstr "Ստեղծեք նոր օգտվող"
 msgid "manager.people.confirmUnenroll"
 msgstr "Չեղարկե՞լ այս օգտատիրոջ գրանցումը:"
 
-msgid "manager.people.authSource"
-msgstr "Նույնականացման աղբյուր"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Պետք է մուտքագրվի գոյություն ունեցող օգտվող:"
 

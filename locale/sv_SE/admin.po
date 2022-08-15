@@ -24,18 +24,6 @@ msgstr "Inställningens värde"
 msgid "admin.adminFunctions"
 msgstr "Administrativa funktioner"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Är du säker på att du vill ta bort autentiseringskällan permanent?"
-
-msgid "admin.auth.create"
-msgstr "Skapa autentiseringskälla"
-
-msgid "admin.auth.noneCreated"
-msgstr "Inga autentiseringskällor definierade."
-
-msgid "admin.authSources"
-msgstr "Autentiseringskällor"
-
 msgid "admin.clearDataCache"
 msgstr "Radera data-cache"
 

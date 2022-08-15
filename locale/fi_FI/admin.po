@@ -23,18 +23,6 @@ msgstr "Asetuksen arvo"
 msgid "admin.adminFunctions"
 msgstr "Ylläpitoon liittyvät toiminnot"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Haluatko varmasti poistaa tämän todentamislähteen pysyvästi?"
-
-msgid "admin.auth.create"
-msgstr "Luo todentamislähde"
-
-msgid "admin.auth.noneCreated"
-msgstr "Yhtään todentamislähdettä ei ole määritelty."
-
-msgid "admin.authSources"
-msgstr "Todentamislähteet"
-
 msgid "admin.clearDataCache"
 msgstr "Tyhjennä datavälimuistit"
 

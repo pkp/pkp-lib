@@ -25,18 +25,6 @@ msgstr "Задаем значение"
 msgid "admin.adminFunctions"
 msgstr "Административные функции"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Вы уверены, что хотите навсегда удалить этот источник аутентификации?"
-
-msgid "admin.auth.create"
-msgstr "Создать источник аутентификации"
-
-msgid "admin.auth.noneCreated"
-msgstr "Источники аутентификации не определены."
-
-msgid "admin.authSources"
-msgstr "Источники аутентификации"
-
 msgid "admin.clearDataCache"
 msgstr "Очистить кэши данных"
 

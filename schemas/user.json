@@ -15,12 +15,6 @@
 				"nullable"
 			]
 		},
-		"authId": {
-			"type": "integer",
-			"validation": [
-				"nullable"
-			]
-		},
 		"authStr": {
 			"type": "string",
 			"validation": [

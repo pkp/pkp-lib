@@ -92,18 +92,6 @@ msgstr "Ջնջել ձևանմուշ քեշը"
 msgid "admin.clearDataCache"
 msgstr "Ջնջել տվյալների քեշը"
 
-msgid "admin.authSources"
-msgstr "Նույնականացման աղբյուր"
-
-msgid "admin.auth.noneCreated"
-msgstr "Նույնականացման աղբյուր հայտարարված չե։"
-
-msgid "admin.auth.create"
-msgstr "Ստեղծել նույնականացման աղբյուր"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Համեզվա՞ծ եք, որ ուզում եք ջնջել ասյ իդենտիֆիկացիոն աղբյուրը?"
-
 msgid "admin.adminFunctions"
 msgstr "Ադմինիստրատիվ ֆունկցիաներ"
 

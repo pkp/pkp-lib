@@ -19,18 +19,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Administrative funktioner"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Er du sikker på, at du vil slette denne godkendelseskilde permanent?"
-
-msgid "admin.auth.create"
-msgstr "Opret godkendelseskilde"
-
-msgid "admin.auth.noneCreated"
-msgstr "Der er ikke angivet nogen godkendelseskilder."
-
-msgid "admin.authSources"
-msgstr "Godkendelseskilder"
-
 msgid "admin.clearDataCache"
 msgstr "Slet datacache"
 

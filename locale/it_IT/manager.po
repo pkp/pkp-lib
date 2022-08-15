@@ -248,9 +248,6 @@ msgstr "Scegli le lingue che saranno supportate dal sito tramite un menu di sele
 msgid "manager.payment.timestamp"
 msgstr "Data"
 
-msgid "manager.people.authSource"
-msgstr "Fonte di autenticazione"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Disiscrivi questo utente?"
 

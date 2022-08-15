@@ -505,9 +505,6 @@ msgstr ""
 "uporabnika morate biti ali administrator spletišča ali administrator vseh "
 "revij, pri katerih je ta uporabnik registriran."
 
-msgid "grid.user.authSource"
-msgstr "Avtentikacijski vir"
-
 msgid "grid.user.mustProvideName"
 msgstr "Prosimo vnestie najprej vsaj priimek tega uporabnika."
 

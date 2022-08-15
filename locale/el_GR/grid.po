@@ -506,9 +506,6 @@ msgstr "Παρουσιάστηκε σφάλμα κατά την αποστολή
 msgid "grid.user.cannotAdminister"
 msgstr "Δεν έχετε δικαιώματα πλήρους διαχείρισης του προφίλ Χρήστη."
 
-msgid "grid.user.authSource"
-msgstr "Πηγή ταυτοποίησης"
-
 msgid "grid.user.mustProvideName"
 msgstr "Παρακαλούμε καταχωρήστε τουλάχιστον το επίθετο Χρήστη."
 

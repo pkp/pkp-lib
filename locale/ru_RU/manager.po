@@ -355,9 +355,6 @@ msgstr "Дата/Время"
 msgid "manager.people.existingUserRequired"
 msgstr "Нужно ввести существующего пользователя."
 
-msgid "manager.people.authSource"
-msgstr "Источник аутентификации"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Отменить назначение этого пользователя?"
 

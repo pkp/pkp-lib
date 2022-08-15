@@ -973,9 +973,6 @@ msgstr "Креирај нов корисник"
 msgid "manager.people.confirmUnenroll"
 msgstr "Тргнете го овој корисник?"
 
-msgid "manager.people.authSource"
-msgstr "Извор на автентикација"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Мора да се внесе постоечки корисник."
 

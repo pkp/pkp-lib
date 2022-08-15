@@ -17,18 +17,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "管理职能"
 
-msgid "admin.auth.confirmDelete"
-msgstr "您确定要永久删除此验证来源?"
-
-msgid "admin.auth.create"
-msgstr "创建验证来源"
-
-msgid "admin.auth.noneCreated"
-msgstr "没有验证来源已经确定."
-
-msgid "admin.authSources"
-msgstr "验证来源"
-
 msgid "admin.clearDataCache"
 msgstr "清除数据缓存"
 

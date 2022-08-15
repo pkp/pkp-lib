@@ -420,9 +420,6 @@ msgstr "在发送邮件时遇到错误。请确保您的邮箱服务器的配置
 msgid "grid.user.cannotAdminister"
 msgstr "您没有足够的权限来编辑该用户。"
 
-msgid "grid.user.authSource"
-msgstr "验证源"
-
 msgid "grid.user.mustProvideName"
 msgstr "请首先至少提供该用户的姓氏。"
 

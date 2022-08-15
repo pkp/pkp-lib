@@ -10,7 +10,6 @@
  * Parameters:
  *   $disableUserNameSection: Disable UserName section
  *   $disableEmailSection: Disable Email section
- *   $disableAuthSourceSection: Disable Auth section
  *   $disablePasswordSection: Disable Password section
  *   $disableSendNotifySection: Disable SendNotify section
  *   $disablePhoneSection: Disable Phone section
@@ -50,12 +49,6 @@
 	{if !$disableEmailSection}
 		{fbvFormSection title="about.contact"}
 			{fbvElement type="email" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
-		{/fbvFormSection}
-	{/if}
-
-	{if !$disableAuthSourceSection}
-		{fbvFormSection title="grid.user.authSource" for="authId"}
-			{fbvElement type="select" name="authId" id="authId" defaultLabel="" defaultValue="" from=$authSourceOptions translate="true" selected=$authId}
 		{/fbvFormSection}
 	{/if}
 

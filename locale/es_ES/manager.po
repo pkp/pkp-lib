@@ -321,9 +321,6 @@ msgstr "Fecha operación"
 msgid "manager.people.existingUserRequired"
 msgstr "Debe introducirse un usuario existente."
 
-msgid "manager.people.authSource"
-msgstr "Fuente de autentificación"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "¿Desuscribir a esta/e usuaria/o?"
 

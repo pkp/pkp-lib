@@ -45,43 +45,18 @@ class Validation
             return false;
         }
 
-        if ($user->getAuthId()) {
-            $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-            $auth = $authDao->getPlugin($user->getAuthId());
-        } else {
-            $auth = null;
-        }
-
-        if ($auth) {
-            // Validate against remote authentication source
-            $valid = $auth->authenticate($username, $password);
-            if ($valid) {
-                $oldEmail = $user->getEmail();
-                $auth->doGetUserInfo($user);
-                if ($user->getEmail() != $oldEmail) {
-                    // FIXME requires email addresses to be unique; if changed email already exists, ignore
-                    if (Repo::user()->getByEmail($user->getEmail(), true)) {
-                        $user->setEmail($oldEmail);
-                    }
-                }
-            }
-        } else {
-            // Validate against user database
-            $rehash = null;
-            $valid = self::verifyPassword($username, $password, $user->getPassword(), $rehash);
-
-            if ($valid && !empty($rehash)) {
-                // update to new hashing algorithm
-                $user->setPassword($rehash);
-            }
-        }
-
-        if (!$valid) {
-            // Login credentials are invalid
+        // Validate against user database
+        $rehash = null;
+        if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
             return false;
-        } else {
-            return self::registerUserSession($user, $reason, $remember);
         }
+
+        if (!empty($rehash)) {
+            // update to new hashing algorithm
+            $user->setPassword($rehash);
+        }
+
+        return self::registerUserSession($user, $reason, $remember);
     }
 
     /**
@@ -214,32 +189,25 @@ class Validation
     public static function checkCredentials($username, $password)
     {
         $user = Repo::user()->getByUsername($username, false);
-
-        $valid = false;
-        if (isset($user)) {
-            if ($user->getAuthId()) {
-                $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-                $auth = & $authDao->getPlugin($user->getAuthId());
-            }
-
-            if (isset($auth)) {
-                $valid = $auth->authenticate($username, $password);
-            } else {
-                // Validate against user database
-                $rehash = null;
-                $valid = self::verifyPassword($username, $password, $user->getPassword(), $rehash);
-
-                if ($valid && !empty($rehash)) {
-                    // update to new hashing algorithm
-                    $user->setPassword($rehash);
-
-                    // save new password hash to database
-                    Repo::user()->edit($user);
-                }
-            }
+        if (!$user) {
+            return false;
         }
 
-        return $valid;
+        // Validate against user database
+        $rehash = null;
+        if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
+            return false;
+        }
+
+        if (!empty($rehash)) {
+            // update to new hashing algorithm
+            $user->setPassword($rehash);
+
+            // save new password hash to database
+            Repo::user()->edit($user);
+        }
+
+        return true;
     }
 
     /**

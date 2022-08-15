@@ -318,9 +318,6 @@ msgstr "Impresszum"
 msgid "manager.payment.timestamp"
 msgstr "Időbélyeg"
 
-msgid "manager.people.authSource"
-msgstr "Hitelesítési forrás"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Elveszi a szerepkört a felhasználótól?"
 

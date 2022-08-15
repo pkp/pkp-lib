@@ -514,9 +514,6 @@ msgstr "حدث خطأ ما عند إرسال هذه الرسالة. لطفاً،
 msgid "grid.user.cannotAdminister"
 msgstr "ليس لديك الصلاحيات الكافية لتعديل هذا المستخدم."
 
-msgid "grid.user.authSource"
-msgstr "مصدر المصادقة"
-
 msgid "grid.user.mustProvideName"
 msgstr "لطفاً، أعطِ على الأقل الاسم الأخير للمستخدم أولاً."
 

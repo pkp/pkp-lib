@@ -14,18 +14,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Funtzio administratiboak"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Ziur zaude betiko ezabatu nahi duzula autentifikazio-iturburu hau?"
-
-msgid "admin.auth.create"
-msgstr "Sortu autentifikazio-iturburua"
-
-msgid "admin.auth.noneCreated"
-msgstr "Ez da autentifikazio-iturbururik definitu."
-
-msgid "admin.authSources"
-msgstr "Autentifikazio-iturburuak"
-
 msgid "admin.clearDataCache"
 msgstr "Garbitu datu-cacheak"
 

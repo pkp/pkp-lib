@@ -25,18 +25,6 @@ msgstr "قيمة الإعداد"
 msgid "admin.adminFunctions"
 msgstr "الوظائف الإدارية"
 
-msgid "admin.auth.confirmDelete"
-msgstr "هل أنت متأكد من رغبتك في حذف مصدر التوثيق هذا نهائياً؟?"
-
-msgid "admin.auth.create"
-msgstr "إنشاء مصدر توثيق"
-
-msgid "admin.auth.noneCreated"
-msgstr "لم يتم تعريف أي مصادر توثيق بعد."
-
-msgid "admin.authSources"
-msgstr "مصادر التوثيق"
-
 msgid "admin.clearDataCache"
 msgstr "حذف خبء البيانات"
 

@@ -18,18 +18,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Funkcje administracyjne"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Czy na pewno usunąć źródła uwierzytelniania?"
-
-msgid "admin.auth.create"
-msgstr "Stwórz źródło uwierzytelniania"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nie zdefiniowano źródeł uwierzytelniania."
-
-msgid "admin.authSources"
-msgstr "Źródła uwierzytelniania"
-
 msgid "admin.clearDataCache"
 msgstr "Wyczyść pamięć cache danych"
 

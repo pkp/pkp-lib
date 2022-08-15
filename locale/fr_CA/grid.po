@@ -510,9 +510,6 @@ msgstr "Il y a eu une erreur pendant l'envoi du courriel. Assurez-vous que la co
 msgid "grid.user.cannotAdminister"
 msgstr "Vous n'avez pas les autorisations nécessaires pour modifier cet ou cette utilisateur-trice."
 
-msgid "grid.user.authSource"
-msgstr "Source d'authentification"
-
 msgid "grid.user.mustProvideName"
 msgstr "Veuillez d'abord indiquer au moins un nom de famille pour l'utilisateur-trice ."
 

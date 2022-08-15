@@ -310,9 +310,6 @@ msgstr "Časovni žig"
 msgid "manager.people.existingUserRequired"
 msgstr "Vnesite obstoječega uporabnika."
 
-msgid "manager.people.authSource"
-msgstr "Vir avtentikacije"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Želite zbrisati vlogo temu uporabniku?"
 

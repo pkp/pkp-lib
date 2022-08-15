@@ -338,18 +338,6 @@ msgstr "Ștergeți memoria cache șablon"
 msgid "admin.clearDataCache"
 msgstr "Ștergeți cache-urile de date"
 
-msgid "admin.authSources"
-msgstr "Surse de autentificare"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nu a fost definită nicio sursă de autentificare."
-
-msgid "admin.auth.create"
-msgstr "Creați o sursă de autentificare"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Sunteți sigur/ă că doriți să ștergeți definitiv sursa de autentificare?"
-
 msgid "admin.adminFunctions"
 msgstr "Funcții administrative"
 

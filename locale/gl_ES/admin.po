@@ -176,20 +176,6 @@ msgstr "Borrar a caché do modelo"
 msgid "admin.clearDataCache"
 msgstr "Borrar a caché de datos"
 
-msgid "admin.authSources"
-msgstr "Fontes de autenticación"
-
-msgid "admin.auth.noneCreated"
-msgstr "Non se definiu ningunha fonte de autenticación."
-
-msgid "admin.auth.create"
-msgstr "Crear fonte de autenticación"
-
-msgid "admin.auth.confirmDelete"
-msgstr ""
-"Estás seguro/a de querer eliminar esta fonte de autenticación "
-"definitivamente?"
-
 msgid "admin.adminFunctions"
 msgstr "Funcións administrativas"
 

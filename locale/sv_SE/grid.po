@@ -504,9 +504,6 @@ msgstr "Det uppstod ett fel när det här e-postmeddelandet skulle skickas. Vän
 msgid "grid.user.cannotAdminister"
 msgstr "Dina behörigheter räcker inte för att administrera den här användaren. För att administrera en användare behöver du vara antingen webbplatsadministratör eller ha administrationsbehörighet för samtliga kontexter som användaren är inblandad i."
 
-msgid "grid.user.authSource"
-msgstr "Autentiseringskälla"
-
 msgid "grid.user.mustProvideName"
 msgstr "Vänligen ange åtminstone användarens namn först."
 

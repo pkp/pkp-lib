@@ -311,9 +311,6 @@ msgstr "Datum en tijd"
 msgid "manager.people.existingUserRequired"
 msgstr "Vul een bestaande gebruiker in."
 
-msgid "manager.people.authSource"
-msgstr "Authenticatiebron"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Deze gebruiker uitschrijven?"
 

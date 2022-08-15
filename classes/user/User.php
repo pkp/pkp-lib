@@ -376,26 +376,6 @@ class User extends Identity
     }
 
     /**
-     * Get ID of authentication source for this user.
-     *
-     * @return int
-     */
-    public function getAuthId()
-    {
-        return $this->getData('authId');
-    }
-
-    /**
-     * Set ID of authentication source for this user.
-     *
-     * @param int $authId
-     */
-    public function setAuthId($authId)
-    {
-        $this->setData('authId', $authId);
-    }
-
-    /**
      * Get the inline help display status for this user.
      *
      * @return int

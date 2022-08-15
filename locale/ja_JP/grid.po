@@ -173,9 +173,6 @@ msgstr "パスワードの生成"
 msgid "grid.user.mustProvideName"
 msgstr "ユーザーの姓を入力してください。"
 
-msgid "grid.user.authSource"
-msgstr "認証ソース"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "このユーザーを管理するための十分な権限がありません。 ユーザーを管理するには "

@@ -400,9 +400,6 @@ msgstr ""
 "en bruger skal du enten være webstedsadministrator eller være administrator "
 "på alle de steder, som denne bruger er tilmeldt."
 
-msgid "grid.user.authSource"
-msgstr "Godkendelseskilde"
-
 msgid "grid.user.mustProvideName"
 msgstr "Tilføj som minimum først brugerens efternavn."
 

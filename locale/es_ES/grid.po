@@ -519,9 +519,6 @@ msgstr "Se produjo un error al enviar este correo electrónico. Por favor, aseg�
 msgid "grid.user.cannotAdminister"
 msgstr "No tiene los permisos suficientes para administrar este usuario/a. Para hacerlo debe ser administrador del sitio o bien gestionar todos los contextos en que este usuario/a está registrado."
 
-msgid "grid.user.authSource"
-msgstr "Fuente de autentificación"
-
 msgid "grid.user.mustProvideName"
 msgstr "Por favor, aporte por lo menos el apellido del usuario/a."
 

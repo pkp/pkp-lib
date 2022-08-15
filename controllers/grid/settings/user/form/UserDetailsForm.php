@@ -19,9 +19,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
@@ -29,7 +29,6 @@ use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\InterestManager;
-use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class UserDetailsForm extends UserForm
@@ -127,7 +126,6 @@ class UserDetailsForm extends UserForm
             $interestManager = new InterestManager();
 
             $data = [
-                'authId' => $user->getAuthId(),
                 'username' => $user->getUsername(),
                 'givenName' => $user->getGivenName(null), // Localized
                 'familyName' => $user->getFamilyName(null), // Localized
@@ -202,16 +200,6 @@ class UserDetailsForm extends UserForm
             $templateMgr->assign('username', $this->user->getUsername());
         }
 
-        $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-        $authSources = $authDao->getSources();
-        $authSourceOptions = [];
-        foreach ($authSources->toArray() as $auth) {
-            $authSourceOptions[$auth->getAuthId()] = $auth->getTitle();
-        }
-        if (!empty($authSourceOptions)) {
-            $templateMgr->assign('authSourceOptions', $authSourceOptions);
-        }
-
         return parent::display($request, $template);
     }
 
@@ -226,7 +214,6 @@ class UserDetailsForm extends UserForm
         parent::readInputData();
 
         $this->readUserVars([
-            'authId',
             'password',
             'password2',
             'givenName',
@@ -291,7 +278,7 @@ class UserDetailsForm extends UserForm
         $this->user->setCountry($this->getData('country'));
         $this->user->setBiography($this->getData('biography'), null); // Localized
         $this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
-        $this->user->setAuthId((int) $this->getData('authId'));
+
         // Users can never view/edit their own gossip fields
         if (Repo::user()->canCurrentUserGossip($this->user->getId())) {
             $this->user->setGossip($this->getData('gossip'));
@@ -308,21 +295,11 @@ class UserDetailsForm extends UserForm
         }
         $this->user->setLocales($locales);
 
-        if ($this->user->getAuthId()) {
-            $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-            $auth = & $authDao->getPlugin($this->user->getAuthId());
-        }
-
         parent::execute(...$functionParams);
 
         if ($this->user->getId() != null) {
             if ($this->getData('password') !== '') {
-                if (isset($auth)) {
-                    $auth->doSetUserPassword($this->user->getUsername(), $this->getData('password'));
-                    $this->user->setPassword(Validation::encryptCredentials($this->user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-                } else {
-                    $this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
-                }
+                $this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
 
                 $sessionManager = SessionManager::getManager();
                 $sessionManager->invalidateSessions(
@@ -331,11 +308,6 @@ class UserDetailsForm extends UserForm
                         ? $sessionManager->getUserSession()->getId()
                         : null
                 );
-            }
-
-            if (isset($auth)) {
-                // FIXME Should try to create user here too?
-                $auth->doSetUserInfo($this->user);
             }
 
             Repo::user()->edit($this->user);
@@ -349,15 +321,7 @@ class UserDetailsForm extends UserForm
                 $sendNotify = $this->getData('sendNotify');
             }
 
-            if (isset($auth)) {
-                $this->user->setPassword($password);
-                // FIXME Check result and handle failures
-                $auth->doCreateUser($this->user);
-                $this->user->setAuthId($auth->authId);
-                $this->user->setPassword(Validation::encryptCredentials($this->user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-            } else {
-                $this->user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
-            }
+            $this->user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
 
             $this->user->setDateRegistered(Core::getCurrentDate());
             Repo::user()->add($this->user);

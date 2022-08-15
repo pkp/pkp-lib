@@ -26,18 +26,6 @@ msgstr "Fixation de la valeur"
 msgid "admin.adminFunctions"
 msgstr "Fonctions administratives"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Êtes-vous certain-e de vouloir supprimer définitivement cette source d'authentification ?"
-
-msgid "admin.auth.create"
-msgstr "Créer une source d'authentification"
-
-msgid "admin.auth.noneCreated"
-msgstr "Aucune source d'authentification n'a été définie."
-
-msgid "admin.authSources"
-msgstr "Sources d'authentification"
-
 msgid "admin.clearDataCache"
 msgstr "Supprimer les caches de données"
 

@@ -308,9 +308,6 @@ msgstr "برچسب زمان"
 msgid "manager.people.existingUserRequired"
 msgstr "کاربر موجود باید وارد شود."
 
-msgid "manager.people.authSource"
-msgstr "منبع احراز هویت"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "عزل نقش این کاربر"
 

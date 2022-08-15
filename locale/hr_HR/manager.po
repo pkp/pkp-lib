@@ -228,9 +228,6 @@ msgstr "Ukoliko odaberete dva ili više prijevoda, na svakoj će stranici biti p
 msgid "manager.payment.timestamp"
 msgstr "Datum uplate"
 
-msgid "manager.people.authSource"
-msgstr "Izvor autentifikacije"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Želite li ukloniti ulogu ovom korisniku?"
 

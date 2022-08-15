@@ -250,9 +250,6 @@ msgstr "Επιλέξτε όλες τις τοπικές ρυθμίσεις πο�
 msgid "manager.payment.timestamp"
 msgstr "Σφραγίδα Ημερομηνίας"
 
-msgid "manager.people.authSource"
-msgstr "Πηγή πιστοποίησης"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Απαλλάσετε  τον συγκεκριμένο χρήστη από τον ρόλο του;"
 

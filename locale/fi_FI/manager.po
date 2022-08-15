@@ -305,9 +305,6 @@ msgstr "Valitse kaikki sivustolla tuettavat kielialueet kielivalikosta, joka tul
 msgid "manager.payment.timestamp"
 msgstr "Aikaleima"
 
-msgid "manager.people.authSource"
-msgstr "Todentamislähde"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Poistetaanko käyttäjältä tämä rooli?"
 

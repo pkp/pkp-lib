@@ -318,9 +318,6 @@ msgstr "Дата/Час"
 msgid "manager.people.existingUserRequired"
 msgstr "Необхідно ввести користувача, який вже існує."
 
-msgid "manager.people.authSource"
-msgstr "Джерело аутентифікації"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Звільнити цього користувача від призначення?"
 

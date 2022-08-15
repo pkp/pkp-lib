@@ -20,18 +20,6 @@ msgstr "Setting Value"
 msgid "admin.adminFunctions"
 msgstr "Administrative Functions"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Are you sure you want to permanently delete this authentication source?"
-
-msgid "admin.auth.create"
-msgstr "Create authentication source"
-
-msgid "admin.auth.noneCreated"
-msgstr "No authentication sources have been defined."
-
-msgid "admin.authSources"
-msgstr "Authentication Sources"
-
 msgid "admin.deleteCache"
 msgstr "Delete Caches"
 

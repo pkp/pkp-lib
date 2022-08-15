@@ -312,9 +312,6 @@ msgstr "Navegació"
 msgid "manager.payment.timestamp"
 msgstr "Data i hora"
 
-msgid "manager.people.authSource"
-msgstr "Font d’autenticació"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Voleu donar de baixa aquest usuari/usuària?"
 

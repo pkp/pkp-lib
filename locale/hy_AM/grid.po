@@ -179,9 +179,6 @@ msgstr "Ստեղծեք գաղտնաբառ"
 msgid "grid.user.mustProvideName"
 msgstr "Խնդրում ենք նախ տրամադրել օգտվողի առնվազն ազգանունը:"
 
-msgid "grid.user.authSource"
-msgstr "Նույնականացման աղբյուր"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Դուք չունեք բավարար թույլտվություններ այս օգտվողին կառավարելու համար: "

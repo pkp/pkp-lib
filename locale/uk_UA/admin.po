@@ -24,18 +24,6 @@ msgstr "Значення налаштування"
 msgid "admin.adminFunctions"
 msgstr "Адміністративні функції"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Ви впевнені, що бажаєте видалити назавжди це джерело аутентифікації?"
-
-msgid "admin.auth.create"
-msgstr "Створити джерело аутентифікації"
-
-msgid "admin.auth.noneCreated"
-msgstr "Жодних джерел аутентифікації не було визначено."
-
-msgid "admin.authSources"
-msgstr "Джерела аутентифікації"
-
 msgid "admin.clearDataCache"
 msgstr "Очистити кеш даних"
 

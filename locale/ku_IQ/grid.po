@@ -550,9 +550,6 @@ msgstr "ژمارەی نهێنی دروستبکە"
 msgid "grid.user.mustProvideName"
 msgstr "تکایە بەلایەنی کەمەوە سەرەتا ناوی کۆتایی بەکارهێنەر بدە."
 
-msgid "grid.user.authSource"
-msgstr "سەرچاوەی ڕاستاندن"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "تۆ ڕێگەپێدانی تەواوت نییە سەرپەرشتیکردنی ئەم بەکارهێنەرە. بۆ ئەوەی سەرپەرشتی "

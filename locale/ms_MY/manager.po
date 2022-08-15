@@ -2326,9 +2326,6 @@ msgstr "Cipta Pengguna Baru"
 msgid "manager.people.confirmUnenroll"
 msgstr "Nyahdaftar pengguna ini?"
 
-msgid "manager.people.authSource"
-msgstr "Sumber pengesahan"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Pengguna sedia ada mesti dimasukkan."
 

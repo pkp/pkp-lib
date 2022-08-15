@@ -170,9 +170,6 @@ msgstr "Stofna nýjan notanda"
 msgid "manager.people.confirmUnenroll"
 msgstr "Afskrá þennan notanda?"
 
-msgid "manager.people.authSource"
-msgstr "Uppruni heimildar"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Það verður að slá inn notanda sem er til."
 

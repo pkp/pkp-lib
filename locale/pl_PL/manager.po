@@ -255,9 +255,6 @@ msgstr "Wybierz, które języki mają być dostępne dla strony z poziomu menu w
 msgid "manager.payment.timestamp"
 msgstr "Datownik"
 
-msgid "manager.people.authSource"
-msgstr "Źródło uwierzytelniania"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Wypisać tego użytkownika?"
 

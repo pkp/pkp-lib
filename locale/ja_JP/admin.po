@@ -308,18 +308,6 @@ msgstr "テンプレートキャッシュのクリア"
 msgid "admin.clearDataCache"
 msgstr "データキャッシュのクリア"
 
-msgid "admin.authSources"
-msgstr "認証システム"
-
-msgid "admin.auth.noneCreated"
-msgstr "認証システムは定義されていません。"
-
-msgid "admin.auth.create"
-msgstr "認証システムの作成"
-
-msgid "admin.auth.confirmDelete"
-msgstr "この認証システムを完全に削除してもよいですか。"
-
 msgid "admin.adminFunctions"
 msgstr "管理機能"
 

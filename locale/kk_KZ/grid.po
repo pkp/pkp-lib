@@ -606,9 +606,6 @@ msgstr "Құпия сөзді жасаңыз"
 msgid "grid.user.mustProvideName"
 msgstr "Алдымен пайдаланушының тегін енгізіңіз."
 
-msgid "grid.user.authSource"
-msgstr "Аутентификация көзі"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Сізде бұл пайдаланушыны басқаруға құқықтарыңыз жеткіліксіз. Пайдаланушыны "

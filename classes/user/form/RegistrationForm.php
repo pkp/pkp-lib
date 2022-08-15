@@ -40,9 +40,6 @@ class RegistrationForm extends Form
     /** @var bool user is already registered with another context */
     public $existingUser;
 
-    /** @var AuthPlugin default authentication source, if specified */
-    public $defaultAuth;
-
     /** @var bool whether or not captcha is enabled for this form */
     public $captchaEnabled;
 
@@ -74,13 +71,6 @@ class RegistrationForm extends Form
         if ($this->captchaEnabled) {
             $request = Application::get()->getRequest();
             $this->addCheck(new \PKP\form\validation\FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
-        }
-
-        $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-        $this->defaultAuth = $authDao->getDefaultPlugin();
-        if (isset($this->defaultAuth)) {
-            $auth = $this->defaultAuth;
-            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', fn ($username) => !$auth->userExists($username) || $auth->authenticate($username, $form->getData('password'))));
         }
 
         $context = Application::get()->getRequest()->getContext();
@@ -252,13 +242,6 @@ class RegistrationForm extends Form
 
         $user->setDateRegistered(Core::getCurrentDate());
         $user->setInlineHelp(1); // default new users to having inline help visible.
-
-        if (isset($this->defaultAuth)) {
-            $user->setPassword($this->getData('password'));
-            // FIXME Check result and handle failures
-            $this->defaultAuth->doCreateUser($user);
-            $user->setAuthId($this->defaultAuth->authId);
-        }
         $user->setPassword(Validation::encryptCredentials($this->getData('username'), $this->getData('password')));
 
         if ($requireValidation) {

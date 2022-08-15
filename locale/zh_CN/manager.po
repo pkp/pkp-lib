@@ -249,9 +249,6 @@ msgstr "选择支持本站的所有语系，可透过一个出现在每个页面
 msgid "manager.payment.timestamp"
 msgstr "时间戳"
 
-msgid "manager.people.authSource"
-msgstr "验证源"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "取消注册这个用户?"
 

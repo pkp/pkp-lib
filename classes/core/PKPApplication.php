@@ -503,7 +503,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'AccessKeyDAO' => 'PKP\security\AccessKeyDAO',
             'AnnouncementDAO' => 'PKP\announcement\AnnouncementDAO',
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
-            'AuthSourceDAO' => 'PKP\security\AuthSourceDAO',
             'CitationDAO' => 'PKP\citation\CitationDAO',
             'ControlledVocabDAO' => 'PKP\controlledVocab\ControlledVocabDAO',
             'ControlledVocabEntryDAO' => 'PKP\controlledVocab\ControlledVocabEntryDAO',

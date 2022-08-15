@@ -668,9 +668,6 @@ msgstr "Генериране на парола"
 msgid "grid.user.mustProvideName"
 msgstr "Моля, първо посочете поне фамилно име за потребителя."
 
-msgid "grid.user.authSource"
-msgstr "Източник на удостоверяване"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Нямате необходимите права да администрирате този потребител. За да "

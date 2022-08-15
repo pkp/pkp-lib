@@ -42,9 +42,8 @@ class InstallForm extends MaintenanceForm
     /** @var array database drivers supported by this system */
     public $supportedDatabaseDrivers = [
         // <driver> => array(<php-module>, <name>)
-        'mysqli' => ['mysqli', 'MySQLi'],
+        'mysqli' => ['mysqli', 'MySQL'],
         'postgres9' => ['pgsql', 'PostgreSQL'],
-        'mysql' => ['mysql', 'MySQL']
     ];
 
     /**

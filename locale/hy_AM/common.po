@@ -1,9 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
-"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"PO-Revision-Date: 2022-08-03 16:16+0000\n"
+"Last-Translator: Artashes Mirzoyan <amirzoyan@sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -11,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "about.contact.phone"
 msgstr "Հեռախոս"
@@ -2217,3 +2218,6 @@ msgstr "Չմարված առաջադրանքների շաբաթական էլ․ �
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
+
+msgid "institution.institutions"
+msgstr "Հաստատություններ"

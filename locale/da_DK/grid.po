@@ -299,7 +299,8 @@ msgid "grid.task.status.unfinished"
 msgstr "Bedømmelse uafsluttet"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Denne bedømmelse er klar. Klik notat-ikonet til venstre for at læse den."
+msgstr ""
+"Denne bedømmelse er klar. Klik notat-ikonet til venstre for at læse den."
 
 msgid "grid.columns.auditor"
 msgstr "Auditør"
@@ -389,10 +390,14 @@ msgid "grid.user.enableReason"
 msgstr "Grund til aktivering af bruger"
 
 msgid "grid.user.error"
-msgstr "Der blev fundet en fejl i forbindelse med behandling af denne bruger. Prøv igen."
+msgstr ""
+"Der blev fundet en fejl i forbindelse med behandling af denne bruger. Prøv "
+"igen."
 
 msgid "grid.user.errorEmail"
-msgstr "Der blev fundet en fejl under fremsendelse af denne e-mail. Tjek venligst din mailserver-konfiguration og/eller kontakt din systemadministrator."
+msgstr ""
+"Der blev fundet en fejl under fremsendelse af denne e-mail. Tjek venligst "
+"din mailserver-konfiguration og/eller kontakt din systemadministrator."
 
 msgid "grid.user.cannotAdminister"
 msgstr ""
@@ -422,7 +427,8 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Bruger skal ændre adgangskode ved næste login."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Bed brugeren om at ændre sin adgangskode, næste gang vedkommende logger på."
+msgstr ""
+"Bed brugeren om at ændre sin adgangskode, næste gang vedkommende logger på."
 
 msgid "grid.user.moreDetails"
 msgstr "Flere brugeroplysninger"
@@ -485,7 +491,9 @@ msgid "grid.action.logInAs"
 msgstr "Login som"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Login som denne bruger? Alle handlinger du udfører vil blive tillagt denne bruger."
+msgstr ""
+"Login som denne bruger? Alle handlinger du udfører vil blive tillagt denne "
+"bruger."
 
 msgid "grid.action.moreItems"
 msgstr "Hent flere"
@@ -521,7 +529,9 @@ msgid "grid.action.unassignReviewer"
 msgstr "Afmeld denne bedømmer"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Godkend denne manuskriptredigerede fil, så den kan sendes videre til næste trin"
+msgstr ""
+"Godkend denne manuskriptredigerede fil, så den kan sendes videre til næste "
+"trin"
 
 msgid "grid.action.reload"
 msgstr "Genindlæs"
@@ -629,7 +639,7 @@ msgid "grid.userGroup.filter.permissionLevel"
 msgstr "Med adgangsniveau sat til"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
-msgstr "Rollen  {$userGroupName} er en standardindstilling og den kan ikke fjernes."
+msgstr "Rollen {$userGroupName} er en standardindstilling og kan ikke fjernes."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
 msgstr ""
@@ -646,7 +656,11 @@ msgid "grid.userGroup.unassignedStage"
 msgstr "{$userGroupName} rolle fjernet fra {$stageName} trin."
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Er du sikker på, at du vil flette denne konto med brugernavnet \"{$oldUsername}\" ind under kontoen med brugernavnet \"{$newUsername}\"? Kontoen med brugernavnet \"{$oldUsername}\" ophører herefter. Handlingen kan ikke fortrydes."
+msgstr ""
+"Er du sikker på, at du vil flette denne konto med brugernavnet "
+"\"{$oldUsername}\" ind under kontoen med brugernavnet \"{$newUsername}\"? "
+"Kontoen med brugernavnet \"{$oldUsername}\" ophører herefter. Handlingen kan "
+"ikke fortrydes."
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr ""
@@ -712,3 +726,9 @@ msgstr "Fuldt"
 
 msgid "contributor.listPanel.preview.format"
 msgstr "Format"
+
+msgid "grid.user.authSource"
+msgstr "Godkendelseskilde"
+
+msgid "grid.action.addInstitution"
+msgstr "Tilføj institution"

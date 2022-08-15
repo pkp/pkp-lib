@@ -1,12 +1,12 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2022-01-11 16:08+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2022-08-10 03:41+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.accountInformation"
 msgstr "Informações de cadastro"
@@ -139,9 +139,10 @@ msgstr "Login e/ou senha inválido(s). Tente novamente."
 msgid "user.login"
 msgstr "Acesso"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Um e-mail de confirmação foi enviado. Siga as instruções para criar uma nova senha."
+msgstr ""
+"Um e-mail de confirmação foi enviado. Por favor, siga as instruções no e-"
+"mail para redefinir sua senha."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "O link acessado expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."

@@ -1,11 +1,12 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2021-12-22 12:24+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-08-05 20:14+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.affiliation"
 msgstr "Tilhørsforhold"
@@ -22,7 +23,7 @@ msgid "user.affiliations"
 msgstr "Tilhørsforhold"
 
 msgid "user.biography"
-msgstr "Biografierklæring (f.eks. afdeling og  stillingbetegnelse)"
+msgstr "Biografi (f.eks. afdeling og stillingbetegnelse)"
 
 msgid "user.changeMyPassword"
 msgstr "Redigér min adgangskode"
@@ -74,9 +75,11 @@ msgstr "Ugyldigt brugernavn eller ugyldig adgangskode. Forsøg igen."
 msgid "user.login"
 msgstr "Login"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Der er sendt en bekræftelse til din e-mail-adresse. Følg instruktionerne i e-mailen for at nulstille din adgangskode."
+msgstr ""
+"En bekræftelse er blevet sendt til din e-mailadresse, hvis en matchende "
+"konto blev fundet. Følg instruktionerne i e-mailen for at nulstille din "
+"adgangskode."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Det link, du har klikket på, er udløbet eller er ikke gyldigt. Forsøg at nulstille din adgangskode igen."

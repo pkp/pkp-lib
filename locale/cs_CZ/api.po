@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-25 09:31+0000\n"
+"PO-Revision-Date: 2022-08-08 09:30+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Nemáte povolení editovat tuto publikaci."
@@ -121,8 +121,8 @@ msgstr ""
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
-"Váš požadavek nebyl platný. Směr řazení musí být  \"sestupně\", nebo \""
-"vzestupně\"."
+"Váš požadavek nebyl platný. Směr řazení musí být „sestupně“, nebo "
+"„vzestupně“."
 
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
@@ -195,7 +195,7 @@ msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
 msgstr "Nemáte oprávnění přidávat a upravovat tyto soubory."
 
 msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Nemáte oprávnění  k přístupu k tomuto souboru."
+msgstr "Nemáte oprávnění k přístupu k tomuto souboru."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "Recenzní kolo, které jste zadali není součástí tohoto příspěvku."
@@ -240,7 +240,7 @@ msgstr ""
 "že token API již není platný."
 
 msgid "api.contexts.400.localesNotSupported"
-msgstr "Následující lokalizace nejsou podporovány:  {$locales}."
+msgstr "Následující lokalizace nejsou podporovány: {$locales}."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
@@ -313,3 +313,10 @@ msgstr "Požadovaný email nebyl nalezen."
 
 msgid "api.mailables.400.templateKeysMissing"
 msgstr "Nebyly zadány klíče emailové šablony."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Požadovaná instituce nebyla nalezena."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Váš požadavek nebyl platný. Časový interval musí být „den“ nebo „měsíc“."

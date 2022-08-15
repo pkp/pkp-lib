@@ -2041,7 +2041,7 @@ msgstr "Refuserade av redaktionen"
 
 msgid "manager.setup.metadata.type.request"
 msgstr ""
-"Be författaren att ange metadata om bidragets typ vid inskickandet av bidrag."
+"Be författaren att ange metadata för materialtyper vid inskickande av bidrag."
 
 msgid "manager.setup.metadata.type.enable"
 msgstr "Gör det möjligt att ange metadata om bidragets typ"

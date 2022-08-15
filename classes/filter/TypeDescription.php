@@ -47,7 +47,7 @@ namespace PKP\filter;
 define('TYPE_DESCRIPTION_CARDINALITY_SCALAR', '-1');
 define('TYPE_DESCRIPTION_CARDINALITY_UNKNOWN', '0');
 
-class TypeDescription
+abstract class TypeDescription
 {
     /** @var string the unparsed type name */
     public $_typeName;
@@ -90,11 +90,7 @@ class TypeDescription
      *
      * @return string
      */
-    public function getNamespace()
-    {
-        // Must be implemented by subclasses.
-        assert(false);
-    }
+    abstract public function getNamespace();
 
     /**
      * Get the unparsed type name
@@ -187,11 +183,7 @@ class TypeDescription
      *
      * @return bool true if success, otherwise false
      */
-    public function parseTypeName($typeName)
-    {
-        // Must be implemented by subclasses
-        assert(false);
-    }
+    abstract public function parseTypeName($typeName);
 
     /**
      * Validates an object against the internal type description.
@@ -199,11 +191,7 @@ class TypeDescription
      *
      * @return bool
      */
-    public function checkType(&$object)
-    {
-        // Must be implemented by subclasses
-        assert(false);
-    }
+    abstract public function checkType($object);
 
 
     //

@@ -105,7 +105,7 @@ class XMLTypeDescription extends TypeDescription
     /**
      * @copydoc TypeDescription::checkType()
      */
-    public function checkType(&$object)
+    public function checkType($object)
     {
         // We only accept DOMDocument objects and source strings.
         if (!$object instanceof DOMDocument && !is_string($object)) {

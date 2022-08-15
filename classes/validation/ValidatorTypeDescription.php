@@ -56,7 +56,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
         switch (count($typeNameParts)) {
             case 1:
                 // no argument
-                $this->_validatorArgs = '';
+                $this->_validatorArgs = [];
                 break;
 
             case 2:
@@ -64,8 +64,8 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
                 if (substr($typeNameParts[1], -1) != ')') {
                     return false;
                 }
-                // FIXME: Escape for PHP code inclusion?
-                $this->_validatorArgs = substr($typeNameParts[1], 0, -1);
+                $validatorArgsPart = substr($typeNameParts[1], 0, -1);
+                $this->_validatorArgs = json_decode('[' . $validatorArgsPart . ']');
                 break;
         }
 
@@ -84,7 +84,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType(&$object)
+    public function checkType($object)
     {
         // Check primitive type.
         if (!parent::checkType($object)) {
@@ -92,10 +92,9 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
         }
 
         // Instantiate and call validator
-        import('lib.pkp.classes.validation.' . $this->_validatorClassName);
-        assert(class_exists($this->_validatorClassName));
-        $validatorConstructorCode = 'return new ' . $this->_validatorClassName . '(' . $this->_validatorArgs . ');';
-        $validator = eval($validatorConstructorCode);
+        $validatorFQCN = '\PKP\validation\\' . $this->_validatorClassName;
+        assert(class_exists($validatorFQCN));
+        $validator = new $validatorFQCN(...$this->_validatorArgs);
         assert($validator instanceof \PKP\validation\Validator);
 
         // Validate the object

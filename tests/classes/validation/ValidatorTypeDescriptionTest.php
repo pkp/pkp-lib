@@ -29,8 +29,21 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
     public function testInstantiateAndCheck()
     {
         $typeDescription = new ValidatorTypeDescription('email');
-        self::assertTrue($typeDescription->isCompatible($object = 'jerico.dev@gmail.com'));
-        self::assertFalse($typeDescription->isCompatible($object = 'another string'));
+        self::assertTrue($typeDescription->isCompatible('jerico.dev@gmail.com'));
+        self::assertFalse($typeDescription->isCompatible('another string'));
+    }
+
+    /**
+     * @covers ValidatorTypeDescription
+     * @covers TypeDescription
+     */
+    public function testInstantiateAndCheckWithParameters()
+    {
+        $typeDescription = new ValidatorTypeDescription('regExp("/123/")');
+        self::assertFalse($typeDescription->checkType('some string'));
+        self::assertFalse($typeDescription->checkType(new \stdClass()));
+        self::assertTrue($typeDescription->checkType('123'));
+        self::assertFalse($typeDescription->checkType('abc'));
     }
 
     /**
@@ -53,7 +66,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
     public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {
         $this->expectError();
-        $this->expectOutputRegex('/' . preg_quote(htmlspecialchars("Trying to instantiate a \"validator\" type description with an invalid type name \"$type\"")) . '/');
+        $this->expectOutputRegex('/' . preg_quote(htmlspecialchars("Trying to instantiate a \"validator\" type description with an invalid type name \"{$type}\"")) . '/');
         $typeDescription = new ValidatorTypeDescription($type);
     }
 }

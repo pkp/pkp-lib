@@ -60,7 +60,7 @@ class ClassTypeDescription extends TypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType(&$object)
+    public function checkType($object)
     {
         // We expect an object
         if (!is_object($object)) {

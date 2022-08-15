@@ -52,7 +52,7 @@ class PrimitiveTypeDescription extends TypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType(&$object)
+    public function checkType($object)
     {
         // We expect a primitive type
         if (!is_scalar($object)) {

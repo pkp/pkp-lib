@@ -109,7 +109,7 @@ class MetadataTypeDescription extends ClassTypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType(&$object)
+    public function checkType($object)
     {
         // First of all check whether this is a
         // meta-data description at all.

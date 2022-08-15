@@ -522,9 +522,6 @@ msgstr "Ocorreu um erro ao enviar este e-mail. Certifique-se de que a configura�
 msgid "grid.user.cannotAdminister"
 msgstr "Não tem permissões suficientes para administrar este utilizador. Para administrar um utilizador, deve ser administrador do site ou administrar todos os contextos em que este utilizador está inscrito."
 
-msgid "grid.user.authSource"
-msgstr "Fonte Autenticação"
-
 msgid "grid.user.mustProvideName"
 msgstr "Por favor, forneça pelo menos um apelido para o utilizador."
 

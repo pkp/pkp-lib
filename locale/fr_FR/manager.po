@@ -252,9 +252,6 @@ msgstr "Sélectionner toutes les langues qui doivent être prises en charge sur 
 msgid "manager.payment.timestamp"
 msgstr "Estampille temporelle"
 
-msgid "manager.people.authSource"
-msgstr "Source d'authentification"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Désinscrire cet utilisateur ou utilisatrice ?"
 

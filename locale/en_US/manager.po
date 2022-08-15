@@ -522,9 +522,6 @@ msgstr "Timestamp"
 msgid "manager.people.existingUserRequired"
 msgstr "An existing user must be entered."
 
-msgid "manager.people.authSource"
-msgstr "Authentication source"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Unenroll this user?"
 

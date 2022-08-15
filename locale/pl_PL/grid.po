@@ -399,9 +399,6 @@ msgstr "Wystąpił błąd podczas przesyłania wiadomości. Upewnij się, że ko
 msgid "grid.user.cannotAdminister"
 msgstr "Nie posiadasz wymaganych uprawnień do edycji użytkownika."
 
-msgid "grid.user.authSource"
-msgstr "Źródło uwierzytelnienia"
-
 msgid "grid.user.mustProvideName"
 msgstr "Musisz podać przynajmniej nazwisko użytkownika."
 

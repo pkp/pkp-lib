@@ -249,9 +249,6 @@ msgstr "Vyberte všechny jazykové lokalizace, které mají být podporovány a 
 msgid "manager.payment.timestamp"
 msgstr "Časové razítko"
 
-msgid "manager.people.authSource"
-msgstr "Zdroj ověření"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Odejmout roli tomuto uživateli?"
 

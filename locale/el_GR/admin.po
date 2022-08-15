@@ -25,18 +25,6 @@ msgstr "Τιμή ρύθμισης"
 msgid "admin.adminFunctions"
 msgstr "Λειτουργίες διαχείρισης"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Επιβεβαιώνετε τη διαγραφή της πηγής πιστοποίησης;"
-
-msgid "admin.auth.create"
-msgstr "Δημιουργία πηγής πιστοποίησης"
-
-msgid "admin.auth.noneCreated"
-msgstr "Δεν έχουν οριστεί πηγές πιστοποίησης."
-
-msgid "admin.authSources"
-msgstr "Πηγές πιστοποίησης"
-
 msgid "admin.clearDataCache"
 msgstr "Διαγραφή κρυφής μνήμης δεδομένων"
 

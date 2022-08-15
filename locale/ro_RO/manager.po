@@ -2141,9 +2141,6 @@ msgstr "Creare utilizator nou"
 msgid "manager.people.confirmUnenroll"
 msgstr "Anulați acest utilizator?"
 
-msgid "manager.people.authSource"
-msgstr "Sursa de autentificare"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Trebuie introdus un utilizator existent."
 

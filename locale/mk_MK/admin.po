@@ -116,20 +116,6 @@ msgstr "Избриши го кешот со шаблони"
 msgid "admin.clearDataCache"
 msgstr "Исчистете ги мемориските податоци"
 
-msgid "admin.authSources"
-msgstr "Извори за автентикација"
-
-msgid "admin.auth.noneCreated"
-msgstr "Не се дефинирани извори за автентикација."
-
-msgid "admin.auth.create"
-msgstr "Креирај извор за автентикација"
-
-msgid "admin.auth.confirmDelete"
-msgstr ""
-"Дали сте сигурни дека сакате трајно да го избришете овој извор на "
-"автентикација?"
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нема достапни локализации за преземање."
 

@@ -19,19 +19,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Административне функције"
 
-msgid "admin.auth.confirmDelete"
-msgstr ""
-"Да ли сте сигурни да желите трајно да обришете овај извор аутентификације?"
-
-msgid "admin.auth.create"
-msgstr "Креирајте извор аутентификације"
-
-msgid "admin.auth.noneCreated"
-msgstr "Ниједан извор аутентификације није дефинисан."
-
-msgid "admin.authSources"
-msgstr "Извори аутентификације"
-
 msgid "admin.clearDataCache"
 msgstr "Брисање кеш меморије података"
 

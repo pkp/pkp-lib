@@ -471,9 +471,6 @@ msgstr "Ha aparegut un error en enviar aquest correu electrònic. Assegureu-vos 
 msgid "grid.user.cannotAdminister"
 msgstr "No disposes dels permisos per editar aquest usuari/ària."
 
-msgid "grid.user.authSource"
-msgstr "Font d’autenticació"
-
 msgid "grid.user.mustProvideName"
 msgstr "Indiqueu un cognom per a l’usuari/usuària com a mínim."
 

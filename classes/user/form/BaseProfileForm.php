@@ -17,7 +17,6 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 
 use PKP\form\Form;
 
@@ -61,15 +60,6 @@ abstract class BaseProfileForm extends Form
         $request = Application::get()->getRequest();
         $user = $request->getUser();
         Repo::user()->edit($user);
-
-        if ($user->getAuthId()) {
-            $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-            $auth = $authDao->getPlugin($user->getAuthId());
-        }
-
-        if (isset($auth)) {
-            $auth->doSetUserInfo($user);
-        }
     }
 }
 

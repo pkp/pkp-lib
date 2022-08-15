@@ -252,9 +252,6 @@ msgstr ""
 msgid "manager.payment.timestamp"
 msgstr "Zaman Damgası"
 
-msgid "manager.people.authSource"
-msgstr "Yetkilenme kaynağı"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Bu üye kayıt dışı kalsın mı?"
 

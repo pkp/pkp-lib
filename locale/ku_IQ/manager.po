@@ -510,9 +510,6 @@ msgstr "بەکارهێنەرێکی نوێ دروست بکە"
 msgid "manager.people.confirmUnenroll"
 msgstr "لەکارخستنی ئەو بەکارهێنەرە"
 
-msgid "manager.people.authSource"
-msgstr "سەرچاوەی ڕاستاندن"
-
 msgid "manager.payment.timestamp"
 msgstr "کاتی تۆمارکراو"
 

@@ -702,9 +702,6 @@ msgstr "Жаңа пайдаланушыны енгізу"
 msgid "manager.people.confirmUnenroll"
 msgstr "Бұл пайдаланушыны тағайындаудан бас тарту керек пе?"
 
-msgid "manager.people.authSource"
-msgstr "Түпнұсқалық растама көзі"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Сіз бұрыннан бар пайдаланушыны енгізуіңіз керек."
 

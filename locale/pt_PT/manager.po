@@ -247,9 +247,6 @@ msgstr "Escolha todos os idiomas que serão suportados através da lista de idio
 msgid "manager.payment.timestamp"
 msgstr "Data de emissão"
 
-msgid "manager.people.authSource"
-msgstr "Fonte de Autenticação"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Remover o utilizador deste papel?"
 

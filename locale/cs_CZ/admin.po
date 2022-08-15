@@ -18,18 +18,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Administrátorské funkce"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Jste si jisti, že chcete trvale odstranit tento zdroj ověření?"
-
-msgid "admin.auth.create"
-msgstr "Vytvořit zdroj ověření"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nebyly definovány žádné zdroje ověření."
-
-msgid "admin.authSources"
-msgstr "Zdroje ověření"
-
 msgid "admin.clearDataCache"
 msgstr "Vymazat mezipaměti dat"
 

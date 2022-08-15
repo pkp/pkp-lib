@@ -274,9 +274,6 @@ msgstr "Escolha, da lista de idiomas que será exibida em todas as páginas, tod
 msgid "manager.payment.timestamp"
 msgstr "Data de emissão"
 
-msgid "manager.people.authSource"
-msgstr "Fonte de autenticação"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Remover o usuário deste papel?"
 

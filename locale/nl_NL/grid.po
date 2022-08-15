@@ -503,9 +503,6 @@ msgstr "Er is een fout opgetreden bij het verzenden van deze e-mail. Kijk na of 
 msgid "grid.user.cannotAdminister"
 msgstr "U heeft niet voldoende bevoegdheden om deze gebruiker te bewerken."
 
-msgid "grid.user.authSource"
-msgstr "Authenticatie bij"
-
 msgid "grid.user.mustProvideName"
 msgstr "Geef als eerste de achternaam van de gebruiker"
 

@@ -54,7 +54,6 @@
 					<element name="date_last_email" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="date_validated" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="inline_help" type="string" minOccurs="0" maxOccurs="1" />
-					<element name="auth_id" type="int" minOccurs="0" maxOccurs="1" />
 					<element name="auth_string" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="phone" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="mailing_address" type="string" minOccurs="0" maxOccurs="1" />

@@ -315,9 +315,6 @@ msgstr "Zeitpunkt"
 msgid "manager.people.existingUserRequired"
 msgstr "Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden."
 
-msgid "manager.people.authSource"
-msgstr "Authentifizierungsquelle"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Diese/n Benutzer/in austragen?"
 

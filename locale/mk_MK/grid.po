@@ -361,9 +361,6 @@ msgstr "Генерирај лозинка"
 msgid "grid.user.mustProvideName"
 msgstr "Потребно е барем презимето на корисникот."
 
-msgid "grid.user.authSource"
-msgstr "Извор на автентификација"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Немате доволно дозволи за администрирање на овој корисник. За да управувате "

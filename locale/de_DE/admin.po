@@ -25,18 +25,6 @@ msgstr "Wert der Einstellung"
 msgid "admin.adminFunctions"
 msgstr "Administrationsaufgaben"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Sind Sie sicher, dass Sie diese Authentifizierungsquelle endgültig löschen möchten?"
-
-msgid "admin.auth.create"
-msgstr "Authentifizierungsquelle erstellen"
-
-msgid "admin.auth.noneCreated"
-msgstr "Keine Authentifizierungsquelle definiert."
-
-msgid "admin.authSources"
-msgstr "Authentifizierungsquellen"
-
 msgid "admin.clearDataCache"
 msgstr "Den Datenspeicher leeren"
 

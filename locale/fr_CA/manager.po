@@ -349,9 +349,6 @@ msgstr "Estampille temporelle"
 msgid "manager.people.existingUserRequired"
 msgstr "Vous devez choisir un-e utilisateur-trice existant-e."
 
-msgid "manager.people.authSource"
-msgstr "Source d'authentification"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Désinscrire cet,cette utilisateur-trice ?"
 

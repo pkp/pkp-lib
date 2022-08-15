@@ -656,9 +656,6 @@ msgstr "Създаване на нов потребител"
 msgid "manager.people.confirmUnenroll"
 msgstr "Да се отпише ли този потребител?"
 
-msgid "manager.people.authSource"
-msgstr "Източник на удостоверяване"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Трябва да се въведе съществуващ потребител."
 

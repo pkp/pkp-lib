@@ -61,18 +61,6 @@ msgstr "Kosongkan Cache Templat"
 msgid "admin.clearDataCache"
 msgstr "Kosongkan Cache Data"
 
-msgid "admin.authSources"
-msgstr "Sumber Pengesahan"
-
-msgid "admin.auth.noneCreated"
-msgstr "Tiada sumber pengesahan telah ditentukan."
-
-msgid "admin.auth.create"
-msgstr "Cipta sumber pengesahan"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Adakah anda pasti mahu memadam sumber pengesahan ini secara kekal?"
-
 msgid "admin.adminFunctions"
 msgstr "Fungsi Pentadbiran"
 

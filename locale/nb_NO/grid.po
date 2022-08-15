@@ -457,9 +457,6 @@ msgstr ""
 msgid "grid.user.addRole"
 msgstr "Legg til rolle"
 
-msgid "grid.user.authSource"
-msgstr "Kilde for autentisering"
-
 msgid "grid.user.errorEmail"
 msgstr ""
 "Det oppsto en feil da du forsøkte å sende e-posten. Sjekk om konfigurasjonen "

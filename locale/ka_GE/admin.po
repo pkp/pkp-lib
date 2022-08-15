@@ -62,18 +62,6 @@ msgstr "პარამეტრის მნიშვნელობა"
 msgid "admin.adminFunctions"
 msgstr "ადმინისტრაციული ფუნქციები"
 
-msgid "admin.auth.confirmDelete"
-msgstr "დარწმუნებული ხართ, რომ გსურთ სამუდამოდ წაშალოთ ავთენტიფიკაციის წყარო?"
-
-msgid "admin.auth.create"
-msgstr "ავთენტიფიკაციის წყაროს შექმნა"
-
-msgid "admin.auth.noneCreated"
-msgstr "ავთენტიფიკაციის წყაროები არ არის განსაზღვრული."
-
-msgid "admin.authSources"
-msgstr "ავთენტიფიკაციის წყაროები"
-
 msgid "admin.clearDataCache"
 msgstr "მონაცემთა კეშის წაშლა"
 

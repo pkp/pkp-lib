@@ -24,18 +24,6 @@ msgstr "Configuració de valor"
 msgid "admin.adminFunctions"
 msgstr "Funcions administratives"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Esteu segur/a que voleu suprimir aquesta font d’autenticació de manera permanent?"
-
-msgid "admin.auth.create"
-msgstr "Crea una font d’autenticació"
-
-msgid "admin.auth.noneCreated"
-msgstr "No s’ha definit cap font d’autenticació."
-
-msgid "admin.authSources"
-msgstr "Fonts d’autenticació"
-
 msgid "admin.clearDataCache"
 msgstr "Esborra la memòria cau de dades"
 

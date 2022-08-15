@@ -24,18 +24,6 @@ msgstr "Valor da Configuração"
 msgid "admin.adminFunctions"
 msgstr "Funções Administrativas"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Deseja realmente excluir permanentemente esta fonte de autenticação?"
-
-msgid "admin.auth.create"
-msgstr "Criar fonte de autenticação"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nenhuma fonte de autenticação definida."
-
-msgid "admin.authSources"
-msgstr "Fontes de Autenticação"
-
 msgid "admin.clearDataCache"
 msgstr "Excluir caches de dados"
 

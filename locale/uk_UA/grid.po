@@ -501,9 +501,6 @@ msgstr "Під час надсилання цього листа виникла 
 msgid "grid.user.cannotAdminister"
 msgstr "Ви не маєте достатніх повноважень, щоб редагувати дані цього користувача."
 
-msgid "grid.user.authSource"
-msgstr "Джерело аутентифікації"
-
 msgid "grid.user.mustProvideName"
 msgstr "Будь ласка, спочатку вкажіть принаймні прізвище користувача."
 

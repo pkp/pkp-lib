@@ -340,18 +340,6 @@ msgstr "Xóa bộ nhớ đệm mẫu"
 msgid "admin.clearDataCache"
 msgstr "Xóa bộ nhớ cache dữ liệu"
 
-msgid "admin.authSources"
-msgstr "Các nguồn xác thực"
-
-msgid "admin.auth.noneCreated"
-msgstr "Không có nguồn xác thực nào được xác định."
-
-msgid "admin.auth.create"
-msgstr "Tạo nguồn xác thực"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn nguồn xác thực này không?"
-
 msgid "admin.adminFunctions"
 msgstr "Các chức năng quản trị"
 

@@ -19,9 +19,9 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 use PKP\mail\mailables\PasswordReset;
 use PKP\mail\mailables\PasswordResetRequested;
 use PKP\notification\PKPNotification;
@@ -31,7 +31,6 @@ use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\validation\FormValidatorReCaptcha;
-use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class LoginHandler extends Handler
@@ -269,17 +268,7 @@ class LoginHandler extends Handler
             // Reset password
             $newPassword = Validation::generatePassword();
 
-            if ($user->getAuthId()) {
-                $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-                $auth = $authDao->getPlugin($user->getAuthId());
-            }
-
-            if (isset($auth)) {
-                $auth->doSetUserPassword($user->getUsername(), $newPassword);
-                $user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-            } else {
-                $user->setPassword(Validation::encryptCredentials($user->getUsername(), $newPassword));
-            }
+            $user->setPassword(Validation::encryptCredentials($user->getUsername(), $newPassword));
 
             SessionManager::getManager()->invalidateSessions($user->getId());
 

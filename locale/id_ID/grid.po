@@ -596,9 +596,6 @@ msgstr "Membuat Kata Sandi"
 msgid "grid.user.mustProvideName"
 msgstr "Sediakan setidaknya nama belakang untuk pengguna."
 
-msgid "grid.user.authSource"
-msgstr "Sumber otentikasi"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Anda tidak memiliki izin untuk mengelola pengguna ini. Untuk mengelola "

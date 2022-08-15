@@ -384,9 +384,6 @@ msgstr "Bu üyeyi düzenlerken bir hata oluştu. Lütfen tekrar deneyin."
 msgid "grid.user.cannotAdminister"
 msgstr "Bu üyeyi düzeltmek için gerekli yetkiye sahip değilsiniz."
 
-msgid "grid.user.authSource"
-msgstr "Yetkilendirme kaynağı"
-
 msgid "grid.user.mustProvideName"
 msgstr "Lütfen ilk üye için en az bir soyadını veriniz."
 

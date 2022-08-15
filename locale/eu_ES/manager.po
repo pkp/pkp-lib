@@ -246,9 +246,6 @@ msgstr "Hautatu orri bakoitzean hizkuntza aukeratzeko menuan erabilgarri egongo 
 msgid "manager.payment.timestamp"
 msgstr "Data"
 
-msgid "manager.people.authSource"
-msgstr "Autentifikazio-iturburua"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Erabiltzaile hau desinskribatu?"
 

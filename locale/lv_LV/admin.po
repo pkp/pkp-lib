@@ -19,20 +19,6 @@ msgstr "Notīrīt Veidņu Kešatmiņu"
 msgid "admin.clearDataCache"
 msgstr "Notīrīt Datu Kešatmiņu"
 
-msgid "admin.authSources"
-msgstr "Autentifikācijas Avoti"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nav definētu autentifikācijas avotu."
-
-msgid "admin.auth.create"
-msgstr "Izveidot autentifikācijas avotu"
-
-msgid "admin.auth.confirmDelete"
-msgstr ""
-"Vai esat drošs, ka vēlaties neatgriezeniski izdzēst šo autentifikācijas "
-"avotu?"
-
 msgid "admin.adminFunctions"
 msgstr "Administratīvās Funkcijas"
 

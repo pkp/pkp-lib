@@ -20,18 +20,6 @@ msgstr "Waarde van de instelling"
 msgid "admin.adminFunctions"
 msgstr "Administratieve functies"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Weet u zeker dat u deze authenticatiebron wilt verwijderen?"
-
-msgid "admin.auth.create"
-msgstr "Creëer authenticatiebron"
-
-msgid "admin.auth.noneCreated"
-msgstr "Er zijn geen authenticatiebronnen gedefinieerd."
-
-msgid "admin.authSources"
-msgstr "Authenticatievoorzieningen"
-
 msgid "admin.clearDataCache"
 msgstr "Leeg data caches"
 

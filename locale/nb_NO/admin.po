@@ -17,18 +17,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Administrative funksjoner"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Er du sikker på at du vil slette valideringskilden?"
-
-msgid "admin.auth.create"
-msgstr "Opprett valideringskilde"
-
-msgid "admin.auth.noneCreated"
-msgstr "Valideringskildene er ikke definert."
-
-msgid "admin.authSources"
-msgstr "Valideringskilder"
-
 msgid "admin.clearDataCache"
 msgstr "Tøm data-cacher"
 

@@ -309,9 +309,6 @@ msgstr "Tidsstämpel"
 msgid "manager.people.existingUserRequired"
 msgstr "Du måste ange en befintlig användare."
 
-msgid "manager.people.authSource"
-msgstr "Autentiseringskälla"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Vill du ta bort den här användaren?"
 

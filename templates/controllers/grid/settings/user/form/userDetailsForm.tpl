@@ -43,7 +43,6 @@
 		{if $userId}{assign var="disableSendNotifySection" value=true}{/if}
 		{include
 			file="common/userDetails.tpl"
-			disableAuthSourceSection=!$authSourceOptions
 			disableSendNotifySection=$disableSendNotifySection
 		}
 

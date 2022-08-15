@@ -182,9 +182,6 @@ msgid "grid.user.mustProvideName"
 msgstr ""
 "Sila berikan sekurang-kurangnya nama keluarga untuk pengguna terlebih dahulu."
 
-msgid "grid.user.authSource"
-msgstr "Sumber pengesahan"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Anda tidak mempunyai kebenaran yang mencukupi untuk mentadbir pengguna ini. "

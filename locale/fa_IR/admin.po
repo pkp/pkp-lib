@@ -24,18 +24,6 @@ msgstr "مقدار تنظیم"
 msgid "admin.adminFunctions"
 msgstr "عملیات مدیریتی"
 
-msgid "admin.auth.confirmDelete"
-msgstr "آیا مطمئن هستید که می‌خواهید این منبع احراز هویت به‌طور دائم پاک شود؟"
-
-msgid "admin.auth.create"
-msgstr "ایجاد منبع احراز هویت"
-
-msgid "admin.auth.noneCreated"
-msgstr "هیچ منبع احراز هویتی تعریف نشده است"
-
-msgid "admin.authSources"
-msgstr "منابع احراز هویت"
-
 msgid "admin.clearDataCache"
 msgstr "پاک کردن نهان گاه داده‌ها"
 

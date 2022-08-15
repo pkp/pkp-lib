@@ -1753,9 +1753,6 @@ msgstr "新規ユーザーの作成"
 msgid "manager.people.confirmUnenroll"
 msgstr "このユーザーの登録を解除しますか？"
 
-msgid "manager.people.authSource"
-msgstr "認証機関"
-
 msgid "manager.people.existingUserRequired"
 msgstr "既存のユーザーを入力する必要があります。"
 

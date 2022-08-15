@@ -25,18 +25,6 @@ msgstr "Vrednost nastavitve"
 msgid "admin.adminFunctions"
 msgstr "Administrativne funkcije"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Ste prepričani, da želite trajno odstraniti za vir avtentikacije?"
-
-msgid "admin.auth.create"
-msgstr "Ustvari vir za avtentikacijo"
-
-msgid "admin.auth.noneCreated"
-msgstr "Na voljo ni nobenega vira za avtentikacijo."
-
-msgid "admin.authSources"
-msgstr "Viri za avtentikacijo"
-
 msgid "admin.clearDataCache"
 msgstr "Izbriši začasen pomnilnik (cash) za podatke"
 

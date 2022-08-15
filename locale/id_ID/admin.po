@@ -18,19 +18,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Fungsi Administratif"
 
-msgid "admin.auth.confirmDelete"
-msgstr ""
-"Apakah Anda yakin ingin menghapus sumber pengesahan ini secara permanen?"
-
-msgid "admin.auth.create"
-msgstr "Buat Sumber Pengesahan"
-
-msgid "admin.auth.noneCreated"
-msgstr "Tidak ada sumber pengesahan yang ditemukan."
-
-msgid "admin.authSources"
-msgstr "Sumber Pengesahan"
-
 msgid "admin.clearDataCache"
 msgstr "Hapus Data Cache"
 

@@ -525,9 +525,6 @@ msgstr "Generați parola"
 msgid "grid.user.mustProvideName"
 msgstr "Vă rugăm să furnizați cel puțin un nume pentru utilizator."
 
-msgid "grid.user.authSource"
-msgstr "Sursa de autentificare"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Nu aveți permisiuni suficiente pentru a administra acest utilizator. Pentru "

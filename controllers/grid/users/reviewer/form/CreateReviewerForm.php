@@ -19,13 +19,13 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\user\InterestManager;
-use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class CreateReviewerForm extends ReviewerForm
@@ -114,24 +114,12 @@ class CreateReviewerForm extends ReviewerForm
         $user->setFamilyName($this->getData('familyName'), null);
         $user->setEmail($this->getData('email'));
         $user->setAffiliation($this->getData('affiliation'), null); // Localized
-
-        $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-        $auth = $authDao->getDefaultPlugin();
-        $user->setAuthId($auth ? $auth->getAuthId() : 0);
         $user->setInlineHelp(1); // default new reviewers to having inline help visible
 
         $user->setUsername($this->getData('username'));
         $password = Validation::generatePassword();
 
-        if (isset($auth)) {
-            $user->setPassword($password);
-            // FIXME Check result and handle failures
-            $auth->doCreateUser($user);
-            $user->setAuthId($auth->authId);
-            $user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-        } else {
-            $user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
-        }
+        $user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
         $user->setMustChangePassword(true); // Emailed P/W not safe
 
         $user->setDateRegistered(Core::getCurrentDate());

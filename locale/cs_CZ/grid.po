@@ -381,9 +381,6 @@ msgstr "Při odesílání tohoto emailu došlo k chybě. Ujistěte se, že konfi
 msgid "grid.user.cannotAdminister"
 msgstr "Nemáte dostatečná oprávnění k správě tohoto uživatele. Chcete-li spravovat uživatele, musíte být buď správcem webu, nebo spravovat všechny role, do kterých je tento uživatel zapsán."
 
-msgid "grid.user.authSource"
-msgstr "Zdroj ověření"
-
 msgid "grid.user.mustProvideName"
 msgstr "Uveďte, prosím, napřed minimálně příjmení uživatele."
 

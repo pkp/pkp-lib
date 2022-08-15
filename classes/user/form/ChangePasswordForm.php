@@ -17,7 +17,6 @@ namespace PKP\user\form;
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
 
 use PKP\security\Validation;
@@ -103,21 +102,8 @@ class ChangePasswordForm extends Form
     public function execute(...$functionArgs)
     {
         $user = $this->getUser();
-
-        if ($user->getAuthId()) {
-            $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-            $auth = $authDao->getPlugin($user->getAuthId());
-        }
-
-        if (isset($auth)) {
-            $auth->doSetUserPassword($user->getUsername(), $this->getData('password'));
-            $user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-        } else {
-            $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
-        }
-
+        $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
         parent::execute(...$functionArgs);
-
         Repo::user()->edit($user);
     }
 }

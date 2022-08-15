@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.auth.confirmDelete"
-msgstr ""
-"Наистина ли искате да изтриете за постоянно този източник за удостоверяване?"
-
 msgid "admin.adminFunctions"
 msgstr "Административни функции"
 
@@ -155,15 +151,6 @@ msgstr "Изтриване на кеша на шаблоните"
 
 msgid "admin.clearDataCache"
 msgstr "Изтриване на кеша на данните"
-
-msgid "admin.authSources"
-msgstr "Източници за удостоверяване"
-
-msgid "admin.auth.noneCreated"
-msgstr "Не са дефинирани източници за удостоверяване."
-
-msgid "admin.auth.create"
-msgstr "Създайте източник за удостоверяване"
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Няма достъпни езици за изтегляне."

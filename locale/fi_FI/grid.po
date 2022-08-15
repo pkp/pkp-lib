@@ -500,9 +500,6 @@ msgstr "Tätä sähköpostia lähetettäessä ilmeni virhe. Varmista, että säh
 msgid "grid.user.cannotAdminister"
 msgstr "Sinulla ei ole riittäviä oikeuksia hallinnoida tätä käyttäjää. Hallinnoidaksesi käyttäjää sinun tulee olla sivuston ylläpitäjä tai hallinnoida kaikkia niitä konteksteja, joihin tämä käyttäjä on lisätty."
 
-msgid "grid.user.authSource"
-msgstr "Todentamislähde"
-
 msgid "grid.user.mustProvideName"
 msgstr "Anna käyttäjälle ensin ainakin sukunimi."
 

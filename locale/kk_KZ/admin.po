@@ -73,18 +73,6 @@ msgstr "Үлгі кэшін тазарту"
 msgid "admin.clearDataCache"
 msgstr "Деректер кэштерін тазарту"
 
-msgid "admin.authSources"
-msgstr "Аутентификация көздері"
-
-msgid "admin.auth.noneCreated"
-msgstr "Аутентификация көздері көрсетілмеген."
-
-msgid "admin.auth.create"
-msgstr "Аутентификациялау көзін орнату"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Бұл аутентификация көзін біржола жойғыңыз келетініне сенімдісіз бе?"
-
 msgid "admin.adminFunctions"
 msgstr "Әкімшілік функциялар"
 

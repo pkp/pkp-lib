@@ -258,9 +258,6 @@ msgstr ""
 msgid "manager.payment.timestamp"
 msgstr "Tidsstempel"
 
-msgid "manager.people.authSource"
-msgstr "Valideringskilde"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "Vil du avløse denne brukeren?"
 

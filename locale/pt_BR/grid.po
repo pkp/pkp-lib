@@ -502,9 +502,6 @@ msgstr "Erro encontrado ao enviar mensagem. Verifique se as configurações do s
 msgid "grid.user.cannotAdminister"
 msgstr "Sem permisão para editar usuário. Para editar um usuário você deve ou ser administrador do site ou ser gerente em todas as revistas nas quais o usuário está cadastrado."
 
-msgid "grid.user.authSource"
-msgstr "Fonte de autenticação"
-
 msgid "grid.user.mustProvideName"
 msgstr "Informe pelo menos o sobrenome para o usuário."
 

@@ -660,9 +660,6 @@ msgstr "Tạo Người dùng mới"
 msgid "manager.people.confirmUnenroll"
 msgstr "Hủy đăng ký người dùng này?"
 
-msgid "manager.people.authSource"
-msgstr "Nguồn xác thực"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Một người dùng hiện tại phải được nhập."
 

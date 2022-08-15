@@ -18,18 +18,6 @@ msgstr ""
 msgid "admin.adminFunctions"
 msgstr "Yönetsel İşlevler"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?"
-
-msgid "admin.auth.create"
-msgstr "Yetkilendirme kaynağı oluştur"
-
-msgid "admin.auth.noneCreated"
-msgstr "Herhangi bir yetkilendirme kaynağı tanımlanmamış."
-
-msgid "admin.authSources"
-msgstr "Yetkilendirme Kaynakları"
-
 msgid "admin.clearDataCache"
 msgstr "Önbellek Verilerini Sil"
 

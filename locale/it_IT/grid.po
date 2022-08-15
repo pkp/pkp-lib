@@ -392,9 +392,6 @@ msgstr "Aggiungi un avviso"
 msgid "grid.task.status.new"
 msgstr "C'è un nuovo oggetto che richiede attenzione"
 
-msgid "grid.user.authSource"
-msgstr "Fonti di autenticazione"
-
 msgid "grid.action.orderItems"
 msgstr "Abilita modalità di ordinamento"
 

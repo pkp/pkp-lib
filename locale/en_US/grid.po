@@ -542,9 +542,6 @@ msgstr "An error was encountered sending this email. Please ensure that your ema
 msgid "grid.user.cannotAdminister"
 msgstr "You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in."
 
-msgid "grid.user.authSource"
-msgstr "Authentication source"
-
 msgid "grid.user.mustProvideName"
 msgstr "Please provide at least a last name for the user first."
 

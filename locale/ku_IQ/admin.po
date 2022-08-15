@@ -11,18 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.authSources"
-msgstr "سەرچاوەکانی باوەڕپێکردن"
-
-msgid "admin.auth.noneCreated"
-msgstr "هیچ سەرچاوەیەکی باوەڕپێکردن نەناسێندراوە."
-
-msgid "admin.auth.create"
-msgstr "داڕشتنی سەرچاوەی باوەڕپێکردن"
-
-msgid "admin.auth.confirmDelete"
-msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی تەواوی ئەم سەرچاوەی باوەڕپێکردنە؟"
-
 msgid "admin.adminFunctions"
 msgstr "ئەرکە کارگێڕییەکان"
 

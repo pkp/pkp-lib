@@ -699,9 +699,6 @@ msgstr ""
 msgid "manager.people.existingUserRequired"
 msgstr "უნდა შეიყვანოთ არსებული მომხმარებელი."
 
-msgid "manager.people.authSource"
-msgstr "ავთენტიფიკაციის წყაროს შექმნა"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "გსურთ ამ მომხმარებლის გაუქმება?"
 

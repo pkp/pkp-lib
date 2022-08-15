@@ -179,9 +179,6 @@ msgstr "Xerar un contrasinal"
 msgid "grid.user.mustProvideName"
 msgstr "Primeiro proporcione polo menos un apelido do usuario/a."
 
-msgid "grid.user.authSource"
-msgstr "Fonte de autenticación"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Non tes permisos suficientes para administrar a este usuario/a. Para poder "

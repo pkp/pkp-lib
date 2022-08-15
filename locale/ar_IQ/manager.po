@@ -346,9 +346,6 @@ msgstr "بصمة الوقت"
 msgid "manager.people.existingUserRequired"
 msgstr "لا بد من إدخال مستخدم مسجل سابقاً."
 
-msgid "manager.people.authSource"
-msgstr "مصدر المصادقة"
-
 msgid "manager.people.confirmUnenroll"
 msgstr "إزالة الدور من هذا المستخدم؟"
 

@@ -501,9 +501,6 @@ msgstr "Hiba keletkezett az email küldése közben. Kérem, győzödjön meg, h
 msgid "grid.user.cannotAdminister"
 msgstr "Nem rendelkezik a megfelelő engedélyekkel a felhasználó szerkesztésére. Ahhoz, hogy szerkessze a felhasználót adminisztrátori szerepkörrel kell rendelkeznie, vagy minden környezethez hozzá kell férnie, amelyekben ez a felhasználó szerepel."
 
-msgid "grid.user.authSource"
-msgstr "Hitelesítési forrás"
-
 msgid "grid.user.mustProvideName"
 msgstr "Kérem, először adjon meg vezetéknevet a felhasználónak."
 

@@ -375,9 +375,6 @@ msgstr "Crear un novo usuario/a"
 msgid "manager.people.confirmUnenroll"
 msgstr "Dar de baixa a este usuario/a?"
 
-msgid "manager.people.authSource"
-msgstr "Fonte de autenticación"
-
 msgid "manager.people.existingUserRequired"
 msgstr "Debe introducirse un usuario existente."
 

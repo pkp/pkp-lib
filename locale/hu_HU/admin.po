@@ -24,18 +24,6 @@ msgstr "Beállítás értéke"
 msgid "admin.adminFunctions"
 msgstr "Adminisztratív funkciók"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Biztos benne, hogy véglegesen törli ezt a hitelesítési forrást?"
-
-msgid "admin.auth.create"
-msgstr "Hitelesítési forrás létrehozása"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nincs hitelesítési forrás definiálva."
-
-msgid "admin.authSources"
-msgstr "Hitelesítési források"
-
 msgid "admin.clearDataCache"
 msgstr "Adat Cache törlése"
 

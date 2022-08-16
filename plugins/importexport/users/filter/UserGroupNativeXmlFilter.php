@@ -40,7 +40,7 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
      */
     public function getClassName()
     {
-        return 'lib.pkp.plugins.importexport.users.filter.UserGroupNativeXmlFilter';
+        return (string) self::class;
     }
 
 
@@ -107,8 +107,4 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', htmlspecialchars(join(':', array_keys($assignedStages)), ENT_COMPAT, 'UTF-8')));
         return $userGroupNode;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\users\filter\UserGroupNativeXmlFilter', '\UserGroupNativeXmlFilter');
 }

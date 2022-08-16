@@ -61,7 +61,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
      */
     public function getClassName()
     {
-        return 'lib.pkp.plugins.importexport.users.filter.NativeXmlUserGroupFilter';
+        return (string) self::class;
     }
 
 
@@ -132,8 +132,4 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             fatalError('unable to find "name" userGroup node element.  Check import XML document structure for validity.');
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\users\filter\NativeXmlUserGroupFilter', '\NativeXmlUserGroupFilter');
 }

@@ -45,7 +45,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
      */
     public function getClassName()
     {
-        return 'lib.pkp.plugins.importexport.native.filter.SubmissionFileNativeXmlFilter';
+        return (string) self::class;
     }
 
     //
@@ -252,8 +252,4 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     {
         return 'submission_file';
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\native\filter\SubmissionFileNativeXmlFilter', '\SubmissionFileNativeXmlFilter');
 }

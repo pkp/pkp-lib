@@ -44,22 +44,22 @@
 		<!-- Native XML users output -->
 		<filter
 			inGroup="user=>user-xml"
-			class="lib.pkp.plugins.importexport.users.filter.PKPUserUserXmlFilter"
+			class="PKP\plugins\importexport\users\filter\PKPUserUserXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML users input -->
 		<filter
 			inGroup="user-xml=>user"
-			class="lib.pkp.plugins.importexport.users.filter.UserXmlPKPUserFilter"
+			class="PKP\plugins\importexport\users\filter\UserXmlPKPUserFilter"
 			isTemplate="0" />
 		<!-- Native XML usergroup output -->
 		<filter
 			inGroup="usergroup=>user-xml"
-			class="lib.pkp.plugins.importexport.users.filter.UserGroupNativeXmlFilter"
+			class="PKP\plugins\importexport\users\filter\UserGroupNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML usergroup input -->
 		<filter
 			inGroup="user-xml=>usergroup"
-			class="lib.pkp.plugins.importexport.users.filter.NativeXmlUserGroupFilter"
+			class="PKP\plugins\importexport\users\filter\NativeXmlUserGroupFilter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

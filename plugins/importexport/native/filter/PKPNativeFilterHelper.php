@@ -38,12 +38,12 @@ class PKPNativeFilterHelper
         if (!empty($coverImages)) {
             $coversNode = $doc->createElementNS($deployment->getNamespace(), 'covers');
             foreach ($coverImages as $locale => $coverImage) {
-                $coverImageName = $coverImage['uploadName'];
+                $coverImageName = $coverImage['uploadName'] ?? '';
 
                 $coverNode = $doc->createElementNS($deployment->getNamespace(), 'cover');
                 $coverNode->setAttribute('locale', $locale);
                 $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image', htmlspecialchars($coverImageName, ENT_COMPAT, 'UTF-8')));
-                $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'], ENT_COMPAT, 'UTF-8')));
+                $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'] ?? '', ENT_COMPAT, 'UTF-8')));
 
                 $publicFileManager = new PublicFileManager();
 

@@ -135,7 +135,9 @@ class FilterHelper
 
         // Configure (and optionally install) the filter.
         $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
-        assert($installedFilter instanceof \PKP\filter\PersistableFilter);
+        if (!$installedFilter instanceof \PKP\filter\PersistableFilter) {
+            throw new \Exception($filterClassName . ' expected to be an instance of PersistableFilter');
+        }
 
         return $installedFilter;
     }

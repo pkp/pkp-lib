@@ -54,7 +54,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
      */
     public function getClassName()
     {
-        return 'lib.pkp.plugins.importexport.users.filter.UserXmlPKPUserFilter';
+        return (string) self::class;
     }
 
     /**
@@ -381,8 +381,4 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
 
         return $password;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\users\filter\UserXmlPKPUserFilter', '\UserXmlPKPUserFilter');
 }

@@ -8,8 +8,6 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserUserXmlFilter
- * @ingroup plugins_importexport_users
- *
  * @brief Base class that converts a set of users to a User XML document
  */
 
@@ -43,7 +41,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
      */
     public function getClassName()
     {
-        return 'lib.pkp.plugins.importexport.users.filter.PKPUserUserXmlFilter';
+        return (string) self::class;
     }
 
 
@@ -180,8 +178,4 @@ class PKPUserUserXmlFilter extends NativeExportFilter
             $rootNode->appendChild($clone);
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\users\filter\PKPUserUserXmlFilter', '\PKPUserUserXmlFilter');
 }

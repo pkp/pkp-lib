@@ -39,7 +39,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
      */
     public function getClassName()
     {
-        return 'lib.pkp.plugins.importexport.native.filter.RepresentationNativeXmlFilter';
+        return self::class;
     }
 
 

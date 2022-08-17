@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-10 16:26+0000\n"
+"PO-Revision-Date: 2022-08-17 15:57+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "bg_BG/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "Езикът {$locale} не се поддържа."
@@ -284,7 +284,7 @@ msgstr ""
 "трябва да бъде поискана за даден контекст."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Не можете да редактирате DOI на елемент, който не е в този контекст"
+msgstr "Не можете да редактирате DOI на елемент, който не е в този контекст."
 
 msgid "api.400.requireEmailSubjectBody"
 msgstr "Трябва да посочите тема и съдържание на имейла."
@@ -305,3 +305,11 @@ msgstr "Имейлът, който търсите, не беше намерен.
 
 msgid "api.mailables.400.templateKeysMissing"
 msgstr "Ключовете на шаблона за имейл не са посочени."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Вашата заявка не беше валидна. Интервалът на времевата линия трябва да бъде "
+"„ден“ или „месец“."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Институцията, която търсите, не беше намерена."

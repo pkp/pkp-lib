@@ -168,8 +168,16 @@ class MetadataDescription extends \PKP\core\DataObject
         // Lazy-load the meta-data schema if this has
         // not been done before.
         if (is_null($this->_metadataSchema)) {
-            $this->_metadataSchema = & instantiate($this->getMetadataSchemaName(), \PKP\metadata\MetadataSchema::class);
-            assert(is_object($this->_metadataSchema));
+            $metadataSchemaName = $this->getMetadataSchemaName();
+            if (preg_match('/^[a-zA-Z0-9_.]+$/', $metadataSchemaName)) {
+                // DEPRECATED as of 3.4.0: non-PSR classloading
+                $this->_metadataSchema = & instantiate($metadataSchemaName, \PKP\metadata\MetadataSchema::class);
+            } elseif (class_exists($metadataSchemaName)) {
+                $this->_metadataSchema = new $metadataSchemaName();
+            }
+            if (! $this->_metadataSchema instanceof \PKP\metadata\MetadataSchema) {
+                throw new \Exception('Unexpected metadata schema class!');
+            }
         }
         return $this->_metadataSchema;
     }

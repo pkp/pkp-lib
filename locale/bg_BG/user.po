@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-17 15:57+0000\n"
+"PO-Revision-Date: 2022-08-18 18:33+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg_BG/>\n"
@@ -98,7 +98,7 @@ msgstr "Трябва да бъде избрана поне една роля."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"Потребителското име може да съдържа само малки букви, букви и цифри, долни "
+"Потребителското име може да съдържа само малки букви, цифри и букви, долни "
 "черти и тирета и трябва да започва и завършва с буквено-цифров знак."
 
 msgid "user.register.form.emailsDoNotMatch"

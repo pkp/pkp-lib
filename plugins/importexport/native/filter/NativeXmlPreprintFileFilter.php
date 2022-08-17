@@ -25,10 +25,6 @@ class NativeXmlPreprintFileFilter extends \PKP\plugins\importexport\native\filte
      */
     public function getClassName()
     {
-        return 'plugins.importexport.native.filter.NativeXmlPreprintFileFilter';
+        return (string) self::class;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\importexport\native\filter\NativeXmlPreprintFileFilter', '\NativeXmlPreprintFileFilter');
 }

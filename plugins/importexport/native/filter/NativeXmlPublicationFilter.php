@@ -28,7 +28,7 @@ class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter
      */
     public function getClassName()
     {
-        return 'plugins.importexport.native.filter.NativeXmlPublicationFilter';
+        return (string) self::class;
     }
 
     /**
@@ -139,8 +139,4 @@ class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter
     {
         return $this->importWithXMLNode($n);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\importexport\native\filter\NativeXmlPublicationFilter', '\NativeXmlPublicationFilter');
 }

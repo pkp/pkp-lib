@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file plugins/themes/default/DefaultThemePlugin.inc.php
+ * @file plugins/themes/default/DefaultThemePlugin.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DefaultThemePlugin
- * @ingroup plugins_themes_default
- *
  * @brief Default theme
  */
+
+namespace APP\plugins\themes\default;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
@@ -255,4 +255,8 @@ class DefaultThemePlugin extends ThemePlugin
     {
         return __('plugins.themes.default.description');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\themes\default\DefaultThemePlugin', '\DefaultThemePlugin');
 }

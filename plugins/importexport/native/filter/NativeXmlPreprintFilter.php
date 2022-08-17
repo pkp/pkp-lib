@@ -25,7 +25,7 @@ class NativeXmlPreprintFilter extends \PKP\plugins\importexport\native\filter\Na
      */
     public function getClassName()
     {
-        return 'plugins.importexport.native.filter.NativeXmlPreprintFilter';
+        return (string) self::class;
     }
 
     /**
@@ -55,8 +55,4 @@ class NativeXmlPreprintFilter extends \PKP\plugins\importexport\native\filter\Na
         $currentFilter = \PKP\plugins\importexport\PKPImportExportFilter::getFilter('native-xml=>' . $importClass, $deployment);
         return $currentFilter;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\importexport\native\filter\NativeXmlPreprintFilter', '\NativeXmlPreprintFilter');
 }

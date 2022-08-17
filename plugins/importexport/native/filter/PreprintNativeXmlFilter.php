@@ -25,7 +25,7 @@ class PreprintNativeXmlFilter extends \PKP\plugins\importexport\native\filter\Su
      */
     public function getClassName()
     {
-        return 'plugins.importexport.native.filter.PreprintNativeXmlFilter';
+        return (string) self::class;
     }
 
     //
@@ -46,8 +46,4 @@ class PreprintNativeXmlFilter extends \PKP\plugins\importexport\native\filter\Su
 
         return $submissionNode;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\importexport\native\filter\PreprintNativeXmlFilter', '\PreprintNativeXmlFilter');
 }

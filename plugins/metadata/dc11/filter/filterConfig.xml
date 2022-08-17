@@ -18,13 +18,13 @@
 			displayName="plugins.metadata.dc11.preprintAdapter.displayName"
 			description="plugins.metadata.dc11.preprintAdapter.description"
 			inputType="class::classes.submission.Submission"
-			outputType="metadata::plugins.metadata.dc11.schema.Dc11Schema(PREPRINT)" />
+			outputType="metadata::APP\plugins\metadata\dc11\schema\Dc11Schema(PREPRINT)" />
 	</filterGroups>
 	<filters>
 		<!-- DC 1.1 preprint adapters -->
 		<filter
 			inGroup="preprint=>dc11"
-			class="plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter"
+			class="APP\plugins\metadata\dc11\filter\Dc11SchemaPreprintAdapter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

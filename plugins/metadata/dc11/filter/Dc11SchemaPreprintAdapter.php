@@ -42,7 +42,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      */
     public function getClassName()
     {
-        return 'plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter';
+        return (string) self::class;
     }
 
 
@@ -243,8 +243,4 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
             }
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\metadata\dc11\filter\Dc11SchemaPreprintAdapter', '\Dc11SchemaPreprintAdapter');
 }

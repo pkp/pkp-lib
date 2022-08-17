@@ -87,50 +87,50 @@
 		<!-- Native XML preprint output -->
 		<filter
 			inGroup="preprint=>native-xml"
-			class="plugins.importexport.native.filter.PreprintNativeXmlFilter"
+			class="APP\plugins\importexport\native\filter\PreprintNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML preprint input -->
 		<filter
 			inGroup="native-xml=>preprint"
-			class="plugins.importexport.native.filter.NativeXmlPreprintFilter"
+			class="APP\plugins\importexport\native\filter\NativeXmlPreprintFilter"
 			isTemplate="0" />
 		<!-- Native XML author output -->
 		<filter
 			inGroup="author=>native-xml"
-			class="plugins.importexport.native.filter.AuthorNativeXmlFilter"
+			class="APP\plugins\importexport\native\filter\AuthorNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML author input -->
 		<filter
 			inGroup="native-xml=>author"
-			class="plugins.importexport.native.filter.NativeXmlAuthorFilter"
+			class="APP\plugins\importexport\native\filter\NativeXmlAuthorFilter"
 			isTemplate="0" />
 		<!-- Native XML preprint file input -->
 		<filter
 			inGroup="native-xml=>SubmissionFile"
-			class="plugins.importexport.native.filter.NativeXmlPreprintFileFilter"
+			class="APP\plugins\importexport\native\filter\NativeXmlPreprintFileFilter"
 			isTemplate="0" />
 		<!-- Native XML submission file output -->
 		<filter
 			inGroup="SubmissionFile=>native-xml"
-			class="lib.pkp.plugins.importexport.native.filter.SubmissionFileNativeXmlFilter"
+			class="PKP\plugins\importexport\native\filter\SubmissionFileNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML preprint galley output -->
 		<filter
 			inGroup="preprint-galley=>native-xml"
-			class="plugins.importexport.native.filter.PreprintGalleyNativeXmlFilter"
+			class="APP\plugins\importexport\native\filter\PreprintGalleyNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML preprint galley input -->
 		<filter
 			inGroup="native-xml=>PreprintGalley"
-			class="plugins.importexport.native.filter.NativeXmlPreprintGalleyFilter"
+			class="APP\plugins\importexport\native\filter\NativeXmlPreprintGalleyFilter"
 			isTemplate="0" />
 		<filter
 			inGroup="publication=>native-xml"
-			class="plugins.importexport.native.filter.PublicationNativeXmlFilter"
+			class="APP\plugins\importexport\native\filter\PublicationNativeXmlFilter"
 			isTemplate="0" />
 		<filter
 			inGroup="native-xml=>Publication"
-			class="plugins.importexport.native.filter.NativeXmlPublicationFilter"
+			class="APP\plugins\importexport\native\filter\NativeXmlPublicationFilter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

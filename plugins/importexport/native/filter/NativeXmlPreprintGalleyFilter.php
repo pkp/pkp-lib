@@ -51,7 +51,7 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
      */
     public function getClassName()
     {
-        return 'plugins.importexport.native.filter.NativeXmlPreprintGalleyFilter';
+        return (string) self::class;
     }
 
 
@@ -119,8 +119,4 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
         // representation proof files
         return $representation;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\importexport\native\filter\NativeXmlPreprintGalleyFilter', '\NativeXmlPreprintGalleyFilter');
 }

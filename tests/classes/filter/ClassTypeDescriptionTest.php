@@ -33,14 +33,4 @@ class ClassTypeDescriptionTest extends PKPTestCase
         self::assertTrue($typeDescription->isCompatible($compatibleObject));
         self::assertFalse($typeDescription->isCompatible($wrongObject));
     }
-
-    /**
-     * @covers ClassTypeDescription
-     */
-    public function testInstantiateWithInvalidTypeDescriptor()
-    {
-        // An unknown type name will cause an error.
-        $this->expectException(\Exception::class); // Trying to instantiate a "class" type description with an invalid type name "ClassWithoutPackage"
-        $typeDescription = new ClassTypeDescription('ClassWithoutPackage');
-    }
 }

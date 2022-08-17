@@ -290,7 +290,7 @@ class PluginRegistry
         $pluginWrapper = "${pluginPath}/index.php";
         if (file_exists($pluginWrapper)) {
             $plugin = include($pluginWrapper);
-            assert(is_a($plugin, $classToCheck ?: '\PKP\plugins\Plugin'));
+            assert($plugin instanceof ($classToCheck ?: '\PKP\plugins\Plugin'));
             return $plugin;
         } else {
             // First, try a namespaced class name matching the installation directory.

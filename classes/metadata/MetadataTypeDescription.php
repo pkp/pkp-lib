@@ -52,7 +52,13 @@ class MetadataTypeDescription extends ClassTypeDescription
      */
     public function getMetadataSchemaClass()
     {
-        return $this->_metadataSchemaPackageName . '.' . $this->_metadataSchemaClassName;
+        // If using PSR-based FQCNs, the package name will be empty.
+        // If using deprecated period.separated.package.names, the package name will be provided.
+        $prefix = (string) $this->_metadataSchemaPackageName;
+        if ($prefix) {
+            $prefix .= '.';
+        }
+        return $prefix . $this->_metadataSchemaClassName;
     }
 
     /**

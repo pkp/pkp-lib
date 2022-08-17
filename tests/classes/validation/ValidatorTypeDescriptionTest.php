@@ -65,8 +65,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
      */
     public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {
-        $this->expectError();
-        $this->expectOutputRegex('/' . preg_quote(htmlspecialchars("Trying to instantiate a \"validator\" type description with an invalid type name \"{$type}\"")) . '/');
+        $this->expectException(\Exception::class); // Trying to instantiate a "validator" type description with an invalid type name "$type"
         $typeDescription = new ValidatorTypeDescription($type);
     }
 }

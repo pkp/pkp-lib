@@ -168,7 +168,7 @@ class MetadataDescription extends \PKP\core\DataObject
         // Lazy-load the meta-data schema if this has
         // not been done before.
         if (is_null($this->_metadataSchema)) {
-            $this->_metadataSchema = & instantiate($this->getMetadataSchemaName(), 'MetadataSchema');
+            $this->_metadataSchema = & instantiate($this->getMetadataSchemaName(), \PKP\metadata\MetadataSchema::class);
             assert(is_object($this->_metadataSchema));
         }
         return $this->_metadataSchema;

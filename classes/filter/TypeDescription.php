@@ -77,7 +77,7 @@ abstract class TypeDescription
         $this->_typeName = $typeName;
         if (!$this->_parseTypeNameInternally($typeName)) {
             // Invalid type
-            fatalError('Trying to instantiate a "' . $this->getNamespace() . '" type description with an invalid type name "' . $typeName . '".');
+            throw new \Exception('Trying to instantiate a "' . $this->getNamespace() . '" type description with an invalid type name "' . $typeName . '".');
         }
     }
 

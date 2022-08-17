@@ -141,7 +141,15 @@ class MetadataDataObjectAdapter extends PersistableFilter
         if (is_null($this->_metadataSchema)) {
             $metadataSchemaName = $this->getMetadataSchemaName();
             assert(!is_null($metadataSchemaName));
-            $this->_metadataSchema = & instantiate($metadataSchemaName, 'MetadataSchema');
+            if (preg_match('/^[a-zA-Z0-9_.]+$/', $metadataSchemaName)) {
+                // DEPRECATED as of 3.4.0: Schema class names should be fully qualified
+                $this->_metadataSchema = & instantiate($metadataSchemaName, (string) \PKP\metadata\MetadataSchema::class);
+            } elseif (class_exists($metadataSchemaName)) {
+                $this->_metadataSchema = new $metadataSchemaName();
+            }
+            if (!$this->_metadataSchema instanceof \PKP\metadata\MetadataSchema) {
+                throw new \Exception('Metadata schema is unexpected class!');
+            }
             assert(is_object($this->_metadataSchema));
         }
         return $this->_metadataSchema;

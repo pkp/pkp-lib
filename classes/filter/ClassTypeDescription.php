@@ -93,13 +93,12 @@ class ClassTypeDescription extends TypeDescription
     {
         // This should be a class - identify package and class name
         $typeNameParts = explode('.', $typeName);
-        if (count($typeNameParts) == 1) {
-            // No package given - invalid type description
-            return false;
-        }
 
         $className = array_pop($typeNameParts);
+
+        // If using a PSR-style FQCN (preferred), the package will be empty.
         $packageName = implode('.', $typeNameParts);
+
         return [$packageName, $className];
     }
 }

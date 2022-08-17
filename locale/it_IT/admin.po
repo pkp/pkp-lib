@@ -1,10 +1,11 @@
+# Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2021-02-28 16:11+0000\n"
-"Last-Translator: Andrea Marchitelli <marchitelli@gmail.com>\n"
+"PO-Revision-Date: 2022-08-17 17:36+0000\n"
+"Last-Translator: Fulvio Delle Donne <fulviodelledonne@libero.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Funzioni di amministrazione"
@@ -211,7 +212,7 @@ msgstr "Lingue disponibili"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr ""
-"Il path  {$path}  deve essere all'interno della cartella dei file pubblici."
+"Il percorso {$path} deve essere all'interno della cartella dei file pubblici."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "La cartella {$path} non è una cartella o non è scrivibile."
@@ -244,7 +245,9 @@ msgid "admin.scheduledTask.noLog"
 msgstr "La procedura programmata non ha creato log."
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "L'installazione di  {$softwareName} è stata eseguita, puoi scaricare il log da qui: {$url}"
+msgstr ""
+"L'installazione di {$softwareName} è stata eseguita, puoi scaricare il log "
+"da qui: {$url}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Sei sicuro di voler cancellare tutti i log della procedure programmate ?"
@@ -256,7 +259,7 @@ msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Promemoria per la scadenza dell'abbonamento"
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Nome del  task per il carico delle statistiche d'uso"
+msgstr "Nome del task per il carico delle statistiche d'uso"
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Il file {$file} non può essere aperto ed è stato scartato."
@@ -272,12 +275,18 @@ msgstr "Caricamento file"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
-"Copia i log di Apache, filtrando solo le operazioni collegate a questa installazione, dentro la directory stage del UsageStatsPlugin. Deve essere eseguito con abbastanza privilegi per leggere i file access log di Apache.\n"
+"Copia i log di Apache, filtrando solo le operazioni collegate a questa "
+"installazione, \n"
+"dentro la directory stage del UsageStatsPlugin. Deve essere eseguito con "
+"abbastanza privilegi per leggere i file access log di Apache.\n"
 "\n"
-"Questo strumento copia solo i file che non sono già nelle dir usageStats (stage, processing, archive, reject).\n"
+"Questo strumento copia solo i file che non sono già nelle dir usageStats ("
+"stage, processing, archive, reject).\n"
 "\n"
 "Uso: {$scriptName} path/al/apache/log/file.log\n"
-"Uso (per lavorare tutti i file dentro una dir): {$scriptName} path/ad/apache/directory"
+"Uso (per lavorare tutti i file dentro una dir): {$scriptName} path/ad/apache/"
+"directory\n"
+"\t"
 
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
 msgstr "Errore: non riesco a creare la dir temporanea {$tmpDir}"
@@ -299,7 +308,7 @@ msgstr "Pubblica gli articoli pianificati"
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Confermi di voler modificare la lingua principale del sito?  I nomi degli "
+"Confermi di voler modificare la lingua principale del sito? I nomi degli "
 "utenti, che sono obbligatori nella lingua primaria del sito, saranno copiati "
 "dalla lingua primaria attuale, dove mancano."
 
@@ -314,3 +323,339 @@ msgstr "Limita le email massive"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Email massive"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Visualizzare i parametri di utilizzo del lavoro"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+"Identificazione degli editori da ricordare nella Casa Editrice {$contextId}"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Intendevi forse uno dei seguenti?"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "L'opzione non può essere vuota! Controllare il metodo di utilizzo."
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Creato per"
+
+msgid "admin.jobs.createdAt"
+msgstr "Creato per {$createdAt}"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Visualizza informazioni sulla versione e sulle impostazioni di "
+"configurazione dell'applicazione e del server."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Uso:"
+
+msgid "admin.systemInformation.view"
+msgstr "Visualizza le informazioni sul sistema"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Lavoro"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Cancellare i file della cache dal sistema. Questa operazione deve essere "
+"eseguita solo in ambienti di sviluppo."
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Disponibile per"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Riservato a"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Notifica del rapporto editoriale"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Tentativi"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Lavori in coda"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Impaginazione"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "comando [argomenti]"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Nome visualizzato del lavoro"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Successivo"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Invia un'e-mail a ciascun editore per ricordargli i compiti in sospeso"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Elimina tutti i registri dei processi delle attività pianificate che sono "
+"stati eseguiti."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Eliminare i registri delle attività"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Visualizzare l'utilizzo del comando per i lavori"
+
+msgid "navigation.tools.jobs"
+msgstr "Lavori"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Vedi i lavori"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Cancellati tutti i lavori!"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Elenca tutti i lavori in coda. Se si desidera impaginare i risultati, "
+"utilizzare i parametri --page= e --perPage="
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"{$count} lavori per i quali inviare email editoriali come promemoria agli "
+"utenti {$userIds} nella Casa Editrice{$contextId}"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "ID lavoro non valido"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Visualizzare tutti i lavori in coda nel sistema e tenere traccia dei "
+"tentativi falliti."
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Per utilizzare questo comando è necessario inserire almeno un ID lavoro, '--"
+"all' o '--queue='"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Coda"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Aggiungere un lavoro di prova alla coda predefinita"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "È stato impossibile eliminare tutti i lavori."
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Comandi disponibili per lo spazio dei nomi `{$namespace}`:"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Elimina un lavoro in coda specifico in base al suo Id. Se si desidera "
+"eliminare tutti, passare il parametro --all. Se si desidera eliminare tutti "
+"i lavori da una coda specifica, passare il parametro --queue="
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "L'opzione {$option} non esiste."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Ci sono {$total} lavori in coda"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Precedente"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Tutti gli utenti verranno immediatamente disconnessi dall'applicazione, "
+"compreso te, e dovranno effettuare nuovamente il login."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Visualizzare la quantità di lavori in coda"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Il file non può essere decompresso. Il file gz sorgente {$filePath} non può "
+"essere aperto con gzopen."
+
+msgid "admin.jobs.totalCount"
+msgstr "C'è un totale di <strong>{$total}</strong> lavori nella coda"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Creato per"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Aggiornamento del database DB-IP city lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"La ridenominazione del file del database DB-IP city lite {$sourceFilename} "
+"in {$targetFilename} non è riuscita."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"La directory {$directory} non è vuota. Questo potrebbe indicare un processo "
+"precedentemente fallito o un processo in esecuzione simultanea. Questo file "
+"verrà automaticamente rielaborato."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Il file {$file} è in un vecchio formato di file di log che non può essere "
+"elaborato e quindi verrà spostato nella directory di stage."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Voce di registro non valida alla riga {$lineNumber} nel file di registro "
+"{$file}: {$error}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "L'ora non è valida."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "L'ID della proposta non è un numero intero."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "L'ID della testata non è un numero intero."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"La riga {$lineNumber} nel file di log {$file} è in formato sbagliato e verrà "
+"quindi saltata."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "L'ID della rappresentazione non è un numero intero."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Il tipo Assoc non è supportato."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Il tipo di file non è supportato."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Il paese non è una stringa di due caratteri alfabetici."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Il lavoro in background che elaborerà il file di registro {$file} e "
+"memorizzerà i dati statistici è stato inviato."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "La regione non è una stringa lunga fino a tre caratteri alfanumerici."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "L'ID istituzione non è un array."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Si è verificato un errore durante l'elaborazione del file di log {$file} "
+"alla riga {$lineNumber}: {$msg}"
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Non è stato possibile decomprimere il file. Non è stato possibile scrivere "
+"il file di destinazione {$filePath} con fwrite."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Non è stato possibile decomprimere il file. Non è stato possibile aprire il "
+"file di destinazione {$filePath} con fopen."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Il file non può essere decompresso. Il file gz sorgente {$file} non può "
+"essere letto con gzread."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Non è stato possibile decomprimere il file. Il file gz sorgente decompresso "
+"{$filePath} non può essere rimosso con unlink."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Il file non può essere compresso. Il file gz di destinazione {$filePath} non "
+"può essere aperto con gzopen."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Il file non può essere compresso. Il file sorgente {$filePath} non può "
+"essere aperto con fopen."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Non è stato possibile decomprimere il file. Il file di destinazione aperto "
+"{$filePath} non può essere chiuso con fclose."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Non è stato possibile decomprimere il file. Il file sorgente gz aperto "
+"{$filePath} non può essere chiuso con gzclose."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Il file non può essere compresso. Il file sorgente {$filePath} non può "
+"essere letto con fread."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Non è stato possibile comprimere il file. Il file gz di destinazione "
+"{$filePath} non può essere scritto con gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Non è stato possibile comprimere il file. Il file sorgente aperto {$filePath}"
+" non può essere chiuso con fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Non è stato possibile comprimere il file. Il file gz aperto {$filePath} non "
+"può essere chiuso con gzclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Non è stato possibile comprimere il file. Il file sorgente compresso "
+"{$filePath} non può essere rimosso con unlink."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Il lavoro che carica i dati delle statistiche di utilizzo dal file {$file} è "
+"fallito e non è stato possibile spostare il file da {$archivedFilePath} a "
+"{$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Il lavoro che carica i dati delle statistiche di utilizzo dal file {$file} "
+"non è riuscito. Il file è stato spostato nella directory stage."
+
+msgid "admin.deleteCache"
+msgstr "Cancella Cache"
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Il file di registro {$file} è stato saltato perché le statistiche di quel "
+"mese sono già state calcolate. Per ricalcolare le statistiche di un mese "
+"precedente è necessario ripristinare tutti i file di registro di quel mese e "
+"utilizzare lo strumento CLI per rielaborare le statistiche."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deposito di DOI presso l'agenzia di registrazione configurata"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Rimuovere gli utenti scaduti non validati"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Tentativi"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Corrente"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Il lavoro è stato cancellato!"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Visualizza i lavori in coda"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Coda"

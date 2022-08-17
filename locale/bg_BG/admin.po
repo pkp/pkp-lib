@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-11 01:44+0000\n"
+"PO-Revision-Date: 2022-08-17 17:36+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Административни функции"
@@ -162,7 +162,7 @@ msgstr ""
 
 msgid "admin.error.utilExecutionProblem"
 msgstr ""
-"Изпълнението на програмата \"{$utilPath}\"  върна следната грешка: {$output}"
+"Изпълнението на програмата \"{$utilPath}\" върна следната грешка: {$output}"
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Успешно действие: {$filePath} в {$destinationPath}"
@@ -522,3 +522,24 @@ msgstr "Изтриване на кеша"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Премахване на невалидирани потребители с изтекъл срок на валидация"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Изпращане на имейл до всеки редактор, напомняйки му за неизпълнените му "
+"задачи"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Изпратени {$count} задания за изпращане на редакционни напомняния по имейл "
+"до потребителите {$userIds} в контекст {$contextId}"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Преименуването на файла с DB-IP city lite база данни {$sourceFilename} на "
+"{$targetFilename} не бе успешно."
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Актуализиране на базата данни DB-IP city lite"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Идентифициране на редактори за напомняне в контекст {$contextId}"

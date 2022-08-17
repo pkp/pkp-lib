@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-17 17:36+0000\n"
+"PO-Revision-Date: 2022-08-18 18:33+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
@@ -543,3 +543,150 @@ msgstr "Актуализиране на базата данни DB-IP city lite"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr "Идентифициране на редактори за напомняне в контекст {$contextId}"
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Целевият файл {$filePath} не можа да "
+"бъде отворен с fopen."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Изходният gz-файл {$file} не може да "
+"бъде прочетен с gzread."
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Изходният gz-файл {$filePath} не можа "
+"да бъде отворен с gzopen."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Отвореният изходен gz-файл {$filePath} "
+"не може да бъде затворен с gzclose."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Отвореният целеви файл {$filePath} не "
+"може да бъде затворен с fclose."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Файлът не можа да бъде компресиран. Изходният файл {$filePath} не можа да "
+"бъде отворен с fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Файлът не можа да бъде компресиран. Изходният файл {$filePath} не може да "
+"бъде прочетен с fread."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Декомпресираният изходен gz-файл "
+"{$filePath} не можа да бъде премахнат с прекратяване на връзката."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Файлът не можа да бъде компресиран. Целевият gz-файл {$filePath} не можа да "
+"бъде отворен с gzopen."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Файлът не можа да бъде компресиран. Компресираният изходен файл {$filePath} "
+"не можа да бъде премахнат с прекратяване на връзката."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Файлът не можа да бъде компресиран. Целевият gz-файл {$filePath} не може да "
+"бъде записан с gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Файлът не можа да бъде компресиран. Отвореният изходен файл {$filePath} не "
+"може да бъде затворен с fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Файлът не можа да бъде компресиран. Отвореният целеви gz-файл {$filePath} не "
+"може да бъде затворен с gzclose."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Неуспешно изпълнено задание, което зарежда статистическите данни за "
+"употребата от файла {$file}. Файлът е преместен в директорията на сцената."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Задачата, която зарежда статистическите данни за употребата от файла {$file}"
+", е неуспешна и файлът не може да бъде преместен от {$archivedFilePath} към "
+"{$stagingPath}."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Директорията {$directory} не е празна. Това може да показва предишен "
+"неуспешен процес или едновременно работещ процес. Този файл ще бъде "
+"обработен автоматично отново."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Файлът {$file} е в стар формат на лог файл, който не може да бъде обработен "
+"и следователно ще бъде преместен обратно в директорията на етапа."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"Редът {$lineNumber} в регистрационния файл {$file} е в грешен формат и "
+"следователно ще бъде пропуснат."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Невалиден запис в регистрационния файл на ред {$lineNumber} в "
+"регистрационния файл {$file}: {$error}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Часът не е валиднен формат."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Идентификаторът на контекста (Context ID) не е цяло число."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+"Идентификаторът на подадените материали (Submission ID) не е цяло число."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Асоциираният тип не се поддържа."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Типът файл не се поддържа."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Държавата не е низ от два азбучни знака."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "Идентификаторите на институциите (Institution ID) не са масив."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Възникна грешка при обработката на регистрационния файл {$file} на ред "
+"{$lineNumber}: {$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Пропуснат регистрационен файл {$file}, тъй като статистическите данни от "
+"този месец вече са изчислени. За да преизчислите статистиката за предходен "
+"месец, трябва да възстановите всички регистрационни файлове за този месец и "
+"да използвате CLI инструмента за повторна обработка на статистиката."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "Идентификаторът на представянето (Representation ID) не е цяло число."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Регионът не е низ с дължина до три буквено-цифрови знака."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Фоновото задание, което ще обработва регистрационния файл {$file} и ще "
+"съхранява статистическите данни, е изпратено."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Файлът не можа да бъде декомпресиран. Целевият файл {$filePath} не може да "
+"бъде записан с fwrite."

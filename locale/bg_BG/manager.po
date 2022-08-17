@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-10 16:26+0000\n"
+"PO-Revision-Date: 2022-08-17 17:37+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
@@ -746,7 +746,7 @@ msgstr ""
 "използва."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Използване на шаблон по подразбиране."
+msgstr "Използване на шаблон по подразбиране"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -1069,7 +1069,7 @@ msgid "manager.plugins.fileSelectError"
 msgstr "Моля, изберете първо файл"
 
 msgid "manager.plugins.doesNotExist"
-msgstr "Добавката (плъгин) \"{$pluginName}\"  не съществува"
+msgstr "Добавката (плъгин) \"{$pluginName}\" не съществува"
 
 msgid "manager.plugins.description"
 msgstr ""
@@ -2042,7 +2042,7 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
-"Това списание извършва  „анонимно рецензензиране“. Вашето име и тези на "
+"Това списание извършва „анонимно рецензензиране“. Вашето име и тези на "
 "вашите съавтори ще бъдат видими за рецензентите; обаче самоличността на "
 "рецензентите ще остане анонимна."
 
@@ -2115,7 +2115,7 @@ msgid "plugins.importexport.author.exportFailed"
 msgstr "Процесът не успя и прекъсна при анализа на авторите"
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\"  -  \"{$submissionTitle}\""
+msgstr "\"{$submissionId}\" — \"{$submissionTitle}\""
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Посоченият път на списанието, \"{$contextPath}\", не съществува."
@@ -2618,7 +2618,7 @@ msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Неизвестен елемент {$param}"
 
 msgid "plugins.importexport.common.id"
-msgstr "Id:  {$id}"
+msgstr "Идентификатор: {$id}"
 
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Възникнали грешки:"
@@ -2989,10 +2989,10 @@ msgstr "Неуспешни актуализации на DOI"
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Този имейл се изпраща автоматично, когато изтича срокът за потвърждение от "
-"страна на рецензента (вижте Опции за рецензии в  Настройки > Работен поток  >"
-" Рецензии) и достъпът на рецензент с едно щракване е деактивиран. "
-"Планираните задачи трябва да бъдат активирани и конфигурирани (вижте "
-"конфигурационния файл на сайта)."
+"страна на рецензента (вижте Опции за рецензии в Настройки > Работен поток > "
+"Рецензии) и достъпът на рецензент с едно щракване е деактивиран. Планираните "
+"задачи трябва да бъдат активирани и конфигурирани (вижте конфигурационния "
+"файл на сайта)."
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
@@ -3005,7 +3005,6 @@ msgstr ""
 "отхвърли задачата за рецензия на изпратените материали за следващ етап от "
 "редакцията. Той предоставя информация за изпратеното, като заглавието и "
 "резюмето, краен срок за преглед и как да получите достъп до самите материали."
-
 
 msgid "mailable.reviewRequestSubsequent.name"
 msgstr "Следваща заявка за рецензия"
@@ -3024,7 +3023,6 @@ msgstr ""
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Признание за рецензия"
 
-#, fuzzy
 msgid "mailable.passwordReset.description"
 msgstr ""
 "Този имейл се изпраща на регистриран потребител, когато той успешно "
@@ -3047,7 +3045,6 @@ msgstr ""
 "Този имейл се изпраща на новорегистриран рецензент, за да го приветства в "
 "системата и да им предостави запис с потребителско име и парола."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
@@ -3055,7 +3052,6 @@ msgstr ""
 "информация за проследяване на подаването на ръкописа и благодари на автора "
 "за изпращането."
 
-#, fuzzy
 msgid "mailable.submissionAckNotUser.description"
 msgstr ""
 "Този имейл, когато е разрешен, автоматично се изпраща до другите автори на "
@@ -3073,3 +3069,6 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Този имейл се изпраща автоматично месечно до редактори и мениджъри на "
 "списания, за да им предостави общ преглед на състоянието на системата."
+
+msgid "manager.people.authSource"
+msgstr "Източник на удостоверяване"

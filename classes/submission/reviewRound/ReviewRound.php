@@ -199,14 +199,13 @@ class ReviewRound extends \PKP\core\DataObject
             if ($editorsStageAssignment->getRecommendOnly()) {
                 $pendingRecommendations = true;
                 // Get recommendation from the assigned recommendOnly editor
-                $decisions = Repo::decision()->getCount(
-                    Repo::decision()
-                        ->getCollector()
-                        ->filterBySubmissionIds([$this->getSubmissionId()])
-                        ->filterByStageIds([$this->getStageId()])
-                        ->filterByReviewRoundIds([$this->getId()])
-                        ->filterByEditorIds([$editorsStageAssignment->getUserId()])
-                );
+                $decisions = Repo::decision()->getCollector()
+                    ->filterBySubmissionIds([$this->getSubmissionId()])
+                    ->filterByStageIds([$this->getStageId()])
+                    ->filterByReviewRoundIds([$this->getId()])
+                    ->filterByEditorIds([$editorsStageAssignment->getUserId()])
+                    ->getCount();
+
                 if (!$decisions) {
                     $recommendationsFinished = false;
                 } else {

@@ -103,19 +103,18 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {
-                    $countDecisions = Repo::decision()->getCount(
-                        Repo::decision()
-                            ->getCollector()
-                            ->filterBySubmissionIds([$submission->getId()])
-                            ->filterByStageIds([$reviewRound->getStageId()])
-                            ->filterByReviewRoundIds([$reviewRound->getId()])
-                            ->filterByDecisionTypes([
-                                Decision::ACCEPT,
-                                Decision::PENDING_REVISIONS,
-                                Decision::NEW_EXTERNAL_ROUND,
-                                Decision::RESUBMIT
-                            ])
-                    );
+                    $countDecisions = Repo::decision()->getCollector()
+                        ->filterBySubmissionIds([$submission->getId()])
+                        ->filterByStageIds([$reviewRound->getStageId()])
+                        ->filterByReviewRoundIds([$reviewRound->getId()])
+                        ->filterByDecisionTypes([
+                            Decision::ACCEPT,
+                            Decision::PENDING_REVISIONS,
+                            Decision::NEW_EXTERNAL_ROUND,
+                            Decision::RESUBMIT
+                        ])
+                        ->getCount();
+
                     if ($countDecisions) {
                         $assignedFileStages[] = $this->_fileStage;
                     }

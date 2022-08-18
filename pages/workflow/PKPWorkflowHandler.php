@@ -599,14 +599,13 @@ abstract class PKPWorkflowHandler extends Handler
             if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
                 if ($makeRecommendation) {
                     // Get the made editorial decisions from the current user
-                    $editorDecisions = Repo::decision()->getMany(
-                        Repo::decision()
-                            ->getCollector()
-                            ->filterBySubmissionIds([$submission->getId()])
-                            ->filterByStageIds([$stageId])
-                            ->filterByReviewRoundIds([$reviewRound->getId()])
-                            ->filterByEditorIds([$user->getId()])
-                    );
+                    $editorDecisions = Repo::decision()->getCollector()
+                        ->filterBySubmissionIds([$submission->getId()])
+                        ->filterByStageIds([$stageId])
+                        ->filterByReviewRoundIds([$reviewRound->getId()])
+                        ->filterByEditorIds([$user->getId()])
+                        ->getMany();
+
                     // Get the last recommendation
                     foreach ($editorDecisions as $editorDecision) {
                         if (Repo::decision()->isRecommendation($editorDecision->getData('decision'))) {
@@ -630,13 +629,13 @@ abstract class PKPWorkflowHandler extends Handler
                     $hasDecidingEditors = count($decidingEditorIds) > 0;
                 } elseif ($makeDecision) {
                     // Get the made editorial decisions from all users
-                    $editorDecisions = Repo::decision()->getMany(
-                        Repo::decision()
-                            ->getCollector()
-                            ->filterBySubmissionIds([$submission->getId()])
-                            ->filterByStageIds([$stageId])
-                            ->filterByReviewRoundIds([$reviewRound->getId()])
-                    );
+                    $editorDecisions = Repo::decision()
+                        ->getCollector()
+                        ->filterBySubmissionIds([$submission->getId()])
+                        ->filterByStageIds([$stageId])
+                        ->filterByReviewRoundIds([$reviewRound->getId()])
+                        ->getMany();
+
                     // Get all recommendations
                     $recommendations = [];
                     foreach ($editorDecisions as $editorDecision) {

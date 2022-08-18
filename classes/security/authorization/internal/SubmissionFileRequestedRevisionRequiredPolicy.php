@@ -51,13 +51,12 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         if (!$reviewRound instanceof ReviewRound) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        $countRevisionDecisions = Repo::decision()->getCount(
-            Repo::decision()
-                ->getCollector()
-                ->filterBySubmissionIds([$submissionFile->getData('submissionId)')])
-                ->filterByReviewRoundIds([$reviewRound->getId()])
-                ->filterByDecisionTypes([Decision::PENDING_REVISIONS])
-        );
+        $countRevisionDecisions = Repo::decision()->getCollector()
+            ->filterBySubmissionIds([$submissionFile->getData('submissionId)')])
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByDecisionTypes([Decision::PENDING_REVISIONS])
+            ->getCount();
+
         if (!$countRevisionDecisions) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -76,13 +75,12 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
 
         // Make sure that the last review round editor decision is request revisions.
-        $reviewRoundDecisions = Repo::decision()->getMany(
-            Repo::decision()
-                ->getCollector()
-                ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
-                ->filterByStageIds([$reviewRound->getStageId()])
-                ->filterByReviewRoundIds([$reviewRound->getId()])
-        );
+        $reviewRoundDecisions = Repo::decision()->getCollector()
+            ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
+            ->filterByStageIds([$reviewRound->getStageId()])
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->getMany();
+
         if ($reviewRoundDecisions->isEmpty()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

@@ -280,8 +280,6 @@ abstract class PKPWorkflowHandler extends Handler
             $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
         }
 
-        $authorCollector = Repo::author()->getCollector();
-        $authorCollector->filterByPublicationIds([$latestPublication->getId()]);
         $contributorsListPanel = new \PKP\components\listPanels\PKPContributorsListPanel(
             'contributors',
             __('publication.contributors'),

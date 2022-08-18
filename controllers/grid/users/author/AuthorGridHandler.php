@@ -300,14 +300,11 @@ class AuthorGridHandler extends GridHandler
      */
     protected function loadData($request, $filter = null)
     {
-        $authors = Repo::author()->getMany(
-            Repo::author()
-                ->getCollector()
-                ->filterByPublicationIds([$this->getPublication()->getId()])
-                ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
-        );
-
-        return $authors;
+        return Repo::author()
+            ->getCollector()
+            ->filterByPublicationIds([$this->getPublication()->getId()])
+            ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
+            ->getMany();
     }
 
     //

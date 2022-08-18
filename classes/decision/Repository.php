@@ -24,7 +24,6 @@ use APP\submission\Submission;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -74,24 +73,6 @@ abstract class Repository
     public function get(int $id): ?Decision
     {
         return $this->dao->get($id);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::getCollector() */
@@ -314,10 +295,10 @@ abstract class Repository
             return null;
         }
 
-        $revisionsDecisions = $this->getMany(
-            $this->getCollector()
-                ->filterBySubmissionIds([$submissionId])
-        );
+        $revisionsDecisions = $this->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->getMany();
+
         // Most recent decision first
         $revisionsDecisions = $revisionsDecisions->reverse();
 

@@ -169,13 +169,12 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
             if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-                $editorDecisions = Repo::decision()->getMany(
-                    Repo::decision()
-                        ->getCollector()
-                        ->filterBySubmissionIds([$submission->getId()])
-                        ->filterByStageIds([$submission->getData('stageId')])
-                        ->filterByReviewRoundIds([$lastReviewRound->getId()])
-                );
+                $editorDecisions = Repo::decision()->getCollector()
+                    ->filterBySubmissionIds([$submission->getId()])
+                    ->filterByStageIds([$submission->getData('stageId')])
+                    ->filterByReviewRoundIds([$lastReviewRound->getId()])
+                    ->getMany();
+
                 if (!$editorDecisions->isEmpty()) {
                     $lastDecision = $editorDecisions->last();
                     $revisionDecisions = [

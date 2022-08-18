@@ -65,11 +65,10 @@ class IndexHandler extends PKPIndexHandler
             $sections = $sectionDao->getByContextId($server->getId());
 
             // OPS: categories
-            $categories = Repo::category()->getMany(
-                Repo::category()
-                    ->getCollector()
-                    ->filterByContextIds([$server->getId()])
-            );
+            $categories = Repo::category()
+                ->getCollector()
+                ->filterByContextIds([$server->getId()])
+                ->getMany();
 
             // Latest preprints
             $collector = Repo::submission()->getCollector();

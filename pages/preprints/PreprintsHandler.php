@@ -58,8 +58,9 @@ class PreprintsHandler extends Handler
         $sections = $sectionDao->getByContextId($context->getId());
 
         // OPS: categories
-        $categories = Repo::category()->getMany(Repo::category()->getCollector()
-            ->filterByContextIds([$context->getId()]));
+        $categories = Repo::category()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : (int) Config::getVar('interface', 'items_per_page');
         $offset = $page > 1 ? ($page - 1) * $count : 0;

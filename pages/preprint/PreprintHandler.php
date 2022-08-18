@@ -193,8 +193,10 @@ class PreprintHandler extends Handler
         $this->setupTemplate($request);
 
         $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        $publicationCategories = Repo::category()->getMany(Repo::category()->getCollector()
-            ->filterByPublicationIds([$publication->getId()]));
+        $publicationCategories = Repo::category()->getCollector()
+            ->filterByPublicationIds([$publication->getId()])
+            ->getMany();
+
         $categories = [];
         foreach ($publicationCategories as $category) {
             $title = $category->getLocalizedTitle();

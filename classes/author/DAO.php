@@ -178,12 +178,12 @@ class DAO extends EntityDAO
      */
     public function resetContributorsOrder(int $publicationId)
     {
-        $authorIds = $this->getIds(
-            Repo::author()
-                ->getCollector()
-                ->filterByPublicationIds([$publicationId])
-                ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
-        );
+        $authorIds = Repo::author()
+            ->getCollector()
+            ->filterByPublicationIds([$publicationId])
+            ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
+            ->getIds();
+
         foreach ($authorIds as $seq => $authorId) {
             DB::table('authors')->where('author_id', '=', $authorId)->update(['seq' => $seq]);
         }

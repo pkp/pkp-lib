@@ -19,7 +19,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -61,24 +60,6 @@ class Repository
     public function get(int $id): ?Author
     {
         return $this->dao->get($id);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::getCollector() */
@@ -240,13 +221,12 @@ class Repository
     {
         $publication = $submission->getCurrentPublication();
 
-        return Repo::author()->getMany(
-            Repo::author()
-                ->getCollector()
-                ->filterByIncludeInBrowse($onlyIncludeInBrowse)
-                ->filterByPublicationIds([$publication->getId()])
-                ->orderBy(Repo::author()->getCollector()::ORDERBY_ID)
-        );
+        return Repo::author()
+            ->getCollector()
+            ->filterByIncludeInBrowse($onlyIncludeInBrowse)
+            ->filterByPublicationIds([$publication->getId()])
+            ->orderBy(\PKP\author\Collector::ORDERBY_ID)
+            ->getMany();
     }
 
     /**

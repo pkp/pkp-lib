@@ -1080,12 +1080,12 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        $collector = Repo::author()->getCollector();
-        $collector->filterByPublicationIds([$publication->getId()]);
-        $authors = Repo::author()->getMany($collector);
+        $collector = Repo::author()->getCollector()
+            ->filterByPublicationIds([$publication->getId()]);
+        $authors = $collector->getMany();
 
         return $response->withJson([
-            'itemsMax' => Repo::author()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::author()->getSchemaMap()->summarizeMany($authors),
         ], 200);
     }

@@ -382,12 +382,11 @@ class DAO extends EntityDAO
     {
         $publication->setData(
             'authors',
-            Repo::author()->getMany(
-                Repo::author()
-                    ->getCollector()
-                    ->filterByPublicationIds([$publication->getId()])
-                    ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
-            )
+            Repo::author()
+                ->getCollector()
+                ->filterByPublicationIds([$publication->getId()])
+                ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
+                ->getMany()
         );
     }
 
@@ -396,11 +395,10 @@ class DAO extends EntityDAO
      */
     protected function deleteAuthors(int $publicationId)
     {
-        $authors = Repo::author()->getMany(
-            Repo::author()
-                ->getCollector()
-                ->filterByPublicationIds([$publicationId])
-        );
+        $authors = Repo::author()
+            ->getCollector()
+            ->filterByPublicationIds([$publicationId])
+            ->getMany();
 
         foreach ($authors as $author) {
             Repo::author()->delete($author);

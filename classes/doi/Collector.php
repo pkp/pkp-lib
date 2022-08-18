@@ -39,6 +39,21 @@ class Collector implements CollectorInterface
         $this->dao = $dao;
     }
 
+    public function getCount(): int
+    {
+        return $this->dao->getCount($this);
+    }
+
+    public function getIds(): Collection
+    {
+        return $this->dao->getIds($this);
+    }
+
+    public function getMany(): LazyCollection
+    {
+        return $this->dao->getMany($this);
+    }
+
     /**
      * Filter DOI by one or more contexts
      */

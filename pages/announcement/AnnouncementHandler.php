@@ -63,14 +63,13 @@ class AnnouncementHandler extends Handler
         $templateMgr->assign('announcementsIntroduction', $announcementsIntro);
 
         // TODO the announcements list should support pagination
-        $announcements = Repo::announcement()->getMany(
-            Repo::announcement()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByActive()
-        );
-        $templateMgr->assign('announcements', $announcements->toArray());
+        $announcements = Repo::announcement()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByActive()
+            ->getMany();
 
+        $templateMgr->assign('announcements', $announcements->toArray());
         $templateMgr->display('frontend/pages/announcements.tpl');
     }
 

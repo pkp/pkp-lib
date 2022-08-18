@@ -33,13 +33,13 @@ class PKPIndexHandler extends Handler
         $enableAnnouncements = $context->getData('enableAnnouncements');
         $numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
         if ($enableAnnouncements && $numAnnouncementsHomepage) {
-            $announcements = Repo::announcement()->getMany(
-                Repo::announcement()
-                    ->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByActive()
-                    ->limit((int) $numAnnouncementsHomepage)
-            );
+            $announcements = Repo::announcement()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->filterByActive()
+                ->limit((int) $numAnnouncementsHomepage)
+                ->getMany();
+
             $templateMgr->assign([
                 'announcements' => $announcements->toArray(),
                 'numAnnouncementsHomepage' => $numAnnouncementsHomepage,

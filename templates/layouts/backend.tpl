@@ -53,11 +53,11 @@
 			{/if}
 			{if $currentContext}
 				<a class="app__contextTitle" href="{url page="index"}">
-					{$currentContext->getLocalizedData('name')}
+					{$currentContext->getLocalizedData('name')|escape}
 				</a>
 			{elseif $siteTitle}
 				<a class="app__contextTitle" href="{$baseUrl}">
-					{$siteTitle}
+					{$siteTitle|escape}
 				</a>
 			{else}
 				<div class="app__contextTitle">

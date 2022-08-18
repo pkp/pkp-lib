@@ -210,11 +210,11 @@ class PKPDoiHandler extends APIHandler
 
         Hook::call('API::dois::params', [$collector, $slimRequest]);
 
-        $dois = Repo::doi()->getMany($collector);
+        $dois = $collector->getMany();
 
         return $response->withJson(
             [
-                'itemsMax' => Repo::doi()->getCount($collector->limit(null)),
+                'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
                 'items' => Repo::doi()->getSchemaMap()->summarizeMany($dois),
             ],
             200

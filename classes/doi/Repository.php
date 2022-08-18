@@ -20,7 +20,6 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\Jobs\Doi\DepositSubmission;
 use PKP\plugins\Hook;
@@ -78,24 +77,6 @@ abstract class Repository
         return $this->dao->get($id);
     }
 
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
-    }
-
     /** @copydoc DAO::getCollector */
     public function getCollector(): Collector
     {
@@ -117,7 +98,7 @@ abstract class Repository
     public function isDuplicate(string $doi, ?int $excludeDoiId = null): bool
     {
         $collector = $this->getCollector()->filterByIdentifier($doi);
-        $ids = $this->getIds($collector);
+        $ids = $collector->getIds();
 
         if ($ids->count() == 0) {
             return false;
@@ -220,7 +201,7 @@ abstract class Repository
      */
     public function deleteMany(Collector $collector)
     {
-        $dois = $this->getMany($collector);
+        $dois = $collector->getMany();
         foreach ($dois as $doi) {
             $this->delete($doi);
         }

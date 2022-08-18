@@ -798,7 +798,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     public function _instantiateSettingsForm($context)
     {
         $settingsFormClassName = $this->getSettingsFormClassName();
-        $this->import('classes.form.' . $settingsFormClassName);
         $settingsForm = new $settingsFormClassName($this, $context->getId());
         return $settingsForm;
     }

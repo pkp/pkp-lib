@@ -17,12 +17,12 @@ namespace PKP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\context\Context;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -135,10 +135,10 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 
         // Assign sub editors for categories
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-        $categories = Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByPublicationIds([$this->submission->getCurrentPublication()->getId()])
-        );
+        $categories = Repo::category()->getCollector()
+            ->filterByPublicationIds([$this->submission->getCurrentPublication()->getId()])
+            ->getMany();
+
         foreach ($categories as $category) {
             $subEditors = $subEditorsDao->getBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $this->submission->getContextId());
             foreach ($subEditors as $subEditor) {

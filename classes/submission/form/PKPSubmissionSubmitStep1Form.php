@@ -180,17 +180,18 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
         $assignedCategories = [];
 
         if (isset($this->submission)) {
-            $assignedCategories = iterator_to_array(Repo::category()->getIds(
-                Repo::category()->getCollector()
-                    ->filterByPublicationIds([$this->submission->getCurrentPublication()->getId()])
-            ));
+            $assignedCategories = Repo::category()->getCollector()
+                ->filterByPublicationIds([$this->submission->getCurrentPublication()->getId()])
+                ->getIds()
+                ->toArray();
         }
 
         $items = [];
-        $categories = iterator_to_array(Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByContextIds([$this->context->getId()])
-        ));
+        $categories = Repo::category()->getCollector()
+            ->filterByContextIds([$this->context->getId()])
+            ->getMany()
+            ->toArray();
+
         foreach ($categories as $category) {
             $title = $category->getLocalizedTitle();
             if ($category->getParentId()) {

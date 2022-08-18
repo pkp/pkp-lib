@@ -493,10 +493,10 @@ class DAO extends EntityDAO
             function ($category) {
                 return (int) $category->getId();
             },
-            iterator_to_array(Repo::category()->getMany(
-                Repo::category()->getCollector()
-                    ->filterByPublicationIds([$publication->getId()])
-            ))
+            Repo::category()->getCollector()
+                ->filterByPublicationIds([$publication->getId()])
+                ->getMany()
+                ->toArray()
         ));
     }
 

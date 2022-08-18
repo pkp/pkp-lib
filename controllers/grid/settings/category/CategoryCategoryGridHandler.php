@@ -120,11 +120,11 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     public function loadData($request, $filter)
     {
         // For top-level rows, only list categories without parents.
-        return iterator_to_array(Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByContextIds([$this->_getContextId()])
-                ->filterByParentIds([null])
-        ));
+        return Repo::category()->getCollector()
+            ->filterByContextIds([$this->_getContextId()])
+            ->filterByParentIds([null])
+            ->getMany()
+            ->toArray();
     }
 
     /**
@@ -204,11 +204,11 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     public function loadCategoryData($request, &$category, $filter = null)
     {
         $categoryId = $category->getId();
-        return iterator_to_array(Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByContextIds([$this->_getContextId()])
-                ->filterByParentIds([$categoryId])
-        ));
+        return Repo::category()->getCollector()
+            ->filterByContextIds([$this->_getContextId()])
+            ->filterByParentIds([$categoryId])
+            ->getMany()
+            ->toArray();
     }
 
     /**

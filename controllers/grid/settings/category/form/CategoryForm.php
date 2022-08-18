@@ -70,11 +70,12 @@ class CategoryForm extends Form
             'required',
             'grid.category.pathExists',
             function ($path) use ($form, $contextId) {
-                $category = Repo::category()->getMany(
-                    Repo::category()->getCollector()
-                        ->filterByContextIds([$contextId])
-                        ->filterByPaths([$path])
-                )->first();
+                $category = Repo::category()->getCollector()
+                    ->filterByContextIds([$contextId])
+                    ->filterByPaths([$path])
+                    ->getMany()
+                    ->first();
+
                 return !$category || $category->getPath() == $form->getData('oldPath');
             }
         ));
@@ -201,11 +202,11 @@ class CategoryForm extends Form
         $templateMgr->assign('categoryId', $this->getCategoryId());
 
         // Provide a list of root categories to the template
-        $rootCategoriesCollection = Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByParentIds([null])
-                ->filterByContextIds([$context->getId()])
-        );
+        $rootCategoriesCollection = Repo::category()->getCollector()
+            ->filterByParentIds([null])
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
         $rootCategories = [null => __('common.none')];
         foreach ($rootCategoriesCollection as $category) {
             $categoryId = $category->getId();
@@ -220,11 +221,11 @@ class CategoryForm extends Form
         // if so, prevent the user from giving it a parent.
         // (Forced two-level maximum tree depth.)
         if ($this->getCategoryId()) {
-            $childCount = Repo::category()->getCount(
-                Repo::category()->getCollector()
-                    ->filterByParentIds([$this->getCategoryId()])
-                    ->filterByContextIds([$context->getId()])
-            );
+            $childCount = Repo::category()->getCollector()
+                ->filterByParentIds([$this->getCategoryId()])
+                ->filterByContextIds([$context->getId()])
+                ->getCount();
+
             $templateMgr->assign('cannotSelectChild', $childCount > 0);
         }
         // Sort options.

@@ -20,7 +20,11 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
+use PKP\controllers\grid\queries\traits\StageMailable;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
@@ -28,15 +32,11 @@ use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
-use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
-use PKP\facades\Locale;
-use PKP\core\PKPApplication;
-use PKP\controllers\grid\queries\traits\StageMailable;
 
 abstract class PKPStageParticipantNotifyForm extends Form
 {
-	use StageMailable;
+    use StageMailable;
 
     /** @var int The file/submission ID this form is for */
     public $_itemId;
@@ -97,9 +97,10 @@ abstract class PKPStageParticipantNotifyForm extends Form
         $customTemplateKeys = [];
         $roleDao = DAORegistry::getDAO('RoleDAO');
         if ($roleDao->userHasRole($submission->getData('contextId'), $user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-            $emailTemplates = Repo::emailTemplate()->getMany(Repo::emailTemplate()->getCollector()
+            $emailTemplates = Repo::emailTemplate()->getCollector()
                 ->filterByContext($submission->getData('contextId'))
-                ->filterByIsCustom(true));
+                ->filterByIsCustom(true)
+                ->getMany();
 
             foreach ($emailTemplates as $emailTemplate) {
                 $customTemplateKeys[] = $emailTemplate->getData('key');
@@ -335,7 +336,6 @@ abstract class PKPStageParticipantNotifyForm extends Form
      * @param int $type NOTIFICATION_TYPE_...
      * @param int $userId User ID
      * @param int $submissionId Submission ID
-     * @param bool $suppressEmail Indicates whether not to send the Notification email to the user.
      */
     private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId)
     {

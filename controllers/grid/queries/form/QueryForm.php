@@ -253,9 +253,10 @@ class QueryForm extends Form
             $templateKeys = [];
             // Determine if the current user can use any custom templates defined.
             if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
-                $emailTemplates = Repo::emailTemplate()->getMany(Repo::emailTemplate()->getCollector()
+                $emailTemplates = Repo::emailTemplate()->getCollector()
                     ->filterByContext($context->getId())
-                    ->filterByIsCustom(true));
+                    ->filterByIsCustom(true)
+                    ->getMany();
 
                 $templateKeys[] = 'NOTIFICATION_CENTER_DEFAULT';
                 foreach ($emailTemplates as $emailTemplate) {

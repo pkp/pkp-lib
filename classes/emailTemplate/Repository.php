@@ -14,8 +14,6 @@
 namespace PKP\emailTemplate;
 
 use APP\emailTemplate\DAO;
-use App\facades\Repo;
-use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -53,18 +51,6 @@ class Repository
     public function getByKey(int $contextId, string $key): ?EmailTemplate
     {
         return $this->dao->getByKey($contextId, $key);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
     }
 
     /** @copydoc DAO::getCollector() */
@@ -197,8 +183,11 @@ class Repository
      */
     public function restoreDefaults($contextId): array
     {
-        $collector = Repo::emailTemplate()->getCollector()->filterByContext($contextId)->filterByIsModified(true);
-        $results = $this->dao->getMany($collector);
+        $results = $this->getCollector()
+            ->filterByContext($contextId)
+            ->filterByIsModified(true)
+            ->getMany();
+
         $deletedKeys = [];
         $results->each(function ($emailTemplate) use ($deletedKeys) {
             $deletedKeys[] = $emailTemplate->getData('key');

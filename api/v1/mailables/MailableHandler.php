@@ -140,12 +140,11 @@ class MailableHandler extends APIHandler
         }
 
         if (!$removeAssignedTemplates) {
-            $templateCollection = Repo::emailTemplate()->getMany(
-                Repo::emailTemplate()->getCollector()
-                    ->filterByContext($requestContextId)
-                    ->filterByIsCustom(true)
-                    ->filterByKeys($templateKeys)
-            );
+            $templateCollection = Repo::emailTemplate()->getCollector()
+                ->filterByContext($requestContextId)
+                ->filterByIsCustom(true)
+                ->filterByKeys($templateKeys)
+                ->getMany();
 
             if ($templateCollection->count() !== count($templateKeys)) {
                 return $response->withJson(404)->withJsonError('api.mailables.404.templateNotFound');
@@ -158,11 +157,11 @@ class MailableHandler extends APIHandler
         );
 
         // Attach associated custom email templates to the response
-        $collector = Repo::emailTemplate()->getCollector()
+        $templates = Repo::emailTemplate()->getCollector()
             ->filterByMailables([$mailableId])
-            ->filterByContext($requestContextId);
+            ->filterByContext($requestContextId)
+            ->getMany();
 
-        $templates = Repo::emailTemplate()->getMany($collector);
         $assignedTemplateKeys = [];
         foreach ($templates as $template) {
             $assignedTemplateKeys[] = $template->getData('key');

@@ -289,9 +289,10 @@ class ReviewerForm extends Form
         $userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
         foreach ($userRoles as $userRole) {
             if (in_array($userRole->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-                $emailTemplatesIterator = Repo::emailTemplate()->getMany(Repo::emailTemplate()->getCollector()
+                $emailTemplatesIterator = Repo::emailTemplate()->getCollector()
                     ->filterByContext($submission->getData('contextId'))
-                    ->filterByIsCustom(true));
+                    ->filterByIsCustom(true)
+                    ->getMany();
 
                 $customTemplateKeys = [];
                 foreach ($emailTemplatesIterator as $emailTemplate) {
@@ -302,12 +303,11 @@ class ReviewerForm extends Form
             }
         }
 
-        $templatesCollection = Repo::emailTemplate()->getMany(
-            Repo::emailTemplate()
-                ->getCollector()
-                ->filterByKeys($templateKeys)
-                ->filterByContext($context->getId())
-        );
+        $templatesCollection = Repo::emailTemplate()->getCollector()
+            ->filterByKeys($templateKeys)
+            ->filterByContext($context->getId())
+            ->getMany();
+
         $templates = $templatesCollection->mapWithKeys(function (EmailTemplate $emailTemplate, int $key) {
             return [
                 $emailTemplate->getData('key') => $emailTemplate->getLocalizedData('subject')

@@ -149,11 +149,11 @@ class DAO extends EntityDAO
      */
     public function getByKey(int $contextId, string $key): ?EmailTemplate
     {
-        $results = $this->getMany(
-            Repo::emailTemplate()->getCollector()
-                ->filterByContext($contextId)
-                ->filterByKeys([$key])
-        );
+        $results = Repo::emailTemplate()->getCollector()
+            ->filterByContext($contextId)
+            ->filterByKeys([$key])
+            ->getMany();
+
         return $results->isNotEmpty() ? $results->first() : null;
     }
 

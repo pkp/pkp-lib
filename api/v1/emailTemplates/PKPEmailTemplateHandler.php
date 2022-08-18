@@ -142,10 +142,10 @@ class PKPEmailTemplateHandler extends APIHandler
         // Always restrict results to the current context
         $collector->filterByContext($request->getContext()->getId());
 
-        $emailTemplatesCollection = Repo::emailTemplate()->getMany($collector);
+        $emailTemplatesCollection = $collector->getMany();
 
         return $response->withJson([
-            'itemsMax' => Repo::emailTemplate()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::emailTemplate()->getSchemaMap()->summarizeMany($emailTemplatesCollection),
         ], 200);
     }

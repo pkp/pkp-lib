@@ -57,11 +57,12 @@ class PKPCatalogHandler extends Handler
         $context = $request->getContext();
 
         // Get the category
-        $category = Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByPaths([$args[0]])
-                ->filterByContextIds([$context->getId()])
-        )->first();
+        $category = Repo::category()->getCollector()
+            ->filterByPaths([$args[0]])
+            ->filterByContextIds([$context->getId()])
+            ->getMany()
+            ->first();
+
         if (!$category) {
             $this->getDispatcher()->handle404();
         }
@@ -90,10 +91,9 @@ class PKPCatalogHandler extends Handler
 
         // Provide the parent category and a list of subcategories
         $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;
-        $subcategories = Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByParentIds([$category->getId()])
-        );
+        $subcategories = Repo::category()->getCollector()
+            ->filterByParentIds([$category->getId()])
+            ->getMany();
 
         $this->_setupPaginationTemplate($request, count($submissions), $page, $count, $offset, $total);
 

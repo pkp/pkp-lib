@@ -14,8 +14,6 @@
 namespace PKP\category;
 
 use APP\core\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\LazyCollection;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -56,24 +54,6 @@ class Repository
     public function get(int $id): ?Category
     {
         return $this->dao->get($id);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::getCollector() */

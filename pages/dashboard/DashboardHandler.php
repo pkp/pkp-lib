@@ -84,10 +84,10 @@ class DashboardHandler extends Handler
 
         // Get all available categories
         $categories = [];
-        $categoryCollection = Repo::category()->getMany(
-            Repo::category()->getCollector()
-                ->filterByContextIds([$context->getId()])
-        );
+        $categoryCollection = Repo::category()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
         foreach ($categoryCollection as $category) {
             $categories[] = [
                 'id' => $category->getId(),

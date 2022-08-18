@@ -44,10 +44,10 @@ class CategoryGridCategoryRow extends GridCategoryRow
             $category = $this->getData();
             $router = $request->getRouter();
 
-            $childCategoryCount = Repo::category()->getCount(
-                Repo::category()->getCollector()
-                    ->filterByParentIds([$categoryId])
-            );
+            $childCategoryCount = Repo::category()->getCollector()
+                ->filterByParentIds([$categoryId])
+                ->getCount();
+
             if ($childCategoryCount == 0) {
                 $this->addAction(
                     new LinkAction(

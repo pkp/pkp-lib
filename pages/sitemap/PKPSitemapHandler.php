@@ -105,11 +105,11 @@ class PKPSitemapHandler extends Handler
         // Announcements
         if ($context->getData('enableAnnouncements') == 1) {
             $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement')));
-            $announcementIds = Repo::announcement()->getIds(
-                Repo::announcement()
-                    ->getCollector()
-                    ->filterByContextIds([$context->getId()])
-            );
+            $announcementIds = Repo::announcement()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->getIds();
+
             foreach ($announcementIds as $announcementId) {
                 $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement', 'view', $announcementId)));
             }

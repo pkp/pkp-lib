@@ -164,10 +164,10 @@ class PKPAnnouncementHandler extends APIHandler
 
         Hook::call('API::submissions::params', [$collector, $slimRequest]);
 
-        $announcements = Repo::announcement()->getMany($collector);
+        $announcements = $collector->getMany();
 
         return $response->withJson([
-            'itemsMax' => Repo::announcement()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements),
         ], 200);
     }

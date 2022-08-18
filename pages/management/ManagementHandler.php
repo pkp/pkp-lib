@@ -351,9 +351,9 @@ class ManagementHandler extends Handler
             ->getCollector()
             ->filterByContextIds([$request->getContext()->getId()]);
 
-        $itemsMax = Repo::announcement()->getCount($collector);
+        $itemsMax = $collector->getCount();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
-            Repo::announcement()->getMany($collector->limit(30))
+            $collector->limit(30)->getMany()
         );
 
         $announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(

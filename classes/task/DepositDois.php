@@ -44,7 +44,3 @@ class DepositDois extends ScheduledTask
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\task\DepositDois', '\DepositDois');
-}

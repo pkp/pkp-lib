@@ -69,7 +69,3 @@ class UpdateIPGeoDB extends ScheduledTask
         return $fileMgr->setMode($finalFileName, FileManager::FILE_MODE_MASK);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\task\UpdateIPGeoDB', '\UpdateIPGeoDB');
-}

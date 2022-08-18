@@ -531,7 +531,7 @@ abstract class Plugin
     /**
      * Load a PHP file from this plugin's installation directory.
      *
-     * @deprecated 3.4.0
+     * @deprecated 3.4.0 pkp/pkp-lib#8186
      *
      * @param string $class
      */

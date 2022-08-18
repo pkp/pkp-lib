@@ -170,7 +170,7 @@ class MetadataDescription extends \PKP\core\DataObject
         if (is_null($this->_metadataSchema)) {
             $metadataSchemaName = $this->getMetadataSchemaName();
             if (preg_match('/^[a-zA-Z0-9_.]+$/', $metadataSchemaName)) {
-                // DEPRECATED as of 3.4.0: non-PSR classloading
+                // DEPRECATED as of 3.4.0: non-PSR classloading pkp/pkp-lib#8186
                 $this->_metadataSchema = & instantiate($metadataSchemaName, \PKP\metadata\MetadataSchema::class);
             } elseif (class_exists($metadataSchemaName)) {
                 $this->_metadataSchema = new $metadataSchemaName();

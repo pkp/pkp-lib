@@ -49,7 +49,3 @@ class RemoveUnvalidatedExpiredUsers extends ScheduledTask
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\task\RemoveUnvalidatedExpiredUsers', '\RemoveUnvalidatedExpiredUsers');
-}

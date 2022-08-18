@@ -114,8 +114,13 @@ class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
     public function executeTask($className, $args)
     {
         // Load and execute the task
-        if (!is_object($task = instantiate($className, null, null, 'execute', $args))) {
-            fatalError('Cannot instantiate task class.');
+        if (preg_match('/^[a-zA-Z0-9_.]+$/', $className)) {
+            // DEPRECATED as of 3.4.0: Use old class.name.style and import() function (pre-PSR classloading) pkp/pkp-lib#8186
+            if (!is_object($task = instantiate($className, null, null, 'execute', $args))) {
+                fatalError('Cannot instantiate task class.');
+            }
+        } else {
+            $task = new $className($args);
         }
         $this->taskDao->updateLastRunTime($className);
         $task->execute();

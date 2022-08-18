@@ -1,4 +1,4 @@
-# Tormod Strømme <tormod.stromme@uib.no>, 2022.
+# Tormod Strømme <tormod.stromme@uib.no>, 2022, 2023.
 # Eirik Hanssen <eirikh@oslomet.no>, 2023.
 msgid ""
 msgstr ""
@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
 "Language: nb\n"

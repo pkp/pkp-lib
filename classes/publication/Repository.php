@@ -210,7 +210,7 @@ class Repository extends \PKP\publication\Repository
     public function delete(Publication $publication)
     {
         $galleys = Repo::galley()->getCollector()
-            ->filterByPublicationIds([$publication->getId()]);
+            ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
         foreach ($galleys as $galley) {

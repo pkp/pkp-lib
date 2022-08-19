@@ -64,7 +64,7 @@ class IssueEntryForm extends FormComponent
         // Categories
         $categoryOptions = [];
         $categories = Repo::category()->getCollector()
-            ->filterByContextIds([$publicationContext->getId()]);
+            ->filterByContextIds([$publicationContext->getId()])
             ->getMany()
             ->toArray();
 

@@ -241,36 +241,6 @@ class DataObject
 
 
     //
-    // Public helper methods
-    //
-    /**
-     * Upcast this data object to the target object.
-     *
-     * We use the DataObject's getAllData() and setAllData() interface
-     * to upcast objects. This means that if the default implementations
-     * of these methods do not provide data that is adequate for
-     * upcasting between objects of the same inheritance hierarchy
-     * then objects that need more complicated casting behavior
-     * must override these methods.
-     *
-     * Note: Data in the target object will be overwritten. We do not
-     * clone the target object before we upcast.
-     *
-     * @param \PKP\core\DataObject $targetObject The object to cast to.
-     *
-     * @return \PKP\core\DataObject The upcast target object.
-     */
-    public function upcastTo($targetObject)
-    {
-        // Copy data from the source to the target.
-        $targetObject->setAllData($this->getAllData());
-
-        // Return the upcast object.
-        return $targetObject;
-    }
-
-
-    //
     // MetadataProvider interface implementation
     //
     /**
@@ -534,7 +504,7 @@ class DataObject
     }
 
     /**
-     * Get DAO class name for this object.
+     * Get DAO class for this object.
      *
      * @return DAO
      */

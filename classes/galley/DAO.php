@@ -148,11 +148,10 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /** @copydoc RepresentationDAOInterface::getByPublicationId() */
     public function getByPublicationId(int $publicationId): array
     {
-        return Repo::galley()->getMany(
-            Repo::galley()
-                ->getCollector()
-                ->filterByPublicationIds([$publicationId])
-        )->toArray();
+        return Repo::galley()->getCollector()
+            ->filterByPublicationIds([$publicationId])
+            ->getMany()
+            ->toArray();
     }
 
     /** @copydoc RepresentationDAOInterface::updateObject() */
@@ -217,11 +216,10 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     {
         $settingName = 'pub-id::' . $pubIdType;
 
-        $galleyIds = Repo::galley()->getIds(
-            Repo::galley()
-                ->getCollector()
-                ->filterByContextIds([(int) $contextId])
-        );
+        $galleyIds = Repo::galley()
+            ->getCollector()
+            ->filterByContextIds([(int) $contextId])
+            ->getIds();
 
         foreach ($galleyIds as $galleyId) {
             $this->deprecatedDao->update(

@@ -135,10 +135,10 @@ class PKPInstitutionHandler extends APIHandler
 
         Hook::call('API::institutions::params', [$collector, $slimRequest]);
 
-        $institutions = Repo::institution()->getMany($collector);
+        $institutions = $collector->getMany();
 
         return $response->withJson([
-            'itemsMax' => Repo::institution()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::institution()->getSchemaMap()->summarizeMany($institutions->values()),
         ], 200);
     }

@@ -403,9 +403,9 @@ class ManagementHandler extends Handler
             ->getCollector()
             ->filterByContextIds([$request->getContext()->getId()]);
 
-        $itemsMax = Repo::institution()->getCount($collector);
+        $itemsMax = $collector->getCount();
         $items = Repo::institution()->getSchemaMap()->summarizeMany(
-            Repo::institution()->getMany($collector->limit(30))->values()
+            $collector->limit(30)->getMany()
         );
 
         $institutionsListPanel = new \PKP\components\listPanels\PKPInstitutionsListPanel(

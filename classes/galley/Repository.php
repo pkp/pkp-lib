@@ -17,9 +17,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\LazyCollection;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -65,24 +63,6 @@ class Repository
     public function getByUrlPath(string $urlPath, Publication $publication): ?Galley
     {
         return $this->dao->getByUrlPath($urlPath, $publication);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::getCollector() */

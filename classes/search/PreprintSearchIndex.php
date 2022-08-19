@@ -150,26 +150,25 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         // If no search plug-in is activated then fall back to the
         // default database search implementation.
         if ($hookResult === false || is_null($hookResult)) {
-            $collector = Repo::submissionFile()
+            $submissionFiles = Repo::submissionFile()
                 ->getCollector()
                 ->filterBySubmissionIds([$preprint->getId()])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF]);
-
-            $submissionFiles = Repo::submissionFile()->getMany($collector);
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
+                ->getMany();
 
             foreach ($submissionFiles as $submissionFile) {
                 $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
 
-                $collector = Repo::submissionFile()
+                $dependentFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
                         ASSOC_TYPE_SUBMISSION_FILE,
                         [$submissionFile->getId()]
                     )->filterBySubmissionIds([$preprint->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
-                    ->includeDependentFiles();
+                    ->includeDependentFiles()
+                    ->getMany();
 
-                $dependentFiles = Repo::submissionFile()->getMany($collector);
                 foreach ($dependentFiles as $dependentFile) {
                     $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_SUPPLEMENTARY_FILE, $dependentFile);
                 }

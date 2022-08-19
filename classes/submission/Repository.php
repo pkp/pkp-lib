@@ -21,7 +21,6 @@ use APP\publication\Publication;
 use APP\submission\Collector;
 use APP\submission\DAO;
 use APP\submission\Submission;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
@@ -75,25 +74,6 @@ abstract class Repository
     {
         return $this->dao->get($id);
     }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
-    }
-
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
@@ -402,8 +382,7 @@ abstract class Repository
      */
     public function deleteByContextId(int $contextId)
     {
-        $collector = Repo::submission()->getCollector()->filterByContextIds([$contextId]);
-        $submissionIds = Repo::submission()->getIds($collector);
+        $submissionIds = Repo::submission()->getCollector()->filterByContextIds([$contextId])->getIds();
         foreach ($submissionIds as $submissionId) {
             $this->dao->deleteById($submissionId);
         }
@@ -451,8 +430,7 @@ abstract class Repository
      */
     public function resetPermissions(int $contextId)
     {
-        $collector = Repo::submission()->getCollector()->filterByContextIds([$contextId]);
-        $submissions = Repo::submission()->getMany($collector);
+        $submissions = Repo::submission()->getCollector()->filterByContextIds([$contextId])->getMany($collector);
         while ($submission = $submissions->next()) {
             $publications = (array) $submission->getData('publications');
             if (empty($publications)) {

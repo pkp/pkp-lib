@@ -760,13 +760,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      */
     protected function _processSearchPhrase(string $searchPhrase, array $submissionIds = []): array
     {
-        $searchPhraseSubmissionIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-                ->searchPhrase($searchPhrase)
-        );
+        $searchPhraseSubmissionIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->searchPhrase($searchPhrase)
+            ->getIds();
 
         if (!empty($submissionIds)) {
             $submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds->toArray());

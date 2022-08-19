@@ -18,7 +18,9 @@ use Carbon\Carbon;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use InvalidArgumentException;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPString;
@@ -74,6 +76,21 @@ class Collector implements CollectorInterface
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
+    }
+
+    public function getCount(): int
+    {
+        return $this->dao->getCount($this);
+    }
+
+    public function getMany(): LazyCollection
+    {
+        return $this->dao->getMany($this);
+    }
+
+    public function getIds(): Collection
+    {
+        return $this->dao->getIds($this);
     }
 
     /**

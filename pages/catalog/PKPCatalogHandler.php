@@ -86,8 +86,8 @@ class PKPCatalogHandler extends Handler
             $collector->orderByFeatured(true);
         }
 
-        $total = Repo::submission()->getCount($collector);
-        $submissions = Repo::submission()->getMany($collector->limit($count)->offset($offset));
+        $total = $collector->getCount();
+        $submissions = $collector->limit($count)->offset($offset)->getMany();
 
         // Provide the parent category and a list of subcategories
         $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;

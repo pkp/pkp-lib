@@ -90,12 +90,11 @@ class generateTestMetrics extends \PKP\cliTool\CommandLineTool
      */
     public function getPublishedSubmissionIds()
     {
-        return Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$this->contextId])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-        );
+        return Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$this->contextId])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getIds();
     }
 }
 

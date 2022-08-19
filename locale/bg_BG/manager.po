@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-18 18:33+0000\n"
+"PO-Revision-Date: 2022-08-19 12:59+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3285,3 +3285,112 @@ msgstr "Невалиден IP диапазон"
 
 msgid "manager.setup.institutions"
 msgstr "Институции"
+
+msgid "mailable.passwordReset.name"
+msgstr "Нулиране на парола"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Потвърждение за нулиране на парола"
+
+msgid "mailable.userRegister.name"
+msgstr "Регистър на потребителя"
+
+msgid "mailable.submissionAck.name"
+msgstr "Потвърждение за подадени материали"
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "Потвърждение за подадени материали"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Регистър на рецензента"
+
+msgid "mailable.discussionReview.name"
+msgstr "Преглед на дискусия"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Този имейл се изпраща на етапа на работния процес по рецензиране, за да "
+"уведоми потребителя"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Дискусия - стилово редактиране"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Известие за преработена версия"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Дискусия за подадени материали"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Този имейл се изпраща на етапа на подаване на материали, за да уведоми "
+"потребителя"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Редактиране на известие за рецензия"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява рецензента за променени подробности относно "
+"рецензията"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява асоциираните редактори за нова версия на "
+"публикацията"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Уведомления на редакторите за коментар на рецензента"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Този имейл се изпраща автоматично до асоциираните редактори, когато "
+"рецензентът направи препоръка"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Дискусия - продукционен етап"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Поканеният рецензент на подадените материали е отменен."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Материали, изпратени обратно от етапа за стилово редактиране"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че неговото изпращане е върнато от етапа на "
+"стилово редактиране."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Кръгът за рецензиране е отменен"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Връзка към страницата със статистика на публикуваните статии"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че кръгът за рецензиране на техните подадени "
+"материали е отменен."
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Този имейл се изпраща на етапа настилово редактиране, за да уведоми "
+"потребителя"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Този имейл се изпраща на продукционния етап на работния процес, за да "
+"уведоми потребителя"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Известие за статистически отчет"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Известие за публикувана версия"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Редакционно напомняне"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Автоматичен имейл, изпратен до редакторите с неизпълнени задачи"

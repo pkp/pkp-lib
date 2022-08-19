@@ -232,23 +232,23 @@ class CategoryForm extends Form
         $templateMgr->assign('sortOptions', Repo::submission()->getSortSelectOptions());
 
         // Sub Editors
-        $usersIterator = Repo::user()->getMany(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-        );
+        $usersIterator = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
+            ->getMany();
+
         $availableSubeditors = [];
         foreach ($usersIterator as $user) {
             $availableSubeditors[$user->getId()] = $user->getFullName();
         }
         $assignedToCategory = [];
         if ($this->getCategoryId()) {
-            $assignedToCategory = Repo::user()->getIds(
-                Repo::user()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-                    ->assignedToCategoryIds([$this->getCategoryId()])
-            )->toArray();
+            $assignedToCategory = Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
+                ->assignedToCategoryIds([$this->getCategoryId()])
+                ->getIds()
+                ->toArray();
         }
         $templateMgr->assign([
             'availableSubeditors' => $availableSubeditors,

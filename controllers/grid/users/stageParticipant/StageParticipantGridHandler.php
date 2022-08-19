@@ -20,8 +20,10 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -30,12 +32,10 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
 use PKP\log\SubmissionLog;
-use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
-use Illuminate\Support\Facades\Mail;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
@@ -464,7 +464,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
         $collector = Repo::user()->getCollector();
         $collector->filterExcludeSubmissionStage($submission->getId(), $stageId, $userGroupId);
-        $users = Repo::user()->getMany($collector);
+        $users = $collector->getMany();
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroup = $userGroupDao->getById($userGroupId);

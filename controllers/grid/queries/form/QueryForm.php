@@ -331,16 +331,15 @@ class QueryForm extends Form
                 }
             }
 
-            $usersIterator = Repo::user()->getMany(
-                Repo::user()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->limit(100)
-                    ->offset(0)
-                    ->assignedTo($query->getAssocId(), $query->getStageId())
-                    ->excludeUserIds($excludeUsers)
-            );
+            $usersIterator = Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->limit(100)
+                ->offset(0)
+                ->assignedTo($query->getAssocId(), $query->getStageId())
+                ->excludeUserIds($excludeUsers)
+                ->getMany();
 
-            $includedUsersIterator = Repo::user()->getMany(Repo::user()->getCollector()->filterByUserIds($includeUsers));
+            $includedUsersIterator = Repo::user()->getCollector()->filterByUserIds($includeUsers)->getMany();
             $usersIterator = $usersIterator->merge($includedUsersIterator);
 
             $allParticipants = [];

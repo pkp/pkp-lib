@@ -566,11 +566,11 @@ class PKPSubmissionHandler extends APIHandler
 
         $data = [];
 
-        $usersIterator = Repo::user()->getMany(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->assignedTo($submission->getId(), $stageId)
-        );
+        $usersIterator = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->assignedTo($submission->getId(), $stageId)
+            ->getMany();
+
         $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
             $data[] = $map->summarizeReviewer($user);
@@ -743,11 +743,10 @@ class PKPSubmissionHandler extends APIHandler
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
-        $usersIterator = Repo::user()->getMany(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$submission->getContextId()])
-                ->assignedTo($submission->getId())
-        );
+        $usersIterator = Repo::user()->getCollector()
+            ->filterByContextIds([$submission->getContextId()])
+            ->assignedTo($submission->getId())
+            ->getMany();
 
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');

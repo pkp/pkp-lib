@@ -163,7 +163,7 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItems($request)
     {
-        $reviewers = Repo::user()->getMany($this->_getCollector());
+        $reviewers = $this->_getCollector()->getMany();
         $items = [];
         $map = Repo::user()->getSchemaMap();
         foreach ($reviewers as $reviewer) {
@@ -180,8 +180,7 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        $collector = $this->_getCollector();
-        return Repo::user()->getCount($collector->offset(null)->limit(null));
+        return $this->_getCollector()->offset(null)->limit(null)->getCount();
     }
 
     /**

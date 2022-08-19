@@ -146,9 +146,10 @@ class ManagementHandler extends Handler
             $userGroups = $userGroupDao->getByRoleId(PKPApplication::CONTEXT_SITE, Role::ROLE_ID_SITE_ADMIN);
             $adminUserGroup = $userGroups->next();
 
-            $collector = Repo::user()->getCollector();
-            $collector->filterByUserGroupIds([$adminUserGroup->getId()]);
-            $siteAdmin = Repo::user()->getMany($collector)->first();
+            $siteAdmin = Repo::user()->getCollector()
+                ->filterByUserGroupIds([$adminUserGroup->getId()])
+                ->getMany()
+                ->first();
             $templateMgr->assign('siteAdmin', $siteAdmin);
         }
 

@@ -583,7 +583,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 				->groupBy('ra.reviewer_id')
 				->select('ra.reviewer_id')
 				->selectRaw('MAX(ra.date_assigned) AS last_assigned')
-				->selectRaw('COUNT(CASE WHEN ra.date_completed IS NULL AND ra.declined = 0 THEN 1 END) AS incomplete_count')
+				->selectRaw('COUNT(CASE WHEN ra.date_completed IS NULL AND ra.declined = 0 AND ra.cancelled = 0 THEN 1 END) AS incomplete_count')
 				->selectRaw('COUNT(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined = 0 THEN 1 END) AS complete_count')
 				->selectRaw('SUM(ra.declined) AS declined_count')
 				->selectRaw('SUM(ra.cancelled) AS cancelled_count')

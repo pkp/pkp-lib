@@ -191,11 +191,9 @@ class OAIDAO extends PKPOAIDAO
 
         if ($isRecord) {
             $submission = Repo::submission()->get($preprintId);
-            $galleys = Repo::galley()->getMany(
-                Repo::galley()
-                    ->getCollector()
-                    ->filterByPublicationIds([$submission->getCurrentPublication()->getId()])
-            );
+            $galleys = Repo::galley()->getCollector()
+                ->filterByPublicationIds([$submission->getCurrentPublication()->getId()])
+                ->getMany();
 
             $record->setData('preprint', $submission);
             $record->setData('server', $server);

@@ -135,11 +135,9 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $driverVersion = 'info:eu-repo/semantics/draft';
         $dc11Description->addStatement('dc:type', $driverVersion, MetadataDescription::METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
-        $galleys = Repo::galley()->getMany(
-            Repo::galley()
-                ->getCollector()
-                ->filterByPublicationIds([$submission->getCurrentPublication()->getId()])
-        );
+        $galleys = Repo::galley()->getCollector()
+            ->filterByPublicationIds([$submission->getCurrentPublication()->getId()])
+            ->getMany();
 
         // Format
         foreach ($galleys as $galley) {

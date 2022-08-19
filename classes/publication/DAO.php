@@ -39,11 +39,9 @@ class DAO extends \PKP\publication\DAO
     {
         $publication = parent::fromRow($primaryRow);
 
-        $collector = Repo::galley()->getCollector();
-        $collector->filterByPublicationIds([$publication->getId()]);
-        $galleys = Repo::galley()->getMany($collector);
-
-        $publication->setData('galleys', $galleys);
+        $publication->setData('galleys', Repo::galley()->getCollector()
+            ->filterByPublicationIds([$publication->getId()])
+            ->getMany());
 
         return $publication;
     }

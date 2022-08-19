@@ -293,7 +293,12 @@ abstract class PKPStatisticsHelper
         if (array_key_exists($hashedIp, $cachedInstitutionData) && array_key_exists($contextId, $cachedInstitutionData[$hashedIp])) {
             return $cachedInstitutionData[$hashedIp][$contextId];
         }
-        $institutionIds = Repo::institution()->getIds(Repo::institution()->getCollector()->filterByContextIds([$contextId])->filterByIps([$ip]))->toArray();
+        $institutionIds = Repo::institution()->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterByIps([$ip])
+            ->getIds()
+            ->toArray();
+
         $cachedInstitutionData[$hashedIp][$contextId] = $institutionIds;
         $this->institutionDataCache->setEntireCache($cachedInstitutionData);
         return $cachedInstitutionData[$hashedIp][$contextId];

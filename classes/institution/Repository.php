@@ -15,7 +15,6 @@ namespace PKP\institution;
 
 use APP\core\Request;
 use APP\core\Services;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPString;
@@ -65,24 +64,6 @@ class Repository
     public function get(int $id): ?Institution
     {
         return $this->dao->get($id);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::getSoftDeleted() */

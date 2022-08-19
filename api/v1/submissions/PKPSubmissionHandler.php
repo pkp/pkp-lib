@@ -599,9 +599,10 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $collector = Repo::publication()->getCollector();
-        $collector->filterBySubmissionIds([$submission->getId()]);
-        $publications = Repo::publication()->getMany($collector);
+        $collector = Repo::publication()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()]);
+
+        $publications = $collector->getMany();
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
@@ -618,7 +619,7 @@ class PKPSubmissionHandler extends APIHandler
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return $response->withJson([
-            'itemsMax' => Repo::publication()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize),
         ], 200);
     }

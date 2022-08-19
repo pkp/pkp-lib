@@ -22,9 +22,7 @@ use APP\log\SubmissionEventLogEntry;
 use APP\publication\DAO;
 use APP\publication\Publication;
 use APP\submission\Submission;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
@@ -80,24 +78,6 @@ abstract class Repository
     public function get(int $id): ?Publication
     {
         return $this->dao->get($id);
-    }
-
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::getCollector() */

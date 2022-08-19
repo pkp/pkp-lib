@@ -14,21 +14,38 @@
 namespace PKP\publication;
 
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
-    public DAO $dao;
+    public \APP\publication\DAO $dao;
     public ?array $contextIds;
     public ?array $submissionIds;
     public ?int $count;
     public ?int $offset;
 
-    public function __construct(DAO $dao)
+    public function __construct(\APP\publication\DAO $dao)
     {
         $this->dao = $dao;
+    }
+
+    public function getCount(): int
+    {
+        return $this->dao->getCount($this);
+    }
+
+    public function getIds(): Collection
+    {
+        return $this->dao->getIds($this);
+    }
+
+    public function getMany(): LazyCollection
+    {
+        return $this->dao->getMany($this);
     }
 
     /**

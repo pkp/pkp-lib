@@ -199,13 +199,11 @@ class DAO extends EntityDAO
     {
         $submission = parent::fromRow($row);
 
-        $submissionCollector = Repo::publication()
-            ->getCollector()
-            ->filterBySubmissionIds([$submission->getId()]);
-
         $submission->setData(
             'publications',
-            Repo::publication()->getMany($submissionCollector)
+            Repo::publication()->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->getMany()
         );
 
         return $submission;
@@ -243,8 +241,10 @@ class DAO extends EntityDAO
         $submission = Repo::submission()->get($id);
 
         // Delete publications
-        $publicationCollector = Repo::publication()->getCollector()->filterBySubmissionIds([$id]);
-        $publications = Repo::publication()->getMany($publicationCollector);
+        $publications = Repo::publication()->getCollector()
+            ->filterBySubmissionIds([$id])
+            ->getMany();
+
         foreach ($publications as $publication) {
             Repo::publication()->delete($publication);
         }

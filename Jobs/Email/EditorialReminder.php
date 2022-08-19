@@ -61,14 +61,13 @@ class EditorialReminder extends BaseJob
         $requestLocale = Locale::getLocale();
         Locale::setLocale($this->getLocale($editor, $context));
 
-        $submissionIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->assignedTo([$this->editorId])
-                ->filterByContextIds([$this->contextId])
-                ->filterByStatus([Submission::STATUS_QUEUED])
-                ->filterByIncomplete(false)
-        );
+        $submissionIds = Repo::submission()
+            ->getCollector()
+            ->assignedTo([$this->editorId])
+            ->filterByContextIds([$this->contextId])
+            ->filterByStatus([Submission::STATUS_QUEUED])
+            ->filterByIncomplete(false)
+            ->getIds();
 
         $outstanding = [];
         $submissions = [];

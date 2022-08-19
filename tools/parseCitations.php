@@ -61,8 +61,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
             case 'all':
                 $contexts = $contextDao->getAll();
                 while ($context = $contexts->next()) {
-                    $collector = Repo::submission()->getCollector()->filterByContextIds([$context->getId()]);
-                    $submissions = Repo::submission()->getMany($collector);
+                    $submissions = Repo::submission()->getCollector()->filterByContextIds([$context->getId()])->getMany();
                     foreach ($submissions as $submission) {
                         $this->_parseSubmission($submission);
                     }
@@ -75,8 +74,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                         printf("Error: Skipping ${contextId}. Unknown context.\n");
                         continue;
                     }
-                    $collector = Repo::submission()->getCollector()->filterByContextIds([$context->getId()]);
-                    $submissions = Repo::submission()->getMany($collector);
+                    $submissions = Repo::submission()->getCollector()->filterByContextIds([$context->getId()])->getMany();
                     foreach ($submissions as $submission) {
                         $this->_parseSubmission($submission);
                     }

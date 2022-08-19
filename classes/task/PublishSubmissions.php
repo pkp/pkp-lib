@@ -41,12 +41,12 @@ class PublishSubmissions extends ScheduledTask
             'isEnabled' => true,
         ]);
         foreach ($contextIds as $contextId) {
-            $submissions = Repo::submission()->getMany(
-                Repo::submission()
-                    ->getCollector()
-                    ->filterByContextIds([$contextId])
-                    ->filterByStatus([Submission::STATUS_SCHEDULED])
-            );
+            $submissions = Repo::submission()
+                ->getCollector()
+                ->filterByContextIds([$contextId])
+                ->filterByStatus([Submission::STATUS_SCHEDULED])
+                ->getMany();
+
             foreach ($submissions as $submission) {
                 $datePublished = $submission->getCurrentPublication()->getData('datePublished');
                 if ($datePublished && strtotime($datePublished) <= strtotime(Core::getCurrentDate())) {

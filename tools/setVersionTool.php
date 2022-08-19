@@ -27,11 +27,11 @@ class SetVersionTool extends \PKP\cliTool\CommandLineTool
         $request = Application::get()->getRequest();
         $contextIds = Services::get('context')->getIds();
         foreach ($contextIds as $contextId) {
-            $submissions = Repo::submission()->getIds(
-                Repo::submission()
-                    ->getCollector()
-                    ->filterByContextIds([$contextId])
-            );
+            $submissions = Repo::submission()
+                ->getCollector()
+                ->filterByContextIds([$contextId])
+                ->getIds();
+
             foreach ($submissions as $submission) {
                 $version = 1;
                 foreach ($submission->getData('publications') as $publication) {

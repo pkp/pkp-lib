@@ -101,8 +101,8 @@ class DashboardHandler extends Handler
             ->filterByStatus([PKPSubmission::STATUS_QUEUED])
             ->assignedTo([(int) $request->getUser()->getId()]);
 
-        $itemsMax = Repo::submission()->getCount($collector);
-        $items = Repo::submission()->getMany($collector->limit(30));
+        $itemsMax = $collector->getCount();
+        $items = $collector->limit(30)->getMany();
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();

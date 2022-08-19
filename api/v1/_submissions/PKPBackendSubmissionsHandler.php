@@ -118,7 +118,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             }
         }
 
-        $submissions = Repo::submission()->getMany($collector);
+        $submissions = $collector->getMany();
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
@@ -128,7 +128,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return $response->withJson([
-            'itemsMax' => Repo::submission()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres),
         ], 200);
     }

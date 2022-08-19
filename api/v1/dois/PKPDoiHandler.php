@@ -320,12 +320,12 @@ class PKPDoiHandler extends APIHandler
         /** @var Context $context */
         $context = $this->getRequest()->getContext();
 
-        $validIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-        )->toArray();
+        $validIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getIds()
+            ->toArray();
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
@@ -369,12 +369,12 @@ class PKPDoiHandler extends APIHandler
         /** @var Context $context */
         $context = $this->getRequest()->getContext();
 
-        $validIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-        )->toArray();
+        $validIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getIds()
+            ->toArray();
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
@@ -410,12 +410,12 @@ class PKPDoiHandler extends APIHandler
 
         $context = $this->getRequest()->getContext();
 
-        $validIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-        )->toArray();
+        $validIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getIds()
+            ->toArray();
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
@@ -468,11 +468,11 @@ class PKPDoiHandler extends APIHandler
 
         $context = $this->getRequest()->getContext();
 
-        $validIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-        )->toArray();
+        $validIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getIds()
+            ->toArray();
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
@@ -516,14 +516,14 @@ class PKPDoiHandler extends APIHandler
 
         $context = $this->getRequest()->getContext();
 
-        $validIds = Repo::submission()->getIds(
-            Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
+        $validIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
                 // Items can only be considered stale if they have been deposited/queued for deposit in the first place
-                ->filterByDoiStatuses([Doi::STATUS_SUBMITTED, Doi::STATUS_REGISTERED])
-        )->toArray();
+            ->filterByDoiStatuses([Doi::STATUS_SUBMITTED, Doi::STATUS_REGISTERED])
+            ->getIds()
+            ->toArray();
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {

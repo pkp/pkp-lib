@@ -16,8 +16,6 @@ namespace PKP\user;
 use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
-use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
@@ -63,18 +61,6 @@ class Repository
         )->first();
     }
 
-    /** @copydoc DAO::getCount() */
-    public function getCount(Collector $query): int
-    {
-        return $this->dao->getCount($query);
-    }
-
-    /** @copydoc DAO::getMany() */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return $this->dao->getMany($query);
-    }
-
     /** @copydoc DAO::get() */
     public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
@@ -99,12 +85,6 @@ class Repository
     public function getSchemaMap(): maps\Schema
     {
         return app('maps')->withExtensions($this->schemaMap);
-    }
-
-    /** @copydoc DAO::getIds() */
-    public function getIds(Collector $query): Collection
-    {
-        return $this->dao->getIds($query);
     }
 
     /** @copydoc DAO::insert() */

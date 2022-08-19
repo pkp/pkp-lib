@@ -55,10 +55,10 @@ class Repository
      */
     public function getByApiKey(string $apiKey): ?User
     {
-        return $this->getMany(
-            $this->getCollector()
-                ->filterBySettings(['apiKey' => $apiKey])
-        )->first();
+        return $this->getCollector()
+            ->filterBySettings(['apiKey' => $apiKey])
+            ->getMany()
+            ->first();
     }
 
     /** @copydoc DAO::get() */
@@ -231,11 +231,11 @@ class Repository
      */
     public function getReport(array $args): Report
     {
-        $dataSource = $this->getMany(
-            $this->getCollector()
-                ->filterByUserGroupIds($args['userGroupIds'] ?? null)
-                ->filterByContextIds($args['contextIds'] ?? [])
-        );
+        $dataSource = $this->getCollector()
+            ->filterByUserGroupIds($args['userGroupIds'] ?? null)
+            ->filterByContextIds($args['contextIds'] ?? [])
+            ->getMany();
+
         $report = new Report($dataSource);
 
         Hook::call('User::getReport', $report);

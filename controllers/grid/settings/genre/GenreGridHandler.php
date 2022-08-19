@@ -246,12 +246,11 @@ class GenreGridHandler extends SetupGridHandler
             return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
         }
 
-        $submissionFilesCollector = Repo::submissionFile()
+        $submissionFileIds = Repo::submissionFile()
             ->getCollector()
             ->filterByGenreIds([$genreId]);
-        $submissionFiles = Repo::submissionFile()->getIds($submissionFilesCollector);
 
-        $genreEmpty = $submissionFiles->count() == 0;
+        $genreEmpty = $submissionFileIds->count() == 0;
         if (!$genreEmpty) {
             return new JSONMessage(false, __('manager.genres.alertDelete'));
         }

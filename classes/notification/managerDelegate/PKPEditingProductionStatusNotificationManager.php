@@ -93,12 +93,11 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $productionQuery = $productionQueries->next();
 
         // Get the copyedited files
-        $submissionFileCollector = Repo::submissionFile()
+        $countCopyeditedFiles = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$submissionId])
-            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
-        $countCopyeditedFiles = Repo::submissionFile()
-            ->getCount($submissionFileCollector);
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_COPYEDIT])
+            ->getCount();
 
         // Get representations
         if ($latestPublication = $submission->getLatestPublication()) {

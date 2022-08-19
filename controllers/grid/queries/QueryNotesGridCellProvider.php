@@ -75,14 +75,14 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
     {
         switch ($column->getId()) {
             case 'contents':
-                $collector = Repo::submissionFile()
+                $submissionFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
                         ASSOC_TYPE_NOTE,
                         [$row->getData()->getId()]
                     )->filterBySubmissionIds([$this->_submission->getId()])
-                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY]);
-                $submissionFiles = Repo::submissionFile()->getMany($collector);
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY])
+                    ->getMany();
 
                 $actions = [];
                 foreach ($submissionFiles as $submissionFile) {

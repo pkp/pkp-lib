@@ -203,12 +203,12 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                         throw new Exception('Can not request submission files from another context.');
                     }
 
-                    $collector = Repo::submissionFile()
+                    $this->_submissionFiles = Repo::submissionFile()
                         ->getCollector()
                         ->filterByReviewRoundIds([(int) $reviewRound->getId()])
-                        ->filterBySubmissionIds([$submissionId]);
-                    $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
-                    $this->_submissionFiles = iterator_to_array($submissionFilesIterator);
+                        ->filterBySubmissionIds([$submissionId])
+                        ->getMany()
+                        ->toArray();
                 } else {
                     // No review round, e.g. for dependent or query files
                     $this->_submissionFiles = [];
@@ -225,9 +225,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     );
                 }
 
-                $this->_submissionFiles = iterator_to_array(
-                    Repo::submissionFile()->getMany($collector)
-                );
+                $this->_submissionFiles = $collector->getMany()->toArray();
             }
         }
 

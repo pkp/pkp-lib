@@ -172,14 +172,13 @@ class Repository
         $this->dao->delete($galley);
 
         // Delete related submission files
-        $submissionFilesCollector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(ASSOC_TYPE_GALLEY)
-            ->filterByFileIds([$galley->getId()]);
-        $submissionFilesIterator = Repo::submissionFile()
-            ->getMany($submissionFilesCollector);
+            ->filterByFileIds([$galley->getId()])
+            ->getMany();
 
-        foreach ($submissionFilesIterator as $submissionFile) {
+        foreach ($submissionFiles as $submissionFile) {
             Repo::submissionFile()->delete($submissionFile);
         }
 

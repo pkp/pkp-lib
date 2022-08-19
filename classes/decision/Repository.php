@@ -339,12 +339,11 @@ abstract class Repository
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-        $submissionFileCollector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByReviewRoundIds([$reviewRound->getId()])
-            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION]);
-
-        $submissionFiles = Repo::submissionFile()->getMany($submissionFileCollector);
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
+            ->getMany();
 
         foreach ($submissionFiles as $submissionFile) {
             if ($submissionFile->getData('updatedAt') > $decision->getData('dateDecided')) {

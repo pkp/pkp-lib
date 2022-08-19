@@ -85,8 +85,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
             $collector = $collector->filterByFileStages([(int) $this->getFileStage()]);
         }
 
-        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
-        return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
+        return $this->prepareSubmissionFileData($collector->getMany()->toArray(), $this->_viewableOnly, $filter);
     }
 
     //

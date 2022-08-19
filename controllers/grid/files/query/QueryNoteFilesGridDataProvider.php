@@ -81,16 +81,16 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
             throw new Exception('Invalid note ID specified!');
         }
 
-        $collector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(
                 ASSOC_TYPE_NOTE,
                 [$this->_noteId]
             )->filterBySubmissionIds([$submission->getId()])
-            ->filterByFileStages([(int) $this->getFileStage()]);
-        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
-
-        return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
+            ->filterByFileStages([(int) $this->getFileStage()])
+            ->getMany()
+            ->toArray();
+        return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
     }
 
     /**

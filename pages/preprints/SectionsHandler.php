@@ -87,18 +87,16 @@ class SectionsHandler extends Handler
             exit;
         }
 
-        $collector = Repo::submission()->getCollector();
-        $collector
+        $collector = Repo::submission()->getCollector()
             ->filterByContextIds([$contextId])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->filterBySectionIds([(int) $section->getId()])
             ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
-        $total = Repo::submission()->getCount($collector);
-        $submissions = Repo::submission()->getMany(
-            $collector
+        $total = $collector->getCount();
+        $submissions = $collector
                 ->limit($context->getData('itemsPerPage'))
                 ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
-        );
+                ->getMany();
 
         if ($page > 1 && !$submissions->count()) {
             $request->getDispatcher()->handle404();

@@ -300,11 +300,11 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                     echo __('search.cli.rebuildIndex.indexing', ['serverName' => $server->getLocalizedName()]) . ' ... ';
                 }
 
-                $submissions = Repo::submission()->getMany(
-                    Repo::submission()
+                $submissions = Repo::submission()
                         ->getCollector()
                         ->filterByContextIds([$server->getId()])
-                );
+                        ->getMany();
+
                 foreach ($submissions as $submission) {
                     if ($submission->getSubmissionProgress() == 0) { // Not incomplete
                         $this->submissionMetadataChanged($submission);

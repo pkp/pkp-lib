@@ -335,8 +335,10 @@ class SectionDAO extends PKPSectionDAO
     public function deleteById($sectionId, $contextId = null)
     {
         // No preprints should exist in this section
-        $collector = Repo::submission()->getCollector()->filterBySectionIds([(int) $sectionId])->filterByContextIds([Application::CONTEXT_ID_ALL]);
-        $count = Repo::submission()->getCount($collector);
+        $count = Repo::submission()->getCollector()
+            ->filterBySectionIds([(int) $sectionId])
+            ->filterByContextIds([Application::CONTEXT_ID_ALL])
+            ->getCount();
         if ($count) {
             throw new Exception('Tried to delete a section that has one or more submissions assigned to it.');
         }

@@ -65,13 +65,12 @@ class PreprintsHandler extends Handler
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : (int) Config::getVar('interface', 'items_per_page');
         $offset = $page > 1 ? ($page - 1) * $count : 0;
 
-        $collector = Repo::submission()->getCollector();
-        $collector
+        $collector = Repo::submission()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
-        $total = Repo::submission()->getCount($collector);
-        $publishedSubmissions = Repo::submission()->getMany($collector->limit($count));
+        $total = $collector->getCount();
+        $publishedSubmissions = $collector->limit($count)->getMany();
 
         $showingStart = $offset + 1;
         $showingEnd = min($offset + $count, $offset + count($publishedSubmissions));

@@ -66,12 +66,12 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
             $representationEnabled = $this->isObjectTypeEnabled('Representation', $context->getId());
             if ($submissionEnabled || $representationEnabled) {
                 $representationDao = Application::getRepresentationDAO();
-                $submissions = Repo::submission()->getMany(
-                    Repo::submission()
+                $submissions = Repo::submission()
                         ->getCollector()
                         ->filterByContextIds([$context->getId()])
                         ->filterByStatus([Submission::STATUS_PUBLISHED])
-                );
+                        ->getMany();
+
                 foreach ($submissions as $submission) {
                     $publications = $submission->getData('publications');
                     if ($submissionEnabled) {

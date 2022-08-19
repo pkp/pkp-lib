@@ -72,13 +72,12 @@ class IndexHandler extends PKPIndexHandler
 
             // Latest preprints
             $collector = Repo::submission()->getCollector();
-            $publishedSubmissions = Repo::submission()->getMany(
-                $collector
+            $publishedSubmissions = $collector
                     ->filterByContextIds([$server->getId()])
                     ->filterByStatus([Submission::STATUS_PUBLISHED])
                     ->orderBy($collector::ORDERBY_DATE_PUBLISHED)
                     ->limit(10)
-            );
+                    ->getMany();
 
             // Assign header and content for home page
             $templateMgr->assign([

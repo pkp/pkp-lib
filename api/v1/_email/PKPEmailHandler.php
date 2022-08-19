@@ -17,19 +17,19 @@
 namespace PKP\API\v1\_email;
 
 use APP\facades\Repo;
+use Illuminate\Queue\WorkerOptions;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Queue;
 use PKP\core\APIResponse;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
+use PKP\mail\Mailable;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-use PKP\mail\Mailable;
-use Illuminate\Support\Facades\Mail;
 use Psr\Http\Message\ServerRequestInterface;
-use Illuminate\Queue\WorkerOptions;
 
 class PKPEmailHandler extends APIHandler
 {
@@ -144,11 +144,12 @@ class PKPEmailHandler extends APIHandler
         }
 
 
-        $userIds = iterator_to_array(Repo::user()->getIds(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$contextId])
-                ->filterByUserGroupIds(['userGroupIds'])
-        ));
+        $userIds = Repo::user()->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterByUserGroupIds(['userGroupIds'])
+            ->getIds()
+            ->toArray();
+
         $subject = $params['subject'];
         $body = $params['body'];
         $fromEmail = $context->getData('contactEmail');
@@ -165,11 +166,11 @@ class PKPEmailHandler extends APIHandler
         $batches = array_chunk($userIds, self::EMAILS_PER_JOB);
         foreach ($batches as $userIds) {
             Queue::push(function () use ($userIds, $contextId, $subject, $body, $fromEmail, $fromName) {
-                $users = Repo::user()->getMany(
-                    Repo::user()->getCollector()
-                        ->filterByContextIds([$contextId])
-                        ->filterByUserIds($userIds)
-                );
+                $users = Repo::user()->getCollector()
+                    ->filterByContextIds([$contextId])
+                    ->filterByUserIds($userIds)
+                    ->getMany();
+
                 foreach ($users as $user) {
                     $mailable = new Mailable();
                     $mailable

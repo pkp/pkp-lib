@@ -92,10 +92,10 @@ class LibraryFileHandler extends Handler
                 }
 
                 // Check for specific assignments.
-                $assignedUsers = Repo::user()->getMany(
-                    Repo::user()->getCollector()
+                $assignedUsers = Repo::user()->getCollector()
                     ->assignedTo($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION)
-                );
+                    ->getMany();
+
                 $user = $request->getUser();
                 foreach ($assignedUsers as $assignedUser) {
                     if ($assignedUser->getId() == $user->getId()) {

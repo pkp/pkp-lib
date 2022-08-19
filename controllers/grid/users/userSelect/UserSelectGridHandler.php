@@ -129,16 +129,17 @@ class UserSelectGridHandler extends GridHandler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-        $users = Repo::user()->getMany(
-            $collector = Repo::user()->getCollector()
-                ->filterByContextIds([$submission->getContextId()])
-                ->filterExcludeSubmissionStage($submission->getId(), $stageId, $filterUserGroupId)
-                ->searchPhrase($name)
-                ->limit($rangeInfo->getCount())
-                ->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount())
-        );
-        $totalCount = $users->count($collector->limit(null)->offset(null));
-        return new \PKP\core\VirtualArrayIterator(iterator_to_array($users, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+
+        $collector = Repo::user()->getCollector()
+            ->filterByContextIds([$submission->getContextId()])
+            ->filterExcludeSubmissionStage($submission->getId(), $stageId, $filterUserGroupId)
+            ->searchPhrase($name)
+            ->limit($rangeInfo->getCount())
+            ->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
+
+        $users = $collector->getMany()->toArray();
+        $totalCount = $collector->limit(null)->offset(null)->getCount();
+        return new \PKP\core\VirtualArrayIterator($users, $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

@@ -137,7 +137,7 @@ class PKPUserHandler extends APIHandler
             ->offset($params['offset'] ?? null)
             ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
 
-        $users = Repo::user()->getMany($collector);
+        $users = $collector->getMany();
 
         $map = Repo::user()->getSchemaMap();
         $items = [];
@@ -146,7 +146,7 @@ class PKPUserHandler extends APIHandler
         }
 
         return $response->withJson([
-            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => $items,
         ], 200);
     }
@@ -226,7 +226,7 @@ class PKPUserHandler extends APIHandler
             ->filterByUserIds($params['reviewerIds'] ?? null)
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
-        $usersCollection = Repo::user()->getMany($collector);
+        $usersCollection = $collector->getMany();
         $items = [];
         $map = Repo::user()->getSchemaMap();
         foreach ($usersCollection as $user) {
@@ -234,7 +234,7 @@ class PKPUserHandler extends APIHandler
         }
 
         return $response->withJson([
-            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => $items,
         ], 200);
     }

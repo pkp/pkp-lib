@@ -195,10 +195,10 @@ class UserGridHandler extends GridHandler
 
         // Handle grid paging (deprecated style)
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-        $totalCount = Repo::user()->getCount($collector);
+        $totalCount = $collector->getCount();
         $collector->limit($rangeInfo->getCount());
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
-        $iterator = Repo::user()->getMany($collector);
+        $iterator = $collector->getMany();
         return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 

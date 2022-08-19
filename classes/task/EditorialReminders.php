@@ -41,13 +41,12 @@ class EditorialReminders extends ScheduledTask
                 __('admin.scheduledTask.editorialReminder.logStart', ['contextId' => $contextId]),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
-            $userCollector = Repo::user()->getCollector();
-            $userIds = Repo::user()->getIds(
-                $userCollector
-                    ->filterByContextIds([$contextId])
-                    ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-                    ->filterByStatus($userCollector::STATUS_ACTIVE)
-            );
+            $userIds = Repo::user()->getCollector()
+                ->filterByContextIds([$contextId])
+                ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                ->filterByStatus($userCollector::STATUS_ACTIVE)
+                ->getIds();
+
             /** @var int $userId */
             foreach ($userIds as $userId) {
                 dispatch(new EditorialReminder($userId, $contextId));

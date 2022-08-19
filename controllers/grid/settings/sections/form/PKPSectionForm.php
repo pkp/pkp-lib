@@ -93,10 +93,11 @@ class PKPSectionForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $collector = Repo::user()->getCollector()
+        $usersIterator = Repo::user()->getCollector()
             ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->filterByContextIds([$request->getContext()->getId()]);
-        $usersIterator = Repo::user()->getMany($collector);
+            ->filterByContextIds([$request->getContext()->getId()])
+            ->getMany();
+
         $subeditors = [];
         foreach ($usersIterator as $user) {
             $subeditors[(int) $user->getId()] = $user->getFullName();

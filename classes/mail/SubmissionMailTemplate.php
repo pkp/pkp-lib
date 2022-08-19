@@ -220,9 +220,10 @@ class SubmissionMailTemplate extends MailTemplate
         while ($userGroup = $userGroups->next()) {
             $userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
             // FIXME: #6692# Should this be getting users just for a specific user group?
-            $collector = Repo::user()->getCollector();
-            $collector->assignedTo($submissionId, $stageId, $userGroup->getId());
-            $users = Repo::user()->getMany($collector);
+            $users = Repo::user()->getCollector()
+                ->assignedTo($submissionId, $stageId, $userGroup->getId())
+                ->getMany();
+
             foreach ($users as $user) {
                 $this->$method($user->getEmail(), $user->getFullName());
                 $returner[] = $user;

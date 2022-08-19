@@ -104,10 +104,12 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Get a list of users in the managerial and admin user groups
         // Managers are assigned only to contexts; site admins are assigned only to site.
         // Therefore filtering by both context IDs and role IDs will not cause problems.
-        $collector = Repo::user()->getCollector()
+        $userIds = Repo::user()->getCollector()
             ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
-            ->filterByContextIds([$submissionContext->getId(), PKPApplication::CONTEXT_SITE]);
-        $warnOnAssignment = array_merge($warnOnAssignment, Repo::user()->getIds($collector)->toArray());
+            ->filterByContextIds([$submissionContext->getId(), PKPApplication::CONTEXT_SITE])
+            ->getIds()
+            ->toArray();
+        $warnOnAssignment = array_merge($warnOnAssignment, $userIds);
         $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
 
         // Get reviewers list
@@ -146,13 +148,12 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     }
                 }
 
-                $lastRoundReviewers = Repo::user()->getMany(
-                    Repo::user()->getCollector()
-                        ->filterByContextIds([$submissionContext->getId()])
-                        ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
-                        ->filterByUserIds($lastRoundReviewerIds)
-                        ->includeReviewerData()
-                );
+                $lastRoundReviewers = Repo::user()->getCollector()
+                    ->filterByContextIds([$submissionContext->getId()])
+                    ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
+                    ->filterByUserIds($lastRoundReviewerIds)
+                    ->includeReviewerData()
+                    ->getMany();
 
                 if (count($lastRoundReviewers)) {
                     $selectReviewerListPanel->set([

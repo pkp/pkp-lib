@@ -167,10 +167,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 
         // Send a notification to associated users if an editor needs assigning
         if (empty($notifyUsers)) {
-            $collector = Repo::user()->getCollector()
+            $managerIds = Repo::user()->getCollector()
                 ->filterByRoleIds([Role::ROLE_ID_MANAGER])
-                ->filterByContextIds([$this->submission->getContextId()]);
-            $managerIds = Repo::user()->getIds($collector);
+                ->filterByContextIds([$this->submission->getContextId()])
+                ->getIds();
+
             foreach ($managerIds as $userId) {
                 // Add TASK notification indicating that a submission is unassigned
                 $notificationManager->createNotification(
@@ -317,9 +318,10 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         // Cycle through all the userGroups for this role
         while ($userGroup = $userGroups->next()) {
             // FIXME: #6692# Should this be getting users just for a specific user group?
-            $collector = Repo::user()->getCollector();
-            $collector->assignedTo($this->submissionId, WORKFLOW_STAGE_ID_SUBMISSION, $userGroup->getId());
-            $users = Repo::user()->getMany($collector);
+            $users = Repo::user()->getCollector()
+                ->assignedTo($this->submissionId, WORKFLOW_STAGE_ID_SUBMISSION, $userGroup->getId())
+                ->getMany();
+
             foreach ($users as $user) {
                 $submissionAck->bcc($user->getEmail(), $user->getFullName());
             }

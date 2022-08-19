@@ -66,13 +66,11 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
             );
             $submissionFileForm = new \PKP\components\forms\submission\PKPSubmissionFileForm($fileUploadApiUrl, $genres);
 
-            $collector = Repo::submissionFile()
+            $submissionFiles = Repo::submissionFile()
                 ->getCollector()
                 ->filterBySubmissionIds([$this->submission->getId()])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION]);
-
-            $submissionFiles = Repo::submissionFile()
-                ->getMany($collector);
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
+                ->getMany();
 
             $submissionFiles = Repo::submissionFile()
                 ->getSchemaMap()
@@ -155,13 +153,13 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
     public function validate($callHooks = true)
     {
         // Validate that all upload files have been assigned a genreId
-        $collector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
-            ->filterBySubmissionIds([$this->submission->getId()]);
-        $submissionFilesIterator = Repo::submissionFile()
-            ->getMany($collector);
-        foreach ($submissionFilesIterator as $submissionFile) {
+            ->filterBySubmissionIds([$this->submission->getId()])
+            ->getMany();
+
+        foreach ($submissionFiles as $submissionFile) {
             if (!$submissionFile->getData('genreId')) {
                 $this->addError('files', __('submission.submit.genre.error'));
                 $this->addErrorField('files');

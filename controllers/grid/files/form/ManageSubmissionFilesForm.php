@@ -84,12 +84,12 @@ class ManageSubmissionFilesForm extends Form
     public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
         $selectedFiles = (array)$this->getData('selectedFiles');
-        $collector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
-            ->filterBySubmissionIds([$this->getSubmissionId()]);
-        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
+            ->filterBySubmissionIds([$this->getSubmissionId()])
+            ->getMany();
 
-        foreach ($submissionFilesIterator as $submissionFile) {
+        foreach ($submissionFiles as $submissionFile) {
             // Get the viewable flag value.
             $isViewable = in_array(
                 $submissionFile->getId(),

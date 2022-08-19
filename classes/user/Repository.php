@@ -301,13 +301,13 @@ class Repository
 
         Hook::call('UserAction::mergeUsers', [&$oldUserId, &$newUserId]);
 
-        $collector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByUploaderUserIds([$oldUserId])
-            ->includeDependentFiles();
+            ->includeDependentFiles()
+            ->getMany();
 
-        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
-        foreach ($submissionFilesIterator as $submissionFile) {
+        foreach ($submissionFiles as $submissionFile) {
             Repo::submissionFile()->edit($submissionFile, ['uploaderUserId' => $newUserId]);
         }
 

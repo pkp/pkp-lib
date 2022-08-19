@@ -53,7 +53,7 @@ class PromoteFiles extends Step
      */
     public function addFileList(string $name, Collector $collector, bool $selectedByDefault = true): self
     {
-        $files = Repo::submissionFile()->getMany($collector);
+        $files = $collector->getMany();
 
         $fileSummaries = Repo::submissionFile()
             ->getSchemaMap()

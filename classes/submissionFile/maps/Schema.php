@@ -113,14 +113,13 @@ class Schema extends BaseSchema
             }
 
             if ($prop === 'dependentFiles') {
-                $collector = Repo::submissionFile()
+                $dependentFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$submissionFile->getId()])
                     ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
-                    ->includeDependentFiles();
-
-                $dependentFiles = Repo::submissionFile()->getMany($collector);
+                    ->includeDependentFiles()
+                    ->getMany();
 
                 $output[$prop] = $this->summarizeMany($dependentFiles, $this->genres)->values();
 

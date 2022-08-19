@@ -250,14 +250,12 @@ class DAO extends EntityDAO
         }
 
         // Delete submission files.
-        $submissionFilesCollector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
-            ->filterBySubmissionIds([$submission->getId()]);
+            ->filterBySubmissionIds([$submission->getId()])
+            ->getMany();
 
-        $submissionFilesIterator = Repo::submissionFile()
-            ->getMany($submissionFilesCollector);
-
-        foreach ($submissionFilesIterator as $submissionFile) {
+        foreach ($submissionFiles as $submissionFile) {
             Repo::submissionFile()->delete($submissionFile);
         }
 

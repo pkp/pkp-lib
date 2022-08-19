@@ -99,12 +99,13 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
      */
     public function loadData($filter = [])
     {
-        $collector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->getSubmission()->getId()])
-            ->filterByFileStages([$this->getFileStage()]);
-        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
-        return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
+            ->filterByFileStages([$this->getFileStage()])
+            ->getMany()
+            ->toArray();
+        return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
     }
 
     //

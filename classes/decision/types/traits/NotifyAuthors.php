@@ -126,13 +126,12 @@ trait NotifyAuthors
             return;
         }
 
-        $reviewAttachmentIds = Repo::submissionFile()->getIds(
-            Repo::submissionFile()
-                ->getCollector()
-                ->filterBySubmissionIds([$submission->getId()])
-                ->filterByReviewRoundIds([$reviewRoundId])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
-        );
+        $reviewAttachmentIds = Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewRoundIds([$reviewRoundId])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
+            ->getIds();
 
         foreach ($reviewAttachmentIds->intersect($submissionFileIds) as $sharedFileId) {
             $submissionFile = Repo::submissionFile()->get($sharedFileId);

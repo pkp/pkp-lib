@@ -20,17 +20,17 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\core\PKPApplication;
 use PKP\mail\mailables\EditReviewNotify;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
-use APP\submission\Submission;
-use Illuminate\Support\Facades\Mail;
 
 class EditReviewForm extends Form
 {
@@ -141,16 +141,17 @@ class EditReviewForm extends Form
         $reviewFilesDao->revokeByReviewId($this->_reviewAssignment->getId());
 
         $fileStages = [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
-        $collector = Repo::submissionFile()
+        $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->_reviewAssignment->getSubmissionId()])
             ->filterByReviewRoundIds([$this->_reviewRound->getId()])
-            ->filterByFileStages($fileStages);
-        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
+            ->filterByFileStages($fileStages)
+            ->getMany();
+
         $selectedFiles = array_map(function ($id) {
             return (int) $id;
         }, (array) $this->getData('selectedFiles'));
-        foreach ($submissionFilesIterator as $submissionFile) {
+        foreach ($submissionFiles as $submissionFile) {
             if (in_array($submissionFile->getId(), $selectedFiles)) {
                 $reviewFilesDao->grant($this->_reviewAssignment->getId(), $submissionFile->getId());
             }
@@ -179,11 +180,14 @@ class EditReviewForm extends Form
             /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-            if ($notification && !in_array(PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
-                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                        $reviewer->getId(),
-                        (int) $context->getId()))
+            if ($notification && !in_array(
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $reviewer->getId(),
+                    (int) $context->getId()
+                )
+            )
             ) {
                 $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
                 $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment, $notification);

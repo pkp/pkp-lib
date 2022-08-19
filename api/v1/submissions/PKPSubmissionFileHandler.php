@@ -215,7 +215,7 @@ class PKPSubmissionFileHandler extends APIHandler
             $collector->filterByReviewRoundIds($reviewRoundIds);
         }
 
-        $files = Repo::submissionFile()->getMany($collector);
+        $files = $collector->getMany();
 
         $items = Repo::submissionFile()
             ->getSchemaMap()

@@ -264,10 +264,10 @@ abstract class Repository
      */
     public function deleteBySubmissionId(int $submissionId)
     {
-        $decisionIds = $this->getIds(
-            $this->getCollector()
-                ->filterBySubmissionIds([$submissionId])
-        );
+        $decisionIds = $this->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->getIds();
+
         foreach ($decisionIds as $decisionId) {
             $this->dao->deleteById($decisionId);
         }

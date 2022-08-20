@@ -61,7 +61,7 @@ class Collector implements CollectorInterface
     /** @var null|int */
     public $offset = null;
 
-    public function __construct(\APP\submissionFile\DAO $dao)
+    public function __construct(DAO $dao)
     {
         $this->dao = $dao;
     }

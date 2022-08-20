@@ -13,6 +13,7 @@
 
 namespace APP\publication;
 
+use Illuminate\Support\Facades\App;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\mail\PreprintMailTemplate;
@@ -25,11 +26,17 @@ use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\publication\Collector;
 
 class Repository extends \PKP\publication\Repository
 {
     /** @copydoc \PKP\submission\Repository::$schemaMap */
     public $schemaMap = maps\Schema::class;
+
+    public function getCollector(): Collector
+    {
+        return App::makeWith(Collector::class, ['dao' => $this->dao]);
+    }
 
     /** @copydoc PKP\publication\Repository::validate() */
     public function validate($publication, array $props, array $allowedLocales, string $primaryLocale): array

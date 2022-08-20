@@ -2,6 +2,7 @@
 
 namespace APP\doi;
 
+use Illuminate\Support\Facades\App;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
@@ -14,12 +15,18 @@ use PKP\core\DataObject;
 use PKP\galley\Galley;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Representation;
+use PKP\doi\Collector;
 
 class Repository extends \PKP\doi\Repository
 {
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
         parent::__construct($dao, $request, $schemaService);
+    }
+
+    public function getCollector(): Collector
+    {
+        return App::makeWith(Collector::class, ['dao' => $this->dao]);
     }
 
     /**

@@ -35,7 +35,7 @@ class Collector implements CollectorInterface
 
     public ?string $identifier = null;
 
-    public function __construct(DAO $dao)
+    public function __construct(\APP\doi\DAO $dao)
     {
         $this->dao = $dao;
     }

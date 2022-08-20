@@ -15,6 +15,7 @@ namespace PKP\doi;
 
 use APP\doi\DAO;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;

@@ -424,8 +424,7 @@ abstract class Repository
      */
     public function deleteMany(Collector $collector): void
     {
-        $submissionFiles = $this->getMany($collector);
-        foreach ($submissionFiles as $submissionFile) {
+        foreach ($collector->getMany() as $submissionFile) {
             $this->delete($submissionFile);
         }
     }

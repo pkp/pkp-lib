@@ -189,11 +189,9 @@ class Repository
      */
     public function changePublicationLocale($publicationId, $oldLocale, $newLocale)
     {
-        $authors = $this->getMany(
-            $this
-                ->getCollector()
-                ->filterByPublicationIds([$publicationId])
-        );
+        $authors = $this->getCollector()
+            ->filterByPublicationIds([$publicationId])
+            ->getMany();
 
         foreach ($authors as $author) {
             if (empty($author->getGivenName($newLocale))) {

@@ -169,8 +169,7 @@ class Repository
      */
     public function deleteMany(Collector $collector)
     {
-        $emailTemplates = $this->getMany($collector);
-        foreach ($emailTemplates as $emailTemplate) {
+        foreach ($collector->getMany() as $emailTemplate) {
             $this->delete($emailTemplate);
         }
     }

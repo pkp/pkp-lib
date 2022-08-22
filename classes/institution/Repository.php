@@ -184,8 +184,7 @@ class Repository
      */
     public function deleteMany(Collector $collector): void
     {
-        $institutions = $this->getMany($collector);
-        foreach ($institutions as $institution) {
+        foreach ($collector->getMany() as $institution) {
             $this->delete($institution);
         }
     }

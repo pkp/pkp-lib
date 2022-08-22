@@ -147,8 +147,7 @@ class Repository
      */
     public function deleteMany(Collector $collector)
     {
-        $categories = $this->getMany($collector);
-        foreach ($categories as $category) {
+        foreach ($collector->getMany() as $category) {
             $this->delete($category);
         }
     }

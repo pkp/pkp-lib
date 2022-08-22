@@ -49,6 +49,7 @@ Cypress.Commands.add('login', (username, password, context) => {
 
 Cypress.Commands.add('logout', function() {
 	cy.visit('index.php/index/login/signOut');
+	cy.clearCookies();
 });
 
 Cypress.Commands.add('setLocale', locale => {

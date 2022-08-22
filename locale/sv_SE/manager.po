@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-06-15 15:07+0000\n"
+"PO-Revision-Date: 2022-08-22 20:13+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -506,9 +506,8 @@ msgstr "Stad"
 msgid "stats.region"
 msgstr "Region"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Rapportgenerator"
+msgstr "Rapporter"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -2879,3 +2878,155 @@ msgstr ""
 
 msgid "manager.people.authSource"
 msgstr "Autentiseringskälla"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Antal refuserade bidrag"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Antal accepterade bidrag"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "Antal bidrag som hoppats över"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Antal mottagna bidrag"
+
+msgid "emailTemplate.variable.password"
+msgstr "Nytt slumpmässigt lösenord"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Fullständigt namn på användare som laddat upp bidragsfil"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Meddelandets titel"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Kort beskrivning av meddelandet"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "URL till meddelandet"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Antal bidrag som mottagits senaste månaden"
+
+msgid "manager.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimera arkiv"
+
+msgid "manager.settings.statistics.keepDaily"
+msgstr "Daglig statistik"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Land"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Land och region"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Land, region och stad"
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
+
+msgid "manager.settings.statistics.sushiPlatform"
+msgstr "Platform för COUNTER SUSHI-statistik"
+
+msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Använd siten som plattform för alla tidskrifter."
+
+msgid "manager.institutions.edit"
+msgstr "Redigera institution"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry-ID för denna institution."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP-intervall"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Ta bort institution"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Ogiltigt IP-intervall"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Giltiga värden är IP-adresser (t.ex. 142.58.103.1), IP-intervall (t.ex. "
+"142.58.103.1 - 142.58.103.4), IP-intervall med trunkering '*' (t.ex. 142."
+"58.*.*), och IP-intervall med CIDR (t.ex. 142.58.100.0/24)."
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Är du säker på att du vill ta bort institutionen?"
+
+msgid "manager.setup.statistics"
+msgstr "Statistik"
+
+msgid "manager.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Plattform-ID"
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Ett plattforms-ID krävs"
+
+msgid "stats.unique"
+msgstr "Unik"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL-länk för att visa och redigera användarprofil."
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Hashat URL som skickas till en användare för att bekräfta återställt lösenord"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Markera DOI:er som oregistrerade"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Objekten har markerats som oregistrerade"
+
+msgid "manager.settings.statistics.compressStatsLogs.default"
+msgstr "Låt loggfilerna vara"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Välj detta alternativ om du vill hantera institutioner och samla in deras "
+"användningsstatistik. Detta kommer påverka vilka statistikrapporter som kan "
+"hämtas ut, samt även storleken på databasen."
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Du kommer markera DOI-metadataposter för {$count} objekt som oregistrerade. "
+"Är du säker på att du vill göra det?"
+
+msgid "manager.dois.actions.description"
+msgstr "Gör ändringar för {$count} objekt."
+
+msgid "manager.settings.statistics.compressStatsLogs.description"
+msgstr "Välj vad som ska göras med arkiverade loggfiler."
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institutionens användningsstatistik"
+
+msgid "manager.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
+"protokollet. Det kräver en specificerad plattform. Tidskriften är på förhand "
+"angiven som plattformen för all statistik, men om alla tidskrifter på denna "
+"OJS-installation tillhör samma utgivare går det även att ange hela siten som "
+"plattform."
+
+msgid "manager.setup.institutions"
+msgstr "Institutioner"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Antal bidrag som tilldelats denna redaktör"
+
+msgid "stats.unknown"
+msgstr "okänd"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "En lista över bidrag med ofärdiga uppdrag"

@@ -59,6 +59,11 @@
 		{fbvElement type="email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
+    {fbvFormSection for="country" title="common.country"}
+	    {fbvElement type="select" label="common.country" name="country" id="country" required="false" defaultLabel="" defaultValue="" from=$countries selected=$country translate="0" size=$fbvStyles.size.MEDIUM}
+    {/fbvFormSection}
+
+
 	{fbvFormSection title="manager.reviewerSearch.interests" for="interests"}
 		{fbvElement type="interests" id="interests" interests=$interests}
 	{/fbvFormSection}

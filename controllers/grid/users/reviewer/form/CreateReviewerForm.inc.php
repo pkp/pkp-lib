@@ -46,6 +46,7 @@ class CreateReviewerForm extends ReviewerForm {
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array(), true));
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.usergroupRequired'));
 	}
 
 
@@ -77,6 +78,7 @@ class CreateReviewerForm extends ReviewerForm {
 			'email',
 			'skipEmail',
 			'userGroupId',
+			'country'
 		));
 	}
 
@@ -91,6 +93,7 @@ class CreateReviewerForm extends ReviewerForm {
 		$user->setFamilyName($this->getData('familyName'), null);
 		$user->setEmail($this->getData('email'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
+		$user->setCountry($this->getData('country'));
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$auth = $authDao->getDefaultPlugin();

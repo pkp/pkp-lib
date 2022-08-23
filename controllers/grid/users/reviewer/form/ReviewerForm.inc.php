@@ -247,6 +247,14 @@ class ReviewerForm extends Form {
 			'submissionReviewUrl' => __('common.url'),
 			'reviewerUserName' => __('user.username'),
 		));
+
+
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$countries = array();
+		foreach ($isoCodes->getCountries() as $country) {
+			$countries[$country->getAlpha2()] = $country->getLocalName();
+		}
+		$templateMgr->assign('countries', $countries);
 		// Allow the default template
 		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());
 
@@ -313,6 +321,7 @@ class ReviewerForm extends Form {
 			'stageId',
 			'selectedFiles',
 			'reviewFormId',
+			'country'
 		));
 	}
 

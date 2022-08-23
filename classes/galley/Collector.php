@@ -64,6 +64,7 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as g')
+            ->select(['g.*'])
             ->when(!is_null($this->publicationIds), function ($qb) {
                 $qb->whereIn('g.publication_id', $this->publicationIds);
             })

@@ -170,6 +170,7 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $q = DB::table('authors as a')
+            ->select(['a.*', 's.locale AS submission_locale'])
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
 

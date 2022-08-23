@@ -90,7 +90,6 @@ class DAO extends EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select([$this->table . '.*'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

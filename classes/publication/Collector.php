@@ -90,7 +90,8 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table('publications as p');
+        $qb = DB::table('publications as p')
+            ->select(['p.*']);
 
         if (isset($this->contextIds)) {
             $qb->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
@@ -112,8 +113,6 @@ class Collector implements CollectorInterface
 
         // Add app-specific query statements
         Hook::call('Publication::Collector', [&$qb, $this]);
-
-        $qb->select(['p.*']);
 
         return $qb;
     }

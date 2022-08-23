@@ -19,6 +19,7 @@ use Illuminate\Mail\MailManager;
 use Illuminate\Mail\MailServiceProvider as IlluminateMailService;
 use InvalidArgumentException;
 use PKP\mail\Mailer;
+use PKP\mail\transport\PHPMailerTransport;
 use Symfony\Component\Mailer\Transport\SendmailTransport;
 
 class MailServiceProvider extends IlluminateMailService
@@ -67,11 +68,21 @@ class MailServiceProvider extends IlluminateMailService
                     return $mailer;
                 }
 
-                // Override sendmail transport construction to allow default path
+                /*
+                 * Override sendmail transport construction to allow default path
+                 */
                 protected function createSendmailTransport(array $config): SendmailTransport
                 {
                     $path = $config['path'] ?? $this->app['config']->get('mail.sendmail');
                     return $path ? new SendmailTransport($path) : new SendmailTransport();
+                }
+
+                /**
+                 * Transport to send with mail() function by PHPMailer
+                 */
+                protected function createPHPMailerTransport(): PHPMailerTransport
+                {
+                    return new PHPMailerTransport();
                 }
             };
         });

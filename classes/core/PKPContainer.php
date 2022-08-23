@@ -239,6 +239,9 @@ class PKPContainer extends Container
             'transport' => 'log',
             'channel' => 'errorlog',
         ];
+        $items['mail']['mailers']['phpmailer'] = [
+            'transport' => 'phpmailer',
+        ];
 
         $items['mail']['default'] = static::getDefaultMailer();
 

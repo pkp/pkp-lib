@@ -426,10 +426,19 @@ msgid "user.apiKeyEnabled"
 msgstr "Enable external applications with the API key to access this account"
 
 msgid "user.apiKey.generate"
-msgstr "Generate new API key"
+msgstr "Create API Key"
+
+msgid "user.apiKey.remove"
+msgstr "Delete"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Generating a new API key will invalidate any existing key for this user."
+
+msgid "user.apiKey.removeWarning"
+msgstr "Deleting a key will revoke access to any application that uses it."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Are you sure you want to delete this API key?"
 
 msgid "user.apiKey.secretRequired"
 msgstr "Before generating an API key, your site administrator must set a secret in the config file (\"api_key_secret\")."

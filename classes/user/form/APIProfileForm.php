@@ -17,15 +17,17 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 use APP\notification\NotificationManager;
-
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
 use PKP\config\Config;
-
 use PKP\notification\PKPNotification;
+use PKP\user\User;
 
 class APIProfileForm extends BaseProfileForm
 {
+    public const API_KEY_NEW = 1;
+    public const API_KEY_DELETE = 0;
+
     /**
      * Constructor.
      *
@@ -53,7 +55,9 @@ class APIProfileForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'apiKeyEnabled', 'generateApiKey',
+            'apiKeyEnabled', 
+            'generateApiKey',
+            'apiKeyAction',
         ]);
     }
 
@@ -70,21 +74,23 @@ class APIProfileForm extends BaseProfileForm
     {
         $user = $request->getUser();
         $secret = Config::getVar('security', 'api_key_secret', '');
+        $templateMgr = TemplateManager::getManager($request);
+        
         if ($secret === '') {
-            $notificationManager = new NotificationManager();
-            $notificationManager->createTrivialNotification(
-                $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_WARNING,
-                [
-                    'contents' => __('user.apiKey.secretRequired'),
-                ]
-            );
-        } elseif ($user->getData('apiKey')) {
-            $templateMgr = TemplateManager::getManager($request);
-            $templateMgr->assign([
-                'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
-            ]);
+            $this->handleOnMissingAPISecret($templateMgr, $user);
+            return parent::fetch($request, $template, $display);
         }
+
+        $templateMgr->assign($user->getData('apiKey') ? [
+                'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
+                'apiKeyAction' => self::API_KEY_DELETE,
+                'apiKeyActionTextKey' => 'user.apiKey.remove',
+            ] : [
+                'apiKeyAction' => self::API_KEY_NEW,
+                'apiKeyActionTextKey' => 'user.apiKey.generate',
+            ]
+        );
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -95,24 +101,44 @@ class APIProfileForm extends BaseProfileForm
     {
         $request = Application::get()->getRequest();
         $user = $request->getUser();
+        $templateMgr = TemplateManager::getManager($request);
 
-        $apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');
-        $user->setData('apiKeyEnabled', $apiKeyEnabled);
-
-        // remove api key if exists
-        if (!$apiKeyEnabled) {
-            $user->setData('apiKeyEnabled', null);
+        if (Config::getVar('security', 'api_key_secret', '') === '') {
+            $this->handleOnMissingAPISecret($templateMgr, $user);
+            parent::execute(...$functionArgs);
         }
 
-        // generate api key
-        if ($apiKeyEnabled && !is_null($this->getData('generateApiKey'))) {
-            $secret = Config::getVar('security', 'api_key_secret', '');
-            if ($secret) {
-                $user->setData('apiKey', sha1(time()));
-            }
-        }
+        $apiKeyAction = (int)$this->getData('apiKeyAction');
+        
+        $user->setData('apiKeyEnabled', $apiKeyAction === self::API_KEY_NEW ? 1 : null);
+        $user->setData('apiKey', $apiKeyAction === self::API_KEY_NEW ? sha1(time()) : null);
+
+        $this->setData('apiKeyAction', (int)!$apiKeyAction);
 
         parent::execute(...$functionArgs);
+    }
+
+    /**
+     * Handle on missing API secret
+     * 
+     * @param TemplateManager $templateMgr
+     * @param User $user
+     *
+     * @return void
+     */
+    protected function handleOnMissingAPISecret(TemplateManager $templateMgr, User $user): void
+    {
+        $notificationManager = new NotificationManager();
+        $notificationManager->createTrivialNotification(
+            $user->getId(),
+            PKPNotification::NOTIFICATION_TYPE_WARNING,
+            [
+                'contents' => __('user.apiKey.secretRequired'),
+            ]
+        );
+        $templateMgr->assign([
+            'apiSecretMissing' => true,
+        ]);
     }
 }
 

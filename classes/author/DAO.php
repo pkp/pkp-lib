@@ -63,7 +63,7 @@ class DAO extends EntityDAO
      */
     public function get(int $id): ?Author
     {
-        // This is ovveriden due to the need to include submission_locale
+        // This is overridden due to the need to include submission_locale
         // to the fromRow function
         $row = DB::table('authors as a')
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
@@ -103,7 +103,6 @@ class DAO extends EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['a.*', 's.locale AS submission_locale'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

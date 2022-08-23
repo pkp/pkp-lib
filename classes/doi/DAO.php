@@ -93,7 +93,6 @@ abstract class DAO extends \PKP\core\EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['d.*'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

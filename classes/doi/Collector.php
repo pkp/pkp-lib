@@ -107,27 +107,23 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $q = DB::table($this->dao->table, 'd');
-
-        $q->when($this->contextIds != null, function (Builder $q) {
-            $q->whereIn('d.context_id', $this->contextIds);
-        });
-
-        $q->when($this->statuses != null, function (Builder $q) {
-            $q->whereIn('d.status', $this->statuses);
-        });
-
-        $q->when($this->identifier !== null, function (Builder $q) {
-            $q->where('d.doi', '=', $this->identifier);
-        });
-
-        if (!empty($this->count)) {
-            $q->limit($this->count);
-        }
-
-        if (!empty($this->offset)) {
-            $q->offset($this->count);
-        }
+        $q = DB::table($this->dao->table, 'd')
+            ->select(['d.*'])
+            ->when($this->contextIds != null, function (Builder $q) {
+                $q->whereIn('d.context_id', $this->contextIds);
+            })
+            ->when($this->statuses != null, function (Builder $q) {
+                $q->whereIn('d.status', $this->statuses);
+            })
+            ->when($this->identifier !== null, function (Builder $q) {
+                $q->where('d.doi', '=', $this->identifier);
+            })
+            ->when(!empty($this->count), function (Builder $q) {
+                $q->limit($this->count);
+            })
+            ->when(!empty($this->offset), function (Builder $q) {
+                $q->offset($this->count);
+            });
 
         Hook::call('Doi::Collector', [&$q, $this]);
 

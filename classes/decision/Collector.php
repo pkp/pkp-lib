@@ -124,6 +124,7 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table)
+            ->select([$this->dao->table . '.*'])
             ->when(!is_null($this->decisionTypes), function ($q) {
                 $q->whereIn('decision', $this->decisionTypes);
             })

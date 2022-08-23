@@ -103,7 +103,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['g.*'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

@@ -260,7 +260,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 */
 	private function _getMessageParams(User $user) : array
 	{
-		return $this->_params + ['name' => htmlspecialchars($user->getLocalizedGivenName($this->_context->getPrimaryLocale()))];
+		return $this->_params + ['name' => htmlspecialchars($user->getLocalizedData(IDENTITY_SETTING_GIVENNAME, $this->_context->getPrimaryLocale()))];
 	}
 
 	/**

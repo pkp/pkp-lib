@@ -13,7 +13,7 @@
  * @brief An action to open up a modal to view an email sent to a user.
  */
 
-namespace PKP\controllers\grid\eventLog;
+namespace PKP\controllers\grid\eventLog\linkAction;
 
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;

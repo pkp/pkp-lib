@@ -97,7 +97,7 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->bigInteger('submission_file_id')->nullable(false)->unsigned();
             $table->index(['submission_id'], 'review_round_files_submission_id');
             $table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_pkey');
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
         });
 
         // Associates reviewable submission files with reviews
@@ -106,7 +106,7 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->bigInteger('submission_file_id')->nullable(false)->unsigned();
             $table->index(['review_id'], 'review_files_review_id');
             $table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
         });
 
         // Associate editor decisions with review rounds

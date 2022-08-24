@@ -76,11 +76,11 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
 
         switch ($columnId) {
             case 'replies':
-                return ['label' => max(0, $notes->getCount() - 1)];
+                return ['label' => max(0, $notes->count() - 1)];
             case 'from':
                 return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? date($datetimeFormatShort, strtotime($headNote->getDateCreated())) : '')];
             case 'lastReply':
-                $latestReply = $notes->next();
+                $latestReply = $notes->first();
                 if ($latestReply && $latestReply->getId() != $headNote->getId()) {
                     $repliedUser = $latestReply->getUser();
                     return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($latestReply->getDateCreated()))];

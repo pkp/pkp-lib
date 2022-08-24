@@ -95,6 +95,30 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned settings for missing genre ID ${genreId}");
                 DB::table('genre_settings')->where('genre_id', '=', $genreId)->delete();
             }
+            // Clean orphan notification_settings
+            $orphanedIds = DB::table('notification_settings AS ns')->leftJoin('notifications AS n', 'ns.notification_id', '=', 'n.notification_id')->whereNull('n.notification_id')->distinct()->pluck('ns.notification_id');
+            foreach ($orphanedIds as $notificationId) {
+                $this->_installer->log("Removing orphaned settings for missing notification ID ${notificationId}");
+                DB::table('notification_settings')->where('notification_id', '=', $notificationId)->delete();
+            }
+            // Clean orphan submission_file_settings
+            $orphanedIds = DB::table('submission_file_settings AS sfs')->leftJoin('submission_files AS sf', 'sfs.submission_file_id', '=', 'sf.submission_file_id')->whereNull('sf.submission_file_id')->distinct()->pluck('sfs.submission_file_id');
+            foreach ($orphanedIds as $submissionFileId) {
+                $this->_installer->log("Removing orphaned settings for missing submission file ID ${submissionFileId}");
+                DB::table('submission_file_settings')->where('submission_file_id', '=', $submissionFileId)->delete();
+            }
+            // Clean orphan query_participants - non existing user
+            $orphanedIds = DB::table('query_participants AS qp')->leftJoin('users AS u', 'qp.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('qp.user_id');
+            foreach ($orphanedIds as $userId) {
+                $this->_installer->log("Removing orphaned query_participants for missing user ID ${userId}");
+                DB::table('query_participants')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphan query_participants - non existing query
+            $orphanedIds = DB::table('query_participants AS qp')->leftJoin('queries AS q', 'qp.query_id', '=', 'q.query_id')->whereNull('q.query_id')->distinct()->pluck('qp.query_id');
+            foreach ($orphanedIds as $queryId) {
+                $this->_installer->log("Removing orphaned query_participants for missing query ID ${queryId}");
+                DB::table('query_participants')->where('query_id', '=', $queryId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

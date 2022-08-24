@@ -16,7 +16,6 @@ namespace PKP\mail\transport;
 
 use APP\core\Application;
 use PHPMailer\PHPMailer\PHPMailer;
-use PKP\config\Config;
 use PKP\core\PKPString;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\SentMessage;
@@ -61,6 +60,8 @@ class PHPMailerTransport implements TransportInterface
 
     /**
      * We won't send symfony message; transfer data to PHPMailer to send with mail()
+     *
+     * @throws Exception
      */
     protected function getPHPMailerMessage(Email $symfonyMessage): PHPMailer
     {
@@ -75,7 +76,10 @@ class PHPMailerTransport implements TransportInterface
         $request = Application::get()->getRequest();
         $fromAddresses = $symfonyMessage->getFrom();
         if (!empty($fromAddresses)) {
-            $f = current($fromAddresses);
+            $f = array_shift($fromAddresses);
+            if (!empty($fromAddresses)) {
+                throw new Exception('Can\'t set multiple From email field value with PHPMailer');
+            }
             $mailer->setFrom($f->getAddress(), $f->getName());
         }
         // Set the envelope sender (RFC5321.MailFrom)

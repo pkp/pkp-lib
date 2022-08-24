@@ -91,6 +91,7 @@ class CreateReviewerForm extends ReviewerForm {
 		$user->setFamilyName($this->getData('familyName'), null);
 		$user->setEmail($this->getData('email'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
+		$user->setCountry('');
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$auth = $authDao->getDefaultPlugin();

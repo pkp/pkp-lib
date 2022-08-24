@@ -154,6 +154,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('query_id');
             $table->bigInteger('user_id');
             $table->unique(['query_id', 'user_id'], 'query_participants_pkey');
+            $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
 
         // List of all keywords.

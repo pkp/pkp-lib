@@ -155,6 +155,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value');
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_pkey');
+            $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
         });
 
         // Stores user preferences on what notifications should be blocked and/or emailed to them

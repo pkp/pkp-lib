@@ -55,19 +55,23 @@ class PKPAuthor extends Identity {
 	/**
 	 * @copydoc Identity::getLocalizedGivenName()
 	 */
-	function getLocalizedGivenName($defaultLocale = null) {
-		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
-
-		return parent::getLocalizedGivenName($defaultLocale);
+	function getLocalizedGivenName() {
+		return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME);
 	}
 
 	/**
 	 * @copydoc Identity::getLocalizedFamilyName()
 	 */
-	function getLocalizedFamilyName($defaultLocale = null) {
-		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
-
-		return parent::getLocalizedFamilyName($defaultLocale);
+	function getLocalizedFamilyName() {
+		// Prioritize the current locale, then the default locale.
+		$locale = AppLocale::getLocale();
+		$givenName = $this->getGivenName($locale);
+		// Only use the family name if a given name exists (to avoid mixing locale data)
+		if (!empty($givenName)) {
+			return $this->getFamilyName($locale);
+		}
+		// Fall back on the submission locale.
+		return $this->getFamilyName($this->getSubmissionLocale());
 	}
 
 	/**

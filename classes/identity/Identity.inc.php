@@ -116,8 +116,8 @@ class Identity extends DataObject {
 	 * Get the localized given name
 	 * @return string
 	 */
-	function getLocalizedGivenName($defaultLocale = null) {
-		return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME, $defaultLocale);
+	function getLocalizedGivenName() {
+		return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME);
 	}
 
 	/**
@@ -141,25 +141,16 @@ class Identity extends DataObject {
 	/**
 	 * Get the localized family name
 	 * Return family name for the locale first name exists in
-	 * @param $defaultLocale string
 	 * @return string
 	 */
-	function getLocalizedFamilyName($defaultLocale = null) {
-		// Prioritize the current locale, then the default locale.
-		$localePriorityList = [AppLocale::getLocale()];
-		if (!is_null($defaultLocale)) {
-			$localePriorityList[] = $defaultLocale;
+	function getLocalizedFamilyName() {
+		$locale = AppLocale::getLocale();
+		$givenName = $this->getGivenName($locale);
+		// Only use the family name if a given name exists (to avoid mixing locale data)
+		if (!empty($givenName)) {
+			return $this->getFamilyName($locale);
 		}
-
-		foreach ($localePriorityList as $locale) {
-			$givenName = $this->getGivenName($locale);
-			// Only use the family name if a given name exists (to avoid mixing locale data)
-			if (!empty($givenName)) {
-				return $this->getFamilyName($locale);
-			}
-		}
-
-		// Fall back on the site locale if nothing else was found. (May mix locale data.)
+		// Fall back on the site locale.
 		$site = Application::get()->getRequest()->getSite();
 		$locale = $site->getPrimaryLocale();
 		return $this->getFamilyName($locale);

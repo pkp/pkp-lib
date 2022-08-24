@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-08-23 12:01+0000\n"
+"PO-Revision-Date: 2022-08-25 10:34+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -2946,9 +2946,13 @@ msgstr "Statistik"
 
 msgid "manager.settings.statistics.keepDaily.description"
 msgstr ""
+"COUNTER-statistik och geografisk användningsstatistik summeras månadsvis. "
+"Därefter raderas de dagliga loggarna. Välj det här alternativet om du vill "
+"behålla dagliga loggar i databasen. Observera att detta kommer göra "
+"databasen betydligt större."
 
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Plattform-ID"
+msgstr "Plattforms-ID"
 
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Ett plattforms-ID krävs"
@@ -3159,3 +3163,67 @@ msgstr "Skickat till granskning"
 
 msgid "mailable.ReviewResponseOverdueAuto.name"
 msgstr "Svar på granskning försenat (automatisk)"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geografisk användningsstatistik"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Samla inte in geografisk data"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Det är e-postmeddelandet skickas i inskickningssteget för att meddela en "
+"användare om ett bidrag"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Det är e-postmeddelandet skickas i manusredigeringssteget för att meddela en "
+"användare om ett bidrag"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Det är e-postmeddelandet skickas i produktionssteget för att meddela en "
+"användare om ett bidrag"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Meddelande om reviderad version"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Meddelande om publiceringsversion"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Det här e-postmeddelandet meddelar automatiskt granskare om ändringar i "
+"granskningsdetaljerna"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Det här e-postmeddelandet skickas automatiskt till anknutna redaktörer när "
+"en granskare lämnat en rekommendation"
+
+msgid "manager.settings.statistics.keepDaily.option"
+msgstr "Behåll daglig statistik i databasen"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Välj vilken geografisk användningsstatistik du vill samla in. Detta kommer "
+"påverka vilka typer av rapporter som kommer vara möjliga att hämta ut, och "
+"kommer även påverka databasens storlek."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Meddelande om statistikrapport"
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Plattforms-ID FÅR ENBART innehålla ASCII-tecken (a-z, A-Z), siffror (0-9), "
+"understreck (_), punkter (.) och snedstreck (/), och längden FÅR INTE "
+"överstiga 17 tecken. Observera att plattforms-ID används i olika kolumner "
+"och bör därför vara så korta som möjligt, men fortfarande igenkännliga. "
+"Plattforms-ID bör vanligtvis vara baserat på utgivarens namn. En kort "
+"beteckning enligt en standard såsom GRID eller ROR (utan https://) kan också "
+"användas."
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en ny "
+"version av publikationen"

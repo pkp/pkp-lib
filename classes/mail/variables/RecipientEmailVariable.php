@@ -17,6 +17,7 @@ namespace PKP\mail\variables;
 
 use InvalidArgumentException;
 use PKP\identity\Identity;
+use PKP\mail\Mailable;
 
 class RecipientEmailVariable extends Variable
 {
@@ -26,8 +27,10 @@ class RecipientEmailVariable extends Variable
     /** @var iterable<Identity> */
     protected iterable $recipients;
 
-    public function __construct(iterable $recipients)
+    public function __construct(iterable $recipients, Mailable $mailable)
     {
+        parent::__construct($mailable);
+
         foreach ($recipients as $recipient) {
             if (!is_a($recipient, Identity::class)) {
                 throw new InvalidArgumentException('recipient array values should be an instances or ancestors of ' . Identity::class . ', ' . get_class($recipient) . ' is given');

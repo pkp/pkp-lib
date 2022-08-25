@@ -63,7 +63,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
         return $request->getDispatcher()->url(
             $request,
             PKPApplication::ROUTE_PAGE,
-            $request->getContext()->getData('path'),
+            $request->getContext()->getData('urlPath'),
             'announcement',
             'view',
             $this->_announcement->getId()

@@ -53,6 +53,7 @@ use PKP\mail\variables\SiteEmailVariable;
 use PKP\mail\variables\SubmissionEmailVariable;
 use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
+use PKP\plugins\HookRegistry;
 use PKP\site\Site;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -64,6 +65,9 @@ class Mailable extends IlluminateMailable
 {
     /** Used internally by Illuminate Mailer. Do not touch. */
     public const DATA_KEY_MESSAGE = 'message';
+
+    /** Data key for the context associated with the Mailable */
+    public const DATA_KEY_CONTEXT = 'context';
 
     public const GROUP_OTHER = 'other';
     public const GROUP_SUBMISSION = 'submission';
@@ -251,6 +255,29 @@ class Mailable extends IlluminateMailable
     }
 
     /**
+     * These data keys are reserved and shouldn't be used as email template variable names
+     *
+     * @return string[]
+     */
+    public static function getReservedDataKeys(): array
+    {
+        return [
+            self::DATA_KEY_MESSAGE,
+            self::DATA_KEY_CONTEXT,
+        ];
+    }
+
+    /**
+     * Get Variable class instances associated with the Mailable
+     *
+     * @return Variable[]
+     */
+    public function getVariables(): array
+    {
+        return $this->variables;
+    }
+
+    /**
      * Allow data to be passed to the subject
      *
      * @param \Illuminate\Mail\Message $message
@@ -295,12 +322,22 @@ class Mailable extends IlluminateMailable
     {
         $map = static::templateVariablesMap();
         foreach ($variables as $variable) {
+
+            // Pass context as additional data if exists, see pkp/pkp-lib#8204
+            if (is_a($variable, Context::class)) {
+                static::buildViewDataUsing(function() use ($variable) {
+                    return [self::DATA_KEY_CONTEXT => $variable];
+                });
+            }
+
+            // Setup variables
             foreach ($map as $className => $assoc) {
                 if (is_a($variable, $className)) {
-                    $this->variables[] = new $assoc($variable);
+                    $this->variables[] = new $assoc($variable, $this);
                     continue 2;
                 }
             }
+
             $type = is_object($variable) ? get_class($variable) : gettype($variable);
             throw new InvalidArgumentException($type . ' argument passed to the ' . static::class . ' constructor isn\'t associated with template variables');
         }

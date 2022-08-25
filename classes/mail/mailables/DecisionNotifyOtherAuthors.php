@@ -18,6 +18,7 @@ namespace PKP\mail\mailables;
 
 use APP\submission\Submission;
 use PKP\context\Context;
+use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Sender;
@@ -30,6 +31,7 @@ class DecisionNotifyOtherAuthors extends Mailable
 
     /** @var string An email variable that contains the message that was sent to the submitting author */
     public const MESSAGE_TO_SUBMITTING_AUTHOR = 'messageToSubmittingAuthor';
+    public const SUBMITTING_AUTHOR_NAME = 'submittingAuthorName';
 
     protected static ?string $name = 'mailable.decision.notifyOtherAuthors.name';
     protected static ?string $description = 'mailable.decision.notifyOtherAuthors.description';
@@ -44,15 +46,50 @@ class DecisionNotifyOtherAuthors extends Mailable
     protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
-    public function __construct(Context $context, Submission $submission)
+    /** @var string[] */
+    protected array $assignedAuthors;
+
+    public function __construct(Context $context, Submission $submission, array $assignedAuthors)
     {
         parent::__construct(func_get_args());
+
+        $this->assignedAuthors = $assignedAuthors;
     }
 
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
         $variables[self::MESSAGE_TO_SUBMITTING_AUTHOR] = __('mailable.decision.notifyOtherAuthors.variable.message.description');
+        $variables[self::SUBMITTING_AUTHOR_NAME] = __('emailTemplate.variable.submission.submittingAuthorName');
         return $variables;
+    }
+
+    /**
+     * Set submitting author name email template variable
+     */
+    public function setData(?string $locale = null)
+    {
+        parent::setData($locale);
+
+        if (is_null($locale)) {
+            $locale = Locale::getLocale();
+        }
+
+        $this->viewData[self::SUBMITTING_AUTHOR_NAME] = $this->getSubmittingAuthorName($locale);
+    }
+
+    /**
+     * The name(s) of authors assigned as participants to the
+     * submission workflow.
+     *
+     * Usually this is the submitting author.
+     */
+    protected function getSubmittingAuthorName(string $locale): string
+    {
+        $authorNames = [];
+        foreach ($this->assignedAuthors as $user) {
+            $authorNames[] = $user->getFullName(true, false, $locale);
+        }
+        return join(__('common.commaListSeparator'), $authorNames);
     }
 }

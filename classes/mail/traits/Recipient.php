@@ -67,7 +67,7 @@ trait Recipient
         });
 
         $this->setAddress($to);
-        $this->variables[] = new RecipientEmailVariable($recipients);
+        $this->variables[] = new RecipientEmailVariable($recipients, $this);
         return $this;
     }
 }

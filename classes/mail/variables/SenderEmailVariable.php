@@ -16,6 +16,7 @@
 namespace PKP\mail\variables;
 
 use PKP\core\PKPString;
+use PKP\mail\Mailable;
 use PKP\user\User;
 
 class SenderEmailVariable extends Variable
@@ -26,8 +27,10 @@ class SenderEmailVariable extends Variable
 
     protected User $sender;
 
-    public function __construct(User $sender)
+    public function __construct(User $sender, Mailable $mailable)
     {
+        parent::__construct($mailable);
+
         $this->sender = $sender;
     }
 

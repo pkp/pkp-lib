@@ -212,13 +212,11 @@ class SubmissionMailTemplate extends MailTemplate
     {
         assert(in_array($method, ['addRecipient', 'addCc', 'addBcc']));
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByRoleId($this->context->getId(), $roleId);
+        $userGroups = Repo::userGroup()->getByRoleIds([$roleId], $this->context->getId());
 
         $returner = [];
         // Cycle through all the userGroups for this role
-        while ($userGroup = $userGroups->next()) {
-            $userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
+        foreach ($userGroups as $userGroup) {
             // FIXME: #6692# Should this be getting users just for a specific user group?
             $users = Repo::user()->getCollector()
                 ->assignedTo($submissionId, $stageId, $userGroup->getId())

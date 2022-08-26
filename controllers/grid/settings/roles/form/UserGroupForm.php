@@ -22,9 +22,10 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
-use PKP\security\UserGroupDAO;
 use PKP\security\Validation;
 use PKP\workflow\WorkflowStageDAO;
+use APP\facades\Repo;
+use PKP\userGroup\relationships\UserGroupStage;
 
 class UserGroupForm extends Form
 {
@@ -96,8 +97,7 @@ class UserGroupForm extends Form
      */
     public function initData()
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroup = $userGroupDao->getById($this->getUserGroupId());
+        $userGroup = Repo::userGroup()->get($this->getUserGroupId());
         $stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
         $this->setData('stages', $stages);
         $this->setData('assignedStages', []); // sensible default
@@ -108,14 +108,14 @@ class UserGroupForm extends Form
         $this->setData('roleForbiddenStagesJSON', $jsonMessage->getString());
 
         if ($userGroup) {
-            $assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($this->getContextId(), $userGroup->getId());
+            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($this->getContextId(), $userGroup->getId())->toArray();
 
             $data = [
                 'userGroupId' => $userGroup->getId(),
                 'roleId' => $userGroup->getRoleId(),
                 'name' => $userGroup->getName(null), //Localized
                 'abbrev' => $userGroup->getAbbrev(null), //Localized
-                'assignedStages' => array_keys($assignedStages),
+                'assignedStages' => $assignedStages,
                 'showTitle' => $userGroup->getShowTitle(),
                 'permitSelfRegistration' => $userGroup->getPermitSelfRegistration(),
                 'permitMetadataEdit' => $userGroup->getPermitMetadataEdit(),
@@ -154,7 +154,7 @@ class UserGroupForm extends Form
         $templateMgr->assign('disableRoleSelect', $disableRoleSelect);
         $templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
         $templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
-        $templateMgr->assign('notChangeMetadataEditPermissionRoles', UserGroupDAO::getNotChangeMetadataEditPermissionRoles());
+        $templateMgr->assign('notChangeMetadataEditPermissionRoles', Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES);
 
         return parent::fetch($request, $template, $display);
     }
@@ -188,33 +188,33 @@ class UserGroupForm extends Form
 
         $request = Application::get()->getRequest();
         $userGroupId = $this->getUserGroupId();
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
         // Check if we are editing an existing user group or creating another one.
         if ($userGroupId == null) {
-            $userGroup = $userGroupDao->newDataObject();
+            $userGroup = Repo::userGroup()->newDataObject();
             $userGroup->setRoleId($this->getData('roleId'));
             $userGroup->setContextId($this->getContextId());
             $userGroup->setDefault(false);
-            $userGroup->setShowTitle($this->getData('showTitle'));
+            $userGroup->setShowTitle(is_null($this->getData('showTitle'))?false:$this->getData('showTitle'));
             $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
-            $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($this->getData('roleId'), UserGroupDAO::getNotChangeMetadataEditPermissionRoles()));
-            if (in_array($this->getData('roleId'), UserGroupDAO::getNotChangeMetadataEditPermissionRoles())) {
+            $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
+            if (in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->setPermitMetadataEdit(true);
             }
 
             $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 
-            $userGroupId = $userGroupDao->insertObject($userGroup);
+            $userGroupId = Repo::userGroup()->add($userGroup);
         } else {
-            $userGroup = $userGroupDao->getById($userGroupId);
+            $userGroup = Repo::userGroup()->get($userGroupId);
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-            $userGroup->setShowTitle($this->getData('showTitle'));
+            $userGroup->setShowTitle(is_null($this->getData('showTitle'))?false:$this->getData('showTitle'));
             $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
-            $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($userGroup->getRoleId(), UserGroupDAO::getNotChangeMetadataEditPermissionRoles()));
-            if (in_array($userGroup->getRoleId(), UserGroupDAO::getNotChangeMetadataEditPermissionRoles())) {
+            $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
+            if (in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->setPermitMetadataEdit(true);
             } else {
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
@@ -230,7 +230,7 @@ class UserGroupForm extends Form
 
             $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
 
-            $userGroupDao->updateObject($userGroup);
+            Repo::userGroup()->edit($userGroup, []);
         }
 
         // After we have created/edited the user group, we assign/update its stages.
@@ -257,13 +257,12 @@ class UserGroupForm extends Form
     public function _assignStagesToUserGroup($userGroupId, $userAssignedStages)
     {
         $contextId = $this->getContextId();
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 
         // Current existing workflow stages.
         $stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 
         foreach (array_keys($stages) as $stageId) {
-            $userGroupDao->removeGroupFromStage($contextId, $userGroupId, $stageId);
+            Repo::userGroup()->removeGroupFromStage($contextId, $userGroupId, $stageId);
         }
 
         foreach ($userAssignedStages as $stageId) {
@@ -279,7 +278,11 @@ class UserGroupForm extends Form
 
             // Check if is a valid stage.
             if (in_array($stageId, array_keys($stages))) {
-                $userGroupDao->assignGroupToStage($contextId, $userGroupId, $stageId);
+                UserGroupStage::create([
+                    'contextId' => $contextId,
+                    'userGroupId' => $userGroupId,
+                    'stageId' => $stageId
+                ]);
             } else {
                 fatalError('Invalid stage id');
             }
@@ -289,12 +292,11 @@ class UserGroupForm extends Form
     /**
      * Set locale fields on a User Group object.
      *
-     * @param UserGroup $userGroup
+     * @param \PKP\userGroup\UserGroup $userGroup
      * @param Request $request
      *
-     * @return UserGroup
      */
-    public function _setUserGroupLocaleFields($userGroup, $request)
+    public function _setUserGroupLocaleFields($userGroup, $request) : \PKP\userGroup\UserGroup
     {
         $router = $request->getRouter();
         $context = $router->getContext($request);

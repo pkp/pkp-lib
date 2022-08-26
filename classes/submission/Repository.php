@@ -29,6 +29,7 @@ use PKP\doi\exceptions\DoiActionException;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
+use PKP\security\Role;
 
 abstract class Repository
 {
@@ -151,9 +152,8 @@ abstract class Repository
         $dispatcher = $request->getDispatcher();
 
         // Check if the user is an author of this submission
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
+        $authorUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_AUTHOR);
         $stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 
         $authorDashboard = false;
@@ -499,8 +499,8 @@ abstract class Repository
     {
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         $roles = $roleDao->getByUserId($userId, $contextId);
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $allowedRoles = $userGroupDao->getNotChangeMetadataEditPermissionRoles();
+
+        $allowedRoles = Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES;
         foreach ($roles as $role) {
             if (in_array($role->getRoleId(), $allowedRoles)) {
                 return true;

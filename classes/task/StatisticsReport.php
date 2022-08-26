@@ -27,6 +27,7 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\security\Role;
+use APP\facades\Repo;
 
 class StatisticsReport extends ScheduledTask
 {

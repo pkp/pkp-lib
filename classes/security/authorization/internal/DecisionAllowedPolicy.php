@@ -61,10 +61,9 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
                 return AuthorizationPolicy::AUTHORIZATION_DENY;
             }
         } else {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             $isAllowed = false;
             foreach ($stageAssignments as $stageAssignment) {
-                $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+                $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
                 if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                     continue;
                 }

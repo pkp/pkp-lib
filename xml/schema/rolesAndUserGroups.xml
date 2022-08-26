@@ -75,10 +75,6 @@
 			<NOTNULL />
 		</field>
 		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL/>
-			<descr>(bool|int|float|string|object)</descr>
-		</field>
 		<descr>User Group-specific settings</descr>
 		<index name="user_group_settings_pkey">
 			<col>user_group_id</col>

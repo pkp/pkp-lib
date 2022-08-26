@@ -19,6 +19,7 @@ use APP\core\Application;
 use PKP\db\DAORegistry;
 
 use PKP\security\Role;
+use APP\facades\Repo;
 
 class UserFormHelper
 {
@@ -54,14 +55,14 @@ class UserFormHelper
 
         // Expose potential self-registration user groups to template
         $authorUserGroups = $reviewerUserGroups = $readerUserGroups = [];
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+
         foreach ($contexts as $context) {
             if ($context->getData('disableUserReg')) {
                 continue;
             }
-            $reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_REVIEWER)->toArray();
-            $authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
-            $readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_READER)->toArray();
+            $reviewerUserGroups[$context->getId()] = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->toArray();
+            $authorUserGroups[$context->getId()] = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->toArray();
+            $readerUserGroups[$context->getId()] = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_READER], $context->getId())->toArray();
         }
         $templateMgr->assign([
             'reviewerUserGroups' => $reviewerUserGroups,
@@ -78,7 +79,6 @@ class UserFormHelper
      */
     public function saveRoleContent($form, $user)
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll(true);
         while ($context = $contexts->next()) {
@@ -101,18 +101,18 @@ class UserFormHelper
                 ],
             ] as $groupData) {
                 $groupFormData = (array) $form->getData($groupData['formElement']);
-                $userGroups = $userGroupDao->getByRoleId($context->getId(), $groupData['roleId']);
-                while ($userGroup = $userGroups->next()) {
+                $userGroups = Repo::userGroup()->getByRoleIds([$groupData['roleId']], $context->getId());
+                foreach ($userGroups as $userGroup) {
                     if (!$userGroup->getPermitSelfRegistration()) {
                         continue;
                     }
 
                     $groupId = $userGroup->getId();
-                    $inGroup = $userGroupDao->userInGroup($user->getId(), $groupId);
+                    $inGroup = Repo::userGroup()->userInGroup($user->getId(), $groupId);
                     if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
-                        $userGroupDao->assignUserToGroup($user->getId(), $groupId, $context->getId());
+                        Repo::userGroup()->assignUserToGroup($user->getId(), $groupId, $context->getId());
                     } elseif ($inGroup && !array_key_exists($groupId, $groupFormData)) {
-                        $userGroupDao->removeUserFromGroup($user->getId(), $groupId, $context->getId());
+                        Repo::userGroup()->removeUserFromGroup($user->getId(), $groupId, $context->getId());
                     }
                 }
             }

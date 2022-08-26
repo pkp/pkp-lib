@@ -508,11 +508,10 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-        $userGroupDao->installSettings($context->getId(), 'registry/userGroups.xml');
+        Repo::userGroup()->installSettings($context->getId(), 'registry/userGroups.xml');
 
-        $managerUserGroup = $userGroupDao->getDefaultByRoleId($context->getId(), Role::ROLE_ID_MANAGER);
-        $userGroupDao->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
+        $managerUserGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_MANAGER], $context->getId(), true)->firstOrFail();
+        Repo::userGroup()->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
 
         $fileManager = new FileManager();
         foreach ($this->installFileDirs as $dir) {
@@ -577,12 +576,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
         $announcementTypeDao->deleteByContextId($context->getId());
 
-        $contextDao = Application::getContextDao();
-        $contextDao->deleteObject($context);
-
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-        $userGroupDao->deleteAssignmentsByContextId($context->getId());
-        $userGroupDao->deleteByContextId($context->getId());
+        Repo::userGroup()->deleteByContextId($context->getId());
 
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genreDao->deleteByContextId($context->getId());
@@ -616,6 +610,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $fileManager = new FileManager($context->getId());
         $contextPath = Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
         $fileManager->rmtree($contextPath);
+
+        $contextDao = Application::getContextDao();
+        $contextDao->deleteObject($context);
 
         Hook::call('Context::delete', [&$context]);
     }

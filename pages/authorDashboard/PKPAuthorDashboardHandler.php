@@ -150,8 +150,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $submissionContext = Services::get('context')->get($submission->getContextId());
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), Role::ROLE_ID_AUTHOR)->toArray();
+        $contextUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $contextGenres = $genreDao->getEnabledByContextId($submission->getData('contextId'))->toArray();
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();

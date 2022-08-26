@@ -61,7 +61,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
-                $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
                 $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
                 $operation = $reviewAssignment->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? $workflowStageDao::WORKFLOW_STAGE_PATH_INTERNAL_REVIEW : $workflowStageDao::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());

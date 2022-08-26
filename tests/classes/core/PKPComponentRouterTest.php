@@ -271,6 +271,14 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         // with a reference to the request object as the first argument.
         Registry::set('request', $this->request);
         $user = new \PKP\user\User();
+
+        /*
+         * Set the id of the user here to something other than null in order for the UserRolesRequiredPolicy 
+         * to be able to work as it supposed to.
+         * Specifically, the UserRolesRequiredPolicy::effect calls the getByUserIdGroupedByContext function
+         * which needs a userId that is not nullable.
+         */
+        $user->setData('id', 0);
         Registry::set('user', $user);
         $serviceEndpoint = $this->router->getRpcServiceEndpoint($this->request);
         $handler = $serviceEndpoint[0];

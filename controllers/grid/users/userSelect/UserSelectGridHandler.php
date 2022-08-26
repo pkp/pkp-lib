@@ -66,13 +66,14 @@ class UserSelectGridHandler extends GridHandler
         parent::initialize($request, $args);
 
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getUserGroupsByStage(
+
+        $userGroups = Repo::userGroup()->getUserGroupsByStage(
             $request->getContext()->getId(),
             $stageId
         );
+
         $this->_userGroupOptions = [];
-        while ($userGroup = $userGroups->next()) {
+        foreach ($userGroups as $userGroup) {
             // Exclude reviewers.
             if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;

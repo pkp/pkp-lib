@@ -18,6 +18,7 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\user\InterestManager;
+use APP\facades\Repo;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
 {
@@ -139,14 +140,13 @@ class PKPUserUserXmlFilter extends NativeExportFilter
             $this->createOptionalNode($doc, $userNode, 'disabled_reason', $user->getDisabledReason());
         }
 
-        $userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /** @var UserGroupAssignmentDAO $userGroupAssignmentDao */
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $assignedGroups = $userGroupAssignmentDao->getByUserId($user->getId(), $context->getId());
-        while ($assignedGroup = $assignedGroups->next()) {
-            $userGroup = $userGroupDao->getById($assignedGroup->getUserGroupId());
-            if ($userGroup) {
-                $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
-            }
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByUserIds([$user->getId()])
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        foreach ($userGroups as $userGroup) {
+            $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
         }
 
         // Add Reviewing Interests, if any.
@@ -163,8 +163,10 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $context = $deployment->getContext();
         $userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($context->getId());
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+            
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');
         assert(count($userGroupExportFilters) == 1); // Assert only a single serialization filter

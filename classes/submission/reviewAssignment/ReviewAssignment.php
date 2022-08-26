@@ -660,18 +660,17 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function isRead()
     {
-        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userStageAssignmentDao = \DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
         $viewsDao = \DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
 
         $submission = Repo::submission()->get($this->getSubmissionId());
 
         // Get the user groups for this stage
-        $userGroups = $userGroupDao->getUserGroupsByStage(
+        $userGroups = Repo::userGroup()->getUserGroupsByStage(
             $submission->getContextId(),
             $this->getStageId()
         );
-        while ($userGroup = $userGroups->next()) {
+
+        foreach ($userGroups as $userGroup) {
             $roleId = $userGroup->getRoleId();
             if ($roleId != Role::ROLE_ID_MANAGER && $roleId != Role::ROLE_ID_SUB_EDITOR) {
                 continue;

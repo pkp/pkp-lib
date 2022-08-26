@@ -16,6 +16,8 @@
 namespace PKP\plugins\importexport\users\filter;
 
 use PKP\db\DAORegistry;
+use APP\facades\Repo;
+use PKP\userGroup\relationships\UserGroupStage;
 
 class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -78,16 +80,18 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
         $context = $deployment->getContext();
 
         // Create the UserGroup object.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroup = $userGroupDao->newDataObject();
+        $userGroup = Repo::userGroup()->newDataObject();
         $userGroup->setContextId($context->getId());
 
         // Extract the name node element to see if this user group exists already.
         $nodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'name');
         if ($nodeList->length > 0) {
             $content = $this->parseLocalizedContent($nodeList->item(0)); // $content[1] contains the localized name.
-            $userGroups = $userGroupDao->getByContextId($context->getId());
-            while ($testGroup = $userGroups->next()) {
+            $userGroups = Repo::userGroup()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->getMany();
+                
+            foreach ($userGroups as $testGroup) {
                 if (in_array($content[1], $testGroup->getName(null))) {
                     return $testGroup;  // we found one with the same name.
                 }
@@ -96,25 +100,18 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
                 if ($n instanceof \DOMElement) {
                     switch ($n->tagName) {
-                        case 'role_id': $userGroup->setRoleId($n->textContent);
-                            break;
-                        case 'is_default': $userGroup->setDefault($n->textContent);
-                            break;
-                        case 'show_title': $userGroup->setShowTitle($n->textContent);
-                            break;
-                        case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale'));
-                            break;
-                        case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale'));
-                            break;
-                        case 'permit_self_registration': $userGroup->setPermitSelfRegistration($n->textContent);
-                            break;
-                        case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent);
-                            break;
+                        case 'role_id': $userGroup->setRoleId($n->textContent); break;
+                        case 'is_default': $userGroup->setDefault(isset($n->textContent) ? $n->textContent : false); break;
+                        case 'show_title': $userGroup->setShowTitle(isset($n->textContent) ? $n->textContent : true); break;
+                        case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale')); break;
+                        case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale')); break;
+                        case 'permit_self_registration': $userGroup->setPermitSelfRegistration(isset($n->textContent) ? $n->textContent : false); break;
+                        case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit(isset($n->textContent) ? $n->textContent : false); break;
                     }
                 }
             }
 
-            $userGroupId = $userGroupDao->insertObject($userGroup);
+            $userGroupId = Repo::userGroup()->add($userGroup);
 
             $stageNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'stage_assignments');
             if ($stageNodeList->length == 1) {
@@ -122,7 +119,11 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                 $assignedStages = preg_split('/:/', $n->textContent);
                 foreach ($assignedStages as $stage) {
                     if ($stage >= WORKFLOW_STAGE_ID_SUBMISSION && $stage <= WORKFLOW_STAGE_ID_PRODUCTION) {
-                        $userGroupDao->assignGroupToStage($context->getId(), $userGroupId, $stage);
+                        UserGroupStage::create([
+                            'contextId' => $context->getId(),
+                            'userGroupId' => $userGroupId,
+                            'stageId' => $stage
+                        ]);
                     }
                 }
             }

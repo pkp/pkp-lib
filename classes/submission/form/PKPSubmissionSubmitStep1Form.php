@@ -27,6 +27,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\security\Role;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 {
@@ -82,18 +83,16 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
         // Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
         $userGroupId = (int) $this->getData('userGroupId');
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $request = Application::get()->getRequest();
-        $context = $request->getContext();
         $user = $request->getUser();
         if (!$user) {
             return false;
         }
 
-        if ($userGroupDao->userInGroup($user->getId(), $userGroupId)) {
+        if (Repo::userGroup()->userInGroup($user->getId(), $userGroupId)) {
             return true;
         }
-        $userGroup = $userGroupDao->getById($userGroupId, $context->getId());
+        $userGroup = Repo::userGroup()->get($userGroupId);
         if ($userGroup->getPermitSelfRegistration()) {
             return true;
         }
@@ -122,44 +121,54 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             $templateMgr->assign('copyrightNoticeAgree', true);
         }
 
-        $userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /** @var UserGroupAssignmentDAO $userGroupAssignmentDao */
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroupNames = [];
 
         // List existing user roles
-        $managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), Role::ROLE_ID_MANAGER)->toArray();
-        $authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
+        $managerUserGroups = Repo::userGroup()->getCollector()
+            ->filterByUserIds([$user->getId()])
+            ->filterByContextIds([$this->context->getId()])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+            ->getMany();
+
+        $authorUserGroups = Repo::userGroup()->getCollector()
+            ->filterByUserIds([$user->getId()])
+            ->filterByContextIds([$this->context->getId()])
+            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
+            ->getMany();
 
         // List available author roles
-        $availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, Role::ROLE_ID_AUTHOR);
+        $availableAuthorUserGroups =  Repo::userGroup()->getUserGroupsByStage(
+            $this->context->getId(), 
+            WORKFLOW_STAGE_ID_SUBMISSION, 
+            Role::ROLE_ID_AUTHOR
+        );
+
         $availableUserGroupNames = [];
-        while ($authorUserGroup = $availableAuthorUserGroups->next()) {
+        foreach ($availableAuthorUserGroups as $authorUserGroup) {
             if ($authorUserGroup->getPermitSelfRegistration()) {
                 $availableUserGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
             }
         }
 
         // Set default group to default author group
-        $defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR);
+        $defaultGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $this->context->getId(), true)->first();
         $noExistingRoles = false;
         $managerGroups = false;
 
         // If the user has manager roles, add manager roles and available author roles to selection
-        if (!empty($managerUserGroupAssignments)) {
-            foreach ($managerUserGroupAssignments as $managerUserGroupAssignment) {
-                $managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
+        if (!$managerUserGroups->isEmpty()) {
+            foreach ($managerUserGroups as $managerUserGroup) {
                 $userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
             }
             $managerGroups = join(__('common.commaListSeparator'), $userGroupNames);
             $userGroupNames = array_replace($userGroupNames, $availableUserGroupNames);
 
             // Set default group to default manager group
-            $defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), Role::ROLE_ID_MANAGER);
+            $defaultGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_MANAGER], $this->context->getId(), true)->first();
 
         // else if the user only has existing author roles, add to selection
-        } elseif (!empty($authorUserGroupAssignments)) {
-            foreach ($authorUserGroupAssignments as $authorUserGroupAssignment) {
-                $authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
+        } elseif (!$authorUserGroups->isEmpty()) {
+            foreach ($authorUserGroups as $authorUserGroup) {
                 $userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
             }
         // else the user has no roles, only add available author roles to selection
@@ -365,12 +374,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
         $request = Application::get()->getRequest();
         $user = $request->getUser();
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 
         // Enroll user if needed
         $userGroupId = (int) $this->getData('userGroupId');
-        if (!$userGroupDao->userInGroup($user->getId(), $userGroupId)) {
-            $userGroupDao->assignUserToGroup($user->getId(), $userGroupId);
+        if (!Repo::userGroup()->userInGroup($user->getId(), $userGroupId)) {
+            Repo::userGroup()->assignUserToGroup($user->getId(), $userGroupId);
         }
 
         if (isset($this->submission)) {
@@ -416,13 +424,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
             // if no user names exist for this submission locale,
             // copy the names in default site primary locale for this locale as well
-            $authorUserGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
+            $authorUserGroups =  Repo::userGroup()
+                ->getByRoleIds([Role::ROLE_ID_AUTHOR], $this->context->getId())
+                ->filter(function($userGroup) use ($userGroupId) {
+                    return $userGroup->getId() == $userGroupId;
+                });
 
-            $userInAuthorGroup = array_filter($authorUserGroups, function ($item) use ($userGroupId) {
-                return $item->getId() === $userGroupId;
-            });
-
-            if (!empty($userInAuthorGroup)) {
+            if ($authorUserGroups->isNotEmpty()) {
                 $userGivenNames = $user->getGivenName(null);
                 $userFamilyNames = $user->getFamilyName(null);
                 if (is_null($userFamilyNames)) {

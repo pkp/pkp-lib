@@ -17,8 +17,8 @@ namespace PKP\controllers\grid\settings\user\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
+use APP\facades\Repo;
 
 class UserForm extends Form
 {
@@ -46,13 +46,18 @@ class UserForm extends Form
      */
     public function initData()
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByUserId($this->userId);
         $userGroupIds = [];
-        while ($userGroup = $userGroups->next()) {
-            $userGroupIds[] = $userGroup->getId();
+
+        if (!is_null($this->userId)) {
+            $userGroups = Repo::userGroup()->userUserGroups($this->userId);
+
+            foreach($userGroups as $userGroup) {
+                $userGroupIds[] = $userGroup->getId();
+            }
         }
+
         $this->setData('userGroupIds', $userGroupIds);
+
 
         parent::initData();
     }
@@ -79,9 +84,12 @@ class UserForm extends Form
         $templateMgr = TemplateManager::getManager($request);
 
         $allUserGroups = [];
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($contextId);
-        while ($userGroup = $userGroups->next()) {
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$contextId])
+            ->getMany();
+            
+        foreach ($userGroups as $userGroup) {
             $allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();
         }
 
@@ -99,12 +107,11 @@ class UserForm extends Form
     public function execute(...$functionArgs)
     {
         if (isset($this->userId)) {
-            $userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /** @var UserGroupAssignmentDAO $userGroupAssignmentDao */
-            $userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
+            Repo::userGroup()->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
+
             if ($this->getData('userGroupIds')) {
-                $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
                 foreach ($this->getData('userGroupIds') as $userGroupId) {
-                    $userGroupDao->assignUserToGroup($this->userId, $userGroupId);
+                    Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId);
                 }
             }
         }

@@ -19,6 +19,7 @@ namespace PKP\security\authorization;
 use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use APP\facades\Repo;
 
 class StageRolePolicy extends AuthorizationPolicy
 {
@@ -77,8 +78,7 @@ class StageRolePolicy extends AuthorizationPolicy
                 $this->_stageId
             );
             while ($stageAssignment = $result->next()) {
-                $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-                $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+                $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
                 if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->getRecommendOnly()) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
@@ -98,11 +98,10 @@ class StageRolePolicy extends AuthorizationPolicy
                 Application::get()->getRequest()->getUser()->getId(),
                 $this->_stageId
             );
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             $noResults = true;
             while ($stageAssignment = $result->next()) {
                 $noResults = false;
-                $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+                $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
                 if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER && !$stageAssignment->getRecommendOnly()) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }

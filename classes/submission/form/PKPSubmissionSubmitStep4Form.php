@@ -33,9 +33,9 @@ use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
-use PKP\security\UserGroupDAO;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
+use PKP\userGroup\relationships\UserGroupStage;
 
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
@@ -78,23 +78,30 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         Repo::submission()->dao->update($this->submission);
 
         // Assign the default stage participants.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $notifyUsers = [];
 
         // Manager and assistant roles -- for each assigned to this
         //  stage in setup, iff there is only one user for the group,
         //  automatically assign the user to the stage.
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION);
-        while ($userGroup = $submissionStageGroups->next()) {
+        $submissionStageGroups = Repo::userGroup()->getUserGroupsByStage(
+            $this->submission->getContextId(),
+            WORKFLOW_STAGE_ID_SUBMISSION
+        );
+
+        foreach ($submissionStageGroups as $userGroup) {
             // Only handle manager and assistant roles
             if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT])) {
                 continue;
             }
 
-            $users = $userGroupDao->getUsersById($userGroup->getId(), $this->submission->getContextId());
-            if ($users->getCount() == 1) {
-                $user = $users->next();
+            $users = Repo::user()->getCollector()
+                ->filterByUserGroupIds([$userGroup->getId()])
+                ->filterByContextIds([$this->submission->getContextId()])
+                ->getMany();
+                
+            if ($users->count() == 1) {
+                $user = $users->first();
                 $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $user->getId(), $userGroup->getRecommendOnly());
                 $notifyUsers[] = $user->getId();
             }
@@ -105,7 +112,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         $user = $request->getUser();
         $submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($this->submission->getId(), null, null, $user->getId());
         while ($assignment = $submitterAssignments->next()) {
-            $userGroup = $userGroupDao->getById($assignment->getUserGroupId());
+            $userGroup = Repo::userGroup()->get($assignment->getUserGroupId());
             if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
                 $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $assignment->getUserId());
                 // Only assign them once, since otherwise we'll one assignment for each previous stage.
@@ -120,14 +127,14 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
         $subEditors = $subEditorsDao->getBySubmissionGroupId($this->submission->getSectionId(), ASSOC_TYPE_SECTION, $this->submission->getContextId());
         foreach ($subEditors as $subEditor) {
-            $userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
-            while ($userGroup = $userGroups->next()) {
+            $userGroups = Repo::userGroup()->userUserGroups($subEditor->getId(), $this->submission->getContextId());
+            foreach ($userGroups as $userGroup) {
                 if ($userGroup->getRoleId() != Role::ROLE_ID_SUB_EDITOR) {
                     continue;
                 }
                 $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
                 // If we assign a stage assignment in the Submission stage to a sub editor, make note.
-                if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
+                if (UserGroupStage::withStageId(WORKFLOW_STAGE_ID_SUBMISSION)->withUserGroupId($userGroup->getId())->get()->isNotEmpty()) {
                     $notifyUsers[] = $subEditor->getId();
                 }
             }
@@ -142,14 +149,14 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         foreach ($categories as $category) {
             $subEditors = $subEditorsDao->getBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $this->submission->getContextId());
             foreach ($subEditors as $subEditor) {
-                $userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
-                while ($userGroup = $userGroups->next()) {
+                $userGroups = Repo::userGroup()->userUserGroups($subEditor->getId(), $this->submission->getContextId());
+                foreach($userGroups as $userGroup) {
                     if ($userGroup->getRoleId() != Role::ROLE_ID_SUB_EDITOR) {
                         continue;
                     }
                     $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
                     // If we assign a stage assignment in the Submission stage to a sub editor, make note.
-                    if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
+                    if (UserGroupStage::withStageId(WORKFLOW_STAGE_ID_SUBMISSION)->withUserGroupId($userGroup->getId())->get()->isNotEmpty()) {
                         $notifyUsers[] = $subEditor->getId();
                     }
                 }
@@ -312,11 +319,13 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
             }
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_SUB_EDITOR);
+        $userGroups = Repo::userGroup()->getByRoleIds(
+            [Role::ROLE_ID_SUB_EDITOR],
+            $this->context->getId()
+        );
 
         // Cycle through all the userGroups for this role
-        while ($userGroup = $userGroups->next()) {
+        foreach ($userGroups as $userGroup) {
             // FIXME: #6692# Should this be getting users just for a specific user group?
             $users = Repo::user()->getCollector()
                 ->assignedTo($this->submissionId, WORKFLOW_STAGE_ID_SUBMISSION, $userGroup->getId())

@@ -451,9 +451,8 @@ class Validation
 
         // Check for administered user group assignments in other contexts
         // that the administrator user doesn't have a manager role in.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByUserId($administeredUserId);
-        while ($userGroup = $userGroups->next()) {
+        $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
+        foreach ($userGroups as $userGroup) {
             if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;

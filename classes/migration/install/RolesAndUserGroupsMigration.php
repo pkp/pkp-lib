@@ -43,8 +43,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->unique(['user_group_id', 'locale', 'setting_name'], 'user_group_settings_pkey');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
         });
 
         // User group assignments (mapping of user to user groups)
@@ -54,6 +54,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->index(['user_group_id'], 'user_user_groups_user_group_id');
             $table->index(['user_id'], 'user_user_groups_user_id');
             $table->unique(['user_group_id', 'user_id'], 'user_user_groups_pkey');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
         });
 
         // User groups assignments to stages in the workflow
@@ -65,6 +66,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->index(['user_group_id'], 'user_group_stage_user_group_id');
             $table->index(['stage_id'], 'user_group_stage_stage_id');
             $table->unique(['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_pkey');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
         });
 
         // Stage Assignments

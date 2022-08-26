@@ -152,8 +152,7 @@ class PKPAuthorForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), Role::ROLE_ID_AUTHOR);
+        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $request->getContext()->getId());
         $publication = $this->getPublication();
         $countries = [];
         foreach (Locale::getCountries() as $country) {

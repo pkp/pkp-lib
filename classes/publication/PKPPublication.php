@@ -21,6 +21,7 @@ use PKP\core\Core;
 
 use PKP\core\PKPString;
 use PKP\facades\Locale;
+use Illuminate\Support\LazyCollection;
 
 class PKPPublication extends \PKP\core\DataObject
 {
@@ -144,12 +145,12 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
      *
-     * @param array $userGroups List of UserGroup objects
+     * @param \Traversable<UserGroup> $userGroups List of UserGroup objects
      * @param bool $includeInBrowseOnly true if only the includeInBrowse Authors will be contained
      *
      * @return string
      */
-    public function getAuthorString($userGroups, $includeInBrowseOnly = false)
+    public function getAuthorString(\Traversable $userGroups, $includeInBrowseOnly = false)
     {
         $authors = $this->getData('authors');
 

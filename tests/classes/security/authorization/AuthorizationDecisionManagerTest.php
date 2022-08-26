@@ -22,6 +22,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\userGroup\UserGroup;
 
 class AuthorizationDecisionManagerTest extends PolicyTestCase
 {
@@ -103,7 +104,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
 
         // Check whether the authorized context is correctly returned from the policy.
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $this->decisionManager->decide());
-        self::assertInstanceOf('UserGroup', $this->decisionManager->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
+        self::assertInstanceOf('PKP\userGroup\UserGroup', $this->decisionManager->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
     }
 
     /**

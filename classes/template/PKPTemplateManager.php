@@ -20,6 +20,7 @@
  */
 
 namespace PKP\template;
+use APP\facades\Repo;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
@@ -1235,10 +1236,10 @@ class PKPTemplateManager extends Smarty
         if (Application::isInstalled()) {
             $user = $this->_request->getUser();
             if ($user) {
-                $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-                $userGroupsResult = $userGroupDao->getByUserId($user->getId());
+                $userGroups = Repo::userGroup()->userUserGroups($user->getId());
+
                 $userRoles = [];
-                while ($userGroup = $userGroupsResult->next()) {
+                foreach($userGroups as $userGroup) {
                     $userRoles[] = (int) $userGroup->getRoleId();
                 }
                 $currentUser = [

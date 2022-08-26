@@ -19,6 +19,7 @@ use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
+use APP\facades\Repo;
 
 class ViewSubmissionMetadataHandler extends handler
 {
@@ -52,8 +53,10 @@ class ViewSubmissionMetadataHandler extends handler
         $publication = $submission->getCurrentPublication();
 
         if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) { /* SUBMISSION_REVIEW_METHOD_ANONYMOUS or _OPEN */
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
+            $userGroups = Repo::userGroup()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->getMany();
+
             $templateMgr->assign('authors', $publication->getAuthorString($userGroups));
         }
 

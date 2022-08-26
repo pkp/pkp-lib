@@ -133,16 +133,14 @@ class PKPEmailHandler extends APIHandler
             return $response->withJson($errors, 400);
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         foreach ($params['userGroupIds'] as $userGroupId) {
-            if (!$userGroupDao->contextHasGroup($contextId, $userGroupId)
+            if (!Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
                     || in_array($userGroupId, (array) $context->getData('disableBulkEmailUserGroups'))) {
                 return $response->withJson([
                     'userGroupIds' => [__('api.emails.403.notAllowedUserGroup')],
                 ], 400);
             }
         }
-
 
         $userIds = Repo::user()->getCollector()
             ->filterByContextIds([$contextId])

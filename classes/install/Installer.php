@@ -31,7 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBDataXMLParser;
 use PKP\facades\Locale;
-use PKP\facades\Repo;
+use APP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
 use PKP\notification\PKPNotification;
@@ -1105,27 +1105,27 @@ class Installer
     {
         $roleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next();) {
-            foreach ($roleIds as $roleId) {
-                for ($userGroups = $userGroupDao->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next();) {
-                    for ($users = $userGroupDao->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next();) {
-                        $notificationSubscriptionSettingsDao->update(
-                            'INSERT INTO notification_subscription_settings
-                                (setting_name, setting_value, user_id, context, setting_type)
-                                VALUES
-                                (?, ?, ?, ?, ?)',
-                            [
-                                'blocked_emailed_notification',
-                                PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
-                                $user->getId(),
-                                $context->getId(),
-                                'int'
-                            ]
-                        );
-                    }
-                }
+            $users = Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->filterByRoleIds($roleIds)
+                ->getMany();
+
+            foreach ($users as $user) {
+                $notificationSubscriptionSettingsDao->update(
+                    'INSERT INTO notification_subscription_settings
+                        (setting_name, setting_value, user_id, context, setting_type)
+                        VALUES
+                        (?, ?, ?, ?, ?)',
+                    [
+                        'blocked_emailed_notification',
+                        PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
+                        $user->getId(),
+                        $context->getId(),
+                        'int'
+                    ]
+                );
             }
         }
 

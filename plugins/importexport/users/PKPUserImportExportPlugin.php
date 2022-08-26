@@ -199,8 +199,10 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      */
     public function exportAllUsers($context, $user, &$filter = null)
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $users = $userGroupDao->getUsersByContextId($context->getId());
+        $users = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
         if (!$filter) {
             $filter = $this->getUserImportExportFilter($context, $user, false);
         }

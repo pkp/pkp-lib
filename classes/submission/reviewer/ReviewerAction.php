@@ -33,7 +33,6 @@ use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
-use PKP\security\UserGroupDAO;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -140,11 +139,10 @@ class ReviewerAction
 
         // Get editorial contact name
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
         $recipients = [];
         while ($stageAssignment = $stageAssignments->next()) {
-            $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
             if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                 continue;
             }

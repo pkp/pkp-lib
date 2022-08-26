@@ -31,11 +31,12 @@ use PKP\log\SubmissionLog;
 use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\UnpublishedEvent;
 use PKP\plugins\Hook;
-use PKP\security\UserGroup;
+use PKP\userGroup\UserGroup;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
+use Illuminate\Support\LazyCollection;
 
 abstract class Repository
 {
@@ -90,10 +91,10 @@ abstract class Repository
      * Get an instance of the map class for mapping
      * publications to their schema
      *
-     * @param UserGroup[] $userGroups
+     * @param LazyCollection<UserGroup> $userGroups
      * @param Genre[] $genres
      */
-    public function getSchemaMap(Submission $submission, array $userGroups, array $genres): maps\Schema
+    public function getSchemaMap(Submission $submission, LazyCollection $userGroups, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,

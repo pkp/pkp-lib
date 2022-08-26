@@ -21,6 +21,7 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\security\Role;
 use Sokil\IsoCodes\IsoCodesFactory;
+use APP\facades\Repo;
 
 define('FORM_CONTRIBUTOR', 'contributor');
 
@@ -44,8 +45,7 @@ class PKPContributorForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO'); /** @var \UserGroupDAO $userGroupDao */
-        $authorUserGroups = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
+        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId());
 
         $authorUserGroupsOptions = [];
         $firstAuthorUserGroupId = null;

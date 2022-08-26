@@ -144,10 +144,18 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $objectsFileNamePart string Part different for each object type.
 	 * @param $context Context
 	 * @param $extension string
+	 * @param ?DateTime $dateFilenamePart The datetime that corresponds to the specific part of the exported filename
 	 * @return string
 	 */
-	function getExportFileName($basePath, $objectsFileNamePart, $context, $extension = '.xml') {
-		return $basePath . $this->getPluginSettingsPrefix() . '-' . date('Ymd-His') .'-' . $objectsFileNamePart .'-' . $context->getId() . $extension;
+	function getExportFileName($basePath, $objectsFileNamePart, $context, $extension = '.xml', ?DateTime $dateFilenamePart = null) {
+		$dateFilenamePartFormat = 'Ymd-His';
+
+		$dateFilenamePartString = date($dateFilenamePartFormat);
+
+		if (isset($dateFilenamePart))
+			$dateFilenamePartString = $dateFilenamePart->format($dateFilenamePartFormat);
+
+		return $basePath . $this->getPluginSettingsPrefix() . '-' . $dateFilenamePartString .'-' . $objectsFileNamePart .'-' . $context->getId() . $extension;
 	}
 
 	/**

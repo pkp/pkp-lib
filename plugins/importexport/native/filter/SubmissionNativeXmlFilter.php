@@ -153,7 +153,18 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
         foreach ($submissionFiles as $submissionFile) {
             // Skip files attached to objects that are not included in the export,
             // such as files uploaded to discussions and files uploaded by reviewers
-            if (in_array($submissionFile->getData('fileStage'), [SubmissionFile::SUBMISSION_FILE_QUERY, SubmissionFile::SUBMISSION_FILE_NOTE, SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])) {
+            $excludedFileStages = [
+                SubmissionFile::SUBMISSION_FILE_QUERY,
+                SubmissionFile::SUBMISSION_FILE_NOTE,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION
+            ];
+
+            if (in_array($submissionFile->getData('fileStage'), $excludedFileStages)) {
                 $this->getDeployment()->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', ['id' => $submissionFile->getId()]));
                 continue;
             }

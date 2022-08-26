@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-08-25 10:34+0000\n"
+"PO-Revision-Date: 2022-08-26 18:25+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sv_SE/>\n"
@@ -417,7 +417,7 @@ msgid "user.apiKeyEnabled"
 msgstr "Tillåt externa applikationer som har API-nyckeln att få tillgång till det här kontot"
 
 msgid "user.apiKey.generate"
-msgstr "Skapa ny API-nyckel"
+msgstr "Skapa API-nyckel"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Vid skapande av ny API-nyckel blir den nuvarande nyckeln för det här kontot ogiltig."
@@ -451,3 +451,14 @@ msgstr "Tilltalsnamn"
 
 msgid "user.givenName"
 msgstr "Förnamn"
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Är du säker på att du vill ta bort den här API-nyckeln?"
+
+msgid "user.apiKey.remove"
+msgstr "Ta bort"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Om du tar bort nyckeln kommer tillgången till alla applikationer som "
+"använder sig av nyckeln upphävas."

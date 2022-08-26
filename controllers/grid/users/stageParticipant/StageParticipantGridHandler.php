@@ -273,14 +273,12 @@ class StageParticipantGridHandler extends CategoryGridHandler
         }
 
         // Fetch the desired user groups as objects.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $context = $request->getContext();
         $result = [];
-        $userGroups = $userGroupDao->getUserGroupsByStage(
+        $userGroups = Repo::userGroup()->getUserGroupsByStage(
             $request->getContext()->getId(),
             $this->getStageId()
         );
-        while ($userGroup = $userGroups->next()) {
+        foreach ($userGroups as $userGroup) {
             if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
@@ -343,10 +341,9 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $notificationMgr = new NotificationManager();
 
             // Check user group role id.
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
-            $userGroup = $userGroupDao->getById($userGroupId);
+            $userGroup = Repo::userGroup()->get($userGroupId);
             if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
@@ -439,8 +436,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
         // Log removal.
         $assignedUser = Repo::user()->get($stageAssignment->getUserId(), true);
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+        $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
         SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
 
         // Redraw the category
@@ -466,8 +462,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $collector->filterExcludeSubmissionStage($submission->getId(), $stageId, $userGroupId);
         $users = $collector->getMany();
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroup = $userGroupDao->getById($userGroupId);
+        $userGroup = Repo::userGroup()->get($userGroupId);
         $roleId = $userGroup->getRoleId();
 
         $sectionId = $submission->getSectionId();

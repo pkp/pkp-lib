@@ -99,8 +99,9 @@ class PKPBackendDoiHandler extends APIHandler
         $publication = Repo::publication()->get($publication->getId());
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

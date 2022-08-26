@@ -226,8 +226,7 @@ class PKPInstall extends Installer
         Repo::user()->add($user);
 
         // Create an admin user group
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-        $adminUserGroup = $userGroupDao->newDataObject();
+        $adminUserGroup = Repo::userGroup()->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
         $adminUserGroup->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
         $adminUserGroup->setDefault(true);
@@ -237,10 +236,10 @@ class PKPInstall extends Installer
             $adminUserGroup->setData('name', $name, $locale);
             $adminUserGroup->setData('namePlural', $namePlural, $locale);
         }
-        $userGroupDao->insertObject($adminUserGroup);
+        Repo::userGroup()->add($adminUserGroup);
 
         // Put the installer into this user group
-        $userGroupDao->assignUserToGroup($user->getId(), $adminUserGroup->getId());
+        Repo::userGroup()->assignUserToGroup($user->getId(), $adminUserGroup->getId());
 
         // Add initial site data
         $siteDao = DAORegistry::getDAO('SiteDAO');

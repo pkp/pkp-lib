@@ -487,13 +487,14 @@ abstract class PKPSubmission extends \PKP\core\DataObject
             return '';
         }
 
-        $userGroupIds = array_map(function ($author) {
-            return $author->getData('userGroupId');
-        }, Repo::author()->getSubmissionAuthors($this)->toArray());
-        $userGroups = array_map(function ($userGroupId) {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            return $userGroupDao->getbyId($userGroupId);
-        }, array_unique($userGroupIds));
+        $userGroupIds = Repo::author()->getSubmissionAuthors($this, true)
+            ->pluck('userGroupId')
+            ->unique()
+            ->toArray();
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByUserGroupIds($userGroupIds)
+            ->getMany();
 
         return $publication->getAuthorString($userGroups);
     }

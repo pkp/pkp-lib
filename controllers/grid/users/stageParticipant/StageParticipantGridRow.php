@@ -25,6 +25,7 @@ use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
 use PKP\security\Validation;
+use APP\facades\Repo;
 
 class StageParticipantGridRow extends GridRow
 {
@@ -113,8 +114,7 @@ class StageParticipantGridRow extends GridRow
                 Validation::canAdminister($userId, $user->getId())
             ) {
                 $dispatcher = $router->getDispatcher();
-                $userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
-                $userGroup = $userGroupDAO->getById($userGroupId, $context->getId());
+                $userGroup = Repo::userGroup()->get($userGroupId);
 
                 if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
                     $handler = 'authorDashboard';

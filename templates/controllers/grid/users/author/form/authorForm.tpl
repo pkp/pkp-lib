@@ -39,10 +39,10 @@
 
 	{fbvFormArea id="submissionSpecific"}
 		{fbvFormSection id="userGroupId" title="submission.submit.contributorRole" list=true required=true}
-			{iterate from=authorUserGroups item=userGroup}
+			{foreach from=$authorUserGroups item=$userGroup}
 				{if $userGroupId == $userGroup->getId()}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
 				{fbvElement type="radio" id="userGroup"|concat:$userGroup->getId() name="userGroupId" value=$userGroup->getId() checked=$checked label=$userGroup->getLocalizedName() translate=false}
-			{/iterate}
+			{/foreach}
 		{/fbvFormSection}
 		{fbvFormSection list="true"}
 			{fbvElement type="checkbox" label="submission.submit.selectPrincipalContact" id="primaryContact" checked=$primaryContact}

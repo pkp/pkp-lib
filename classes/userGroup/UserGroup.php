@@ -1,21 +1,23 @@
 <?php
 
 /**
- * @file classes/security/UserGroup.php
+ * @file classes/userGroup/UserGroup.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UserGroup
- * @ingroup security
+ * @class \PKP\userGroup\UserGroup
  *
- * @see UserGroupDAO
+ * @see DAO
  *
- * @brief Describes user groups
+ * @brief UserGroup metadata class.
  */
 
-namespace PKP\security;
+namespace PKP\userGroup;
+
+use PKP\facades\Locale;
+use PKP\db\DAORegistry;
 
 class UserGroup extends \PKP\core\DataObject
 {
@@ -134,10 +136,8 @@ class UserGroup extends \PKP\core\DataObject
 
     /**
      * Set the "permit self-registration" flag
-     *
-     * @param bool $permitSelfRegistration
      */
-    public function setPermitSelfRegistration($permitSelfRegistration)
+    public function setPermitSelfRegistration(bool $permitSelfRegistration)
     {
         $this->setData('permitSelfRegistration', $permitSelfRegistration);
     }
@@ -242,15 +242,13 @@ class UserGroup extends \PKP\core\DataObject
 
     /**
      * Setter for permitMetadataEdit attribute.
-     *
-     * @param bool $permitMetadataEdit
      */
-    public function setPermitMetadataEdit($permitMetadataEdit)
+    public function setPermitMetadataEdit(bool $permitMetadataEdit)
     {
         $this->setData('permitMetadataEdit', $permitMetadataEdit);
     }
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\UserGroup', '\UserGroup');
+    class_alias('\PKP\userGroup\UserGroup', '\UserGroup');
 }

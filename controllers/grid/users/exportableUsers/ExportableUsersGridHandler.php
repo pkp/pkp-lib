@@ -178,10 +178,6 @@ class ExportableUsersGridHandler extends GridHandler
 
     /**
      * @copydoc GridHandler::loadData()
-     *
-     * @param PKPRequest $request
-     *
-     * @return array Grid data.
      */
     protected function loadData($request, $filter)
     {
@@ -189,17 +185,22 @@ class ExportableUsersGridHandler extends GridHandler
         $context = $request->getContext();
 
         // Get all users for this context that match search criteria.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-        return $users = $userGroupDao->getUsersById(
-            $filter['userGroup'],
-            $context->getId(),
-            $filter['searchField'],
-            $filter['search'] ? $filter['search'] : null,
-            $filter['searchMatch'],
-            $rangeInfo
-        );
+        // The user interface uses filter['userGroup'] and $filter['search']
+        $userGroupSearchTerm = $filter['userGroup'] ? [$filter['userGroup']] : null;
+
+        $userCollector = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->searchPhrase($filter['search'])
+            ->filterByUserGroupIds($userGroupSearchTerm)
+            ->limit($rangeInfo->getCount())
+            ->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
+        
+        $users = $userCollector->getMany();
+        
+        $totalCount = $users->count($userCollector->limit(null)->offset(null));
+        return new \PKP\core\VirtualArrayIterator(iterator_to_array($users, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**
@@ -208,10 +209,13 @@ class ExportableUsersGridHandler extends GridHandler
     public function renderFilter($request, $filterData = [])
     {
         $context = $request->getContext();
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($context->getId());
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+            
         $userGroupOptions = ['' => __('grid.user.allRoles')];
-        while ($userGroup = $userGroups->next()) {
+        foreach ($userGroups as $userGroup) {
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
         }
         $userDao = Repo::user()->dao;

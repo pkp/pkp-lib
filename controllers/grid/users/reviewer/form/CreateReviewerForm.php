@@ -133,9 +133,8 @@ class CreateReviewerForm extends ReviewerForm
         $interestManager->setInterestsForUser($user, $this->getData('interests'));
 
         // Assign the selected user group ID to the user
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroupId = (int) $this->getData('userGroupId');
-        $userGroupDao->assignUserToGroup($reviewerId, $userGroupId);
+        Repo::userGroup()->assignUserToGroup($reviewerId, $userGroupId);
 
         if (!$this->getData('skipEmail')) {
             // Send welcome email to user

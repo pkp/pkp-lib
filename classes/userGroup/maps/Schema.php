@@ -1,39 +1,34 @@
 <?php
 /**
- * @file classes/author/maps/Schema.php
+ * @file classes/userGroup/maps/Schema.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class author
+ * @class \PKP\userGroup\maps\Schema
  *
- * @brief Map authors to the properties defined in the announcement schema
+ * @brief Map userGroups to the properties defined in the userGroup schema
  */
 
-namespace PKP\author\maps;
+namespace PKP\userGroup\maps;
 
-use APP\author\Author;
+use PKP\userGroup\UserGroup;
 use Illuminate\Support\Enumerable;
-use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use APP\facades\Repo;
-use Illuminate\Support\LazyCollection;
+use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
 
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
-    public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
-
-    protected LazyCollection $authorUserGroups;
+    public string $schema = PKPSchemaService::SCHEMA_USER_GROUP;
 
     public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
-
-        $this->authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $this->context->getId());
     }
 
     /**
@@ -41,7 +36,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the announcement schema.
      */
-    public function map(Author $item): array
+    public function map(UserGroup $item): array
     {
         return $this->mapByProperties($this->getProps(), $item);
     }
@@ -51,7 +46,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the author schema.
      */
-    public function summarize(Author $item): array
+    public function summarize(UserGroup $item): array
     {
         return $this->mapByProperties($this->getSummaryProps(), $item);
     }
@@ -85,22 +80,11 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map schema properties of an Author to an assoc array
      */
-    protected function mapByProperties(array $props, Author $item): array
+    protected function mapByProperties(array $props, UserGroup $item): array
     {
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
-                case 'userGroupName':
-                    $userGroupId = $item->getData('userGroupId');
-
-                    $output[$prop] = $this->authorUserGroups->contains('userGroupId', $userGroupId)
-                        ? $this->authorUserGroups->firstWhere('userGroupId', $userGroupId)->getName(null)
-                        : '';
-
-                    break;
-                case 'fullName':
-                    $output[$prop] = $item->getFullName();
-                    break;
                 default:
                     $output[$prop] = $item->getData($prop);
                     break;

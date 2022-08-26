@@ -16,6 +16,7 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class PKPAuthorNativeXmlFilter extends NativeExportFilter
 {
@@ -99,8 +100,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
             $authorNode->setAttribute('include_in_browse', 'true');
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroup = $userGroupDao->getById($author->getUserGroupId());
+        $userGroup = Repo::userGroup()->get($author->getUserGroupId());
         assert(isset($userGroup));
 
         if (!$userGroup) {

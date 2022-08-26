@@ -33,6 +33,7 @@ use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\institution\Repository as InstitutionRepository;
 use PKP\mail\Repository as MailRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
+use PKP\userGroup\Repository as UserGroupRepository;
 
 class Repo
 {
@@ -79,5 +80,10 @@ class Repo
     public static function institution(): InstitutionRepository
     {
         return app()->make(InstitutionRepository::class);
+    }
+
+    public static function userGroup(): UserGroupRepository
+    {
+        return app(UserGroupRepository::class);
     }
 }

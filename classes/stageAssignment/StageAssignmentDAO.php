@@ -21,6 +21,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\security\Role;
+use APP\facades\Repo;
 
 class StageAssignmentDAO extends \PKP\db\DAO
 {
@@ -212,10 +213,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
     public function build($submissionId, $userGroupId, $userId, $recommendOnly = false, $canChangeMetadata = null)
     {
         if (!isset($canChangeMetadata)) {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-
             /** @var UserGroup $userGroup */
-            $userGroup = $userGroupDao->getById($userGroupId);
+            $userGroup = Repo::userGroup()->get($userGroupId);
 
             $canChangeMetadata = $userGroup->getPermitMetadataEdit();
         }

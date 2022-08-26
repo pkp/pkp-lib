@@ -3,18 +3,35 @@
 	"description": "A user group assigned to one of the allowed roles.",
 	"properties": {
 		"abbrev": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"id": {
-			"type": "integer"
+			"type": "string",
+			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
+			"apiSummary": true,
+			"multilingual": true
 		},
 		"name": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
+			"apiSummary": true,
+			"multilingual": true
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"contextId": {
+			"type": "integer",
+			"apiSummary": true
 		},
 		"permitSelfRegistration": {
 			"type": "boolean"
 		},
+		"permitMetadataEdit": {
+			"type": "boolean"
+		},
 		"recommendOnly": {
+			"type": "boolean"
+		},
+		"isDefault": {
 			"type": "boolean"
 		},
 		"roleId": {
@@ -25,6 +42,16 @@
 		},
 		"showTitle": {
 			"type": "boolean"
+		},
+		"nameLocaleKey": {
+			"type": "string",
+			"description": "A field that contains the the locale key of the group name",
+			"apiSummary": true
+		},
+		"abbrevLocaleKey": {
+			"type": "string",
+			"description": "A field that contains the the locale key of the group abbreviaton",
+			"apiSummary": true
 		}
 	}
 }

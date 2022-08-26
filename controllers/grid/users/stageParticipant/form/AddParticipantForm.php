@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\userGroup\relationships\UserGroupStage;
 
 class AddParticipantForm extends StageParticipantNotifyForm
 {
@@ -80,11 +81,9 @@ class AddParticipantForm extends StageParticipantNotifyForm
      */
     public function initialize()
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-
         // assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
-        $this->_managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(Role::ROLE_ID_MANAGER, $this->_contextId);
-        $subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(Role::ROLE_ID_SUB_EDITOR, $this->_contextId);
+        $this->_managerGroupIds =  Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_MANAGER, $this->_contextId);
+        $subEditorGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_SUB_EDITOR, $this->_contextId);
         $this->_possibleRecommendOnlyUserGroupIds = array_merge($this->_managerGroupIds, $subEditorGroupIds);
     }
 
@@ -119,14 +118,13 @@ class AddParticipantForm extends StageParticipantNotifyForm
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getUserGroupsByStage(
+        $userGroups = Repo::userGroup()->getUserGroupsByStage(
             $request->getContext()->getId(),
             $this->getStageId()
         );
 
         $userGroupOptions = [];
-        while ($userGroup = $userGroups->next()) {
+        foreach ($userGroups as $userGroup) {
             // Exclude reviewers.
             if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
@@ -140,9 +138,17 @@ class AddParticipantForm extends StageParticipantNotifyForm
             'userGroupOptions' => $userGroupOptions,
             'selectedUserGroupId' => array_shift($keys), // assign the first element as selected
             'possibleRecommendOnlyUserGroupIds' => $this->_possibleRecommendOnlyUserGroupIds,
-            'recommendOnlyUserGroupIds' => $userGroupDao->getRecommendOnlyGroupIds($request->getContext()->getId()),
+            'recommendOnlyUserGroupIds' => Repo::userGroup()->getCollector()
+                ->filterByContextIds([$request->getContext()->getId()])
+                ->filterByIsRecommendOnly()
+                ->getMany()
+                ->toArray(),
             'notPossibleEditSubmissionMetadataPermissionChange' => $this->_managerGroupIds,
-            'permitMetadataEditUserGroupIds' => $userGroupDao->getPermitMetadataEditGroupIds($request->getContext()->getId()),
+            'permitMetadataEditUserGroupIds' => Repo::userGroup()->getCollector()
+                ->filterByContextIds([$request->getContext()->getId()])
+                ->filterByPermitMetadataEdit(true)
+                ->getMany()
+                ->toArray(),
             'submissionId' => $this->getSubmission()->getId(),
             'userGroupId' => '',
             'userIdSelected' => '',
@@ -157,9 +163,8 @@ class AddParticipantForm extends StageParticipantNotifyForm
 
             $currentUser = Repo::user()->get($stageAssignment->getUserId());
 
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             /** @var UserGroup $userGroup */
-            $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
 
             $templateMgr->assign([
                 'assignmentId' => $this->_assignmentId,
@@ -223,10 +228,8 @@ class AddParticipantForm extends StageParticipantNotifyForm
     {
         $userGroupId = (int) $this->getData('userGroupId');
         $userId = (int) $this->getData('userId');
-        $submission = $this->getSubmission();
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        return $userGroupDao->userInGroup($userId, $userGroupId) && $userGroupDao->getById($userGroupId, $submission->getContextId());
+        return Repo::userGroup()->userInGroup($userId, $userGroupId) && Repo::userGroup()->get($userGroupId);
     }
 
     /**
@@ -237,7 +240,6 @@ class AddParticipantForm extends StageParticipantNotifyForm
     public function execute(...$functionParams)
     {
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 
         $submission = $this->getSubmission();
         $userGroupId = (int) $this->getData('userGroupId');
@@ -246,7 +248,7 @@ class AddParticipantForm extends StageParticipantNotifyForm
         $canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroupId) ? (bool) $this->getData('canChangeMetadata') : true;
 
         // sanity check
-        if ($userGroupDao->userGroupAssignedToStage($userGroupId, $this->getStageId())) {
+        if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroupId)->get()->isNotEmpty()) {
             $updated = false;
 
             if ($this->_assignmentId) {

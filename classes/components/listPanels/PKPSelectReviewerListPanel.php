@@ -185,10 +185,8 @@ class PKPSelectReviewerListPanel extends ListPanel
 
     /**
      * Helper method to compile initial params to get items
-     *
-     * @return array
      */
-    protected function _getCollector()
+    protected function _getCollector() : \PKP\user\Collector
     {
         $params = $this->getParams;
         return Repo::user()->getCollector()

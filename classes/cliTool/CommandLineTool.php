@@ -113,14 +113,15 @@ class CommandLineTool
         }
 
         if (!$this->user) {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $adminGroups = $userGroupDao->getUserGroupIdsByRoleId(Role::ROLE_ID_SITE_ADMIN);
+            $adminGroups = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_SITE_ADMIN);
 
             if (count($adminGroups)) {
-                $groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();
+                $groupUsers = Repo::user()->getCollector()
+                    ->filterByUserGroupIds([$adminGroups[0]])
+                    ->getMany();
 
-                if (count($groupUsers) > 0) {
-                    $this->setUser($groupUsers[0]);
+                if ($groupUsers->isNotEmpty()) {
+                    $this->setUser($groupUsers->first());
                 } else {
                     $this->exitWithUsageMessage();
                 }

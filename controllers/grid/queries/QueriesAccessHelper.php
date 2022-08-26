@@ -150,7 +150,7 @@ class QueriesAccessHelper
         $query = $queryDao->getById($queryId);
         if ($query) {
             $headNote = $query->getHeadNote();
-            if ($headNote->getUserId() == $this->_user->getId() && $headNote->getTitle() == '') {
+            if ($headNote?->getUserId() == $this->_user->getId() && $headNote?->getTitle() == '') {
                 return true;
             }
         }

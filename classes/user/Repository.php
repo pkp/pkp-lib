@@ -201,9 +201,8 @@ class Repository
         $accessibleStageRoles = [];
 
         // Assigned users have access based on their assignment
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         while ($stageAssignment = $stageAssignmentsResult->next()) {
-            $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
             $accessibleStageRoles[] = $userGroup->getRoleId();
         }
         $accessibleStageRoles = array_unique($accessibleStageRoles);
@@ -334,14 +333,14 @@ class Repository
         $subEditorsDao->deleteByUserId($oldUserId);
 
         // Transfer old user's roles
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByUserId($oldUserId);
-        while ($userGroup = $userGroups->next()) {
-            if (!$userGroupDao->userInGroup($newUserId, $userGroup->getId())) {
-                $userGroupDao->assignUserToGroup($newUserId, $userGroup->getId());
+        $userGroups = Repo::userGroup()->userUserGroups($oldUserId);
+        foreach ($userGroups as $userGroup) {
+            if (!Repo::userGroup()->userInGroup($newUserId, $userGroup->getId())) {
+                Repo::userGroup()->assignUserToGroup($newUserId, $userGroup->getId());
             }
         }
-        $userGroupDao->deleteAssignmentsByUserId($oldUserId);
+
+        Repo::userGroup()->deleteAssignmentsByUserId($oldUserId);
 
         // Transfer stage assignments.
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */

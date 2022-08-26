@@ -286,9 +286,9 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
 
         // We can only assign a user to a user group if persisted to the database by $userId
         if ($userId) {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $userGroupsFactory = $userGroupDao->getByContextId($context->getId());
-            $userGroups = $userGroupsFactory->toArray();
+            $userGroups = Repo::userGroup()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->getMany();
 
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
@@ -300,7 +300,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                     foreach ($userGroups as $userGroup) {
                         if (in_array($n->textContent, $userGroup->getName(null))) {
                             // Found a candidate; assign user to it.
-                            $userGroupDao->assignUserToGroup($userId, $userGroup->getId());
+                            Repo::userGroup()->assignUserToGroup($userId, $userGroup->getId());
                         }
                     }
                 }

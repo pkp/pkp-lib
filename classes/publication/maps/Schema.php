@@ -22,9 +22,9 @@ use Illuminate\Support\Enumerable;
 
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\security\UserGroup;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
+use Illuminate\Support\LazyCollection;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -40,13 +40,13 @@ class Schema extends \PKP\core\maps\Schema
     /** @var bool */
     public $anonymize;
 
-    /** @var UserGroup[] The user groups for this context. */
+    /** @var LazyCollection UserGroup The user groups for this context. */
     public $userGroups;
 
     /** @var Genre[] The file genres for this context. */
     public array $genres;
 
-    public function __construct(Submission $submission, array $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, LazyCollection $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->submission = $submission;

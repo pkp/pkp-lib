@@ -14,6 +14,7 @@
  */
 
 namespace PKP\core;
+use APP\facades\Repo;
 
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
@@ -501,29 +502,28 @@ class PKPPageRouter extends PKPRouter
      */
     public function getHomeUrl($request)
     {
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $user = $request->getUser();
         $userId = $user->getId();
 
         if ($context = $this->getContext($request, 1)) {
-            // The user is in the context, see if they have zero or one roles only
-            $userGroups = $userGroupDao->getByUserId($userId, $context->getId());
-            $firstUserGroup = $userGroups->next();
-            $secondUserGroup = $userGroups->next();
-            if (!$secondUserGroup) {
-                if (!$firstUserGroup || $firstUserGroup->getRoleId() == Role::ROLE_ID_READER) {
-                    return $request->url(null, 'index');
-                }
+            // If the user has no roles, or only one role and this is reader, go to "Index" page.
+            // Else go to "submissions" page
+            $userGroups = Repo::userGroup()->userUserGroups($userId, $context->getId());
+
+            if ($userGroups->isEmpty() 
+                || ($userGroups->count() == 1 && $userGroups->first()->getRoleId() == Role::ROLE_ID_READER)
+            ) {
+                return $request->url(null, 'index');
             }
+
             return $request->url(null, 'submissions');
         } else {
             // The user is at the site context, check to see if they are
             // only registered in one place w/ one role
-            $userGroups = $userGroupDao->getByUserId($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
-            $firstUserGroup = $userGroups->next();
-            $secondUserGroup = $userGroups->next();
+            $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
 
-            if ($firstUserGroup && !$secondUserGroup) {
+            if ($userGroups->count() == 1) {
+                $firstUserGroup = $userGroups->first();
                 $contextDao = Application::getContextDAO();
                 $context = $contextDao->getById($firstUserGroup->getContextId());
                 if (!isset($context)) {

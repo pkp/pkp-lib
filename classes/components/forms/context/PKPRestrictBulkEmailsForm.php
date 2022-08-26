@@ -16,6 +16,7 @@ namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
+use Illuminate\Support\LazyCollection;
 
 define('FORM_RESTRICT_BULK_EMAILS', 'restrictBulkEmails');
 
@@ -31,14 +32,13 @@ class PKPRestrictBulkEmailsForm extends FormComponent
      * Constructor
      *
      * @param string $action URL to submit the form to
-     * @param DAOResultFactory $userGroups
      */
-    public function __construct($action, $context, $userGroups)
+    public function __construct($action, $context, LazyCollection $userGroups)
     {
         $this->action = $action;
 
         $userGroupOptions = [];
-        while ($userGroup = $userGroups->next()) {
+        foreach ($userGroups as $userGroup) {
             $userGroupOptions[] = [
                 'value' => $userGroup->getId(),
                 'label' => $userGroup->getLocalizedData('name'),

@@ -302,7 +302,10 @@ class AdminHandler extends Handler
 
         $bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
         if ($bulkEmailsEnabled) {
-            $userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
+            $userGroups = Repo::userGroup()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->getMany();
+                
             $restrictBulkEmailsForm = new \PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
             $components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();
         }

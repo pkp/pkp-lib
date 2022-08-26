@@ -80,6 +80,13 @@ class UpgradeMigration extends \PKP\migration\Migration
                 $table->dropColumn('setting_type');
             });
         }
+
+        // pkp/pkp-lib#8093: Remove setting_type in user_group_settings
+        if (Schema::hasColumn('user_group_settings', 'setting_type')) {
+            Schema::table('user_group_settings', function (Blueprint $table) {
+                $table->dropColumn('setting_type');
+            });
+        }
     }
 
     /**

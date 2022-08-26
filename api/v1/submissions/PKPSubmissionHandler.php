@@ -290,8 +290,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $submissions = $collector->getMany();
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -403,8 +404,9 @@ class PKPSubmissionHandler extends APIHandler
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany(); 
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -451,8 +453,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $submission = Repo::submission()->get($submissionId);
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -501,8 +504,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $submission = Repo::submission()->get($submission->getId());
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -528,8 +532,9 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -604,8 +609,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $publications = $collector->getMany();
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
@@ -647,8 +653,9 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -702,8 +709,9 @@ class PKPSubmissionHandler extends APIHandler
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -785,8 +793,9 @@ class PKPSubmissionHandler extends APIHandler
             Mail::send($mailable);
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -859,8 +868,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -920,8 +930,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -963,8 +974,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1006,8 +1018,9 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publication.403.cantDeletePublished');
         }
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

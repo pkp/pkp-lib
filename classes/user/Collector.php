@@ -61,6 +61,7 @@ class Collector implements CollectorInterface
     public ?array $settings = null;
     public ?string $searchPhrase = null;
     public ?array $excludeSubmissionStage = null;
+    public ?array $excludeRoles = null;
     public ?array $assignedTo = null;
     public ?int $reviewerRating = null;
     public ?int $reviewsCompleted = null;
@@ -238,6 +239,16 @@ class Collector implements CollectorInterface
             'stage_id' => $stageId,
             'user_group_id' => $userGroupId,
         ];
+        return $this;
+    }
+
+    /**
+     * Retrieve a set of users not assigned to the given roles
+     * (Replaces UserGroupDAO::getUsersNotInRole)
+     */
+    public function filterExcludeRoles(?array $excludedRoles): self
+    {
+        $this->excludeRoles = $excludedRoles;
         return $this;
     }
 
@@ -432,6 +443,7 @@ class Collector implements CollectorInterface
                         ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
                         ->whereIn('ugs.stage_id', $this->workflowStageIds)
                 )
+                ->when($this->excludeRoles !== null, fn ($query) => $query->whereNotIn('ug.role_id', $this->excludeRoles))
                 ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
                 ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
         );

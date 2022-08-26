@@ -155,9 +155,12 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
 
         // Identify the user group by name
         $userGroupName = $node->getAttribute('user_group_ref');
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userGroups = $userGroupDao->getByContextId($context->getId());
-        while ($userGroup = $userGroups->next()) {
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+            
+        foreach ($userGroups as $userGroup) {
             if (in_array($userGroupName, $userGroup->getName(null))) {
                 // Found a candidate; stash it.
                 $author->setUserGroupId($userGroup->getId());

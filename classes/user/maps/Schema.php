@@ -145,10 +145,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'groups':
                     $output[$prop] = null;
                     if ($this->context) {
-                        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-                        $userGroups = $userGroupDao->getByUserId($user->getId(), $this->context->getId());
+                        $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $this->context->getId());
                         $output[$prop] = [];
-                        while ($userGroup = $userGroups->next()) {
+                        foreach ($userGroups as $userGroup) {
                             $output[$prop][] = [
                                 'id' => (int) $userGroup->getId(),
                                 'name' => $userGroup->getName(null),

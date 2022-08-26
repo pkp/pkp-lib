@@ -17,9 +17,15 @@ namespace PKP\plugins\importexport\users\filter;
 
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
+use PKP\filter\FilterDAO;
+use PKP\filter\FilterGroup;
+use PKP\security\UserGroupDAO;
+use PKP\security\Validation;
+use PKP\site\SiteDAO;
 use PKP\user\InterestManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\mail\mailables\UserRegister;
+use PKP\mail\mailables\UserCreated;
+use PKP\user\User;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -274,8 +280,8 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             // send USER_REGISTER e-mail only if it is a new inserted/registered user
             // else, if the user already exists, its metadata will not be change (just groups will be re-assigned below)
             if ($password) {
-                $template = Repo::emailTemplate()->getByKey($context->getId(), UserRegister::getEmailTemplateKey());
-                $mailable = new UserRegister($context);
+                $template = Repo::emailTemplate()->getByKey($context->getId(), UserCreated::getEmailTemplateKey());
+                $mailable = new UserCreated($context);
                 $mailable
                     ->recipients($user)
                     ->from($context->getSetting('contactEmail'), $context->getSetting('contactName'))

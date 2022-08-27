@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-08-12 15:16+0000\n"
+"PO-Revision-Date: 2022-08-28 16:50+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl_SI/>\n"
@@ -1189,9 +1189,8 @@ msgstr "Trenutno za vas ni novih datotek za pregledati."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Zahtevani so popravki."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Popravki so bili oddani."
+msgstr "Popravki so bili oddani, potrebno je sprejeti uredniško odločitev."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Pošlji v zunanjo recenzijo."
@@ -2330,3 +2329,55 @@ msgid "doi.incorrectStaleStatus"
 msgstr ""
 "Prišlo je do napake pri označevanju DOI stanja za {$pubObjectTitle}. Stanje "
 "DOI ne more biti označeno, ker še ni bil registriran ali oddan."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Pošlji email avtorjem z obvestilom, da je bil recenzijski krog zaključen."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Prekliči recenzijski krog"
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} je preklical recenzijski krog."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Zadnji recenzijski krog je bil preklican."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "Recenzijski krog za prispevek {$title} je bil preklican."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Recenzijski krog je možno preklicati le, če noben recenzent še ni naredil "
+"recenzije."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Prekliči fazo lektoriranje"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Prestavi prispevek nazaj v fazo recenzije."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} je prestavil prispevek nazaj v fazo recenzije."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Prestavljeno nazaj v fazo recenzije"
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Pošljite email avtorjem z obvestilom, da je bila faza lektorranja preklicana "
+"in da bo šel prispevek ponovno v fazo recenzije."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Pošlji email dodeljenim recenzentom z obvestilom, da je njihova dodeljena "
+"recenzija preklicana."
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Prekličite trenutni recenzijski krog in prispevek prestavite nazaj v "
+"prejšnji krog recenzije. Če gre za prvi krog recenzije, bo prispevek "
+"prestavljen nazaj v fazo rokopis."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "Prispevek {$title} je bil prestavljen nazaj v fazo recenzije."

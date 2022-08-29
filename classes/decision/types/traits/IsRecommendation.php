@@ -15,7 +15,7 @@ namespace PKP\decision\types\traits;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Exception;

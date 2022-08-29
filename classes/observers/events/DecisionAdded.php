@@ -15,7 +15,7 @@
 
 namespace PKP\observers\events;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\submission\Submission;
 use Illuminate\Foundation\Events\Dispatchable;
 use PKP\context\Context;

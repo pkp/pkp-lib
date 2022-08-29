@@ -15,7 +15,7 @@
 
 namespace PKP\pages\authorDashboard;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;

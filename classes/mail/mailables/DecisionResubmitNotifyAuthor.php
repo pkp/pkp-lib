@@ -9,13 +9,13 @@
  *
  * @class DecisionResubmitNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_RESUBMIT
- *  decision is made.
+ * @brief Email sent to the author(s) when the following decisions are made:
+ *      Decision::RESUBMIT
  */
 
 namespace PKP\mail\mailables;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;

@@ -15,7 +15,7 @@
 
 namespace PKP\mail\variables;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 use PKP\decision\DecisionType;
 use PKP\workflow\WorkflowStageDAO;

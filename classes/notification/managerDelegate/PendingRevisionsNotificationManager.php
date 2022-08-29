@@ -15,7 +15,7 @@
 
 namespace PKP\notification\managerDelegate;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\controllers\api\file\linkAction\AddRevisionLinkAction;

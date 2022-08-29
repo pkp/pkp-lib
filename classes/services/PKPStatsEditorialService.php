@@ -16,7 +16,7 @@
 
 namespace PKP\services;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use PKP\plugins\Hook;
 
 class PKPStatsEditorialService

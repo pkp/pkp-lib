@@ -15,7 +15,7 @@
 
 namespace PKP\decision\types;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;

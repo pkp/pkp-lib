@@ -16,7 +16,7 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 
 use PKP\db\DAORegistry;

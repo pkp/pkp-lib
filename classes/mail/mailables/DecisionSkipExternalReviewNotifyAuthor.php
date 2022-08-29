@@ -9,13 +9,13 @@
  *
  * @class DecisionSkipExternalReviewNotifyAuthor
  *
- * @brief Email sent to the author(s) when a Decision::SKIP_EXTERNAL_REVIEW
- *  decision is made.
+ * @brief Email sent to the author(s) when the following decisions are made:
+ *      Decision::SKIP_EXTERNAL_REVIEW
  */
 
 namespace PKP\mail\mailables;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;

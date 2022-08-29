@@ -15,7 +15,7 @@ namespace PKP\decision;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;

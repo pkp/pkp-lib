@@ -15,7 +15,7 @@
 
 namespace PKP\mail\mailables;
 
-use APP\decision\Decision;
+use PKP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Exception;

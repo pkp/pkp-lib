@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/search/PreprintSearchIndex.inc.php
+ * @file classes/search/PreprintSearchIndex.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

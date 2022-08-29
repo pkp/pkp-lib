@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/statistics/TemporaryTotalsDAO xtends PKPTemporaryItemInvestigationsDAO.inc.php
+ * @file classes/statistics/TemporaryTotalsDAO xtends PKPTemporaryItemInvestigationsDAO.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky

@@ -94,6 +94,7 @@ class InstallForm extends MaintenanceForm {
 			return $password == $form->getData('adminPassword2');
 		}));
 		$this->addCheck(new FormValidatorEmail($this, 'adminEmail', 'required', 'installer.form.emailRequired'));
+		$this->addCheck(new FormValidatorNoUppercase($this, 'adminEmail', 'required', 'form.email.noUppercaseAllowed'));
 		$this->addCheck(new FormValidatorInSet($this, 'databaseDriver', 'required', 'installer.form.databaseDriverRequired', array_keys($this->supportedDatabaseDrivers)));
 		$this->addCheck(new FormValidator($this, 'databaseName', 'required', 'installer.form.databaseNameRequired'));
 	}

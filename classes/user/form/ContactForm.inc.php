@@ -26,6 +26,7 @@ class ContactForm extends BaseProfileForm {
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+		$this->addCheck(new FormValidatorNoUppercase($this, 'email', 'required', 'form.email.noUppercaseAllowed'));
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($user->getId(), true), true));
 	}

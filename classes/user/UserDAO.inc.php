@@ -497,9 +497,11 @@ class UserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsByUsername($username, $userId = null, $allowDisabled = true) {
+		$usernameLower = strtolower($username);
+
 		$result = $this->retrieve(
 			'SELECT COUNT(*) AS row_count FROM users WHERE username = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
-			isset($userId) ? [$username, (int) $userId] : [$username]
+			isset($userId) ? [$usernameLower, (int) $userId] : [$usernameLower]
 		);
 		$row = $result->current();
 		return $row && $row->row_count;
@@ -513,9 +515,11 @@ class UserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsByEmail($email, $userId = null, $allowDisabled = true) {
+		$emailLower = strtolower($email);
+		
 		$result = $this->retrieve(
 			'SELECT COUNT(*) AS row_count FROM users WHERE email = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
-			isset($userId) ? [$email, (int) $userId] : [$email]
+			isset($userId) ? [$emailLower, (int) $userId] : [$emailLower]
 		);
 		$row = $result->current();
 		return $row && $row->row_count;

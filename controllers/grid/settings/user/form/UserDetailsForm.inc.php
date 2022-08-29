@@ -82,6 +82,7 @@ class UserDetailsForm extends UserForm {
 		}));
 		$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+		$this->addCheck(new FormValidatorNoUppercase($this, 'email', 'required', 'form.email.noUppercaseAllowed'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($this->userId, true), true));
 		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
 		$this->addCheck(new FormValidatorPost($this));

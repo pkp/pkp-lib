@@ -1005,6 +1005,9 @@ msgstr "Confirm"
 msgid "form.emailRequired"
 msgstr "An email address is required."
 
+msgid "form.email.noUppercaseAllowed"
+msgstr "The email provided should not contain uppercase characters."
+
 msgid "form.dataHasChanged"
 msgstr "The data on this form has changed. Do you wish to continue without saving?"
 

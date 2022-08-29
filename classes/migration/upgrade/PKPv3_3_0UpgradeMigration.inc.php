@@ -571,6 +571,21 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				$table->bigIncrements('submission_file_id')->change();
 			});
 		}
+
+		// pkp/pkp-lib#7249 - Change username and email to lowercase.
+		// TODO: should deal with possible same email cases - Disable Users?
+		$userRows = Capsule::table('users')->get();
+		foreach ($userRows as $userRow) {
+			$userId = $userRow->{'user_id'};
+			$userEmail = $userRow->{'email'};
+			$userName = $userRow->{'username'};
+			Capsule::table('users')
+				->where('user_id', '=', $userId)
+				->update([
+					'email' => strtolower($userEmail), 
+					'username'=> strtolower($userName)
+				]);
+		}
 	}
 
 	/**

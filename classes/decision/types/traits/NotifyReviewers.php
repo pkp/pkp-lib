@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/traits/NotifyReviewers.inc.php
+ * @file classes/decision/types/traits/NotifyReviewers.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -32,7 +32,7 @@ use PKP\user\User;
 trait NotifyReviewers
 {
     protected string $ACTION_NOTIFY_REVIEWERS = 'notifyReviewers';
-    
+
     /**
      * Send the email to the reviewers
      */

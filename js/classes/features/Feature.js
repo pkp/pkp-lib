@@ -12,7 +12,7 @@
  * @ingroup js_classes_features
  *
  * @brief Base grid feature class.
- * @see lib/pkp/classes/controllers/grid/feature/GridFeature.inc.php
+ * @see lib/pkp/classes/controllers/grid/feature/GridFeature.php
  *
  * We use the features concept of the ext js framework:
  * http://docs.sencha.com/ext-js/4-0/#!/api/Ext.grid.feature.Feature

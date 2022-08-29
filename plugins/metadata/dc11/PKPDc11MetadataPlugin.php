@@ -4,7 +4,7 @@
  */
 
 /**
- * @file plugins/metadata/dc11/PKPDc11MetadataPlugin.inc.php
+ * @file plugins/metadata/dc11/PKPDc11MetadataPlugin.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky

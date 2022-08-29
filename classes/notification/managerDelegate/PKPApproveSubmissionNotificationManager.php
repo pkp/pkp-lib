@@ -96,7 +96,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     }
 
     /**
-     * @copydoc NotificationManagerDelegate.inc.php
+     * @copydoc NotificationManagerDelegate.php
      */
     protected function multipleTypesUpdate()
     {

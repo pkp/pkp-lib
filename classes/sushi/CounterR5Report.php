@@ -1,7 +1,7 @@
 <?php
 
 /**
-* @file classes/sushi/CounterR5Report.inc.php
+* @file classes/sushi/CounterR5Report.php
 *
 * Copyright (c) 2022 Simon Fraser University
 * Copyright (c) 2022 John Willinsky

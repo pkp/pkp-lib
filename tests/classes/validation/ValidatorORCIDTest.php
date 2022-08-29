@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/validation/ValidatorORCIDTest.inc.php
+ * @file tests/classes/validation/ValidatorORCIDTest.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

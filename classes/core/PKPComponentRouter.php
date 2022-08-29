@@ -24,7 +24,7 @@
  *  by convention the directory path below the "controllers" folder leading to the
  *  component. The next element ("handler-class" in this example) will be mapped to a
  *  component class file by "camelizing" the string to "HandlerClassHandler" and adding
- *  ".inc.php" to the end. The "operation-name" is transformed to "operationName"
+ *  ".php" to the end. The "operation-name" is transformed to "operationName"
  *  and represents the name of the handler method to be called. Finally "arg1", "arg2",
  *  etc. are parameters to be passed along to the handler method.
  *

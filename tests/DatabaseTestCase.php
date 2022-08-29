@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/DatabaseTestCase.inc.php
+ * @file tests/DatabaseTestCase.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

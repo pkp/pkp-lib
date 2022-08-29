@@ -1,7 +1,7 @@
 <?php
 
 /**
-* @file classes/sushi/SushiException.inc.php
+* @file classes/sushi/SushiException.php
 *
 * Copyright (c) 2022 Simon Fraser University
 * Copyright (c) 2022 John Willinsky

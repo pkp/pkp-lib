@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/events/PluginEnabledChanged.inc.php
+ * @file classes/observers/events/PluginEnabledChanged.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -24,6 +24,7 @@ class PluginEnabledChanged
 {
     use Dispatchable;
 
-    public function __construct(public LazyLoadPlugin $plugin) {
+    public function __construct(public LazyLoadPlugin $plugin)
+    {
     }
 }

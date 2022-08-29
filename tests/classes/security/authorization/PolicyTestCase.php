@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/security/authorization/PolicyTestCase.inc.php
+ * @file tests/classes/security/authorization/PolicyTestCase.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -18,8 +18,9 @@
 
 namespace PKP\tests\classes\security\authorization;
 
-use APP\core\Request;
 use APP\core\Application;
+use APP\core\Request;
+use APP\facades\Repo;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\handler\PKPHandler;
@@ -27,7 +28,6 @@ use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\tests\PKPTestCase;
 use PKP\user\User;
-use APP\facades\Repo;
 
 abstract class PolicyTestCase extends PKPTestCase
 {

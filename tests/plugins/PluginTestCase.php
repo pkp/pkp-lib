@@ -5,7 +5,7 @@
  */
 
 /**
- * @file tests/plugins/PluginTestCase.inc.php
+ * @file tests/plugins/PluginTestCase.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -21,10 +21,8 @@
 
 namespace PKP\tests\plugins;
 
-use APP\core\Application;
 use APP\core\Request;
 use APP\install\Install;
-use DOMDocument;
 use PKP\config\Config;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;

@@ -6,7 +6,7 @@
  */
 
 /**
-* @file classes/institution/Institution.inc.php
+* @file classes/institution/Institution.php
 *
 * Copyright (c) 2022 Simon Fraser University
 * Copyright (c) 2022 John Willinsky

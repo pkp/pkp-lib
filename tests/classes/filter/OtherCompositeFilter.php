@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/filter/OtherCompositeFilter.inc.php
+ * @file tests/classes/filter/OtherCompositeFilter.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky

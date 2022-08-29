@@ -1,11 +1,11 @@
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-12-19 21:52+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2022-08-29 21:01+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T04:40:30 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "author.submit.submissionCitations"
@@ -1193,9 +1193,8 @@ msgstr "Vous n'avez aucun fichier à évaluer pour le moment."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Les révisions ont été demandées."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Les révisions ont été soumises."
+msgstr "Les révisions ont été soumises et une décision est requise."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
@@ -2026,3 +2025,9 @@ msgstr "Annuler le refus"
 
 msgid "submission.upload.percentComplete"
 msgstr "Téléversement complété à {$percent}%"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Une nouvelle soumission doit être envoyée à l'évaluation ou refusée."
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Notifier les auteurs"

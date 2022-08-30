@@ -13,7 +13,7 @@
 
 namespace PKP\decision\types;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use APP\submission\Submission;
 use PKP\decision\DecisionType;
 use PKP\decision\types\traits\InExternalReviewRound;

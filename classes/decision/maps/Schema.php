@@ -13,7 +13,7 @@
 
 namespace PKP\decision\maps;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use Illuminate\Support\Enumerable;
 use PKP\services\PKPSchemaService;
 

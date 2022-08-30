@@ -28,7 +28,7 @@
 namespace PKP\mail;
 
 use APP\core\Services;
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use BadMethodCallException;

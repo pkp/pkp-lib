@@ -14,7 +14,7 @@
 
 namespace PKP\components\forms\decision;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 

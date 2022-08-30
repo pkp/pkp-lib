@@ -18,7 +18,7 @@
 namespace PKP\notification;
 
 use APP\core\Application;
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\template\TemplateManager;

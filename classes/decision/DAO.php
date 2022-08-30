@@ -13,7 +13,7 @@
 
 namespace PKP\decision;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;

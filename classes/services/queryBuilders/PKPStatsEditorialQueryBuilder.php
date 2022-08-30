@@ -16,7 +16,7 @@
 
 namespace PKP\services\queryBuilders;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\decision\DecisionType;

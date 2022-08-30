@@ -17,7 +17,7 @@
 
 namespace PKP\decision\types;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\components\fileAttachers\FileStage;

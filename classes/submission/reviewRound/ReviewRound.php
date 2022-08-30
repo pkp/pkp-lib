@@ -20,7 +20,7 @@
 
 namespace PKP\submission\reviewRound;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 

@@ -15,7 +15,7 @@
 
 namespace PKP\mail\mailables;
 
-use PKP\decision\Decision;
+use APP\decision\Decision;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;

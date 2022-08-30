@@ -49,8 +49,7 @@ class SelectableFileListGridHandler extends FileListGridHandler {
 	 * @copydoc GridHandler::isDataElementSelected()
 	 */
 	function isDataElementSelected($gridDataElement) {
-		$file = $gridDataElement['submissionFile'];
-		return $file->getViewable();
+		return true;
 	}
 
 	/**

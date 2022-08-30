@@ -27,6 +27,9 @@ use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
 use PKP\session\SessionManager;
+use DateTime;
+use PKP\plugins\importexport\PKPImportExportDeployment;
+use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -35,6 +38,8 @@ abstract class ImportExportPlugin extends Plugin
 
     /** @var Request Request made available for plugin URL generation */
     public $_request;
+
+    protected const EXPORT_FILE_DATE_PART_FORMAT = 'Ymd-His';
 
     /**
      * Execute import/export tasks using the command-line interface.
@@ -186,14 +191,20 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param string $basePath Base path for temporary file storage
      * @param string $objectsFileNamePart Part different for each object type.
-     * @param Context $context
+     * @param \Context $context
      * @param string $extension
+     * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
-    public function getExportFileName($basePath, $objectsFileNamePart, $context, $extension = '.xml')
+    function getExportFileName($basePath, $objectsFileNamePart, \Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null) 
     {
-        return $basePath . $this->getPluginSettingsPrefix() . '-' . date('Ymd-His') . '-' . $objectsFileNamePart . '-' . $context->getId() . $extension;
+        $dateFilenamePartString = date(self::EXPORT_FILE_DATE_PART_FORMAT);
+
+        if (isset($dateFilenamePart))
+            $dateFilenamePartString = $dateFilenamePart->format(self::EXPORT_FILE_DATE_PART_FORMAT);
+
+        return $basePath . $this->getPluginSettingsPrefix() . '-' . $dateFilenamePartString .'-' . $objectsFileNamePart .'-' . $context->getId() . $extension;
     }
 
     /**
@@ -307,8 +318,10 @@ abstract class ImportExportPlugin extends Plugin
             $exportXml = $result->saveXml();
 
             if ($exportXml) {
-                $path = $this->writeExportedFile($exportFileName, $exportXml, $deployment->getContext());
-                $templateMgr->assign('exportPath', $path);
+                $dateFilenamePart = new DateTime();
+                $this->writeExportedFile($exportFileName, $exportXml, $deployment->getContext(), $dateFilenamePart);
+                $templateMgr->assign('exportPath', $dateFilenamePart->format(self::EXPORT_FILE_DATE_PART_FORMAT));
+                $templateMgr->assign('exportFileName', $exportFileName);
             }
         }
 
@@ -412,11 +425,19 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param string $exportFileName
      */
-    public function downloadExportedFile($exportFileName)
+    public function downloadExportedFile(string $exportFileName, string $exportFilePath, PKPImportExportDeployment $deployment)
     {
+        $date = DateTime::createFromFormat(self::EXPORT_FILE_DATE_PART_FORMAT,  $exportFilePath);
+        if (!$date) {
+            return false;
+        } 
+
+        $exportFileName = $this->getExportFileName($this->getExportPath(), $exportFileName, $deployment->getContext(), '.xml', $date);
         $fileManager = new FileManager();
         $fileManager->downloadByPath($exportFileName);
         $fileManager->deleteByPath($exportFileName);
+        
+        return true;
     }
 
     /**
@@ -424,14 +445,15 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param string $filename
      * @param string $fileContent
-     * @param Context $context
+     * @param \Context $context
+     * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
-    public function writeExportedFile($filename, $fileContent, $context)
+    public function writeExportedFile(string $filename, string $fileContent, \Context $context, ?DateTime $dateFilenamePart = null)
     {
         $fileManager = new FileManager();
-        $exportFileName = $this->getExportFileName($this->getExportPath(), $filename, $context, '.xml');
+        $exportFileName = $this->getExportFileName($this->getExportPath(), $filename, $context, '.xml', $dateFilenamePart);
         $fileManager->writeFile($exportFileName, $fileContent);
 
         return $exportFileName;

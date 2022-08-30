@@ -37,8 +37,8 @@ class PKPImportExportDeployment
     /** @var mixed The import/export process result */
     public $processResult = null;
 
-    /** @var Context The current import/export context */
-    private $_context;
+    /** @var \Context The current import/export context */
+    private \Context $_context;
 
     /** @var User The current import/export user */
     private $_user;
@@ -162,9 +162,9 @@ class PKPImportExportDeployment
     /**
      * Get the import/export context.
      *
-     * @return Context
+     * @return \Context
      */
-    public function getContext()
+    public function getContext() : \Context
     {
         return $this->_context;
     }

@@ -10,7 +10,8 @@
  * @class DecisionNotifyReviewer
  *
  * @brief Email sent to the reviewers who have completed a review in the review round
- *  when a SUBMISSION_EDITOR_DECISION_ACCEPT decision is made.
+ * when the following decisions is made:
+ *      Decision::ACCEPT
  */
 
 namespace PKP\mail\mailables;

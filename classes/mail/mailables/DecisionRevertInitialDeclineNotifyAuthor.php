@@ -9,8 +9,8 @@
  *
  * @class DecisionRevertInitialDeclineNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE
- *  decision is made.
+ * @brief Email sent to the author(s) when the following decisions are made:
+ *      Decision::REVERT_INITIAL_DECLINE
  */
 
 namespace PKP\mail\mailables;

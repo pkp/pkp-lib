@@ -9,8 +9,8 @@
  *
  * @class DecisionSendExternalReviewNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW
- *  decision is made.
+ * @brief Email sent to the author(s) when a the following decisions is made: 
+ *      Decision::EXTERNAL_REVIEW
  */
 
 namespace PKP\mail\mailables;

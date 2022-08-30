@@ -9,8 +9,8 @@
  *
  * @class DecisionDeclineNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_DECLINE
- *  decision is made.
+ * @brief Email sent to the author(s) when the following decisions are made: 
+ *      Decision::DECLINE
  */
 
 namespace PKP\mail\mailables;

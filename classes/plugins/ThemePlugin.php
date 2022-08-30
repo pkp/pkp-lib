@@ -869,7 +869,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @since 0.1
      */
-    public function isColourDark($color, $limit = 130)
+    public function isColourDark(string $color, $limit = 130)
     {
         $color = str_replace('#', '', $color);
         $r = hexdec(substr($color, 0, 2));

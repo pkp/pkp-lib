@@ -22,8 +22,8 @@
 		</script>
 		<form id="exportIssuesXmlForm" class="pkp_form" action="{plugin_url path="downloadExportFile"}" method="post">
 			{csrf}
-			<input type="hidden" name="downloadFilePath" id="downloadFilePath" value="{$exportPath}" />
-			<input type="hidden" name="downloadFileName" id="downloadFileName" value="{$exportFileName}" />
+			<input type="hidden" name="exportedFileDatePart" id="exportedFileDatePart" value="{$exportedFileDatePart|escape}" />
+			<input type="hidden" name="exportedFileContentNamePart" id="exportedFileContentNamePart" value="{$exportedFileContentNamePart|escape}" />
 			{fbvFormArea id="issuesXmlForm"}
 				{fbvFormButtons submitText="plugins.importexport.native.export.download.results" hideCancel="true"}
 			{/fbvFormArea}

@@ -25,6 +25,9 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use LibXMLError;
 use PKP\core\PKPApplication;
+use PKP\context\Context;
+use APP\submission\Submission;
+use APP\publication\Publication;
 
 class PKPImportExportDeployment
 {
@@ -37,17 +40,17 @@ class PKPImportExportDeployment
     /** @var mixed The import/export process result */
     public $processResult = null;
 
-    /** @var \Context The current import/export context */
-    private \Context $_context;
+    /** @var Context The current import/export context */
+    private Context $_context;
 
     /** @var User The current import/export user */
     private $_user;
 
-    /** @var Submission The current import/export submission */
+    /** @var ?Submission The current import/export submission */
     private $_submission;
 
-    /** @var PKPPublication The current import/export publication */
-    private $_publication;
+    /** @var Publication The current import/export publication */
+    private ?Publication $_publication;
 
     /** @var array The processed import objects IDs */
     private $_processedObjectsIds = [];
@@ -162,19 +165,17 @@ class PKPImportExportDeployment
     /**
      * Get the import/export context.
      *
-     * @return \Context
+     * @return Context
      */
-    public function getContext() : \Context
+    public function getContext() : Context
     {
         return $this->_context;
     }
 
     /**
      * Set the import/export submission.
-     *
-     * @param Submission $submission
      */
-    public function setSubmission($submission)
+    public function setSubmission(?Submission $submission)
     {
         $this->_submission = $submission;
         if ($submission) {
@@ -184,20 +185,16 @@ class PKPImportExportDeployment
 
     /**
      * Get the import/export submission.
-     *
-     * @return Submission
      */
-    public function getSubmission()
+    public function getSubmission() : ?Submission
     {
         return $this->_submission;
     }
 
     /**
      * Set the import/export publication.
-     *
-     * @param PKPPublication $publication
      */
-    public function setPublication($publication)
+    public function setPublication(?Publication $publication)
     {
         $this->_publication = $publication;
         if ($publication) {
@@ -208,9 +205,9 @@ class PKPImportExportDeployment
     /**
      * Get the import/export publication.
      *
-     * @return PKPPublication
+     * @return Publication
      */
-    public function getPublication()
+    public function getPublication() : ?Publication
     {
         return $this->_publication;
     }

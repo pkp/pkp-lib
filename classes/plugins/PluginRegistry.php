@@ -17,8 +17,6 @@
 
 namespace PKP\plugins;
 
-define('PLUGINS_PREFIX', 'plugins/');
-
 use APP\core\Application;
 use Exception;
 
@@ -26,9 +24,9 @@ use PKP\core\Registry;
 
 class PluginRegistry
 {
-    //
-    // Public methods
-    //
+    /** Base path of plugins */
+    public const PLUGINS_PREFIX = 'plugins/';
+
     /**
      * Return all plugins in the given category as an array, or, if the
      * category is not specified, all plugins in an associative array of
@@ -317,4 +315,5 @@ class PluginRegistry
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\plugins\PluginRegistry', '\PluginRegistry');
+    define('PLUGINS_PREFIX', PluginRegistry::PLUGINS_PREFIX);
 }

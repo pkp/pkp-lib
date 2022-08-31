@@ -1,12 +1,13 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
+# Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2022-08-10 03:41+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2022-08-31 17:13+0000\n"
+"Last-Translator: Daniel Caixeta <daniel.caixeta@inep.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -118,7 +119,7 @@ msgid "user.login.accountNotValidated"
 msgstr ""
 "Enviamos um e-mail de confirmação para você em {$email}. Verifique sua caixa "
 "de correio eletrônico e siga as instruções na mensagem recebida. Caso não "
-"tenha recebido a mensagem,  verifique a pasta de SPAM do seu correio "
+"tenha recebido a mensagem, verifique a pasta de SPAM do seu correio "
 "eletrônico ou entre em contato com o administrador para suporte."
 
 msgid "user.login.activate"
@@ -423,7 +424,7 @@ msgid "user.apiKeyEnabled"
 msgstr "Permitir que aplicações externas com a chave da API tenham acesso a esta conta"
 
 msgid "user.apiKey.generate"
-msgstr "Gerar nova chave da API"
+msgstr "Criar chave API"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Gerar uma nova chave da API irá invalidar qualquer chave já existente para este usuário."
@@ -463,3 +464,12 @@ msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr ""
 "Você não foi designado para esta submissão com um papel que permite acesso a "
 "esta operação."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Certeza que deseja apagar esta chave API?"
+
+msgid "user.apiKey.remove"
+msgstr "Apagar"
+
+msgid "user.apiKey.removeWarning"
+msgstr "Apagar uma chave irá revogar o acesso de qualquer aplicação que a use."

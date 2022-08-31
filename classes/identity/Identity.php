@@ -138,13 +138,11 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get the localized given name
      *
-     * @param null|mixed $defaultLocale
-     *
      * @return string
      */
-    public function getLocalizedGivenName($defaultLocale = null)
+    public function getLocalizedGivenName()
     {
-        return $this->getLocalizedData(self::IDENTITY_SETTING_GIVENNAME, $defaultLocale);
+        return $this->getLocalizedData(self::IDENTITY_SETTING_GIVENNAME);
     }
 
     /**
@@ -174,27 +172,17 @@ class Identity extends \PKP\core\DataObject
      * Get the localized family name
      * Return family name for the locale first name exists in
      *
-     * @param string $defaultLocale
-     *
      * @return string
      */
-    public function getLocalizedFamilyName($defaultLocale = null)
+    public function getLocalizedFamilyName()
     {
-        // Prioritize the current locale, then the default locale.
-        $localePriorityList = [Locale::getLocale()];
-        if (!is_null($defaultLocale)) {
-            $localePriorityList[] = $defaultLocale;
+        $locale = Locale::getLocale();
+        $givenName = $this->getGivenName($locale);
+        // Only use the family name if a given name exists (to avoid mixing locale data)
+        if (!empty($givenName)) {
+            return $this->getFamilyName($locale);
         }
-
-        foreach ($localePriorityList as $locale) {
-            $givenName = $this->getGivenName($locale);
-            // Only use the family name if a given name exists (to avoid mixing locale data)
-            if (!empty($givenName)) {
-                return $this->getFamilyName($locale);
-            }
-        }
-
-        // Fall back on the site locale if nothing else was found. (May mix locale data.)
+        // Fall back on the site locale.
         $site = Application::get()->getRequest()->getSite();
         $locale = $site->getPrimaryLocale();
         return $this->getFamilyName($locale);

@@ -11,11 +11,7 @@
 {assign var="formId" value="searchUserFilter-"|concat:$filterData.gridId}
 <script type="text/javascript">
 	// Attach the form handler to the form.
-	$('#{$formId}').pkpHandler('$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler',
-		{ldelim}
-			trackFormChanges: false
-		{rdelim}
-	);
+	$('#{$formId}').pkpHandler('$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler');
 </script>
 <form class="pkp_form filter" id="{$formId}" action="{url op="fetchGrid"}" method="post">
 	{csrf}

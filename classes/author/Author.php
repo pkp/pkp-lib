@@ -17,10 +17,10 @@
 
 namespace PKP\author;
 
-use PKP\facades\Locale;
-
-use PKP\identity\Identity;
 use APP\facades\Repo;
+
+use PKP\facades\Locale;
+use PKP\identity\Identity;
 
 class Author extends Identity
 {
@@ -73,30 +73,26 @@ class Author extends Identity
 
     /**
      * @copydoc Identity::getLocalizedGivenName()
-     *
-     * @param null|mixed $defaultLocale
      */
-    public function getLocalizedGivenName($defaultLocale = null)
+    public function getLocalizedGivenName()
     {
-        if (!isset($defaultLocale)) {
-            $defaultLocale = $this->getSubmissionLocale();
-        }
-
-        return parent::getLocalizedGivenName($defaultLocale);
+        return $this->getLocalizedData(self::IDENTITY_SETTING_GIVENNAME);
     }
 
     /**
      * @copydoc Identity::getLocalizedFamilyName()
-     *
-     * @param null|mixed $defaultLocale
      */
-    public function getLocalizedFamilyName($defaultLocale = null)
+    public function getLocalizedFamilyName()
     {
-        if (!isset($defaultLocale)) {
-            $defaultLocale = $this->getSubmissionLocale();
+        // Prioritize the current locale, then the default locale.
+        $locale = Locale::getLocale();
+        $givenName = $this->getGivenName($locale);
+        // Only use the family name if a given name exists (to avoid mixing locale data)
+        if (!empty($givenName)) {
+            return $this->getFamilyName($locale);
         }
-
-        return parent::getLocalizedFamilyName($defaultLocale);
+        // Fall back on the submission locale.
+        return $this->getFamilyName($this->getSubmissionLocale());
     }
 
     /**

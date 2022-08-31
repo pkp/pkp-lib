@@ -22,7 +22,7 @@ class I6091_AddFilterNamespaces extends \PKP\migration\Migration
         'plugins.generic.crossref.filter.PreprintCrossrefXmlFilter' => 'APP\plugins\generic\crossref\filter\PreprintCrossrefXmlFilter',
         'plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter' => 'APP\plugins\metadata\dc11\filter\Dc11SchemaPreprintAdapter',
         'plugins.importexport.native.filter.PreprintNativeXmlFilter' => 'APP\plugins\importexport\native\filter\PreprintNativeXmlFilter',
-        'plugins.importexport.native.filter.NativeXmlAuthorFilter' => 'APP\plugins\importexport\native\filter\NativeXmlPreprintFilter',
+        'plugins.importexport.native.filter.NativeXmlPreprintFilter' => 'APP\plugins\importexport\native\filter\NativeXmlPreprintFilter',
         'plugins.importexport.native.filter.NativeXmlAuthorFilter' => 'APP\plugins\importexport\native\filter\NativeXmlAuthorFilter',
         'plugins.importexport.native.filter.AuthorNativeXmlFilter' => 'APP\plugins\importexport\native\filter\AuthorNativeXmlFilter',
         'plugins.importexport.native.filter.NativeXmlPreprintFileFilter' => 'APP\plugins\importexport\native\filter\NativeXmlPreprintFileFilter',

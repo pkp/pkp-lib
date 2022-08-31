@@ -30,6 +30,7 @@ use PKP\session\SessionManager;
 use DateTime;
 use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
+use PKP\context\Context;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -191,13 +192,13 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param string $basePath Base path for temporary file storage
      * @param string $objectsFileNamePart Part different for each object type.
-     * @param \Context $context
+     * @param Context $context
      * @param string $extension
      * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
-    function getExportFileName($basePath, $objectsFileNamePart, \Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null) 
+    function getExportFileName($basePath, $objectsFileNamePart, Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null) 
     {
         $dateFilenamePartString = date(self::EXPORT_FILE_DATE_PART_FORMAT);
 
@@ -320,8 +321,8 @@ abstract class ImportExportPlugin extends Plugin
             if ($exportXml) {
                 $dateFilenamePart = new DateTime();
                 $this->writeExportedFile($exportFileName, $exportXml, $deployment->getContext(), $dateFilenamePart);
-                $templateMgr->assign('exportPath', $dateFilenamePart->format(self::EXPORT_FILE_DATE_PART_FORMAT));
-                $templateMgr->assign('exportFileName', $exportFileName);
+                $templateMgr->assign('exportedFileDatePart', $dateFilenamePart->format(self::EXPORT_FILE_DATE_PART_FORMAT));
+                $templateMgr->assign('exportedFileContentNamePart', $exportFileName);
             }
         }
 
@@ -422,17 +423,15 @@ abstract class ImportExportPlugin extends Plugin
 
     /**
      * Download file given it's name
-     *
-     * @param string $exportFileName
      */
-    public function downloadExportedFile(string $exportFileName, string $exportFilePath, PKPImportExportDeployment $deployment)
+    public function downloadExportedFile(string $exportedFileContentNamePart, string $exportedFileDatePart, PKPImportExportDeployment $deployment)
     {
-        $date = DateTime::createFromFormat(self::EXPORT_FILE_DATE_PART_FORMAT,  $exportFilePath);
+        $date = DateTime::createFromFormat(self::EXPORT_FILE_DATE_PART_FORMAT,  $exportedFileDatePart);
         if (!$date) {
             return false;
         } 
 
-        $exportFileName = $this->getExportFileName($this->getExportPath(), $exportFileName, $deployment->getContext(), '.xml', $date);
+        $exportFileName = $this->getExportFileName($this->getExportPath(), $exportedFileContentNamePart, $deployment->getContext(), '.xml', $date);
         $fileManager = new FileManager();
         $fileManager->downloadByPath($exportFileName);
         $fileManager->deleteByPath($exportFileName);
@@ -445,12 +444,12 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param string $filename
      * @param string $fileContent
-     * @param \Context $context
+     * @param Context $context
      * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
-    public function writeExportedFile(string $filename, string $fileContent, \Context $context, ?DateTime $dateFilenamePart = null)
+    public function writeExportedFile(string $filename, string $fileContent, Context $context, ?DateTime $dateFilenamePart = null)
     {
         $fileManager = new FileManager();
         $exportFileName = $this->getExportFileName($this->getExportPath(), $filename, $context, '.xml', $dateFilenamePart);

@@ -1,10 +1,11 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
+# Diego Abadan <diego@lepidus.com.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2022-08-10 03:41+0000\n"
+"PO-Revision-Date: 2022-08-18 18:33+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -557,7 +558,7 @@ msgid "submission.howToCite"
 msgstr "Como Citar"
 
 msgid "submission.howToCite.citationFormats"
-msgstr "Fomatos de Citação"
+msgstr "Formatos de Citação"
 
 msgid "submission.howToCite.downloadCitation"
 msgstr "Baixar Citação"
@@ -2687,3 +2688,58 @@ msgid "doi.submission.notPublished"
 msgstr ""
 "Falha ao marcar o DOI como registrado para {$pubObjectTitle}. A submissão "
 "deve ser publicada antes que o status possa ser atualizado."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para que eles saibam que a rodada de avaliação "
+"foi encerrada."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Cancelar Rodada de Avaliação"
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} cancelou a rodada de avaliação."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Cancelada a última rodada de avaliação."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "A rodada de avaliação para a submissão, {$title}, foi cancelada."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Só pode cancelar a rodada de avaliação se nenhum avaliador associado tiver "
+"qualquer avaliação concluída ou enviada disponível."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Cancelar Edição de Texto"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Envie esta submissão de volta para o estágio de edição de texto."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Enviado de volta da edição de texto"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "A submissão, {$title}, foi enviada de volta da fase de edição de texto."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Envie um e-mail para os avaliadores designados para informá-los de que sua "
+"atribuição de avaliação foi cancelada."
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Cancele a rodada de avaliação atual e envie a submissão de volta para a "
+"última rodada de avaliação. Se esta for a primeira rodada de avaliação, ela "
+"será enviada de volta à fase de submissão."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} enviou esta submissão de volta para o estágio de edição de "
+"texto."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail para os autores para que eles saibam que a edição de texto "
+"foi cancelada e sua submissão passará por uma nova avaliação editorial."

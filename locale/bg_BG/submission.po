@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-26 07:54+0000\n"
+"PO-Revision-Date: 2022-08-17 17:37+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr ""
@@ -91,11 +91,11 @@ msgstr ""
 
 msgid "submission.license.cc.by4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
-"88x31.png\" /></a><p>Публикация с  <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution "
-"4.0 International License</a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 "
+"International License</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
 msgstr ""
@@ -274,7 +274,7 @@ msgstr "Изисквания за подаването на материали"
 msgid "submission.submit.userGroupDescriptionManagers"
 msgstr ""
 "Изпратете в някоя от следните роли, ако искате да можете сами да редактирате "
-"и публикувате това подаване на материали:  {$managerGroups}"
+"и публикувате това подаване на материали: {$managerGroups}"
 
 msgid "submission.submit.contactConsentDescription"
 msgstr "Да, бих искал да се свързвате с мен относно това подаване на материали."
@@ -607,13 +607,13 @@ msgid "metadata.property.displayName.doi"
 msgstr "DOI"
 
 msgid "metadata.property.validationMessage.eissn"
-msgstr "Моля, въведете валиден онлайн ISSN (ISSN на онлайн издание)."
+msgstr "Моля, въведете валиден ISSN на онлайн издание."
 
 msgid "metadata.property.displayName.eissn"
 msgstr "Онлайн ISSN"
 
 msgid "metadata.property.validationMessage.issn"
-msgstr "Моля, въведете валиден печатен ISSN (ISSN за печатно издание)."
+msgstr "Моля, въведете валиден ISSN за печатно издание."
 
 msgid "metadata.property.displayName.issn"
 msgstr "Печатен ISSN"
@@ -1367,16 +1367,15 @@ msgstr "Изпратено на външна рецензия."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
-"Подаването на материали  беше изпратено отново за друг кръг за рецензиране."
+"Подаването на материали беше изпратено отново за друг кръг за рецензиране."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "Подаването на материали трябва да бъде изпратено отново за друг кръг за "
 "рецензиране."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Подадени са ревизии."
+msgstr "Подадени са ревизии и е необходимо решение."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Изискани са ревизии."
@@ -1625,7 +1624,7 @@ msgstr "Материалът е приет"
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
-"{$editorName} прие тези материали  и ги изпрати за етап на стилова корекция."
+"{$editorName} прие тези материали и ги изпрати за етап на стилова корекция."
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
@@ -2468,7 +2467,7 @@ msgstr ""
 
 msgid "log.review.reviewReinstated"
 msgstr ""
-"На кръг (етап) {$round} рецензирането от  {$reviewerName} за подадените "
+"На кръг (етап) {$round} рецензирането от {$reviewerName} за подадените "
 "материали {$submissionId} беше започнато отново."
 
 msgid "log.review.reviewUnconsidered"
@@ -2485,3 +2484,80 @@ msgid "log.review.reviewerAssigned"
 msgstr ""
 "{$reviewerName} беше асоцииран да рецензира подадените материали "
 "{$submissionId} за кръг (етап) {$round}."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Неактивен повече от {$days} дни в етап {$stage}."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} отмени кръг (етап) за рецензиране."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Последният кръг (етап) за рецензиране е отменен."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"Кръгът (етапа) за рецензиране на подадените материали, {$title}, е отменен."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Кръгът (етапа) на стилова корекция е отменен"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Изпращане на подадените материали обратно от етапа на стилова корекция."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} изпрати подадените материали обратно от етапа на стилова "
+"корекция."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Изпратени обратно от етапа на стилова корекция"
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Изпращане на имейл до асоциираните рецензенти, за да ги уведомите, че "
+"тяхната задача за рецензия е отменена."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Изпращане на имейл до авторите, за да ги уведомите, че кръгът на рецензиране "
+"е затворен."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Спиране кръг (етап) на рецензиране"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Отмяна на текущия кръг на реценциране и изпращене на материалите обратно към "
+"последния кръг на рецензиране. Ако това е първият кръг на рецензиране, той "
+"те ще бъдат изпратени обратно на етапа на подаване."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Може да анулира кръг (етап) за рецензиране само ако нито един свързан "
+"рецензент няма наличен завършена или изпратена рецензия."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"Подадените материали, {$title}, бяха изпратени обратно от етапа на стилова "
+"корекция."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Изпратащане на имейл до авторите, за да ги уведомите, че редактирането е "
+"отменено и подадените материали ще бъдат подложени на допълнителна "
+"редакционна проверка."
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Неуспешно маркиране на DOI за остарял за {$pubObjectTitle}. DOI не може да "
+"бъде маркиран като остарял, защото все още не е регистриран или изпратен."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Неуспешно маркиране на DOI, регистриран за {$pubObjectTitle}. Подадените "
+"материали трябва да бъдат публикувани, преди статусът да може да бъде "
+"актуализиран."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+"Нови подадени материали чакат да бъдат изпратени за преглед или отхвърлени."

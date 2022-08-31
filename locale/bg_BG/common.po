@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-22 08:58+0000\n"
+"PO-Revision-Date: 2022-08-17 15:57+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.and"
 msgstr "и"
@@ -490,7 +490,7 @@ msgid "common.hour"
 msgstr "Час"
 
 msgid "common.homePageHeaderLogo.altText"
-msgstr "Лого на горния колонтитул (header) на  главната страница"
+msgstr "Лого на горния колонтитул (header) на главната страница"
 
 msgid "common.homepageNavigationLabel"
 msgstr "Начална"
@@ -1079,7 +1079,7 @@ msgid "email.multipart"
 msgstr "Това е съобщение от няколко части във формат MIME."
 
 msgid "email.invalid"
-msgstr "Имейл адресът  {$email} е невалиден."
+msgstr "Имейл адресът {$email} е невалиден."
 
 msgid "email.from"
 msgstr "От"
@@ -1726,7 +1726,7 @@ msgstr ""
 "Текущият потребител не е оторизиран за достъп до посочения файл за подаване."
 
 msgid "user.email"
-msgstr "Електронна поща"
+msgstr "Имейл"
 
 msgid "notification.signedFile"
 msgstr "Файлът е прегледан."
@@ -2192,3 +2192,12 @@ msgstr "Добавяне на съдържание"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Неизвестна команда {$command}"
+
+msgid "common.withParenthesis"
+msgstr "{$item} - ({$inParenthesis})"
+
+msgid "institution.institutions"
+msgstr "Институции"
+
+msgid "notification.type.editorialReminder"
+msgstr "Седмичен имейл с неизпълнени задачи"

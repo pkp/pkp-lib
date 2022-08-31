@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-06-15 15:07+0000\n"
+"PO-Revision-Date: 2022-08-25 10:34+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -506,9 +506,8 @@ msgstr "Stad"
 msgid "stats.region"
 msgstr "Region"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Rapportgenerator"
+msgstr "Rapporter"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -2335,50 +2334,34 @@ msgstr ""
 "Det här e-postmeddelandet skickas när en granskare avböjer en "
 "granskningsförfrågan"
 
-#, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
 "Det här e-postmeddelandet skickas från en sektionsredaktör som en påminnelse "
-"till granskaren att deadline för granskningen har passerat."
+"till granskaren att deadline för granskningen har passerat"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Det här e-postmeddelandet skickas automatiskt när en granskares deadline "
-"löper ut (se Granskningsalternativ under Inställningar > Arbetsflöde > "
-"Granskning) och när Granskartillgång med ett klick är avaktiverat. "
-"Schemalagda aktiviteter måste vara aktiverat och konfigurerat (se serverns "
-"konfigurationsfil)."
+"löpt ut."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Det här e-postmeddelandet skickas automatiskt när en granskares deadline för "
-"bekräftelse på granskningsförfrågan löper ut (se Granskningsalternativ under "
-"Inställningar > Arbetsflöde > Granskning) och Granskning utan inloggning är "
-"avaktiverat. Schemalagda aktiviteter måste vara aktiverat och konfigurerat "
-"(se serverns konfigurationsfil)."
+"bekräftelse på granskningsförfrågan löpt ut."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Det här e-postmeddelandet från sektionsredaktören till en granskare ber "
 "granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska "
-"ett bidrag. Det innehåller information om bidraget i form av titel och "
-"abstract, en deadline för granskning och instruktioner för hur man kommer åt "
-"bidraget. Meddelandet används när granskningsprocess Standard är valt i "
-"Administration > Inställningar > Arbetsflöde > Granskning."
+"ett bidrag. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Det här e-postmeddelandet från sektionsredaktören till en granskare ber "
 "granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska "
 "ett bidrag en andra gång eller på nytt. Det innehåller information om "
 "bidraget i form av titel och abstract, en deadline för granskning och "
-"instruktioner för hur man kommer åt bidraget. Meddelandet används när "
-"granskningsprocess Standard är valt i Administration > Inställningar > "
-"Arbetsflöde > Granskning."
+"instruktioner för hur man kommer åt bidraget."
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Använd standardmönster."
@@ -2819,7 +2802,7 @@ msgstr "Ett DOI-prefix krävs"
 msgid "manager.genres.alertDelete"
 msgstr ""
 "Innan detta objekt kan raderas måste du koppla alla relaterade filer till "
-"ett annat objekt"
+"ett annat objekt."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-uppdatering misslyckades"
@@ -2848,7 +2831,6 @@ msgstr ""
 "dem till systemet och förse dem med dokumentation på deras användarnamn och "
 "lösenord."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
@@ -2856,12 +2838,10 @@ msgstr ""
 "innehåller information om hur författaren kan följa bidraget genom "
 "redaktionella processen samt ett tack för för inskickat bidrag."
 
-#, fuzzy
 msgid "mailable.submissionAckNotUser.description"
 msgstr ""
 "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
-"andra författare knutna till bidraget i inskickningsprocessen men som inte "
-"är OJS-användare."
+"författare knutna till bidraget som inte är den som skickat in bidraget."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -2879,3 +2859,371 @@ msgstr ""
 
 msgid "manager.people.authSource"
 msgstr "Autentiseringskälla"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Antal refuserade bidrag"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Antal accepterade bidrag"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "Antal bidrag som hoppats över"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Antal mottagna bidrag"
+
+msgid "emailTemplate.variable.password"
+msgstr "Nytt slumpmässigt lösenord"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Fullständigt namn på användare som laddat upp bidragsfil"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Meddelandets titel"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Kort beskrivning av meddelandet"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "URL till meddelandet"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Antal bidrag som mottagits senaste månaden"
+
+msgid "manager.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimera arkiv"
+
+msgid "manager.settings.statistics.keepDaily"
+msgstr "Daglig statistik"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Land"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Land och region"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Land, region och stad"
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
+
+msgid "manager.settings.statistics.sushiPlatform"
+msgstr "Platform för COUNTER SUSHI-statistik"
+
+msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Använd siten som plattform för alla tidskrifter."
+
+msgid "manager.institutions.edit"
+msgstr "Redigera institution"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry-ID för denna institution."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP-intervall"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Ta bort institution"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Ogiltigt IP-intervall"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Giltiga värden är IP-adresser (t.ex. 142.58.103.1), IP-intervall (t.ex. "
+"142.58.103.1 - 142.58.103.4), IP-intervall med trunkering '*' (t.ex. 142."
+"58.*.*), och IP-intervall med CIDR (t.ex. 142.58.100.0/24)."
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Är du säker på att du vill ta bort institutionen?"
+
+msgid "manager.setup.statistics"
+msgstr "Statistik"
+
+msgid "manager.settings.statistics.keepDaily.description"
+msgstr ""
+"COUNTER-statistik och geografisk användningsstatistik summeras månadsvis. "
+"Därefter raderas de dagliga loggarna. Välj det här alternativet om du vill "
+"behålla dagliga loggar i databasen. Observera att detta kommer göra "
+"databasen betydligt större."
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Plattforms-ID"
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Ett plattforms-ID krävs"
+
+msgid "stats.unique"
+msgstr "Unik"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL-länk för att visa och redigera användarprofil."
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Hashat URL som skickas till en användare för att bekräfta återställt lösenord"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Markera DOI:er som oregistrerade"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Objekten har markerats som oregistrerade"
+
+msgid "manager.settings.statistics.compressStatsLogs.default"
+msgstr "Låt loggfilerna vara"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Välj detta alternativ om du vill hantera institutioner och samla in deras "
+"användningsstatistik. Detta kommer påverka vilka statistikrapporter som kan "
+"hämtas ut, samt även storleken på databasen."
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Du kommer markera DOI-metadataposter för {$count} objekt som oregistrerade. "
+"Är du säker på att du vill göra det?"
+
+msgid "manager.dois.actions.description"
+msgstr "Gör ändringar för {$count} objekt."
+
+msgid "manager.settings.statistics.compressStatsLogs.description"
+msgstr "Välj vad som ska göras med arkiverade loggfiler."
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institutionens användningsstatistik"
+
+msgid "manager.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
+"protokollet. Det kräver en specificerad plattform. Tidskriften är på förhand "
+"angiven som plattformen för all statistik, men om alla tidskrifter på denna "
+"OJS-installation tillhör samma utgivare går det även att ange hela siten som "
+"plattform."
+
+msgid "manager.setup.institutions"
+msgstr "Institutioner"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Antal bidrag som tilldelats denna redaktör"
+
+msgid "stats.unknown"
+msgstr "okänd"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "En lista över bidrag med ofärdiga uppdrag"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Månaden för rapporten"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Information om numret: volym, nummer, år, och titel"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Året för rapporten"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Länken till redaktionell aktivitet"
+
+msgid "mailable.passwordReset.name"
+msgstr "Återställ lösenord"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Den inbjudna granskaren har tagits bort från bidraget."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till manusredigering"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Granskningsomgång avbruten"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att en granskningsrunda har "
+"avbrutits."
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Länken till sidan om statistik för publicerade artiklar"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Det här e-postmeddelandet skickas av en sektionsredaktör för att bekräfta "
+"att en granskning har slutförts och för att tacka granskaren för dennes "
+"arbete."
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+"Ett automatiskt e-postmeddelande som skickas till redaktörer med ouppklarade "
+"uppgifter"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Bekräfta återställt lösenord"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Det här e-postmeddelandet skickas under granskningssteget för att meddela en "
+"användare om bidraget"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Tidskriften tillämpar öppen sakkunniggranskning. Granskarna kommer kunna se "
+"ditt och dina medförfattares namn och affilieringar. Likaledes kommer ni "
+"kunna se granskarnas namn och affilieringar."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Hoppat över granskning"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att det tidigare beslutet att "
+"refusera deras bidrag efter granskning har återtagits."
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att beslut fattats om att deras "
+"bidrag behöver revideras och skickas in på nytt."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Skickat till produktion"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"direkt till manusredigeringssteget utan att genomgå sakkunninggranskning."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"till produktionssteget."
+
+msgid "mailable.reviewRemind.name"
+msgstr "Påminnelse om granskning"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Bidragets nuvarande publikation saknas"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Bidragets fil {$child} kunde inte behandlas"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Påminnelse till redaktör"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"tillbaka till manusredigering."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Denna tidskrift tillämpar en \"anonym granskare\"-modell för "
+"sakkunniggranskning. Granskarnas identiteter kommer vara anonyma, men du och "
+"dina medförfattare kommer vara identifierbara för granskarna."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att ett tidigare beslut om "
+"refusering av deras bidrag innan granskning har återkallats."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Detta meddelande meddelar en redaktör eller en sektionsredaktör att en "
+"rekommendation har lämnats angående ett av deras tilldelade bidrag. "
+"Meddelandet används när en redaktör bara har tillåtelse att rekommendera ett "
+"redaktionellt beslut och det krävs särskild behörighet för att fatta "
+"beslutet. Detta alternativ väljs i samband med att redaktörer tilldelas ett "
+"bidrag."
+
+msgid "stats.suppFileViews"
+msgstr "Visningar av bilagor"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Denna tidskrift tillämpar en dubbelt anonym sakkunniggranskning. Granskarna "
+"får inte tillgång till någon information som kan identifiera dig eller dina "
+"medförfattare. Du får inte heller inte reda på vem som har granskat till "
+"ditt bidrag, och du kommer inte hålla direkt kontakt med granskarna."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Återinsätt refuserat bidrag innan granskning"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"till granskningssteget."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Påminnelse om granskning (automatisk)"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Skickat till granskning"
+
+msgid "mailable.ReviewResponseOverdueAuto.name"
+msgstr "Svar på granskning försenat (automatisk)"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geografisk användningsstatistik"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Samla inte in geografisk data"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Det är e-postmeddelandet skickas i inskickningssteget för att meddela en "
+"användare om ett bidrag"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Det är e-postmeddelandet skickas i manusredigeringssteget för att meddela en "
+"användare om ett bidrag"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Det är e-postmeddelandet skickas i produktionssteget för att meddela en "
+"användare om ett bidrag"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Meddelande om reviderad version"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Meddelande om publiceringsversion"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Det här e-postmeddelandet meddelar automatiskt granskare om ändringar i "
+"granskningsdetaljerna"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Det här e-postmeddelandet skickas automatiskt till anknutna redaktörer när "
+"en granskare lämnat en rekommendation"
+
+msgid "manager.settings.statistics.keepDaily.option"
+msgstr "Behåll daglig statistik i databasen"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Välj vilken geografisk användningsstatistik du vill samla in. Detta kommer "
+"påverka vilka typer av rapporter som kommer vara möjliga att hämta ut, och "
+"kommer även påverka databasens storlek."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Meddelande om statistikrapport"
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Plattforms-ID FÅR ENBART innehålla ASCII-tecken (a-z, A-Z), siffror (0-9), "
+"understreck (_), punkter (.) och snedstreck (/), och längden FÅR INTE "
+"överstiga 17 tecken. Observera att plattforms-ID används i olika kolumner "
+"och bör därför vara så korta som möjligt, men fortfarande igenkännliga. "
+"Plattforms-ID bör vanligtvis vara baserat på utgivarens namn. En kort "
+"beteckning enligt en standard såsom GRID eller ROR (utan https://) kan också "
+"användas."
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en ny "
+"version av publikationen"

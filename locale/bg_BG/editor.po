@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-18 17:42+0000\n"
+"PO-Revision-Date: 2022-08-18 18:33+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/bg_BG/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Библиотека"
@@ -203,8 +203,8 @@ msgstr ""
 
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""
-"Одобрете тази коректура  за да посочите, че корекцията е завършена и файлът "
-"е готов за публикуване."
+"Одобрете тази коректура за да посочите, че корекцията е завършена и файлът е "
+"готов за публикуване."
 
 msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Отказване на одобрението на коректура"

@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"PO-Revision-Date: 2022-08-26 18:25+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy_AM/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Պահանջվում է օգտանուն։"
@@ -32,7 +32,7 @@ msgstr ""
 "բանալի անվավեր կդարձնի:"
 
 msgid "user.apiKey.generate"
-msgstr "Ստեղծեք նոր API բանալի"
+msgstr "Ստեղծեք API Բանալի"
 
 msgid "user.apiKeyEnabled"
 msgstr ""
@@ -499,3 +499,13 @@ msgstr "Պատկանելություն"
 
 msgid "user.accountInformation"
 msgstr "Հաշվի տեղեկատվություն"
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Իսկապե՞ս ուզում եք ջնջել այս API բանալին:"
+
+msgid "user.apiKey.remove"
+msgstr "Ջնջել"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Բանալին ջնջելը կչեղարկի մուտքը ցանկացած հավելված, որն օգտագործում է այն:"

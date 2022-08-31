@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-10 16:26+0000\n"
+"PO-Revision-Date: 2022-08-19 12:59+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
@@ -746,7 +746,7 @@ msgstr ""
 "използва."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Използване на шаблон по подразбиране."
+msgstr "Използване на шаблон по подразбиране"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -1069,7 +1069,7 @@ msgid "manager.plugins.fileSelectError"
 msgstr "Моля, изберете първо файл"
 
 msgid "manager.plugins.doesNotExist"
-msgstr "Добавката (плъгин) \"{$pluginName}\"  не съществува"
+msgstr "Добавката (плъгин) \"{$pluginName}\" не съществува"
 
 msgid "manager.plugins.description"
 msgstr ""
@@ -2042,7 +2042,7 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
-"Това списание извършва  „анонимно рецензензиране“. Вашето име и тези на "
+"Това списание извършва „анонимно рецензензиране“. Вашето име и тези на "
 "вашите съавтори ще бъдат видими за рецензентите; обаче самоличността на "
 "рецензентите ще остане анонимна."
 
@@ -2115,7 +2115,7 @@ msgid "plugins.importexport.author.exportFailed"
 msgstr "Процесът не успя и прекъсна при анализа на авторите"
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\"  -  \"{$submissionTitle}\""
+msgstr "\"{$submissionId}\" — \"{$submissionTitle}\""
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Посоченият път на списанието, \"{$contextPath}\", не съществува."
@@ -2618,7 +2618,7 @@ msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Неизвестен елемент {$param}"
 
 msgid "plugins.importexport.common.id"
-msgstr "Id:  {$id}"
+msgstr "Идентификатор: {$id}"
 
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Възникнали грешки:"
@@ -2989,10 +2989,10 @@ msgstr "Неуспешни актуализации на DOI"
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Този имейл се изпраща автоматично, когато изтича срокът за потвърждение от "
-"страна на рецензента (вижте Опции за рецензии в  Настройки > Работен поток  >"
-" Рецензии) и достъпът на рецензент с едно щракване е деактивиран. "
-"Планираните задачи трябва да бъдат активирани и конфигурирани (вижте "
-"конфигурационния файл на сайта)."
+"страна на рецензента (вижте Опции за рецензии в Настройки > Работен поток > "
+"Рецензии) и достъпът на рецензент с едно щракване е деактивиран. Планираните "
+"задачи трябва да бъдат активирани и конфигурирани (вижте конфигурационния "
+"файл на сайта)."
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
@@ -3005,7 +3005,6 @@ msgstr ""
 "отхвърли задачата за рецензия на изпратените материали за следващ етап от "
 "редакцията. Той предоставя информация за изпратеното, като заглавието и "
 "резюмето, краен срок за преглед и как да получите достъп до самите материали."
-
 
 msgid "mailable.reviewRequestSubsequent.name"
 msgstr "Следваща заявка за рецензия"
@@ -3024,7 +3023,6 @@ msgstr ""
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Признание за рецензия"
 
-#, fuzzy
 msgid "mailable.passwordReset.description"
 msgstr ""
 "Този имейл се изпраща на регистриран потребител, когато той успешно "
@@ -3047,7 +3045,6 @@ msgstr ""
 "Този имейл се изпраща на новорегистриран рецензент, за да го приветства в "
 "системата и да им предостави запис с потребителско име и парола."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
@@ -3055,7 +3052,6 @@ msgstr ""
 "информация за проследяване на подаването на ръкописа и благодари на автора "
 "за изпращането."
 
-#, fuzzy
 msgid "mailable.submissionAckNotUser.description"
 msgstr ""
 "Този имейл, когато е разрешен, автоматично се изпраща до другите автори на "
@@ -3073,3 +3069,328 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Този имейл се изпраща автоматично месечно до редактори и мениджъри на "
 "списания, за да им предостави общ преглед на състоянието на системата."
+
+msgid "manager.people.authSource"
+msgstr "Източник на удостоверяване"
+
+msgid "emailTemplate.variable.password"
+msgstr "Нова произволна потребителска парола"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Пълното име на потребител, който е качил файл с материали"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Заглавие на обявата"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Кратко описание на обявата"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "URL адрес към обявата"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Брой изпратени материали, получени този месец"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Брой на отхвърлените материали"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "Брой на пропуснати материали"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Месец на отчета"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Връзка към страницата на редакционната дейност"
+
+msgid "manager.settings.statistics.compressStatsLogs.description"
+msgstr "Изберете какво да правите с архивираните регистрационни файлове."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Изберете кои географски данни за статистически данни за употреба искате да "
+"събирате. Това ще повлияе на възможните статистически отчети, които можете "
+"да извлечете, и също ще окаже влияние върху размера на базата данни."
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Държава"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Държава и регион"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Държава, регион и град"
+
+msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Използване на сайта като платформа за всички списания."
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Идентификатор за платформата (Platform ID)"
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Изисква се идентификатор на платформата (Platform ID)"
+
+msgid "stats.unique"
+msgstr "Уникални"
+
+msgid "stats.unknown"
+msgstr "неизвестен"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL адресът за потребителя, за да преглежда и редактира своя профил."
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Списък с изпратени материали с неизпълнени задачи"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Брой на приетите материали"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Общ брой на получени материали"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Идентификация на изданието, включително том, номер, година и заглавие"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Година на отчета"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Броят на материалите, присвоени на този редактор"
+
+msgid "manager.institutions.edit"
+msgstr "Редактиране на институция"
+
+msgid "manager.setup.statistics"
+msgstr "Статистики"
+
+msgid "manager.settings.statistics.compressStatsLogs.default"
+msgstr "Оставяне на архивираните лог файлове такива, каквито са"
+
+msgid "manager.settings.statistics.keepDaily"
+msgstr "Ежедневни показатели"
+
+msgid "manager.settings.statistics.keepDaily.option"
+msgstr "Съхраняване на дневните показатели в базата данни"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Статистики за Гео използване (Geo usage)"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Не събирайте никакви географски данни"
+
+msgid "manager.settings.statistics.compressStatsLogs.compress"
+msgstr "Компресиране на архиви"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Изберете тази опция, ако искате да управлявате институции и да събирате "
+"статистически данни за тяхното използване. Това ще повлияе на възможните "
+"статистически отчети, които можете да извлечете, и също ще окаже влияние "
+"върху размера на базата данни."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr ""
+"Разрешаване на управлението на институцията и статистическите данни за "
+"използването"
+
+msgid "manager.settings.statistics.sushiPlatform"
+msgstr "Платформа за COUNTER SUSHI статистика"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Статистика за използване от институцията"
+
+msgid "stats.suppFileViews"
+msgstr "Допълнителни изгледи на файлове"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"На път сте да маркирате записи с метаданни на DOI за {$count} елемент(а) "
+"като остарели. Остарелият статус може да се приложи само към по-рано "
+"изпратени DOI. Сигурни ли сте, че искате да маркирате тези записи като "
+"остарели?"
+
+msgid "manager.institutions.form.ror"
+msgstr "Регистър на исзледователски организации (ROR)"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Валидните стойности включват IP адрес (напр. 142.58.103.1), IP диапазон ("
+"напр. 142.58.103.1 - 142.58.103.4), IP диапазон със заместващ знак „*“ ("
+"напр. 142.58.*.*) и IP диапазон с CIDR (напр. 142.58.100.0/24)."
+
+msgid "manager.settings.statistics.keepDaily.description"
+msgstr ""
+"Статистиките за БРОЯЧ (COUNTER) и Гео използване (Geo usage) се обобщават на "
+"месец. След това дневните записи се изтриват. Изберете тази опция, ако "
+"искате да запазите ежедневните записи в базата данни. Имайте предвид, че "
+"това значително ще увеличи вашата база данни."
+
+msgid "manager.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Този софтуер предоставя статистически данни за използването според протокола "
+"COUNTER SUSHI. Този протокол изисква да бъде посочена платформа. По "
+"подразбиране списанието ще бъде определено като платформа за всички "
+"статистики. Въпреки това, ако всички списания на този сайт са публикувани, "
+"притежавани или управлявани от един и същ доставчик, може да пожелаете да "
+"посочите сайта като платформа."
+
+msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Идентификатора на платформата (Platform ID) ТРЯБВА да съдържа само ASCII "
+"букви (a–z, A–Z), цифри (0–9), долна черта (_), точки (.) и наклонени черти "
+"(/), а дължината НЕ ТРЯБВА да надвишава 17 знака. Имайте предвид, че "
+"идентификаторът на платформата се използва в различни колони и следователно "
+"трябва да бъде възможно най-кратък, но все пак разпознаваем. "
+"Идентификационният номер на платформата обикновено трябва да се базира на "
+"името, добре познато уникално съкращение или домейна на издателя или "
+"платформата. Може да се използва и кратък стандартен идентификатор като GRID "
+"или ROR (без https://)."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Маркираане на DOI като нерегистрирани"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"На път сте да маркирате записи с метаданни на DOI за {$count} елемент(а) "
+"като нерегистрирани. Сигурни ли сте, че искате да маркирате тези записи като "
+"нерегистрирани?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Маркиране DOI като остарели"
+
+msgid "manager.dois.actions.description"
+msgstr "Предприемане действие върху {$count} избран(и) елемент(а)."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Елементите са маркирани успешно като нерегистрирани"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Елементите са маркирани успешно като остарели"
+
+msgid "manager.institutions.form.ror.description"
+msgstr ""
+"Идентификатор в регистъра на изследователски организации за тази институция."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP диапазони"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Изтриване на институцията"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Сигурни ли сте, че искате да продължите и да изтриете тази институция?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Невалиден IP диапазон"
+
+msgid "manager.setup.institutions"
+msgstr "Институции"
+
+msgid "mailable.passwordReset.name"
+msgstr "Нулиране на парола"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Потвърждение за нулиране на парола"
+
+msgid "mailable.userRegister.name"
+msgstr "Регистър на потребителя"
+
+msgid "mailable.submissionAck.name"
+msgstr "Потвърждение за подадени материали"
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "Потвърждение за подадени материали"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Регистър на рецензента"
+
+msgid "mailable.discussionReview.name"
+msgstr "Преглед на дискусия"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Този имейл се изпраща на етапа на работния процес по рецензиране, за да "
+"уведоми потребителя"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Дискусия - стилово редактиране"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Известие за преработена версия"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Дискусия за подадени материали"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Този имейл се изпраща на етапа на подаване на материали, за да уведоми "
+"потребителя"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Редактиране на известие за рецензия"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява рецензента за променени подробности относно "
+"рецензията"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява асоциираните редактори за нова версия на "
+"публикацията"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Уведомления на редакторите за коментар на рецензента"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Този имейл се изпраща автоматично до асоциираните редактори, когато "
+"рецензентът направи препоръка"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Дискусия - продукционен етап"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Поканеният рецензент на подадените материали е отменен."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Материали, изпратени обратно от етапа за стилово редактиране"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че неговото изпращане е върнато от етапа на "
+"стилово редактиране."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Кръгът за рецензиране е отменен"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Връзка към страницата със статистика на публикуваните статии"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че кръгът за рецензиране на техните подадени "
+"материали е отменен."
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Този имейл се изпраща на етапа настилово редактиране, за да уведоми "
+"потребителя"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Този имейл се изпраща на продукционния етап на работния процес, за да "
+"уведоми потребителя"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Известие за статистически отчет"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Известие за публикувана версия"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Редакционно напомняне"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Автоматичен имейл, изпратен до редакторите с неизпълнени задачи"

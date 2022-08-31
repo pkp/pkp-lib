@@ -1,10 +1,11 @@
+# Tormod Strømme <tormod.stromme@uib.no>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2022-08-18 18:33+0000\n"
+"Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Administrative funksjoner"
@@ -366,3 +367,41 @@ msgstr "Begrens masseutsendelse av e-post"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Masseutsendelse av e-post"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+"Identifiser redaktører som skal ha en påminnelse i kontekst av {$contextId}"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Varsel om redaksjonell rapport"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Send en e-post til hver redaktør for å minne dem om deres gjenstående "
+"oppgaver"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Slett alle loggfiler over planlagte oppgaver som har blitt kjørt."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Slett loggfiler over oppgaver"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponer DOIer hos den konfigurerte registreringsorganisasjon"
+
+msgid "admin.deleteCache"
+msgstr "Slett cache"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Alle brukere vil umiddelbart bli logget av systemet, inklusiv deg, og vil "
+"måtte logge inn igjen."
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Oppdater DB-IP city lite database"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Tidsangivelsen er ikke en gyldig dato."
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Fjern ubekreftede, utløpte brukere"

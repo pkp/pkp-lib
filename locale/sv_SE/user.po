@@ -1,10 +1,11 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-02-23 11:52+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"PO-Revision-Date: 2022-08-26 18:25+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sv_SE/>\n"
 "Language: sv_SE\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.accountInformation"
 msgstr "Kontoinformation"
@@ -105,7 +106,9 @@ msgid "user.group"
 msgstr "Användargrupp"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Ogiltigt format för profilbild, eller för stor bild. Godkända format är  .gif, .jpg, och .png, och bilden får inte ara större än 150x150 pixlar."
+msgstr ""
+"Ogiltigt format för profilbild, eller för stor bild. Godkända format är ."
+"gif, .jpg, och .png, och bilden får inte vara större än 150x150 pixlar."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Ditt konto har inaktiverats på grund av följande orsak: {$reason}"
@@ -134,9 +137,11 @@ msgstr "Fel användarnamn eller lösenord. Försök igen."
 msgid "user.login"
 msgstr "Logga in"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Vi har skickat ett meddelande till din e-postadress för bekräftelse. Följ instruktionerna i meddelandet för att återställa ditt lösenord."
+msgstr ""
+"En bekräftelse har skickats till den e-postadress, om ett motsvarande "
+"användarkonto finns. Följ instruktionerna i meddelandet för att återställa "
+"ditt lösenord."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Länken du har klickat på har upphört eller är ogiltig. Prova att återställa ditt lösenord igen."
@@ -220,7 +225,7 @@ msgid "user.profile.form.oldPasswordInvalid"
 msgstr "Aktuellt lösenord stämmer inte."
 
 msgid "user.profile.form.openAccessNotifications"
-msgstr "E-postmeddelande när nytt nummer gjorts tillgängligt open access."
+msgstr "E-postmeddelande när nytt nummer gjorts tillgängligt open access"
 
 msgid "user.profile.form.passwordRequired"
 msgstr "Lösenord krävs."
@@ -412,7 +417,7 @@ msgid "user.apiKeyEnabled"
 msgstr "Tillåt externa applikationer som har API-nyckeln att få tillgång till det här kontot"
 
 msgid "user.apiKey.generate"
-msgstr "Skapa ny API-nyckel"
+msgstr "Skapa API-nyckel"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Vid skapande av ny API-nyckel blir den nuvarande nyckeln för det här kontot ogiltig."
@@ -433,8 +438,8 @@ msgstr "Efternamn"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Hur vill du bli adresserad? Titel, mellannamn och suffix kan läggas till "
-"här, om så önskas."
+"Ange det fullständiga författarnamnet så som det ska visas i den färdiga "
+"publikationen. Exempelvis: Dr. Alan P. Mwandenga"
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
@@ -446,3 +451,14 @@ msgstr "Tilltalsnamn"
 
 msgid "user.givenName"
 msgstr "Förnamn"
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Är du säker på att du vill ta bort den här API-nyckeln?"
+
+msgid "user.apiKey.remove"
+msgstr "Ta bort"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Om du tar bort nyckeln kommer tillgången till alla applikationer som "
+"använder sig av nyckeln upphävas."

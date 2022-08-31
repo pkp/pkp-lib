@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-06-28 14:36+0000\n"
+"PO-Revision-Date: 2022-08-18 18:33+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/manager/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Informação"
@@ -3193,3 +3193,148 @@ msgstr "Itens não registrados marcados com sucesso"
 
 msgid "manager.dois.notification.markStaleSuccess"
 msgstr "Itens obsoletos marcados com sucesso"
+
+msgid "emailTemplate.variable.password"
+msgstr "Nova senha aleatória de usuário"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "O nome completo de um usuário que carregou um arquivo de submissão"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "O título da notícia"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Breve descrição do anúncio"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "A URL para o anúncio"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "O número de submissões aceitas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "O número de submissões recebidas este mês"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "O número de submissões recusadas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "O número de submissões ignoradas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "O número total de submissões recebidas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "O mês do relatório"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Identificação da edição, incluindo volume, número, ano e título"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "O ano do relatório"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "O link para a página de atividade editorial"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "O link para a página de estatísticas de artigos publicados"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Discussão da Submissão"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Este e-mail é enviado automaticamente aos editores atribuídos quando o "
+"avaliador faz uma recomendação de avaliação"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de volta para edição de texto"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta para "
+"o estágio de edição de texto."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Rodada de Avaliação Cancelada"
+
+msgid "mailable.passwordReset.name"
+msgstr "Redefinição de Senha"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Confirmar redefinição de Senha"
+
+msgid "mailable.userRegister.name"
+msgstr "Cadastro de Usuário"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Cadastro de Avaliador"
+
+msgid "mailable.submissionAck.name"
+msgstr "Agradecimento da Submissão"
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "Confirmação de Submissão"
+
+msgid "mailable.discussionReview.name"
+msgstr "Discussão da Avaliação"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Este e-mail é enviado no estágio de avaliação no fluxo de trabalho para "
+"notificar um usuário sobre a submissão"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Discussão da Edição de Texto"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Discussão da Editoração"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Este e-mail é enviado no estágio de editoração para notificar um usuário "
+"sobre a submissão"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Notificação da Versão Revisada"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Notificação do Relatório de Estatísticas"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Notificação de Versão de Publicação"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Editar Notificação de Avaliação"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Este e-mail notifica automaticamente o avaliador sobre os detalhes "
+"modificados da avaliação"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Comentários do Avaliador Notificar Editores"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "O avaliador convidado para a submissão não foi atribuído."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma rodada de avaliação para sua "
+"submissão foi cancelada."
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Este e-mail é enviado no estágio de submissão para notificar um usuário "
+"sobre a submissão"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Este e-mail é enviado no estágio de edição de texto para notificar um "
+"usuário sobre a submissão"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Este e-mail notifica automaticamente os editores designados sobre a nova "
+"versão da publicação"

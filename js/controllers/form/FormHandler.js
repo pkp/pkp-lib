@@ -141,6 +141,13 @@
 		$('[id^=\'submitFormButton\']', $form).click(this.callbackWrapper(
 				this.pushTinyMCEChanges_));
 
+		$form.click(function (e) {
+			var $target = $(e.target);
+			if ($target.is('input[name="userId"]')) {
+				var filterUserIdVal = $('input[name=\'userId\']:checked').val();
+				$('input[name=\'userIdSelected\']').val(filterUserIdVal).trigger('change');
+			}
+		});
 		// bind a handler to handle change events on input fields.
 		// 1. For normal inputs...
 		$(':input', $form).change(this.callbackWrapper(this.formChange));

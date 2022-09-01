@@ -67,10 +67,10 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
             if ($submissionEnabled || $representationEnabled) {
                 $representationDao = Application::getRepresentationDAO();
                 $submissions = Repo::submission()
-                        ->getCollector()
-                        ->filterByContextIds([$context->getId()])
-                        ->filterByStatus([Submission::STATUS_PUBLISHED])
-                        ->getMany();
+                    ->getCollector()
+                    ->filterByContextIds([$context->getId()])
+                    ->filterByStatus([Submission::STATUS_PUBLISHED])
+                    ->getMany();
 
                 foreach ($submissions as $submission) {
                     $publications = $submission->getData('publications');
@@ -199,7 +199,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
      */
     public static function generateDefaultPattern(Context $context, ?Submission $submission = null, ?Representation $representation = null, ?SubmissionFile $submissionFile = null): string
     {
-        $pubIdSuffix = PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale())));
+        $pubIdSuffix = PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale())));
 
         if ($submission) {
             $pubIdSuffix .= '.' . $submission->getId();
@@ -223,7 +223,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
     public static function generateCustomPattern(Context $context, string $pubIdSuffix, DataObject $pubObject, ?Submission $submission = null, ?Publication $publication = null, ?Representation $representation = null, ?SubmissionFile $submissionFile = null): string
     {
         // %j - server initials, remove special characters and uncapitalize
-        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
+        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
 
         // %x - custom identifier
         if ($pubObject->getStoredPubId('publisher-id')) {
@@ -288,7 +288,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
         $pubIdSuffix = $this->getSetting($contextId, $suffixPatternsFieldNames[$pubObjectType]);
 
         // %j - server initials
-        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
+        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
 
         // %x - custom identifier
         if ($pubObject->getStoredPubId('publisher-id')) {

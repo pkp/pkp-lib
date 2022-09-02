@@ -31,12 +31,8 @@ class PluginRegistry
      * Return all plugins in the given category as an array, or, if the
      * category is not specified, all plugins in an associative array of
      * arrays by category.
-     *
-     * @param string $category the name of the category to retrieve
-     *
-     * @return array
      */
-    public static function &getPlugins($category = null)
+    public static function &getPlugins(?string $category = null): array
     {
         $plugins = & Registry::get('plugins', true, []); // Reference necessary
         if ($category !== null) {
@@ -50,10 +46,8 @@ class PluginRegistry
 
     /**
      * Get all plugins in a single array.
-     *
-     * @return array
      */
-    public static function getAllPlugins()
+    public static function getAllPlugins(): array
     {
         $plugins = & self::getPlugins();
         $allPlugins = [];
@@ -81,7 +75,7 @@ class PluginRegistry
      *
      * @return bool True IFF the plugin was registered successfully
      */
-    public static function register($category, $plugin, $path, $mainContextId = null)
+    public static function register(string $category, Plugin $plugin, string $path, ?int $mainContextId = null): bool
     {
         $pluginName = $plugin->getName();
         $plugins = & self::getPlugins();
@@ -96,14 +90,9 @@ class PluginRegistry
     }
 
     /**
-     * Get a plugin by name.
-     *
-     * @param string $category category name
-     * @param string $name plugin name
-     *
-     * @return ?Plugin
+     * Get a plugin by category and name.
      */
-    public static function getPlugin($category, $name)
+    public static function getPlugin(string $category, string $name): ?Plugin
     {
         $plugins = & self::getPlugins();
         return $plugins[$category][$name] ?? null;
@@ -124,7 +113,7 @@ class PluginRegistry
      *
      * @return array Set of plugins, sorted in sequence.
      */
-    public static function loadCategory($category, $enabledOnly = false, $mainContextId = null)
+    public static function loadCategory(string $category, bool $enabledOnly = false, ?int $mainContextId = null): array
     {
         $plugins = [];
         $categoryDir = PLUGINS_PREFIX . $category;
@@ -193,17 +182,13 @@ class PluginRegistry
      * Similar to loadCategory, except that it only loads a single plugin
      * within a category rather than loading all.
      *
-     * @param string $category
-     * @param string $pathName
      * @param int $mainContextId To identify enabled plug-ins
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
      *  can be given as an explicit ID.
-     *
-     * @return ?Plugin
      */
-    public static function loadPlugin($category, $pathName, $mainContextId = null)
+    public static function loadPlugin(string $category, string $pluginName, ?int $mainContextId = null): ?Plugin
     {
         $pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
         if (!is_dir($pluginPath) || !file_exists($pluginPath . '/index.php')) {
@@ -226,10 +211,8 @@ class PluginRegistry
      * have to be registered and/or installed. Plug-ins in categories
      * later in the list may depend on plug-ins in earlier
      * categories.
-     *
-     * @return array
      */
-    public static function getCategories()
+    public static function getCategories(): array
     {
         $application = Application::get();
         $categories = $application->getPluginCategories();
@@ -239,12 +222,8 @@ class PluginRegistry
 
     /**
      * Load all plugins in the system and return them in a single array.
-     *
-     * @param bool $enabledOnly load only enabled plug-ins
-     *
-     * @return array Set of all plugins
      */
-    public static function loadAllPlugins($enabledOnly = false)
+    public static function loadAllPlugins(bool $enabledOnly = false): array
     {
         static $isLoaded;
         if (!$isLoaded) {
@@ -257,23 +236,10 @@ class PluginRegistry
         return self::getAllPlugins();
     }
 
-
-    //
-    // Private helper methods
-    //
     /**
      * Instantiate a plugin.
-     *
-     * This method can be called statically.
-     *
-     * @param string $category
-     * @param string $categoryDir
-     * @param string $file
-     * @param string $classToCheck set null to maintain pre-2.3.x backwards compatibility
-     *
-     * @return ?Plugin
      */
-    public static function _instantiatePlugin($category, $categoryDir, $file, $classToCheck = null)
+    public static function _instantiatePlugin(string $category, string $categoryDir, string $file, ?string $classToCheck = null)
     {
         if (!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) {
             throw new Exception('Invalid product name "' . $file . '"!');

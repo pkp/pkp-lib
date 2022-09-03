@@ -14,15 +14,15 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-use PKP\migration\Migration;
 use Illuminate\Support\Facades\DB;
-use PKP\config\Config;
-use League\Flysystem\Local\LocalFilesystemAdapter;
-use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
+use Illuminate\Support\Facades\Schema;
 use League\Flysystem\Filesystem;
 use League\Flysystem\FilesystemException;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnableToDeleteFile;
+use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
+use PKP\config\Config;
+use PKP\migration\Migration;
 
 class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 {
@@ -34,6 +34,25 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
     public function up(): void
     {
+        // Create a Filesystem object with the appropriate adapter to access the actual files
+        $umask = Config::getVar('files', 'umask', 0022);
+        $adapter = new LocalFilesystemAdapter(
+            Config::getVar('files', 'files_dir'),
+            PortableVisibilityConverter::fromArray([
+                'file' => [
+                    'public' => self::FILE_MODE_MASK & ~$umask,
+                    'private' => self::FILE_MODE_MASK & ~$umask,
+                ],
+                'dir' => [
+                    'public' => self::DIRECTORY_MODE_MASK & ~$umask,
+                    'private' => self::DIRECTORY_MODE_MASK & ~$umask,
+                ]
+            ]),
+            LOCK_EX,
+            LocalFilesystemAdapter::DISALLOW_LINKS
+        );
+        $filesystem = new Filesystem($adapter);
+
         // Does not have the foreign key reference
         Schema::table('notification_settings', function (Blueprint $table) {
             $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
@@ -90,12 +109,12 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                 ->where('sf.assoc_type', '=', self::ASSOC_TYPE_NOTE)
                 ->where('sf.assoc_id', '=', $noteId)
                 ->get([
-                        'sf.submission_file_id as submissionFileId',
-                        'sf.file_id as fileId',
-                        'f.path as filePath'
-                    ]);
+                    'sf.submission_file_id as submissionFileId',
+                    'sf.file_id as fileId',
+                    'f.path as filePath'
+                ]);
 
-            $filesToCheckForDeletion = array();
+            $filesToCheckForDeletion = [];
             foreach ($notesFileRows as $submissionFileRow) {
                 $submissionFileId = $submissionFileRow->submissionFileId;
                 $submissionFileFileId = $submissionFileRow->fileId;
@@ -104,7 +123,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                 DB::table('submission_files')
                     ->where('submission_file_id', '=', $submissionFileId)
                     ->delete();
-                
+
                 if (!array_key_exists($submissionFileFileId, $filesToCheckForDeletion)) {
                     $filesToCheckForDeletion[$submissionFileFileId] = $submissionFilePath;
                 }
@@ -117,26 +136,6 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
                 // If the file is not used by another SubmissionFile, it can be deleted.
                 if ($remainingSubmissionFilesCount == 0) {
-                    // Create a Filesystem object with the appropriate adapter to access the actual files
-                    $umask = Config::getVar('files', 'umask', 0022);
-                    $adapter = new LocalFilesystemAdapter(
-                        Config::getVar('files', 'files_dir'),
-                        PortableVisibilityConverter::fromArray([
-                            'file' => [
-                                'public' => self::FILE_MODE_MASK & ~$umask,
-                                'private' => self::FILE_MODE_MASK & ~$umask,
-                            ],
-                            'dir' => [
-                                'public' => self::DIRECTORY_MODE_MASK & ~$umask,
-                                'private' => self::DIRECTORY_MODE_MASK & ~$umask,
-                            ]
-                        ]),
-                        LOCK_EX,
-                        LocalFilesystemAdapter::DISALLOW_LINKS
-                    );
-
-                    $filesystem = new Filesystem($adapter);
-
                     if ($filesystem->has($submissionFilePath)) {
                         try {
                             $filesystem->delete($submissionFilePath);
@@ -153,7 +152,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                 }
             }
 
-            error_log("Removing orphaned note entry ID ${noteId} with not existing query ${neQueryId}");
+            error_log("Removing orphaned note entry ID ${noteId} with nonexistent query ${neQueryId}");
             DB::table('notes')
                 ->where('note_id', '=', $noteId)
                 ->delete();

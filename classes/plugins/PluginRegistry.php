@@ -36,9 +36,7 @@ class PluginRegistry
     {
         $plugins = & Registry::get('plugins', true, []); // Reference necessary
         if ($category !== null) {
-            if (!isset($plugins[$category])) {
-                $plugins[$category] = [];
-            }
+            $plugins[$category] ??= [];
             return $plugins[$category];
         }
         return $plugins;
@@ -49,16 +47,7 @@ class PluginRegistry
      */
     public static function getAllPlugins(): array
     {
-        $plugins = & self::getPlugins();
-        $allPlugins = [];
-        if (!empty($plugins)) {
-            foreach ($plugins as $list) {
-                if (is_array($list)) {
-                    $allPlugins += $list;
-                }
-            }
-        }
-        return $allPlugins;
+        return array_reduce(static::getPlugins(), fn (array $output, array $pluginsByCategory) => $output += $pluginsByCategory, []);
     }
 
     /**
@@ -78,7 +67,7 @@ class PluginRegistry
     public static function register(string $category, Plugin $plugin, string $path, ?int $mainContextId = null): bool
     {
         $pluginName = $plugin->getName();
-        $plugins = & self::getPlugins();
+        $plugins = & static::getPlugins();
 
         // If the plugin is already loaded or failed/refused to register
         if (isset($plugins[$category][$pluginName]) || !$plugin->register($category, $path, $mainContextId)) {
@@ -94,8 +83,7 @@ class PluginRegistry
      */
     public static function getPlugin(string $category, string $name): ?Plugin
     {
-        $plugins = & self::getPlugins();
-        return $plugins[$category][$name] ?? null;
+        return static::getPlugins()[$category][$name] ?? null;
     }
 
     /**
@@ -155,24 +143,17 @@ class PluginRegistry
 
         // Register the plugins in sequence.
         ksort($plugins);
-        foreach ($plugins as $seq => $junk1) {
-            foreach ($plugins[$seq] as $pluginPath => $junk2) {
-                self::register($category, $plugins[$seq][$pluginPath], $pluginPath, $mainContextId);
-            }
-        }
-        unset($plugins);
+        array_walk_recursive($plugins, fn (Plugin $plugin, string $pluginPath) => static::register($category, $plugin, $pluginPath, $mainContextId));
 
         // Return the list of successfully-registered plugins.
-        $plugins = & self::getPlugins($category);
+        $plugins = & static::getPlugins($category);
 
         // Fire a hook after all plugins of a category have been loaded, so they
         // are able to interact if required
-        Hook::call('PluginRegistry::categoryLoaded::' . $category, [&$plugins]);
+        Hook::call("PluginRegistry::categoryLoaded::{$category}", [&$plugins]);
 
         // Sort the plugins by priority before returning.
-        uasort($plugins, function ($a, $b) {
-            return $a->getSeq() - $b->getSeq();
-        });
+        uasort($plugins, fn (Plugin $a, Plugin $b) => $a->getSeq() - $b->getSeq());
 
         return $plugins;
     }
@@ -214,8 +195,7 @@ class PluginRegistry
      */
     public static function getCategories(): array
     {
-        $application = Application::get();
-        $categories = $application->getPluginCategories();
+        $categories = Application::get()->getPluginCategories();
         Hook::call('PluginRegistry::getCategories', [&$categories]);
         return $categories;
     }

@@ -179,6 +179,7 @@ class PluginHelper
             'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
             'databaseDriver' => Config::getVar('database', 'driver'),
             'databaseHost' => Config::getVar('database', 'host'),
+            'databasePort' => Config::getVar('database', 'port'),
             'databaseUsername' => Config::getVar('database', 'username'),
             'databasePassword' => Config::getVar('database', 'password'),
             'databaseName' => Config::getVar('database', 'name')

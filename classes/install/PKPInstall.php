@@ -88,6 +88,7 @@ class PKPInstall extends Installer
         $config['connections'][$driver] = [
             'driver' => $driver,
             'host' => $this->getParam('databaseHost'),
+            'port' => $this->getParam('databasePort'),
             'database' => $this->getParam('databaseName'),
             'username' => $this->getParam('databaseUsername'),
             'password' => $this->getParam('databasePassword'),

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/mail/mailables/UserRegister.php
+ * @file classes/mail/mailables/UserCreated.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UserRegister
+ * @class UserCreated
  * @ingroup mail_mailables
  *
  * @brief Email sent when a new user is added from the user management screen.

@@ -435,6 +435,13 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'summary' => 'announcementSummary',
                 'url' => 'announcementUrl',
             ],
+            'MANUAL_PAYMENT_NOTIFICATION' => [
+                'itemName' => 'paymentName',
+                'itemCost' => 'paymentAmount',
+                'itemCurrencyCode' => 'paymentCurrencyCode',
+                'userName' => 'senderUsername',
+                'userFullName' => 'senderName',
+            ],
             // in OPS only
             'POSTED_ACK' => [
                 'authorName' => 'authorPrimary',

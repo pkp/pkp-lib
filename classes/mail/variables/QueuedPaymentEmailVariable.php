@@ -21,9 +21,9 @@ use PKP\payment\QueuedPayment;
 
 class QueuedPaymentEmailVariable extends Variable
 {
-    public const ITEM_NAME = 'itemName';
-    public const ITEM_COST = 'itemCost';
-    public const ITEM_CURRENCY_CODE = 'itemCurrencyCode';
+    public const PAYMENT_NAME = 'paymentName';
+    public const PAYMENT_AMOUNT = 'paymentAmount';
+    public const PAYMENT_CURRENCY_CODE = 'paymentCurrencyCode';
 
     protected QueuedPayment $queuedPayment;
 
@@ -39,9 +39,9 @@ class QueuedPaymentEmailVariable extends Variable
     {
         return
         [
-            self::ITEM_NAME => __('emailTemplate.variable.queuedPayment.itemName'),
-            self::ITEM_COST => __('emailTemplate.variable.queuedPayment.itemCost'),
-            self::ITEM_CURRENCY_CODE => __('emailTemplate.variable.queuedPayment.itemCurrencyCode'),
+            self::PAYMENT_NAME => __('emailTemplate.variable.queuedPayment.itemName'),
+            self::PAYMENT_AMOUNT => __('emailTemplate.variable.queuedPayment.itemCost'),
+            self::PAYMENT_CURRENCY_CODE => __('emailTemplate.variable.queuedPayment.itemCurrencyCode'),
         ];
     }
 
@@ -52,9 +52,9 @@ class QueuedPaymentEmailVariable extends Variable
     {
         return
         [
-            self::ITEM_NAME => $this->getItemName(),
-            self::ITEM_COST => (string) $this->getItemCost(),
-            self::ITEM_CURRENCY_CODE => (string) $this->getItemCurrencyCode(),
+            self::PAYMENT_NAME => $this->getItemName(),
+            self::PAYMENT_AMOUNT => (string) $this->getItemCost(),
+            self::PAYMENT_CURRENCY_CODE => (string) $this->getItemCurrencyCode(),
         ];
     }
 

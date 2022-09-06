@@ -33,7 +33,7 @@
 					<li{if $thumb} class="has_thumb"{/if}>
 						{if $thumb}
 							<div class="thumb">
-								<a href="{$url|escape}">
+								<a href="{$url}">
 									<img src="{$serverFilesPath}{$server->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape|default:''}"{/if}>
 								</a>
 							</div>
@@ -41,7 +41,7 @@
 
 						<div class="body">
 							<h3>
-								<a href="{$url|escape}" rel="bookmark">
+								<a href="{$url}" rel="bookmark">
 									{$server->getLocalizedName()}
 								</a>
 							</h3>
@@ -52,7 +52,7 @@
 							{/if}
 							<ul class="links">
 								<li class="view">
-									<a href="{$url|escape}">
+									<a href="{$url}">
 										{translate key="site.serverView"}
 									</a>
 								</li>

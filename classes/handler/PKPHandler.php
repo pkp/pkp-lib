@@ -17,12 +17,12 @@
 namespace PKP\handler;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Dispatcher;
 use PKP\core\PKPString;
 use PKP\core\Registry;
-use PKP\db\DAORegistry;
 use PKP\db\DBResultRange;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
@@ -33,7 +33,6 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
-use APP\facades\Repo;
 
 class PKPHandler
 {
@@ -332,7 +331,7 @@ class PKPHandler
         if (!SessionManager::isDisabled()) {
             // Add user roles in authorized context.
             $user = $request->getUser();
-            if ($user instanceof \PKP\user\User || $request->getRouter() instanceof \PKP\core\APIRouter) {
+            if ($user instanceof \PKP\user\User) {
                 $this->addPolicy(new UserRolesRequiredPolicy($request), true);
             }
         }

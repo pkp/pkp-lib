@@ -19,7 +19,7 @@ namespace PKP\plugins;
 
 use APP\core\Application;
 use Exception;
-
+use FilesystemIterator;
 use PKP\core\Registry;
 
 class PluginRegistry
@@ -103,39 +103,11 @@ class PluginRegistry
      */
     public static function loadCategory(string $category, bool $enabledOnly = false, ?int $mainContextId = null): array
     {
-        $plugins = [];
-        $categoryDir = PLUGINS_PREFIX . $category;
-        if (!is_dir($categoryDir)) {
-            return $plugins;
-        }
-
-        if ($enabledOnly && Application::isInstalled()) {
-            // Get enabled plug-ins from the database.
-            $application = Application::get();
-            $products = $application->getEnabledProducts('plugins.' . $category, $mainContextId);
-            foreach ($products as $product) {
-                $file = $product->getProduct();
-                $plugin = self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
-                if ($plugin instanceof \PKP\plugins\Plugin) {
-                    $plugins[$plugin->getSeq()]["${categoryDir}/${file}"] = $plugin;
-                }
-            }
-        } else {
-            // Get all plug-ins from disk. This does not require
-            // any database access and can therefore be used during
-            // first-time installation.
-            $handle = opendir($categoryDir);
-            while (($file = readdir($handle)) !== false) {
-                if ($file == '.' || $file == '..') {
-                    continue;
-                }
-                $plugin = self::_instantiatePlugin($category, $categoryDir, $file);
-                if ($plugin && is_object($plugin)) {
-                    $plugins[$plugin->getSeq()]["${categoryDir}/${file}"] = $plugin;
-                }
-            }
-            closedir($handle);
-        }
+        static $cache;
+        $key = implode("\0", func_get_args());
+        $plugins = $cache[$key] ??= $enabledOnly && Application::isInstalled()
+            ? static::_loadFromDatabase($category, $mainContextId)
+            : static::_loadFromDisk($category);
 
         // Fire a hook prior to registering plugins for a category
         // n.b.: this should not be used from a PKPPlugin::register() call to "jump categories"
@@ -256,6 +228,45 @@ class PluginRegistry
             }
         }
         return null;
+    }
+
+    /**
+     * Attempts to retrieve plugins from the database.
+     */
+    private static function _loadFromDatabase(string $category, ?int $mainContextId = null): array
+    {
+        $plugins = [];
+        $categoryDir = static::PLUGINS_PREFIX . $category;
+        $products = Application::get()->getEnabledProducts("plugins.{$category}", $mainContextId);
+        foreach ($products as $product) {
+            $name = $product->getProduct();
+            if ($plugin = static::_instantiatePlugin($category, $name, $product->getProductClassname())) {
+                $plugins[$plugin->getSeq()]["{$categoryDir}/{$name}"] = $plugin;
+            }
+        }
+        return $plugins;
+    }
+
+    /**
+     * Get all plug-ins from disk without querying the database, used during installation.
+     */
+    private static function _loadFromDisk(string $category): array
+    {
+        $categoryDir = static::PLUGINS_PREFIX . $category;
+        if (!is_dir($categoryDir)) {
+            return [];
+        }
+        $plugins = [];
+        foreach (new FilesystemIterator($categoryDir) as $path) {
+            if (!$path->isDir()) {
+                continue;
+            }
+            $pluginName = $path->getFilename();
+            if ($plugin = static::_instantiatePlugin($category, $pluginName)) {
+                $plugins[$plugin->getSeq()]["{$categoryDir}/{$pluginName}"] = $plugin;
+            }
+        }
+        return $plugins;
     }
 }
 

@@ -73,6 +73,11 @@
 				"nullable"
 			]
 		},
+		"isSushiApiPublic": {
+			"type": "boolean",
+			"description": "Whether or not the access on the COUNTER SUSHI statistics API for all contexts is public. If false only admin and managers can access the API.",
+			"default": true
+		},
 		"installedLocales": {
 			"type": "array",
 			"items": {

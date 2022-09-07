@@ -16,26 +16,42 @@
 
 namespace PKP\API\v1\stats\sushi;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\sushi\PR;
 use APP\sushi\PR_P1;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\Role;
 use PKP\sushi\CounterR5Report;
 use PKP\sushi\SushiException;
 use Slim\Http\Request as SlimHttpRequest;
 
 class PKPStatsSushiHandler extends APIHandler
 {
+    /** @var bool Whether the API is public */
+    public $isPublic = true;
+
     /**
      * Constructor
      */
     public function __construct()
     {
+        $site = Application::get()->getRequest()->getSite();
+        $context = Application::get()->getRequest()->getContext();
+        if (($site->getData('isSushiApiPublic') !== null && !$site->getData('isSushiApiPublic')) ||
+            ($context->getData('isSushiApiPublic') !== null && !$context->getData('isSushiApiPublic'))) {
+            $this->isPublic = false;
+        }
+
         $this->_handlerPath = 'stats/sushi';
+        $roles = $this->isPublic ? null : [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
         $this->_endpoints = [
-            'GET' => $this->getGETDefinitions()
+            'GET' => $this->getGETDefinitions($roles)
         ];
         parent::__construct();
     }
@@ -43,9 +59,8 @@ class PKPStatsSushiHandler extends APIHandler
     /**
      * Get this API's endpoints definitions
      */
-    protected function getGETDefinitions(): array
+    protected function getGETDefinitions(array $roles = null): array
     {
-        $roles = [];
         return [
             [
                 'pattern' => $this->getEndpointPattern() . '/status',
@@ -81,6 +96,14 @@ class PKPStatsSushiHandler extends APIHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextRequiredPolicy($request));
+        if (!$this->isPublic) {
+            $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+            $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+            foreach ($roleAssignments as $role => $operations) {
+                $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+            }
+            $this->addPolicy($rolePolicy);
+        }
         return parent::authorize($request, $args, $roleAssignments);
     }
 

@@ -1,8 +1,9 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
+# Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-04 12:40+0000\n"
-"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"PO-Revision-Date: 2022-09-08 07:50+0000\n"
+"Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/is/>\n"
 "Language: is\n"
@@ -25,7 +26,7 @@ msgid "reviewer.step1.viewAllDetails"
 msgstr "Skoða alla innsendinguna"
 
 msgid "reviewer.submission.reviewerFiles"
-msgstr "Ritrýni skrár"
+msgstr "Ritrýniskrár"
 
 msgid "reviewer.submission.declineReview"
 msgstr "Hafna beiðni um ritrýni"
@@ -60,7 +61,7 @@ msgid "reviewer.submission.guidelines"
 msgstr "Leiðbeiningar um ritrýni"
 
 msgid "reviewer.submission.noGuidelines"
-msgstr "Þessi útgefandi hefur ekki sett upp neinar leiðbeiningar um ritrýni."
+msgstr "Útgefandinn hefur ekki sett sér neinar leiðbeiningar um ritrýni."
 
 msgid "reviewer.submission.downloadDescription"
 msgstr ""
@@ -74,26 +75,26 @@ msgid "reviewer.confirmSubmit"
 msgstr "Ertu viss um að þú viljir skila inn ritrýni?"
 
 msgid "reviewer.aboutDueDates"
-msgstr "Um loka dagsetningar"
+msgstr "Um lokadagsetningar"
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr "Fyrir höfund og ritstjóra"
 
 msgid "submission.comments.cannotShareWithAuthor"
-msgstr "Fyrir ritstjóra engöngu"
+msgstr "Eingöngu fyrir ritstjóra"
 
 msgid "submission.comments.sendToReviewers"
-msgstr "Senda á ritrýna"
+msgstr "Senda til ritrýna"
 
 msgid "user.authorization.submissionReviewer"
-msgstr "Þessi notandi er ekki tengdur sem ritrýnir fyrir umbeðið skjal."
+msgstr "Þessi notandi er ekki settur sem ritrýnir fyrir umbeðið skjal."
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Beiðni"
 
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
-"Sláðu inn, eða afritaðu ritrýnina á þessu hadriti yfir í eyðublaðið fyrir "
+"Sláðu inn, eða afritaðu ritrýnina á þessu handriti yfir á eyðublaðið fyrir "
 "neðan."
 
 msgid "reviewer.step1.requestBoilerplate"
@@ -103,32 +104,31 @@ msgstr ""
 "vonum að þú sjáir þér fært að taka þátt."
 
 msgid "reviewer.submission.acceptReview"
-msgstr "Samþykkja Ritrýni, halda áfram í skref #2"
+msgstr "Samþykkja ritrýni, halda áfram í skref #2"
 
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "Leiðbeiningar fyrir ritrýna"
 
 msgid "reviewer.submission.enterCompetingInterests"
 msgstr ""
-"Þessi útgefandi er með stefnu fyrir ritrýni varðandi mögulega hagsmuna "
-"árekstra. Vinsamlega skoðaðu stefnuna."
+"Útgefandinn hefur sett sér eigin stefnu fyrir ritrýni til varnar mögulegum "
+"hagsmunaárekstrum. Vinsamlega skoðaðu stefnuna."
 
 msgid "reviewer.submission.uploadDescription"
 msgstr ""
 "Lestu inn skrár sem þú vilt bera undir ritstjóra og/eða höfund, þar með "
-"talið leiðrétta útgáfu af upphaflegri ritrýni skrá(m)."
+"talið leiðrétta útgáfu af upphaflegum ritrýniskrám."
 
 msgid "reviewer.complete.whatNext"
 msgstr ""
-"Takk fyrir að ljúka ritrýni fyrir þetta handrit. Ritrýnin hefur verið "
-"móttekin. Við þökkum þér fyir þitt framlag til að bæta gæði efnis sem við "
-"gefum út. Ritstjóri verður í sambandi við þig ef þörf er á frekari "
-"upplýsingum."
+"Takk fyrir að ljúka ritrýni á handritinu. Ritrýnin hefur verið móttekin. Við "
+"þökkum þér fyir þitt framlag til að bæta gæði efnis sem við gefum út. "
+"Ritstjóri verður í sambandi við þig ef þörf er á frekari upplýsingum."
 
 msgid "reviewer.aboutDueDates.text"
 msgstr ""
-"Þú ert beðinn um að samþykkja eða hafna beiðni um ritrýni fyrir loka dag "
-"svars og að ljúka ritrýni fyrir loka dag ritrýni."
+"Þú ert beðinn um að samþykkja eða hafna beiðni um ritrýni fyrir lokadag "
+"svars og að ljúka ritrýni fyrir lokadag ritrýni."
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr "Senda blint afrit af þessum pósti á eftirfarandi ritrýna."

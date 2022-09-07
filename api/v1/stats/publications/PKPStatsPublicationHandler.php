@@ -28,6 +28,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use Slim\Http\Request as SlimHttpRequest;
 use Sokil\IsoCodes\IsoCodesFactory;
@@ -95,6 +96,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     {
         $routeName = null;
         $slimRequest = $this->getSlimRequest();
+
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 

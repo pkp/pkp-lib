@@ -23,11 +23,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Queue;
 use PKP\core\APIResponse;
 use PKP\core\PKPContainer;
-use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\mail\Mailable;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -66,6 +66,8 @@ class PKPEmailHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         foreach ($roleAssignments as $role => $operations) {

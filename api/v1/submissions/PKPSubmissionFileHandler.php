@@ -26,6 +26,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
@@ -89,6 +90,8 @@ class PKPSubmissionFileHandler extends APIHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $route = $this->getSlimRequest()->getAttribute('route');
+
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 

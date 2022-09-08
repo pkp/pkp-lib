@@ -2,7 +2,7 @@
 # Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-08 07:50+0000\n"
+"PO-Revision-Date: 2022-09-09 14:50+0000\n"
 "Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/is_IS/>\n"
@@ -522,3 +522,38 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
 msgstr "Viðkomandi ritrýniumferð fannst ekki."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"The submission is not at the appropriate stage of the workflow to take this "
+"decision."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "This review round is not part of this submission."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"This decision could not be found. Please provide a recognized decision type."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"You must be assigned to this submission in order to record an editorial "
+"decision."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "A review round id must be provided in order to take this decision."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"A review round was provided but this decision is not taken during a review "
+"stage."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"A recommendation can not be made unless an editor is assigned to this stage "
+"who can take a final decision."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"A decision could not be taken on this submission. The submission id is "
+"missing or does not match the requested submission."

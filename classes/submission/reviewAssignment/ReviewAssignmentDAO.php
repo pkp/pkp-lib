@@ -20,8 +20,8 @@ namespace PKP\submission\reviewAssignment;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
-
 use PKP\db\DAORegistry;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO
 {
@@ -362,9 +362,10 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
 				date_reminded, reminder_was_automatic,
 				review_form_id,
 				review_round_id,
-				unconsidered
+				unconsidered,
+				request_resent
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
 				)',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -392,6 +393,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 $reviewAssignment->getReviewFormId(),
                 (int) $reviewAssignment->getReviewRoundId(),
                 (int) $reviewAssignment->getUnconsidered(),
+                (int) $reviewAssignment->getRequestResent(),
             ]
         );
 
@@ -404,7 +406,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Update an existing review assignment.
      *
-     * @param object $reviewAssignment
+     * @param ReviewAssignment $reviewAssignment
      */
     public function updateObject($reviewAssignment)
     {
@@ -434,7 +436,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
 					reminder_was_automatic = ?,
 					review_form_id = ?,
 					review_round_id = ?,
-					unconsidered = ?
+					unconsidered = ?,
+					request_resent = ?
 				WHERE review_id = ?',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -462,7 +465,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 $reviewAssignment->getReviewFormId(),
                 (int) $reviewAssignment->getReviewRoundId(),
                 (int) $reviewAssignment->getUnconsidered(),
-                (int) $reviewAssignment->getId()
+                (int) $reviewAssignment->getRequestResent(),
+                (int) $reviewAssignment->getId(),
             ]
         );
 
@@ -502,7 +506,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      */
     public function _fromRow($row)
     {
-        $reviewAssignment = $this->newDataObject();
+        $reviewAssignment = $this->newDataObject(); /** @var ReviewAssignment $reviewAssignment */
         $user = Repo::user()->get($row['reviewer_id'], true);
 
         $reviewAssignment->setId((int) $row['review_id']);
@@ -531,6 +535,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewAssignment->setReviewMethod((int) $row['review_method']);
         $reviewAssignment->setStageId((int) $row['stage_id']);
         $reviewAssignment->setUnconsidered((int) $row['unconsidered']);
+        $reviewAssignment->setRequestResent((int) $row['request_resent']);
 
         return $reviewAssignment;
     }

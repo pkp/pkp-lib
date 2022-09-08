@@ -22,6 +22,7 @@ use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\review\linkAction\ReviewNotesLinkAction;
 use PKP\controllers\review\linkAction\UnconsiderReviewLinkAction;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewerGridCellProvider extends DataObjectGridCellProvider
 {
@@ -53,7 +54,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getCellState($row, $column)
     {
-        $reviewAssignment = $row->getData();
+        $reviewAssignment = $row->getData(); /** @var ReviewAssignment $reviewAssignment */
         $columnId = $column->getId();
         assert($reviewAssignment instanceof \PKP\core\DataObject && !empty($columnId));
         switch ($columnId) {
@@ -112,7 +113,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
-        $reviewAssignment = $row->getData();
+        $reviewAssignment = $row->getData(); /** @var ReviewAssignment $reviewAssignment */
 
         // Authors can't perform action on reviews
         if ($this->_isCurrentUserAssignedAuthor) {
@@ -134,17 +135,17 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
         $columnId = $column->getId();
         if ($columnId == 'actions') {
             switch ($this->getCellState($row, $column)) {
-                case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
-                case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
                     return [new SendReminderLinkAction($request, 'editor.review.reminder', $actionArgs)];
-                case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
                     return [
                         new SendThankYouLinkAction($request, 'editor.review.thankReviewer', $actionArgs),
                         new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission),
                     ];
-                case REVIEW_ASSIGNMENT_STATUS_THANKED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED:
                     return [new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission)];
-                case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                     $user = $request->getUser();
                     return [new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.ReviewerGridHandler', true)];
             }
@@ -164,24 +165,26 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
     {
         $reviewAssignment = $row->getData();
         switch ($state) {
-            case REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
                 return '<span class="state">' . __('editor.review.requestSent') . '</span><span class="details">' . __('editor.review.responseDue', ['date' => substr($reviewAssignment->getDateResponseDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
                 return '<span class="state">' . __('editor.review.requestAccepted') . '</span><span class="details">' . __('editor.review.reviewDue', ['date' => substr($reviewAssignment->getDateDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
                 return $this->_getStatusWithRecommendation('common.complete', $reviewAssignment);
-            case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
                 return '<span class="state overdue">' . __('common.overdue') . '</span><span class="details">' . __('editor.review.reviewDue', ['date' => substr($reviewAssignment->getDateDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
                 return '<span class="state overdue">' . __('common.overdue') . '</span><span class="details">' . __('editor.review.responseDue', ['date' => substr($reviewAssignment->getDateResponseDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_DECLINED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED:
                 return '<span class="state declined" title="' . __('editor.review.requestDeclined.tooltip') . '">' . __('editor.review.requestDeclined') . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
                 return '<span class="state declined" title="' . __('editor.review.requestCancelled.tooltip') . '">' . __('editor.review.requestCancelled') . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                 return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
-            case REVIEW_ASSIGNMENT_STATUS_THANKED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED:
                 return  $this->_getStatusWithRecommendation('editor.review.reviewerThanked', $reviewAssignment);
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND:
+                return '<span class="state reconsider">' . __('editor.review.ReviewerResendRequest') . '</span><span class="details">' . __('editor.review.responseDue', ['date' => substr($reviewAssignment->getDateDue(), 0, 10)]) . '</span>';
             default:
                 return '';
         }

@@ -17,7 +17,10 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\security\Role;
 
 class ReviewAssignment extends \PKP\core\DataObject
@@ -54,6 +57,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_STATUS_COMPLETE = 8; // review has been confirmed by an editor
     public const REVIEW_ASSIGNMENT_STATUS_THANKED = 9; // reviewer has been thanked
     public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // reviewer cancelled review request
+    public const REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND = 11; // request resent to reviewer after they declined
 
     /**
      * All review assignment statuses that indicate a
@@ -316,7 +320,7 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function stampModified()
     {
-        return $this->setLastModified(\Core::getCurrentDate());
+        return $this->setLastModified(Core::getCurrentDate());
     }
 
     /**
@@ -362,7 +366,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the reviewer's confirmed date.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateConfirmed()
     {
@@ -372,7 +376,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's confirmed date.
      *
-     * @param string $dateConfirmed
+     * @param string|null $dateConfirmed
      */
     public function setDateConfirmed($dateConfirmed)
     {
@@ -520,6 +524,26 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * Get the reviewer's request resent value.
+     *
+     * @return bool
+     */
+    public function getRequestResent()
+    {
+        return $this->getData('request_resent');
+    }
+
+    /**
+     * Set the reviewer's request resent value.
+     *
+     * @param bool $resent
+     */
+    public function setRequestResent($resent)
+    {
+        $this->setData('request_resent', $resent);
+    }
+
+    /**
      * Get a boolean indicating whether or not the last reminder was automatic.
      *
      * @return bool
@@ -613,6 +637,10 @@ class ReviewAssignment extends \PKP\core\DataObject
             return self::REVIEW_ASSIGNMENT_STATUS_CANCELLED;
         }
 
+        if (!$this->getDeclined() && !$this->getDateConfirmed() && $this->getRequestResent()) {
+            return self::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND;
+        }
+
         if (!$this->getDateCompleted()) {
             $dueTimes = array_map(function ($dateTime) {
                 // If no due time, set it to the end of the day
@@ -660,7 +688,7 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function isRead()
     {
-        $viewsDao = \DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
+        $viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
 
         $submission = Repo::submission()->get($this->getSubmissionId());
 
@@ -684,7 +712,7 @@ class ReviewAssignment extends \PKP\core\DataObject
             // Check if any of these users have viewed it
             foreach ($stageUsers as $user) {
                 if ($viewsDao->getLastViewDate(
-                    ASSOC_TYPE_REVIEW_RESPONSE,
+                    Application::ASSOC_TYPE_REVIEW_RESPONSE,
                     $this->getId(),
                     $user->getId()
                 )) {
@@ -729,6 +757,8 @@ class ReviewAssignment extends \PKP\core\DataObject
                 return 'submission.review.status.complete';
             case self::REVIEW_ASSIGNMENT_STATUS_THANKED:
                 return 'submission.review.status.thanked';
+            case self::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND:
+                return 'submission.review.status.awaitingResponse';
         }
 
         assert(false, 'No status key could be found for ' . get_class($this) . ' on ' . __LINE__);
@@ -814,6 +844,22 @@ class ReviewAssignment extends \PKP\core\DataObject
             return '';
         }
     }
+    
+    /**
+     * Determine if can resend request to reconsider review for this review assignment
+     */
+    public function canResendReviewRequest(): bool
+    {
+        if ($this->getCancelled()) {
+            return false;
+        }
+
+        if (!$this->getDeclined()) {
+            return false;
+        }
+
+        return true;
+    }
 }
 
 if (!PKP_STRICT_MODE) {
@@ -845,6 +891,7 @@ if (!PKP_STRICT_MODE) {
         'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
         'REVIEW_ASSIGNMENT_STATUS_THANKED',
         'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
+        'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND',
     ] as $constantName) {
         if (!defined($constantName)) {
             define($constantName, constant('\PKP\submission\reviewAssignment\ReviewAssignment::' . $constantName));

@@ -53,6 +53,14 @@ class DAO extends EntityDAO
     ];
 
     /**
+     * Get the parent object ID column name
+     */
+    public function getParentColumn(): string
+    {
+        return 'context_id';
+    }
+
+    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): EmailTemplate
@@ -109,26 +117,6 @@ class DAO extends EntityDAO
 
         // Remove template from mailable_templates table
         DB::table('mailable_templates')->where('email_id', $emailTemplate->getId())->delete();
-    }
-
-    /**
-     * @copydoc EntityDAO::get()
-     *
-     * @throws Exception
-     */
-    public function get(int $id): ?EmailTemplate
-    {
-        throw new Exception(__METHOD__ . ' is not supported. Email templates should be referenced by key instead of id.');
-    }
-
-    /**
-     * Do not use this method.
-     *
-     * @throws Exception
-     */
-    public function getIds()
-    {
-        throw new Exception(__METHOD__ . ' is not supported. Email templates should be referenced by key instead of id.');
     }
 
     /**

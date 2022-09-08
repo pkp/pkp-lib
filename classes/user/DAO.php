@@ -23,9 +23,10 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\DataObject;
+use PKP\core\EntityDAO;
 use PKP\identity\Identity;
 
-class DAO extends \PKP\core\EntityDAO
+class DAO extends EntityDAO
 {
     /** @copydoc EntityDAO::$schema */
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_USER;
@@ -83,17 +84,30 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::get()
+     * Get an user by its ID
      *
      * @param bool $allowDisabled If true, allow fetching a disabled user.
      */
     public function get(int $id, $allowDisabled = false): ?User
     {
-        $user = parent::get($id);
-        if (!$allowDisabled && $user->getDisabled()) {
+        $row = DB::table($this->table)
+            ->where($this->primaryKeyColumn, $id)
+            ->first();
+        $user = $row ? $this->fromRow($row) : null;
+        if (!$allowDisabled && $user?->getDisabled()) {
             return null;
         }
         return $user;
+    }
+
+    /**
+     * Check if an user exists with this ID
+     */
+    public function exists(int $id): bool
+    {
+        return DB::table($this->table)
+            ->where($this->primaryKeyColumn, '=', $id)
+            ->exists();
     }
 
     /**
@@ -140,7 +154,7 @@ class DAO extends \PKP\core\EntityDAO
      */
     public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
-        $row = DB::table('users')
+        $row = DB::table($this->table)
             ->where('username', '=', $username)
             ->when(!$allowDisabled, function ($query) {
                 return $query->where('disabled', '=', false);
@@ -177,10 +191,13 @@ class DAO extends \PKP\core\EntityDAO
      */
     public function getUserByAuthStr($authstr, $allowDisabled = true): ?User
     {
-        $row = DB::select(
-            'SELECT u.user_id FROM users WHERE auth_str = ?' . ($allowDisabled ? '' : ' AND disabled = 0'),
-            [$authstr]
-        )->first();
+        $row = DB::table('users')
+            ->where('auth_str', $authstr)
+            ->when(!$allowDisabled, function ($query) {
+                return $query->where('disabled', 0);
+            })
+            ->get('user_id')
+            ->first();
         return $row ? $this->get($row->user_id) : null;
     }
 

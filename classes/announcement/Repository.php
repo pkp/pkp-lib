@@ -57,6 +57,12 @@ class Repository
         return $this->dao->get($id);
     }
 
+    /** @copydoc DAO::exists() */
+    public function exists(int $id): bool
+    {
+        return $this->dao->exists($id);
+    }
+
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {

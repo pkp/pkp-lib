@@ -104,7 +104,7 @@ class PKPInstitutionHandler extends APIHandler
      */
     public function get(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
-        if (!Repo::institution()->existsInContext((int) $args['institutionId'], $this->getRequest()->getContext()->getId())) {
+        if (!Repo::institution()->exists((int) $args['institutionId'], $this->getRequest()->getContext()->getId())) {
             return $response->withStatus(404)->withJsonError('api.institutions.404.institutionNotFound');
         }
         $institution = Repo::institution()->get((int) $args['institutionId']);
@@ -183,7 +183,7 @@ class PKPInstitutionHandler extends APIHandler
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        if (!Repo::institution()->existsInContext((int) $args['institutionId'], $context->getId())) {
+        if (!Repo::institution()->exists((int) $args['institutionId'], $context->getId())) {
             return $response->withStatus(404)->withJsonError('api.institutions.404.institutionNotFound');
         }
 
@@ -214,7 +214,7 @@ class PKPInstitutionHandler extends APIHandler
      */
     public function delete(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
-        if (!Repo::institution()->existsInContext((int) $args['institutionId'], $this->getRequest()->getContext()->getId())) {
+        if (!Repo::institution()->exists((int) $args['institutionId'], $this->getRequest()->getContext()->getId())) {
             return $response->withStatus(404)->withJsonError('api.institutions.404.institutionNotFound');
         }
 

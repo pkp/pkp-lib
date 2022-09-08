@@ -27,9 +27,9 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
 use PKP\plugins\Hook;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
-use PKP\security\Role;
 
 abstract class Repository
 {
@@ -65,16 +65,17 @@ abstract class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id): bool
+    public function exists(int $id, int $contextId = null): bool
     {
-        return $this->dao->exists($id);
+        return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?Submission
+    public function get(int $id, int $contextId = null): ?Submission
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $contextId);
     }
+
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {

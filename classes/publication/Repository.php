@@ -23,6 +23,7 @@ use APP\publication\DAO;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
+use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
@@ -31,12 +32,11 @@ use PKP\log\SubmissionLog;
 use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\UnpublishedEvent;
 use PKP\plugins\Hook;
-use PKP\userGroup\UserGroup;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
-use Illuminate\Support\LazyCollection;
 
 abstract class Repository
 {
@@ -69,16 +69,16 @@ abstract class Repository
         return $object;
     }
 
-    /** @copydoc DAO::existsInSubmission() */
-    public function existsInSubmission(int $id, int $submissionId): bool
+    /** @copydoc DAO::exists() */
+    public function exists(int $id, int $submissionId = null): bool
     {
-        return $this->dao->existsInSubmission($id, $submissionId);
+        return $this->dao->exists($id, $submissionId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?Publication
+    public function get(int $id, int $submissionId = null): ?Publication
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $submissionId);
     }
 
     /** @copydoc DAO::getCollector() */

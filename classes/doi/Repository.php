@@ -71,10 +71,16 @@ abstract class Repository
         return $doi;
     }
 
-    /** @copydoc::get() */
-    public function get(int $id): ?Doi
+    /** @copydoc DAO::get() */
+    public function get(int $id, int $contextId = null): ?Doi
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $contextId);
+    }
+
+    /** @copydoc DAO::exists() */
+    public function exists(int $id, int $contextId = null): bool
+    {
+        return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::getCollector */

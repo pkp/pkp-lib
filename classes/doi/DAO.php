@@ -22,10 +22,14 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
+use PKP\core\EntityDAO;
+use PKP\core\traits\HasParent;
 use PKP\services\PKPSchemaService;
 
-abstract class DAO extends \PKP\core\EntityDAO
+abstract class DAO extends EntityDAO
 {
+    use HasParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_DOI;
 
@@ -47,20 +51,19 @@ abstract class DAO extends \PKP\core\EntityDAO
     ];
 
     /**
+     * @copydoc HasParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'context_id';
+    }
+
+    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): Doi
     {
         return App::make(Doi::class);
-    }
-
-    /**
-     * @copydoc EntityDAO::get()
-     */
-    public function get(int $id): ?Doi
-    {
-        $doi = parent::get($id);
-        return $doi;
     }
 
     /**

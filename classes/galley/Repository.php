@@ -52,9 +52,15 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?Galley
+    public function get(int $id, int $publicationId = null): ?Galley
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $publicationId);
+    }
+
+    /** @copydoc DAO::exists() */
+    public function exists(int $id, int $publicationId = null): bool
+    {
+        return $this->dao->exists($id, $publicationId);
     }
 
     /**

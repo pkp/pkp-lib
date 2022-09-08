@@ -47,7 +47,7 @@ class Repository
         return $object;
     }
 
-    /** @copydoc DAO::get() */
+    /** @copydoc DAO::getByKey() */
     public function getByKey(int $contextId, string $key): ?EmailTemplate
     {
         return $this->dao->getByKey($contextId, $key);

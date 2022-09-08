@@ -19,6 +19,7 @@ namespace PKP\author;
 
 use APP\author\Author;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
@@ -51,6 +52,14 @@ class DAO extends EntityDAO
     ];
 
     /**
+     * Get the parent object ID column name
+     */
+    public function getParentColumn(): string
+    {
+        return 'publication_id';
+    }
+
+    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): Author
@@ -59,9 +68,9 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::get()
+     * Get an author by its ID, and optionaly by its publication ID
      */
-    public function get(int $id): ?Author
+    public function get(int $id, int $publicationId = null): ?Author
     {
         // This is overridden due to the need to include submission_locale
         // to the fromRow function
@@ -69,10 +78,22 @@ class DAO extends EntityDAO
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
             ->where('a.author_id', '=', $id)
+            ->when($publicationId !== null, fn (Builder $query, int $publicationId) => $query->where('a.publication_id', $publicationId))
             ->select(['a.*', 's.locale AS submission_locale'])
             ->first();
 
         return $row ? $this->fromRow($row) : null;
+    }
+
+    /**
+     * Check if an author exists with this ID, and optional publication ID
+     */
+    public function exists(int $id, int $publicationId = null): bool
+    {
+        return DB::table($this->table)
+            ->where($this->primaryKeyColumn, '=', $id)
+            ->when($publicationId !== null, fn (Builder $query, int $publicationId) => $query->where($this->getParentColumn(), $publicationId))
+            ->exists();
     }
 
     /**

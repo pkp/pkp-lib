@@ -14,6 +14,7 @@
 namespace PKP\announcement;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 
@@ -50,11 +51,24 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::get()
+     * Check if an announcement exists with this ID
+     */
+    public function exists(int $id): bool
+    {
+        return DB::table($this->table)
+            ->where($this->primaryKeyColumn, '=', $id)
+            ->exists();
+    }
+
+    /**
+     * Get an announcement by its ID
      */
     public function get(int $id): ?Announcement
     {
-        return parent::get($id);
+        $row = DB::table($this->table)
+            ->where($this->primaryKeyColumn, $id)
+            ->first();
+        return $row ? $this->fromRow($row) : null;
     }
 
     /**

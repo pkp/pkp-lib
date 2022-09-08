@@ -22,11 +22,14 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\traits\HasParent;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 
 class DAO extends EntityDAO
 {
+    use HasParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
@@ -54,29 +57,19 @@ class DAO extends EntityDAO
     ];
 
     /**
+     * @copydoc HasParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'context_id';
+    }
+
+    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): Submission
     {
         return app(Submission::class);
-    }
-
-    /**
-     * Check if a submission exists
-     */
-    public function exists(int $id): bool
-    {
-        return DB::table($this->table)
-            ->where($this->primaryKeyColumn, '=', $id)
-            ->exists();
-    }
-
-    /**
-     * @copydoc EntityDAO::get()
-     */
-    public function get(int $id): ?Submission
-    {
-        return parent::get($id);
     }
 
     /**

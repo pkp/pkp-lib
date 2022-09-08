@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
 use PKP\core\EntityDAO;
+use PKP\core\traits\HasParent;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
@@ -30,6 +31,8 @@ use PKP\submission\SubmissionSubjectDAO;
 
 class DAO extends EntityDAO
 {
+    use HasParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_PUBLICATION;
 
@@ -83,19 +86,19 @@ class DAO extends EntityDAO
     }
 
     /**
+     * @copydoc HasParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'submission_id';
+    }
+
+    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): Publication
     {
         return app(Publication::class);
-    }
-
-    /**
-     * @copydoc EntityDAO::get()
-     */
-    public function get(int $id): ?Publication
-    {
-        return parent::get($id);
     }
 
     /**
@@ -269,19 +272,6 @@ class DAO extends EntityDAO
 
         return $q->select('p.publication_id')
             ->pluck('p.publication_id');
-    }
-
-    /**
-     * Check if a publication exists in a submission
-     */
-    public function existsInSubmission(int $publicationId, ?int $submissionId = null): bool
-    {
-        $q = DB::table($this->table);
-        $q->where($this->primaryKeyColumn, '=', $publicationId);
-        if ($submissionId) {
-            $q->where('submission_id', '=', $submissionId);
-        }
-        return $q->exists();
     }
 
     /**

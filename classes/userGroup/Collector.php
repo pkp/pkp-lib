@@ -14,52 +14,43 @@
 namespace PKP\userGroup;
 
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\HookRegistry;
-use Illuminate\Support\Collection;
-use Illuminate\Support\LazyCollection;
 
 class Collector implements CollectorInterface
 {
     public const ORDERBY_ROLE_ID = 'roleId';
     public const ORDERBY_ID = 'id';
 
-    /** @var string|null The default orderBy value for userGroups collector */
-    public $orderBy = null;
+    public ?string $orderBy = null;
 
     /** @var DAO */
     public $dao;
 
-    /** @var array|null */
-    public $userGroupIds = null;
+    public ?array $userGroupIds = null;
 
-    /** @var array|null */
-    public $contextIds = null; // getByContextId,
+    public ?array $contextIds = null; // getByContextId,
 
-    /** @var array|null */
-    public $roleIds = null;
+    public ?array $roleIds = null;
 
-    /** @var array|null */
-    public $stageIds = null; // getUserGroupsByStage
+    public ?array $stageIds = null; // getUserGroupsByStage
 
-    /** @var bool|null */
+    public ?array $publicationIds = null;
+
     public ?bool $isDefault = null;
 
-    /** @var bool|null */
     public ?bool $isRecommendOnly = null; // getRecommendOnlyGroupIds
 
-    /** @var bool|null */
     public ?bool $permitSelfRegistration = null; // getRecommendOnlyGroupIds
 
-    /** @var bool|null */
     public ?bool $permitMetadataEdit = null;
 
-     /** @var bool|null */
     public ?bool $showTitle = null; // getPermitMetadataEditGroupIds
 
-    /** @var array|null */
-    public $userIds = null;
+    public ?array $userIds = null;
 
     public ?int $count = null;
 
@@ -95,11 +86,20 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Filter by contexts
+     * Filter by context IDs
      */
     public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
+        return $this;
+    }
+
+    /**
+     * Filter by publication IDs
+     */
+    public function filterByPublicationIds(?array $publicationIds): self
+    {
+        $this->publicationIds = $publicationIds;
         return $this;
     }
 
@@ -208,35 +208,40 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $q = DB::table('user_groups as a')
-            ->select('a.*');
+        $q = DB::table('user_groups as ug')
+            ->select('ug.*');
 
         if (isset($this->userGroupIds)) {
-            $q->whereIn('a.user_group_id', $this->userGroupIds);
+            $q->whereIn('ug.user_group_id', $this->userGroupIds);
         }
 
         if (isset($this->userIds)) {
-            $q->join('user_user_groups as uug', 'a.user_group_id', '=', 'uug.user_group_id');
+            $q->join('user_user_groups as uug', 'ug.user_group_id', '=', 'uug.user_group_id');
             $q->whereIn('uug.user_id', $this->userIds);
         }
 
+        if (isset($this->publicationIds)) {
+            $q->join('authors as a', 'a.user_group_id', '=', 'ug.user_group_id')
+                ->whereIn('a.publication_id', $this->publicationIds);
+        }
+
         if (isset($this->stageIds)) {
-            $q->join('user_group_stage as ugs', function($join) {
-                $join->on('a.user_group_id', '=', 'ugs.user_group_id');
-                $join->on('a.context_id','=', 'ugs.context_id');
+            $q->join('user_group_stage as ugs', function ($join) {
+                $join->on('ug.user_group_id', '=', 'ugs.user_group_id');
+                $join->on('ug.context_id', '=', 'ugs.context_id');
             })->whereIn('ugs.stage_id', $this->stageIds);
         }
 
         if (isset($this->contextIds)) {
-            $q->whereIn('a.context_id', $this->contextIds);
+            $q->whereIn('ug.context_id', $this->contextIds);
         }
 
         if (isset($this->roleIds)) {
-            $q->whereIn('a.role_id', $this->roleIds);
+            $q->whereIn('ug.role_id', $this->roleIds);
         }
 
         $q->when($this->isRecommendOnly !== null, function (Builder $q) {
-            $q->whereIn('a.user_group_id', function (Builder $q) {
+            $q->whereIn('ug.user_group_id', function (Builder $q) {
                 $q->select('user_group_id')
                     ->from($this->dao->settingsTable)
                     ->where('setting_name', '=', 'recommendOnly')
@@ -245,19 +250,19 @@ class Collector implements CollectorInterface
         });
 
         $q->when($this->isDefault !== null, function (Builder $q) {
-            $q->where('a.is_default', $this->isDefault);
+            $q->where('ug.is_default', $this->isDefault);
         });
 
         $q->when($this->permitSelfRegistration !== null, function (Builder $q) {
-            $q->where('a.permit_self_registration', $this->permitSelfRegistration);
+            $q->where('ug.permit_self_registration', $this->permitSelfRegistration);
         });
 
         $q->when($this->permitMetadataEdit !== null, function (Builder $q) {
-            $q->where('a.permit_metadata_edit', $this->permitMetadataEdit);
+            $q->where('ug.permit_metadata_edit', $this->permitMetadataEdit);
         });
 
         $q->when($this->showTitle !== null, function (Builder $q) {
-            $q->where('a.show_title', $this->showTitle);
+            $q->where('ug.show_title', $this->showTitle);
         });
 
         if (isset($this->count)) {
@@ -269,11 +274,11 @@ class Collector implements CollectorInterface
         }
 
         switch ($this->orderBy) {
-             case self::ORDERBY_ROLE_ID:
-                $q->orderBy('a.role_id', 'asc');
+            case self::ORDERBY_ROLE_ID:
+                $q->orderBy('ug.role_id', 'asc');
                 break;
             case self::ORDERBY_ID:
-                $q->orderBy('a.user_group_id', 'asc');
+                $q->orderBy('ug.user_group_id', 'asc');
                 break;
         }
 

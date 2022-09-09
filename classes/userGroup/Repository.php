@@ -13,22 +13,20 @@
 
 namespace PKP\userGroup;
 
-use PKP\userGroup\DAO;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
-use PKP\plugins\HookRegistry;
-use PKP\services\PKPSchemaService;
-use PKP\validation\ValidatorFactory;
-use PKP\userGroup\relationships\UserUserGroup;
-use PKP\userGroup\relationships\UserGroupStage;
-use PKP\workflow\WorkflowStageDAO;
-use PKP\security\Role;
-use PKP\xml\PKPXMLParser;
 use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+use PKP\security\Role;
+use PKP\services\PKPSchemaService;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\UserUserGroup;
+use PKP\validation\ValidatorFactory;
+use PKP\xml\PKPXMLParser;
 
 class Repository
 {
@@ -36,7 +34,7 @@ class Repository
      * A list of roles not able to change submissionMetadataEdit permission option.
      */
     public const NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES = [Role::ROLE_ID_MANAGER];
-    
+
     /** @var DAO */
     public $dao;
 
@@ -80,7 +78,7 @@ class Repository
 
     /**
      * Get an instance of the map class for mapping
-     * authors to their schema
+     * user groups to their schema
      */
     public function getSchemaMap(): maps\Schema
     {
@@ -88,9 +86,9 @@ class Repository
     }
 
     /**
-     * Validate properties for an author
+     * Validate properties for a user group
      *
-     * Perform validation checks on data used to add or edit an author.
+     * Perform validation checks on data used to add or edit a user group.
      *
      * @param UserGroup|null $userGroup The userGroup being edited. Pass `null` if creating a new userGroup
      * @param array $props A key/value array with the new data to validate
@@ -183,7 +181,7 @@ class Repository
     * @param int $roleId
     * @param int|null $contextId
     */
-    public function getArrayIdByRoleId($roleId, $contextId = null) : array
+    public function getArrayIdByRoleId($roleId, $contextId = null): array
     {
         $collector = Repo::userGroup()->getCollector()
             ->filterByRoleIds([$roleId]);
@@ -198,11 +196,9 @@ class Repository
     /**
     * return all user group ids given a certain role id
     *
-    * @param int $roleId
-    * @param int $contextId
     * @param ?bool $default Give null for all user groups, else define whether it is default
     */
-    public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null) : LazyCollection
+    public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
     {
         $collector = Repo::userGroup()
             ->getCollector()
@@ -216,7 +212,7 @@ class Repository
     /**
     * return all user groups ids for a user id
     */
-    public function userUserGroups(int $userId, ?int $contextId = null) : LazyCollection
+    public function userUserGroups(int $userId, ?int $contextId = null): LazyCollection
     {
         $collector = Repo::userGroup()
             ->getCollector()
@@ -232,7 +228,7 @@ class Repository
     /**
     * return whether a user is in a user group
     */
-    public function userInGroup(int $userId, int $userGroupId) : bool
+    public function userInGroup(int $userId, int $userGroupId): bool
     {
         return UserUserGroup::withUserId($userId)
             ->withUserGroupId($userGroupId)
@@ -243,7 +239,7 @@ class Repository
     /**
     * return whether a context has a specific user group
     */
-    public function contextHasGroup(int $contextId, int $userGroupId) : bool
+    public function contextHasGroup(int $contextId, int $userGroupId): bool
     {
         $collector = Repo::userGroup()
             ->getCollector()
@@ -254,7 +250,7 @@ class Repository
         return $userGroups->where('id', $userGroupId)->count();
     }
 
-    public function assignUserToGroup(int $userId, int $userGroupId) : UserUserGroup
+    public function assignUserToGroup(int $userId, int $userGroupId): UserUserGroup
     {
         return UserUserGroup::create([
             'userId' => $userId,
@@ -262,7 +258,7 @@ class Repository
         ]);
     }
 
-    public function removeUserFromGroup($userId, $userGroupId, $contextId) : bool
+    public function removeUserFromGroup($userId, $userGroupId, $contextId): bool
     {
         return UserUserGroup::withUserId($userId)
             ->withUserGroupId($userGroupId)
@@ -270,7 +266,7 @@ class Repository
             ->delete();
     }
 
-    public function deleteAssignmentsByUserId(int $userId, ?int $userGroupId = null) : bool
+    public function deleteAssignmentsByUserId(int $userId, ?int $userGroupId = null): bool
     {
         $query = UserUserGroup::withUserId($userId);
 
@@ -281,7 +277,7 @@ class Repository
         return $query->delete();
     }
 
-    public function deleteAssignmentsByContextId(int $contextId, ?int $userId = null) : bool
+    public function deleteAssignmentsByContextId(int $contextId, ?int $userId = null): bool
     {
         $userUserGroups = UserUserGroup::withContextId($contextId);
 
@@ -295,9 +291,12 @@ class Repository
     /**
     * Get the user groups assigned to each stage.
     *
+    * @param null|mixed $roleId
+    * @param null|mixed $count
+    *
     * @return LazyCollection<UserGroup>
     */
-    public function getUserGroupsByStage($contextId, $stageId, $roleId = null, $count = null) : LazyCollection
+    public function getUserGroupsByStage($contextId, $stageId, $roleId = null, $count = null): LazyCollection
     {
         $userGroups = $this->getCollector()
             ->filterByContextIds([$contextId])
@@ -315,7 +314,7 @@ class Repository
     /**
     * Remove a user group from a stage
     */
-    public function removeGroupFromStage(int $contextId, int $userGroupId, int $stageId) : bool
+    public function removeGroupFromStage(int $contextId, int $userGroupId, int $stageId): bool
     {
         return UserGroupStage::withContextId($contextId)
             ->withUserGroupId($userGroupId)
@@ -330,7 +329,7 @@ class Repository
      * @param int $userGroupId The user group ID
      *
      */
-    public function getAssignedStagesByUserGroupId(int $contextId, int $userGroupId) : Collection
+    public function getAssignedStagesByUserGroupId(int $contextId, int $userGroupId): Collection
     {
         return UserGroupStage::withContextId($contextId)
             ->withUserGroupId($userGroupId)
@@ -384,8 +383,8 @@ class Repository
             $userGroup = $this->newDataObject();
             $userGroup->setRoleId($roleId);
             $userGroup->setContextId($contextId);
-            $userGroup->setPermitSelfRegistration(isset($permitSelfRegistration) ? $permitSelfRegistration : false);
-            $userGroup->setPermitMetadataEdit(isset($permitMetadataEdit) ? $permitMetadataEdit : false);
+            $userGroup->setPermitSelfRegistration($permitSelfRegistration ?? false);
+            $userGroup->setPermitMetadataEdit($permitMetadataEdit ?? false);
             $userGroup->setDefault(true);
             $userGroup->setShowTitle(true);
 
@@ -409,7 +408,7 @@ class Repository
             // can be used when a new locale is added/reloaded
             $newUserGroup = $this->get($userGroupId);
             $this->edit($newUserGroup, [
-                'nameLocaleKey' => $nameKey, 
+                'nameLocaleKey' => $nameKey,
                 'abbrevLocaleKey' => $abbrevKey
             ]);
 
@@ -432,17 +431,18 @@ class Repository
     {
         $userGroupsCollector = $this->getCollector();
 
-        if (isset($contextId))
+        if (isset($contextId)) {
             $userGroupsCollector->filterByContextIds([$contextId]);
-        
+        }
+
         $userGroups = $userGroupsCollector->getMany();
-        
+
         foreach ($userGroups as $userGroup) {
             $nameKey = $userGroup->getData('nameLocaleKey');
             $userGroup->setData('name', __($nameKey, [], $locale), $locale);
             $abbrevKey = $userGroup->getData('abbrevLocaleKey');
             $userGroup->setData('abbrev', __($abbrevKey, [], $locale), $locale);
-            
+
             $this->edit($userGroup, []);
         }
     }

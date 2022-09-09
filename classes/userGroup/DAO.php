@@ -16,14 +16,12 @@
 
 namespace PKP\userGroup;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
-use PKP\facades\Repo;
-use PKP\userGroup\UserGroup;
-use Illuminate\Database\Query\Builder;
 
 class DAO extends EntityDAO
 {
@@ -75,8 +73,8 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('a.' . $this->primaryKeyColumn)
-            ->pluck('a.' . $this->primaryKeyColumn);
+            ->select('ug.' . $this->primaryKeyColumn)
+            ->pluck('ug.' . $this->primaryKeyColumn);
     }
 
     /**

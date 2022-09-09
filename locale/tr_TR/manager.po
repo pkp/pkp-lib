@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-02-23 13:26+0000\n"
+"PO-Revision-Date: 2022-09-09 14:50+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Duyurular"
@@ -2394,3 +2394,58 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Bu e-posta editörler ve dergi yöneticilerine sistem durumu ve istatistikler "
 "hakkında genel bir bakış sağlamak için aylık olarak otomatik gönderilir."
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "DOI'leri Kayıtlı Olarak İşaretle"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Tüm DOI'leri ata"
+
+msgid "manager.dois.actions.export.label"
+msgstr "DOI'leri dışa aktar"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"{$count} ögenin DOI üst verilerini {$registrationAgency} adresine göndermek "
+"üzeresiniz. Bu kayıtları göndermek istediğinizden emin misiniz?"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"{$registrationAgency} için {$count} ögenin DOI üst verilerini dışa aktarmak "
+"üzeresiniz. Bu kayıtları dışa aktarmak istediğinizden emin misiniz?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "DOI ata"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Hepsini Yükle"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "DOI'leri ata"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "DOI'leri Kayıtsız Olarak İşaretle"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"{$count} ögenin DOI üst verilerini kayıtlı değil olarak işaretlemek "
+"üzeresiniz. Kayıtsız olarak işaretlemek istediğinizden emin misiniz?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "DOI'leri Eski Olarak İşaretle"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"{$count} ögenin DOI üst verilerini eski olarak işaretlemek üzeresiniz. Eski "
+"durum yalnızca daha önce alınan DOI'lere uygulanabilir. Bu kayıtları eski "
+"olarak işaretlemek istediğinizden emin misiniz?"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"{$count} ögenin DOI üst verilerini kayıtlı olarak işaretlemek üzeresiniz. "
+"Kayıtlı olarak işaretlemek istediğinizden emin misiniz?"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"DOI'si olmayan {$count} adet yeni DOI atamak üzeresiniz. Bu ögelere DOI "
+"atamak istediğinizden emin misiniz?"

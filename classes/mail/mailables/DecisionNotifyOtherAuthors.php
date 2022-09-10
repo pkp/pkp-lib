@@ -51,7 +51,7 @@ class DecisionNotifyOtherAuthors extends Mailable
 
     public function __construct(Context $context, Submission $submission, array $assignedAuthors)
     {
-        parent::__construct(func_get_args());
+        parent::__construct([$context, $submission]);
 
         $this->assignedAuthors = $assignedAuthors;
     }

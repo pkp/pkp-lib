@@ -30,7 +30,6 @@
 			{fbvFormSection list=true}
 				{fbvElement type="radio" id="displayPage-all" name="displayPage" value="all" checked=$displayPage|compare:"all" label="plugins.generic.webfeed.settings.all"}
 				{fbvElement type="radio" id="displayPage-homepage" name="displayPage" value="homepage" checked=$displayPage|compare:"homepage" label="plugins.generic.webfeed.settings.homepage"}
-				{fbvElement type="radio" id="displayPage-issue" name="displayPage" value="issue" checked=$displayPage|compare:"issue" label="plugins.generic.webfeed.settings.issue"}
 			{/fbvFormSection}
 
 			{fbvFormSection list=true}

@@ -99,12 +99,7 @@ class WebFeedPlugin extends GenericPlugin
         $displayPage = $this->getSetting($currentJournal->getId(), 'displayPage');
 
         // Define when the <link> elements should appear
-        $contexts = 'frontend';
-        if ($displayPage == 'homepage') {
-            $contexts = ['frontend-index', 'frontend-issue'];
-        } elseif ($displayPage == 'issue') {
-            $contexts = 'frontend-issue';
-        }
+        $contexts = $displayPage == 'homepage' ? ['frontend-index', 'frontend-issue'] : 'frontend';
 
         $templateManager->addHeader(
             'webFeedAtom+xml',

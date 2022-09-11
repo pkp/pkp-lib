@@ -156,7 +156,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'ojsVersion' => $version->getVersionString(),
+            'opsVersion' => $version->getVersionString(),
             'publishedSubmissions' => $submissionsInSections,
             'journal' => $journal,
             'issue' => $issue,

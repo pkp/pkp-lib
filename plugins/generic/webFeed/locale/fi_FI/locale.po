@@ -14,26 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Verkkosyötelisäosa"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Tämä lisäosa tuottaa RSS/Atom-verkkosisältösyötteitä uusimmalle numerolle."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Asetukset"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Näytä verkkosyötelinkit vain numeroiden sivuilla."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Näytä verkkosyötelinkit vain etusivulla ja numeroiden sivuilla."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Näytä verkkosyötelinkit julkaisun kaikilla sivuilla."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Näytä kohteet uusimmassa julkaistussa numerossa."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Näytä kiinteä määrä viimeisimpiä kohteita."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Näytettävien kohteiden määrä"

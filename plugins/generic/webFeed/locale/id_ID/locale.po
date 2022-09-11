@@ -17,6 +17,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Plugin Feed Web"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Plugin ini menghasilkan RSS/ Atom web syndication feeds untuk terbitan "
@@ -25,17 +26,13 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings"
 msgstr "Pengaturan"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Tampilkan tautan feed web hanya di halaman terbitan."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Tampilkan tautan feed web hanya di beranda dan halaman terbitan."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Tampilkan tautan feed web di seluruh halaman jurnal."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Tampilkan item pada nomkor terbitan terkini."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Jumlah item yang ditampilkan"
@@ -51,6 +48,3 @@ msgstr "Logo RSS1"
 
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "Logo RSS2"
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Tampilkan jumlah item terbaru."

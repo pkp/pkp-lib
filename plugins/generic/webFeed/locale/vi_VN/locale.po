@@ -26,25 +26,19 @@ msgstr "Vui lòng nhập một số nguyên dương cho các mục được xu�
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Số mục cần hiển thị"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Hiển thị một số lượng cố định của các mục gần đây nhất."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Hiển thị các mục trong số được công bố hiện tại."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Hiển thị liên kết nguồn cấp web trên tất cả các trang tạp chí."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Chỉ hiển thị các liên kết nguồn cấp web trên trang chủ và các số phát hành."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Chỉ hiển thị các liên kết nguồn cấp web trên các số."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Cài đặt"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Plugin này tạo ra nguồn cấp dữ liệu cung cấp web RSS/Atom cho số hiện tại."

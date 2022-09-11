@@ -17,26 +17,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Plugin Web Feed"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Tento plugin vytváří RSS/Atom web syndication feedy pro aktuální číslo."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Nastavení"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Zobrazit odkazy na feed pouze na stránkách čísla."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Zobrazit odkazy na feed pouze na domácí stránce a na stránkách čísla."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Zobrazit odkazy na feed na všech stránkách časopisu."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Zobrazit položky v aktuálně publikovaném čísle."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Zobrazovat pevný počet nejnovějších položek."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Počet položek k zobrazení"

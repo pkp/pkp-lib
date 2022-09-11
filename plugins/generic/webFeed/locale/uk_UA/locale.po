@@ -18,26 +18,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Модуль веб-стрічок"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Створює стрічку веб-синдикації у форматах RSS/Atom для поточного випуску."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Налаштування"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Відображати посилання на стрічки лише на сторінках випуску."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Відображати посилання на стрічки лише на домашній сторінці сайту журналу та на сторінках випуску."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Відображати посилання на стрічки на всіх сторінках сайту журналу."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Відображати матеріали у поточному опублікованому випуску."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Відображати фіксовану кількість останніх опублікованих матеріалів."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Кількість матеріалів для відображення"

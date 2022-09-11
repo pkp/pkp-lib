@@ -14,26 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "افزونه بازخوراند وب"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "این افزونه بازخوراند وب برای شماره جاری تولید میکند."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "تنظیمات"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "نمایش بازخوراند وب فقط بر روی صفحات شماره مجله"
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "لینک فید وب را فقط در صفحاتی که شماره مجله در آن نمایش مییابد نشان بده"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "نمایش بازخوراند وب فقط بر روی تمام صفحات مجله"
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "نمایش موارد بر روی شماره جاری مجله"
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "نمایش تعداد ثابتی از آخرین موارد"
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "آخرین موارد چاپ شده."

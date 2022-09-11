@@ -18,26 +18,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "إضافة مغذي الإنترنت"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "هذه الإضافة تولد مغذيات الإنترنت RSS/Atom الخاصة بالعدد الحالي من المجلة."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "الإعدادات"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "إعرض روابط المغذي فقط على صفحات العدد."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "إعرض روابط المغذي فقط على الصفحة الرئيسية وعلى صفحات العدد."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "إعرض روابط المغذي في جميع صفحات المجلة."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "إعرض فقرات الإصدار الحالي من المجلة."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "إعرض عدداً محدداً من الفقرات الأكثر حداثة."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "عدد الفقرات المراد عرضها"

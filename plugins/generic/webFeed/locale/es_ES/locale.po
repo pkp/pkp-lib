@@ -17,14 +17,12 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Módulo para fuentes RSS/Atom"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Este módulo produce canales RSS/Atom del número en curso."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Opciones"
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Mostrar elementos del número actual."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Número de elementos que mostrar"
@@ -33,12 +31,11 @@ msgid "plugins.generic.webfeed.settings.recentItemsRequired"
 msgstr ""
 "Introduzca un número entero para los elementos publicados más recientes."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Mostrar enlaces al feed sólo en las páginas interiores."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Mostrar enlaces al feed en todas las páginas de la revista."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Mostrar enlaces al feed solamente en la página de inicio y en la página del número."
 
@@ -50,6 +47,3 @@ msgstr "Logo RSS1"
 
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "Logo RSS2"
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Mostrar un número fijo de los elementos más recientes."

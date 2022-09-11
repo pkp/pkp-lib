@@ -14,23 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Web elikatzeko iturriaren plugina"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Plugin honek RSS/Atom web sindikazioko iturria sortzen du uneko zenbakirako."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Ezarpenak"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Zenbakiaren orrialdeetan bakarrik bistaratu estekak."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Hasierak orrian eta zenbakiaren orrialdeetan bakarrik bistaratu estekak."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Aldizkariko orri guztietan bistaratu estekak."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Bistaratu uneko zenbaki argitaratuko elementuak."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "azkenak."

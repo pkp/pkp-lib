@@ -28,27 +28,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Número de elementos a mostrar"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Mostrar un número fixo dos elementos máis recentes."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Mostrar os elementos do número actual."
-
 msgid "plugins.generic.webfeed.settings.all"
 msgstr ""
 "Mostrar os enlaces ás canles de información en todas as páxinas da revista."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Mostrar os enlaces ás canles de información só na páxina inicial e nas "
 "páxinas do número."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Mostrar os enlaces ás canles de información só nas páxinas do número."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Configuracións"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Este complemento xera canles de información RSS/Atom para o número actual."

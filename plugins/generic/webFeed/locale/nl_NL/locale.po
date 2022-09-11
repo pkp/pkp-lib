@@ -17,26 +17,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Web Feed Plugin"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Deze plugin produceert RSS/Atom feeds voor het huidige nummer."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Instellingen"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Toon web feed links alleen bij de pagina's van een nummer."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Toon web feeds alleen op de startpagina en de pagina's van het nummer."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Toon web feed links op alle tijdschriftpagina's."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Toon de items in het huidige nummer."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Toon een vast aantal meest recente items."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Meest recent gepubliceerde items"

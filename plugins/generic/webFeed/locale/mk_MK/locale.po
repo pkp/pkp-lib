@@ -27,26 +27,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Број на елементи за приказ"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Прикажи постојан број на најнови елементи."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Прикажи ја содржината на тековното објавено издание."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Прикажи ги линковите до веб каналите на сите страници на списанието."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Прикажи ги линковите до веб каналите само на главната и на страницата на "
 "изданието."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Прикажи ги линковите до веб каналите само на страницата на изданието."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Поставки"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Овој плагин изработува RSS/Atom веб-синдикални канали за тековното издание."

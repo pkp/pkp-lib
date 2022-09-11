@@ -18,6 +18,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Plugiciel de fils de nouvelles"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Ce plugiciel produit des fils de nouvelles en format Atom/RSS pour le numéro "
@@ -26,14 +27,9 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings"
 msgstr "Paramètres"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Afficher les liens du fil sur les pages du numéro seulement."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Afficher les liens du fil sur toutes les pages de la revue."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Afficher les éléments du numéro courant."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Nombre d'éléments à afficher"
@@ -51,10 +47,8 @@ msgstr "Logo RSS1"
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "Logo RSS2"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Afficher les liens du fil sur la page d'accueil et sur les pages des numéros "
 "uniquement."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Afficher un nombre fixe des éléments les plus récents."

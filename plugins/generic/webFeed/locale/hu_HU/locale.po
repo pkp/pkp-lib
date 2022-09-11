@@ -14,26 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Webes Hírfolyam Plugin"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Ez a plugin RSS/Atom web hírfolyamot hoz létre a legfrissebb számhoz."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Beállítások"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Webes hírfolyam linkek megjelenítése csak a folyóiratszám oldalain."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Webes hírfolyam linkek megjelenítése a honlapon és a a folyóiratszám oldalain."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Webes hírfolyam linkek megjelenítése minden folyóirat oldalon."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Elemek megjelenítése a legfrissebb megjelent számban."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Egy adott számú legfrissebb elem megjelenítése."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Megjelenítendő elemek száma"

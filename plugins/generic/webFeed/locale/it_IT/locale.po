@@ -17,26 +17,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Feed della rivista"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Questo plugin genera il feed RSS/Atom per il fascicolo corrente."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Impostazioni"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Mostra il link ai feed solo sulle pagine dell'articolo."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Mostra il link ai feed sulla home page e sulle pagine dei fascicoli."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Mostra il link ai feed su tutte le pagine della rivista."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Mostra gli articoli pubblicati nell'ultima uscita."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Mostra un numero fisso degli articoli più recenti."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Numero di articoli da visualizzare"

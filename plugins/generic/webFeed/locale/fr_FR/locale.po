@@ -26,26 +26,20 @@ msgstr "veuillez entrer un entier positif pour les éléments publiés récemmen
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Nombre d'éléments à afficher"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Afficher un nombre fixe des éléments les plus récents."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Afficher les éléments dans le numéro publié."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Afficher les liens du flux web sur toutes les pages de la revue."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Afficher les liens du flux sur la page d'accueil et sur les pages du numéro "
 "uniquement."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Afficher les liens du flux web sur les pages du numéro uniquement."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Paramètres"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Ce module produit des flux de syndication RRS/Atom pour le numéro en cours."

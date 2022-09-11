@@ -18,23 +18,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Wtyczka RSS/Atom"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Wtyczka generuje kanały RSS/Atom."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Ustawienia"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Wyświetlaj łącza kanałów tylko na stronach numerów."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Wyświetlaj łącza kanałów na stronie głównej oraz na stronie numerów."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Wyświetlaj łącza kanałów na wszystkich stronach czasopisma."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Wyświetl artykuły z aktualnego numeru."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Liczba ostatnio opublikowanych artykułów"
@@ -50,6 +47,3 @@ msgstr "Logo RSS1"
 
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "Logo RSS2"
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Wyświetl ustaloną liczbę ostatnio opublikowanych artykułów."

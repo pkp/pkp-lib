@@ -15,25 +15,16 @@ msgid "plugins.generic.webfeed.displayName"
 msgstr "Web Feed Plugin"
 
 msgid "plugins.generic.webfeed.description"
-msgstr "This plugin produces RSS/Atom web syndication feeds for the current issue."
+msgstr "This plugin produces RSS/Atom web syndication feeds."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Settings"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Display web feed links on issue pages only."
-
 msgid "plugins.generic.webfeed.settings.homepage"
-msgstr "Display web feed links on homepage and issue pages only."
+msgstr "Display web feed links on homepage only."
 
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Display web feed links on all server pages."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Display items in current published issue."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Display a fixed number of the most recent items."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Number of items to display"

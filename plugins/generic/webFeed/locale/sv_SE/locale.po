@@ -14,26 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Plugin för webbflöde"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Det här pluginet lägger till RSS/Atom-syndikeringsflöden för senaste nummer."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Inställningar"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Visa länkar till RSS/Atom-flöden enbart på nummersidor."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Visa länkar till RSS/Atom-flöden enbart på förstasidan och nummersidor."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Visa länkar till RSS/Atom-flöden på alla tidskriftens sidor."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Visa poster i det senast publicerade numret."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Visa ett bestämt antal av de senaste posterna."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Antal poster att visa"

@@ -19,26 +19,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Web Feed vtičnik"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Vtičnik pripravi RSS/Atom feed za trenutno številko."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Nastavitve"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Prikaži web feed povezave le na straneh številk revij."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Prikaži web feed povezave le na domači strani in straneh številk revij."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Prikaži web feed povezave na vseh straneh revije."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Prikaži le trenutno objavljeno številko."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Prikaži fiksno število zadnjih številk."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Število postavk, ki se prikažejo"

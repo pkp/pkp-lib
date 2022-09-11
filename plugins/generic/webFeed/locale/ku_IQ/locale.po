@@ -26,25 +26,19 @@ msgstr "تکایە ژمارەی دروستی نوێترین دانە بڵاوک�
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "ژمارەی دانەکان بۆ پیشاندان"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "ژمارەی نوێترین دانە چاککراوەکان پیشان بدە."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "دانەکان لە ژمارەی نوێ پیشان بدە."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "لینکی سەرچاوەی پێگە لە هەمو پەڕەکانی گۆڤار پیشان بدە."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "لینکی سەرچاوەی پێگە لە لاپەڕەی سەرەکی و ئەو پەڕانەی کێشەیان هەیە پیشان بدە."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "لینکی سەرچاوەی پێگە پیشان بدە لە پێگە پەیوەندیدارەکان."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "ڕێکخستنەکان"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 ".ئەم گرێدانە RSS/Atom بەرهەم دەهێنێت کە پەیوەندیدارە بە پێدانی سەرچاوە بە "

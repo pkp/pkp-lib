@@ -28,24 +28,18 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "ბოლოს გამოქვეყნებული საჩვენებელი მასალების რაოდენობა"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "ბოლო გამოქვეყნებული მასალების ფიქსირებული რაოდენობის ჩვენება."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "მასალების ჩვენება მიმდინარე გამოცემულ ნომერში."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "ბმულის ჩვენება ლენტზე მხოლოდ განცხადებების გვერდზე."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "ბმულის ჩვენება ლენტზე მხოლოდ მთავარ და განცხადებების გვერდებზე."
-
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "აჩვენებს ბმულებს ლენტზე ნომერის ყველა გვერდზე."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "პარამეტრები"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "ქმნის ლენტს RSS/Atom ფორმატში, ჟურნალის მიმდინარე ნომრისათვის."
 

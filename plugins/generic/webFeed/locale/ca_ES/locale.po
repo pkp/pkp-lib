@@ -17,23 +17,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Connector de canals d'informació"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Aquest connector crea canals d'informació RSS/Atom per al número actual."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Configuració"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Mostra els enllaços als canals d'informació només a les pàgines del número."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Mostra els enlla殳 als canals d'informaciﭯm豠a la p�na inicial i a les p�nes del n�."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Mostra els enllaços als canals d'informació a totes les pàgines de la revista."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Mostra els elements al número actual."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Nombre d'elements per mostrar"
@@ -49,6 +46,3 @@ msgstr "Logotip RSS1"
 
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "Logotip RSS2"
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Mostra un nombre fix dels elements més recents."

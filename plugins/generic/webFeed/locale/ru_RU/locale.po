@@ -14,26 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Модуль «Новостная лента выпуска»"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Создает ленту в форматах RSS/Atom, содержащую текущий выпуск журнала."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Настройки"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Показать ссылки на ленту только на страницах выпуска."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Показать ссылки на ленту только на главной странице и на страницах выпуска."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Показать ссылки на ленту на всех страницах журнала."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Показать материалы в текущем опубликованном выпуске."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Показать фиксированное количество последних опубликованных материалов."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Число последних опубликованных материалов для показа"

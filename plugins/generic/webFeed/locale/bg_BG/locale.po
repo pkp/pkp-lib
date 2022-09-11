@@ -29,26 +29,19 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Брой елементи за показване"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Показва показва фиксиран брой от последно добавените елементи."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Показва съдържание от последния актуален брой на списанието."
-
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Показва връзки към емисията на всички страници на списанието."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Показва връзки към емисията на началната страница и на страниците на броя на "
 "списанието."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Показва връзки към емисията само на страниците на списанието."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Настройки"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Този плъгин произвежда RSS/Atom уеб синдикална емисия за текущия брой."
 

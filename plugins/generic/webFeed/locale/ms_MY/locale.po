@@ -27,24 +27,17 @@ msgstr "Sila masukkan bilangan bulat positif untuk item yang baru diterbitkan."
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Bilangan item untuk dipaparkan"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Paparkan bilangan tetap item terkini."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Paparkan item dalam terbitan isu semasa."
-
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Paparkan pautan suapan web di semua halaman jurnal."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Paparkan pautan suapan web di laman utama dan halaman isu sahaja."
-
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Paparkan pautan suapan web pada halaman isu sahaja."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Tetapan"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Plugin ini menghasilkan suapan sindikasi web RSS/Atom untuk isu semasa."
 

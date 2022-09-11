@@ -29,25 +29,18 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Ցուցադրվող նյութերի քանակը"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Ցուցադրել ամենավերջին տարրերի սևեռված թիվը:"
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Ցուցադրել տարրերը ընթացիկ հրապարակված համարում:"
-
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Ցուցադրել վեբ ժապավենի հղումները ամսագրի բոլոր էջերում:"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Ցուցադրել վեբ հոսքերի հղումները միայն գլխավոր էջում և թողարկման էջերում:"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Ցուցադրել վեբ հոսքերի հղումները միայն թողարկման էջերում:"
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Կարգավորումներ"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Այս փլագինը արտադրում է RSS/Atom վեբ սինդիկացիոն հոսքեր ընթացիկ խնդրի համար:"

@@ -17,26 +17,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Web-Feed-Plugin"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Dieses Plugin erzeugt RSS/Atom-Feeds für die aktuelle Ausgabe."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Einstellungen"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Links zu Web-Feeds nur auf den Seiten der Ausgabe anzeigen."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Web-Feed-Links nur auf der Hauptseite und den Ausgaben-Seiten anzeigen."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Links zu Web-Feeds auf allen Zeitschriftenseiten anzeigen."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Items in der aktuellen Ausgabe anzeigen."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Eine feste Anzahl der aktuellsten Elemente anzeigen."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Anzahl der anzuzeigenden Veröffentlichungen"

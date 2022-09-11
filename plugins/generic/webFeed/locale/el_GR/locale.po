@@ -27,27 +27,20 @@ msgstr "Εισαγάγετε έναν θετικό ακέραιο για τα π
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Αριθμός στοιχείων προς εμφάνιση"
 
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Εμφανίστε έναν σταθερό αριθμό από τα πιο πρόσφατα στοιχεία."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Εμφάνιση στοιχείων στο τρέχον δημοσιευμένο τεύχος."
-
 msgid "plugins.generic.webfeed.settings.all"
 msgstr ""
 "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού σε όλες τις σελίδες του περιοδικού."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Εμφάνιση συνδέσμων ροών ιστού μόνο στην αρχική σελίδα και τις σελίδες "
 "τεύχους."
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού μόνο σε σελίδες τεύχους."
-
 msgid "plugins.generic.webfeed.settings"
 msgstr "Ρυθμίσεις"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Το πρόσθετο αυτό παράγει RSS/Atom web syndication ροές για το τρέχον τεύχος."

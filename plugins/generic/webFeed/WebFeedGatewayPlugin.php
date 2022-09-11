@@ -14,23 +14,26 @@
 
 namespace APP\plugins\generic\webFeed;
 
-use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
+use APP\server\Section;
+use APP\server\SectionDAO;
+use APP\submission\Collector;
 use APP\template\TemplateManager;
+use Exception;
+use PKP\category\Category;
 use PKP\db\DAORegistry;
+use PKP\site\VersionDAO;
 use PKP\submission\PKPSubmission;
 
 class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 {
     public const DEFAULT_RECENT_ITEMS = 30;
 
-    /** @var WebFeedPlugin Parent plugin */
-    protected $_parentPlugin;
+    /** Parent plugin */
+    protected WebFeedPlugin $_parentPlugin;
 
-    /**
-     * @param WebFeedPlugin $parentPlugin
-     */
-    public function __construct($parentPlugin)
+    public function __construct(WebFeedPlugin $parentPlugin)
     {
         parent::__construct();
         $this->_parentPlugin = $parentPlugin;
@@ -39,26 +42,23 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
     /**
      * Hide this plugin from the management interface (it's subsidiary)
      */
-    public function getHideManagement()
+    public function getHideManagement(): bool
     {
         return true;
     }
 
     /**
-     * Get the name of this plugin. The name must be unique within
-     * its category.
-     *
-     * @return string name of plugin
+     * Get the name of this plugin. The name must be unique within its category.
      */
-    public function getName()
+    public function getName(): string
     {
-        return 'WebFeedGatewayPlugin';
+        return static::class;
     }
 
     /**
      * @copydoc Plugin::getDisplayName()
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return __('plugins.generic.webfeed.displayName');
     }
@@ -66,7 +66,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
     /**
      * @copydoc Plugin::getDescription()
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return __('plugins.generic.webfeed.description');
     }
@@ -74,9 +74,8 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
     /**
      * Override the builtin to get the correct plugin path.
      *
-     * @return string
      */
-    public function getPluginPath()
+    public function getPluginPath(): string
     {
         return $this->_parentPlugin->getPluginPath();
     }
@@ -87,9 +86,8 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
      *
      * @param int $contextId Context ID (optional)
      *
-     * @return bool
      */
-    public function getEnabled($contextId = null)
+    public function getEnabled($contextId = null): bool
     {
         return $this->_parentPlugin->getEnabled($contextId);
     }
@@ -98,12 +96,10 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
      * Handle fetch requests for this plugin.
      *
      * @param array $args Arguments.
-     * @param PKPRequest $request Request object.
+     * @param Request $request Request object.
      */
-    public function fetch($args, $request)
+    public function fetch($args, $request): bool
     {
-        // Make sure we're within a Server context
-        $request = Application::get()->getRequest();
         $server = $request->getServer();
         if (!$server) {
             return false;
@@ -115,19 +111,12 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 
         // Make sure the feed type is specified and valid
         $type = array_shift($args);
-        $typeMap = [
-            'rss' => 'rss.tpl',
-            'rss2' => 'rss2.tpl',
-            'atom' => 'atom.tpl'
-        ];
-        $mimeTypeMap = [
-            'rss' => 'application/rdf+xml',
-            'rss2' => 'application/rss+xml',
-            'atom' => 'application/atom+xml'
-        ];
-        if (!isset($typeMap[$type])) {
-            return false;
-        }
+        $templateConfig = match ($type) {
+            'rss' => ['template' => 'rss.tpl', 'mimeType' => 'application/rdf+xml'],
+            'rss2' => ['template' => 'rss2.tpl', 'mimeType' => 'application/rss+xml'],
+            'atom' => ['template' => 'atom.tpl', 'mimeType' => 'application/atom+xml'],
+            default => throw new Exception('Invalid feed format')
+        };
 
         // Get limit setting from web feeds plugin
         $recentItems = (int) $this->_parentPlugin->getSetting($server->getId(), 'recentItems');
@@ -135,28 +124,65 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
             $recentItems = self::DEFAULT_RECENT_ITEMS;
         }
 
+        /** @var SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO');
         $submissionsIterator = Repo::submission()->getCollector()
             ->filterByContextIds([$server->getId()])
             ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
             ->limit($recentItems)
+            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED)
             ->getMany();
-        $submissionsInSections = [];
+        $sections = [];
+        $submissions = [];
+        $latestDate = null;
+        /** @var PKPSubmission */
         foreach ($submissionsIterator as $submission) {
-            $submissionsInSections[]['articles'][] = $submission;
+            $latestDate = $latestDate ?? $submission->getData('lastModified');
+            $identifiers = [];
+            /** @var ?Section */
+            $section = ($sectionId = $submission->getSectionId())
+                ? $sections[$sectionId] ?? $sections[$sectionId] = $sectionDao->getById($sectionId)
+                : null;
+            if ($section) {
+                $identifiers[] = ['type' => 'section', 'value' => $section->getLocalizedTitle()];
+            }
+
+            $publication = $submission->getCurrentPublication();
+            $categoriesIterator = Repo::category()->getCollector()
+                ->filterByPublicationIds([$publication->getId()])
+                ->getMany();
+            /** @var Category */
+            foreach ($categoriesIterator as $category) {
+                $identifiers[] = ['type' => 'category', 'value' => $category->getLocalizedTitle()];
+            }
+
+            foreach (['keywords', 'subjects', 'disciplines'] as $type) {
+                $values = $publication->getLocalizedData($type) ?? [];
+                foreach ($values as $value) {
+                    $identifiers[] = ['type' => $type, 'value' => $value];
+                }
+            }
+
+            $submissions[] = [
+                'submission' => $submission,
+                'identifiers' => $identifiers
+            ];
         }
 
-        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+        /** @var VersionDAO */
+        $versionDao = DAORegistry::getDAO('VersionDAO');
         $version = $versionDao->getCurrentVersion();
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'opsVersion' => $version->getVersionString(),
-            'publishedSubmissions' => $submissionsInSections,
+            'systemVersion' => $version->getVersionString(),
+            'submissions' => $submissions,
             'server' => $server,
-            'showToc' => true,
+            'latestDate' => $latestDate,
+            'feedUrl' => $request->getRequestUrl()
         ]);
 
-        $templateMgr->display($this->_parentPlugin->getTemplateResource($typeMap[$type]), $mimeTypeMap[$type]);
+        $templateMgr->display($this->_parentPlugin->getTemplateResource($templateConfig['template']), $templateConfig['mimeType']);
         return true;
     }
 }

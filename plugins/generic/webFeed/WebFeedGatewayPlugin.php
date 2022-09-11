@@ -22,6 +22,8 @@ use PKP\submission\PKPSubmission;
 
 class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 {
+    public const DEFAULT_RECENT_ITEMS = 30;
+
     /** @var WebFeedPlugin Parent plugin */
     protected $_parentPlugin;
 
@@ -134,21 +136,19 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
         }
 
         // Get limit setting from web feeds plugin
-        $displayItems = $this->_parentPlugin->getSetting($journal->getId(), 'displayItems');
         $recentItems = (int) $this->_parentPlugin->getSetting($journal->getId(), 'recentItems');
+        if ($recentItems < 1) {
+            $recentItems = self::DEFAULT_RECENT_ITEMS;
+        }
 
-        if ($displayItems == 'recent' && $recentItems > 0) {
-            $submissionsIterator = Repo::submission()->getCollector()
-                ->filterByContextIds([$journal->getId()])
-                ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
-                ->limit($recentItems)
-                ->getMany();
-            $submissionsInSections = [];
-            foreach ($submissionsIterator as $submission) {
-                $submissionsInSections[]['articles'][] = $submission;
-            }
-        } else {
-            $submissionsInSections = Repo::submission()->getInSections($issue->getId(), $journal->getId());
+        $submissionsIterator = Repo::submission()->getCollector()
+            ->filterByContextIds([$journal->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+            ->limit($recentItems)
+            ->getMany();
+        $submissionsInSections = [];
+        foreach ($submissionsIterator as $submission) {
+            $submissionsInSections[]['articles'][] = $submission;
         }
 
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */

@@ -21,8 +21,8 @@
 		<name>displayPage</name>
 		<value>homepage</value>
 	</setting>
-	<setting type="bool">
-		<name>displayItems</name>
-		<value>issue</value>
+	<setting type="int">
+		<name>recentItems</name>
+		<value>30</value>
 	</setting>
 </plugin_settings>

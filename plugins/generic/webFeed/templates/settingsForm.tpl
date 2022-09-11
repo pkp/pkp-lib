@@ -34,8 +34,6 @@
 			{/fbvFormSection}
 
 			{fbvFormSection list=true}
-				{fbvElement type="radio" id="displayItems-issue" name="displayItems" value="issue" checked=$displayItems|compare:"issue" label="plugins.generic.webfeed.settings.currentIssue"}
-				{fbvElement type="radio" id="displayItems-recent" name="displayItems" value="recent" checked=$displayItems|compare:"recent" label="plugins.generic.webfeed.settings.recent"}
 				{fbvElement type="text" id="recentItems" value=$recentItems label="plugins.generic.webfeed.settings.recentArticles" size=$fbvStyles.size.SMALL}
 			{/fbvFormSection}
 		{/fbvFormArea}

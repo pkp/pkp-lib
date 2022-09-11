@@ -11,11 +11,11 @@
 <?xml version="1.0" encoding="{$defaultCharset|escape}"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	{* required elements *}
-	<id>{url page="issue" op="feed"}</id>
+	<id>{url page="feed" op="feed"}</id>
 	<title>{$server->getLocalizedName()|escape:"html"|strip}</title>
 
 	{* Figure out feed updated date *}
-	{assign var=latestDate value=$issue->getDatePublished()}
+	{assign var=latestDate value=null}
 	{foreach name=sections from=$publishedSubmissions item=section}
 		{foreach from=$section.articles item=article}
 			{if $article->getLastModified() > $latestDate}

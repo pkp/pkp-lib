@@ -109,12 +109,6 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
             return false;
         }
 
-        // Make sure there's a current issue for this server
-        $issue = Repo::issue()->getCurrent($server->getId(), true);
-        if (!$issue) {
-            return false;
-        }
-
         if (!$this->_parentPlugin->getEnabled($server->getId())) {
             return false;
         }
@@ -159,7 +153,6 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
             'opsVersion' => $version->getVersionString(),
             'publishedSubmissions' => $submissionsInSections,
             'server' => $server,
-            'issue' => $issue,
             'showToc' => true,
         ]);
 

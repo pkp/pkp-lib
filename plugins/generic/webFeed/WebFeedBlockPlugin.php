@@ -13,8 +13,6 @@
 
 namespace APP\plugins\generic\webFeed;
 
-use APP\facades\Repo;
-
 class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
 {
     /** @var WebFeedPlugin Parent plugin */
@@ -82,22 +80,5 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
     public function getTemplatePath($inCore = false)
     {
         return $this->_parentPlugin->getTemplatePath($inCore) . '/templates';
-    }
-
-    /**
-     * Get the HTML contents for this block.
-     *
-     * @param object $templateMgr
-     * @param PKPRequest $request
-     *
-     * @return $string
-     */
-    public function getContents($templateMgr, $request = null)
-    {
-        $server = $request->getServer();
-        if (Repo::issue()->getCurrent($server->getId(), true)) {
-            return parent::getContents($templateMgr, $request);
-        }
-        return '';
     }
 }

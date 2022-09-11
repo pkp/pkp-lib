@@ -88,7 +88,7 @@
 				{translate|escape key="submission.copyrightStatement" copyrightYear=$article->getCopyrightYear() copyrightHolder=$article->getLocalizedCopyrightHolder()}
 				{$article->getLicenseURL()|escape}
 			</dc:rights>
-			{if ($publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN || ($publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_ISSUE_DEFAULT && $issue->getAccessStatus() == \APP\issue\Issue::ISSUE_ACCESS_OPEN)) && $article->isCCLicense()}
+			{if $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN && $article->isCCLicense()}
 				<cc:license rdf:resource="{$article->getLicenseURL()|escape}" />
 			{else}
 				<cc:license></cc:license>
@@ -98,8 +98,6 @@
 				<dc:date>{$article->getDatePublished()|date_format:"%Y-%m-%d"}</dc:date>
 				<prism:publicationDate>{$article->getDatePublished()|date_format:"%Y-%m-%d"}</prism:publicationDate>
 			{/if}
-			{if $issue->getVolume() && $issue->getShowVolume()}<prism:volume>{$issue->getVolume()|escape}</prism:volume>{/if}
-			{if $issue->getNumber() && $issue->getShowNumber()}<prism:number>{$issue->getNumber()|escape}</prism:number>{/if}
 
 			{if $article->getPages()}
 				{if $article->getStartingPage()}

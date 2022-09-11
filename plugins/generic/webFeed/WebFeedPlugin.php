@@ -14,7 +14,6 @@
 namespace APP\plugins\generic\webFeed;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
@@ -90,16 +89,11 @@ class WebFeedPlugin extends GenericPlugin
         if (is_null($currentServer)) {
             return;
         }
-        $currentIssue = Repo::issue()->getCurrent($currentServer->getId(), true);
-
-        if (!$currentIssue) {
-            return;
-        }
 
         $displayPage = $this->getSetting($currentServer->getId(), 'displayPage');
 
         // Define when the <link> elements should appear
-        $contexts = $displayPage == 'homepage' ? ['frontend-index', 'frontend-issue'] : 'frontend';
+        $contexts = $displayPage == 'homepage' ? 'frontend-index' : 'frontend';
 
         $templateManager->addHeader(
             'webFeedAtom+xml',

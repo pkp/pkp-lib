@@ -102,20 +102,20 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
      */
     public function fetch($args, $request)
     {
-        // Make sure we're within a Journal context
+        // Make sure we're within a Server context
         $request = Application::get()->getRequest();
-        $journal = $request->getJournal();
-        if (!$journal) {
+        $server = $request->getServer();
+        if (!$server) {
             return false;
         }
 
-        // Make sure there's a current issue for this journal
-        $issue = Repo::issue()->getCurrent($journal->getId(), true);
+        // Make sure there's a current issue for this server
+        $issue = Repo::issue()->getCurrent($server->getId(), true);
         if (!$issue) {
             return false;
         }
 
-        if (!$this->_parentPlugin->getEnabled($journal->getId())) {
+        if (!$this->_parentPlugin->getEnabled($server->getId())) {
             return false;
         }
 
@@ -136,13 +136,13 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
         }
 
         // Get limit setting from web feeds plugin
-        $recentItems = (int) $this->_parentPlugin->getSetting($journal->getId(), 'recentItems');
+        $recentItems = (int) $this->_parentPlugin->getSetting($server->getId(), 'recentItems');
         if ($recentItems < 1) {
             $recentItems = self::DEFAULT_RECENT_ITEMS;
         }
 
         $submissionsIterator = Repo::submission()->getCollector()
-            ->filterByContextIds([$journal->getId()])
+            ->filterByContextIds([$server->getId()])
             ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
             ->limit($recentItems)
             ->getMany();
@@ -158,7 +158,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
         $templateMgr->assign([
             'opsVersion' => $version->getVersionString(),
             'publishedSubmissions' => $submissionsInSections,
-            'journal' => $journal,
+            'server' => $server,
             'issue' => $issue,
             'showToc' => true,
         ]);

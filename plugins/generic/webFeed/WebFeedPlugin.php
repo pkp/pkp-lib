@@ -86,17 +86,17 @@ class WebFeedPlugin extends GenericPlugin
         }
 
         $templateManager = & $args[0];
-        $currentJournal = $templateManager->getTemplateVars('currentJournal');
-        if (is_null($currentJournal)) {
+        $currentServer = $templateManager->getTemplateVars('currentServer');
+        if (is_null($currentServer)) {
             return;
         }
-        $currentIssue = Repo::issue()->getCurrent($currentJournal->getId(), true);
+        $currentIssue = Repo::issue()->getCurrent($currentServer->getId(), true);
 
         if (!$currentIssue) {
             return;
         }
 
-        $displayPage = $this->getSetting($currentJournal->getId(), 'displayPage');
+        $displayPage = $this->getSetting($currentServer->getId(), 'displayPage');
 
         // Define when the <link> elements should appear
         $contexts = $displayPage == 'homepage' ? ['frontend-index', 'frontend-issue'] : 'frontend';

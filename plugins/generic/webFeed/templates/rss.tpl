@@ -16,43 +16,43 @@
 	xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
 	xmlns:cc="http://web.resource.org/cc/">
 
-	<channel rdf:about="{url journal=$journal->getPath()}">
+	<channel rdf:about="{url server=$server->getPath()}">
 		{* required elements *}
-		<title>{$journal->getLocalizedName()|strip|escape:"html"}</title>
-		<link>{url journal=$journal->getPath()}</link>
+		<title>{$server->getLocalizedName()|strip|escape:"html"}</title>
+		<link>{url server=$server->getPath()}</link>
 
-		{if $journal->getLocalizedDescription()}
-			{assign var="description" value=$journal->getLocalizedDescription()}
-		{elseif $journal->getLocalizedData('searchDescription')}
-			{assign var="description" value=$journal->getLocalizedData('searchDescription')}
+		{if $server->getLocalizedDescription()}
+			{assign var="description" value=$server->getLocalizedDescription()}
+		{elseif $server->getLocalizedData('searchDescription')}
+			{assign var="description" value=$server->getLocalizedData('searchDescription')}
 		{/if}
 
 		<description>{$description|strip|escape:"html"}</description>
 
 		{* optional elements *}
-		{assign var="publisherInstitution" value=$journal->getData('publisherInstitution')}
+		{assign var="publisherInstitution" value=$server->getData('publisherInstitution')}
 		{if $publisherInstitution}
 			<dc:publisher>{$publisherInstitution|strip|escape:"html"}</dc:publisher>
 		{/if}
 
-		{if $journal->getPrimaryLocale()}
-			<dc:language>{$journal->getPrimaryLocale()|replace:'_':'-'|strip|escape:"html"}</dc:language>
+		{if $server->getPrimaryLocale()}
+			<dc:language>{$server->getPrimaryLocale()|replace:'_':'-'|strip|escape:"html"}</dc:language>
 		{/if}
 
-		<prism:publicationName>{$journal->getLocalizedName()|strip|escape:"html"}</prism:publicationName>
+		<prism:publicationName>{$server->getLocalizedName()|strip|escape:"html"}</prism:publicationName>
 
-		{if $journal->getData('printIssn')}
-			{assign var="ISSN" value=$journal->getData('printIssn')}
-		{elseif $journal->getData('onlineIssn')}
-			{assign var="ISSN" value=$journal->getData('onlineIssn')}
+		{if $server->getData('printIssn')}
+			{assign var="ISSN" value=$server->getData('printIssn')}
+		{elseif $server->getData('onlineIssn')}
+			{assign var="ISSN" value=$server->getData('onlineIssn')}
 		{/if}
 
 		{if $ISSN}
 			<prism:issn>{$ISSN|escape}</prism:issn>
 		{/if}
 
-		{if $journal->getLocalizedData('licenseTerms')}
-			<prism:copyright>{$journal->getLocalizedData('licenseTerms')|strip|escape:"html"}</prism:copyright>
+		{if $server->getLocalizedData('licenseTerms')}
+			<prism:copyright>{$server->getLocalizedData('licenseTerms')|strip|escape:"html"}</prism:copyright>
 		{/if}
 
 		<items>

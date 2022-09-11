@@ -27,7 +27,7 @@ msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Display web feed links on homepage and issue pages only."
 
 msgid "plugins.generic.webfeed.settings.all"
-msgstr "Display web feed links on all journal pages."
+msgstr "Display web feed links on all server pages."
 
 msgid "plugins.generic.webfeed.settings.currentIssue"
 msgstr "Display items in current published issue."

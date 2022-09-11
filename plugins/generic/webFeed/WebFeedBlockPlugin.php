@@ -94,8 +94,8 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
      */
     public function getContents($templateMgr, $request = null)
     {
-        $journal = $request->getJournal();
-        if (Repo::issue()->getCurrent($journal->getId(), true)) {
+        $server = $request->getServer();
+        if (Repo::issue()->getCurrent($server->getId(), true)) {
             return parent::getContents($templateMgr, $request);
         }
         return '';

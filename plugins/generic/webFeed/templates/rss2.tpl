@@ -12,32 +12,32 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<channel>
 		{* required elements *}
-		<title>{$journal->getLocalizedName()|strip|escape:"html"}</title>
-		<link>{url journal=$journal->getPath()}</link>
+		<title>{$server->getLocalizedName()|strip|escape:"html"}</title>
+		<link>{url server=$server->getPath()}</link>
 
-		{if $journal->getLocalizedDescription()}
-			{assign var="description" value=$journal->getLocalizedDescription()}
-		{elseif $journal->getLocalizedData('searchDescription')}
-			{assign var="description" value=$journal->getLocalizedData('searchDescription')}
+		{if $server->getLocalizedDescription()}
+			{assign var="description" value=$server->getLocalizedDescription()}
+		{elseif $server->getLocalizedData('searchDescription')}
+			{assign var="description" value=$server->getLocalizedData('searchDescription')}
 		{/if}
 
 		<description>{$description|strip|escape:"html"}</description>
 
 		{* optional elements *}
-		{if $journal->getPrimaryLocale()}
-			<language>{$journal->getPrimaryLocale()|replace:'_':'-'|strip|escape:"html"}</language>
+		{if $server->getPrimaryLocale()}
+			<language>{$server->getPrimaryLocale()|replace:'_':'-'|strip|escape:"html"}</language>
 		{/if}
 
-		{if $journal->getLocalizedData('licenseTerms')}
-			<copyright>{$journal->getLocalizedData('licenseTerms')|strip|escape:"html"}</copyright>
+		{if $server->getLocalizedData('licenseTerms')}
+			<copyright>{$server->getLocalizedData('licenseTerms')|strip|escape:"html"}</copyright>
 		{/if}
 
-		{if $journal->getData('contactEmail')}
-			<managingEditor>{$journal->getData('contactEmail')|strip|escape:"html"}{if $journal->getData('contactName')} ({$journal->getData('contactName')|strip|escape:"html"}){/if}</managingEditor>
+		{if $server->getData('contactEmail')}
+			<managingEditor>{$server->getData('contactEmail')|strip|escape:"html"}{if $server->getData('contactName')} ({$server->getData('contactName')|strip|escape:"html"}){/if}</managingEditor>
 		{/if}
 
-		{if $journal->getData('supportEmail')}
-			<webMaster>{$journal->getData('supportEmail')|strip|escape:"html"}{if $journal->getData('contactName')} ({$journal->getData('supportName')|strip|escape:"html"}){/if}</webMaster>
+		{if $server->getData('supportEmail')}
+			<webMaster>{$server->getData('supportEmail')|strip|escape:"html"}{if $server->getData('contactName')} ({$server->getData('supportName')|strip|escape:"html"}){/if}</webMaster>
 		{/if}
 
 		{if $issue->getDatePublished()}

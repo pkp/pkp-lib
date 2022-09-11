@@ -12,7 +12,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 	{* required elements *}
 	<id>{url page="issue" op="feed"}</id>
-	<title>{$journal->getLocalizedName()|escape:"html"|strip}</title>
+	<title>{$server->getLocalizedName()|escape:"html"|strip}</title>
 
 	{* Figure out feed updated date *}
 	{assign var=latestDate value=$issue->getDatePublished()}
@@ -26,16 +26,16 @@
 	<updated>{$latestDate|date_format:"%Y-%m-%dT%T%z"|regex_replace:"/00$/":":00"}</updated>
 
 	{* recommended elements *}
-	{if $journal->getData('contactName')}
+	{if $server->getData('contactName')}
 		<author>
-			<name>{$journal->getData('contactName')|strip|escape:"html"}</name>
-			{if $journal->getData('contactEmail')}
-			<email>{$journal->getData('contactEmail')|strip|escape:"html"}</email>
+			<name>{$server->getData('contactName')|strip|escape:"html"}</name>
+			{if $server->getData('contactEmail')}
+			<email>{$server->getData('contactEmail')|strip|escape:"html"}</email>
 			{/if}
 		</author>
 	{/if}
 
-	<link rel="alternate" href="{url journal=$journal->getPath()}" />
+	<link rel="alternate" href="{url server=$server->getPath()}" />
 	<link rel="self" type="application/atom+xml" href="{url page="feed" op="atom"}" />
 
 	{* optional elements *}
@@ -43,11 +43,11 @@
 	{* <category/> *}
 	{* <contributor/> *}
 
-	<generator uri="https://pkp.sfu.ca/ops/" version="{$opsVersion|escape}">Open Journal Systems</generator>
-	{if $journal->getLocalizedDescription()}
-		{assign var="description" value=$journal->getLocalizedDescription()}
-	{elseif $journal->getLocalizedData('searchDescription')}
-		{assign var="description" value=$journal->getLocalizedData('searchDescription')}
+	<generator uri="https://pkp.sfu.ca/ops/" version="{$opsVersion|escape}">Open Server Systems</generator>
+	{if $server->getLocalizedDescription()}
+		{assign var="description" value=$server->getLocalizedDescription()}
+	{elseif $server->getLocalizedData('searchDescription')}
+		{assign var="description" value=$server->getLocalizedData('searchDescription')}
 	{/if}
 
 	<subtitle type="html">{$description|strip|escape:"html"}</subtitle>

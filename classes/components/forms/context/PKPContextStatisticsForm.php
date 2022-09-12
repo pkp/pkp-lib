@@ -74,20 +74,19 @@ class PKPContextStatisticsForm extends FormComponent
                         'label' => __('manager.settings.statistics.institutionUsageStats.enable'),
                     ],
                 ],
-                'default' => false,
                 'value' => $context->getData('enableInstitutionUsageStats') !== null ? $context->getData('enableInstitutionUsageStats') : $site->getData('enableInstitutionUsageStats'),
             ]));
         }
         if ($site->getData('isSushiApiPublic') !== null && $site->getData('isSushiApiPublic')) {
             $this->addField(new FieldOptions('isSushiApiPublic', [
                 'label' => __('manager.settings.statistics.publicSushiApi'),
+                'description' => __('manager.settings.statistics.publicSushiApi.description'),
                 'options' => [
                     [
                         'value' => true,
                         'label' => __('manager.settings.statistics.publicSushiApi.option'),
                     ],
                 ],
-                'default' => true,
                 'value' => $context->getData('isSushiApiPublic') !== null ? $context->getData('isSushiApiPublic') : $site->getData('isSushiApiPublic'),
             ]));
         }

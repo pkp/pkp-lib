@@ -839,7 +839,7 @@
 		},
 		"isSushiApiPublic": {
 			"type": "boolean",
-			"description": "Whether or not the access on the COUNTER SUSHI statistics API is public. If false only admin and managers can access the API.",
+			"description": "Whether or not the access to the COUNTER SUSHI statistics API is public. If false, only users with admin or manager roles can access the API.",
 			"default": true
 		}
 	}

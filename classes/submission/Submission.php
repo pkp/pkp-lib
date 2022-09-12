@@ -23,14 +23,6 @@
 
 namespace APP\submission;
 
-// Author display in ToC
-define('AUTHOR_TOC_DEFAULT', 0);
-define('AUTHOR_TOC_HIDE', 1);
-define('AUTHOR_TOC_SHOW', 2);
-
-// Preprint access constants -- see Publication::getData('accessStatus')
-define('PREPRINT_ACCESS_OPEN', 1);
-
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
@@ -39,6 +31,14 @@ use PKP\submission\PKPSubmission;
 
 class Submission extends PKPSubmission
 {
+    // Author display in ToC
+    public const AUTHOR_TOC_DEFAULT = 0;
+    public const AUTHOR_TOC_HIDE = 1;
+    public const AUTHOR_TOC_SHOW = 2;
+
+    // Article access constants -- see Publication::getData('accessStatus')
+    public const PREPRINT_ACCESS_OPEN = 1;
+
     //
     // Get/set methods
     //
@@ -259,4 +259,12 @@ class Submission extends PKPSubmission
 
 if (!PKP_STRICT_MODE) {
     class_alias('\APP\submission\Submission', '\Submission');
+    foreach ([
+        'AUTHOR_TOC_DEFAULT',
+        'AUTHOR_TOC_HIDE',
+        'AUTHOR_TOC_SHOW',
+        'PREPRINT_ACCESS_OPEN',
+    ] as $constantName) {
+        define($constantName, constant('\Submission::' . $constantName));
+    }
 }

@@ -41,7 +41,7 @@
 			<webMaster>{$server->getData('supportEmail')|strip|escape:"html"}{if $server->getData('contactName')} ({$server->getData('supportName')|strip|escape:"html"}){/if}</webMaster>
 		{/if}
 
-		<pubDate>{$smarty.const.DATE_RSS|date:$latestDate}</pubDate>
+		<pubDate>{$latestDate|date_format:$smarty.const.DATE_RSS}</pubDate>
 
 		{* <lastBuildDate/> *}
 		{* <category/> *}
@@ -74,7 +74,7 @@
 					{translate|escape key="submission.copyrightStatement" copyrightYear=$submission->getCopyrightYear() copyrightHolder=$submission->getLocalizedCopyrightHolder()}
 					{$submission->getLicenseURL()|escape}
 				</dc:rights>
-				{if $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN && $submission->isCCLicense()}
+				{if $publication->getData('accessStatus') == \APP\submission\Submission::PREPRINT_ACCESS_OPEN && $submission->isCCLicense()}
 					<cc:license rdf:resource="{$submission->getLicenseURL()|escape}" />
 				{else}
 					<cc:license></cc:license>

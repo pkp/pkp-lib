@@ -96,7 +96,7 @@
 			{translate|escape key="submission.copyrightStatement" copyrightYear=$submission->getCopyrightYear() copyrightHolder=$submission->getLocalizedCopyrightHolder()}
 			{$submission->getLicenseURL()|escape}
 		</dc:rights>
-		{if $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN && $submission->isCCLicense()}
+		{if $publication->getData('accessStatus') == \APP\submission\Submission::PREPRINT_ACCESS_OPEN && $submission->isCCLicense()}
 			<cc:license rdf:resource="{$submission->getLicenseURL()|escape}" />
 		{else}
 			<cc:license></cc:license>

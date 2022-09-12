@@ -24,6 +24,7 @@ use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
@@ -58,6 +59,8 @@ class PKPVocabHandler extends APIHandler
     //
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         return parent::authorize($request, $args, $roleAssignments);

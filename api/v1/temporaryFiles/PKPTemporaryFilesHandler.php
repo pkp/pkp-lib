@@ -20,6 +20,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 class PKPTemporaryFilesHandler extends APIHandler
@@ -56,6 +57,8 @@ class PKPTemporaryFilesHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         foreach ($roleAssignments as $role => $operations) {

@@ -31,6 +31,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 use Slim\Http\Request as SlimRequest;
@@ -143,6 +144,8 @@ class PKPDoiHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         // This endpoint is not available at the site-wide level
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 

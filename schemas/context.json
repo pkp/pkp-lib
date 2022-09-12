@@ -836,6 +836,11 @@
 			"type": "boolean",
 			"description": "Whether to track usage statistics by institutions. Requires institutional IP ranges to be configured.",
 			"default": false
+		},
+		"isSushiApiPublic": {
+			"type": "boolean",
+			"description": "Whether or not the access to the COUNTER SUSHI statistics API is public. If false, only users with admin or manager roles can access the API.",
+			"default": true
 		}
 	}
 }

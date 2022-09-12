@@ -122,6 +122,19 @@ class PKPSiteStatisticsForm extends FormComponent
                 'description' => __('manager.settings.statistics.sushiPlatform.sushiPlatformID.description'),
                 'value' => $site->getData('sushiPlatformID'),
                 'showWhen' => 'isSiteSushiPlatform',
-            ]));
+            ]))
+            ->addField(new FieldOptions('isSushiApiPublic', [
+                'label' => __('manager.settings.statistics.publicSushiApi'),
+                'description' => __('manager.settings.statistics.publicSushiApi.description'),
+                'options' => [
+                    [
+                        'value' => true,
+                        'label' => __('manager.settings.statistics.publicSushiApi.option'),
+                    ],
+                ],
+                'default' => true,
+                'value' => $site->getData('isSushiApiPublic') ? $site->getData('isSushiApiPublic') : true,
+            ]))
+        ;
     }
 }

@@ -38,6 +38,7 @@ use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
@@ -236,6 +237,8 @@ class PKPSubmissionHandler extends APIHandler
     {
         $routeName = $this->getSlimRequest()->getAttribute('route')->getName();
 
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         if (in_array($routeName, $this->requiresSubmissionAccess)) {
@@ -406,7 +409,7 @@ class PKPSubmissionHandler extends APIHandler
 
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany(); 
+            ->getMany();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

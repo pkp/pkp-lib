@@ -25,6 +25,7 @@ use PKP\plugins\Hook;
 
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use Slim\Http\Response;
 
@@ -74,6 +75,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         $routeName = $this->getSlimRequest()->getAttribute('route')->getName();
@@ -120,7 +123,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
 
         $submissions = $collector->getMany();
 
-        $userGroups =  Repo::userGroup()->getCollector()
+        $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
 

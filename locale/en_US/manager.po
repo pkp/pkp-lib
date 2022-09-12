@@ -840,6 +840,15 @@ msgstr ""
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Platform ID is required"
 
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "COUNTER SUSHI Statistics"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr "Whether or not to restrict access to the API endpoints for COUNTER SUSHI statistics. If unchecked, the API will only be accessible to users with admin or manager roles."
+
+msgid "manager.settings.statistics.publicSushiApi.option"
+msgstr "Make the API endpoints for COUNTER SUSHI statistics publicly accessible."
+
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"
 

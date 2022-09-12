@@ -22,6 +22,7 @@ use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
 use Slim\Http\Request as SlimHttpRequest;
@@ -67,6 +68,7 @@ class PKPStatsContextHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));

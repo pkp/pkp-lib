@@ -22,6 +22,7 @@ use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 abstract class PKPStatsEditorialHandler extends APIHandler
@@ -54,6 +55,8 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);

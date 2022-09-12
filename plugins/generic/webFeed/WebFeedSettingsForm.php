@@ -19,19 +19,13 @@ use PKP\form\validation\FormValidator;
 
 class WebFeedSettingsForm extends Form
 {
-    /** @var int Associated context ID */
-    private $_contextId;
+    /** Associated context ID */
+    private int $_contextId;
 
-    /** @var WebFeedPlugin Web feed plugin */
-    private $_plugin;
+    /** Web feed plugin */
+    private WebFeedPlugin $_plugin;
 
-    /**
-     * Constructor
-     *
-     * @param WebFeedPlugin $plugin Web feed plugin
-     * @param int $contextId Context ID
-     */
-    public function __construct($plugin, $contextId)
+    public function __construct(WebFeedPlugin $plugin, int $contextId)
     {
         $this->_contextId = $contextId;
         $this->_plugin = $plugin;
@@ -44,7 +38,7 @@ class WebFeedSettingsForm extends Form
     /**
      * Initialize form data.
      */
-    public function initData()
+    public function initData(): void
     {
         $contextId = $this->_contextId;
         $plugin = $this->_plugin;
@@ -56,7 +50,7 @@ class WebFeedSettingsForm extends Form
     /**
      * Assign form data to user-submitted data.
      */
-    public function readInputData()
+    public function readInputData(): void
     {
         $this->readUserVars(['displayPage', 'recentItems']);
 
@@ -75,7 +69,7 @@ class WebFeedSettingsForm extends Form
      *
      * @param null|mixed $template
      */
-    public function fetch($request, $template = null, $display = false)
+    public function fetch($request, $template = null, $display = false): string
     {
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pluginName', $this->_plugin->getName());

@@ -16,6 +16,7 @@ namespace APP\plugins\generic\webFeed;
 use APP\core\Application;
 use APP\notification\NotificationManager;
 use PKP\core\JSONMessage;
+use PKP\core\PKPPageRouter;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\GenericPlugin;
@@ -26,20 +27,16 @@ class WebFeedPlugin extends GenericPlugin
 {
     /**
      * Get the display name of this plugin
-     *
-     * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return __('plugins.generic.webfeed.displayName');
     }
 
     /**
      * Get the description of this plugin
-     *
-     * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return __('plugins.generic.webfeed.description');
     }
@@ -49,7 +46,7 @@ class WebFeedPlugin extends GenericPlugin
      *
      * @param null|mixed $mainContextId
      */
-    public function register($category, $path, $mainContextId = null)
+    public function register($category, $path, $mainContextId = null): bool
     {
         if (!parent::register($category, $path, $mainContextId)) {
             return false;
@@ -63,12 +60,9 @@ class WebFeedPlugin extends GenericPlugin
     }
 
     /**
-     * Get the name of the settings file to be installed on new context
-     * creation.
-     *
-     * @return string
+     * Get the name of the settings file to be installed on new context creation.
      */
-    public function getContextSpecificPluginSettingsFile()
+    public function getContextSpecificPluginSettingsFile(): string
     {
         return $this->getPluginPath() . '/settings.xml';
     }
@@ -76,18 +70,18 @@ class WebFeedPlugin extends GenericPlugin
     /**
      * Add feed links to page <head> on select/all pages.
      */
-    public function callbackAddLinks($hookName, $args)
+    public function callbackAddLinks(string $hookName, array $args): bool
     {
         // Only page requests will be handled
         $request = Application::get()->getRequest();
-        if (!is_a($request->getRouter(), 'PKPPageRouter')) {
+        if (!($request->getRouter() instanceof PKPPageRouter)) {
             return false;
         }
 
-        $templateManager = & $args[0];
+        $templateManager = $args[0];
         $currentServer = $templateManager->getTemplateVars('currentServer');
         if (is_null($currentServer)) {
-            return;
+            return false;
         }
 
         $displayPage = $this->getSetting($currentServer->getId(), 'displayPage');
@@ -98,23 +92,17 @@ class WebFeedPlugin extends GenericPlugin
         $templateManager->addHeader(
             'webFeedAtom+xml',
             '<link rel="alternate" type="application/atom+xml" href="' . $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'atom']) . '">',
-            [
-                'contexts' => $contexts,
-            ]
+            ['contexts' => $contexts]
         );
         $templateManager->addHeader(
             'webFeedRdf+xml',
             '<link rel="alternate" type="application/rdf+xml" href="' . $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'rss']) . '">',
-            [
-                'contexts' => $contexts,
-            ]
+            ['contexts' => $contexts]
         );
         $templateManager->addHeader(
             'webFeedRss+xml',
             '<link rel="alternate" type="application/rss+xml" href="' . $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'rss2']) . '">',
-            [
-                'contexts' => $contexts,
-            ]
+            ['contexts' => $contexts]
         );
 
         return false;
@@ -123,51 +111,42 @@ class WebFeedPlugin extends GenericPlugin
     /**
      * @copydoc Plugin::getActions()
      */
-    public function getActions($request, $verb)
+    public function getActions($request, $verb): array
     {
+        $actions = parent::getActions($request, $verb);
+        if (!$this->getEnabled()) {
+            return $actions;
+        }
+
         $router = $request->getRouter();
-        return array_merge(
-            $this->getEnabled() ? [
-                new LinkAction(
-                    'settings',
-                    new AjaxModal(
-                        $router->url($request, null, null, 'manage', null, ['verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic']),
-                        $this->getDisplayName()
-                    ),
-                    __('manager.plugins.settings'),
-                    null
-                ),
-            ] : [],
-            parent::getActions($request, $verb)
-        );
+        $url = $router->url($request, null, null, 'manage', null, ['verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic']);
+        array_unshift($actions, new LinkAction('settings', new AjaxModal($url, $this->getDisplayName()), __('manager.plugins.settings')));
+        return $actions;
     }
 
     /**
      * @copydoc Plugin::manage()
      */
-    public function manage($args, $request)
+    public function manage($args, $request): JSONMessage
     {
-        switch ($request->getUserVar('verb')) {
-            case 'settings':
-                $form = new WebFeedSettingsForm($this, $request->getContext()->getId());
-
-                if ($request->getUserVar('save')) {
-                    $form->readInputData();
-                    if ($form->validate()) {
-                        $form->execute();
-                        $notificationManager = new NotificationManager();
-                        $notificationManager->createTrivialNotification($request->getUser()->getId());
-                        return new JSONMessage(true);
-                    }
-                } else {
-                    $form->initData();
-                }
-                return new JSONMessage(true, $form->fetch($request));
+        if ($request->getUserVar('verb') !== 'settings') {
+            return parent::manage($args, $request);
         }
-        return parent::manage($args, $request);
-    }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\generic\webFeed\WebFeedPlugin', '\WebFeedPlugin');
+        $form = new WebFeedSettingsForm($this, $request->getContext()->getId());
+        if (!$request->getUserVar('save')) {
+            $form->initData();
+            return new JSONMessage(true, $form->fetch($request));
+        }
+
+        $form->readInputData();
+        if (!$form->validate()) {
+            return new JSONMessage(true, $form->fetch($request));
+        }
+
+        $form->execute();
+        $notificationManager = new NotificationManager();
+        $notificationManager->createTrivialNotification($request->getUser()->getId());
+        return new JSONMessage(true);
+    }
 }

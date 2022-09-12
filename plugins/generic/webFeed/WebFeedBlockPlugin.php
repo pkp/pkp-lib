@@ -15,13 +15,13 @@ namespace APP\plugins\generic\webFeed;
 
 class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
 {
-    /** @var WebFeedPlugin Parent plugin */
-    protected $_parentPlugin;
+    /** Parent plugin */
+    protected WebFeedPlugin $_parentPlugin;
 
     /**
-     * @param WebFeedPlugin $parentPlugin
+     * @param $parentPlugin
      */
-    public function __construct($parentPlugin)
+    public function __construct(WebFeedPlugin $parentPlugin)
     {
         parent::__construct();
         $this->_parentPlugin = $parentPlugin;
@@ -30,28 +30,24 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
     /**
      * Get the name of this plugin. The name must be unique within
      * its category.
-     *
-     * @return string name of plugin
      */
-    public function getName()
+    public function getName(): string
     {
-        return 'WebFeedBlockPlugin';
+        return static::class;
     }
 
     /**
      * Hide this plugin from the management interface (it's subsidiary)
      */
-    public function getHideManagement()
+    public function getHideManagement(): bool
     {
         return true;
     }
 
     /**
      * Get the display name of this plugin.
-     *
-     * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return __('plugins.generic.webfeed.displayName');
     }
@@ -59,17 +55,15 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
     /**
      * Get a description of the plugin.
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return __('plugins.generic.webfeed.description');
     }
 
     /**
      * Override the builtin to get the correct plugin path.
-     *
-     * @return string
      */
-    public function getPluginPath()
+    public function getPluginPath(): string
     {
         return $this->_parentPlugin->getPluginPath();
     }
@@ -77,7 +71,7 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
     /**
      * @copydoc PKPPlugin::getTemplatePath
      */
-    public function getTemplatePath($inCore = false)
+    public function getTemplatePath($inCore = false): string
     {
         return $this->_parentPlugin->getTemplatePath($inCore) . '/templates';
     }

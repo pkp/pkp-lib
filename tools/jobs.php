@@ -429,7 +429,8 @@ class commandJobs extends CommandLineTool
         $deleted = Repo::job()->deleteAll();
 
         if (!$deleted) {
-            throw new LogicException(__('admin.cli.tool.jobs.purge.impossible.to.purge.all'));
+            $this->getCommandInterface()->getOutput()->warning(__('admin.cli.tool.jobs.purge.impossible.to.purge.empty'));
+            return;
         }
 
         $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));
@@ -443,7 +444,8 @@ class commandJobs extends CommandLineTool
         $deleted = Repo::job()->deleteFromQueue($queue);
 
         if (!$deleted) {
-            throw new LogicException(__('admin.cli.tool.jobs.purge.impossible.to.purge.all'));
+            $this->getCommandInterface()->getOutput()->warning(__('admin.cli.tool.jobs.purge.impossible.to.purge.empty'));
+            return;
         }
 
         $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));

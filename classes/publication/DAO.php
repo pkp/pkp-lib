@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
 use PKP\core\EntityDAO;
-use PKP\core\traits\HasParent;
+use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
@@ -31,7 +31,7 @@ use PKP\submission\SubmissionSubjectDAO;
 
 class DAO extends EntityDAO
 {
-    use HasParent;
+    use EntityWithParent;
 
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_PUBLICATION;
@@ -86,7 +86,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc HasParent::getParentColumn()
+     * @copydoc EntityWithParent::getParentColumn()
      */
     public function getParentColumn(): string
     {

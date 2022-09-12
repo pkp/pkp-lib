@@ -68,7 +68,10 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get an author by its ID, and optionaly by its publication ID
+     * Get an author.
+     *
+     * Optionally, pass the publication ID to only get an author
+     * if it exists and is assigned to that publication.
      */
     public function get(int $id, int $publicationId = null): ?Author
     {
@@ -86,7 +89,10 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Check if an author exists with this ID, and optional publication ID
+     * Check if an author exists.
+     *
+     * Optionally, pass the publication ID to check if the author
+     * exists and is assigned to that publication.
      */
     public function exists(int $id, int $publicationId = null): bool
     {

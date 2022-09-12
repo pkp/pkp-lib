@@ -19,7 +19,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
-use PKP\core\traits\HasParent;
+use PKP\core\traits\EntityWithParent;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
 use PKP\services\PKPSchemaService;
@@ -29,7 +29,7 @@ use PKP\submission\RepresentationDAOInterface;
 
 class DAO extends EntityDAO implements RepresentationDAOInterface
 {
-    use HasParent;
+    use EntityWithParent;
 
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_GALLEY;
@@ -58,7 +58,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     ];
 
     /**
-     * @copydoc HasParent::getParentColumn()
+     * @copydoc EntityWithParent::getParentColumn()
      */
     public function getParentColumn(): string
     {

@@ -17,11 +17,11 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
-use PKP\core\traits\HasParent;
+use PKP\core\traits\EntityWithParent;
 
 class DAO extends EntityDAO
 {
-    use HasParent;
+    use EntityWithParent;
 
     /** @copydoc EntityDAO::$schema */
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_CATEGORY;
@@ -45,7 +45,7 @@ class DAO extends EntityDAO
     ];
 
     /**
-     * @copydoc HasParent::getParentColumn()
+     * @copydoc EntityWithParent::getParentColumn()
      */
     public function getParentColumn(): string
     {

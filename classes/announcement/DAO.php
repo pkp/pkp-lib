@@ -51,7 +51,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Check if an announcement exists with this ID
+     * Check if an announcement exists
      */
     public function exists(int $id): bool
     {
@@ -61,7 +61,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get an announcement by its ID
+     * Get an announcement
      */
     public function get(int $id): ?Announcement
     {

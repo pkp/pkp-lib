@@ -76,7 +76,10 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     }
 
     /**
-     * Get an submission file by its ID, and optionaly by its submission ID
+     * Get a submission file.
+     *
+     * Optionally, pass the submission ID to only get a submission file
+     * if it exists and is assigned to that submission.
      */
     public function get(int $id, int $submissionId = null): ?SubmissionFile
     {
@@ -91,8 +94,11 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     }
 
     /**
-     * Check if a submission file exists with this ID, and optional submission ID
-     */
+     * Check if a submission file exists.
+     *
+     * Optionally, pass the submission ID to check if the submisison file
+     * exists and is assigned to that submission.
+    */
     public function exists(int $id, int $submissionId = null): bool
     {
         return DB::table($this->table)

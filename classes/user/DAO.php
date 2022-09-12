@@ -84,7 +84,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get an user by its ID
+     * Get a user
      *
      * @param bool $allowDisabled If true, allow fetching a disabled user.
      */
@@ -101,7 +101,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Check if an user exists with this ID
+     * Check if a user exists
      */
     public function exists(int $id): bool
     {

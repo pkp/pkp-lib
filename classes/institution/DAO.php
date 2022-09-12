@@ -23,12 +23,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\SoftDeleteTrait;
-use PKP\core\traits\HasParent;
+use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
 class DAO extends EntityDAO
 {
-    use HasParent;
+    use EntityWithParent;
     use SoftDeleteTrait;
 
     /** @copydoc EntityDAO::$schema */
@@ -52,7 +52,7 @@ class DAO extends EntityDAO
     ];
 
     /**
-     * @copydoc HasParent::getParentColumn()
+     * @copydoc EntityWithParent::getParentColumn()
      */
     public function getParentColumn(): string
     {

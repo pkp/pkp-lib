@@ -2988,36 +2988,44 @@ msgstr "Ջնջել հաստատությունը"
 msgid "manager.institutions.confirmDelete"
 msgstr "Իսկապե՞ս ուզում եք շարունակել և ջնջել այս հաստատությունը:"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.description"
 msgstr "Ընտրեք, թե ինչ անել արխիվացված մատյան նիշքերի հետ:"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.compress"
 msgstr "Սեղմել արխիվները"
 
+#, fuzzy
 msgid "manager.settings.statistics.keepDaily"
 msgstr "Ամենօրյա չափումներ"
 
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Պահպանեք ամենօրյա չափումները տվյալների շտեմարանում"
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo օգտագործման վիճակագրություն"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Մի հավաքեք Geo-ի որևէ տվյալ"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Երկիր"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "Երկիր և տարածաշրջան"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Երկիր, տարածաշրջան և քաղաք"
 
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Միացնել հաստատության կառավարման և օգտագործման վիճակագրությունը"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform"
 msgstr "հարթակ COUNTER SUSHI վիճակագրության համար"
 
@@ -3057,9 +3065,11 @@ msgstr "IP-ի անվավեր տիրույթ"
 msgid "manager.setup.statistics"
 msgstr "Վիճակագրություն"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.default"
 msgstr "Արխիվացված մատյան նիշքերը թողեք այնպես, ինչպես կան"
 
+#, fuzzy
 msgid "manager.settings.statistics.keepDaily.description"
 msgstr ""
 "COUNTER-ի և Geo-ի օգտագործման վիճակագրությունը ամփոփվում է ամսական: Դրանից "
@@ -3067,15 +3077,12 @@ msgstr ""
 "պահել ամենօրյա գրառումները տվյալների շտեմարանում: Իմացեք, որ դա զգալիորեն "
 "կմեծացնի տվյալների ձեր շտեմարանը:"
 
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Ընտրեք օգտագործման վիճակագրության աշխարհագրական տվյալները, որոնք կցանկանայիք "
-"հավաքել: Սա կազդի հնարավոր վիճակագրական հաշվետվությունների վրա, որոնք դուք "
-"կարող եք առբերել, ինչպես նաև կազդի տվյալների շտեմարանի չափի վրա:"
-
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Հաստատության օգտագործման վիճակագրությունը"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Ընտրեք այս տարբերակը, եթե ցանկանում եք կառավարել հաստատությունները և հավաքել "

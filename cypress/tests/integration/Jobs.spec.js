@@ -12,10 +12,10 @@
         cy.login('admin', 'admin', 'publicknowledge');
 
         // purge all existing jobs in any of the queues
-        cy.exec('php lib/pkp/tools/jobs.php purge --all');
+        cy.purgeQueueJobs(null, true);
 
         // Add two test jobs[successable and failable] on queue
-        cy.exec('php lib/pkp/tools/jobs.php test');
+        cy.dispatchTestQueueJobs();
 
         cy.get('a:contains("Administration")').click();
         cy.get('a:contains("Jobs")').click();
@@ -27,7 +27,7 @@
           .should('be.visible');
 
         // purge all existing jobs in the test queue
-        cy.exec('php lib/pkp/tools/jobs.php purge --queue=queuedTestJob');
+        cy.purgeQueueJobs('queuedTestJob');
 
         cy.reload();
         cy.waitJQuery();

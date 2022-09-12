@@ -550,6 +550,9 @@ msgstr "Invalid job ID"
 msgid "admin.cli.tool.jobs.purge.successful"
 msgstr "Job was deleted!"
 
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "No jobs found to delete."
+
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
 msgstr "Was impossible to delete all jobs."
 

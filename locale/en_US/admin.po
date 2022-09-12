@@ -576,3 +576,9 @@ msgstr "Job that loads the usage stats data from the file {$file} failed, and th
 
 msgid "admin.job.compileMetrics.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed. The file has been moved to the stage directory."
+
+msgid "admin.statistics.storage"
+msgstr "Data Storage"
+
+msgid "admin.statistics.storage.description"
+msgstr "Configure what usage statistics should be stored on the server."

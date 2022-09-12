@@ -3023,60 +3023,68 @@ msgstr "Neplatný rozsah IP adres"
 msgid "manager.setup.statistics"
 msgstr "Statistiky"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.description"
 msgstr "Zvolte, jak naložit s archivovanými soubory protokolu."
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.default"
 msgstr "Archivované soubory protokolu ponechat tak, jak jsou"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.compress"
 msgstr "Komprimace archivů"
 
+#, fuzzy
 msgid "manager.settings.statistics.keepDaily"
 msgstr "Denní metriky"
 
+#, fuzzy
 msgid "manager.settings.statistics.keepDaily.description"
 msgstr ""
 "Statistiky využití COUNTER a Geo jsou shrnuty za jednotlivé měsíce. Poté "
 "jsou denní záznamy smazány. Tuto možnost vyberte, pokud chcete denní záznamy "
 "v databázi ponechat. Uvědomte si, že se tím výrazně zvětší databáze."
 
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Uchovávání denních metrik v databázi"
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo statistiky používání"
 
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Zvolte, jaké geografické statistiky používání chcete shromažďovat. To "
-"ovlivní možné statistické přehledy, které můžete získat, a bude mít také "
-"vliv na velikost databáze."
-
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Neshromažďujte žádná geodata"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Stát"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "Stát a region"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Stát, region a město"
 
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Statistiky používání instituce"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Tuto možnost vyberte, pokud chcete spravovat instituce a shromažďovat "
 "statistiky jejich přístupů. To ovlivní možné statistické přehledy, které "
 "můžete získat, a bude to mít také vliv na velikost databáze."
 
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Umožnit správu instituce a statistiky používání"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform"
 msgstr "Platforma pro statistiky COUNTER SUSHI"
 

@@ -62,7 +62,7 @@ class QueuedPaymentEmailVariable extends Variable
 
     protected function getItemName(): string
     {
-        $context = $this->getContextFromVariables();
+        $context = $this->getContext();
         $paymentManager = Application::getPaymentManager($context);
         return $paymentManager->getPaymentName($this->queuedPayment);
     }

@@ -32,7 +32,7 @@ abstract class Variable
     /**
      * Retrieve mailable context from associated variables, see pkp/pkp-lib#8204
      */
-    protected function getContextFromVariables(): Context
+    protected function getContext(): Context
     {
         $contextEmailVariable = Arr::first($this->mailable->getVariables(), function (Variable $variable) {
             return $variable instanceof ContextEmailVariable;

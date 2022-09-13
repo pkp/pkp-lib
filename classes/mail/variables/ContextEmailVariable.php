@@ -20,6 +20,7 @@ use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
+use PKP\mail\Mailable;
 
 class ContextEmailVariable extends Variable
 {
@@ -34,13 +35,13 @@ class ContextEmailVariable extends Variable
     public const USER_PROFILE_URL = 'userProfileUrl';
 
     protected Context $context;
-
     protected PKPRequest $request;
-
     protected Dispatcher $dispatcher;
 
-    public function __construct(Context $context)
+    public function __construct(Context $context, Mailable $mailable)
     {
+        parent::__construct($mailable);
+
         $this->context = $context;
         $application = PKPApplication::get();
         $this->request = $application->getRequest();
@@ -77,6 +78,14 @@ class ContextEmailVariable extends Variable
             self::SUBMISSIONS_URL => $this->getSubmissionsUrl(),
             self::USER_PROFILE_URL => $this->getUserProfileUrl(),
         ];
+    }
+
+    /**
+     * Retrieve context; required to generate other email template variables
+     */
+    public function getContextFromVariable(): Context
+    {
+        return $this->context;
     }
 
     protected function getContextUrl(): string

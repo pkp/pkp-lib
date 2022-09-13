@@ -18,6 +18,7 @@ namespace PKP\mail\variables;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\decision\DecisionType;
+use PKP\mail\Mailable;
 use PKP\workflow\WorkflowStageDAO;
 
 class DecisionEmailVariable extends Variable
@@ -30,8 +31,10 @@ class DecisionEmailVariable extends Variable
     protected Decision $decision;
     protected DecisionType $decisionType;
 
-    public function __construct(Decision $decision)
+    public function __construct(Decision $decision, Mailable $mailable)
     {
+        parent::__construct($mailable);
+
         $this->decision = $decision;
         $this->decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
     }

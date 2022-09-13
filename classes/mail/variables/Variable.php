@@ -15,8 +15,36 @@
 
 namespace PKP\mail\variables;
 
+use Illuminate\Support\Arr;
+use PKP\context\Context;
+use PKP\mail\Mailable;
+use Exception;
+
 abstract class Variable
 {
+    protected Mailable $mailable;
+
+    public function __construct(Mailable $mailable)
+    {
+        $this->mailable = $mailable;
+    }
+
+    /**
+     * Retrieve mailable context from associated variables, see pkp/pkp-lib#8204
+     */
+    protected function getContext(): Context
+    {
+        $contextEmailVariable = Arr::first($this->mailable->getVariables(), function (Variable $variable) {
+            return $variable instanceof ContextEmailVariable;
+        });
+
+        if (!$contextEmailVariable) {
+            throw new Exception(static::class . ' is unable to generate email variables without providing the context to the Mailable');
+        }
+
+        return $contextEmailVariable->getContextFromVariable();
+    }
+
     /**
      * Get descriptions of the variables provided by this class
      *

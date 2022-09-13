@@ -15,6 +15,7 @@
 
 namespace PKP\mail\variables;
 
+use PKP\mail\Mailable;
 use PKP\site\Site;
 
 class SiteEmailVariable extends Variable
@@ -26,8 +27,10 @@ class SiteEmailVariable extends Variable
 
     protected Site $site;
 
-    public function __construct(Site $site)
+    public function __construct(Site $site, Mailable $mailable)
     {
+        parent::__construct($mailable);
+
         $this->site = $site;
     }
 

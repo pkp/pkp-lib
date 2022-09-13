@@ -15,6 +15,7 @@
 
 namespace PKP\mail;
 
+use APP\core\Application;
 use Exception;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Support\Htmlable;
@@ -24,7 +25,6 @@ use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
 use PKP\context\Context;
 use PKP\core\Core;
-use PKP\core\PKPApplication;
 use PKP\mail\traits\Configurable;
 use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
@@ -95,12 +95,13 @@ class Mailer extends IlluminateMailer
      */
     public function compileParams(string $view, array $data): string
     {
-        // Remove pre-set message template variable assigned by Illuminate Mailer
-        unset($data[Mailable::DATA_KEY_MESSAGE]);
-
         $variables = [];
         $replacements = [];
         foreach ($data as $key => $value) {
+            // Don't compile pre-set message data variables not belonging to the template
+            if (in_array($key, Mailable::getReservedDataKeys())) {
+                continue;
+            }
             $variables[] = '/\{\$' . $key . '\}/';
             $replacements[] = $value;
         }
@@ -136,13 +137,12 @@ class Mailer extends IlluminateMailer
             return true;
         }
 
-        $request = PKPApplication::get()->getRequest();
-        $context = $request->getContext();
-        if ($context) {
+        if (array_key_exists(Mailable::DATA_KEY_CONTEXT, $data)) {
+            $context = $data[Mailable::DATA_KEY_CONTEXT];
             return $this->events->until(new MessageSendingContext($context, $message, $data)) !== false;
         }
 
-        $site = $request->getSite();
+        $site = Application::get()->getRequest()->getSite();
         return $this->events->until(new MessageSendingSite($site, $message, $data)) !== false;
     }
 

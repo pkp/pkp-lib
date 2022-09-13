@@ -13,7 +13,6 @@
 
 namespace PKP\decision\types\traits;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
@@ -81,7 +80,11 @@ trait NotifyAuthors
             $assignedAuthorEmails = array_map(function (User $user) {
                 return $user->getEmail();
             }, $recipients);
-            $mailable = new DecisionNotifyOtherAuthors($context, $submission);
+
+            $assignedAuthorIds = array_unique($this->getAssignedAuthorIds($submission), SORT_NUMERIC);
+            $assignedAuthors[] = Repo::user()->getCollector()->filterByUserIds($assignedAuthorIds)->getMany()->toArray();
+
+            $mailable = new DecisionNotifyOtherAuthors($context, $submission, $assignedAuthors);
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
             $mailable
                 ->sender($editor)
@@ -138,7 +141,6 @@ trait NotifyAuthors
             Repo::submissionFile()->edit(
                 $submissionFile,
                 ['viewable' => true],
-                Application::get()->getRequest()
             );
         }
     }

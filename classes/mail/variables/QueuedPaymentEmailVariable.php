@@ -16,7 +16,7 @@
 namespace PKP\mail\variables;
 
 use APP\core\Application;
-use PKP\core\PKPServices;
+use PKP\mail\Mailable;
 use PKP\payment\QueuedPayment;
 
 class QueuedPaymentEmailVariable extends Variable
@@ -27,8 +27,10 @@ class QueuedPaymentEmailVariable extends Variable
 
     protected QueuedPayment $queuedPayment;
 
-    public function __construct(QueuedPayment $queuedPayment)
+    public function __construct(QueuedPayment $queuedPayment, Mailable $mailable)
     {
+        parent::__construct($mailable);
+
         $this->queuedPayment = $queuedPayment;
     }
 
@@ -60,7 +62,7 @@ class QueuedPaymentEmailVariable extends Variable
 
     protected function getItemName(): string
     {
-        $context = PKPServices::get('context')->get($this->queuedPayment->getContextId());
+        $context = $this->getContext();
         $paymentManager = Application::getPaymentManager($context);
         return $paymentManager->getPaymentName($this->queuedPayment);
     }

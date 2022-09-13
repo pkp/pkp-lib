@@ -19,10 +19,14 @@ use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
+use PKP\mail\Mailable;
+use PKP\mail\mailables\ReviewerReinstate;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReinstateReviewerForm extends ReviewerNotifyActionForm
 {
@@ -39,11 +43,11 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
     }
 
     /**
-     * @copydoc ReviewerNotifyActionForm::getEmailKey()
+     * @copydoc ReviewerNotifyActionForm::getMailable()
      */
-    protected function getEmailKey()
+    protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
     {
-        return 'REVIEW_REINSTATE';
+        return new ReviewerReinstate($context, $submission, $reviewAssignment);
     }
 
     /**

@@ -26,7 +26,7 @@ beforeEach(function() {
 
 afterEach(function() {
 	cy.abortEarly(this);
-	cy.dispatchQueueJobs();
+	cy.runQueueJobs();
 });
 
 before(() => {

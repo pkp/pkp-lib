@@ -65,9 +65,15 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?UserGroup
+    public function get(int $id, int $contextId = null): ?UserGroup
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $contextId);
+    }
+
+    /** @copydoc DAO::exists() */
+    public function exists(int $id, int $contextId = null): bool
+    {
+        return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::getCollector() */

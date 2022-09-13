@@ -19,6 +19,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\traits\EntityWithParent;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
 use PKP\services\PKPSchemaService;
@@ -28,6 +29,8 @@ use PKP\submission\RepresentationDAOInterface;
 
 class DAO extends EntityDAO implements RepresentationDAOInterface
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_GALLEY;
 
@@ -54,14 +57,17 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         'doiId' => 'doi_id',
     ];
 
+    /**
+     * @copydoc EntityWithParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'publication_id';
+    }
+
     public function newDataObject(): Galley
     {
         return app(Galley::class);
-    }
-
-    public function get(int $id): ?Galley
-    {
-        return parent::get($id);
     }
 
     public function getByUrlPath(string $urlPath, Publication $publication): ?Galley

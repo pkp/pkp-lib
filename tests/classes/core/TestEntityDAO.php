@@ -19,9 +19,12 @@ namespace PKP\tests\classes\core;
 
 use PKP\core\DataObject;
 use PKP\core\EntityDAO;
+use PKP\core\traits\EntityWithParent;
 
 class TestEntityDAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = 'test_schema';
 
@@ -37,9 +40,18 @@ class TestEntityDAO extends EntityDAO
     /** @copydoc EntityDAO::$primaryTableColumns */
     public $primaryTableColumns = [
         'id' => 'test_id',
+        'parentId' => 'parent_id',
         'integerColumn' => 'integer_column',
         'nullableIntegerColumn' => 'nullable_integer_column',
     ];
+
+    /**
+     * @copydoc EntityWithParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'parent_id';
+    }
 
     /**
      * @copydoc EntityDAO::_insert()

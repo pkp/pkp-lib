@@ -47,23 +47,15 @@ class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id): bool
+    public function exists(int $id, int $contextId = null): bool
     {
-        return $this->dao->exists($id);
-    }
-
-    /**
-     * Checks if an institution with the given ID and context ID exists.
-     */
-    public function existsInContext(int $id, int $contextId): bool
-    {
-        return $this->dao->existsInContext($id, $contextId);
+        return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?Institution
+    public function get(int $id, int $contextId = null): ?Institution
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $contextId);
     }
 
     /** @copydoc DAO::getSoftDeleted() */

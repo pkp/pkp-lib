@@ -17,9 +17,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\traits\EntityWithParent;
 
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_CATEGORY;
 
@@ -42,19 +45,19 @@ class DAO extends EntityDAO
     ];
 
     /**
+     * @copydoc EntityWithParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'context_id';
+    }
+
+    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): Category
     {
         return app(Category::class);
-    }
-
-    /**
-     * @copydoc EntityDAO::get()
-     */
-    public function get(int $id): ?Category
-    {
-        return parent::get($id);
     }
 
     /**

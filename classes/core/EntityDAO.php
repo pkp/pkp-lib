@@ -74,27 +74,6 @@ abstract class EntityDAO
     }
 
     /**
-     * Check if an object exists with this id
-     */
-    public function exists(int $id): bool
-    {
-        return DB::table($this->table)
-            ->where($this->primaryKeyColumn, '=', $id)
-            ->exists();
-    }
-
-    /**
-     * Get an object by its ID
-     */
-    public function get(int $id): ?DataObject
-    {
-        $row = DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->first();
-        return $row ? $this->fromRow($row) : null;
-    }
-
-    /**
      * Convert a row from the database query into a DataObject
      */
     public function fromRow(object $row): DataObject

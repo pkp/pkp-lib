@@ -33,6 +33,7 @@ class EntityDAOTest extends PKPTestCase
         // Create the database tables
         Schema::create('test_entity', function (Blueprint $table) {
             $table->bigInteger('test_id')->autoIncrement();
+            $table->bigInteger('parent_id');
             $table->bigInteger('integer_column')->nullable(false);
             $table->bigInteger('nullable_integer_column')->nullable(true);
         });
@@ -57,6 +58,9 @@ class EntityDAOTest extends PKPTestCase
                     "id": {
                         "type": "integer",
                         "readOnly": true
+                    },
+                    "parentId": {
+                        "type": "integer"
                     },
                     "integerColumn": {
                         "type": "integer"
@@ -91,6 +95,7 @@ class EntityDAOTest extends PKPTestCase
 
         // Create a data object for storage
         $testEntity = new DataObject();
+        $testEntity->setData('parentId', 2);
         $testEntity->setData('integerColumn', 3);
         $testEntity->setData('nullableIntegerColumn', 4);
         $testEntity->setData('nonlocalizedSettingString', 'test string');
@@ -116,6 +121,7 @@ class EntityDAOTest extends PKPTestCase
         $fetchedEntity = $testEntityDao->get($insertedId);
         self::assertEquals([
             'id' => $insertedId,
+            'parentId' => 2,
             'integerColumn' => 5,
             'nonlocalizedSettingString' => 'another test string',
             'nullableIntegerColumn' => null,
@@ -133,6 +139,7 @@ class EntityDAOTest extends PKPTestCase
 
         // Create a data object for storage
         $testEntity = new DataObject();
+        $testEntity->setData('parentId', 2);
         $testEntity->setData('integerColumn', 3);
         $testEntity->setData('nullableIntegerColumn', null);
 
@@ -156,6 +163,7 @@ class EntityDAOTest extends PKPTestCase
 
         // Create a data object for storage
         $testEntity = new DataObject();
+        $testEntity->setData('parentId', 2);
         $testEntity->setData('integerColumn', null); // Invalid
 
         $this->expectException(\Exception::class);

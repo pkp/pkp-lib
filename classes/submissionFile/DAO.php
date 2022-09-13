@@ -19,6 +19,7 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use Exception;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
@@ -59,6 +60,14 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     ];
 
     /**
+     * Get the parent object ID column name
+     */
+    public function getParentColumn(): string
+    {
+        return 'submission_id';
+    }
+
+    /**
      * Instantiate a new SubmissionFile
      */
     public function newDataObject(): SubmissionFile
@@ -67,17 +76,35 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     }
 
     /**
-     * @copydoc EntityDAO::get()
+     * Get a submission file.
+     *
+     * Optionally, pass the submission ID to only get a submission file
+     * if it exists and is assigned to that submission.
      */
-    public function get(int $id): ?SubmissionFile
+    public function get(int $id, int $submissionId = null): ?SubmissionFile
     {
         $query = new Collector($this);
         $row = $query
             ->getQueryBuilder()
             ->where($this->primaryKeyColumn, '=', $id)
+            ->when($submissionId !== null, fn (Builder $query, int $submissionId) => $query->where('sf.submission_id', $submissionId))
             ->first();
 
         return $row ? $this->fromRow($row) : null;
+    }
+
+    /**
+     * Check if a submission file exists.
+     *
+     * Optionally, pass the submission ID to check if the submisison file
+     * exists and is assigned to that submission.
+    */
+    public function exists(int $id, int $submissionId = null): bool
+    {
+        return DB::table($this->table)
+            ->where($this->primaryKeyColumn, '=', $id)
+            ->when($submissionId !== null, fn (Builder $query, int $submissionId) => $query->where($this->getParentColumn(), $submissionId))
+            ->exists();
     }
 
     /**

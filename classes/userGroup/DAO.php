@@ -21,10 +21,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_USER_GROUP;
 
@@ -47,6 +50,14 @@ class DAO extends EntityDAO
         'permitSelfRegistration' => 'permit_self_registration',
         'permitMetadataEdit' => 'permit_metadata_edit',
     ];
+
+    /**
+     * @copydoc EntityWithParent::getParentColumn()
+     */
+    public function getParentColumn(): string
+    {
+        return 'context_id';
+    }
 
     /**
      * Instantiate a new DataObject

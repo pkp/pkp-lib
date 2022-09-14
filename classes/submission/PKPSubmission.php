@@ -28,6 +28,7 @@ namespace PKP\submission;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\publication\Publication;
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;

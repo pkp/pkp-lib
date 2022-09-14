@@ -23,6 +23,7 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
+use PKP\user\User;
 
 class DecisionNotifyOtherAuthors extends Mailable
 {
@@ -46,7 +47,7 @@ class DecisionNotifyOtherAuthors extends Mailable
     protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
-    /** @var string[] */
+    /** @var User[] */
     protected array $assignedAuthors;
 
     public function __construct(Context $context, Submission $submission, array $assignedAuthors)

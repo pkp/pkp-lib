@@ -82,7 +82,7 @@ trait NotifyAuthors
             }, $recipients);
 
             $assignedAuthorIds = array_unique($this->getAssignedAuthorIds($submission), SORT_NUMERIC);
-            $assignedAuthors[] = Repo::user()->getCollector()->filterByUserIds($assignedAuthorIds)->getMany()->toArray();
+            $assignedAuthors = Repo::user()->getCollector()->filterByUserIds($assignedAuthorIds)->getMany()->toArray();
 
             $mailable = new DecisionNotifyOtherAuthors($context, $submission, $assignedAuthors);
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());

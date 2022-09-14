@@ -46,7 +46,7 @@ class TestEntityDAO extends EntityDAO
     ];
 
     /**
-     * @copydoc EntityWithParent::getParentColumn()
+     * Get the parent object ID column name
      */
     public function getParentColumn(): string
     {

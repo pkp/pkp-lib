@@ -143,6 +143,28 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned user_interests for missing controlled_vocab_entry_id ${controlledVocabEntryId}");
                 DB::table('user_interests')->where('controlled_vocab_entry_id', '=', $controlledVocabEntryId)->delete();
             }
+            // Clean orphaned user_setting entries
+            $orphanedIds = DB::table('user_settings AS us')->leftJoin('users AS u', 'us.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('us.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('user_settings')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphaned sessions entries by user_id
+            $orphanedIds = DB::table('sessions AS s')->leftJoin('users AS u', 's.user_id', '=', 'u.user_id')->whereNull('u.user_id')->whereNotNull('s.user_id')->distinct()->pluck('s.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('sessions')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphaned email_template entries by context_id
+            $orphanedIds = DB::table('email_templates AS et')->leftJoin($this->getContextTable() . ' AS c', 'et.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('et.context_id');
+            foreach ($orphanedIds as $contextId) {
+                $this->_installer->log("Removing orphaned email_templates for missing context_id ${contextId}");
+                DB::table('email_templates')->where('context_id', '=', $contextId)->delete();
+            }
+            // Clean orphaned email_templates_settings entries by email_id
+            $orphanedIds = DB::table('email_templates_settings AS ets')->leftJoin('email_templates AS et', 'et.email_id', '=', 'ets.email_id')->whereNull('et.email_id')->distinct()->pluck('ets.email_id');
+            foreach ($orphanedIds as $emailId) {
+                $this->_installer->log("Removing orphaned email_templates_settings for missing email_id ${emailId}");
+                DB::table('email_templates_settings')->where('email_id', '=', $emailId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

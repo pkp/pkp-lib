@@ -57,15 +57,6 @@ class CommonMigration extends \PKP\migration\Migration
             $table->unique(['setting_name', 'locale'], 'site_settings_pkey');
         });
 
-        // User authentication sources.
-        Schema::create('auth_sources', function (Blueprint $table) {
-            $table->bigInteger('auth_id')->autoIncrement();
-            $table->string('title', 60);
-            $table->string('plugin', 32);
-            $table->smallInteger('auth_default')->default(0);
-            $table->text('settings')->nullable();
-        });
-
         // User authentication credentials and profile data.
         Schema::create('users', function (Blueprint $table) {
             $table->bigInteger('user_id')->autoIncrement();
@@ -96,10 +87,11 @@ class CommonMigration extends \PKP\migration\Migration
         // Locale-specific user data
         Schema::create('user_settings', function (Blueprint $table) {
             $table->bigInteger('user_id');
+            $table->foreign('user_id', 'user_settings_user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->index(['user_id'], 'user_settings_user_id');
             $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
@@ -107,7 +99,10 @@ class CommonMigration extends \PKP\migration\Migration
         // Browser/user sessions and session data.
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('session_id', 128);
+
             $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id', 'sessions_user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->string('ip_address', 39);
             $table->string('user_agent', 255)->nullable();
             $table->bigInteger('created')->default(0);
@@ -115,7 +110,6 @@ class CommonMigration extends \PKP\migration\Migration
             $table->smallInteger('remember')->default(0);
             $table->text('data');
             $table->string('domain', 255)->nullable();
-            $table->index(['user_id'], 'sessions_user_id');
             $table->unique(['session_id'], 'sessions_pkey');
         });
 
@@ -124,7 +118,10 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('access_key_id')->autoIncrement();
             $table->string('context', 40);
             $table->string('key_hash', 40);
+
             $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->bigInteger('assoc_id')->nullable();
             $table->datetime('expiry_date');
             $table->index(['key_hash', 'user_id', 'context'], 'access_keys_hash');
@@ -163,19 +160,15 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('setting_id')->autoIncrement();
             $table->string('setting_name', 64);
             $table->mediumText('setting_value');
-            $table->bigInteger('user_id');
-            $table->bigInteger('context');
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-        });
 
-        // Stores subscriptions to the notification mailing list
-        Schema::create('notification_mail_list', function (Blueprint $table) {
-            $table->bigInteger('notification_mail_list_id')->autoIncrement();
-            $table->string('email', 90);
-            $table->smallInteger('confirmed')->default(0);
-            $table->string('token', 40);
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->bigInteger('context');
-            $table->unique(['email', 'context'], 'notification_mail_list_email_context');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+
+            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
         });
 
         // Default email templates.
@@ -204,17 +197,22 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('email_templates', function (Blueprint $table) {
             $table->bigInteger('email_id')->autoIncrement();
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
+
             $table->bigInteger('context_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+
             $table->smallInteger('enabled')->default(1);
             $table->unique(['email_key', 'context_id'], 'email_templates_email_key');
         });
 
         Schema::create('email_templates_settings', function (Blueprint $table) {
             $table->bigInteger('email_id');
+            $table->foreign('email_id', 'email_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->index(['email_id'], 'email_settings_email_id');
             $table->unique(['email_id', 'locale', 'setting_name'], 'email_settings_pkey');
         });
 
@@ -222,7 +220,7 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('mailable_templates', function (Blueprint $table) {
             $table->bigInteger('email_id');
             $table->string('mailable_id', 255);
-            $table->foreign('email_id')->references('email_id')->on('email_templates');
+            $table->foreign('email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
             $table->primary(['email_id', 'mailable_id']);
         });
 
@@ -259,7 +257,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('email_templates_default_data');
         Schema::drop('email_templates_default');
         Schema::drop('mailable_templates');
-        Schema::drop('notification_mail_list');
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');
         Schema::drop('notifications');
@@ -267,7 +264,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('sessions');
         Schema::drop('user_settings');
         Schema::drop('users');
-        Schema::drop('auth_sources');
         Schema::drop('site_settings');
         Schema::drop('site');
         Schema::drop('versions');

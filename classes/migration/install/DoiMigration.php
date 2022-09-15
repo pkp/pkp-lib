@@ -29,7 +29,11 @@ class DoiMigration extends Migration
         // It will reference the app specific column (e.g. journal_id, press_id, etc.).
         Schema::create('dois', function (Blueprint $table) {
             $table->bigInteger('doi_id')->autoIncrement();
+
             $table->bigInteger('context_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+
             $table->string('doi');
             $table->smallInteger('status')->default(1);
         });

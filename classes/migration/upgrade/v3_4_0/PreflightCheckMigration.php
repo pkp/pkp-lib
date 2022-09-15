@@ -119,6 +119,30 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned query_participants for missing query ID ${queryId}");
                 DB::table('query_participants')->where('query_id', '=', $queryId)->delete();
             }
+            // Clean orphaned controlled_vocab_entry entries
+            $orphanedIds = DB::table('controlled_vocab_entries AS cve')->leftJoin('controlled_vocabs AS cv', 'cve.controlled_vocab_id', '=', 'cv.controlled_vocab_id')->whereNull('cv.controlled_vocab_id')->distinct()->pluck('cve.controlled_vocab_id');
+            foreach ($orphanedIds as $controlledVocabId) {
+                $this->_installer->log("Removing orphaned controlled_vocab_entries for missing controlled_vocab_id ${controlledVocabId}");
+                DB::table('controlled_vocab_entries')->where('controlled_vocab_id', '=', $controlledVocabId)->delete();
+            }
+            // Clean orphaned controlled_vocab_entry_settings entries
+            $orphanedIds = DB::table('controlled_vocab_entry_settings AS cves')->leftJoin('controlled_vocab_entries AS cve', 'cves.controlled_vocab_entry_id', '=', 'cve.controlled_vocab_entry_id')->whereNull('cve.controlled_vocab_entry_id')->distinct()->pluck('cves.controlled_vocab_entry_id');
+            foreach ($orphanedIds as $controlledVocabEntryId) {
+                $this->_installer->log("Removing orphaned controlled_vocab_entry_settings for missing controlled_vocab_entry_id ${controlledVocabEntryId}");
+                DB::table('controlled_vocab_entry_settings')->where('controlled_vocab_entry_id', '=', $controlledVocabEntryId)->delete();
+            }
+            // Clean orphaned user_interests entries by user ID
+            $orphanedIds = DB::table('user_interests AS ui')->leftJoin('users AS u', 'ui.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('ui.user_id');
+            foreach ($orphanedIds as $userId) {
+                $this->_installer->log("Removing orphaned user_interests for missing user_id ${userId}");
+                DB::table('user_interests')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphaned user_interests entries by controlled_vocab_entry_id
+            $orphanedIds = DB::table('user_interests AS ui')->leftJoin('controlled_vocab_entries AS cve', 'ui.controlled_vocab_entry_id', '=', 'cve.controlled_vocab_entry_id')->whereNull('ui.controlled_vocab_entry_id')->distinct()->pluck('ui.controlled_vocab_entry_id');
+            foreach ($orphanedIds as $controlledVocabEntryId) {
+                $this->_installer->log("Removing orphaned user_interests for missing controlled_vocab_entry_id ${controlledVocabEntryId}");
+                DB::table('user_interests')->where('controlled_vocab_entry_id', '=', $controlledVocabEntryId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

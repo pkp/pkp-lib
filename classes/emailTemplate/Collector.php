@@ -177,11 +177,18 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $q = $this->isModified === true || $this->isEnabled === false || !is_null($this->mailables) ?
+        $q = $this->isModified === true || $this->isEnabled === false || !is_null($this->mailables) || $this->isCustom === true ?
             $this->getCustomQueryBuilder() :
             $this->getDefaultQueryBuilder()->union($this->getCustomQueryBuilder());
 
         $q
+            ->when($this->isCustom === true, function (Builder $q) {
+                return $q->whereNotIn('et.email_key', function (Builder $q) {
+                    return $q->select('email_key')
+                        ->from('email_templates_default_data as etddata');
+                });
+            })
+
             ->when(!is_null($this->count), function (Builder $q) {
                 return $q->limit($this->count);
             })
@@ -204,18 +211,13 @@ class Collector implements CollectorInterface
      */
     protected function getDefaultQueryBuilder(): Builder
     {
-        $q = DB::table('email_templates_default as etd')
-            ->select('email_key')
-            ->addSelect('can_disable')
-            ->addSelect('can_edit')
-            ->addSelect('from_role_id')
-            ->addSelect('to_role_id')
-            ->addSelect('stage_id')
+        $q = DB::table('email_templates_default_data as etddata')
+            ->select('email_key')->distinct()
             ->selectRaw('NULL as email_id')
             ->selectRaw('1 as enabled')
             ->selectRaw('NULL as context_id')
 
-            ->whereNotIn('etd.email_key', function (Builder $q) {
+            ->whereNotIn('etddata.email_key', function (Builder $q) {
                 $q->select('et.email_key')->from('email_templates as et');
             })
 
@@ -228,18 +230,13 @@ class Collector implements CollectorInterface
                 $words = explode(' ', $this->searchPhrase);
                 $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
                 foreach ($words as $word) {
-                    $q->whereIn('etd.email_key', function (Builder $q) use ($word, $likePattern) {
-                        return $q->select('etddata.email_key')
-                            ->from('email_templates_default_data as etddata')
-                            ->orWhere(DB::raw('LOWER(etddata.subject)'), 'LIKE', $likePattern)->addBinding($word)
+                    $q->where(function (Builder $q) use ($word, $likePattern) {
+                        $q->where(DB::raw('LOWER(etddata.subject)'), 'LIKE', $likePattern)->addBinding($word)
                             ->orWhere(DB::raw('LOWER(etddata.body)'), 'LIKE', $likePattern)->addBinding($word)
-                            ->orWhere(DB::raw('LOWER(etddata.description)'), 'LIKE', $likePattern)->addBinding($word)
                             ->orWhere(DB::raw('LOWER(etddata.email_key)'), 'LIKE', $likePattern)->addBinding($word);
                     });
                 }
             });
-
-        $q = $this->commonBuilderBlocks($q);
 
         // Add app-specific query statements
         Hook::call('EmailTemplate::Collector::default', [$q, $this]);
@@ -258,13 +255,7 @@ class Collector implements CollectorInterface
     protected function getCustomQueryBuilder(): Builder
     {
         $q = DB::table($this->dao->table . ' as et')
-            ->leftJoin('email_templates_default as etd', 'etd.email_key', '=', 'et.email_key')
             ->select('et.email_key')
-            ->addSelect('etd.can_disable')
-            ->addSelect('etd.can_edit')
-            ->addSelect('etd.from_role_id')
-            ->addSelect('etd.to_role_id')
-            ->addSelect('etd.stage_id')
             ->addSelect('et.email_id')
             ->addSelect('et.enabled')
             ->addSelect('et.context_id')
@@ -319,47 +310,9 @@ class Collector implements CollectorInterface
                 }
             });
 
-        $q = $this->commonBuilderBlocks($q);
-
         // Add app-specific query statements
         Hook::call('EmailTemplate::Collector::custom', [$q, $this]);
 
         return $q;
-    }
-
-    /**
-     * Adds common filters to custom and default email templates
-     */
-    protected function commonBuilderBlocks(Builder $q): Builder
-    {
-        return $q
-            ->when(
-                $this->isCustom === true,
-                function (Builder $q) {
-                    return $q->whereNull('etd.can_disable');
-                },
-                function (Builder $q) {
-                    return $q->when($this->isCustom === false, function (Builder $q) {
-                        return $q->whereNotNull('etd.can_disable');
-                    });
-                }
-            )
-
-            ->when(!is_null($this->fromRoleIds), function (Builder $q) {
-                return $q->whereIn('etd.from_role_id', $this->fromRoleIds);
-            })
-
-            ->when(!is_null($this->toRoleIds), function (Builder $q) {
-                return $q->whereIn('etd.to_role_id', $this->toRoleIds);
-            })
-
-            ->when(!is_null($this->stageIds), function (Builder $q) {
-                if (in_array(self::EMAIL_TEMPLATE_STAGE_DEFAULT, $this->stageIds)) {
-                    return $q->whereNull('etd.stage_id')
-                        ->orWhereIn('etd.stage_id', $this->stageIds);
-                } else {
-                    return $q->whereIn('etd.stage_id', $this->stageIds);
-                }
-            });
     }
 }

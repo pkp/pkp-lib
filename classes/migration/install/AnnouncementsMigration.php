@@ -29,7 +29,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
 
             $table->index(['context_id'], 'announcement_types_context_id');
         });
@@ -37,7 +37,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
         // Locale-specific announcement type data
         Schema::create('announcement_type_settings', function (Blueprint $table) {
             $table->bigInteger('type_id');
-            $table->foreign('type_id')->references('type_id')->on('announcement_types');
+            $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('cascade');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
@@ -53,7 +53,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->smallInteger('assoc_type')->nullable();
             $table->bigInteger('assoc_id');
             $table->bigInteger('type_id')->nullable();
-            $table->foreign('type_id')->references('type_id')->on('announcement_types');
+            $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('set null');
             $table->date('date_expire')->nullable();
             $table->datetime('date_posted');
             $table->index(['assoc_type', 'assoc_id'], 'announcements_assoc');
@@ -62,7 +62,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
         // Locale-specific announcement data
         Schema::create('announcement_settings', function (Blueprint $table) {
             $table->bigInteger('announcement_id');
-            $table->foreign('announcement_id')->references('announcement_id')->on('announcements');
+            $table->foreign('announcement_id')->references('announcement_id')->on('announcements')->onDelete('cascade');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();

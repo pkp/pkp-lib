@@ -29,7 +29,7 @@ class CategoriesMigration extends \PKP\migration\Migration
 
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
 
             $table->bigInteger('parent_id')->nullable(); // Self-referential foreign key set below
 
@@ -41,7 +41,6 @@ class CategoriesMigration extends \PKP\migration\Migration
         });
         Schema::table('categories', function (Blueprint $table) {
             $table->foreign('parent_id')->references('category_id')->on('categories')->onDelete('set null');
-            ;
         });
 
         // Category-specific settings

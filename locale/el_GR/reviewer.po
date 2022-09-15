@@ -110,6 +110,7 @@ msgstr "Ο Χρήστης δεν έχει επιλεγεί ως Αξιολογη
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Αποθήκευση για αργότερα"
 
+#, fuzzy
 msgid "submission.comments.sendCopyToReviewers"
 msgstr "Στείλτε ένα αντίγραφο αυτής της ειδοποίησης μέσω ηλεκτρονικού ταχυδρομείου από το BCC στους ακόλουθους Αξιολογητές."
 

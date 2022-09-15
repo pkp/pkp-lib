@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\ReviewReminderForm;
 use PKP\controllers\grid\users\reviewer\form\UnassignReviewerForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -449,7 +450,7 @@ class PKPReviewerGridHandler extends GridHandler
         $context = $request->getContext();
         $term = $request->getUserVar('term');
 
-        $users =Repo::user()->getCollector()
+        $users = Repo::user()->getCollector()
             ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->filterByContextIds([$context->getId()])
             ->searchPhrase($term)
@@ -817,7 +818,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Initialize form.
-        $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
+        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->initData();
 
         // Render form.
@@ -837,7 +838,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Form handling
-        $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
+        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->readInputData();
         if ($reviewReminderForm->validate()) {
             $reviewReminderForm->execute();

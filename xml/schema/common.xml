@@ -133,30 +133,6 @@
 
 	<!--
 	  *
-	  * TABLE auth_sources
-	  *
-	  -->
-	<table name="auth_sources">
-		<field name="auth_id" type="I8">
-			<KEY />
-			<AUTOINCREMENT />
-		</field>
-		<field name="title" type="C2" size="60">
-			<NOTNULL/>
-		</field>
-		<field name="plugin" type="C2" size="32">
-			<NOTNULL/>
-		</field>
-		<field name="auth_default" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
-		<field name="settings" type="X"/>
-		<descr>User authentication sources.</descr>
-	</table>
-
-	<!--
-	  *
 	  * TABLE users
 	  *
 	  -->
@@ -434,38 +410,6 @@
 		</field>
 		<descr>Stores user preferences on what notifications should be blocked and/or emailed to them</descr>
 	</table>
-
-	<!--
-	  *
-	  * TABLE notification_mail_list
-	  *
-	  -->
-	<table name="notification_mail_list">
-		<field name="notification_mail_list_id" type="I8">
-			<KEY />
-			<AUTOINCREMENT/>
-		</field>
-			<field name="email" type="C2" size="90">
-			<NOTNULL/>
-		</field>
-		<field name="confirmed" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
-		<field name="token" type="C2" size="40">
-			<NOTNULL/>
-		</field>
-		<field name="context" type="I8">
-			<NOTNULL/>
-		</field>
-		<descr>Stores subscriptions to the notification mailing list</descr>
-		<index name="notification_mail_list_email_context">
-			<col>email</col>
-			<col>context</col>
-			<UNIQUE />
-		</index>
-	</table>
-
 
 	<!-- Email tables -->
 

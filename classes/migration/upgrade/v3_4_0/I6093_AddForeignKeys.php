@@ -89,6 +89,22 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->foreign('controlled_vocab_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
         });
+        Schema::table('user_settings', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('sessions', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('notification_subscription_settings', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('context')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+        });
+        Schema::table('email_templates', function (Blueprint $table) {
+            $table->foreign('context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+        });
+        Schema::table('email_templates_settings', function (Blueprint $table) {
+            $table->foreign('email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
+        });
     }
 
     /**

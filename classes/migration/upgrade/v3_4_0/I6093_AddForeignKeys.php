@@ -79,6 +79,16 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('genre_settings', function (Blueprint $table) {
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
         });
+        Schema::table('controlled_vocab_entries', function (Blueprint $table) {
+            $table->foreign('controlled_vocab_id')->references('controlled_vocab_id')->on('controlled_vocabs')->onDelete('cascade');
+        });
+        Schema::table('controlled_vocab_entry_settings', function (Blueprint $table) {
+            $table->foreign('controlled_vocab_entry_id', 'c_v_e_s_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
+        });
+        Schema::table('user_interests', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('controlled_vocab_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
+        });
     }
 
     /**

@@ -25,6 +25,7 @@
 
 namespace PKP\submission;
 
+use APP\author\Author;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
@@ -32,7 +33,6 @@ use APP\publication\Publication;
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\mail\Mail;
 
@@ -489,7 +489,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
         }
 
         $userGroupIds = Repo::author()->getSubmissionAuthors($this, true)
-            ->pluck('userGroupId')
+            ->map(fn (Author $author) => $author->getUserGroupId())
             ->unique()
             ->toArray();
 

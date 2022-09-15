@@ -30,7 +30,7 @@ class GenresMigration extends \PKP\migration\Migration
 
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
 
             $table->bigInteger('seq');
             $table->smallInteger('enabled')->default(1);

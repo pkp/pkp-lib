@@ -35,9 +35,6 @@ msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Chỉ hiển thị các liên kết nguồn cấp web trên trang chủ và các số phát hành."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Cài đặt"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

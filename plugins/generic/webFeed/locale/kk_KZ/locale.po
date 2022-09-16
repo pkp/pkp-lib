@@ -38,9 +38,6 @@ msgstr ""
 "Тізімге сілтемелерді тек басты бетте және журнал басылым беттерінде "
 "көрсетіңіз."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Параметрлер"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Журнал хабарландырулары үшін RSS/Atom пішімінде тізім жасайды."

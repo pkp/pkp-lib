@@ -23,9 +23,6 @@ msgstr ""
 "Plugin ini menghasilkan RSS/ Atom web syndication feeds untuk terbitan "
 "sekarang."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Pengaturan"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Tampilkan tautan feed web hanya di beranda dan halaman terbitan."

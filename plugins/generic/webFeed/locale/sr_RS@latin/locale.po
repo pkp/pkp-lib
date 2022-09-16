@@ -18,9 +18,6 @@ msgstr "Web Feed dodatak"
 msgid "plugins.generic.webfeed.description"
 msgstr "Ovaj dodatak proizvodi RSS/Atom web syndication feeds za trenutni broj časopisa."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Podešavanja"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Prikaži linkove samo na početnoj stranici i stranici trenutnog broja."

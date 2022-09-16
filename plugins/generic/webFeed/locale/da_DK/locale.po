@@ -21,9 +21,6 @@ msgstr "Web Feed-plugin"
 msgid "plugins.generic.webfeed.description"
 msgstr "Denne plugin genererer RSS/Atom web syndication feeds til det aktuelle nummer."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Indstillinger"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Vis kun web feed-links på startside og sider for tidsskriftsnumre."

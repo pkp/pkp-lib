@@ -36,9 +36,6 @@ msgstr "ბმულის ჩვენება ლენტზე მხოლ
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "ბმულის ჩვენება ლენტზე მხოლოდ მთავარ და განცხადებების გვერდებზე."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "პარამეტრები"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "ქმნის ლენტს RSS/Atom ფორმატში, ჟურნალის მიმდინარე ნომრისათვის."

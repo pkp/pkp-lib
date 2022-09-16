@@ -23,9 +23,6 @@ msgstr "Web Feed vtičnik"
 msgid "plugins.generic.webfeed.description"
 msgstr "Vtičnik pripravi RSS/Atom feed za trenutno številko."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Nastavitve"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Prikaži web feed povezave le na domači strani in straneh številk revij."

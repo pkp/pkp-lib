@@ -21,9 +21,6 @@ msgstr "Web Besleme Eklentisi"
 msgid "plugins.generic.webfeed.description"
 msgstr "Bu eklenti son sayı için RSS/Atom web akış beslemeleri üretir."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Ayarlar"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Web besleme bağlantılarını sadece anasayfa ve sayı sayfalarında göster."

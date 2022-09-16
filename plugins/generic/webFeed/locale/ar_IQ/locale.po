@@ -22,9 +22,6 @@ msgstr "إضافة مغذي الإنترنت"
 msgid "plugins.generic.webfeed.description"
 msgstr "هذه الإضافة تولد مغذيات الإنترنت RSS/Atom الخاصة بالعدد الحالي من المجلة."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "الإعدادات"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "إعرض روابط المغذي فقط على الصفحة الرئيسية وعلى صفحات العدد."

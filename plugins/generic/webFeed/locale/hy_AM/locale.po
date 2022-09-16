@@ -37,9 +37,6 @@ msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Ցուցադրել վեբ հոսքերի հղումները միայն գլխավոր էջում և թողարկման էջերում:"
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Կարգավորումներ"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

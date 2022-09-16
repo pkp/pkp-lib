@@ -38,9 +38,6 @@ msgstr ""
 "Mostrar os enlaces ás canles de información só na páxina inicial e nas "
 "páxinas do número."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Configuracións"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

@@ -18,9 +18,6 @@ msgstr "Plugin för webbflöde"
 msgid "plugins.generic.webfeed.description"
 msgstr "Det här pluginet lägger till RSS/Atom-syndikeringsflöden för senaste nummer."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Inställningar"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Visa länkar till RSS/Atom-flöden enbart på förstasidan och nummersidor."

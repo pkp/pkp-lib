@@ -34,9 +34,6 @@ msgstr "Paparkan pautan suapan web di semua halaman jurnal."
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Paparkan pautan suapan web di laman utama dan halaman isu sahaja."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Tetapan"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Plugin ini menghasilkan suapan sindikasi web RSS/Atom untuk isu semasa."

@@ -22,9 +22,6 @@ msgstr "Модуль веб-стрічок"
 msgid "plugins.generic.webfeed.description"
 msgstr "Створює стрічку веб-синдикації у форматах RSS/Atom для поточного випуску."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Налаштування"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Відображати посилання на стрічки лише на домашній сторінці сайту журналу та на сторінках випуску."

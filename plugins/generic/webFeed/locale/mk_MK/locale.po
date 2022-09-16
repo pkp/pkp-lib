@@ -37,9 +37,6 @@ msgstr ""
 "Прикажи ги линковите до веб каналите само на главната и на страницата на "
 "изданието."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Поставки"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

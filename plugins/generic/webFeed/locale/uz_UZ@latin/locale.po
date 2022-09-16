@@ -36,9 +36,6 @@ msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "Veb -tasma havolalarini faqat bosh sahifada va nashr sahifalarida ko'rsatish."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Sozlamalar"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Ushbu plagin joriy muammo uchun RSS/Atom veb -sindikatsiyasini beradi."

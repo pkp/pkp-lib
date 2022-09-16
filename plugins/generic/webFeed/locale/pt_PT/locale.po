@@ -21,9 +21,6 @@ msgstr "Plugin Canal de Divulgação RSS"
 msgid "plugins.generic.webfeed.description"
 msgstr "Este plugin produz canais de divulgação RSS/Atom para a edição atual."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Configurações"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Exibir canais em todas as páginas da revista."

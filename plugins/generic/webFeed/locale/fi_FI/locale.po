@@ -18,9 +18,6 @@ msgstr "Verkkosyötelisäosa"
 msgid "plugins.generic.webfeed.description"
 msgstr "Tämä lisäosa tuottaa RSS/Atom-verkkosisältösyötteitä uusimmalle numerolle."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Asetukset"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Näytä verkkosyötelinkit vain etusivulla ja numeroiden sivuilla."

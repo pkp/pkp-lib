@@ -21,9 +21,6 @@ msgstr "Web-Feed-Plugin"
 msgid "plugins.generic.webfeed.description"
 msgstr "Dieses Plugin erzeugt RSS/Atom-Feeds für die aktuelle Ausgabe."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Einstellungen"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Web-Feed-Links nur auf der Hauptseite und den Ausgaben-Seiten anzeigen."

@@ -21,9 +21,6 @@ msgstr "网络Feed插件"
 msgid "plugins.generic.webfeed.description"
 msgstr "这个插件为当前的刊期生成的RSS / Atom的网络联合供稿。"
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "设置"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "只在首页和刊期页面显示Feed链接。"

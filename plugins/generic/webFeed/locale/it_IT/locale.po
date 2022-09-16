@@ -21,9 +21,6 @@ msgstr "Feed della rivista"
 msgid "plugins.generic.webfeed.description"
 msgstr "Questo plugin genera il feed RSS/Atom per il fascicolo corrente."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Impostazioni"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Mostra il link ai feed sulla home page e sulle pagine dei fascicoli."

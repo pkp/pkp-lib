@@ -36,9 +36,6 @@ msgstr ""
 "Afficher les liens du flux sur la page d'accueil et sur les pages du numéro "
 "uniquement."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Paramètres"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

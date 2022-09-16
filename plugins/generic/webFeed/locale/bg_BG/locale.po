@@ -38,9 +38,6 @@ msgstr ""
 "Показва връзки към емисията на началната страница и на страниците на броя на "
 "списанието."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Настройки"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Този плъгин произвежда RSS/Atom уеб синдикална емисия за текущия брой."

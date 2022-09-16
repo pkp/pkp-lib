@@ -18,9 +18,6 @@ msgstr "Dodatak za feed"
 msgid "plugins.generic.webfeed.description"
 msgstr "Ovaj dodatak stvara RSS/Atom <i>feed</i> sadržaja trenutnog broja."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Postavke"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Prikazuj poveznice na <i>feed</i> na svim stranicama časopisa."

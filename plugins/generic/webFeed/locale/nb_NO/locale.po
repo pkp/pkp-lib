@@ -24,9 +24,6 @@ msgstr ""
 "Denne programutvidelsen skaper en RSS/Atom-strøm for siste utgave av "
 "tidsskriftet."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Innstillinger"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Vis webstrømlenker både på hjemmesiden og på utgavesidene."

@@ -18,9 +18,6 @@ msgstr "Web elikatzeko iturriaren plugina"
 msgid "plugins.generic.webfeed.description"
 msgstr "Plugin honek RSS/Atom web sindikazioko iturria sortzen du uneko zenbakirako."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Ezarpenak"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Hasierak orrian eta zenbakiaren orrialdeetan bakarrik bistaratu estekak."

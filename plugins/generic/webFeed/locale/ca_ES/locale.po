@@ -21,9 +21,6 @@ msgstr "Connector de canals d'informació"
 msgid "plugins.generic.webfeed.description"
 msgstr "Aquest connector crea canals d'informació RSS/Atom per al número actual."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Configuració"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Mostra els enlla殳 als canals d'informaciﭯm豠a la p�na inicial i a les p�nes del n�."

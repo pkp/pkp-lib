@@ -24,9 +24,6 @@ msgstr ""
 "Ce plugiciel produit des fils de nouvelles en format Atom/RSS pour le numéro "
 "courant."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Paramètres"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Afficher les liens du fil sur toutes les pages de la revue."

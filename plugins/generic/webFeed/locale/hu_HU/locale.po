@@ -18,9 +18,6 @@ msgstr "Webes Hírfolyam Plugin"
 msgid "plugins.generic.webfeed.description"
 msgstr "Ez a plugin RSS/Atom web hírfolyamot hoz létre a legfrissebb számhoz."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Beállítások"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Webes hírfolyam linkek megjelenítése a honlapon és a a folyóiratszám oldalain."

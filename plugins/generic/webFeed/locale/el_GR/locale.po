@@ -37,9 +37,6 @@ msgstr ""
 "Εμφάνιση συνδέσμων ροών ιστού μόνο στην αρχική σελίδα και τις σελίδες "
 "τεύχους."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Ρυθμίσεις"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

@@ -18,9 +18,6 @@ msgstr "Модуль «Новостная лента выпуска»"
 msgid "plugins.generic.webfeed.description"
 msgstr "Создает ленту в форматах RSS/Atom, содержащую текущий выпуск журнала."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Настройки"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Показать ссылки на ленту только на главной странице и на страницах выпуска."

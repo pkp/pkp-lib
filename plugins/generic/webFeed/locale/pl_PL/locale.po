@@ -22,9 +22,6 @@ msgstr "Wtyczka RSS/Atom"
 msgid "plugins.generic.webfeed.description"
 msgstr "Wtyczka generuje kanały RSS/Atom."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Ustawienia"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Wyświetlaj łącza kanałów na stronie głównej oraz na stronie numerów."

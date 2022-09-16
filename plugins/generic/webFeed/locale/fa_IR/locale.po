@@ -18,9 +18,6 @@ msgstr "افزونه بازخوراند وب"
 msgid "plugins.generic.webfeed.description"
 msgstr "این افزونه بازخوراند وب برای شماره جاری تولید میکند."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "تنظیمات"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "لینک فید وب را فقط در صفحاتی که شماره مجله در آن نمایش مییابد نشان بده"

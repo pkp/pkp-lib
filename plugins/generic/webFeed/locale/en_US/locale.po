@@ -17,9 +17,6 @@ msgstr "Web Feed Plugin"
 msgid "plugins.generic.webfeed.description"
 msgstr "This plugin produces RSS/Atom web syndication feeds."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Settings"
-
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Display web feed links on homepage only."
 

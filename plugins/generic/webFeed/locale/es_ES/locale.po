@@ -21,9 +21,6 @@ msgstr "Módulo para fuentes RSS/Atom"
 msgid "plugins.generic.webfeed.description"
 msgstr "Este módulo produce canales RSS/Atom del número en curso."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Opciones"
-
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Número de elementos que mostrar"
 

@@ -35,9 +35,6 @@ msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""
 "لینکی سەرچاوەی پێگە لە لاپەڕەی سەرەکی و ئەو پەڕانەی کێشەیان هەیە پیشان بدە."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "ڕێکخستنەکان"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr ""

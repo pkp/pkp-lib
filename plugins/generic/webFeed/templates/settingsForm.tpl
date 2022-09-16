@@ -20,9 +20,6 @@
 
 		<div id="description">{translate key="plugins.generic.webfeed.description"}</div>
 
-		<h3>{translate key="plugins.generic.webfeed.settings"}</h3>
-
-
 		{csrf}
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="webFeedSettingsFormNotification"}
 

@@ -21,9 +21,6 @@ msgstr ""
 "Tha am plugan seo a’ gintinn inbhirean siondacaideadh-lìn RSS/Atom airson na "
 "h-irise làithreach."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Roghainnean"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr ""

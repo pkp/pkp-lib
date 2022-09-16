@@ -21,9 +21,6 @@ msgstr "Web Feed Plugin"
 msgid "plugins.generic.webfeed.description"
 msgstr "Deze plugin produceert RSS/Atom feeds voor het huidige nummer."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Instellingen"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Toon web feeds alleen op de startpagina en de pagina's van het nummer."

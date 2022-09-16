@@ -21,9 +21,6 @@ msgstr "Plugin Web Feed"
 msgid "plugins.generic.webfeed.description"
 msgstr "Tento plugin vytváří RSS/Atom web syndication feedy pro aktuální číslo."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Nastavení"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Zobrazit odkazy na feed pouze na domácí stránce a na stránkách čísla."

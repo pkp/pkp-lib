@@ -34,9 +34,6 @@ msgstr "Zobraziť odkazy na feed na všetkých stránkach časopisu."
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Zobraziť odkazy na feed iba na domácej stránke a na stránkach čísla."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Nastavenie"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Tento plugin vytvára RSS/Atom web syndication feedy pre aktuálne číslo."

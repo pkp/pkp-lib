@@ -23,8 +23,12 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
+use PKP\controllers\grid\users\reviewer\form\EmailReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\ReviewerGossipForm;
 use PKP\controllers\grid\users\reviewer\form\ReviewReminderForm;
+use PKP\controllers\grid\users\reviewer\form\ThankReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\UnassignReviewerForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -409,7 +413,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function editReview($args, $request)
     {
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new \EditReviewForm($reviewAssignment, $this->getSubmission());
+        $editReviewForm = new EditReviewForm($reviewAssignment, $this->getSubmission());
         $editReviewForm->initData();
         return new JSONMessage(true, $editReviewForm->fetch($request));
     }
@@ -425,7 +429,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function updateReview($args, $request)
     {
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new \EditReviewForm($reviewAssignment, $this->getSubmission());
+        $editReviewForm = new EditReviewForm($reviewAssignment, $this->getSubmission());
         $editReviewForm->readInputData();
         if ($editReviewForm->validate()) {
             $editReviewForm->execute();
@@ -708,7 +712,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Initialize form.
-        $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
+        $thankReviewerForm = new ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->initData();
 
         // Render form.
@@ -787,7 +791,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Form handling
-        $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
+        $thankReviewerForm = new ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->readInputData();
         if ($thankReviewerForm->validate()) {
             $thankReviewerForm->execute();
@@ -866,7 +870,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
         // Form handling.
-        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment, $submission);
+        $emailReviewerForm = new EmailReviewerForm($reviewAssignment, $submission);
         if (!$request->isPost()) {
             $emailReviewerForm->initData();
             return new JSONMessage(
@@ -934,7 +938,7 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         $requestArgs = array_merge($this->getRequestArgs(), ['reviewAssignmentId' => $reviewAssignment->getId()]);
-        $reviewerGossipForm = new \ReviewerGossipForm($user, $requestArgs);
+        $reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
 
         // View form
         if (!$request->isPost()) {

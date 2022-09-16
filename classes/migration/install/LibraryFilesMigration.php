@@ -26,7 +26,11 @@ class LibraryFilesMigration extends \PKP\migration\Migration
         // Library files for a context
         Schema::create('library_files', function (Blueprint $table) {
             $table->bigInteger('file_id')->autoIncrement();
+
             $table->bigInteger('context_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id', 'library_files_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+
             $table->string('file_name', 255);
             $table->string('original_file_name', 255);
             $table->string('file_type', 255);
@@ -34,20 +38,23 @@ class LibraryFilesMigration extends \PKP\migration\Migration
             $table->smallInteger('type');
             $table->datetime('date_uploaded');
             $table->datetime('date_modified');
+
             $table->bigInteger('submission_id');
+            $table->foreign('submission_id', 'library_files_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+
             $table->smallInteger('public_access')->default(0)->nullable();
-            $table->index(['context_id'], 'library_files_context_id');
-            $table->index(['submission_id'], 'library_files_submission_id');
         });
 
         // Library file metadata.
         Schema::create('library_file_settings', function (Blueprint $table) {
             $table->bigInteger('file_id');
+            $table->foreign('file_id', 'library_file_settings_id')->references('file_id')->on('library_files')->onDelete('cascade');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object|date)');
-            $table->index(['file_id'], 'library_file_settings_id');
+
             $table->unique(['file_id', 'locale', 'setting_name'], 'library_file_settings_pkey');
         });
     }

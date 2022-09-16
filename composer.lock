@@ -4841,16 +4841,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v4.1.1",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "71036be8be02bf93735c47b0b745f722efbc729f"
+                "reference": "ffa2b81a8e354a49fd8a2f24742dc9dc399e8007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/71036be8be02bf93735c47b0b745f722efbc729f",
-                "reference": "71036be8be02bf93735c47b0b745f722efbc729f",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/ffa2b81a8e354a49fd8a2f24742dc9dc399e8007",
+                "reference": "ffa2b81a8e354a49fd8a2f24742dc9dc399e8007",
                 "shasum": ""
             },
             "require": {
@@ -4901,9 +4901,9 @@
             "support": {
                 "forum": "https://github.com/smarty-php/smarty/discussions",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v4.1.1"
+                "source": "https://github.com/smarty-php/smarty/tree/v4.2.1"
             },
-            "time": "2022-05-17T12:56:28+00:00"
+            "time": "2022-09-14T10:59:01+00:00"
         },
         {
             "name": "sokil/php-isocodes",
@@ -11051,5 +11051,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

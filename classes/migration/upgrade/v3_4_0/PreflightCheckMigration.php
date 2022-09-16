@@ -165,6 +165,24 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned email_templates_settings for missing email_id ${emailId}");
                 DB::table('email_templates_settings')->where('email_id', '=', $emailId)->delete();
             }
+            // Clean orphaned library_files entries by context_id
+            $orphanedIds = DB::table('library_files AS lf')->leftJoin($this->getContextTable() . ' AS c', 'lf.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('lf.context_id');
+            foreach ($orphanedIds as $contextId) {
+                $this->_installer->log("Removing orphaned library_files for missing context_id ${contextId}");
+                DB::table('library_files')->where('context_id', '=', $contextId)->delete();
+            }
+            // Clean orphaned library_files entries by submission_id
+            $orphanedIds = DB::table('library_files AS lf')->leftJoin('submissions AS s', 's.submission_id', '=', 'lf.submission_id')->whereNull('s.submission_id')->distinct()->pluck('lf.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                $this->_installer->log("Removing orphaned library_files for missing submission_id ${submissionId}");
+                DB::table('library_files')->where('submission_id', '=', $submissionId)->delete();
+            }
+            // Clean orphaned library_file_setting entries
+            $orphanedIds = DB::table('library_file_settings AS lfs')->leftJoin('library_files AS lf', 'lfs.file_id', '=', 'lf.file_id')->whereNull('lf.file_id')->distinct()->pluck('lfs.file_id');
+            foreach ($orphanedIds as $fileId) {
+                $this->_installer->log("Removing orphaned settings for missing library_file ${fileId}");
+                DB::table('library_file_settings')->where('file_id', '=', $fileId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

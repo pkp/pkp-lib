@@ -183,6 +183,26 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned settings for missing library_file ${fileId}");
                 DB::table('library_file_settings')->where('file_id', '=', $fileId)->delete();
             }
+            // Clean orphaned event_log entries by user_id
+            $orphanedIds = DB::table('event_log AS el')->leftJoin('users AS u', 'el.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('el.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('event_log')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphaned event_log_settings entries
+            $orphanedIds = DB::table('event_log_settings AS els')->leftJoin('event_log AS el', 'els.log_id', '=', 'el.log_id')->whereNull('el.log_id')->distinct()->pluck('els.log_id');
+            foreach ($orphanedIds as $logId) {
+                DB::table('event_log_settings')->where('log_id', '=', $logId)->delete();
+            }
+            // Clean orphaned email_log_users entries by user_id
+            $orphanedIds = DB::table('email_log_users AS elu')->leftJoin('users AS u', 'elu.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('elu.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('email_log_users')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphaned email_log_users entries by email_log_id
+            $orphanedIds = DB::table('email_log_users AS elu')->leftJoin('email_log AS el', 'el.log_id', '=', 'elu.email_log_id')->whereNull('el.log_id')->distinct()->pluck('elu.email_log_id');
+            foreach ($orphanedIds as $logId) {
+                DB::table('email_log_users')->where('email_log_id', '=', $logId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

@@ -112,6 +112,16 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('library_file_settings', function (Blueprint $table) {
             $table->foreign('file_id')->references('file_id')->on('library_files')->onDelete('cascade');
         });
+        Schema::table('event_log', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('event_log_settings', function (Blueprint $table) {
+            $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
+        });
+        Schema::table('email_log_users', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('email_log_id')->references('log_id')->on('email_log')->onDelete('cascade');
+        });
     }
 
     /**

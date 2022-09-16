@@ -29,7 +29,10 @@ class LogMigration extends \PKP\migration\Migration
             $table->bigInteger('log_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
+
             $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->datetime('date_logged');
             $table->bigInteger('event_type')->nullable();
             $table->text('message')->nullable();
@@ -40,10 +43,11 @@ class LogMigration extends \PKP\migration\Migration
         // Event log associative data
         Schema::create('event_log_settings', function (Blueprint $table) {
             $table->bigInteger('log_id');
+            $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
+
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-            $table->index(['log_id'], 'event_log_settings_log_id');
             $table->unique(['log_id', 'setting_name'], 'event_log_settings_pkey');
         });
 
@@ -75,7 +79,11 @@ class LogMigration extends \PKP\migration\Migration
         // Associations for email logs within a user.
         Schema::create('email_log_users', function (Blueprint $table) {
             $table->bigInteger('email_log_id');
+            $table->foreign('email_log_id')->references('log_id')->on('email_log')->onDelete('cascade');
+
             $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->unique(['email_log_id', 'user_id'], 'email_log_user_id');
         });
     }

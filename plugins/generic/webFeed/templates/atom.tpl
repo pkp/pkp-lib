@@ -44,16 +44,17 @@
 	<subtitle type="html">{$description|strip|escape:"html"}</subtitle>
 
 	{foreach from=$submissions item=item}
-		{assign var="submission" value=$item.submission}
+		{assign var=submission value=$item.submission}
+		{assign var=publication value=$submission->getCurrentPublication()}
 		<entry>
 			{* required elements *}
-			<id>{url page="article" op="view" path=$submission->getBestId()}</id>
-			<title>{$submission->getLocalizedTitle()|strip|escape:"html"}</title>
-			<updated>{$submission->getLastModified()|date_format:"%Y-%m-%dT%T%z"|regex_replace:"/00$/":":00"}</updated>
+			<id>{url page="preprint" op="view" path=$submission->getBestId()}</id>
+			<title>{$publication->getLocalizedTitle()|strip|escape:"html"}</title>
+			<updated>{$publication->getData('lastModified')|date_format:"%Y-%m-%dT%T%z"|regex_replace:"/00$/":":00"}</updated>
 
 			{* recommended elements *}
 
-			{foreach from=$submission->getCurrentPublication()->getData('authors') item=author name=authorList}
+			{foreach from=$publication->getData('authors') item=author}
 				<author>
 					<name>{$author->getFullName(false)|strip|escape:"html"}</name>
 					{if $author->getEmail()}
@@ -62,26 +63,34 @@
 				</author>
 			{/foreach}{* authors *}
 
-			<link rel="alternate" href="{url page="article" op="view" path=$submission->getBestId()}" />
+			<link rel="alternate" href="{url page="preprint" op="view" path=$submission->getBestId()}" />
 
-			{if $submission->getLocalizedAbstract()}
-				<summary type="html" xml:base="{url page="article" op="view" path=$submission->getBestId()}">{$submission->getLocalizedAbstract()|strip|escape:"html"}</summary>
+			{if $publication->getLocalizedData('abstract') || $includeIdentifiers}
+				<summary type="html" xml:base="{url page="preprint" op="view" path=$submission->getBestId()}">
+					{if $includeIdentifiers}
+						{foreach from=$item.identifiers item=identifier}
+							{$identifier.label|strip|escape:"html"}: {', '|implode:$identifier.values|strip|escape:"html"}&lt;br /&gt;
+						{/foreach}{* categories *}
+						&lt;br /&gt;
+					{/if}
+					{$publication->getLocalizedData('abstract')|strip|escape:"html"}
+				</summary>
 			{/if}
 
 			{* optional elements *}
 
 			{foreach from=$item.identifiers item=identifier}
-				<category term="{$identifier.value|strip|escape:"html"}" scheme="https://pkp.sfu.ca/ops/category/{$identifier.type|strip|escape:"html"}"/>
+				{foreach from=$identifier.values item=value}
+					<category term="{$value|strip|escape:"html"}" label="{$identifier.label|strip|escape:"html"}" scheme="https://pkp.sfu.ca/ops/category/{$identifier.type|strip|escape:"html"}"/>
+				{/foreach}
 			{/foreach}{* categories *}
 
 			{* <contributor/> *}
 
-			{if $submission->getDatePublished()}
-				<published>{$submission->getDatePublished()|date_format:"%Y-%m-%dT%T%z"|regex_replace:"/00$/":":00"}</published>
-			{/if}
+			<published>{$publication->getData('datePublished')|date_format:"%Y-%m-%dT%T%z"|regex_replace:"/00$/":":00"}</published>
 
 			{* <source/> *}
-			<rights>{translate|escape key="submission.copyrightStatement" copyrightYear=$submission->getCopyrightYear() copyrightHolder=$submission->getLocalizedCopyrightHolder()}</rights>
+			<rights>{translate|escape key="submission.copyrightStatement" copyrightYear=$publication->getData('copyrightYear') copyrightHolder=$publication->getLocalizedData('copyrightHolder')}</rights>
 		</entry>
 	{/foreach}{* articles *}
 </feed>

@@ -45,6 +45,7 @@ class WebFeedSettingsForm extends Form
 
         $this->setData('displayPage', $plugin->getSetting($contextId, 'displayPage'));
         $this->setData('recentItems', $plugin->getSetting($contextId, 'recentItems'));
+        $this->setData('includeIdentifiers', $plugin->getSetting($contextId, 'includeIdentifiers'));
     }
 
     /**
@@ -52,7 +53,7 @@ class WebFeedSettingsForm extends Form
      */
     public function readInputData(): void
     {
-        $this->readUserVars(['displayPage', 'recentItems']);
+        $this->readUserVars(['displayPage', 'recentItems', 'includeIdentifiers']);
 
         // check that recent items value is a positive integer
         if ((int) $this->getData('recentItems') <= 0) {
@@ -85,7 +86,8 @@ class WebFeedSettingsForm extends Form
         $contextId = $this->_contextId;
 
         $plugin->updateSetting($contextId, 'displayPage', $this->getData('displayPage'));
-        $plugin->updateSetting($contextId, 'recentItems', $this->getData('recentItems'));
+        $plugin->updateSetting($contextId, 'recentItems', $this->getData('recentItems'), 'int');
+        $plugin->updateSetting($contextId, 'includeIdentifiers', $this->getData('includeIdentifiers'), 'bool');
 
         parent::execute(...$functionArgs);
     }

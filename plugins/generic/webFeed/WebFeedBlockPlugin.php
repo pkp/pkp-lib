@@ -33,7 +33,7 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
      */
     public function getName(): string
     {
-        return static::class;
+        return substr(static::class, strlen(__NAMESPACE__) + 1);
     }
 
     /**

@@ -19,24 +19,34 @@ use APP\facades\Repo;
 use APP\server\Section;
 use APP\server\SectionDAO;
 use APP\submission\Collector;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\category\Category;
+use PKP\core\Registry;
 use PKP\db\DAORegistry;
-use PKP\site\VersionDAO;
-use PKP\submission\PKPSubmission;
 
 class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 {
+    public const ATOM = 'atom';
+    public const RSS = 'rss';
+    public const RSS2 = 'rss2';
+
+    public const FEED_MIME_TYPE = [
+        self::ATOM => 'application/atom+xml',
+        self::RSS => 'application/rdf+xml',
+        self::RSS2 => 'application/rss+xml'
+    ];
+
     public const DEFAULT_RECENT_ITEMS = 30;
 
     /** Parent plugin */
-    protected WebFeedPlugin $_parentPlugin;
+    protected WebFeedPlugin $parentPlugin;
 
     public function __construct(WebFeedPlugin $parentPlugin)
     {
         parent::__construct();
-        $this->_parentPlugin = $parentPlugin;
+        $this->parentPlugin = $parentPlugin;
     }
 
     /**
@@ -77,7 +87,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
      */
     public function getPluginPath(): string
     {
-        return $this->_parentPlugin->getPluginPath();
+        return $this->parentPlugin->getPluginPath();
     }
 
     /**
@@ -89,7 +99,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
      */
     public function getEnabled($contextId = null): bool
     {
-        return $this->_parentPlugin->getEnabled($contextId);
+        return $this->parentPlugin->getEnabled($contextId);
     }
 
     /**
@@ -101,88 +111,90 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
     public function fetch($args, $request): bool
     {
         $server = $request->getServer();
-        if (!$server) {
-            return false;
-        }
-
-        if (!$this->_parentPlugin->getEnabled($server->getId())) {
+        if (!$server || !$this->parentPlugin->getEnabled($server->getId())) {
             return false;
         }
 
         // Make sure the feed type is specified and valid
-        $type = array_shift($args);
-        $templateConfig = match ($type) {
-            'rss' => ['template' => 'rss.tpl', 'mimeType' => 'application/rdf+xml'],
-            'rss2' => ['template' => 'rss2.tpl', 'mimeType' => 'application/rss+xml'],
-            'atom' => ['template' => 'atom.tpl', 'mimeType' => 'application/atom+xml'],
-            default => throw new Exception('Invalid feed format')
-        };
+        $feedType = array_shift($args);
+        if (!in_array($feedType, array_keys(static::FEED_MIME_TYPE))) {
+            throw new Exception('Invalid feed format');
+        }
 
         // Get limit setting from web feeds plugin
-        $recentItems = (int) $this->_parentPlugin->getSetting($server->getId(), 'recentItems');
+        $recentItems = (int) $this->parentPlugin->getSetting($server->getId(), 'recentItems');
         if ($recentItems < 1) {
-            $recentItems = self::DEFAULT_RECENT_ITEMS;
+            $recentItems = static::DEFAULT_RECENT_ITEMS;
+        }
+        $includeIdentifiers = (bool) $this->parentPlugin->getSetting($server->getId(), 'includeIdentifiers');
+
+        $submissions = Repo::submission()->getCollector()
+            ->filterByContextIds([$server->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->limit($recentItems)
+            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_DESC)
+            ->getMany();
+
+        $latestDate = $submissions->first()?->getData('lastModified');
+        $submissions = $submissions->map(fn (Submission $submission) => ['submission' => $submission, 'identifiers' => $this->_getIdentifiers($submission)]);
+        $userGroups = Repo::userGroup()->getCollector()->filterByContextIds([$server->getId()])->getMany();
+        TemplateManager::getManager($request)
+            ->assign(
+                [
+                    'systemVersion' => Registry::get('appVersion'),
+                    'submissions' => $submissions,
+                    'server' => $server,
+                    'latestDate' => $latestDate,
+                    'feedUrl' => $request->getRequestUrl(),
+                    'userGroups' => $userGroups,
+                    'includeIdentifiers' => $includeIdentifiers
+                ]
+            )
+            ->display($this->parentPlugin->getTemplateResource("{$feedType}.tpl"), static::FEED_MIME_TYPE[$feedType]);
+
+        return true;
+    }
+
+    /**
+     * Retrieves the identifiers assigned to a submission
+     */
+    private function _getIdentifiers(Submission $submission): array
+    {
+        $identifiers = [];
+        if ($section = $this->_getSection($submission->getSectionId())) {
+            $identifiers[] = ['type' => 'section', 'label' => __('section.section'), 'values' => [$section->getLocalizedTitle()]];
         }
 
+        $publication = $submission->getCurrentPublication();
+        $categories = Repo::category()->getCollector()
+            ->filterByPublicationIds([$publication->getId()])
+            ->getMany()
+            ->map(fn (Category $category) => $category->getLocalizedTitle())
+            ->toArray();
+        if (count($categories)) {
+            $identifiers[] = ['type' => 'category', 'label' => __('category.category'), 'values' => $categories];
+        }
+
+        foreach (['keywords' => 'common.keywords', 'subjects' => 'common.subjects', 'disciplines' => 'search.discipline'] as $field => $label) {
+            $values = $publication->getLocalizedData($field) ?? [];
+            if (count($values)) {
+                $identifiers[] = ['type' => $field, 'label' => __($label), 'values' => $values];
+            }
+        }
+
+        return $identifiers;
+    }
+
+    /**
+     * Retrieves a section
+     */
+    private function _getSection(?int $sectionId): Section
+    {
+        static $sections = [];
         /** @var SectionDAO */
         $sectionDao = DAORegistry::getDAO('SectionDAO');
-        $submissionsIterator = Repo::submission()->getCollector()
-            ->filterByContextIds([$server->getId()])
-            ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
-            ->limit($recentItems)
-            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED)
-            ->getMany();
-        $sections = [];
-        $submissions = [];
-        $latestDate = null;
-        /** @var PKPSubmission */
-        foreach ($submissionsIterator as $submission) {
-            $latestDate = $latestDate ?? $submission->getData('lastModified');
-            $identifiers = [];
-            /** @var ?Section */
-            $section = ($sectionId = $submission->getSectionId())
-                ? $sections[$sectionId] ?? $sections[$sectionId] = $sectionDao->getById($sectionId)
-                : null;
-            if ($section) {
-                $identifiers[] = ['type' => 'section', 'value' => $section->getLocalizedTitle()];
-            }
-
-            $publication = $submission->getCurrentPublication();
-            $categoriesIterator = Repo::category()->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->getMany();
-            /** @var Category */
-            foreach ($categoriesIterator as $category) {
-                $identifiers[] = ['type' => 'category', 'value' => $category->getLocalizedTitle()];
-            }
-
-            foreach (['keywords', 'subjects', 'disciplines'] as $type) {
-                $values = $publication->getLocalizedData($type) ?? [];
-                foreach ($values as $value) {
-                    $identifiers[] = ['type' => $type, 'value' => $value];
-                }
-            }
-
-            $submissions[] = [
-                'submission' => $submission,
-                'identifiers' => $identifiers
-            ];
-        }
-
-        /** @var VersionDAO */
-        $versionDao = DAORegistry::getDAO('VersionDAO');
-        $version = $versionDao->getCurrentVersion();
-
-        $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign([
-            'systemVersion' => $version->getVersionString(),
-            'submissions' => $submissions,
-            'server' => $server,
-            'latestDate' => $latestDate,
-            'feedUrl' => $request->getRequestUrl()
-        ]);
-
-        $templateMgr->display($this->_parentPlugin->getTemplateResource($templateConfig['template']), $templateConfig['mimeType']);
-        return true;
+        return $sectionId
+            ? $sections[$sectionId] ??= $sectionDao->getById($sectionId)
+            : null;
     }
 }

@@ -16,25 +16,27 @@
 </script>
 
 <form class="pkp_form" id="webFeedSettingsForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}">
-	<div id="webFeedSettings">
+	{csrf}
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="webFeedSettingsFormNotification"}
 
-		<div id="description">{translate key="plugins.generic.webfeed.description"}</div>
+	<div id="description">{translate key="plugins.generic.webfeed.description"}</div>
 
-		{csrf}
-		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="webFeedSettingsFormNotification"}
+	{fbvFormArea id="webFeedSettingsFormArea"}
+		{fbvFormSection list=true}
+			{fbvElement type="radio" id="displayPage-all" name="displayPage" value="all" checked=$displayPage|compare:"all" label="plugins.generic.webfeed.settings.all"}
+			{fbvElement type="radio" id="displayPage-homepage" name="displayPage" value="homepage" checked=$displayPage|compare:"homepage" label="plugins.generic.webfeed.settings.homepage"}
+		{/fbvFormSection}
 
-		{fbvFormArea id="webFeedSettingsFormArea"}
-			{fbvFormSection list=true}
-				{fbvElement type="radio" id="displayPage-all" name="displayPage" value="all" checked=$displayPage|compare:"all" label="plugins.generic.webfeed.settings.all"}
-				{fbvElement type="radio" id="displayPage-homepage" name="displayPage" value="homepage" checked=$displayPage|compare:"homepage" label="plugins.generic.webfeed.settings.homepage"}
-			{/fbvFormSection}
+		{fbvFormSection list=true}
+			{fbvElement type="text" id="recentItems" value=$recentItems label="plugins.generic.webfeed.settings.recentArticles" size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
 
-			{fbvFormSection list=true}
-				{fbvElement type="text" id="recentItems" value=$recentItems label="plugins.generic.webfeed.settings.recentArticles" size=$fbvStyles.size.SMALL}
-			{/fbvFormSection}
-		{/fbvFormArea}
+		{fbvFormSection list=true}
+			{fbvElement type="checkbox" id="includeIdentifiers" name="includeIdentifiers" value="1" checked=$includeIdentifiers label="plugins.generic.webfeed.settings.includeIdentifiers"}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-		{fbvFormButtons}
-		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-	</div>
+	{fbvFormButtons}
+
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

@@ -24,32 +24,6 @@ class OPSMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // Servers and basic server settings.
-        Schema::create('servers', function (Blueprint $table) {
-            $table->bigInteger('server_id')->autoIncrement();
-            $table->string('path', 32);
-            $table->float('seq', 8, 2)->default(0)->comment('Used to order lists of servers');
-            $table->string('primary_locale', 14);
-            $table->tinyInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)');
-            $table->unique(['path'], 'servers_path');
-        });
-
-        // Server settings.
-        Schema::create('server_settings', function (Blueprint $table) {
-            $table->bigInteger('server_id');
-            $table->string('locale', 14)->default('');
-            $table->string('setting_name', 255);
-            $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6)->nullable();
-            $table->index(['server_id'], 'server_settings_server_id');
-            $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');
-        });
-
-        // DOI foreign key references Server, so it needs to be added AFTER the servers table has been created
-        Schema::table('dois', function (Blueprint $table) {
-            $table->foreign('context_id')->references('server_id')->on('servers');
-        });
-
         // Server sections.
         Schema::create('sections', function (Blueprint $table) {
             $table->bigInteger('section_id')->autoIncrement();
@@ -139,8 +113,6 @@ class OPSMigration extends \PKP\migration\Migration
     public function down(): void
     {
         Schema::drop('completed_payments');
-        Schema::drop('servers');
-        Schema::drop('server_settings');
         Schema::drop('sections');
         Schema::drop('section_settings');
         Schema::drop('publications');

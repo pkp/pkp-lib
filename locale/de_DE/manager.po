@@ -2155,7 +2155,7 @@ msgid "manager.statistics.reports.customReportGenerator"
 msgstr "Benutzerdefinierte Berichterstellung"
 
 msgid "manager.people.signedInAs"
-msgstr "Sie sind derzeit als {$Benutzername} angemeldet"
+msgstr "Sie sind derzeit als {$username} angemeldet"
 
 msgid "manager.export.usersToCsv.description"
 msgstr ""

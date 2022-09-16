@@ -137,6 +137,9 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('temporary_files', function (Blueprint $table) {
             $table->foreign('user_id', 'temporary_files_user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
+        Schema::table('notes', function (Blueprint $table) {
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

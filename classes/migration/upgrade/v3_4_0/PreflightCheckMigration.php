@@ -229,6 +229,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $userId) {
                 DB::table('temporary_files')->where('user_id', '=', $userId)->delete();
             }
+            // Clean orphaned notes entries by user_id
+            $orphanedIds = DB::table('notes AS n')->leftJoin('users AS u', 'n.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('n.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('notes')->where('user_id', '=', $userId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

@@ -27,7 +27,10 @@ class NotesMigration extends \PKP\migration\Migration
             $table->bigInteger('note_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
+
             $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->datetime('date_created');
             $table->datetime('date_modified')->nullable();
             $table->string('title', 255)->nullable();

@@ -79,6 +79,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
         $submissionCommentPrivate = $submissionCommentsPrivate->next();
         $this->setData('commentsPrivate', $submissionCommentPrivate ? $submissionCommentPrivate->getComments() : '');
+
+	parent::initData();
     }
 
     //

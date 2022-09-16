@@ -203,6 +203,32 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $logId) {
                 DB::table('email_log_users')->where('email_log_id', '=', $logId)->delete();
             }
+            // Clean orphaned citations entries by publication_id
+            $orphanedIds = DB::table('citations AS c')->leftJoin('publications AS p', 'c.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('c.publication_id');
+            foreach ($orphanedIds as $publicationId) {
+                DB::table('citations')->where('publication_id', '=', $publicationId)->delete();
+            }
+            // Clean orphaned citation_settings entries
+            $orphanedIds = DB::table('citation_settings AS cs')->leftJoin('citations AS c', 'cs.citation_id', '=', 'c.citation_id')->whereNull('c.citation_id')->distinct()->pluck('cs.citation_id');
+            foreach ($orphanedIds as $citationId) {
+                DB::table('citation_settings')->where('citation_id', '=', $citationId)->delete();
+            }
+            // Clean orphaned filters entries by filter_group_id
+            $orphanedIds = DB::table('filters AS f')->leftJoin('filter_groups AS fg', 'f.filter_group_id', '=', 'fg.filter_group_id')->whereNull('fg.filter_group_id')->distinct()->pluck('f.filter_group_id');
+            foreach ($orphanedIds as $filterGroupId) {
+                $this->_installer->log("Removing orphaned filters for missing filter_group ${filterGroupId}");
+                DB::table('filters')->where('filter_group_id', '=', $filterGroupId)->delete();
+            }
+            // Clean orphaned filter_settings entries
+            $orphanedIds = DB::table('filter_settings AS fs')->leftJoin('filters AS f', 'fs.filter_id', '=', 'f.filter_id')->whereNull('f.filter_id')->distinct()->pluck('fs.filter_id');
+            foreach ($orphanedIds as $filterId) {
+                DB::table('filter_settings')->where('filter_id', '=', $filterId)->delete();
+            }
+            // Clean orphaned temporary_files entries by user_id
+            $orphanedIds = DB::table('temporary_files AS tf')->leftJoin('users AS u', 'tf.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('tf.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('temporary_files')->where('user_id', '=', $userId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

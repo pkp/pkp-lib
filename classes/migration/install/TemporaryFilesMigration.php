@@ -26,13 +26,15 @@ class TemporaryFilesMigration extends \PKP\migration\Migration
         // Temporary file storage
         Schema::create('temporary_files', function (Blueprint $table) {
             $table->bigInteger('file_id')->autoIncrement();
+
+            $table->foreign('user_id', 'temporary_files_user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->bigInteger('user_id');
+
             $table->string('file_name', 90);
             $table->string('file_type', 255)->nullable();
             $table->bigInteger('file_size');
             $table->string('original_file_name', 127)->nullable();
             $table->datetime('date_uploaded');
-            $table->index(['user_id'], 'temporary_files_user_id');
         });
     }
 

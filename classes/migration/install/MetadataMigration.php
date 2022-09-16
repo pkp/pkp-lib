@@ -26,21 +26,24 @@ class MetadataMigration extends \PKP\migration\Migration
         // Citations
         Schema::create('citations', function (Blueprint $table) {
             $table->bigInteger('citation_id')->autoIncrement();
-            $table->bigInteger('publication_id')->default(0);
+
+            $table->bigInteger('publication_id');
+            $table->foreign('publication_id', 'citations_publication')->references('publication_id')->on('publications')->onDelete('cascade');
+
             $table->text('raw_citation');
             $table->bigInteger('seq')->default(0);
-            $table->index(['publication_id'], 'citations_publication');
             $table->unique(['publication_id', 'seq'], 'citations_publication_seq');
         });
 
         // Citation settings
         Schema::create('citation_settings', function (Blueprint $table) {
             $table->bigInteger('citation_id');
+            $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
-            $table->index(['citation_id'], 'citation_settings_citation_id');
             $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_pkey');
         });
 
@@ -58,7 +61,10 @@ class MetadataMigration extends \PKP\migration\Migration
         // Configured filter instances (transformations)
         Schema::create('filters', function (Blueprint $table) {
             $table->bigInteger('filter_id')->autoIncrement();
+
             $table->bigInteger('filter_group_id')->default(0);
+            $table->foreign('filter_group_id')->references('filter_group_id')->on('filter_groups')->onDelete('cascade');
+
             $table->bigInteger('context_id')->default(0);
             $table->string('display_name', 255)->nullable();
             $table->string('class_name', 255)->nullable();
@@ -70,11 +76,12 @@ class MetadataMigration extends \PKP\migration\Migration
         // Filter Settings
         Schema::create('filter_settings', function (Blueprint $table) {
             $table->bigInteger('filter_id');
+            $table->foreign('filter_id', 'filter_settings_id')->references('filter_id')->on('filters')->onDelete('cascade');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
-            $table->index(['filter_id'], 'filter_settings_id');
             $table->unique(['filter_id', 'locale', 'setting_name'], 'filter_settings_pkey');
         });
     }

@@ -122,6 +122,21 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->foreign('email_log_id')->references('log_id')->on('email_log')->onDelete('cascade');
         });
+        Schema::table('citations', function (Blueprint $table) {
+            $table->foreign('publication_id', 'citations_publication')->references('publication_id')->on('publications')->onDelete('cascade');
+        });
+        Schema::table('citation_settings', function (Blueprint $table) {
+            $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
+        });
+        Schema::table('filters', function (Blueprint $table) {
+            $table->foreign('filter_group_id')->references('filter_group_id')->on('filter_groups')->onDelete('cascade');
+        });
+        Schema::table('filter_settings', function (Blueprint $table) {
+            $table->foreign('filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
+        });
+        Schema::table('temporary_files', function (Blueprint $table) {
+            $table->foreign('user_id', 'temporary_files_user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

@@ -23,7 +23,7 @@ msgstr "Aquest connector crea canals d'informació RSS/Atom per al número actua
 
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
-msgstr "Mostra els enlla殳 als canals d'informaciﭯm豠a la p�na inicial i a les p�nes del n�."
+msgstr "Mostra enllaços al feed només a la pàgina d'inici."
 
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.all"

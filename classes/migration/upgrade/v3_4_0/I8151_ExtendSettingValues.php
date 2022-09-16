@@ -79,10 +79,6 @@ class I8151_ExtendSettingValues extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable()->change();
         });
 
-        Schema::table('metadata_description_settings', function (Blueprint $table) {
-            $table->mediumText('setting_value')->nullable()->change();
-        });
-
         Schema::table('filter_settings', function (Blueprint $table) {
             $table->mediumText('setting_value')->nullable()->change();
         });

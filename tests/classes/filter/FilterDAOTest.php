@@ -31,7 +31,7 @@ class FilterDAOTest extends DatabaseTestCase
      */
     protected function getAffectedTables()
     {
-        return ['filters', 'filter_settings', 'filter_groups'];
+        return \PKP\tests\PKPTestHelper::PKP_TEST_ENTIRE_DB;
     }
 
     protected function setUp(): void

@@ -63,7 +63,7 @@ abstract class PKPTestHelper
         $dao = new DAO();
         foreach ($tables as $table) {
             $sqls = [
-                "TRUNCATE TABLE ${table}",
+                "DELETE FROM ${table}",
                 "INSERT INTO ${table} SELECT * FROM backup_${table}",
                 "DROP TABLE backup_${table}"
             ];

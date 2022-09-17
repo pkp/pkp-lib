@@ -140,6 +140,16 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('notes', function (Blueprint $table) {
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
+        Schema::table('navigation_menu_item_settings', function (Blueprint $table) {
+            $table->foreign('navigation_menu_item_id', 'navigation_menu_item_settings_navigation_menu_id')->references('navigation_menu_item_id')->on('navigation_menu_items')->onDelete('cascade');
+        });
+        Schema::table('navigation_menu_item_assignments', function (Blueprint $table) {
+            $table->foreign('navigation_menu_id')->references('navigation_menu_id')->on('navigation_menus')->onDelete('cascade');
+            $table->foreign('navigation_menu_item_id')->references('navigation_menu_item_id')->on('navigation_menu_items')->onDelete('cascade');
+        });
+        Schema::table('navigation_menu_item_assignment_settings', function (Blueprint $table) {
+            $table->foreign('navigation_menu_item_assignment_id', 'assignment_settings_navigation_menu_item_assignment_id')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments')->onDelete('cascade');
+        });
     }
 
     /**

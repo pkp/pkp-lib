@@ -234,6 +234,21 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $userId) {
                 DB::table('notes')->where('user_id', '=', $userId)->delete();
             }
+            // Clean orphaned navigation_menu_item_settings entries
+            $orphanedIds = DB::table('navigation_menu_item_settings AS nmis')->leftJoin('navigation_menu_items AS nmi', 'nmis.navigation_menu_item_id', '=', 'nmi.navigation_menu_item_id')->whereNull('nmi.navigation_menu_item_id')->distinct()->pluck('nmis.navigation_menu_item_id');
+            foreach ($orphanedIds as $navigationMenuItemId) {
+                DB::table('navigation_menu_item_settings')->where('navigation_menu_item_id', '=', $navigationMenuItemId)->delete();
+            }
+            // Clean orphaned navigation_menu_item_assignments by navigation_menu_item_id
+            $orphanedIds = DB::table('navigation_menu_item_assignments AS nmia')->leftJoin('navigation_menu_items AS nmi', 'nmia.navigation_menu_item_id', '=', 'nmi.navigation_menu_item_id')->whereNull('nmi.navigation_menu_item_id')->distinct()->pluck('nmia.navigation_menu_item_id');
+            foreach ($orphanedIds as $navigationMenuItemId) {
+                DB::table('navigation_menu_item_assignments')->where('navigation_menu_item_id', '=', $navigationMenuItemId)->delete();
+            }
+            // Clean orphaned navigation_menu_item_assignments by navigation_menu_id
+            $orphanedIds = DB::table('navigation_menu_item_assignments AS nmia')->leftJoin('navigation_menus AS nm', 'nmia.navigation_menu_id', '=', 'nm.navigation_menu_id')->whereNull('nm.navigation_menu_id')->distinct()->pluck('nmia.navigation_menu_id');
+            foreach ($orphanedIds as $navigationMenuId) {
+                DB::table('navigation_menu_item_assignments')->where('navigation_menu_id', '=', $navigationMenuId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

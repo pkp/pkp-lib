@@ -15,7 +15,6 @@
 namespace PKP\tests;
 
 use Illuminate\Database\MySqlConnection;
-use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAO;
@@ -86,7 +85,7 @@ abstract class PKPTestHelper
 
         $output = $status = null;
         switch (DB::getDefaultConnection()) {
-            case MySqlConnection::class:
+            case 'mysql':
                 exec(
                     $cmd = 'zcat ' .
                     escapeshellarg($filename) .
@@ -105,7 +104,7 @@ abstract class PKPTestHelper
                     $test->fail("Error while restoring database from \"${filename}\" (command: \"${cmd}\").");
                 }
                 break;
-            case PostgresConnection::class:
+            case 'pgsql':
                 // WARNING: Does not send a password.
                 exec(
                     $cmd = 'zcat ' .
@@ -124,6 +123,7 @@ abstract class PKPTestHelper
                     $test->fail("Error while restoring database from \"${filename}\" (command: \"${cmd}\".");
                 }
                 break;
+            default: $test->fail('Unknown database driver ' . DB::getDefaultConnection());
         }
     }
 

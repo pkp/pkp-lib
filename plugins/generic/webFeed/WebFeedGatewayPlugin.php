@@ -25,6 +25,7 @@ use Exception;
 use PKP\category\Category;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
 
 class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 {
@@ -138,6 +139,9 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
         $latestDate = $submissions->first()?->getData('lastModified');
         $submissions = $submissions->map(fn (Submission $submission) => ['submission' => $submission, 'identifiers' => $this->_getIdentifiers($submission)]);
         $userGroups = Repo::userGroup()->getCollector()->filterByContextIds([$server->getId()])->getMany();
+
+        Hook::add('TemplateResource::getFilename', fn () => headers_sent() || header('content-type: ' . static::FEED_MIME_TYPE[$feedType] . '; charset=utf-8'));
+
         TemplateManager::getManager($request)
             ->assign(
                 [
@@ -150,7 +154,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
                     'includeIdentifiers' => $includeIdentifiers
                 ]
             )
-            ->display($this->parentPlugin->getTemplateResource("{$feedType}.tpl"), static::FEED_MIME_TYPE[$feedType]);
+            ->display($this->parentPlugin->getTemplateResource("{$feedType}.tpl"));
 
         return true;
     }

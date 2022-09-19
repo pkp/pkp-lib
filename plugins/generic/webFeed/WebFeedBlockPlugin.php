@@ -15,21 +15,19 @@ namespace APP\plugins\generic\webFeed;
 
 class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
 {
-    /** Parent plugin */
-    protected WebFeedPlugin $_parentPlugin;
+    protected WebFeedPlugin $parentPlugin;
 
     /**
-     * @param $parentPlugin
+     * Constructor
      */
     public function __construct(WebFeedPlugin $parentPlugin)
     {
         parent::__construct();
-        $this->_parentPlugin = $parentPlugin;
+        $this->parentPlugin = $parentPlugin;
     }
 
     /**
-     * Get the name of this plugin. The name must be unique within
-     * its category.
+     * Get the name of this plugin. The name must be unique within its category.
      */
     public function getName(): string
     {
@@ -65,7 +63,7 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
      */
     public function getPluginPath(): string
     {
-        return $this->_parentPlugin->getPluginPath();
+        return $this->parentPlugin->getPluginPath();
     }
 
     /**
@@ -73,6 +71,6 @@ class WebFeedBlockPlugin extends \PKP\plugins\BlockPlugin
      */
     public function getTemplatePath($inCore = false): string
     {
-        return $this->_parentPlugin->getTemplatePath($inCore) . '/templates';
+        return $this->parentPlugin->getTemplatePath($inCore) . '/templates';
     }
 }

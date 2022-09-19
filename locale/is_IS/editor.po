@@ -2,7 +2,7 @@
 # Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-09 14:50+0000\n"
+"PO-Revision-Date: 2022-09-19 14:48+0000\n"
 "Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/is_IS/>\n"
@@ -192,7 +192,7 @@ msgid "editor.review.reviewerRating.none"
 msgstr "Ekkert mat"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Mettu gæði ritrýninnar. Matinu verður ekki deilt með ritrýni."
+msgstr "Leggðu mat á gæði ritrýninnar. Matinu verður ekki deilt með ritrýni."
 
 msgid "editor.review.rateReviewer"
 msgstr "Stigagjöf ritrýnis"

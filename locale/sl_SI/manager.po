@@ -3110,6 +3110,7 @@ msgstr ""
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obvestilo urednikom o recenzentskem priporočilu"
 
+#, fuzzy
 msgid "manager.settings.statistics.keepDaily.description"
 msgstr ""
 "Uporabniške statistike COUNTER in Geo so seštete po mesecih. Po tem se "
@@ -3117,6 +3118,7 @@ msgstr ""
 "ostanejo v bazi podatkov. Zavedajte se, da bo to občutno povečalo velikost "
 "baze podatkov."
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Izberite to opcijo, če bi radi upravljali z institucijami in zbirali njihove "
@@ -3182,22 +3184,29 @@ msgstr ""
 msgid "manager.setup.statistics"
 msgstr "Statistike"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.description"
 msgstr ""
 "Izberite, kaj naj se naredi z arhiviranimi datotekami z dnevniškimi zapisi."
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.default"
 msgstr "Datoteke z dnevniškimi zapisi ostanejo kjer so"
 
+#, fuzzy
 msgid "manager.settings.statistics.compressStatsLogs.compress"
 msgstr "Arhivi naj se stisnejo"
 
+#, fuzzy
 msgid "manager.settings.statistics.keepDaily"
 msgstr "Dnevne metrike"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Ne zbiraj nobenih Geo podatkov"
 
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr ""
 "Omogoči upravljanje z institucijami in zibranje njihovih statistik uporabe"
@@ -3266,30 +3275,29 @@ msgstr "Ste prepričani, da želite nadaljevati in odstraniti to institucijo?"
 msgid "manager.institutions.invalidIPRange"
 msgstr "Neveljaven IP razpon"
 
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Ohrani dnevne metrike v bazi podatkov"
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo statistike uporabe"
 
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Izberite katere geografske statistike uporabe bi radi zbirali. To bo "
-"vplivalo na možnosti statističnik poročil, ki jih lahko dobite, in tudi na "
-"velikost baze podatkov."
-
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Država"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "Država in regija"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Država, regija in mesto"
 
+#, fuzzy
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institucionalne statistike uporabe"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform"
 msgstr "Platforma za COUNTER SUSHI statistike"
 

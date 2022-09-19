@@ -88,10 +88,21 @@ class CommonMigration extends Migration {
 			$table->smallInteger('disabled')->default(0);
 			$table->text('disabled_reason')->nullable();
 			$table->smallInteger('inline_help')->nullable();
-			$table->unique(['username'], 'users_username');
-			$table->unique(['email'], 'users_email');
 		});
-
+		
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql':
+				Capsule::schema()->table('users', function (Blueprint $table) {
+					$table->unique(['username'], 'users_username');
+					$table->unique(['email'], 'users_email');
+				});
+				break;
+			case 'pgsql':
+				Capsule::statement('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
+				Capsule::statement('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
+				break;
+		}
+		
 		// Locale-specific user data
 		Capsule::schema()->create('user_settings', function (Blueprint $table) {
 			$table->bigInteger('user_id');

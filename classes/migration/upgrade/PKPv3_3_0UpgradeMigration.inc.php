@@ -202,6 +202,18 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				->whereNotIn('locale', $locales)
 				->delete();
 		}
+
+		switch (Capsule::connection()->getDriverName()) {
+			case 'pgsql':
+				Capsule::schema()->table('users', function (Blueprint $table) {
+					$table->dropIndex('users_username');
+					$table->dropIndex('users_email');
+				});
+
+				Capsule::statement('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
+				Capsule::statement('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
+				break;
+		}
 	}
 
 	/**

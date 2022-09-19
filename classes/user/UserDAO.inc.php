@@ -58,9 +58,11 @@ class UserDAO extends DAO {
 	 * @return User?
 	 */
 	function getByUsername($username, $allowDisabled = true) {
+		$usernameLower = strtolower($username);
+
 		$result = $this->retrieve(
-			'SELECT * FROM users WHERE username = ?' . ($allowDisabled?'':' AND disabled = 0'),
-			[$username]
+			'SELECT * FROM users WHERE lower(username) = ?' . ($allowDisabled?'':' AND disabled = 0'),
+			[$usernameLower]
 		);
 
 		$row = (array) $result->current();
@@ -105,9 +107,11 @@ class UserDAO extends DAO {
 	 * @return User?
 	 */
 	function getUserByEmail($email, $allowDisabled = true) {
+		$emailLower = strtolower($email);
+
 		$result = $this->retrieve(
-			'SELECT * FROM users WHERE email = ?' . ($allowDisabled?'':' AND disabled = 0'),
-			[$email]
+			'SELECT * FROM users WHERE lower(email) = ?' . ($allowDisabled?'':' AND disabled = 0'),
+			[$emailLower]
 		);
 		$row = $result->current();
 		return $row?$this->_returnUserFromRowWithData((array) $row):null;
@@ -497,9 +501,11 @@ class UserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsByUsername($username, $userId = null, $allowDisabled = true) {
+		$usernameLower = strtolower($username);
+
 		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count FROM users WHERE username = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
-			isset($userId) ? [$username, (int) $userId] : [$username]
+			'SELECT COUNT(*) AS row_count FROM users WHERE lower(username) = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
+			isset($userId) ? [$usernameLower, (int) $userId] : [$usernameLower]
 		);
 		$row = $result->current();
 		return $row && $row->row_count;
@@ -513,9 +519,11 @@ class UserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsByEmail($email, $userId = null, $allowDisabled = true) {
+		$emailLower = strtolower($email);
+
 		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count FROM users WHERE email = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
-			isset($userId) ? [$email, (int) $userId] : [$email]
+			'SELECT COUNT(*) AS row_count FROM users WHERE lower(email) = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
+			isset($userId) ? [$emailLower, (int) $userId] : [$emailLower]
 		);
 		$row = $result->current();
 		return $row && $row->row_count;

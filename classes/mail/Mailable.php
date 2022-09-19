@@ -60,6 +60,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
+use Illuminate\Support\Collection;
 
 class Mailable extends IlluminateMailable
 {
@@ -208,6 +209,27 @@ class Mailable extends IlluminateMailable
     public function body(string $view): self
     {
         return parent::view($view, []);
+    }
+
+    /**
+     * Multiple From addresses per mailbox-list syntax according to RFC 5322 isn't supported by PHPMailer transport
+     *
+     * @copydoc Illuminate\Mail\Mailable::from()
+     */
+    public function from($address, $name = null)
+    {
+        if (
+            (is_array($address) && count($address) > 1)
+            ||
+            ($address instanceof Collection && $address->count() > 1)
+        ) {
+            trigger_error(
+                'Mailbox-list syntax in the From field isn\'t supported by PHPMailer transport',
+                E_USER_WARNING
+            );
+        }
+
+        return parent::from($address, $name);
     }
 
     /**

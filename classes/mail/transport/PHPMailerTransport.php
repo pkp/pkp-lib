@@ -16,7 +16,6 @@ namespace PKP\mail\transport;
 
 use APP\core\Application;
 use PHPMailer\PHPMailer\PHPMailer;
-use PKP\config\Config;
 use PKP\core\PKPString;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\SentMessage;
@@ -61,6 +60,8 @@ class PHPMailerTransport implements TransportInterface
 
     /**
      * We won't send symfony message; transfer data to PHPMailer to send with mail()
+     *
+     * @throws Exception
      */
     protected function getPHPMailerMessage(Email $symfonyMessage): PHPMailer
     {
@@ -75,36 +76,11 @@ class PHPMailerTransport implements TransportInterface
         $request = Application::get()->getRequest();
         $fromAddresses = $symfonyMessage->getFrom();
         if (!empty($fromAddresses)) {
-            $f = current($fromAddresses);
-            if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender') && Config::getVar('email', 'force_dmarc_compliant_from')) {
-                /* If a DMARC compliant RFC5322.From was requested we need to promote the original RFC5322.From into a Reply-to header
-                 * and then munge the RFC5322.From */
-                $alreadyExists = false;
-                foreach ($symfonyMessage->getReplyTo() as $r) {
-                    if ($r->getAddress() === $f->getAddress()) {
-                        $alreadyExists = true;
-                        break;
-                    }
-                }
-
-                if (!$alreadyExists) {
-                    $mailer->addReplyTo($f->getAddress(), $f->getName());
-                }
-
-                $site = $request->getSite();
-
-                // Munge the RFC5322.From
-                if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
-                    $patterns = ['#%n#', '#%s#'];
-                    $replacements = [$f->getName(), $site->getLocalizedTitle()];
-                    $fromName = preg_replace($patterns, $replacements, Config::getVar('email', 'dmarc_compliant_from_displayname'));
-                } else {
-                    $fromName = '';
-                }
-                $fromEmail = Config::getVar('email', 'default_envelope_sender');
+            $f = array_shift($fromAddresses);
+            if (!empty($fromAddresses)) {
+                throw new Exception('Can\'t set multiple From email field value with PHPMailer');
             }
-            // this sets both the envelope sender (RFC5321.MailFrom) and the From: header (RFC5322.From)
-            $mailer->setFrom($fromEmail ?? $f->getAddress(), $fromName ?? $f->getName());
+            $mailer->setFrom($f->getAddress(), $f->getName());
         }
         // Set the envelope sender (RFC5321.MailFrom)
         if (($s = $symfonyMessage->getSender()) != null) {

@@ -20,15 +20,18 @@ use Exception;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Mail\Mailer as IlluminateMailer;
+use Illuminate\Mail\Message;
 use InvalidArgumentException;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\mail\traits\Configurable;
 use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
 use PKP\plugins\Hook;
+use PKP\site\Site;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -219,5 +222,97 @@ class Mailer extends IlluminateMailer
         }
 
         return $sentMessage;
+    }
+
+    /**
+     * Overrides Illuminate Mailer method to modify email header
+     *
+     * @copydoc Illuminate\Mail\Mailer::addContent()
+     */
+    protected function addContent($message, $view, $plain, $raw, $data): void
+    {
+        parent::addContent($message, $view, $plain, $raw, $data);
+
+        $this->setEnvelopeSenderDefault($message, $data);
+        $this->setDmarcCompliantFrom($message);
+    }
+
+    /**
+     * Sets envelope sender, either the default one or from the context settings
+     */
+    protected function setEnvelopeSenderDefault(Message $message, array $data): void
+    {
+        // Force default site-wide envelope sender if set
+        $configDefaultEnvelopeSender = Config::getVar('email', 'default_envelope_sender');
+        if (Config::getVar('email', 'force_default_envelope_sender') && $configDefaultEnvelopeSender) {
+            $message->sender($configDefaultEnvelopeSender);
+            return;
+        }
+
+        // Don't provide further checks if envelope sender isn't allowed in the config
+        if (!Config::getVar('email', 'allow_envelope_sender')) {
+            return;
+        }
+
+        // Set the sender provided in the context settings
+        $context = $data[Mailable::DATA_KEY_CONTEXT] ?? null;
+        if ($context && $sender = $context->getData('envelopeSender')) {
+            $message->sender($sender);
+            return;
+        }
+
+        // Finally, provide default sender from the config if not specified
+        if (!$message->getSender() && $configDefaultEnvelopeSender) {
+            $message->sender($configDefaultEnvelopeSender);
+        }
+    }
+
+    /**
+     * Set DMARC compliant From header field body
+     */
+    protected function setDmarcCompliantFrom(Message $message): void
+    {
+        if (empty($message->getFrom())) {
+            return;
+        }
+
+        if (!(Config::getVar('email', 'force_default_envelope_sender')
+            && Config::getVar('email', 'default_envelope_sender')
+            && Config::getVar('email', 'force_dmarc_compliant_from')
+        )) {
+            return;
+        }
+
+        $this->promoteFromToReplyTo($message);
+    }
+
+    /**
+     * If a DMARC compliant RFC5322.From was requested we need to promote the original RFC5322. From into a Reply-to header
+     * and then munge the RFC5322.From
+     */
+    protected function promoteFromToReplyTo(Message $message): void
+    {
+        $replyToEmails = array_map(fn($x) => $x->getAddress(), $message->getReplyTo());
+        $fromEmails = array_map(fn($x) => $x->getAddress(), $message->getFrom());
+        $alreadyExists = array_intersect($replyToEmails, $fromEmails);
+
+        foreach ($message->getFrom() as $address) {
+            if (!in_array($address->getAddress(), $alreadyExists)) {
+                $message->addReplyTo($address);
+            }
+        }
+
+        $site = Application::get()->getRequest()->getSite(); /* @var $site Site **/
+        $dmarcFromName = '';
+        if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
+            $patterns = ['#%n#', '#%s#'];
+            $replacements = [
+                implode(',', array_map(fn($x) => $x->getName(), $message->getFrom())),
+                $site->getLocalizedData('title'),
+            ];
+            $dmarcFromName = preg_replace($patterns, $replacements, Config::getVar('email', 'dmarc_compliant_from_displayname'));
+        }
+
+        $message->from(Config::getVar('email', 'default_envelope_sender'), $dmarcFromName);
     }
 }

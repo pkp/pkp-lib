@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Queue\Worker;
+use PKP\config\Config;
+use PKP\Domains\Jobs\JobRunner;
 use PKP\Domains\Jobs\Job as PKPJobModel;
 use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
 use PKP\Domains\Jobs\Repositories\Job as JobRepository;
@@ -138,6 +140,15 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             JobRepositoryInterface::class,
             JobRepository::class
         );
+
+        register_shutdown_function(function() {
+            if ( Config::getVar('queues', 'job_runner', false) ) {
+                (new JobRunner())
+                    ->withMaxJobsConstrain()
+                    ->setMaxJobsToProcess(1)
+                    ->processJobs();
+            }
+        });
     }
 
     /**

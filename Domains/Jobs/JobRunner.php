@@ -215,7 +215,7 @@ class JobRunner
     {
         $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
 
-        $jobProcessedCount = 1;
+        $jobProcessedCount = 0;
         $jobProcessingStartTime = time();
 
         while ($jobBuilder->count()) {
@@ -306,6 +306,11 @@ class JobRunner
             return false;
         }
 
+        // if no job has processed yet, no way to calculate next job possible processing time
+        if ( $jobProcessedCount <= 0 ) {
+            return false;
+        }
+
         $currentTotalExecutionTime = time() - $jobProcessingStartTime;
         $timePerJob = (int)($currentTotalExecutionTime / $jobProcessedCount);
         $totalTimeByNextJobComplete = $currentTotalExecutionTime + ($timePerJob * 3);
@@ -323,8 +328,8 @@ class JobRunner
      */
     protected function deduceSafeMaxExecutionTime(): int
     {
-        $maxExecutionTimeSetToINI = ini_get('max_execution_time');
-        $maxExecutionTimeSetToConfig = Config::getVar('queues', 'job_runner_max_execution_time', 20);
+        $maxExecutionTimeSetToINI = (int)ini_get('max_execution_time');
+        $maxExecutionTimeSetToConfig = (int)Config::getVar('queues', 'job_runner_max_execution_time', 20);
 
         return $maxExecutionTimeSetToINI <= 0
             ? $maxExecutionTimeSetToConfig

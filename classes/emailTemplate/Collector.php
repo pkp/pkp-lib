@@ -212,7 +212,7 @@ class Collector implements CollectorInterface
     protected function getDefaultQueryBuilder(): Builder
     {
         $q = DB::table('email_templates_default_data as etddata')
-            ->select('email_key')->distinct()
+            ->select('email_key')
             ->selectRaw('NULL as email_id')
             ->selectRaw('1 as enabled')
             ->selectRaw('NULL as context_id')

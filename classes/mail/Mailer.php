@@ -36,7 +36,6 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Transport\TransportInterface;
-use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 
 class Mailer extends IlluminateMailer
@@ -234,14 +233,14 @@ class Mailer extends IlluminateMailer
     {
         parent::addContent($message, $view, $plain, $raw, $data);
 
-        $this->setEnvelopeSenderDefault($message);
+        $this->setEnvelopeSenderDefault($message, $data);
         $this->setDmarcCompliantFrom($message);
     }
 
     /**
      * Sets envelope sender, either the default one or from the context settings
      */
-    protected function setEnvelopeSenderDefault(Message $message): void
+    protected function setEnvelopeSenderDefault(Message $message, array $data): void
     {
         // Force default site-wide envelope sender if set
         $configDefaultEnvelopeSender = Config::getVar('email', 'default_envelope_sender');
@@ -256,7 +255,7 @@ class Mailer extends IlluminateMailer
         }
 
         // Set the sender provided in the context settings
-        $context = Application::get()->getRequest()->getContext();
+        $context = $data[Mailable::DATA_KEY_CONTEXT] ?? null;
         if ($context && $sender = $context->getData('envelopeSender')) {
             $message->sender($sender);
             return;

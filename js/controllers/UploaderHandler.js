@@ -63,7 +63,9 @@
 			uploaderOptions.multipart_params = options.multipart_params;
 		}
 
-		uploaderOptions.drop_element =  $uploader.first().find('#' + $uploader.first().attr('id') + '-pkpUploaderDropZone').attr('id');
+		uploaderOptions.drop_element = $uploader.first().find('#' +
+				$uploader.first().attr('id') +
+				'-pkpUploaderDropZone').attr('id');
 
 		uploaderOptions = $.extend(
 				{},

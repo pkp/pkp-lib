@@ -46,12 +46,14 @@
 	$.pkp.controllers.EditorialActionsHandler.prototype.showActions_ =
 			function(sourceElement, event) {
 		this.getHtmlElement().find('.pkp_workflow_change_decision').hide();
-		this.getHtmlElement().find('.pkp_workflow_decisions_options').removeClass('pkp_workflow_decisions_options_hidden');
+		this.getHtmlElement().find('.pkp_workflow_decisions_options')
+				.removeClass('pkp_workflow_decisions_options_hidden');
 	};
+
 
 	/**
 	 * Emit an event when a request revisions decision is initiated
-	 *
+	 * @private
 	 * @param {HTMLElement} sourceElement The clicked link.
 	 * @param {Event} event The triggered event (click).
 	 */
@@ -61,14 +63,15 @@
 		pkp.eventBus.$emit('decision:revisions', $el.data('reviewRoundId'));
 	};
 
+
 	/**
 	 * Emit an event when a request revisions recommendation is initiated
-	 *
+	 * @private
 	 * @param {HTMLElement} sourceElement The clicked link.
 	 * @param {Event} event The triggered event (click).
 	 */
-	$.pkp.controllers.EditorialActionsHandler.prototype.emitRevisionRecommendation_ =
-			function(sourceElement, event) {
+	$.pkp.controllers.EditorialActionsHandler.prototype.
+			emitRevisionRecommendation_ = function(sourceElement, event) {
 		var $el = $(sourceElement);
 		pkp.eventBus.$emit('recommendation:revisions', $el.data('reviewRoundId'));
 	};

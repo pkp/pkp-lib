@@ -79,6 +79,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
      */
     public function insertObject($reviewFormResponse)
     {
+        $type = $reviewFormResponse->getResponseType();
         $this->update(
             'INSERT INTO review_form_responses
 				(review_form_element_id, review_id, response_type, response_value)
@@ -87,8 +88,8 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
             [
                 $reviewFormResponse->getReviewFormElementId(),
                 $reviewFormResponse->getReviewId(),
-                $reviewFormResponse->getResponseType(),
-                $this->convertToDB($reviewFormResponse->getValue(), $reviewFormResponse->getResponseType())
+                $type,
+                $this->convertToDB($reviewFormResponse->getValue(), $type)
             ]
         );
     }

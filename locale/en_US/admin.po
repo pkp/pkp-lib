@@ -577,8 +577,20 @@ msgstr "Job that loads the usage stats data from the file {$file} failed, and th
 msgid "admin.job.compileMetrics.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed. The file has been moved to the stage directory."
 
+msgid "admin.statistics.collection"
+msgstr "Data Collection"
+
+msgid "admin.statistics.collection.description"
+msgstr "Configure what kind of usage statistics should be collected."
+
 msgid "admin.statistics.storage"
 msgstr "Data Storage"
 
 msgid "admin.statistics.storage.description"
 msgstr "Configure what usage statistics should be stored on the server."
+
+msgid "admin.statistics.sushi"
+msgstr "Sushi Protocol"
+
+msgid "admin.statistics.sushi.description"
+msgstr "Configure the <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</a> protocol, an industry-recognized format for distributing usage statistics."

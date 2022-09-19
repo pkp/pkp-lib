@@ -154,7 +154,10 @@ abstract class PKPStatisticsHelper
         $country = $region = $city = null;
         $enableGeoUsageStats = $site->getData('enableGeoUsageStats');
         if ($enableGeoUsageStats !== null) {
-            if (($enableGeoUsageStats != 'disabled') && ($context->getData('enableGeoUsageStats') !== null) && ($context->getData('enableGeoUsageStats') != $site->getData('enableGeoUsageStats'))) {
+            if (($enableGeoUsageStats != 'disabled') &&
+                ($context->getData('enableGeoUsageStats') !== null) &&
+                ($context->getData('enableGeoUsageStats') != $site->getData('enableGeoUsageStats')) &&
+                str_starts_with($enableGeoUsageStats, $context->getData('enableGeoUsageStats'))) {
                 $enableGeoUsageStats = $context->getData('enableGeoUsageStats');
             }
 

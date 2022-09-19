@@ -2911,7 +2911,6 @@ msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Land, region och stad"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
 
@@ -2963,6 +2962,7 @@ msgstr ""
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Plattforms-ID"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Ett plattforms-ID krävs"
 
@@ -3006,10 +3006,10 @@ msgid "manager.settings.statistics.compressStatsLogs.description"
 msgstr "Välj vad som ska göras med arkiverade loggfiler."
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionens användningsstatistik"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
@@ -3179,7 +3179,6 @@ msgid "mailable.ReviewResponseOverdueAuto.name"
 msgstr "Svar på granskning försenat (automatisk)"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geografisk användningsstatistik"
 
@@ -3221,6 +3220,7 @@ msgstr ""
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Meddelande om statistikrapport"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "Plattforms-ID FÅR ENBART innehålla ASCII-tecken (a-z, A-Z), siffror (0-9), "

@@ -3108,7 +3108,6 @@ msgid "manager.settings.statistics.compressStatsLogs.description"
 msgstr "Изберете какво да правите с архивираните регистрационни файлове."
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Държава"
 
@@ -3126,6 +3125,7 @@ msgstr "Използване на сайта като платформа за в
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Идентификатор за платформата (Platform ID)"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Изисква се идентификатор на платформата (Platform ID)"
 
@@ -3191,7 +3191,6 @@ msgstr ""
 "върху размера на базата данни."
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr ""
 "Разрешаване на управлението на институцията и статистическите данни за "
@@ -3201,7 +3200,6 @@ msgstr ""
 msgid "manager.settings.statistics.sushiPlatform"
 msgstr "Платформа за COUNTER SUSHI статистика"
 
-#, fuzzy
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Статистика за използване от институцията"
@@ -3233,6 +3231,7 @@ msgstr ""
 "искате да запазите ежедневните записи в базата данни. Имайте предвид, че "
 "това значително ще увеличи вашата база данни."
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Този софтуер предоставя статистически данни за използването според протокола "
@@ -3242,6 +3241,7 @@ msgstr ""
 "притежавани или управлявани от един и същ доставчик, може да пожелаете да "
 "посочите сайта като платформа."
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "Идентификатора на платформата (Platform ID) ТРЯБВА да съдържа само ASCII "

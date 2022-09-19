@@ -3112,11 +3112,9 @@ msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Land, region og by"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo-brugsstatistik"
 
-#, fuzzy
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Brugsstatistik for institution"
@@ -3129,7 +3127,6 @@ msgstr ""
 "statistikrapporter, du har mulighed for at indhente, og vil også have "
 "betydning for databasens størrelse."
 
-#, fuzzy
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Aktiver håndtering af institution og brugsstatistikker"
@@ -3144,6 +3141,7 @@ msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Platformens ID er påkrævet"
 
@@ -3164,6 +3162,7 @@ msgstr ""
 "daglige optegnelser i databasen. Vær dog opmærksom på, at dette vil forøge "
 "din database betydeligt."
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Denne software tilbyder brugsstatistik i henhold til COUNTER SUSHI "
@@ -3172,6 +3171,7 @@ msgstr ""
 "Hvis alle tidsskrifterne på denne hjemmeside publiceres, ejes og betjenes af "
 "den samme udbyder, kan du også vælge at angive hjemmesiden som platform."
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "Platformens ID må kun indeholde ASCII bogstaver (a-z, A-Z), tal (0-9), "

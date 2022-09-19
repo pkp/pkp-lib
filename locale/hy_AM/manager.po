@@ -3021,7 +3021,6 @@ msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Երկիր, տարածաշրջան և քաղաք"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Միացնել հաստատության կառավարման և օգտագործման վիճակագրությունը"
 
@@ -3035,6 +3034,7 @@ msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամ�
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Հարթակի ID"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Հարթակի ID-ն պահանջվում է"
 
@@ -3078,7 +3078,6 @@ msgstr ""
 "կմեծացնի տվյալների ձեր շտեմարանը:"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Հաստատության օգտագործման վիճակագրությունը"
 
@@ -3090,6 +3089,7 @@ msgstr ""
 "հաշվետվությունների վրա, որոնք դուք կարող եք առբերել, ինչպես նաև կազդի "
 "տվյալների շտեմարանի չափի վրա:"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Այս ծրագրաշարը տրամադրում է օգտագործման վիճակագրություն՝ համաձայն COUNTER "
@@ -3099,6 +3099,7 @@ msgstr ""
 "շահագործվում են միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես "
 "հարթակ:"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "Հարթակի ID-ն ՊԵՏՔ Է պարունակի միայն ASCII տառեր (a–z, A–Z), թվեր (0–9), "

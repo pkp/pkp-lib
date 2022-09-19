@@ -3253,15 +3253,3 @@ msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "This email notifies the author that their submission has been sent back to "
 "the submission stage."
-
-msgid "manager.settings.statistics.collection"
-msgstr "Data Collection"
-
-msgid "manager.settings.statistics.collection.description"
-msgstr "Configure what kind of usage statistics should be collected."
-
-msgid "manager.settings.statistics.sushi"
-msgstr "Sushi Protocol"
-
-msgid "manager.settings.statistics.sushi.description"
-msgstr "Configure the <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</a> protocol, an industry-recognized format for distributing usage statistics."

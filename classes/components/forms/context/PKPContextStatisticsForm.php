@@ -56,7 +56,11 @@ class PKPContextStatisticsForm extends FormComponent
                 break;
             }
         }
-
+        $selectedGeoOption = $site->getData('enableGeoUsageStats');
+        if ($context->getData('enableGeoUsageStats') !== null &&
+            str_starts_with($selectedGeoOption, $context->getData('enableGeoUsageStats'))) {
+            $selectedGeoOption = $context->getData('enableGeoUsageStats');
+        }
 
         if ($site->getData('enableGeoUsageStats') && $site->getData('enableGeoUsageStats') !== 'disabled') {
             $this->addField(new FieldOptions('enableGeoUsageStats', [
@@ -64,7 +68,7 @@ class PKPContextStatisticsForm extends FormComponent
                 'description' => __('manager.settings.statistics.geoUsageStats.description'),
                 'type' => 'radio',
                 'options' => $geoOptions,
-                'value' => $context->getData('enableGeoUsageStats') !== null ? $context->getData('enableGeoUsageStats') : $site->getData('enableGeoUsageStats'),
+                'value' => $selectedGeoOption,
             ]));
         }
         if ($site->getData('enableInstitutionUsageStats')) {

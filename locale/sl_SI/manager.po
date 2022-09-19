@@ -3125,6 +3125,7 @@ msgstr ""
 "statistike uporabe. To bo vplivalo na statistična poročila, ki jih lahko "
 "dobite, in na velikost baze podatkov."
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "ID platforme lahko vsebuje le ASCII črke (a–z, A–Z), številke (0–9), "
@@ -3206,11 +3207,11 @@ msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Ne zbiraj nobenih Geo podatkov"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr ""
 "Omogoči upravljanje z institucijami in zibranje njihovih statistik uporabe"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Ta programska oprema omogoča statistike uporabe glede na COUNTER SUSHI "
@@ -3225,6 +3226,7 @@ msgstr "Uporabi strežnik kot platformo za vse revije."
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platforme"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "ID platforme je obvezen"
 
@@ -3280,7 +3282,6 @@ msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo statistike uporabe"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Država"
 
@@ -3292,7 +3293,6 @@ msgstr "Država in regija"
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Država, regija in mesto"
 
-#, fuzzy
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institucionalne statistike uporabe"

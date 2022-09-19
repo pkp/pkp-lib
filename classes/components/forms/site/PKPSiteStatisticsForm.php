@@ -17,8 +17,8 @@ namespace PKP\components\forms\site;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use PKP\config\Config;
 use PKP\site\Site;
+use PKP\statistics\PKPStatisticsHelper;
 use PKP\task\FileLoader;
 
 define('FORM_SITE_STATISTICS', 'siteStatistics');
@@ -46,17 +46,13 @@ class PKPSiteStatisticsForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $usageStatsFileDir = Config::getVar('files', 'files_dir');
-        if ($usageStatsFileDir[strlen($usageStatsFileDir) - 1] !== '/') {
-            $usageStatsFileDir .= '/';
-        }
-        $usageStatsFileDir .= 'usageStats/' . FileLoader::FILE_LOADER_PATH_ARCHIVE;
+        $usageStatsFileDir = PKPStatisticsHelper::getUsageStatsDirPath() . '/' . FileLoader::FILE_LOADER_PATH_ARCHIVE;
 
         $this->addGroup([
-                'id' => self::COLLECTION_GROUP,
-                'label' => __('manager.settings.statistics.collection'),
-                'description' => __('manager.settings.statistics.collection.description'),
-            ])
+            'id' => self::COLLECTION_GROUP,
+            'label' => __('admin.statistics.collection'),
+            'description' => __('admin.statistics.collection.description'),
+        ])
             ->addField(new FieldOptions('enableGeoUsageStats', [
                 'label' => __('manager.settings.statistics.geoUsageStats'),
                 'description' => __('admin.statistics.geo.description'),
@@ -135,8 +131,8 @@ class PKPSiteStatisticsForm extends FormComponent
             ]))
             ->addGroup([
                 'id' => self::SUSHI_GROUP,
-                'label' => __('manager.settings.statistics.sushi'),
-                'description' => __('manager.settings.statistics.sushi.description'),
+                'label' => __('admin.statistics.sushi'),
+                'description' => __('admin.statistics.sushi.description'),
             ])
             ->addField(new FieldOptions('isSushiApiPublic', [
                 'label' => __('manager.settings.statistics.publicSushiApi'),

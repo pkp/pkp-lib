@@ -3051,7 +3051,6 @@ msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo statistiky používání"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Neshromažďujte žádná geodata"
 
@@ -3068,7 +3067,6 @@ msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Stát, region a město"
 
 #, fuzzy
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Statistiky používání instituce"
 
@@ -3079,7 +3077,6 @@ msgstr ""
 "statistiky jejich přístupů. To ovlivní možné statistické přehledy, které "
 "můžete získat, a bude to mít také vliv na velikost databáze."
 
-#, fuzzy
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Umožnit správu instituce a statistiky používání"
@@ -3094,6 +3091,7 @@ msgstr "Použijte tento web jako platformu pro všechny časopisy."
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platformy"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr "Je požadováno ID platformy"
 
@@ -3109,6 +3107,7 @@ msgstr "Unikátní"
 msgid "stats.unknown"
 msgstr "neznámý"
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Tento software poskytuje statistiky používání podle protokolu COUNTER SUSHI. "
@@ -3117,6 +3116,7 @@ msgstr ""
 "časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
 "poskytovatelem, můžete platformu nastavit pro celé stránky."
 
+#, fuzzy
 msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "ID platformy MUSÍ obsahovat pouze písmena ASCII (a–z, A–Z), číslice (0–9), "

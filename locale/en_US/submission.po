@@ -1152,6 +1152,9 @@ msgstr "Please enter the rights."
 msgid "submission.submit.form.citationsRequired"
 msgstr "Please enter the references."
 
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Please enter the Data Availability Statement."
+
 msgid "submission.form.name"
 msgstr "Name the file (e.g., Manuscript; Table 1)"
 
@@ -2204,3 +2207,6 @@ msgstr "Failed to mark the DOI registered for {$pubObjectTitle}. The submission 
 
 msgid "submission.dataAvailability"
 msgstr "Data Availability Statement"
+
+msgid "submission.dataAvailability.tip"
+msgstr "State whether you have made evidence supporting this work available, and if so, where and how it can be accessed"

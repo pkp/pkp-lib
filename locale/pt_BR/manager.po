@@ -3052,18 +3052,6 @@ msgid "manager.setup.statistics"
 msgstr "Estatísticas"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Escolha o que fazer com os arquivos de log arquivados."
-
-#, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Compactar arquivos"
-
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Métricas diárias"
-
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Estatísticas de uso geográfico"
 
@@ -3082,20 +3070,6 @@ msgstr "País e região"
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Ative o gerenciamento da instituição e as estatísticas de uso"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Plataforma para Estatísticas COUNTER SUSHI"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use o site como plataforma para todos os periódicos."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "ID da plataforma"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "O ID da plataforma é obrigatório"
 
 msgid "manager.setup.institutions"
 msgstr "Instituições"
@@ -3126,18 +3100,6 @@ msgid "manager.institutions.invalidIPRange"
 msgstr "Intervalo de IP inválido"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Deixe os arquivos de log arquivados como estão"
-
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"As estatísticas de uso COUNTER e Geo são resumidas por mês. Depois disso, os "
-"registros diários são excluídos. Selecione esta opção se desejar manter os "
-"registros diários no banco de dados. Esteja ciente de que isso aumentará "
-"significativamente sua base de dados."
-
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "País, região e cidade"
 
@@ -3152,28 +3114,6 @@ msgstr ""
 "estatísticas de uso. Isso influenciará os possíveis relatórios de "
 "estatísticas que você pode recuperar e também terá um impacto no tamanho da "
 "base de dados."
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Este software fornece estatísticas de uso de acordo com o protocolo COUNTER "
-"SUSHI. Este protocolo solicita que uma plataforma seja especificada. Por "
-"padrão, a revista será designada como a plataforma para todas as "
-"estatísticas. No entanto, se todos os periódicos neste site forem "
-"publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
-"designar o site como a plataforma."
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–"
-"9), sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE "
-"exceder 17 caracteres. Observe que o ID da plataforma é usado em várias "
-"colunas e, portanto, deve ser o mais curto possível, mas ainda reconhecível. "
-"O ID da plataforma geralmente deve ser baseado no nome, em uma abreviação "
-"exclusiva bem conhecida ou no domínio do editor ou da plataforma. Um "
-"identificador padrão curto como GRID ou ROR (sem o https://) também pode ser "
-"usado."
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Marcar DOIs Não Registrado"

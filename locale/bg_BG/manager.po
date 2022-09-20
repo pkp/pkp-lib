@@ -3104,10 +3104,6 @@ msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Връзка към страницата на редакционната дейност"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Изберете какво да правите с архивираните регистрационни файлове."
-
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Държава"
 
@@ -3118,16 +3114,6 @@ msgstr "Държава и регион"
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Държава, регион и град"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Използване на сайта като платформа за всички списания."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Идентификатор за платформата (Platform ID)"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Изисква се идентификатор на платформата (Platform ID)"
 
 msgid "stats.unique"
 msgstr "Уникални"
@@ -3163,24 +3149,12 @@ msgid "manager.setup.statistics"
 msgstr "Статистики"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Оставяне на архивираните лог файлове такива, каквито са"
-
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Ежедневни показатели"
-
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Статистики за Гео използване (Geo usage)"
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Не събирайте никакви географски данни"
-
-#, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Компресиране на архиви"
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
@@ -3195,10 +3169,6 @@ msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr ""
 "Разрешаване на управлението на институцията и статистическите данни за "
 "използването"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Платформа за COUNTER SUSHI статистика"
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
@@ -3222,37 +3192,6 @@ msgstr ""
 "Валидните стойности включват IP адрес (напр. 142.58.103.1), IP диапазон ("
 "напр. 142.58.103.1 - 142.58.103.4), IP диапазон със заместващ знак „*“ ("
 "напр. 142.58.*.*) и IP диапазон с CIDR (напр. 142.58.100.0/24)."
-
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"Статистиките за БРОЯЧ (COUNTER) и Гео използване (Geo usage) се обобщават на "
-"месец. След това дневните записи се изтриват. Изберете тази опция, ако "
-"искате да запазите ежедневните записи в базата данни. Имайте предвид, че "
-"това значително ще увеличи вашата база данни."
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Този софтуер предоставя статистически данни за използването според протокола "
-"COUNTER SUSHI. Този протокол изисква да бъде посочена платформа. По "
-"подразбиране списанието ще бъде определено като платформа за всички "
-"статистики. Въпреки това, ако всички списания на този сайт са публикувани, "
-"притежавани или управлявани от един и същ доставчик, може да пожелаете да "
-"посочите сайта като платформа."
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Идентификатора на платформата (Platform ID) ТРЯБВА да съдържа само ASCII "
-"букви (a–z, A–Z), цифри (0–9), долна черта (_), точки (.) и наклонени черти "
-"(/), а дължината НЕ ТРЯБВА да надвишава 17 знака. Имайте предвид, че "
-"идентификаторът на платформата се използва в различни колони и следователно "
-"трябва да бъде възможно най-кратък, но все пак разпознаваем. "
-"Идентификационният номер на платформата обикновено трябва да се базира на "
-"името, добре познато уникално съкращение или домейна на издателя или "
-"платформата. Може да се използва и кратък стандартен идентификатор като GRID "
-"или ROR (без https://)."
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Маркираане на DOI като нерегистрирани"

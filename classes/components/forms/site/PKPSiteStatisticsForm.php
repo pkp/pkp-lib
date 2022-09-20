@@ -50,12 +50,12 @@ class PKPSiteStatisticsForm extends FormComponent
 
         $this->addGroup([
             'id' => self::COLLECTION_GROUP,
-            'label' => __('admin.statistics.collection'),
-            'description' => __('admin.statistics.collection.description'),
+            'label' => __('admin.settings.statistics.collection'),
+            'description' => __('admin.settings.statistics.collection.description'),
         ])
             ->addField(new FieldOptions('enableGeoUsageStats', [
                 'label' => __('manager.settings.statistics.geoUsageStats'),
-                'description' => __('admin.statistics.geo.description'),
+                'description' => __('admin.settings.statistics.geo.description'),
                 'type' => 'radio',
                 'options' => [
                     [
@@ -80,7 +80,7 @@ class PKPSiteStatisticsForm extends FormComponent
             ]))
             ->addField(new FieldOptions('enableInstitutionUsageStats', [
                 'label' => __('manager.settings.statistics.institutionUsageStats'),
-                'description' => __('admin.statistics.institutions.description'),
+                'description' => __('admin.settings.statistics.institutions.description'),
                 'options' => [
                     [
                         'value' => true,
@@ -92,38 +92,38 @@ class PKPSiteStatisticsForm extends FormComponent
             ]))
             ->addGroup([
                 'id' => self::STORAGE_GROUP,
-                'label' => __('admin.statistics.storage'),
-                'description' => __('admin.statistics.storage.description'),
+                'label' => __('admin.settings.statistics.storage'),
+                'description' => __('admin.settings.statistics.storage.description'),
             ])
             ->addField(new FieldOptions('keepDailyUsageStats', [
-                'label' => __('manager.settings.statistics.keepDaily'),
-                'description' => __('manager.settings.statistics.keepDaily.description'),
+                'label' => __('admin.settings.statistics.keepDaily'),
+                'description' => __('admin.settings.statistics.keepDaily.description'),
                 'type' => 'radio',
                 'options' => [
                     [
                         'value' => false,
-                        'label' => __('manager.settings.statistics.keepDaily.discard'),
+                        'label' => __('admin.settings.statistics.keepDaily.discard'),
                     ],
                     [
                         'value' => true,
-                        'label' => __('manager.settings.statistics.keepDaily.keep'),
+                        'label' => __('admin.settings.statistics.keepDaily.keep'),
                     ],
                 ],
                 'value' => $site->getData('keepDailyUsageStats'),
                 'groupId' => self::STORAGE_GROUP,
             ]))
             ->addField(new FieldOptions('compressStatsLogs', [
-                'label' => __('manager.settings.statistics.compressStatsLogs.label'),
-                'description' => __('manager.settings.statistics.compressStatsLogs.description', ['path' => $usageStatsFileDir]),
+                'label' => __('admin.settings.statistics.compressStatsLogs.label'),
+                'description' => __('admin.settings.statistics.compressStatsLogs.description', ['path' => $usageStatsFileDir]),
                 'type' => 'radio',
                 'options' => [
                     [
                         'value' => false,
-                        'label' => __('manager.settings.statistics.compressStatsLogs.default'),
+                        'label' => __('admin.settings.statistics.compressStatsLogs.default'),
                     ],
                     [
                         'value' => true,
-                        'label' => __('manager.settings.statistics.compressStatsLogs.compress'),
+                        'label' => __('admin.settings.statistics.compressStatsLogs.compress'),
                     ],
                 ],
                 'value' => $site->getData('compressStatsLogs') ? $site->getData('compressStatsLogs') : false,
@@ -131,12 +131,12 @@ class PKPSiteStatisticsForm extends FormComponent
             ]))
             ->addGroup([
                 'id' => self::SUSHI_GROUP,
-                'label' => __('admin.statistics.sushi'),
-                'description' => __('admin.statistics.sushi.description'),
+                'label' => __('admin.settings.statistics.sushi'),
+                'description' => __('admin.settings.statistics.sushi.description'),
             ])
             ->addField(new FieldOptions('isSushiApiPublic', [
                 'label' => __('manager.settings.statistics.publicSushiApi'),
-                'description' => __('admin.statistics.sushi.public.description'),
+                'description' => __('admin.settings.statistics.sushi.public.description'),
                 'type' => 'radio',
                 'options' => [
                     [
@@ -145,28 +145,28 @@ class PKPSiteStatisticsForm extends FormComponent
                     ],
                     [
                         'value' => false,
-                        'label' => __('manager.settings.statistics.publicSushiApi.private'),
+                        'label' => __('admin.settings.statistics.publicSushiApi.private'),
                     ],
                 ],
                 'value' => $site->getData('isSushiApiPublic') ? $site->getData('isSushiApiPublic') : true,
                 'groupId' => self::SUSHI_GROUP,
             ]))
             ->addField(new FieldOptions('isSiteSushiPlatform', [
-                'label' => __('manager.settings.statistics.sushiPlatform'),
-                'description' => __('manager.settings.statistics.sushiPlatform.description'),
+                'label' => __('admin.settings.statistics.sushiPlatform'),
+                'description' => __('admin.settings.statistics.sushiPlatform.description'),
                 'groupId' => 'sushi',
                 'options' => [
                     [
                         'value' => true,
-                        'label' => __('manager.settings.statistics.sushiPlatform.isSiteSushiPlatform'),
+                        'label' => __('admin.settings.statistics.sushiPlatform.isSiteSushiPlatform'),
                     ],
                 ],
                 'value' => $site->getData('isSiteSushiPlatform'),
                 'groupId' => self::SUSHI_GROUP,
             ]))
             ->addField(new FieldText('sushiPlatformID', [
-                'label' => __('manager.settings.statistics.sushiPlatform.sushiPlatformID'),
-                'description' => __('manager.settings.statistics.sushiPlatform.sushiPlatformID.description'),
+                'label' => __('admin.settings.statistics.sushiPlatform.sushiPlatformID'),
+                'description' => __('admin.settings.statistics.sushiPlatform.sushiPlatformID.description'),
                 'value' => $site->getData('sushiPlatformID'),
                 'showWhen' => 'isSiteSushiPlatform',
                 'groupId' => self::SUSHI_GROUP,

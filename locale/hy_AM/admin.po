@@ -699,3 +699,62 @@ msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
 "Ետնամասային աշխատանքը, որը կմշակի գրանցամատյանի {$file} նիշքը և կպահի "
 "վիճակագրության տվյալները, ուղարկվել է:"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "հարթակ COUNTER SUSHI վիճակագրության համար"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Հարթակի ID"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Հարթակի ID-ն պահանջվում է"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Այս ծրագրաշարը տրամադրում է օգտագործման վիճակագրություն՝ համաձայն COUNTER "
+"SUSHI արձանագրության: Այս արձանագրությունը պահանջում է որպեսզի հարթակը նշվի: "
+"Լռելյայն, ամսագիրը կնշանակվի որպես բոլոր վիճակագրությունների հարթակ: "
+"Այնուամենայնիվ, եթե այս կայքի բոլոր ամսագրերը հրատարակված են, պատկանում կամ "
+"շահագործվում են միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես "
+"հարթակ:"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Հարթակի ID-ն ՊԵՏՔ Է պարունակի միայն ASCII տառեր (a–z, A–Z), թվեր (0–9), "
+"ընդգծումներ (_), կետեր (.) և առաջ շեղեր (/), իսկ երկարությունը ՉՊԵՏՔ Է "
+"գերազանցի 17 նիշը։ Նկատի ունեցեք, որ հարթակի ID-ն օգտագործվում է տարբեր "
+"սյունակներում և, հետևաբար, պետք է լինի հնարավորինս կարճ, բայց դեռ ճանաչելի: "
+"Հարթակի ID-ն սովորաբար պետք է հիմնված լինի անվանման, հայտնի եզակի հապավումի "
+"կամ հրատարակչի կամ հարթակի տիրույթի վրա: Կարելի է նաև օգտագործել կարճ "
+"ստանդարտ նույնացուցիչ, ինչպիսին է GRID կամ ROR (առանց https://):"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Ամենօրյա չափումներ"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"COUNTER-ի և Geo-ի օգտագործման վիճակագրությունը ամփոփվում է ամսական: Դրանից "
+"հետո ամենօրյա գրառումները ջնջվում են։ Ընտրեք այս տարբերակը, եթե ցանկանում եք "
+"պահել ամենօրյա գրառումները տվյալների շտեմարանում: Իմացեք, որ դա զգալիորեն "
+"կմեծացնի տվյալների ձեր շտեմարանը:"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Ընտրեք, թե ինչ անել արխիվացված մատյան նիշքերի հետ:"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Սեղմել արխիվները"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Արխիվացված մատյան նիշքերը թողեք այնպես, ինչպես կան"

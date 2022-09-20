@@ -2891,14 +2891,6 @@ msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Antal bidrag som mottagits senaste månaden"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimera arkiv"
-
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Daglig statistik"
-
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Land"
 
@@ -2913,13 +2905,6 @@ msgstr "Land, region och stad"
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Platform för COUNTER SUSHI-statistik"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Använd siten som plattform för alla tidskrifter."
 
 msgid "manager.institutions.edit"
 msgstr "Redigera institution"
@@ -2951,21 +2936,6 @@ msgstr "Är du säker på att du vill ta bort institutionen?"
 msgid "manager.setup.statistics"
 msgstr "Statistik"
 
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"COUNTER-statistik och geografisk användningsstatistik summeras månadsvis. "
-"Därefter raderas de dagliga loggarna. Välj det här alternativet om du vill "
-"behålla dagliga loggar i databasen. Observera att detta kommer göra "
-"databasen betydligt större."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Plattforms-ID"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Ett plattforms-ID krävs"
-
 msgid "stats.unique"
 msgstr "Unik"
 
@@ -2983,10 +2953,6 @@ msgid "manager.dois.notification.markUnregisteredSuccess"
 msgstr "Objekten har markerats som oregistrerade"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Låt loggfilerna vara"
-
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Välj detta alternativ om du vill hantera institutioner och samla in deras "
@@ -3002,21 +2968,8 @@ msgid "manager.dois.actions.description"
 msgstr "Gör ändringar för {$count} objekt."
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Välj vad som ska göras med arkiverade loggfiler."
-
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionens användningsstatistik"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
-"protokollet. Det kräver en specificerad plattform. Tidskriften är på förhand "
-"angiven som plattformen för all statistik, men om alla tidskrifter på denna "
-"OJS-installation tillhör samma utgivare går det även att ange hela siten som "
-"plattform."
 
 msgid "manager.setup.institutions"
 msgstr "Institutioner"
@@ -3219,17 +3172,6 @@ msgstr ""
 
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Meddelande om statistikrapport"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Plattforms-ID FÅR ENBART innehålla ASCII-tecken (a-z, A-Z), siffror (0-9), "
-"understreck (_), punkter (.) och snedstreck (/), och längden FÅR INTE "
-"överstiga 17 tecken. Observera att plattforms-ID används i olika kolumner "
-"och bör därför vara så korta som möjligt, men fortfarande igenkännliga. "
-"Plattforms-ID bör vanligtvis vara baserat på utgivarens namn. En kort "
-"beteckning enligt en standard såsom GRID eller ROR (utan https://) kan också "
-"användas."
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""

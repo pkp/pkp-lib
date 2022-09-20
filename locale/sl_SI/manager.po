@@ -3111,30 +3111,11 @@ msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obvestilo urednikom o recenzentskem priporočilu"
 
 #, fuzzy
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"Uporabniške statistike COUNTER in Geo so seštete po mesecih. Po tem se "
-"dnevni zapisi odstranijo. Izberite to opcijo, če želite, da dnevni zapisi "
-"ostanejo v bazi podatkov. Zavedajte se, da bo to občutno povečalo velikost "
-"baze podatkov."
-
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Izberite to opcijo, če bi radi upravljali z institucijami in zbirali njihove "
 "statistike uporabe. To bo vplivalo na statistična poročila, ki jih lahko "
 "dobite, in na velikost baze podatkov."
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"ID platforme lahko vsebuje le ASCII črke (a–z, A–Z), številke (0–9), "
-"podčrtajs (_), pike (.) in poševnico naprej (/), dočina pa ne sem presegati "
-"17 znakov. Vedite, da bo ID platforme uporabljen v različnih stolpcih in naj "
-"bi bil kolikor je mogoče kratek, a še vedno prepoznaven. Običajno je ID "
-"platforme baziran na imenu, dobro znani okrajšani domeni izdajatelja ali "
-"platforme. Lahko se uporabi tudi kratek standarden identifikator kot je GRID "
-"ali RRO (brez https://)."
 
 msgid "emailTemplate.variable.password"
 msgstr "Novo naključno uporabniško geslo"
@@ -3186,23 +3167,6 @@ msgid "manager.setup.statistics"
 msgstr "Statistike"
 
 #, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr ""
-"Izberite, kaj naj se naredi z arhiviranimi datotekami z dnevniškimi zapisi."
-
-#, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Datoteke z dnevniškimi zapisi ostanejo kjer so"
-
-#, fuzzy
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Arhivi naj se stisnejo"
-
-#, fuzzy
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Dnevne metrike"
-
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Ne zbiraj nobenih Geo podatkov"
 
@@ -3210,25 +3174,6 @@ msgstr "Ne zbiraj nobenih Geo podatkov"
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr ""
 "Omogoči upravljanje z institucijami in zibranje njihovih statistik uporabe"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Ta programska oprema omogoča statistike uporabe glede na COUNTER SUSHI "
-"protokol. Ta protokol zahteva, da je določena platforma. Privzeto bo revijia "
-"določena kot platforma za vse statistike. V primeru, da vse revije na tem "
-"strežniku pripadajo enemu ponudniku, boste morda želeli, da bo celoten "
-"strežnik določen kot platforma."
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Uporabi strežnik kot platformo za vse revije."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "ID platforme"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "ID platforme je obvezen"
 
 msgid "manager.setup.institutions"
 msgstr "Institucije"
@@ -3296,10 +3241,6 @@ msgstr "Država, regija in mesto"
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institucionalne statistike uporabe"
-
-#, fuzzy
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Platforma za COUNTER SUSHI statistike"
 
 msgid "stats.unknown"
 msgstr "neznano"

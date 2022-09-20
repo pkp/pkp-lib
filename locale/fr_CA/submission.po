@@ -1,11 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-08-29 21:01+0000\n"
-"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"PO-Revision-Date: 2022-09-13 10:09+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -1356,10 +1358,14 @@ msgid "submission.event.fileDeleted"
 msgstr "Le fichier « {$originalFileName} » pour la soumission {$submissionId} par {$username} a été supprimé."
 
 msgid "submission.event.revisionUploaded"
-msgstr "Le fichier d'évaluation « {$originalFileName} » pour la soumission {$submissionId} par {$username} a été téléversé."
+msgstr ""
+"Le fichier révisé « {$originalFileName} » pour la soumission {$submissionId} "
+"par {$username} a été téléversé."
 
 msgid "submission.event.revisionDeleted"
-msgstr "Le fichier d'évaluation « {$originalFileName} » pour la soumission {$submissionId} par {$username} a été supprimé ."
+msgstr ""
+"Le fichier révisé « {$originalFileName} » pour la soumission {$submissionId} "
+"par {$username} a été supprimé ."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr "La dernière révision du fichier  « {$title} » a été supprimée par {$username}."

@@ -1,8 +1,9 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
+# Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-21 19:44+0000\n"
-"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"PO-Revision-Date: 2022-09-19 14:48+0000\n"
+"Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/is_IS/>\n"
 "Language: is_IS\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Afturkalla samþykkt prófarkar"
@@ -191,7 +192,7 @@ msgid "editor.review.reviewerRating.none"
 msgstr "Ekkert mat"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Mettu gæði ritrýninnar. Matinu verður ekki deilt með ritrýni."
+msgstr "Leggðu mat á gæði ritrýninnar. Matinu verður ekki deilt með ritrýni."
 
 msgid "editor.review.rateReviewer"
 msgstr "Stigagjöf ritrýnis"
@@ -406,7 +407,7 @@ msgid "editor.submission.workflowDecision.submission.production"
 msgstr "Sent í framleiðslu."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Sent í nýja ritrýni umferð."
+msgstr "Sent í nýja ritrýniumferð."
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Innsending birt."
@@ -510,3 +511,49 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr "Þú hefur ekki leyfi til að skrá þessa ákvörðun fyrir innsendinguna."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Þú getur ekki sent tölvupóst til: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Viðkomandi ritstjóri var ekki viðurkenndur og hefur hugsanlega ekki leyfi "
+"til að skrá ákvörðun um innsendinguna."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Viðkomandi ritrýniumferð fannst ekki."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"The submission is not at the appropriate stage of the workflow to take this "
+"decision."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "This review round is not part of this submission."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"This decision could not be found. Please provide a recognized decision type."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"You must be assigned to this submission in order to record an editorial "
+"decision."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "A review round id must be provided in order to take this decision."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"A review round was provided but this decision is not taken during a review "
+"stage."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"A recommendation can not be made unless an editor is assigned to this stage "
+"who can take a final decision."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"A decision could not be taken on this submission. The submission id is "
+"missing or does not match the requested submission."

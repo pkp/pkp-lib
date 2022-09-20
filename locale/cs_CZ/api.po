@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-08 09:30+0000\n"
+"PO-Revision-Date: 2022-09-13 10:09+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -267,9 +267,8 @@ msgstr "Došlo k chybě a objekt DOI nelze vytvořit."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
-"Nezveřejněné položky (položky, jejichž zveřejnění bylo zrušeno) nelze "
-"exportovat/odložit. Zrušte prosím výběr nepublikovaných položek a zkuste to "
-"znovu."
+"Nezveřejněné položky nelze exportovat/odložit. Zrušte prosím výběr "
+"nepublikovaných položek a zkuste to znovu."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Požadované DOI nebylo nalezeno."

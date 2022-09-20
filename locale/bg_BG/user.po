@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-18 18:33+0000\n"
+"PO-Revision-Date: 2022-09-05 15:57+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg_BG/>\n"
@@ -372,7 +372,7 @@ msgstr ""
 "този потребител."
 
 msgid "user.apiKey.generate"
-msgstr "Генерирайте нов API ключ"
+msgstr "Създаване на API ключ"
 
 msgid "user.apiKeyEnabled"
 msgstr "Активирайте външни приложения с API ключа за достъп до този акаунт"
@@ -498,3 +498,13 @@ msgstr "Регистрирайте се в {$contextName} като..."
 
 msgid "user.register.form.passwordLengthRestriction"
 msgstr "Паролата трябва да съдържа най-малко {$length} знака."
+
+msgid "user.apiKey.remove"
+msgstr "Изтриване"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Изтриването на ключ ще отмени достъпа до всяко приложение, което го използва."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Сигурни ли сте, че искате да изтриете този API ключ?"

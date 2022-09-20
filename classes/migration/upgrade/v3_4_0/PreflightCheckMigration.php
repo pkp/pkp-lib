@@ -249,6 +249,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $navigationMenuId) {
                 DB::table('navigation_menu_item_assignments')->where('navigation_menu_id', '=', $navigationMenuId)->delete();
             }
+            // Clean orphaned navigation_menu_item_assignment_settings entries
+            $orphanedIds = DB::table('navigation_menu_item_assignment_settings AS nmias')->leftJoin('navigation_menu_item_assignments AS nmia', 'nmias.navigation_menu_item_assignment_id', '=', 'nmia.navigation_menu_item_assignment_id')->whereNull('nmia.navigation_menu_item_assignment_id')->distinct()->pluck('nmias.navigation_menu_item_assignment_id');
+            foreach ($orphanedIds as $navigationMenuItemAssignmentId) {
+                DB::table('navigation_menu_item_assignment_settings')->where('navigation_menu_item_assignment_id', '=', $navigationMenuItemAssignmentId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

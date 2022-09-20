@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-08-08 09:30+0000\n"
+"PO-Revision-Date: 2022-09-20 10:35+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "cs_CZ/>\n"
@@ -597,3 +597,14 @@ msgstr "Znovu přiřadit {$name}"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr "Tento recenzent dokončil recenzi v minulém kole."
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Žádost byla odeslána"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Opětovné odeslání žádosti o recenzi"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Došlo k chybě a recenzent byl vyzván, aby znovu zvážil výzvu k recenzi.  "
+"Zkuste to prosím znovu."

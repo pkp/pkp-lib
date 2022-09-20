@@ -2813,6 +2813,9 @@ msgstr "New random user password"
 msgid "mailable.reviewerReinstate.name"
 msgstr "Reviewer Reinstate"
 
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Resend Review Request to Reviewer"
+
 msgid "emailTemplate.variable.submitterName"
 msgstr "The full name of a user who uploaded a submission file"
 
@@ -2859,6 +2862,9 @@ msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "This email is sent when a reviewer that was unassigned is reinstated by an "
 "editor."
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr "This email is sent by an editor to a reviewer who has declined a review request, when the editor wishes to resend the request."
 
 msgid "mailable.reviewerUnassign.name"
 msgstr "Reviewer Unassign"

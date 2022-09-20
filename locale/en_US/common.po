@@ -1727,6 +1727,9 @@ msgstr "Reviewer cancelled."
 msgid "notification.reinstatedReviewer"
 msgstr "Reviewer reinstated."
 
+msgid "notification.reviewerResendRequest"
+msgstr "Request to reconsider the review assignment was sent."
+
 msgid "notification.addedStageParticipant"
 msgstr "User added as a stage participant."
 

@@ -14,12 +14,11 @@
 
 namespace PKP\controllers\modals\submission;
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
-use APP\facades\Repo;
 
 class ViewSubmissionMetadataHandler extends handler
 {
@@ -58,6 +57,10 @@ class ViewSubmissionMetadataHandler extends handler
                 ->getMany();
 
             $templateMgr->assign('authors', $publication->getAuthorString($userGroups));
+
+            if ($publication->getLocalizedData('dataAvailability')) {
+                $additionalMetadata[] = [__('submission.dataAvailability'), $publication->getLocalizedData('dataAvailability')];
+            }
         }
 
         $templateMgr->assign('publication', $publication);

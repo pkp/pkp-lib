@@ -17,6 +17,7 @@ namespace PKP\components\forms\publication;
 use APP\publication\Publication;
 use PKP\components\forms\FieldControlledVocab;
 use PKP\components\forms\FieldText;
+use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\submission\SubmissionAgencyDAO;
@@ -141,6 +142,15 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
+        if ($this->enabled('dataAvailability')) {
+            $this->addField(new FieldTextarea('dataAvailability', [
+                'label' => __('submission.dataAvailability'),
+                'tooltip' => __('manager.setup.metadata.dataAvailability.description'),
+                'isMultilingual' => true,
+                'value' => $publication->getData('dataAvailability'),
+            ]));
+        }
+        
         if ($this->enabled('pub-id::publisher-id')) {
             $this->addField(new FieldText('pub-id::publisher-id', [
                 'label' => __('submission.publisherId'),

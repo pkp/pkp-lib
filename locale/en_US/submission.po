@@ -1086,6 +1086,36 @@ msgstr "Contributor's role"
 msgid "submission.submit.addAuthor"
 msgstr "Add Contributor"
 
+msgid "submission.submit.form.languagesRequired"
+msgstr "Please enter a language."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Please enter a subject."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Please enter a discipline."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Please enter a keyword."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Please enter the coverage information."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Please enter the type."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Please enter the source."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Please enter the rights."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Please enter the references."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Please enter the Data Availability Statement."
+
 msgid "submission.form.name"
 msgstr "Name the file (e.g., Manuscript; Table 1)"
 
@@ -2278,3 +2308,9 @@ msgstr "Add additional information for your submission.  Press 'enter' after eac
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Principal contact for editorial correspondence."
+
+msgid "submission.dataAvailability"
+msgstr "Data Availability Statement"
+
+msgid "submission.dataAvailability.tip"
+msgstr "State whether you have made evidence supporting this work available, and if so, where and how it can be accessed"

@@ -754,6 +754,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'keywords',
             'agencies',
             'citations',
+            'dataAvailability',
         ];
     }
 

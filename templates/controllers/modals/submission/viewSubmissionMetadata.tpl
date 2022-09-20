@@ -20,9 +20,9 @@
 			<tr>
 				{foreach $metadata as $metadataItem}
 					{if $metadataItem@iteration % 2 != 0}
-						<th scope="row">{$metadataItem}</th>
+						<th scope="row">{$metadataItem|escape}</th>
 					{else}
-						<td>{$metadataItem}</td>
+						<td>{$metadataItem|escape}</td>
 					{/if}
 				{/foreach}
 			</tr>

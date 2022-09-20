@@ -16,6 +16,7 @@ namespace PKP\components\forms\publication;
 
 use PKP\components\forms\FieldControlledVocab;
 use PKP\components\forms\FieldText;
+use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
 
 define('FORM_METADATA', 'metadata');
@@ -130,6 +131,15 @@ class PKPMetadataForm extends FormComponent
                 'tooltip' => __('manager.setup.metadata.type.description'),
                 'isMultilingual' => true,
                 'value' => $publication->getData('type'),
+            ]));
+        }
+
+        if ($submissionContext->getData('dataAvailability')) {
+            $this->addField(new FieldTextarea('dataAvailability', [
+                'label' => __('submission.dataAvailability'),
+                'tooltip' => __('manager.setup.metadata.dataAvailability.description'),
+                'isMultilingual' => true,
+                'value' => $publication->getData('dataAvailability'),
             ]));
         }
 

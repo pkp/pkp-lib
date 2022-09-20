@@ -12,7 +12,7 @@
 set -e
 
 # Run the data build suite (integration tests).
-$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/data
+./node_modules/cypress/bin/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/data
 
 # Dump the database and files before continuing. Tests may restore this to reset the
 # environment.

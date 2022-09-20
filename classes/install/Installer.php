@@ -737,7 +737,7 @@ class Installer
     {
         $locales = explode(',', $attr['locales'] ?? '');
         // FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
-        if (!Schema::hasColumn('email_templates_default', 'stage_id')) {
+        if (Schema::hasTable('email_templates_default') && !Schema::hasColumn('email_templates_default', 'stage_id')) {
             Schema::table('email_templates_default', function (Blueprint $table) {
                 $table->bigInteger('stage_id')->nullable();
             });

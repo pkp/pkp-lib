@@ -841,6 +841,14 @@
 			"type": "boolean",
 			"description": "Whether or not the access to the COUNTER SUSHI statistics API is public. If false, only users with admin or manager roles can access the API.",
 			"default": true
+		},
+		"dataAvailability": {
+			"type": "string",
+            "description": "Whether to not request, request or require a Data Availability Statement from the authors.",
+			"validation": [
+				"nullable",
+                "in:0,enable,request,require"
+			]
 		}
 	}
 }

@@ -2201,3 +2201,6 @@ msgstr "Failed to mark the DOI stale for {$pubObjectTitle}. The DOI cannot be ma
 
 msgid "doi.submission.notPublished"
 msgstr "Failed to mark the DOI registered for {$pubObjectTitle}. The submission must be published before the status can be updated."
+
+msgid "submission.dataAvailability"
+msgstr "Data Availability Statement"

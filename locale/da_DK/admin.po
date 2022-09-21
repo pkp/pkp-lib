@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-06-29 13:31+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Administrative funktioner"
@@ -697,9 +697,8 @@ msgstr ""
 "Opgave, der indlæser brugsstatistikdata fra filen {$file} fejlede, og filen "
 "kunne ikke flyttes fra {$archivedFilePath} til {$stagingPath}."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Platform for COUNTER SUSHI statistik"
+msgstr "Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
@@ -707,50 +706,74 @@ msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Platformens ID er påkrævet"
+msgstr ""
+"Et platform-ID kræves, når webstedet vil blive identificeret som SUSHI-"
+"platformen."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
-"Denne software tilbyder brugsstatistik i henhold til COUNTER SUSHI "
-"protokollen. Denne protokol anmoder om, at der specificeres en platform. Som "
-"standard vil tidsskriftet blive angivet som platform til alle statistikker. "
-"Hvis alle tidsskrifterne på denne hjemmeside publiceres, ejes og betjenes af "
-"den samme udbyder, kan du også vælge at angive hjemmesiden som platform."
+"Ifølge COUNTER SUSHI-protokollen skal hver statistikrapport identificere "
+"\"platformen\", der leverer statistikken. Som standard vil tidsskriftet "
+"blive udpeget som platform for al statistik. Men hvis alle tidsskrifter på "
+"dette websted er udgivet, ejet eller drevet af den samme udbyder, kan du "
+"vælge at udpege webstedet som platformen."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"Platformens ID må kun indeholde ASCII bogstaver (a-z, A-Z), tal (0-9), "
-"bundstreg (_), prik (.) og skråstreg (/), og længden må ikke overstige 17 "
-"karakterer. Vær opmærksom på at platformens ID bruges i forskellige kolonner "
-"og derfor bør være så kort som muligt, men samtidig genkendelig. Platformens "
-"ID bør være baseret på navnet, en velkendt unik forkortelse eller forlagets "
-"eller platformens domæne. Der kan også anvendes et kort standard id såsom "
-"GRID eller ROR (uden https://)."
+"Sådan identificeres denne platform i COUNTER SUSHI-rapporter. Platform-ID'et "
+"skal være på 17 tegn eller mindre og kan indeholde bogstaver (a–z, A–Z), "
+"cifre (0–9), understregninger (_), prikker (.) og skråstreger (/). Platform-"
+"ID'et bruges i flere kolonner og skal være så kort som muligt, mens det "
+"forbliver genkendeligt. Platform-ID'et er normalt baseret på navnet på en "
+"udgiver eller platform, et domænenavn eller en velkendt, unik forkortelse."
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily"
-msgstr "Daglige målinger"
+msgstr "Månedlig eller daglig statistik"
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
-"COUNTER og Geo brugsstatistikkerne opsummeres per måned. Derefter slettes de "
-"daglige optegnelser. Vælg denne mulighed, hvis du gerne vil beholde de "
-"daglige optegnelser i databasen. Vær dog opmærksom på, at dette vil forøge "
-"din database betydeligt."
+"Hvorvidt der skal spores daglige eller månedlige brugsstatistikker. Sporing "
+"af daglige statistikker kan øge din databases størrelse betydeligt."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr "Vælg hvad der skal ske med de arkiverede logfiler."
+msgstr ""
+"Statistik genereres fra adgangslogfiler, som flyttes til <code>{$path}</"
+"code>, når de er blevet behandlet. Skal logfilerne komprimeres til <code>."
+"gz</code> filer, når de er blevet behandlet? Komprimering af logfiler kan "
+"spare diskplads på serveren."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr "Lad de arkiverede logfiler forblive som de er"
+msgstr "Lad logfilerne blive på plads"
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimer arkiver"
+msgstr "Komprimer log filerne"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Konfigurer, hvilken type brugsstatistik der skal indsamles."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Data Lager"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Konfigurer hvilken brugsstatistik der skal gemmes på serveren."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi protokol"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Konfigurer <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> protokollen, et brancheanerkendt format til distribution af "
+"brugsstatistikker."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Spor daglige og månedlige statistikker"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Spor kun månedlige statistikker"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Begræns adgangen til COUNTER SUSHI statistik API til ledere og "
+"administratorer"

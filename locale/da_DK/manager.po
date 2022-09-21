@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-09-13 10:09+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -3079,37 +3079,31 @@ msgstr "Ugyldigt IP-område"
 msgid "manager.setup.statistics"
 msgstr "Statistikker"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Indsaml ingen Geo data"
+msgstr "Indsaml ingen Geografiske data"
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Land"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Land og region"
+msgstr "Indsaml data om den besøgendes Land og region"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Land, region og by"
+msgstr "Indsaml data om den besøgendes land, region og by"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geo-brugsstatistik"
+msgstr "Geografisk brugsstatistik"
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Brugsstatistik for institution"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Vælg denne mulighed hvis du ønsker at håndtere institutioner og indsamle "
-"deres brugsstatistik. Dette vil have betydning for hvilke "
-"statistikrapporter, du har mulighed for at indhente, og vil også have "
-"betydning for databasens størrelse."
+"Aktiver institutionel statistik, hvis du ønsker at indsamle brugsstatistik "
+"efter institution. Hvis det er aktiveret, skal du konfigurere IP-"
+"intervallerne for hver institution, du vil spore."
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
@@ -3303,10 +3297,28 @@ msgid "manager.settings.statistics.publicSushiApi.option"
 msgstr "Gør API endpoints for COUNTER SUSHI statistik offentligt tilgængelig."
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr "COUNTER SUSHI Statistik"
+msgstr "Public API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 "Hvorvidt adgangen til API endpoints for COUNTER SUSHI statistik skal "
 "begrænses. Hvis feltet ikke krydses af, vil API'en kun være tilgængelig for "
 "brugere med en administrator- eller managerrolle."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Vælg typen af geografisk brugsstatistik, der skal indsamles. Mere "
+"detaljerede geografiske statistikker kan øge din databases størrelse "
+"betydeligt og kan i nogle sjældne tilfælde underminere dine besøgendes "
+"anonymitet."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Gensend anmodning om bedømmelse til bedømmer"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Denne e-mail sendes af en redaktør til en bedømmer, der har afvist en "
+"anmodning om bedømmelse, når redaktøren ønsker at sende anmodningen igen."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Gør COUNTER SUSHI-statistikken offentligt tilgængelig"

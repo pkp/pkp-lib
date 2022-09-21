@@ -203,7 +203,12 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Execute query builder for default email templates
+     * If you try to execute the query returned by this method, it will
+     * cause an error in PostgreSQL.
+     *
+     * Call `->distinct()` on the query builder returned by this method
+     * before executing it, or use `->union()` to join it with
+     * `self::getCustomQueryBuilder()` (see self::getQueryBuilder()).
      *
      * @see self::getCompiledQuery()
      *

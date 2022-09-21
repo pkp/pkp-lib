@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\DB;
 
 class I5774_SetRelationVariables extends \PKP\migration\Migration
 {
-    private const PUBLICATION_RELATION_NONE = 1;
-    private const PUBLICATION_RELATION_SUBMITTED = 2;
+    private const PUBLICATION_RELATION_NONE = 1; // Publication::PUBLICATION_RELATION_NONE
+    private const PUBLICATION_RELATION_SUBMITTED = 2; // Publication::PUBLICATION_RELATION_SUBMITTED; removed with 3.4
 
     /**
      * Run the migration.

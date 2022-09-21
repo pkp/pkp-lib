@@ -254,6 +254,33 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $navigationMenuItemAssignmentId) {
                 DB::table('navigation_menu_item_assignment_settings')->where('navigation_menu_item_assignment_id', '=', $navigationMenuItemAssignmentId)->delete();
             }
+            // Clean orphaned review_form_settings entries
+            $orphanedIds = DB::table('review_form_settings AS rfs')->leftJoin('review_forms AS rf', 'rf.review_form_id', '=', 'rfs.review_form_id')->whereNull('rf.review_form_id')->distinct()->pluck('rfs.review_form_id');
+            foreach ($orphanedIds as $reviewFormId) {
+                DB::table('review_form_settings')->where('review_form_id', '=', $reviewFormId)->delete();
+            }
+            // Clean orphaned review_form_elements entries
+            $orphanedIds = DB::table('review_form_elements AS rfe')->leftJoin('review_forms AS rf', 'rf.review_form_id', '=', 'rfe.review_form_id')->whereNull('rf.review_form_id')->distinct()->pluck('rfe.review_form_id');
+            foreach ($orphanedIds as $reviewFormId) {
+                DB::table('review_form_elements')->where('review_form_id', '=', $reviewFormId)->delete();
+            }
+            // Clean orphaned review_form_element_settings entries
+            $orphanedIds = DB::table('review_form_element_settings AS rfes')->leftJoin('review_form_elements AS rfe', 'rfes.review_form_element_id', '=', 'rfe.review_form_element_id')->whereNull('rfe.review_form_element_id')->distinct()->pluck('rfes.review_form_element_id');
+            foreach ($orphanedIds as $reviewFormElementId) {
+                DB::table('review_form_element_settings')->where('review_form_element_id', '=', $reviewFormElementId)->delete();
+            }
+            // Clean orphaned review_form_responses entries by review_form_element_id
+            $orphanedIds = DB::table('review_form_responses AS rfr')->leftJoin('review_form_elements AS rfe', 'rfe.review_form_element_id', '=', 'rfr.review_form_element_id')->whereNull('rfe.review_form_element_id')->distinct()->pluck('rfr.review_form_element_id');
+            foreach ($orphanedIds as $reviewFormElementId) {
+                $this->_installer->log("Removing orphaned review_form_responses for missing review_form_element_id ${reviewFormElementId}");
+                DB::table('review_form_responses')->where('review_form_element_id', '=', $reviewFormElementId)->delete();
+            }
+            // Clean orphaned review_form_responses entries by review_id
+            $orphanedIds = DB::table('review_form_responses AS rfr')->leftJoin('review_assignments AS ra', 'rfr.review_id', '=', 'ra.review_id')->whereNull('ra.review_id')->distinct()->pluck('rfr.review_id');
+            foreach ($orphanedIds as $reviewId) {
+                $this->_installer->log("Removing orphaned review_form_responses for missing review_id ${reviewId}");
+                DB::table('review_form_responses')->where('review_id', '=', $reviewId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

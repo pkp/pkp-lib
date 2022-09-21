@@ -90,6 +90,22 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->index(['reviewer_id', 'review_id'], 'review_assignments_reviewer_review');
         });
 
+        // Review form responses.
+        if (!Schema::hasTable('review_form_responses')) {
+            Schema::create('review_form_responses', function (Blueprint $table) {
+                $table->bigInteger('review_form_element_id');
+                $table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
+
+                $table->bigInteger('review_id');
+                $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
+
+                $table->string('response_type', 6)->nullable();
+                $table->text('response_value')->nullable();
+
+                $table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
+            });
+        }
+
         // Submission Files for each review round
         Schema::create('review_round_files', function (Blueprint $table) {
             $table->bigInteger('submission_id');
@@ -125,6 +141,7 @@ class ReviewsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
+        Schema::drop('review_form_responses');
         Schema::drop('review_assignments');
         Schema::drop('review_files');
         Schema::drop('review_round_files');

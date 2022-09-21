@@ -208,6 +208,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
                 (int) $assignment->getSequence(),
             ]
         );
+        $assignment->setId($this->getInsertId());
 
         // Add default title (of the navigationMenuItem)
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
@@ -215,7 +216,6 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 
         $assignment->setTitle($navigationMenuItem->getTitle(null), null);
 
-        $assignment->setId($this->getInsertId());
         $this->updateLocaleFields($assignment);
 
         $this->unCacheRelatedNavigationMenus($assignment->getId());

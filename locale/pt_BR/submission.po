@@ -21,18 +21,15 @@ msgstr ""
 msgid "publication.relation.vorDoi"
 msgstr "DOI do preprint publicado"
 
+#, fuzzy
 msgid "publication.relation.published"
-msgstr ""
-"O preprint foi publicado em um periódico ou em outra publicação acadêmica."
+msgstr "O preprint foi publicado em um periódico ou em outra publicação acadêmica."
 
-msgid "publication.relation.submitted"
-msgstr ""
-"O preprint foi submetido para publicação em um periódico ou outra publicação "
-"acadêmica."
-
+#, fuzzy
 msgid "publication.relation.none"
 msgstr "O preprint não foi submetido para publicação."
 
+#, fuzzy
 msgid "publication.relation.label"
 msgstr "Submetido para publicação"
 

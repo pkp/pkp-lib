@@ -43,6 +43,7 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I7264_UpdateEmailTemplates"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7265_EditorialDecisions"/>
+		<migration class="APP\migration\upgrade\v3_4_0\I5774_SetRelationVariables"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7624_StrftimeDeprecation"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7592_RemoveUnusedEmailTemplates"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7126_Galleys"/>

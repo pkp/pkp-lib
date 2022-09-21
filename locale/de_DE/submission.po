@@ -42,15 +42,15 @@ msgstr ""
 msgid "publication.relation.vorDoi"
 msgstr "DOI des veröffentlichten Preprints"
 
+#, fuzzy
 msgid "publication.relation.published"
 msgstr "Der Preprint wurde in einer Zeitschrift als ein Preprint veröffentlicht"
 
-msgid "publication.relation.submitted"
-msgstr "Der Preprint wurde zur Veröffentlichung im Server eingereicht"
-
+#, fuzzy
 msgid "publication.relation.none"
 msgstr "Der Preprint wurde nicht zur Veröffentlichung eingereicht"
 
+#, fuzzy
 msgid "publication.relation.label"
 msgstr "Eingereicht zur Veröffentlichung"
 

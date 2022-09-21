@@ -116,18 +116,13 @@ msgid "publication.relation"
 msgstr "Relations"
 
 msgid "publication.relation.label"
-msgstr "Submitted for Publication"
+msgstr "Relation status"
 
 msgid "publication.relation.none"
-msgstr "Preprint has not been submitted for publication."
+msgstr "This preprint has not been published elsewhere."
 
-#, fuzzy
-msgid "publication.relation.submitted"
-msgstr "Preprint has been submitted for publication in a journal or other academic publication."
-
-#, fuzzy
 msgid "publication.relation.published"
-msgstr "Preprint has been published in a journal or other academic publication."
+msgstr "Preprint has been published elsewhere."
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI of the published preprint"

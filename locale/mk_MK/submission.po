@@ -115,15 +115,15 @@ msgstr ""
 msgid "publication.relation.vorDoi"
 msgstr "ДОИ на објавениот предпечаток"
 
+#, fuzzy
 msgid "publication.relation.published"
 msgstr "Предпечатокот е објавен во списание како предпечаток"
 
-msgid "publication.relation.submitted"
-msgstr "Отпечатокот е доставен за објавување во сервер"
-
+#, fuzzy
 msgid "publication.relation.none"
 msgstr "Отпечатокот не е доставен за објавување"
 
+#, fuzzy
 msgid "publication.relation.label"
 msgstr "Поднесено за објавување"
 

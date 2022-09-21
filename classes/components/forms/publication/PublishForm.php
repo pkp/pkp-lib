@@ -77,8 +77,6 @@ class PublishForm extends FormComponent
             ]);
         } elseif ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_PUBLISHED) {
             $relationStatus = __('publication.publish.relationStatus.published.noDoi');
-        } elseif ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_SUBMITTED) {
-            $relationStatus = __('publication.publish.relationStatus.submitted');
         } else {
             $relationStatus = __('publication.publish.relationStatus.none');
         }

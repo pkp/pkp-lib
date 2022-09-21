@@ -15,6 +15,7 @@ msgstr ""
 msgid "submission.submit.noContext"
 msgstr "Le serveur de cette soumission est introuvable."
 
+#, fuzzy
 msgid "publication.relation.label"
 msgstr "Soumis-e pour publication"
 

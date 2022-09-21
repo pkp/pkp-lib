@@ -25,7 +25,6 @@ use PKP\publication\PKPPublication;
 class Publication extends PKPPublication
 {
     public const PUBLICATION_RELATION_NONE = 1;
-    public const PUBLICATION_RELATION_SUBMITTED = 2;
     public const PUBLICATION_RELATION_PUBLISHED = 3;
 
     /**
@@ -55,7 +54,7 @@ class Publication extends PKPPublication
 
 if (!PKP_STRICT_MODE) {
     class_alias('\APP\publication\Publication', '\Publication');
-    foreach (['PUBLICATION_RELATION_NONE', 'PUBLICATION_RELATION_SUBMITTED', 'PUBLICATION_RELATION_PUBLISHED'] as $constantName) {
+    foreach (['PUBLICATION_RELATION_NONE', 'PUBLICATION_RELATION_PUBLISHED'] as $constantName) {
         define($constantName, constant('\Publication::' . $constantName));
     }
 }

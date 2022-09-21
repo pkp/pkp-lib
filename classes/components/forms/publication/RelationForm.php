@@ -53,10 +53,6 @@ class RelationForm extends FormComponent
                     'label' => __('publication.relation.none')
                 ],
                 [
-                    'value' => Publication::PUBLICATION_RELATION_SUBMITTED,
-                    'label' => __('publication.relation.submitted')
-                ],
-                [
                     'value' => Publication::PUBLICATION_RELATION_PUBLISHED,
                     'label' => __('publication.relation.published')
                 ]

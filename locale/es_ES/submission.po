@@ -129,15 +129,15 @@ msgstr "Enviar un preprint"
 msgid "publication.relation.vorDoi"
 msgstr "DOI del artículo publicado"
 
+#, fuzzy
 msgid "publication.relation.published"
 msgstr "El preprint ha sido publicado como artículo en una revista"
 
-msgid "publication.relation.submitted"
-msgstr "El preprint ha sido enviado para publicación en revista"
-
+#, fuzzy
 msgid "publication.relation.none"
 msgstr "El preprint no ha sido enviado para publicación"
 
+#, fuzzy
 msgid "publication.relation.label"
 msgstr "Enviado para publicación"
 

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-06-27 20:52+0000\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Administrátorské funkce"
@@ -688,9 +688,8 @@ msgstr ""
 "Soubor se nepodařilo zkomprimovat. Komprimovaný zdrojový soubor {$filePath} "
 "nebylo možné odstranit pomocí unlink."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Platforma pro statistiky COUNTER SUSHI"
+msgstr "Platforma"
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Použijte tento web jako platformu pro všechny časopisy."
@@ -698,49 +697,80 @@ msgstr "Použijte tento web jako platformu pro všechny časopisy."
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platformy"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Je požadováno ID platformy"
+msgstr ""
+"ID platformy musí být vyžadováno, pokud bude stránka identifikována jako "
+"platforma SUSHI."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
-"Tento software poskytuje statistiky používání podle protokolu COUNTER SUSHI. "
-"Tento protokol vyžaduje zadání platformy. Ve výchozím nastavení je tato "
-"platforma nastavována pro jednotlivé časopisy. Pokud jsou však všechny "
+"Podle protokolu COUNTER SUSHI musí každá statistická zpráva identifikovat "
+"\"platformu\", která statistiku poskytuje. Ve výchozím nastavení je jako "
+"platforma pro všechny statistiky označen časopis. Pokud jsou však všechny "
 "časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
-"poskytovatelem, můžete platformu nastavit pro celé stránky."
+"poskytovatelem, můžete jako platformu určit tyto stránky."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"ID platformy MUSÍ obsahovat pouze písmena ASCII (a–z, A–Z), číslice (0–9), "
-"podtržítka (_), tečky (.) a lomítka (/) a jeho délka NESMÍ překročit 17 "
-"znaků. Upozorňujeme, že ID platformy se používá v různých sloupcích, a proto "
-"by mělo být co nejkratší, ale stále rozpoznatelné. ID platformy by obvykle "
-"mělo vycházet z názvu, známé jedinečné zkratky nebo domény vydavatele či "
-"platformy. Lze také použít krátký standardní identifikátor, jako je GRID "
-"nebo ROR (bez https://)."
+"Jak identifikovat tuto platformu v hlášeních COUNTER SUSHI. ID platformy "
+"musí mít maximálně 17 znaků a může obsahovat písmena (a-z, A-Z), číslice "
+"(0-9), podtržítka (_), tečky (.) a lomítka (/). ID platformy se používá v "
+"několika sloupcích a mělo by být co nejkratší a zároveň rozpoznatelné. ID "
+"platformy obvykle vychází z názvu vydavatele nebo platformy, názvu domény "
+"nebo známé, jedinečné zkratky."
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily"
-msgstr "Denní metriky"
+msgstr "Měsíční či denní statistiky"
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
-"Statistiky využití COUNTER a Geo jsou shrnuty za jednotlivé měsíce. Poté "
-"jsou denní záznamy smazány. Tuto možnost vyberte, pokud chcete denní záznamy "
-"v databázi ponechat. Uvědomte si, že se tím výrazně zvětší databáze."
+"Zda sledovat denní nebo měsíční statistiky používání. Sledování denních "
+"statistik může značně zvětšit velikost databáze."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr "Zvolte, jak naložit s archivovanými soubory protokolu."
+msgstr ""
+"Statistiky jsou generovány ze souborů protokolu přístupu, které jsou po "
+"zpracování přesunuty do adresáře <code>{$path}</code>. Měly by být soubory "
+"protokolu po zpracování komprimovány do souborů <code>.gz</code>? "
+"Komprimování souborů protokolu může ušetřit místo na disku serveru."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr "Archivované soubory protokolu ponechat tak, jak jsou"
+msgstr "Ponechání souborů protokolu na místě"
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimace archivů"
+msgstr "Komprimace souborů protokolů"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Nakonfigurujte, jaké statistiky používání se mají shromažďovat."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Uložiště dat"
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Protokol Sushi"
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Sledování denních a měsíčních statistik"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Sledovat pouze měsíční statistiky"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Komprese protokolů"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Sběr dat"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Konfigurace statistik používání, které se mají ukládat na serveru."
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Konfigurace protokolu <a href=\"https://www.projectcounter.org/counter-sushi/"
+"\">COUNTER 5 SUSHI</a>, což je průmyslově uznávaný formát pro distribuci "
+"statistik používání."
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Omezení přístupu k rozhraní API statistik COUNTER SUSHI na manažery a "
+"administrátory"

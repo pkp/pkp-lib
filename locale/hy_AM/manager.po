@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-13 12:59+0000\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2988,29 +2988,23 @@ msgstr "Ջնջել հաստատությունը"
 msgid "manager.institutions.confirmDelete"
 msgstr "Իսկապե՞ս ուզում եք շարունակել և ջնջել այս հաստատությունը:"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geo օգտագործման վիճակագրություն"
+msgstr "Աշխարհագրական վիճակագրություն"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Մի հավաքեք Geo-ի որևէ տվյալ"
+msgstr "Մի հավաքեք աշխարհագրական որևէ տվյալ"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Երկիր"
+msgstr "Հավաքեք այցելուի երկիրը"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Երկիր և տարածաշրջան"
+msgstr "Հավաքեք այցելուի երկիրը և տարածաշրջանը"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Երկիր, տարածաշրջան և քաղաք"
+msgstr "Հավաքեք այցելուի երկիրը, տարածաշրջանը և քաղաքը"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Միացնել հաստատության կառավարման և օգտագործման վիճակագրությունը"
+msgstr "Միացնել ինստիտուցիոնալ վիճակագրությունը"
 
 msgid "manager.setup.institutions"
 msgstr "Հաստատություններ"
@@ -3039,17 +3033,15 @@ msgstr "IP-ի անվավեր տիրույթ"
 msgid "manager.setup.statistics"
 msgstr "Վիճակագրություն"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Հաստատության օգտագործման վիճակագրությունը"
+msgstr "Ինստիտուցիոնալ վիճակագրություն"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Ընտրեք այս տարբերակը, եթե ցանկանում եք կառավարել հաստատությունները և հավաքել "
-"դրանց օգտագործման վիճակագրությունը: Սա կազդի հնարավոր վիճակագրական "
-"հաշվետվությունների վրա, որոնք դուք կարող եք առբերել, ինչպես նաև կազդի "
-"տվյալների շտեմարանի չափի վրա:"
+"Միացրեք ինստիտուցիոնալ վիճակագրությունը, եթե ցանկանում եք հավաքել "
+"օգտագործման վիճակագրությունը ըստ հաստատության: Եթե միացված է, դուք պետք է "
+"կազմաձևեք IP միջակայքերը յուրաքանչյուր հաստատության համար, որը ցանկանում եք "
+"հետևել:"
 
 msgid "stats.suppFileViews"
 msgstr "Լրացուցիչ նիշքերի դիտումներ"
@@ -3277,7 +3269,7 @@ msgstr ""
 "մանրամասների մասին"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr "ՍՈՒՇԻ ՀԱՇՎԻՉ Վիճակագրություն"
+msgstr "Հանրային API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
@@ -3288,3 +3280,21 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.option"
 msgstr ""
 "Հանրությանը հասանելի դարձրեք COUNTER SUSHI վիճակագրության API-ի վերջնակետերը:"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Ընտրեք հավաքագրվող աշխարհագրական օգտագործման վիճակագրության տեսակը: Ավելի "
+"մանրամասն աշխարհագրական վիճակագրությունը կարող է զգալիորեն մեծացնել ձեր "
+"տվյալների շտեմարանի չափը և, որոշ հազվադեպ դեպքերում, կարող է խաթարել ձեր "
+"այցելուների անանունությունը:"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Կրկին ուղարկել վերանայման հարցումը գրապոսին"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Այս նամակը խմբագրի կողմից ուղարկվում է գրախոսին, ով մերժել է վերանայման "
+"հարցումը, երբ խմբագիրը ցանկանում է նորից ուղարկել հարցումը:"
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "COUNTER SUSHI վիճակագրությունը հրապարակայնորեն հասանելի դարձրեք"

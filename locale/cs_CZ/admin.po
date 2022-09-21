@@ -687,3 +687,60 @@ msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
 "Soubor se nepodařilo zkomprimovat. Komprimovaný zdrojový soubor {$filePath} "
 "nebylo možné odstranit pomocí unlink."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platforma pro statistiky COUNTER SUSHI"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Použijte tento web jako platformu pro všechny časopisy."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID platformy"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Je požadováno ID platformy"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Tento software poskytuje statistiky používání podle protokolu COUNTER SUSHI. "
+"Tento protokol vyžaduje zadání platformy. Ve výchozím nastavení je tato "
+"platforma nastavována pro jednotlivé časopisy. Pokud jsou však všechny "
+"časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
+"poskytovatelem, můžete platformu nastavit pro celé stránky."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"ID platformy MUSÍ obsahovat pouze písmena ASCII (a–z, A–Z), číslice (0–9), "
+"podtržítka (_), tečky (.) a lomítka (/) a jeho délka NESMÍ překročit 17 "
+"znaků. Upozorňujeme, že ID platformy se používá v různých sloupcích, a proto "
+"by mělo být co nejkratší, ale stále rozpoznatelné. ID platformy by obvykle "
+"mělo vycházet z názvu, známé jedinečné zkratky nebo domény vydavatele či "
+"platformy. Lze také použít krátký standardní identifikátor, jako je GRID "
+"nebo ROR (bez https://)."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Denní metriky"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Statistiky využití COUNTER a Geo jsou shrnuty za jednotlivé měsíce. Poté "
+"jsou denní záznamy smazány. Tuto možnost vyberte, pokud chcete denní záznamy "
+"v databázi ponechat. Uvědomte si, že se tím výrazně zvětší databáze."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Zvolte, jak naložit s archivovanými soubory protokolu."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Archivované soubory protokolu ponechat tak, jak jsou"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimace archivů"

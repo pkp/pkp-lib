@@ -755,99 +755,41 @@ msgstr "Roles"
 msgid "manager.setup.statistics"
 msgstr "Statistics"
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Choose what to do with the archived log files."
-
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Leave the archived log files as they are"
-
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Compress archives"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Daily metrics"
-
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"The COUNTER and Geo usage statistics are summarized per month. After that "
-"the daily records are deleted. Select this option if you would like to keep "
-"the daily records in the database. Be aware that this will significantly "
-"increase your database."
-
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Keep the daily metrics in the database"
-
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geo usage statistics"
+msgstr "Geographical Statistics"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Choose what usage statistics geographical data you would like to collect. "
-"This will influence the possible statistics reports you can retrieve, and "
-"will also have an impact on the database size."
+msgstr "Select the type of geographical usage statistics to collect. More detailed geographical statistics may increase your database size considerably and, in some rare cases, may undermine the anonymity of your visitors."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Do not collect any Geo data"
+msgstr "Do not collect any geographical data"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Country"
+msgstr "Collect the visitor's country"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Country and region"
+msgstr "Collect the visitor's country and region"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Country, region and city"
+msgstr "Collect the visitor's country, region and city"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Institution usage statistics"
+msgstr "Institutional Statistics"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
-msgstr ""
-"Select this option if you would like to manage institutions and collect "
-"their usage statistics. This will influence the possible statistics reports "
-"you can retrieve, and will also have an impact on the database size."
+msgstr "Enable institutional statistics if you would like to collect usage statistics by institution. If enabled, you will need to configure the IP ranges for each institution you want to track."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Enable institution management and usage statistics"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Platform for COUNTER SUSHI Statistics"
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"This software provides usage statistics according to the COUNTER SUSHI "
-"protocol. This protocol requests that a platform is specified. By default, "
-"the journal will be designated as the platform for all statistics. However, "
-"if all of the journals on this site are published, owned or operated by the "
-"same provider, you may wish to designate the site as the platform."
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use the site as the platform for all journals."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Platform ID"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"The platform ID MUST only contain ASCII letters (a–z, A–Z), digits (0–9), "
-"underscores (_), dots (.) and forward slashes (/), and the length MUST NOT "
-"exceed 17 characters. Note that the platform ID is used in various columns "
-"and therefore should be as short as possible, but still recognizable. The "
-"platform ID usually should be based on the name, a well-known unique "
-"abbreviation or the domain of the publisher or platform. A short standard "
-"identifier like GRID or ROR (without the https://) also could be used."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Platform ID is required"
+msgstr "Enable institutional statistics"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr "COUNTER SUSHI Statistics"
+msgstr "Public API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr "Whether or not to restrict access to the API endpoints for COUNTER SUSHI statistics. If unchecked, the API will only be accessible to users with admin or manager roles."
 
-msgid "manager.settings.statistics.publicSushiApi.option"
-msgstr "Make the API endpoints for COUNTER SUSHI statistics publicly accessible."
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Make the COUNTER SUSHI statistics publicly available"
 
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"

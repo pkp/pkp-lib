@@ -2988,47 +2988,29 @@ msgstr "Ջնջել հաստատությունը"
 msgid "manager.institutions.confirmDelete"
 msgstr "Իսկապե՞ս ուզում եք շարունակել և ջնջել այս հաստատությունը:"
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Ընտրեք, թե ինչ անել արխիվացված մատյան նիշքերի հետ:"
-
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Սեղմել արխիվները"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Ամենօրյա չափումներ"
-
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Պահպանեք ամենօրյա չափումները տվյալների շտեմարանում"
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo օգտագործման վիճակագրություն"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Մի հավաքեք Geo-ի որևէ տվյալ"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Երկիր"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "Երկիր և տարածաշրջան"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Երկիր, տարածաշրջան և քաղաք"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Միացնել հաստատության կառավարման և օգտագործման վիճակագրությունը"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "հարթակ COUNTER SUSHI վիճակագրության համար"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Հարթակի ID"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Հարթակի ID-ն պահանջվում է"
 
 msgid "manager.setup.institutions"
 msgstr "Հաստատություններ"
@@ -3057,50 +3039,17 @@ msgstr "IP-ի անվավեր տիրույթ"
 msgid "manager.setup.statistics"
 msgstr "Վիճակագրություն"
 
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Արխիվացված մատյան նիշքերը թողեք այնպես, ինչպես կան"
-
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"COUNTER-ի և Geo-ի օգտագործման վիճակագրությունը ամփոփվում է ամսական: Դրանից "
-"հետո ամենօրյա գրառումները ջնջվում են։ Ընտրեք այս տարբերակը, եթե ցանկանում եք "
-"պահել ամենօրյա գրառումները տվյալների շտեմարանում: Իմացեք, որ դա զգալիորեն "
-"կմեծացնի տվյալների ձեր շտեմարանը:"
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Ընտրեք օգտագործման վիճակագրության աշխարհագրական տվյալները, որոնք կցանկանայիք "
-"հավաքել: Սա կազդի հնարավոր վիճակագրական հաշվետվությունների վրա, որոնք դուք "
-"կարող եք առբերել, ինչպես նաև կազդի տվյալների շտեմարանի չափի վրա:"
-
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Հաստատության օգտագործման վիճակագրությունը"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Ընտրեք այս տարբերակը, եթե ցանկանում եք կառավարել հաստատությունները և հավաքել "
 "դրանց օգտագործման վիճակագրությունը: Սա կազդի հնարավոր վիճակագրական "
 "հաշվետվությունների վրա, որոնք դուք կարող եք առբերել, ինչպես նաև կազդի "
 "տվյալների շտեմարանի չափի վրա:"
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Այս ծրագրաշարը տրամադրում է օգտագործման վիճակագրություն՝ համաձայն COUNTER "
-"SUSHI արձանագրության: Այս արձանագրությունը պահանջում է որպեսզի հարթակը նշվի: "
-"Լռելյայն, ամսագիրը կնշանակվի որպես բոլոր վիճակագրությունների հարթակ: "
-"Այնուամենայնիվ, եթե այս կայքի բոլոր ամսագրերը հրատարակված են, պատկանում կամ "
-"շահագործվում են միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես "
-"հարթակ:"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Հարթակի ID-ն ՊԵՏՔ Է պարունակի միայն ASCII տառեր (a–z, A–Z), թվեր (0–9), "
-"ընդգծումներ (_), կետեր (.) և առաջ շեղեր (/), իսկ երկարությունը ՉՊԵՏՔ Է "
-"գերազանցի 17 նիշը։ Նկատի ունեցեք, որ հարթակի ID-ն օգտագործվում է տարբեր "
-"սյունակներում և, հետևաբար, պետք է լինի հնարավորինս կարճ, բայց դեռ ճանաչելի: "
-"Հարթակի ID-ն սովորաբար պետք է հիմնված լինի անվանման, հայտնի եզակի հապավումի "
-"կամ հրատարակչի կամ հարթակի տիրույթի վրա: Կարելի է նաև օգտագործել կարճ "
-"ստանդարտ նույնացուցիչ, ինչպիսին է GRID կամ ROR (առանց https://):"
 
 msgid "stats.suppFileViews"
 msgstr "Լրացուցիչ նիշքերի դիտումներ"

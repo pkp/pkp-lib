@@ -704,3 +704,63 @@ msgid "admin.job.compileMetrics.error"
 msgstr ""
 "Falha na tarefa que carrega os dados de estatísticas de uso do arquivo "
 "{$file}. O arquivo foi movido para o diretório stage."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Plataforma para Estatísticas COUNTER SUSHI"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use o site como plataforma para todos os periódicos."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID da plataforma"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "O ID da plataforma é obrigatório"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Este software fornece estatísticas de uso de acordo com o protocolo COUNTER "
+"SUSHI. Este protocolo solicita que uma plataforma seja especificada. Por "
+"padrão, a revista será designada como a plataforma para todas as "
+"estatísticas. No entanto, se todos os periódicos neste site forem "
+"publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
+"designar o site como a plataforma."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–"
+"9), sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE "
+"exceder 17 caracteres. Observe que o ID da plataforma é usado em várias "
+"colunas e, portanto, deve ser o mais curto possível, mas ainda reconhecível. "
+"O ID da plataforma geralmente deve ser baseado no nome, em uma abreviação "
+"exclusiva bem conhecida ou no domínio do editor ou da plataforma. Um "
+"identificador padrão curto como GRID ou ROR (sem o https://) também pode ser "
+"usado."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Métricas diárias"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"As estatísticas de uso COUNTER e Geo são resumidas por mês. Depois disso, os "
+"registros diários são excluídos. Selecione esta opção se desejar manter os "
+"registros diários no banco de dados. Esteja ciente de que isso aumentará "
+"significativamente sua base de dados."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Escolha o que fazer com os arquivos de log arquivados."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Compactar arquivos"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Deixe os arquivos de log arquivados como estão"

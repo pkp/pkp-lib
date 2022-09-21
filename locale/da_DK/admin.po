@@ -696,3 +696,61 @@ msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
 "Opgave, der indlæser brugsstatistikdata fra filen {$file} fejlede, og filen "
 "kunne ikke flyttes fra {$archivedFilePath} til {$stagingPath}."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platform for COUNTER SUSHI statistik"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Platformens ID er påkrævet"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Denne software tilbyder brugsstatistik i henhold til COUNTER SUSHI "
+"protokollen. Denne protokol anmoder om, at der specificeres en platform. Som "
+"standard vil tidsskriftet blive angivet som platform til alle statistikker. "
+"Hvis alle tidsskrifterne på denne hjemmeside publiceres, ejes og betjenes af "
+"den samme udbyder, kan du også vælge at angive hjemmesiden som platform."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Platformens ID må kun indeholde ASCII bogstaver (a-z, A-Z), tal (0-9), "
+"bundstreg (_), prik (.) og skråstreg (/), og længden må ikke overstige 17 "
+"karakterer. Vær opmærksom på at platformens ID bruges i forskellige kolonner "
+"og derfor bør være så kort som muligt, men samtidig genkendelig. Platformens "
+"ID bør være baseret på navnet, en velkendt unik forkortelse eller forlagets "
+"eller platformens domæne. Der kan også anvendes et kort standard id såsom "
+"GRID eller ROR (uden https://)."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Daglige målinger"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"COUNTER og Geo brugsstatistikkerne opsummeres per måned. Derefter slettes de "
+"daglige optegnelser. Vælg denne mulighed, hvis du gerne vil beholde de "
+"daglige optegnelser i databasen. Vær dog opmærksom på, at dette vil forøge "
+"din database betydeligt."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Vælg hvad der skal ske med de arkiverede logfiler."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Lad de arkiverede logfiler forblive som de er"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimer arkiver"

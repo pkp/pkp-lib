@@ -689,3 +689,74 @@ msgid "admin.job.compileMetrics.error"
 msgstr ""
 "Opravilo, ki naloži uporabniške statistike iz datoteke {$file}, ni bilo "
 "uspešno. Datoteka je bila premaknjena v odložitveno mapo."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"ID platforme lahko vsebuje le ASCII črke (a–z, A–Z), številke (0–9), "
+"podčrtajs (_), pike (.) in poševnico naprej (/), dočina pa ne sem presegati "
+"17 znakov. Vedite, da bo ID platforme uporabljen v različnih stolpcih in naj "
+"bi bil kolikor je mogoče kratek, a še vedno prepoznaven. Običajno je ID "
+"platforme baziran na imenu, dobro znani okrajšani domeni izdajatelja ali "
+"platforme. Lahko se uporabi tudi kratek standarden identifikator kot je GRID "
+"ali RRO (brez https://)."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Ta programska oprema omogoča statistike uporabe glede na COUNTER SUSHI "
+"protokol. Ta protokol zahteva, da je določena platforma. Privzeto bo revijia "
+"določena kot platforma za vse statistike. V primeru, da vse revije na tem "
+"strežniku pripadajo enemu ponudniku, boste morda želeli, da bo celoten "
+"strežnik določen kot platforma."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Uporabi strežnik kot platformo za vse revije."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID platforme"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "ID platforme je obvezen"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platforma za COUNTER SUSHI statistike"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Uporabniške statistike COUNTER in Geo so seštete po mesecih. Po tem se "
+"dnevni zapisi odstranijo. Izberite to opcijo, če želite, da dnevni zapisi "
+"ostanejo v bazi podatkov. Zavedajte se, da bo to občutno povečalo velikost "
+"baze podatkov."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Dnevne metrike"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Daglig statistik"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"COUNTER-statistik och geografisk användningsstatistik summeras månadsvis. "
+"Därefter raderas de dagliga loggarna. Välj det här alternativet om du vill "
+"behålla dagliga loggar i databasen. Observera att detta kommer göra "
+"databasen betydligt större."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Izberite, kaj naj se naredi z arhiviranimi datotekami z dnevniškimi zapisi."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Datoteke z dnevniškimi zapisi ostanejo kjer so"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Arhivi naj se stisnejo"

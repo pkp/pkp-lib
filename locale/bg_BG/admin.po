@@ -690,3 +690,65 @@ msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
 "Файлът не можа да бъде декомпресиран. Целевият файл {$filePath} не може да "
 "бъде записан с fwrite."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Използване на сайта като платформа за всички списания."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Идентификатор за платформата (Platform ID)"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Изисква се идентификатор на платформата (Platform ID)"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Платформа за COUNTER SUSHI статистика"
+
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Този софтуер предоставя статистически данни за използването според протокола "
+"COUNTER SUSHI. Този протокол изисква да бъде посочена платформа. По "
+"подразбиране списанието ще бъде определено като платформа за всички "
+"статистики. Въпреки това, ако всички списания на този сайт са публикувани, "
+"притежавани или управлявани от един и същ доставчик, може да пожелаете да "
+"посочите сайта като платформа."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Идентификатора на платформата (Platform ID) ТРЯБВА да съдържа само ASCII "
+"букви (a–z, A–Z), цифри (0–9), долна черта (_), точки (.) и наклонени черти "
+"(/), а дължината НЕ ТРЯБВА да надвишава 17 знака. Имайте предвид, че "
+"идентификаторът на платформата се използва в различни колони и следователно "
+"трябва да бъде възможно най-кратък, но все пак разпознаваем. "
+"Идентификационният номер на платформата обикновено трябва да се базира на "
+"името, добре познато уникално съкращение или домейна на издателя или "
+"платформата. Може да се използва и кратък стандартен идентификатор като GRID "
+"или ROR (без https://)."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Ежедневни показатели"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Статистиките за БРОЯЧ (COUNTER) и Гео използване (Geo usage) се обобщават на "
+"месец. След това дневните записи се изтриват. Изберете тази опция, ако "
+"искате да запазите ежедневните записи в базата данни. Имайте предвид, че "
+"това значително ще увеличи вашата база данни."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Изберете какво да правите с архивираните регистрационни файлове."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Оставяне на архивираните лог файлове такива, каквито са"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Компресиране на архиви"

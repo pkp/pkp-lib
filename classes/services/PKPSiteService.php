@@ -160,7 +160,7 @@ class PKPSiteService implements EntityPropertyInterface
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['isSiteSushiPlatform']) && $props['isSiteSushiPlatform']) {
                 if (empty($props['sushiPlatformID'])) {
-                    $validator->errors()->add('sushiPlatformID', __('manager.settings.statistics.sushiPlatform.sushiPlatformID.required'));
+                    $validator->errors()->add('sushiPlatformID', __('admin.settings.statistics.sushiPlatform.sushiPlatformID.required'));
                 }
             }
         });

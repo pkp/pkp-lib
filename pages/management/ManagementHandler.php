@@ -301,7 +301,7 @@ class ManagementHandler extends Handler
         $contextStatisticsForm = new \PKP\components\forms\context\PKPContextStatisticsForm($apiUrl, $locales, $site, $context);
         $displayStatisticsTab = ($site->getData('enableGeoUsageStats') && $site->getData('enableGeoUsageStats') !== 'disabled') ||
             $site->getData('enableInstitutionUsageStats') ||
-            ($site->getData('isSushiApiPublic') == null || $site->getData('isSushiApiPublic'));
+            ($site->getData('isSushiApiPublic') === null || $site->getData('isSushiApiPublic'));
         $templateMgr->setConstants([
             'FORM_PAYMENT_SETTINGS' => FORM_PAYMENT_SETTINGS,
             'FORM_CONTEXT_STATISTICS' => FORM_CONTEXT_STATISTICS,

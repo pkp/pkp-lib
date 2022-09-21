@@ -2890,29 +2890,21 @@ msgstr "URL till meddelandet"
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Antal bidrag som mottagits senaste månaden"
 
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimera arkiv"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Daglig statistik"
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Land"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "Land och region"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Land, region och stad"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Platform för COUNTER SUSHI-statistik"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Använd siten som plattform för alla tidskrifter."
 
 msgid "manager.institutions.edit"
 msgstr "Redigera institution"
@@ -2944,19 +2936,6 @@ msgstr "Är du säker på att du vill ta bort institutionen?"
 msgid "manager.setup.statistics"
 msgstr "Statistik"
 
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"COUNTER-statistik och geografisk användningsstatistik summeras månadsvis. "
-"Därefter raderas de dagliga loggarna. Välj det här alternativet om du vill "
-"behålla dagliga loggar i databasen. Observera att detta kommer göra "
-"databasen betydligt större."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Plattforms-ID"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Ett plattforms-ID krävs"
-
 msgid "stats.unique"
 msgstr "Unik"
 
@@ -2973,9 +2952,7 @@ msgstr "Markera DOI:er som oregistrerade"
 msgid "manager.dois.notification.markUnregisteredSuccess"
 msgstr "Objekten har markerats som oregistrerade"
 
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Låt loggfilerna vara"
-
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Välj detta alternativ om du vill hantera institutioner och samla in deras "
@@ -2990,19 +2967,9 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr "Gör ändringar för {$count} objekt."
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Välj vad som ska göras med arkiverade loggfiler."
-
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionens användningsstatistik"
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
-"protokollet. Det kräver en specificerad plattform. Tidskriften är på förhand "
-"angiven som plattformen för all statistik, men om alla tidskrifter på denna "
-"OJS-installation tillhör samma utgivare går det även att ange hela siten som "
-"plattform."
 
 msgid "manager.setup.institutions"
 msgstr "Institutioner"
@@ -3164,9 +3131,11 @@ msgstr "Skickat till granskning"
 msgid "mailable.ReviewResponseOverdueAuto.name"
 msgstr "Svar på granskning försenat (automatisk)"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geografisk användningsstatistik"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Samla inte in geografisk data"
 
@@ -3201,27 +3170,8 @@ msgstr ""
 "Det här e-postmeddelandet skickas automatiskt till anknutna redaktörer när "
 "en granskare lämnat en rekommendation"
 
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Behåll daglig statistik i databasen"
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Välj vilken geografisk användningsstatistik du vill samla in. Detta kommer "
-"påverka vilka typer av rapporter som kommer vara möjliga att hämta ut, och "
-"kommer även påverka databasens storlek."
-
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Meddelande om statistikrapport"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Plattforms-ID FÅR ENBART innehålla ASCII-tecken (a-z, A-Z), siffror (0-9), "
-"understreck (_), punkter (.) och snedstreck (/), och längden FÅR INTE "
-"överstiga 17 tecken. Observera att plattforms-ID används i olika kolumner "
-"och bör därför vara så korta som möjligt, men fortfarande igenkännliga. "
-"Plattforms-ID bör vanligtvis vara baserat på utgivarens namn. En kort "
-"beteckning enligt en standard såsom GRID eller ROR (utan https://) kan också "
-"användas."
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""

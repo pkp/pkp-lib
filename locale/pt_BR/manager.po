@@ -3051,50 +3051,25 @@ msgstr "Tem certeza de que deseja continuar e excluir esta instituição?"
 msgid "manager.setup.statistics"
 msgstr "Estatísticas"
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Escolha o que fazer com os arquivos de log arquivados."
-
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Compactar arquivos"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Métricas diárias"
-
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Manter as métricas diárias na base de dados"
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Estatísticas de uso geográfico"
 
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Escolha quais dados geográficos de estatísticas de uso você gostaria de "
-"coletar. Isso influenciará os possíveis relatórios de estatísticas que você "
-"pode recuperar e também terá um impacto no tamanho da base de dados."
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Não colete dados geográficos"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "País"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "País e região"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Ative o gerenciamento da instituição e as estatísticas de uso"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Plataforma para Estatísticas COUNTER SUSHI"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use o site como plataforma para todos os periódicos."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "ID da plataforma"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "O ID da plataforma é obrigatório"
 
 msgid "manager.setup.institutions"
 msgstr "Instituições"
@@ -3124,48 +3099,21 @@ msgstr ""
 msgid "manager.institutions.invalidIPRange"
 msgstr "Intervalo de IP inválido"
 
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Deixe os arquivos de log arquivados como estão"
-
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"As estatísticas de uso COUNTER e Geo são resumidas por mês. Depois disso, os "
-"registros diários são excluídos. Selecione esta opção se desejar manter os "
-"registros diários no banco de dados. Esteja ciente de que isso aumentará "
-"significativamente sua base de dados."
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "País, região e cidade"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Estatísticas de uso da instituição"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Selecione esta opção se desejar gerenciar instituições e coletar suas "
 "estatísticas de uso. Isso influenciará os possíveis relatórios de "
 "estatísticas que você pode recuperar e também terá um impacto no tamanho da "
 "base de dados."
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Este software fornece estatísticas de uso de acordo com o protocolo COUNTER "
-"SUSHI. Este protocolo solicita que uma plataforma seja especificada. Por "
-"padrão, a revista será designada como a plataforma para todas as "
-"estatísticas. No entanto, se todos os periódicos neste site forem "
-"publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
-"designar o site como a plataforma."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–"
-"9), sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE "
-"exceder 17 caracteres. Observe que o ID da plataforma é usado em várias "
-"colunas e, portanto, deve ser o mais curto possível, mas ainda reconhecível. "
-"O ID da plataforma geralmente deve ser baseado no nome, em uma abreviação "
-"exclusiva bem conhecida ou no domínio do editor ou da plataforma. Um "
-"identificador padrão curto como GRID ou ROR (sem o https://) também pode ser "
-"usado."
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Marcar DOIs Não Registrado"

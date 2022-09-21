@@ -3079,45 +3079,31 @@ msgstr "Ugyldigt IP-område"
 msgid "manager.setup.statistics"
 msgstr "Statistikker"
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Vælg hvad der skal ske med de arkiverede logfiler."
-
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Lad de arkiverede logfiler forblive som de er"
-
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimer arkiver"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Daglige målinger"
-
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Bevar de daglige målinger i databasen"
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Vælg hvilke brugsstatistikker med geografiske data, du ønsker at indsamle. "
-"Dette vil have betydning for hvilke statistikrapporter, du har mulighed for "
-"at indhente, og vil også have indflydelse på databasens størrelse."
-
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Indsaml ingen Geo data"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
 msgstr "Land"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
 msgstr "Land og region"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr "Land, region og by"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geo-brugsstatistik"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Brugsstatistik for institution"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Vælg denne mulighed hvis du ønsker at håndtere institutioner og indsamle "
@@ -3125,20 +3111,9 @@ msgstr ""
 "statistikrapporter, du har mulighed for at indhente, og vil også have "
 "betydning for databasens størrelse."
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Aktiver håndtering af institution og brugsstatistikker"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Platform for COUNTER SUSHI statistik"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Platform ID"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Platformens ID er påkrævet"
 
 msgid "manager.setup.institutions"
 msgstr "Institutioner"
@@ -3148,31 +3123,6 @@ msgstr "Unik"
 
 msgid "stats.unknown"
 msgstr "ukendt"
-
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"COUNTER og Geo brugsstatistikkerne opsummeres per måned. Derefter slettes de "
-"daglige optegnelser. Vælg denne mulighed, hvis du gerne vil beholde de "
-"daglige optegnelser i databasen. Vær dog opmærksom på, at dette vil forøge "
-"din database betydeligt."
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Denne software tilbyder brugsstatistik i henhold til COUNTER SUSHI "
-"protokollen. Denne protokol anmoder om, at der specificeres en platform. Som "
-"standard vil tidsskriftet blive angivet som platform til alle statistikker. "
-"Hvis alle tidsskrifterne på denne hjemmeside publiceres, ejes og betjenes af "
-"den samme udbyder, kan du også vælge at angive hjemmesiden som platform."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Platformens ID må kun indeholde ASCII bogstaver (a-z, A-Z), tal (0-9), "
-"bundstreg (_), prik (.) og skråstreg (/), og længden må ikke overstige 17 "
-"karakterer. Vær opmærksom på at platformens ID bruges i forskellige kolonner "
-"og derfor bør være så kort som muligt, men samtidig genkendelig. Platformens "
-"ID bør være baseret på navnet, en velkendt unik forkortelse eller forlagets "
-"eller platformens domæne. Der kan også anvendes et kort standard id såsom "
-"GRID eller ROR (uden https://)."
 
 msgid "stats.suppFileViews"
 msgstr "Visninger af supplerende filer"

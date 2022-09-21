@@ -576,3 +576,75 @@ msgstr "Job that loads the usage stats data from the file {$file} failed, and th
 
 msgid "admin.job.compileMetrics.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed. The file has been moved to the stage directory."
+
+msgid "admin.settings.statistics.collection"
+msgstr "Data Collection"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Configure what kind of usage statistics should be collected."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Data Storage"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Configure what usage statistics should be stored on the server."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi Protocol"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr "Configure the <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</a> protocol, an industry-recognized format for distributing usage statistics."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Monthly or Daily Statistics"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Whether or not to track daily or monthly usage statistics. Tracking daily statistics may increase your database size considerably."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Track daily and monthly statistics"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Only track monthly statistics"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Compress Logs"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Statistics are generated from access log files which are moved to <code>{$path}</code> once they have been processed. Should the log files be compressed into <code>.gz</code> files once they have been processed? Compressing log files may save disk space on the server."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Leave the log files in place"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Compress the log files"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr "Restrict access to the COUNTER SUSHI statistics API to managers and admins"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platform"
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"According to the COUNTER SUSHI protocol, every statistics report must identify the \"platform\" providing the statistics. By default, "
+"the journal will be designated as the platform for all statistics. However, "
+"if all of the journals on this site are published, owned or operated by the "
+"same provider, you may wish to designate the site as the platform."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use the site as the platform for all journals."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"How to identify this platform in COUNTER SUSHI reports. The platform ID must be 17 characters or less and may contain letters (a–z, A–Z), digits (0–9), "
+"underscores (_), dots (.) and forward slashes (/). The platform ID is used in several columns "
+"and should be as short as possible while remaining recognizable. The "
+"platform ID is usually based on the name of a publisher or platform, a domain name, or a well-known, unique abbreviation."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "A platform ID must be required when the site will be identified as the SUSHI platform."

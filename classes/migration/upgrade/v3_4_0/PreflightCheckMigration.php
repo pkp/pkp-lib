@@ -281,6 +281,104 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned review_form_responses for missing review_id ${reviewId}");
                 DB::table('review_form_responses')->where('review_id', '=', $reviewId)->delete();
             }
+            // Clean orphaned submissions by context_id
+            $orphanedIds = DB::table('submissions AS s')->leftJoin($this->getContextTable() . ' AS c', 's.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('s.submission_id', 's.context_id');
+            foreach ($orphanedIds as $contextId => $submissionId) {
+                $this->_installer->log("Removing orphaned submission ID ${submissionId} with nonexistent context ID ${contextId}.");
+                DB::table('submissions')->where('submission_id', '=', $submissionId)->delete();
+            }
+            // Clean orphaned submission_settings entries
+            $orphanedIds = DB::table('submission_settings AS ss')->leftJoin('submissions AS s', 'ss.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('ss.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                DB::table('submission_settings')->where('submission_id', '=', $submissionId)->delete();
+            }
+            // Clean orphaned publication_settings entries
+            $orphanedIds = DB::table('publication_settings AS ps')->leftJoin('publications AS p', 'ps.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('ps.publication_id');
+            foreach ($orphanedIds as $publicationId) {
+                DB::table('publication_settings')->where('publication_id', '=', $publicationId)->delete();
+            }
+            // Clean orphaned authors entries by publication_id
+            $orphanedIds = DB::table('authors AS a')->leftJoin('publications AS p', 'a.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('a.publication_id');
+            foreach ($orphanedIds as $publicationId) {
+                DB::table('authors')->where('publication_id', '=', $publicationId)->delete();
+            }
+
+            // Flag orphaned authors entries by user_group_id
+            $result = DB::table('authors AS a')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')->whereNull('ug.user_group_id')->distinct()->select('a.author_id AS author_id, a.publication_id AS publication_id, a.user_group_id AS user_group_id, p.submission_id AS submission_id')->get();
+            foreach ($result as $row) {
+                $this->_installer->log("Found an orphaned authors entry with author_id ${row->author_id} for publication_id ${row->publication_id} with submission_id ${row->submission_id} and user_group_id ${row->user_group_id}.");
+            }
+            if ($result->count()) {
+                throw new Exception('There are author records without matching user_group entries. Please correct these before upgrading.');
+            }
+
+            // Clean orphaned publication_settings entries
+            $orphanedIds = DB::table('author_settings AS a_s')->leftJoin('authors AS a', 'a_s.author_id', '=', 'a.author_id')->whereNull('a.author_id')->distinct()->pluck('a_s.author_id');
+            foreach ($orphanedIds as $authorId) {
+                DB::table('author_settings')->where('author_id', '=', $authorId)->delete();
+            }
+            // Clean orphaned edit_decisions entries by review_round_id
+            $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('review_rounds AS rr', 'rr.review_round_id', '=', 'ed.review_round_id')->whereNull('rr.review_round_id')->whereNotNull('ed.review_round_id')->distinct()->pluck('ed.review_round_id');
+            foreach ($orphanedIds as $reviewRoundId) {
+                $this->_installer->log("Removing orphaned edit_decisions entry for missing review_round_id ${reviewRoundId}");
+                DB::table('edit_decisions')->where('review_round_id', '=', $reviewRoundId)->delete();
+            }
+            // Clean orphaned edit_decisions entries by editor_id
+            $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('users AS u', 'u.user_id', '=', 'ed.editor_id')->whereNull('u.user_id')->distinct()->pluck('ed.editor_id');
+            foreach ($orphanedIds as $editorId) {
+                $this->_installer->log("Removing orphaned edit_decisions entry for missing editor_id ${editorId}");
+                DB::table('edit_decisions')->where('editor_id', '=', $editorId)->delete();
+            }
+            // Clean orphaned submission_comments entries by submission_id
+            $orphanedIds = DB::table('submission_comments AS sc')->leftJoin('submissions AS s', 's.submission_id', '=', 'sc.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sc.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                $this->_installer->log("Removing orphaned submission_comments entry for missing submission_id ${submissionId}");
+                DB::table('submission_comments')->where('submission_id', '=', $submissionId)->delete();
+            }
+
+            // Clean orphaned submission_comments entries by author_id
+            $orphanedIds = DB::table('submission_comments AS sc')->leftJoin('users AS u', 'u.user_id', '=', 'sc.author_id')->whereNull('u.user_id')->distinct()->pluck('sc.author_id');
+            foreach ($orphanedIds as $userId) {
+                $this->_installer->log("Removing orphaned submission_comments entry for missing author_id ${userId}");
+                DB::table('submission_comments')->where('author_id', '=', $userId)->delete();
+            }
+
+            // Clean orphaned subeditor_submission_group entries by context_id
+            $orphanedIds = DB::table('subeditor_submission_group AS ssg')->leftJoin($this->getContextTable() . ' AS c', 'ssg.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('ssg.context_id');
+            foreach ($orphanedIds as $contextId) {
+                DB::table('subeditor_submission_group')->where('context_id', '=', $contextId)->delete();
+            }
+
+            // Clean orphaned subeditor_submission_group entries by user_id
+            $orphanedIds = DB::table('subeditor_submission_group AS ssg')->leftJoin('users AS u', 'u.user_id', '=', 'ssg.user_id')->whereNull('u.user_id')->distinct()->pluck('ssg.user_id');
+            foreach ($orphanedIds as $userId) {
+                $this->_installer->log("Removing orphaned subeditor_submission_group entry for missing user_id ${userId}");
+                DB::table('subeditor_submission_group')->where('user_id', '=', $userId)->delete();
+            }
+
+            // Clean orphaned submission_search_objects entries by submission_id
+            $orphanedIds = DB::table('submission_search_objects AS sso')->leftJoin('submissions AS s', 's.submission_id', '=', 'sso.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sso.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                DB::table('submission_search_objects')->where('submission_id', '=', $submissionId)->delete();
+            }
+
+            // Clean orphaned submission_search_object_keywords entries by object_id
+            $orphanedIds = DB::table('submission_search_object_keywords AS ssok')->leftJoin('submission_search_objects AS sso', 'ssok.object_id', '=', 'sso.object_id')->whereNull('sso.object_id')->distinct()->pluck('ssok.object_id');
+            foreach ($orphanedIds as $objectId) {
+                DB::table('submission_search_object_keywords')->where('object_id', '=', $objectId)->delete();
+            }
+
+            // Clean orphaned submission_search_object_keywords entries by keyword_id
+            $orphanedIds = DB::table('submission_search_object_keywords AS ssok')->leftJoin('submission_search_keyword_list AS sskl', 'ssok.keyword_id', '=', 'sskl.keyword_id')->whereNull('sskl.keyword_id')->distinct()->pluck('ssok.keyword_id');
+            foreach ($orphanedIds as $keywordId) {
+                DB::table('submission_search_object_keywords')->where('keyword_id', '=', $keywordId)->delete();
+            }
+
+            // Clean orphaned review_round_files entries by submission_id
+            $orphanedIds = DB::table('review_round_files AS rrf')->leftJoin('submissions AS s', 's.submission_id', '=', 'rrf.submission_id')->whereNull('s.submission_id')->distinct()->pluck('rrf.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                DB::table('review_round_files')->where('submission_id', '=', $submissionId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

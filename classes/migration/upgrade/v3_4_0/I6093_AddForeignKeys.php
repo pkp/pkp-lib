@@ -163,6 +163,43 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
             $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
         });
+        Schema::table('submissions', function (Blueprint $table) {
+            $table->foreign('context_id', 'submissions_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+        });
+        Schema::table('submission_settings', function (Blueprint $table) {
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
+        Schema::table('publication_settings', function (Blueprint $table) {
+            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+        });
+        Schema::table('authors', function (Blueprint $table) {
+            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups');
+        });
+        Schema::table('author_settings', function (Blueprint $table) {
+            $table->foreign('author_id', 'author_settings_author_id')->references('author_id')->on('authors')->onDelete('cascade');
+        });
+        Schema::table('edit_decisions', function (Blueprint $table) {
+            $table->foreign('editor_id', 'edit_decisions_editor_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('submission_comments', function (Blueprint $table) {
+            $table->foreign('submission_id', 'submission_comments_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->foreign('author_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('subeditor_submission_group', function (Blueprint $table) {
+            $table->foreign('context_id', 'section_editors_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+            $table->foreign('user_id', 'subeditor_submission_group_user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('submission_search_objects', function (Blueprint $table) {
+            $table->foreign('submission_id', 'submission_search_object_submission')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
+        Schema::table('submission_search_object_keywords', function (Blueprint $table) {
+            $table->foreign('object_id')->references('object_id')->on('submission_search_objects')->onDelete('cascade');
+            $table->foreign('keyword_id', 'submission_search_object_keywords_keyword_id')->references('keyword_id')->on('submission_search_keyword_list')->onDelete('cascade');
+        });
+        Schema::table('review_round_files', function (Blueprint $table) {
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
     }
 
     /**

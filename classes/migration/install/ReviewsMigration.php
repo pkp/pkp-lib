@@ -34,6 +34,9 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->index(['submission_id'], 'review_rounds_submission_id');
             $table->unique(['submission_id', 'stage_id', 'round'], 'review_rounds_submission_id_stage_id_round_pkey');
         });
+        Schema::table('edit_decisions', function (Blueprint $table) {
+            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds')->onDelete('cascade');
+        });
 
         // Reviewing assignments.
         Schema::create('review_assignments', function (Blueprint $table) {
@@ -109,30 +112,26 @@ class ReviewsMigration extends \PKP\migration\Migration
         // Submission Files for each review round
         Schema::create('review_round_files', function (Blueprint $table) {
             $table->bigInteger('submission_id');
+            $table->foreign('submission_file_id', 'review_round_files_submission_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+
             $table->bigInteger('review_round_id');
             $table->smallInteger('stage_id');
+
             $table->bigInteger('submission_file_id')->nullable(false)->unsigned();
-            $table->index(['submission_id'], 'review_round_files_submission_id');
-            $table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_pkey');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+
+            $table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_pkey');
         });
 
         // Associates reviewable submission files with reviews
         Schema::create('review_files', function (Blueprint $table) {
             $table->bigInteger('review_id');
+
             $table->bigInteger('submission_file_id')->nullable(false)->unsigned();
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+
             $table->index(['review_id'], 'review_files_review_id');
             $table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
-        });
-
-        // Associate editor decisions with review rounds
-        Schema::table('edit_decisions', function (Blueprint $table) {
-            $table
-                ->foreign('review_round_id')
-                ->references('review_round_id')
-                ->on('review_rounds')
-                ->onDelete('set null');
         });
     }
 

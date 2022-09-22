@@ -22,7 +22,7 @@
 					{if $metadataItem@iteration % 2 != 0}
 						<th scope="row">{$metadataItem}</th>
 					{else}
-						<td>{$metadataItem}</td>
+						<td>{$metadataItem|escape}</td>
 					{/if}
 				{/foreach}
 			</tr>

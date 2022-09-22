@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-09-22 05:38+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2022-09-22 18:31+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -3095,9 +3095,8 @@ msgstr "Indsaml data om den besøgendes land, region og by"
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Geografisk brugsstatistik"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Brugsstatistik for institution"
+msgstr "Institutionel statistik"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
@@ -3105,9 +3104,8 @@ msgstr ""
 "efter institution. Hvis det er aktiveret, skal du konfigurere IP-"
 "intervallerne for hver institution, du vil spore."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Aktiver håndtering af institution og brugsstatistikker"
+msgstr "Aktiver institutionel statistik"
 
 msgid "manager.setup.institutions"
 msgstr "Institutioner"

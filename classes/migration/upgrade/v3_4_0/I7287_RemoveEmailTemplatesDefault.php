@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7287_RemoveEmailTemplatesDefault
- * @brief Database migrations to remove email_templates_default template; use Mailable class calls to retrieve this data
+ * @brief Remove default email template table after data migrated to the Mailable class
  */
 
 namespace PKP\migration\upgrade\v3_4_0;

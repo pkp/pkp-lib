@@ -16,6 +16,7 @@
 namespace PKP\controllers\grid\settings\user\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -39,6 +40,9 @@ class UserDetailsForm extends UserForm
     /** @var Author An optional author to base this user on */
     public $author;
 
+    /** @var bool An internal use flag that allows to dertermine the update only for user group */
+    protected bool $userGroupUpdateOnly = false;
+
     /**
      * Constructor.
      *
@@ -58,19 +62,32 @@ class UserDetailsForm extends UserForm
 
         // the users register for the site, thus
         // the site primary locale is the required default locale
-        $site = $request->getSite();
-        $this->addSupportedFormLocale($site->getPrimaryLocale());
+        $this->addSupportedFormLocale($request->getSite()->getPrimaryLocale());
 
-        // Validation checks for this form
+        if ($userId !== null) {
+            $this->user = Repo::user()->get($userId, true);
+        }
+    }
+
+    /**
+     * Attach the validatio checks for this form
+     *
+     * @param PKPRequest|null $request
+     * @return self
+     */
+    public function attachValidationChecks($request = null): self
+    {
+        $request ??= Application::get()->getRequest();
+        $site = $request->getSite();
         $form = $this;
-        if ($userId == null) {
+
+        if (!$this->user) {
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function ($username, $userId) {
                 $user = Repo::user()->getByUsername($username, true);
                 return !$user || $user->getId() == $userId;
             }, [$this->userId]));
             $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
-
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
                 return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
@@ -79,8 +96,6 @@ class UserDetailsForm extends UserForm
                 return $password == $form->getData('password2');
             }));
         } else {
-            $this->user = Repo::user()->get($userId, true);
-
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
                 return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
             }, [], false, ['length' => $site->getMinPasswordLength()]));
@@ -88,6 +103,7 @@ class UserDetailsForm extends UserForm
                 return $password == $form->getData('password2');
             }));
         }
+
         $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
             $givenNames = $form->getData('givenName');
@@ -107,6 +123,20 @@ class UserDetailsForm extends UserForm
         $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+
+        return $this;
+    }
+
+    /**
+     * Apply the update only for user's user group
+     *
+     * @return self
+     */
+    public function applyUserGroupUpdateOnly(): self
+    {
+        $this->userGroupUpdateOnly = true;
+
+        return $this;
     }
 
     /**
@@ -117,6 +147,12 @@ class UserDetailsForm extends UserForm
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+
+        // if doing only a partial update that includes only updating user's user group
+        if ( $this->userGroupUpdateOnly ) {
+            parent::initData();
+            return;
+        }
 
         $data = [];
 
@@ -194,6 +230,7 @@ class UserDetailsForm extends UserForm
             'sitePrimaryLocale' => $site->getPrimaryLocale(),
             'availableLocales' => $site->getSupportedLocaleNames(),
             'countries' => $countries,
+            'userGroupUpdateOnly' => $this->userGroupUpdateOnly,
         ]);
 
         if (isset($this->user)) {
@@ -212,6 +249,11 @@ class UserDetailsForm extends UserForm
     public function readInputData()
     {
         parent::readInputData();
+
+        // if doing only a partial update that includes only updating user's user group
+        if ( $this->userGroupUpdateOnly ) {
+            return;
+        }
 
         $this->readUserVars([
             'password',
@@ -263,6 +305,12 @@ class UserDetailsForm extends UserForm
         if (!isset($this->user)) {
             $this->user = Repo::user()->newDataObject();
             $this->user->setInlineHelp(1); // default new users to having inline help visible
+        }
+
+        // if doing only a partial update that includes only updating user's user group
+        if ($this->userGroupUpdateOnly) {
+            parent::execute(...$functionParams);
+            return $this->user;
         }
 
         $this->user->setGivenName($this->getData('givenName'), null); // Localized

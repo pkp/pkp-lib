@@ -26,6 +26,9 @@ use PKP\session\SessionManager;
 
 class Validation
 {
+    /** @var bool A flag to determine if partial adminstration(only user group) is allowed or not */
+    protected static bool $partialAdministration = false;
+    
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
      *
@@ -433,6 +436,8 @@ class Validation
     public static function canAdminister($administeredUserId, $administratorUserId)
     {
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        $context = Application::get()?->getRequest()?->getContext();
+        ray($context);
 
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {
@@ -455,6 +460,11 @@ class Validation
         foreach ($userGroups as $userGroup) {
             if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
+                // But also determine if a partial administrate is allowed
+                // if the Administrator User is a Journal Manager in the current context
+                if ($context && $roleDao->userHasRole($context->getId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+                    static::$partialAdministration = true;
+                }
                 return false;
             }
         }
@@ -473,6 +483,16 @@ class Validation
 
         // There were no conflicting roles. Permit administration.
         return true;
+    }
+
+    /**
+     * Check if partial administration is allowed
+     *
+     * @return bool
+     */
+    public static function canPartialAdministrate(): bool
+    {
+        return static::$partialAdministration;
     }
 }
 

@@ -572,6 +572,9 @@ msgstr "More User Details"
 msgid "grid.user.lessDetails"
 msgstr "Less User Details"
 
+msgid "grid.user.userDetails.partialUpdate"
+msgstr "NOTE : Only allow user group update."
+
 msgid "grid.user.userDetails"
 msgstr "User Details"
 

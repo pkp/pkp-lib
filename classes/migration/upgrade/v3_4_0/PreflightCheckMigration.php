@@ -317,12 +317,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $authorId) {
                 DB::table('author_settings')->where('author_id', '=', $authorId)->delete();
             }
-            // Clean orphaned edit_decisions entries by review_round_id
-            $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('review_rounds AS rr', 'rr.review_round_id', '=', 'ed.review_round_id')->whereNull('rr.review_round_id')->whereNotNull('ed.review_round_id')->distinct()->pluck('ed.review_round_id');
-            foreach ($orphanedIds as $reviewRoundId) {
-                $this->_installer->log("Removing orphaned edit_decisions entry for missing review_round_id ${reviewRoundId}");
-                DB::table('edit_decisions')->where('review_round_id', '=', $reviewRoundId)->delete();
-            }
             // Clean orphaned edit_decisions entries by editor_id
             $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('users AS u', 'u.user_id', '=', 'ed.editor_id')->whereNull('u.user_id')->distinct()->pluck('ed.editor_id');
             foreach ($orphanedIds as $editorId) {

@@ -1,11 +1,12 @@
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2022-08-17 17:36+0000\n"
-"Last-Translator: Fulvio Delle Donne <fulviodelledonne@libero.it>\n"
+"PO-Revision-Date: 2022-09-22 18:31+0000\n"
+"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -659,3 +660,93 @@ msgstr "Visualizza i lavori in coda"
 
 msgid "admin.jobs.list.queueName"
 msgstr "Coda"
+
+msgid "admin.settings.statistics.storage"
+msgstr "Archiviazione dei dati"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"Specifica quali statistiche d'uso dovrebbero essere archiviate sul server."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Protocollo Sushi"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Satatistiche mensili o giornaliere"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Tracciare o no le statistiche giornaliere. Il tracciamento giornaliero delle "
+"statistiche può aumentare considerevolmente le dimensioni del database."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Tracciare le statistiche giornaliere e mensili"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Tracciare solo le statistiche mensili"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Comprimere i log"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Lascia i file di log al loro posto"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Comprimi i file di log"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Restringi l'accesso alle API statistiche COUNTER SUSHI ai manager e agli "
+"amministratori"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Piattaforma"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Indica il sito come piattaforma per tutte le riviste."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID della piattaforma"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"Un ID di piattaforma è obbligatorio quando il sito viene indicato come "
+"piattaforma SUSHI."
+
+msgid "admin.settings.statistics.collection"
+msgstr "Raccolta dati"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Come identificare questa piattaforma nei report COUNTER SUSHI. L'ID della "
+"piattaforma deve essere di 17 caratteri o meno e può contenere lettere (a–z, "
+"A–Z), numeri (0–9), underscore (_), punti (.) e barre (/). L'ID di "
+"piattaforma è usato in diverse colonne e deve essere riconoscibile ma il più "
+"breve possibile. L'ID di piattaforma è spesso basato sul nome di una casa "
+"editrice o piattaforma, su un nome di dominio, o una abbreviazione unica e "
+"ben conosciuta."
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Specifica che tipo di statistiche d'uso devono essere raccolte."
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Configura il protocollo <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, un formato per la distribuzione delle "
+"statistiche d'uso riconosciuto in ambito industriale."
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Le statistiche sono generate da file di log di accessovengono spostati in "
+"<code>{$path}</code> una volta che sono stati processati. I file di log "
+"devono essere compressi in formato <code>.gz</code> una volta processati? "
+"Comprimere i file di log può salvare spazio disco sul server."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"In accordo col protocollo COUNTER SUSHI, ogni report statistico deve "
+"identificare la \"piattaforma\" che fornisce le statistiche. Di default, la "
+"rivista sarà indicata come piattaforma per tutte le statistiche. In ogni "
+"caso, se tutte le riviste su questo sito sono pubblicate, possedute o "
+"gestite dallo stesso produttore, può essere preferibile indicare il sito "
+"come piattaforma."

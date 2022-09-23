@@ -134,7 +134,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
             ->filterByContextIds([$server->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->limit($recentItems)
-            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_DESC)
+            ->orderBy(Collector::ORDERBY_LAST_MODIFIED, Collector::ORDER_DIR_DESC)
             ->getMany();
 
         $latestDate = $submissions->first()?->getData('lastModified');

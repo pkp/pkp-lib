@@ -243,8 +243,6 @@ class Collector implements CollectorInterface
         // Add app-specific query statements
         Hook::call('Author::Collector', [&$q, $this]);
 
-
-
         return $q;
     }
 }

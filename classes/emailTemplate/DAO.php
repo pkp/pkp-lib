@@ -21,7 +21,6 @@ use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
-use PKP\mail\Mailable;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 
@@ -45,11 +44,6 @@ class DAO extends EntityDAO
         'key' => 'email_key',
         'contextId' => 'context_id',
         'enabled' => 'enabled',
-        'canDisable' => 'can_disable',
-        'canEdit' => 'can_edit',
-        'fromRoleId' => 'from_role_id',
-        'toRoleId' => 'to_role_id',
-        'stageId' => 'stage_id',
     ];
 
     /**
@@ -75,18 +69,7 @@ class DAO extends EntityDAO
      */
     public function insert(EmailTemplate $object): int
     {
-        // The object contains custom template information as well as the default data.
-        // Strip default data from the object before calling insertObject so that it
-        // doesn't try to write this data to the email templates settings table.
-        $partialObject = clone $object;
-        unset($partialObject->_data['canDisable']);
-        unset($partialObject->_data['canEdit']);
-        unset($partialObject->_data['description']);
-        unset($partialObject->_data['fromRoleId']);
-        unset($partialObject->_data['toRoleId']);
-        unset($partialObject->_data['stageId']);
-
-        return parent::_insert($partialObject);
+        return parent::_insert($object);
     }
 
     /**
@@ -94,18 +77,7 @@ class DAO extends EntityDAO
      */
     public function update(EmailTemplate $object)
     {
-        // The object contains custom template information as well as the default data.
-        // Strip default data from the object before calling updateObject so that it
-        // doesn't try to write this data to the email templates settings table.
-        $partialObject = clone $object;
-        unset($partialObject->_data['canDisable']);
-        unset($partialObject->_data['canEdit']);
-        unset($partialObject->_data['description']);
-        unset($partialObject->_data['fromRoleId']);
-        unset($partialObject->_data['toRoleId']);
-        unset($partialObject->_data['stageId']);
-
-        parent::_update($partialObject);
+        parent::_update($object);
     }
 
     /**
@@ -174,7 +146,7 @@ class DAO extends EntityDAO
             ->where('email_key', '=', $emailTemplate->getData('key'))
             ->get();
 
-        $props = ['subject', 'body', 'description'];
+        $props = ['subject', 'body'];
 
         $rows->each(function ($row) use ($emailTemplate, $schema, $props) {
             foreach ($props as $prop) {
@@ -221,7 +193,7 @@ class DAO extends EntityDAO
      */
     public function defaultTemplateIsInstalled(string $key)
     {
-        return DB::table('email_templates_default')->where('email_key', $key)->exists();
+        return DB::table('email_templates_default_data')->where('email_key', $key)->exists();
     }
 
     /**
@@ -280,17 +252,6 @@ class DAO extends EntityDAO
                 continue;
             }
 
-            DB::table('email_templates_default')->where('email_key', $attrs['key'])->delete();
-
-            DB::table('email_templates_default')->insert([
-                'email_key' => $attrs['key'],
-                'can_disable' => isset($attrs['can_disable']) ? ((int) $attrs['can_disable']) : 0,
-                'can_edit' => isset($attrs['can_edit']) ? ((int) $attrs['can_edit']) : 0,
-                'from_role_id' => isset($attrs['from_role_id']) ? ((int) $attrs['from_role_id']) : null,
-                'to_role_id' => isset($attrs['to_role_id']) ? ((int) $attrs['to_role_id']) : null,
-                'stage_id' => isset($attrs['stage_id']) ? ((int) $attrs['stage_id']) : null,
-            ]);
-
             // Add localized data
             $this->installEmailTemplateLocaleData($templatesFile, $locales, $attrs['key']);
         }
@@ -325,7 +286,6 @@ class DAO extends EntityDAO
 
             $subject = $attrs['subject'] ?? null;
             $body = $attrs['body'] ?? null;
-            $description = $attrs['description'] ?? null;
             if ($subject && $body) {
                 foreach ($locales as $locale) {
                     DB::table('email_templates_default_data')
@@ -344,7 +304,6 @@ class DAO extends EntityDAO
                             'locale' => $locale,
                             'subject' => $this->renameApplicationVariables($translatedSubject),
                             'body' => $this->renameApplicationVariables($translatedBody),
-                            'description' => __($description, [], $locale),
                         ]);
                     }
                 }
@@ -379,10 +338,9 @@ class DAO extends EntityDAO
         foreach ($data->getChildren() as $emailNode) {
             $subject = $emailNode->getChildValue('subject');
             $body = $emailNode->getChildValue('body');
-            $description = $emailNode->getChildValue('description');
 
             // Translate variable contents
-            foreach ([&$subject, &$body, &$description] as &$var) {
+            foreach ([&$subject, &$body] as &$var) {
                 $var = preg_replace_callback('{{translate key="([^"]+)"}}', fn ($matches) => __($matches[1], [], $locale), $var);
             }
 
@@ -399,7 +357,6 @@ class DAO extends EntityDAO
                 'locale' => $locale,
                 'subject' => $subject,
                 'body' => $body,
-                'description' => $description,
             ]);
         }
         return true;

@@ -19,8 +19,8 @@ use APP\core\Application;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\PrivateFileManager;
-
-use PKP\mail\Mail;
+use Illuminate\Support\Facades\Mail;
+use PKP\mail\Mailable;
 
 class ScheduledTaskHelper
 {
@@ -54,17 +54,6 @@ class ScheduledTaskHelper
 
         $this->_contactEmail = $email;
         $this->_contactName = $contactName;
-    }
-
-    /**
-     * Get mail object.
-     *
-     * @return Mail
-     */
-    public function getMail()
-    {
-        // Instantiate a mail object.
-        return new Mail();
     }
 
     /**
@@ -237,20 +226,17 @@ class ScheduledTaskHelper
     //
     /**
      * Send email to the site administrator.
-     *
-     * @param string $message
-     * @param string $subject
-     *
-     * @return bool
      */
-    private function _sendEmail($message, $subject)
+    private function _sendEmail(string $message, string $subject): bool
     {
-        $mail = $this->getMail();
-        $mail->addRecipient($this->_contactEmail, $this->_contactName);
-        $mail->setSubject($subject);
-        $mail->setBody($message);
+        $mailable = new Mailable();
+        $mailable
+            ->to($this->_contactEmail, $this->_contactName)
+            ->from($this->_contactEmail, $this->_contactName)
+            ->subject($subject)
+            ->body($message);
 
-        return $mail->send();
+        return !is_null(Mail::send($mailable));
     }
 
     /**

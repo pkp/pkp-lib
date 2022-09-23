@@ -19,6 +19,7 @@ namespace PKP\tests\classes\scheduledTask;
 
 use PKP\config\Config;
 use PKP\mail\Mail;
+use PKP\mail\Mailable;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\tests\PKPTestCase;
 
@@ -108,7 +109,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
     private function _getHelper($expectedSubject, $message)
     {
         $helperMock = $this->getMockBuilder(ScheduledTaskHelper::class)
-            ->onlyMethods(['getMail', 'getMessage'])
+            ->onlyMethods(['getMessage'])
             ->setConstructorArgs(['some@email.com', 'Contact name'])
             ->getMock();
         $helperMock->expects($this->any())
@@ -116,25 +117,20 @@ class ScheduledTaskHelperTest extends PKPTestCase
             ->will($this->returnValue($message));
 
         // Helper will use the Mail::send() method. Mock it.
-        $mailMock = $this->getMockBuilder(Mail::class)
-            ->onlyMethods(['send', 'setBody', 'setSubject'])
+        $mailMock = $this->getMockBuilder(Mailable::class)
+            ->onlyMethods(['send', 'body', 'subject'])
             ->getMock();
 
         $mailMock->expects($this->any())
             ->method('send');
 
         $mailMock->expects($this->any())
-            ->method('setBody')
+            ->method('body')
             ->with($this->equalTo($message));
 
         $mailMock->expects($this->any())
-            ->method('setSubject')
+            ->method('subject')
             ->with($this->stringContains($expectedSubject));
-
-        // Inject mail dependency.
-        $helperMock->expects($this->any())
-            ->method('getMail')
-            ->will($this->returnValue($mailMock));
 
         return $helperMock;
     }

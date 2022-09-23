@@ -171,25 +171,12 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
         });
 
-        // Default email templates.
-        Schema::create('email_templates_default', function (Blueprint $table) {
-            $table->bigInteger('email_id')->autoIncrement();
-            $table->string('email_key', 255)->comment('Unique identifier for this email.');
-            $table->smallInteger('can_disable')->default(0);
-            $table->smallInteger('can_edit')->default(0);
-            $table->bigInteger('from_role_id')->nullable();
-            $table->bigInteger('to_role_id')->nullable();
-            $table->bigInteger('stage_id')->nullable();
-            $table->index(['email_key'], 'email_templates_default_email_key');
-        });
-
         // Default data for email templates.
         Schema::create('email_templates_default_data', function (Blueprint $table) {
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->string('locale', 14)->default('en_US');
             $table->string('subject', 255);
             $table->text('body')->nullable();
-            $table->text('description')->nullable();
             $table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
         });
 
@@ -255,7 +242,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('email_templates_settings');
         Schema::drop('email_templates');
         Schema::drop('email_templates_default_data');
-        Schema::drop('email_templates_default');
         Schema::drop('mailable_templates');
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');

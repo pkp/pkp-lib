@@ -150,19 +150,22 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('navigation_menu_item_assignment_settings', function (Blueprint $table) {
             $table->foreign('navigation_menu_item_assignment_id', 'assignment_settings_navigation_menu_item_assignment_id')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments')->onDelete('cascade');
         });
-        Schema::table('review_form_settings', function (Blueprint $table) {
-            $table->foreign('review_form_id', 'review_form_settings_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
-        });
-        Schema::table('review_form_settings', function (Blueprint $table) {
-            $table->foreign('review_form_id', 'review_form_elements_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
-        });
-        Schema::table('review_form_element_settings', function (Blueprint $table) {
-            $table->foreign('review_form_element_id', 'review_form_element_settings_review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
-        });
-        Schema::table('review_form_responses', function (Blueprint $table) {
-            $table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
-            $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
-        });
+        if (Schema::hasTable('review_form_settings')) {
+            Schema::table('review_form_settings', function (Blueprint $table) {
+                $table->foreign('review_form_id', 'review_form_settings_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
+            });
+        }
+        if (Schema::hasTable('review_form_element_settings')) {
+            Schema::table('review_form_element_settings', function (Blueprint $table) {
+                $table->foreign('review_form_element_id', 'review_form_element_settings_review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
+            });
+        }
+        if (Schema::hasTable('review_form_responses')) {
+            Schema::table('review_form_responses', function (Blueprint $table) {
+                $table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
+                $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
+            });
+        }
         Schema::table('submissions', function (Blueprint $table) {
             $table->foreign('context_id', 'submissions_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
         });

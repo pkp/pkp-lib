@@ -35,8 +35,6 @@
 				{else}
 					<h3>{translate key="grid.user.step1"}</h3>
 				{/if}
-			{else}
-				<h4>{translate key="grid.user.userDetails.partialUpdate"}</h4>
 			{/if}
 			{if $userId}
 				<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
@@ -59,6 +57,10 @@
 					{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
 				{/fbvFormSection}
 			{/if}
+		{/if}
+
+		{if $userGroupUpdateOnly}
+			{include file="common/userDetailsReadOnly.tpl"}
 		{/if}
 
 		{if $userId}

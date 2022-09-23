@@ -72,7 +72,7 @@
 
 				{* optional elements *}
 				{* <author/> *}
-				<dc:creator>{$submission->getAuthorString($userGroups)|escape:"html"}</dc:creator>
+				<dc:creator>{$publication->getAuthorString($userGroups)|escape:"html"}</dc:creator>
 
 				{foreach from=$item.identifiers item=identifier}
 					{foreach from=$identifier.values item=value}

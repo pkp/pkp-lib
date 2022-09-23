@@ -28,6 +28,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Ko'rsatiladigan elementlar soni"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Barcha jurnal sahifalarida veb -tasma havolalarini ko'rsatish."
 

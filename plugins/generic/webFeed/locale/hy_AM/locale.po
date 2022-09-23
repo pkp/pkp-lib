@@ -29,6 +29,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Ցուցադրվող նյութերի քանակը"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Ցուցադրել վեբ ժապավենի հղումները ամսագրի բոլոր էջերում:"
 

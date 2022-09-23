@@ -28,6 +28,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Número de elementos a mostrar"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr ""
 "Mostrar os enlaces ás canles de información en todas as páxinas da revista."

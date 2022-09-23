@@ -29,6 +29,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Экранда көрсетілетін соңғы жарияланған мақалалар саны"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Журналдың барлық беттерінде тізімге сілтемелерді көрсетіңіз."
 

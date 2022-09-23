@@ -27,6 +27,7 @@ msgstr "Εισαγάγετε έναν θετικό ακέραιο για τα π
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Αριθμός στοιχείων προς εμφάνιση"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr ""
 "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού σε όλες τις σελίδες του περιοδικού."

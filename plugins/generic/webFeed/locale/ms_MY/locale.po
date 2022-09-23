@@ -27,6 +27,7 @@ msgstr "Sila masukkan bilangan bulat positif untuk item yang baru diterbitkan."
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Bilangan item untuk dipaparkan"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Paparkan pautan suapan web di semua halaman jurnal."
 

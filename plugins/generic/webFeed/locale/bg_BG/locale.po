@@ -29,6 +29,7 @@ msgstr ""
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Брой елементи за показване"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Показва връзки към емисията на всички страници на списанието."
 

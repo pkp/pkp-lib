@@ -194,7 +194,7 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
     /**
      * Retrieves a section
      */
-    private function getSection(?int $sectionId): Section
+    private function getSection(?int $sectionId): ?Section
     {
         static $sections = [];
         /** @var SectionDAO */

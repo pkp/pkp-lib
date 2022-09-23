@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-09-22 05:38+0000\n"
+"PO-Revision-Date: 2022-09-23 13:53+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -451,7 +451,10 @@ msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "Zobrazení množství úloh ve frontě"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Přidání testovací úlohy do výchozí fronty"
+msgstr ""
+"Přidání testovací úlohy do testovací fronty. Použijte volitelný parametr --"
+"only= a zadejte „failed“ nebo „success“ pro odeslání neúspěšné nebo úspěšné "
+"úlohy."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -774,3 +777,106 @@ msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
 "Omezení přístupu k rozhraní API statistik COUNTER SUSHI na manažery a "
 "administrátory"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Zpracování úloh čekajících ve frontě"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr "Nelze spustit úlohy fronty, protože je povolen režim údržby aplikace."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Spustí trvalý pracovní proces démona, který bude pokračovat ve zpracování "
+"úloh. Pomocí příznaku --help zobrazíte dostupné možnosti spojené s tímto "
+"příkazem."
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Dokončeno spuštění {$jobCount} úloh ve frontě s názvem {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+"Ve frontě s názvem {$queueName} nejsou k dispozici žádné úlohy ke spuštění."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Odeslaná testovací úloha, která je vázána na chybu ve frontě s názvem "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Odeslaná testovací úloha, která je vázána na úspěch ve frontě s názvem "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Neplatná možnost testovací úlohy. Pro volbu „--only=“ lze použít pouze "
+"„failed“ nebo „success“"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Nebyly nalezeny žádné úlohy k odstranění."
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "použití : [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Dostupné možnosti pro pracovní příkaz"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Název fronty, se kterou se má pracovat[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Limit paměti v megabajtech[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"Počet sekund, po které může podřízený proces běžet[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Počet sekund nečinnosti, pokud není k dispozici žádná úloha[výchozí : "
+"„{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Počet pokusů o provedení úlohy před zaznamenáním jejího neúspěchu[výchozí : "
+"„{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Název workeru[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Zastavit, když je fronta prázdná[výchozí : „{$default}]“"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"Počet úloh, které se mají zpracovat před zastavením[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Maximální počet sekund, po které má worker běžet[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Spustit deamon worker pro testovací frontu"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Pokud chcete odeslat úlohu do konkrétní fronty, předejte parametr --"
+"queue=QUEUE_NAME. Můžete také zadat pouze parametr --test pro spuštění "
+"testovací úlohy a parametr --once pro spuštění jediné úlohy"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "možnosti pracovního příkazu"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Název připojení fronty pro práci[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Počet sekund, které se počkají před opakováním úlohy, u níž došlo k "
+"nezachycené výjimce[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "Vynutit spuštění workeru i v režimu údržby[výchozí : „{$default}]“"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Počet sekund pro nečinnost mezi úlohami[výchozí : „{$default}“]"

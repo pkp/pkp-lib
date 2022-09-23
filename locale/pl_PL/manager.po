@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2020-12-07 11:19+0000\n"
+"PO-Revision-Date: 2022-09-23 13:53+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Ogłoszenia"
@@ -2219,3 +2220,125 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Ten email jest automatycznie wysyłany każdego miesiąca do redaktorów i "
 "menedżerów czasopisma, aby dostarczyć im przegląd stanu systemu."
+
+msgid "manger.dois.update.success"
+msgstr "DOI zarejestrowane pomyślnie"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Obiekt nie może zostać zarejestrowany dopóki nie będzie opublikowany."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status publikacji"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Oznacz jako zarejestrowane"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Niezarejestrowany"
+
+msgid "manager.dois.depositStatus"
+msgstr "Status rejestracji"
+
+msgid "manager.dois.status.registered"
+msgstr "Zarejestrowany"
+
+msgid "manager.dois.status.submitted"
+msgstr "Wysłany"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Zarejestruj wszystko"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadane tego artykułu nie zostały przysłane do {$registrationAgency}."
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Niektóre DOI nie zostały aktualizowane."
+
+msgid "manager.dois.status.error"
+msgstr "Błąd"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Podgląd rekordu"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Zarejestruj DOI"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Wyeksportuj DOI"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Nieudana aktualizacja DOI"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadane tego artykułu zostały przysłane do {$registrationAgency}."
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Zarejestrujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
+"Czy jesteś pewien?"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Przydzielisz DOI dla {$count} obiektów w {$registrationAgency}. Czy jesteś "
+"pewien?"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Zapisy poprawnej rejestracji"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Zapisy błędów rejestracji"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"zarejestrowane. Czy jesteś pewien?"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Elementy wyeksportowane poprawnie"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Wyeksportujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
+"Czy jesteś pewien?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Przydziel DOI"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Podgląd błędu"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Zarejestruj wszystko"
+
+msgid "manager.dois.status.stale"
+msgstr "Przestarzały"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Rejestrowanie DOI"
+
+msgid "manager.dois.actions.description"
+msgstr "Wybierz działanie dla wybranych {$count} elementów."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Oznacz jako niezarejestrowane"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"niezarejestrowane. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"przedawniony. To może dotyczyć tylko DOI uprzednio zgłoszonych do "
+"rejestracji. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Oznacz jako przedawniony"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Twoje działanie spowoduje zarejestrowanie DOI w {$registrationAgency}. "
+"Zarejestrowane zostaną tylko artykuły uprzednio opublikowane. Każdy status "
+"artykułu będzie aktualizowany osobno. Czy jesteś pewien, że chcesz je "
+"zarejestrować?"

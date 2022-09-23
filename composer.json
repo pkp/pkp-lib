@@ -50,6 +50,9 @@
 		"patches": {
 			"laravel/framework": {
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff"
+			},
+			"adodb/adodb-php": {
+				"Apply PKP ADODB patches for error handling": "lib/adodb-datadict-errors.diff"
 			}
 		}
 	}

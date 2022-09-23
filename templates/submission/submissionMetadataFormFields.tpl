@@ -41,7 +41,7 @@
 			{/fbvFormSection}
 		{/if}
 		{if $dataAvailabilityEnabled}
-			{fbvFormSection label="submission.dataAvailability" required=$dataAvailabilityRequired}
+			{fbvFormSection label="submission.dataAvailability" for="dataAvailability" required=$dataAvailabilityRequired}
 				{fbvElement type="textarea" label="submission.dataAvailability.tip" multilingual=true name="dataAvailability" id="dataAvailability" value=$dataAvailability readonly=$readOnly required=$dataAvailabilityRequired}
 			{/fbvFormSection}
 		{/if}

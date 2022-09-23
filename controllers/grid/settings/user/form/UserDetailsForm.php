@@ -148,12 +148,6 @@ class UserDetailsForm extends UserForm
         $context = $request->getContext();
         $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
 
-        // if doing only a partial update that includes only updating user's user group
-        if ( $this->userGroupUpdateOnly ) {
-            parent::initData();
-            return;
-        }
-
         $data = [];
 
         if (isset($this->user)) {

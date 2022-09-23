@@ -17,7 +17,7 @@ import AccessPage from '@/components/Container/AccessPage.vue';
 import AddContextContainer from '@/components/Container/AddContextContainer.vue';
 import AdminPage from '@/components/Container/AdminPage.vue';
 import DecisionPage from '@/components/Container/DecisionPage.vue';
-import DoiPage from "@/components/Container/DoiPageOPS.vue";
+import DoiPage from '@/components/Container/DoiPageOPS.vue';
 import ImportExportPage from '@/components/Container/ImportExportPage.vue';
 import SettingsPage from '@/components/Container/SettingsPage.vue';
 import StatsEditorialPage from '@/components/Container/StatsEditorialPage.vue';

@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:11+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"PO-Revision-Date: 2022-09-23 13:53+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "grid.noItems"
 msgstr "Żadnych pozycji"
@@ -671,3 +672,37 @@ msgstr "Stwórz nową wersję"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Usuń grupę użytkowników"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Wszystko"
+
+msgid "grid.action.saveOrdering"
+msgstr "Zapisz porządek"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Czy na pewno chcesz usunąć autora {$name}? Tej operacji nie można cofnąć."
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Inicjały"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Lista publikacji"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Ustaw kontakt główny"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Wyświetl"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Twórcy tej publikacji zostaną opisani według wypisanych formatów."
+
+msgid "grid.action.addInstitution"
+msgstr "Dodaj instytucję"
+
+msgid "contributor.listPanel.preview"
+msgstr "Podgląd"

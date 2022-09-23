@@ -28,13 +28,29 @@ class DiscussionProduction extends Mailable
     use Sender;
     use Configurable;
 
+    public const SUBJECT = 'subject';
+    public const CONTENT = 'content';
+
     protected static ?string $name = 'mailable.discussionProduction.name';
     protected static ?string $description = 'mailable.discussionProduction.description';
+    protected static ?string $emailTemplateKey = 'DISCUSSION_NOTIFICATION';
     protected static bool $canDisable = true;
     protected static array $groupIds = [self::GROUP_PRODUCTION];
 
-    public function __construct(Context $context, Submission $submission)
+    public function __construct(Context $context, Submission $submission, string $subject, string $content)
     {
-        parent::__construct(func_get_args());
+        parent::__construct(array_slice(func_get_args(), 0, -2));
+        $this->addData([
+            self::SUBJECT => $subject,
+            self::CONTENT => $content,
+        ]);
+    }
+
+    public static function getDataDescriptions(): array
+    {
+        $variables = parent::getDataDescriptions();
+        $variables[self::SUBJECT] = __('emailTemplate.variable.discussion.subject');
+        $variables[self::CONTENT] = __('emailTemplate.variable.discussion.message');
+        return $variables;
     }
 }

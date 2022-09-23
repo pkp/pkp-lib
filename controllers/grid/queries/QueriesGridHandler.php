@@ -664,11 +664,18 @@ class QueriesGridHandler extends GridHandler
                     continue;
                 }
                 $submission = $this->getSubmission();
-                $mailable = $this->getStageMailable($request->getContext(), $submission);
-                $mailable->sender($currentUser);
-                $mailable->body($note->getData('contents'));
-                $mailable->subject($note->getData('title'));
-                $mailable->recipients([$user]);
+
+                $context = $request->getContext();
+                $mailable = $this->getStageMailable($context, $submission, $note->getData('title'), $note->getData('contents'));
+                $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+                $mailable->addData(['notificationUrl'=>
+                    Repo::submission()->getWorkflowUrlByUserRoles($submission, $userId)]
+                    );
+                $mailable->sender($currentUser)
+                        ->recipients([$user])
+                        ->subject($emailTemplate->getLocalizedData('subject'))
+                        ->body($emailTemplate->getLocalizedData('body'));
+
 
                 Mail::send($mailable);
                 $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */

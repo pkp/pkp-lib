@@ -2652,6 +2652,12 @@ msgstr ""
 "The round of review this decision was taken in, if the decision is related "
 "to a review stage."
 
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "The subject of the discussion"
+
+msgid "emailTemplate.variable.discussion.message"
+msgstr "The last message in discussion"
+
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "A list of submissions with outstanding tasks"
 
@@ -3199,3 +3205,4 @@ msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "This email notifies the author that their submission has been sent back to "
 "the submission stage."
+

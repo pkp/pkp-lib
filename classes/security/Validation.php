@@ -437,7 +437,6 @@ class Validation
     {
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         $context = Application::get()?->getRequest()?->getContext();
-        ray($context);
 
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {

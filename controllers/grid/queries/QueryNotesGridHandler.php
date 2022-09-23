@@ -19,6 +19,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\queries\form\QueryNoteForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -28,6 +29,7 @@ use PKP\security\Role;
 use PKP\note\Note;
 use APP\facades\Repo;
 use APP\core\Application;
+use APP\notification\Notification;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use APP\notification\NotificationManager;
@@ -316,12 +318,17 @@ class QueryNotesGridHandler extends GridHandler
                 continue;
             }
 
-            $mailable = $this->getStageMailable($context, $submission);
+            $mailable = $this->getStageMailable($context, $submission, $title, $note->getContents());
+            $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+
             $recipient = Repo::user()->get($userId);
+            $mailable->addData(['notificationUrl'=>
+                    Repo::submission()->getWorkflowUrlByUserRoles($submission, $userId)]
+                    );
             $mailable->sender($sender)
                 ->recipients([$recipient])
-                ->subject($title)
-                ->body($note->getData('contents'));
+                ->subject(__('common.re').' '.$emailTemplate->getLocalizedData('subject'))
+                ->body($emailTemplate->getLocalizedData('body'));
 
             Mail::send($mailable);
         }

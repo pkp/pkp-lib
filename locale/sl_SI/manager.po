@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-08-28 16:50+0000\n"
+"PO-Revision-Date: 2022-09-25 17:01+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -3110,12 +3110,11 @@ msgstr ""
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obvestilo urednikom o recenzentskem priporočilu"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Izberite to opcijo, če bi radi upravljali z institucijami in zbirali njihove "
-"statistike uporabe. To bo vplivalo na statistična poročila, ki jih lahko "
-"dobite, in na velikost baze podatkov."
+"statistike uporabe. Če bo opcija vključena, morate nastaviti IP obseg za "
+"vsako intitucijo, ki bi jo radi spremljali."
 
 msgid "emailTemplate.variable.password"
 msgstr "Novo naključno uporabniško geslo"
@@ -3166,14 +3165,11 @@ msgstr ""
 msgid "manager.setup.statistics"
 msgstr "Statistike"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Ne zbiraj nobenih Geo podatkov"
+msgstr "Ne zbiraj nobenih geografskih podatkov"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
-"Omogoči upravljanje z institucijami in zibranje njihovih statistik uporabe"
+msgstr "Omogoči statistike institucij"
 
 msgid "manager.setup.institutions"
 msgstr "Institucije"
@@ -3222,25 +3218,20 @@ msgstr "Ste prepričani, da želite nadaljevati in odstraniti to institucijo?"
 msgid "manager.institutions.invalidIPRange"
 msgstr "Neveljaven IP razpon"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geo statistike uporabe"
+msgstr "Geografske statistike"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Država"
+msgstr "Zbiraj državo obiskovalcev"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Država in regija"
+msgstr "Zbiraj državo in regijo obiskovalcev"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Država, regija in mesto"
+msgstr "Zbiraj državo, regija in mesto obiskovalcev"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Institucionalne statistike uporabe"
+msgstr "Institucionalne statistike"
 
 msgid "stats.unknown"
 msgstr "neznano"
@@ -3264,3 +3255,28 @@ msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
 "Email z obvestilom avtorjem, da je bil njihov prispevek prestavljen nazaj v "
 "fazo recenzije."
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Javni API"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Izberite katere geografske statistike uporabe bi radi zbirali. Detajlnejše "
+"statistike lahko občutno povečajo vašobazo podatkov in v redkih primerih "
+"ogrozijo anonimnost vaših obiskovalcev."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "COUNTER SUSHI statistike naj bodo javno dostopne"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Omogoči dostop do API-ja za COUNTER SUSHI statistike. Če ni označeno, bo API "
+"dostopen le uporabnikom z vlogo administratorja ali upravljalca."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Ponovno pošlji recenzentu prošnjo za recenzijo"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Email pošlje urednik recenzentu, kadar želi ponovno poslati prošnjo "
+"recenzentu, ki je predhodno prošnjo za recenzijo zavrnil."

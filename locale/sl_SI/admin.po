@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-07-18 00:39+0000\n"
+"PO-Revision-Date: 2022-09-25 17:01+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl_SI/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Ime nastavitve"
@@ -465,7 +465,10 @@ msgid "admin.cli.tool.jobs.pagination.current"
 msgstr "Trenutni"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Dodaj testno opravilo v privzeto čakalno vrsto"
+msgstr ""
+"Dodaj testno opravilo v testno čakalno vrsto. Uporabite opciska parametra --"
+"only= in pass 'failed' ali 'success' za dodajanje neuspešnih ali uspešnih "
+"opravil."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -716,9 +719,9 @@ msgstr "Uporabi strežnik kot platformo za vse revije."
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platforme"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "ID platforme je obvezen"
+msgstr ""
+"ID platforme je obvezen, če bo spletišče identificirano kot SUSHI platforma."
 
 #, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
@@ -748,10 +751,12 @@ msgstr ""
 "behålla dagliga loggar i databasen. Observera att detta kommer göra "
 "databasen betydligt större."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
-"Izberite, kaj naj se naredi z arhiviranimi datotekami z dnevniškimi zapisi."
+"Statistike so pridobljene is dnevniških datotek, ki so po procesiranju "
+"premaknjene v <code>{$path}</code>. Ali naj bodo dnevniške datotek po "
+"procesiranju stisnjene v <code>.gz</code> datoteke? Stisnjene datoteke lahko "
+"zavzamejo manj prostora na strežniku."
 
 #, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
@@ -760,3 +765,6 @@ msgstr "Datoteke z dnevniškimi zapisi ostanejo kjer so"
 #, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr "Arhivi naj se stisnejo"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Obdelaj opravila v čakalni vrsti"

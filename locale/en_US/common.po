@@ -906,6 +906,9 @@ msgstr "weeks"
 msgid "common.width"
 msgstr "Width"
 
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
 

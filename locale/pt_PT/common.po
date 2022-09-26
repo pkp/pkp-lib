@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-04-28 20:06+0000\n"
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "about.aboutSite"
 msgstr "Sobre o Site"
@@ -2204,3 +2204,15 @@ msgstr "Inserir Conteúdo"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Comando desconhecio {$command}"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "institution.institutions"
+msgstr "Instituições"
+
+msgid "notification.type.editorialReminder"
+msgstr "E-mail semanal com tarefas pendentes"
+
+msgid "notification.reviewerResendRequest"
+msgstr "Pedido para reconsiderar o trabalho de revisão enviado."

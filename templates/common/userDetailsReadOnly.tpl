@@ -9,33 +9,33 @@
  *}
 <h4>{translate key="grid.user.userDetails"}</h4>
 
-<div id="userDetailsReadOnly" style="background-color: #EBEDEE; padding: 6px; margin-top: 5px; margin-bottom: 5px;">
+<div id="userDetailsReadOnly">
     <div class="section">				
         <div class="inline pkp_helpers_third">
-            <span style="font-wight: bold; color: #777777;">{translate key="user.givenName"}</span><br />
-            <span>{$givenName|array_pop}</span>
+            <span class="pkp_helpers_form_input_title_text">{translate key="user.givenName"}</span><br />
+            <span>{$user->getLocalizedData('givenName', $site->getPrimaryLocale())|escape}</span>
         </div>
         <div class="inline pkp_helpers_third">
-            <span style="font-wight: bold; color: #777777;">{translate key="user.familyName"}</span><br />
-            <span>{$familyName|array_pop}</span>
+            <span class="pkp_helpers_form_input_title_text">{translate key="user.familyName"}</span><br />
+            <span>{$user->getLocalizedData('familyName', $site->getPrimaryLocale())|escape}</span>
         </div>
         <div class="inline pkp_helpers_third">
-            <span style="font-wight: bold; color: #777777;">{translate key="user.preferredPublicName"}</span><br />
-            <span>{$preferredPublicName|array_pop}</span>
+            <span class="pkp_helpers_form_input_title_text">{translate key="user.preferredPublicName"}</span><br />
+            <span>{$user->getLocalizedData('preferredPublicName', $site->getPrimaryLocale())|escape}</span>
         </div>
     </div>
     <div class="section">				
         <div class="inline pkp_helpers_third">
-            <span style="font-wight: bold; color: #777777;">{translate key="user.email"}</span><br />
-            <span>{$email}</span>
+            <span class="pkp_helpers_form_input_title_text">{translate key="user.email"}</span><br />
+            <span>{$email|escape}</span>
         </div>
         <div class="inline pkp_helpers_third">
-            <span style="font-wight: bold; color: #777777;">{translate key="common.country"}</span><br />
-            <span>{$countries[$country]}</span>
+            <span class="pkp_helpers_form_input_title_text">{translate key="common.country"}</span><br />
+            <span>{$countries[$user->getCountry()]|escape}</span>
         </div>
         <div class="inline pkp_helpers_third">
-            <span style="font-wight: bold; color: #777777;">{translate key="user.phone"}</span><br />
-            <span>{$phone}</span>
+            <span class="pkp_helpers_form_input_title_text">{translate key="user.phone"}</span><br />
+            <span>{$user->getPhone()|escape}</span>
         </div>
     </div>
 </div>

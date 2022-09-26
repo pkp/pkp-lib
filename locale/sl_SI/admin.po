@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-09-25 17:01+0000\n"
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl_SI/>\n"
@@ -693,25 +693,23 @@ msgstr ""
 "Opravilo, ki naloži uporabniške statistike iz datoteke {$file}, ni bilo "
 "uspešno. Datoteka je bila premaknjena v odložitveno mapo."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"ID platforme lahko vsebuje le ASCII črke (a–z, A–Z), številke (0–9), "
-"podčrtajs (_), pike (.) in poševnico naprej (/), dočina pa ne sem presegati "
-"17 znakov. Vedite, da bo ID platforme uporabljen v različnih stolpcih in naj "
-"bi bil kolikor je mogoče kratek, a še vedno prepoznaven. Običajno je ID "
-"platforme baziran na imenu, dobro znani okrajšani domeni izdajatelja ali "
-"platforme. Lahko se uporabi tudi kratek standarden identifikator kot je GRID "
-"ali RRO (brez https://)."
+"Kako identificirati to platformo v COUNTER SUSHi poročilih? ID platforme "
+"mora imeti 17 znakov in lahko vsebuje le ASCII črke (a–z, A–Z), številke "
+"(0–9), podčrtajs (_), pike (.) in poševnico naprej (/), dočina pa ne sem "
+"presegati 17 znakov. Vedite, da bo ID platforme uporabljen v različnih "
+"stolpcih in naj bi bil kolikor je mogoče kratek, a še vedno prepoznaven. "
+"Običajno je ID platforme baziran na imenu, dobro znani okrajšani domeni "
+"izdajatelja ali platforme."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
-"Ta programska oprema omogoča statistike uporabe glede na COUNTER SUSHI "
-"protokol. Ta protokol zahteva, da je določena platforma. Privzeto bo revijia "
-"določena kot platforma za vse statistike. V primeru, da vse revije na tem "
-"strežniku pripadajo enemu ponudniku, boste morda želeli, da bo celoten "
-"strežnik določen kot platforma."
+"Glede na COUNTER SUSHI protokol mora vsako statistično pročilo imenovati "
+"\"platformo\", ki posreduje statistike. Privzeto bo revijia določena kot "
+"platforma za vse statistike. V primeru, da vse revije na tem strežniku "
+"pripadajo enemu ponudniku, boste morda želeli, da bo celoten strežnik "
+"določen kot platforma."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Uporabi strežnik kot platformo za vse revije."
@@ -723,9 +721,8 @@ msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
 "ID platforme je obvezen, če bo spletišče identificirano kot SUSHI platforma."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Platforma za COUNTER SUSHI statistike"
+msgstr "Platforma"
 
 #, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
@@ -739,17 +736,13 @@ msgstr ""
 msgid "admin.settings.statistics.keepDaily"
 msgstr "Dnevne metrike"
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily"
-msgstr "Daglig statistik"
+msgstr "Mesečne ali dnevne statistike"
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
-"COUNTER-statistik och geografisk användningsstatistik summeras månadsvis. "
-"Därefter raderas de dagliga loggarna. Välj det här alternativet om du vill "
-"behålla dagliga loggar i databasen. Observera att detta kommer göra "
-"databasen betydligt större."
+"Zbirati ali ne dnevne ali mesečne statistike. Zbiranje dnevnih statistik "
+"lahko občutno poveča velikost baze podatkov."
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
@@ -758,13 +751,146 @@ msgstr ""
 "procesiranju stisnjene v <code>.gz</code> datoteke? Stisnjene datoteke lahko "
 "zavzamejo manj prostora na strežniku."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr "Datoteke z dnevniškimi zapisi ostanejo kjer so"
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Arhivi naj se stisnejo"
+msgstr "Dnevniški zapisi naj se stisnejo"
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Obdelaj opravila v čakalni vrsti"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Zbirka podatkov"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Nastavite, kakšne statistike bi radi zbirali."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Shramba podatkov"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Nastavite katere vrste statistik naj se shranjujeno na strežniku."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi protokol"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Nastavite <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> protokol, industrijsko priznan format za distribuiranje "
+"statistik."
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Opravila v čakalni vrsti ne morejo biti opravljena, ker je aplikacija v "
+"načinu vzdrževanja."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Zaženite brezkončen proces, ki bo še naprej v ozadju obdeloval opravila. "
+"Uporabite --help, če želite videti dodatne opcije, ki so na voljo pri tem "
+"ukazu."
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Zaključeno zagnanih {$jobCount} opravil v čakalni vrsti {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "V čakalni vrsti {$queueName} ni nobenega opravila na voljo za zagon."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Testno pravilo, ki bo neuspešno, je razporejeno v čakalno vrsto {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Testno pravilo, ki bo uspešno, je razporejeno v čakalno vrsto {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Neveljavna opcija za testno pravilo. Za opcijo '--only=' se lahko uporabi le "
+"'failed' or 'success'"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Ni najdenih opravil za brisanje."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Zbiraj dnevni in mesečne statistike"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Zbiraj le mesečne statistike"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Stisni dnevniške zapise"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Omeji dostop do COUNTER SUSHI statistik API-je le za upravljalce in "
+"administratorje"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "opcije izvršnega ukaza"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "uporaba: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Opcije, ki so na voljo za izvršni ukaz"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Ime povezave do čakalne vrste za delo (privzeto: '{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Ime čakalne vrste za delo (privzeto: '{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Ime \"delavca\" (privzeto: '{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Število sekund do ponovnega zagona opravila, ki je naletel na spregledano "
+"izjemo (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Meja za pomnilik v megabytih (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "Število sekund, ki jih lahko potrebuje podporces ({$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Število sekund za spanje, ko ni na voljo nobenega opravila ({$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Prisili \"delavca\", da teče tudi v vzdrževalnem načinu (privzeto: "
+"{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Število ponovitev zagona opravila, preden se ga zabeleži kot neuspešnega "
+"(privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Zaustavi, ko je čakalna vrsta prazna (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"Število opravil, ki se opravijo pred zaustavitvijo (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Največje število sekund, ko \"delavec\" lahko teče (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Število sekun za pavzo med opravili (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Zaženi \"delavca\" za testno čakalno vrsto"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Razporedi opravila, ki so na voljo v čakalno vrsto. Če želite raporediti "
+"opravila v točno določeno čakalno vrsto, uporabite parameter --"
+"queue=QUEUE_NAME. Lahko uporabite tudi parameter --test za testni zagon "
+"opravila ali --once za zagon le enega opravila hkrati"

@@ -50,9 +50,27 @@ class LocaleMetadata
      *
      * @param bool $withCountry Whether to append the country name to language
      */
-    public function getDisplayName(?string $locale = null, bool $withCountry = false): string
+    public function getDisplayName(?string $locale = null, bool $withCountry = false, bool $withLangLocale = false): string
     {
         $name = PKPString::regexp_replace('/\s*\([^)]*\)\s*/', '', PKPString::ucfirst($this->_getLanguage($locale)->getLocalName()));
+
+        if ( $withLangLocale ) {
+
+            $nameInLangLocale = PKPString::regexp_replace(
+                '/\s*\([^)]*\)\s*/', 
+                '', 
+                PKPString::ucfirst($this->_getLanguage($this->locale)->getLocalName())
+            );
+
+            $name = __(
+                'common.withForwardSlash',
+                [
+                    'item' => $name,
+                    'afterSlash' => $nameInLangLocale,
+                ]
+            );
+        }
+        
         if (!$withCountry) {
             return $name;
         }

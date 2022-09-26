@@ -54,7 +54,22 @@ class InstallLanguageForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $allLocales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName(null, true), Locale::getLocales());
+        $allLocales = Locale::getLocales();
+        $localeCodesCount = array_count_values(
+            collect(array_keys($allLocales))
+                ->map(fn(string $value) => trim(explode('_', $value)[0]))
+                ->toarray()
+        );
+        $allLocales = collect($allLocales)
+            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount) {
+                $localeCode = trim(explode('_', $localeKey)[0]);
+                return $locale->getDisplayName(
+                    null, 
+                    isset($localeCodesCount[$localeCode]) && $localeCodesCount[$localeCode] > 1 ? true : false, 
+                    true
+                );
+            })
+            ->toArray();
         $installedLocales = $this->getData('installedLocales');
         $notInstalledLocales = array_diff(array_keys($allLocales), $installedLocales);
 

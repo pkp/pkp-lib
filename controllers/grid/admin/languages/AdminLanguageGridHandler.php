@@ -18,6 +18,7 @@
 namespace PKP\controllers\grid\admin\languages;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
@@ -416,7 +417,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     {
         $site = $request->getSite();
         $siteSupportedLocales = $site->getSupportedLocales();
-        $contextService = \Services::get('context');
+        $contextService = Services::get('context');
 
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll();
@@ -453,7 +454,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     {
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll();
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         [$firstContext, $secondContext] = [$contexts->next(), $contexts->next()];
         return ($firstContext && !$secondContext && $request->getContext() && in_array(Role::ROLE_ID_MANAGER, $userRoles));
     }

@@ -844,10 +844,10 @@
 		},
 		"dataAvailability": {
 			"type": "string",
-            "description": "Whether to not request, request or require a Data Availability Statement from the authors.",
+			"description": "Whether to not request, request or require a Data Availability Statement from the authors.",
 			"validation": [
 				"nullable",
-                "in:0,enable,request,require"
+				"in:0,enable,request,require"
 			]
 		}
 	}

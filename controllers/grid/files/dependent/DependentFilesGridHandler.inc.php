@@ -25,18 +25,11 @@ class DependentFilesGridHandler extends FileListGridHandler {
 		// import app-specific grid data provider for access policies.
 		$request = Application::get()->getRequest();
 		$submissionFileId = $request->getUserVar('submissionFileId'); // authorized in authorize() method.
-		$isGridDisabled = $request->getUserVar('isGridDisabled');
-
-		$capabilities = FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT;
-		if ($isGridDisabled) {
-			$capabilities = FILE_GRID_VIEW_NOTES;
-		} 
 
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
 		parent::__construct(
 			new DependentFilesGridDataProvider($submissionFileId),
-			$request->getUserVar('stageId'),
-			$capabilities
+			$request->getUserVar('stageId')
 		);
 
 		$this->addRoleAssignment(
@@ -48,11 +41,25 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	}
 
 	/**
+	 * Get the authorized publication.
+	 * @return Publication
+	 */
+	function getPublication() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+	}
+
+	/**
 	 * @copydoc SubmissionFilesGridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
+
+		$publicationId = $request->getUserVar('publicationId'); // authorized in authorize() method.
+		if ($publicationId) {
+			import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
+			$this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+		}
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
@@ -66,6 +73,22 @@ class DependentFilesGridHandler extends FileListGridHandler {
 			parent::getRequestArgs(),
 			array('submissionFileId' => $submissionFile->getId())
 		);
+	}
+
+	function initialize($request, $args = null) {
+		$capabilities = FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT;
+
+		$publication = $this->getPublication();
+		
+		if ($publication) {
+			if ($publication->getData('status') == STATUS_PUBLISHED) {
+				$capabilities = FILE_GRID_VIEW_NOTES;
+			} 
+		}
+
+		$this->setCapabilities(new FilesGridCapabilities($capabilities));
+
+		parent::initialize($request, $args);
 	}
 }
 

@@ -32,7 +32,6 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 		parent::__construct($dataProvider, $stageId, $capabilities);
 	}
 
-
 	//
 	// Extended methods from SubmissionFilesGridHandler.
 	//

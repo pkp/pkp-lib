@@ -670,3 +670,6 @@ msgstr "No Navigation Menus"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Choose a type..."
+
+msgid "grid.action.view"
+msgstr "View"

@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:19+00:00\n"
-"PO-Revision-Date: 2020-11-29 09:51+0000\n"
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "installer.additionalLocales"
 msgstr "Dodatkowe języki"
@@ -53,10 +54,9 @@ msgstr "Sterownik bazy danych"
 
 msgid "installer.databaseDriverInstructions"
 msgstr ""
-"<strong>Sterowniki wyświetlone w nawiasach wymagają rozszerzeń PHP, które "
-"nie są zainstalowane. Instalacja raczej na pewno nie powiedzie się jeśli je "
-"wybierzesz. </strong><br />Jakiekolwiek niewspierane sterowniki pokazane "
-"powyżej mają znaczenie jedynie szkoleniowe i raczej nie będą działały."
+"<strong>System wspiera obecnie wyłącznie MySQL i PostgreSQL. W przypadku "
+"jeśli nie możesz wybrać żadnej z tych opcji, skontaktuj się z "
+"administratorem serwera aby dodał odpowiednie rozszerzenia PHP.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Host"
@@ -201,6 +201,19 @@ msgstr "<p>Twoja instalacja PHP nie posiada skonfigurowanego modułu XSL. Włąc
 msgid "installer.unsupportedPhpError"
 msgstr "Twoja wersja serwera PHP nie jest wspierana przez to oprogramowanie. Sprawdź wymagania instalacyjne w pliku docs/README."
 
-#, fuzzy
 msgid "installer.installMigrationError"
-msgstr "Wystąpił błąd w trakcie migracji klas <tt>{$class}</tt>."
+msgstr ""
+"Wystąpił błąd w trakcie migracji klas <tt>{$class}</tt>. Wyjątek: {$message}."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Wymagane jest podanie strefy czasowej."
+
+msgid "installer.timezoneInstructions"
+msgstr "Strefa czasowa dla tego systemu."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Wybierz dodatkowe języki do obsługi w tym systemie. Dodatkowe języki można "
+"również zainstalować w dowolnym momencie z interfejsu administracyjnego "
+"witryny.<br>* = Oznacza języki, które nie są w pełni przetłumaczone (> 90% "
+"przetłumaczonych terminów)"

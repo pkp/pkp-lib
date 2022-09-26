@@ -147,12 +147,15 @@ class UserDetailsForm extends UserForm
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->assign('site', $request->getSite());
 
         $data = [];
 
         if (isset($this->user)) {
             $user = $this->user;
-
+            $templateMgr->assign('user', $user);
             $interestManager = new InterestManager();
 
             $data = [
@@ -178,6 +181,7 @@ class UserDetailsForm extends UserForm
             }
         } elseif (isset($this->author)) {
             $author = $this->author;
+            $templateMgr->assign('user', $author);
             $data = [
                 'givenName' => $author->getGivenName(null), // Localized
                 'familyName' => $author->getFamilyName(null), // Localized
@@ -300,6 +304,9 @@ class UserDetailsForm extends UserForm
             $this->user = Repo::user()->newDataObject();
             $this->user->setInlineHelp(1); // default new users to having inline help visible
         }
+
+        //save the user's user group assignment
+        $this->saveUserGroupAssignments();
 
         // if doing only a partial update that includes only updating user's user group
         if ($this->userGroupUpdateOnly) {

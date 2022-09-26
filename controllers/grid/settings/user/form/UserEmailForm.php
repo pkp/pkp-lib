@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\settings\user\form;
 
+use Exception;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;

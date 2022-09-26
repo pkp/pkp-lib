@@ -59,6 +59,9 @@ class UserRoleForm extends UserForm
      */
     public function execute(...$functionParams)
     {
+        //save the user's user group assignment
+        $this->saveUserGroupAssignments();
+        
         parent::execute(...$functionParams);
 
         // Role management handled by parent form, just return user.

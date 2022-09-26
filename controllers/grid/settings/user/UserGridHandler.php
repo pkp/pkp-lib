@@ -318,15 +318,16 @@ class UserGridHandler extends GridHandler
         }
 
         $user = $request->getUser();
+        $administrationLevel = Validation::canAdminister($userId, $user->getId(), [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]);
         
-        if ($userId !== null && !Validation::canAdminister($userId, $user->getId()) && !Validation::canPartialAdministrate()) {
+        if ($userId !== null && $administrationLevel === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         } else {
             // Form handling.
             $userForm = new UserDetailsForm($request, $userId);
 
-            Validation::canPartialAdministrate()
+            $administrationLevel === Validation::ADMINISTRATION_PARTIAL
                 ? $userForm->applyUserGroupUpdateOnly()
                 : $userForm->attachValidationChecks($request);
             
@@ -351,7 +352,9 @@ class UserGridHandler extends GridHandler
         // Identify the user Id.
         $userId = $request->getUserVar('userId');
 
-        if ($userId !== null && !Validation::canAdminister($userId, $user->getId()) && !Validation::canPartialAdministrate()) {
+        $administrationLevel = Validation::canAdminister($userId, $user->getId(), [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]);
+
+        if ($userId !== null && $administrationLevel === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         }
@@ -359,7 +362,7 @@ class UserGridHandler extends GridHandler
         // Form handling.
         $userForm = new UserDetailsForm($request, $userId);
 
-        Validation::canPartialAdministrate()
+        $administrationLevel === Validation::ADMINISTRATION_PARTIAL
             ? $userForm->applyUserGroupUpdateOnly()
             : $userForm->attachValidationChecks($request);
 
@@ -515,7 +518,9 @@ class UserGridHandler extends GridHandler
         // Identify the user Id.
         $userId = $request->getUserVar('rowId');
 
-        if ($userId !== null && !Validation::canAdminister($userId, $user->getId()) && !Validation::canPartialAdministrate()) {
+        $administrationLevel = Validation::canAdminister($userId, $user->getId(), [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]);
+
+        if ($userId !== null && $administrationLevel === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         }

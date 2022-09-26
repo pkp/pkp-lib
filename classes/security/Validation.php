@@ -26,8 +26,9 @@ use PKP\session\SessionManager;
 
 class Validation
 {
-    /** @var bool A flag to determine if partial adminstration(only user group) is allowed or not */
-    protected static bool $partialAdministration = false;
+    public const ADMINISTRATION_PROHIBITED = 0;
+    public const ADMINISTRATION_PARTIAL = 1;
+    public const ADMINISTRATION_FULL = 2;
     
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
@@ -428,29 +429,30 @@ class Validation
     /**
      * Check whether a user is allowed to administer another user.
      *
-     * @param int $administeredUserId User ID of user to potentially administer
-     * @param int $administratorUserId User ID of user who wants to do the administrating
-     *
-     * @return bool True IFF the administration operation is permitted
+     * @param int   $administeredUserId     User ID of user to potentially administer
+     * @param int   $administratorUserId    User ID of user who wants to do the administrating
+     * @param array $allowedLevels          The allowed adminstration levels
+     * 
+     * @return int The authorized adminstrative level 
      */
-    public static function canAdminister($administeredUserId, $administratorUserId)
+    public static function canAdminister($administeredUserId, $administratorUserId, $allowedLevels = [self::ADMINISTRATION_FULL])
     {
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         $context = Application::get()?->getRequest()?->getContext();
 
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {
-            return true;
+            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_FULL, $allowedLevels);
         }
 
         // You cannot adminster administrators
         if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
-            return false;
+            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PROHIBITED, $allowedLevels);
         }
 
         // Otherwise, administrators can administer everyone
         if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
-            return true;
+            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_FULL, $allowedLevels);
         }
 
         // Check for administered user group assignments in other contexts
@@ -462,9 +464,9 @@ class Validation
                 // But also determine if a partial administrate is allowed
                 // if the Administrator User is a Journal Manager in the current context
                 if ($context && $roleDao->userHasRole($context->getId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
-                    static::$partialAdministration = true;
+                    return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PARTIAL, $allowedLevels);
                 }
-                return false;
+                return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PROHIBITED, $allowedLevels);
             }
         }
 
@@ -477,21 +479,28 @@ class Validation
             }
         }
         if (!$foundManagerRole) {
-            return false;
+            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PROHIBITED, $allowedLevels);
         }
 
         // There were no conflicting roles. Permit administration.
-        return true;
+        return static::getApplicableAdministrationLevel(self::ADMINISTRATION_FULL, $allowedLevels);
     }
 
     /**
-     * Check if partial administration is allowed
+     * Determine the adminstation level
      *
-     * @return bool
+     * @param int $applicableLevel The possible applicable adminstration level
+     * @param array $allowedLevels The allowed applicable adminstration level
+     * 
+     * @return int Authorized adminstration level
      */
-    public static function canPartialAdministrate(): bool
+    protected static function getApplicableAdministrationLevel(int $applicableLevel, array $allowedLevels)
     {
-        return static::$partialAdministration;
+        if ( in_array($applicableLevel, $allowedLevels) ) {
+            return $applicableLevel;
+        }
+
+        return self::ADMINISTRATION_PROHIBITED;
     }
 }
 

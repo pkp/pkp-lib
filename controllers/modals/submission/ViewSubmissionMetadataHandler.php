@@ -57,6 +57,10 @@ class ViewSubmissionMetadataHandler extends handler
                 ->getMany();
 
             $templateMgr->assign('authors', $publication->getAuthorString($userGroups));
+
+            if ($publication->getLocalizedData('dataAvailability')) {
+                $additionalMetadata[] = [__('submission.dataAvailability'), $publication->getLocalizedData('dataAvailability')];
+            }
         }
 
         $templateMgr->assign('publication', $publication);
@@ -75,9 +79,6 @@ class ViewSubmissionMetadataHandler extends handler
         }
         if ($publication->getLocalizedData('languages')) {
             $additionalMetadata[] = [__('common.languages'), implode(', ', $publication->getLocalizedData('languages'))];
-        }
-        if ($publication->getLocalizedData('dataAvailability')) {
-            $additionalMetadata[] = [__('submission.dataAvailability'), $publication->getLocalizedData('dataAvailability')];
         }
 
         $templateMgr->assign('additionalMetadata', $additionalMetadata);

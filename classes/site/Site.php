@@ -47,10 +47,11 @@ class Site extends \PKP\core\DataObject
             $item = Locale::getMetadata($locale)
                 ->getDisplayName(
                     null, 
-                    isset($localeCodesCount[$localeCode]) && $localeCodesCount[$localeCode] > 1 ? true : false
+                    isset($localeCodesCount[$localeCode]) && $localeCodesCount[$localeCode] > 1 ? true : false,
+                    true
                 );
         });
-        
+
         asort($supportedLocales);
         return $supportedLocales;
     }

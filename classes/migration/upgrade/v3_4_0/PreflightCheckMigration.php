@@ -438,6 +438,16 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Nulling non-existent source_submission_file_id ${sourceSubmissionFileId} in submission_files.");
                 DB::table('submission_files')->where('source_submission_file_id', '=', $sourceSubmissionFileId)->update(['source_submission_file_id' => null]);
             }
+            // Clean orphaned data_object_tombstone_settings entries
+            $orphanedIds = DB::table('data_object_tombstone_settings AS dots')->leftJoin('data_object_tombstones AS dot', 'dot.tombstone_id', '=', 'dots.tombstone_id')->whereNull('dot.tombstone_id')->distinct()->pluck('dots.tombstone_id');
+            foreach ($orphanedIds as $tombstoneId) {
+                DB::table('data_object_tombstone_settings')->where('tombstone_id', '=', $tombstoneId)->delete();
+            }
+            // Clean orphaned data_object_tombstone_oai_set_objects entries by tombstone_id
+            $orphanedIds = DB::table('data_object_tombstone_oai_set_objects AS dotoso')->leftJoin('data_object_tombstones AS dot', 'dot.tombstone_id', '=', 'dotoso.tombstone_id')->whereNull('dot.tombstone_id')->distinct()->pluck('dotoso.tombstone_id');
+            foreach ($orphanedIds as $tombstoneId) {
+                DB::table('data_object_tombstone_oai_set_objects')->where('tombstone_id', '=', $tombstoneId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

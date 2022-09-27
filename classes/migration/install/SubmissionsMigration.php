@@ -49,6 +49,9 @@ class SubmissionsMigration extends \PKP\migration\Migration
             //  Used in OMP only; should not be null there
             $table->smallInteger('work_type')->default(0)->nullable();
         });
+        Schema::table('stage_assignments', function (Blueprint $table) {
+            $table->foreign('submission_id', 'stage_assignments_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
 
         // Submission metadata
         Schema::create('submission_settings', function (Blueprint $table) {

@@ -244,7 +244,7 @@ class PKPAnnouncementHandler extends APIHandler
                     $contextId,
                     $announcementId,
                     $request->getUser(),
-                    Locale::getLocale()
+                    Locale::getPrimaryLocale()
                 );
                 $jobs[] = $mailJob;
             }

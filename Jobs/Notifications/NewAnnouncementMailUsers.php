@@ -55,7 +55,6 @@ class NewAnnouncementMailUsers extends BaseJob
         // Announcement was removed
         if (!$announcement) {
             throw new JobException(JobException::INVALID_PAYLOAD);
-            return;
         }
 
         $context = Application::getContextDAO()->getById($this->contextId);
@@ -88,8 +87,8 @@ class NewAnnouncementMailUsers extends BaseJob
 
         $mailable->sender($this->sender);
         $mailable->recipients([$recipient]);
-        $mailable->body($template->getData('body', $this->locale));
-        $mailable->subject($template->getData('subject', $this->locale));
+        $mailable->body($template->getLocalizedData('body', $this->locale));
+        $mailable->subject($template->getLocalizedData('subject', $this->locale));
 
         return $mailable;
     }

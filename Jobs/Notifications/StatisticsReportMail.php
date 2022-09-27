@@ -74,8 +74,8 @@ class StatisticsReportMail extends BaseJob
             $mailable = new StatisticsReportNotify($context, $editorialTrends, $totalSubmissions, $month, $year);
             $mailable->recipients([$user]);
             $mailable->from($context->getContactEmail(), $context->getContactName());
-            $mailable->subject($template->getData('subject', $locale));
-            $mailable->body($template->getData('body', $locale));
+            $mailable->subject($template->getLocalizedData('subject', $locale));
+            $mailable->body($template->getLocalizedData('body', $locale));
             $mailable->setData($locale);
             $mailable->attach($filePath, ['as' => 'editorial-report.csv']);
 

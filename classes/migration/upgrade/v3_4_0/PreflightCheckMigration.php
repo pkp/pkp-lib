@@ -378,6 +378,36 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $submissionId) {
                 DB::table('review_round_files')->where('submission_id', '=', $submissionId)->delete();
             }
+
+            // Clean orphaned user_user_groups entries by user_id
+            $orphanedIds = DB::table('user_user_groups AS uug')->leftJoin('users AS u', 'u.user_id', '=', 'uug.user_id')->whereNull('u.user_id')->distinct()->pluck('uug.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('user_user_groups')->where('user_id', '=', $userId)->delete();
+            }
+
+            // Clean orphaned user_group_stage entries by context_id
+            $orphanedIds = DB::table('user_group_stage AS ugs')->leftJoin($this->getContextTable() . ' AS c', 'ugs.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('ugs.context_id');
+            foreach ($orphanedIds as $contextId) {
+                DB::table('subeditor_submission_group')->where('context_id', '=', $contextId)->delete();
+            }
+
+            // Clean orphaned stage_assignments entries by user_id
+            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('users AS u', 'u.user_id', '=', 'sa.user_id')->whereNull('u.user_id')->distinct()->pluck('sa.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('stage_assignments')->where('user_id', '=', $userId)->delete();
+            }
+
+            // Clean orphaned stage_assignments entries by user_group_id
+            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'sa.user_group_id')->whereNull('ug.user_group_id')->distinct()->pluck('ug.user_group_id');
+            foreach ($orphanedIds as $userGroupId) {
+                DB::table('stage_assignments')->where('user_group_id', '=', $userGroupId)->delete();
+            }
+
+            // Clean orphaned stage_assignments entries by submission_id
+            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('submissions AS s', 'sa.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('s.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                DB::table('stage_assignments')->where('submission_id', '=', $submissionId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

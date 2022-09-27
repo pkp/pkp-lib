@@ -203,6 +203,17 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('review_round_files', function (Blueprint $table) {
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
         });
+        Schema::table('user_user_groups', function (Blueprint $table) {
+            $table->foreign('user_id', 'user_user_groups_user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('user_group_stage', function (Blueprint $table) {
+            $table->foreign('context_id', 'user_group_stage_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+        });
+        Schema::table('stage_assignments', function (Blueprint $table) {
+            $table->foreign('user_group_id', 'stage_assignments_user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->foreign('user_id', 'stage_assignments_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
     }
 
     /**

@@ -50,38 +50,48 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
         // User group assignments (mapping of user to user groups)
         Schema::create('user_user_groups', function (Blueprint $table) {
             $table->bigInteger('user_group_id');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+
             $table->bigInteger('user_id');
-            $table->index(['user_group_id'], 'user_user_groups_user_group_id');
+            $table->foreign('user_id', 'user_user_groups_user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->index(['user_id'], 'user_user_groups_user_id');
             $table->unique(['user_group_id', 'user_id'], 'user_user_groups_pkey');
-            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
         });
 
         // User groups assignments to stages in the workflow
         Schema::create('user_group_stage', function (Blueprint $table) {
             $table->bigInteger('context_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id', 'user_group_stage_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+
             $table->bigInteger('user_group_id');
+            $table->foreign('user_group_id', 'user_group_stage_user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+
             $table->bigInteger('stage_id');
-            $table->index(['context_id'], 'user_group_stage_context_id');
-            $table->index(['user_group_id'], 'user_group_stage_user_group_id');
+
             $table->index(['stage_id'], 'user_group_stage_stage_id');
             $table->unique(['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_pkey');
-            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
         });
 
         // Stage Assignments
         Schema::create('stage_assignments', function (Blueprint $table) {
             $table->bigInteger('stage_assignment_id')->autoIncrement();
+
+            // The foreign key for this column is declared with the submissions table.
             $table->bigInteger('submission_id');
+
             $table->bigInteger('user_group_id');
+            $table->foreign('user_group_id', 'stage_assignments_user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+
             $table->bigInteger('user_id');
+            $table->foreign('user_id', 'stage_assignments_user_id')->references('user_id')->on('users')->onDelete('cascade');
+
             $table->datetime('date_assigned');
             $table->smallInteger('recommend_only')->default(0);
             $table->smallInteger('can_change_metadata')->default(0);
+
             $table->unique(['submission_id', 'user_group_id', 'user_id'], 'stage_assignment');
-            $table->index(['submission_id'], 'stage_assignments_submission_id');
-            $table->index(['user_group_id'], 'stage_assignments_user_group_id');
-            $table->index(['user_id'], 'stage_assignments_user_id');
         });
     }
 

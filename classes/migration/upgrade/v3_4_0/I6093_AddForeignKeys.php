@@ -214,6 +214,12 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('user_id', 'stage_assignments_user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
         });
+        Schema::table('submission_files', function (Blueprint $table) {
+            $table->foreign('submission_id', 'submission_files_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('set null');
+            $table->foreign('uploader_user_id')->references('user_id')->on('users')->onDelete('set null');
+            $table->foreign('source_submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+        });
     }
 
     /**

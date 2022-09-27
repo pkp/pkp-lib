@@ -408,6 +408,36 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $submissionId) {
                 DB::table('stage_assignments')->where('submission_id', '=', $submissionId)->delete();
             }
+            // Clean orphaned submission_files entries by submission_id
+            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sf.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                $this->_installer->log("Removing orphaned submission_files entries for non-existent submission_id ${submissionId}.");
+                DB::table('submission_files')->where('submission_id', '=', $submissionId)->delete();
+            }
+            // Clean orphaned submission_files entries by file_id
+            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('files AS f', 'sf.file_id', '=', 'f.file_id')->whereNull('f.file_id')->distinct()->pluck('sf.file_id');
+            foreach ($orphanedIds as $fileId) {
+                $this->_installer->log("Removing orphaned submission_files entries for non-existent file_id ${fileId}.");
+                DB::table('submission_files')->where('file_id', '=', $fileId)->delete();
+            }
+            // Clean orphaned submission_files entries by genre_id
+            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('genres AS g', 'sf.genre_id', '=', 'g.genre_id')->whereNull('g.genre_id')->whereNotNull('sf.genre_id')->distinct()->pluck('sf.genre_id');
+            foreach ($orphanedIds as $genreId) {
+                $this->_installer->log("Nulling non-existent genre_id ${genreId} in submission_files.");
+                DB::table('submission_files')->where('genre_id', '=', $genreId)->update(['genre_id' => null]);
+            }
+            // Clean orphaned submission_files entries by uploader_user_id
+            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('users AS u', 'sf.uploader_user_id', '=', 'u.user_id')->whereNull('u.user_id')->whereNotNull('sf.uploader_user_id')->distinct()->pluck('sf.uploader_user_id');
+            foreach ($orphanedIds as $uploaderUserId) {
+                $this->_installer->log("Nulling non-existent uploader_user_id ${uploaderUserId} in submission_files.");
+                DB::table('submission_files')->where('uploader_user_id', '=', $uploaderUserId)->update(['uploader_user_id' => null]);
+            }
+            // Clean orphaned submission_files entries by source_submission_file_id
+            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submission_files AS sfs', 'sf.source_submission_file_id', '=', 'sfs.submission_file_id')->whereNull('sfs.submission_file_id')->whereNotNull('sf.source_submission_file_id')->distinct()->pluck('sf.source_submission_file_id');
+            foreach ($orphanedIds as $sourceSubmissionFileId) {
+                $this->_installer->log("Nulling non-existent source_submission_file_id ${sourceSubmissionFileId} in submission_files.");
+                DB::table('submission_files')->where('source_submission_file_id', '=', $sourceSubmissionFileId)->update(['source_submission_file_id' => null]);
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

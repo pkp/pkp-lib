@@ -34,7 +34,7 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
 
             // FK declared below table (circular reference)
-            $table->bigInteger('source_submission_file_id')->nullable();
+            $table->bigInteger('source_submission_file_id')->unsigned()->nullable();
 
             $table->bigInteger('genre_id')->nullable();
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('set null');

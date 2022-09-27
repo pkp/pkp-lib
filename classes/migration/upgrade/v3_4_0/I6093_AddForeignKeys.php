@@ -218,7 +218,14 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('submission_id', 'submission_files_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('set null');
             $table->foreign('uploader_user_id')->references('user_id')->on('users')->onDelete('set null');
+            $table->bigInteger('source_submission_file_id')->unsigned()->nullable()->change();
             $table->foreign('source_submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+        });
+        Schema::table('data_object_tombstone_settings', function (Blueprint $table) {
+            $table->foreign('tombstone_id', 'data_object_tombstone_settings_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
+        });
+        Schema::table('data_object_tombstone_oai_set_objects', function (Blueprint $table) {
+            $table->foreign('tombstone_id', 'data_object_tombstone_oai_set_objects_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
         });
     }
 

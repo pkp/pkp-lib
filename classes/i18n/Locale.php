@@ -353,6 +353,21 @@ class Locale implements LocaleInterface
         return $this->_getLocaleCache(__METHOD__, $locale, fn () => $this->_getIsoCodes($locale)->getScripts());
     }
 
+    /**
+     * Get the locales counts by only locale code
+     */
+    public function getLocaleCodesCount(array $allLocales = []): array
+    {
+        if (empty($allLocales)) {
+            $allLocales = $this->getLocales();
+        }
+        return array_count_values(
+            collect(array_keys($allLocales))
+                ->map(fn(string $value) => trim(explode('_', $value)[0]))
+                ->toarray()
+        );
+    }
+
 
     /**
      * Translates the texts

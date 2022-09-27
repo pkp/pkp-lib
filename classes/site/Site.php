@@ -38,8 +38,19 @@ class Site extends \PKP\core\DataObject
         if (isset($supportedLocales)) {
             return $supportedLocales;
         }
+        
         $supportedLocales = array_fill_keys($this->getSupportedLocales(), '');
-        array_walk($supportedLocales, fn (&$item, string $locale) => $item = Locale::getMetadata($locale)->getDisplayName());
+        $localeCodesCount = Locale::getLocaleCodesCount();
+
+        array_walk($supportedLocales, function(&$item, string $locale) use ($localeCodesCount) {
+            $localeCode = trim(explode('_', $locale)[0]);
+            $item = Locale::getMetadata($locale)
+                ->getDisplayName(
+                    null, 
+                    isset($localeCodesCount[$localeCode]) && $localeCodesCount[$localeCode] > 1 ? true : false
+                );
+        });
+        
         asort($supportedLocales);
         return $supportedLocales;
     }

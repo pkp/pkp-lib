@@ -318,7 +318,7 @@ class UserGridHandler extends GridHandler
         }
 
         $user = $request->getUser();
-        $administrationLevel = Validation::canAdminister($userId, $user->getId(), [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]);
+        $administrationLevel = Validation::getAdministrationLevel($userId, $user->getId());
         
         if ($userId !== null && $administrationLevel === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
@@ -352,7 +352,7 @@ class UserGridHandler extends GridHandler
         // Identify the user Id.
         $userId = $request->getUserVar('userId');
 
-        $administrationLevel = Validation::canAdminister($userId, $user->getId(), [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]);
+        $administrationLevel = Validation::getAdministrationLevel($userId, $user->getId());
 
         if ($userId !== null && $administrationLevel === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
@@ -406,7 +406,7 @@ class UserGridHandler extends GridHandler
         // Identify the user Id.
         $userId = $request->getUserVar('userId');
 
-        if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+        if ($userId !== null && Validation::getAdministrationLevel($userId, $user->getId()) !== Validation::ADMINISTRATION_FULL) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         }
@@ -446,7 +446,7 @@ class UserGridHandler extends GridHandler
         // Are we enabling or disabling this user.
         $enable = isset($args['enable']) ? (bool) $args['enable'] : false;
 
-        if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+        if ($userId !== null && Validation::getAdministrationLevel($userId, $user->getId()) !== Validation::ADMINISTRATION_FULL) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         } else {
@@ -477,7 +477,7 @@ class UserGridHandler extends GridHandler
         // Are we enabling or disabling this user.
         $enable = (bool) $request->getUserVar('enable');
 
-        if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+        if ($userId !== null && Validation::getAdministrationLevel($userId, $user->getId()) !== Validation::ADMINISTRATION_FULL) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         }
@@ -518,7 +518,7 @@ class UserGridHandler extends GridHandler
         // Identify the user Id.
         $userId = $request->getUserVar('rowId');
 
-        $administrationLevel = Validation::canAdminister($userId, $user->getId(), [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]);
+        $administrationLevel = Validation::getAdministrationLevel($userId, $user->getId());
 
         if ($userId !== null && $administrationLevel === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
@@ -627,7 +627,7 @@ class UserGridHandler extends GridHandler
         $user = $request->getUser();
 
         // if there is a $newUserId, this is the second time through, so merge the users.
-        if ($newUserId > 0 && $oldUserId > 0 && Validation::canAdminister($oldUserId, $user->getId())) {
+        if ($newUserId > 0 && $oldUserId > 0 && Validation::getAdministrationLevel($oldUserId, $user->getId()) === Validation::ADMINISTRATION_FULL) {
             if (!$request->checkCSRF()) {
                 return new JSONMessage(false);
             }

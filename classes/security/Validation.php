@@ -21,6 +21,8 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\site\SiteDAO;
+use PKP\site\Site;
 
 use PKP\session\SessionManager;
 
@@ -290,8 +292,8 @@ class Validation
     public static function generatePassword($length = null)
     {
         if (!$length) {
-            $siteDao = DAORegistry::getDAO('SiteDAO');
-            $site = $siteDao->getSite();
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $site = $siteDao->getSite(); /** @var Site $site */
             $length = $site->getMinPasswordLength();
         }
         $letters = 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
@@ -429,30 +431,30 @@ class Validation
     /**
      * Check whether a user is allowed to administer another user.
      *
-     * @param int   $administeredUserId     User ID of user to potentially administer
-     * @param int   $administratorUserId    User ID of user who wants to do the administrating
-     * @param array $allowedLevels          The allowed adminstration levels
+     * @param int $administeredUserId User ID of user to potentially administer
+     * @param int $administratorUserId User ID of user who wants to do the administrating
+     *
+     * @return bool True IFF the administration operation is permitted
      * 
-     * @return int The authorized adminstrative level 
+     * @deprecated 3.4 Use the method getAdministrationLevel and checked against the ADMINISTRATION_* constants
      */
-    public static function canAdminister($administeredUserId, $administratorUserId, $allowedLevels = [self::ADMINISTRATION_FULL])
+    public static function canAdminister($administeredUserId, $administratorUserId)
     {
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $context = Application::get()?->getRequest()?->getContext();
 
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {
-            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_FULL, $allowedLevels);
+            return true;
         }
 
         // You cannot adminster administrators
         if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
-            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PROHIBITED, $allowedLevels);
+            return false;
         }
 
         // Otherwise, administrators can administer everyone
         if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
-            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_FULL, $allowedLevels);
+            return true;
         }
 
         // Check for administered user group assignments in other contexts
@@ -461,12 +463,7 @@ class Validation
         foreach ($userGroups as $userGroup) {
             if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
-                // But also determine if a partial administrate is allowed
-                // if the Administrator User is a Journal Manager in the current context
-                if ($context && $roleDao->userHasRole($context->getId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
-                    return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PARTIAL, $allowedLevels);
-                }
-                return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PROHIBITED, $allowedLevels);
+                return false;
             }
         }
 
@@ -479,28 +476,70 @@ class Validation
             }
         }
         if (!$foundManagerRole) {
-            return static::getApplicableAdministrationLevel(self::ADMINISTRATION_PROHIBITED, $allowedLevels);
+            return false;
         }
 
         // There were no conflicting roles. Permit administration.
-        return static::getApplicableAdministrationLevel(self::ADMINISTRATION_FULL, $allowedLevels);
+        return true;
     }
 
     /**
-     * Determine the adminstation level
+     * Get the user's administration level
      *
-     * @param int $applicableLevel The possible applicable adminstration level
-     * @param array $allowedLevels The allowed applicable adminstration level
+     * @param int   $administeredUserId     User ID of user to potentially administer
+     * @param int   $administratorUserId    User ID of user who wants to do the administrating
      * 
-     * @return int Authorized adminstration level
+     * @return int The authorized adminstration level 
      */
-    protected static function getApplicableAdministrationLevel(int $applicableLevel, array $allowedLevels)
+    public static function getAdministrationLevel($administeredUserId, $administratorUserId)
     {
-        if ( in_array($applicableLevel, $allowedLevels) ) {
-            return $applicableLevel;
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        $context = Application::get()?->getRequest()?->getContext();
+
+        // You can administer yourself
+        if ($administeredUserId == $administratorUserId) {
+            return self::ADMINISTRATION_FULL;
         }
 
-        return self::ADMINISTRATION_PROHIBITED;
+        // You cannot adminster administrators
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
+            return self::ADMINISTRATION_PROHIBITED;
+        }
+
+        // Otherwise, administrators can administer everyone
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
+            return self::ADMINISTRATION_FULL;
+        }
+
+        // Check for administered user group assignments in other contexts
+        // that the administrator user doesn't have a manager role in.
+        $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
+        foreach ($userGroups as $userGroup) {
+            if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+                // Found an assignment: disqualified.
+                // But also determine if a partial administrate is allowed
+                // if the Administrator User is a Journal Manager in the current context
+                if ($context && $roleDao->userHasRole($context->getId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+                    return self::ADMINISTRATION_PARTIAL;
+                }
+                return self::ADMINISTRATION_PROHIBITED;
+            }
+        }
+
+        // Make sure the administering user has a manager role somewhere
+        $foundManagerRole = false;
+        $roles = $roleDao->getByUserId($administratorUserId);
+        foreach ($roles as $role) {
+            if ($role->getRoleId() == Role::ROLE_ID_MANAGER) {
+                $foundManagerRole = true;
+            }
+        }
+        if (!$foundManagerRole) {
+            return self::ADMINISTRATION_PROHIBITED;
+        }
+
+        // There were no conflicting roles. Permit administration.
+        return self::ADMINISTRATION_FULL;
     }
 }
 

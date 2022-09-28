@@ -53,7 +53,6 @@ use PKP\mail\variables\SiteEmailVariable;
 use PKP\mail\variables\SubmissionEmailVariable;
 use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
-use PKP\plugins\HookRegistry;
 use PKP\site\Site;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -308,11 +307,14 @@ class Mailable extends IlluminateMailable
      */
     protected function buildSubject($message): self
     {
-        if (!$this->subject) {
-            throw new Exception('Subject isn\'t specified in ' . static::class);
-        }
-
+        $this->subject ??= ''; // Allow email with empty subject if not set
         $subject = app('mailer')->compileParams($this->subject, $this->viewData);
+        if (empty($subject)) {
+            trigger_error(
+                'You are sending ' . static::getName() ?? static::class . ' email with empty subject',
+                E_USER_WARNING
+            );
+        }
         $message->subject($subject);
 
         return $this;

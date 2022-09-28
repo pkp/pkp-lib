@@ -22,6 +22,7 @@ use PKP\Jobs\Email\EditorialReminder;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\Role;
+use PKP\user\Collector;
 
 class EditorialReminders extends ScheduledTask
 {
@@ -44,7 +45,7 @@ class EditorialReminders extends ScheduledTask
             $userIds = Repo::user()->getCollector()
                 ->filterByContextIds([$contextId])
                 ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-                ->filterByStatus($userCollector::STATUS_ACTIVE)
+                ->filterByStatus(Collector::STATUS_ACTIVE)
                 ->getIds();
 
             /** @var int $userId */

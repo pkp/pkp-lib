@@ -53,7 +53,16 @@ class I7287_RemoveEmailTemplatesDefault extends Migration
             $table->bigInteger('stage_id')->nullable();
             $table->index(['email_key'], 'email_templates_default_email_key');
         });
-        DB::table('email_templates_default')->insert($this->emailTemplatesDefault->toArray());
+
+        $this->emailTemplatesDefault->each(function(\stdClass $row) {
+            DB::table('email_templates_default')->insert([
+                'email_key' => $row->{'email_key'},
+                'can_disable' => $row->{'can_disable'},
+                'can_edit' => $row->{'can_edit'},
+                'from_role_id' => $row->{'from_role_id'},
+                'to_role_id' => $row->{'to_role_id'},
+            ]);
+        });
 
         // Re-add description column to the email_templates_default_data table and populate with data
         Schema::table('email_templates_default_data', function (Blueprint $table) {

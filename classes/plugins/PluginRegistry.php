@@ -20,6 +20,7 @@ namespace PKP\plugins;
 use APP\core\Application;
 use Exception;
 use FilesystemIterator;
+use Illuminate\Support\Arr;
 use PKP\core\Registry;
 
 class PluginRegistry
@@ -191,43 +192,24 @@ class PluginRegistry
     /**
      * Instantiate a plugin.
      */
-    public static function _instantiatePlugin(string $category, string $categoryDir, string $file, ?string $classToCheck = null)
+    private static function _instantiatePlugin(string $category, string $pluginName, ?string $classToCheck = null): ?Plugin
     {
-        if (!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) {
-            throw new Exception('Invalid product name "' . $file . '"!');
+        if (!preg_match('/^[a-z0-9]+$/i', $pluginName)) {
+            throw new Exception("Invalid product name \"{$pluginName}\"");
         }
 
-        $pluginPath = "${categoryDir}/${file}";
-        if (!is_dir($pluginPath)) {
+        // First, try a namespaced class name matching the installation directory.
+        $pluginClassName = "\\APP\\plugins\\{$category}\\{$pluginName}\\" . ucfirst($pluginName) . 'Plugin';
+        $plugin = class_exists($pluginClassName)
+            ? new $pluginClassName()
+            : static::_deprecatedInstantiatePlugin($category, $pluginName);
+
+        if (!is_a($plugin, $classToCheck = $classToCheck ?: Plugin::class)) {
+            $type = is_object($plugin) ? $plugin::class : gettype($plugin);
+            error_log(new Exception("Plugin {$pluginName} expected to inherit from {$classToCheck}, actual type {$type}"));
             return null;
         }
-
-        // Try the plug-in wrapper for backwards compatibility. (DEPRECATED as of 3.4.0)
-        $pluginWrapper = "${pluginPath}/index.php";
-        if (file_exists($pluginWrapper)) {
-            $plugin = include($pluginWrapper);
-            assert($plugin instanceof ($classToCheck ?: '\PKP\plugins\Plugin'));
-            return $plugin;
-        } else {
-            // First, try a namespaced class name matching the installation directory.
-            $pluginClassName = '\\APP\\plugins\\' . $category . '\\' . $file . '\\' . ucfirst($file) . 'Plugin';
-            if (class_exists($pluginClassName)) {
-                return new $pluginClassName();
-            }
-
-            // Try the well-known plug-in class name next (deprecated; pre-namespacing).
-            // (DEPRECATED as of 3.4.0.)
-            $pluginClassName = ucfirst($file) . ucfirst($category) . 'Plugin';
-            $pluginClassFile = $pluginClassName . '.inc.php';
-            if (file_exists("${pluginPath}/${pluginClassFile}")) {
-                // Try to instantiate the plug-in class.
-                $pluginPackage = 'plugins.' . $category . '.' . $file;
-                $plugin = instantiate($pluginPackage . '.' . $pluginClassName, $pluginClassName, $pluginPackage, 'register');
-                assert(is_a($plugin, $classToCheck ?: '\PKP\plugins\Plugin'));
-                return $plugin;
-            }
-        }
-        return null;
+        return $plugin;
     }
 
     /**
@@ -267,6 +249,29 @@ class PluginRegistry
             }
         }
         return $plugins;
+    }
+
+    /**
+     * Instantiate a plugin.
+     * @deprecated 3.4.0 Old way to instantiate a plugin
+     */
+    private static function _deprecatedInstantiatePlugin(string $category, string $pluginName): ?Plugin
+    {
+        $pluginPath = static::PLUGINS_PREFIX . "${category}/{$pluginName}";
+        // Try the plug-in wrapper for backwards compatibility.
+        $pluginWrapper = "${pluginPath}/index.php";
+        if (file_exists($pluginWrapper)) {
+            return include $pluginWrapper;
+        }
+
+        // Try the well-known plug-in class name next (with and without ".inc.php")
+        $pluginClassName = ucfirst($pluginName) . ucfirst($category) . 'Plugin';
+        if (Arr::first(['.inc.php', '.php'], fn (string $suffix) => file_exists("${pluginPath}/{$pluginClassName}{$suffix}"))) {
+            $pluginPackage = "plugins.{$category}.{$pluginName}";
+            return instantiate("{$pluginPackage}.{$pluginClassName}", $pluginClassName, $pluginPackage, 'register');
+        }
+
+        return null;
     }
 }
 

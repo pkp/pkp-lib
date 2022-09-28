@@ -354,20 +354,24 @@ class Locale implements LocaleInterface
     }
 
     /**
-     * Get the locales counts by only locale code
+     * Get the formatted locale display names with country if same language code present multiple times
      */
-    public function getLocaleCodesCount(array $allLocales = []): array
+    public function getFormattedDisplayNames(array $locales = null): array
     {
-        if (empty($allLocales)) {
-            $allLocales = $this->getLocales();
-        }
-        return array_count_values(
-            collect(array_keys($allLocales))
+        $locales ??= $this->getLocales();
+        $localeCodesCount = array_count_values(
+            collect(array_keys($this->getLocales()))
                 ->map(fn(string $value) => trim(explode('_', $value)[0]))
-                ->toarray()
+                ->toArray()
         );
-    }
 
+        return collect($locales)
+            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount) {
+                $localeCode = trim(explode('_', $localeKey)[0]);
+                return $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, true);
+            })
+            ->toArray();
+    }
 
     /**
      * Translates the texts

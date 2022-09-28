@@ -41,7 +41,7 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static \Sokil\IsoCodes\Database\Currencies getCurrencies(?string $locale = null) Retrieve the currencies
  * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null) Retrieve the languages
  * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null) Retrieve the scripts
- * @method static array getLocaleCodesCount(array $allLocales = []) Get the locales counts by only locale code
+ * @method static array getFormattedDisplayNames(array $locales = []) Get the formatted locale display names with country if same language code present multiple times
  */
 
 class Locale extends Facade

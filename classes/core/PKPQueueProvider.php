@@ -17,23 +17,24 @@ declare(strict_types=1);
 
 namespace PKP\core;
 
-use Illuminate\Support\Facades\Facade;
-use Illuminate\Queue\Events\JobFailed;
-use Illuminate\Support\Facades\Queue;
-use Illuminate\Queue\WorkerOptions;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
+use APP\core\Application;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
 use Illuminate\Queue\Worker;
+use Illuminate\Queue\WorkerOptions;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
-use PKP\Domains\Jobs\JobRunner;
-use PKP\Domains\Jobs\Job as PKPJobModel;
 use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
+use PKP\Domains\Jobs\Job as PKPJobModel;
+use PKP\Domains\Jobs\JobRunner;
 use PKP\Domains\Jobs\Repositories\Job as JobRepository;
 use PKP\Domains\Jobs\WorkerConfiguration;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
-{   
+{
     /**
      * Specific queue to target to run the associated jobs
      */
@@ -42,22 +43,22 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     /**
      * Set a specific queue to target to run the associated jobs
      */
-    public function forQueue(string $queue) : self
+    public function forQueue(string $queue): self
     {
         $this->queue = $queue;
-        
+
         return $this;
     }
 
     /**
      * Get a job model builder instance to query the jobs table
      */
-    public function getJobModelBuilder() : Builder
+    public function getJobModelBuilder(): Builder
     {
         return PKPJobModel::isAvailable()
             ->nonEmptyQueue()
-            ->when($this->queue, fn($query) => $query->onQueue($this->queue))
-            ->when(is_null($this->queue), fn($query) => $query->notQueue(PKPJobModel::TESTING_QUEUE))
+            ->when($this->queue, fn ($query) => $query->onQueue($this->queue))
+            ->when(is_null($this->queue), fn ($query) => $query->notQueue(PKPJobModel::TESTING_QUEUE))
             ->notExceededAttempts();
     }
 
@@ -84,7 +85,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             $this->getWorkerOptions($workerOptions)
         );
     }
-    
+
     /**
      * Run the queue worker to process queue the jobs
      */
@@ -108,12 +109,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     /**
      * Bootstrap any application services.
      *
-     * @return void
      */
     public function boot()
     {
         Queue::failing(function (JobFailed $event) {
-            
             error_log($event->exception->__toString());
 
             app('queue.failer')->log(
@@ -128,7 +127,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     /**
      * Register the service provider.
      *
-     * @return void
      */
     public function register()
     {
@@ -141,20 +139,19 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             JobRepository::class
         );
 
-        register_shutdown_function(function() {
-            if ( Config::getVar('queues', 'job_runner', false) ) {
+        if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', false)) {
+            register_shutdown_function(function () {
                 (new JobRunner())
                     ->withMaxJobsConstrain()
                     ->setMaxJobsToProcess(1)
                     ->processJobs();
-            }
-        });
+            });
+        }
     }
 
     /**
      * Register the queue worker.
      *
-     * @return void
      */
     protected function registerWorker()
     {
@@ -185,5 +182,4 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             );
         });
     }
-    
 }

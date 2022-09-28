@@ -70,7 +70,7 @@ class UserDetailsForm extends UserForm
     }
 
     /**
-     * Attach the validatio checks for this form
+     * Attach the validation checks for this form
      *
      * @param PKPRequest|null $request
      * @return self

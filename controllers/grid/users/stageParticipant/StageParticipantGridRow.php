@@ -111,7 +111,7 @@ class StageParticipantGridRow extends GridRow
             if (
                 !Validation::isLoggedInAs() &&
                 $user->getId() != $userId &&
-                Validation::canAdminister($userId, $user->getId())
+                Validation::getAdministrationLevel($userId, $user->getId()) === Validation::ADMINISTRATION_FULL
             ) {
                 $dispatcher = $router->getDispatcher();
                 $userGroup = Repo::userGroup()->get($userGroupId);

@@ -63,7 +63,7 @@ class ReviewerGridRow extends GridRow
 
         // Authors can't perform any actions on anonymous reviews
         $reviewAssignment = $this->getData(); /** @var ReviewAssignment $reviewAssignment */
-        $isReviewAnonymous = in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);
+        $isReviewAnonymous = in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);
         if ($this->_isCurrentUserAssignedAuthor && $isReviewAnonymous) {
             return;
         }
@@ -181,7 +181,7 @@ class ReviewerGridRow extends GridRow
             if (
                 !Validation::isLoggedInAs() &&
                 $user->getId() != $reviewAssignment->getReviewerId() &&
-                Validation::canAdminister($reviewAssignment->getReviewerId(), $user->getId()) &&
+                Validation::getAdministrationLevel($reviewAssignment->getReviewerId(), $user->getId()) === Validation::ADMINISTRATION_FULL &&
                 !$reviewAssignment->getCancelled()
             ) {
                 $dispatcher = $router->getDispatcher();

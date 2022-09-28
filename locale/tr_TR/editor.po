@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2021-02-15 20:54+0000\n"
+"PO-Revision-Date: 2022-09-29 12:01+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "tr_TR/>\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Bu kaydı tamamen silmek istediğinizden emin misiniz?"
@@ -479,3 +480,25 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "Değerlendirme sürecinin körleme hakemlik sürecini etkileyeceği için seçilen "
 "kişilerle tartışma oluşturulamaz."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Editör tanınmadı, bu aday makaleyle ilgili bir kararı kaydetme izni "
+"olmayabilir."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Şu alıcılara e-posta gönderemezsiniz: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Bu değerlendirme turu bulunamadı."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Bu değerlendirme turu, bu aday makalenin bir parçası değildir."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Bu kararı aday makaleye kaydetme izniniz yok."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Bir değerlendirme turu sağlandı, ancak bu karar değerlendirme aşamasında "
+"alınmadı."

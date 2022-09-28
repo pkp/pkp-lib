@@ -21,15 +21,14 @@ use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\mail\traits\Discussion;
 
 class DiscussionReview extends Mailable
 {
     use Recipient;
     use Sender;
     use Configurable;
-
-    public const SUBJECT = 'subject';
-    public const CONTENT = 'content';
+    use Discussion;
 
     protected static ?string $name = 'mailable.discussionReview.name';
     protected static ?string $description = 'mailable.discussionReview.description';
@@ -40,17 +39,12 @@ class DiscussionReview extends Mailable
     public function __construct(Context $context, Submission $submission, string $subject, string $content)
     {
         parent::__construct(array_slice(func_get_args(), 0, -2));
-        $this->addData([
-            self::SUBJECT => $subject,
-            self::CONTENT => $content,
-        ]);
+        $this->setupDiscussionVariables($subject, $content);
     }
 
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
-        $variables[self::SUBJECT] = __('emailTemplate.variable.discussion.subject');
-        $variables[self::CONTENT] = __('emailTemplate.variable.discussion.message');
-        return $variables;
+        return self::addDiscussionDescription($variables);
     }
 }

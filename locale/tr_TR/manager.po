@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-09-09 14:50+0000\n"
+"PO-Revision-Date: 2022-09-29 12:01+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -644,16 +644,16 @@ msgid "manager.navigationMenus.customPage"
 msgstr "Özel Sayfa"
 
 msgid "manager.publication.submissionStage"
-msgstr "Gönderi"
+msgstr "Yeni Gönderi"
 
 msgid "manager.publication.reviewStage"
-msgstr "İnceleme"
+msgstr "Değerlendirme"
 
 msgid "manager.publication.editorialStage"
 msgstr "Editöryal"
 
 msgid "manager.publication.productionStage"
-msgstr "Basım"
+msgstr "Üretim"
 
 msgid "manager.publication.emails"
 msgstr "e-Postalar"
@@ -2449,3 +2449,51 @@ msgid "manager.dois.actions.assign.prompt"
 msgstr ""
 "DOI'si olmayan {$count} adet yeni DOI atamak üzeresiniz. Bu ögelere DOI "
 "atamak istediğinizden emin misiniz?"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Ögeler kayıtlı olarak işaretlendi"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Kayıtlı Değil"
+
+msgid "manager.dois.status.registered"
+msgstr "Kayıtlı"
+
+msgid "manager.dois.status.submitted"
+msgstr "Gönderildi"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Bazı DOI'ler güncellenemedi."
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Ögelere yeni DOI'ler atandı"
+
+msgid "manager.dois.status.error"
+msgstr "Hata"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Ögeler gönderildi"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Ögeler dışarı aktarıldı"
+
+msgid "manager.institutions.edit"
+msgstr "Kurumu Düzenle"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Kurumu silmek istediğinizden emin misiniz?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Geçersiz IP aralığı"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Kurumu Sil"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI Güncellemeleri Başarısız"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Ögeler kayıtlı değil olarak işaretlendi"

@@ -142,7 +142,7 @@ class PKPInstitutionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::institution()->getSchemaMap()->summarizeMany($institutions->values()),
+            'items' => Repo::institution()->getSchemaMap()->summarizeMany($institutions->values())->values(),
         ], 200);
     }
 

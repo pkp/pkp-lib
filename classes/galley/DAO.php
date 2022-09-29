@@ -15,6 +15,7 @@ namespace PKP\galley;
 
 use APP\facades\Repo;
 use APP\publication\Publication;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
@@ -144,10 +145,19 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         parent::_delete($galley);
     }
 
-    /** @copydoc RepresentationDAOInterface::getById() */
-    public function getById(int $galleyId, ?int $publicationId = null, ?int $contextId = null): ?Galley
+    public function getById(int $id, ?int $publicationId = null, ?int $contextId = null): ?Representation
     {
-        return $this->get($galleyId);
+		$row = DB::table($this->table)
+			->where($this->primaryKeyColumn, $id)
+			->when(!is_null($publicationId), function(Builder $query) use ($publicationId) {
+				$query->where('publication_id', $publicationId);
+			})
+			->first();
+		if (!$row) {
+			return null;
+		}
+		return $this->fromRow($row);
+
     }
 
     /** @copydoc RepresentationDAOInterface::getByPublicationId() */

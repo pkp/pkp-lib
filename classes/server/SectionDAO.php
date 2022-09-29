@@ -522,16 +522,6 @@ class SectionDAO extends PKPSectionDAO
             );
         }
     }
-
-    /**
-     * Get the ID of the last inserted section.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('sections', 'section_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

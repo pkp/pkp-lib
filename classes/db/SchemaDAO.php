@@ -265,16 +265,6 @@ abstract class SchemaDAO extends DAO
     }
 
     /**
-     * Get the ID of the last inserted item.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return DB::getPdo()->lastInsertId();
-    }
-
-    /**
      * A helper function to compile the key/value set for the primary table
      *
      * @param DataObject $object

@@ -17,11 +17,10 @@
 
 namespace PKP\stageAssignment;
 
+use APP\facades\Repo;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\security\Role;
-use APP\facades\Repo;
 
 class StageAssignmentDAO extends \PKP\db\DAO
 {
@@ -356,16 +355,6 @@ class StageAssignmentDAO extends \PKP\db\DAO
 				AND user_id = ?',
             [(int) $submissionId, (int) $userGroupId, (int) $userId]
         );
-    }
-
-    /**
-     * Get the ID of the last inserted stage assignment.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('stage_assignments', 'stage_assignment_id');
     }
 
     /**

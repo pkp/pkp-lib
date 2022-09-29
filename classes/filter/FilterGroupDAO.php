@@ -188,16 +188,6 @@ class FilterGroupDAO extends \PKP\db\DAO
     // Protected helper methods
     //
     /**
-     * Get the ID of the last inserted filter group.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return parent::_getInsertId('filter_groups', 'filter_group_id');
-    }
-
-    /**
      * Construct and return a new data object
      *
      * @return DataObject

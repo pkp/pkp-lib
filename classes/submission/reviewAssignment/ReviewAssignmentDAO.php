@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO
 {
@@ -597,16 +596,6 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
             $returner = true;
         }
         return $returner;
-    }
-
-    /**
-     * Get the ID of the last inserted review assignment.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('review_assignments', 'review_id');
     }
 
     /**

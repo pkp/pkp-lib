@@ -17,13 +17,13 @@
 
 namespace PKP\note;
 
+use APP\core\Application;
+use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
-use APP\facades\Repo;
-use APP\core\Application;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 
 class NoteDAO extends \PKP\db\DAO
 {
@@ -87,8 +87,14 @@ class NoteDAO extends \PKP\db\DAO
      *
      * @return LazyCollection<Note>
      */
-    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, 
-        int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = self::SORT_DIRECTION_DESC, bool $isAdmin = false) : LazyCollection
+    public function getByAssoc(
+        int $assocType,
+        int $assocId,
+        ?int $userId = null,
+        int $orderBy = self::NOTE_ORDER_DATE_CREATED,
+        int $sortDirection = self::SORT_DIRECTION_DESC,
+        bool $isAdmin = false
+    ): LazyCollection
     {
         $query = DB::table('notes')
             ->where('assoc_id', '=', $assocId)
@@ -126,7 +132,7 @@ class NoteDAO extends \PKP\db\DAO
         $query->orderBy($orderSanitized, $directionSanitized);
 
         $rows = $query->select(['*'])->get();
-        
+
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->note_id => $this->_fromRow(get_object_vars($row));
@@ -302,7 +308,7 @@ class NoteDAO extends \PKP\db\DAO
     {
         $query = DB::table('notes')
             ->where('note_id', '=', $noteId);
-        
+
         if ($userId) {
             $query->where('user_id', '=', $userId);
         }
@@ -327,8 +333,8 @@ class NoteDAO extends \PKP\db\DAO
     public function deleteByAssoc($assocType, $assocId)
     {
         $notes = $this->getByAssoc(
-            $assocType, 
-            $assocId, 
+            $assocType,
+            $assocId,
             null,
             true
         );
@@ -336,16 +342,6 @@ class NoteDAO extends \PKP\db\DAO
         foreach ($notes as $note) {
             $this->deleteObject($note);
         }
-    }
-
-    /**
-     * Get the ID of the last inserted note
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('notes', 'note_id');
     }
 }
 

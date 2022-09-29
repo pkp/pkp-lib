@@ -308,16 +308,6 @@ class ReviewFormElementDAO extends \PKP\db\DAO
             $result->next();
         }
     }
-
-    /**
-     * Get the ID of the last inserted review form element.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('review_form_elements', 'review_form_element_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

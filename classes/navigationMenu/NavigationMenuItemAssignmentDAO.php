@@ -295,16 +295,6 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the ID of the last inserted navigation menu item assignment.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('navigation_menu_item_assignments', 'navigation_menu_item_assignment_id');
-    }
-
-    /**
      * Update the settings for this object
      *
      * @param object $navigationMenuItemAssignment

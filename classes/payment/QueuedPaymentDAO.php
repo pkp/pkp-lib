@@ -95,16 +95,6 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the ID of the last inserted queued payment.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('queued_payments', 'queued_payment_id');
-    }
-
-    /**
      * Delete a queued payment.
      *
      * @param int $queuedPaymentId

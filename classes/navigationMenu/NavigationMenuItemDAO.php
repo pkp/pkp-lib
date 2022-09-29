@@ -307,16 +307,6 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the ID of the last inserted navigation menu item.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('navigation_menu_items', 'navigation_menu_item_id');
-    }
-
-    /**
      * Load the XML file and move the settings to the DB
      *
      * @param int $contextId

@@ -206,16 +206,6 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the ID of the last inserted data object tombstone.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('data_object_tombstones', 'tombstone_id');
-    }
-
-    /**
      * Retrieve all sets for data object tombstones that are inside of
      * the passed set object id.
      *

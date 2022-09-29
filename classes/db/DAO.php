@@ -189,14 +189,20 @@ class DAO
 
     /**
      * Return the last ID inserted in an autonumbered field.
-     *
-     * @deprecated 3.4
-     *
-     * @return int
      */
-    protected function _getInsertId()
+    protected function getInsertId(): int
     {
         return DB::getPdo()->lastInsertId();
+    }
+
+    /**
+     * Return the last ID inserted in an autonumbered field.
+     *
+     * @deprecated 3.4
+     */
+    public function _getInsertId(): int
+    {
+        return $this->getInsertId();
     }
 
     /**

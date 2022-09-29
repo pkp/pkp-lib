@@ -484,20 +484,6 @@ class FilterDAO extends \PKP\db\DAO
 
 
     //
-    // Protected helper methods
-    //
-    /**
-     * Get the ID of the last inserted filter instance (transformation).
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return parent::_getInsertId('filters', 'filter_id');
-    }
-
-
-    //
     // Private helper methods
     //
     /**

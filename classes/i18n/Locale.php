@@ -361,13 +361,13 @@ class Locale implements LocaleInterface
         $locales ??= $this->getLocales();
         $localeCodesCount = array_count_values(
             collect(array_keys($this->getLocales()))
-                ->map(fn(string $value) => trim(explode('_', $value)[0]))
+                ->map(fn(string $value) => explode('_', $value)[0])
                 ->toArray()
         );
 
         return collect($locales)
             ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount) {
-                $localeCode = trim(explode('_', $localeKey)[0]);
+                $localeCode = explode('_', $localeKey)[0];
                 return $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, true);
             })
             ->toArray();

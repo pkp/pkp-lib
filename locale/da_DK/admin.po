@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-09-27 12:01+0000\n"
+"PO-Revision-Date: 2022-09-29 12:01+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
@@ -861,3 +861,30 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
 msgstr "Stop når køen er tom[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Afsend tilgængelige opgaver til køen. Hvis du ønsker at afsende en opgave "
+"til en specifik kø, skal du angive parameteren --queue=QUEUE_NAME. Du kan "
+"også blot angive --test for at køre en testopgave, eller --once for at køre "
+"én opgave ad gangen"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Færdiggjorte {$jobCount} opgaver i køen kaldet {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Ingen opgaver tilgængelige i køen kaldet {$queueName}."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr "Afsendte testopgave, der vil mislykkes, til køen kaldet {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr "Afsendte testopgave, der vil lykkes, til køen kaldet {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Ugyldig testopgave-parameter. Du kan kun angive 'failed' eller 'success' til "
+"'--only=' parameteren"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Fandt ingen opgaver at slette."

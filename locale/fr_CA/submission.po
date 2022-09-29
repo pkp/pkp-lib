@@ -1,13 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
+# Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-09-24 16:38+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"Last-Translator: Maxence Larrieu <maxence.Larrieu@u-paris.fr>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -1548,7 +1548,7 @@ msgid "submission.copyrightYear"
 msgstr "Année du copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear}"
+msgstr "(c) Droit d'auteur (c) {$copyrightHolder} {$copyrightYear}"
 
 msgid "submission.licenseURLValid"
 msgstr "Veuillez indiquer un URL distant valide (inclure http://)."

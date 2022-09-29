@@ -37,6 +37,12 @@
 			"description": "The decision that was made. One of the `SUBMISSION_EDITOR_DECISION_` constants.",
 			"apiSummary": true
 		},
+		"description": {
+			"type": "string",
+			"description": "A description of this decision type.",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"editorId": {
 			"type": "integer",
 			"description": "The user id of the editor who took the decision.",
@@ -46,6 +52,12 @@
 			"type": "integer",
 			"apiSummary": true,
             "readOnly": true
+		},
+		"label": {
+			"type": "string",
+			"description": "A short label or name for this decision type.",
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"reviewRoundId": {
 			"type": "integer",

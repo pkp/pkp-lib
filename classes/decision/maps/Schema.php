@@ -14,6 +14,7 @@
 namespace PKP\decision\maps;
 
 use APP\decision\Decision;
+use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\services\PKPSchemaService;
 
@@ -51,11 +52,20 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function mapByProperties(array $props, Decision $item): array
     {
+        $type = Repo::decision()->getDecisionType($item->getData('decision'));
+
         $output = [];
+
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
                     $output[$prop] = $this->getApiUrl('submissions/' . (int) $item->getData('submissionId') . '/decisions/' . (int) $item->getId());
+                    break;
+                case 'description':
+                    $output[$prop] = $type ? $type->getDescription() : '';
+                    break;
+                case 'label':
+                    $output[$prop] = $type ? $type->getLabel() : '';
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

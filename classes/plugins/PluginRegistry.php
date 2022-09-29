@@ -22,6 +22,7 @@ use Exception;
 use FilesystemIterator;
 use Illuminate\Support\Arr;
 use PKP\core\Registry;
+use ReflectionObject;
 
 class PluginRegistry
 {
@@ -204,8 +205,14 @@ class PluginRegistry
             ? new $pluginClassName()
             : static::_deprecatedInstantiatePlugin($category, $pluginName);
 
-        if (!is_a($plugin, $classToCheck = $classToCheck ?: Plugin::class)) {
-            $type = is_object($plugin) ? $plugin::class : gettype($plugin);
+        $classToCheck = $classToCheck ?: Plugin::class;
+        $isObject = is_object($plugin);
+        // Complements $classToCheck with a namespace when needed
+        if (!str_contains($classToCheck, '\\') && $isObject && ($reflection = new ReflectionObject($plugin))->inNamespace()) {
+            $classToCheck = "{$reflection->getNamespaceName()}\\$classToCheck";
+        }
+        if (!($plugin instanceof $classToCheck)) {
+            $type = $isObject ? $plugin::class : gettype($plugin);
             error_log(new Exception("Plugin {$pluginName} expected to inherit from {$classToCheck}, actual type {$type}"));
             return null;
         }

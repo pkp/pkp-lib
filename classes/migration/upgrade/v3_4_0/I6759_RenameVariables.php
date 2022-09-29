@@ -77,9 +77,9 @@ class I6759_RenameVariables extends \PKP\migration\Migration
             Schema::table('server_settings', fn (Blueprint $table) => $table->dropIndex('journal_settings_pkey'));
         }
         Schema::table('server_settings', function (Blueprint $table) {
-            $table->dropIndex('journal_settings_journal_id');
+            $table->dropForeign('journal_settings_journal_id');
             $table->renameColumn('journal_id', 'server_id');
-            $table->index(['server_id'], 'server_settings_server_id');
+            $table->foreign('server_id', 'server_settings_server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');
         });
 

@@ -103,7 +103,7 @@ class DAO extends EntityDAO
 
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
-                yield $this->fromRow($row);
+                yield $row->announcement_id => $this->fromRow($row);
             }
         });
     }

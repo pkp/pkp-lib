@@ -311,7 +311,7 @@ class PKPSubmissionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
         ], 200);
     }
 
@@ -574,7 +574,7 @@ class PKPSubmissionHandler extends APIHandler
         $decisionIterator = Repo::decision()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->getMany();
-        
+
         $data = Repo::decision()
             ->getSchemaMap()
             ->mapMany($decisionIterator->values());
@@ -661,7 +661,7 @@ class PKPSubmissionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize),
+            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
         ], 200);
     }
 
@@ -1134,7 +1134,7 @@ class PKPSubmissionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors),
+            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
         ], 200);
     }
 

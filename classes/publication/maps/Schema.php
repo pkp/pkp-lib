@@ -20,11 +20,11 @@ use APP\submission\Submission;
 
 use Illuminate\Support\Enumerable;
 
+use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
-use Illuminate\Support\LazyCollection;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -121,7 +121,7 @@ class Schema extends \PKP\core\maps\Schema
                     if ($this->anonymize) {
                         $output[$prop] = [];
                     } else {
-                        $output[$prop] = Repo::author()->getSchemaMap()->summarizeMany($publication->getData('authors'));
+                        $output[$prop] = Repo::author()->getSchemaMap()->summarizeMany($publication->getData('authors'))->values();
                     }
                     break;
                 case 'authorsString':

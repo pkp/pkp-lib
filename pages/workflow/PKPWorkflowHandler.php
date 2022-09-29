@@ -312,7 +312,7 @@ abstract class PKPWorkflowHandler extends Handler
                 'status' => $publication->getData('status'),
                 'version' => $publication->getData('version')
             ];
-        });
+        })->values();
 
         // Get full details of the working publication and the current publication
         $mapper = Repo::publication()->getSchemaMap($submission, $authorUserGroups, $genres);

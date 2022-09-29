@@ -21,6 +21,7 @@ use PKP\db\DAORegistry;
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
 {
     abstract protected function getContextTable(): string;
+    abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;
 
     /**
@@ -447,6 +448,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $orphanedIds = DB::table('data_object_tombstone_oai_set_objects AS dotoso')->leftJoin('data_object_tombstones AS dot', 'dot.tombstone_id', '=', 'dotoso.tombstone_id')->whereNull('dot.tombstone_id')->distinct()->pluck('dotoso.tombstone_id');
             foreach ($orphanedIds as $tombstoneId) {
                 DB::table('data_object_tombstone_oai_set_objects')->where('tombstone_id', '=', $tombstoneId)->delete();
+            }
+            // Clean orphaned category data
+            $orphanedIds = DB::table($this->getContextSettingsTable() . ' AS cs')->leftJoin($this->getContextTable() . ' AS c', 'cs.' . $this->getContextKeyField(), '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('cs.' . $this->getContextKeyField());
+            foreach ($orphanedIds as $contextId) {
+                DB::table($this->getContextSettingsTable())->where($this->getContextKeyField(), '=', $contextId)->delete();
             }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {

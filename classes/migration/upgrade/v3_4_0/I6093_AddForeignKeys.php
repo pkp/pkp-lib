@@ -21,6 +21,7 @@ use PKP\install\DowngradeNotSupportedException;
 abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
 {
     abstract protected function getContextTable(): string;
+    abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;
 
     /**
@@ -226,6 +227,9 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         });
         Schema::table('data_object_tombstone_oai_set_objects', function (Blueprint $table) {
             $table->foreign('tombstone_id', 'data_object_tombstone_oai_set_objects_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
+        });
+        Schema::table($this->getContextSettingsTable(), function (Blueprint $table) {
+            $table->foreign($this->getContextKeyField(), $this->getContextSettingsTable() . '_' . $this->getContextKeyField())->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
         });
     }
 

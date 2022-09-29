@@ -46,7 +46,7 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy {
 
 		// Make sure the representation belongs to the submission.
 		$representationDao = Application::getRepresentationDAO();
-		$representation = $representationDao->getById($representationId, $publication->getId(), null);
+		$representation = $representationDao->getById($representationId, $publication->getId());
 		if (!is_a($representation, 'Representation')) return AUTHORIZATION_DENY;
 
 		// Save the representation to the authorization context.

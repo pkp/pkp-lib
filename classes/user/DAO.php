@@ -154,13 +154,14 @@ class DAO extends EntityDAO
      */
     public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
-        $row = DB::table($this->table)
-            ->where('username', '=', $username)
+        $row = DB::table('users')
+            ->whereRaw('LOWER(username) = LOWER(?)', [$username])
             ->when(!$allowDisabled, function ($query) {
                 return $query->where('disabled', '=', false);
             })
             ->get('user_id')
             ->first();
+            
         return $row ? $this->get($row->user_id, $allowDisabled) : null;
     }
 
@@ -172,7 +173,7 @@ class DAO extends EntityDAO
     public function getByEmail(string $email, bool $allowDisabled = false): ?User
     {
         $row = DB::table('users')
-            ->where('email', '=', $email)
+            ->whereRaw('LOWER(email) = LOWER(?)', [$email])
             ->when(!$allowDisabled, function ($query) {
                 return $query->where('disabled', '=', false);
             })

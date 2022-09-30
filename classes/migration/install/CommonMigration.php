@@ -15,7 +15,7 @@ namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 class CommonMigration extends \PKP\migration\Migration
 {
     /**
@@ -80,9 +80,20 @@ class CommonMigration extends \PKP\migration\Migration
             $table->smallInteger('disabled')->default(0);
             $table->text('disabled_reason')->nullable();
             $table->smallInteger('inline_help')->nullable();
-            $table->unique(['username'], 'users_username');
-            $table->unique(['email'], 'users_email');
         });
+
+        switch (DB::getDriverName()) {
+            case 'mysql': 
+                Schema::table('users', function (Blueprint $table) {
+                    $table->unique(['username'], 'users_username');
+                    $table->unique(['email'], 'users_email');
+                });
+                break;
+            case 'pgsql': 
+                DB::unprepared('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
+                DB::unprepared('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
+                break;
+        }
 
         // Locale-specific user data
         Schema::create('user_settings', function (Blueprint $table) {

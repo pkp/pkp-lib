@@ -454,6 +454,35 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $contextId) {
                 DB::table($this->getContextSettingsTable())->where($this->getContextKeyField(), '=', $contextId)->delete();
             }
+            // Flag users that have same emails if we consider them case insensitively
+            $result = DB::table('users AS a')
+                ->join('users AS b', function($join) {
+                    $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
+                    $join->on('a.user_id', '<>', 'b.user_id');
+                })
+                ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                ->get();
+             foreach ($result as $row) {
+                 $this->_installer->log("Found a user entry with user_id ${row->user_id} that pairs with ${row->paired_user_id} on their email if we consider them case insensitively");
+             }
+             if ($result->count()) {
+                 throw new Exception('There are users that have same emails if we consider them case insensitively. Consider merging them.');
+             }
+ 
+             // Flag users that have same username if we consider them case insensitively
+             $result = DB::table('users AS a')
+                 ->join('users AS b', function($join) {
+                     $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
+                     $join->on('a.user_id', '<>', 'b.user_id');
+                 })
+                 ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                 ->get();
+             foreach ($result as $row) {
+                 $this->_installer->log("Found a user entry with user_id ${row->user_id} that pairs with ${row->paired_user_id} on their username if we consider them case insensitively");
+             }
+             if ($result->count()) {
+                 throw new Exception('There are users that have same usernames if we consider them case insensitively. Consider merging them.');
+             }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

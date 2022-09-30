@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-07-08 01:57+0000\n"
+"PO-Revision-Date: 2022-09-30 20:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "اسم الإعداد"
@@ -423,7 +423,9 @@ msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "عرض كمية الأعمال التي في الطابور"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "إضافة عمل تجريبي إلى الطابور الافتراضي"
+msgstr ""
+"إضافة عمل تجريبي إلى الطابور التجريبي. استعمل العوامل الاختيارية --only= "
+"ومرر لها القيمة 'failed' أو 'success' للتخلص من الأعمال الموفقة أو الفاشلة."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -487,3 +489,167 @@ msgstr "تحديد المحررين المراد تذكيرهم في سياق {$
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr "أرسل بريدًا الكترونيًا إلى كل محرر لتذكيرهم بمهامهم المعلقة"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "الرمز التعريفي للسياق ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"لقد تم إنهاء العملية الجانبية التي ستعالج ملف سجل الوقوعات {$file} وتخزن "
+"بيانات الإحصائيات."
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "تحديث قاعدة البيانات DB-IP city lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"عملية تغيير اسم ملف قاعدة البيانات DB-IP city lite {$sourceFilename} "
+"إلى{$targetFilename} قد فشلت."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"إن المجلد {$directory} ليس فارغًا. قد يشير ذلك إلى عملية سابقة فاشلة، أو "
+"عملية شغالة الآن. ستتم إعادة معالجة هذا الملف تلقائيًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"إن الملف {$file} هو ملف سجل وقوعات قديم لا يمكن معالجته ولهذا السبب ستتم "
+"إعادته إلى مجلد المرحلة."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"تم تخطي ملف سجل الوقوعات {$file} لأن الإحصائيات من ذلك الشهر قد تم احتسابها "
+"مسبقًا. لإعادة حساب الإحصائيات لشهر سابق، ينبغي عليك استعادة كل ملفات سجل "
+"الوقوعات لذلك الشهر واستعمال أداة سطر الأوامر لإعادة معالجة الإحصائيات."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"السطر {$lineNumber} في ملف سجل الوقوعات {$file} هو بصيغة خاطئة ولذلك سيتم "
+"تخطيه."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"إدخال خاطئ في سجل الوقوعات عند السطر {$lineNumber} في ملف الوقوعات {$file}: "
+"{$error}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "الوقت ليس بتاريخ صحيح."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "الرمز التعريفي للعرض التقديمي ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "نوع الملف غير مدعوم."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "رمز البلد ليس بصيغة نص من حرفين."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "المنطقة ليست بنص من ثلاثة محارف."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "الرمز التعريفي للمؤسسة ليس مصفوفة."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"وقع خطأ عند معالجة ملف سجل الوقوعات {$file} عند السطر {$lineNumber}: {$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "الرمز التعريفي لطلب التقديم ليس عددًا صحيحًا."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت قراءة الملف المصدري الذي بصيغة gz {$file} باستعمال "
+"gzread."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"تعذر ضغط الملف. تعذر فتح الملف المصدري الذي بصيغة gz {$filePath} باستعمال "
+"fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr "تعذر ضغط الملف. تعذرت قراءة الملف المصدري {$file} باستعمال fread."
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "العملية تنتظر أعمال الطابور"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر فتح الملف المصدري الذي بصيغة gz {$filePath} باستعمال "
+"gzopen."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر فتح الملف المستهدف الذي بصيغة gz {$filePath} "
+"باستعمال fopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت كتابة الملف المستهدف {$filePath} باستعمال fwrite."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر إغلاق الملف المستهدف المفتوح {$filePath} باستعمال "
+"fclose."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر إغلاق الملف المصدري الذي بصيغة gz {$filePath} "
+"باستعمال gzclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت إزالة الملف المصدري المفتوح الذي بصيغة gz "
+"{$filePath} باستعمال unlink."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"تعذر ضغط الملف. تعذر فتح الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
+"gzopen."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"تعذر ضغط الملف. تعذرت كتابة الملف المستهدف الذي بصيغة gz {$filePath} "
+"باستعمال gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"تعذر ضغط الملف. تعذر إغلاق الملف المصدري المفتوح {$filePath} باستعمال fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"تعذر ضغط الملف. تعذر إغلاق الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
+"gzclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"تعذر ضغط الملف. تعذرت إزالة الملف المصدري المضغوط {$filePath} باستعمال "
+"unlink."
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr "يتعذر تشغيل أعمال الطابور بسبب تمكين وضع الصيانة في التطبيق."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"التخلص من الأعمال المتاحة في الطبور. إذا أردت التخلص من عمل ما في طابور معين،"
+" مرر المعامل --queue=QUEUE_NAME. يمكنك أيضًا الاقتصار على تمرير --test "
+"لتشغيل العمل التجريبي والمعامل --once لتشغيل عمل واحد تلو الآخر"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "إكتمل تشغيل {$jobCount} من الأعمال في الطابور المسمى {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "ليست هناك أعمال متاحة لتشغيلها في الطابور {$queueName}."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"تم التخلص من الأعمال التجريبية المؤشرة على أنها فاشلة ضمن الطابور المسمى "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"تم التخلص من الأعمال التجريبية المؤشرة على أنها موفقة ضمن الطابور المسمى "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "لم يتم العثور على أي أعمال لحذفها."

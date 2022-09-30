@@ -17,7 +17,6 @@ namespace PKP\controllers\grid\queries\traits;
 
 use APP\submission\Submission;
 use PKP\context\Context;
-use PKP\note\Note;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\DiscussionCopyediting;
 use PKP\mail\mailables\DiscussionProduction;

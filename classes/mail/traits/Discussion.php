@@ -3,8 +3,8 @@
 /**
  * @file mail/Discussion.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Discussion
@@ -17,21 +17,17 @@ namespace PKP\mail\traits;
 
 trait Discussion
 {
-    protected static string $discussionSubject = 'subject';
-    protected static string $discussionContent = 'content';
-    
-    
+    protected static string $discussionSubject = 'discussionSubject';
+    protected static string $discussionContent = 'discussionContent';
+
     /**
      * Add a variable with comments from all completed review assignments
-     *
-     * @param string $subject
-     * @param string $content
      */
-    protected function setupDiscussionVariables(string $subject, string $content)
+    protected function setupDiscussionVariables(string $subject, string $content): void
     {
         $this->addData([
             self::$discussionSubject => $subject,
-            self::$discussionContent => $content,
+            self::$discussionContent => $content
         ]);
     }
 

@@ -267,14 +267,14 @@ msgid "emails.editorialReminder.description"
 msgstr "An automated email sent to editors with outstanding tasks"
 
 msgid "discussion.notification.subject"
-msgstr "{$subject}"
+msgstr "{$dicussionSubject}"
 
 msgid "discussion.notification.body"
 msgstr ""
-"<p>{$content}</p>"
+"<p>{$discussionContent}</p>"
 "<hr>"
 "<p>You have a new notification from {$contextName}.</p>"
-"<p>Do not reply to this mail, please use this link: {$notificationUrl}</p>"
+"<p>Do not reply to this mail, please use this link: {$submissionUrl}</p>"
 
 msgid "discussion.notification.description"
 msgstr "The email is sent to registered users that have selected to have this type of notification emailed to them."

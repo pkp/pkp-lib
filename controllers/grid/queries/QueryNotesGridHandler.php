@@ -322,9 +322,6 @@ class QueryNotesGridHandler extends GridHandler
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
             $recipient = Repo::user()->get($userId);
-            $mailable->addData(['notificationUrl'=>
-                    Repo::submission()->getWorkflowUrlByUserRoles($submission, $userId)]
-                    );
             $mailable->sender($sender)
                 ->recipients([$recipient])
                 ->subject(__('common.re').' '.$emailTemplate->getLocalizedData('subject'))

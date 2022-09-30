@@ -34,6 +34,9 @@ class PKPPublicIdentifiersForm extends Form {
 	 */
 	var $_formParams;
 
+	/** @var bool indicates whether the form should be editable */
+	var $_isEditable = true;
+
 	/**
 	 * Constructor.
 	 * @param $template string Form template path
@@ -41,12 +44,13 @@ class PKPPublicIdentifiersForm extends Form {
 	 * @param $stageId integer
 	 * @param $formParams array
 	 */
-	function __construct($pubObject, $stageId = null, $formParams = null) {
+	function __construct($pubObject, $stageId = null, $formParams = null, $isEditable = true) {
 		parent::__construct('controllers/tab/pubIds/form/publicIdentifiersForm.tpl');
 
 		$this->_pubObject = $pubObject;
 		$this->_stageId = $stageId;
 		$this->_formParams = $formParams;
+		$this->_isEditable = $isEditable;
 
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
@@ -72,6 +76,7 @@ class PKPPublicIdentifiersForm extends Form {
 			'pubObject' => $this->getPubObject(),
 			'stageId' => $this->getStageId(),
 			'formParams' => $this->getFormParams(),
+			'formDisabled' => !$this->_isEditable,
 		));
 		if (is_a($this->getPubObject(), 'Representation') || is_a($this->getPubObject(), 'Chapter')) {
 			$publicationId = $this->getPubObject()->getData('publicationId');
@@ -173,6 +178,11 @@ class PKPPublicIdentifiersForm extends Form {
 				$this->addErrorField('$publisherId');
 			}
 		}
+
+		if (!$this->_isEditable) {
+			$this->addError('', __('publication.notEditable'));
+		}
+
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->validate($this->getContextId(), $this, $this->getPubObject());
 		return parent::validate($callHooks);

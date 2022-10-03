@@ -16,6 +16,7 @@
 namespace PKP\controllers\grid\settings\user\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use APP\facades\Repo;
@@ -112,7 +113,7 @@ class UserForm extends Form
     /**
      * Save the user group assignments
      */
-    public function saveUserGroupAssignments(): void
+    public function saveUserGroupAssignments(Request $request): void
     {
         if (!isset($this->userId)) {
             return;
@@ -124,10 +125,17 @@ class UserForm extends Form
                 $this->userId
             );
 
+        
         if ($this->getData('userGroupIds')) {
-            foreach ($this->getData('userGroupIds') as $userGroupId) {
-                Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId);
-            }
+            
+            $contextId = $request->getContext()->getId();
+            
+            collect($this->getData('userGroupIds'))
+                ->each(fn($userGroupId) =>
+                    Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
+                        ? Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId)
+                        : null
+                );
         }
     }
 }

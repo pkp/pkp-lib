@@ -488,53 +488,71 @@ class Validation
      *
      * @param int   $administeredUserId     User ID of user to potentially administer
      * @param int   $administratorUserId    User ID of user who wants to do the administrating
+     * @param int   $contextId              The journal/context Id
      * 
      * @return int The authorized adminstration level 
      */
-    public static function getAdministrationLevel($administeredUserId, $administratorUserId)
+    public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, int $contextId = null): int
     {
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $context = Application::get()?->getRequest()?->getContext();
-
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {
             return self::ADMINISTRATION_FULL;
         }
 
+        $filteredSiteAdminUserGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([\PKP\core\PKPApplication::CONTEXT_SITE])
+            ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN]);
+
         // You cannot adminster administrators
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($filteredSiteAdminUserGroups->filterByUserIds([$administeredUserId])->getCount() > 0) {
             return self::ADMINISTRATION_PROHIBITED;
         }
 
         // Otherwise, administrators can administer everyone
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($filteredSiteAdminUserGroups->filterByUserIds([$administratorUserId])->getCount() > 0) {
             return self::ADMINISTRATION_FULL;
         }
 
         // Check for administered user group assignments in other contexts
         // that the administrator user doesn't have a manager role in.
-        $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
-        foreach ($userGroups as $userGroup) {
-            if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
-                // Found an assignment: disqualified.
-                // But also determine if a partial administrate is allowed
-                // if the Administrator User is a Journal Manager in the current context
-                if ($context && $roleDao->userHasRole($context->getId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
-                    return self::ADMINISTRATION_PARTIAL;
-                }
-                return self::ADMINISTRATION_PROHIBITED;
+        $userGroupsCount = Repo::userGroup()
+            ->userUserGroups($administeredUserId)
+            ->filter(fn($userGroup) => 
+                $userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE &&
+                !Repo::userGroup()
+                    ->getCollector()
+                    ->filterByContextIds([$userGroup->getContextId()])
+                    ->filterByUserIds([$administratorUserId])
+                    ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+                    ->getCount()
+            )
+            ->count();
+        
+        if ( $userGroupsCount > 0 ) {
+            // Found an assignment: disqualified.
+            // But also determine if a partial administrate is allowed
+            // if the Administrator User is a Journal Manager in the current context
+            if ($contextId && 
+                Repo::userGroup()
+                    ->getCollector()
+                    ->filterByContextIds([$contextId])
+                    ->filterByUserIds([$administratorUserId])
+                    ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+                    ->getCount()) {
+                return self::ADMINISTRATION_PARTIAL;
             }
+            return self::ADMINISTRATION_PROHIBITED;
         }
 
         // Make sure the administering user has a manager role somewhere
-        $foundManagerRole = false;
-        $roles = $roleDao->getByUserId($administratorUserId);
-        foreach ($roles as $role) {
-            if ($role->getRoleId() == Role::ROLE_ID_MANAGER) {
-                $foundManagerRole = true;
-            }
-        }
-        if (!$foundManagerRole) {
+        $roleManagerCount = Repo::userGroup()
+            ->getCollector()
+            ->filterByUserIds([$administratorUserId])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+            ->getCount();
+
+        if ( $roleManagerCount <= 0 ) {
             return self::ADMINISTRATION_PROHIBITED;
         }
 

@@ -18,7 +18,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 
 class Collector implements CollectorInterface
 {
@@ -283,7 +283,7 @@ class Collector implements CollectorInterface
         }
 
         // Add app-specific query statements
-        HookRegistry::call('UserGroup::Collector', [&$q, $this]);
+        Hook::call('UserGroup::Collector', [&$q, $this]);
 
         return $q;
     }

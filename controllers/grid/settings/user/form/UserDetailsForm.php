@@ -306,7 +306,7 @@ class UserDetailsForm extends UserForm
         }
 
         //save the user's user group assignment
-        $this->saveUserGroupAssignments();
+        $this->saveUserGroupAssignments($request);
 
         // if doing only a partial update that includes only updating user's user group
         if ($this->userGroupUpdateOnly) {

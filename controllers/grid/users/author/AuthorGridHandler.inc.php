@@ -207,7 +207,7 @@ class AuthorGridHandler extends GridHandler {
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		if (!$this->canAdminister($request->getUser())) return;
 		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$author = $authorDao->getById($rowId);
+		$author = $authorDao->getById($rowId, $this->getPublication()->getId());
 		$author->setSequence($newSequence);
 		$authorDao->updateObject($author);
 	}
@@ -299,7 +299,7 @@ class AuthorGridHandler extends GridHandler {
 		$authorId = (int) $request->getUserVar('authorId');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$author = $authorDao->getById($authorId);
+		$author = $authorDao->getById($authorId, $this->getPublication()->getId());
 
 		// Form handling
 		import('controllers.grid.users.author.form.AuthorForm');
@@ -321,7 +321,7 @@ class AuthorGridHandler extends GridHandler {
 		$authorId = (int) $request->getUserVar('authorId');
 		$publication = $this->getPublication();
 
-		$author = Services::get('author')->get($authorId);
+		$author = Services::get('author')->get($authorId, $publication->getId());
 
 		// Form handling
 		import('controllers.grid.users.author.form.AuthorForm');
@@ -398,7 +398,7 @@ class AuthorGridHandler extends GridHandler {
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$author = $authorDao->getById($authorId);
+		$author = $authorDao->getById($authorId, $this->getPublication()->getId());
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {
 			// We don't have administrative rights over this user.

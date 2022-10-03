@@ -50,12 +50,15 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 
 	/**
 	 * @copydoc SchemaDAO::getById()
-	 * Overrides the parent implementation to add the submission_locale column
+	 * Overrides the parent implementation to add the submission_locale column and validate publication_id
 	 */
-	public function getById($objectId) {
+	public function getById($objectId, $publicationId = null) {
+		$params = array((int) $objectId);
+		if ($publicationId !== null) $params[] = (int) $publicationId;
 		$result = $this->retrieve(
-			'SELECT a.*, p.locale AS submission_locale FROM authors a JOIN publications p ON (a.publication_id = p.publication_id) WHERE author_id = ?',
-			(int) $objectId
+			'SELECT a.*, p.locale AS submission_locale FROM authors a JOIN publications p ON (a.publication_id = p.publication_id) WHERE author_id = ?'
+			. ($publicationId !== null ? ' AND p.publication_id = ?' : ''),
+			$params
 		);
 
 		$returner = null;

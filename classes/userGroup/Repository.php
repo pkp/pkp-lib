@@ -20,7 +20,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\relationships\UserGroupStage;
@@ -130,7 +130,7 @@ class Repository
             $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
-        HookRegistry::call('UserGroup::validate', [$errors, $userGroup, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('UserGroup::validate', [$errors, $userGroup, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -140,7 +140,7 @@ class Repository
         $userGroupId = $this->dao->insert($userGroup);
         $userGroup = Repo::userGroup()->get($userGroupId);
 
-        HookRegistry::call('UserGroup::add', [$userGroup]);
+        Hook::call('UserGroup::add', [$userGroup]);
 
         return $userGroup->getId();
     }
@@ -149,7 +149,7 @@ class Repository
     {
         $newUserGroup = Repo::userGroup()->newDataObject(array_merge($userGroup->_data, $params));
 
-        HookRegistry::call('UserGroup::edit', [$newUserGroup, $userGroup, $params]);
+        Hook::call('UserGroup::edit', [$newUserGroup, $userGroup, $params]);
 
         $this->dao->update($newUserGroup);
 
@@ -158,11 +158,11 @@ class Repository
 
     public function delete(UserGroup $userGroup)
     {
-        HookRegistry::call('UserGroup::delete::before', [$userGroup]);
+        Hook::call('UserGroup::delete::before', [$userGroup]);
 
         $this->dao->delete($userGroup);
 
-        HookRegistry::call('UserGroup::delete', [$userGroup]);
+        Hook::call('UserGroup::delete', [$userGroup]);
     }
 
     /**
@@ -247,13 +247,11 @@ class Repository
     */
     public function contextHasGroup(int $contextId, int $userGroupId): bool
     {
-        $collector = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$contextId]);
-
-        $userGroups = $collector->getMany();
-
-        return $userGroups->where('id', $userGroupId)->count();
+		return Repo::userGroup()
+			->getCollector()
+			->filterByContextIds([$contextId])
+			->filterByUserGroupIds([$userGroupId])
+			->getCount();
     }
 
     public function assignUserToGroup(int $userId, int $userGroupId): UserUserGroup

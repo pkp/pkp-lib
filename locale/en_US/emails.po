@@ -266,6 +266,18 @@ msgstr ""
 msgid "emails.editorialReminder.description"
 msgstr "An automated email sent to editors with outstanding tasks"
 
+msgid "discussion.notification.subject"
+msgstr "{$subject}"
+
+msgid "discussion.notification.body"
+msgstr ""
+"<p>{$content}</p>"
+"<hr>"
+"<p>Reply to this message at <a href=\"{$submissionUrl}\">{$contextName}</a>."
+
+msgid "discussion.notification.description"
+msgstr "This email is sent when a user creates a new discussion or replies to an existing discussion"
+
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Your submission has been sent back to copyediting"
 

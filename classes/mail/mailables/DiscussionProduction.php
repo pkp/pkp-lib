@@ -21,20 +21,30 @@ use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\mail\traits\Discussion;
 
 class DiscussionProduction extends Mailable
 {
     use Recipient;
     use Sender;
     use Configurable;
+    use Discussion;
 
     protected static ?string $name = 'mailable.discussionProduction.name';
     protected static ?string $description = 'mailable.discussionProduction.description';
+    protected static ?string $emailTemplateKey = 'DISCUSSION_NOTIFICATION';
     protected static bool $canDisable = true;
     protected static array $groupIds = [self::GROUP_PRODUCTION];
 
-    public function __construct(Context $context, Submission $submission)
+    public function __construct(Context $context, Submission $submission, string $subject, string $content)
     {
-        parent::__construct(func_get_args());
+        parent::__construct(array_slice(func_get_args(), 0, -2));
+        $this->setupDiscussionVariables($subject, $content);
+    }
+
+    public static function getDataDescriptions(): array
+    {
+        $variables = parent::getDataDescriptions();
+        return self::addDiscussionDescription($variables);
     }
 }

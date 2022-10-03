@@ -227,7 +227,7 @@ class AuthorGridHandler extends GridHandler
             return;
         }
 
-        $author = Repo::author()->get((int) $rowId);
+        $author = Repo::author()->get((int) $rowId, $this->getPublication()->getId());
 
         Repo::author()->edit($author, ['seq' => $newSequence]);
     }
@@ -342,7 +342,7 @@ class AuthorGridHandler extends GridHandler
         // Identify the author to be updated
         $authorId = (int) $request->getUserVar('authorId');
 
-        $author = Repo::author()->get($authorId);
+        $author = Repo::author()->get($authorId, $this->getPublication()->getId());
 
         // Form handling
         $authorForm = new AuthorForm($this->getPublication(), $author);
@@ -368,7 +368,7 @@ class AuthorGridHandler extends GridHandler
         $authorId = (int) $request->getUserVar('authorId');
         $publication = $this->getPublication();
 
-        $author = Repo::author()->get($authorId);
+        $author = Repo::author()->get($authorId, $publication->getId());
 
         // Form handling
         $authorForm = new AuthorForm($publication, $author);
@@ -378,7 +378,7 @@ class AuthorGridHandler extends GridHandler
 
             if (!isset($author)) {
                 // This is a new contributor
-                $author = Repo::author()->get($authorId);
+                $author = Repo::author()->get($authorId, $publication->getId());
                 // New added author action notification content.
                 $notificationContent = __('notification.addedAuthor');
             } else {
@@ -431,8 +431,11 @@ class AuthorGridHandler extends GridHandler
         }
 
         $authorId = (int) $request->getUserVar('authorId');
+        $author = Repo::author()->get($authorId, $this->getPublication()->getId());
+        if (!$author) {
+            return new JSONMessage(false);
+        }
 
-        $author = Repo::author()->get($authorId);
         Repo::author()->delete($author);
 
         $json = \PKP\db\DAO::getDataChangedEvent($authorId);
@@ -455,7 +458,7 @@ class AuthorGridHandler extends GridHandler
 
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
-        $author = Repo::author()->get($authorId);
+        $author = Repo::author()->get($authorId, $this->getPublication()->getId());
 
         if ($author !== null && Repo::user()->getByEmail($author->getEmail(), true)) {
             // We don't have administrative rights over this user.

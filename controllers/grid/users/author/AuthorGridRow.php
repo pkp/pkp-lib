@@ -97,7 +97,7 @@ class AuthorGridRow extends GridRow
                     )
                 );
 
-                $author = Repo::author()->get((int) $rowId);
+                $author = Repo::author()->get((int) $rowId, $this->getPublication()->getId());
 
                 if ($author && !Repo::user()->getByEmail($author->getEmail(), true)) {
                     $this->addAction(

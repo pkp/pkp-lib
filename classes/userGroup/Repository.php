@@ -251,7 +251,7 @@ class Repository
 			->getCollector()
 			->filterByContextIds([$contextId])
 			->filterByUserGroupIds([$userGroupId])
-			->getCount();
+			->getCount() > 0;
     }
 
     public function assignUserToGroup(int $userId, int $userGroupId): UserUserGroup

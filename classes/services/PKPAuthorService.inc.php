@@ -29,9 +29,9 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
-	public function get($authorId) {
+	public function get($authorId, $publicationId = null) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		return $authorDao->getById($authorId);
+		return $authorDao->getById($authorId, $publicationId);
 	}
 
 	/**

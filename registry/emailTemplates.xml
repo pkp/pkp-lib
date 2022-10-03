@@ -27,4 +27,5 @@
 	<email key="EDITOR_DECISION_NOTIFY_OTHER_AUTHORS" subject="emails.decision.notifyOtherAuthors.subject" body="emails.decision.notifyOtherAuthors.body"/>
 	<email key="STATISTICS_REPORT_NOTIFICATION" subject="emails.statisticsReportNotification.subject" body="emails.statisticsReportNotification.subject"/>
 	<email key="ANNOUNCEMENT" subject="emails.announcement.subject" body="emails.announcement.body"/>
+	<email key="DISCUSSION_NOTIFICATION" subject="discussion.notification.subject" body="discussion.notification.body"/>
 </emails>

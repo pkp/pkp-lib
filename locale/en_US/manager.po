@@ -2655,8 +2655,8 @@ msgstr ""
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "The subject of the discussion"
 
-msgid "emailTemplate.variable.discussion.message"
-msgstr "The last message in discussion"
+msgid "emailTemplate.variable.discussion.content"
+msgstr "The content of the new discussion or reply"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "A list of submissions with outstanding tasks"

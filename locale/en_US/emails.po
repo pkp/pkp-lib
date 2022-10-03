@@ -267,17 +267,16 @@ msgid "emails.editorialReminder.description"
 msgstr "An automated email sent to editors with outstanding tasks"
 
 msgid "discussion.notification.subject"
-msgstr "{$dicussionSubject}"
+msgstr "{$subject}"
 
 msgid "discussion.notification.body"
 msgstr ""
-"<p>{$discussionContent}</p>"
+"<p>{$content}</p>"
 "<hr>"
-"<p>You have a new notification from {$contextName}.</p>"
-"<p>Do not reply to this mail, please use this link: {$submissionUrl}</p>"
+"<p>Reply to this message at <a href=\"{$submissionUrl}\">{$contextName}</a>."
 
 msgid "discussion.notification.description"
-msgstr "The email is sent to registered users that have selected to have this type of notification emailed to them."
+msgstr "This email is sent when a user creates a new discussion or replies to an existing discussion"
 
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Your submission has been sent back to copyediting"

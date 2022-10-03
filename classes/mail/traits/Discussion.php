@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file mail/Discussion.php
+ * @file classes/mail/traits/Discussion.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -17,8 +17,8 @@ namespace PKP\mail\traits;
 
 trait Discussion
 {
-    protected static string $discussionSubject = 'discussionSubject';
-    protected static string $discussionContent = 'discussionContent';
+    protected static string $discussionSubject = 'subject';
+    protected static string $discussionContent = 'content';
 
     /**
      * Add a variable with comments from all completed review assignments
@@ -37,7 +37,7 @@ trait Discussion
     protected static function addDiscussionDescription(array $variables): array
     {
         $variables[self::$discussionSubject] = __('emailTemplate.variable.discussion.subject');
-        $variables[self::$discussionContent] = __('emailTemplate.variable.discussion.message');
+        $variables[self::$discussionContent] = __('emailTemplate.variable.discussion.content');
         return $variables;
     }
 }

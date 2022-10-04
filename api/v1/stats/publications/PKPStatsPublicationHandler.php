@@ -128,8 +128,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -335,8 +333,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -414,8 +410,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -492,8 +486,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -576,8 +568,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [

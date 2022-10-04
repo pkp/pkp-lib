@@ -817,10 +817,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         if ($scale == StatisticsHelper::STATISTICS_DIMENSION_CITY) {
             $scaleColumns = [
                 __('stats.city'),
-                __('stats.region')
+                __('stats.region'),
+                __('common.country')
             ];
         } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_REGION) {
-            $scaleColumns = [__('stats.region')];
+            $scaleColumns = [__('stats.region'), __('common.country')];
         } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_COUNTRY) {
             $scaleColumns = [__('common.country'),];
         }

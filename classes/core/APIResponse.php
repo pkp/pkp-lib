@@ -41,7 +41,7 @@ class APIResponse extends Response
         $this->getBody()->write($csvData);
         $this->withStatus(200);
         if (isset($maxRows)) {
-            $this->withHeader('X-Total-Count', $maxRows);
+            return $this->withHeader('X-Total-Count', $maxRows)->withHeader('Content-Type', self::RESPONSE_CSV);
         }
         return $this->withHeader('Content-Type', self::RESPONSE_CSV);
     }

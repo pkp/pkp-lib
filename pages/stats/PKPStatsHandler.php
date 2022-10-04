@@ -330,11 +330,25 @@ class PKPStatsHandler extends Handler
             ]
         );
 
+        $geoAPIEndPoint = null;
+        $geoStatsSetting = $context->getGeoStatsSetting($request->getSite());
+        switch ($geoStatsSetting) {
+            case 'country':
+                $geoAPIEndPoint = 'countries';
+                break;
+            case 'country+region':
+                $geoAPIEndPoint = 'regions';
+                break;
+            case 'country+region+city':
+                $geoAPIEndPoint = 'cities';
+                break;
+        }
         $templateMgr->setState($statsComponent->getConfig());
         $templateMgr->assign([
             'pageComponent' => 'StatsPublicationsPage',
             'pageTitle' => __('stats.publicationStats'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
+            'geoReportType' => $geoAPIEndPoint
         ]);
 
         $templateMgr->display('stats/publications.tpl');

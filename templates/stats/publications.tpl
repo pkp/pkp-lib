@@ -172,6 +172,69 @@
 									{translate key="common.pagination.label"}
 								</a>
 							</div>
+							<dropdown
+								class="pkpStats__export"
+								:is-link="true"
+								label="{translate key='common.export'}"
+							>
+								<ul>
+									<li>
+										<pkp-button
+											class="pkpDropdown__action"
+											ref="exportModalButton"
+											@click="$modal.show('export')"
+										>
+											{translate key="common.publications"}
+										</pkp-button>
+									</li>
+									<li>
+										<pkp-button
+											class="pkpDropdown__action"
+											ref="exportModalButton"
+											@click="reportType = 'files'; $modal.show('export')"
+										>
+											{translate key="submission.files"}
+										</pkp-button>
+									</li>
+									{if $geoReportType}
+										<li>
+											<pkp-button
+												class="pkpDropdown__action"
+												ref="exportModalButton"
+												@click="reportType = '{$geoReportType}'; $modal.show('export')"
+											>
+												{translate key="stats.geoData"}
+											</pkp-button>
+										</li>
+									{/if}
+								</ul>
+							</dropdown>
+							<modal
+								close-label="Close"
+								name="export"
+								title={translate key="common.export"}
+								@closed="setFocusToRef('exportModalButton')"
+							>
+								<p>
+									{translate key="stats.publications.exporting"}
+									<span v-html="getDateRangeDescription"></span>
+									<span v-html="getFiltersTitlesDescription"></span>
+									<span v-html="getSearchPhraseDescription"></span>
+								</p>
+								<pkp-button
+										:is-disabled="isDownloadingReport"
+										:is-primary="true"
+										@click="downloadReport"
+								>
+									{translate key="common.export"}
+								</pkp-button>
+								<pkp-button
+									:is-disabled="isDownloadingReport"
+									@click="$modal.hide('export')"
+								>
+									{translate key="common.close"}
+								</pkp-button>
+							</modal>
 						</template>
 					</pkp-header>
 					<pkp-table
@@ -233,3 +296,4 @@
 		</div>
 	</div>
 {/block}
+

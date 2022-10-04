@@ -152,23 +152,14 @@ abstract class PKPStatisticsHelper
     public function getGeoData(Site $site, Context $context, string $ip, string $hashedIp, bool $flushCache = false): array
     {
         $country = $region = $city = null;
-        $enableGeoUsageStats = $site->getData('enableGeoUsageStats');
-        if ($enableGeoUsageStats !== null) {
-            if (($enableGeoUsageStats != 'disabled') &&
-                ($context->getData('enableGeoUsageStats') !== null) &&
-                ($context->getData('enableGeoUsageStats') != $site->getData('enableGeoUsageStats')) &&
-                str_starts_with($enableGeoUsageStats, $context->getData('enableGeoUsageStats'))) {
-                $enableGeoUsageStats = $context->getData('enableGeoUsageStats');
-            }
-
-            if ($enableGeoUsageStats != 'disabled') {
-                $geoIPArray = $this->getLocation($ip, $hashedIp, $flushCache);
-                $country = $geoIPArray['country'];
-                if ($enableGeoUsageStats == 'country+region+city' || $enableGeoUsageStats == 'country+region') {
-                    $region = $geoIPArray['region'];
-                    if ($enableGeoUsageStats == 'country+region+city') {
-                        $city = $geoIPArray['city'];
-                    }
+        $enableGeoUsageStats = $context->getGeoStatsSetting($site);
+        if ($enableGeoUsageStats != 'disabled') {
+            $geoIPArray = $this->getLocation($ip, $hashedIp, $flushCache);
+            $country = $geoIPArray['country'];
+            if ($enableGeoUsageStats == 'country+region+city' || $enableGeoUsageStats == 'country+region') {
+                $region = $geoIPArray['region'];
+                if ($enableGeoUsageStats == 'country+region+city') {
+                    $city = $geoIPArray['city'];
                 }
             }
         }

@@ -243,8 +243,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function identifiers($args, $request)
     {
-        $representation = Repo::galley()->get($request->getUserVar('representationId'));
-        $form = new PublicIdentifiersForm($representation);
+        $form = new PublicIdentifiersForm($this->getGalley());
         $form->initData();
         return new JSONMessage(true, $form->fetch($request));
     }
@@ -259,8 +258,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function updateIdentifiers($args, $request)
     {
-        $representationDao = Application::getRepresentationDAO();
-        $representation = $representationDao->getById($request->getUserVar('representationId'));
+        $representation = $this->getGalley();
         $form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]));
         $form->readInputData();
         if ($form->validate()) {
@@ -286,8 +284,7 @@ class PreprintGalleyGridHandler extends GridHandler
         }
 
         $submission = $this->getSubmission();
-        $representationDao = Application::getRepresentationDAO();
-        $representation = $representationDao->getById($request->getUserVar('representationId'));
+        $representation = $this->getGalley();
         $form = new PublicIdentifiersForm($representation);
         $form->clearPubId($request->getUserVar('pubIdPlugIn'));
         return new JSONMessage(true);

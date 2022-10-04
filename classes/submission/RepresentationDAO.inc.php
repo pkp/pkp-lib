@@ -20,7 +20,7 @@ abstract class RepresentationDAO extends DAO {
 	 * @param $representationId int Representation ID.
 	 * @param $publicationId int Optional publication ID.
 	 * @param $contextId int Optional context ID.
-	 * @return DAOResultFactory
+	 * @return Representation
 	 */
 	abstract function getById($representationId, $publicationId = null, $contextId = null);
 

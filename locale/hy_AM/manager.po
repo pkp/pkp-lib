@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-22 05:38+0000\n"
+"PO-Revision-Date: 2022-10-06 14:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -3298,3 +3298,9 @@ msgstr ""
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "COUNTER SUSHI վիճակագրությունը հրապարակայնորեն հասանելի դարձրեք"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Քննարկման թեման"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Նոր քննարկման կամ պատասխանի բովանդակությունը"

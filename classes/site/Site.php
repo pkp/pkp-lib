@@ -32,7 +32,7 @@ class Site extends \PKP\core\DataObject
      *
      * @return array
      */
-    public function getSupportedLocaleNames()
+    public function getSupportedLocaleNames(): array
     {
         static $supportedLocales;
         if (isset($supportedLocales)) {
@@ -43,6 +43,25 @@ class Site extends \PKP\core\DataObject
 
         asort($supportedLocales);
         return $supportedLocales;
+    }
+
+    /**
+     * Return associative array of all locales currently by the site.
+     * These locales are used to provide a language toggle on the main site pages.
+     *
+     * @return array
+     */
+    public function getInstalledLocaleNames(): array
+    {
+        static $installedLocales;
+        if (isset($installedLocales)) {
+            return $installedLocales;
+        }
+        
+        $installedLocales = Locale::getFormattedDisplayNames($this->getInstalledLocales());
+
+        asort($installedLocales);
+        return $installedLocales;
     }
 
     //

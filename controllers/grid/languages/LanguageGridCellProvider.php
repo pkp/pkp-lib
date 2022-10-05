@@ -17,6 +17,7 @@ namespace PKP\controllers\grid\languages;
 
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridHandler;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -28,14 +29,22 @@ class LanguageGridCellProvider extends GridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
+        static $allLocales;
+
+        if ( !isset($allLocales) ) {
+            $allLocales = Locale::getLocales();
+        }
+
         $element = $row->getData();
         $columnId = $column->getId();
+
         switch ($columnId) {
             case 'enable':
                 return ['selected' => $element['supported'],
                     'disabled' => false];
             case 'locale':
-                $label = $element['name'];
+                $formattedLocale = Locale::getFormattedDisplayNames([$row->getId()], $allLocales);
+                $label = array_shift($formattedLocale);
                 $returnArray = ['label' => $label];
 
                 if (isset($element['incomplete'])) {

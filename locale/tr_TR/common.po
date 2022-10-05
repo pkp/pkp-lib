@@ -2203,3 +2203,6 @@ msgstr ""
 "Geçerli bir ülke kodu değil. Ülke kodu 2 harfli uluslararası kodlardan biri "
 "olmalıdır. https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#"
 "Officially_assigned_code_elements adresinden tüm ülke kodlarına bakın."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

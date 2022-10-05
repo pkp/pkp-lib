@@ -2161,3 +2161,9 @@ msgstr "Може да содржи само букви, бројки, цртич
 
 msgid "validation.invalidOption"
 msgstr "Ова не е валидна опција."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

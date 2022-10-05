@@ -2173,3 +2173,6 @@ msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
 "Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, wie "
 "beispielsweise Revisionen oder Dateien, anhängen."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

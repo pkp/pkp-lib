@@ -2050,3 +2050,9 @@ msgstr "Valmynd notanda"
 
 msgid "common.navigation.siteContext"
 msgstr "Valmynd ? (site context navigaion)"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

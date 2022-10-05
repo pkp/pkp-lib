@@ -2200,3 +2200,6 @@ msgstr "Søgeterm"
 
 msgid "common.geographic"
 msgstr "Geografisk"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

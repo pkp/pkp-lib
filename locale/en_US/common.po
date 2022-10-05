@@ -2108,3 +2108,5 @@ msgstr "Could not import XML Node"
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Unknown command {$command}"
 
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

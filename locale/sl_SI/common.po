@@ -2151,3 +2151,6 @@ msgstr "Geografsko"
 
 msgid "common.searchPhrase"
 msgstr "Iskalna fraza"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

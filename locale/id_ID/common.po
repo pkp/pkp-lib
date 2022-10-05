@@ -2117,3 +2117,9 @@ msgstr "Kamu telah berhenti berlangganan"
 
 msgid "common.insert"
 msgstr "Memasukkan"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

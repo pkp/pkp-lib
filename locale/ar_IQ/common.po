@@ -2148,3 +2148,6 @@ msgstr "عبارة البحث"
 
 msgid "common.geographic"
 msgstr "الجغرافي"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

@@ -1944,3 +1944,9 @@ msgstr "查看更多页面"
 
 msgid "common.pagination"
 msgstr "{$start}-{$end} 共 {$total} 项"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

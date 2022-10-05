@@ -2213,3 +2213,6 @@ msgstr "Фраза за търсене"
 
 msgid "common.geographic"
 msgstr "Географска/и"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

@@ -2015,3 +2015,9 @@ msgstr ""
 
 msgid "validator.country"
 msgstr "Tämä ei ole kelvollinen maan nimi."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

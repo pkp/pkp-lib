@@ -2232,3 +2232,6 @@ msgstr "Frase de Busca"
 
 msgid "common.geographic"
 msgstr "Geográfico"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

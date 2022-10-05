@@ -770,3 +770,6 @@ msgstr "/"
 
 msgid "common.homepageNavigationLabel"
 msgstr "Naslovnica"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

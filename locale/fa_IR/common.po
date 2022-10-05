@@ -1501,3 +1501,9 @@ msgstr ""
 
 msgid "common.inactive"
 msgstr "غیرفعال"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

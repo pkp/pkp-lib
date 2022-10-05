@@ -2184,3 +2184,9 @@ msgstr "გთხოვთ, აირჩიოთ სწორი ქვეყ�
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "უცნობი ბრძანება {$command}"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

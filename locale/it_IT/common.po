@@ -2204,3 +2204,6 @@ msgstr "File nella libreria"
 msgid "email.addAttachment.libraryFiles.description"
 msgstr ""
 "Allega file dalle librerie della fase di invio della proposta e dell'editore."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

@@ -2192,3 +2192,9 @@ msgstr "Nieprawidłowa nazwa kraju."
 msgid "filter.error.missingRequirements"
 msgstr ""
 "Próba wykonania transformacji która nie jest wspierana przez to środowisko."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

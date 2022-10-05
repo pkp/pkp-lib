@@ -2198,3 +2198,6 @@ msgstr ""
 "Zadaný kód země není platný. Země musí být zadána jedním z dvoupísmenných "
 "mezinárodních kódů. Všechny kódy najdete na adrese https://en.wikipedia.org/"
 "wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

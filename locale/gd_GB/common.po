@@ -999,3 +999,9 @@ msgstr "Gnìomhachd dheasbadan."
 
 msgid "notification.type.queryAdded"
 msgstr "Chaidh an deasbad a chur ris."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

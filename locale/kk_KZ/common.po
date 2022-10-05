@@ -2191,3 +2191,9 @@ msgstr "Рецензияның келіп түскен күні"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Белгісіз командалар {$command}"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

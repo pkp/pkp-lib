@@ -2006,3 +2006,9 @@ msgstr "Đã xem xét tệp."
 
 msgid "notification.type.reviewerComment"
 msgstr "Một phản biện đã bình luận về \"{$title}\"."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

@@ -909,3 +909,9 @@ msgstr "Završeno: {$dateCompleted}"
 
 msgid "common.inactive"
 msgstr "Neaktivan"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

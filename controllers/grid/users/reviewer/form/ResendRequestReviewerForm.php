@@ -20,12 +20,15 @@ use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
+use PKP\mail\Mailable;
 use PKP\notification\PKPNotification;
-use PKP\plugins\Hook;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\mailables\ReviewerResendRequest;
+
 
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm
 {
@@ -44,6 +47,11 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
             $submission, 
             'controllers/grid/users/reviewer/form/resendRequestReviewerForm.tpl'
         );
+    }
+
+    protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
+    {
+        return new ReviewerResendRequest($context, $submission, $reviewAssignment);
     }
 
     /**

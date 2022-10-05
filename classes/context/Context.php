@@ -335,10 +335,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedFormLocaleNames()
     {
-        return $this->getData('supportedFormLocaleNames') ?? array_map(
-            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
-            array_combine($locales = $this->getSupportedFormLocales(), $locales)
-        );
+        return $this->getData('supportedFormLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedFormLocales());
     }
 
     /**
@@ -359,10 +356,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedSubmissionLocaleNames()
     {
-        return $this->getData('supportedSubmissionLocaleNames') ?? array_map(
-            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
-            array_combine($locales = $this->getSupportedSubmissionLocales(), $locales)
-        );
+        return $this->getData('supportedSubmissionLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedSubmissionLocales());
     }
 
     /**
@@ -383,7 +377,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedLocaleNames()
     {   
-        return Locale::getFormattedDisplayNames($this->getSupportedLocales());
+        return $this->getData('supportedLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedLocales());
     }
 
     /**

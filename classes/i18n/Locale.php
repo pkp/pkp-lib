@@ -355,15 +355,22 @@ class Locale implements LocaleInterface
 
     /**
      * Get the formatted locale display names with country if same language code present multiple times
+     * 
+     * @param   array $filterByLocales List of locales code to filter by the returned formatted names list
+     * @return  array The list of locales with formatted display name
      */
-    public function getFormattedDisplayNames(array $locales = null): array
+    public function getFormattedDisplayNames(array $filterByLocales = null): array
     {
-        $locales ??= $this->getLocales();
+        $locales = $this->getLocales();
         $localeCodesCount = array_count_values(
             collect(array_keys($this->getLocales()))
                 ->map(fn(string $value) => explode('_', $value)[0])
                 ->toArray()
         );
+
+        if ($filterByLocales) {
+            $locales = array_intersect_key($locales, array_flip($filterByLocales));
+        }
 
         return collect($locales)
             ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount) {

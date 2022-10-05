@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-09-22 05:38+0000\n"
+"PO-Revision-Date: 2022-10-06 14:38+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -3261,3 +3261,9 @@ msgstr ""
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Zveřejnit statistiky COUNTER SUSHI"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Obsah nové diskuse nebo odpovědi"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Předmět diskuse"

@@ -382,11 +382,8 @@ abstract class Context extends \PKP\core\DataObject
      * @return array
      */
     public function getSupportedLocaleNames()
-    {
-        return $this->getData('supportedLocaleNames') ?? array_map(
-            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
-            array_combine($locales = $this->getSupportedLocales(), $locales)
-        );
+    {   
+        return Locale::getFormattedDisplayNames($this->getSupportedLocales());
     }
 
     /**

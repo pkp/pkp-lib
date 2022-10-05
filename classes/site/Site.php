@@ -39,12 +39,7 @@ class Site extends \PKP\core\DataObject
             return $supportedLocales;
         }
         
-        $supportedLocales = Locale::getFormattedDisplayNames(
-            array_intersect_key(
-                Locale::getLocales(), 
-                array_flip($this->getSupportedLocales())
-            )
-        );
+        $supportedLocales = Locale::getFormattedDisplayNames($this->getSupportedLocales());
 
         asort($supportedLocales);
         return $supportedLocales;

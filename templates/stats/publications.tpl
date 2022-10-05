@@ -172,68 +172,72 @@
 									{translate key="common.pagination.label"}
 								</a>
 							</div>
-							<dropdown
-								class="pkpStats__export"
-								:is-link="true"
-								label="{translate key='common.export'}"
+							<pkp-button
+								@click="$modal.show('export')"
 							>
-								<ul>
-									<li>
-										<pkp-button
-											class="pkpDropdown__action"
-											ref="exportModalButton"
-											@click="$modal.show('export')"
-										>
-											{translate key="common.publications"}
-										</pkp-button>
-									</li>
-									<li>
-										<pkp-button
-											class="pkpDropdown__action"
-											ref="exportModalButton"
-											@click="reportType = 'files'; $modal.show('export')"
-										>
-											{translate key="submission.files"}
-										</pkp-button>
-									</li>
-									{if $geoReportType}
-										<li>
-											<pkp-button
-												class="pkpDropdown__action"
-												ref="exportModalButton"
-												@click="reportType = '{$geoReportType}'; $modal.show('export')"
-											>
-												{translate key="stats.geoData"}
-											</pkp-button>
-										</li>
-									{/if}
-								</ul>
-							</dropdown>
+								Download Report
+							</pkp-button>
 							<modal
 								close-label="Close"
 								name="export"
 								title={translate key="common.export"}
 								@closed="setFocusToRef('exportModalButton')"
 							>
-								<p>
-									{translate key="stats.publications.exporting"}
-									<span v-html="getDateRangeDescription"></span>
-									<span v-html="getFiltersTitlesDescription"></span>
-									<span v-html="getSearchPhraseDescription"></span>
-								</p>
-								<pkp-button
-										:is-disabled="isDownloadingReport"
-										:is-primary="true"
-										@click="downloadReport"
-								>
-									{translate key="common.export"}
-								</pkp-button>
-								<pkp-button
-									:is-disabled="isDownloadingReport"
-									@click="$modal.hide('export')"
-								>
-									{translate key="common.close"}
-								</pkp-button>
+								<p>Download an Excel/CSV spreadsheet with usage statistics for articles matching the following parameters.</p>
+								<table class="pkpTable pkpStats__reportParams">
+									<tr class="pkpTable__row">
+										<th>Date Range</th>
+										<td>2022-01-03 to 2023-01-04</th>
+									</tr>
+									<tr class="pkpTable__row">
+										<th>Sections</th>
+										<td>All Sections</th>
+									</tr>
+								</table>
+								<action-panel class="pkpStats__reportAction">
+									<h2 id="report-type-articles">Articles</h2>
+									<p id="report-type-articles-description">
+										The number of abstract views and file downloads for each article.
+									</p>
+									<template slot="actions">
+										<pkp-button
+											aria-describedby="report-type-articles report-type-articles-description"
+											@click="downloadReport"
+										>
+											Download Articles
+										</pkp-button>
+									</template>
+								</action-panel>
+								<action-panel class="pkpStats__reportAction">
+									<h2 id="report-type-files">Files</h2>
+									<p id="report-type-files-description">
+										The number of downloads for each file.
+									</p>
+									<template slot="actions">
+										<pkp-button
+											aria-describedby="report-type-files report-type-files-description"
+											@click="downloadReport('files')"
+										>
+											Download Files
+										</pkp-button>
+									</template>
+								</action-panel>
+								{if $geoReportType}
+									<action-panel class="pkpStats__reportAction">
+										<h2 id="report-type-article">Geographic</h2>
+										<p id="report-type-article-description">
+											The number of views and downloads for each city, region and country.
+										</p>
+										<template slot="actions">
+											<pkp-button
+												aria-describedby="report-type-article report-type-article-description"
+												@click="downloadReport('{$geoReportType}')"
+											>
+												Download Geographic
+											</pkp-button>
+										</template>
+									</action-panel>
+								{/if}
 							</modal>
 						</template>
 					</pkp-header>

@@ -2216,3 +2216,6 @@ msgstr "E-mail semanal com tarefas pendentes"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Pedido para reconsiderar o trabalho de revisão enviado."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

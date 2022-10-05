@@ -2191,3 +2191,6 @@ msgstr "Institutioner"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Anmodningen om at genoverveje bedømmelsesopgaven blev sendt."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

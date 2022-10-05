@@ -2133,3 +2133,6 @@ msgstr "البريد الالكتروني الأسبوعي للمهام المع
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

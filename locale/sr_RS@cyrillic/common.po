@@ -1433,3 +1433,9 @@ msgstr ""
 
 msgid "semicolon"
 msgstr "{$label}:"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

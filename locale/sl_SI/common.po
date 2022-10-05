@@ -2142,3 +2142,6 @@ msgstr "Institucije"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Ponovna prošnja za opravljanje recenzije je bila poslana."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

@@ -2032,3 +2032,9 @@ msgstr "Развернуть всё"
 
 msgid "timeZone"
 msgstr "Часовой пояс"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

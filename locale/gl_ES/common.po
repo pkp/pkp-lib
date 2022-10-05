@@ -2092,3 +2092,9 @@ msgstr ""
 
 msgid "validator.country"
 msgstr "Este non é un país válido."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

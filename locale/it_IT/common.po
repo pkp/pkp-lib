@@ -2069,3 +2069,9 @@ msgstr "Seleziona {$name}"
 
 msgid "common.override"
 msgstr "Sovrascrivere"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

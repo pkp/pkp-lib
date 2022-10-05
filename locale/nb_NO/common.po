@@ -2121,3 +2121,9 @@ msgstr "Rediger {$name}"
 
 msgid "common.inactive"
 msgstr "Inaktiv"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

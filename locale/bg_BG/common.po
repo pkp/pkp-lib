@@ -2204,3 +2204,6 @@ msgstr "Седмичен имейл с неизпълнени задачи"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Изпратена е молба за преразглеждане на задачата за рецензия."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

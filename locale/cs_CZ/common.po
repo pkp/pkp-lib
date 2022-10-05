@@ -2183,3 +2183,6 @@ msgstr "Instituce"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Byla zaslána žádost o přehodnocení přiřazení recenze."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

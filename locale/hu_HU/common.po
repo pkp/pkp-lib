@@ -2116,3 +2116,9 @@ msgstr ""
 
 msgid "validation.invalidOption"
 msgstr "Ez nem egy érvényes lehetőség."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

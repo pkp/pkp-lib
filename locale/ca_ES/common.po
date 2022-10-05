@@ -2141,3 +2141,9 @@ msgstr ""
 
 msgid "validation.invalidOption"
 msgstr "Això no és una opció vàlida."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

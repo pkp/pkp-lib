@@ -2082,3 +2082,9 @@ msgstr "Ini tidak diformat dengan betul."
 
 msgid "validator.present"
 msgstr "Medan {$attribute} mesti ada."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

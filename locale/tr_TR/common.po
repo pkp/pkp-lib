@@ -2188,3 +2188,9 @@ msgstr "Bekleyen görevlerin haftalık e-postası"
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

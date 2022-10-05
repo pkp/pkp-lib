@@ -2033,3 +2033,9 @@ msgstr "Le noeud XML n'a pu être importé"
 
 msgid "validator.country"
 msgstr "Ce n'est pas un pays valide."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

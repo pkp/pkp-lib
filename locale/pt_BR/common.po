@@ -2223,3 +2223,6 @@ msgstr "Instituições"
 
 msgid "notification.reviewerResendRequest"
 msgstr "A solicitação para reconsiderar a atribuição de avaliação foi enviada."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

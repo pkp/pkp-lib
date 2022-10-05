@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-01-10 09:39+0000\n"
+"PO-Revision-Date: 2022-09-29 12:01+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "tr_TR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.affiliation"
 msgstr "Kurum"
@@ -117,9 +117,10 @@ msgstr "Kullanıcı adı yada şifre hatalı girildi. Büyük-küçük harf uyum
 msgid "user.login"
 msgstr "Giriş"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "E-posta adresinize bir doğrulama mesajı gönderilmiştir. Şifrenizi yenilemek için bu e-postadaki talimatları uygulayınız."
+msgstr ""
+"E-posta adresinize bir doğrulama mesajı gönderilmiştir. Şifrenizi yenilemek "
+"için bu e-postadaki yönlendirmeleri takip ediniz."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Üzgünüz, tıklamış olduğunuz bağlantı geçerli değildir. Şifrenizi yenilemek için tekrar deneyiniz."
@@ -474,3 +475,12 @@ msgstr "Soyad"
 
 msgid "user.givenName"
 msgstr "İsim"
+
+msgid "user.apiKey.remove"
+msgstr "Sil"
+
+msgid "user.apiKey.removeWarning"
+msgstr "Bir anahtarın silinmesi, onu kullanan uygulamalara erişimi iptal eder."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Bu API anahtarını silmek istediğinizden emin misiniz?"

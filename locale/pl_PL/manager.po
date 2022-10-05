@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2020-12-07 11:19+0000\n"
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Ogłoszenia"
@@ -2219,3 +2220,410 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Ten email jest automatycznie wysyłany każdego miesiąca do redaktorów i "
 "menedżerów czasopisma, aby dostarczyć im przegląd stanu systemu."
+
+msgid "manger.dois.update.success"
+msgstr "DOI zarejestrowane pomyślnie"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Obiekt nie może zostać zarejestrowany dopóki nie będzie opublikowany."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status publikacji"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Oznacz jako zarejestrowane"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Niezarejestrowany"
+
+msgid "manager.dois.depositStatus"
+msgstr "Status rejestracji"
+
+msgid "manager.dois.status.registered"
+msgstr "Zarejestrowany"
+
+msgid "manager.dois.status.submitted"
+msgstr "Wysłany"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Zarejestruj wszystko"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadane tego artykułu nie zostały przysłane do {$registrationAgency}."
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Niektóre DOI nie zostały aktualizowane."
+
+msgid "manager.dois.status.error"
+msgstr "Błąd"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Podgląd rekordu"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Zarejestruj DOI"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Wyeksportuj DOI"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Nieudana aktualizacja DOI"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadane tego artykułu zostały przysłane do {$registrationAgency}."
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Zarejestrujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
+"Czy jesteś pewien?"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Przydzielisz DOI dla {$count} obiektów w {$registrationAgency}. Czy jesteś "
+"pewien?"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Zapisy poprawnej rejestracji"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Zapisy błędów rejestracji"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"zarejestrowane. Czy jesteś pewien?"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Elementy wyeksportowane poprawnie"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Wyeksportujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
+"Czy jesteś pewien?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Przydziel DOI"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Podgląd błędu"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Zarejestruj wszystko"
+
+msgid "manager.dois.status.stale"
+msgstr "Przestarzały"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Rejestrowanie DOI"
+
+msgid "manager.dois.actions.description"
+msgstr "Wybierz działanie dla wybranych {$count} elementów."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Oznacz jako niezarejestrowane"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"niezarejestrowane. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"przedawniony. To może dotyczyć tylko DOI uprzednio zgłoszonych do "
+"rejestracji. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Oznacz jako przedawniony"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Twoje działanie spowoduje zarejestrowanie DOI w {$registrationAgency}. "
+"Zarejestrowane zostaną tylko artykuły uprzednio opublikowane. Każdy status "
+"artykułu będzie aktualizowany osobno. Czy jesteś pewien, że chcesz je "
+"zarejestrować?"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Nie gromadź danych geolokalizacyjnych"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Zapisuj kraj odwiedzającego"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Zapisuj kraj i region odwiedzającego"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Zapisuj kraj, region i miasto odwiedzającego"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Statystyki Instytucji"
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Włącz statystyki instytucjonalne"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Inne zgłoszenia"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatyczne przydzielanie DOI"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Powiadom wszystkich autorów"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Oznaczenie jako zarejestrowane powiodło się"
+
+msgid "manager.setup.dois.registration"
+msgstr "Rejestracja"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Nie możesz wywołać tej operacji bez włączonego DOI."
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Adres URL strony gdzie użytkownik może przejrzeć swój profil."
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
+"przyczyny nieudanej rejestracji:"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Rejestracja automatyczna"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Wszystkie elementy mają przydzielone DOI"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Powiadom wszystkich"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Wymagany jest prefiks DOI w formacie: 10.xxxx."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Inne szablony"
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Nazwa podjętej decyzji."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Wszystkie komentarze z zakończonych recenzji. Nazwy recenzentów są ukryte "
+"dla trybu ślepej recenzji"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Wysyłaj mail tylko do autorów przypisanych do etapu zgłoszenia. Zazwyczaj "
+"jest to autor zgłaszający artykuł."
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Wybrane elementy pomyślnie zgłoszone do rejestracji"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Zanim będzie można skasować komponent, trzeba powiązać wszystkie pliki "
+"zgłoszenia z innym dostępnym komponentem."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Brak"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nigdy"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
+"przyczyny:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Jeden z adresów nie jest poprawny."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Powiadomienia"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agencja rejestracji"
+
+msgid "manager.institutions.edit"
+msgstr "Edytuj Instytucję"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR-y"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry ID Instytucji."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "Zakres IP"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Skasuj Instytucję"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geostatystyka"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Własny wzór sufiksu DOI"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "Sufiks DOI"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Własny wzór (niezalecany)"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "API Publiczne"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Oznaczenie jako niezarejestrowane powiodło się"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Oznaczenie jako przeterminowane powiodło się"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Czy na pewno chcesz kontynuować i usunąć tę instytucję?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Niepoprawny zakres IP"
+
+msgid "manager.setup.statistics"
+msgstr "Statystyki"
+
+msgid "stats.suppFileViews"
+msgstr "Wyświetlenia plików dodatkowych"
+
+msgid "stats.unique"
+msgstr "Unikalne"
+
+msgid "stats.unknown"
+msgstr "nieznane"
+
+msgid "manager.setup.dois.setup"
+msgstr "Ustawienia"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefiks DOI"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Włącz rejestrację automatyczną DOI"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Kiedy należy przydzielić DOI do zgłoszenia?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "W momencie publikacji"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefiks DOI"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Wymagany jest prefiks DOI"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Brak podanej agencji rejestracji"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Kto powinien być powiadomiony o decyzji redakcji?"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Powiadom główny adres kontaktowy"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Tak, wyślij kopię na {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nie"
+
+msgid "manager.setup.institutions"
+msgstr "Instytucje"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Wyniki eksportu zgłoszeń"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Pobierz wyeksportowany plik"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Eksport zakończony pomyślnie."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Pobierz wyeksportowany plik spod poniższego przycisku."
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces nie mógł przetworzyć nazw autorów"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Proces nie mógł przetworzyć publikacji"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Adres pocztowy czasopisma"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+"Adres URL strony gdzie użytkownik może przejrzeć przydzielone zgłoszenia."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Opis podjętej decyzji."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Udostępnij publicznie statystyki COUNTER SUSHI"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Proszę wybrać agencję rejestrującą DOI."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Ustawienia językowe nie mogły zostać zapisane. Przynajmniej jeden musi być "
+"włączony dla każdej z opcji"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces nie zakończył się. Sprawdź poniżej błędy / ostrzeżenia."
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "W nazwie autora brakuje UserGroup {$param}"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"Adres URL strony gdzie użytkownik może dokonać odzyskania straconego hasła"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Elementy generyczne"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Wyślij powiadomienie do wszystkich autorów."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Etap pracy redaktorskiej w trakcie którego została podjęta decyzja."
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Lista zgłoszeń z wyjątkowymi zadaniami"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Ilość zgłoszeń przypisanych do redaktora"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Brak DOI"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Prawidłowe wartości obejmują adres IP (np. 142.58.103.1), zakres adresów IP ("
+"np. 142.58.103.1 - 142.58.103.4), zakres adresów IP z symbolem wieloznacznym "
+"„*” (np. 142.58.*.*) oraz zakres adresów IP z CIDR (np. 142.58.100.0/24)."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Wybierz typ statystyk użytkowania geograficznego, które chcesz zbierać. "
+"Bardziej szczegółowe statystyki geograficzne mogą znacznie zwiększyć rozmiar "
+"bazy danych, a w niektórych rzadkich przypadkach mogą podważyć anonimowość "
+"odwiedzających."

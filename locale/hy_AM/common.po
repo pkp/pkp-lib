@@ -3,8 +3,8 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-03 16:16+0000\n"
-"Last-Translator: Artashes Mirzoyan <amirzoyan@sci.am>\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -2221,3 +2221,6 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "institution.institutions"
 msgstr "Հաստատություններ"
+
+msgid "notification.reviewerResendRequest"
+msgstr "Գրախոսման առաջադրանքը վերանայելու հարցումը ուղարկվել է:"

@@ -1,8 +1,9 @@
 # AbdulRahman AlOsaimy <a.osaimy@gmail.com>, 2022.
+# M. Ali <vorteem@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-08 07:50+0000\n"
-"Last-Translator: AbdulRahman AlOsaimy <a.osaimy@gmail.com>\n"
+"PO-Revision-Date: 2022-09-30 20:01+0000\n"
+"Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
 "Language: ar\n"
@@ -498,13 +499,18 @@ msgid "admin.jobs.viewQueuedJobs"
 msgstr "معاينة الأعمال التي في الطابور"
 
 msgid "navigation.tools.jobs.description"
-msgstr "معاينة كل الوظائف التي في قائمة انتظار النظام وتقفي المحاولات الفاشلة."
+msgstr "معاينة كل الأعمال التي في طابور انتظار النظام وتقفي المحاولات الفاشلة."
 
 msgid "navigation.tools.jobs.view"
-msgstr "معاينة الوظائف"
+msgstr "معاينة الأعمال"
 
 msgid "admin.jobs.list.id"
 msgstr "الرمز التعريفي"
 
 msgid "admin.jobs.list.displayName"
 msgstr "العمل"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"خيارات العمل التجريبي غير صالحة. يمكنه فقط أن يتخذ القيمة 'failed' أو "
+"'success' بالنسبة إلى الخيار '--only='"

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-09-01 08:29+0000\n"
-"Last-Translator: Daniel Caixeta <daniel.caixeta@inep.gov.br>\n"
+"PO-Revision-Date: 2022-09-30 20:01+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -3005,13 +3005,11 @@ msgstr ""
 "Esta mensagem é enviada a um avaliador recém-cadastrado para dar-lhe as boas-"
 "vindas e deixar registrado o seu nome de login e senha."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Mensagem enviada automaticamente pelo sistema ao autor, quando habilitada, "
-"ao ser concluído o processo de submissão de um manuscrito à revista. Oferece "
-"informações sobre os mecanismos para acompanhamento da submissão durante o "
-"processo editorial, e serve como registro e confirmação da submissão."
+"Este e-mail, quando ativado, é enviado automaticamente a um autor quando ele "
+"submete para a revista. Ele fornece informações sobre o rastreamento da "
+"submissão através do processo editorial e agradece ao autor pela submissão."
 
 #, fuzzy
 msgid "mailable.submissionAckNotUser.description"
@@ -3055,21 +3053,17 @@ msgstr "Estatísticas"
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Estatísticas de uso geográfico"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Não colete dados geográficos"
+msgstr "Não colete nenhum dado geográfico"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "País"
+msgstr "Colete o país do visitante"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "País e região"
+msgstr "Colete o país e a região do visitante"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Ative o gerenciamento da instituição e as estatísticas de uso"
+msgstr "Ativar estatísticas institucionais"
 
 msgid "manager.setup.institutions"
 msgstr "Instituições"
@@ -3099,21 +3093,18 @@ msgstr ""
 msgid "manager.institutions.invalidIPRange"
 msgstr "Intervalo de IP inválido"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "País, região e cidade"
+msgstr "Colete o país, a região e a cidade do visitante"
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Estatísticas de uso da instituição"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Selecione esta opção se desejar gerenciar instituições e coletar suas "
-"estatísticas de uso. Isso influenciará os possíveis relatórios de "
-"estatísticas que você pode recuperar e também terá um impacto no tamanho da "
-"base de dados."
+"Ative as estatísticas institucionais se desejar coletar estatísticas de uso "
+"por instituição. Se ativado, você precisará configurar os intervalos de IP "
+"para cada instituição que deseja rastrear."
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Marcar DOIs Não Registrado"
@@ -3287,3 +3278,30 @@ msgid "mailable.publicationVersionNotify.description"
 msgstr ""
 "Este e-mail notifica automaticamente os editores designados sobre a nova "
 "versão da publicação"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Selecione o tipo de estatísticas de uso geográfico a serem coletadas. "
+"Estatísticas geográficas mais detalhadas podem aumentar consideravelmente o "
+"tamanho do seu banco de dados e, em alguns casos raros, podem prejudicar o "
+"anonimato de seus visitantes."
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "API Pública"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Se deve ou não restringir o acesso aos endpoints da API para estatísticas do "
+"COUNTER SUSHI. Se desmarcada, a API só poderá ser acessada por usuários com "
+"funções de administrador ou gerente."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Disponibilizar publicamente as estatísticas do COUNTER SUSHI"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Reenviar solicitação de avaliação ao avaliador"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Este e-mail é enviado por um editor para um avaliador que recusou uma "
+"solicitação de avaliador, quando o editor deseja reenviar a solicitação."

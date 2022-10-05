@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2020-12-10 14:59+0000\n"
+"PO-Revision-Date: 2022-09-23 13:53+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "about.aboutSite"
 msgstr "O stronie"
@@ -2020,3 +2021,174 @@ msgstr "Edytuj {$name}"
 
 msgid "common.inactive"
 msgstr "Nieaktywny"
+
+msgid "common.addFiles"
+msgstr "Dodaj pliki"
+
+msgid "common.attachedFiles"
+msgstr "Załączone pliki"
+
+msgid "common.findTemplate"
+msgstr "Znajdź szablon"
+
+msgid "common.attachFiles"
+msgstr "Załącz pliki"
+
+msgid "common.dragAndDropHere"
+msgstr "Złap i upuść pliki tutaj."
+
+msgid "common.orUploadFile"
+msgstr "lub załaduj plik"
+
+msgid "common.deselect"
+msgstr "Odznacz"
+
+msgid "common.attachSelected"
+msgstr "Załącz zaznaczone"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Załącz pliki z biblioteki wydawcy"
+
+msgid "filter.input.error.notSupported"
+msgstr "Filtr ({$displayName}) obsługuje {$inputTypeName} - {$typeofInput} dany"
+
+msgid "common.insert"
+msgstr "Wstaw"
+
+msgid "common.insertContent"
+msgstr "Wstaw zawartość"
+
+msgid "common.insertContentSearch"
+msgstr "Znajdź zawartość do wstawienia"
+
+msgid "common.loadTemplate"
+msgstr "Załaduj szablon"
+
+msgid "common.keepWorking"
+msgstr "Kontynuuj"
+
+msgid "common.numberedMore"
+msgstr "{$number} więcej"
+
+msgid "common.searching"
+msgstr "Wyszukiwanie"
+
+msgid "common.showAllSteps"
+msgstr "Pokaż wszystkie kroki"
+
+msgid "common.switchTo"
+msgstr "Zmień na"
+
+msgid "common.switchToNamedItem"
+msgstr "Zmień na {$name}"
+
+msgid "common.upload.addFile.description"
+msgstr "Wgraj plik z Twojego komputera."
+
+msgid "common.viewError"
+msgstr "Podgląd błędu"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Załącz pliki wgrane przez autora na etapie zgłoszenia."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr "Załącz pliki wgrane w czasie etapu recenzji."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Załącz pliki zgłoszenia"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Załącz pliki z etapu zgłoszenia lub z Biblioteki wydawcy."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Załącz pliki recenzyjne"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Załącz pliki wgrane przez recenzentów"
+
+msgid "email.attachmentNotFound"
+msgstr "Plik {$fileName} nie może zostać załączony."
+
+msgid "institution.institutions"
+msgstr "Instytucje"
+
+msgid "notification.type.editorialReminder"
+msgstr "Tygodniowe podsumowanie zadań"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Możesz w dowolnej chwili odnowić subskrypcję email w <a href=\""
+"{$profileNotificationUrl}\">profilu użytkownika</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Adres email {$email} został poprawnie odłączony od listy subskrypcyjnej. "
+"Możesz w dowolnej chwili odnowić subskrypcję email w <a href=\""
+"{$profileNotificationUrl}\">profilu użytkownika</a>."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Biblioteka wydawcy"
+
+msgid "timeZone"
+msgstr "Strefa czasowa"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Twoja subskrypcja została anulowana"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Anulowanie subskrypcji nie powiodło się"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Anuluj subskrypcję"
+
+msgid "list.expandAll"
+msgstr "Rozwiń"
+
+msgid "list.collapseAll"
+msgstr "Zwiń"
+
+msgid "validation.invalidOption"
+msgstr "Ta opcja nie jest prawidłowa."
+
+msgid "validator.alpha_dash_period"
+msgstr "Dozwolona zawartość to: litery, cyfry, kreski, podkreślenia i kropki."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nie można importować tego węzła XML"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Nieznane polecenie"
+
+msgid "common.addCCBCC"
+msgstr "Dodaj CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Czy na pewno chcesz zmienić {$localeName} aby dokończyć tego maila? "
+"Wszystkie zmiany których dokonałeś w polu temat i treści wiadomości zostaną "
+"utracone."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Prośba o zmianę decyzji w sprawie przydziału do recenzji."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Wybierz emaile których nie chcesz już otrzymywać na adres {$email} od "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Wystąpił niespodziewany błąd i aplikacja nie była w stanie dokonać "
+"poprawnego anulowania subskrypcji adresu {$email}. Jest możliwość anulowania "
+"subskrypcji w  <a href=\"{$profileNotificationUrl}\"> profilu użytkownika</"
+"a> lub skontaktuj się z nami bezpośrednio."
+
+msgid "validator.country"
+msgstr "Nieprawidłowa nazwa kraju."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Próba wykonania transformacji która nie jest wspierana przez to środowisko."

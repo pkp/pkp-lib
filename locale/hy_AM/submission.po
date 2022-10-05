@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-08 07:50+0000\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -2526,3 +2526,8 @@ msgstr ""
 
 msgid "submission.firstPublished"
 msgstr "Առաջին անգամ հրապարակվել է"
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Նորից ուղարկեք {$round} փուլում գրախոսման հարցումը {$reviewerName}-ին "
+"{$submissionid} ներկայացնելու համար:"

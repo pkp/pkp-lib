@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-19 14:48+0000\n"
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3103,17 +3103,14 @@ msgstr "Месец на отчета"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Връзка към страницата на редакционната дейност"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Държава"
+msgstr "Събиране на данни за държавата на посетителя"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Държава и регион"
+msgstr "Събиране на данни за държавата и региона на посетителя"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Държава, регион и град"
+msgstr "Събиране на данни за държава, регион и град на посетителя"
 
 msgid "stats.unique"
 msgstr "Уникални"
@@ -3148,31 +3145,23 @@ msgstr "Редактиране на институция"
 msgid "manager.setup.statistics"
 msgstr "Статистики"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Статистики за Гео използване (Geo usage)"
+msgstr "Географски статистики"
 
-#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Не събирайте никакви географски данни"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Изберете тази опция, ако искате да управлявате институции и да събирате "
-"статистически данни за тяхното използване. Това ще повлияе на възможните "
-"статистически отчети, които можете да извлечете, и също ще окаже влияние "
-"върху размера на базата данни."
+"Активирайте институционална статистика, ако искате да събирате статистика за "
+"употребата по институция. Ако е активирано, ще трябва да конфигурирате IP "
+"обхватите за всяка институция, която искате да проследявате."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
-"Разрешаване на управлението на институцията и статистическите данни за "
-"използването"
+msgstr "Активиране на институционална статистика"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Статистика за използване от институцията"
+msgstr "Статистика за използване от институция"
 
 msgid "stats.suppFileViews"
 msgstr "Допълнителни изгледи на файлове"
@@ -3348,10 +3337,28 @@ msgstr ""
 "достъпни."
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr "Статистики COUNTER SUSHI"
+msgstr "Публично API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 "Дали да се ограничи или не достъпът до крайните точки на API за "
 "статистически данни за COUNTER SUSHI. Ако не е отметнато, API ще бъде "
 "достъпен само за потребители с администраторски или мениджърски роли."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Изберете типа географска статистика за използване, която да събирате. По-"
+"подробната географска статистика може значително да увеличи размера на "
+"вашата база данни и в някои редки случаи може да подкопае анонимността на "
+"вашите посетители."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Повторно изпращане на молба за рецензия до рецензента"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Този имейл се изпраща от редактор до рецензент, който е отхвърлил молба за "
+"рецензия, когато редакторът иска да изпрати отново молбата."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Направете статистиката на COUNTER SUSHI публично достъпна"

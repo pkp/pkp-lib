@@ -145,17 +145,9 @@ class PluginRegistry
      */
     public static function loadPlugin(string $category, string $pluginName, ?int $mainContextId = null): ?Plugin
     {
-        $pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
-        if (!is_dir($pluginPath) || !file_exists($pluginPath . '/index.php')) {
-            return null;
+        if ($plugin = static::_instantiatePlugin($category, $pluginName)) {
+            static::register($category, $plugin, self::PLUGINS_PREFIX . "{$category}/{$pluginName}", $mainContextId);
         }
-
-        $plugin = @include("${pluginPath}/index.php");
-        if (!is_object($plugin)) {
-            return null;
-        }
-
-        self::register($category, $plugin, $pluginPath, $mainContextId);
         return $plugin;
     }
 

@@ -34,6 +34,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
+use PKP\site\Site;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
 {
@@ -138,16 +139,16 @@ class AdminLanguageGridHandler extends LanguageGridHandler
      */
     protected function loadData($request, $filter)
     {
-        $site = $request->getSite();
+        $site = $request->getSite(); /** @var Site $site */
         $data = [];
 
-        $installedLocales = $site->getInstalledLocales();
+        $installedLocales = $site->getInstalledLocaleNames();
         $supportedLocales = $site->getSupportedLocales();
         $primaryLocale = $site->getPrimaryLocale();
 
-        foreach ($installedLocales as $localeKey) {
+        foreach ($installedLocales as $localeKey => $localeName) {
             $data[$localeKey] = [];
-            $data[$localeKey]['name'] = Locale::getMetadata($localeKey)->getDisplayName(null, true);
+            $data[$localeKey]['name'] = $localeName;
             $data[$localeKey]['incomplete'] = !Locale::getMetadata($localeKey)->isComplete();
             $data[$localeKey]['supported'] = in_array($localeKey, $supportedLocales);
 

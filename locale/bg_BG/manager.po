@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-27 12:01+0000\n"
+"PO-Revision-Date: 2022-10-06 14:38+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3362,3 +3362,9 @@ msgstr ""
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Направете статистиката на COUNTER SUSHI публично достъпна"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Предмет на дискусията"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Съдържанието на новата дискусия или отговор"

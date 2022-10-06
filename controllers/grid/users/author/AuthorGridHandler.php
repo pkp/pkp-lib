@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\users\author;
 
+use App\core\Application;
 use APP\controllers\grid\users\author\form\AuthorForm;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
@@ -66,7 +67,7 @@ class AuthorGridHandler extends GridHandler
      */
     public function getSubmission()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 
     /**
@@ -76,7 +77,7 @@ class AuthorGridHandler extends GridHandler
      */
     public function getPublication()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
     }
 
     /**
@@ -269,7 +270,7 @@ class AuthorGridHandler extends GridHandler
     {
         $publication = $this->getPublication();
         $submission = $this->getSubmission();
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return false;
@@ -456,19 +457,18 @@ class AuthorGridHandler extends GridHandler
         // Identify the author Id.
         $authorId = (int) $request->getUserVar('authorId');
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-
         $author = Repo::author()->get($authorId, $this->getPublication()->getId());
 
         if ($author !== null && Repo::user()->getByEmail($author->getEmail(), true)) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
-        } else {
-            // Form handling.
-            $userForm = new UserDetailsForm($request, null, $author);
-            $userForm->initData();
-
-            return new JSONMessage(true, $userForm->display($request));
         }
+
+        // Form handling.
+        $userForm = new UserDetailsForm($request, null, $author);
+        $userForm->attachValidationChecks($request)->initData();
+
+        return new JSONMessage(true, $userForm->display($request));
     }
+
 }

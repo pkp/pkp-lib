@@ -72,6 +72,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var PKPRequest */
 	private $_request;
 
+	/** @var string[] */
+	private $_headers = [];
+
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
@@ -1179,6 +1182,10 @@ class PKPTemplateManager extends Smarty {
 		// of the proper character set).
 		header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
 		header('Cache-Control: ' . $this->_cacheability);
+
+		foreach ($this->_headers as $header) {
+			header($header);
+		}
 
 		// If no compile ID was assigned, get one.
 		if (!$compile_id) $compile_id = $this->getCompileId($template);
@@ -2307,5 +2314,25 @@ class PKPTemplateManager extends Smarty {
 	public function register_function($name, $impl, $cacheable = true, $cache_attrs = null) {
 		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call to Smarty2 function ' .  __FUNCTION__);
 		$this->registerPlugin('function', $name, $impl, $cacheable, $cache_attrs);
+	}
+
+	/**
+	 * Defines the HTTP headers which will be appended to the output once the display() method gets called
+	 * @param string[] List of formatted headers (['header: content', ...])
+	 */
+	public function setHeaders(array $headers): self
+	{
+		$this->_headers = $headers;
+		return $this;
+	}
+
+	/**
+	 * Retrieves the headers
+	 *
+	 * @return string[]
+	 */
+	public function getHeaders(): array
+	{
+		return $this->_headers;
 	}
 }

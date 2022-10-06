@@ -53,7 +53,6 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
-use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use Smarty;
 use Smarty_Internal_Template;
@@ -107,6 +106,9 @@ class PKPTemplateManager extends Smarty
 
     /** @var PKPRequest */
     private $_request;
+
+    /** @var string[] */
+    private array $headers = [];
 
     /**
      * Constructor.
@@ -1277,8 +1279,12 @@ class PKPTemplateManager extends Smarty
         // case server is using Apache's AddDefaultCharset
         // directive (which can prevent browser auto-detection
         // of the proper character set).
-        header('Content-Type: text/html; charset=utf-8');
-        header('Cache-Control: ' . $this->_cacheability);
+        header('content-type: text/html; charset=utf-8');
+        header("cache-control: {$this->_cacheability}");
+
+        foreach ($this->headers as $header) {
+            header($header);
+        }
 
         // If no compile ID was assigned, get one.
         if (!$compile_id) {
@@ -2510,6 +2516,26 @@ class PKPTemplateManager extends Smarty
         $output .= '</fieldset>';
 
         return $output;
+    }
+
+    /**
+     * Defines the HTTP headers which will be appended to the output once the display() method gets called
+     * @param string[] List of formatted headers (['header: content', ...])
+     */
+    public function setHeaders(array $headers): static
+    {
+        $this->headers = $headers;
+        return $this;
+    }
+
+    /**
+     * Retrieves the headers
+     *
+     * @return string[]
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
     }
 }
 

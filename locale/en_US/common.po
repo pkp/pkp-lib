@@ -354,6 +354,9 @@ msgstr "Download"
 msgid "common.downloadPdf"
 msgstr "Download PDF"
 
+msgid "common.downloadReport"
+msgstr "Download Report"
+
 msgid "common.dragAndDropHere"
 msgstr "Drag and drop files here."
 
@@ -434,6 +437,9 @@ msgstr "Find Template"
 
 msgid "common.fromWithValue"
 msgstr "From: {$value}"
+
+msgid "common.geographic"
+msgstr "Geographic"
 
 msgid "common.go"
 msgstr "Go"
@@ -737,6 +743,9 @@ msgstr "Saving"
 
 msgid "common.search"
 msgstr "Search"
+
+msgid "common.searchPhrase"
+msgstr "Search Phrase"
 
 msgid "common.searching"
 msgstr "Searching"

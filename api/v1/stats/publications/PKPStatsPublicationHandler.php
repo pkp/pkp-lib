@@ -888,11 +888,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
         return [
+            $submissionId,
+            $submissionTitle,
             $submissionFileId,
             $title,
-            $downloads,
-            $submissionId,
-            $submissionTitle
+            $downloads
         ];
     }
 
@@ -905,11 +905,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
         return [
+            'submissionId' => $submissionId,
+            'submissionTitle' => $submissionTitle,
             'submissionFileId' => $submissionFileId,
             'fileName' => $title,
-            'downloads' => $downloads,
-            'submissionId' => $submissionId,
-            'submissionTitle' => $submissionTitle
+            'downloads' => $downloads
         ];
     }
 

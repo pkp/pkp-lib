@@ -2505,9 +2505,6 @@ msgstr "Supplementary File Views"
 msgid "stats.fileViews"
 msgstr "File Views"
 
-msgid "stats.geoData"
-msgstr "Geo data"
-
 msgid "stats.html"
 msgstr "HTML"
 
@@ -2517,23 +2514,23 @@ msgstr "Monthly"
 msgid "stats.pdf"
 msgstr "PDF"
 
-msgid "stats.publications.exporting"
-msgstr "Exporting statistics"
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} to {$endDate}"
 
-msgid "stats.publications.exporting.betweenDates"
-msgstr "between {$startDate} and {$endDate}"
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "All {$filter}"
 
-msgid "stats.publications.exporting.allDates"
-msgstr "for all dates"
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Download Files"
 
-msgid "stats.publications.exporting.inFilters"
-msgstr "in {$filter}"
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "The number of downloads for each file."
 
-msgid "stats.publications.exporting.inAllFilters"
-msgstr "in all {$filter}"
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Download Geographic"
 
-msgid "stats.publications.exporting.withSearchPhrase"
-msgstr "with search phrase '{$phrase}'"
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "The number of views and downloads for each city, region or country."
 
 msgid "stats.region"
 msgstr "Region"

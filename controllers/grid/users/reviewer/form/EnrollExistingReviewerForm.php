@@ -15,7 +15,8 @@
 
 namespace PKP\controllers\grid\users\reviewer\form;
 
-use PKP\db\DAORegistry;
+use APP\core\Application;
+use Illuminate\Support\Facades\Mail;
 use APP\facades\Repo;
 
 class EnrollExistingReviewerForm extends ReviewerForm
@@ -30,6 +31,19 @@ class EnrollExistingReviewerForm extends ReviewerForm
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
+    }
+
+    /**
+     * @copydoc Form::init()
+     */
+    public function initData()
+    {
+        parent::initData();
+
+        $mailable = $this->getMailable();
+        $context = Application::get()->getRequest()->getContext();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
     }
 
     /**

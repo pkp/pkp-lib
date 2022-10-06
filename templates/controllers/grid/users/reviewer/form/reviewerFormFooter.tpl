@@ -10,14 +10,13 @@
  *}
 <div id="reviewerFormFooter" class="reviewerFormFooterContainer">
 	<!--  message template choice -->
-	{if $templates|@count == 1}
-		{foreach from=$templates item=template key=templateKey}
-			<input type="hidden" name="template" value="{$templateKey|escape}"/>
-		{/foreach}
-	{else}
+	{if $hasCustomTemplates}
 		{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
 			{fbvElement type="select" from=$templates translate=false id="template"}
 		{/fbvFormSection}
+	{else}
+		<!-- REVIEW_REQUEST or REVIEW_REQUEST_SUBSEQUENT -->
+		<input type="hidden" name="template" value=""/>
 	{/if}
 
 	<!--  Message to reviewer textarea -->

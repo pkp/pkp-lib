@@ -242,6 +242,25 @@ class LanguageGridHandler extends GridHandler
     }
 
     /**
+     * Add name column.
+     */
+    public function addLocaleCodeColumn()
+    {
+        $cellProvider = $this->getCellProvider();
+
+        // Locale name.
+        $this->addColumn(
+            new GridColumn(
+                'code',
+                'grid.columns.locale.code',
+                null,
+                'controllers/grid/languages/localeCodeCell.tpl',
+                $cellProvider
+            )
+        );
+    }
+
+    /**
      * Add primary column.
      *
      * @param string $columnId The column id.

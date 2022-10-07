@@ -368,6 +368,9 @@ msgstr "Auditor"
 msgid "grid.columns.locale"
 msgstr "Locale"
 
+msgid "grid.columns.locale.code"
+msgstr "Code"
+
 msgid "grid.sponsor.title"
 msgstr "Sponsoring Organizations"
 

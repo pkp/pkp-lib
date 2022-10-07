@@ -32,6 +32,7 @@ use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
+use PKP\i18n\LocaleMetadata;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\session\SessionManager;
@@ -92,6 +93,9 @@ class Locale implements LocaleInterface
 
     /** Keeps cached data related only to the current locale */
     protected array $cache = [];
+
+    /** Should apply the filter before constructing locale code list */
+    protected bool $formattedDisplayBeforeFilter = false;
 
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::get()
@@ -358,28 +362,63 @@ class Locale implements LocaleInterface
      * 
      * @param   array $filterByLocales  Optional list of locales code to filter by the returned formatted names list
      * @param   array $locales          Optional list of availabel all locales
+     * @param   int   $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * 
      * @return  array                   The list of locales with formatted display name
      */
-    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null): array
+    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
     {
         $locales ??= $this->getLocales();
+
+        if ($this->formattedDisplayBeforeFilter) {
+            $locales = $this->getFilteredLocales($locales, $filterByLocales);
+        }
+
         $localeCodesCount = array_count_values(
-            collect(array_keys($this->getLocales()))
+            collect(array_keys($locales))
                 ->map(fn(string $value) => explode('_', $value)[0])
                 ->toArray()
         );
 
-        if ($filterByLocales) {
-            $locales = array_intersect_key($locales, array_flip($filterByLocales));
+        if (!$this->formattedDisplayBeforeFilter) {
+            $locales = $this->getFilteredLocales($locales, $filterByLocales);
         }
 
         return collect($locales)
-            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount) {
+            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount, $langLocaleStatus) {
                 $localeCode = explode('_', $localeKey)[0];
-                return $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, true);
+                return $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, $langLocaleStatus);
             })
             ->toArray();
+    }
+
+    /**
+     * Set the before filter flag
+     * 
+     * @return self
+     */
+    public function applyBeforeFilter(): self
+    {
+        $this->formattedDisplayBeforeFilter = true;
+
+        return $this;
+    }
+
+    /**
+     * Get the filtered locales by locale codes
+     * 
+     * @param   array $locales          List of availabel all locales
+     * @param   array $filterByLocales  List of locales code to filter by the returned formatted names list
+     * 
+     * @return  array                   The list of locales with formatted display name
+     */
+    protected function getFilteredLocales(array $locales, array $filterByLocales = null): array
+    {
+        if (!$filterByLocales) {
+            return $locales;
+        }
+
+        return array_intersect_key($locales, array_flip($filterByLocales));
     }
 
     /**

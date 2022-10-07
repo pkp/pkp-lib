@@ -247,11 +247,11 @@ class Repository
     */
     public function contextHasGroup(int $contextId, int $userGroupId): bool
     {
-		return Repo::userGroup()
-			->getCollector()
-			->filterByContextIds([$contextId])
-			->filterByUserGroupIds([$userGroupId])
-			->getCount() > 0;
+        return Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterByUserGroupIds([$userGroupId])
+            ->getCount() > 0;
     }
 
     public function assignUserToGroup(int $userId, int $userGroupId): UserUserGroup

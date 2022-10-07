@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-07-09 18:42+0000\n"
+"PO-Revision-Date: 2022-10-08 04:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "مؤلفوا هذه المقالة لا يمكن تعديلهم لأنها سبق وأن تم نشرها."
@@ -1229,9 +1229,8 @@ msgstr "ليس لديك ملفات لتحكيمها حالياً."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "تم التماس التنقيحات."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "تم تسليم التنقيحات."
+msgstr "تم تسليم التنقيحات وبانتظار القرار."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى."
@@ -2228,3 +2227,72 @@ msgstr "طلب تقديم جديد ينتظر إرساله إلى التحكيم
 
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr "خامل لأكثر من {$days} من الأيام في مرحلة {$stage}."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"أرسل بريدًا الكترونيًا إلى المحكمين المعينين لإبلاغهم بأن مهمة تحكيمهم قد "
+"أُلغيت."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"أرسل بريدًا الكترونيًا إلى المؤلفين لإبلاغهم بأن جولة التحكيم قد أُغلقت."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "إلغاء جولة التحكيم"
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} قد ألغى جولة التحكيم."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "قد ألغى جولة التحكيم الأخيرة."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "إلغاء التدقيق"
+
+msgid "submission.firstPublished"
+msgstr "المنشور أولاً"
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "الإرجاع من مرحلة التدقيق"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "طلب التقديم {$title}، تم إرجاعه من مرحلة التدقيق."
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"فشلت عملية تأشير معرف المكون الرقمي العائد لـ {$pubObjectTitle} على أنه "
+"قديم. لا يمكن تأشيره على أنه قديم لأنه لم يسبق وأن تم تسجيله أو تقديمه."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"فشلت عملية تأشير معرف المكون الرقمي العائد لـ {$pubObjectTitle} على أنه "
+"مسجل. ينبغي نشر طلب التقديم قبل أن يتسنى تحديث الحالة."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"إعادة إرسال إلتماس التحكيم في الجولة {$round} إلى {$reviewerName} لطلب "
+"التقديم {$submissionid}."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"فقط يمكن إلغاء جولة التحكيم إذا لم يكن لدى أي من المحكمين تسليم مكتمل أو "
+"مقدم."
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"إلغاء جولة التحكيم الحالية وإعادة طلب التقديم إلى جولة التحكيم الأخيرة. إن "
+"كانت هذه هي جولة التحكيم الأولى، فستتم إعادة الطلب إلى مرحلة التقديم."
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "إرجاع طلب التقديم هذا من مرحلة التدقيق."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "جولة تحكيم عائدة لطلب التقديم {$title}، قد تم إلغاؤها."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} قد أرجع طلب التقديم هذا من مرحلة التدقيق."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بإلغاء التدقيق وبأن طلب تقديمهم "
+"سيخضع للمزيد من مراجعات التحرير."

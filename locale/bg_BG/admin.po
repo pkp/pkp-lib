@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-18 18:33+0000\n"
+"PO-Revision-Date: 2022-10-06 14:38+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
@@ -458,7 +458,10 @@ msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "Показване на количеството задания на опашката"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Добавете тестово задание в опашката по подразбиране"
+msgstr ""
+"Добавете тестова задача в тестовата опашка. Използвайте незадължителните "
+"параметри --only= и подайте 'failed' или 'success', за да изпратите "
+"неуспешна или успешна задача."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -705,7 +708,6 @@ msgstr "Изисква се идентификатор на платформат
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Платформа за COUNTER SUSHI статистика"
 
-
 #, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
@@ -752,3 +754,17 @@ msgstr "Оставяне на архивираните лог файлове т�
 #, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr "Компресиране на архиви"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Обработка на чакащите задания на опашка"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Не могат да се изпълняват задачи от опашка, тъй като режимът за поддръжка на "
+"приложението е активиран."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Стартирайте безкраен работен процес на приложението, който ще продължи да "
+"обработва задания. Използвайте флага --help, за да видите наличните опции, "
+"свързани с тази команда."

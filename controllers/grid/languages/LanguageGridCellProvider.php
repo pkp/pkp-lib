@@ -29,12 +29,6 @@ class LanguageGridCellProvider extends GridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
-        static $allLocales;
-
-        if ( !isset($allLocales) ) {
-            $allLocales = Locale::getLocales();
-        }
-
         $element = $row->getData();
         $columnId = $column->getId();
 
@@ -43,13 +37,15 @@ class LanguageGridCellProvider extends GridCellProvider
                 return ['selected' => $element['supported'],
                     'disabled' => false];
             case 'locale':
-                $formattedLocale = Locale::getFormattedDisplayNames([$row->getId()], $allLocales);
-                $label = array_shift($formattedLocale);
+                $label = $element['name'];
                 $returnArray = ['label' => $label];
-
                 if (isset($element['incomplete'])) {
                     $returnArray['incomplete'] = $element['incomplete'];
                 }
+                return $returnArray;
+            case 'code':
+                $label = $element['code'];
+                $returnArray = ['label' => $label];
                 return $returnArray;
             case 'sitePrimary':
                 return ['selected' => $element['primary'],

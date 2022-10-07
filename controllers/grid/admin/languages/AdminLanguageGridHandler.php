@@ -112,8 +112,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             )
         );
 
-        // Locale name.
-        $this->addNameColumn();
+        $this->addNameColumn(); // Locale name.
+        $this->addLocaleCodeColumn(); // Locale code.
 
         // Primary locale.
         if ($this->_canManage($request)) {
@@ -148,6 +148,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
 
         foreach ($installedLocales as $localeKey => $localeName) {
             $data[$localeKey] = [];
+            $data[$localeKey]['code'] = $localeKey;
             $data[$localeKey]['name'] = $localeName;
             $data[$localeKey]['incomplete'] = !Locale::getMetadata($localeKey)->isComplete();
             $data[$localeKey]['supported'] = in_array($localeKey, $supportedLocales);

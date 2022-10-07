@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-05-16 18:45+0000\n"
+"PO-Revision-Date: 2022-10-08 04:01+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr_TR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Gönderide atıf yapılan kaynaklar için biçimlendirilmiş bir referans listesi verin. Lütfen her referansı yeni bir satırdan başlatın."
@@ -1177,9 +1177,8 @@ msgstr "Şu anda gözden geçirebileceğiniz bir dosya yok."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Düzeltmeler talep edildi."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Düzeltmeler gönderildi."
+msgstr "Düzeltmeler gönderildi ve karara ihtiyaç var."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Gönderi başka bir değerlendirme turu için tekrar gönderilmelidir."
@@ -2018,3 +2017,73 @@ msgstr "Yeni Değerlendirme Turu"
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Makale Reddedildi"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"{$title} başlıklı aday makale, yayımlanmak üzere kabul edildi ve son kopya "
+"düzenleme aşamasına gönderildi."
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Hakemlere {$subject} konusunda {$recipientCount} değerlendirme turu sonucu "
+"kararla ilgili bir e-posta gönderildi."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+"Yeni gönderilen aday makale değerlendirme sürecine alınmayı veya "
+"reddedilmeyi bekliyor."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} aday makaleyi kabul etti ve son kopya düzenleme aşamasına "
+"gönderdi."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Hakemlere, değerlendirmeleri için teşekkür etmek ve aday makale için nihai "
+"kararı bildirmek için e-posta gönderin."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} aday makaleyi reddetti."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "{$stage} aşamasında {$days} günden fazla süredir aktif değil."
+
+msgid "editor.submission.decision.accept.description"
+msgstr "Aday makale kabul edilerek ve son kopya düzenlemesi için gönderilecek."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Yazarlara aday makalelerinin reddedildiğini bildirmek için bir e-posta "
+"gönderin."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Yazarlara aday makalelerinin kabul edildiğini bildirmek için bir e-posta "
+"gönderin."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Bu aday makale reddedilecektir. Daha fazla değerlendirme yapılmayacak ve "
+"arşivlenecektir."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Hakeme, değerlendirmenin iptal edildiğini bildirmek için bir e-posta "
+"gönderin."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Değerlendirme turunun kapandığını bildirmek için yazarlara bir e-posta "
+"gönderin."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "{$title} başlıklı aday makale, reddedildi ve arşive gönderildi."
+
+msgid "submission.firstPublished"
+msgstr "İlk yayımlanma"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Aday makale reddilecektir. Hakem değerlendirme aşaması kapatılarak ve aday "
+"makale arşivlenecektir."

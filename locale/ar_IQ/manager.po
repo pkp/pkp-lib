@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-10-08 04:01+0000\n"
+"PO-Revision-Date: 2022-10-08 04:23+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2797,3 +2797,29 @@ msgstr "محتوى المناقشة أو الرد الجديدين"
 
 msgid "stats.suppFileViews"
 msgstr "معاينات الملفات التكميلية"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "الشهر في التقرير"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "إجمالي عدد طلبات التقديم المستلمة"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "مُعرَّف العدد، متضمنًا المجلد، العدد، السنة، والعنوان"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "عدد طلبات التقديم المتخطاة"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "السنة في التقرير"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "الرابط إلى صفحة نشاطات التحرير"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"هذا البريد الالكتروني يرسله المحرر إلى المحكم الذي رفض إلتماس التحكيم عندما "
+"يرغب المحرر بإعادة إرسال الالتماس."

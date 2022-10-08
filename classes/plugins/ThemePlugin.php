@@ -602,7 +602,13 @@ abstract class ThemePlugin extends LazyLoadPlugin
                         $value = (int) $value;
                         break;
                     case 'array':
-                        $value = $value === null ? [] : unserialize($value);
+                        try {
+                            $value = json_decode($value, true, flags: JSON_THROW_ON_ERROR);
+                        } catch (Exception) {
+                            // FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
+                            $value = unserialize($value);
+                        }
+                        $value = is_array($value) ? $value : [];
                         break;
                 }
             }

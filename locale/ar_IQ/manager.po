@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-07-09 18:41+0000\n"
+"PO-Revision-Date: 2022-10-08 04:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "المعلومات"
@@ -514,9 +514,8 @@ msgstr "المدينة"
 msgid "stats.region"
 msgstr "المنطقة"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "منشئ التقرير"
+msgstr "التقارير"
 
 msgid "manager.statistics.reports.description"
 msgstr "النظام ينشئ تقارير تحصي التفاصيل المتعلقة باستعمال الموقع وطلبات النشر فيه خلال فترة زمنية معينة. هذه التقارير تكون بشكل ملفات بصيغة CSV ما يعني أنها تتطلب تشغيل برنامج لمعالجة الجداول لمعاينتها."
@@ -2687,3 +2686,114 @@ msgstr "هذه الرسالة تُرسل إلى المشتركين في المو
 
 msgid "mailable.statisticsReportNotify.description"
 msgstr "هذه الرسالة تُرسل شهرياً إلى مدراء التحرير ورؤسائه لتزويدهم بنظرة عامة على حالة النظام."
+
+msgid "emailTemplate.variable.password"
+msgstr "كلمة مرور جديدة عشوائية للمستخدم"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "الاسم الكامل للمستخدم الذي قام برفع ملف طلب التقديم"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "الإحصائيات الجغرافية"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "لا تجمع أي بيانات جغرافية"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "تقفى بلد الزائر"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "تقفى بلد الزائر ومنطقته"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "تقفى بلد الزائر ومنطقته ومدينته"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "الإحصائيات المؤسساتية"
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "تمكين الإحصائيات المؤسساتية"
+
+msgid "manager.institutions.edit"
+msgstr "تعديل المؤسسة"
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "نطاقات IP"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "حذف المؤسسة"
+
+msgid "manager.setup.statistics"
+msgstr "الإحصائيات"
+
+msgid "manager.setup.institutions"
+msgstr "المؤسسات"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "واجهة برمجة التطبيق العمومية"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "عنوان رابط الإعلان"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "تعليم معرفات المكونات الرقمية على أنها غير مسجلة"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"أنت على وشك تأشير سجلات البيانات الوصفية الخاصة بمعرفات المكونات الرقمية لـ "
+"{$count} من العناصر على أنها غير مسجلة. هل أنت متأكد من رغبتك في تأشير تلك "
+"السجلات بأنها غير مسجلة؟"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "تأشير معرفات المكونات الرقمية على أنها قديمة"
+
+msgid "manager.dois.actions.description"
+msgstr "إتخذ إجراءً لـ {$count} من العناصر المحددة"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "تم تأشير العناصر على أنها غير مسجلة بنجاح"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "تم تأشير العناصر على أنها قديمة بنجاح"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في المتابعة وحذف هذه المؤسسة؟"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "نطاق IP غير صالح"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "إعادة إرسال إلتماس التحكيم للمحكم"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "عنوان الإعلان"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "وصف موجز للإعلان"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "عدد طلبات التقديم المستلمة هذا الشهر"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "عدد طلبات التقديم المرفوضة"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "عدد طلبات التقديم المقبولة"
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "جعل إحصائيات COUNTER SUSHI متاحة بشكل عمومي"
+
+msgid "stats.unique"
+msgstr "فريد"
+
+msgid "stats.unknown"
+msgstr "مجهول"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "موضوع المناقشة"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "محتوى المناقشة أو الرد الجديدين"
+
+msgid "stats.suppFileViews"
+msgstr "معاينات الملفات التكميلية"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-10-08 04:01+0000\n"
+"PO-Revision-Date: 2022-10-09 21:01+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr_TR/>\n"
@@ -2087,3 +2087,91 @@ msgid "editor.submission.decision.decline.description"
 msgstr ""
 "Aday makale reddilecektir. Hakem değerlendirme aşaması kapatılarak ve aday "
 "makale arşivlenecektir."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName}, aday makalenin yeni bir değerlendirme turuna alınması için "
+"düzeltme istedi."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Düzeltme İstendi"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Yazar, aday makalenin yeni bir değerlendirme turu için düzeltme dosyalarını "
+"yüklemelidir."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Aday makale için yeni bir değerlendirme turu başlatın."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} tarafından yeni bir değerlendirme turu başlatıldı."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Üretim aşamasına gönderilmesi gereken dosyaları seçin."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"{$title} başlıklı aday makale için yeni bir değerlendirme turuna alınmak "
+"üzere düzeltme istendi. Yeni bir değerlendirme turu için karar kaydedildi."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} aday makale için düzeltme istedi."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Aday makale kabul edilmeden önce düzeltme gerekli olduğunu bildirmek için "
+"yazarlara bir e-posta gönderin. Aday makalenin düzeltilmesi için yazarın "
+"gerek duyacağı tüm ayrıntıları ekleyin. Uygun olan durumlarda, hakem "
+"yorumlarında adlarını kapatmayı unutmayın."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Düzeltme İstendi"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Yazar, aday makalenin kabul edilmesinden önce düzeltmeleri göndermelidir."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Değerlendirme aşaması için gönderilmesi gereken dosyaları seçin."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Yazarlara aday makalelerinin yeni bir değerlendirme turu için gönderildiğini "
+"bildirmek üzere e-posta gönderin."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "{$title} başlıklı aday makale için düzeltme istendi."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Değerlendirme Turu Oluşturuldu"
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Son kopya düzenleme aşamasına gönderilmesi gereken dosyaları seçin."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"{$title} başlıklı aday makale için yeni bir değerlendirme turu oluşturuldu."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Değerlendirme Turunu İptal Et"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Geçerli değerlendirme turunu iptal edin ve bir önceki değerlendirme turuna "
+"geri gönderin. Bu ilk değerlendirme turuysa, başvuru aşamasına geri "
+"gönderilir."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} tarafından değerlendirme turu iptal edildi."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "En son değerlendirme turu iptal edildi."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "{$title} başlıklı aday makale için değerlendirme turu iptal edildi."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Herhangi bir hakemin tamamlanmış değerlendirmesi yoksa, değerlendirme turu "
+"iptal edilebilir."

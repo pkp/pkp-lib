@@ -78,15 +78,16 @@ class LocaleMetadata
         if (!in_array($langLocaleStatus, static::getLanguageLocaleStatuses())) {
             throw new Exception(
                 sprintf(
-                    "Invalid language locale status %s given, must be among [%s]",
+                    "Invalid language locale conversion status %s given, must be among [%s]",
                     $langLocaleStatus,
-                    static::getLanguageLocaleStatuses()
+                    implode(',', static::getLanguageLocaleStatuses())
                 )
             );
         }
 
         $name = PKPString::regexp_replace(
-            '/\s*\([^)]*\)\s*/', '', 
+            '/\s*\([^)]*\)\s*/', 
+            '', 
             PKPString::ucfirst(
                 $this
                     ->_getLanguage($langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale)

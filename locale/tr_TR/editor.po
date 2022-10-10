@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"PO-Revision-Date: 2022-10-11 09:52+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "tr_TR/>\n"
@@ -405,9 +405,11 @@ msgstr "Yeniden Ata"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Bu hakem, bu gönderiyi değerlendirmek için zaten atandı."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş olduğundan kilitlenmiştir. Körlenmiş hakem değerlendirmesi garanti edilemez. Yine de bu hakeme izin vermek ister misiniz?"
+msgstr ""
+"Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş "
+"olduğundan kilitlenmiştir. Körleme hakem değerlendirmesi garanti edilemez. "
+"Yine de bu hakeme izin vermek ister misiniz?"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Değerlendirme istekleri reddedildi"
@@ -502,3 +504,74 @@ msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
 "Bir değerlendirme turu sağlandı, ancak bu karar değerlendirme aşamasında "
 "alınmadı."
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Bu Hakem, son turda değerlendirmeyi tamamladı."
+
+msgid "editor.decision.stepError"
+msgstr "{$stepName} adımında bir sorun oluştu."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Önceki Tura Atandı"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "{$name} isimli Hakemi Tekrar Ata"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Kararı İptal Et"
+
+msgid "editor.decision.completeSteps"
+msgstr "Bu kararı almak için aşağıdaki adımları tamamlayın"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Bu kararı iptal etmek istediğinizden emin misiniz?"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Bu adım atlandı, e-posta gönderilmeyecek."
+
+msgid "editor.decision.skipEmail"
+msgstr "Bu e-postayı atla"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Bu e-postayı atlamayın"
+
+msgid "editor.decision.recordDecision"
+msgstr "Kararı Kaydet"
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Aday makale, bu kararı kaydetmek için iş akışının uygun aşamasında değil."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "Kararı kaydetmek için aday makaleye atanmış olmanız gerekir."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Bu kararı almak için bir değerlendirme turu numarası sağlanmalıdır."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr "Nihai karar verebilecek bir editör atanmadıkça öneri yapılamaz."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Aday makale hakkında bir karar alınamadı. Aday makale kimliği eksik veya "
+"istenen gönderimle eşleşmiyor."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Bu karar bulunamadı. Lütfen tanımlanan bir karar türü belirtin."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Revizyonlar, yeni bir değerlendirme turuna tabi olmalıdır."
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Değerlendirme Talebini Yeniden Gönder"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Revizyonlar, yeni bir değerlendirme turuna tabi olmamalıdır."
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Yeniden Gönderme İste"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Hakeme değerlendirme davetini gönderilirken bir hata oluştu. Lütfen tekrar "
+"deneyin."

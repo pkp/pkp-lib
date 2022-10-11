@@ -256,7 +256,7 @@ class PKPStatsHandler extends Handler
             [
                 'timeline' => $timeline,
                 'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_DAY,
-                'timelineType' => 'timeline',
+                'timelineType' => 'abstract',
                 'tableColumns' => [
                     [
                         'name' => 'title',

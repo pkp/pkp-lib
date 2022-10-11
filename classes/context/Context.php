@@ -551,20 +551,19 @@ abstract class Context extends \PKP\core\DataObject
     * What Geo data to track for usage statistics.
     * Consider context setting only if the site setting is enabled and context setting considers less Geo data than site setting.
     *
-    * @return ?string Possible return values: null, disabled, country, coutnry+region, country+region+city
+    * @return ?string Possible return values: null, disabled, PKPStatisticsHelper::self::STATISTICS_SETTING_COUNTRY, PKPStatisticsHelper::self::STATISTICS_SETTING_REGION, PKPStatisticsHelper::self::STATISTICS_SETTING_CITY
     */
-    public function getGeoStatsSetting(Site $site): ?string
+    public function getEnableGeoUsageStats(Site $site): ?string
     {
-        $enableGeoUsageStats = $site->getData('enableGeoUsageStats');
-        if ($enableGeoUsageStats !== null) {
-            if (($enableGeoUsageStats != 'disabled') &&
-                ($this->getData('enableGeoUsageStats') !== null) &&
-                ($this->getData('enableGeoUsageStats') != $site->getData('enableGeoUsageStats')) &&
-                    str_starts_with($enableGeoUsageStats, $this->getData('enableGeoUsageStats'))) {
-                $enableGeoUsageStats = $this->getData('enableGeoUsageStats');
-            }
+        $siteSetting = $site->getData('enableGeoUsageStats');
+        if ($siteSetting == null || $siteSetting === 'disabled') {
+            return $siteSetting;
         }
-        return $enableGeoUsageStats;
+        $contextSetting = $this->getData('enableGeoUsageStats');
+        if ($contextSetting != null && str_starts_with($siteSetting, $contextSetting)) {
+            return $contextSetting;
+        }
+        return $siteSetting;
     }
 }
 

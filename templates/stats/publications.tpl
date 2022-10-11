@@ -179,7 +179,7 @@
 								{translate key="common.downloadReport"}
 							</pkp-button>
 							<modal
-								close-label="Close"
+								close-label="{translate key="common.close"}"
 								name="downloadReport"
 								title={translate key="common.download"}
 								@closed="setFocusToRef('downloadReportModalButton')"

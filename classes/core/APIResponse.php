@@ -25,7 +25,7 @@ class APIResponse extends Response
      *
      * @param integer $maxRows The total amount of rows, that is provided within the onw X-Total-Count header field
      */
-    public function withCSV(array $rows, array $columns, ?int $maxRows): self
+    public function withCSV(array $rows, array $columns, int $maxRows): self
     {
         $fp = fopen('php://output', 'wt');
         //Add BOM (byte order mark) to fix UTF-8 in Excel
@@ -40,10 +40,7 @@ class APIResponse extends Response
         $this->getBody()->rewind();
         $this->getBody()->write($csvData);
         $this->withStatus(200);
-        if (isset($maxRows)) {
-            return $this->withHeader('X-Total-Count', $maxRows)->withHeader('Content-Type', self::RESPONSE_CSV);
-        }
-        return $this->withHeader('Content-Type', self::RESPONSE_CSV);
+        return $this->withHeader('X-Total-Count', $maxRows)->withHeader('Content-Type', self::RESPONSE_CSV);
     }
 
     /**

@@ -288,11 +288,6 @@ class PKPStatsHandler extends Handler
                         'value' => 'otherViews',
                     ],
                     [
-                        'name' => 'suppFileViews',
-                        'label' => __('stats.suppFileViews'),
-                        'value' => 'suppFileViews',
-                    ],
-                    [
                         'name' => 'total',
                         'label' => __('stats.total'),
                         'value' => 'total',
@@ -331,15 +326,15 @@ class PKPStatsHandler extends Handler
         );
 
         $geoAPIEndPoint = null;
-        $geoStatsSetting = $context->getGeoStatsSetting($request->getSite());
+        $geoStatsSetting = $context->getEnableGeoUsageStats($request->getSite());
         switch ($geoStatsSetting) {
-            case 'country':
+            case PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY:
                 $geoAPIEndPoint = 'countries';
                 break;
-            case 'country+region':
+            case PKPStatisticsHelper::STATISTICS_SETTING_REGION:
                 $geoAPIEndPoint = 'regions';
                 break;
-            case 'country+region+city':
+            case PKPStatisticsHelper::STATISTICS_SETTING_CITY:
                 $geoAPIEndPoint = 'cities';
                 break;
         }

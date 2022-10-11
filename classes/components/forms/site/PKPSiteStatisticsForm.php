@@ -63,15 +63,15 @@ class PKPSiteStatisticsForm extends FormComponent
                         'label' => __('manager.settings.statistics.geoUsageStats.disabled'),
                     ],
                     [
-                        'value' => 'country',
+                        'value' => PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY,
                         'label' => __('manager.settings.statistics.geoUsageStats.countryLevel'),
                     ],
                     [
-                        'value' => 'country+region',
+                        'value' => PKPStatisticsHelper::STATISTICS_SETTING_REGION,
                         'label' => __('manager.settings.statistics.geoUsageStats.regionLevel'),
                     ],
                     [
-                        'value' => 'country+region+city',
+                        'value' => PKPStatisticsHelper::STATISTICS_SETTING_CITY,
                         'label' => __('manager.settings.statistics.geoUsageStats.cityLevel'),
                     ],
                 ],

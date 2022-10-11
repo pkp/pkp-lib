@@ -110,7 +110,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         if (!is_null($slimRequest) && ($route = $slimRequest->getAttribute('route'))) {
             $routeName = $route->getName();
         }
-        if (in_array($routeName, ['get', 'getAbstract', 'getGalley'])) {
+        if (in_array($routeName, ['get', 'getTimeline'])) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
@@ -267,7 +267,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
         $metricsByType = $statsService->getTotalsByType($submission->getId(), $request->getContext()->getId(), $dateStart, $dateEnd);
 
-        $galleyViews = $metricsByType['pdf'] + $$metricsByType['html'] + $metricsByType['other'];
+        $galleyViews = $metricsByType['pdf'] + $metricsByType['html'] + $metricsByType['other'];
         return $response->withJson([
             'abstractViews' => $metricsByType['abstract'],
             'galleyViews' => $galleyViews,

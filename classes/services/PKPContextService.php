@@ -20,6 +20,7 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
+use PKP\announcement\AnnouncementTypeDAO;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
@@ -31,13 +32,20 @@ use PKP\db\DBResultRange;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
+use PKP\navigationMenu\NavigationMenuDAO;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\plugins\PluginSettingsDAO;
+use PKP\reviewForm\ReviewFormDAO;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
+use PKP\services\PKPSchemaService;
+use PKP\submission\GenreDAO;
 use PKP\validation\ValidatorFactory;
+
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -251,7 +259,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = Services::get('schema'); /** @var PKPSchemaService $schemaService */
 
         $validator = ValidatorFactory::make(
             $props,
@@ -505,7 +513,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
         $context = $this->edit($context, $params, $request);
 
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
 
         Repo::userGroup()->installSettings($context->getId(), 'registry/userGroups.xml');
@@ -518,7 +526,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $fileManager->mkdir(sprintf($dir, $this->contextsFileDirName, $context->getId()));
         }
 
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
 
         // Load all plugins so they can hook in and add their installation settings
@@ -573,12 +581,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     {
         Hook::call('Context::delete::before', [&$context]);
 
-        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
         $announcementTypeDao->deleteByContextId($context->getId());
 
         Repo::userGroup()->deleteByContextId($context->getId());
 
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->deleteByContextId($context->getId());
 
         Repo::announcement()->deleteMany(
@@ -595,16 +603,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::emailTemplate()->restoreDefaults($context->getId());
 
-        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao->deleteByContextId($context->getId());
 
-        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
         $reviewFormDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao->deleteByContextId($context->getId());
 
-        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         $navigationMenuItemDao->deleteByContextId($context->getId());
 
         $fileManager = new FileManager($context->getId());

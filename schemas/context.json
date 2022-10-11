@@ -6,7 +6,9 @@
 		"name",
 		"primaryLocale",
 		"supportedLocales",
-		"urlPath"
+		"urlPath",
+		"contactName",
+		"contactEmail"
 	],
 	"properties": {
 		"_href": {

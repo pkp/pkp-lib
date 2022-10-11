@@ -229,7 +229,7 @@ class ContextGridHandler extends GridHandler
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
             $locales = $context->getSupportedFormLocaleNames();
         } else {
-            $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'contexts');
+            $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, Application::CONTEXT_ID_ALL, 'contexts');
             $locales = $request->getSite()->getSupportedLocaleNames();
         }
 

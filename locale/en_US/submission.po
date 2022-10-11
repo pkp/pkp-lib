@@ -1909,3 +1909,6 @@ msgstr "The publication is not editable"
 
 msgid "submission.layout.viewGalley"
 msgstr "View Galley"
+
+msgid "galley.cantEditPublished"
+msgstr "This galley can not be edited because it has already been published."

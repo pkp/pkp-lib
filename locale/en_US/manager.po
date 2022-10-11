@@ -413,6 +413,16 @@ msgstr "DOI prefix is missing for the server with the path {$path}."
 msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "The specified objects could not be found."
 
+
+msgid "stats.publications.downloadReport.description"
+msgstr "Download a CSV/Excel spreadsheet with usage statistics for preprints matching the following parameters."
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr "Download Preprints"
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr "The number of abstract views and file downloads for each preprint."
+
 msgid "stats.publicationStats"
 msgstr "Preprint Stats"
 

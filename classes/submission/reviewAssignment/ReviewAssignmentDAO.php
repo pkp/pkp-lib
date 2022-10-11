@@ -534,7 +534,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewAssignment->setReviewMethod((int) $row['review_method']);
         $reviewAssignment->setStageId((int) $row['stage_id']);
         $reviewAssignment->setUnconsidered((int) $row['unconsidered']);
-        $reviewAssignment->setRequestResent((int) $row['request_resent']);
+        $reviewAssignment->setRequestResent((int) $row['request_resent'] ?? null);
 
         return $reviewAssignment;
     }

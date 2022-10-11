@@ -546,6 +546,25 @@ abstract class Context extends \PKP\core\DataObject
         }
         return (bool) $enableInstitutionUsageStats;
     }
+
+    /**
+    * What Geo data to track for usage statistics.
+    * Consider context setting only if the site setting is enabled and context setting considers less Geo data than site setting.
+    *
+    * @return ?string Possible return values: null, disabled, PKPStatisticsHelper::self::STATISTICS_SETTING_COUNTRY, PKPStatisticsHelper::self::STATISTICS_SETTING_REGION, PKPStatisticsHelper::self::STATISTICS_SETTING_CITY
+    */
+    public function getEnableGeoUsageStats(Site $site): ?string
+    {
+        $siteSetting = $site->getData('enableGeoUsageStats');
+        if ($siteSetting == null || $siteSetting === 'disabled') {
+            return $siteSetting;
+        }
+        $contextSetting = $this->getData('enableGeoUsageStats');
+        if ($contextSetting != null && str_starts_with($siteSetting, $contextSetting)) {
+            return $contextSetting;
+        }
+        return $siteSetting;
+    }
 }
 
 if (!PKP_STRICT_MODE) {

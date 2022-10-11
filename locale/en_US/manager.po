@@ -2514,6 +2514,24 @@ msgstr "Monthly"
 msgid "stats.pdf"
 msgstr "PDF"
 
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} to {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "All {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Download Files"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "The number of downloads for each file."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Download Geographic"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "The number of views and downloads for each city, region or country."
+
 msgid "stats.region"
 msgstr "Region"
 

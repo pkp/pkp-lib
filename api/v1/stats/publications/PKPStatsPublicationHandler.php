@@ -110,7 +110,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         if (!is_null($slimRequest) && ($route = $slimRequest->getAttribute('route'))) {
             $routeName = $route->getName();
         }
-        if (in_array($routeName, ['get', 'getAbstract', 'getGalley'])) {
+        if (in_array($routeName, ['get', 'getTimeline'])) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
@@ -128,8 +128,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -179,9 +177,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $metricsByType = $statsService->getTotalsByType($submissionId, $this->getRequest()->getContext()->getId(), $dateStart, $dateEnd);
 
             if ($responseCSV) {
-                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $metricsByType['suppFileViews']);
+                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other']);
             } else {
-                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $metricsByType['suppFileViews']);
+                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other']);
             }
         }
 
@@ -269,14 +267,13 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
         $metricsByType = $statsService->getTotalsByType($submission->getId(), $request->getContext()->getId(), $dateStart, $dateEnd);
 
-        $galleyViews = $metricsByType['pdf'] + $$metricsByType['html'] + $metricsByType['other'];
+        $galleyViews = $metricsByType['pdf'] + $metricsByType['html'] + $metricsByType['other'];
         return $response->withJson([
             'abstractViews' => $metricsByType['abstract'],
             'galleyViews' => $galleyViews,
             'pdfViews' => $metricsByType['pdf'],
             'htmlViews' => $metricsByType['html'],
             'otherViews' => $metricsByType['other'],
-            'suppFileViews' => $metricsByType['suppFileViews'],
             'publication' => Repo::submission()->getSchemaMap()->mapToStats($submission),
         ], 200);
     }
@@ -335,8 +332,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -414,8 +409,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -492,8 +485,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -576,8 +567,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
         $initAllowedParams = [
@@ -792,8 +781,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             __('stats.fileViews'),
             __('stats.pdf'),
             __('stats.html'),
-            __('common.other'),
-            __('stats.suppFileViews')
+            __('common.other')
         ];
     }
 
@@ -803,11 +791,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     protected function _getFileReportColumnNames(): array
     {
         return [
-            __('common.id'),
-            __('common.title'),
-            __('stats.fileViews'),
             __('common.publication') . ' ' . __('common.id'),
             __('submission.title'),
+            __('common.file') . ' ' . __('common.id'),
+            __('common.fileName'),
+            __('stats.fileViews'),
         ];
     }
 
@@ -827,10 +815,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         if ($scale == StatisticsHelper::STATISTICS_DIMENSION_CITY) {
             $scaleColumns = [
                 __('stats.city'),
-                __('stats.region')
+                __('stats.region'),
+                __('common.country')
             ];
         } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_REGION) {
-            $scaleColumns = [__('stats.region')];
+            $scaleColumns = [__('stats.region'), __('common.country')];
         } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_COUNTRY) {
             $scaleColumns = [__('common.country'),];
         }
@@ -844,7 +833,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     /**
      * Get the CSV row with submission metrics
      */
-    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $suppFileViews): array
+    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
         $totalViews = $abstractViews + $galleyViews;
@@ -861,15 +850,14 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $galleyViews,
             $pdfViews,
             $htmlViews,
-            $otherViews,
-            $suppFileViews
+            $otherViews
         ];
     }
 
     /**
      * Get the JSON data with submission metrics
      */
-    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $suppFileViews): array
+    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
 
@@ -883,7 +871,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'pdfViews' => $pdfViews,
             'htmlViews' => $htmlViews,
             'otherViews' => $otherViews,
-            'suppFileViews' => $suppFileViews,
             'publication' => $submissionProps,
         ];
     }
@@ -897,11 +884,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
         return [
+            $submissionId,
+            $submissionTitle,
             $submissionFileId,
             $title,
-            $downloads,
-            $submissionId,
-            $submissionTitle
+            $downloads
         ];
     }
 
@@ -914,11 +901,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
         return [
+            'submissionId' => $submissionId,
+            'submissionTitle' => $submissionTitle,
             'submissionFileId' => $submissionFileId,
             'fileName' => $title,
-            'downloads' => $downloads,
-            'submissionId' => $submissionId,
-            'submissionTitle' => $submissionTitle
+            'downloads' => $downloads
         ];
     }
 

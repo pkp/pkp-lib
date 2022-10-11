@@ -18,6 +18,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\site\Site;
+use PKP\statistics\PKPStatisticsHelper;
 
 define('FORM_CONTEXT_STATISTICS', 'contextStatistics');
 
@@ -42,9 +43,9 @@ class PKPContextStatisticsForm extends FormComponent
 
         $possibleGeoOptions = [
             'disabled' => __('manager.settings.statistics.geoUsageStats.disabled'),
-            'country' => __('manager.settings.statistics.geoUsageStats.countryLevel'),
-            'country+region' => __('manager.settings.statistics.geoUsageStats.regionLevel'),
-            'country+region+city' => __('manager.settings.statistics.geoUsageStats.cityLevel'),
+            PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY => __('manager.settings.statistics.geoUsageStats.countryLevel'),
+            PKPStatisticsHelper::STATISTICS_SETTING_REGION => __('manager.settings.statistics.geoUsageStats.regionLevel'),
+            PKPStatisticsHelper::STATISTICS_SETTING_CITY => __('manager.settings.statistics.geoUsageStats.cityLevel'),
         ];
         $geoOptions = [];
         foreach ($possibleGeoOptions as $value => $label) {
@@ -57,7 +58,7 @@ class PKPContextStatisticsForm extends FormComponent
             }
         }
         $selectedGeoOption = $site->getData('enableGeoUsageStats');
-        if ($context->getData('enableGeoUsageStats') !== null &&
+        if ($context->getData('enableGeoUsageStats') != null &&
             str_starts_with($selectedGeoOption, $context->getData('enableGeoUsageStats'))) {
             $selectedGeoOption = $context->getData('enableGeoUsageStats');
         }

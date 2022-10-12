@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\queries\traits;
 
+use APP\notification\Notification;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;

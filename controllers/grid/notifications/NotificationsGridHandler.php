@@ -21,6 +21,7 @@ use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;

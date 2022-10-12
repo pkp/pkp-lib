@@ -22,6 +22,7 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\traits\Discussion;
+use PKP\mail\traits\Unsubscribe;
 
 class DiscussionProduction extends Mailable
 {
@@ -29,6 +30,7 @@ class DiscussionProduction extends Mailable
     use Sender;
     use Configurable;
     use Discussion;
+    use Unsubscribe;
 
     protected static ?string $name = 'mailable.discussionProduction.name';
     protected static ?string $description = 'mailable.discussionProduction.description';
@@ -38,7 +40,7 @@ class DiscussionProduction extends Mailable
 
     public function __construct(Context $context, Submission $submission, string $subject, string $content)
     {
-        parent::__construct(array_slice(func_get_args(), 0, -2));
+        parent::__construct([$context, $submission]);
         $this->setupDiscussionVariables($subject, $content);
     }
 
@@ -46,5 +48,14 @@ class DiscussionProduction extends Mailable
     {
         $variables = parent::getDataDescriptions();
         return self::addDiscussionDescription($variables);
+    }
+
+    /**
+     * @copydoc PKP\mail\Mailable::embedFooter()
+     */
+    protected function embedFooter(string $locale): self
+    {
+        $this->setupUnsubscribeFooter($locale);
+        return $this;
     }
 }

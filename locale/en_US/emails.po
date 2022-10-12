@@ -271,7 +271,7 @@ msgstr "{$subject}"
 
 msgid "discussion.notification.body"
 msgstr ""
-"<p>{$content}</p>"
+"{$content}"
 "<hr>"
 "<p>Reply to this message at <a href=\"{$submissionUrl}\">{$contextName}</a>."
 
@@ -336,3 +336,12 @@ msgstr ""
 "<p>If you have any questions, please contact me.</p>"
 "<p>Kind regards,</p>"
 "{$signature}"
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+"<hr>"
+"Reply to this comment on <a href=\"{$submissionUrl}\">#{$submissionId} {$authorsShort}</a> or "
+"<a href=\"{$unsubscribeUrl}\">unsubscribe</a> from notifications from <a href=\"{$contextUrl}\">{$contextName}</a>."
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr "The link to unsubscribe from this type of notifications"

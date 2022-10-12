@@ -318,7 +318,7 @@ class QueryNotesGridHandler extends GridHandler
                 continue;
             }
 
-            $mailable = $this->getStageMailable($context, $submission, $title, $note->getContents());
+            $mailable = $this->getStageMailable($context, $submission, $title, $note->getContents(), $notification);
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
             $recipient = Repo::user()->get($userId);

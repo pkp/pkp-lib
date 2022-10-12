@@ -192,16 +192,25 @@ abstract class PKPStageParticipantNotifyForm extends Form
             $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
         }
 
+        $messageContent = $this->getData('message');
+        // Set the empty subject; compile when template variables are set
+        $mailable = $this->getStageMailable($context, $submission, '', $messageContent);
+
         $fromUser = $request->getUser();
-        $mailable = $this->getStageMailable($context, $submission);
         $mailable->sender($fromUser)
             ->recipients([$user]);
-        $mailableBody = $this->getData('message');
+
         $mailable->addData(['authorName' => $user->getFullName()]); // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
         $mailableData = $mailable->getData();
-        $mailableSubject = Mail::compileParams($template->getLocalizedData('subject'), $mailableData);
-        $mailable->body($mailableBody)
-            ->subject($mailableSubject);
+        $messageSubject = Mail::compileParams($template->getLocalizedData('subject'), $mailableData);
+        $mailable->addData([
+            $mailable::getSubjectVariableName() => $messageSubject,
+        ]);
+
+        // Include DISCUSSION_NOTIFICATION template rather than the message itself
+        $notificationTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $mailable->body($notificationTemplate->getLocalizedData('body'))
+            ->subject($notificationTemplate->getLocalizedData('subject'));
 
         $logDao = null;
         try {
@@ -249,12 +258,12 @@ abstract class PKPStageParticipantNotifyForm extends Form
         // Create a query
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->newDataObject();
-        $query->setAssocType(ASSOC_TYPE_SUBMISSION);
+        $query->setAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION);
         $query->setAssocId($submission->getId());
         $query->setStageId($this->_stageId);
         $query->setSequence(REALLY_BIG_NUMBER);
         $queryDao->insertObject($query);
-        $queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submission->getId());
+        $queryDao->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         // Add the current user and message recipient as participants.
         $queryDao->insertParticipant($query->getId(), $user->getId());
@@ -266,11 +275,11 @@ abstract class PKPStageParticipantNotifyForm extends Form
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         $headNote = $noteDao->newDataObject();
         $headNote->setUserId($request->getUser()->getId());
-        $headNote->setAssocType(ASSOC_TYPE_QUERY);
+        $headNote->setAssocType(PKPApplication::ASSOC_TYPE_QUERY);
         $headNote->setAssocId($query->getId());
         $headNote->setDateCreated(Core::getCurrentDate());
-        $headNote->setTitle($mailableSubject);
-        $headNote->setContents($mailableBody);
+        $headNote->setTitle($messageSubject);
+        $headNote->setContents($messageContent);
         $noteDao->insertObject($headNote);
 
         if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
@@ -285,7 +294,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
                     PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
-                ASSOC_TYPE_SUBMISSION,
+                PKPApplication::ASSOC_TYPE_SUBMISSION,
                 $submission->getId()
             );
         }

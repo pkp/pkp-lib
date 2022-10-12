@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-06 14:38+0000\n"
+"PO-Revision-Date: 2022-10-13 07:01+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3368,3 +3368,21 @@ msgstr "Предмет на дискусията"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr "Съдържанието на новата дискусия или отговор"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} до {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Всички {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Сваляне на файлове"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Брой сваляния на всеки файл."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Сваляне на географска информация"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Броят гледания и изтегляния за всеки град, регион или държава."

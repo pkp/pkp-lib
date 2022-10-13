@@ -18,10 +18,12 @@
 namespace PKP\controllers\grid\files\dependent;
 
 use APP\core\Application;
+use APP\submission\Submission;
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\security\authorization\PublicationAccessPolicy;
 
 class DependentFilesGridHandler extends FileListGridHandler
 {
@@ -33,10 +35,10 @@ class DependentFilesGridHandler extends FileListGridHandler
         // import app-specific grid data provider for access policies.
         $request = Application::get()->getRequest();
         $submissionFileId = $request->getUserVar('submissionFileId'); // authorized in authorize() method.
+
         parent::__construct(
             new DependentFilesGridDataProvider($submissionFileId),
-            $request->getUserVar('stageId'),
-            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
+            $request->getUserVar('stageId')
         );
 
         $this->addRoleAssignment(
@@ -48,11 +50,25 @@ class DependentFilesGridHandler extends FileListGridHandler
     }
 
     /**
+     * Get the authorized publication.
+     * @return \Publication
+     */
+    function getPublication() {
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+    }
+
+
+    /**
      * @copydoc SubmissionFilesGridHandler::authorize()
      */
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
+
+        $publicationId = $request->getUserVar('publicationId'); // authorized in authorize() method.
+        if ($publicationId) {
+            $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -67,5 +83,22 @@ class DependentFilesGridHandler extends FileListGridHandler
             parent::getRequestArgs(),
             ['submissionFileId' => $submissionFile->getId()]
         );
+    }
+
+    function initialize($request, $args = null) 
+    {
+        $capabilities = FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT;
+
+        $publication = $this->getPublication();
+        
+        if ($publication) {
+            if ($publication->getData('status') == Submission::STATUS_PUBLISHED) {
+                $capabilities = FilesGridCapabilities::FILE_GRID_VIEW_NOTES;
+            } 
+        }
+
+        $this->setCapabilities(new FilesGridCapabilities($capabilities));
+
+        parent::initialize($request, $args);
     }
 }

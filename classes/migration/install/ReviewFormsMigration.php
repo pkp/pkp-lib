@@ -39,11 +39,13 @@ class ReviewFormsMigration extends \PKP\migration\Migration
             Schema::create('review_form_settings', function (Blueprint $table) {
                 $table->bigInteger('review_form_id');
                 $table->foreign('review_form_id', 'review_form_settings_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
+                $table->index(['review_form_id'], 'review_form_settings_review_form_id');
 
                 $table->string('locale', 14)->default('');
                 $table->string('setting_name', 255);
                 $table->mediumText('setting_value')->nullable();
                 $table->string('setting_type', 6);
+
                 $table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_pkey');
             });
         }
@@ -55,6 +57,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
 
                 $table->bigInteger('review_form_id');
                 $table->foreign('review_form_id', 'review_form_elements_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
+                $table->index(['review_form_id'], 'review_form_elements_review_form_id');
 
                 $table->float('seq', 8, 2)->nullable();
                 $table->bigInteger('element_type')->nullable();
@@ -68,11 +71,13 @@ class ReviewFormsMigration extends \PKP\migration\Migration
             Schema::create('review_form_element_settings', function (Blueprint $table) {
                 $table->bigInteger('review_form_element_id');
                 $table->foreign('review_form_element_id', 'review_form_element_settings_review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
+                $table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');
 
                 $table->string('locale', 14)->default('');
                 $table->string('setting_name', 255);
                 $table->mediumText('setting_value')->nullable();
                 $table->string('setting_type', 6);
+
                 $table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_pkey');
             });
         }

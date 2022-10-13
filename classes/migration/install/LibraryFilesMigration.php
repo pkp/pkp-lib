@@ -30,6 +30,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'library_files_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'library_files_context_id');
 
             $table->string('file_name', 255);
             $table->string('original_file_name', 255);
@@ -41,6 +42,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
 
             $table->bigInteger('submission_id');
             $table->foreign('submission_id', 'library_files_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'library_files_submission_id');
 
             $table->smallInteger('public_access')->default(0)->nullable();
         });
@@ -49,6 +51,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
         Schema::create('library_file_settings', function (Blueprint $table) {
             $table->bigInteger('file_id');
             $table->foreign('file_id', 'library_file_settings_id')->references('file_id')->on('library_files')->onDelete('cascade');
+            $table->index(['file_id'], 'library_file_settings_file_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);

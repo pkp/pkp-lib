@@ -29,9 +29,11 @@ class MetadataMigration extends \PKP\migration\Migration
 
             $table->bigInteger('publication_id');
             $table->foreign('publication_id', 'citations_publication')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->index(['publication_id'], 'citations_publication');
 
             $table->text('raw_citation');
             $table->bigInteger('seq')->default(0);
+
             $table->unique(['publication_id', 'seq'], 'citations_publication_seq');
         });
 
@@ -39,11 +41,13 @@ class MetadataMigration extends \PKP\migration\Migration
         Schema::create('citation_settings', function (Blueprint $table) {
             $table->bigInteger('citation_id');
             $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
+            $table->index(['citation_id'], 'citation_settings_citation_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
+
             $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_pkey');
         });
 
@@ -64,6 +68,7 @@ class MetadataMigration extends \PKP\migration\Migration
 
             $table->bigInteger('filter_group_id')->default(0);
             $table->foreign('filter_group_id')->references('filter_group_id')->on('filter_groups')->onDelete('cascade');
+            $table->index(['filter_group_id'], 'filters_filter_group_id');
 
             $table->bigInteger('context_id')->default(0);
             $table->string('display_name', 255)->nullable();
@@ -77,11 +82,13 @@ class MetadataMigration extends \PKP\migration\Migration
         Schema::create('filter_settings', function (Blueprint $table) {
             $table->bigInteger('filter_id');
             $table->foreign('filter_id', 'filter_settings_id')->references('filter_id')->on('filters')->onDelete('cascade');
+            $table->index(['filter_id'], 'filter_settings_filter_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
+
             $table->unique(['filter_id', 'locale', 'setting_name'], 'filter_settings_pkey');
         });
     }

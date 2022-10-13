@@ -31,6 +31,7 @@ class GenresMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'genres_context_id');
 
             $table->bigInteger('seq');
             $table->smallInteger('enabled')->default(1);
@@ -46,11 +47,13 @@ class GenresMigration extends \PKP\migration\Migration
         Schema::create('genre_settings', function (Blueprint $table) {
             $table->bigInteger('genre_id');
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
+            $table->index(['genre_id'], 'genre_settings_genre_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
+
             $table->unique(['genre_id', 'locale', 'setting_name'], 'genre_settings_pkey');
         });
     }

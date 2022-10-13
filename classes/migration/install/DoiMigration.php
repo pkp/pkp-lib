@@ -33,6 +33,7 @@ class DoiMigration extends Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'dois_context_id');
 
             $table->string('doi');
             $table->smallInteger('status')->default(1);

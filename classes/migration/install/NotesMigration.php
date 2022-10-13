@@ -30,11 +30,13 @@ class NotesMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'notes_user_id');
 
             $table->datetime('date_created');
             $table->datetime('date_modified')->nullable();
             $table->string('title', 255)->nullable();
             $table->text('contents')->nullable();
+
             $table->index(['assoc_type', 'assoc_id'], 'notes_assoc');
         });
     }

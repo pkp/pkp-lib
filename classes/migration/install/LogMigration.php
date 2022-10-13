@@ -32,6 +32,7 @@ class LogMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'event_log_user_id');
 
             $table->datetime('date_logged');
             $table->bigInteger('event_type')->nullable();
@@ -44,6 +45,7 @@ class LogMigration extends \PKP\migration\Migration
         Schema::create('event_log_settings', function (Blueprint $table) {
             $table->bigInteger('log_id');
             $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
+            $table->index(['log_id'], 'event_log_settings_log_id');
 
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
@@ -80,9 +82,11 @@ class LogMigration extends \PKP\migration\Migration
         Schema::create('email_log_users', function (Blueprint $table) {
             $table->bigInteger('email_log_id');
             $table->foreign('email_log_id')->references('log_id')->on('email_log')->onDelete('cascade');
+            $table->index(['email_log_id'], 'email_log_users_email_log_id');
 
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'email_log_users_user_id');
 
             $table->unique(['email_log_id', 'user_id'], 'email_log_user_id');
         });

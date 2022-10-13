@@ -30,26 +30,32 @@ class CategoriesMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'category_context_id');
 
             $table->bigInteger('parent_id')->nullable(); // Self-referential foreign key set below
 
             $table->bigInteger('seq')->nullable();
             $table->string('path', 255);
             $table->text('image')->nullable();
-            $table->index(['context_id', 'parent_id'], 'category_context_id');
+
+            $table->index(['context_id', 'parent_id'], 'category_context_parent_id');
             $table->unique(['context_id', 'path'], 'category_path');
         });
         Schema::table('categories', function (Blueprint $table) {
             $table->foreign('parent_id')->references('category_id')->on('categories')->onDelete('set null');
+            $table->index(['parent_id'], 'category_parent_id');
         });
 
         // Category-specific settings
         Schema::create('category_settings', function (Blueprint $table) {
             $table->bigInteger('category_id');
             $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
+            $table->index(['category_id'], 'category_settings_category_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
+
             $table->unique(['category_id', 'locale', 'setting_name'], 'category_settings_pkey');
         });
 
@@ -57,9 +63,11 @@ class CategoriesMigration extends \PKP\migration\Migration
         Schema::create('publication_categories', function (Blueprint $table) {
             $table->bigInteger('publication_id');
             $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->index(['publication_id'], 'publication_categories_publication_id');
 
             $table->bigInteger('category_id');
             $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
+            $table->index(['category_id'], 'publication_categories_category_id');
 
             $table->unique(['publication_id', 'category_id'], 'publication_categories_id');
         });

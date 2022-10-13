@@ -19,28 +19,33 @@ abstract class PKPI7014_DoiMigration extends Migration
         // DOIs
         Schema::create('dois', function (Blueprint $table) {
             $table->bigInteger('doi_id')->autoIncrement();
+
             $table->bigInteger('context_id');
+            $table->foreign('context_id')->references($this->getContextIdColumn())->on($this->getContextTable());
+            $table->index(['context_id'], 'dois_context_id');
+
             $table->string('doi');
             $table->smallInteger('status')->default(1);
-            $table->foreign('context_id')->references($this->getContextIdColumn())->on($this->getContextTable());
         });
 
         // Settings
         Schema::create('doi_settings', function (Blueprint $table) {
             $table->bigInteger('doi_id');
+            $table->foreign('doi_id')->references('doi_id')->on('dois')->cascadeOnDelete();
+            $table->index(['doi_id'], 'doi_settings_doi_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
             $table->unique(['doi_id', 'locale', 'setting_name'], 'doi_settings_pkey');
-            $table->index(['doi_id'], 'doi_settings_doi_id');
-            $table->foreign('doi_id')->references('doi_id')->on('dois')->cascadeOnDelete();
         });
 
         // Add doiId to publication
         Schema::table('publications', function (Blueprint $table) {
             $table->bigInteger('doi_id')->nullable();
             $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
+            $table->index(['doi_id'], 'publications_doi_id');
         });
     }
 

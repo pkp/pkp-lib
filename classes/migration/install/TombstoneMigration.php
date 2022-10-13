@@ -38,11 +38,13 @@ class TombstoneMigration extends \PKP\migration\Migration
         Schema::create('data_object_tombstone_settings', function (Blueprint $table) {
             $table->bigInteger('tombstone_id');
             $table->foreign('tombstone_id', 'data_object_tombstone_settings_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
+            $table->index(['tombstone_id'], 'data_object_tombstone_settings_tombstone_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
+
             $table->unique(['tombstone_id', 'locale', 'setting_name'], 'data_object_tombstone_settings_pkey');
         });
 
@@ -52,6 +54,7 @@ class TombstoneMigration extends \PKP\migration\Migration
 
             $table->bigInteger('tombstone_id');
             $table->foreign('tombstone_id', 'data_object_tombstone_oai_set_objects_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
+            $table->index(['tombstone_id'], 'data_object_tombstone_oai_set_objects_tombstone_id');
 
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');

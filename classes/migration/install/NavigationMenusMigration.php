@@ -43,11 +43,13 @@ class NavigationMenusMigration extends \PKP\migration\Migration
         Schema::create('navigation_menu_item_settings', function (Blueprint $table) {
             $table->bigInteger('navigation_menu_item_id');
             $table->foreign('navigation_menu_item_id', 'navigation_menu_item_settings_navigation_menu_id')->references('navigation_menu_item_id')->on('navigation_menu_items')->onDelete('cascade');
+            $table->index(['navigation_menu_item_id'], 'navigation_menu_item_settings_navigation_menu_item_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->longText('setting_value')->nullable();
             $table->string('setting_type', 6);
+
             $table->unique(['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_pkey');
         });
 
@@ -57,9 +59,11 @@ class NavigationMenusMigration extends \PKP\migration\Migration
 
             $table->bigInteger('navigation_menu_id');
             $table->foreign('navigation_menu_id')->references('navigation_menu_id')->on('navigation_menus')->onDelete('cascade');
+            $table->index(['navigation_menu_id'], 'navigation_menu_item_assignments_navigation_menu_id');
 
             $table->bigInteger('navigation_menu_item_id');
             $table->foreign('navigation_menu_item_id')->references('navigation_menu_item_id')->on('navigation_menu_items')->onDelete('cascade');
+            $table->index(['navigation_menu_item_id'], 'navigation_menu_item_assignments_navigation_menu_item_id');
 
             $table->bigInteger('parent_id')->nullable();
             $table->bigInteger('seq')->default(0)->nullable();
@@ -69,11 +73,13 @@ class NavigationMenusMigration extends \PKP\migration\Migration
         Schema::create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
             $table->bigInteger('navigation_menu_item_assignment_id');
             $table->foreign('navigation_menu_item_assignment_id', 'assignment_settings_navigation_menu_item_assignment_id')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments')->onDelete('cascade');
+            $table->index(['navigation_menu_item_assignment_id'], 'navigation_menu_item_assignment_settings_n_m_i_a_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
+
             $table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');
         });
     }

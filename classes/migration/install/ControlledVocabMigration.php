@@ -38,6 +38,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
 
             $table->bigInteger('controlled_vocab_id');
             $table->foreign('controlled_vocab_id')->references('controlled_vocab_id')->on('controlled_vocabs')->onDelete('cascade');
+            $table->index(['controlled_vocab_id'], 'controlled_vocab_entries_controlled_vocab_id');
 
             $table->float('seq', 8, 2)->nullable();
             $table->index(['controlled_vocab_id', 'seq'], 'controlled_vocab_entries_cv_id');
@@ -47,6 +48,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
         Schema::create('controlled_vocab_entry_settings', function (Blueprint $table) {
             $table->bigInteger('controlled_vocab_entry_id');
             $table->foreign('controlled_vocab_entry_id', 'c_v_e_s_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
+            $table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
@@ -59,9 +61,11 @@ class ControlledVocabMigration extends \PKP\migration\Migration
         Schema::create('user_interests', function (Blueprint $table) {
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'user_interests_user_id');
 
             $table->bigInteger('controlled_vocab_entry_id');
             $table->foreign('controlled_vocab_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
+            $table->index(['controlled_vocab_entry_id'], 'user_interests_controlled_vocab_entry_id');
 
             $table->unique(['user_id', 'controlled_vocab_entry_id'], 'u_e_pkey');
         });

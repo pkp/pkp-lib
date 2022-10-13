@@ -43,19 +43,22 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
+
             $table->unique(['user_group_id', 'locale', 'setting_name'], 'user_group_settings_pkey');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->index(['user_group_id'], 'user_group_settings_user_group_id');
         });
 
         // User group assignments (mapping of user to user groups)
         Schema::create('user_user_groups', function (Blueprint $table) {
             $table->bigInteger('user_group_id');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->index(['user_group_id'], 'user_user_groups_user_group_id');
 
             $table->bigInteger('user_id');
             $table->foreign('user_id', 'user_user_groups_user_id')->references('user_id')->on('users')->onDelete('cascade');
-
             $table->index(['user_id'], 'user_user_groups_user_id');
+
             $table->unique(['user_group_id', 'user_id'], 'user_user_groups_pkey');
         });
 
@@ -64,13 +67,15 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'user_group_stage_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'user_group_stage_context_id');
 
             $table->bigInteger('user_group_id');
             $table->foreign('user_group_id', 'user_group_stage_user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->index(['user_group_id'], 'user_group_stage_user_group_id');
 
             $table->bigInteger('stage_id');
-
             $table->index(['stage_id'], 'user_group_stage_stage_id');
+
             $table->unique(['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_pkey');
         });
 
@@ -83,9 +88,11 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_group_id');
             $table->foreign('user_group_id', 'stage_assignments_user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->index(['user_group_id'], 'stage_assignments_user_group_id');
 
             $table->bigInteger('user_id');
             $table->foreign('user_id', 'stage_assignments_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'stage_assignments_user_id');
 
             $table->datetime('date_assigned');
             $table->smallInteger('recommend_only')->default(0);

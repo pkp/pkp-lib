@@ -55,6 +55,7 @@ abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
 
         Schema::table('edit_decisions', function (Blueprint $table) {
             $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds');
+            $table->index(['review_round_id'], 'edit_decisions_review_round_id');
         });
     }
 

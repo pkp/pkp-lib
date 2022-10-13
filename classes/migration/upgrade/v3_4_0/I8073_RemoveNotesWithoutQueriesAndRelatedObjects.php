@@ -83,6 +83,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         Schema::table('review_files', function (Blueprint $table) {
             $table->dropForeign('review_files_submission_file_id_foreign');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+            $table->index(['submission_file_id'], 'review_files_submission_file_id');
         });
 
         // Does have the foreign key reference but not the CASCADE
@@ -94,7 +95,9 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         // Does not have the foreign key reference
         Schema::table('query_participants', function (Blueprint $table) {
             $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
+            $table->index(['query_id'], 'query_participants_query_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'query_participants_user_id');
         });
 
         $orphanedIds = DB::table('notes AS n')

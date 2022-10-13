@@ -33,6 +33,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'submissions_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'submissions_context_id');
 
             // NOTE: The foreign key relationship on publications is declared where that table is created.
             $table->bigInteger('current_publication_id')->nullable();
@@ -51,12 +52,14 @@ class SubmissionsMigration extends \PKP\migration\Migration
         });
         Schema::table('stage_assignments', function (Blueprint $table) {
             $table->foreign('submission_id', 'stage_assignments_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'stage_assignments_submission_id');
         });
 
         // Submission metadata
         Schema::create('submission_settings', function (Blueprint $table) {
             $table->bigInteger('submission_id');
             $table->foreign('submission_id', 'submission_settings_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'submission_settings_submission_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
@@ -97,16 +100,19 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_group_id')->nullable();
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->index(['user_group_id'], 'authors_user_group_id');
         });
 
         // Language dependent author metadata.
         Schema::create('author_settings', function (Blueprint $table) {
             $table->bigInteger('author_id');
             $table->foreign('author_id', 'author_settings_author_id')->references('author_id')->on('authors')->onDelete('cascade');
+            $table->index(['author_id'], 'author_settings_author_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
+
             $table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_pkey');
         });
 
@@ -116,6 +122,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('submission_id');
             $table->foreign('submission_id', 'edit_decisions_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'edit_decisions_submission_id');
 
             // Foreign key constraint is declared with review_rounds
             $table->bigInteger('review_round_id')->nullable();
@@ -125,6 +132,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('editor_id');
             $table->foreign('editor_id', 'edit_decisions_editor_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['editor_id'], 'edit_decisions_editor_id');
 
             $table->smallInteger('decision');
             $table->datetime('date_decided');
@@ -138,11 +146,13 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('submission_id');
             $table->foreign('submission_id', 'submission_comments_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'submission_comments_submission_id');
 
             $table->bigInteger('assoc_id');
 
             $table->bigInteger('author_id');
             $table->foreign('author_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['author_id'], 'submission_comments_author_id');
 
             $table->text('comment_title');
             $table->text('comments')->nullable();
@@ -156,12 +166,14 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'section_editors_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'subeditor_submission_group_context_id');
 
             $table->bigInteger('assoc_id');
             $table->bigInteger('assoc_type');
 
             $table->bigInteger('user_id');
             $table->foreign('user_id', 'subeditor_submission_group_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'subeditor_submission_group_user_id');
 
             $table->index(['assoc_id', 'assoc_type'], 'subeditor_submission_group_assoc_id');
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
@@ -184,9 +196,11 @@ class SubmissionsMigration extends \PKP\migration\Migration
         Schema::create('query_participants', function (Blueprint $table) {
             $table->bigInteger('query_id');
             $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
+            $table->index(['query_id'], 'query_participants_query_id');
 
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'query_participants_user_id');
 
             $table->unique(['query_id', 'user_id'], 'query_participants_pkey');
         });
@@ -204,6 +218,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('submission_id');
             $table->foreign('submission_id', 'submission_search_object_submission')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'submission_search_objects_submission_id');
 
             $table->integer('type')->comment('Type of item. E.g., abstract, fulltext, etc.');
             $table->bigInteger('assoc_id')->comment('Optional ID of an associated record (e.g., a file_id)')->nullable();
@@ -213,11 +228,14 @@ class SubmissionsMigration extends \PKP\migration\Migration
         Schema::create('submission_search_object_keywords', function (Blueprint $table) {
             $table->bigInteger('object_id');
             $table->foreign('object_id')->references('object_id')->on('submission_search_objects')->onDelete('cascade');
+            $table->index(['object_id'], 'submission_search_object_keywords_object_id');
 
             $table->bigInteger('keyword_id');
             $table->foreign('keyword_id', 'submission_search_object_keywords_keyword_id')->references('keyword_id')->on('submission_search_keyword_list')->onDelete('cascade');
+            $table->index(['keyword_id'], 'submission_search_object_keywords_keyword_id');
 
             $table->integer('pos')->comment('Word position of the keyword in the object.');
+
             $table->unique(['object_id', 'pos'], 'submission_search_object_keywords_pkey');
         });
     }

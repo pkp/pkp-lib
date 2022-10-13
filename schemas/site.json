@@ -83,7 +83,7 @@
 			"items": {
 				"type": "string",
 				"validation": [
-					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+					"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
 				]
 			}
 		},
@@ -134,7 +134,7 @@
 		"primaryLocale": {
 			"type": "string",
 			"validation": [
-				"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+				"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
 			]
 		},
 		"privacyStatement": {
@@ -185,7 +185,7 @@
 			"items": {
 				"type": "string",
 				"validation": [
-					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+					"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
 				]
 			}
 		},

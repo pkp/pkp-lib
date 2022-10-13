@@ -1904,9 +1904,6 @@ msgstr "The abstract is too long. It shoud be {$limit} words or less. It is curr
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"
 
-msgid "publication.notEditable"
-msgstr "The publication is not editable"
-
 msgid "submission.layout.viewGalley"
 msgstr "View Galley"
 

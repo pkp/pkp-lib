@@ -180,7 +180,7 @@ class PKPPublicIdentifiersForm extends Form {
 		}
 
 		if (!$this->_isEditable) {
-			$this->addError('', __('publication.notEditable'));
+			$this->addError('', __('galley.cantEditPublished'));
 		}
 
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();

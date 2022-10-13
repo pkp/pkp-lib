@@ -615,7 +615,6 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             $table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
 
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
-            $table->index(['submission_file_id'], 'review_files_submission_file_id');
         });
         Schema::table('submission_file_revisions', function (Blueprint $table) {
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');

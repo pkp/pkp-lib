@@ -19,6 +19,7 @@ namespace APP\controllers\grid\preprintGalleys\form;
 
 use APP\facades\Repo;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
@@ -35,19 +36,24 @@ class PreprintGalleyForm extends Form
     /** @var Galley current galley */
     public $_preprintGalley = null;
 
+    /** @var bool indicates whether the form is editable */
+    public bool $_isEditable = true;
+
     /**
      * Constructor.
      *
      * @param Submission $submission
      * @param Publication $publication
-     * @param PreprintGalley $preprintGalley (optional)
+     * @param Galley $preprintGalley (optional)
+     * @param bool $isEditable (optional, default = true)
      */
-    public function __construct($request, $submission, $publication, $preprintGalley = null)
+    public function __construct($request, $submission, $publication, $preprintGalley = null, $isEditable = true)
     {
         parent::__construct('controllers/grid/preprintGalleys/form/preprintGalleyForm.tpl');
         $this->_submission = $submission;
         $this->_publication = $publication;
         $this->_preprintGalley = $preprintGalley;
+        $this->_isEditable = $isEditable;
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'label', 'required', 'editor.submissions.galleyLabelRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorRegExp($this, 'urlPath', 'optional', 'validator.alpha_dash_period', '/^[a-zA-Z0-9]+([\\.\\-_][a-zA-Z0-9]+)*$/'));
@@ -92,6 +98,7 @@ class PreprintGalleyForm extends Form
             'supportedLocales' => $context->getSupportedSubmissionLocaleNames(),
             'submissionId' => $this->_submission->getId(),
             'publicationId' => $this->_publication->getId(),
+            'formDisabled' => !$this->_isEditable
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -115,6 +122,10 @@ class PreprintGalleyForm extends Form
                     $this->addErrorField('urlPath');
                 }
             }
+        }
+
+        if (!$this->_isEditable) {
+            $this->addError('', __('galley.cantEditPublished'));
         }
 
         return parent::validate($callHooks);

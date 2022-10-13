@@ -36,6 +36,8 @@ use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
+use APP\publication\Publication;
+use APP\submission\Submission;
 
 class PreprintGalleyGridHandler extends GridHandler
 {
@@ -63,7 +65,7 @@ class PreprintGalleyGridHandler extends GridHandler
      *
      * @return Submission
      */
-    public function getSubmission()
+    public function getSubmission() : Submission
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
     }
@@ -73,7 +75,7 @@ class PreprintGalleyGridHandler extends GridHandler
      *
      * @return Publication
      */
-    public function getPublication()
+    public function getPublication() : Publication
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
     }
@@ -243,7 +245,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function identifiers($args, $request)
     {
-        $form = new PublicIdentifiersForm($this->getGalley());
+        $form = new PublicIdentifiersForm($this->getGalley(), null, null, $this->canEdit());
         $form->initData();
         return new JSONMessage(true, $form->fetch($request));
     }
@@ -259,7 +261,7 @@ class PreprintGalleyGridHandler extends GridHandler
     public function updateIdentifiers($args, $request)
     {
         $representation = $this->getGalley();
-        $form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]));
+        $form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]), $this->canEdit());
         $form->readInputData();
         if ($form->validate()) {
             $form->execute();
@@ -283,9 +285,8 @@ class PreprintGalleyGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        $submission = $this->getSubmission();
         $representation = $this->getGalley();
-        $form = new PublicIdentifiersForm($representation);
+        $form = new PublicIdentifiersForm($representation, null, null, $this->canEdit());
         $form->clearPubId($request->getUserVar('pubIdPlugIn'));
         return new JSONMessage(true);
     }
@@ -393,7 +394,8 @@ class PreprintGalleyGridHandler extends GridHandler
             $request,
             $this->getSubmission(),
             $this->getPublication(),
-            $this->getGalley()
+            $this->getGalley(),
+            $this->canEdit()
         );
         $galleyForm->initData();
         return new JSONMessage(true, $galleyForm->fetch($request));
@@ -411,7 +413,7 @@ class PreprintGalleyGridHandler extends GridHandler
     {
         $galley = $this->getGalley();
 
-        $galleyForm = new PreprintGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley);
+        $galleyForm = new PreprintGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley, $this->canEdit());
         $galleyForm->readInputData();
 
         if ($galleyForm->validate()) {

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-10-06 14:38+0000\n"
+"PO-Revision-Date: 2022-10-13 16:16+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -3325,3 +3325,21 @@ msgstr "Emnet for diskussionen"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr "Indholdet af en ny diskussion eller et svar"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} til {$endDate}"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Antal downloads for hver fil."
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Alle {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Download filer"
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Download geografi"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Antal visninger og downloads for hver by, region eller land."

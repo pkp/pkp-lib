@@ -13,10 +13,9 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
-use Illuminate\Database\Schema\Blueprint;
 
 class I8093_UpdateUserGroupRelationTablesFK extends Migration
 {
@@ -31,7 +30,7 @@ class I8093_UpdateUserGroupRelationTablesFK extends Migration
         });
 
         Schema::table('user_group_stage', function (Blueprint $table) {
-            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->foreign('user_group_id', 'user_group_stage_user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
         });
     }
 

@@ -127,7 +127,7 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->index(['email_id'], 'email_templates_settings_email_id');
         });
         Schema::table('library_files', function (Blueprint $table) {
-            $table->foreign('context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+            $table->foreign('context_id', 'library_files_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
         });
         Schema::table('library_file_settings', function (Blueprint $table) {
@@ -292,7 +292,7 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign($this->getContextKeyField(), $this->getContextSettingsTable() . '_' . $this->getContextKeyField())->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
         });
         Schema::table('review_files', function (Blueprint $table) {
-            $table->foreign('review_id', 'review_files_review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
+            $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
         });
     }
 

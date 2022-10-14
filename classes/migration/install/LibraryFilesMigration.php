@@ -50,7 +50,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
         // Library file metadata.
         Schema::create('library_file_settings', function (Blueprint $table) {
             $table->bigInteger('file_id');
-            $table->foreign('file_id', 'library_file_settings_id')->references('file_id')->on('library_files')->onDelete('cascade');
+            $table->foreign('file_id')->references('file_id')->on('library_files')->onDelete('cascade');
             $table->index(['file_id'], 'library_file_settings_file_id');
 
             $table->string('locale', 14)->default('');

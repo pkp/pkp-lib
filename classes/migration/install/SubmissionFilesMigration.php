@@ -67,7 +67,7 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
         // Article supplementary file metadata.
         Schema::create('submission_file_settings', function (Blueprint $table) {
             $table->foreignId('submission_file_id');
-            $table->foreign('submission_file_id', 'submission_file_settings_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['submission_file_id'], 'submission_file_settings_submission_file_id');
 
             $table->string('locale', 14)->default('');

@@ -247,6 +247,8 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         });
         Schema::table('review_round_files', function (Blueprint $table) {
             $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds')->onDelete('cascade');
+            $table->index(['review_round_id'], 'review_round_files_review_round_id');
+
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_file_id'], 'review_round_files_submission_file_id');
         });

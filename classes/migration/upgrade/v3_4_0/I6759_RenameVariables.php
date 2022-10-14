@@ -86,8 +86,10 @@ class I6759_RenameVariables extends \PKP\migration\Migration
         Schema::table('sections', function (Blueprint $table) {
             $table->dropIndex('sections_journal_id');
             $table->renameColumn('journal_id', 'server_id');
+            $table->foreign('server_id', 'sections_server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['server_id'], 'sections_server_id');
         });
+
     }
 
 

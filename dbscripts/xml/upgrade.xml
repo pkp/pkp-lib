@@ -66,6 +66,7 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I8151_ExtendSettingValues"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I8151_ExtendSettingValues"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7366_UpdateUserAPIKeySettings"/>
+		<migration class="PKP\migration\upgrade\v3_4_0\I8093_UpdateUserGroupRelationTablesFK"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7796_UpdateCrossrefSchema"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7287_RemoveEmailTemplatesDefault"/>
 		<code function="installEmailTemplate" key="DISCUSSION_NOTIFICATION" locales="en_US" />

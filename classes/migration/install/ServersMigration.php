@@ -37,11 +37,13 @@ class ServersMigration extends \PKP\migration\Migration
         Schema::create('server_settings', function (Blueprint $table) {
             $table->bigInteger('server_id');
             $table->foreign('server_id', 'server_settings_server_id')->references('server_id')->on('servers')->onDelete('cascade');
+            $table->index(['server_id'], 'server_settings_server_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
             $table->string('setting_type', 6)->nullable();
+
             $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');
         });
     }

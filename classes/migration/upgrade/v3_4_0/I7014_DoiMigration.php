@@ -23,6 +23,7 @@ class I7014_DoiMigration extends PKPI7014_DoiMigration
         Schema::table('publication_galleys', function (Blueprint $table) {
             $table->bigInteger('doi_id')->nullable();
             $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
+            $table->index(['doi_id'], 'publication_galleys_doi_id');
         });
 
         $this->migrateExistingDataUp();

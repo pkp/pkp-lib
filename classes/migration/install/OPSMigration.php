@@ -27,8 +27,15 @@ class OPSMigration extends \PKP\migration\Migration
         // Server sections.
         Schema::create('sections', function (Blueprint $table) {
             $table->bigInteger('section_id')->autoIncrement();
+
             $table->bigInteger('server_id');
+            $table->foreign('server_id')->references('server_id')->on('servers')->onDelete('cascade');
+            $table->index(['server_id'], 'sections_server_id');
+
             $table->bigInteger('review_form_id')->nullable();
+            $table->foreign('review_form_id')->references('review_form_id')->on('review_forms')->onDelete('set null');
+            $table->index(['review_form_id'], 'sections_review_form_id');
+
             $table->float('seq', 8, 2)->default(0);
             $table->tinyInteger('editor_restricted')->default(0);
             $table->tinyInteger('meta_indexed')->default(0);
@@ -38,17 +45,19 @@ class OPSMigration extends \PKP\migration\Migration
             $table->tinyInteger('hide_author')->default(0);
             $table->tinyInteger('is_inactive')->default(0);
             $table->bigInteger('abstract_word_count')->nullable();
-            $table->index(['server_id'], 'sections_server_id');
         });
 
         // Section-specific settings
         Schema::create('section_settings', function (Blueprint $table) {
             $table->bigInteger('section_id');
+            $table->foreign('section_id')->references('section_id')->on('sections')->onDelete('cascade');
+            $table->index(['section_id'], 'section_settings_section_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-            $table->index(['section_id'], 'section_settings_section_id');
+
             $table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_pkey');
         });
 
@@ -58,22 +67,32 @@ class OPSMigration extends \PKP\migration\Migration
             $table->bigInteger('access_status')->default(0)->nullable();
             $table->date('date_published')->nullable();
             $table->datetime('last_modified')->nullable();
+
             $table->bigInteger('primary_contact_id')->nullable();
+            $table->foreign('primary_contact_id', 'publications_author_id')->references('author_id')->on('authors')->onDelete('set null');
+            $table->index(['primary_contact_id'], 'publications_author_id');
+
             $table->bigInteger('section_id')->nullable();
+            $table->foreign('section_id')->references('section_id')->on('sections')->onDelete('set null');
+            $table->index(['section_id'], 'publications_section_id');
+
             $table->bigInteger('submission_id');
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->index(['submission_id'], 'publications_submission_id');
+
             $table->tinyInteger('status')->default(1); // PKPSubmission::STATUS_QUEUED
             $table->string('url_path', 64)->nullable();
             $table->bigInteger('version')->nullable();
-            $table->index(['submission_id'], 'publications_submission_id');
-            $table->index(['section_id'], 'publications_section_id');
             $table->index(['url_path'], 'publications_url_path');
+
             $table->bigInteger('doi_id')->nullable();
             $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
+            $table->index(['doi_id'], 'publications_doi_id');
         });
         // The following foreign key relationships are for tables defined in SubmissionsMigration
         // but they depend on publications to exist so are created here.
         Schema::table('submissions', function (Blueprint $table) {
-            $table->foreign('current_publication_id', 'submissions_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->foreign('current_publication_id', 'submissions_current_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
         });
         Schema::table('publication_settings', function (Blueprint $table) {
             $table->foreign('publication_id', 'publication_settings_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
@@ -86,27 +105,39 @@ class OPSMigration extends \PKP\migration\Migration
         Schema::create('publication_galleys', function (Blueprint $table) {
             $table->bigInteger('galley_id')->autoIncrement();
             $table->string('locale', 14)->nullable();
+
             $table->bigInteger('publication_id');
+            $table->foreign('publication_id', 'publication_galleys_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->index(['publication_id'], 'publication_galleys_publication_id');
+
             $table->string('label', 255)->nullable();
+
             $table->bigInteger('submission_file_id')->unsigned()->nullable();
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+            $table->index(['submission_file_id'], 'publication_galleys_submission_file_id');
+
             $table->float('seq', 8, 2)->default(0);
             $table->string('remote_url', 2047)->nullable();
             $table->tinyInteger('is_approved')->default(0);
+
             $table->string('url_path', 64)->nullable();
-            $table->index(['publication_id'], 'publication_galleys_publication_id');
             $table->index(['url_path'], 'publication_galleys_url_path');
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+
             $table->bigInteger('doi_id')->nullable();
             $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
+            $table->index(['doi_id'], 'publication_galleys_doi_id');
         });
 
         // Galley metadata.
         Schema::create('publication_galley_settings', function (Blueprint $table) {
             $table->bigInteger('galley_id');
+            $table->foreign('galley_id')->references('galley_id')->on('publication_galleys');
+            $table->index(['galley_id'], 'publication_galley_settings_galley_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
-            $table->index(['galley_id'], 'publication_galley_settings_galley_id');
+
             $table->unique(['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_pkey');
         });
 

@@ -46,7 +46,7 @@ trait Unsubscribe
     {
         $this->notification = $notification;
 
-        $includedVariables = $this->checkRequiredVariables();
+        $includedVariables = $this->hasRequiredVariables();
         if (!$includedVariables) {
             throw new Exception(
                 'Mailable should include the following template variables: ' .
@@ -63,7 +63,7 @@ trait Unsubscribe
         if (!isset($this->notification)) return;
 
         $footer = __('emails.footer.unsubscribe', [], $locale); // variables to be compiled with the view/body
-        $this->footer = $this->replaceToAppSpecificVariables($footer);
+        $this->footer = $this->renameContextVariable($footer);
 
         $notificationManager = new NotificationManager(); /** @var NotificationManager $notificationManager */
         $request = Application::get()->getRequest();
@@ -75,7 +75,7 @@ trait Unsubscribe
     /**
      * @return bool whether mailable contains variables requires for the footer
      */
-    protected function checkRequiredVariables(): bool
+    protected function hasRequiredVariables(): bool
     {
         $included = [];
         foreach (self::$requiredVariables as $requiredVariable) {
@@ -94,7 +94,7 @@ trait Unsubscribe
      * Replace email template variables in the locale string, so they correspond to the application,
      * e.g., contextName => journalName/pressName/serverName
      */
-    protected function replaceToAppSpecificVariables(string $footer): string
+    protected function renameContextVariable(string $footer): string
     {
         $map = [
             '{$' . PKPContextEmailVariable::CONTEXT_NAME . '}' => '{$' . ContextEmailVariable::CONTEXT_NAME . '}',

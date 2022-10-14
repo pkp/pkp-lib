@@ -191,7 +191,7 @@ class Mailable extends IlluminateMailable
             );
         }
 
-        $this->embedFooter($locale); // set the locale for the email footer
+        $this->addFooter($locale); // set the locale for the email footer
     }
 
     /**
@@ -304,9 +304,12 @@ class Mailable extends IlluminateMailable
     }
 
     /**
-     * Override this method to add footer to the email, e.g., unsubscribe link
+     * Add a footer to the email
+     *
+     * A mailable may override this method to add a footer to the end of the email body before it is sent.
+     * Use this to add an unsubscribe link or append other automated messages.
      */
-    protected function embedFooter(string $locale): self
+    protected function addFooter(string $locale): self
     {
         return $this;
     }
@@ -497,7 +500,7 @@ class Mailable extends IlluminateMailable
             return $view . $this->footer;
         }
 
-        return $view; // doesn't contain Mailable::view
+        return $view; // $this->html, $this->textView or $this->markdown; see parent::buildView() for details
     }
 
     /**

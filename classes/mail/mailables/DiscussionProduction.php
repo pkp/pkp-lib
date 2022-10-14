@@ -50,10 +50,7 @@ class DiscussionProduction extends Mailable
         return self::addDiscussionDescription($variables);
     }
 
-    /**
-     * @copydoc PKP\mail\Mailable::embedFooter()
-     */
-    protected function embedFooter(string $locale): self
+    protected function addFooter(string $locale): self
     {
         $this->setupUnsubscribeFooter($locale);
         return $this;

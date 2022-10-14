@@ -270,7 +270,7 @@ class SectionDAO extends PKPSectionDAO
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [
                 (int)$section->getServerId(),
-                (int)$section->getReviewFormId(),
+                $section->getReviewFormId(),
                 (float) $section->getSequence(),
                 $section->getMetaIndexed() ? 1 : 0,
                 $section->getMetaReviewed() ? 1 : 0,
@@ -310,7 +310,7 @@ class SectionDAO extends PKPSectionDAO
 					abstract_word_count = ?
 				WHERE section_id = ?',
             [
-                (int) $section->getReviewFormId(),
+                $section->getReviewFormId(),
                 (float) $section->getSequence(),
                 (int) $section->getMetaIndexed(),
                 (int) $section->getMetaReviewed(),

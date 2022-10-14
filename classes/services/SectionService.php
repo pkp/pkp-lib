@@ -136,6 +136,9 @@ class SectionService implements EntityPropertyInterface
         // Don't allow sections to be added to any other context
         $section->setServerId($context->getId());
 
+        // OPS doesn't support review forms
+        $section->setReviewFormId(null);
+
         $sectionDao->insertObject($section);
 
         return $section;

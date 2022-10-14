@@ -81,8 +81,8 @@ class MetadataMigration extends \PKP\migration\Migration
         // Filter Settings
         Schema::create('filter_settings', function (Blueprint $table) {
             $table->bigInteger('filter_id');
-            $table->foreign('filter_id', 'filter_settings_id')->references('filter_id')->on('filters')->onDelete('cascade');
-            $table->index(['filter_id'], 'filter_settings_filter_id');
+            $table->foreign('filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
+            $table->index(['filter_id'], 'filter_settings_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);

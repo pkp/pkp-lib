@@ -115,7 +115,7 @@ class ReviewsMigration extends \PKP\migration\Migration
         // Submission Files for each review round
         Schema::create('review_round_files', function (Blueprint $table) {
             $table->bigInteger('submission_id');
-            $table->foreign('submission_id', 'review_round_files_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'review_round_files_submission_id');
 
             $table->bigInteger('review_round_id');

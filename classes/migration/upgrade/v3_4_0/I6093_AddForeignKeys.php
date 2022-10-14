@@ -179,6 +179,11 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('navigation_menu_item_assignment_settings', function (Blueprint $table) {
             $table->foreign('navigation_menu_item_assignment_id', 'assignment_settings_navigation_menu_item_assignment_id')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments')->onDelete('cascade');
         });
+        if (Schema::hasTable('review_form_elements')) {
+            Schema::table('review_form_elements', function (Blueprint $table) {
+                $table->foreign('review_form_id', 'review_form_elements_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
+            });
+        }
         if (Schema::hasTable('review_form_settings')) {
             Schema::table('review_form_settings', function (Blueprint $table) {
                 $table->foreign('review_form_id', 'review_form_settings_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
@@ -198,6 +203,8 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         }
         Schema::table('submissions', function (Blueprint $table) {
             $table->foreign('context_id', 'submissions_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+            $table->foreign('current_publication_id', 'submissions_current_publication_id')->references('publication_id')->on('publications')->onDelete('set null');
+            $table->index(['current_publication_id'], 'submissions_current_publication_id');
         });
         Schema::table('submission_settings', function (Blueprint $table) {
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
@@ -207,6 +214,7 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         });
         Schema::table('authors', function (Blueprint $table) {
             $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups');
             $table->index(['user_group_id'], 'authors_user_group_id');
         });
@@ -215,6 +223,7 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         });
         Schema::table('edit_decisions', function (Blueprint $table) {
             $table->foreign('editor_id', 'edit_decisions_editor_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('submission_id', 'edit_decisions_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
         });
         Schema::table('submission_comments', function (Blueprint $table) {
             $table->foreign('submission_id', 'submission_comments_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
@@ -233,7 +242,11 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('object_id')->references('object_id')->on('submission_search_objects')->onDelete('cascade');
             $table->foreign('keyword_id', 'submission_search_object_keywords_keyword_id')->references('keyword_id')->on('submission_search_keyword_list')->onDelete('cascade');
         });
+        Schema::table('review_rounds', function (Blueprint $table) {
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
         Schema::table('review_round_files', function (Blueprint $table) {
+            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds')->onDelete('cascade');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_file_id'], 'review_round_files_submission_file_id');
         });
@@ -272,6 +285,12 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('submission_file_revisions', function (Blueprint $table) {
             $table->index(['submission_file_id'], 'submission_file_revisions_submission_file_id');
             $table->index(['file_id'], 'submission_file_revisions_file_id');
+        });
+        Schema::table($this->getContextSettingsTable(), function (Blueprint $table) {
+            $table->foreign($this->getContextKeyField(), $this->getContextSettingsTable() . '_' . $this->getContextKeyField())->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+        });
+        Schema::table('review_files', function (Blueprint $table) {
+            $table->foreign('review_id', 'review_files_review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
         });
     }
 

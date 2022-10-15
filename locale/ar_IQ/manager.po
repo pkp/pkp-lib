@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-10-08 04:23+0000\n"
+"PO-Revision-Date: 2022-10-15 15:38+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2665,14 +2665,12 @@ msgstr "هذه الرسالة معنونة إلى المستخدمين المس�
 msgid "mailable.reviewerRegister.description"
 msgstr "هذه الرسالة معنونة إلى المحكمين المسجلين حديثاً للترحيب بهم في موقعنا ولتزويدهم بأسماء الدخول وكلمات المرور الخاصين بهم."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"عند تمكين هذه الرسالة، سيتم إرسالها تلقائياً للمؤلف بمجرد إكماله خطوات تقديم "
-"طلب النشر إلى المجلة. يتعرف المؤلف من خلالها على إمكانية متابعة طلبه عبر "
-"موقع المجلة كما يشكره على تقديم طلبه لها."
+"عند تمكين هذه الرسالة، سيتم إرسالها تلقائياً للمؤلف بمجرد إكماله خطوات طلب "
+"التقديم إلى المجلة. هي تتضمن معلومات عن كيفية متابعة طلبه خلال عملية التحرير،"
+" وتشكره على تقديم طلبه لها."
 
-#, fuzzy
 msgid "mailable.submissionAckNotUser.description"
 msgstr ""
 "عند تمكين هذه الرسالة، سيتم إرسالها تلقائياً إلى المؤلفين الآخرين المذكورين "
@@ -2823,3 +2821,152 @@ msgid "mailable.reviewerResendRequest.description"
 msgstr ""
 "هذا البريد الالكتروني يرسله المحرر إلى المحكم الذي رفض إلتماس التحكيم عندما "
 "يرغب المحرر بإعادة إرسال الالتماس."
+
+msgid "mailable.passwordReset.name"
+msgstr "إعادة تعيين كلمة المرور"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "تأكيد إعادة تعيين كلمة المرور"
+
+msgid "mailable.userRegister.name"
+msgstr "تسجيل المستخدم"
+
+msgid "mailable.submissionAck.name"
+msgstr "إقرار طلب التقديم"
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "تأكيد طلب التقديم"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "تقديم المناقشة"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة التقديم لإشعار المستخدم بشأنه"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة التدقيق اللغوي لإشعار المستخدم "
+"بشأن طلب تقديمه"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة الإنتاج لإشعار المستخدم بشأن طلب "
+"تقديمه"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة التحكيم لإشعار المستخدم بشأن طلب "
+"تقديمه"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "مناقشة التدقيق اللغوي"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "إشعار نسخة النشر"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "إشعار تعديل التحكيم"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "إشعار التقرير الإحصائي"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُبلغ المحررين المعينين آليًا بشأن وجود نسخ "
+"جديدة من المنشور"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُبلغ المحكم آليًا بشأن تفاصيل تعديلات التحكيم"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل تلقائيًا إلى المحررين المعينين عندما يُرسل "
+"المحكم توصياته"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "إشعار المحررين بتعليق المحكم"
+
+msgid "mailable.discussionProduction.name"
+msgstr "مناقشة الإنتاج"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "المحكم المدعو لتحكيم طلب التقديم تم إلغاء تعيينه."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "طلب التقديم تم إرجاعه من التدقيق اللغوي"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"إختر نوع إحصائيات الاستعمال الجغرافية الذي تريد جمعها. الإحصائيات الجغرافية "
+"الأكثر تفصيلاً قد تزيد حجم قاعدة بياناتك بشكل ملحوظ، وفي بعض الأحيان النادرة "
+"قد تنتهك خصوصية زوار موقعك."
+
+msgid "mailable.reviewerRegister.name"
+msgstr "تسجيل المحكم"
+
+msgid "manager.people.authSource"
+msgstr "مصدر المصادقة"
+
+msgid "manager.institutions.form.ror"
+msgstr "مسجل المنظمة البحثية"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "الرمز التعريفي لمسجل المنظمة البحثية لهذه المؤسسة."
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"تمكين الإحصائيات المؤسساتية إذا كنت ترغب بجمع إحصائيات الاستعمال حسب "
+"المؤسسات. عند تمكينه، سيتطلب الأمر تعريف مديات عناوين IP لكل مؤسسة ترغب "
+"بتقفيها."
+
+msgid "mailable.discussionReview.name"
+msgstr "مناقشة التحكيم"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"إنك بصدد جعل سجلات البيانات الوصفية لـ {$count} من معرفات المكونات الرقمية، "
+"جعلها قديمة. إن حالة المكون القديم يمكن تطبيقها فقط للمكونات التي سبق "
+"تسليمها. هل أنت متأكد من رغبتك في اعتبار تلك السجلات قديمة؟"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"العناوين الصحيحة تشمل: عنوان IP (مثل 142.58.103.1)، مدى عناوين IP (مثل "
+"142.58.103.1 - 142.58.103.4)، نطاق عناوين IP مع علامة البديل '*' (e.g. 142."
+"58.*.*)، ونطاق عناوين IP مع مؤشر الشبكة الفرعية (مثل 142.58.100.0/24)."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "إشعار النسخة المنقحة"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} إلى {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "الكل {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "تنزيل الملفات"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "عدد التنزيلات لكل ملف."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "التنزيل الجغرافي"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "عدد المعاينات والتنزيلات لكل مدينة، منطقة وبلد."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تبلغ المؤلف بأن طلب تقديمه قد تم إرجاعه من مرحلة "
+"التدقيق اللغوي."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "جولة التحكيم أُلغيت"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تبلغ المؤلف بأن جولة تحكيم خاصة بطلب تقديمه قد "
+"أُلغيت."

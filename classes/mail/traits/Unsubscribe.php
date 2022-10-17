@@ -31,6 +31,9 @@ trait Unsubscribe
     // Notification to generate unsubscribe link
     protected Notification $notification;
 
+    // Locale key used by default in the footer if none is specified by Mailable::setupUnsubscribeFooter()
+    protected string $defaultUnsubscribeLocaleKey = 'emails.footer.unsubscribe';
+
     /**
      * @var string[] template variables required for the unsubscribe footer
      */
@@ -58,12 +61,11 @@ trait Unsubscribe
     /**
      * Setup footer with unsubscribe link if notification is deliberately set with self::allowUnsubscribe()
      */
-    protected function setupUnsubscribeFooter(string $locale): void
+    protected function setupUnsubscribeFooter(string $locale, $localeKey = null): void
     {
         if (!isset($this->notification)) return;
 
-        $footer = __('emails.footer.unsubscribe', [], $locale); // variables to be compiled with the view/body
-        $this->footer = $this->renameContextVariable($footer);
+        $this->footer = $this->renameContextVariables($this->setFooterText($locale, $localeKey));
 
         $notificationManager = new NotificationManager(); /** @var NotificationManager $notificationManager */
         $request = Application::get()->getRequest();
@@ -94,13 +96,26 @@ trait Unsubscribe
      * Replace email template variables in the locale string, so they correspond to the application,
      * e.g., contextName => journalName/pressName/serverName
      */
-    protected function renameContextVariable(string $footer): string
+    protected function renameContextVariables(string $footer): string
     {
         $map = [
             '{$' . PKPContextEmailVariable::CONTEXT_NAME . '}' => '{$' . ContextEmailVariable::CONTEXT_NAME . '}',
             '{$' . PKPContextEmailVariable::CONTEXT_URL . '}' => '{$' . ContextEmailVariable::CONTEXT_URL . '}',
+            '{$' . PKPContextEmailVariable::CONTEXT_SIGNATURE . '}' => '{$' . ContextEmailVariable::CONTEXT_SIGNATURE . '}',
         ];
 
         return str_replace(array_keys($map), array_values($map), $footer);
+    }
+
+    /**
+     * Set the message to be displayed in the footer
+     */
+    protected function setFooterText(string $locale, string $localeKey = null): string
+    {
+        if (is_null($localeKey)) {
+            $localeKey = $this->defaultUnsubscribeLocaleKey;
+        }
+
+        return __($localeKey, [], $locale);
     }
 }

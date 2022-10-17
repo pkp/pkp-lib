@@ -22,7 +22,6 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\traits\Discussion;
 use APP\submission\Submission;
-use PKP\mail\traits\Unsubscribe;
 
 class DiscussionCopyediting extends Mailable
 {
@@ -30,7 +29,6 @@ class DiscussionCopyediting extends Mailable
     use Sender;
     use Configurable;
     use Discussion;
-    use Unsubscribe;
 
     protected static ?string $name = 'mailable.discussionCopyediting.name';
     protected static ?string $description = 'mailable.discussionCopyediting.description';

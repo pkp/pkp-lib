@@ -340,6 +340,12 @@ msgstr ""
 msgid "emails.footer.unsubscribe"
 msgstr ""
 "<hr>"
+"You are subscribed to receive this type of notifications from <a href=\"{$contextUrl}\">{$contextName}</a>."
+"To unsubscribe, visit this link: <a href=\"{$unsubscribeUrl}\">{$unsubscribeUrl}</a>."
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+"<hr>"
 "Reply to this comment on <a href=\"{$submissionUrl}\">#{$submissionId} {$authorsShort}</a> or "
 "<a href=\"{$unsubscribeUrl}\">unsubscribe</a> from notifications from <a href=\"{$contextUrl}\">{$contextName}</a>."
 

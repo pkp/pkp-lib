@@ -17,6 +17,8 @@ namespace PKP\mail\traits;
 
 trait Discussion
 {
+    use Unsubscribe;
+
     protected static string $discussionSubject = 'subject';
     protected static string $discussionContent = 'content';
 
@@ -39,6 +41,15 @@ trait Discussion
         $variables[self::$discussionSubject] = __('emailTemplate.variable.discussion.subject');
         $variables[self::$discussionContent] = __('emailTemplate.variable.discussion.content');
         return $variables;
+    }
+
+    protected function setFooterText(string $locale, string $localeKey = null): string
+    {
+        if (is_null($localeKey)) {
+            $localeKey = 'emails.footer.unsubscribe.discussion';
+        }
+
+        return __($localeKey, [], $locale);
     }
 
     /**

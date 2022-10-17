@@ -22,7 +22,6 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\traits\Discussion;
-use PKP\mail\traits\Unsubscribe;
 
 class DiscussionReview extends Mailable
 {
@@ -30,7 +29,6 @@ class DiscussionReview extends Mailable
     use Sender;
     use Configurable;
     use Discussion;
-    use Unsubscribe;
 
     protected static ?string $name = 'mailable.discussionReview.name';
     protected static ?string $description = 'mailable.discussionReview.description';

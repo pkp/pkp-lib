@@ -422,7 +422,7 @@ class FormBuilderVocabulary {
 				case 'uniqId':
 					$smarty->assign('FBV_' . $key, $value); break;
 				case 'required': 
-					if ($value) $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '"'; 
+					if ($value) $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" '; 
 				break;
 				default: 
 					$textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';

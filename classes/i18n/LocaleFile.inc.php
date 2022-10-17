@@ -99,7 +99,7 @@ class LocaleFile {
 				if (!empty($params)) {
 					// Substitute custom parameters
 					foreach ($params as $key => $value) {
-						$message = str_replace("{\$$key}", $value, $message);
+						$message = str_replace("{\$$key}", $value ?? '', $message);
 					}
 				}
 

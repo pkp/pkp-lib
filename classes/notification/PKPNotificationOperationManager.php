@@ -28,6 +28,7 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use InvalidArgumentException;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
 {
@@ -418,13 +419,27 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return string
      */
-    public function getUnsubscribeNotificationUrl($request, $notification)
+    public function getUnsubscribeNotificationUrl($request, $notification, $context = null)
     {
         $application = Application::get();
         $dispatcher = $application->getDispatcher();
-        $unsubscribeUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'notification', 'unsubscribe', null, ['validate' => $this->createUnsubscribeToken($notification), 'id' => $notification->getId()]);
+        $contextPath = null;
+        if ($context) {
+            if ($context->getId() !== $notification->getContextId()) {
+                throw new InvalidArgumentException('Trying to build notification unsubscribe URL with the wrong context');
+            }
+            $contextPath = $context->getData('urlPath');
+        }
 
-        return $unsubscribeUrl;
+        return $dispatcher->url(
+            $request,
+            PKPApplication::ROUTE_PAGE,
+            $contextPath,
+            'notification',
+            'unsubscribe',
+            null,
+            ['validate' => $this->createUnsubscribeToken($notification), 'id' => $notification->getId()]
+        );
     }
 }
 

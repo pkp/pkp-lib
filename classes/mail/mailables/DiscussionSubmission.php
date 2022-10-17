@@ -36,9 +36,12 @@ class DiscussionSubmission extends Mailable
     protected static bool $canDisable = true;
     protected static array $groupIds = [self::GROUP_SUBMISSION];
 
+    protected Context $context;
+
     public function __construct(Context $context, Submission $submission, string $subject, string $content)
     {
         parent::__construct([$context, $submission]);
+        $this->context = $context;
         $this->setupDiscussionVariables($subject, $content);
     }
 
@@ -50,7 +53,7 @@ class DiscussionSubmission extends Mailable
 
     protected function addFooter(string $locale): self
     {
-        $this->setupUnsubscribeFooter($locale);
+        $this->setupUnsubscribeFooter($locale, $this->context);
         return $this;
     }
 }

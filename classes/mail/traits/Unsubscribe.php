@@ -18,6 +18,7 @@ namespace PKP\mail\traits;
 use APP\core\Application;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
 use PKP\mail\variables\SubmissionEmailVariable;
@@ -61,7 +62,7 @@ trait Unsubscribe
     /**
      * Setup footer with unsubscribe link if notification is deliberately set with self::allowUnsubscribe()
      */
-    protected function setupUnsubscribeFooter(string $locale, $localeKey = null): void
+    protected function setupUnsubscribeFooter(string $locale, $context, $localeKey = null): void
     {
         if (!isset($this->notification)) return;
 
@@ -70,7 +71,11 @@ trait Unsubscribe
         $notificationManager = new NotificationManager(); /** @var NotificationManager $notificationManager */
         $request = Application::get()->getRequest();
         $this->addData([
-            self::$unsubscribeUrl => $notificationManager->getUnsubscribeNotificationUrl($request, $this->notification),
+            self::$unsubscribeUrl => $notificationManager->getUnsubscribeNotificationUrl(
+                $request,
+                $this->notification,
+                $context
+            ),
         ]);
     }
 

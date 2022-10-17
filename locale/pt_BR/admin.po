@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-10-08 04:01+0000\n"
-"Last-Translator: cicilia conceiçao de maria <ccmaria@uem.br>\n"
+"PO-Revision-Date: 2022-10-18 07:27+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -170,7 +170,6 @@ msgstr "Versão do PHP"
 msgid "admin.server.platform"
 msgstr "Sistema Operacional"
 
-#, fuzzy
 msgid "admin.settings"
 msgstr "Configurações"
 
@@ -192,11 +191,9 @@ msgstr "Tamanho mínimo de senha"
 msgid "admin.settings.passwordCharacters"
 msgstr "caracteres"
 
-#, fuzzy
 msgid "admin.settings.siteLanguage"
 msgstr "Idioma do Portal"
 
-#, fuzzy
 msgid "admin.settings.siteStyleSheetInvalid"
 msgstr ""
 "Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as "
@@ -205,11 +202,9 @@ msgstr ""
 msgid "admin.settings.siteStyleSheet"
 msgstr "Folha de Estilos do Portal (CSS)"
 
-#, fuzzy
 msgid "admin.settings.siteTheme"
 msgstr "Tema do Portal"
 
-#, fuzzy
 msgid "admin.settings.siteTitle"
 msgstr "Título do Portal"
 
@@ -225,7 +220,6 @@ msgstr "Configurações do Portal"
 msgid "admin.siteSetup"
 msgstr "Configuração do Portal"
 
-#, fuzzy
 msgid "admin.systemConfigFileReadError"
 msgstr ""
 "O documento de configuração <tt>config.inc.php</tt> não existe, não possui "
@@ -234,7 +228,6 @@ msgstr ""
 msgid "admin.systemInformation"
 msgstr "Informações sobre o Sistema"
 
-#, fuzzy
 msgid "admin.versionBuild"
 msgstr "Construção"
 
@@ -253,11 +246,9 @@ msgstr "Histórico de versões"
 msgid "admin.version.latest"
 msgstr "Última versão"
 
-#, fuzzy
 msgid "admin.versionMajor"
 msgstr "Maior"
 
-#, fuzzy
 msgid "admin.versionMinor"
 msgstr "Menor"
 
@@ -294,7 +285,6 @@ msgstr "O arquivo {$filename} foi processado e arquivado."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Carregador de arquivo"
 
-#, fuzzy
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
 "Copia o(s) arquivo(s) de log do apache repassado(s), filtrando as entradas "
@@ -332,14 +322,13 @@ msgstr ""
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Sucesso: {$filePath} para {$destinationPath}"
 
-#, fuzzy
 msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" retornou o seguinte erro após executado: {$output}"
+msgstr ""
+"A execução do programa \"{$utilPath}\" retornou o seguinte erro: {$output}"
 
-#, fuzzy
 msgid "admin.error.executingUtil"
 msgstr ""
-"Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuração de "
+"Erro: não foi possível executar \"{$utilPath}\". Verifique a configuração de "
 "{$utilVar} em config.inc.php."
 
 msgid "admin.settings.siteLogo"
@@ -497,7 +486,6 @@ msgstr "Comandos disponíveis para o `{$namespace}` namespace:"
 msgid "admin.cli.tool.usage.parameters"
 msgstr "comando [argumentos]"
 
-#, fuzzy
 msgid "admin.cli.tool.usage.title"
 msgstr "Uso:"
 
@@ -696,7 +684,6 @@ msgstr ""
 "O arquivo não pôde ser descompactado. O arquivo de destino {$filePath} não "
 "pôde ser escrito com fwrite."
 
-#, fuzzy
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
 "O arquivo não pôde ser descompactado. O arquivo gz de código aberto "
@@ -707,7 +694,6 @@ msgstr ""
 "O arquivo não pôde ser compactado. O arquivo de origem {$filePath} não pôde "
 "ser lido com fread."
 
-#, fuzzy
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
 "O arquivo não pôde ser compactado. O arquivo gz de destino aberto {$filePath}"
@@ -901,13 +887,11 @@ msgstr ""
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Processar jobs pendentes na fila"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
 "Não é possível executar jobs da fila porque o modo de manutenção do sistema "
 "está ativado."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
 "Execute um processo de trabalho de daemon infinito que continuará "

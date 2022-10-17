@@ -123,7 +123,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 */
 	public function __construct() {
 		// Seed random number generator
-		mt_srand(((double) microtime()) * 1000000);
+		mt_srand(intval(((double) microtime()) * 1000000));
 
 		import('lib.pkp.classes.core.Core');
 		import('lib.pkp.classes.core.PKPString');

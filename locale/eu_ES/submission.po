@@ -808,3 +808,10 @@ msgstr "Ebaluazio-inprimakia"
 
 msgid "submission.reviewFormResponse"
 msgstr "Ebaluazio-inprimakiaren erantzuna"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Bidalketa honi ez zaio fitxategirik erantsi."
+
+msgid "author.submit.confirmation"
+msgstr "Berretsi"

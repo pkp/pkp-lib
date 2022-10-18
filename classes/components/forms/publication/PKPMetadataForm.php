@@ -14,19 +14,25 @@
 
 namespace PKP\components\forms\publication;
 
+use APP\publication\Publication;
 use PKP\components\forms\FieldControlledVocab;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\context\Context;
+use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionDisciplineDAO;
+use PKP\submission\SubmissionKeywordDAO;
+use PKP\submission\SubmissionLanguageDAO;
+use PKP\submission\SubmissionSubjectDAO;
 
 define('FORM_METADATA', 'metadata');
 
 class PKPMetadataForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
     public $id = FORM_METADATA;
-
-    /** @copydoc FormComponent::$method */
     public $method = 'PUT';
+    public Context $context;
+    public Publication $publication;
 
     /**
      * Constructor
@@ -34,70 +40,72 @@ class PKPMetadataForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      * @param Publication $publication The publication to change settings for
-     * @param Context $submissionContext The journal or press of the submission.
+     * @param Context $context The journal or press of the submission.
      * @param string $suggestionUrlBase The base URL to get suggestions for controlled vocab.
      */
-    public function __construct($action, $locales, $publication, $submissionContext, $suggestionUrlBase)
+    public function __construct(string $action, array $locales, Publication $publication, Context $context, string $suggestionUrlBase)
     {
         $this->action = $action;
         $this->locales = $locales;
+        $this->context = $context;
+        $this->publication = $publication;
 
-        if ($submissionContext->getData('keywords')) {
+        if ($this->enabled('keywords')) {
             $this->addField(new FieldControlledVocab('keywords', [
                 'label' => __('common.keywords'),
                 'tooltip' => __('manager.setup.metadata.keywords.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
                 'locales' => $this->locales,
-                'selected' => (array) $publication->getData('keywords'),
+                'value' => (array) $publication->getData('keywords'),
             ]));
         }
 
-        if ($submissionContext->getData('subjects')) {
+        if ($this->enabled('subjects')) {
             $this->addField(new FieldControlledVocab('subjects', [
                 'label' => __('common.subjects'),
                 'tooltip' => __('manager.setup.metadata.subjects.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
                 'locales' => $this->locales,
-                'selected' => (array) $publication->getData('subjects'),
+                'value' => (array) $publication->getData('subjects'),
             ]));
         }
 
-        if ($submissionContext->getData('disciplines')) {
+        if ($this->enabled('disciplines')) {
             $this->addField(new FieldControlledVocab('disciplines', [
                 'label' => __('search.discipline'),
                 'tooltip' => __('manager.setup.metadata.disciplines.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
                 'locales' => $this->locales,
-                'selected' => (array) $publication->getData('disciplines'),
+                'value' => (array) $publication->getData('disciplines'),
             ]));
         }
 
-        if ($submissionContext->getData('languages')) {
+        if ($this->enabled('languages')) {
             $this->addField(new FieldControlledVocab('languages', [
                 'label' => __('common.languages'),
                 'tooltip' => __('manager.setup.metadata.languages.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
                 'locales' => $this->locales,
-                'selected' => (array) $publication->getData('languages'),
+                'value' => (array) $publication->getData('languages'),
             ]));
         }
 
-        if ($submissionContext->getData('agencies')) {
+        if ($this->enabled('agencies')) {
             $this->addField(new FieldControlledVocab('supportingAgencies', [
                 'label' => __('submission.supportingAgencies'),
                 'tooltip' => __('manager.setup.metadata.agencies.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
                 'locales' => $this->locales,
-                'selected' => (array) $publication->getData('supportingAgencies'),
+                'value' => (array) $publication->getData('supportingAgencies'),
             ]));
         }
 
-        if ($submissionContext->getData('coverage')) {
+        if ($this->enabled('coverage')) {
             $this->addField(new FieldText('coverage', [
                 'label' => __('manager.setup.metadata.coverage'),
                 'tooltip' => __('manager.setup.metadata.coverage.description'),
@@ -106,7 +114,7 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
-        if ($submissionContext->getData('rights')) {
+        if ($this->enabled('rights')) {
             $this->addField(new FieldText('rights', [
                 'label' => __('submission.rights'),
                 'tooltip' => __('manager.setup.metadata.rights.description'),
@@ -115,7 +123,7 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
-        if ($submissionContext->getData('source')) {
+        if ($this->enabled('source')) {
             $this->addField(new FieldText('source', [
                 'label' => __('common.source'),
                 'tooltip' => __('manager.setup.metadata.source.description'),
@@ -124,7 +132,7 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
-        if ($submissionContext->getData('type')) {
+        if ($this->enabled('type')) {
             $this->addField(new FieldText('type', [
                 'label' => __('common.type'),
                 'tooltip' => __('manager.setup.metadata.type.description'),
@@ -133,12 +141,23 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
-        if (in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
+        if ($this->enabled('pub-id::publisher-id')) {
             $this->addField(new FieldText('pub-id::publisher-id', [
                 'label' => __('submission.publisherId'),
                 'tooltip' => __('submission.publisherId.description'),
                 'value' => $publication->getData('pub-id::publisher-id'),
             ]));
         }
+    }
+
+    /**
+     * Whether or not a metadata field is enabled in this form
+     */
+    protected function enabled(string $setting): bool
+    {
+        if ($setting === 'pub-id::publisher-id') {
+            return in_array('publication', (array) $this->context->getData('enablePublisherId'));
+        }
+        return (bool) $this->context->getData($setting);
     }
 }

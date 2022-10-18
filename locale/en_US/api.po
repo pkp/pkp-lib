@@ -17,6 +17,9 @@ msgstr ""
 msgid "api.400.paramNotSupported"
 msgstr "The {$param} parameter is not supported."
 
+msgid "api.400.propReadOnly"
+msgstr "The {$prop} property can not be modified."
+
 msgid "api.400.invalidApiToken"
 msgstr "The API token could not be validated. This may indicate an error in the API token or that the API token is no longer valid."
 
@@ -220,6 +223,9 @@ msgstr "Your request could not be fulfilled because it is missing required infor
 
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "The requested volume, number or year is not valid."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "You are not allowed to submit in this user role."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."

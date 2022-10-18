@@ -26,6 +26,7 @@ msgstr "सबमिशन स्वीकृति"
 # (pofilter) startpunc: Different punctuation at the start
 # (pofilter) xmltags: Added XML tags
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

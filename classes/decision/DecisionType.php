@@ -257,7 +257,7 @@ abstract class DecisionType
         $userIds = [];
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $result = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, $this->getStageId());
+        $result = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], $this->getStageId());
         /** @var StageAssignment $stageAssignment */
         while ($stageAssignment = $result->next()) {
             $userIds[] = (int) $stageAssignment->getUserId();

@@ -2228,6 +2228,7 @@ msgstr "Թույլտվություններ"
 msgid "settings.libraryFiles.category.marketing"
 msgstr "Մարքեթինգ"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Նամակ ուղարկեք միայն այն հեղինակներին, որոնք նշանակված են ներկայացման "

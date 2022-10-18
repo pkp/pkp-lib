@@ -17,44 +17,21 @@ msgstr "Geef een geformatteerde lijst met referenties van de werken die geciteer
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Er zijn nieuwe reviews ingediend die door de redacteur worden bekeken."
 
-msgid "submission.confirm.message"
-msgstr "Uw inzending is opgeladen en klaar om verzonden te worden. U kan teruggaan om de gegevens die u heeft ingevuld na te kijken en te wijzigen voor u verder gaat. Als u klaar bent, klikt u op \"Voltooi inzending\"."
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Stuur in als"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Selecteer de rol die uw bijdrage aan deze inzending het best omschrijft."
 
-msgid "submission.submit.contactConsent"
-msgstr "Correspondentie-contact"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ja, ik wil gecontacteerd worden over deze inzending."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Stuur in als een van volgende rollen als u de inzending zelf wilt redigeren en publiceren: {$managerGroups}"
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Controlelijst voor inzendingen"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "U moet onderstaande vereisten lezen en bevestigen dat de inzending eraan voldoet voor u kan verder gaan."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Inzending voltooid"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Bedankt voor uw interesse om te publiceren in {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Geef aan dat u zich akkoord verklaart met de copyright verklaring"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Ja, ik verklaar dat ik me zal houden aan de voorwaarden van de copyright verklaring"
-
-msgid "submission.submit.whatNext"
-msgstr "Wat is de volgende stap?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "U kan nu:"
@@ -864,9 +841,6 @@ msgstr "Review versie"
 msgid "submission.rights"
 msgstr "Rechten"
 
-msgid "submission.rights.tip"
-msgstr "Als u dat wilt, kunt u hier een korte beschrijving geven van de toegangsrechten voor deze inzending."
-
 msgid "submissions.active"
 msgstr "Actief"
 
@@ -903,9 +877,6 @@ msgstr "Oordeel"
 msgid "submission.source"
 msgstr "Bron"
 
-msgid "submission.source.tip"
-msgstr "Is deze inzending afgeleid van een andere bron? In dat geval kunt u een URL of beschrijving van die bron geven."
-
 msgid "submissions.submit"
 msgstr "Zend in"
 
@@ -933,9 +904,6 @@ msgstr "Review inzending"
 msgid "submission.submitter"
 msgstr "Inzender"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Voltooi inzending"
-
 msgid "submission.submit.selectFile"
 msgstr "Selecteer bestand"
 
@@ -954,14 +922,8 @@ msgstr "Voeg een ander bestand toe"
 msgid "submission.submit.metadataForm"
 msgstr "Bijkomende verfijningen"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Voeg bijkomende gegevens toe voor uw inzending. Druk \"enter\" na elke term."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Taal van de inzending"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Inzendingen worden aanvaard in verschillende talen. Kies de hoofdtaal van de inzending in bovenstaand selectiemenu."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Bestanden van de inzending"
@@ -992,9 +954,6 @@ msgstr "Indexeringsinformatie"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titel en samenvatting"
-
-msgid "submission.type.tip"
-msgstr "De inzending is doorgaans een 'afbeelding', 'tekst' of ander multimediatype, zoals 'software' of 'interactief'. Kies het meest relevante type voor uw inzending. Voorbeelden kunnen worden gevonden op <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>."
 
 msgid "submission.underway"
 msgstr "Onderweg"
@@ -1032,41 +991,11 @@ msgstr "DD-MM"
 msgid "submission.date.yyyymmdd"
 msgstr "DD-MM-YYYY"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Eerste contactpersoon voor redactionele correspondentie."
-
 msgid "submission.submit.contributorRole"
 msgstr "Rol van de bijdrager"
 
 msgid "submission.submit.addAuthor"
 msgstr "Voeg bijdrager toe"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Vul een taal in."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Vul een onderwerp in."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Vul een discipline in."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Vul een trefwoord in."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Vul de gegevens over het bereik in."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Vul het type in."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Vul de bron in."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Vul de rechten in."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Vul de referenties in."
 
 msgid "submission.form.name"
 msgstr "Geef dit een behulpzame naam"
@@ -1723,3 +1652,10 @@ msgstr "{$numTitles} titels"
 
 msgid "catalog.noTitlesSection"
 msgstr "Er zijn nog geen titels gepubliceerd voor deze sectie"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Geen bestanden gekoppeld aan deze inzending."
+
+msgid "author.submit.confirmation"
+msgstr "Bevestiging"

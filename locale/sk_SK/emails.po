@@ -12,6 +12,15 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
+"dokončí proces odosielania príspevku do časopisu. Obsahuje informácie o "
+"možnosti sledovania príspevku počas redakčného spracovania a poďakovanie "
+"autorovi za príspevok."
+
+#, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

@@ -1691,3 +1691,10 @@ msgstr ""
 "Deze e-mail wordt maandelijks automatisch naar redacteuren en "
 "tijdschriftbeheerders gestuurd om hen een overzicht van de systeemgezondheid "
 "te geven."
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Checklist voor het voorbereiden van een inzending"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Bij het aanleveren van een inzending voor het tijdschrift wordt aan auteurs gevraagd om eerst ieder punt op de checklist ter voorbereiding van een inzending af te vinken. De checklist wordt ook getoond in bij de auteursrichtlijnen, onder Over dit tijdschrift. De checklist kan hieronder aangepast worden. Alle punten moeten aangevinkt worden voor auteurs verder kunnen gaan met hun inzending."

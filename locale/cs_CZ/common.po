@@ -1137,9 +1137,6 @@ msgstr "Jste si jisti, že chcete vložit tento formulář?"
 msgid "form.confirmSubmit.title"
 msgstr "Potvrdit"
 
-msgid "form.emailRequired"
-msgstr "Je třeba vložit emailovou adresu."
-
 msgid "form.dataHasChanged"
 msgstr "Údaje v tomto formuláři se změnily. Chcete opravdu pokračovat bez uložení?"
 
@@ -1289,12 +1286,6 @@ msgstr "Odebrán typ oznámení."
 
 msgid "notification.removedAnnouncement"
 msgstr "Odebráno oznámení."
-
-msgid "notification.addedAuthor"
-msgstr "Přidán autor."
-
-msgid "notification.editedAuthor"
-msgstr "Upraven autor."
 
 msgid "notification.addedNote"
 msgstr "Poznámka odeslána."

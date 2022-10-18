@@ -197,12 +197,6 @@ msgstr "Import or export content or site data"
 msgid "grid.action.orderItems"
 msgstr "Enable ordering mode"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Edit this checklist item"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Delete this checklist item"
-
 msgid "grid.action.resetAll"
 msgstr "Reset all items to default values"
 
@@ -407,9 +401,6 @@ msgstr "Sources of Support"
 msgid "grid.action.addContributor"
 msgstr "Add Contributor"
 
-msgid "grid.action.editContributor"
-msgstr "Edit Contributor"
-
 msgid "grid.action.deleteContributor"
 msgstr "Delete Contributor"
 
@@ -452,23 +443,11 @@ msgstr "Submission Checklist"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Checklist Item"
 
-msgid "author.users.contributor.name"
-msgstr "Name"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Role"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Primary Contact"
 
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Set Primary Contact"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "In Browse Lists"
 
 msgid "contributor.listPanel.preview"
 msgstr "Preview"

@@ -213,12 +213,6 @@ msgstr "Bæta við nýju sniðmáti fyrir tölvupóst"
 msgid "grid.action.resetAll"
 msgstr "Endurstilla öll atriði á sjálfgefin gildi"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Eyða þessu atriði gátlista"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Breyta þessu gátlista atriði"
-
 msgid "grid.action.orderItems"
 msgstr "Virkja pöntunarham"
 
@@ -659,23 +653,11 @@ msgstr ""
 msgid "contributor.listPanel.preview"
 msgstr "Forskoða"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Á vafralistum"
-
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Skrá aðaltengilið"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Aðal tengiliður"
-
-msgid "author.users.contributor.role"
-msgstr "Hlutverk"
-
-msgid "author.users.contributor.email"
-msgstr "Netfang"
-
-msgid "author.users.contributor.name"
-msgstr "Nafn"
 
 msgid "grid.libraryFiles.productionTemplate.title"
 msgstr "Safn framleiðslusniðmáta"
@@ -711,9 +693,6 @@ msgstr ""
 
 msgid "grid.action.deleteContributor"
 msgstr "Eyða framlagsaðila"
-
-msgid "grid.action.editContributor"
-msgstr "Breyta framlagsaðila"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr "Taka með ókláruð handrit sem ekki voru send inn af höfundi."

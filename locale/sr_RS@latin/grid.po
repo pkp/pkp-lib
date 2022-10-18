@@ -89,15 +89,6 @@ msgstr "Spisak za proveru predatih radova"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Stavke spiska za proveru"
 
-msgid "author.users.contributor.name"
-msgstr "Ime"
-
-msgid "author.users.contributor.email"
-msgstr "Imejl"
-
-msgid "author.users.contributor.role"
-msgstr "Uloga"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Primarni kontakt"
 
@@ -428,9 +419,6 @@ msgstr "Obriši kategoriju"
 msgid "grid.action.addContributor"
 msgstr "Dodaj saradnika"
 
-msgid "grid.action.editContributor"
-msgstr "Imeni saradnika"
-
 msgid "grid.action.deleteContributor"
 msgstr "Obriši saradnika"
 
@@ -439,9 +427,6 @@ msgstr "Opcije odgovora"
 
 msgid "grid.noFiles"
 msgstr "Nema fajlova"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "U listi za pregled"
 
 msgid "grid.roles.stageAssignment"
 msgstr "Dodela u fazi"
@@ -568,12 +553,6 @@ msgstr "Autor; Naslov"
 
 msgid "grid.action.approveCopyedit"
 msgstr "Odobri ovaj korektorski fajl za slanje u sledeću fazu."
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Uredi stavku sa ček liste"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Obriši stavku sa čekliste"
 
 msgid "grid.action.unconsiderReview"
 msgstr "Recenzija je gotova ali je možete i zanemariti"

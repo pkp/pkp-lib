@@ -1010,12 +1010,6 @@ msgstr "Il faut nommer un rédacteur metteur en page avant d'entamer le processu
 msgid "submission.previousAuthorMessages"
 msgstr "Messages précédents"
 
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Merci de vouloir publier dans \"{$contextName}\"."
-
-msgid "submission.submit.whatNext"
-msgstr "Quelle est la prochaine étape ?"
-
 msgid "submission.submit.whatNext.forNow"
 msgstr "Pour le moment, vous pouvez :"
 
@@ -1084,9 +1078,6 @@ msgstr "Droits"
 
 msgid "submission.submission"
 msgstr "Soumission"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Terminer la soumission"
 
 msgid "submission.submit.selectFile"
 msgstr "Choisir un fichier"
@@ -1188,19 +1179,8 @@ msgstr "Source"
 msgid "submission.submit.metadataStep"
 msgstr "2. Métadonnées"
 
-msgid "submission.rights.tip"
-msgstr "Si vous le désirez, vous pouvez ajouter une brève note concernant les droits d'accès de votre soumission."
-
-msgid "submission.source.tip"
-msgstr ""
-"Est-ce que cette soumission dérive d'une autre ressource ? Si oui, vous "
-"devez indiquer l'adresse URL ou décrire cette ressource."
-
 msgid "submission.submit.metadataForm"
 msgstr "Autres modifications"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Ajouter d'autres renseignements pour votre soumission. Veuillez appuyer sur la touche \"enter\" après chaque terme."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Fichiers de soumission"
@@ -1220,14 +1200,8 @@ msgstr "Transférer les fichiers requis par ce fichier de production pour que to
 msgid "submission.supportingAgencies"
 msgstr "Organismes de soutien"
 
-msgid "submission.type.tip"
-msgstr "Par type de soumission, on entend 'image', 'texte' ou d'autres formats multimédias, y compris 'logiciel' et 'interactif'. Veuillez choisir le type qui correspond le mieux à votre soumission. Vous trouverez des exemples au <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
-
 msgid "submission.createRemote"
 msgstr "Créer un distant"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Personne-ressource pour la correspondance éditoriale."
 
 msgid "submission.form.replaceExisting"
 msgstr "Remplacer un fichier existant ?"
@@ -1358,20 +1332,12 @@ msgstr "Réponse au formulaire d'évaluation"
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises et sont examinées par le rédacteur."
 
-msgid "submission.confirm.message"
-msgstr "Votre soumission est complète et est prête à être envoyée. Vous pouvez faire une dernière vérification et corriger, s'il y a lieu, les informations que vous avez saisies avant de continuer. Lorsque vous serez prêt, cliquez sur \"Terminer la soumission\"."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérifications de la soumisssion"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Vous devez lire et reconnaître que vous avez rempli les conditions ci-dessous avant de poursuivre."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acceptation du copyright"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "J'accepte et respecterez les termes de la déclaration de copyright."
 
 msgid "submission.authorBiographies"
 msgstr "Bibliographies de l'auteur"
@@ -1571,9 +1537,6 @@ msgstr ""
 "Inclure ce contributeur lors de l'identification des auteurs dans les listes "
 "de publications."
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Les soumission dans plusieurs langues sont acceptées. Choisissez la langue principal de la soumission parmi celle présentes dans le menu déroulant."
-
 msgid "submission.authorBiography"
 msgstr "Biographie de l'auteur"
 
@@ -1714,15 +1677,6 @@ msgstr "Soumettre en tant que"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Sélectionnez le rôle qui décrit le mieux votre contribution à cette soumission."
 
-msgid "submission.submit.contactConsent"
-msgstr "Contact"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Oui, je souhaite être contacté à propos de cette soumission."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Soumettre dans un de ces rôles si vous voulez avoir la possibilité d'éditer et de publier cette soumission : {$managerGroups}"
-
 msgid "submission.citations.description"
 msgstr "Entrer chaque référence sur une nouvelle ligne pour que cela puisse être interprété."
 
@@ -1735,35 +1689,8 @@ msgstr "Les références suivantes ont été extraites et seront liées aux mét
 msgid "submission.parsedAndSaveCitations"
 msgstr "Références extraites et sauvegardées"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Merci de renseigner une langue."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Sujet requis."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Discipline requise."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Mots-clés requis."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Entrer organisme de soutien."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Merci de renseigner les champs d'application."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Renseigner le type."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Renseigner la source de l'information."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Préciser les droits d'utilisation."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Renseigner les références."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "La soumission doit être resoumise pour être ré évaluer."
@@ -2100,9 +2027,6 @@ msgstr ""
 msgid "submission.submit.removeConfirm"
 msgstr "Voulez-vous vraiment supprimer ce fichier ?"
 
-msgid "submission.submit.genre.error"
-msgstr "Veuillez sélectionner le type de fichier pour chaque téléversement."
-
 msgid "submission.submit.genre.description"
 msgstr "Choisissez l'option qui décrit le mieux ce fichier."
 
@@ -2128,3 +2052,9 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Ceci est un aperçu et n'a pas été publié. <a href=\"{$url}\">Voir la "
 "soumission</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Aucun fichier n'a été attaché à cette soumission."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmer la soumission"

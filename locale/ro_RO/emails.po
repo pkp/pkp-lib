@@ -13,6 +13,15 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Acest e-mail, atunci când este activat, este trimis automat unui autor "
+"atunci când finalizează procesul de înregistrare a unui manuscris în jurnal. "
+"Oferă informații despre urmărirea procesului de înregistrare și mulțumește "
+"autorului pentru depunere."
+
+#, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

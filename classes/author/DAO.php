@@ -172,6 +172,10 @@ class DAO extends EntityDAO
      */
     public function delete(Author $author)
     {
+        DB::table('publications')
+            ->where('primary_contact_id', $author->getId())
+            ->update(['primary_contact_id' => null]);
+
         parent::_delete($author);
     }
 

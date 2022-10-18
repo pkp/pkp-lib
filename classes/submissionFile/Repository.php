@@ -311,7 +311,7 @@ abstract class Repository
             // Update author notifications
             $authorUserIds = [];
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), Role::ROLE_ID_AUTHOR);
+            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [Role::ROLE_ID_AUTHOR]);
             while ($assignment = $authorAssignments->next()) {
                 if ($assignment->getStageId() == $reviewRound->getStageId()) {
                     $authorUserIds[] = (int) $assignment->getUserId();

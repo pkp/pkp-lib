@@ -2423,6 +2423,7 @@ msgstr ""
 "Vključuje tudi prispevke, ki niso všteti v ostale številke, kot so tisti, ki "
 "so še vedno v procesu ali naj bi bili uvoženi."
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Pošljite email samo avtorjem določenim v delovnem toku prispevka. Običajno "
@@ -3322,3 +3323,11 @@ msgstr "Primarna datoteka"
 
 msgid "stats.file.type.suppFile"
 msgstr "Dodatna datoteka"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Kontrolni seznam za oddajo prispevka"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Ob oddaji prispevka za revijo morajo avtorji najprej potrditi, da njihov prispevek zadovoljuje vsako postavko na kontrolnem seznamu za oddajo prispevka. Kontrolni seznam za oddajo prispevka je tudi na strani O reviji pod rubriko Navodila avtorjem. Kontrolni seznam lahko urejate spodaj, avtorji pa morajo vedno s kljukico označiti vsak postavko kot izpolnjeno, preden lahko oddajo prispevek."

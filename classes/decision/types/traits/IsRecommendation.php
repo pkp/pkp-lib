@@ -115,14 +115,27 @@ trait IsRecommendation
      */
     protected function addRecommendationQuery(EmailData $email, Submission $submission, User $editor, Context $context): void
     {
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $queryParticipantIds = [];
+        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $stageId);
+        foreach ($editorsStageAssignments as $editorsStageAssignment) {
+            if (!$editorsStageAssignment->getRecommendOnly()) {
+                if (!in_array($editorsStageAssignment->getUserId(), $queryParticipantIds)) {
+                    $queryParticipantIds[] = $editorsStageAssignment->getUserId();
+                }
+            }
+        }
+
         /** @var QueryDAO $queryDao */
         $queryDao = DAORegistry::getDAO('QueryDAO');
-        $queryId = $queryDao->addRecommendationQuery(
-            $editor->getId(),
+        $queryId = $queryDao->addQuery(
             $submission->getId(),
             $this->getStageId(),
             $email->subject,
-            $email->body
+            $email->body,
+            $editor,
+            $queryParticipantIds,
+            $context->getId()
         );
 
         $query = $queryDao->getById($queryId);

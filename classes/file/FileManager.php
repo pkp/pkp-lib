@@ -44,6 +44,7 @@ class FileManager
     public const DOCUMENT_TYPE_EPUB = 'epub';
     public const DOCUMENT_TYPE_VIDEO = 'video';
     public const DOCUMENT_TYPE_ZIP = 'zip';
+    public const DOCUMENT_TYPE_URL = 'url';
 
     /**
      * Constructor

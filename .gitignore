@@ -5,3 +5,4 @@ lib/components
 .DS_Store
 .php_cs.cache
 tests/.phpunit.result.cache
+.php-cs-fixer.cache

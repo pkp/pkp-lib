@@ -2530,3 +2530,11 @@ msgstr "Ez az email automatikus értesítést küld a kijelölt szerkesztőnek, 
 
 msgid "mailable.statisticsReportNotify.description"
 msgstr "Ez az email automatikusan kerül kiküldésre a szerkesztőknek és folyóirat menedzsereknek a folyóiratukkal kapcsolatos tájékoztatásul."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "A benyújtás előkészítésének ellenőrzőlistája"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Folyóirathoz történő beküldésnél még a beküldés előtt a szerzőnek először egy ellenőrzést kell elvégeznie, hogy a benyújtási követelmények minden pontjának megfelel a cikk. Az ellenőrzőlista a szerzői útmutatóban is rendelkezésre áll az Információk alatt. A listát alább lehet szerkeszteni, de a szerzőnek minden tételnél tennie kell egy pipát, mielőtt a folytathatja a beküldést."

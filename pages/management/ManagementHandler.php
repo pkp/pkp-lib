@@ -16,14 +16,22 @@
 namespace PKP\pages\management;
 
 use APP\components\forms\context\DoiSetupSettingsForm;
+use APP\components\forms\context\MetadataSettingsForm;
+use APP\components\forms\context\ReviewGuidanceForm;
+use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\components\forms\context\PKPDisableSubmissionsForm;
 use PKP\components\forms\context\PKPEmailSetupForm;
+use PKP\components\forms\context\PKPInformationForm;
 use PKP\components\forms\context\PKPNotifyUsersForm;
+use PKP\components\forms\context\PKPReviewSetupForm;
+use PKP\components\forms\context\PKPSubmissionsNotificationsForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
+use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
@@ -200,7 +208,7 @@ class ManagementHandler extends Handler
         $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
         $appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
         $appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
-        $informationForm = new \PKP\components\forms\context\PKPInformationForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
+        $informationForm = $this->getInformationForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
         $listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
         $privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
@@ -210,17 +218,22 @@ class ManagementHandler extends Handler
             'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
         ]);
 
+        $components = [
+            FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
+            FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
+            FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
+            FORM_LISTS => $listsForm->getConfig(),
+            FORM_PRIVACY => $privacyForm->getConfig(),
+            FORM_THEME => $themeForm->getConfig(),
+            FORM_DATE_TIME => $dateTimeForm->getConfig(),
+        ];
+
+        if ($informationForm) {
+            $components[FORM_INFORMATION] = $informationForm->getConfig();
+        }
+
         $templateMgr->setState([
-            'components' => [
-                FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
-                FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
-                FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
-                FORM_INFORMATION => $informationForm->getConfig(),
-                FORM_LISTS => $listsForm->getConfig(),
-                FORM_PRIVACY => $privacyForm->getConfig(),
-                FORM_THEME => $themeForm->getConfig(),
-                FORM_DATE_TIME => $dateTimeForm->getConfig(),
-            ],
+            'components' => $components,
             'announcementsNavLink' => [
                 'name' => __('announcement.announcements'),
                 'url' => $router->url($request, null, 'management', 'settings', 'announcements'),
@@ -228,7 +241,11 @@ class ManagementHandler extends Handler
             ],
         ]);
 
-        $templateMgr->assign('pageTitle', __('manager.website.title'));
+        $templateMgr->assign([
+            'includeInformationForm' => (bool) $informationForm,
+            'pageTitle' => __('manager.website.title'),
+        ]);
+
         $templateMgr->display('management/website.tpl');
     }
 
@@ -250,24 +267,28 @@ class ManagementHandler extends Handler
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        $authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
-        $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $disableSubmissionsForm = new \PKP\components\forms\context\PKPDisableSubmissionsForm($contextApiUrl, $locales, $context);
         $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
+        $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
         $reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
+        $submissionGuidanceSettingsForm = new SubmissionGuidanceSettings($contextApiUrl, $locales, $context);
 
         $templateMgr->setState([
             'components' => [
-                FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
-                FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
                 FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
                 $emailSetupForm->id => $emailSetupForm->getConfig(),
+                FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
                 FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
                 FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
+                $submissionGuidanceSettingsForm->id => $submissionGuidanceSettingsForm->getConfig(),
             ],
         ]);
-        $templateMgr->assign('pageTitle', __('manager.workflow.title'));
+
+        $templateMgr->assign([
+            'pageTitle' => __('manager.workflow.title'),
+            'hasReviewStage' => $this->hasReviewStage(),
+        ]);
     }
 
     /**
@@ -562,5 +583,25 @@ class ManagementHandler extends Handler
     protected function getEmailSetupForm(string $contextApiUrl, array $locales, Context $context): PKPEmailSetupForm
     {
         return new PKPEmailSetupForm($contextApiUrl, $locales, $context);
+    }
+
+    protected function hasReviewStage(): bool
+    {
+        return count(
+            array_intersect(
+                [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW],
+                Application::get()->getApplicationStages()
+            )
+        );
+    }
+
+    protected function getInformationForm(string $contextApiUrl, array $locales, Context $context, string $publicFileApiUrl): ?PKPInformationForm
+    {
+        return new PKPInformationForm(
+            $contextApiUrl,
+            $locales,
+            $context,
+            $publicFileApiUrl
+        );
     }
 }

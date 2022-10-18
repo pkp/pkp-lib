@@ -284,3 +284,17 @@ msgstr "TOC koʻrinishlarini chiqarish"
 
 msgid "stats.donwloads"
 msgstr "Qoralama nusxa ko'rinishlarining nashri"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Arizalarni tayyorlashga tayyorgarlik ro'yxati"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Jurnalga topshirish paytida, mualliflardan oldin, ishni davom ettirishdan "
+"oldin, topshirishni tayyorlash ro'yxatidagi har bir bandni "
+"to'ldirilganligini tekshirish talab qilinadi. Tekshirish ro'yxati, "
+"shuningdek, \"Muallif ko'rsatmalari\" jurnalida joylashgan. Ro'yxatni quyida "
+"tahrir qilish mumkin, lekin mualliflar topshirishni davom ettirishdan oldin "
+"ro'yxatdagi barcha elementlarga belgi qo'yish kerak bo'ladi."

@@ -908,9 +908,6 @@ msgstr "Da li ste sigurni da želite da pošaljete ovu formu?"
 msgid "form.confirmSubmit.title"
 msgstr "Potvrdi"
 
-msgid "form.emailRequired"
-msgstr "Imejl adresa je neophodna"
-
 msgid "form.dataHasChanged"
 msgstr "Podaci u formi su promenjeni, da li ipak želite da nastavite?"
 
@@ -1246,12 +1243,6 @@ msgstr "Tip obaveštenja je uklonjen."
 
 msgid "notification.removedAnnouncement"
 msgstr "Obaveštenje uklonjeno."
-
-msgid "notification.addedAuthor"
-msgstr "Autor je dodat."
-
-msgid "notification.editedAuthor"
-msgstr "Autor je izmenjen."
 
 msgid "notification.addedNote"
 msgstr "Napomena poslata."

@@ -942,9 +942,6 @@ msgstr "Er du sikker på, at du vil sende denne formular?"
 msgid "form.confirmSubmit.title"
 msgstr "Bekræft"
 
-msgid "form.emailRequired"
-msgstr "En e-mail-adresse er påkrævet."
-
 msgid "form.dataHasChanged"
 msgstr "Dataene i denne formular er ændret. Fortsæt alligevel?"
 
@@ -1415,12 +1412,6 @@ msgstr "Meddelelsestype fjernet."
 
 msgid "notification.removedAnnouncement"
 msgstr "Meddelelse fjernet."
-
-msgid "notification.addedAuthor"
-msgstr "Forfatter tilføjet."
-
-msgid "notification.editedAuthor"
-msgstr "Forfatter redigeret."
 
 msgid "notification.removedNote"
 msgstr "Note slettet."

@@ -122,42 +122,29 @@
 				"in:2,3,4,5,6,7,8,9,10,11,13,15,17,18"
 			]
 		},
-		"genre": {
-			"type": "object",
-			"description": "The genre of this file, such as Article Text or Data Set.",
-			"apiSummary": true,
-			"readOnly": true,
-			"properties": {
-				"id": {
-					"type": "integer",
-					"apiSummary": true,
-					"readOnly": true
-				},
-				"dependent": {
-					"type": "boolean",
-					"description": "Dependent files, such as images displayed by a HTML file, that are be displayed with published content.",
-					"apiSummary": true,
-					"readOnly": true
-				},
-				"name": {
-					"type": "string",
-					"multilingual": true,
-					"apiSummary": true,
-					"readOnly": true
-				},
-				"supplementary": {
-					"type": "boolean",
-					"description": "Supplementary files, such as data sets and research materials, that are displayed separately from the main publication files.",
-					"apiSummary": true,
-					"readOnly": true
-				}
-			}
-		},
 		"genreId": {
 			"type": "integer",
-			"description": "The genre ID of this file. Use this to change the file's genre, for example from Article Text to Data Set.",
+			"description": "The genre id of this file",
+			"apiSummary": true
+		},
+		"genreName": {
+			"type": "string",
+			"description": "The genre name of this file, suc as Article Text or Data Set.",
+			"isMultilingual": true,
 			"apiSummary": true,
-			"writeOnly": true
+			"readOnly": true
+		},
+		"genreIsDependent": {
+			"type": "boolean",
+			"description": "Whether or not this is a dependent file, such as images displayed by a HTML file, that are be displayed with published content.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"genreIsSupplementary": {
+			"type": "boolean",
+			"description": "Whether or not this is a supplementary file, such as data sets and research materials, that are displayed separately from the main publication files.",
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"language": {
 			"type": "string",

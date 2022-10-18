@@ -152,15 +152,6 @@ msgstr "Daftar Periksa Naskah"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Butir Daftar Periksa"
 
-msgid "author.users.contributor.name"
-msgstr "Nama"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Peran"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Kontak Utama"
 
@@ -362,9 +353,6 @@ msgstr "Buat Peran Baru"
 msgid "grid.roles.currentRoles"
 msgstr "Peran Sekarang"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Dalam Daftar Pencarian"
-
 msgid "grid.noFiles"
 msgstr "Tidak Ada File"
 
@@ -376,9 +364,6 @@ msgstr "Buat versi baru"
 
 msgid "grid.action.deleteContributor"
 msgstr "Hapus Kontributor"
-
-msgid "grid.action.editContributor"
-msgstr "Sunting Kontributor"
 
 msgid "grid.action.addContributor"
 msgstr "Tambahkan Kontributor"
@@ -563,12 +548,6 @@ msgstr "Tambahkan template surel baru"
 
 msgid "grid.action.resetAll"
 msgstr "Reset semua item ke nilai awal"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Hapus item ceklis ini"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Sunting bagian ceklis ini"
 
 msgid "grid.user.errorEmail"
 msgstr ""

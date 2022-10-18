@@ -32,14 +32,14 @@ class FieldControlledVocab extends FieldBaseAutosuggest
         if ($this->isMultilingual) {
             $config['selected'] = [];
             foreach ($this->locales as $locale) {
-                if (array_key_exists($locale['key'], $this->selected)) {
-                    $config['selected'][$locale['key']] = array_map([$this, 'mapSelected'], (array) $this->selected[$locale['key']]);
+                if (array_key_exists($locale['key'], $this->value)) {
+                    $config['selected'][$locale['key']] = array_map([$this, 'mapSelected'], (array) $this->value[$locale['key']]);
                 } else {
                     $config['selected'][$locale['key']] = [];
                 }
             }
         } else {
-            $config['selected'] = array_map([$this, 'mapSelected'], $this->selected);
+            $config['selected'] = array_map([$this, 'mapSelected'], $this->value);
         }
 
         return $config;

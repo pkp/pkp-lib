@@ -20,7 +20,6 @@ use InvalidArgumentException;
 use PKP\identity\Identity;
 use PKP\mail\Mailable;
 use PKP\mail\variables\RecipientEmailVariable;
-use PKP\user\User;
 
 trait Recipient
 {
@@ -44,7 +43,7 @@ trait Recipient
     /**
      * Set recipients of the email and set values for related template variables
      *
-     * @param User[] $recipients
+     * @param Identity[] $recipients
      * @param ?string $locale Optional. A locale key to use when setting the recipient names. Default: current locale
      */
     public function recipients(array $recipients, ?string $locale = null): Mailable

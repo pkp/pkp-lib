@@ -1118,9 +1118,6 @@ msgstr "Tem a certeza que pretende submeter este formulário?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmar"
 
-msgid "form.emailRequired"
-msgstr "É obrigatório o e-mail."
-
 msgid "form.dataHasChanged"
 msgstr "A informação inserida no formulário foi modificada. Pretende avançar sem guardar as alterações?"
 
@@ -1300,12 +1297,6 @@ msgstr "Notícia editada."
 
 msgid "notification.removedAnnouncement"
 msgstr "Notícia removida."
-
-msgid "notification.addedAuthor"
-msgstr "Adicionado autor."
-
-msgid "notification.editedAuthor"
-msgstr "Editado autor."
 
 msgid "notification.addedNote"
 msgstr "Nota publicada."

@@ -21,29 +21,15 @@ msgstr "Anna muotoiltu lähdeluettelo, joka sisältää työt, joihin tässä k�
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Uusia arvioita on lähetetty ja ne ovat toimittajan käsittelyssä."
 
-msgid "submission.confirm.message"
-msgstr "Käsikirjoituksesi on ladattu ja valmis lähetettäväksi. Voit palata tietojen tarkistusvaiheeseen ja muuttaa syöttämiäsi tietoja, ennen kuin jatkat. Kun olet valmis, klikkaa \"Suorita lähetys\"."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Käsikirjoituksen lähettämiseen liittyvät vaatimukset"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Sinun täytyy lukea ja vahvistaa, että täytät alla mainitut vaatimukset, ennen kuin jatkat."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Käsikirjoitus on lähetetty"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Kiitos mielenkiinnostasi julkaista {$contextName} -julkaisussa."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Hyväksy tekijänoikeushuomautus"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Suostun noudattamaan tekijänoikeushuomautuksen ehtoja."
-
-msgid "submission.submit.whatNext"
-msgstr "Mitä seuraavaksi?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Nyt voit:"
@@ -829,9 +815,6 @@ msgstr "Arviointiversio"
 msgid "submission.rights"
 msgstr "Oikeudet"
 
-msgid "submission.rights.tip"
-msgstr "Voit halutessasi kertoa lyhyesti tämän käsikirjoituksen käyttöoikeuksista."
-
 msgid "submissions.active"
 msgstr "Aktiiviset"
 
@@ -868,9 +851,6 @@ msgstr "Määräys"
 msgid "submission.source"
 msgstr "Lähde"
 
-msgid "submission.source.tip"
-msgstr "Onko tämä käsikirjoitus peräisin toisesta resurssista? Siinä tapauksessa voit antaa URL-osoitteen tai kuvauksen kyseisestä resurssista."
-
 msgid "submissions.submit"
 msgstr "Lähetä"
 
@@ -898,9 +878,6 @@ msgstr "Käsikirjoituksen arviointi"
 msgid "submission.submitter"
 msgstr "Lähettäjä"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Suorita lähetys"
-
 msgid "submission.submit.selectFile"
 msgstr "Valitse tiedosto"
 
@@ -919,14 +896,8 @@ msgstr "Lisää toinen tiedosto"
 msgid "submission.submit.metadataForm"
 msgstr "Lisätarkennuksia"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Lisää käsikirjoitukseesi lisätietoja. Paina enteriä jokaisen termin jälkeen."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Käsikirjoituksen kieli"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Tämä paino hyväksyy käsikirjoituksia useilla kielillä. Valitse käsikirjoituksen ensisijainen kieli yllä olevasta vetovalikosta."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Käsikirjoitustiedostot"
@@ -957,9 +928,6 @@ msgstr "Indeksointitiedot"
 
 msgid "submission.titleAndAbstract"
 msgstr "Otsikko ja abstrakti"
-
-msgid "submission.type.tip"
-msgstr "Käsikirjoitustiedosto on yleensä muodoltaan \"kuva\", \"teksti\" tai muu multimediamuoto, kuten \"ohjelmisto\" tai \"interaktiivinen\". Valitse käsikirjoituksesi kannalta oleellisin muoto. Esimerkkejä löytyy osoitteesta <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "Käynnissä"
@@ -996,9 +964,6 @@ msgstr "KK-PP"
 
 msgid "submission.date.yyyymmdd"
 msgstr "VVVV-KK-PP"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Pääasiallinen yhteyshenkilö toimituksellisissa yhteydenotoissa."
 
 msgid "submission.submit.contributorRole"
 msgstr "Tekijän rooli"
@@ -1596,33 +1561,6 @@ msgstr "Seuraavat viitteet eroteltiin ja ne liitetään käsikirjoituksen kuvail
 msgid "submission.parsedAndSaveCitations"
 msgstr "Erottele ja tallenna viitteitä"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Anna kieli."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Anna aihe."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Anna tieteenala."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Anna avainsana."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Anna kattavuustiedot."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Anna tyyppi."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Anna lähde."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Anna oikeudet."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Anna viitteet."
-
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Käsikirjoitus pitää lähettää uudelle arviointikierrokselle."
 
@@ -1654,15 +1592,6 @@ msgstr "Käytä roolia"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Valitse rooli, jota haluat käyttää käsikirjoituksen lähetykseen."
-
-msgid "submission.submit.contactConsent"
-msgstr "Vastaava kontaktihenkilö"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Haluan, että minuun olla yhteydessä tähän käsikirjoitukseen liittyen."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Valitse jokin seuraavista rooleista, jos haluat toimittaa ja julkaista käsikirjoituksen itse: {$managerGroups}"
 
 msgid "log.review.reviewUnconsidered"
 msgstr "{$editorName} on merkinnyt kierroksen {$round} arvion käsikirjoitukselle {$submissionId} lukemattomaksi."
@@ -1979,9 +1908,6 @@ msgstr ""
 msgid "submission.submit.removeConfirm"
 msgstr "Oletko varma, että haluat poistaa tämän tiedoston?"
 
-msgid "submission.submit.genre.error"
-msgstr "Ole hyvä ja valitse tiedoston tyyppi jokaiselle ladatulle tiedostolle."
-
 msgid "submission.submit.genre.description"
 msgstr "Valitse vaihtoehto, joka kuvaa tiedostoa parhaiten."
 
@@ -1999,3 +1925,10 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Tämä on esikatselu eikä käsikirjoituksen versiota ole julkaistu. <a href=\"{$url}\">Palaa "
 "käsikirjoitukseen</a>"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Tähän käsikirjoitukseen ei ole liitetty tiedostoja."
+
+msgid "author.submit.confirmation"
+msgstr "Vahvistus"

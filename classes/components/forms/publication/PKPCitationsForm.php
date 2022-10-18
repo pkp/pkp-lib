@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\publication;
 
+use APP\publication\Publication;
 use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
 
@@ -21,26 +22,25 @@ define('FORM_CITATIONS', 'citations');
 
 class PKPCitationsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
     public $id = FORM_CITATIONS;
-
-    /** @copydoc FormComponent::$method */
     public $method = 'PUT';
+    public bool $isRequired;
 
     /**
      * Constructor
      *
      * @param string $action URL to submit the form to
-     * @param Publication $publication The publication to change settings for
      */
-    public function __construct($action, $publication)
+    public function __construct(string $action, Publication $publication, bool $isRequired = false)
     {
         $this->action = $action;
+        $this->isRequired = $isRequired;
 
         $this->addField(new FieldTextarea('citationsRaw', [
             'label' => __('submission.citations'),
             'description' => __('submission.citations.description'),
             'value' => $publication->getData('citationsRaw'),
+            'isRequired' => $isRequired
         ]));
     }
 }

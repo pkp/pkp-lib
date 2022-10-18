@@ -34,13 +34,6 @@ msgstr "ファイルのアップロード"
 msgid "submission.underway"
 msgstr "作業中"
 
-msgid "submission.type.tip"
-msgstr ""
-"投稿タイプは通常、「画像」、「テキスト」、または「ソフトウェア」や「インタラクティブ」などのマルチメディアタイプのいずれかです。 "
-"投稿に最も近いものを選択してください。 例は以下のサイトにあります： <a target=\"_blank\" href=\""
-"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\""
-">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
-
 msgid "submission.titleAndAbstract"
 msgstr "タイトルと要旨"
 
@@ -77,14 +70,8 @@ msgstr "依存ファイル"
 msgid "submission.submit.submissionFiles"
 msgstr "投稿ファイル"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "いくつかの言語での投稿が可能です。上記のプルダウンから投稿の第一言語を選択してください。"
-
 msgid "submission.submit.submissionLocale"
 msgstr "投稿言語"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "稿の追加情報の入力ができます。 各用語の後に「エンター」を押してください。"
 
 msgid "submission.submit.metadataForm"
 msgstr "追加の絞り込み"
@@ -103,9 +90,6 @@ msgstr "ファイル詳細"
 
 msgid "submission.submit.selectFile"
 msgstr "ファイルを選択"
-
-msgid "submission.submit.finishSubmission"
-msgstr "投稿提出"
 
 msgid "submission.submitter"
 msgstr "投稿者"
@@ -133,9 +117,6 @@ msgstr "投稿日"
 
 msgid "submissions.submit"
 msgstr "投稿日"
-
-msgid "submission.source.tip"
-msgstr "この投稿物は別のリソースから派生していますか？ その場合は、そのリソースの URL または説明を入力できます。"
 
 msgid "submission.source"
 msgstr "ソース"
@@ -172,9 +153,6 @@ msgstr "アーカイブ済"
 
 msgid "submissions.active"
 msgstr "処理対象"
-
-msgid "submission.rights.tip"
-msgstr "必要に応じて、この投稿物で保持されているアクセス権に関する簡単な説明を入力できます。"
 
 msgid "submission.rights"
 msgstr "権利"
@@ -905,41 +883,11 @@ msgstr "既存のファイルを置き換えますか。"
 msgid "submission.form.name"
 msgstr "ファイルに名前を付けてください ( 例 : 原稿 、表 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "参考文献を入力してください。"
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "権限を入力してください。"
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "ソースを入力してください。"
-
-msgid "submission.submit.form.typeRequired"
-msgstr "タイプを入力してください。"
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "カバレッジ情報を入力してください。"
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "キーワードを入力してください。"
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "分野を入力してください。"
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "件名を入力してください。"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "言語を入力してください。"
-
 msgid "submission.submit.addAuthor"
 msgstr "寄稿者を追加"
 
 msgid "submission.submit.contributorRole"
 msgstr "寄稿者の役割"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "編集上の連絡を取る第一著者。"
 
 msgid "submission.date.yyyymmdd"
 msgstr "YYYY-MM-DD"
@@ -1161,14 +1109,8 @@ msgstr "この投稿を確認する"
 msgid "submission.submit.whatNext.forNow"
 msgstr "今のところ、次のことができます。"
 
-msgid "submission.submit.whatNext"
-msgstr "次は何が起きるのでしょうか。"
-
 msgid "submission.submit.removeConfirm"
 msgstr "このファイルを削除してもよろしいですか？"
-
-msgid "submission.submit.genre.error"
-msgstr "アップロードごとにファイルの種類を選択してください。"
 
 msgid "submission.submit.genre.description"
 msgstr "このファイルに最も近いオプションを選択してください。"
@@ -1176,43 +1118,21 @@ msgstr "このファイルに最も近いオプションを選択してくださ
 msgid "submission.submit.genre.label"
 msgstr "これはどのようなファイルですか？"
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "はい、著作権表示の条項に従うことに同意します。"
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "著作権について"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "{$contextName}での掲載に関心をお寄せいただきありがとうございます。"
-
 msgid "submission.submit.submissionComplete"
 msgstr "投稿完了"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "投稿で進む前に、以下の要件を読んで、それを満たしていることを確認してください。"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "投稿前の確認リスト"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "自分でこの投稿を編集して公開できるようにするには、次のいずれかの役割として提出してください。{$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "この投稿物について連絡されることに同意します。"
-
-msgid "submission.submit.contactConsent"
-msgstr "連絡先の著者"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "この投稿に対する貢献を最もよく表す役割を選択してください。"
 
 msgid "submission.submit.availableUserGroups"
 msgstr "投稿役割"
-
-msgid "submission.confirm.message"
-msgstr ""
-"投稿はアップロードされており、送信する準備ができています。 続行する前に、入力した情報を確認して調整することができます。 準備ができたら、\"送信完了\""
-"をクリックしてください。"
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -1997,6 +1917,9 @@ msgstr "カテゴリー"
 msgid "submission.submit.includeInBrowse.title"
 msgstr "出版リスト"
 
-msgstr "全ての編集者推薦が提出され、決定が必要です。"
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "この投稿物にはファイルが添付されていません。"
 
-msgid "submission.viewingPreview"msgstr "これはプレビューであり、公開されていません。 <a href=\"{$url}\">投稿表示</a>"
+msgid "author.submit.confirmation"
+msgstr "確認"

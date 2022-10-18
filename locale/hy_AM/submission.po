@@ -17,12 +17,6 @@ msgstr ""
 msgid "submission.submit.availableUserGroups"
 msgstr "Ներկայացնել որպես"
 
-msgid "submission.confirm.message"
-msgstr ""
-"Ձեր նյութը վերբեռնվել է և պատրաստ է ուղարկվելու համար: Նախքան շարունակելը "
-"Դուք կարող եք վերադառնալ՝ վերանայելու և կարգավորելու Ձեր մուտքագրած ցանկացած "
-"տեղեկություն։ Երբ պատրաստ լինեք, սեղմեք «Ավարտել ներկայացումը»:"
-
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Մեկ կամ մի քանի գրախոսներ բաց են թողել ներկայացման վերջնաժամկետը։ Խմբագրական "
@@ -313,32 +307,14 @@ msgstr "Գրախոսեք այս ներկայացումը"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Առայժմ կարող եք:"
 
-msgid "submission.submit.whatNext"
-msgstr "Ի՞նչ է տեղի ունենում հետո:"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Իսկապե՞ս ուզում եք հեռացնել այս նիշքը:"
-
-msgid "submission.submit.genre.error"
-msgstr "Խնդրում ենք ընտրել նիշքի տեսակը յուրաքանչյուր վերբեռնման համար:"
 
 msgid "submission.submit.genre.description"
 msgstr "Ընտրեք այն տարբերակը, որը լավագույնս է նկարագրում այս նիշքը:"
 
 msgid "submission.submit.genre.label"
 msgstr "Ինչպիսի՞ նիշք է սա:"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr ""
-"Այո, ես համաձայն եմ պահպանել հեղինակային իրավունքի մասին հայտարարության "
-"պայմանները:"
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Ընդունեք հեղինակային իրավունքի հայտարարությունը"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr ""
-"Շնորհակալություն {$contextName} -ում հրապարակելու ձեր հետաքրքրության համար:"
 
 msgid "submission.submit.submissionComplete"
 msgstr "Ներկայացումն ավարտված է"
@@ -350,17 +326,6 @@ msgstr ""
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Ներկայացման պահանջներ"
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Ներկայացրե՛ք հետևյալ դերերից որևէ մեկով, եթե ցանկանում եք, որ կարողանաք "
-"ինքներդ խմբագրել և հրապարակել այս ներկայացումը. {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Այո, ես կցանկանայի կապ հաստատել այս ներկայացման վերաբերյալ:"
-
-msgid "submission.submit.contactConsent"
-msgstr "Համապատասխան կոնտակտ"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
@@ -676,41 +641,11 @@ msgstr "Փոխարինո՞ւմ եք գոյություն ունեցող նիշք
 msgid "submission.form.name"
 msgstr "Անվանեք նիշքը (օրինակ՝ ձեռագիր, Աղյուսակ 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Մուտք արեք մատենագիտական հղումը։"
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Մուտք արեք իրավունքները։"
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Մուտք արեք աղբյուրը։"
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Մուտք արեք տեսակը։"
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Մուտք արեք ծածկույթի մասին տեղեկատվությունը։"
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Մուտք արեք բանալի բառը։"
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Մուտք արեք գիտակարգը։"
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Մուտք արեք խորագիրը։"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Մուտք արեք լեզուն։"
-
 msgid "submission.submit.addAuthor"
 msgstr "Ավելացրեք աջակցող"
 
 msgid "submission.submit.contributorRole"
 msgstr "Աջակցողի դերը"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Գլխավոր կոնտակտ խմբագրական նամակագրության համար:"
 
 msgid "submission.date.yyyymmdd"
 msgstr "ՏՏՏՏ-ԱԱ-ՕՕ"
@@ -747,15 +682,6 @@ msgstr "Վերբեռնեք նիշքը այստեղ"
 
 msgid "submission.underway"
 msgstr "Ընթացքի մեջ է"
-
-msgid "submission.type.tip"
-msgstr ""
-"Ներկայացման տեսակը սովորաբար «պատկեր», «տեքստ» կամ այլ մուլտիմեդիա "
-"տեսակներից է, ներառյալ «ծրագրային ապահովումը» կամ «ինտերակտիվը»: Խնդրում ենք "
-"ընտրել ձեր ներկայացման համար առավել համապատասխանը:  Օրինակները կարելի է "
-"գտնել <a target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
-"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
-"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Վերնագիր և համառոտագիր"
@@ -803,11 +729,6 @@ msgstr ""
 msgid "submission.submit.submissionLocale"
 msgstr "Ներկայացման լեզուն"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Ձեր ներկայացման համար ավելացրեք լրացուցիչ տեղեկություններ: Յուրաքանչյուր "
-"տերմինից հետո սեղմեք «enter»:"
-
 msgid "submission.submit.metadataForm"
 msgstr "Լրացուցիչ ճշգրտումներ"
 
@@ -829,9 +750,6 @@ msgstr "Նիշքի տեղեկատվություն"
 
 msgid "submission.submit.selectFile"
 msgstr "Ընտրեք նիշքը"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Ավարտել ներկայացումը"
 
 msgid "submission.submitter"
 msgstr "Ներկայացնող"
@@ -859,11 +777,6 @@ msgstr "Ներկայացված"
 
 msgid "submissions.submit"
 msgstr "Ներկայացնել"
-
-msgid "submission.source.tip"
-msgstr ""
-"Արդյո՞ք այս ներկայացումը բխում է այլ պաշարից: Եթե այո, կարող եք մուտքագրել "
-"URL կամ այդ պաշարի նկարագրությունը:"
 
 msgid "submission.source"
 msgstr "Աղբյուր"
@@ -900,11 +813,6 @@ msgstr "Արխիվացված"
 
 msgid "submissions.active"
 msgstr "Ակտիվ"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Եթե ցանկանում եք, կարող եք մուտքագրել հակիրճ հայտարարություն այս "
-"ներկայացմանը վերաբերվող կամ փոխանցվող մուտքի իրավունքների մասին:"
 
 msgid "submission.rights"
 msgstr "Իրավունքներ"
@@ -2557,3 +2465,10 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Նորից ուղարկեք {$round} փուլում գրախոսման հարցումը {$reviewerName}-ին "
 "{$submissionid} ներկայացնելու համար:"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Ոչ մի նիշք չի կցվել այս ներկայացմանը:"
+
+msgid "author.submit.confirmation"
+msgstr "Հաստատում"

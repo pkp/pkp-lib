@@ -893,9 +893,6 @@ msgstr "Ste prepričani, da želite poslati ta obrazec?"
 msgid "form.confirmSubmit.title"
 msgstr "Potrdi"
 
-msgid "form.emailRequired"
-msgstr "E-poštni naslov je obvezen."
-
 msgid "form.dataHasChanged"
 msgstr "Podatki na tem obrazcu so se spremenili. vseeno nadaljujem?"
 
@@ -1210,12 +1207,6 @@ msgstr "Tip obvestila je bil odstranjen."
 
 msgid "notification.removedAnnouncement"
 msgstr "Obvestilo je bilo odstranjeno."
-
-msgid "notification.addedAuthor"
-msgstr "Avtor je bil dodan."
-
-msgid "notification.editedAuthor"
-msgstr "Avtor je bil urejen."
 
 msgid "notification.confirmError"
 msgstr "Prišlo je do napake pri potrjevanju vašega vpisa."

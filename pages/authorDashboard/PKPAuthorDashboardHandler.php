@@ -15,11 +15,17 @@
 
 namespace PKP\pages\authorDashboard;
 
+use APP\components\forms\publication\TitleAbstractForm;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\publication\Publication;
 use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
+use PKP\components\forms\publication\PKPCitationsForm;
+use PKP\components\forms\publication\PKPMetadataForm;
+use PKP\components\listPanels\PKPContributorsListPanel;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
@@ -208,20 +214,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
         $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
-        $contributorApiUrl = $request->getDispatcher()->url(
-            $request,
-            PKPApplication::ROUTE_API,
-            $request->getContext()->getPath('urlPath'),
-            'submissions/' . $submission->getId() . '/publications/__publicationId__/contributors'
-        );
-
-        $contributorPublicationApiUrl = $request->getDispatcher()->url(
-            $request,
-            PKPApplication::ROUTE_API,
-            $request->getContext()->getPath('urlPath'),
-            'submissions/' . $submission->getId() . '/publications'
-        );
-
         $submissionLibraryUrl = $request->getDispatcher()->url(
             $request,
             PKPApplication::ROUTE_COMPONENT,
@@ -232,9 +224,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
             ['submissionId' => $submission->getId()]
         );
 
-        $titleAbstractForm = new \PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-        $citationsForm = new \PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
-        $contributorForm = new \PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
+        $titleAbstractForm = $this->getTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
+        $citationsForm = new PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 
         // Import constants
         import('classes.components.forms.publication.PublishForm');
@@ -283,15 +274,14 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
         }
 
-        $contributorsListPanel = new \PKP\components\listPanels\PKPContributorsListPanel(
+        $contributorsListPanel = new PKPContributorsListPanel(
             'contributors',
             __('publication.contributors'),
-            [
-                'form' => $contributorForm,
-                'items' => $authorItems,
-                'publicationApiUrl' => $contributorPublicationApiUrl,
-                'canEditPublication' => $canEditPublication
-            ]
+            $submission,
+            $request->getContext(),
+            $locales,
+            $authorItems,
+            $canEditPublication
         );
 
         // Check if current author can access ArticleGalleyGrid within production stage
@@ -338,29 +328,13 @@ abstract class PKPAuthorDashboardHandler extends Handler
         }
         if ($metadataEnabled) {
             $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-            $metadataForm = new \PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+            $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
             $templateMgr->setConstants([
                 'FORM_METADATA' => FORM_METADATA,
             ]);
             $state['components'][FORM_METADATA] = $metadataForm->getConfig();
             $state['publicationFormIds'][] = FORM_METADATA;
         }
-
-        $templateMgr->setLocaleKeys([
-            'common.order',
-            'author.users.contributor.setPrincipalContact',
-            'author.users.contributor.principalContact',
-            'submission.contributors',
-            'grid.action.saveOrdering',
-            'grid.action.order',
-            'contributor.listPanel.preview',
-            'contributor.listPanel.preview.description',
-            'contributor.listPanel.preview.display',
-            'contributor.listPanel.preview.format',
-            'contributor.listPanel.preview.abbreviated',
-            'contributor.listPanel.preview.publicationLists',
-            'contributor.listPanel.preview.full',
-        ]);
 
         $templateMgr->setState($state);
 
@@ -387,4 +361,9 @@ abstract class PKPAuthorDashboardHandler extends Handler
      * @return string
      */
     abstract protected function _getRepresentationsGridUrl($request, $submission);
+
+    /**
+     * Get the form for entering the title/abstract details
+     */
+    abstract protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm;
 }

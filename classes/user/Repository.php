@@ -271,7 +271,7 @@ class Repository
      * @param int $oldUserId The user ID to remove
      * @param int $newUserId The user ID to receive all "assets" (i.e. submissions) from old user
      */
-    public function mergeUsers($oldUserId, $newUserId)
+    public function mergeUsers(int $oldUserId, int $newUserId)
     {
         // Need both user ids for merge
         if (empty($oldUserId) || empty($newUserId)) {

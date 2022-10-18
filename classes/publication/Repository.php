@@ -24,6 +24,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
@@ -125,13 +126,14 @@ abstract class Repository
      *
      * @param Publication|null $publication The publication being edited. Pass `null` if creating a new publication
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported submission locales
-     * @param string $primaryLocale The submission's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(?Publication $publication, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?Publication $publication, array $props, Submission $submission, Context $context): array
     {
+        $allowedLocales = $context->getSupportedSubmissionLocales();
+        $primaryLocale = $submission->getLocale();
+
         $errors = [];
 
         $validator = ValidatorFactory::make(
@@ -159,6 +161,18 @@ abstract class Repository
                     if (!$submission) {
                         $validator->errors()->add('submissionId', __('publication.invalidSubmission'));
                     }
+                }
+            });
+        }
+
+        // A title must be provided if the submission is not still in progress
+        if (!$submission->getData('submissionProgress')) {
+            $validator->after(function ($validator) use ($props, $publication, $primaryLocale) {
+                $title = isset($props['title']) && isset($props['title'][$primaryLocale])
+                    ? $props['title'][$primaryLocale]
+                    : $publication?->getData('title', $primaryLocale);
+                if (empty($title)) {
+                    $validator->errors()->add('title.' . $primaryLocale, __('validator.required'));
                 }
             });
         }
@@ -462,6 +476,7 @@ abstract class Repository
             $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
             Repo::doi()->markStale($staleDoiIds);
         }
+
         Hook::call(
             'Publication::publish',
             [
@@ -470,7 +485,12 @@ abstract class Repository
                 $submission
             ]
         );
-        event(new PublicationPublished($newPublication, $publication, $submission));
+
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
+            ? Application::get()->getRequest()->getContext()
+            : Services::get('context')->get($submission->getData('contextId'));
+
+        event(new PublicationPublished($newPublication, $publication, $submission, $context));
     }
 
     /**
@@ -547,7 +567,11 @@ abstract class Repository
             ]
         );
 
-        event(new PublicationUnpublished($newPublication, $publication, $submission));
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
+            ? Application::get()->getRequest()->getContext()
+            : Services::get('context')->get($submission->getData('contextId'));
+
+        event(new PublicationUnpublished($newPublication, $publication, $submission, $context));
     }
 
     /** @copydoc DAO::delete() */

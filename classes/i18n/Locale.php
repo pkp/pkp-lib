@@ -94,9 +94,6 @@ class Locale implements LocaleInterface
     /** Keeps cached data related only to the current locale */
     protected array $cache = [];
 
-    /** Should apply the filter before constructing locale code list */
-    protected bool $formattedDisplayBeforeFilter = false;
-
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::get()
      *

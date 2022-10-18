@@ -1,0 +1,108 @@
+diff -u -r lib/Doctrine/DBAL/Driver/PDOConnection.php lib/Doctrine/DBAL/Driver/PDOConnection.php
+--- lib/Doctrine/DBAL/Driver/PDOConnection.php	2020-11-14 12:26:58.000000000 -0800
++++ lib/Doctrine/DBAL/Driver/PDOConnection.php	2022-10-18 17:52:09.352755602 -0700
+@@ -46,6 +46,7 @@
+     /**
+      * {@inheritdoc}
+      */
++    #[\ReturnTypeWillChange]
+     public function exec($sql)
+     {
+         try {
+@@ -72,6 +73,7 @@
+      *
+      * @return PDOStatement
+      */
++    #[\ReturnTypeWillChange]
+     public function prepare($sql, $driverOptions = [])
+     {
+         try {
+@@ -87,6 +89,7 @@
+     /**
+      * {@inheritdoc}
+      */
++    #[\ReturnTypeWillChange]
+     public function quote($value, $type = ParameterType::STRING)
+     {
+         return parent::quote($value, $type);
+@@ -95,6 +98,7 @@
+     /**
+      * {@inheritdoc}
+      */
++    #[\ReturnTypeWillChange]
+     public function lastInsertId($name = null)
+     {
+         try {
+diff -u -r lib/Doctrine/DBAL/Driver/PDOQueryImplementation.php lib/Doctrine/DBAL/Driver/PDOQueryImplementation.php
+--- lib/Doctrine/DBAL/Driver/PDOQueryImplementation.php	2020-11-14 12:26:58.000000000 -0800
++++ lib/Doctrine/DBAL/Driver/PDOQueryImplementation.php	2022-10-18 17:52:19.012839466 -0700
+@@ -17,6 +17,7 @@
+         /**
+          * @return PDOStatement
+          */
++        #[\ReturnTypeWillChange]
+         public function query(?string $query = null, ?int $fetchMode = null, mixed ...$fetchModeArgs)
+         {
+             return $this->doQuery($query, $fetchMode, ...$fetchModeArgs);
+diff -u -r lib/Doctrine/DBAL/Driver/PDOStatement.php lib/Doctrine/DBAL/Driver/PDOStatement.php
+--- lib/Doctrine/DBAL/Driver/PDOStatement.php	2020-11-14 12:26:58.000000000 -0800
++++ lib/Doctrine/DBAL/Driver/PDOStatement.php	2022-10-18 18:37:15.367089134 -0700
+@@ -59,6 +59,7 @@
+     /**
+      * {@inheritdoc}
+      */
++    #[\ReturnTypeWillChange]
+     public function bindValue($param, $value, $type = ParameterType::STRING)
+     {
+         $type = $this->convertParamType($type);
+@@ -79,6 +80,7 @@
+      *
+      * @return bool
+      */
++    #[\ReturnTypeWillChange]
+     public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null, $driverOptions = null)
+     {
+         $type = $this->convertParamType($type);
+@@ -95,6 +97,7 @@
+      *
+      * @deprecated Use free() instead.
+      */
++    #[\ReturnTypeWillChange]
+     public function closeCursor()
+     {
+         try {
+@@ -109,6 +112,7 @@
+     /**
+      * {@inheritdoc}
+      */
++    #[\ReturnTypeWillChange]
+     public function execute($params = null)
+     {
+         try {
+@@ -123,6 +127,7 @@
+      *
+      * @deprecated Use fetchNumeric(), fetchAssociative() or fetchOne() instead.
+      */
++    #[\ReturnTypeWillChange]
+     public function fetch($fetchMode = null, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0)
+     {
+         $args = func_get_args();
+@@ -143,6 +148,7 @@
+      *
+      * @deprecated Use fetchOne() instead.
+      */
++    #[\ReturnTypeWillChange]
+     public function fetchColumn($columnIndex = 0)
+     {
+         try {
+diff -u -r lib/Doctrine/DBAL/Driver/PDOStatementImplementations.php lib/Doctrine/DBAL/Driver/PDOStatementImplementations.php
+--- lib/Doctrine/DBAL/Driver/PDOStatementImplementations.php	2020-11-14 12:26:58.000000000 -0800
++++ lib/Doctrine/DBAL/Driver/PDOStatementImplementations.php	2022-10-18 19:07:18.831367648 -0700
+@@ -33,6 +33,7 @@
+          *
+          * @return mixed[]
+          */
++        #[\ReturnTypeWillChange]
+         public function fetchAll($mode = null, ...$args)
+         {
+             return $this->doFetchAll($mode, ...$args);

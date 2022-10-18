@@ -1,0 +1,43 @@
+diff -u -r src/AbstractDatabase.php src/AbstractDatabase.php
+--- src/AbstractDatabase.php	2020-09-22 13:35:16.000000000 -0700
++++ src/AbstractDatabase.php	2022-10-19 07:50:01.878475259 -0700
+@@ -147,21 +147,25 @@
+     /**
+      * @return object
+      */
++    #[\ReturnTypeWillChange]
+     public function current()
+     {
+         return $this->arrayToEntry(current($this->clusterIndex));
+     }
+ 
++    #[\ReturnTypeWillChange]
+     public function key(): ?int
+     {
+         return key($this->clusterIndex);
+     }
+ 
++    #[\ReturnTypeWillChange]
+     public function next(): void
+     {
+         next($this->clusterIndex);
+     }
+ 
++    #[\ReturnTypeWillChange]
+     public function rewind(): void
+     {
+         // initialise cluster index
+@@ -170,11 +174,13 @@
+         reset($this->clusterIndex);
+     }
+ 
++    #[\ReturnTypeWillChange]
+     public function valid(): bool
+     {
+         return $this->key() !== null;
+     }
+ 
++    #[\ReturnTypeWillChange]
+     public function count(): int
+     {
+         return count($this->getClusterIndex());

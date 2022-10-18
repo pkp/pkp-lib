@@ -1,0 +1,11 @@
+diff -u -r src/Translations.php src/Translations.php
+--- src/Translations.php	2022-02-11 09:32:05.189891505 -0800
++++ src/Translations.php	2022-10-17 17:01:35.308079940 -0700
+@@ -215,6 +215,7 @@
+      *
+      * @return Translation
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($index, $value)
+     {
+         if (!($value instanceof Translation)) {

@@ -276,7 +276,7 @@ class PKPString {
 	 * @return mixed
 	 */
 	static function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
-		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
+		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject ?? '', $limit);
 	}
 
 	/**

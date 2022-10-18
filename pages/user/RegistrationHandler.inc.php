@@ -101,7 +101,7 @@ class RegistrationHandler extends UserHandler {
 		}
 
 		$source = $request->getUserVar('source');
-		if (preg_match('#^/\w#', $source) === 1) {
+		if (preg_match('#^/\w#', $source ?? '') === 1) {
 			return $request->redirectUrl($source);
 		} else {
 			// Make a new request to update cookie details after login

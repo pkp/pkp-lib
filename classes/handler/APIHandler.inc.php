@@ -72,7 +72,7 @@ class APIHandler extends PKPHandler {
 		$handler = $this;
 		$this->_app->add(function($request, $response, $next) use($app, $handler) {
 			$uri = $request->getUri();
-			$endpoint = trim($request->getQueryParam('endpoint'));
+			$endpoint = trim($request->getQueryParam('endpoint') ?? '');
 			$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
 			$path = $uri->getPath();
 			if (!$pathInfoEnabled && !is_null($endpoint) && !isset($_SERVER['PATH_INFO']) && ($path == '/')) {

@@ -1054,9 +1054,6 @@ msgstr ""
 "Այս ձևաչափի տվյալները փոփոխվել են: Դուք ցանկանու՞մ եք շարունակել առանց "
 "պահպանելու?"
 
-msgid "form.emailRequired"
-msgstr "Պահանջվում է Էլ. հասցե:"
-
 msgid "form.confirmSubmit.title"
 msgstr "Հաստատել"
 
@@ -1597,12 +1594,6 @@ msgstr "Ձեր գրանցումը հաջողությամբ կատարվել է։
 
 msgid "notification.confirmError"
 msgstr "Ձեր գրանցման հետ կապված տեղի է ունեցել սխալ։"
-
-msgid "notification.editedAuthor"
-msgstr "Հեղինակի հաշիվը խմբագրված է։"
-
-msgid "notification.addedAuthor"
-msgstr "Հեղինակը ավելացված է."
 
 msgid "notification.removedAnnouncement"
 msgstr "Հայտարարությունը հեռացված է։"

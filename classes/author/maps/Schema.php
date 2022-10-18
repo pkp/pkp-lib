@@ -14,12 +14,14 @@
 namespace PKP\author\maps;
 
 use APP\author\Author;
+use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
+use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use APP\facades\Repo;
-use Illuminate\Support\LazyCollection;
+use PKP\userGroup\UserGroup;
+use stdClass;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -91,12 +93,9 @@ class Schema extends \PKP\core\maps\Schema
         foreach ($props as $prop) {
             switch ($prop) {
                 case 'userGroupName':
-                    $userGroupId = $item->getData('userGroupId');
-
-                    $output[$prop] = $this->authorUserGroups->contains('userGroupId', $userGroupId)
-                        ? $this->authorUserGroups->firstWhere('userGroupId', $userGroupId)->getName(null)
-                        : '';
-
+                    /** @var UserGroup $userGroup */
+                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $item->getData('userGroupId'));
+                    $output[$prop] = $userGroup ? $userGroup->getName(null) : new stdClass();
                     break;
                 case 'fullName':
                     $output[$prop] = $item->getFullName();

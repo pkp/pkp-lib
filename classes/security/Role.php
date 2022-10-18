@@ -64,6 +64,23 @@ class Role extends \PKP\core\DataObject
     {
         return $this->setId($roleId);
     }
+
+    /**
+     * Get all of the possible roles
+     */
+    public static function getAllRoles(): array
+    {
+        return [
+            self::ROLE_ID_MANAGER,
+            self::ROLE_ID_SITE_ADMIN,
+            self::ROLE_ID_SUB_EDITOR,
+            self::ROLE_ID_AUTHOR,
+            self::ROLE_ID_REVIEWER,
+            self::ROLE_ID_ASSISTANT,
+            self::ROLE_ID_READER,
+            self::ROLE_ID_SUBSCRIPTION_MANAGER,
+        ];
+    }
 }
 
 if (!PKP_STRICT_MODE) {

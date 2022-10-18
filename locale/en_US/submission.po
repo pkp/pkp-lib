@@ -30,41 +30,26 @@ msgstr "New reviews have been submitted and are being considered by the editor."
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
 
-msgid "submission.confirm.message"
-msgstr "Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click \"Finish Submission\"."
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Submit As"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Select the role that best describes your contribution to this submission."
 
-msgid "submission.submit.contactConsent"
-msgstr "Corresponding Contact"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Yes, I would like to be contacted about this submission."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Submit in any of the following roles if you would like to be able to edit and publish this submission yourself: {$managerGroups}"
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr "Select an editorial role if you want to edit and publish this submission yourself."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Submission Requirements"
 
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "You must read and acknowledge that you've completed the requirements below before proceeding."
+msgstr "All submissions must meet the following requirements."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Yes, my submission meets all of these requirements."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Submission complete"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Thank you for your interest in publishing with {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acknowledge the copyright statement"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Yes, I agree to abide by the terms of the copyright statement."
 
 msgid "submission.submit.genre.label"
 msgstr "What kind of file is this?"
@@ -72,14 +57,8 @@ msgstr "What kind of file is this?"
 msgid "submission.submit.genre.description"
 msgstr "Choose the option that best describes this file."
 
-msgid "submission.submit.genre.error"
-msgstr "Please select the kind of file for each upload."
-
 msgid "submission.submit.removeConfirm"
 msgstr "Are you sure you want to remove this file?"
-
-msgid "submission.submit.whatNext"
-msgstr "What Happens Next?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "For now, you can:"
@@ -525,6 +504,9 @@ msgstr "Discussion Files"
 msgid "submission.coverage"
 msgstr "Coverage Information"
 
+msgid "submission.details"
+msgstr "Submission Details"
+
 msgid "submission.done"
 msgstr "Done"
 
@@ -654,8 +636,8 @@ msgstr "Download All Files"
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr "A record of the file uploader is saved when the file is created and can not be changed."
 
-msgid "submission.firstPublished"
-msgstr "First published"
+msgid "submission.forTheEditors"
+msgstr "For the Editors"
 
 msgid "submission.galley"
 msgstr "Galley"
@@ -924,6 +906,9 @@ msgstr "Review Metadata"
 msgid "submission.review"
 msgstr "Review"
 
+msgid "submission.reviewAndSubmit"
+msgstr "Review and Submit"
+
 msgid "submission.reviewed"
 msgstr "Reviewed"
 
@@ -932,9 +917,6 @@ msgstr "Review Version"
 
 msgid "submission.rights"
 msgstr "Rights"
-
-msgid "submission.rights.tip"
-msgstr "If you wish, you may enter a brief statement about the access rights held in or over this submission."
 
 msgid "submissions.active"
 msgstr "Active"
@@ -972,9 +954,6 @@ msgstr "Ruling"
 msgid "submission.source"
 msgstr "Source"
 
-msgid "submission.source.tip"
-msgstr "Is this submission derived from another resource? If so, you may enter a URL or description of that resource."
-
 msgid "submissions.submit"
 msgstr "Submit"
 
@@ -1002,9 +981,6 @@ msgstr "Submission Review"
 msgid "submission.submitter"
 msgstr "Submitter"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Finish Submission"
-
 msgid "submission.submit.selectFile"
 msgstr "Select File"
 
@@ -1026,14 +1002,11 @@ msgstr "Add Another File"
 msgid "submission.submit.metadataForm"
 msgstr "Additional Refinements"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Add additional information for your submission.  Press 'enter' after each term."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Submission Language"
 
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Submissions in several languages are accepted. Choose the primary language of the submission from the pulldown above."
+msgstr "Choose the primary language of the submission."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Submission Files"
@@ -1071,15 +1044,6 @@ msgstr "Indexing Information"
 msgid "submission.titleAndAbstract"
 msgstr "Title and Abstract"
 
-msgid "submission.type.tip"
-msgstr ""
-"The submission type is usually one of 'image', 'text', or other multimedia "
-"types including 'software' or 'interactive'.  Please choose the one most "
-"relevant for your submission.  Examples may be found at <a target=\"_blank\" "
-"href=\"https://www.dublincore.org/specifications/dublin-core/usageguide/"
-"2001-04-12/generic/\">https://www.dublincore.org/specifications/dublin-core/"
-"usageguide/2001-04-12/generic/</a>"
-
 msgid "submission.underway"
 msgstr "Underway"
 
@@ -1116,41 +1080,11 @@ msgstr "MM-DD"
 msgid "submission.date.yyyymmdd"
 msgstr "YYYY-MM-DD"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Principal contact for editorial correspondence."
-
 msgid "submission.submit.contributorRole"
 msgstr "Contributor's role"
 
 msgid "submission.submit.addAuthor"
 msgstr "Add Contributor"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Please enter a language."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Please enter a subject."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Please enter a discipline."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Please enter a keyword."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Please enter the coverage information."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Please enter the type."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Please enter the source."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Please enter the rights."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Please enter the references."
 
 msgid "submission.form.name"
 msgstr "Name the file (e.g., Manuscript; Table 1)"
@@ -1914,6 +1848,9 @@ msgstr "License"
 msgid "submission.copyright"
 msgstr "Copyright"
 
+msgid "submission.copyright.agree"
+msgstr "Yes, I agree to the copyright statement."
+
 msgid "submission.copyrightHolder"
 msgstr "Copyright Holder"
 
@@ -2115,6 +2052,74 @@ msgstr "Days since last activity"
 msgid "submission.list.assignEditor"
 msgstr "Assign Editor"
 
+msgid "submission.wizard.alreadySubmitted"
+msgstr "This submission has already been submitted. Please visit your <a href=\"{$url}\">submissions dashboard</a> to view it."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Before you begin"
+
+msgid "submission.wizard.categories.description"
+msgstr "Select only the categories that are appropriate for your submission."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Change Submission Settings"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Complete the steps to make a submission"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr "The submission, <strong>{$title}</strong>, will be submitted to <strong>{$context}</strong> for editorial review. Are you sure you want to complete this submission?"
+
+msgid "submission.wizard.errors"
+msgstr "There are one or more problems that need to be fixed before you can submit. Please review the information below and make the requested changes."
+
+msgid "submission.wizard.validating"
+msgstr "Checking your submission"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr "Add any information that you think our editorial staff should know when evaluating your submission."
+
+msgid "submission.wizard.confirm"
+msgstr "Please confirm the following before you submit."
+
+msgid "submission.wizard.title"
+msgstr "Make a Submission"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Make a Submission: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "No contributors have been added for this submission."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "One or more of the contributors are missing details in {$language}."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Not Allowed"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Privacy Consent"
+
+msgid "submission.wizard.saved"
+msgstr "Saved for Later"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Your submission details have been saved in our system, but it has not yet been submitted for "
+"review. You can return to complete your submission at any time by following the link below."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "We have emailed a copy of this link to you at {$email}."
+
+msgid "submission.wizard.start"
+msgstr "Begin Submission"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Starting a new submission"
+
+msgid "submission.wizard.unableToSave"
+msgstr "An error was encountered and we were unable to save your submission. You may have been disconnected."
+
 msgid "grid.category.categories"
 msgstr "Categories"
 
@@ -2194,7 +2199,7 @@ msgid "publication.version.confirm"
 msgstr "Are you sure you want to create a new version?"
 
 msgid "publication.wordCountLong"
-msgstr "The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long."
+msgstr "The abstract is too long. It should be {$limit} words or less. It is currently {$count} words long."
 
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"
@@ -2204,3 +2209,18 @@ msgstr "Failed to mark the DOI stale for {$pubObjectTitle}. The DOI cannot be ma
 
 msgid "doi.submission.notPublished"
 msgstr "Failed to mark the DOI registered for {$pubObjectTitle}. The submission must be published before the status can be updated."
+
+msgid "author.submit.noFiles"
+msgstr "No files have been uploaded for this submission."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmation"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Submitting in <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Submitting to the <strong>{$section}</strong> section."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr "Submitting to the <strong>{$section}</strong> section in <strong>{$language}</strong>."

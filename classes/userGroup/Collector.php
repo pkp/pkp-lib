@@ -250,19 +250,19 @@ class Collector implements CollectorInterface
         });
 
         $q->when($this->isDefault !== null, function (Builder $q) {
-            $q->where('ug.is_default', $this->isDefault);
+            $q->where('ug.is_default', $this->isDefault ? 1 : 0);
         });
 
         $q->when($this->permitSelfRegistration !== null, function (Builder $q) {
-            $q->where('ug.permit_self_registration', $this->permitSelfRegistration);
+            $q->where('ug.permit_self_registration', $this->permitSelfRegistration ? 1 : 0);
         });
 
         $q->when($this->permitMetadataEdit !== null, function (Builder $q) {
-            $q->where('ug.permit_metadata_edit', $this->permitMetadataEdit);
+            $q->where('ug.permit_metadata_edit', $this->permitMetadataEdit ? 1 : 0);
         });
 
         $q->when($this->showTitle !== null, function (Builder $q) {
-            $q->where('ug.show_title', $this->showTitle);
+            $q->where('ug.show_title', $this->showTitle ? 1 : 0);
         });
 
         if (isset($this->count)) {

@@ -80,14 +80,17 @@ class Repository
     /**
      * Get an instance of the map class for mapping
      * galleys to their schema
+     *
+     * @param array $genres All file genres in this context
      */
-    public function getSchemaMap(Submission $submission, Publication $publication): maps\Schema
+    public function getSchemaMap(Submission $submission, Publication $publication, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,
             [
                 'submission' => $submission,
-                'publication' => $publication
+                'publication' => $publication,
+                'genres' => $genres,
             ]
         );
     }

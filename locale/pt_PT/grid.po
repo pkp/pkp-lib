@@ -112,15 +112,6 @@ msgstr "Checklist da Submissão"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Item da Checklist"
 
-msgid "author.users.contributor.name"
-msgstr "Nome"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Papel"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contacto Principal"
 
@@ -129,9 +120,6 @@ msgstr "Designar Etapa"
 
 msgid "grid.action.addContributor"
 msgstr "Adicionar Colaborador"
-
-msgid "grid.action.editContributor"
-msgstr "Editar Colaborador"
 
 msgid "grid.action.deleteContributor"
 msgstr "Eliminar Colaborador"
@@ -279,12 +267,6 @@ msgstr "Importar ou exportar conteúdo ou dados do site"
 
 msgid "grid.action.orderItems"
 msgstr "Ativar modo de pedido"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Editar este item da lista de verificação"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Eliminar este item da lista de verificação"
 
 msgid "grid.action.resetAll"
 msgstr "Repor todos os itens para valores padrão"
@@ -465,9 +447,6 @@ msgstr "Opções Resposta"
 
 msgid "grid.noFiles"
 msgstr "Nenhum Ficheiro"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Nas Listas de Navegação"
 
 msgid "grid.roles.currentRoles"
 msgstr "Papéis Atuais"

@@ -2827,6 +2827,7 @@ msgstr ""
 "Todos os comentários de avaliações concluídas. Os nomes dos avaliadores "
 "estão ocultos para avaliações anônimas"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Envie um e-mail apenas para autores atribuídos ao fluxo de trabalho da "
@@ -3290,3 +3291,11 @@ msgstr "O número de downloads para cada arquivo."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr "Baixar Geográfico"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Condições para a submissão"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Ao submeter um trabalho para a revista, os autores devem ler, aceitar e marcar como realizados cada condição para a submissão, antes de proceder. A lista de condições também é apresentada em Diretrizes para autores, na página Sobre a revista. A lista pode ser modificada, porém todos os itens requerem a marcação dos autores para procederem à submissão."

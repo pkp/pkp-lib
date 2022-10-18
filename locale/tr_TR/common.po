@@ -911,9 +911,6 @@ msgstr "Bu formu göndermek istediğinizden emin misiniz?"
 msgid "form.confirmSubmit.title"
 msgstr "Doğrula"
 
-msgid "form.emailRequired"
-msgstr "Bir e-posta adresi gerekli."
-
 msgid "form.dataHasChanged"
 msgstr "Formdaki veriler değişti. Devam edilsin mi?"
 
@@ -1414,12 +1411,6 @@ msgstr "Duyuru türü kaldırıldı."
 
 msgid "notification.removedAnnouncement"
 msgstr "Duyuru kaldırıldı."
-
-msgid "notification.addedAuthor"
-msgstr "Yazar eklendi."
-
-msgid "notification.editedAuthor"
-msgstr "Yazar düzeltildi."
 
 msgid "navigation.archives"
 msgstr "Arşiv"

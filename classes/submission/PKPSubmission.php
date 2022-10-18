@@ -34,7 +34,6 @@ use APP\statistics\StatisticsHelper;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
-use PKP\mail\Mail;
 
 abstract class PKPSubmission extends \PKP\core\DataObject
 {

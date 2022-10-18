@@ -14,6 +14,14 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Bu elektron pochta, qo'lyozmani jurnalga topshirish jarayonini tugatgandan "
+"so'ng, avtomatik ravishda muallifga yuboriladi. U yuborish jarayonini "
+"kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
+
+#, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Hurmatli {$recipientName},</p><p>{$contextName} ga yuborganingiz uchun "

@@ -146,3 +146,18 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Tento e-mail je automaticky zasielaný mesačne editorom a správcom časopisov, "
 "aby im poskytol prehľad o stave systému."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Zaškrtávací zoznam pre prípravu príspevku"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"V priebehu zadávania príspevku do časopisu sú autori najprv požiadaní, aby "
+"zaškrtli všetky položky v Zaškrtávacom zozname pre prípravu príspevku a "
+"potvrdili tak ich splnenie; potom môžu postupovať ďalej. Zaškrtávací zoznam "
+"je tiež zobrazený v Pokyny autorom v časti O časopise. Zoznam môžete upraviť "
+"nižšie, pamätajte ale, že aby autori mohli pokračovať ďalej v odosielaní "
+"svojho príspevku, budú musieť zaškrtnutím potvrdiť všetky položky tohto "
+"zoznamu."

@@ -89,15 +89,6 @@ msgstr "Списак за проверу предатих радова"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Ставке списка за проверу"
 
-msgid "author.users.contributor.name"
-msgstr "Име"
-
-msgid "author.users.contributor.email"
-msgstr "Имејл"
-
-msgid "author.users.contributor.role"
-msgstr "Улога"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Примарни контакт"
 
@@ -428,9 +419,6 @@ msgstr "Обриши категорију"
 msgid "grid.action.addContributor"
 msgstr "Додај сарадника"
 
-msgid "grid.action.editContributor"
-msgstr "Имени сарадника"
-
 msgid "grid.action.deleteContributor"
 msgstr "Обриши сарадника"
 
@@ -439,9 +427,6 @@ msgstr "Опције одговора"
 
 msgid "grid.noFiles"
 msgstr "Нема фајлова"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "У листи за преглед"
 
 msgid "grid.roles.stageAssignment"
 msgstr "Додела у фази"
@@ -568,12 +553,6 @@ msgstr "Аутор; Наслов"
 
 msgid "grid.action.approveCopyedit"
 msgstr "Одобри овај коректорски фајл за слање у следећу фазу."
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Уреди ставку са чек листе"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Обриши ставку са чеклисте"
 
 msgid "grid.action.unconsiderReview"
 msgstr "Рецензија је готова али је можете и занемарити"

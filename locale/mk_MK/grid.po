@@ -423,20 +423,8 @@ msgstr "Креирај нова улога"
 msgid "grid.roles.currentRoles"
 msgstr "Тековни улоги"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Во листата за преглед"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Примарен контакт"
-
-msgid "author.users.contributor.role"
-msgstr "Улога"
-
-msgid "author.users.contributor.email"
-msgstr "Имејл"
-
-msgid "author.users.contributor.name"
-msgstr "Име"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Елемент на чек листа"
@@ -476,9 +464,6 @@ msgstr "Креирај нова верзија"
 
 msgid "grid.action.deleteContributor"
 msgstr "Избриши соработник"
-
-msgid "grid.action.editContributor"
-msgstr "Уреди соработник"
 
 msgid "grid.action.addContributor"
 msgstr "Додади соработник"
@@ -677,9 +662,3 @@ msgstr "Додади нов шаблон за имејли"
 
 msgid "grid.action.resetAll"
 msgstr "Ресетирај ги сите"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Избриши го овој елемент од чек листата"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Уреди го овој елемент од чек листата"

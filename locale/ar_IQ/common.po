@@ -968,9 +968,6 @@ msgstr "هل أنت متأكد من رغبتك في تقديم هذا النمو
 msgid "form.confirmSubmit.title"
 msgstr "تأكيد"
 
-msgid "form.emailRequired"
-msgstr "عنوان البريد الالكتروني مطلوب حتماً."
-
 msgid "form.dataHasChanged"
 msgstr "البيانات في هذا النموذج تغيرت. تستمر رغم ذلك وبدون حفظها؟"
 
@@ -1375,12 +1372,6 @@ msgstr "نوعية الإعلان أُزيلت."
 
 msgid "notification.removedAnnouncement"
 msgstr "الإعلان أُزيل removed."
-
-msgid "notification.addedAuthor"
-msgstr "المؤلف أُضيف."
-
-msgid "notification.editedAuthor"
-msgstr "المؤلف عُدِّل."
 
 msgid "notification.confirmError"
 msgstr "حدث خطأ لدى تأكيد اشتراكك."

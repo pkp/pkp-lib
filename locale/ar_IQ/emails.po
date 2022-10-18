@@ -20,6 +20,7 @@ msgid "emails.submissionAck.subject"
 msgstr "إشعار طلب التقديم"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

@@ -17,11 +17,40 @@ declare(strict_types=1);
 
 namespace PKP\observers\events;
 
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Foundation\Events\Dispatchable;
-use PKP\observers\traits\Publishable;
+use PKP\context\Context;
 
 class PublicationUnpublished
 {
     use Dispatchable;
-    use Publishable;
+
+    /** @var Publication $publication The publication that was unpublished */
+    public Publication $publication;
+
+    /** @var Publication $publication The publication before it was unpublished */
+    public Publication $oldPublication;
+
+    public Submission $submission;
+
+    public Context $context;
+
+    /**
+     * Class construct
+     *
+     * @param Publication $publication The publication that was unpublished
+     * @param Publication $oldPublication The publication before it was unpublished
+     */
+    public function __construct(
+        Publication $publication,
+        Publication $oldPublication,
+        Submission $submission,
+        Context $context
+    ) {
+        $this->publication = $publication;
+        $this->oldPublication = $oldPublication;
+        $this->submission = $submission;
+        $this->context = $context;
+    }
 }

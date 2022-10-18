@@ -597,29 +597,15 @@ msgstr "Odpovědi na formulář posudku"
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Byly nahrány nové recenze a nyní je posuzuje redaktor."
 
-msgid "submission.confirm.message"
-msgstr "Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit zpět a upravit libovolnou informaci, kterou jste zadali v předchozích krocích. Po ukončení úprav klikněnte na \"Odeslat příspěvek\"."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Požadavky na příspěvek"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Před pokračováním musíte přečíst a potvrdit, že jste splnili níže uvedené požadavky."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Podání příspěvku bylo dokončeno"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Děkujeme za váš zájem publikovat v časopisu {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Potvrďte prohlášení o autorských právech"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Souhlasím s dodržováním podmínek prohlášení o autorských právech."
-
-msgid "submission.submit.whatNext"
-msgstr "Co se bude dít dále?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "V tomto okamžiku můžete:"
@@ -861,23 +847,14 @@ msgstr "Recenzováno"
 msgid "submission.rights"
 msgstr "Práva"
 
-msgid "submission.rights.tip"
-msgstr "Chcete-li, můžete zadat stručné prohlášení o přístupových právech obsažených v tomto příspěvku nebo v jeho rámci."
-
 msgid "submission.source"
 msgstr "Zdroj"
-
-msgid "submission.source.tip"
-msgstr "Je tento příspěvek odvozen z jiného zdroje? Pokud ano, můžete zadat adresu URL nebo popis daného zdroje."
 
 msgid "submission.submission"
 msgstr "Příspěvek"
 
 msgid "submission.submissionTitle"
 msgstr "Název příspěvku:"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Odeslat příspěvek"
 
 msgid "submission.submit.selectFile"
 msgstr "Vybrat soubor"
@@ -898,14 +875,8 @@ msgstr "Přidat další soubor"
 msgid "submission.submit.metadataForm"
 msgstr "Upřesnění metadat"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na klávesu \"Enter\"."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Jazyk příspěvku"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Jsou přijímány příspěvky v několika jazycích. V níže uvedeném rozbalovacím seznamu vyberte primární jazyk příspěvku."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Soubory příspěvku"
@@ -922,15 +893,6 @@ msgstr "Nahrát podřízené soubory"
 msgid "submission.upload.query"
 msgstr "Nahrát diskusní soubor"
 
-msgid "submission.type.tip"
-msgstr ""
-"Typ příspěvku je obvykle jeden z 'image', 'text' nebo jiných multimediálních "
-"typů, včetně 'software' nebo 'interactive'. Zvolte prosím ten, který je pro "
-"váš příspěvek nejrelevantnější. Příklady lze nalézt na adrese  <a target=\""
-"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
-"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
-"dublin-core/usageguide/2001-04-12/generic/</a>"
-
 msgid "submission.createRemote"
 msgstr "Vytvořit vzdálený"
 
@@ -942,9 +904,6 @@ msgstr "MM-DD"
 
 msgid "submission.date.yyyymmdd"
 msgstr "RRRR-MM-DD"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Hlavní kontakt pro komunikaci s redakcí."
 
 msgid "submission.submit.contributorRole"
 msgstr "Role autora"
@@ -1610,44 +1569,11 @@ msgstr "Zaslat příspěvek jako"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Vyberte roli, které nejlépe popisuje vaši roli v rámci tohoto příspěvku."
 
-msgid "submission.submit.contactConsent"
-msgstr "Korespondenční kontakt"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ano, rád bych byl/a ohledně tohoto příspěvku kontaktován/a."
-
 msgid "submission.list.currentStage"
 msgstr "V tomto momentě je v etapě {$stage}."
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Vložte, prosím, jazyk."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Vložte, prosím, předmět."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Vložte, prosím, disciplínu."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Vložte, prosím, klíčová slova."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Vložte, prosím, podporující agenturu."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Vložte, prosím, informace o pokrytí."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Vložte, prosím, typ."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Vložte, prosím, zdroj."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Vložte, prosím, autorská práva."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Vložte, prosím, reference."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Příspěvek musí být znovu podán do dalšího recenzního kola."
@@ -1667,9 +1593,6 @@ msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.list.reviewComplete"
 msgstr "Recenze byla nahrána"
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Odešlete v libovolné z následujících rolí, pokud bude chtít editovat a publikovat příspěvek sami: {$managerGroups}"
 
 msgid "submission.citations.description"
 msgstr "Vložte každou referenci na nový řádek tak, aby mohla být extrahována."
@@ -1993,9 +1916,6 @@ msgstr ""
 
 msgid "submission.submit.removeConfirm"
 msgstr "Opravdu chcete tento soubor odstranit?"
-
-msgid "submission.submit.genre.error"
-msgstr "Vyberte typ souboru pro každé nahrání."
 
 msgid "submission.submit.genre.description"
 msgstr "Vyberte možnost, která nejlépe vystihuje tento soubor."
@@ -2438,10 +2358,14 @@ msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že copyediting je zrušen a "
 "jejich příspěvky budou podrobeny další redakční úpravě."
 
-msgid "submission.firstPublished"
-msgstr "Prvně publikováno"
-
 msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Opětovné odeslání žádosti o recenzi v kole {$round} na adresu {$reviewerName}"
 " pro příspěvek {$submissionid}."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "K příspěvku nebyly připojeny žádné soubory."
+
+msgid "author.submit.confirmation"
+msgstr "Potvrzení"

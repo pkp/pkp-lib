@@ -2778,6 +2778,7 @@ msgstr ""
 "Všechny komentáře z dokončených recenzí. U anonymních recenzí jsou jména "
 "recenzentů skryta"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Odeslat email pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
@@ -3205,9 +3206,6 @@ msgstr ""
 "Pokud není zaškrtnuto, bude rozhraní API přístupné pouze uživatelům s rolí "
 "správce nebo manažera."
 
-msgid "manager.settings.statistics.publicSushiApi.option"
-msgstr "Zpřístupnit koncové body API pro statistiky COUNTER SUSHI veřejnosti."
-
 msgid "mailable.reviewerResendRequest.name"
 msgstr "Opětovné odeslání žádosti o recenzi recenzentovi"
 
@@ -3291,3 +3289,11 @@ msgstr "Celkem náhledů podle data"
 
 msgid "stats.downloads.timelineInterval"
 msgstr "Celkem stažení podle data"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Zaškrtávací seznam pro přípravu příspěvku"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "V průběhu podávání příspěvku do časopisu jsou autoři nejdříve požádáni, aby zaškrtli všechny položky v Zaškrtávacím seznamu pro přípravu příspěvku a potvrdili tak jejich splnění; poté mohou postupovat dále. Zaškrtávací seznam je také zobrazen v Pokyny autorům v části O časopisu. Seznam můžete upravit níže, pamatujte ale, že aby autoři mohli pokračovat dále v odesílání svého příspěvku, budou muset zaškrtnutím potvrdit všechny položky tohoto seznamu."

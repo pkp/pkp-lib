@@ -2368,3 +2368,16 @@ msgstr ""
 "Du er i ferd med å markere DOI-metadataposter for {$count} objekter som "
 "foreldet. Foreldet-statusen kan kun anvendes på tidligere registrerte DOI-"
 "er. Er du sikker på at du vil markere disse postene som foreldet?"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Sjekkliste for innlevering"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Når de leverer inn bidrag til tidsskriftet, må forfattere først krysse av "
+"for hvert element på «Sjekkliste for innlevering», før de får gå videre. "
+"Sjekklisten vises også i forfatterinstruksen, under «Om» tidsskriftet. "
+"Sjekklisten kan redigeres nedenfor, men alle elementene på listen må krysses "
+"av før forfatteren kan gå videre med innsendingen."

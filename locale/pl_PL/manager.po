@@ -2591,3 +2591,11 @@ msgstr ""
 "Bardziej szczegółowe statystyki geograficzne mogą znacznie zwiększyć rozmiar "
 "bazy danych, a w niektórych rzadkich przypadkach mogą podważyć anonimowość "
 "odwiedzających."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Sprawdzenie tekstu przed wysłaniem"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Na stronie przesyłania tekstu, autorzy muszą oznaczyć każdy z elementów listy."

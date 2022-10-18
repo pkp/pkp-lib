@@ -959,9 +959,6 @@ msgstr "Επιβεβαιώνετε την υποβολή της φόρμας;"
 msgid "form.confirmSubmit.title"
 msgstr "Επιβεβαίωση"
 
-msgid "form.emailRequired"
-msgstr "Απαιτείται μια διεύθυνση ηλεκτρονικού ταχυδρομείου."
-
 msgid "form.dataHasChanged"
 msgstr "Τα δεδομένα αυτής της φόρμας έχουν αλλάξει. Θέλετε να συνεχίσετε σε κάθε περίπτωση;"
 
@@ -1279,12 +1276,6 @@ msgstr "Ο τύπος ανακοίνωσης αφαιρέθηκε."
 
 msgid "notification.removedAnnouncement"
 msgstr "Η ανακοίνωση αφαιρέθηκε."
-
-msgid "notification.addedAuthor"
-msgstr "Ο Συγγραφέας προστέθηκε."
-
-msgid "notification.editedAuthor"
-msgstr "Τα στοιχεία Συγγραφέα επικαιροποιήθηκαν."
 
 msgid "notification.confirmError"
 msgstr "Παρουσίαστηκε ένα σφάλμα κατά την επιβεβαίωση της συνδρομής σας."

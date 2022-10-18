@@ -1340,9 +1340,6 @@ msgstr "Voulez-vous vraiment envoyer ce formulaire ?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmer"
 
-msgid "form.emailRequired"
-msgstr "Vous devez fournir une adresse électronique."
-
 msgid "form.dataHasChanged"
 msgstr ""
 "Les données de ce formulaire ont été modifiées. Vous voulez continuer sans "
@@ -1413,12 +1410,6 @@ msgstr "Type d'annonce supprimé."
 
 msgid "notification.removedAnnouncement"
 msgstr "Annonce supprimée."
-
-msgid "notification.addedAuthor"
-msgstr "Auteur ajouté."
-
-msgid "notification.editedAuthor"
-msgstr "Auteur modifié."
 
 msgid "notification.addedNote"
 msgstr "Note publiée."

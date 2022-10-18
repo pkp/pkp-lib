@@ -96,15 +96,6 @@ msgstr "Kontrolní seznam příspěvků"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Položka kontrolního seznamu"
 
-msgid "author.users.contributor.name"
-msgstr "Název"
-
-msgid "author.users.contributor.email"
-msgstr "Email"
-
-msgid "author.users.contributor.role"
-msgstr "Role"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Hlavní kontakt"
 
@@ -268,12 +259,6 @@ msgstr "Importovat nebo exportovat obsah nebo data stránek"
 msgid "grid.action.orderItems"
 msgstr "Zapnout mód řazení"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Upravit tuto položku kontrolního seznamu"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Smazat tuto položku kontrolního seznamu"
-
 msgid "grid.action.resetAll"
 msgstr "Vrátit všem položkám původní hodnotu"
 
@@ -324,9 +309,6 @@ msgstr "Hledat"
 
 msgid "grid.action.advancedSearch"
 msgstr "Pokročilé vyhledávání"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "V seznamech k procházení"
 
 msgid "grid.roles.currentRoles"
 msgstr "Současné role"
@@ -609,9 +591,6 @@ msgstr "Smazat kategorii"
 
 msgid "grid.action.addContributor"
 msgstr "Přidat autora"
-
-msgid "grid.action.editContributor"
-msgstr "Upravit autora"
 
 msgid "grid.action.deleteContributor"
 msgstr "Smazat autora"

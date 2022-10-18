@@ -293,9 +293,6 @@ msgstr ""
 "Gögn á þessu eyðublaði hafa breyst. Viltu halda áfram án þess að vista "
 "breytingar?"
 
-msgid "form.emailRequired"
-msgstr "Það verður að skrá netfang."
-
 msgid "debug.notes.localeLoad"
 msgstr "Tungumálaskráin \"{$localeFile}\" lesinn inn frá  XML"
 
@@ -1046,12 +1043,6 @@ msgstr "Þér tókst að gerast áskrifandi."
 
 msgid "notification.confirmError"
 msgstr "Það kom upp villa við að staðfesta áskrift þína."
-
-msgid "notification.editedAuthor"
-msgstr "Höfundi breytt."
-
-msgid "notification.addedAuthor"
-msgstr "Höfundi bætt við."
 
 msgid "notification.removedAnnouncement"
 msgstr "Tilkynning fjarlægð."

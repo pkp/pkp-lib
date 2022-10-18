@@ -21,12 +21,6 @@ msgstr "Proporcioneu una llista de referències amb format per als treballs cita
 msgid "submission.submit.submissionComplete"
 msgstr "S'ha completat la tramesa"
 
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Us agraïm el vostre interès de publicar a {$contextName}."
-
-msgid "submission.submit.whatNext"
-msgstr "Què cal fer a continuació?"
-
 msgid "submission.submit.whatNext.forNow"
 msgstr "En aquest moment, podeu:"
 
@@ -801,9 +795,6 @@ msgstr "Versió de revisió"
 msgid "submission.rights"
 msgstr "Drets"
 
-msgid "submission.rights.tip"
-msgstr "Si ho voleu, podeu introduir una breu declaració sobre els drets d'accés a aquesta tramesa."
-
 msgid "submissions.active"
 msgstr "Activa"
 
@@ -840,9 +831,6 @@ msgstr "Decisió"
 msgid "submission.source"
 msgstr "Font"
 
-msgid "submission.source.tip"
-msgstr "Aquesta tramesa deriva d'un altre recurs? Si és així, podeu introduir un URL o una descripció del recurs."
-
 msgid "submission.subjectClass"
 msgstr "Tema de la tramesa"
 
@@ -873,9 +861,6 @@ msgstr "Revisió de la tramesa"
 msgid "submission.submitter"
 msgstr "Remitent"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Finalitza la tramesa"
-
 msgid "submission.submit.selectFile"
 msgstr "Seleccioneu un fitxer"
 
@@ -896,9 +881,6 @@ msgstr "S'ha produït un error en eliminar l'autor/a."
 
 msgid "submission.submit.metadataForm"
 msgstr "Ajustos addicionals"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després de cada terme."
 
 msgid "submission.submit.submissionLocale"
 msgstr "Llengua de la tramesa"
@@ -932,9 +914,6 @@ msgstr "Informació d'indexació"
 
 msgid "submission.titleAndAbstract"
 msgstr "Títol i resum"
-
-msgid "submission.type.tip"
-msgstr "El tipus de tramesa normalment és un tipus d'imatge, text o qualsevol altre tipus d'element multimèdia que pot ser programari o interactiu. Seleccioneu el més rellevant per a la tramesa. Podeu trobar-ne exemples a <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "En procés"
@@ -971,9 +950,6 @@ msgstr "DD-MM"
 
 msgid "submission.date.yyyymmdd"
 msgstr "DD-MM-AAAA"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Contacte principal per a la correspondència editorial."
 
 msgid "submission.submit.contributorRole"
 msgstr "Rol del contribuïdor"
@@ -1897,40 +1873,8 @@ msgstr "Fase"
 msgid "workflow.stage.any"
 msgstr "Qualsevol fase"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Introduïu les referències."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Introduïu els drets."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Introduïu la font."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Introduïu la tipologia."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Introduïu la informació de cobertura."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Introduïu una paraula clau."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Introduïu una disciplina."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Introduïu un tema."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Introduïu un idioma."
-
 msgid "submission.upload.query"
 msgstr "Carregueu un arxiu de discussió"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"S'accepten trameses en diversos idiomes. Trieu l'idioma principal de la "
-"tramesa des del menú desplegable que hi ha a sobre."
 
 msgid "submission.submissionTitle"
 msgstr "Títol de la tramesa:"
@@ -2024,13 +1968,6 @@ msgstr "Biografia de l'autor/a"
 msgid "metadata.property.displayName.abstract"
 msgstr "Resum"
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr ""
-"Sí, estic d'acord a respectar els termes de la declaració de drets d'autor."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acceptar la declaració de drets d'autor"
-
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Heu de llegir i confirmar que heu completat els següents requisits abans de "
@@ -2039,19 +1976,6 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisits de la tramesa"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Feu la tramesa amb qualsevol dels rols següents si també voleu poder editar "
-"i publicar aquesta tramesa: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr ""
-"Sí, m'agradaria que es posessin en contacte amb mi respecte a aquesta "
-"tramesa."
-
-msgid "submission.submit.contactConsent"
-msgstr "Persona de contacte"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Seleccioneu el rol que descrigui millor la vostra contribució a aquesta "
@@ -2059,13 +1983,6 @@ msgstr ""
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Enviar com a"
-
-msgid "submission.confirm.message"
-msgstr ""
-"S'ha carregat la vostra tramesa i ja està llesta per ser enviada. Podeu "
-"tornar enrere per revisar i ajustar qualsevol informació que hagueu "
-"introduït abans de continuar. Quan estigueu llestos cliqueu a \"Finalitzar "
-"tramesa\"."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "S'han tramès noves revisions i l'editor/a les està considerant."
@@ -2171,9 +2088,6 @@ msgstr ""
 msgid "submission.submit.removeConfirm"
 msgstr "Segur que voleu eliminar aquest arxiu?"
 
-msgid "submission.submit.genre.error"
-msgstr "Seleccioneu el tipus d'arxiu per a cada càrrega."
-
 msgid "submission.submit.genre.description"
 msgstr "Trieu l'opció que descrigui millor aquest arxiu."
 
@@ -2195,3 +2109,10 @@ msgstr "S'ha reactivat la tramesa rebutjada."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Revertir el rebuig"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "No s’ha adjuntat cap fitxer a aquesta tramesa."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmació"

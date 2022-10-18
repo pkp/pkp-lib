@@ -165,7 +165,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $user = $request->getUser();
-                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), Role::ROLE_ID_AUTHOR, null, $user->getId());
+                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($reviewRound->getSubmissionId(), [Role::ROLE_ID_AUTHOR], null, $user->getId());
                 $isAuthor = (bool) $stageAssignments->next();
                 return __($reviewRound->getStatusKey($isAuthor));
             case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:

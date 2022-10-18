@@ -25,6 +25,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     abstract protected function getContextTable(): string;
     abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;
+    abstract protected function getContextSettingsTable(): string;
 
     /**
      * Run the migrations.
@@ -490,6 +491,27 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             if ($result->count()) {
                 throw new Exception('Starting with 3.4.0, usernames are not case sensitive. Your database contains users that have same username if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
             }
+
+            // Make sure submission checklists have locale key
+            // See I7191_SubmissionChecklistMigration
+            $invalidSubmissionsChecklist = DB::table($this->getContextSettingsTable())
+                ->where('setting_name', 'submissionChecklist')
+                ->whereNull('locale')
+                ->count();
+            if ($invalidSubmissionsChecklist > 0) {
+                throw new \Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . ' with null in the locale column. Remove this row or add a locale before upgrading.');
+            }
+            // All submission checklists should be a json-encoded array
+            // See I7191_SubmissionChecklistMigration
+            DB::table($this->getContextSettingsTable())
+                ->where('setting_name', 'submissionChecklist')
+                ->pluck('setting_value')
+                ->each(function ($value) {
+                    $checklist = json_decode($value);
+                    if (is_null($checklist) || !is_array($checklist)) {
+                        throw new \Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n" . $value . "\n\nFix or remove this row before upgrading.");
+                    }
+                });
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

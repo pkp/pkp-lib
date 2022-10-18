@@ -12,6 +12,14 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Email này, khi được bật, sẽ tự động được gửi cho tác giả khi người đó hoàn "
+"thành quá trình gửi bản thảo cho tạp chí. Nó cung cấp thông tin về việc theo "
+"dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
+
+#, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Kính gửi {$recipientName},<br />\n"

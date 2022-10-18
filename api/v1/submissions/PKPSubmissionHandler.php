@@ -20,17 +20,21 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\journal\Section;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Collector;
 use APP\submission\Submission;
+use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
+use PKP\context\PKPSection;
 use PKP\core\APIResponse;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\handler\APIHandler;
 use PKP\mail\mailables\PublicationVersionNotify;
+use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
@@ -42,9 +46,12 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\userGroup\UserGroup;
 use Slim\Http\Request as SlimRequest;
+use Slim\Http\Response;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -58,6 +65,8 @@ class PKPSubmissionHandler extends APIHandler
     public $requiresSubmissionAccess = [
         'get',
         'edit',
+        'saveForLater',
+        'submit',
         'delete',
         'getGalleys',
         'getDecisions',
@@ -162,7 +171,7 @@ class PKPSubmissionHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+                    'roles' => Role::getAllRoles(),
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
@@ -189,7 +198,17 @@ class PKPSubmissionHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
                     'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/saveForLater',
+                    'handler' => [$this, 'saveForLater'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/submit',
+                    'handler' => [$this, 'submit'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
@@ -429,40 +448,114 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Add a new submission
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
-     * @param array $args arguments
-     *
      * @return Response
      */
-    public function add($slimRequest, $response, $args)
+    public function add(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
         $request = $this->getRequest();
+        $context = $request->getContext();
+        $user = $request->getUser();
 
-        if ($request->getContext()->getData('disableSubmissions')) {
+        if ($context->getData('disableSubmissions')) {
             return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
-        $params['contextId'] = $request->getContext()->getId();
 
-        $primaryLocale = $request->getContext()->getPrimaryLocale();
-        $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
+        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
+        if (!empty($readOnlyErrors)) {
+            return $response->withStatus(400)->withJson($readOnlyErrors);
+        }
 
-        $errors = Repo::submission()->validate(null, $params, $allowedLocales, $primaryLocale);
+        $params['contextId'] = $context->getId();
+
+        $errors = Repo::submission()->validate(null, $params, $context);
+
+        $sectionIdPropName = Application::getSectionIdPropName();
+        if (isset($params[$sectionIdPropName])) {
+            $sectionId = $params[$sectionIdPropName];
+            /** @var Section $section */
+            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+            if ($section->getIsInactive()) {
+                $errors[$sectionIdPropName] = [__('api.submission.400.inactiveSection')];
+            } else {
+                if ($section->getEditorRestricted() && !$this->isEditor()) {
+                    $errors[$sectionIdPropName] = [__('submission.sectionRestrictedToEditors')];
+                }
+            }
+        }
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $sectionId = $params['sectionId'];
-        unset($params['sectionId']);
+        $submitterUserGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByUserIds([$user->getId()])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
+            ->getMany();
+
+        if (isset($params['userGroupId'])) {
+            $submitAsUserGroup = $submitterUserGroups
+                ->first(function (UserGroup $userGroup) use ($params) {
+                    return $userGroup->getId() === $params['userGroupId'];
+                });
+            if (!$submitAsUserGroup) {
+                return $response->withStatus(400)->withJson([
+                    'userGroupId' => [__('api.submissions.400.invalidSubmitAs')]
+                ]);
+            }
+        } elseif ($submitterUserGroups->count()) {
+            $submitAsUserGroup = $submitterUserGroups
+                ->sort(function (UserGroup $a, UserGroup $b) {
+                    return $a->getRoleId() === Role::ROLE_ID_AUTHOR ? 1 : -1;
+                })
+                ->first();
+        } else {
+            $submitAsUserGroup = Repo::userGroup()->getDefaultAuthorUserGroup($context->getId());
+            if (!$submitAsUserGroup) {
+                return $response->withStatus(400)->withJson([
+                    'userGroupId' => [__('submission.wizard.notAllowed.description')]
+                ]);
+            }
+            Repo::userGroup()->assignUserToGroup(
+                $user->getId(),
+                $submitAsUserGroup->getId()
+            );
+        }
+
+        $publicationProps = [$sectionIdPropName => $params[$sectionIdPropName]];
+        unset($params[$sectionIdPropName]);
 
         $submission = Repo::submission()->newDataObject($params);
-        $publication = Repo::publication()->newDataObject(['sectionId' => $sectionId]);
-        $submissionId = Repo::submission()->add($submission, $publication);
+        $publication = Repo::publication()->newDataObject($publicationProps);
+        $submissionId = Repo::submission()->add($submission, $publication, $request->getContext());
 
         $submission = Repo::submission()->get($submissionId);
+
+        // Assign submitter to submission
+        /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+        $stageAssignmentDao->build(
+            $submission->getId(),
+            $submitAsUserGroup->getId(),
+            $request->getUser()->getId(),
+            $submitAsUserGroup->getRecommendOnly(),
+            // Authors can always edit metadata before submitting
+            $submission->getData('submissionProgress')
+                ? true
+                : $submitAsUserGroup->getPermitMetadataEdit()
+        );
+
+        // Create an author record from the submitter's user account
+        if ($submitAsUserGroup->getRoleId() === Role::ROLE_ID_AUTHOR) {
+            $author = Repo::author()->newAuthorFromUser($request->getUser());
+            $author->setData('publicationId', $publication->getId());
+            $author->setUserGroupId($submitAsUserGroup->getId());
+            $authorId = Repo::author()->add($author);
+            Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
+        }
 
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$submission->getData('contextId')])
@@ -477,35 +570,23 @@ class PKPSubmissionHandler extends APIHandler
 
     /**
      * Edit a submission
-     *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
-     * @param array $args arguments
-     *
-     * @return Response
      */
-    public function edit($slimRequest, $response, $args)
+    public function edit(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
+
+        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
+        if (!empty($readOnlyErrors)) {
+            return $response->withStatus(400)->withJson($readOnlyErrors);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
         $params['id'] = $submission->getId();
         $params['contextId'] = $request->getContext()->getId();
 
-        // Don't allow a submission's context to be changed
-        if (isset($params['contextId']) && $params['contextId'] !== $submission->getData('contextId')) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.cantChangeContext');
-        }
-
-        $primaryLocale = $request->getContext()->getPrimaryLocale();
-        $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
-
-        $errors = Repo::submission()->validate($submission, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::submission()->validate($submission, $params, $request->getContext());
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -516,6 +597,92 @@ class PKPSubmissionHandler extends APIHandler
         $submission = Repo::submission()->get($submission->getId());
 
         $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+    }
+
+    /**
+     * Save a submission for later
+     *
+     * Saves the current step and sends the submitter an
+     * email with a link to resume their submission.
+     */
+    public function saveForLater(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $params = $slimRequest->getParsedBody();
+        if (!empty($params['step'])) {
+            if (!ctype_alnum(str_replace(['-', '_'], '', $params['step']))) {
+                return $response->withStatus(400)->withJson([
+                    'step' => [__('validator.alpha_dash')]
+                ]);
+            }
+
+            Repo::submission()->edit($submission, ['submissionProgress' => $params['step']]);
+        }
+
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), SubmissionSavedForLater::getEmailTemplateKey());
+        $mailable = new SubmissionSavedForLater($context, $submission);
+        $mailable
+            ->from($context->getData('contactEmail'), $context->getData('contactName'))
+            ->recipients([$request->getUser()])
+            ->subject($emailTemplate->getLocalizedData('subject'))
+            ->body($emailTemplate->getLocalizedData('body'));
+
+        Mail::send($mailable);
+
+        $submission = Repo::submission()->get($submission->getId());
+
+        $userGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+    }
+
+    /**
+     * Submit a submission
+     *
+     * Submits a submission by changing its `submissionProgress` property.
+     *
+     * Pass the `_validateOnly` property to validate the submission without submitting it.
+     */
+    public function submit(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $errors = Repo::submission()->validateSubmit($submission, $context);
+
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+
+        if ($slimRequest->getParsedBodyParam('_validateOnly')) {
+            return $response->withStatus(200);
+        }
+
+        Repo::submission()->submit($submission, $context);
+
+        $submission = Repo::submission()->get($submission->getId());
+
+        $userGroups = Repo::userGroup()
+            ->getCollector()
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
@@ -726,15 +893,8 @@ class PKPSubmissionHandler extends APIHandler
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
-        $primaryLocale = $submissionContext->getPrimaryLocale();
-        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        // A publication may have a different primary locale
-        if (!empty($params['locale']) && in_array($params['locale'], $allowedLocales)) {
-            $primaryLocale = $params['locale'];
-        }
-
-        $errors = Repo::publication()->validate(null, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validate(null, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -890,10 +1050,8 @@ class PKPSubmissionHandler extends APIHandler
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
-        $primaryLocale = $publication->getData('locale');
-        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        $errors = Repo::publication()->validate($publication, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -1177,15 +1335,8 @@ class PKPSubmissionHandler extends APIHandler
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
-        $primaryLocale = $submissionContext->getPrimaryLocale();
-        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        // A publication may have a different primary locale
-        if (!empty($params['locale']) && in_array($params['locale'], $allowedLocales)) {
-            $primaryLocale = $params['locale'];
-        }
-
-        $errors = Repo::author()->validate(null, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -1290,9 +1441,6 @@ class PKPSubmissionHandler extends APIHandler
             $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
 
-        $primaryLocale = $publication->getData('locale');
-        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
-
         if ($publication->getId() !== $author->getData('publicationId')) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
@@ -1303,7 +1451,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
         }
 
-        $errors = Repo::author()->validate($author, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -1361,7 +1509,12 @@ class PKPSubmissionHandler extends APIHandler
             Repo::author()->setAuthorsOrder($publication->getId(), $authors);
         }
 
-        return $response->withJson($publication->getId());
+        $authors = Repo::author()
+            ->getCollector()
+            ->filterByPublicationIds([$publication->getId()])
+            ->getMany();
+
+        return $response->withJson(Repo::author()->getSchemaMap()->summarizeMany($authors));
     }
 
     /**
@@ -1402,5 +1555,58 @@ class PKPSubmissionHandler extends APIHandler
         $decision = Repo::decision()->get($decisionId);
 
         return $response->withJson(Repo::decision()->getSchemaMap()->map($decision), 200);
+    }
+
+    protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup
+    {
+        return $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getRoleId() === $role);
+    }
+
+    /**
+     * Is the current user an editor
+     */
+    protected function isEditor(): bool
+    {
+        return !empty(
+            array_intersect(
+                PKPSection::getEditorRestrictedRoles(),
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
+            )
+        );
+    }
+
+    /**
+     * This method returns errors for any params that match
+     * properties in the schema with writeDisabledInApi set to true.
+     *
+     * This is used for properties that can not be edited through
+     * the API, but which otherwise can be edited by the entity's
+     * repository.
+     */
+    protected function getWriteDisabledErrors(string $schemaName, array $params): array
+    {
+        $schema = Services::get('schema')->get($schemaName);
+
+        $writeDisabledProps = [];
+        foreach ($schema->properties as $propName => $propSchema) {
+            if (!empty($propSchema->writeDisabledInApi)) {
+                $writeDisabledProps[] = $propName;
+            }
+        }
+
+        $errors = [];
+
+        $notAllowedProps = array_intersect(
+            $writeDisabledProps,
+            array_keys($params)
+        );
+
+        if (!empty($notAllowedProps)) {
+            foreach ($notAllowedProps as $propName) {
+                $errors[$propName] = [__('api.400.propReadOnly', ['prop' => $propName])];
+            }
+        }
+
+        return $errors;
     }
 }

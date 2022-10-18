@@ -194,12 +194,6 @@ msgstr "Importeer of exporteer content of sitegegevens"
 msgid "grid.action.orderItems"
 msgstr "Schakel sorteren in"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Bewerk dit checklistitem"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Verwijder dit checklistitem"
-
 msgid "grid.action.resetAll"
 msgstr "Zet alle items terug naar standaardwaarde"
 
@@ -395,9 +389,6 @@ msgstr "Bijgedragen door"
 msgid "grid.action.addContributor"
 msgstr "Voeg een bijdrager toe"
 
-msgid "grid.action.editContributor"
-msgstr "Bewerk bijdrager"
-
 msgid "grid.action.deleteContributor"
 msgstr "Verwijder bijdrager"
 
@@ -434,20 +425,8 @@ msgstr "Checklist inzending"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Checklist onderdeel"
 
-msgid "author.users.contributor.name"
-msgstr "Naam"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Rol"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Primair contact"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "In bladerlijsten"
 
 msgid "grid.roles.currentRoles"
 msgstr "Huidige rollen"

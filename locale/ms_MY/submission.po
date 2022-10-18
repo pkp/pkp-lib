@@ -799,41 +799,11 @@ msgstr "Menggantikan Fail Sedia Ada?"
 msgid "submission.form.name"
 msgstr "Namakan fail (cth., Manuskrip; Jadual 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Sila masukkan rujukan."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Sila masukkan hak."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Sila masukkan sumber."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Sila masukkan jenis."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Sila masukkan maklumat liputan."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Sila masukkan kata kunci."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Sila masukkan disiplin."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Sila masukkan subjek."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Sila masukkan bahasa."
-
 msgid "submission.submit.addAuthor"
 msgstr "Tambah Penyumbang"
 
 msgid "submission.submit.contributorRole"
 msgstr "Peranan penyumbang"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Hubungan utama untuk surat-menyurat editorial."
 
 msgid "submission.date.yyyymmdd"
 msgstr "YYYY-MM-DD"
@@ -870,15 +840,6 @@ msgstr "Muat naik fail ke"
 
 msgid "submission.underway"
 msgstr "Sedang berlangsung"
-
-msgid "submission.type.tip"
-msgstr ""
-"Jenis penyerahan biasanya salah satu daripada 'imej', 'teks', atau jenis "
-"multimedia lain termasuk 'perisian' atau 'interaktif'. Sila pilih yang "
-"paling relevan untuk penyerahan anda. Contoh boleh didapati di <a target=\""
-"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
-"generic.shtml#type\">http://dublincore.org/documents/ 2001/04/12/usageguide/"
-"generic.shtml#type</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Tajuk dan Abstrak"
@@ -918,18 +879,8 @@ msgstr "Fail Bergantung"
 msgid "submission.submit.submissionFiles"
 msgstr "Fail Penyerahan"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Penyerahan dalam beberapa bahasa diterima. Pilih bahasa utama penyerahan "
-"daripada tarik turun di atas."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Bahasa Penyerahan"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Tambahkan maklumat tambahan untuk penyerahan anda. Tekan 'enter' selepas "
-"setiap penggal."
 
 msgid "submission.submit.metadataForm"
 msgstr "Penambahbaikan Tambahan"
@@ -948,9 +899,6 @@ msgstr "Maklumat Fail"
 
 msgid "submission.submit.selectFile"
 msgstr "Pilih Fail"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Selesai Penyerahan"
 
 msgid "submission.submitter"
 msgstr "Penghantar"
@@ -978,11 +926,6 @@ msgstr "Diserahkan"
 
 msgid "submissions.submit"
 msgstr "Serah"
-
-msgid "submission.source.tip"
-msgstr ""
-"Adakah penyerahan ini diperoleh daripada sumber lain? Jika ya, anda boleh "
-"memasukkan URL atau penerangan tentang sumber tersebut."
 
 msgid "submission.source"
 msgstr "Sumber"
@@ -1019,11 +962,6 @@ msgstr "Diarkibkan"
 
 msgid "submissions.active"
 msgstr "Aktif"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Jika anda mahu, anda boleh memasukkan kenyataan ringkas tentang hak akses "
-"yang dipegang dalam atau atas penyerahan ini."
 
 msgid "submission.rights"
 msgstr "Hak"
@@ -1949,14 +1887,8 @@ msgstr "Semak penyerahan ini"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Buat masa ini, anda boleh:"
 
-msgid "submission.submit.whatNext"
-msgstr "Apa yang Berlaku Seterusnya?"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Adakah anda pasti mahu membuang fail ini?"
-
-msgid "submission.submit.genre.error"
-msgstr "Sila pilih jenis fail untuk setiap muat naik."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Penyerahan mesti diserahkan semula untuk pusingan ulasan yang lain."
@@ -2046,18 +1978,10 @@ msgstr "Pilih pilihan yang paling tepat menerangkan fail ini."
 msgid "submission.submit.genre.label"
 msgstr "Apakah jenis fail ini?"
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Ya, saya bersetuju untuk mematuhi syarat penyata hak cipta."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Mengakui kenyataan hak cipta"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Terima kasih atas minat anda untuk menerbitkan dengan {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Penyerahan selesai"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Anda mesti membaca dan mengakui bahawa anda telah melengkapkan keperluan di "
@@ -2066,30 +1990,12 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Keperluan Penyerahan"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Serahkan dalam mana-mana peranan berikut jika anda ingin dapat menyunting "
-"dan menerbitkan penyerahan ini sendiri: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ya, saya ingin dihubungi mengenai penyerahan ini."
-
-msgid "submission.submit.contactConsent"
-msgstr "Kenalan Berkaitan"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Pilih peranan yang paling menggambarkan sumbangan anda kepada penyerahan ini."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Hantar Sebagai"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Penyerahan anda telah dimuat naik dan sedia untuk dihantar. Anda boleh "
-"kembali untuk menyemak dan melaraskan mana-mana maklumat yang telah anda "
-"masukkan sebelum meneruskan. Apabila anda sudah bersedia, klik \"Selesaikan "
-"Penyerahan\"."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -2113,3 +2019,10 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Pengarang penerbitan ini tidak boleh disunting kerana ia telah pun "
 "diterbitkan."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Tiada fail yang dilampirkan pada penyerahan ini."
+
+msgid "author.submit.confirmation"
+msgstr "Pengesahan"

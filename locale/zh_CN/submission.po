@@ -818,9 +818,6 @@ msgstr "选择最能描述您对此提交内容的贡献的角色。"
 msgid "submission.submit.availableUserGroups"
 msgstr "提交为"
 
-msgid "submission.confirm.message"
-msgstr "您的提交已上传，可以发送了。 您可以返回以查看并调整您输入的任何信息，然后再继续。 准备就绪后，单击“完成提交”。"
-
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "新的评论已提交，编辑正在考虑中。"
 
@@ -851,29 +848,19 @@ msgstr "审阅此提交"
 msgid "submission.submit.whatNext.forNow"
 msgstr "现在，您可以："
 
-msgid "submission.submit.whatNext"
-msgstr "接下来发生什么？"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "是的，我同意遵守版权声明的条款。"
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "确认版权声明"
-
 msgid "submission.submit.submissionComplete"
 msgstr "提交完成"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "您必须先阅读并确认您已完成以下要求，然后再继续。"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "提交要求"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "如果您希望自己编辑和发布此提交内容，请以以下任何一种角色提交：{$managerGroups}"
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "这个稿件没有添加文件。"
 
-msgid "submission.submit.contactConsentDescription"
-msgstr "是的，我希望就此提交与我们联系。"
-
-msgid "submission.submit.contactConsent"
-msgstr "通讯联系"
+msgid "author.submit.confirmation"
+msgstr "确认"

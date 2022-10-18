@@ -18,6 +18,7 @@ msgid "emails.submissionAck.subject"
 msgstr "Accusé de réception de la soumission"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

@@ -2385,3 +2385,11 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Questo report sull'attività del sistema è inviato via email  mensilmente in "
 "automatico agli editors."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Checklist per la preparazione dell'invio di una proposta"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Nell'effettuare una submission alla rivista gli autori dovrebbero prima controllare le varie voci della Checklist prima di procedere oltre. Questa checklist è presente nelle Linee guida per gli autori, nella sezione About. Questa lista può essere modificata qui di seguito, ma tutte le voci della lista dovranno essere spuntate dall'autore per proseguire con la submission."

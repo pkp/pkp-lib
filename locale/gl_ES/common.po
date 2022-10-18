@@ -1053,9 +1053,6 @@ msgstr "Só se permiten os seguintes idiomas: {$languages}."
 msgid "form.dataHasChanged"
 msgstr "Os datos deste formulario cambiaron. Queres continuar sen gardar?"
 
-msgid "form.emailRequired"
-msgstr "É necesario un enderezo de correo electrónico."
-
 msgid "validator.url"
 msgstr "Este non é un URL válido."
 
@@ -1637,12 +1634,6 @@ msgstr "Subscribícheste correctamente."
 
 msgid "notification.confirmError"
 msgstr "Produciuse un erro ao confirmar a túa subscrición."
-
-msgid "notification.editedAuthor"
-msgstr "Autor/a editado."
-
-msgid "notification.addedAuthor"
-msgstr "Autor/a engadido."
 
 msgid "notification.removedAnnouncement"
 msgstr "Aviso eliminado."

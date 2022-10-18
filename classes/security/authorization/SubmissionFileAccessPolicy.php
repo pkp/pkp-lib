@@ -27,6 +27,7 @@ use PKP\security\authorization\internal\SubmissionFileStageRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
 
@@ -83,7 +84,12 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         //
         // Site administrator role
         if (isset($roleAssignments[Role::ROLE_ID_SITE_ADMIN])) {
-            $fileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
+            $adminPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
+            $adminPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
+            // A valid workflow stage needs to be in the authorized objects for most file operations
+            $stageId = (int) $request->getUserVar('stageId');
+            $adminPolicy->addPolicy(new WorkflowStageRequiredPolicy($stageId));
+            $fileAccessPolicy->addPolicy($adminPolicy);
         }
 
         //

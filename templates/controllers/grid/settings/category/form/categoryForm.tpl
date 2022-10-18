@@ -74,13 +74,23 @@
 			{/fbvFormSection}
 		{/if}
 
-		{if count($availableSubeditors)}
-			{fbvFormSection list=true title="submissionGroup.assignedSubEditors"}
-				{foreach from=$availableSubeditors item="subEditor" key="id"}
-					{fbvElement type="checkbox" id="subEditors[]" value=$id checked=in_array($id, $assignedToCategory) label=$subEditor|escape translate=false}
-				{/foreach}
-			{/fbvFormSection}
-		{/if}
+		{fbvFormSection list=true title="manager.sections.form.assignEditors"}
+		<div>{translate key="manager.categories.form.assignEditors.description"}</div>
+		{foreach from=$assignableUserGroups item="assignableUserGroup"}
+			{assign var="role" value=$assignableUserGroup.userGroup->getLocalizedName()}
+			{assign var="userGroupId" value=$assignableUserGroup.userGroup->getId()}
+			{foreach from=$assignableUserGroup.users item=$username key="id"}
+				{fbvElement
+					type="checkbox"
+					id="subEditors[{$userGroupId}][]"
+					value=$id
+					checked=in_array($id, $assignedSubeditors)
+					label={translate key="manager.sections.form.assignEditorAs" name=$username role=$role}
+					translate=false
+				}
+			{/foreach}
+		{/foreach}
+		{/fbvFormSection}
 
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}

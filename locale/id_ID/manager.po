@@ -2314,3 +2314,11 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Email ini dikirim secara otomatis per bulan kepada editor dan manajer jurnal "
 "untuk menyediakan pratinjau kestabilan sistem."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Daftar Tilik Pra-Penyerahan Naskah"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Saat melakukan penyerahan naskah untuk jurnal, Penulis terlebih dahulu diminta untuk mengecek kelengkapan item di daftar ini, sebelum melanjutkan proses. Daftar tersebut juga ditampilkan di Panduan Penulis, di bawah Tentang Jurnal.  Daftar ini dapat diedit, tapi terlebih dahulu diberi tanda centang sebelum diproses."

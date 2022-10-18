@@ -168,6 +168,19 @@ class Mailable extends IlluminateMailable
     }
 
     /**
+     * Alias of self::addData()
+     * @see \Illuminate\Mail\Mailable::with()
+     */
+    public function with($key, $value = null)
+    {
+        if (is_array($key)) {
+            return $this->addData($key);
+        }
+
+        return $this->addData([$key => $value]);
+    }
+
+    /**
      * Get the data for this email
      */
     public function getData(?string $locale = null): array

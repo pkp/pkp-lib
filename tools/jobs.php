@@ -167,7 +167,7 @@ class commandJobs extends CommandLineTool
 
     /**
      * Get the parameter list passed on CLI
-     * 
+     *
      * @return array|null
      */
     public function getParameterList(): ?array
@@ -177,10 +177,10 @@ class commandJobs extends CommandLineTool
 
     /**
      * Get the value of a specific parameter
-     * 
+     *
      * @param string $parameter
      * @param mixed $default
-     * 
+     *
      * @return mixed
      */
     protected function getParameterValue(string $parameter, mixed $default = null): mixed
@@ -328,8 +328,8 @@ class commandJobs extends CommandLineTool
         $this->listenForEvents();
 
         app('pkpJobQueue')->runJobsViaDaemon(
-            $connection, 
-            $queue, 
+            $connection,
+            $queue,
             $this->gatherWorkerOptions($parameterList)
         );
     }
@@ -509,7 +509,7 @@ class commandJobs extends CommandLineTool
     protected function listenForEvents(): void
     {
         $events = app()['events'];
-        
+
         $events->listen(JobProcessing::class, function ($event) {
             $this->writeOutput($event->job, 'starting');
         });
@@ -528,7 +528,7 @@ class commandJobs extends CommandLineTool
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  string  $status
-     * 
+     *
      * @return void
      */
     protected function writeOutput(Job $job, $status): void

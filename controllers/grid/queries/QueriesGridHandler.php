@@ -644,7 +644,7 @@ class QueriesGridHandler extends GridHandler
             foreach ($added as $userId) {
                 $user = Repo::user()->get((int) $userId);
 
-                $notificationMgr->createNotification(
+                $notification = $notificationMgr->createNotification(
                     $request,
                     $userId,
                     PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
@@ -671,8 +671,8 @@ class QueriesGridHandler extends GridHandler
                 $mailable->sender($currentUser)
                         ->recipients([$user])
                         ->subject($emailTemplate->getLocalizedData('subject'))
-                        ->body($emailTemplate->getLocalizedData('body'));
-
+                        ->body($emailTemplate->getLocalizedData('body'))
+                        ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
                 $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */

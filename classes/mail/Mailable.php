@@ -106,6 +106,9 @@ class Mailable extends IlluminateMailable
     /** @var Variable[] The email variables supported by this mailable */
     protected array $variables = [];
 
+    /** @var string embedded footer of the email */
+    protected string $footer;
+
     public function __construct(array $variables = [])
     {
         if (!empty($variables)) {
@@ -187,6 +190,8 @@ class Mailable extends IlluminateMailable
                 $variable->values($locale)
             );
         }
+
+        $this->addFooter($locale); // set the locale for the email footer
     }
 
     /**
@@ -296,6 +301,17 @@ class Mailable extends IlluminateMailable
     public function getVariables(): array
     {
         return $this->variables;
+    }
+
+    /**
+     * Add a footer to the email
+     *
+     * A mailable may override this method to add a footer to the end of the email body before it is sent.
+     * Use this to add an unsubscribe link or append other automated messages.
+     */
+    protected function addFooter(string $locale): self
+    {
+        return $this;
     }
 
     /**
@@ -459,6 +475,32 @@ class Mailable extends IlluminateMailable
             }
         }
         return $params;
+    }
+
+    /**
+     * @copydoc Illuminate\Mail\Mailable::buildView()
+     */
+    protected function buildView()
+    {
+        $view = parent::buildView();
+        if (!isset($this->footer)) {
+            return $view;
+        }
+
+        /**
+         * If it's an array with numerical keys, append footer to the first element;
+         * if a string, just append to the view;
+         * see: Illuminate\Mail\Mailer::parseView()
+         */
+        if (is_array($view) && isset($view[0])) {
+            return [$view[0] . $this->footer, $view[1]];
+        }
+
+        if (is_string($view)) {
+            return $view . $this->footer;
+        }
+
+        return $view; // $this->html, $this->textView or $this->markdown; see parent::buildView() for details
     }
 
     /**

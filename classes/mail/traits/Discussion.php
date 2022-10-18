@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Discussion
- * @ingroup mail
+ * @ingroup mail_traits
  *
  * @brief trait to support Discussion email template variables
  */
@@ -17,6 +17,8 @@ namespace PKP\mail\traits;
 
 trait Discussion
 {
+    use Unsubscribe;
+
     protected static string $discussionSubject = 'subject';
     protected static string $discussionContent = 'content';
 
@@ -39,5 +41,22 @@ trait Discussion
         $variables[self::$discussionSubject] = __('emailTemplate.variable.discussion.subject');
         $variables[self::$discussionContent] = __('emailTemplate.variable.discussion.content');
         return $variables;
+    }
+
+    protected function setFooterText(string $locale, string $localeKey = null): string
+    {
+        if (is_null($localeKey)) {
+            $localeKey = 'emails.footer.unsubscribe.discussion';
+        }
+
+        return __($localeKey, [], $locale);
+    }
+
+    /**
+     * Get the name of the subject email template variable
+     */
+    public static function getSubjectVariableName()
+    {
+        return self::$discussionSubject;
     }
 }

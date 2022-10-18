@@ -42,7 +42,7 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null) Retrieve the languages
  * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null) Retrieve the scripts
  * @method static array getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH) Get the formatted locale display names with country if same language code present multiple times
- * @method static self applyBeforeFilter() Set the before filter flag
+ * @method static array getFormattedDisplayNamesFromOnlySpecifiedLocales(array $filterByLocales, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH)
  */
 
 class Locale extends Facade

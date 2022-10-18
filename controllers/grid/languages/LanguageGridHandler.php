@@ -254,7 +254,7 @@ class LanguageGridHandler extends GridHandler
                 'code',
                 'grid.columns.locale.code',
                 null,
-                'controllers/grid/languages/localeCodeCell.tpl',
+                null,
                 $cellProvider
             )
         );

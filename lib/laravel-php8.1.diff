@@ -1,0 +1,163 @@
+diff -u -r -N src/Illuminate/Support/Collection.php src/Illuminate/Support/Collection.php
+--- src/Illuminate/Support/Collection.php	2022-10-18 08:26:03.983010510 -0700
++++ src/Illuminate/Support/Collection.php	2021-01-21 06:10:48.000000000 -0800
+@@ -1291,6 +1291,7 @@
+      *
+      * @return \ArrayIterator
+      */
++    #[\ReturnTypeWillChange]
+     public function getIterator()
+     {
+         return new ArrayIterator($this->items);
+@@ -1301,6 +1301,7 @@
+      *
+      * @return int
+      */
++    #[\ReturnTypeWillChange]
+     public function count()
+     {
+         return count($this->items);
+@@ -1346,6 +1346,7 @@
+      * @param  mixed  $key
+      * @return bool
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetExists($key)
+     {
+         return array_key_exists($key, $this->items);
+@@ -1358,6 +1357,7 @@
+      * @param  mixed  $key
+      * @return mixed
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetGet($key)
+     {
+         return $this->items[$key];
+@@ -1371,6 +1369,7 @@
+      * @param  mixed  $value
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($key, $value)
+     {
+         if (is_null($key)) {
+@@ -1387,6 +1384,7 @@
+      * @param  string  $key
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetUnset($key)
+     {
+         unset($this->items[$key]);
+diff -u -r src/Illuminate/Container/Container.php src/Illuminate/Container/Container.php
+--- src/Illuminate/Container/Container.php	2021-01-21 06:10:48.000000000 -0800
++++ src/Illuminate/Container/Container.php	2022-10-17 21:39:11.353546500 -0700
+@@ -1268,6 +1268,7 @@
+      * @param  string  $key
+      * @return bool
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetExists($key)
+     {
+         return $this->bound($key);
+@@ -1279,6 +1280,7 @@
+      * @param  string  $key
+      * @return mixed
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetGet($key)
+     {
+         return $this->make($key);
+@@ -1291,6 +1293,7 @@
+      * @param  mixed  $value
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($key, $value)
+     {
+         $this->bind($key, $value instanceof Closure ? $value : function () use ($value) {
+@@ -1304,6 +1307,7 @@
+      * @param  string  $key
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetUnset($key)
+     {
+         unset($this->bindings[$key], $this->instances[$key], $this->resolved[$key]);
+diff -u -r src/Illuminate/Support/Traits/EnumeratesValues.php src/Illuminate/Support/Traits/EnumeratesValues.php
+--- src/Illuminate/Support/Traits/EnumeratesValues.php	2021-01-21 06:10:48.000000000 -0800
++++ src/Illuminate/Support/Traits/EnumeratesValues.php	2022-10-18 13:34:59.465611736 -0700
+@@ -765,6 +765,7 @@
+      *
+      * @return array
+      */
++    #[\ReturnTypeWillChange]
+     public function jsonSerialize()
+     {
+         return array_map(function ($value) {
+
+diff -u -r src/Illuminate/Support/MessageBag.php src/Illuminate/Support/MessageBag.php
+--- src/Illuminate/Support/MessageBag.php	2021-01-21 06:10:48.000000000 -0800
++++ src/Illuminate/Support/MessageBag.php	2022-10-18 13:39:18.447580765 -0700
+@@ -369,6 +369,7 @@
+      *
+      * @return int
+      */
++    #[\ReturnTypeWillChange]
+     public function count()
+     {
+         return count($this->messages, COUNT_RECURSIVE) - count($this->messages);
+@@ -389,6 +390,7 @@
+      *
+      * @return array
+      */
++    #[\ReturnTypeWillChange]
+     public function jsonSerialize()
+     {
+         return $this->toArray();
+diff -u -r src/Illuminate/Support/Fluent.php src/Illuminate/Support/Fluent.php
+--- src/Illuminate/Support/Fluent.php	2022-10-18 17:50:18.611792800 -0700
++++ src/Illuminate/Support/Fluent.php	2022-10-18 17:50:13.779750726 -0700
+@@ -92,6 +92,7 @@
+      * @param  string  $offset
+      * @return bool
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetExists($offset)
+     {
+         return isset($this->attributes[$offset]);
+@@ -103,6 +104,7 @@
+      * @param  string  $offset
+      * @return mixed
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetGet($offset)
+     {
+         return $this->get($offset);
+@@ -115,6 +117,7 @@
+      * @param  mixed  $value
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($offset, $value)
+     {
+         $this->attributes[$offset] = $value;
+@@ -126,6 +129,7 @@
+      * @param  string  $offset
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetUnset($offset)
+     {
+         unset($this->attributes[$offset]);
+diff -u -r src/Illuminate/Support/Fluent.php src/Illuminate/Support/Fluent.php
+--- src/Illuminate/Support/Fluent.php	2022-10-18 17:57:26.847455636 -0700
++++ src/Illuminate/Support/Fluent.php	2022-10-18 18:35:46.398339091 -0700
+@@ -70,6 +70,7 @@
+      *
+      * @return array
+      */
++    #[\ReturnTypeWillChange]
+     public function jsonSerialize()
+     {
+         return $this->toArray();

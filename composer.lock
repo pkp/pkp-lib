@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e32cff09cc5f9ec9e1b578fc2f765d54",
+    "content-hash": "1bd565b9426c7d96cba41d6829674c2b",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -390,12 +390,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Stringy\\": "src/"
-                },
                 "files": [
                     "src/Create.php"
-                ]
+                ],
+                "psr-4": {
+                    "Stringy\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -421,6 +421,10 @@
                 "utility",
                 "utils"
             ],
+            "support": {
+                "issues": "https://github.com/danielstjules/Stringy/issues",
+                "source": "https://github.com/danielstjules/Stringy"
+            },
             "time": "2017-06-12T01:10:27+00:00"
         },
         {
@@ -2522,6 +2526,9 @@
                 "container",
                 "dependency injection"
             ],
+            "support": {
+                "source": "https://github.com/silexphp/Pimple/tree/v3.3.1"
+            },
             "time": "2020-11-24T20:35:42+00:00"
         },
         {

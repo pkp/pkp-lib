@@ -1,0 +1,35 @@
+diff -u -r src/Pimple/Container.php src/Pimple/Container.php
+--- src/Pimple/Container.php	2020-11-24 12:35:42.000000000 -0800
++++ src/Pimple/Container.php	2022-10-17 17:46:39.676762448 -0700
+@@ -76,6 +76,7 @@
+      *
+      * @throws FrozenServiceException Prevent override of a frozen service
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($id, $value)
+     {
+         if (isset($this->frozen[$id])) {
+@@ -95,6 +96,7 @@
+      *
+      * @throws UnknownIdentifierException If the identifier is not defined
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetGet($id)
+     {
+         if (!isset($this->keys[$id])) {
+@@ -130,6 +132,7 @@
+      *
+      * @return bool
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetExists($id)
+     {
+         return isset($this->keys[$id]);
+@@ -140,6 +143,7 @@
+      *
+      * @param string $id The unique identifier for the parameter or object
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetUnset($id)
+     {
+         if (isset($this->keys[$id])) {

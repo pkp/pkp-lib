@@ -1,0 +1,12 @@
+diff -u -r src/Client.php src/Client.php
+--- src/Client.php	2020-06-16 14:01:06.000000000 -0700
++++ src/Client.php	2022-10-18 19:08:55.804227476 -0700
+@@ -442,7 +442,7 @@
+         if (isset($options['query'])) {
+             $value = $options['query'];
+             if (is_array($value)) {
+-                $value = http_build_query($value, null, '&', PHP_QUERY_RFC3986);
++                $value = http_build_query($value, '', '&', PHP_QUERY_RFC3986);
+             }
+             if (!is_string($value)) {
+                 throw new \InvalidArgumentException('query must be a string or array');

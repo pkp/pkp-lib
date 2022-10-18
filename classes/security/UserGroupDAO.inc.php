@@ -741,7 +741,7 @@ class UserGroupDAO extends DAO {
 				$permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
 			}
 
-			$defaultStages = explode(',', $setting->getAttribute('stages'));
+			$defaultStages = explode(',', $setting->getAttribute('stages') ?? '');
 
 			// create a role associated with this user group
 			$userGroup = $this->newDataObject();
@@ -838,7 +838,7 @@ class UserGroupDAO extends DAO {
 		];
 
 		$searchSql = '';
-		$search = trim($search);
+		$search = trim($search ?? '');
 		if (!empty($search)) {
 			if (!isset($searchTypeMap[$searchType])) {
 				$terms = array_map(function ($term) {

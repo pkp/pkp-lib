@@ -647,7 +647,7 @@ abstract class Plugin {
 	 */
 	function installLocale($hookName, $args) {
 		$locale =& $args[0];
-		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
+		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile() ?? '');
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 
 		// Since pkp/pkp-lib#5461, there are two ways to specify localized email data in plugins.

@@ -459,7 +459,7 @@ class Core {
 			$application = Application::get();
 			$contextDepth = $application->getContextDepth();
 
-			$vars = explode('/', trim($urlInfo, '/'));
+			$vars = explode('/', trim($urlInfo ?? '', '/'));
 			if (count($vars) > $contextDepth + $offset) {
 				if ($isArrayComponent) {
 					$component = array_slice($vars, $contextDepth + $offset);

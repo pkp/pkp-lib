@@ -168,7 +168,7 @@ class MailTemplate extends Mail {
 
 		// Add some general variables
 		$params = array_merge([
-			'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+			'siteTitle' => htmlspecialchars($site->getLocalizedTitle() ?? ''),
 		], $params);
 
 		$this->params = $params;

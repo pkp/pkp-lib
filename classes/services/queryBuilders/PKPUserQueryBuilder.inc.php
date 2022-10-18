@@ -628,7 +628,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	protected function buildSearchFilter(Builder $query): self
 	{
-		if (!strlen($searchPhrase = trim($this->searchPhrase))) {
+		if (!strlen($searchPhrase = trim($this->searchPhrase ?? ''))) {
 			return $this;
 		}
 		$words = array_map(function (string $word) {

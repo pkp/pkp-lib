@@ -258,7 +258,7 @@ class PKPLocale {
 	 */
 	static function translate($key, $params = array(), $locale = null, $missingKeyHandler = array(__CLASS__, 'addOctothorpes')) {
 		if (!isset($locale)) $locale = AppLocale::getLocale();
-		if (($key = trim($key)) == '') return '';
+		if (($key = trim($key ?? '')) == '') return '';
 
 		$localeFiles =& AppLocale::getLocaleFiles($locale);
 		$value = '';

@@ -68,6 +68,7 @@ class DAOResultIterator implements Iterator, Countable {
 	 * operation is not arbitrarily supported -- it can only be called
 	 * before the first call to `next()`.
 	 */
+	#[\ReturnTypeWillChange]
 	public function rewind() {
 		if ($this->_i != 0) throw new Exception('DAOResultIterator currently does not support rewind() once iteration has started.');
 	}
@@ -83,6 +84,7 @@ class DAOResultIterator implements Iterator, Countable {
 	/**
 	 * @copydoc Countable::count()
 	 */
+	#[\ReturnTypeWillChange]
 	public function count() {
 		return $this->_resultFactory->getCount();
 	}

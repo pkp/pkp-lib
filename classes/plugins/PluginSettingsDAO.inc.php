@@ -204,7 +204,7 @@ class PluginSettingsDAO extends DAO {
 	 * @return string
 	 */
 	function _performReplacement($rawInput, $paramArray = array()) {
-		$value = preg_replace_callback('{{translate key="([^"]+)"}}', '_installer_plugin_regexp_callback', $rawInput);
+		$value = preg_replace_callback('{{translate key="([^"]+)"}}', '_installer_plugin_regexp_callback', $rawInput ?? '');
 		foreach ($paramArray as $pKey => $pValue) {
 			$value = str_replace('{$' . $pKey . '}', $pValue, $value);
 		}

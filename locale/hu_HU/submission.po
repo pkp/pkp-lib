@@ -24,29 +24,15 @@ msgstr "Adjon meg egy formázott hivatkozás listát a beküldött anyagban idé
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Új lektori véleményeket küldtek be, hogy a szerkesztő átnézhesse."
 
-msgid "submission.confirm.message"
-msgstr "A beküldendő fájl feltöltve és küldésre kész. Folytatás előtt visszaléphet további áttekintésre vagy módosításra. A befejezéshez kattintson a \"Beküldés befejezése\" gombra."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Beküldési előírások"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "El kell olvasnia és jelölnie kell, hogy teljesítette az előírásokat mielőtt folytatná."
 
 msgid "submission.submit.submissionComplete"
 msgstr "A kéziratot sikeresen benyújtotta"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Köszönjük, hogy eredményei megjelentetésére {$contextName} folyóiratot választotta."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Szerzői jogi nyilatkozat elfogadása"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "A szerzői jogi irányelvek betartásának elfogadása."
-
-msgid "submission.submit.whatNext"
-msgstr "Következő lépések"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Jelenleg:"
@@ -1071,9 +1057,6 @@ msgstr "Lektorálás verzió"
 msgid "submission.rights"
 msgstr "Jogok"
 
-msgid "submission.rights.tip"
-msgstr "Ha szeretne, megadhat egy rövid leírást, hogy a cikk jogai kit illetnek meg."
-
 msgid "submissions.active"
 msgstr "Aktív"
 
@@ -1110,9 +1093,6 @@ msgstr "Döntés"
 msgid "submission.source"
 msgstr "Forrás"
 
-msgid "submission.source.tip"
-msgstr "Ez a benyújtott anyag más forrásból származik? Ha igen, adja meg az URL-t vagy a forrás leírását."
-
 msgid "submissions.submit"
 msgstr "Benyújt"
 
@@ -1140,9 +1120,6 @@ msgstr "Benyújtott anyag felülvizsgálata"
 msgid "submission.submitter"
 msgstr "Beküldő"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Beküldés befejezése"
-
 msgid "submission.submit.selectFile"
 msgstr "Fájl kiválasztása"
 
@@ -1163,14 +1140,8 @@ msgstr "Másik fájl hozzáadása"
 msgid "submission.submit.metadataForm"
 msgstr "További finomítások"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "További információk hozzáadása a beküldött anyaghoz. Mindegyik után nyomjon entert."
-
 msgid "submission.submit.submissionLocale"
 msgstr "A beküldött anyag nyelve"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Ez a folyóirat többnyelvű cikkeket is fogad. Válassza ki a beküldés elsődleges nyelvét a legördülő listából."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Beküldött fájlok"
@@ -1201,9 +1172,6 @@ msgstr "Indexelési információ"
 
 msgid "submission.titleAndAbstract"
 msgstr "Cím és absztrakt"
-
-msgid "submission.type.tip"
-msgstr "Ez a beküldési típus rendszerint 'kép', 'szöveg', vagy más multimádia típus beleértve a 'szoftver' vagy 'interaktív' típust is. Kérjük, válassza ki a cikkéhez a legrelevánsabbat.  Példákat itt talál <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "Folyamatban"
@@ -1240,9 +1208,6 @@ msgstr "HH-NN"
 
 msgid "submission.date.yyyymmdd"
 msgstr "ÉÉÉÉ-HH-NN"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Fő kapcsolattartó a szerkesztőségi levelezésnél."
 
 msgid "submission.submit.contributorRole"
 msgstr "Közreműködői szerepkörök"
@@ -1872,11 +1837,6 @@ msgstr "Publikáció dátuma (legfrissebb a lista elején)"
 msgid "submission.submit.availableUserGroups"
 msgstr "Beküldés mint"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Beküldés az alábbi szerepben. Ha szeretné maga szerkeszteni és publikálni a "
-"beadványt, válassza a {$managerGroups} opciót."
-
 msgid "submission.citations.description"
 msgstr "Minden hivatkozást új sorba írjon be, hogy az másolható maradjon."
 
@@ -1907,35 +1867,8 @@ msgstr "A beküldés újabb lektorálásához annak ismételt benyújtása szük
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Beküldés került újra benyújtásra egy ismételt lektorálási körhöz."
 
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Kérjük, adja meg a szakterületet."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Kérjük, adjon meg egy támogató szervezetet. "
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Kérjük, adja meg a megjelenési adatokat."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Kérjük, adja meg a típust."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Kérjük, adja meg a forrást."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Kérjük, adja meg a felhasználási jogokat."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Kérjük, adja meg a hivatkozásokat."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Kérjük, adja meg a nyelvet."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Kérjük, adjon meg tárgyat."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Kérjük, adjon meg kulcsszót."
 
 msgid "log.review.reviewUnconsidered"
 msgstr ""
@@ -1954,12 +1887,6 @@ msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Válassza ki a szerepet, amely leginkább jellemzi hozzájárulását ehhez a "
 "beküldéshez."
-
-msgid "submission.submit.contactConsent"
-msgstr "Kapcsolattartó"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Felvehetik velem a kapcsolatot ezzel a beküldéssel kapcsolatban."
 
 msgid "submission.parsedCitations"
 msgstr "Listázott hivatkozások"
@@ -2184,9 +2111,6 @@ msgstr "Új verzió lett létrehozva."
 msgid "submission.publisherId.enable"
 msgstr "Engedélyezés a(z) {$objects} számára"
 
-msgid "submission.submit.genre.error"
-msgstr "Kérjük, minden feltöltésnél válassza ki a fájl típusát."
-
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
 "A fájl feltöltőjének adatai a fájl létrehozásakor kerülnek elmentésre, és "
@@ -2391,3 +2315,10 @@ msgstr "Szerzők értesítése"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Publikációk listája"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Ehhez a benyújtáshoz nem csatolt fájlt."
+
+msgid "author.submit.confirmation"
+msgstr "Megerősítés"

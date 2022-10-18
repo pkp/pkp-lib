@@ -156,12 +156,6 @@ msgstr "Adăugați o nouă machetă de email"
 msgid "grid.action.resetAll"
 msgstr "Resetați toate elementele la valorile inițiale"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Ștergeți acest element din lista de verificare"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Editare element din lista de verificare"
-
 msgid "grid.action.orderItems"
 msgstr "Activare mod de ordonare"
 
@@ -587,20 +581,8 @@ msgstr "Creare rol nou"
 msgid "grid.roles.currentRoles"
 msgstr "Roluri curente"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "În Listele de navigare"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contact principal"
-
-msgid "author.users.contributor.role"
-msgstr "Rol"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.name"
-msgstr "Nume"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Element de listă de verificare"
@@ -640,9 +622,6 @@ msgstr "Creare versiune nouă"
 
 msgid "grid.action.deleteContributor"
 msgstr "Ștergere contributor"
-
-msgid "grid.action.editContributor"
-msgstr "Editare contributor"
 
 msgid "grid.action.addContributor"
 msgstr "Adăugare contributor"

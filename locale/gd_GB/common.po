@@ -308,9 +308,6 @@ msgstr "A bheil thu cinnteach gu bheil thu airson am foirm seo a chur?"
 msgid "form.confirmSubmit.title"
 msgstr "Dearbh"
 
-msgid "form.emailRequired"
-msgstr "Tha feum air seòladh puist-d."
-
 msgid "form.disallowedProp"
 msgstr "Chan eil an roghainn seo ceadaichte."
 

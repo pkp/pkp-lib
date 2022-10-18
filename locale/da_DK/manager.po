@@ -2707,6 +2707,7 @@ msgstr ""
 "Alle kommentarer fra færdiggjorte bedømmelser. Bedømmeres navne er skjulte "
 "ved anonyme bedømmelser"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Send kun en e-mail til forfattere, der er tilmeldt det redaktionelle "
@@ -3252,9 +3253,6 @@ msgstr ""
 "Denne e-mail meddeler forfatteren om, at en bedømmelsesrunde for "
 "vedkommendes indsendelse er blevet annulleret."
 
-msgid "manager.settings.statistics.publicSushiApi.option"
-msgstr "Gør API endpoints for COUNTER SUSHI statistik offentligt tilgængelig."
-
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Offentlig API"
 
@@ -3359,3 +3357,11 @@ msgstr "Importerede indsendelser"
 
 msgid "stats.name.submissionsInProgress"
 msgstr "Igangværende indsendelser"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Tjekliste til forberedelse af manuskript"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Forfattere, der fremsender et manuskript til tidsskriftet, bliver først bedt om at fuldføre hvert enkelt element på Tjekliste til forberedelse af manuskript, inden de fortsætter. Tjeklisten vises også under Retningslinjer for forfattere under Om tidsskriftet. Listen kan redigeres nedenfor, men alle elementer på listen skal afkrydses, inden forfatterne kan fortsætte med deres manuskript."

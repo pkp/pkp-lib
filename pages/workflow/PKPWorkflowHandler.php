@@ -15,11 +15,18 @@
 
 namespace PKP\pages\workflow;
 
+use APP\components\forms\publication\TitleAbstractForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\components\forms\publication\PKPCitationsForm;
+use PKP\components\forms\publication\PKPMetadataForm;
+use PKP\components\forms\publication\PKPPublicationLicenseForm;
+use PKP\components\listPanels\PKPContributorsListPanel;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
@@ -201,23 +208,9 @@ abstract class PKPWorkflowHandler extends Handler
 
         $latestPublication = $submission->getLatestPublication();
 
-        $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
-        $submissionFileApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/files');
-        $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
-
-        $contributorApiUrl = $request->getDispatcher()->url(
-            $request,
-            PKPApplication::ROUTE_API,
-            $request->getContext()->getPath('urlPath'),
-            'submissions/' . $submission->getId() . '/publications/__publicationId__/contributors'
-        );
-
-        $contributorPublicationApiUrl = $request->getDispatcher()->url(
-            $request,
-            PKPApplication::ROUTE_API,
-            $request->getContext()->getPath('urlPath'),
-            'submissions/' . $submission->getId() . '/publications'
-        );
+        $submissionApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
+        $submissionFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/files');
+        $latestPublicationApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
         $decisionUrl = $request->url(
             $submissionContext->getData('urlPath'),
@@ -232,7 +225,7 @@ abstract class PKPWorkflowHandler extends Handler
 
         $editorialHistoryUrl = $request->getDispatcher()->url(
             $request,
-            PKPApplication::ROUTE_COMPONENT,
+            Application::ROUTE_COMPONENT,
             null,
             'informationCenter.SubmissionInformationCenterHandler',
             'viewInformationCenter',
@@ -242,7 +235,7 @@ abstract class PKPWorkflowHandler extends Handler
 
         $submissionLibraryUrl = $request->getDispatcher()->url(
             $request,
-            PKPApplication::ROUTE_COMPONENT,
+            Application::ROUTE_COMPONENT,
             null,
             'modals.documentLibrary.DocumentLibraryHandler',
             'documentLibrary',
@@ -252,7 +245,7 @@ abstract class PKPWorkflowHandler extends Handler
 
         $publishUrl = $request->getDispatcher()->url(
             $request,
-            PKPApplication::ROUTE_COMPONENT,
+            Application::ROUTE_COMPONENT,
             null,
             'modals.publish.PublishHandler',
             'publish',
@@ -263,25 +256,23 @@ abstract class PKPWorkflowHandler extends Handler
             ]
         );
 
-        $citationsForm = new \PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
-        $publicationLicenseForm = new \PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
-        $titleAbstractForm = new \PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-        $contributorForm = new \PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
+        $citationsForm = new PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+        $publicationLicenseForm = new PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
+        $titleAbstractForm = $this->getTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
 
         $authorItems = [];
         foreach ($latestPublication->getData('authors') as $contributor) {
             $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
         }
 
-        $contributorsListPanel = new \PKP\components\listPanels\PKPContributorsListPanel(
+        $contributorsListPanel = new PKPContributorsListPanel(
             'contributors',
             __('publication.contributors'),
-            [
-                'form' => $contributorForm,
-                'items' => $authorItems,
-                'publicationApiUrl' => $contributorPublicationApiUrl,
-                'canEditPublication' => $canEditPublication
-            ]
+            $submission,
+            $request->getContext(),
+            $locales,
+            $authorItems,
+            $canEditPublication
         );
 
         // Import constants
@@ -374,7 +365,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
         if ($metadataEnabled || in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
             $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-            $metadataForm = new \PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+            $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
             $templateMgr->setConstants([
                 'FORM_METADATA' => FORM_METADATA,
             ]);
@@ -411,22 +402,6 @@ abstract class PKPWorkflowHandler extends Handler
                 'FORM_SELECT_REVISION_RECOMMENDATION' => FORM_SELECT_REVISION_RECOMMENDATION,
             ]);
         }
-
-        $templateMgr->setLocaleKeys([
-            'common.order',
-            'author.users.contributor.setPrincipalContact',
-            'author.users.contributor.principalContact',
-            'submission.contributors',
-            'grid.action.saveOrdering',
-            'grid.action.order',
-            'contributor.listPanel.preview',
-            'contributor.listPanel.preview.description',
-            'contributor.listPanel.preview.display',
-            'contributor.listPanel.preview.format',
-            'contributor.listPanel.preview.abbreviated',
-            'contributor.listPanel.preview.publicationLists',
-            'contributor.listPanel.preview.full',
-        ]);
 
         $templateMgr->setState($state);
 
@@ -887,4 +862,9 @@ abstract class PKPWorkflowHandler extends Handler
      * @return string[]
      */
     abstract protected function getWarnableDecisionTypes(): array;
+
+    /**
+     * Get the form for entering the title/abstract details
+     */
+    abstract protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm;
 }

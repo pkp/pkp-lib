@@ -1024,9 +1024,6 @@ msgid "form.dataHasChanged"
 msgstr ""
 "Данните в този формуляр са променени. Искате ли да продължите без запазване?"
 
-msgid "form.emailRequired"
-msgstr "Изисква се имейл адрес."
-
 msgid "form.confirmSubmit.title"
 msgstr "Потвърждаване"
 
@@ -1466,12 +1463,6 @@ msgstr "По автор"
 
 msgid "search.advancedFilters"
 msgstr "Разширени филтри"
-
-msgid "notification.editedAuthor"
-msgstr "Редактиран е автор."
-
-msgid "notification.addedAuthor"
-msgstr "Добавен е автор."
 
 msgid "notification.removedAnnouncement"
 msgstr "Изтрито е съобщение."

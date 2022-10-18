@@ -16,12 +16,14 @@
 
 namespace PKP\controllers\wizard\fileUpload;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\controllers\wizard\fileUpload\form\SubmissionFilesMetadataForm;
 use PKP\controllers\wizard\fileUpload\form\SubmissionFilesUploadForm;
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\security\authorization\internal\RepresentationUploadAccessPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
@@ -34,6 +36,7 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 
 use PKP\security\Validation;
+use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
@@ -438,10 +441,22 @@ class FileUploadWizardHandler extends Handler
      */
     public function editMetadata($args, $request)
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
-        return new JSONMessage(true, $form->fetch($request));
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+
+        $fileData = Repo::submissionFile()
+            ->getSchemaMap()
+            ->map($submissionFile, $fileGenres);
+
+        $json = new JSONMessage(true, $form->fetch($request));
+        $json->setGlobalEvent('submissionFile:added', $fileData);
+
+        return $json;
     }
 
     /**
@@ -458,15 +473,27 @@ class FileUploadWizardHandler extends Handler
 
         // Validation not req'd -- just generating a JSON update message.
         $fileId = (int)$request->getUserVar('fileId');
+        /** @var SubmissionFile $file */
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('submissionId', $submission->getId());
-        $templateMgr->assign('fileId', $fileId);
+        $templateMgr->assign('fileId', $submissionFile->getId());
         if (isset($args['fileStage'])) {
-            $templateMgr->assign('fileStage', $args['fileStage']);
+            $templateMgr->assign('fileStage', $submissionFile->getData('fileStage'));
         }
 
-        return $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+
+        $fileData = Repo::submissionFile()
+            ->getSchemaMap()
+            ->map($submissionFile, $fileGenres);
+
+        $json = $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
+        $json->setGlobalEvent('submissionFile:edited', $fileData);
+        return $json;
     }
 
 

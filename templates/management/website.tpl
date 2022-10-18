@@ -48,12 +48,14 @@
 		<tab id="setup" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true" :track-history="true">
-				<tab id="information" label="{translate key="manager.website.information"}">
-					<pkp-form
-						v-bind="components.{$smarty.const.FORM_INFORMATION}"
-						@set="set"
-					/>
-				</tab>
+				{if $includeInformationForm}
+					<tab id="information" label="{translate key="manager.website.information"}">
+						<pkp-form
+							v-bind="components.{$smarty.const.FORM_INFORMATION}"
+							@set="set"
+						/>
+					</tab>
+				{/if}
 				<tab id="languages" label="{translate key="common.languages"}">
 					{capture assign=languagesUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.languages.ManageLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="languageGridContainer" url=$languagesUrl}

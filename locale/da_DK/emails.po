@@ -21,6 +21,7 @@ msgid "emails.submissionAck.subject"
 msgstr "Tak for din indsendelse til {$contextName}"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Kære{$recipientName}.</p><p> Tak, fordi du har fremsendt manuskriptet til "
@@ -223,3 +224,9 @@ msgstr "Besked omhandlende {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Skriv venligst din besked."
+
+#, fuzzy
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+"Når denne e-mail er aktiveret, sendes den automatisk til de øvrige "
+"forfattere, udover indsenderen, angivet under indsendelsesprocessen."

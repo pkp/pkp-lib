@@ -27,7 +27,7 @@
 		{/if}
 		{if $currentContext}
 			<li class="new_submission">
-				<a href="{url page="submission" op="wizard"}">
+				<a href="{url page="submission"}">
 					{translate key="user.login.registrationComplete.newSubmission"}
 				</a>
 			</li>

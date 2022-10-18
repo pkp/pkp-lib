@@ -74,15 +74,6 @@ msgstr "Controllo della submission"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Elemento della lista di controllo"
 
-msgid "author.users.contributor.name"
-msgstr "Nome"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Ruolo"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contatto principale"
 
@@ -134,9 +125,6 @@ msgstr "Impostazioni"
 msgid "grid.action.importexport"
 msgstr "Importa o esporta contenuto o dati dal sito"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Elimina questo elemento della lista di controllo"
-
 msgid "grid.action.resetAll"
 msgstr "Ripristina il valore iniziale per tutti gli elementi"
 
@@ -181,9 +169,6 @@ msgstr "Cancella categoria"
 
 msgid "grid.action.addContributor"
 msgstr "Aggiungi un contributore"
-
-msgid "grid.action.editContributor"
-msgstr "Modifica un contributore"
 
 msgid "grid.action.deleteContributor"
 msgstr "Cancella un contributore"
@@ -316,9 +301,6 @@ msgstr "Wizard di configurazione"
 
 msgid "grid.action.sendToProduction"
 msgstr "Manda in lavorazione la proposta"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Modifica questo elemento della checklist"
 
 msgid "grid.action.addPreparedEmail"
 msgstr "Aggiungi un nuovo template per la"
@@ -454,9 +436,6 @@ msgstr "Impersona"
 
 msgid "grid.action.exportAllUsers"
 msgstr "Esporta tutti gli utenti"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Includi nei risultati di ricerca"
 
 msgid "grid.user.allPermissionLevels"
 msgstr "Tutti i permessi"

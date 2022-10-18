@@ -47,9 +47,6 @@ msgstr ""
 msgid "grid.action.deleteContributor"
 msgstr "Техникалық қызмет көрсетушіні өшіріңіз"
 
-msgid "grid.action.editContributor"
-msgstr "Редакторды өңдеуші"
-
 msgid "grid.action.addContributor"
 msgstr "Қолдаушыны қосыңыз"
 
@@ -248,12 +245,6 @@ msgstr "Жаңа электрондық пошта үлгісін қосыңыз
 
 msgid "grid.action.resetAll"
 msgstr "Барлық элементтерді әдепкі мәндерге қойыңыз"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Бұл бақылау тізімінің элементін жойыңыз"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Осы бақылау тізімінің элементін өңдеңіз"
 
 msgid "grid.action.orderItems"
 msgstr "Ұйымдастыру режимін қосыңыз"
@@ -687,23 +678,11 @@ msgstr "Осы басылымның авторлары осы журналға �
 msgid "contributor.listPanel.preview"
 msgstr "Алдын-ала қарау"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Бақылау тізімдеріне"
-
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Байланыс үшін адамды белгілеңіз"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Байланыс тұлғасы"
-
-msgid "author.users.contributor.role"
-msgstr "Рөлі"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.name"
-msgstr "Атауы"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Бақылау тізімінің элементі"

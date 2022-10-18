@@ -139,17 +139,17 @@ class Author extends Identity
      */
     public function getSubmissionLocale()
     {
-        return $this->getData('submissionLocale');
+        return $this->getData('locale');
     }
 
     /**
      * Set submission locale.
      *
-     * @param string $submissionLocale
+     * @param string $locale
      */
-    public function setSubmissionLocale($submissionLocale)
+    public function setSubmissionLocale($locale)
     {
-        return $this->setData('submissionLocale', $submissionLocale);
+        return $this->setData('locale', $locale);
     }
 
     /**

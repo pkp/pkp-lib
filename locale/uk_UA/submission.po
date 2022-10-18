@@ -21,29 +21,15 @@ msgstr "Надайте форматований список посилань н
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Нові рецензії були надіслані і розглядаються редактором."
 
-msgid "submission.confirm.message"
-msgstr "Ваше подання завантажене і готове до надсилання. Ви можете повернутися назад для перегляду та корекції будь-якої інформації, яку ви ввели перед продовженням. Коли будете готові, натисніть \"Завершити подання\"."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Вимоги до подання"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Перш ніж продовжувати, ви повинні прочитати та підтвердити, що виконали нижченаведені вимоги."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Подання матеріалів завершено"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Дякуємо, що зацікавилися публікацією в {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Прийняття умов передачі авторських прав"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Я погоджуюсь дотримуватися умов передачі авторських прав."
-
-msgid "submission.submit.whatNext"
-msgstr "Що робити далі?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Зараз ви можете:"
@@ -853,9 +839,6 @@ msgstr "Версія рецензії"
 msgid "submission.rights"
 msgstr "Права"
 
-msgid "submission.rights.tip"
-msgstr "Якщо хочете, ви можете ввести короткий виклад прав доступу, які матиме або набуде цей матеріал."
-
 msgid "submissions.active"
 msgstr "Активне"
 
@@ -892,9 +875,6 @@ msgstr "Правила"
 msgid "submission.source"
 msgstr "Джерело"
 
-msgid "submission.source.tip"
-msgstr "Це подання отримано з іншого ресурсу? Якщо так, ви можете ввести URL-адресу або опис цього ресурсу."
-
 msgid "submissions.submit"
 msgstr "Надіслати"
 
@@ -922,9 +902,6 @@ msgstr "Рецензування подання"
 msgid "submission.submitter"
 msgstr "Надіслав"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Завершити подання"
-
 msgid "submission.submit.selectFile"
 msgstr "Обрати файл"
 
@@ -943,14 +920,8 @@ msgstr "Додати інший файл"
 msgid "submission.submit.metadataForm"
 msgstr "Додаткові уточнення"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Додайте додаткову інформацію для вашого подання. Натискайте \"Enter\" після кожного терміну."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Мова подання"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Матеріали приймаються на декількох мовах. Виберіть основну мову подання з вищенаведеного списку, що розкривається."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Файли подання"
@@ -981,9 +952,6 @@ msgstr "Індексна інформація"
 
 msgid "submission.titleAndAbstract"
 msgstr "Назва та анотація"
-
-msgid "submission.type.tip"
-msgstr "Тип подання зазвичай є чимось з \"малюнок\", \"текст\" або інших типів мультимедіа, зокрема \"програмне забезпечення\" або \"інтерактивний\". Будь-ласка, виберіть найбільш відповідний для вашого подання тип. Приклади можна знайти на сторінці <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "Прогрес"
@@ -1021,44 +989,14 @@ msgstr "ММ-ДД"
 msgid "submission.date.yyyymmdd"
 msgstr "РРРР-ММ-ДД"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Контактна особа для редакційної кореспонденції."
-
 msgid "submission.submit.contributorRole"
 msgstr "Роль автора"
 
 msgid "submission.submit.addAuthor"
 msgstr "Додати автора"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Будь ласка, вкажіть мову."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Будь ласка, вкажіть тему."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Будь ласка, вкажіть предмет."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Будь ласка, вкажіть ключове слово."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Будь ласка, вкажіть спонсорів."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Будь ласка, вкажіть інформацію про охоплення."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Будь ласка, вкажіть тип."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Будь ласка, вкажіть джерело."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Будь ласка, вкажіть авторські права."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Будь ласка, вкажіть посилання."
 
 msgid "submission.form.name"
 msgstr "Дайте цьому файлу зручну назву"
@@ -1660,15 +1598,6 @@ msgstr "Надіслати як"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Виберіть роль, яка найкраще описує ваш внесок у подання."
 
-msgid "submission.submit.contactConsent"
-msgstr "Відповідний контакт"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Я погоджуюся з вами зв’язатися щодо цього подання."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Подати в будь-якому з наступних ролей, якщо ви хочете, щоб мати можливість редагувати і публікувати це представлення себе: {$managerGroups}"
-
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
@@ -1955,3 +1884,10 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Авторів цієї публікації не можливо відредагувати, оскільки вона вже "
 "опублікована."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Жодних файлів не було приєднано до подання."
+
+msgid "author.submit.confirmation"
+msgstr "Підтвердження"

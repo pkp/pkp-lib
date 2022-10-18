@@ -914,12 +914,6 @@ msgstr "Cacatan telah ditambahkan."
 msgid "notification.email"
 msgstr "Jangan kirimi saya surel untuk jenis pemberitahuan ini."
 
-msgid "notification.editedAuthor"
-msgstr "Penulis telah diubah."
-
-msgid "notification.addedAuthor"
-msgstr "Penulis telah ditambahkan."
-
 msgid "notification.removedAnnouncement"
 msgstr "Pengumuman telah dihapus."
 
@@ -1201,9 +1195,6 @@ msgstr "Hanya bahasa berikut yang dibolehkan: {$languages}."
 
 msgid "form.dataHasChanged"
 msgstr "Data pada formulir ini telah berubah. Ingin menyimpannya?"
-
-msgid "form.emailRequired"
-msgstr "Wajib mengisi alamat surel."
 
 msgid "form.confirmSubmit.title"
 msgstr "Konfirmasi"

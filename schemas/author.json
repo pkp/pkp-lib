@@ -74,6 +74,12 @@
 			"default": true,
 			"apiSummary": true
 		},
+		"locale": {
+			"type": "string",
+			"description": "The primary locale of the submission this author is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"orcid": {
 			"type": "string",
 			"description": "The ORCID of this contributor. See: https://orcid.org/",
@@ -100,12 +106,6 @@
 			"type": "integer",
 			"description": "The order in which this contributor should appear in a list of contributors.",
 			"apiSummary": true
-		},
-		"submissionLocale": {
-			"type": "string",
-			"description": "The primary locale of the submission this author is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
-			"apiSummary": true,
-			"readOnly": true
 		},
 		"url": {
 			"type": "string",

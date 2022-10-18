@@ -2425,3 +2425,11 @@ msgstr ""
 "Ce courriel est envoyé automatiquement chaque mois aux rédacteurs et "
 "rédactrices en chef et aux directeurs et directrices de revues pour leur "
 "fournir un aperçu de l'intégrité du système."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Liste de vérification de la soumission"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Lors d'une soumission à la revue, on demande d'abord aux auteurs de s'assurer, avant d'aller plus loin, que toutes les conditions requises pour soumettre un article sont remplies. La liste de vérification doit aussi apparaître dans Directives aux auteurs, sous À propos de la revue. Cette liste peut être modifiée ci-dessous, mais tous les éléments de la liste devront être cochés avant que les auteurs puissent poursuivre la procédure de soumission."

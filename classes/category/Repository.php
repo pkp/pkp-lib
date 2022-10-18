@@ -14,6 +14,7 @@
 namespace PKP\category;
 
 use APP\core\Request;
+use Illuminate\Support\LazyCollection;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -62,6 +63,34 @@ class Repository
         return $this->dao->exists($id, $contextId);
     }
 
+    /**
+     * Get the breadcrumb of a category
+     *
+     * @return string For example: Social Sciences > Anthropology
+     */
+    public function getBreadcrumb(Category $category, ?Category $parent = null): string
+    {
+        return !$parent
+            ? $category->getLocalizedTitle()
+            : $parent->getLocalizedTitle()
+                . ' > '
+                . $category->getLocalizedTitle();
+    }
+
+    /**
+     * Get the breadcrumbs for a Collection of categories
+     */
+    public function getBreadcrumbs(LazyCollection $categories): LazyCollection
+    {
+        return $categories->map(function (Category $category) use ($categories) {
+            /** @var ?Category $parent */
+            $parent = $categories->first(
+                fn (Category $c) => $c->getId() === $category->getParentId()
+            );
+            return $this->getBreadcrumb($category, $parent);
+        });
+    }
+
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
@@ -88,7 +117,7 @@ class Repository
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(?Announcement $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?Category $object, array $props, array $allowedLocales, string $primaryLocale): array
     {
         $validator = ValidatorFactory::make(
             $props,
@@ -154,6 +183,7 @@ class Repository
     public function deleteMany(Collector $collector)
     {
         foreach ($collector->getMany() as $category) {
+            /** @var Category $category */
             $this->delete($category);
         }
     }

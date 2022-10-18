@@ -94,15 +94,6 @@ msgstr "Indsendelses-tjekliste"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Tjekliste-element"
 
-msgid "author.users.contributor.name"
-msgstr "Navn"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Rolle"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Primær kontaktperson"
 
@@ -195,12 +186,6 @@ msgstr "Importér eller eksportér indhold eller websitedata"
 
 msgid "grid.action.orderItems"
 msgstr "Aktivér sorteringsmode"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Redigér dette tjeklistepunkt"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Slet dette tjeklistepunkt"
 
 msgid "grid.action.resetAll"
 msgstr "Genindstil alle punkter til standardværdier"
@@ -338,9 +323,6 @@ msgstr "Slet kategori"
 msgid "grid.action.addContributor"
 msgstr "Tilføj bidragyder"
 
-msgid "grid.action.editContributor"
-msgstr "Redigér bidragyder"
-
 msgid "grid.action.deleteContributor"
 msgstr "Slet bidragyder"
 
@@ -474,9 +456,6 @@ msgstr "Er du sikker på, at du vil deaktivere denne plugin?"
 
 msgid "grid.submission.itemTitle"
 msgstr "Forfatter; Titel"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "I browse-liste"
 
 msgid "grid.action.restoreDefaults.confirm"
 msgstr "Er du sikker på, at du vil genskabe standardinstillingerne?"

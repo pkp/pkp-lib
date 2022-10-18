@@ -44,12 +44,6 @@ msgstr "Bạn đã được đăng ký thành công."
 msgid "notification.confirmError"
 msgstr "Đã xảy ra lỗi khi xác nhận đăng ký của bạn."
 
-msgid "notification.editedAuthor"
-msgstr "Đã chỉnh sửa tác giả."
-
-msgid "notification.addedAuthor"
-msgstr "Đã thêm tác giả."
-
 msgid "notification.removedAnnouncement"
 msgstr "Đã xoá thông báo."
 
@@ -477,9 +471,6 @@ msgid "form.dataHasChanged"
 msgstr ""
 "Dữ liệu trên biểu mẫu này đã thay đổi. Bạn có muốn tiếp tục mà không cần lưu "
 "không?"
-
-msgid "form.emailRequired"
-msgstr "Một địa chỉ email là bắt buộc."
 
 msgid "form.confirmSubmit.title"
 msgstr "Xác nhận"

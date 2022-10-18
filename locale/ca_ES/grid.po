@@ -171,12 +171,6 @@ msgstr "Importeu o exporteu contingut o dades del lloc"
 msgid "grid.action.orderItems"
 msgstr "Activa el mode d'ordenació"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Edita aquest ítem de la llista de comprovació"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Elimina aquest ítem de la llista de comprovació"
-
 msgid "grid.action.resetAll"
 msgstr "Reinicia tots els ítems en els vsus valors per defecte"
 
@@ -360,9 +354,6 @@ msgstr "Col·laborador/a"
 msgid "grid.action.addContributor"
 msgstr "Afegeix un col·laborador"
 
-msgid "grid.action.editContributor"
-msgstr "Edita col·laborador"
-
 msgid "grid.action.deleteContributor"
 msgstr "Esborra col·laborador"
 
@@ -402,20 +393,8 @@ msgstr "Llista de verificació de la tramesa"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Element de la llista de verificació"
 
-msgid "author.users.contributor.name"
-msgstr "Nom"
-
-msgid "author.users.contributor.email"
-msgstr "Correu electrònic"
-
-msgid "author.users.contributor.role"
-msgstr "Rol"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contacte principal"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "En la llista de navegació"
 
 msgid "grid.roles.currentRoles"
 msgstr "Rols actuals"

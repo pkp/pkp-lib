@@ -920,9 +920,6 @@ msgstr "Weet u zeker dat u dit formulier wilt insturen?"
 msgid "form.confirmSubmit.title"
 msgstr "Bevestig"
 
-msgid "form.emailRequired"
-msgstr "een e-mailadres is verplicht"
-
 msgid "form.dataHasChanged"
 msgstr "De gegevens op dit formulier zijn veranderd. toch doorgaan?"
 
@@ -1306,12 +1303,6 @@ msgstr "Nieuwsbericht-type verwijderd."
 
 msgid "notification.removedAnnouncement"
 msgstr "Nieuwsbericht verwijderd."
-
-msgid "notification.addedAuthor"
-msgstr "Auteur toegevoegd."
-
-msgid "notification.editedAuthor"
-msgstr "Auteur bijgewerkt."
 
 msgid "notification.confirmError"
 msgstr "Er is een fout opgetreden bij het bevestigen van uw abonnement."

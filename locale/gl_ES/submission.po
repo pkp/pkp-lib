@@ -711,21 +711,6 @@ msgstr "Queres substituír un ficheiro existente?"
 msgid "submission.form.name"
 msgstr "Nomee o arquivo (por exemplo, Manuscrito; Táboa 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Insira as referencias."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Insira os dereitos."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Insira a fonte."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Insira a topoloxía."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Insira a información de cobertura."
-
 msgid "submission.layout.galleyFormat"
 msgstr "Formato de galerada"
 
@@ -1423,26 +1408,11 @@ msgstr ""
 msgid "metadata.property.displayName.editor"
 msgstr "Editores/as"
 
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Insira unha palabra clave."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Insira unha disciplina."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Insira un asunto."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Insira un idioma."
-
 msgid "submission.submit.addAuthor"
 msgstr "Engadir colaborador/a"
 
 msgid "submission.submit.contributorRole"
 msgstr "Rol del colaborador/a"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Contacto principal para a correspondencia editorial."
 
 msgid "submission.date.yyyymmdd"
 msgstr "AAAA-MM-DD"
@@ -1479,15 +1449,6 @@ msgstr "Cargar arquivo en"
 
 msgid "submission.underway"
 msgstr "En curso"
-
-msgid "submission.type.tip"
-msgstr ""
-"O tipo de envío adoita ser de \"imaxe\", \"texto\" ou outros tipos "
-"multimedia, incluído \"software\" ou \"interactivo\". Escolla o máis "
-"relevante para o seu envío. Pódense atopar exemplos en <a target=\"_blank\" "
-"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
-"type\">http://dublincore.org/documents/ 12/04/2001/usageguide/"
-"generic.shtml#type</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Título e resumo"
@@ -1527,18 +1488,8 @@ msgstr "Arquivos dependentes"
 msgid "submission.submit.submissionFiles"
 msgstr "Arquivos de envío"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Aceptanse envíos en varios idiomas. Escolla o idioma principal do envío no "
-"menú desplegable de abaixo."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Idioma do envío"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Engade información adicional a o teu envío. Preme \"Enter\" despois de cada "
-"termo."
 
 msgid "submission.submit.metadataForm"
 msgstr "Melloras adicionais"
@@ -1557,9 +1508,6 @@ msgstr "Información do arquivo"
 
 msgid "submission.submit.selectFile"
 msgstr "Seleccionar arquivo"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Finalizar o envío"
 
 msgid "submission.submitter"
 msgstr "Remitente"
@@ -1587,11 +1535,6 @@ msgstr "Enviado"
 
 msgid "submissions.submit"
 msgstr "Enviar"
-
-msgid "submission.source.tip"
-msgstr ""
-"Este envío deriva doutro recurso? Se é así, pode inserir un URL ou unha "
-"descrición dese recurso."
 
 msgid "submission.source"
 msgstr "Fonte"
@@ -1628,11 +1571,6 @@ msgstr "Arquivado"
 
 msgid "submissions.active"
 msgstr "Activo"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Se o desexas, podes poñer unha breve declaración sobre os dereitos de acceso "
-"sobre este envío."
 
 msgid "submission.rights"
 msgstr "Dereitos"
@@ -1875,14 +1813,8 @@ msgstr "Revisar o envío"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Polo de agora, podes:"
 
-msgid "submission.submit.whatNext"
-msgstr "E agora qué?"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Seguro que queres eliminar este arquivo?"
-
-msgid "submission.submit.genre.error"
-msgstr "Escolla o tipo de arquivo para cada carga."
 
 msgid "submission.submit.genre.description"
 msgstr "Escolla a opción que mellor describa este arquivo."
@@ -1890,19 +1822,10 @@ msgstr "Escolla a opción que mellor describa este arquivo."
 msgid "submission.submit.genre.label"
 msgstr "Qué tipo de arquivo é?"
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr ""
-"Si, estou de acordo en cumprir os termos da declaración de dereitos de autor."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Aceptar a declaración de dereitos de autor"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Grazas polo teu interese en publicar con {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Envío completado"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Antes de continuar debes ler e confirmar que cumpriches os requisitos "
@@ -1911,28 +1834,11 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisitos do envío"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Faga o envío con calquera dos seguintes roles se desexa poder editar e "
-"publicar vostede mesmo este envío: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Si, gustaríame que me contactasen sobre este envío."
-
-msgid "submission.submit.contactConsent"
-msgstr "Persoa de contacto"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Selecciona o rol que mellor describa a túa contribución a este envío."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Enviar como"
-
-msgid "submission.confirm.message"
-msgstr ""
-"O teu envío cargouse e está listo para ser enviado. Podes volver revisar e "
-"axustar calquera información que introduciches antes de continuar. Cando "
-"estea listo, faga clic en \"Finalizar envío\"."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -2106,3 +2012,10 @@ msgstr "Prazo de resposta: {$date}"
 
 msgid "submission.list.empty"
 msgstr "Non se atoparon envíos."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Non se anexou  ningún arquivo a este envío."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmación do envío"

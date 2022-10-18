@@ -236,29 +236,14 @@ msgstr "Преглед на подаването на материали"
 msgid "submission.submit.whatNext.forNow"
 msgstr "За сега, можете:"
 
-msgid "submission.submit.whatNext"
-msgstr "Какво следва?"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Наистина ли искате да премахнете този файл?"
-
-msgid "submission.submit.genre.error"
-msgstr "Моля, изберете вида на файла за всяко качване."
 
 msgid "submission.submit.genre.description"
 msgstr "Изберете опцията, която най-добре описва този файл."
 
 msgid "submission.submit.genre.label"
 msgstr "Какъв вид файл е това?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Да, съгласен/а съм с условията на декларацията за авторски права."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Потвърдете изявлението за авторски права"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Благодарим ви за проявения интерес за публикуване в {$contextName}."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Подаването на материали е завършено"
@@ -271,17 +256,6 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Изисквания за подаването на материали"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Изпратете в някоя от следните роли, ако искате да можете сами да редактирате "
-"и публикувате това подаване на материали: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Да, бих искал да се свързвате с мен относно това подаване на материали."
-
-msgid "submission.submit.contactConsent"
-msgstr "Контакт за кореспонденция"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Изберете ролята, която най-добре описва вашия принос към това подаване на "
@@ -289,12 +263,6 @@ msgstr ""
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Изпращане като"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Вашето подаване на материали е качено и е готово за изпращане. Можете да се "
-"върнете, за да прегледате и коригирате всяка информация, която сте въвели, "
-"преди да продължите. Когато сте готови, щракнете върху „Край на изпращането“."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -875,11 +843,6 @@ msgstr "Архивирани"
 msgid "submissions.active"
 msgstr "Активни"
 
-msgid "submission.rights.tip"
-msgstr ""
-"Ако желаете, можете да въведете кратко изявление относно правата за достъп, "
-"притежавани в или над това подаване на материали."
-
 msgid "submission.rights"
 msgstr "Права"
 
@@ -1222,11 +1185,6 @@ msgstr ""
 msgid "submission.submit.submissionLocale"
 msgstr "Език на подадените материали"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Добавяне на допълнителна информация за вашето подаване на материали. "
-"Натискайте 'enter' след всеки термин."
-
 msgid "submission.submit.metadataForm"
 msgstr "Допълнителни уточнения"
 
@@ -1249,9 +1207,6 @@ msgstr "Информация за файла"
 
 msgid "submission.submit.selectFile"
 msgstr "Избиране на файл"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Завършване на изпращането на материали"
 
 msgid "submission.submitter"
 msgstr "Изпращач"
@@ -1279,11 +1234,6 @@ msgstr "Изпратени"
 
 msgid "submissions.submit"
 msgstr "Изпращане"
-
-msgid "submission.source.tip"
-msgstr ""
-"Това подаване на материали извлечено ли е от друг ресурс? Ако е така, можете "
-"да въведете URL адрес или описание на този ресурс."
 
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
@@ -1493,41 +1443,11 @@ msgstr "Подмяна на съществуващ файл?"
 msgid "submission.form.name"
 msgstr "Име на файла (напр. Ръкопис; Таблица 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Моля, въведете препратките към литературата (библиография)."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Моля, въведете правата."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Моля, въведете източника."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Моля, въведете типа."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Моля, въведете информацията за обхвата."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Моля, въведете ключова дума."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Моля, въведете дисциплина."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Моля, въведете предмет."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Моля, въведете език."
-
 msgid "submission.submit.addAuthor"
 msgstr "Добавяне на автор/сътрудник"
 
 msgid "submission.submit.contributorRole"
 msgstr "Роля на автора/сътрудника"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Основен контакт за редакционна кореспонденция."
 
 msgid "submission.date.yyyymmdd"
 msgstr "ГГГГ-ММ-ДД"
@@ -1564,15 +1484,6 @@ msgstr "Качване на файл в"
 
 msgid "submission.underway"
 msgstr "В процес"
-
-msgid "submission.type.tip"
-msgstr ""
-"Типът на подадените материали обикновено е „изображение“, „текст“ или друго "
-"мултимедийно съдържание, включително „софтуер“ или „интерактивен“. Моля, "
-"изберете най-подходящия за вашето изпращане на материали. Примери могат да "
-"бъдат намерени на<a target=\"_blank\" href=\"http://dublincore.org/documents/"
-"2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/"
-"2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
@@ -2593,3 +2504,10 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Изпратете повторно заявката за рецензия в кръг {$round} до {$reviewerName} "
 "за подадени материали {$submissionid}."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Към това изпращане на материали не са прикачени файлове."
+
+msgid "author.submit.confirmation"
+msgstr "Потвърждение"

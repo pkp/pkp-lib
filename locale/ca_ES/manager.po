@@ -2493,3 +2493,11 @@ msgstr ""
 "Aquest correu electrònic s'envia automàticament cada mes a editors/ores i "
 "administradors/ores de revistes per donar-los una visió general de la salut "
 "del sistema."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Llista de verificació per preparar trameses"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Abans de fer una tramesa a la revista, els autors/ores han de marcar com a complets tots els elements de la llista de verificació per a la preparació de la tramesa. Aquesta llista de verificació també apareix a les directrius per als autors/ores, dins la pàgina «Sobre la revista». A continuació podeu editar la llista de verificació, però tingueu en compte que els autors/ores n’han d’activar tots els elements per poder continuar amb la tramesa."

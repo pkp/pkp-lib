@@ -20,24 +20,8 @@ msgstr ""
 msgid "author.submit.submissionCitations"
 msgstr "Forneça uma lista formatada de citações incluídas nesta submissão."
 
-msgid "submission.confirm.message"
-msgstr ""
-"Sua submissão está no sistema e pronta para ser finalizada. Você pode voltar "
-"e ajustar as informações fornecidas antes de continuar. Quando estiver "
-"pronto, clique em \"Finalizar Submissão\"."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Submissão completa"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Obrigado pelo seu interesse em publicar com {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr ""
-"Sim, eu concordo em cumprir os termos da declaração de direitos autorais."
-
-msgid "submission.submit.whatNext"
-msgstr "O que acontece a seguir?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Por enquanto, você pode:"
@@ -1193,19 +1177,8 @@ msgstr "Editoração"
 msgid "submission.rights"
 msgstr "Direitos"
 
-msgid "submission.rights.tip"
-msgstr "Se desejar, você pode inserir uma breve declaração sobre os direitos de acesso sobre esta submissão."
-
 msgid "submission.source"
 msgstr "Fonte"
-
-msgid "submission.source.tip"
-msgstr ""
-"Esta submissão é derivada de outro recurso? Se assim for, informe uma URL ou "
-"uma descrição destes recursos."
-
-msgid "submission.submit.finishSubmission"
-msgstr "Finalizar Submissão"
 
 msgid "submission.submit.selectFile"
 msgstr "Selecionar Arquivo"
@@ -1225,9 +1198,6 @@ msgstr "Enviar um Novo Arquivo"
 msgid "submission.submit.metadataForm"
 msgstr "Refinamentos Adicionais"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Adicione informações adicionais para sua submissão. Pressione 'Enter' depois de cada termo."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Idioma da Submissão"
 
@@ -1242,18 +1212,6 @@ msgstr "Gerenciar Arquivos Dependentes"
 
 msgid "submission.upload.dependent"
 msgstr "Carregar um Arquivo Dependente"
-
-msgid "submission.type.tip"
-msgstr ""
-"O tipo da submissão é geralmente é uma 'imagem', 'texto', ou outro tipos de "
-"mídia, incluindo 'software' ou 'interativo'. Por favor, escolha o mais "
-"relevante para a sua submissão. Exemplos podem ser encontrados em <a target="
-"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
-"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
-"dublin-core/usageguide/2001-04-12/generic/</a>"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Contato principal para correspondência editorial."
 
 msgid "submission.submit.contributorRole"
 msgstr "Papel do colaborador"
@@ -1765,6 +1723,7 @@ msgstr "Lista de Coautores"
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisitos para Envio de Manuscrito"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Você deve ler e reconhecer que você completou os requisitos abaixo antes de prosseguir."
 
@@ -1783,9 +1742,6 @@ msgstr "ID do Editor"
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Novas avaliações foram enviados e estão sendo considerados pelo editor."
 
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Aceitar a declaração de direitos autorais"
-
 msgid "submission.upload.proof"
 msgstr "Fazer upload de um arquivo pronto para publicação"
 
@@ -1803,11 +1759,6 @@ msgstr "Biografia do Autor"
 
 msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Submissões em múltiplos idiomas são aceitas. Escolha o idioma principal da "
-"submissão nas opções acima."
 
 msgid "editor.submission.decision.accept"
 msgstr "Aceitar Submissão"
@@ -2104,33 +2055,6 @@ msgstr "A submissão deve ser ressubmetida para outra rodada de avaliação."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "As revisões foram enviadas e uma decisão é necessária."
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Por favor, insira as referências."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Por favor, insira os direitos."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Por favor, insira a fonte."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Por favor, insira o tipo."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Por favor, insira a informação de cobertura."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Por favor, insira uma palavra-chave."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Por favor, insira uma disciplina."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Por favor, insira um assunto."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Por favor, insira um idioma."
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Esta é uma versão desatualizada publicada em {$datePublished}. Leia a <a "
@@ -2176,17 +2100,6 @@ msgstr ""
 
 msgid "metadata.property.displayName.abstract"
 msgstr "Resumo"
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Submeter em qualquer um dos seguintes papéis caso você gostaria de poder "
-"editar e publicar esta submissão por conta própria: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Sim, eu gostaria de ser comunicado sobre esta submissão."
-
-msgid "submission.submit.contactConsent"
-msgstr "Contato de Correspondência"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
@@ -2298,9 +2211,6 @@ msgstr ""
 
 msgid "submission.submit.removeConfirm"
 msgstr "Tem certeza que deseja remover este arquivo?"
-
-msgid "submission.submit.genre.error"
-msgstr "Por favor escolha o tipo de arquivo para cada transferência."
 
 msgid "submission.submit.genre.description"
 msgstr "Escolha a opção que melhor descreva este arquivo."
@@ -2778,3 +2688,10 @@ msgstr ""
 msgid "submission.viewingPreview"
 msgstr ""
 "Esta é uma prévia e não foi publicada. <a href=\"{$url}\"> Ver submissão</a>"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Nenhum documento anexado à submissão."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmação"

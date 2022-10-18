@@ -120,6 +120,7 @@ msgid "emails.submissionAck.subject"
 msgstr "قدردانی برای ارسال مقاله"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -1059,3 +1060,150 @@ msgstr "پیامی برای {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "لطفاً پیام خود را وارد کنید"
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "قدردانی برای ارسال مقاله"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"از ارسال مقاله &quot;{$submissionTitle}&quot; به {$contextName} متشکرم. با استفاده از سامانه الکترونیکی مدیریت مجله، که هم اکنون استفاده می شود، قادر خواهید بود ازطریق وارد شدن به وب سایت مجله، روند پیشرفت بررسی مقاله خود را پیگیری نمائید.<br />\n"
+"<br />\n"
+"آدرس مقاله : {$submissionUrl}<br />\n"
+"نام کاربری: {$recipientUsername}<br />\n"
+"<br />\n"
+"لطفا چنانچه سوالی دارید، با من تماس بگیرید.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "قدردانی بخاطر بررسی مقاله"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"برای بررسی مقاله ارسالی &quot;{$submissionTitle}&quot;مربوط به {$contextName}، از شما سپاسگزاریم. مساعدت شما را که باعث ارتقاء سطح کیفی مقاله ای که چاپ شد، ارج می نهیم."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "This email is sent by a Section Editor to confirm receipt of a completed review and thank the reviewer for their contributions."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "تصمیم دبیر"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
+"<br />\n"
+"تصمیم : ارسال به داور خارجی<br />\n"
+"<br />\n"
+"مشاهده وضعیت مقاله ارسالی: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "تصمیم دبیر"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+" روند داوری مقاله ارسالی شما (&quot;{$submissionTitle}&quot;)  تکمیل شده و به واحد انتشار ارسال شده است.<br />\n"
+"<br />\n"
+"مشاهده وضعیت مقاله ارسالی: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "تصمیم دبیر"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
+"<br />\n"
+"تصمیم : مقاله ارسالی نیاز به انجام اصلاحات دارد"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "تصمیم دبیر"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
+"<br />\n"
+"تصمیم نهایی: ارسال دوباره برای داوری"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "تصمیم دبیر"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
+"<br />\n"
+"تصمیم نهایی: عدم پذیرش مقاله ارسالی"
+
+#, fuzzy
+msgid "emails.editorRecommendation.subject"
+msgstr "توصیه دبیر"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"توصیه اینجانب در مورد مقاله ارسالی (&quot;{$submissionTitle}&quot;) در {$contextName} ، {$recommendation} می باشد."
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "درخواست انجام امور ویراستاری"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"از شما درخواست می شود که امور ویراستاری مقاله &quot;{$submissionTitle}&quot; مربوط به {$contextName} را برعهده بگیرید. شما می توانید فایل مربوطه به همراه مجموعه ای از دستورالعمل های نحوه ویراستاری مقاله را در وب سایت مجله دریافت کنید.<br />\n"
+"<br />\n"
+"چنانچه در حال حاضر قادر به انجام امور مذکور نیستید و یا سوالی در این زمینه دارید، لطفا با من تماس بگیرید. پیشاپیش از قبول انجام امور ویراستاری برای این مجله سپاسگزارم."
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "This email is sent by a Section Editor to a submission's Copyeditor to request that they begin the copyediting process. It provides information about the submission and how to access it."
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "تصمیم دبیر"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
+"<br />\n"
+"تصمیم نهایی: عدم پذیرش"

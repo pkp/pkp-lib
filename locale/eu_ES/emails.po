@@ -141,6 +141,7 @@ msgid "emails.submissionAck.subject"
 msgstr "Bidalketaren hartu-agiria"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -845,3 +846,106 @@ msgstr ""
 "URL aurkezpena: {$submissionUrl}<br />\n"
 "<br />\n"
 "{$signature}"
+
+msgid "emails.revisedVersionNotify.description"
+msgstr "Mezu hau automatikoki bidaltzen zaio dagokion editoreari, egileak artikulu baten bertsio berrikusia gora kargatzen duenean."
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Bidalketaren hartu-agiria"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Eskerrik asko {$submissionTitle} eskuizkribua {$contextName} aldizkarira bidaltzeagatik. Aldizkaria Interneten kudeatzeko erabiltzen dugun sistemari esker, prozesu editorialean zehar egiten duen ibilbidea jarraitu ahal izango duzu, aldizkariaren webgunean sartuta:<br />\n"
+"<br />\n"
+"Eskuizkribuaren URLa: {$submissionUrl}<br />\n"
+"Erabiltzaile-izena: {$recipientUsername}<br />\n"
+"<br />\n"
+"Galderaren bat baduzu, jar zaitez harremanetan nirekin. Eskerrik asko zure lana bidaltzeko aldizkari hau aintzakotzat hartzeagatik.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr "Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana bidaltzeagatik."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Artikuluaren ebaluazioaren hartu-agiria"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Eskerrik asko {$contextName} aldizkarirako &quot;{$submissionTitle}&quot; artikuluaren ebaluazioa egiteagatik. Zinez estimatzen dugu argitaratzen ditugun lanen kalitatea hobetzeko egiten diguzun ekarpena."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazio-txostena jaso duela esateko eta eskerrak emateko."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Editorearen erabakia"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hartu dugu {$contextName} aldizkarira bidali zenuen &quot;{$submissionTitle}&quot; artikuluari buruzko erabakia.<br />\n"
+"<br />\n"
+"Gure erabakia:"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Editorearen erabakia"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hartu dugu {$contextName} aldizkarira bidali zenuen &quot;{$submissionTitle}&quot; artikuluari buruzko erabakia.<br />\n"
+"<br />\n"
+"Gure erabakia:"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Editorearen erabakia"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hartu dugu {$contextName} aldizkarira bidali zenuen &quot;{$submissionTitle}&quot; artikuluari buruzko erabakia.<br />\n"
+"<br />\n"
+"Gure erabakia:"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Zuzenketa egiteko eskaera"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"{$contextName} aldizkarirako &quot;{$submissionTitle}&quot; artikuluaren zuzenketa egitea eskatu nahi nizuke, urrats hauei jarraituz:<br />\n"
+"1. Egin klik behean, Artikuluaren URLan.<br />\n"
+"2. Sartu aldizkarian eta egin klik 1. urratsean agertzen den Fitxategian.<br />\n"
+"3. Irakurri Zuzenketak egiteko webgunean jarrita dauden instrukzioak.<br />\n"
+"4. Ireki deskargatutako fitxategia eta zuzendu, Egile-kontsultak gehituz behar izanez gero.<br />\n"
+"5. Gorde zuzendutako fitxategia, eta kargatu Zuzenketako 1. urratsean.<br />\n"
+"6. Bidali BUKATU duzula adierazteko mezua editoreari.<br />\n"
+"<br />\n"
+"{$contextName} aldizkariaren URLa: {$contextUrl}<br />\n"
+"Artikuluaren URLa: {$submissionUrl}<br />\n"
+"Erabiltzaile-izena: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "Mezu hau Ataleko editoreak Zuzentzaileari bidaltzen dio, artikuluaren zuzenketa-prozesua egin dezala eskatzeko. Artikuluari buruzko informazioa eta fitxategia hartzeko datuak ematen ditu."

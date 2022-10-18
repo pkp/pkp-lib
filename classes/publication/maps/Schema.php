@@ -133,6 +133,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'authorsStringShort':
                     $output[$prop] = $this->anonymize ? '' : $publication->getShortAuthorString();
                     break;
+                case 'categoryIds':
+                    $output[$prop] = $publication->getData('categoryIds');
+                    break;
                 case 'citations':
                     $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
                     $output[$prop] = array_map(

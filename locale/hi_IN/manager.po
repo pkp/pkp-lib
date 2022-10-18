@@ -168,3 +168,18 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "यह ईमेल स्वचालित रूप से संपादकों और पत्रिका प्रबंधकों को मासिक रूप से भेजा "
 "जाता है ताकि उन्हें एक प्रणाली स्वास्थ्य अवलोकन प्रदान किया जा सके।"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "सबमिशन तैयारी चेकलिस्ट"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"जर्नल को प्रस्तुत करने पर, लेखकों को सबसे पहले सबमिशन तैयारी चेकलिस्ट पर "
+"प्रत्येक आइटम को पूरा करने से पहले जांचने के लिए कहा जाता है। चेकलिस्ट लेखक "
+"दिशानिर्देशों में, जर्नल के बारे में भी दिखाई देती है। सूची को नीचे संपादित "
+"किया जा सकता है, लेकिन सूची में सभी वस्तुओं को एक चेकमार्क की आवश्यकता होगी, "
+"इससे पहले कि लेखक उनके प्रस्तुतिकरण के साथ आगे बढ़ सकें।"
+
+# (pofilter) brackets: Added '(', ')'
+# (pofilter) endpunc: Different punctuation at the end

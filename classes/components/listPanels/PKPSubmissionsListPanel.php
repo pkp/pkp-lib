@@ -76,8 +76,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             $request,
             Application::ROUTE_PAGE,
             null,
-            'submission',
-            'wizard'
+            'submission'
         );
 
         // URL to view info center for a submission

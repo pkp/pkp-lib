@@ -2364,3 +2364,15 @@ msgstr ""
 
 msgid "manager.people.authSource"
 msgstr "Uppruni heimildar"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Minnislisti höfunda"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Þegar höfundar senda inn efni er þeir í upphafi innsendingarferlis beðnir um "
+"að merkja við hvert atriði á minnislista höfunda áður en haldið er áfram. "
+"Þessi minnislisti eða gátlisti birtist einnig í leiðbeiningum til höfunda, "
+"undir \"Um tímaritið\".  Hægt er er að breyta listanum hér fyrir neðan, en "
+"merkja þarf við öll atriðin áður en höfundur getur haldið áfram innsendingu."

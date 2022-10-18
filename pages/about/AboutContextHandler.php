@@ -73,14 +73,9 @@ class AboutContextHandler extends Handler
     public function submissions($args, $request)
     {
         $templateMgr = TemplateManager::getManager($request);
+        $context = $request->getContext();
         $this->setupTemplate($request);
 
-        $context = $request->getContext();
-        $checklist = $context->getLocalizedData('submissionChecklist');
-        if (!empty($checklist)) {
-            ksort($checklist);
-            reset($checklist);
-        }
 
         $templateMgr->assign('submissionChecklist', $context->getLocalizedData('submissionChecklist'));
 

@@ -80,9 +80,9 @@ class Steps
         /** @var StageAssignmentDAO $stageAssignmentDao  */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         $userIds = [];
-        $result = $stageAssignmentDao->getBySubmissionAndRoleId(
+        $result = $stageAssignmentDao->getBySubmissionAndRoleIds(
             $this->submission->getId(),
-            $roleId,
+            [$roleId],
             $this->decisionType->getStageId()
         );
         /** @var StageAssignment $stageAssignment */

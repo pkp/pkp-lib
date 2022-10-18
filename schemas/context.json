@@ -75,6 +75,14 @@
 				"nullable"
 			]
 		},
+		"beginSubmissionHelp": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"defaultLocaleKey": "default.submission.step.beforeYouBegin"
+		},
 		"citations": {
 			"type": "string",
 			"description": "Enable citations metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
@@ -115,6 +123,14 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"contributorsHelp": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"defaultLocaleKey": "default.submission.step.contributors"
 		},
 		"copyrightHolderType": {
 			"type": "string",
@@ -214,6 +230,14 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"detailsHelp": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"defaultLocaleKey": "default.submission.step.details"
 		},
 		"disableBulkEmailUserGroups": {
 			"type": "array",
@@ -374,6 +398,14 @@
 					"type": "string"
 				}
 			}
+		},
+		"forTheEditorsHelp": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"defaultLocaleKey": "default.submission.step.forTheEditors"
 		},
 		"homepageImage": {
 			"type": "object",
@@ -623,6 +655,14 @@
 				"nullable"
 			]
 		},
+		"reviewHelp": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"defaultLocaleKey": "default.submission.step.review"
+		},
 		"rights": {
 			"type": "string",
 			"description": "Enable rights metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
@@ -710,58 +750,12 @@
 			]
 		},
 		"submissionChecklist": {
-			"type": "array",
+			"type": "string",
 			"multilingual": true,
 			"validation": [
 				"nullable"
 			],
-			"items": {
-				"type": "object",
-				"properties": {
-					"order": {
-						"type": "integer",
-						"validation": [
-							"nullable",
-							"min:0"
-						]
-					},
-					"content": {
-						"type": "string"
-					}
-				}
-			},
-			"default": [
-				{
-					"order": 1,
-					"content": {
-						"defaultLocaleKey": "default.contextSettings.checklist.notPreviouslyPublished"
-					}
-				},
-				{
-					"order": 2,
-					"content": {
-						"defaultLocaleKey": "default.contextSettings.checklist.fileFormat"
-					}
-				},
-				{
-					"order": 3,
-					"content": {
-						"defaultLocaleKey": "default.contextSettings.checklist.addressesLinked"
-					}
-				},
-				{
-					"order": 4,
-					"content": {
-						"defaultLocaleKey": "default.contextSettings.checklist.submissionAppearance"
-					}
-				},
-				{
-					"order": 5,
-					"content": {
-						"defaultLocaleKey": "default.contextSettings.checklist.bibliographicRequirements"
-					}
-				}
-			]
+			"defaultLocaleKey": "default.contextSettings.checklist"
 		},
 		"supportedFormLocales": {
 			"type": "array",
@@ -827,6 +821,14 @@
 				"nullable",
 				"in:0,enable,request,require"
 			]
+		},
+		"uploadFilesHelp": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"defaultLocaleKey": "default.submission.step.uploadFiles"
 		},
 		"url": {
 			"type": "string",

@@ -515,21 +515,10 @@ msgstr "Examinați acest manuscris"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Deocamdată, puteți să:"
 
-msgid "submission.submit.whatNext"
-msgstr "Ce se întâmplă în continuare?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Da, sunt de acord să respect termenii declarației de copyright."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Confirmă declarația de copyright"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Vă mulțumim pentru interesul dvs. de a publica în {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Înregistrare completă"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Trebuie să citiți și să confirmați că ați îndeplinit cerințele de mai jos "
@@ -538,17 +527,6 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Cerințe de înregistrare"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Înregistrați-vă cu oricare dintre următoarele roluri dacă doriți să puteți "
-"edita și publica această înregistrare: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Da, aș dori să fiu contactat cu privire la această înregistrare."
-
-msgid "submission.submit.contactConsent"
-msgstr "Contact autor corespondent"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Selectați rolul care descrie cel mai bine contribuția dvs. la această "
@@ -556,13 +534,6 @@ msgstr ""
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Depuneți ca"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Manuscrisul dvs. a fost încărcat și este pregătit pentru a fi trimis. "
-"Înainte de a continua, puteți reveni pentru a revizui și a ajusta oricare "
-"dintre informațiile introduse. Când sunteți gata, faceți clic pe „Finalizare "
-"depunere manuscris”."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Au fost trimise recenzii noi și sunt luate în considerare de editor."
@@ -837,27 +808,6 @@ msgstr "Înlocuiți fișierul existent?"
 
 msgid "submission.form.name"
 msgstr "Numele fișierului (ex., Manuscris; Tabelul 1)"
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Introduceți referințele."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Introduceți drepturile."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Introduceți sursa."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Introduceți tipul."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Introduceți informații acoperire."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Introduceți un cuvânt cheie."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Introduceți o disciplină."
 
 msgid "submission.event.reviewer.reviewReinitiated"
 msgstr "Revizuirea a fost inițiată"
@@ -1227,20 +1177,11 @@ msgstr "Încărcare fișier manuscris editat"
 msgid "submission.upload.finalDraft"
 msgstr "Încărcare fișier"
 
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Introduceți un subiect."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Introduceți limba."
-
 msgid "submission.submit.addAuthor"
 msgstr "Adăugare contributor"
 
 msgid "submission.submit.contributorRole"
 msgstr "Rolul contributoului"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Autor corespondent, pentru corespondența editorială."
 
 msgid "submission.date.yyyymmdd"
 msgstr "AAAA-LL-ZZ"
@@ -1278,15 +1219,6 @@ msgstr "Încărcați fișierul în"
 msgid "submission.underway"
 msgstr "In curs"
 
-msgid "submission.type.tip"
-msgstr ""
-"Tipul de fișier pentru înregistrări manuscrise este de obicei unul de "
-"„imagine”, „text” sau alte tipuri multimedia, inclusiv „software” sau "
-"„interactiv”.  Vă rugăm să-l alegeți pe cel mai relevant pentru "
-"înregistrarea dvs. Exemple pot fi găsite la <a target=\"_blank\" href=\""
-"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\""
-">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
-
 msgid "submission.titleAndAbstract"
 msgstr "Titlu și rezumat"
 
@@ -1320,19 +1252,8 @@ msgstr "Fișiere dependente"
 msgid "submission.submit.submissionFiles"
 msgstr "Fișierele manuscrisului"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Sunt acceptate înregistrările de manuscrise în limba română sau engleză. "
-"Alegeți limba primară a înregistrării manuscrisului din selectorul de mai "
-"sus."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Limba pentru înregistrare manuscris"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Adăugați informații suplimentare pentru înregistrarea dvs. de manuscris. "
-"Apăsați „enter” după fiecare termen."
 
 msgid "submission.submit.metadataForm"
 msgstr "Rafinări suplimentare"
@@ -1351,9 +1272,6 @@ msgstr "Informații fișier"
 
 msgid "submission.submit.selectFile"
 msgstr "Selectare fișier"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Finalizare înregistrare manuscris"
 
 msgid "submission.submitter"
 msgstr "Autor corespondent"
@@ -1381,11 +1299,6 @@ msgstr "Manuscris înregistrat"
 
 msgid "submissions.submit"
 msgstr "Înregistrare manuscris"
-
-msgid "submission.source.tip"
-msgstr ""
-"Această înregistrare de manuscris este derivată dintr-o altă resursă? Dacă "
-"da, puteți introduce o adresă URL sau o descriere a resursei respective."
 
 msgid "submission.source"
 msgstr "Sursa"
@@ -1422,11 +1335,6 @@ msgstr "Arhivat"
 
 msgid "submissions.active"
 msgstr "Activ"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Dacă doriți, puteți introduce aici o scurtă declarație despre drepturile de "
-"acces deținute, sau treceți peste această notificare."
 
 msgid "submission.rights"
 msgstr "Drepturi"
@@ -2131,3 +2039,10 @@ msgstr ""
 "a fost notificată și va lua măsuri pentru a se asigura că revizuirile sunt "
 "finalizate. Nu este nevoie să luați nicio măsură în acest moment. Veți fi "
 "informat atunci când a fost luată o decizie."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Nu au fost atașate fișiere la această înregistrare."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmare"

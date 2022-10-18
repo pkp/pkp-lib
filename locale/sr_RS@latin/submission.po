@@ -752,20 +752,8 @@ msgstr "Uloga saradnika"
 msgid "submission.submit.addAuthor"
 msgstr "Dodaj saradnika"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Glavni kontakt za uredničku korespodenciju."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Prihvatam izjavu o autorskim pravima i obavezama"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Slažem se da ću poštovati autorske obaveze."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Jezik predaje"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Ovaj časopis prihvata predaje radova na više jezika. Odaberite primarni jezik predaj iz menija."
 
 msgid "submission.views"
 msgstr "Prikazi"
@@ -966,9 +954,6 @@ msgstr "Istorija"
 msgid "submission.lastModified"
 msgstr "Poslednji put izmenjeno"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Završi predaju"
-
 msgid "submission.submit.selectFile"
 msgstr "Odaberi dokument"
 
@@ -981,14 +966,8 @@ msgstr "Dokument je dodat"
 msgid "submission.submit.newFile"
 msgstr "Dodaj sledeći dokument"
 
-msgid "submission.confirm.message"
-msgstr "Vaša predaja i dokumenti koje ste dostavili su spremni za slanje. Možete se vratiti i proveriti sve podatke koje ste uneli pre nastavka. Kada se uverite da je sve u redu, kliknite na \"Završi predaju\"."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Predaja je završena"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Zahvaljujemo se na interesovanju da objavite Vaš rad u našem časopisu {$contextName}."
 
 msgid "submission.rights"
 msgstr "Prava"
@@ -1128,11 +1107,9 @@ msgstr "Nema podnesenih recenzija niti recenzija koje urednik razmatra."
 msgid "submission.submit.submissionChecklist"
 msgstr "Uslovi za predaju članka"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Morate pročitati i potvrditi da ste zadovoljili uslove pre nastavka prijave."
-
-msgid "submission.submit.whatNext"
-msgstr "Šta se dešava sledeće?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Za sada, možete:"
@@ -1167,15 +1144,6 @@ msgstr "Informacija o široj oblasti"
 msgid "submission.email.confirmClearLog"
 msgstr "Da li ste sigurni da želite obrisati log za poruke za ovaj prijavljeni članak?"
 
-msgid "submission.type.tip"
-msgstr "Tip prijavljenog dela je obično 'slika', 'tekst', ili drugi multimedijalni tip uključujući i 'kompjuterski program' ili 'interaktivno'."
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Dodajte dodatne informacije z vaš prijavljen članak. Pritisnite 'enter' nakon svakog termina."
-
-msgid "submission.source.tip"
-msgstr "Da li jevaj prijavljeni članak izveden iz drugog izvora? AKo jeste, možete upisati URL ili opisati taj izvor."
-
 msgid "submission.submit.includeInBrowse"
 msgstr "Dodati ovog koautora u listu za pretragu?"
 
@@ -1199,9 +1167,6 @@ msgstr "Pregled metapodataka"
 
 msgid "submission.reviewVersion"
 msgstr "Recenzirana verzija"
-
-msgid "submission.rights.tip"
-msgstr "Ako želite možete upisati kratki stav o pravima pristupa za ovaj prijavljeni članak."
 
 msgid "submissions.ruling"
 msgstr "Odluka"
@@ -1451,3 +1416,10 @@ msgstr "Log događaja"
 
 msgid "submission.history.submissionNotes"
 msgstr "Beleške o prijavljenom članku"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Fajlovi nisu dodati uz ovu prijavu."
+
+msgid "author.submit.confirmation"
+msgstr "Potvrda"

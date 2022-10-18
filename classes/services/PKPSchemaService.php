@@ -120,7 +120,7 @@ class PKPSchemaService
             $required = property_exists($baseSchema, 'required')
                 ? $baseSchema->required
                 : [];
-            $newSchema->required = array_merge($required, $additionalSchema->required);
+            $newSchema->required = array_unique(array_merge($required, $additionalSchema->required));
         }
         if (!empty($additionalSchema->properties)) {
             if (empty($newSchema->properties)) {
@@ -149,7 +149,7 @@ class PKPSchemaService
         $schema = $this->get($schemaName);
         $props = [];
         foreach ($schema->properties as $propName => $propSchema) {
-            if (property_exists($propSchema, 'apiSummary') && $propSchema->apiSummary) {
+            if (!empty($propSchema->apiSummary) && empty($propSchema->writeOnly)) {
                 $props[] = $propName;
             }
         }

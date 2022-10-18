@@ -132,8 +132,30 @@ class Schema extends BaseSchema
                 continue;
             }
 
-            if ($prop === 'genre') {
-                $output[$prop] = $this->mapGenre($submissionFile);
+            if ($prop === 'genreId') {
+                $genre = $this->getGenre($submissionFile);
+                $output[$prop] = $genre ? $genre->getId() : null;
+
+                continue;
+            }
+
+            if ($prop === 'genreName') {
+                $genre = $this->getGenre($submissionFile);
+                $output[$prop] = $genre ? $genre->getName(null) : null;
+
+                continue;
+            }
+
+            if ($prop === 'genreIsDependent') {
+                $genre = $this->getGenre($submissionFile);
+                $output[$prop] = $genre ? (bool) $genre->getDependent() : null;
+
+                continue;
+            }
+
+            if ($prop === 'genreIsSupplementary') {
+                $genre = $this->getGenre($submissionFile);
+                $output[$prop] = $genre ? (bool) $genre->getSupplementary() : null;
 
                 continue;
             }
@@ -214,16 +236,11 @@ class Schema extends BaseSchema
         return $this->withExtensions($output, $submissionFile);
     }
 
-    protected function mapGenre(SubmissionFile $submissionFile): ?array
+    protected function getGenre(SubmissionFile $submissionFile): ?Genre
     {
         foreach ($this->genres as $genre) {
             if ($genre->getId() === $submissionFile->getData('genreId')) {
-                return [
-                    'id' => $genre->getId(),
-                    'dependent' => (bool) $genre->getDependent(),
-                    'name' => $genre->getLocalizedName(),
-                    'supplementary' => (bool) $genre->getSupplementary(),
-                ];
+                return $genre;
             }
         }
         return null;

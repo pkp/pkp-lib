@@ -10,15 +10,15 @@
  * @class SubmissionAcknowledgement
  * @ingroup mail_mailables
  *
- * @brief This email is sent automatically to an author who made a submission to the journal
+ * @brief Email sent to a submitting author when they submit their submission
  */
 
 namespace PKP\mail\mailables;
 
 use APP\submission\Submission;
 use PKP\context\Context;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\security\Role;
 

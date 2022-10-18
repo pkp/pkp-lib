@@ -15,8 +15,25 @@
 
 namespace PKP\context;
 
+use PKP\security\Role;
+
 class PKPSection extends \PKP\core\DataObject
 {
+    /**
+     * What user roles are allowed to submit to sections
+     * that have restricted submissions to editors
+     *
+     * @return int[] One or more ROLE_ID_* constants
+     */
+    public static function getEditorRestrictedRoles(): array
+    {
+        return [
+            Role::ROLE_ID_SITE_ADMIN,
+            Role::ROLE_ID_MANAGER,
+            Role::ROLE_ID_SUB_EDITOR
+        ];
+    }
+
     /**
      * Get ID of context.
      *

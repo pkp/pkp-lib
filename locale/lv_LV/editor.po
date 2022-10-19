@@ -2,7 +2,7 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-18 17:27+0000\n"
+"PO-Revision-Date: 2022-10-19 16:14+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "lv_LV/>\n"
@@ -65,3 +65,146 @@ msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
 "Tika nodrošināta recenzēšanas kārta, bet šis lēmums netiek pieņemts "
 "recenzēšanas fāzē."
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Atkārtoti nosūtīt recenzēšanas pieprasījumu"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Recenzējamie faili"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Nesūtīt e-pasta paziņojumu"
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Iesniegtais materiāls nav atbilstošā darba plūsmas posmā, lai pieņemtu šādu "
+"lēmumu."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Nosūtīt e-pasta paziņojumu autoram(-iem): {$authorName}"
+
+msgid "editor.submission.selectFiles"
+msgstr "Izvēlēties failus"
+
+msgid "editor.review.notInitiated"
+msgstr "Recenzēšanas process vēl nav uzsākts."
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Jāizvēlas lietotājs, kuru vēlaties piešķirt."
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Recenzēšanas veids"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Ierakstīt eksistējošu lietotāju"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Jāizvēlas vismaz viens fails, kuram piešķirt lietotāju."
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Parādīt failus no visiem darbplūsmas etapiem."
+
+msgid "editor.review.cancelReviewer"
+msgstr "Atcelt recenzēšanu"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Šī recenzēšanas kārta nav daļa no materiāla iesniegšanas."
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Aizvērt failu atlasi"
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Šo lēmumu neizdevās atrast. Lūdzu, norādiet atpazīto lēmuma veidu."
+
+msgid "editor.submissionReview.open"
+msgstr "Atvērts"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Jaunākie recenzijas faili {$round}. kārtai"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Atjaunot recenzenta lomu"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr ""
+"Izvēlieties zemāk norādītos failus, lai tos nosūtītu uz recenzēšanas posmu."
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonīms recenzents"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Recenzentam nosūtāmā e-pasta vēstule"
+
+msgid "editor.review.createReviewer"
+msgstr "Izveidot jaunu recenzentu"
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Lai reģistrētu redakcijas lēmumu, jums nepieciešama piesaiste šim "
+"iesniegtajam materiālam."
+
+msgid "editor.submission.revisions"
+msgstr "Versijas"
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Nesūtīt e-pastu auditoram"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Ziņojums lietotājam"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Izvēlēties lietotāju"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Nosūtīt e-pasta paziņojumu redaktoram(-iem): {$editorNames}"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Anonīms recenzents/atklāts autors"
+
+msgid "editor.submission.backToSearch"
+msgstr "Atgriezties uz meklēšanu"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Izvēlēties recenzentu"
+
+msgid "editor.submission.addReviewer"
+msgstr "Pievienot recenzentu"
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Lai pieņemtu šo lēmumu, jānorāda recenzēšanas kārtas ID."
+
+msgid "editor.review.unassignReviewer"
+msgstr "Atcelt recenzentu"
+
+msgid "editor.review.importantDates"
+msgstr "Svarīgi dati"
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Ieteikumu var sniegt tikai tad, ja šajā posmā ir norīkots redaktors, kurš "
+"var pieņemt galīgo lēmumu."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Jums jāiekļauj personiska ziņa."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Augšupielādēt/izvēlēties failus"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Lietojiet<em>+Pievienot recenzentu</em>, lai uzaicinātu lasītājus recenzēt "
+"iesniegtā materiāla failus. Piezīmju grāmatiņas ikona norāda, ka ir "
+"iesniegta recenzija, kas pēc tam pārskatīšanas tiek atzīmēta kā "
+"<em>Pieņemts</em>. Ja recenzēšanas termiņš ir nokavēts, atgādināšanai "
+"recenzentiem tiek parādīta sarkana aploksnes ikona."
+
+msgid "editor.submissionReview.editReview"
+msgstr "Rediģēt recenziju"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Anonīms recenzents/anonīms autors"
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Par šo iesniegto materiālu nevarēja pieņemt Lēmumu. Iesniegtā materiāla ID "
+"nav norādīts vai tas neatbilst pieprasītajam iesniegtajam materiālam."

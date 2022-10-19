@@ -2514,10 +2514,10 @@ msgstr "Monthly"
 msgid "stats.pdf"
 msgstr "PDF"
 
-msgid "stats.publications.downloadReport.betweenDates"
+msgid "stats.downloadReport.betweenDates"
 msgstr "{$startDate} to {$endDate}"
 
-msgid "stats.publications.downloadReport.allFilters"
+msgid "stats.downloadReport.allFilters"
 msgstr "All {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"

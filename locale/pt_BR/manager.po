@@ -1,7 +1,7 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-10 03:40+0000\n"
+"PO-Revision-Date: 2022-10-20 17:01+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -802,3 +802,16 @@ msgstr ""
 
 msgid "manager.institutions.noContext"
 msgstr "A editora desta instituição não foi encontrada."
+
+msgid "stats.publications.downloadReport.description"
+msgstr ""
+"Faça o download de uma planilha CSV/Excel com estatísticas de uso para "
+"preprints que correspondam aos parâmetros a seguir."
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr ""
+"O número de visualizações de resumos e downloads de arquivos para cada "
+"preprint."
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr "Baixar Preprints"

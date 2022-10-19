@@ -678,19 +678,17 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * Get the name of a workflow stage
      *
      * @param int $stageId One of the WORKFLOW_STAGE_* constants
-     *
-     * @return string
      */
-    public static function getWorkflowStageName($stageId)
+    public static function getWorkflowStageName(int $stageId): string
     {
-        switch ($stageId) {
-            case WORKFLOW_STAGE_ID_SUBMISSION: return 'submission.submission';
-            case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return 'workflow.review.internalReview';
-            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return 'workflow.review.externalReview';
-            case WORKFLOW_STAGE_ID_EDITING: return 'submission.editorial';
-            case WORKFLOW_STAGE_ID_PRODUCTION: return 'submission.production';
-        }
-        throw new Exception('Name requested for an unrecognized stage id.');
+        return match ($stageId) {
+            WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'workflow.review.externalReview',
+            WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
+            WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production',
+            default => new Exception('Name requested for an unrecognized stage id.')
+        };
     }
 
     /**

@@ -16,6 +16,7 @@
 namespace PKP\plugins;
 
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
 
@@ -50,6 +51,15 @@ abstract class ReportPlugin extends Plugin
             parent::getActions($request, $actionArgs)
         );
     }
+
+    /**
+     * Displays the report
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     * @return void
+     */
+    public abstract function display($args, $request);
 }
 
 if (!PKP_STRICT_MODE) {

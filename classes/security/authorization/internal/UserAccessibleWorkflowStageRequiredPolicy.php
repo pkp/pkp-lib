@@ -61,7 +61,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
         $accessibleWorkflowStages = [];
-        $workflowStages = Application::get()->getApplicationStages();
+        $workflowStages = Application::getApplicationStages();
         foreach ($workflowStages as $stageId) {
             $accessibleStageRoles = Repo::user()->getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
             if (!empty($accessibleStageRoles)) {

@@ -367,7 +367,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function getPropertyStages(Submission $submission): array
     {
-        $stageIds = Application::get()->getApplicationStages();
+        $stageIds = Application::getApplicationStages();
         $currentUser = Application::get()->getRequest()->getUser();
         $context = Application::get()->getRequest()->getContext();
         $contextId = $context ? $context->getId() : Application::CONTEXT_ID_NONE;

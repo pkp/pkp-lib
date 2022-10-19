@@ -149,11 +149,11 @@ class PKPStatsHandler extends Handler
 
         // Get the worflow stage counts
         $activeByStage = [];
-        foreach (Application::get()->getApplicationStages() as $stageId) {
+        foreach (Application::getApplicationStages() as $stageId) {
             $activeByStage[] = [
-                'name' => __(Application::get()->getWorkflowStageName($stageId)),
+                'name' => __(Application::getWorkflowStageName($stageId)),
                 'count' => Services::get('editorialStats')->countActiveByStages($stageId, $args),
-                'color' => Application::get()->getWorkflowStageColor($stageId),
+                'color' => Application::getWorkflowStageColor($stageId),
             ];
         }
 

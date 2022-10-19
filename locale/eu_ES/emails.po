@@ -789,37 +789,6 @@ msgid "emails.citationEditorAuthorQuery.description"
 msgstr "Mezu elektroniko honekin zuzentzaileek erreferentziei buruzko informazio osagarria eskatzen diete egileei."
 
 #, fuzzy
-msgid "emails.reviewRequestSubsequent.subject"
-msgstr "Artikulua berrikusteko eskakizuna"
-
-#, fuzzy
-msgid "emails.reviewRequestSubsequent.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Hau &quot;{$submissionTitle},&quot; eskuizkribuari dagokio, {$contextName} aldizkariak aintzat hartu duena.<br />\n"
-"<br />\n"
-"Eskuizkribuaren aurreko bertsioaren berrikuspenari jarraituz, egileek orain haien lanaren bertsio berrikusi bat bidali dute. Eskertuko genuke ebaluatzen lagunduko bazenu.<br />\n"
-"<br />\n"
-"Mesedez, sartu aldizkariaren web orrian {$responseDueDate} datarako, adierazteko berrikuspenaz arduratuko zaren edo ez, baita bidalitakora sartzeko eta zure berrikuspena eta gomendioa grabatzeko ere. Web gunea da: {$contextUrl}<br />\n"
-"<br />\n"
-"Berrikuspenaren epemuga: {$reviewDueDate}.<br />\n"
-"<br />\n"
-"Ez baduzu erabiltzailerik eta pasahitzik aldizkariaren web orrirako, lotura hau erabil dezakezu zure pasahitza berrezartzeko (eta posta elektronikoz bidaliko zaizu ondoren, zure erabiltzailearekin batera). {$passwordLostUrl}<br />\n"
-"<br />\n"
-"URL aurkezpena: {$reviewAssignmentUrl}<br />\n"
-"<br />\n"
-"Mila esker eskari hau kontuan hartzeagatik.<br />\n"
-"<br />\n"
-"{$signature}<br />\n"
-"<br />\n"
-"<br />\n"
-"<br />\n"
-"&quot;{$submissionTitle}&quot;<br />\n"
-"<br />\n"
-"{$submissionAbstract}"
-
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Atalen Editoreak Berrikusleari bidalitako mezu honetan berrikusleari eskatzen dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo baztertu dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, titulua eta aurkezpena, berrikuspena egiteko muga, eta nola sartu bidalitakora.  Mezu hau erabiltzen da Aldizkariaren Konfigurazioan, 2. urratsean Berrikuspen Estandarraren Prozesua hautatzen denean. (Bestela, ikus BERRIKUSPENA_ESKAKIZUNA_ERANTSIA_ONDORENGOA.)"
 

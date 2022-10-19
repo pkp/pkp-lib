@@ -300,7 +300,7 @@ class PKPString {
 	 * @return array Resulting string segments
 	 */
 	static function regexp_split($pattern, $subject, $limit = -1) {
-		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
+		return preg_split($pattern . PCRE_UTF8, $subject ?? '', $limit);
 	}
 
 	/**

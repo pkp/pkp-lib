@@ -1,0 +1,12 @@
+diff -u -r library/HTMLPurifier/Lexer.php library/HTMLPurifier/Lexer.php
+--- library/HTMLPurifier/Lexer.php	2020-06-28 17:56:53.000000000 -0700
++++ library/HTMLPurifier/Lexer.php	2022-10-19 10:27:20.901059891 -0700
+@@ -306,7 +306,7 @@
+     {
+         // normalize newlines to \n
+         if ($config->get('Core.NormalizeNewlines')) {
+-            $html = str_replace("\r\n", "\n", $html);
++            $html = str_replace("\r\n", "\n", $html ?? '');
+             $html = str_replace("\r", "\n", $html);
+         }
+ 

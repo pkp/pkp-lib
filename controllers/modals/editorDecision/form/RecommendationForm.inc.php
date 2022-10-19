@@ -196,7 +196,7 @@ class RecommendationForm extends Form {
 			$dispatcher = $router->getDispatcher();
 			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
 			$email->assignParams([
-				'editors' => htmlspecialchars($this->getData('editors')),
+				'editors' => htmlspecialchars($this->getData('editors') ?? ''),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'submissionUrl' => $submissionUrl,
 				'recommendation' => __($recommendationOptions[$recommendation]),

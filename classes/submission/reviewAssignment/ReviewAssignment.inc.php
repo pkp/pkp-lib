@@ -487,10 +487,10 @@ class ReviewAssignment extends DataObject {
 		if (!$this->getDateCompleted()) {
 			$dueTimes = array_map(function($dateTime) {
 					// If no due time, set it to the end of the day
-					if (substr($dateTime, 11) === '00:00:00') {
+					if (substr($dateTime ?? '', 11) === '00:00:00') {
 						$dateTime = substr($dateTime, 0, 11) . '23:59:59';
 					}
-					return strtotime($dateTime);
+					return strtotime($dateTime ?? '');
 				}, array($this->getDateResponseDue(), $this->getDateDue()));
 			$responseDueTime = $dueTimes[0];
 			$reviewDueTime = $dueTimes[1];

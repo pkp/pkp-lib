@@ -13,6 +13,8 @@
  * @brief Base class that converts a PKPPublication to a Native XML document
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 class PKPPublicationNativeXmlFilter extends NativeExportFilter {

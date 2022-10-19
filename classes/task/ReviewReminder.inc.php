@@ -13,6 +13,8 @@
  * @brief Class to perform automated reminders for reviewers.
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 define('REVIEW_REMIND_AUTO', 'REVIEW_REMIND_AUTO');

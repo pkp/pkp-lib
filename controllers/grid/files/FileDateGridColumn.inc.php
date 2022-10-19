@@ -14,6 +14,8 @@
  * @brief Implements a file name column.
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
 class FileDateGridColumn extends GridColumn {

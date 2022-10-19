@@ -13,6 +13,7 @@
  * @brief ReviewerAction class.
  */
 
+use function PHP81_BC\strftime;
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');

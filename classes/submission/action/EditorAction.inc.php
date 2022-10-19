@@ -13,6 +13,8 @@
  * @brief Editor actions.
  */
 
+use function PHP81_BC\strftime;
+
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 

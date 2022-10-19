@@ -13,6 +13,8 @@
  * @brief Form for sending a review reminder to a reviewer
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.form.Form');
 
 class ReviewReminderForm extends Form {

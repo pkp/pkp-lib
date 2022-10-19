@@ -15,6 +15,8 @@
 
 namespace PKP\Services;
 
+use function PHP81_BC\strftime;
+
 class PKPStatsService {
 
 	/**

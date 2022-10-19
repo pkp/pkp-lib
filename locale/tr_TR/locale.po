@@ -324,9 +324,6 @@ msgstr "Bölüm arşivi açıklaması"
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "Genel dizgi kimliği zaten var."
 
-msgid "section.policy"
-msgstr "Bölüm Politikası"
-
 msgid "section.abbreviation"
 msgstr "Kısaltma"
 

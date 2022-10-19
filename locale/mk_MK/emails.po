@@ -12,6 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
 "{$recipientName}: <br />\n"

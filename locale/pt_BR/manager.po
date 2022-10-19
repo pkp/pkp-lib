@@ -71,9 +71,6 @@ msgstr ""
 msgid "manager.setup.enableOai"
 msgstr "Habilitar OAI"
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Lista de verificação de preparação de submissão"
-
 msgid "manager.setup.sponsoringOrganization"
 msgstr "Organização patrocinadora"
 
@@ -236,6 +233,7 @@ msgstr "Endereço de devolução"
 msgid "manager.setup.disableUserRegistration"
 msgstr "O Administrador do servidor registrará todas as contas do usuário."
 
+#, fuzzy
 msgid "manager.setup.authorScreening"
 msgstr "Complementos de seleção do autor"
 
@@ -312,11 +310,6 @@ msgid "manager.sections.confirmDelete"
 msgstr "Está seguro de que deseja eliminar está serie de forma permanente?"
 
 #, fuzzy
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Não há editores de série. Adicione esta função ao menos a um usuário através "
-"da Administração > Configuração > Usuários &amp; Funções primeiro."
-
 msgid "manager.sections.abstractsNotRequired"
 msgstr "Não requer resumos"
 

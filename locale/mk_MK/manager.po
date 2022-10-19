@@ -81,9 +81,6 @@ msgstr ""
 "може да бидат оневозможени за одделни делови на серверот на страницата за "
 "поставки за<a href=\"{$url}\">server sections</a>."
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Список за подготовка на поднесување"
-
 msgid "manager.setup.sponsoringOrganization"
 msgstr "Спонзорска организација"
 
@@ -246,6 +243,7 @@ msgstr "Адреса за отскокнување"
 msgid "manager.setup.disableUserRegistration"
 msgstr "Менаџерот за сервер ќе ги регистрира сите кориснички сметки."
 
+#, fuzzy
 msgid "manager.setup.authorScreening"
 msgstr "Приклучоци за скринирање на автори"
 
@@ -315,11 +313,6 @@ msgstr ""
 
 msgid "manager.sections.confirmDelete"
 msgstr "Дали сте сигурни дека сакате трајно да го избришете овој дел?"
-
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Сè уште нема модератори. Додадете ја оваа улога на најмалку еден корисник "
-"преку Management > Settings > Users &amp; Улоги прво."
 
 msgid "manager.sections.abstractsNotRequired"
 msgstr "Не бара апстракти"

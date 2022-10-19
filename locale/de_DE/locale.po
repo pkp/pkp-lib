@@ -335,9 +335,6 @@ msgstr "Abschnittsarchiv Beschreibung"
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "Es gibt bereits eine öffentliche Kennzeichnung der Gesamtpfahne."
 
-msgid "section.policy"
-msgstr "Abschnitt Richtlinie"
-
 msgid "section.abbreviation"
 msgstr "Abkürzung"
 

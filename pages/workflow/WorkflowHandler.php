@@ -15,18 +15,22 @@
 
 namespace APP\pages\workflow;
 
+use APP\components\forms\publication\TitleAbstractForm;
 use APP\core\Application;
 use APP\core\Services;
 use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use APP\file\PublicFileManager;
 use APP\notification\Notification;
+use APP\publication\Publication;
+use APP\server\SectionDAO;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\pages\workflow\PKPWorkflowHandler;
 use PKP\plugins\Hook;
 use PKP\security\Role;
-use PKP\pages\workflow\PKPWorkflowHandler;
 
 class WorkflowHandler extends PKPWorkflowHandler
 {
@@ -81,7 +85,7 @@ class WorkflowHandler extends PKPWorkflowHandler
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($submissionContext->getId());
 
         $issueEntryForm = new \APP\components\forms\publication\IssueEntryForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
-        $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
+        $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $latestPublication);
 
         import('classes.components.forms.publication.IssueEntryForm'); // Constant import
         import('classes.components.forms.publication.RelationForm'); // Constant import
@@ -146,9 +150,6 @@ class WorkflowHandler extends PKPWorkflowHandler
         return null;
     }
 
-    /**
-     * @copydoc PKPWorkflowHandler::_getRepresentationsGridUrl()
-     */
     protected function _getRepresentationsGridUrl($request, $submission)
     {
         return $request->getDispatcher()->url(
@@ -212,5 +213,19 @@ class WorkflowHandler extends PKPWorkflowHandler
         return [
             Decline::class,
         ];
+    }
+
+    protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm
+    {
+        /** @var SectionDAO $sectionDao */
+        $sectionDao = DAORegistry::getDAO('SectionDAO');
+        $section = $sectionDao->getById($latestPublication->getData('sectionId'), $context->getId());
+
+        return new TitleAbstractForm(
+            $latestPublicationApiUrl,
+            $locales,
+            $latestPublication,
+            $section
+        );
     }
 }

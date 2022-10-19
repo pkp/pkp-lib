@@ -266,9 +266,6 @@ msgid "section.description"
 msgstr "Description de l'archive de la série"
 
 #, fuzzy
-msgid "section.policy"
-msgstr "Politique de la série"
-
 msgid "section.abbreviation"
 msgstr "Abréviation"
 

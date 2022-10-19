@@ -15,12 +15,16 @@
 
 namespace APP\pages\authorDashboard;
 
-use PKP\pages\authorDashboard\PKPAuthorDashboardHandler;
+use APP\components\forms\publication\TitleAbstractForm;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\server\SectionDAO;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\facades\Locale;
+use PKP\db\DAORegistry;
+use PKP\pages\authorDashboard\PKPAuthorDashboardHandler;
 use PKP\workflow\WorkflowStageDAO;
 
 class AuthorDashboardHandler extends PKPAuthorDashboardHandler
@@ -61,7 +65,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             ]
         );
 
-        $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication);
+        $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $latestPublication);
 
         // Import constants
         class_exists(\APP\components\forms\publication\RelationForm::class); // Force define of FORM_ID_RELATION
@@ -85,7 +89,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             'unpublishLabel' => __('publication.unpublish'),
         ]);
 
-        // If authors can publish show publish buttons
+        // If current user can publish show publish buttons
         $canPublish = Repo::publication()->canCurrentUserPublish($submission->getId()) ? true : false;
         $templateMgr->assign('canPublish', $canPublish);
     }
@@ -135,5 +139,19 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         // Translate the operation to a workflow stage identifier.
         assert(WorkflowStageDAO::getPathFromId($stageId) !== null);
         return $stageId;
+    }
+
+    protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm
+    {
+        /** @var SectionDAO $sectionDao */
+        $sectionDao = DAORegistry::getDAO('SectionDAO');
+        $section = $sectionDao->getById($latestPublication->getData('sectionId'), $context->getId());
+
+        return new TitleAbstractForm(
+            $latestPublicationApiUrl,
+            $locales,
+            $latestPublication,
+            $section
+        );
     }
 }

@@ -36,45 +36,17 @@ msgstr ""
 "Disse spesifikasjonene er basert på metadatasettet Dublin Core, en "
 "internasjonal standard som bl.a. brukes til å beskrive innhold."
 
-msgid "submission.submit.form.contributorRoleRequired"
-msgstr "Velg bidragsyterens rolle."
-
-msgid "submission.submit.form.wordCountAlert"
-msgstr ""
-"Sammendraget ditt er for langt. Gjør det kortere i tråd med ordgrensen for "
-"denne seksjonen."
-
-msgid "submission.submit.form.abstractRequired"
-msgstr "Legg inn sammendraget."
-
-msgid "submission.submit.form.titleRequired"
-msgstr "Legg inn tittelen på preprinten."
-
-msgid "submission.submit.form.authorRequired"
-msgstr "Legg inn minst en forfatter."
-
 msgid "submission.submit.contributorRole"
 msgstr "Bidragsyterens rolle"
 
-msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Du må lese gjennom og bekrefte at du har gjort alt på listen før du "
-"fortsetter."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Sjekkliste"
-
-msgid "submission.submit.form.localeRequired"
-msgstr "Velg et språk."
 
 msgid "submission.complete"
 msgstr "Utført"
 
 msgid "submission.upload.fileContents"
 msgstr "Preprintkomponent"
-
-msgid "submission.confirmSubmit"
-msgstr "Er du sikker på at du vil levere inn denne artikkelen til tjeneren?"
 
 msgid "submission.galleyFiles"
 msgstr "Oppsettfiler"
@@ -94,11 +66,5 @@ msgstr "Tittel"
 msgid "submission.upload.selectComponent"
 msgstr "Velg preprintkomponent"
 
-msgid "submission.submit.userGroupDescription"
-msgstr "Velg en rolle for å levere inn denne preprinten."
-
 msgid "submission.submit.userGroup"
 msgstr "Lever inn i min rolle som ..."
-
-msgid "submission.submit.title"
-msgstr "Lever inn en preprint"

@@ -25,34 +25,6 @@ msgstr ""
 msgid "author.submit"
 msgstr "Nouvelle soumission"
 
-msgid "author.submit.proceedToPublish"
-msgstr "Procéder à la publication"
-
-msgid "author.submit.authorCanPublish"
-msgstr ""
-"Le serveur a été informé de votre soumission et vous avez reçu une "
-"confirmation par courriel pour votre dossier. <b>Toutes les exigences de "
-"publication ont été remplies et vous pouvez passer à la révision et la "
-"publication de votre prépublication</b>."
-
-#, fuzzy
-msgid "author.submit.publishRequirements"
-msgstr ""
-"Le serveur a été informé de votre soumission et vous avez reçu une "
-"confirmation par courriel pour votre dossier. Une fois que le,la rédacteur-"
-"trice aura examiné la soumission, il ou elle publiera votre prépublication "
-"ou vous contactera. Vous pouvez également publier par vous-même une fois les "
-"conditions suivantes remplies :"
-
-#, fuzzy
-msgid "author.submit.authorCanNotPublish"
-msgstr ""
-"Sur ce serveur les auteurs-es ne peuvent pas publier par eux-mêmes et elles-"
-"mêmes. Le serveur a été informé de votre soumission et vous avez reçu une "
-"confirmation par courriel pour votre dossier. Une fois que le,la rédacteur-"
-"trice aura examiné la soumission, il ou elle publiera votre prépublication "
-"ou vous contactera."
-
 msgid "author.submit.form.abstractRequired"
 msgstr "Veuillez saisir le résumé de votre prépublication."
 
@@ -61,11 +33,6 @@ msgstr ""
 "anglais=en ; français=fr ; espagnol=es. <a href=\"http ://www.loc.gov/"
 "standards/iso639-2/php/code_list.php\" target=\"_blank\">Codes "
 "supplémentaires</a>."
-
-#, fuzzy
-msgid "author.submit.form.sectionRequired"
-msgstr ""
-"Veuillez sélectionner une série du serveur appropriée pour cette soumission."
 
 #, fuzzy
 msgid "submission.submit.coverNote"
@@ -83,16 +50,8 @@ msgstr "Séries du serveur"
 msgid "author.submit.notAccepting"
 msgstr "Ce serveur n'accepte pas de soumissions pour le moment."
 
-msgid "submission.submit.cancelSubmission"
-msgstr ""
-"Vous pouvez compléter cette soumission ultérieurement en la sélectionnant "
-"dans le menu des soumissions actives de l'auteur-e."
-
 msgid "author.submit.nextSteps"
 msgstr "Étapes suivantes"
-
-msgid "author.submit.confirmation"
-msgstr "Confirmer"
 
 msgid "author.submit.metadata"
 msgstr "Saisir les métadonnées de la soumission"

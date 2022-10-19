@@ -262,9 +262,6 @@ msgstr ""
 "Einreichung kann für einzelne Serverbereiche auf der Einstellungsseite <a "
 "href=\"{$url}\">Serverbereiche</a> deaktiviert werden."
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Einreichvorbereitung Checkliste"
-
 msgid "manager.setup.sponsoringOrganization"
 msgstr "Sponsororganisation"
 
@@ -432,6 +429,7 @@ msgstr "Bounce-Adresse"
 msgid "manager.setup.disableUserRegistration"
 msgstr "Der Server Manager wird alle Benutzerkonten registrieren."
 
+#, fuzzy
 msgid "manager.setup.authorScreening"
 msgstr "Autorenscreening-Plugins"
 
@@ -502,11 +500,6 @@ msgstr ""
 
 msgid "manager.sections.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diesen Abschnitt endgültig löschen wollen?"
-
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Es gibt noch keine Moderatoren. Fügen Sie diese Rolle zunächst mindestens "
-"einem Benutzer über Verwaltung > Einstellungen > Benutzer &amp; Rollen hinzu."
 
 msgid "manager.sections.abstractsNotRequired"
 msgstr "Keine Abstracts verlangen"

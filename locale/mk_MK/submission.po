@@ -170,47 +170,17 @@ msgstr ""
 "Овие спецификации се засноваат на множеството метаподатоци во Даблин Основа, "
 "меѓународен стандард што се користи за опис на содржината."
 
-msgid "submission.submit.form.contributorRoleRequired"
-msgstr "Ве молиме, изберете ја улогата на соработникот."
-
-msgid "submission.submit.form.wordCountAlert"
-msgstr ""
-"Апстрактот ви е предолг. Ве молиме скратете го на под ограничувањето на "
-"зборовите означено за овој дел."
-
-msgid "submission.submit.form.abstractRequired"
-msgstr "Ве молиме, внесете го апстрактот на вашиот предпечаток."
-
-msgid "submission.submit.form.titleRequired"
-msgstr "Внесете го насловот на вашиот препечаток."
-
-msgid "submission.submit.form.authorRequired"
-msgstr "Потребен е барем еден автор."
-
 msgid "submission.submit.contributorRole"
 msgstr "Улога на соработник"
 
-msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Пред да продолжите, мора да прочитате и потврдите дека сте ги завршиле "
-"барањата подолу."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Листа за проверка на поднесок"
-
-msgid "submission.submit.form.localeRequired"
-msgstr "Изберете јазик за поднесок."
 
 msgid "submission.complete"
 msgstr "Одобрен"
 
 msgid "submission.upload.fileContents"
 msgstr "Компонента за печатење"
-
-msgid "submission.confirmSubmit"
-msgstr ""
-"Дали сте сигурни дека сакате да ја доставите оваа печатена верзија до "
-"серверот?"
 
 msgid "submission.galleyFiles"
 msgstr "Датотеки од отисок на труд"
@@ -230,11 +200,5 @@ msgstr "Наслов на отпечаток"
 msgid "submission.upload.selectComponent"
 msgstr "Изберете компонента за печатење"
 
-msgid "submission.submit.userGroupDescription"
-msgstr "Изберете го капацитетот под кој го поднесувате овој отпечаток."
-
 msgid "submission.submit.userGroup"
 msgstr "Поднесете во моја улога како..."
-
-msgid "submission.submit.title"
-msgstr "Поднесете препечаток"

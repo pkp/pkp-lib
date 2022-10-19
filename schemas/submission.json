@@ -1,0 +1,24 @@
+{
+	"title": "Submission",
+	"description": "A submission to the journal.",
+	"required": [
+		"sectionId"
+	],
+	"properties": {
+		"sectionId": {
+			"type": "integer",
+			"description": "The section this submission should be assigned to. This can only be passed when creating a new submission and the data is assigned to the first publication. Edit the publication to change the `sectionId`.",
+			"writeOnly": true
+		},
+		"stageId": {
+			"type": "integer",
+			"description": "The stage of the editorial workflow that this submission is currently in. OPS only supports `WORKFLOW_STAGE_ID_PRODUCTION`.",
+			"apiSummary": true,
+			"default": 5,
+			"validation": [
+				"min:5",
+				"max:5"
+			]
+		}
+	}
+}

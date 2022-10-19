@@ -321,9 +321,6 @@ msgstr "Архива на дел Опис"
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "Идентификација на јавниот отисок на труд веќе постои."
 
-msgid "section.policy"
-msgstr "Политика на дел"
-
 msgid "section.abbreviation"
 msgstr "Кратенка"
 

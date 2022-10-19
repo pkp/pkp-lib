@@ -89,6 +89,20 @@ msgstr "Redefinição de Senha"
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmação de Redefinição de Senha"
 
+msgid "emails.notification.body"
+msgstr ""
+"Você tem uma nova notificação de {$siteTitle}:<br />\n"
+"<br />\n"
+"{$notificationContents}<br />\n"
+"<br />\n"
+"Link: {$notificationUrl}<br />\n"
+"<br />\n"
+"{$contextSignature}<hr />{$unsubscribeLink}"
+
+msgid "emails.notification.subject"
+msgstr "Nova notificação de {$siteTitle}"
+
+#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
 "{$recipientName}: <br />\n"

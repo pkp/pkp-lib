@@ -71,9 +71,6 @@ msgstr ""
 msgid "manager.setup.enableOai"
 msgstr "Habilitar OAI"
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Lista de verificación de preparación de envío"
-
 msgid "manager.setup.sponsoringOrganization"
 msgstr "Organización patrocinadora"
 
@@ -241,6 +238,7 @@ msgstr "Dirección de rebote"
 msgid "manager.setup.disableUserRegistration"
 msgstr "El Administrador del servidor registrará todas las cuentas de usuario."
 
+#, fuzzy
 msgid "manager.setup.authorScreening"
 msgstr "Complementos de selección del autor"
 
@@ -315,11 +313,6 @@ msgid "manager.sections.confirmDelete"
 msgstr "¿Seguro que quiere eliminar esta serie de forma permanente?"
 
 #, fuzzy
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Aún no hay editores de series. Agregue este rol al menos a un usuario a "
-"través de Administración > Configuración > Usuarios y Roles primero."
-
 msgid "manager.sections.abstractsNotRequired"
 msgstr "No requiere resúmenes"
 

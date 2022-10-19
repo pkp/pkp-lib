@@ -17,12 +17,13 @@ declare(strict_types=1);
 
 namespace APP\observers\listeners;
 
-use APP\core\Services;
+use APP\author\Author;
 use APP\facades\Repo;
 use APP\mail\mailables\PostedAcknowledgement;
+use APP\mail\mailables\PostedNewVersionAcknowledgement;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
-use PKP\observers\events\PublishedEvent;
+use PKP\observers\events\PublicationPublished;
 
 class SendPostedAcknowledgement
 {
@@ -32,37 +33,55 @@ class SendPostedAcknowledgement
     public function subscribe(Dispatcher $events): void
     {
         $events->listen(
-            PublishedEvent::class,
-            self::class . '@handle'
+            PublicationPublished::class,
+            SendPostedAcknowledgement::class
         );
     }
 
-    public function handle(PublishedEvent $event)
+    public function handle(PublicationPublished $event)
     {
-        // Only send this email when the first version is published
-        if ($event->newPublication->getData('version') !== 1) {
+
+        if (!$event->context->getData('postedAcknowledgement')) {
             return;
         }
 
-        $context = Services::get('context')->get($event->submission->getData('contextId'));
+        $authors = $this->getAuthors($event);
 
-        if (!$context->getData('postedAcknowledgement')) {
+        if (empty($authors)) {
             return;
         }
 
-        $submission = Repo::submission()->get($event->newPublication->getData('submissionId'));
+        $mailableClass = $event->publication->getData('version') == 1
+            ? PostedAcknowledgement::class
+            : PostedNewVersionAcknowledgement::class;
 
-        $mailable = new PostedAcknowledgement($context, $submission);
-        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), PostedAcknowledgement::getEmailTemplateKey());
+        $emailTemplate = Repo::emailTemplate()->getByKey(
+            $event->submission->getData('contextId'),
+            $mailableClass::getEmailTemplateKey()
+        );
 
-        $assignedAuthors = Repo::author()->getSubmissionAuthors($submission);
-
-        $mailable
-            ->from($context->getData('contactEmail'), $context->getData('contactName'))
-            ->recipients($assignedAuthors->toArray())
+        $mailable = (new $mailableClass($event->context, $event->submission))
+            ->from($event->context->getData('contactEmail'), $event->context->getData('contactName'))
+            ->recipients($authors)
             ->subject($emailTemplate->getLocalizedData('subject'))
             ->body($emailTemplate->getLocalizedData('body'));
 
         Mail::send($mailable);
+    }
+
+    /**
+     * @return Author[]
+     */
+    protected function getAuthors(PublicationPublished $event): array
+    {
+        $authorsWithEmail = [];
+
+        foreach ($event->publication->getData('authors') as $author) {
+            if ($author->getEmail()) {
+                $authorsWithEmail[] = $author;
+            }
+        }
+
+        return $authorsWithEmail;
     }
 }

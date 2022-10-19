@@ -194,12 +194,6 @@ msgid "manager.setup.form.section.pathRequired"
 msgstr "Un chemin d'accès URL est requis pour cette série"
 
 #, fuzzy
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Aucun-e rédacteur-trice de série n'a encore été désigné-e. Ajouter ce rôle à "
-"au moins un-e utilisateur-trice via « Administration > Paramètres > Rôles et "
-"utilisateurs-trices »."
-
 msgid "manager.people.confirmRemove"
 msgstr ""
 "Supprimer cet ou cette utilisateur-trice de ce serveur ? Cette action "

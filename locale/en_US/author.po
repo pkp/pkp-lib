@@ -33,14 +33,8 @@ msgstr "Upload Submission"
 msgid "author.submit.metadata"
 msgstr "Enter Metadata"
 
-msgid "author.submit.confirmation"
-msgstr "Confirmation"
-
 msgid "author.submit.nextSteps"
 msgstr "Next Steps"
-
-msgid "submission.submit.cancelSubmission"
-msgstr "You can complete this submission at a later date by selecting Active Submissions from the Author home."
 
 msgid "author.submit.notAccepting"
 msgstr "This server is not accepting submissions at this time."
@@ -54,9 +48,6 @@ msgstr "Preprints must be submitted to one of the server's sections."
 msgid "submission.submit.coverNote"
 msgstr "Comments for the Moderator"
 
-msgid "author.submit.form.sectionRequired"
-msgstr "Please select an appropriate server section for this submission."
-
 msgid "author.submit.languageInstructions"
 msgstr ""
 "English=en; French=fr; Spanish=es. <a href=\"https://www.loc.gov/standards/"
@@ -64,15 +55,3 @@ msgstr ""
 
 msgid "author.submit.form.abstractRequired"
 msgstr "Please enter the abstract of your preprint."
-
-msgid "author.submit.authorCanNotPublish"
-msgstr "Authors on this server can not post by themselves. The server has been notified of your submission, and you've been emailed a confirmation for your records. Once the moderator has reviewed the submission, they will post your preprint or contact you."
-
-msgid "author.submit.publishRequirements"
-msgstr "The server has been notified of your submission, and you've been emailed a confirmation for your records. Once the moderator has reviewed the submission, they will post your preprint or contact you. You can also post by yourself once the following requirements are met:"
-
-msgid "author.submit.authorCanPublish"
-msgstr "The server has been notified of your submission, and you've been emailed a confirmation for your records. <b>All the requirements for posting have been met and you can proceed to review and post your preprint</b>."
-
-msgid "author.submit.proceedToPublish"
-msgstr "Proceed to post"

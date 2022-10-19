@@ -16,7 +16,10 @@
 namespace APP\controllers\grid\settings\sections;
 
 use APP\controllers\grid\settings\sections\form\SectionForm;
+use APP\core\Application;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use PKP\context\SubEditorsDAO;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\settings\SetupGridHandler;
@@ -60,21 +63,22 @@ class SectionGridHandler extends SetupGridHandler
 
         // Elements to be displayed in the grid
         $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
         $sectionIterator = $sectionDao->getByServerId($server->getId());
 
         $gridData = [];
         while ($section = $sectionIterator->next()) {
             // Get the section editors data for the row
-            $assignedSubEditors = $subEditorsDao->getBySubmissionGroupId($section->getId(), ASSOC_TYPE_SECTION, $server->getId());
-            if (empty($assignedSubEditors)) {
+            $users = $subEditorsDao->getBySubmissionGroupIds([$section->getId()], Application::ASSOC_TYPE_SECTION, $server->getId());
+            if ($users->isEmpty()) {
                 $editorsString = __('common.none');
             } else {
-                $editors = [];
-                foreach ($assignedSubEditors as $subEditor) {
-                    $editors[] = $subEditor->getFullName();
-                }
-                $editorsString = implode(', ', $editors);
+                $editorsString = Repo::user()
+                    ->getCollector()
+                    ->filterByUserIds($users->map(fn ($user) => $user->user_id)->toArray())
+                    ->getMany()
+                    ->map(fn ($user) => $user->getFullName())
+                    ->join(__('common.commaListSeparator'));
             }
 
             $sectionId = $section->getId();

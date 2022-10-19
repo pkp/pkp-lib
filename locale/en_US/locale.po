@@ -51,9 +51,6 @@ msgstr "Section title"
 msgid "section.abbreviation"
 msgstr "Abbreviation"
 
-msgid "section.policy"
-msgstr "Section Policy"
-
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "Public galley identification already exists."
 

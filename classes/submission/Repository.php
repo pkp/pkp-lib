@@ -17,9 +17,11 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\preprint\PreprintTombstoneManager;
+use APP\server\SectionDAO;
 use APP\server\ServerDAO;
 use PKP\context\Context;
 use PKP\context\PKPSection;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
 
@@ -27,6 +29,51 @@ class Repository extends \PKP\submission\Repository
 {
     /** @copydoc \PKP\submission\Repository::$schemaMap */
     public $schemaMap = maps\Schema::class;
+
+    public function validateSubmit(Submission $submission, Context $context): array
+    {
+        $errors = parent::validateSubmit($submission, $context);
+
+        $locale = $submission->getData('locale');
+        $publication = $submission->getCurrentPublication();
+
+        /** @var SectionDAO $sectionDao */
+        $sectionDao = DAORegistry::getDAO('SectionDAO');
+        $section = $sectionDao->getById($submission->getCurrentPublication()->getData('sectionId'));
+
+        // Required abstract
+        if (!$section->getAbstractsNotRequired() && !$publication->getData('abstract', $locale)) {
+            $errors['abstract'] = [$locale => [__('validator.required')]];
+        }
+
+        // Abstract word limit
+        if ($section->getAbstractWordCount()) {
+            $abstracts = $publication->getData('abstract');
+            if ($abstracts) {
+                $abstractErrors = [];
+                foreach ($context->getSupportedSubmissionLocales() as $localeKey) {
+                    $abstract = $publication->getData('abstract', $localeKey);
+                    $wordCount = $abstract ? PKPString::getWordCount($abstract) : 0;
+                    if ($wordCount > $section->getAbstractWordCount()) {
+                        $abstractErrors[$localeKey] = [
+                            __(
+                                'publication.wordCountLong',
+                                [
+                                    'limit' => $section->getAbstractWordCount(),
+                                    'count' => $wordCount
+                                ]
+                            )
+                        ];
+                    }
+                }
+                if (count($abstractErrors)) {
+                    $errors['abstract'] = $abstractErrors;
+                }
+            }
+        }
+
+        return $errors;
+    }
 
     /** @copydoc \PKP\submission\Repo::updateStatus() */
     public function updateStatus(Submission $submission, ?int $newStatus = null, ?PKPSection $section = null)

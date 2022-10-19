@@ -14,32 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "author.submit.proceedToPublish"
-msgstr "Weiter zum Posten"
-
-msgid "author.submit.authorCanPublish"
-msgstr ""
-"Der Server wurde über Ihre Einreichung benachrichtigt und Sie haben eine "
-"Bestätigung für Ihre Unterlagen per E-Mail erhalten. <b>Alle Voraussetzungen "
-"für die Veröffentlichung sind erfüllt und Sie können mit der Überprüfung und "
-"Veröffentlichung Ihres Preprints fortfahren</b>."
-
-msgid "author.submit.publishRequirements"
-msgstr ""
-"Der Server wurde über Ihre Einreichung benachrichtigt, und Sie haben per E-"
-"Mail eine Bestätigung für Ihre Unterlagen erhalten. Sobald der Moderator die "
-"Einreichung begutachtet hat, wird er Ihren Preprint veröffentlichen oder Sie "
-"kontaktieren. Sie können auch selbst einen Beitrag veröffentlichen, sobald "
-"die folgenden Voraussetzungen erfüllt sind:"
-
-msgid "author.submit.authorCanNotPublish"
-msgstr ""
-"Autoren auf diesem Server können nicht selbst Beiträge veröffentlichen. Der "
-"Server wurde über Ihre Einreichung benachrichtigt und Sie haben eine "
-"Bestätigung für Ihre Unterlagen per E-Mail erhalten. Sobald der Moderator "
-"die Einreichung begutachtet hat, wird er Ihren Preprint veröffentlichen oder "
-"Sie kontaktieren."
-
 msgid "author.submit.form.abstractRequired"
 msgstr "Bitte tragen Sie den Abstract Ihres Preprints ein."
 
@@ -47,9 +21,6 @@ msgid "author.submit.languageInstructions"
 msgstr ""
 "English=en; French=fr; Spanish=es. <a href=\"http://www.loc.gov/standards/"
 "iso639-2/php/code_list.php\" target=\"_blank\">Zusatzcodes</a>."
-
-msgid "author.submit.form.sectionRequired"
-msgstr "Bitte wählen Sie einen geeigneten Serverabschnitt für diesen Beitrag."
 
 msgid "submission.submit.coverNote"
 msgstr "Kommentare für den Moderator"
@@ -64,16 +35,8 @@ msgstr "Server-Abschnitt"
 msgid "author.submit.notAccepting"
 msgstr "Dieser Server nimmt zur Zeit keine Einreichungen an."
 
-msgid "submission.submit.cancelSubmission"
-msgstr ""
-"Sie können diese Einreichung zu einem späteren Zeitpunkt abschließen, indem "
-"Sie auf der Autoren-Homepage \"Aktive Einreichungen\" auswählen."
-
 msgid "author.submit.nextSteps"
 msgstr "Nächste Schritte"
-
-msgid "author.submit.confirmation"
-msgstr "Bestätigung"
 
 msgid "author.submit.metadata"
 msgstr "Metadaten eintragen"

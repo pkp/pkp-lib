@@ -56,9 +56,6 @@ msgstr "Remove this user from this server? This action will unenroll the user fr
 msgid "manager.sections.abstractsNotRequired"
 msgstr "Do not require abstracts"
 
-msgid "manager.section.noSectionEditors"
-msgstr "There are no Moderators yet. Add this role to at least one user via Management > Settings > Users &amp; Roles first."
-
 msgid "manager.sections.confirmDelete"
 msgstr "Are you sure you want to permanently delete this section?"
 
@@ -122,8 +119,9 @@ msgstr "Introduction"
 msgid "manager.setup.announcementsIntroduction.description"
 msgstr "Enter any information you would like to appear on your announcements page."
 
+#, fuzzy
 msgid "manager.setup.authorScreening"
-msgstr "Author screening plugins"
+msgstr "Author Screening"
 
 msgid "manager.setup.disableUserRegistration"
 msgstr "The Server Manager will register all user accounts."
@@ -253,9 +251,6 @@ msgstr "View Preprint Content"
 
 msgid "manager.setup.sponsoringOrganization"
 msgstr "Sponsoring organization"
-
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Submission Preparation Checklist"
 
 msgid "manager.setup.disableSubmissions.description"
 msgstr "Prevent users from submitting new preprints to the server. Submissions can be disabled for individual server sections on the <a href=\"{$url}\">server sections</a> settings page."
@@ -697,3 +692,22 @@ msgstr "New Version Created"
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr "This email automatically notifies the assigned moderators when a new version of a preprint is created."
+
+msgid "mailable.submissionAck.name"
+msgstr "Submission Acknowledgement (Pending Moderation)"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"This email is automatically sent to an author when they "
+"make a submission and a moderator must approve it."
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr "Submission Acknowledgement (No Moderation Required)"
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+"This email is automatically sent to an author when they "
+"make a submission and no moderation is required. The author can post their preprint immediately."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr "The following is shown to authors during the For Readers step, when they are asked to provide metadata such as keywords, licensing information, and other details to assist in discovery and moderation."

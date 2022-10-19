@@ -31,22 +31,17 @@ class SectionDAO extends PKPSectionDAO
 {
     public $cache;
 
-    /**
-     * Get the name of the section table in the database
-     *
-     * @return string
-     */
-    protected function _getTableName()
+    protected function _getTableName(): string
     {
         return 'sections';
     }
 
-    /**
-     * Get the name of the context ID table column
-     *
-     * @return string
-     */
-    protected function _getContextIdColumnName()
+    protected function _getIdColumnName(): string
+    {
+        return 'section_id';
+    }
+
+    protected function _getContextIdColumnName(): string
     {
         return 'server_id';
     }
@@ -74,9 +69,8 @@ class SectionDAO extends PKPSectionDAO
      * @param int $serverId Server ID optional
      * @param bool $useCache optional
      *
-     * @return Section|null
      */
-    public function getById($sectionId, $serverId = null, $useCache = false)
+    public function getById($sectionId, $serverId = null, $useCache = false): ?Section
     {
         if ($useCache) {
             $cache = $this->_getCache();
@@ -419,7 +413,7 @@ class SectionDAO extends PKPSectionDAO
     {
         return new DAOResultFactory(
             $this->retrieveRange(
-                'SELECT * FROM sections WHERE server_id = ? ' . ($submittableOnly ? ' AND editor_restricted = 0' : '') . ' ORDER BY seq',
+                'SELECT * FROM sections WHERE server_id = ? ' . ($submittableOnly ? ' AND editor_restricted = 0 AND is_inactive = 0' : '') . ' ORDER BY seq',
                 [(int) $serverId],
                 $rangeInfo
             ),
@@ -471,11 +465,14 @@ class SectionDAO extends PKPSectionDAO
 
     /**
      * Check if the section is empty.
+     *
      * @param $sectionId int Section ID
      * @param $contextId int Context ID
+     *
      * @return boolean
      */
-    function sectionEmpty($sectionId, $contextId) {
+    public function sectionEmpty($sectionId, $contextId)
+    {
         $result = $this->retrieve(
             'SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?',
             [(int) $sectionId, (int) $contextId]

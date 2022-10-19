@@ -17,10 +17,12 @@ namespace APP\pages\management;
 
 use APP\components\forms\context\EmailSetupForm;
 use APP\template\TemplateManager;
+use PKP\components\forms\context\PKPInformationForm;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\mail\Mailable;
 use PKP\pages\management\ManagementHandler;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 
 class SettingsHandler extends ManagementHandler
@@ -45,31 +47,38 @@ class SettingsHandler extends ManagementHandler
         );
     }
 
-    /**
-     * Add the OPS workflow settings page
-     *
-     * @param array $args
-     * @param \APP\core\Request $request
-     */
     public function workflow($args, $request)
     {
         parent::workflow($args, $request);
-        $templateMgr = TemplateManager::getManager($request);
-        $context = $request->getContext();
-        $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        // Add the author screening rules to the workflow settings submission tab
+        Hook::add('Template::Settings::workflow::submission', function (string $hookName, array &$params) use ($request) {
+            $output = & $params[2]; /** @var string $output */
 
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+            $rules = [];
 
-        $screeningForm = new \APP\components\forms\context\ScreeningForm($apiUrl, $locales, $context);
+            Hook::call('Settings::Workflow::listScreeningPlugins', [&$rules]);
 
-        // Add forms to the existing settings data
-        $settingsData = $templateMgr->getTemplateVars('settingsData');
-        $settingsData['components'][$screeningForm->id] = $screeningForm->getConfig();
+            if (empty($rules)) {
+                return false;
+            }
 
-        $templateMgr->assign('settingsData', $settingsData);
+            $rows = [];
+            foreach ((array) $rules as $rule) {
+                $rows[] = '<tr><td>' . $rule . '</td></tr>';
+            }
+
+            $output .= '
+                <tab id="authorScreening" label="' . __('manager.setup.authorScreening') . '">
+                    <table class="pkpTable">
+                        ' . join('', $rows) . '
+                    </table>
+                </tab>
+            ';
+
+            return false;
+        });
+
         TemplateManager::getManager($request)->display('management/workflow.tpl');
     }
 
@@ -131,5 +140,10 @@ class SettingsHandler extends ManagementHandler
     protected function getEmailSetupForm(string $contextApiUrl, array $locales, Context $context): EmailSetupForm
     {
         return new EmailSetupForm($contextApiUrl, $locales, $context);
+    }
+
+    protected function getInformationForm(string $contextApiUrl, array $locales, Context $context, string $publicFileApiUrl): ?PKPInformationForm
+    {
+        return null;
     }
 }

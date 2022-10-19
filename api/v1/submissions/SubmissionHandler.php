@@ -15,7 +15,7 @@
  */
 
 namespace APP\API\v1\submissions;
- 
+
 use APP\core\Services;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
@@ -103,10 +103,8 @@ class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
-        $primaryLocale = $publication->getData('locale');
-        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        $errors = Repo::publication()->validate($publication, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);

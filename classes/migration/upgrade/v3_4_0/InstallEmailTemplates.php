@@ -20,7 +20,11 @@ class InstallEmailTemplates extends \PKP\migration\upgrade\v3_4_0\InstallEmailTe
         return [
             'EDITOR_DECISION_NOTIFY_OTHER_AUTHORS',
             'EDITOR_DECISION_REVERT_INITIAL_DECLINE',
-            'DISCUSSION_NOTIFICATION_PRODUCTION',
+            'DISCUSSION_NOTIFICATION',
+            'SUBMISSION_SAVED_FOR_LATER',
+            'SUBMISSION_NEEDS_EDITOR',
+            'SUBMISSION_ACK_CAN_POST',
+            'POSTED_NEW_VERSION_ACK',
         ];
     }
 

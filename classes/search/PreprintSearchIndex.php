@@ -301,12 +301,12 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                 }
 
                 $submissions = Repo::submission()
-                        ->getCollector()
-                        ->filterByContextIds([$server->getId()])
-                        ->getMany();
+                    ->getCollector()
+                    ->filterByContextIds([$server->getId()])
+                    ->getMany();
 
                 foreach ($submissions as $submission) {
-                    if ($submission->getSubmissionProgress() == 0) { // Not incomplete
+                    if (!$submission->getSubmissionProgress()) { // Not incomplete
                         $this->submissionMetadataChanged($submission);
                         $this->submissionFilesChanged($submission);
                         $numIndexed++;

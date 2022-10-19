@@ -11,29 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "author.submit.proceedToPublish"
-msgstr "Продолжете со објавување"
-
-msgid "author.submit.authorCanPublish"
-msgstr ""
-"Серверот е известен за вашето доставување и ви е испратена потврда за е-"
-"пошта по е-пошта. <b> Сите барања за објавување се исполнети и може да "
-"продолжите да го прегледувате и објавувате вашиот предпечаток </b>."
-
-msgid "author.submit.publishRequirements"
-msgstr ""
-"Серверот е известен за вашето доставување и ви е испратена потврда за е-"
-"пошта по е-пошта. Откако модераторот ќе го разгледа поднесокот, тој ќе го "
-"објави вашиот предпечаток или ќе ве контактира. Може да објавувате и сами "
-"откако ќе се исполнат следниве услови:"
-
-msgid "author.submit.authorCanNotPublish"
-msgstr ""
-"Авторите на овој сервер не можат сами да објавуваат. Серверот е известен за "
-"вашето доставување и ви е испратена потврда за е-пошта по е-пошта. Откако "
-"модераторот ќе го разгледа поднесокот, тој ќе го објави вашиот предпечаток "
-"или ќе ве контактира."
-
 msgid "author.submit.form.abstractRequired"
 msgstr "Ве молиме, внесете го апстрактот од вашиот препечаток."
 
@@ -42,9 +19,6 @@ msgstr ""
 "Англиски=en; Француски=fr; Шпански=es. <a href=\"http://www.loc.gov/"
 "standards/iso639-2/php/code_list.php\" target=\"_blank\">Additional "
 "codes</a>."
-
-msgid "author.submit.form.sectionRequired"
-msgstr "Ве молиме, изберете соодветен дел од серверот за овој поднесок."
 
 msgid "submission.submit.coverNote"
 msgstr "Коментари за модераторот"
@@ -58,16 +32,8 @@ msgstr "Дел за сервер"
 msgid "author.submit.notAccepting"
 msgstr "Овој сервер не прифаќа поднесоци во овој момент."
 
-msgid "submission.submit.cancelSubmission"
-msgstr ""
-"Овој поднесок можете да го завршите на подоцнежен датум со избирање Активни "
-"поднесоци од домот на авторот."
-
 msgid "author.submit.nextSteps"
 msgstr "Следни чекори"
-
-msgid "author.submit.confirmation"
-msgstr "Потврда"
 
 msgid "author.submit.metadata"
 msgstr "Внесете метаподатоци"

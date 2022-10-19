@@ -73,46 +73,17 @@ msgstr ""
 "Estas especificações estão baseadas no conjunto de metadatos Dublin Core, um "
 "padrão internacional utilizado para descrever conteúdo."
 
-msgid "submission.submit.form.contributorRoleRequired"
-msgstr "Selecione a função do colaborador."
-
-#, fuzzy
-msgid "submission.submit.form.wordCountAlert"
-msgstr ""
-"Seu resumo é muito longo. Reduza-o para abaixo do limite de número de "
-"palavras indicado para esta série."
-
-msgid "submission.submit.form.abstractRequired"
-msgstr "Por favor, insira o resumo de seu preprint."
-
-msgid "submission.submit.form.titleRequired"
-msgstr "Por favor, insira o título de seu preprint."
-
-msgid "submission.submit.form.authorRequired"
-msgstr "Ao menos um autor é requerido."
-
 msgid "submission.submit.contributorRole"
 msgstr "Função do colaborador"
 
-msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Você deve ler e concordar que completou os requisitos abaixo antes de "
-"proceder."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Lista de verificação da submissão"
-
-msgid "submission.submit.form.localeRequired"
-msgstr "Por favor selecione o idioma da submissão."
 
 msgid "submission.complete"
 msgstr "Aprovado"
 
 msgid "submission.upload.fileContents"
 msgstr "Componente de preprint"
-
-msgid "submission.confirmSubmit"
-msgstr "Está seguro de que deseja submeter este preprint ao servidor?"
 
 msgid "submission.galleyFiles"
 msgstr "Composição final"
@@ -132,14 +103,8 @@ msgstr "Título do preprint"
 msgid "submission.upload.selectComponent"
 msgstr "Selecionar o componente de preprint"
 
-msgid "submission.submit.userGroupDescription"
-msgstr "Escolha a capacidade sob a qual você está submetendo este preprint."
-
 msgid "submission.submit.userGroup"
 msgstr "Submeto na minha função de..."
-
-msgid "submission.submit.title"
-msgstr "Submeter um preprint"
 
 msgid "submission.status.scheduled"
 msgstr "Agendado"

@@ -14,14 +14,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "submission.submit.title"
-msgstr "Submit a Preprint"
-
 msgid "submission.submit.userGroup"
 msgstr "Submit in my role as..."
-
-msgid "submission.submit.userGroupDescription"
-msgstr "Choose the capacity under which you are submitting this preprint ."
 
 msgid "submission.upload.selectComponent"
 msgstr "Select preprint component"
@@ -41,41 +35,17 @@ msgstr "This submission's server could not be found."
 msgid "submission.galleyFiles"
 msgstr "Galley Files"
 
-msgid "submission.confirmSubmit"
-msgstr "Are you sure you wish to submit this preprint to the server?"
-
 msgid "submission.upload.fileContents"
 msgstr "Preprint Component"
 
 msgid "submission.complete"
 msgstr "Approved"
 
-msgid "submission.submit.form.localeRequired"
-msgstr "Please select a submission language."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Submission Checklist"
 
-msgid "submission.submit.submissionChecklistDescription"
-msgstr "You must read and acknowledge that you've completed the requirements below before proceeding."
-
 msgid "submission.submit.contributorRole"
 msgstr "Contributor's role"
-
-msgid "submission.submit.form.authorRequired"
-msgstr "At least one author is required."
-
-msgid "submission.submit.form.titleRequired"
-msgstr "Please enter the title of your preprint ."
-
-msgid "submission.submit.form.abstractRequired"
-msgstr "Please enter your preprint's abstract."
-
-msgid "submission.submit.form.wordCountAlert"
-msgstr "Your abstract is too long. Please shorten it to below the word limit indicated for this section."
-
-msgid "submission.submit.form.contributorRoleRequired"
-msgstr "Please select the contributor's role."
 
 msgid "submission.metadataDescription"
 msgstr ""
@@ -118,11 +88,14 @@ msgstr "Relations"
 msgid "publication.relation.label"
 msgstr "Relation status"
 
+msgid "publication.relation.description"
+msgstr "Please indicate if this preprint has been published or submitted for publication elsewhere."
+
 msgid "publication.relation.none"
 msgstr "This preprint has not been published elsewhere."
 
 msgid "publication.relation.published"
-msgstr "Preprint has been published elsewhere."
+msgstr "This preprint has been published elsewhere."
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI of the published preprint"
@@ -240,3 +213,27 @@ msgstr "View Galley"
 
 msgid "galley.cantEditPublished"
 msgstr "This galley can not be edited because it has already been published."
+
+msgid "submission.licenseSection.description"
+msgstr "Please select the license to apply to your preprint when it is posted."
+
+msgid "submission.licenseUrl.missing"
+msgstr "No license selected."
+
+msgid "submission.submit.complete.canPost"
+msgstr "Thank you for submitting your preprint. You can now <a href=\"{$workflowUrl}\">post your preprint</a> publicly."
+
+msgid "submission.submit.complete.canNotPost"
+msgstr "Thank you for submitting your preprint. The server has been notified of your submission and you have been emailed a confirmation for your records. Once the moderator has reviewed your submission, they will post your preprint or contact you."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr "Are you sure you want to submit <strong>{$title}</strong> to <strong>{$context}</strong>? Once you submit, a moderator will review the preprint before posting it online."
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr "Are you sure you want to submit <strong>{$title}</strong> to <strong>{$context}</strong>? Once you submit, you will be able to review your submission and post it online."
+
+msgid "submission.forTheEditors"
+msgstr "For Readers"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr "Add any information that you think our moderators should know before posting your preprint."

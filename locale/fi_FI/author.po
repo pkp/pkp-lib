@@ -11,16 +11,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "author.submit.proceedToPublish"
-msgstr "Siirry julkaisemaan"
-
 msgid "author.submit.languageInstructions"
 msgstr ""
 "suomi=fi; ruotsi=sv; englanti=en. <a href=\"http://www.loc.gov/standards/"
 "iso639-2/php/code_list.php\" target=\"_blank\">Lisää koodeja</a>."
-
-msgid "author.submit.form.sectionRequired"
-msgstr "Valitse tälle käsikirjoitukselle sopiva palvelimen osasto."
 
 msgid "submission.submit.coverNote"
 msgstr "Kommentit moderaattorille"
@@ -31,16 +25,8 @@ msgstr "Palvelimen osasto"
 msgid "author.submit.notAccepting"
 msgstr "Tämä palvelin ei juuri nyt ota vastaan käsikirjoituksia."
 
-msgid "submission.submit.cancelSubmission"
-msgstr ""
-"Voit viimeistellä tämän lähetyksen myöhemmin valitsemalla välilehden Kaikki "
-"aktiiviset Kirjoittajan etusivulta."
-
 msgid "author.submit.nextSteps"
 msgstr "Seuraavat vaiheet"
-
-msgid "author.submit.confirmation"
-msgstr "Vahvistus"
 
 msgid "author.submit.metadata"
 msgstr "Syötä kuvailutiedot"

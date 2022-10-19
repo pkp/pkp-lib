@@ -10,7 +10,7 @@
  * @class PostedAcknowledgement
  * @ingroup mail_mailables
  *
- * @brief Email sent to all authors when their preprint is posted
+ * @brief Email sent to submitting author when their preprint is posted.
  */
 
 namespace APP\mail\mailables;

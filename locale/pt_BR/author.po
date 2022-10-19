@@ -12,31 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "author.submit.proceedToPublish"
-msgstr "Prossiga para postagem"
-
-msgid "author.submit.authorCanPublish"
-msgstr ""
-"O servidor foi notificado sobre sua submissão e você recebeu uma confirmação "
-"por e-mail. <b>Todos os requisitos para postagem foram atendidos e você pode "
-"seguir à revisão e postagem de seu preprint</b>."
-
-#, fuzzy
-msgid "author.submit.publishRequirements"
-msgstr ""
-"O servidor foi notificado sobre sua submissão e você recebeu uma confirmação "
-"por e-mail. Depois que o editor revisar sua submissão, ele publicará seu "
-"preprint ou entrará em contato com você. Você também pode publicar por si só "
-"quando os seguintes requisitos forem atendidos:"
-
-#, fuzzy
-msgid "author.submit.authorCanNotPublish"
-msgstr ""
-"Os autores  não podem publicar por si mesmos neste servidor. O servidor foi "
-"notificado sobre sua submissão e você recebeu uma confirmação por e-mail. "
-"Depois que o editor revisar a submissão, ele publicará seu preprint ou "
-"entrará em contato com você."
-
 msgid "author.submit.form.abstractRequired"
 msgstr "Por favor, ingresse o resumo de seu preprint."
 
@@ -44,11 +19,6 @@ msgid "author.submit.languageInstructions"
 msgstr ""
 "Inglês=en; Francês=fr; Spanish=es.<a href=\"https://www.loc.gov/standards/"
 "iso639-2/php/code_list.php\" target=\"_blank\"> Códigos adicionais</a>."
-
-#, fuzzy
-msgid "author.submit.form.sectionRequired"
-msgstr ""
-"Por favor, selecione uma série de servidores apropriada para esta submissão."
 
 #, fuzzy
 msgid "submission.submit.coverNote"
@@ -63,16 +33,8 @@ msgstr "Seção do Servidor"
 msgid "author.submit.notAccepting"
 msgstr "Este servidor não está aceitando submissões no momento."
 
-msgid "submission.submit.cancelSubmission"
-msgstr ""
-"Você pode concluir este envio posteriormente, selecionando Envios Ativos na "
-"página inicial do Autor."
-
 msgid "author.submit.nextSteps"
 msgstr "Próximas etapas"
-
-msgid "author.submit.confirmation"
-msgstr "Confirmação"
 
 msgid "author.submit.metadata"
 msgstr "Ingressar Metadados"

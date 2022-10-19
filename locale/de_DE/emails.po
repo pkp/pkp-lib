@@ -107,6 +107,12 @@ msgstr ""
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Einreichung Bestätigung"
 
+msgid "emails.postedAck.description"
+msgstr ""
+"Diese E-Mail wird, wenn die Funktion aktiviert ist, automatisch an den Autor "
+"gesendet, wenn der Preprint auf dem Server online gestellt wird."
+
+#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

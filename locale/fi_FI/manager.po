@@ -55,9 +55,6 @@ msgstr ""
 "Palvelin ei ota vastaan käsikirjoituksia tällä hetkellä. Käy työnkulun "
 "asetuksissa sallimassa käsikirjoitukset."
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
-
 msgid "manager.setup.sponsoringOrganization"
 msgstr "Tukiorganisaatiot"
 
@@ -245,11 +242,6 @@ msgstr "Luo osasto"
 
 msgid "manager.sections.confirmDelete"
 msgstr "Haluatko varmasti poistaa tämän osaston pysyvästi?"
-
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Moderaattoreita ei vielä ole. Lisää ensin tämä rooli vähintään yhdelle "
-"käyttäjälle seuraavasti: Hallinnointi > Asetukset > Käyttäjät &amp; Roolit."
 
 msgid "manager.sections.abstractsNotRequired"
 msgstr "Älä vaadi abstrakteja"

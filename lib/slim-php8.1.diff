@@ -61,3 +61,15 @@ diff -u -r Slim/Http/Uri.php Slim/Http/Uri.php
          );
      }
  
+diff -u -r Slim/Http/Request.php Slim/Http/Request.php
+--- Slim/Http/Request.php	2019-11-28 09:40:33.000000000 -0800
++++ Slim/Http/Request.php	2022-10-19 12:56:21.077660825 -0700
+@@ -1016,7 +1016,7 @@
+         // Check if this specific media type has a parser registered first
+         if (!isset($this->bodyParsers[$mediaType])) {
+             // If not, look for a media type with a structured syntax suffix (RFC 6839)
+-            $parts = explode('+', $mediaType);
++            $parts = explode('+', $mediaType ?? '');
+             if (count($parts) >= 2) {
+                 $mediaType = 'application/' . $parts[count($parts)-1];
+             }

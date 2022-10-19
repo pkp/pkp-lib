@@ -1,0 +1,208 @@
+diff -u -r src/Carbon/CarbonInterface.php src/Carbon/CarbonInterface.php
+--- src/Carbon/CarbonInterface.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/CarbonInterface.php	2022-10-19 12:57:54.714397211 -0700
+@@ -2971,6 +2971,7 @@
+      *
+      * @return array|string
+      */
++    #[\ReturnTypeWillChange]
+     public function jsonSerialize();
+ 
+     /**
+diff -u -r src/Carbon/Traits/Date.php src/Carbon/Traits/Date.php
+--- src/Carbon/Traits/Date.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Date.php	2022-10-19 12:59:10.866996388 -0700
+@@ -631,6 +631,7 @@
+      *
+      * @link http://php.net/manual/en/datetime.gettimezone.php
+      */
++    #[\ReturnTypeWillChange]
+     public function getTimezone()
+     {
+         return CarbonTimeZone::instance(parent::getTimezone());
+@@ -1398,6 +1399,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function setDate($year, $month, $day)
+     {
+         return parent::setDate((int) $year, (int) $month, (int) $day);
+@@ -1414,6 +1416,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function setISODate($year, $week, $day = 1)
+     {
+         return parent::setISODate((int) $year, (int) $week, (int) $day);
+@@ -1449,6 +1452,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function setTime($hour, $minute, $second = 0, $microseconds = 0)
+     {
+         return parent::setTime((int) $hour, (int) $minute, (int) $second, (int) $microseconds);
+@@ -1463,6 +1467,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function setTimestamp($unixTimestamp)
+     {
+         [$timestamp, $microseconds] = self::getIntegerAndDecimalParts($unixTimestamp);
+@@ -1521,6 +1526,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function setTimezone($value)
+     {
+         return parent::setTimezone(static::safeCreateDateTimeZone($value));
+diff -u -r src/Carbon/Traits/Serialization.php src/Carbon/Traits/Serialization.php
+--- src/Carbon/Traits/Serialization.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Serialization.php	2022-10-19 13:00:34.979658374 -0700
+@@ -59,6 +59,7 @@
+      *
+      * @return string
+      */
++    #[\ReturnTypeWillChange]
+     public function serialize()
+     {
+         return serialize($this);
+@@ -73,6 +74,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public static function fromSerialized($value)
+     {
+         $instance = @unserialize("$value");
+@@ -91,6 +93,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public static function __set_state($dump)
+     {
+         if (\is_string($dump)) {
+@@ -110,6 +113,7 @@
+      *
+      * @return array
+      */
++    #[\ReturnTypeWillChange]
+     public function __sleep()
+     {
+         $properties = $this->dumpProperties;
+@@ -125,6 +129,7 @@
+     /**
+      * Set locale if specified on unserialize() called.
+      */
++    #[\ReturnTypeWillChange]
+     public function __wakeup()
+     {
+         if (get_parent_class() && method_exists(parent::class, '__wakeup')) {
+@@ -146,6 +151,7 @@
+      *
+      * @return array|string
+      */
++    #[\ReturnTypeWillChange]
+     public function jsonSerialize()
+     {
+         $serializer = $this->localSerializer ?? static::$serializer;
+@@ -169,6 +175,7 @@
+      *
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public static function serializeUsing($callback)
+     {
+         static::$serializer = $callback;
+@@ -181,6 +188,7 @@
+      * var_export($date)
+      * get_object_vars($date)
+      */
++    #[\ReturnTypeWillChange]
+     public function cleanupDumpProperties()
+     {
+         foreach ($this->dumpProperties as $property) {
+diff -u -r src/Carbon/Traits/Converter.php src/Carbon/Traits/Converter.php
+--- src/Carbon/Traits/Converter.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Converter.php	2022-10-19 13:34:50.315247424 -0700
+@@ -75,6 +75,7 @@
+      *
+      * @return string
+      */
++    #[\ReturnTypeWillChange]
+     public function format($format)
+     {
+         $function = $this->localFormatFunction ?: static::$formatFunction;
+diff -u -r src/Carbon/Traits/Creator.php src/Carbon/Traits/Creator.php
+--- src/Carbon/Traits/Creator.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Creator.php	2022-10-19 13:35:46.371860621 -0700
+@@ -657,6 +657,7 @@
+      *
+      * @return static|false
+      */
++    #[\ReturnTypeWillChange]
+     public static function createFromFormat($format, $time, $tz = null)
+     {
+         $function = static::$createFromFormatFunction;
+@@ -892,6 +893,7 @@
+      *
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     private static function setLastErrors(array $lastErrors)
+     {
+         static::$lastErrors = $lastErrors;
+@@ -900,6 +902,7 @@
+     /**
+      * {@inheritdoc}
+      */
++    #[\ReturnTypeWillChange]
+     public static function getLastErrors()
+     {
+         return static::$lastErrors;
+diff -u -r src/Carbon/Traits/Difference.php src/Carbon/Traits/Difference.php
+--- src/Carbon/Traits/Difference.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Difference.php	2022-10-19 13:36:09.508139326 -0700
+@@ -117,6 +117,7 @@
+      *
+      * @return DateInterval
+      */
++    #[\ReturnTypeWillChange]
+     public function diff($date = null, $absolute = false)
+     {
+         return parent::diff($this->resolveCarbon($date), (bool) $absolute);
+diff -u -r src/Carbon/Traits/Modifiers.php src/Carbon/Traits/Modifiers.php
+--- src/Carbon/Traits/Modifiers.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Modifiers.php	2022-10-19 13:36:23.544306633 -0700
+@@ -429,6 +429,7 @@
+      *
+      * @see https://php.net/manual/en/datetime.modify.php
+      */
++    #[\ReturnTypeWillChange]
+     public function modify($modify)
+     {
+         return parent::modify((string) $modify);
+diff -u -r src/Carbon/Traits/Units.php src/Carbon/Traits/Units.php
+--- src/Carbon/Traits/Units.php	2021-01-26 12:46:41.000000000 -0800
++++ src/Carbon/Traits/Units.php	2022-10-19 13:36:43.976547880 -0700
+@@ -193,6 +193,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function add($unit, $value = 1, $overflow = null)
+     {
+         if (\is_string($unit) && \func_num_args() === 1) {
+@@ -352,6 +353,7 @@
+      *
+      * @return static
+      */
++    #[\ReturnTypeWillChange]
+     public function sub($unit, $value = 1, $overflow = null)
+     {
+         if (\is_string($unit) && \func_num_args() === 1) {

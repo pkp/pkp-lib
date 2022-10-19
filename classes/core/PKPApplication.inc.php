@@ -767,7 +767,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		if ($locale === null) $locale = AppLocale::getLocale();
 
 		foreach($licenseKeyMap as $pattern => $key) {
-			if (preg_match($pattern, $ccLicenseURL)) {
+			if (preg_match($pattern, $ccLicenseURL ?? '')) {
 				PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
 				return __($key, array(), $locale);
 			}

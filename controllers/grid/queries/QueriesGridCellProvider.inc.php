@@ -13,6 +13,8 @@
  * @brief Base class for a cell provider that can retrieve labels for queries.
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class QueriesGridCellProvider extends DataObjectGridCellProvider {

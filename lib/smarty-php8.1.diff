@@ -1,0 +1,13 @@
+diff -u -r libs/plugins/modifier.date_format.php libs/plugins/modifier.date_format.php
+--- libs/plugins/modifier.date_format.php	2022-02-06 12:34:27.000000000 -0800
++++ libs/plugins/modifier.date_format.php	2022-10-19 09:31:11.948101781 -0700
+@@ -26,6 +26,9 @@
+  * @return string |void
+  * @uses   smarty_make_timestamp()
+  */
++
++use function PHP81_BC\strftime;
++
+ function smarty_modifier_date_format($string, $format = null, $default_date = '', $formatter = 'auto')
+ {
+     if ($format === null) {

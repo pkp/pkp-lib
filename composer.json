@@ -24,7 +24,8 @@
 	        "league/flysystem-sftp": "^1.0",
 		"staudenmeir/laravel-upsert": "^1.3",
 		"cweagans/composer-patches": "^1.7",
-		"composer/semver": "*"
+		"composer/semver": "*",
+		"php81_bc/strftime": "^0.5.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~9",
@@ -51,6 +52,9 @@
 			"laravel/framework": {
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff",
 				"Hide PHP8.1 deprecation notice": "lib/laravel-php8.1.diff"
+			},
+			"smarty/smarty": {
+				"Hide PHP8.1 deprecation notice": "lib/smarty-php8.1.diff"
 			},
 			"sokil/php-isocodes": {
 				"Hide PHP8.1 deprecation notice": "lib/php-isocodes-php8.1.diff"

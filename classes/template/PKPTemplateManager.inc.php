@@ -19,6 +19,8 @@
  * Currently integrated with Smarty (from http://smarty.php.net/).
  */
 
+use function PHP81_BC\strftime;
+
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
 

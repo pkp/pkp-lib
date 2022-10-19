@@ -13,6 +13,8 @@
  * @brief Class for keeping track of item views.
  */
 
+use function PHP81_BC\strftime;
+
 class ViewsDAO extends DAO {
 
 	/**

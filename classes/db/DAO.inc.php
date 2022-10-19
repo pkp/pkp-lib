@@ -19,6 +19,8 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.db.DAOResultFactory');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.core.DataObject');

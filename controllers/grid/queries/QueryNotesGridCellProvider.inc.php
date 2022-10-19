@@ -13,6 +13,8 @@
  * @brief Base class for a cell provider that can retrieve query note info.
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class QueryNotesGridCellProvider extends DataObjectGridCellProvider {

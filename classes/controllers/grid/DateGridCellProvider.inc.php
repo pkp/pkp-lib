@@ -13,6 +13,8 @@
  * @brief Wraps date formatting support around a provided DataProvider.
  */
 
+use function PHP81_BC\strftime;
+
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class DateGridCellProvider extends GridCellProvider {

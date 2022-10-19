@@ -14,6 +14,7 @@
  *
  */
 
+use function PHP81_BC\strftime;
 
 /*
  * Perl-compatibile regular expression (PCRE) constants:

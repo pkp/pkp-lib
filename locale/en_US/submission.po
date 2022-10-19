@@ -647,6 +647,9 @@ msgstr "Download All Files"
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr "A record of the file uploader is saved when the file is created and can not be changed."
 
+msgid "submission.firstPublished"
+msgstr "First published"
+
 msgid "submission.galley"
 msgstr "Galley"
 

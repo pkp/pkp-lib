@@ -12,7 +12,7 @@
 
 <xsl:stylesheet
 	version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:oai="http://www.openarchives.org/OAI/2.0/"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
@@ -25,10 +25,10 @@
 				<xsl:variable name="value"><xsl:value-of select="@value" /></xsl:variable>
 				<xsl:choose>
 					<!---
-						Lists not specifically referenced in a <xsl:when> block will be processed with 
-						all of their values included in the returned codelist. To filter a list, just 
-						create a new <xsl:when></xsl:when> block with a test for the list name, and then 
-						define the test you want to use. 
+						Lists not specifically referenced in a <xsl:when> block will be processed with
+						all of their values included in the returned codelist. To filter a list, just
+						create a new <xsl:when></xsl:when> block with a test for the list name, and then
+						define the test you want to use.
 					-->
 
 					<xsl:when test="$listName='List7'"><!--  ONIX list for formats -->
@@ -50,16 +50,12 @@
 	<!-- recreate the ONIX node with the appropriate content.  Note: this removes the extraneous xs:documentation element -->
 	<xsl:template name="onixFilterOutputWithCode">
 		<xs:enumeration><xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
-			<xs:documentation>
-				<xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/> (<xsl:value-of select="@value"/>)
-			</xs:documentation>
+			<xs:documentation><xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/> (<xsl:value-of select="@value"/>)</xs:documentation>
 		</xs:enumeration>
 	</xsl:template>
 	<xsl:template name="onixFilterOutputWithoutCode">
 		<xs:enumeration><xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
-			<xs:documentation>
-				<xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/>
-			</xs:documentation>
+			<xs:documentation><xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/></xs:documentation>
 		</xs:enumeration>
 	</xsl:template>
 </xsl:stylesheet>

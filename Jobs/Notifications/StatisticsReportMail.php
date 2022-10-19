@@ -104,9 +104,9 @@ class StatisticsReportMail extends BaseJob
                 __('stats.submissionsActive', [], $locale),
                 __('stats.total', [], $locale)
             ]);
-            foreach (Application::get()->getApplicationStages() as $stageId) {
+            foreach (Application::getApplicationStages() as $stageId) {
                 $file->fputcsv([
-                    __(Application::get()->getWorkflowStageName($stageId), [], $locale),
+                    __(Application::getWorkflowStageName($stageId), [], $locale),
                     Services::get('editorialStats')->countActiveByStages($stageId)
                 ]);
             }

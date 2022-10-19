@@ -85,15 +85,18 @@ class WorkflowStageDAO extends \PKP\db\DAO
      */
     public static function getWorkflowStageTranslationKeys(bool $filtered = true): array
     {
-        static $stageMapping = [
-            WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
-            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',
-            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'workflow.review.externalReview',
-            WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
-            WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
-        ];
+        static $stageMapping;
+        $stageMapping ??= collect([
+            WORKFLOW_STAGE_ID_SUBMISSION,
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
+            WORKFLOW_STAGE_ID_EDITING,
+            WORKFLOW_STAGE_ID_PRODUCTION
+        ])
+            ->mapWithKeys(fn(int $stageId) => [$stageId => Application::getWorkflowStageName($stageId)])
+            ->toArray();
         if ($filtered) {
-            $applicationStages = Application::get()->getApplicationStages();
+            $applicationStages = Application::getApplicationStages();
             return array_intersect_key($stageMapping, array_flip($applicationStages));
         } else {
             return $stageMapping;

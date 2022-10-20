@@ -233,13 +233,16 @@
 								</action-panel>
 								{if $geoReportType}
 									<action-panel class="pkpStats__reportAction">
-										<h2 id="report-type-article">{translate key="common.geographic"}</h2>
-										<p id="report-type-article-description">
+										<h2 id="report-type-geographic">{translate key="common.geographic"}</h2>
+										<p id="report-type-geographic-description">
 											{translate key="stats.publications.downloadReport.downloadGeographic.description"}
+										</p>
+										<p id="report-type-geographic-ccAttribution">
+											{translate key="stats.geographic.ccAttribution"}
 										</p>
 										<template slot="actions">
 											<pkp-button
-												aria-describedby="report-type-article report-type-article-description"
+												aria-describedby="report-type-geographic report-type-geographic-description"
 												@click="downloadReport('{$geoReportType}')"
 											>
 												{translate key="stats.publications.downloadReport.downloadGeographic"}

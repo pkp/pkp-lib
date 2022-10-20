@@ -2514,6 +2514,9 @@ msgstr "Monthly"
 msgid "stats.pdf"
 msgstr "PDF"
 
+msgid "stats.geographic.ccAttribution"
+msgstr "<a href='https://db-ip.com'>IP Geolocation by DB-IP</a>"
+
 msgid "stats.downloadReport.betweenDates"
 msgstr "{$startDate} to {$endDate}"
 

@@ -315,7 +315,7 @@ class XSLTransformer {
 		// Set XSL parameters (if any)
 		if (is_array($this->parameters)) {
 			foreach ($this->parameters as $param => $value) {
-				$processor->setParameter(null, $param, $value);
+				$processor->setParameter('', $param, $value);
 			}
 		}
 

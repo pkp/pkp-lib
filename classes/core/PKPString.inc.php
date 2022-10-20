@@ -265,7 +265,7 @@ class PKPString {
 	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred.
 	 */
 	static function regexp_match_all($pattern, $subject, &$matches) {
-		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
+		return preg_match_all($pattern . PCRE_UTF8, $subject ?? '', $matches);
 	}
 
 	/**

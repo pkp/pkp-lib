@@ -15,9 +15,24 @@
  */
 
 namespace APP\API\v1\stats\publications;
- 
+
 class StatsPublicationHandler extends \PKP\API\v1\stats\publications\PKPStatsPublicationHandler
 {
     /** @var string The name of the section ids query param for this application */
     public $sectionIdsQueryParam = 'sectionIds';
+
+    /**
+     * @copydoc PKPStatsPublicationHandler::getAppSpecificParams()
+     */
+    public function getAppSpecificParams(): array
+    {
+        return [];
+    }
+
+    /**
+     * @copydoc PKPStatsPublicationHandler::_processAppSpecificAllowedParams()
+     */
+    protected function _processAppSpecificAllowedParams(string $requestParam, mixed $value, array &$returnParams): void
+    {
+    }
 }

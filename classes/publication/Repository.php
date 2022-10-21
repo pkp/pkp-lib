@@ -274,9 +274,19 @@ abstract class Repository
                     continue;
                 }
                 $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey, true);
-            }
 
-            $this->edit($publication, ['coverImage' => $value], $this->request);
+                $this->edit($publication, ['coverImage' => $value]);
+
+                $publicFileManager = new PublicFileManager();
+                $coverImage = $publication->getData('coverImage', $localeKey);
+                $coverImageFilePath = $publicFileManager->getContextFilesPath($submissionContext->getId()) . '/' . $coverImage['uploadName'];
+                $this->makeThumbnail(
+                    $coverImageFilePath,
+                    $this->getThumbnailFileName($coverImage['uploadName']),
+                    $submissionContext->getData('coverThumbnailsMaxWidth'),
+                    $submissionContext->getData('coverThumbnailsMaxHeight')
+                );
+            }
         }
 
         Hook::call('Publication::add', [&$publication]);
@@ -340,6 +350,8 @@ abstract class Repository
 
         // Move uploaded files into place and update the params
         if (array_key_exists('coverImage', $params)) {
+            $oldCoverImage = $publication->getData('coverImage');
+
             $userId = $this->request->getUser() ? $this->request->getUser()->getId() : null;
 
             $submissionContext = $this->request->getContext();
@@ -353,6 +365,34 @@ abstract class Repository
                     continue;
                 }
                 $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $userId, $localeKey, true);
+            }
+
+            $publicFileManager = new PublicFileManager();
+
+            foreach ($params['coverImage'] as $localeKey => $newCoverImage) {
+                // Delete the thumbnail if the cover image has been deleted
+                if (is_null($newCoverImage) || !$newCoverImage) {
+                    if (empty($oldCoverImage[$localeKey])) {
+                        continue;
+                    }
+
+                    $coverImageFilePath = $publicFileManager->getContextFilesPath($submission->getData('contextId')) . '/' . $oldCoverImage[$localeKey]['uploadName'];
+                    if (!file_exists($coverImageFilePath)) {
+                        $publicFileManager->removeContextFile($submission->getData('contextId'), $this->getThumbnailFileName($oldCoverImage[$localeKey]['uploadName']));
+                    }
+
+                // Otherwise generate a new thumbnail if a cover image exists
+                } elseif (!empty($newCoverImage)) {
+                    if (array_key_exists('uploadName', $newCoverImage)) {
+                        $coverImageFilePath = $publicFileManager->getContextFilesPath($submission->getData('contextId')) . '/' . $newCoverImage['uploadName'];
+                        $this->makeThumbnail(
+                            $coverImageFilePath,
+                            $this->getThumbnailFileName($newCoverImage['uploadName']),
+                            $submissionContext->getData('coverThumbnailsMaxWidth'),
+                            $submissionContext->getData('coverThumbnailsMaxHeight')
+                        );
+                    }
+                }
             }
         }
 
@@ -620,7 +660,7 @@ abstract class Repository
                     $publicFileManager->removeContextFile($submission->getData('contextId'), $fileName);
                 }
             }
-            return false;
+            return null;
         }
 
         // Check if there is something to upload
@@ -673,4 +713,78 @@ abstract class Repository
      * Create all DOIs associated with the publication.
      */
     abstract protected function createDois(Publication $newPublication): void;
+
+    /**
+     * Derive a thumbnail filename from the cover image filename
+     *
+     * submission_1_1_cover.png --> submission_1_1_cover_t.png
+     *
+     * @param string $fileName
+     *
+     * @return string The thumbnail filename
+     */
+    public function getThumbnailFileName($fileName)
+    {
+        $pathInfo = pathinfo($fileName);
+        return $pathInfo['filename'] . '_t.' . $pathInfo['extension'];
+    }
+
+    /**
+     * Generate a thumbnail of an image
+     *
+     * @param string $filePath The full path and name of the file
+     * @param int $maxWidth The maximum allowed width of the thumbnail
+     * @param int $maxHeight The maximum allowed height of the thumbnail
+     */
+    public function makeThumbnail($filePath, $thumbFileName, $maxWidth, $maxHeight)
+    {
+        $pathParts = pathinfo($filePath);
+        $thumbFilePath = $pathParts['dirname'] . '/' . $thumbFileName;
+
+        $cover = null;
+        switch ($pathParts['extension']) {
+            case 'jpg': $cover = imagecreatefromjpeg($filePath);
+                break;
+            case 'png': $cover = imagecreatefrompng($filePath);
+                break;
+            case 'gif': $cover = imagecreatefromgif($filePath);
+                break;
+            case 'webp': $cover = imagecreatefromwebp($filePath);
+                break;
+            case 'svg': $cover = copy($filePath, $thumbFilePath);
+                break;
+        }
+        if (!isset($cover)) {
+            throw new \Exception('Can not build thumbnail because the file was not found or the file extension was not recognized.');
+        }
+
+        if ($pathParts['extension'] != 'svg') {
+
+            // Calculate the scaling ratio for each dimension.
+            $originalSizeArray = getimagesize($filePath);
+            $xRatio = min(1, $maxWidth / $originalSizeArray[0]);
+            $yRatio = min(1, $maxHeight / $originalSizeArray[1]);
+
+            // Choose the smallest ratio and create the target.
+            $ratio = min($xRatio, $yRatio);
+
+            $thumbWidth = round($ratio * $originalSizeArray[0]);
+            $thumbHeight = round($ratio * $originalSizeArray[1]);
+            $thumb = imagecreatetruecolor($thumbWidth, $thumbHeight);
+            imagecopyresampled($thumb, $cover, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $originalSizeArray[0], $originalSizeArray[1]);
+
+            switch ($pathParts['extension']) {
+                case 'jpg': imagejpeg($thumb, $pathParts['dirname'] . '/' . $thumbFileName);
+                    break;
+                case 'png': imagepng($thumb, $pathParts['dirname'] . '/' . $thumbFileName);
+                    break;
+                case 'gif': imagegif($thumb, $pathParts['dirname'] . '/' . $thumbFileName);
+                    break;
+                case 'webp': imagewebp($thumb, $thumbFilePath);
+                    break;
+            }
+
+            imagedestroy($thumb);
+        }
+    }
 }

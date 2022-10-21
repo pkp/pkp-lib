@@ -15,10 +15,10 @@
 
 namespace PKP\services;
 
+use APP\services\queryBuilders\StatsGeoQueryBuilder;
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
-use PKP\services\queryBuilders\PKPStatsGeoQueryBuilder;
 
 class PKPStatsGeoService
 {
@@ -99,9 +99,9 @@ class PKPStatsGeoService
     /**
      * Get a QueryBuilder object with the passed args
      */
-    public function getQueryBuilder($args = []): PKPStatsGeoQueryBuilder
+    public function getQueryBuilder($args = []): StatsGeoQueryBuilder
     {
-        $statsQB = new PKPStatsGeoQueryBuilder();
+        $statsQB = new StatsGeoQueryBuilder();
         $statsQB
             ->filterByContexts($args['contextIds'])
             ->before($args['dateEnd'])

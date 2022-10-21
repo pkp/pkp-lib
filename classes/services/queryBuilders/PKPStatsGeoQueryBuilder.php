@@ -23,7 +23,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\plugins\Hook;
 
-class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
+abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
 {
     /** Include records for these sections/series */
     protected array $pkpSectionIds = [];
@@ -112,6 +112,11 @@ class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
     }
 
     /**
+     * Consider/add application specific queries
+     */
+    abstract protected function _getAppSpecificQuery(Builder &$q): void;
+
+    /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
      */
     protected function _getObject(): Builder
@@ -178,13 +183,16 @@ class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
             if (Application::get()->getName() == 'omp') {
                 $sectionColumn = 'p.series_id';
             }
-            $q->whereIn(StatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, function ($q) use ($sectionColumn) {
-                $q->select('p.submission_id')
-                    ->from('publications as p')
-                    ->where('p.status', Submission::STATUS_PUBLISHED)
-                    ->whereIn($sectionColumn, $this->pkpSectionIds);
+            $sectionSubmissionIds = DB::table('publications as p')->select('p.submission_id')->distinct()
+                ->from('publications as p')
+                ->where('p.status', Submission::STATUS_PUBLISHED)
+                ->whereIn($sectionColumn, $this->pkpSectionIds);
+            $q->joinSub($sectionSubmissionIds, 'ss', function ($join) {
+                $join->on('metrics_submission_geo_monthly.' . StatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, '=', 'ss.submission_id');
             });
         }
+
+        $this->_getAppSpecificQuery($q);
 
         if ($this->limit > 0) {
             $q->limit($this->limit);

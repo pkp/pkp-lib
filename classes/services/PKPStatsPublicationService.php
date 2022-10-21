@@ -16,11 +16,11 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use APP\services\queryBuilders\StatsPublicationQueryBuilder;
 use PKP\plugins\Hook;
-use PKP\services\queryBuilders\PKPStatsPublicationQueryBuilder;
 use PKP\statistics\PKPStatisticsHelper;
 
-class PKPStatsPublicationService
+abstract class PKPStatsPublicationService
 {
     use PKPStatsServiceTrait;
 
@@ -231,11 +231,16 @@ class PKPStatsPublicationService
     }
 
     /**
+     * Consider/add application specific QB filters
+     */
+    abstract protected function getAppSpecificFilters(array $args = [], StatsPublicationQueryBuilder &$statsQB): void;
+
+    /**
      * Get a QueryBuilder object with the passed args
      */
-    public function getQueryBuilder(array $args = []): PKPStatsPublicationQueryBuilder
+    public function getQueryBuilder(array $args = []): StatsPublicationQueryBuilder
     {
-        $statsQB = new PKPStatsPublicationQueryBuilder();
+        $statsQB = new StatsPublicationQueryBuilder();
         $statsQB
             ->filterByContexts($args['contextIds'])
             ->before($args['dateEnd'])
@@ -264,6 +269,8 @@ class PKPStatsPublicationService
         if (!empty(($args['submissionFileIds']))) {
             $statsQB->filterBySubmissionFiles($args['submissionFileIds']);
         }
+
+        $this->getAppSpecificFilters($args, $statsQB);
 
         if (isset($args['count'])) {
             $statsQB->limit($args['count']);

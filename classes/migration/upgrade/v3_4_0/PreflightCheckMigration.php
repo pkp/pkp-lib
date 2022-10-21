@@ -463,10 +463,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->select('a.user_id as user_id, b.user_id as paired_user_id')
                 ->get();
              foreach ($result as $row) {
-                 $this->_installer->log("Found a user entry with user_id ${row->user_id} that pairs with ${row->paired_user_id} on their email if we consider them case insensitively");
+                 $this->_installer->log("The user with user_id {$row->user_id} and email {$row->email} collides with user_id {$row->paired_user_id} and email {$row->paired_email}.");
              }
              if ($result->count()) {
-                 throw new Exception('There are users that have same emails if we consider them case insensitively. Consider merging them.');
+                 throw new Exception('Starting with 3.4.0, email addresses are not case sensitive. Your database contains users that have same emails if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
              }
  
              // Flag users that have same username if we consider them case insensitively
@@ -478,10 +478,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                  ->select('a.user_id as user_id, b.user_id as paired_user_id')
                  ->get();
              foreach ($result as $row) {
-                 $this->_installer->log("Found a user entry with user_id ${row->user_id} that pairs with ${row->paired_user_id} on their username if we consider them case insensitively");
+                 $this->_installer->log("The user with user_id {$row->user_id} and username {$row->username} collides with user_id {$row->paired_user_id} and username {$row->username}.");
              }
              if ($result->count()) {
-                 throw new Exception('There are users that have same usernames if we consider them case insensitively. Consider merging them.');
+                 throw new Exception('Starting with 3.4.0, usernames are not case sensitive. Your database contains users that have same username if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
              }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {

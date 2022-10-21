@@ -23,11 +23,11 @@ class I7249_UpdateUsersUniqueIndex extends Migration
     {
         switch (DB::getDriverName()) {
             case 'pgsql':
-                DB::unprepared('ALTER TABLE users DROP CONSTRAINT IF EXISTS users_username;');
-                DB::unprepared('ALTER TABLE users DROP CONSTRAINT IF EXISTS users_email;');
+                DB::unprepared('ALTER TABLE users DROP CONSTRAINT users_username;');
+                DB::unprepared('ALTER TABLE users DROP CONSTRAINT users_email;');
 
-                DB::unprepared('CREATE UNIQUE INDEX IF NOT EXISTS users_username on users (LOWER(username));');
-                DB::unprepared('CREATE UNIQUE INDEX IF NOT EXISTS users_email on users (LOWER(email));');
+                DB::unprepared('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
+                DB::unprepared('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
                 break;
         }
     }

@@ -188,19 +188,19 @@
 								<table class="pkpTable pkpStats__reportParams">
 									<tr class="pkpTable__row">
 										<th>{translate key="stats.dateRange"}</th>
-										<td>{{ getDateRangeDescription() }}</th>
+										<td>{{ getDateRangeDescription() }}</td>
 									</tr>
 									<tr
 										v-for="(filterSet, index) in filters"
 										class="pkpTable__row">
 										<th>{{ filterSet.heading }}</th>
-										<td>{{ getFilterDescription(filterSet) }}</th>
+										<td>{{ getFilterDescription(filterSet) }}</td>
 									</tr>
 									<tr
 										v-if="searchPhrase"
 										class="pkpTable__row">
 										<th>{translate key="common.searchPhrase"}</th>
-										<td>{{ searchPhrase }}</th>
+										<td>{{ searchPhrase }}</td>
 									</tr>
 								</table>
 								<action-panel class="pkpStats__reportAction">
@@ -226,6 +226,19 @@
 											@click="downloadReport('files')"
 										>
 											{translate key="stats.publications.downloadReport.downloadFiles"}
+										</pkp-button>
+									</template>
+								</action-panel>
+								<action-panel class="pkpStats__reportAction">
+									<h2>{translate key="stats.timeline"}</h2>
+									<p>
+										{{ getTimelineDescription() }}
+									</p>
+									<template slot="actions">
+										<pkp-button
+											@click="downloadReport('timeline')"
+										>
+											{translate key="stats.timeline.downloadReport.downloadTimeline"}
 										</pkp-button>
 									</template>
 								</action-panel>

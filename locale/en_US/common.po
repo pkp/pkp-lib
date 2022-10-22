@@ -483,6 +483,9 @@ msgstr "Items per page"
 msgid "common.keywords"
 msgstr "Keywords"
 
+msgid "common.label"
+msgstr "Label"
+
 msgid "common.language"
 msgstr "Language"
 

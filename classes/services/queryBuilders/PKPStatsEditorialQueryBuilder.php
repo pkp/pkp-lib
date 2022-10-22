@@ -16,9 +16,9 @@
 
 namespace PKP\services\queryBuilders;
 
-use APP\decision\Decision;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
+use PKP\config\Config;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
 use PKP\submission\PKPSubmission;
@@ -453,7 +453,7 @@ abstract class PKPStatsEditorialQueryBuilder
      */
     private function _dateDiff(string $leftDate, string $rightDate)
     {
-        switch (\Config::getVar('database', 'driver')) {
+        switch (Config::getVar('database', 'driver')) {
             case 'mysql':
             case 'mysqli':
                 return 'DATEDIFF(' . $leftDate . ',' . $rightDate . ')';

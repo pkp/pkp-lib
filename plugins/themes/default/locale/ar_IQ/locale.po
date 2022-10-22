@@ -1,9 +1,10 @@
+# M. Ali <vorteem@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-08T23:00:18+00:00\n"
-"PO-Revision-Date: 2021-01-11 17:22+0000\n"
+"PO-Revision-Date: 2022-10-23 03:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/ops/"
 "themes-default/ar_IQ/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.themes.default.name"
 msgstr "النمط الإفتراضي"
@@ -65,3 +66,24 @@ msgstr "إظهار صورة الصفحة الرئيسية بمثابة خلفي�
 
 msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
 msgstr "إظهار ملخص الملقم في الصفحة الرئيسية."
+
+msgid "plugins.themes.default.option.displayStats.label"
+msgstr "خيارات عرض إحصائيات الاستعمال"
+
+msgid "plugins.themes.default.option.displayStats.none"
+msgstr "لا تعرض مخطط إحصائيات الاستعمال الخاصة بطلبات التقديم للقارئ."
+
+msgid "plugins.themes.default.option.displayStats.bar"
+msgstr "استعمل مخططًا من نوع الأعمدة لعرض إحصائيات الاستعمال."
+
+msgid "plugins.themes.default.option.displayStats.line"
+msgstr "استعمل مخططًا من نوع خطي لعرض إحصائيات الاستعمال."
+
+msgid "plugins.themes.default.displayStats.downloads"
+msgstr "التنزيلات"
+
+msgid "plugins.themes.default.displayStats.monthInitials"
+msgstr "كا2 شبا آذا نيس أيا حزي تمو آب أيل تش1 تش2 كا1"
+
+msgid "plugins.themes.default.displayStats.noStats"
+msgstr "تنزيل البيانات ليس متاحًا بعد."

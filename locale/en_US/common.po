@@ -1946,6 +1946,9 @@ msgstr "The confirmation for this field does not match."
 msgid "validator.country"
 msgstr "This is not a valid country."
 
+msgid "validator.country.regex"
+msgstr "Invalid country code formate. Country code must be a 2 letter code in english capital letter."
+
 msgid "validator.currency"
 msgstr "This is not a valid currency."
 

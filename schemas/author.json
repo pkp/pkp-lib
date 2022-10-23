@@ -26,7 +26,14 @@
 			]
 		},
 		"country": {
-			"type": "string"
+			"type": "string",
+			"description": "ISO 3166-1 two letter code in english capital letter.",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"country",
+				"regex:/^[A-Z]{2}$/"
+			]
 		},
 		"email": {
 			"type": "string",

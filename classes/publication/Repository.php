@@ -273,7 +273,7 @@ abstract class Repository
                 if (!array_key_exists($localeKey, $publication->getData('coverImage'))) {
                     continue;
                 }
-                $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey, true);
+                $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey);
 
                 $this->edit($publication, ['coverImage' => $value]);
 
@@ -350,8 +350,6 @@ abstract class Repository
 
         // Move uploaded files into place and update the params
         if (array_key_exists('coverImage', $params)) {
-            $oldCoverImage = $publication->getData('coverImage');
-
             $userId = $this->request->getUser() ? $this->request->getUser()->getId() : null;
 
             $submissionContext = $this->request->getContext();
@@ -364,14 +362,16 @@ abstract class Repository
                 if (!array_key_exists($localeKey, $params['coverImage'])) {
                     continue;
                 }
-                $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $userId, $localeKey, true);
+                $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $userId, $localeKey);
             }
 
             $publicFileManager = new PublicFileManager();
 
-            foreach ($params['coverImage'] as $localeKey => $newCoverImage) {
+            foreach ($params['coverImage'] as $localeKey => $managedCoverImage) {
                 // Delete the thumbnail if the cover image has been deleted
-                if (is_null($newCoverImage) || !$newCoverImage) {
+                if (is_null($managedCoverImage)) {
+                    $oldCoverImage = $publication->getData('coverImage');
+
                     if (empty($oldCoverImage[$localeKey])) {
                         continue;
                     }
@@ -380,14 +380,13 @@ abstract class Repository
                     if (!file_exists($coverImageFilePath)) {
                         $publicFileManager->removeContextFile($submission->getData('contextId'), $this->getThumbnailFileName($oldCoverImage[$localeKey]['uploadName']));
                     }
-
                 // Otherwise generate a new thumbnail if a cover image exists
-                } elseif (!empty($newCoverImage)) {
-                    if (array_key_exists('uploadName', $newCoverImage)) {
-                        $coverImageFilePath = $publicFileManager->getContextFilesPath($submission->getData('contextId')) . '/' . $newCoverImage['uploadName'];
+                } else {
+                    if (array_key_exists('uploadName', $managedCoverImage) && !$managedCoverImage['alreadyExistingImage']) {
+                        $coverImageFilePath = $publicFileManager->getContextFilesPath($submission->getData('contextId')) . '/' . $managedCoverImage['uploadName'];
                         $this->makeThumbnail(
                             $coverImageFilePath,
-                            $this->getThumbnailFileName($newCoverImage['uploadName']),
+                            $this->getThumbnailFileName($managedCoverImage['uploadName']),
                             $submissionContext->getData('coverThumbnailsMaxWidth'),
                             $submissionContext->getData('coverThumbnailsMaxHeight')
                         );
@@ -633,8 +632,7 @@ abstract class Repository
         $value,
         string $settingName,
         int $userId,
-        string $localeKey = '',
-        bool $isImage = false
+        string $localeKey = ''
     ) {
 
         // If the value is null, delete any existing unused file in the system
@@ -665,6 +663,7 @@ abstract class Repository
 
         // Check if there is something to upload
         if (empty($value['temporaryFileId'])) {
+            $value['alreadyExistingImage'] = true;
             return $value;
         }
 
@@ -680,21 +679,15 @@ abstract class Repository
         $fileName = Services::get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
 
         if ($fileName) {
-            if ($isImage) {
-                return [
-                    'altText' => !empty($value['altText']) ? $value['altText'] : '',
-                    'dateUploaded' => Core::getCurrentDate(),
-                    'uploadName' => $fileName,
-                ];
-            } else {
-                return [
-                    'dateUploaded' => Core::getCurrentDate(),
-                    'uploadName' => $fileName,
-                ];
-            }
+            return [
+                'altText' => !empty($value['altText']) ? $value['altText'] : '',
+                'dateUploaded' => Core::getCurrentDate(),
+                'uploadName' => $fileName,
+                'alreadyExistingImage' => false,
+            ];
         }
 
-        return false;
+        return null;
     }
 
     /**

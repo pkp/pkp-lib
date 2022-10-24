@@ -25,11 +25,20 @@ class SubmissionFileDeleted
 {
     use Dispatchable;
 
-    /** @var SubmissionFile $submissionFile Submission file associated */
-    public $submissionFile;
+    /**
+     * The submission id of the targeted submission
+     */
+    public int $submissionId;
 
-    public function __construct(SubmissionFile $submissionFile)
+    /**
+     * The submission file id of the targeted submission file to delete
+     */
+    public int $submissionFileId;
+
+
+    public function __construct(int $submissionId, int $submissionFileId)
     {
-        $this->submissionFile = $submissionFile;
+        $this->submissionId     = $submissionId;
+        $this->submissionFileId = $submissionFileId;
     }
 }

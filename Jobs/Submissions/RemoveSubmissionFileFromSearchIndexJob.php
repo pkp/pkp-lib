@@ -27,18 +27,27 @@ use PKP\Support\Jobs\BaseJob;
 class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {
     /**
-     * @var int The submission file ID
+     * The submission id of the targeted submission
+     * 
+     * @var int
+     */
+    protected $submissionId;
+
+    /**
+     * The submission file id of the targeted submission file to delete
+     * 
+     * @var int
      */
     protected $submissionFileId;
 
     /**
      * Create a new job instance.
-     *
      */
-    public function __construct(int $submissionFileId)
+    public function __construct(int $submissionId, int $submissionFileId)
     {
         parent::__construct();
 
+        $this->submissionId     = $submissionId;
         $this->submissionFileId = $submissionFileId;
     }
 
@@ -48,17 +57,11 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
      */
     public function handle(): void
     {
-        $submissionFile = Repo::submissionFile()->get($this->submissionFileId);
-
-        if (!$submissionFile) {
-            throw new JobException(JobException::INVALID_PAYLOAD);
-        }
-
         $submissionSearchIndex = Application::getSubmissionSearchIndex();
         $submissionSearchIndex->deleteTextIndex(
-            $submissionFile->getData('submissionId'),
+            $this->submissionId,
             SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE,
-            $submissionFile->getId()
+            $this->submissionFileId
         );
     }
 }

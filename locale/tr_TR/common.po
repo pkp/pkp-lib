@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"PO-Revision-Date: 2022-10-24 16:34+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr_TR/>\n"
@@ -2188,3 +2188,18 @@ msgstr "Bekleyen görevlerin haftalık e-postası"
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.downloadReport"
+msgstr "Rapor İndir"
+
+msgid "common.geographic"
+msgstr "Coğrafi"
+
+msgid "common.searchPhrase"
+msgstr "Arama İfadesi"
+
+msgid "validator.country.regex"
+msgstr ""
+"Geçerli bir ülke kodu değil. Ülke kodu 2 harfli uluslararası kodlardan biri "
+"olmalıdır. https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#"
+"Officially_assigned_code_elements adresinden tüm ülke kodlarına bakın."

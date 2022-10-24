@@ -2,7 +2,7 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-20 14:31+0000\n"
+"PO-Revision-Date: 2022-10-24 10:37+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "lv_LV/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Vai tiešām vēlaties neatgriezeniski dzēst šo iesniegumu?"
@@ -60,3 +60,554 @@ msgstr "Bibliotēka"
 
 msgid "editor.activityLog"
 msgstr "Aktivitāšu žurnāls"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Tika nodrošināta recenzēšanas kārta, bet šis lēmums netiek pieņemts "
+"recenzēšanas fāzē."
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Atkārtoti nosūtīt recenzēšanas pieprasījumu"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Recenzējamie faili"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Nesūtīt e-pasta paziņojumu"
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Iesniegtais materiāls nav atbilstošā darba plūsmas posmā, lai pieņemtu šādu "
+"lēmumu."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Nosūtīt e-pasta paziņojumu autoram(-iem): {$authorName}"
+
+msgid "editor.submission.selectFiles"
+msgstr "Izvēlēties failus"
+
+msgid "editor.review.notInitiated"
+msgstr "Recenzēšanas process vēl nav uzsākts."
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Jāizvēlas lietotājs, kuru vēlaties piešķirt."
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Recenzēšanas veids"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Ierakstīt eksistējošu lietotāju"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Jāizvēlas vismaz viens fails, kuram piešķirt lietotāju."
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Parādīt failus no visiem darbplūsmas etapiem."
+
+msgid "editor.review.cancelReviewer"
+msgstr "Atcelt recenzēšanu"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Šī recenzēšanas kārta nav daļa no materiāla iesniegšanas."
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Aizvērt failu atlasi"
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Šo lēmumu neizdevās atrast. Lūdzu, norādiet atpazīto lēmuma veidu."
+
+msgid "editor.submissionReview.open"
+msgstr "Atvērts"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Jaunākie recenzijas faili {$round}. kārtai"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Atjaunot recenzenta lomu"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr ""
+"Izvēlieties zemāk norādītos failus, lai tos nosūtītu uz recenzēšanas posmu."
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonīms recenzents"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Recenzentam nosūtāmā e-pasta vēstule"
+
+msgid "editor.review.createReviewer"
+msgstr "Izveidot jaunu recenzentu"
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Lai reģistrētu redakcionālu lēmumu, jums nepieciešama piesaiste šim "
+"iesniegtajam materiālam."
+
+msgid "editor.submission.revisions"
+msgstr "Versijas"
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Nesūtīt e-pastu auditoram"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Ziņojums lietotājam"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Izvēlēties lietotāju"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Nosūtīt e-pasta paziņojumu redaktoram(-iem): {$editorNames}"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Anonīms recenzents/atklāts autors"
+
+msgid "editor.submission.backToSearch"
+msgstr "Atgriezties uz meklēšanu"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Izvēlēties recenzentu"
+
+msgid "editor.submission.addReviewer"
+msgstr "Pievienot recenzentu"
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Lai pieņemtu šo lēmumu, jānorāda recenzēšanas kārtas ID."
+
+msgid "editor.review.unassignReviewer"
+msgstr "Atcelt recenzentu"
+
+msgid "editor.review.importantDates"
+msgstr "Svarīgi dati"
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Ieteikumu var sniegt tikai tad, ja šajā posmā ir norīkots redaktors, kurš "
+"var pieņemt galīgo lēmumu."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Jums jāiekļauj personiska ziņa."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Augšupielādēt/izvēlēties failus"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Lietojiet<em>+Pievienot recenzentu</em>, lai uzaicinātu lasītājus recenzēt "
+"iesniegtā materiāla failus. Piezīmju grāmatiņas ikona norāda, ka ir "
+"iesniegta recenzija, kas pēc tam pārskatīšanas tiek atzīmēta kā "
+"<em>Pieņemts</em>. Ja recenzēšanas termiņš ir nokavēts, atgādināšanai "
+"recenzentiem tiek parādīta sarkana aploksnes ikona."
+
+msgid "editor.submissionReview.editReview"
+msgstr "Rediģēt recenziju"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Anonīms recenzents/anonīms autors"
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Par šo iesniegto materiālu nevarēja pieņemt Lēmumu. Iesniegtā materiāla ID "
+"nav norādīts vai tas neatbilst pieprasītajam iesniegtajam materiālam."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Pieprasot recenzentam pārskatīt recenzijas uzaicinājumu, radās kļūda. Lūdzu "
+"mēģiniet vēlreiz."
+
+msgid "editor.review.thankReviewer"
+msgstr "Pateicība recenzentam"
+
+msgid "editor.review.requestCancelled"
+msgstr "Pieprasījums atcelts"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Kļūda, nosūtot pateicību recenzentam"
+
+msgid "editor.submission.newRound"
+msgstr "Jauna recenzēšanas kārta"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Uzdevumu izpildes grafiks"
+
+msgid "editor.review.uploadRevision"
+msgstr "Augšupielādēt versiju"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Publicēšanai gatavi faili"
+
+msgid "editor.review.revertDecision"
+msgstr "Lēmuma atsaukšana"
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Tika pieļauta kļūda, dzēšot recenzentu. Lūdzu, mēģiniet vēlreiz."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Faili literārai rediģēšanai"
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Diskusiju ar izvēlētajiem dalībniekiem nevar izveidot, jo tas ietekmētu "
+"recenzēšanas procesa anonimitāti."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzentam izteikta pateicība"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Recenzija pabeigta"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Recenzijas izpildes datums"
+
+msgid "editor.review.reviewDetails"
+msgstr "Sīkāka informācija par recenzēšanu"
+
+msgid "editor.review.unconsiderReview"
+msgstr "Neapsvērt šo recenziju"
+
+msgid "editor.review.reminderError"
+msgstr "Kļūda, nosūtot atgādinājumu par recenziju"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Novērtēt recenzijas kvalitāti. Šis vērtējums netiek izpausts recenzentam."
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Rediģētais fails ir jāapstiprina, lai to varētu nosūtīt uz ražošanas posmu. "
+"Vai vēlaties apstiprināt šo failu?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Atgādinājums par korektūru"
+
+msgid "editor.review.requestDeclined"
+msgstr "Pieprasījums noraidīts"
+
+msgid "editor.review.responseDue"
+msgstr "Atbildes termiņš: {$date}"
+
+msgid "editor.review.skipEmail"
+msgstr "Nesūtīt e-pastu recenzentam."
+
+msgid "editor.review.sendReminder"
+msgstr "Nosūtīt atgādinājumu"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Šai datnei revīzija nav pieprasīta"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Ierakstīt redakcionālu lēmumu"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Nav novērtējuma"
+
+msgid "editor.review.requestAccepted"
+msgstr "Pieprasījums pieņemts"
+
+msgid "editor.review.reminder"
+msgstr "Atgādinājums par recenzēšanu"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktors atcēla šo recenzijas pieprasījumu."
+
+msgid "editor.review.reviewsAdded"
+msgstr "Recenzijas ietvertas ziņojumā."
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Kad šī recenzija ir izlasīta, nospiediet \"Apstiprināt\", lai norādītu, ka "
+"recenzēšanas procesu var turpināt. Ja recenzents savu recenziju ir "
+"iesniedzis citur, varat augšupielādēt zemāk redzamo failu un pēc tam "
+"nospiest \"Apstiprināt\", lai turpinātu."
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Vai vēlaties atzīmēt šo recenziju kā neizskatītu? Recenzijas vēsture tiks "
+"saglabāta."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Versijas netiks pakļautas jaunai recenzēšanas kārtai."
+
+msgid "editor.review.requestSent"
+msgstr "Nosūtīts pieprasījums"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Versijām vajadzētu būt pakļautām jaunai recenzēšanas kārtai."
+
+msgid "editor.review.reviewDue"
+msgstr "Recenzijas termiņš: {$date}"
+
+msgid "editor.review.reviewerComments"
+msgstr "Recenzentu komentāri"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Neapstiprinot šo rediģēto failu, to nevarēs nosūtīt uz ražošanas posmu. Vai "
+"vēlaties neapstiprināt šo failu?"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Versijas tiks pakļautas jaunai recenzēšanas kārtai."
+
+msgid "editor.submission.taskDueDate"
+msgstr "Uzdevuma izpildes datums"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Ir pieļauta kļūda, pievienojot recenzentu. Lūdzu, mēģiniet vēlreiz."
+
+msgid "editor.submission.addAuditor"
+msgstr "Piešķirt auditoru"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Izvēlētajam dalībniekam šis etaps netiek piešķirts."
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Recenzija apstiprināta"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzents noraidīja šo recenzijas pieprasījumu."
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Recenzija iesniegta"
+
+msgid "editor.review"
+msgstr "Recenzēšana"
+
+msgid "editor.review.mustSelect"
+msgstr "Jums ir jāizvēlas recenzents"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-pasts, kas tiks nosūtīts lietotājam"
+
+msgid "editor.review.emailReviewer"
+msgstr "Nosūtīt e-pastu recenzentam"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Ieplānot publicēšanai"
+
+msgid "editor.review.dateAccepted"
+msgstr "Recenzēšanas pieņemšanas datums"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Atjaunojot recenzentu, radās kļūda. Lūdzu mēģiniet vēlreiz."
+
+msgid "editor.review.noReviews"
+msgstr "Nav recenziju importēšanai"
+
+msgid "editor.review.rateReviewer"
+msgstr "Recenzenta novērtējums"
+
+msgid "editor.review.readNewReview"
+msgstr "Lasīt jaunu recenziju"
+
+msgid "editor.review.newReviewRound"
+msgstr "Pieprasīt jaunu recenzēšanas kārtu"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Jebkurus failus, kas jau ir augšupielādēti jebkurā iesniegšanas posmā, var "
+"pievienot sarakstam \"Rediģējami faili\", zemāks atzīmējot izvēles rūtiņu "
+"\"Iekļaut\" un noklikšķinot uz \"Meklēt\". Visi pieejamie faili tiks "
+"uzskaitīti un tos varēs izvēlēties iekļaušanai. Papildu failus, kas vēl nav "
+"augšupielādēti kādā posmā, var pievienot sarakstam, noklikšķinot uz saites "
+"\"Augšupielādēt failu\"."
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Jūs neesat augšupielādējis nevienu recenzēšanas failu."
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Pieprasījums nosūtīts atkārtoti"
+
+msgid "editor.review.readReview"
+msgstr "Lasīt recenziju"
+
+msgid "editor.review.userGroupSelect"
+msgstr "Reģistrēt lietotāju šajā recenzentu grupā"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Izvēlēties recenzentu"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Reģistrēt esošu lietotāju kā recenzentu"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Nav augšupielādētu failu"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Versijām nevajadzētu būt pakļautām jaunai recenzēšanas kārtai."
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Vidējais dienu skaits recenzijas pabeigšanai"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktīvu recenziju"
+
+msgid "grid.action.editQuery"
+msgstr "Rediģēt diskusiju"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Apstiprināt korektūru"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Šis recenzents ir bloķēts, jo viņam ir piešķirta loma, kas ļauj skatīt "
+"autora identitāti. Anonīmu recenzēšanu nav iespējams garantēt. Vai vēlaties "
+"atbloķēt šo recenzentu?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Nav atlasītu failu"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Šis recenzents pabeidza pēdējās kārtas recenziju."
+
+msgid "editor.article.reviewForms"
+msgstr "Recenzijas veidlapas"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Nepalaidiet šo e-pastu garām"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Neveidot recenzijas diskusiju."
+
+msgid "reviewer.list.biography"
+msgstr "Biogrāfija"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Vai tiešām vēlaties atcelt šo lēmumu?"
+
+msgid "submission.queries.messageRequired"
+msgstr "Nepieciešams pievienot diskusijas ziņu."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Publiskajam identifikatoram nav atļauts lietot modeli {$pattern}."
+
+msgid "editor.article.selectReviewForm"
+msgstr "Izvēlēties recenzijas veidlapu"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Izvēlētais recenzents"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Recenzēšanas intereses"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Šis solis ir izlaists, un e-pasts netiks nosūtīts."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr ""
+"Publiskais identifikators \"{$publicIdentifier}\" nedrīkst būt skaitlis."
+
+msgid "editor.decision.skipEmail"
+msgstr "Izlaist šo e-pastu"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Atcelti recenzijas pieprasījumi"
+
+msgid "editor.decision.completeSteps"
+msgstr "Lai pieņemtu šo lēmumu, izpildiet šādas darbības"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Atcelt šīs korektūras apstiprinājumu, lai norādītu, ka korektūra vēl nav "
+"pabeigta un fails nav gatavs publicēšanai."
+
+msgid "editor.decision.cancelDecision"
+msgstr "Atcelt lēmumu"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Pievienotie faili"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Vai tiešām vēlaties atcelt lēmumu par šī iesniegtā materiāla noraidīšanu?"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Iekļaušanai šajā diskusijā var pievienot failus no tālāk esošā saraksta."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Nesūtīt redaktoriem e-pastu."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Atsaukt korektūras apstiprinājumu"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Pašlaik piešķirtas aktīvās recenzijas"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Jūs neesat izvēlējies nevienu failu, ko recenzents varētu izskatīt."
+
+msgid "editor.decision.stepError"
+msgstr "Radās problēma ar soli {$stepName}."
+
+msgid "editor.submission.createNewRound"
+msgstr "Izveidot jaunu recenzēšanas kārtu"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Piešķirts iepriekšējai kārtai"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Apstiprināt šo korektūru, lai norādītu, ka koriģēšana ir pabeigta un fails "
+"ir gatavs publicēšanai."
+
+msgid "reviewer.list.completedReviews"
+msgstr "Pabeigtas recenzijas"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Noraidīti recenzijas pieprasījumi"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Paziņot redaktoriem"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Atkārtoti piešķirt {$name}"
+
+msgid "reviewer.list.empty"
+msgstr "Recenzenti nav atrasti"
+
+msgid "editor.decision.recordDecision"
+msgstr "Reģistrēt lēmumu"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Izveidot recenzijas diskusiju par šo ieteikumu."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Nepieciešams diskusijas temats."
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Brīdinājums: Recenzijas veidlapas maiņa ietekmēs visas atbildes, ko "
+"recenzenti ir snieguši, izmantojot šo veidlapu. Vai esat pārliecināts, ka "
+"vēlaties turpināt?"
+
+msgid "reviewer.list.reassign"
+msgstr "Atkārtota piešķiršana"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Recenzenta reitings: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Pirms {$days} dienām"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Vakar"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dienas kopš pēdējās piešķirtās recenzijas"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nekad nav piešķirts kā recenzents"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Ierakstīt redaktora rekomendāciju"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Jūs gatavojaties izveidot jaunu recenzēšanas kārtu šim iesniegtajam "
+"materiālam. Tālāk ir uzskaitīti faili, kas nav izmantoti citās recenzēšanas "
+"kārtās."
+
+msgid "reviewer.list.filterRating"
+msgstr "Novērtēts vismaz"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Atbloķēt"

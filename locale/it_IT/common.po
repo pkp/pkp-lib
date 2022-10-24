@@ -1,12 +1,13 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2022-01-11 16:51+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2022-10-19 10:37+0000\n"
+"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "about.aboutSite"
 msgstr "Informazioni sul sito"
@@ -1438,7 +1439,6 @@ msgstr "Scarica questo file"
 msgid "dashboard.tasks"
 msgstr "Tasks"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Per assicurare l'integrità della revisione anonima, ogni sforzo dovrebbe "
@@ -1453,6 +1453,7 @@ msgstr ""
 "<li>Gli autori del documento hanno rimosso le informazioni personali dalle "
 "proprietà del file facendo i seguenti passi:\n"
 "<ul><li>Microsoft Word per Windows:\n"
+"<ul><li>Vai al file</li>\n"
 "<li>Seleziona Info</li>\n"
 "<li>Cliccare su Check for Issues</li>\n"
 "<li>Clicca su Ispeziona documento</li>\n"
@@ -1808,9 +1809,12 @@ msgstr "Nessuna modifica è stata apportata a questo partecipante"
 msgid "stageParticipants.selectedUser"
 msgstr "Partecipante"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Consenti a questo utente di modificare i dettagli di pubblicazione."
+msgstr ""
+"Consenti a questo utente di modificare i dettagli di pubblicazione come "
+"titolo, abstract, metadati e altri dati di dettaglio. Potresti voler "
+"revocare questo privilegio se la proposta ha terminato i controlli ed è "
+"pronta per essere pubblicata."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Permessi"
@@ -2069,3 +2073,134 @@ msgstr "Seleziona {$name}"
 
 msgid "common.override"
 msgstr "Sovrascrivere"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Allega file della proposta"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Allega file caricati dall'autore nella fase di invio della proposta."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Sei sicuro di voler cambiare lingua in {$localeName} per redigere questa "
+"mail? Tutti i cambiamenti che hai fatto all'oggetto e al testo della mail "
+"verranno persi."
+
+msgid "common.addFiles"
+msgstr "Carica File"
+
+msgid "common.attachedFiles"
+msgstr "File allegati"
+
+msgid "common.findTemplate"
+msgstr "Trova template"
+
+msgid "common.attachFiles"
+msgstr "Allega File"
+
+msgid "common.dragAndDropHere"
+msgstr "Trascina file qui."
+
+msgid "common.addCCBCC"
+msgstr "Aggiungi CC/BCC"
+
+msgid "common.orUploadFile"
+msgstr "O carica un file"
+
+msgid "common.upload.addFile.description"
+msgstr "Carica un file dal tuo computer."
+
+msgid "common.deselect"
+msgstr "Deseleziona"
+
+msgid "common.attachSelected"
+msgstr "Allega selezionati"
+
+msgid "common.insertContent"
+msgstr "Inserisci contenuto"
+
+msgid "common.insertContentSearch"
+msgstr "Trova contenuto da inserire"
+
+msgid "common.loadTemplate"
+msgstr "Carica un template"
+
+msgid "common.keepWorking"
+msgstr "Continua l'operazione"
+
+msgid "common.searching"
+msgstr "Ricerca in corso"
+
+msgid "common.viewError"
+msgstr "Vedi errore"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Allega revisioni"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Allega file caricati dai revisori"
+
+msgid "email.attachmentNotFound"
+msgstr "Il file {$fileName} non ha potuto essere allegato."
+
+msgid "institution.institutions"
+msgstr "Istituzioni"
+
+msgid "notification.type.editorialReminder"
+msgstr "Mail settimanale dei compiti in sospeso"
+
+msgid "list.expandAll"
+msgstr "Espandi tutto"
+
+msgid "list.collapseAll"
+msgstr "Comprimi tutto"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Comando sconosciuto {$command}"
+
+msgid "common.switchTo"
+msgstr "Spostati su"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Allega file nella libreria"
+
+msgid "notification.reviewerResendRequest"
+msgstr ""
+"La richiesta di riconsiderare l'assegnazione per la revisione è stata "
+"inviata."
+
+msgid "timeZone"
+msgstr "Ora locale"
+
+msgid "common.downloadReport"
+msgstr "Scarica report"
+
+msgid "common.geographic"
+msgstr "Geografico"
+
+msgid "common.numberedMore"
+msgstr "{$number} in più"
+
+msgid "common.searchPhrase"
+msgstr "Cerca frase"
+
+msgid "common.showAllSteps"
+msgstr "Mostra tutti gli step"
+
+msgid "common.switchToNamedItem"
+msgstr "Spostati su {$name}"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Allega file caricati durante il workflow della proposta, come revisioni o "
+"file sottoposti a revisione."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "File nella libreria"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr ""
+"Allega file dalle librerie della fase di invio della proposta e dell'editore."

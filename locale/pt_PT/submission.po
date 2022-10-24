@@ -1,11 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-03-18 17:42+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2022-10-14 22:22+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "submission.agencies"
 msgstr "Entidades"
@@ -1147,7 +1148,7 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "Submissão rejeitada."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "Aguardando seleccção dos revisores."
+msgstr "A aguardar selecção de revisores."
 
 msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "Aguardando respostas dos revisores."

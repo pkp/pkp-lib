@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-10-06 14:38+0000\n"
+"PO-Revision-Date: 2022-10-14 19:01+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -3267,3 +3267,21 @@ msgstr "Obsah nové diskuse nebo odpovědi"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "Předmět diskuse"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} do {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Všechny {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Stáhnout soubory"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Počet stažení každého souboru."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Stáhnout Geografická data"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Počet zobrazení a stažení pro každé město, region nebo zemi."

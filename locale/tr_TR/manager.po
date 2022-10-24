@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"PO-Revision-Date: 2022-10-11 09:52+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -685,9 +685,8 @@ msgstr "Şehir"
 msgid "stats.region"
 msgstr "Bölge"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Rapor Oluştur"
+msgstr "Raporlar"
 
 msgid "manager.statistics.reports.month.label"
 msgstr "YYYYAA biçimini kullanın."
@@ -2497,3 +2496,211 @@ msgstr "DOI Güncellemeleri Başarısız"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
 msgstr "Ögeler kayıtlı değil olarak işaretlendi"
+
+msgid "manger.dois.update.success"
+msgstr "DOI'ler başarıyla güncellendi"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Coğrafi İstatistikler"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Toplanacak coğrafi kullanım istatistiklerinin türünü seçin. Daha ayrıntılı "
+"coğrafi istatistikler, veritabanı boyutunuzu önemli ölçüde artırabilir ve "
+"bazı nadir durumlarda ziyaretçilerinizin anonimliğini zayıflatabilir."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Herhangi bir coğrafi veri toplama"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Ziyaretçilerin ülkesini ve bölgesini topla"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Ziyaretçilerin ülkesini, bölgesini ve şehrini topla"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Kurumsal İstatistikler"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Kuruma göre kullanım istatistiklerini toplamak istiyorsanız kurumsal "
+"istatistikleri etkinleştirin. Etkinleştirilirse, izlemek istediğiniz her "
+"kurum için IP aralıklarını yapılandırmanız gerekir."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Kurumsal istatistikleri etkinleştir"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Bu öge yayımlanana kadar gönderilemez."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Yayın Durumları"
+
+msgid "manager.dois.depositStatus"
+msgstr "DOI Durumları"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI'ye ihtiyaç var"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "DOI'ler etkinleştirilmeden bu işlemi gerçekleştiremezsiniz."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Bu ögenin meta verileri {$registrationAgency}'e gönderilmedi."
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Kayıtları Gör"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "DOI'leri gönder"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Başarılı Kayıt Mesajı"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Kayıt Hata Mesajı"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Bu bileşen silinmeden önce, ilgili tüm makale dosyalarını farklı bir "
+"bileşenle ilişkilendirmeniz gerekir."
+
+msgid "manager.dois.registration.viewError"
+msgstr "Hata Gör"
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP aralığı"
+
+msgid "manager.dois.title"
+msgstr "DOI'ler"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Aşağıdaki mesaj {$registrationAgency} tarafından döndürüldü ve kayıtla "
+"ilgili ayrıntılar:"
+
+msgid "manager.setup.statistics"
+msgstr "İstatistikler"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Ziyaretçilerin ülkesini topla"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI öneki gereklidir ve şu biçimde olmalıdır: 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Bir makaleye ne zaman DOI atanmalıdır?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Yayımlandıktan sonra"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Kayıt Ajansı"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Lütfen DOI üstverilerinizi aktarmak istediğiniz kayıt kuruluşunu seçin."
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI Soneki"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Özel DOI Son Ek Şablonu"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Özel şablon (önerilmez)"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Hiçbiri"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI'ler otomatik olarak kayıt ajansına gönderilebilir. Bu özelliği kullanmak "
+"için uygun bir kayıt ajansından eklenti bulun ve yükleyin."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Aday makalenin tüm yazarlarına bir e-posta bildirimi gönderin."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Yalnızca aday makalenin iş akışına atanmış yazarlara e-posta gönderin. "
+"Genellikle, bu gönderen yazardır."
+
+msgid "manager.setup.institutions"
+msgstr "Kurumlar"
+
+msgid "stats.suppFileViews"
+msgstr "Ek Dosyaları Görüntüle"
+
+msgid "stats.unknown"
+msgstr "bilinmeyen"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Genel API"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Bir DOI öneki gerekli"
+
+msgid "stats.unique"
+msgstr "Tekil"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Tamamlanan değerlendirmelerdeki tüm yorumlar. Hakem isimleri anonim "
+"değerlendirme için gizlenir"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Derginin yazışma adresi"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Kurumunuzun Research Organization Registry ID."
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Tüm Yazarları Bilgilendir"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"COUNTER SUSHI istatistikleri için API uç noktalarına erişimin kısıtlanıp "
+"kısıtlanmayacağını belirtir. İşaretli değilse, API'ye yalnızca yönetici veya "
+"yönetici rolleri olan kullanıcılar erişebilir."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "COUNTER SUSHI istatistiklerini herkese açık hale getirin"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"DOI kaydı ve üstverileri, DOI'li bir öge yayımlandığında seçilen kayıt "
+"ajansına otomatik olarak gönderilir. Otomatik üstveri gönderimi, belirli "
+"aralıklarla gerçekleşecek ve her bir DOI'nin kayıt durumu, DOI yönetim "
+"sayfasından izlenebilecek."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Kayıt Ajansı Etkinleştirilmedi"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Bir editoryal karar kaydedildiğinde kimler bir bildirim e-postası almalıdır?"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Bu, devam etmekte olan ve içe aktarılmış gibi görünenler gibi diğer "
+"toplamlarda sayılmayan aday makaleleri içerir."
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Aşağıdaki hata mesajı {$registrationAgency} tarafından döndürüldü ve hatanın "
+"nedeniyle ilgili ayrıntılar:"
+
+msgid "manager.dois.actions.description"
+msgstr "{$count} adet seçili öge için işlem yapın."
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Geçerli değerler arasında bir IP adresi (ör. 142.58.103.1), IP aralığı (ör. "
+"142.58.103.1 - 142.58.103.4), joker karakter '*' olan IP aralığı (ör. 142."
+"58.*.*) ve CIDR'li bir IP aralığı (ör. 142.58.100.0/24)."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Bu ögenin meta verileri {$registrationAgency}'e gönderildi."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Diğer Aday Makaleler"

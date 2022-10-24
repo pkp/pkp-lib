@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-09-30 20:01+0000\n"
+"PO-Revision-Date: 2022-10-23 03:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -653,3 +653,168 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
 msgstr "لم يتم العثور على أي أعمال لحذفها."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "نوع Assoc غير مدعوم."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "ترك ملفات سجل الوقوعات في مكانها"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "ضغط ملفات سجلات الوقوعات"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"حصر إمكانية الوصول إلى واجهة برمجة التطبيق لإحصائيات COUNTER SUSHI بالمدراء "
+"والمشرفين"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "المنصة"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "استعمال الموقع كمنصة لكل المجلات."
+
+msgid "admin.settings.statistics.collection"
+msgstr "جمع البيانات"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "تعريف نوعية إحصائيات الاستعمال التي ينبغي جمعها."
+
+msgid "admin.settings.statistics.storage"
+msgstr "خزن البيانات"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "تعريف ماهية إحصائيات الاستعمال التي ينبغي خزنها في الملقم."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "بروتوكول Sushi"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"تهيئة البروتوكول <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a>، وهو صيغة خاصة بصنعة توزيع إحصائيات الاستعمال."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "إحصائيات شهرية أم يومية"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"فيما إذا كان تقفي بيانات إحصائيات الاستعمال يكون على أساس شهري أم يومي. تقفي "
+"الإحصائيات اليومية قد يرفع من حجم قاعدة بياناتك بشكل ملحوظ."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "تقفي إحصائيات شهرية ويومية"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "تقفي إحصائيات شهرية فقط"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "ضغط سجلات الوقوعات"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"يتم توليد الإحصائيات من ملفات سجلات الوقوعات والتي يتم نقلها إلى "
+"<code>{$path}</code> بمجرد معالجتها. هل ينبغي ضغط ملفات سجلات الوقوعات بصيغة "
+"ملفات <code>.gz</code> بمجرد معالجتها أم لا؟ ضغط تلك الملفات قد يوفر في "
+"مساحة الخزن المتاحة في الملقم."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "الرمز التعريفي للمنصة"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"تشغيل عملية دائمية يقوم بها برنامج آلي تستمر في معالجة الأعمال. إستعمل مُعلَّ"
+"م --help لمعاينة الخيارات المتاحة ذات الصلة بهذا الأمر."
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"خيار عملية الفحص خاطئ. ينبغي أن يقتصر على احتمالين اثنين هما 'failed' أو "
+"'success' بالنسبة إلى الخيار '--only=' option"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"فشلت المهمة التي تقوم بتحميل بيانات الاستعمال الإحصائية من الملف {$file}، "
+"والملف تعذر نقله من {$archivedFilePath} إلى {$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"فشلت المهمة التي تقوم بتحميل بيانات الاستعمال الإحصائية من الملف {$file}. "
+"الملف تم نقله إلى مجلد المرحلة."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"وفقًا لبروتوكول COUNTER SUSHI، ينبغي على كل تقرير إحصائي تعريف \"المنصة\" "
+"الموفرة للإحصائيات. إفتراضيًا سيتم النظر إلى المجلة على أنها المنصة لكل "
+"الإحصائيات. مع ذلك، إذا كانت كل مجلات الموقع مملوكة أو عائدة إلى نفس المؤسسة "
+"أو دار النشر، فقد ترغب باعتبار الموقع بمثابة المنصة."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "خيارات أمر العمل"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "طريقة الاستعمال: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "الخيارات المتاحة لأمر العمل"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "تسمية وصلة الطابور بالعمل [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "تسمية الطابور للعمل [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "تسمية العامل [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "حد الذاكرة بالميغا بايت [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "عدد الثواني المسموح بها للمهمة الفرعية [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"عدد ثواني الخمول عندما لا توجد أي مهام للقيام بها [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "إجبار العامل على التنفيذ حتى في وضع الصيانة [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "التوقف عندما يكون الطابور فارغًا [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "عدد ثواني الاستراحة ما بين المهام [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "تشغيل برنامج العامل في الخلفية للطابور التجريبي"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"عدد ثواني الانتظار قبل معاودة المهمة التي تعرضت إلى خطأ ليست له معالجة "
+"[الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"عدد محاولات إعادة المهمة قبل تأشيرها على انها فاشلة [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "عدد المهام التي ينبغي تنفيذها قبل التوقف [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"أقصى عدد من الثواني التي ينبغي أن يعمل خلالها العامل [الافتراضي: "
+"'{$default}']"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"كيفية تمييز هذه المنصة في تقارير COUNTER SUSHI. الرمز التعريفي للمنصة ينبغي "
+"أن يكون من 17 حرف أو أقل ويمكن له أن يضم حروفًا (a–z، A–Z)، أرقامًا (0–9)، "
+"الشرطة التحتانية (_)، نقطًا (.) والشرطة المائلة الأمامية (/). الرمز التعريفي "
+"للمنصة يُستعمل في أعمدة عديدة وينبغي أن يكون قصيرًا قدر الإمكان ومميزًا في "
+"نفس الوقت. عادة ما يكون الرمز التعريفي للمنصة مبنيًا على اسم الناشر أو "
+"المنصة، اسم النطاق، أو مختصر مشهور وفريد."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"الرمز التعريفي للمنصة ينبغي أن يكون مطلوبًا عندما يكون الموقع معرفًا على "
+"أساس أنه منصةSUSHI."

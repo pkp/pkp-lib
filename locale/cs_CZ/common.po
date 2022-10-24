@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-09-20 10:35+0000\n"
+"PO-Revision-Date: 2022-10-24 16:34+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "cs_CZ/>\n"
@@ -2183,3 +2183,18 @@ msgstr "Instituce"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Byla zaslána žádost o přehodnocení přiřazení recenze."
+
+msgid "common.downloadReport"
+msgstr "Stáhnout zprávu"
+
+msgid "common.searchPhrase"
+msgstr "Hledaná fráze"
+
+msgid "common.geographic"
+msgstr "Geografická data"
+
+msgid "validator.country.regex"
+msgstr ""
+"Zadaný kód země není platný. Země musí být zadána jedním z dvoupísmenných "
+"mezinárodních kódů. Všechny kódy najdete na adrese https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."

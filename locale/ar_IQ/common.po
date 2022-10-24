@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-07-09 18:41+0000\n"
+"PO-Revision-Date: 2022-10-23 03:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "مشروع المعرفة العامة"
@@ -2133,3 +2133,18 @@ msgstr "البريد الالكتروني الأسبوعي للمهام المع
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
+
+msgid "institution.institutions"
+msgstr "المؤسسات"
+
+msgid "notification.reviewerResendRequest"
+msgstr "أُرسل إلتماس إعادة النظر في مهمة التحكيم."
+
+msgid "common.downloadReport"
+msgstr "تنزيل التقرير"
+
+msgid "common.searchPhrase"
+msgstr "عبارة البحث"
+
+msgid "common.geographic"
+msgstr "الجغرافي"

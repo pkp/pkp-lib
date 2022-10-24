@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-09-30 20:01+0000\n"
+"PO-Revision-Date: 2022-10-18 07:27+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2223,3 +2223,12 @@ msgstr "Instituições"
 
 msgid "notification.reviewerResendRequest"
 msgstr "A solicitação para reconsiderar a atribuição de avaliação foi enviada."
+
+msgid "common.downloadReport"
+msgstr "Baixar Relatório"
+
+msgid "common.searchPhrase"
+msgstr "Frase de Busca"
+
+msgid "common.geographic"
+msgstr "Geográfico"

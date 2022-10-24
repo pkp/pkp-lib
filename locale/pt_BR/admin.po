@@ -1,10 +1,11 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# cicilia conceiçao de maria <ccmaria@uem.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-09-30 20:01+0000\n"
+"PO-Revision-Date: 2022-10-18 07:27+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -322,11 +323,12 @@ msgid "admin.copyAccessLogFileTool.success"
 msgstr "Sucesso: {$filePath} para {$destinationPath}"
 
 msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" retornou o seguinte erro após executado: {$output}"
+msgstr ""
+"A execução do programa \"{$utilPath}\" retornou o seguinte erro: {$output}"
 
 msgid "admin.error.executingUtil"
 msgstr ""
-"Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuração de "
+"Erro: não foi possível executar \"{$utilPath}\". Verifique a configuração de "
 "{$utilVar} em config.inc.php."
 
 msgid "admin.settings.siteLogo"
@@ -694,8 +696,8 @@ msgstr ""
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
-"O arquivo não pôde ser compactado. O arquivo gz de destino aberto "
-"{$filePath} não pôde ser fechado com gzclose."
+"O arquivo não pôde ser compactado. O arquivo gz de destino aberto {$filePath}"
+" não pôde ser fechado com gzclose."
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
@@ -708,7 +710,6 @@ msgstr ""
 "Falha na tarefa que carrega os dados de estatísticas de uso do arquivo "
 "{$file}. O arquivo foi movido para o diretório stage."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Plataforma para Estatísticas COUNTER SUSHI"
 
@@ -732,17 +733,15 @@ msgstr ""
 "publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
 "designar o site como a plataforma."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–"
-"9), sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE "
-"exceder 17 caracteres. Observe que o ID da plataforma é usado em várias "
-"colunas e, portanto, deve ser o mais curto possível, mas ainda reconhecível. "
-"O ID da plataforma geralmente deve ser baseado no nome, em uma abreviação "
-"exclusiva bem conhecida ou no domínio do editor ou da plataforma. Um "
-"identificador padrão curto como GRID ou ROR (sem o https://) também pode ser "
-"usado."
+"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–9)"
+", sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE exceder "
+"17 caracteres. Observe que o ID da plataforma é usado em várias colunas e, "
+"portanto, deve ser o mais curto possível, mas ainda reconhecível. O ID da "
+"plataforma geralmente deve ser baseado no nome, em uma abreviação exclusiva "
+"bem conhecida ou no domínio do editor ou da plataforma. Um identificador "
+"padrão curto como GRID ou ROR (sem o https://) também pode ser usado."
 
 msgid "admin.settings.statistics.keepDaily"
 msgstr "Estatísticas Mensais ou Diárias"

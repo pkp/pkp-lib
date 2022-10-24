@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-09-25 17:01+0000\n"
+"PO-Revision-Date: 2022-10-23 03:01+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -2142,3 +2142,12 @@ msgstr "Institucije"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Ponovna prošnja za opravljanje recenzije je bila poslana."
+
+msgid "common.downloadReport"
+msgstr "Poročilo o prenosih"
+
+msgid "common.geographic"
+msgstr "Geografsko"
+
+msgid "common.searchPhrase"
+msgstr "Iskalna fraza"

@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-06 14:38+0000\n"
+"PO-Revision-Date: 2022-10-09 21:01+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
@@ -700,60 +700,55 @@ msgstr "Използване на сайта като платформа за в
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Идентификатор за платформата (Platform ID)"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Изисква се идентификатор на платформата (Platform ID)"
+msgstr ""
+"Трябва да се изисква идентификатор на платформа, когато сайтът ще бъде "
+"идентифициран като SUSHI платформа."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Платформа за COUNTER SUSHI статистика"
+msgstr "Платформа"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
-"Този софтуер предоставя статистически данни за използването според протокола "
-"COUNTER SUSHI. Този протокол изисква да бъде посочена платформа. По "
-"подразбиране списанието ще бъде определено като платформа за всички "
-"статистики. Въпреки това, ако всички списания на този сайт са публикувани, "
-"притежавани или управлявани от един и същ доставчик, може да пожелаете да "
-"посочите сайта като платформа."
+"Съгласно протокола COUNTER SUSHI, всеки статистически отчет трябва да "
+"идентифицира „платформата“, предоставяща статистиката. По подразбиране "
+"списанието ще бъде определено като платформа за всички статистики. Въпреки "
+"това, ако всички списания на този сайт са публикувани, притежавани или "
+"управлявани от един и същ доставчик, може да пожелаете да посочите сайта "
+"като платформа."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"Идентификатора на платформата (Platform ID) ТРЯБВА да съдържа само ASCII "
-"букви (a–z, A–Z), цифри (0–9), долна черта (_), точки (.) и наклонени черти "
-"(/), а дължината НЕ ТРЯБВА да надвишава 17 знака. Имайте предвид, че "
-"идентификаторът на платформата се използва в различни колони и следователно "
-"трябва да бъде възможно най-кратък, но все пак разпознаваем. "
-"Идентификационният номер на платформата обикновено трябва да се базира на "
-"името, добре познато уникално съкращение или домейна на издателя или "
-"платформата. Може да се използва и кратък стандартен идентификатор като GRID "
-"или ROR (без https://)."
+"Как да идентифицирате тази платформа в отчетите на COUNTER SUSHI. "
+"Идентификаторът на платформата трябва да бъде 17 знака или по-малко и може "
+"да съдържа букви (a–z, A–Z), цифри (0–9), долна черта (_), точки (.) и "
+"наклонени черти (/). ID на платформата се използва в няколко колони и трябва "
+"да бъде възможно най-кратък, като същевременно остава разпознаваем. ID на "
+"платформата обикновено се основава на името на издател или платформа, име на "
+"домейн или добре познато, уникално съкращение."
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily"
-msgstr "Ежедневни показатели"
+msgstr "Месечни или ежедневни показатели"
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
-"Статистиките за БРОЯЧ (COUNTER) и Гео използване (Geo usage) се обобщават на "
-"месец. След това дневните записи се изтриват. Изберете тази опция, ако "
-"искате да запазите ежедневните записи в базата данни. Имайте предвид, че "
-"това значително ще увеличи вашата база данни."
+"Дали да се проследява дневна или месечна статистика за употреба. "
+"Проследяването на ежедневна статистика може значително да увеличи размера на "
+"вашата база данни."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr "Изберете какво да правите с архивираните регистрационни файлове."
+msgstr ""
+"Статистиката се генерира от регистрационни файлове за достъп, които се "
+"преместват в <code>{$path}</code>, след като бъдат обработени. Трябва ли "
+"регистрационните файлове да бъдат компресирани в <code>.gz</code> файлове, "
+"след като бъдат обработени? Компресирането на лог файлове може да спести "
+"дисково пространство на сървъра."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr "Оставяне на архивираните лог файлове такива, каквито са"
+msgstr "Оставяне на лог файлове такива без компресиране"
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Компресиране на архиви"
+msgstr "Компресиране на лог файловете"
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Обработка на чакащите задания на опашка"
@@ -768,3 +763,136 @@ msgstr ""
 "Стартирайте безкраен работен процес на приложението, който ще продължи да "
 "обработва задания. Използвайте флага --help, за да видите наличните опции, "
 "свързани с тази команда."
+
+msgid "admin.settings.statistics.collection"
+msgstr "Събиране на данни"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+"Конфигурирайте какви статистически данни за употребата трябва да се събират."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Хранилище за данни"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"Конфигурирайте каква статистика за използване трябва да се съхранява на "
+"сървъра."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi протокол"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+"Изпълнението на {$jobCount} задачи в опашката с име {$queueName} е завършено."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Няма налични задачи за изпълнение в опашката с име {$queueName}."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Изпратено тестово задание, което е обвързано с неуспех в опашка с име "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Изпратено тестово задание, което е обвързано с успех в опашка с име "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Няма намерени задачи за изтриване."
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Конфигурирайте протокола <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, признат от индустрията формат за "
+"разпространение на статистически данни за употребата."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Проследяване на дневни и месечни статистики"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Проследяване само на месечни статистики"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Компресиране на регистрационни файлове (log файлове)"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Ограничете достъпа до API за статистика на COUNTER SUSHI до мениджъри и "
+"администратори"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "опции за работни команди"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "употреба: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Налични опции за работна команда"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Името на връзката на опашката за работа [default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Името на опашката за работа [default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Име на обработващия [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Броят секунди за изчакване преди повторен опит за задание, което е срещнало "
+"неуловено изключение [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Ограничението на паметта в мегабайти[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"Броят секунди, които дъщерен процес може да изпълнява [default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Принуждаване на обработващия процес да работи дори в режим на "
+"поддръжка[default: {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Спиране, когато опашката е празна[default: {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "Броят задания за обработка преди спиране [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Брой секунди за пауза между заданията [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Стартирайте работния процес за тестване на опашка"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Изпращане на налични задания в опашката. Ако искате да изпратите задача в "
+"конкретна опашка, подайте параметъра --queue=QUEUE_NAME. Също така може "
+"просто да премине --test за изпълнение на тестовата задача и --once за "
+"изпълнение на една задача наведнъж"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Невалидна опция за тестова работа. Може да приема само „неуспешно“ ('failed')"
+" или „успешно“ ('success') за опцията '--only='"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Броят секунди за \"заспиване\", когато няма налична работа [default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Брой пъти за опити за задание, преди регистрирането да е неуспешно [default :"
+" '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Максималният брой секунди, в които обработващия процес трябва да бъде "
+"изпълнен [default : '{$default}']"

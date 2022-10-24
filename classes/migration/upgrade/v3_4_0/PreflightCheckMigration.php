@@ -31,6 +31,7 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
     {
         return 'journal_id';
     }
+    
     public function up(): void
     {
         parent::up();

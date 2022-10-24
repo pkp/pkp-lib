@@ -1947,7 +1947,7 @@ msgid "validator.country"
 msgstr "This is not a valid country."
 
 msgid "validator.country.regex"
-msgstr "Invalid country code formate. Country code must be a 2 letter code in english capital letter."
+msgstr "This is not a valid country. The country must be one of the 2-letter international codes. See all codes at https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "This is not a valid currency."

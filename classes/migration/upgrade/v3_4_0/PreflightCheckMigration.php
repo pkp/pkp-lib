@@ -13,10 +13,12 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Exception;
 use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
+use Throwable;
 
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
 {
@@ -30,6 +32,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     public function up(): void
     {
         try {
+
+            // pkp/pkp-lib#8183 check to see if all contexts' contact name/email are set
+            $this->checkContactSetting();
+
             // pkp/pkp-lib#6903 Prepare to add foreign key relationships
             // Clean orphaned assoc_type/assoc_id data in announcement_types
             $orphanedIds = DB::table('announcement_types AS at')->leftJoin($this->getContextTable() . ' AS c', 'at.assoc_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->orWhere('at.assoc_type', '<>', Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');
@@ -312,7 +318,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Flag orphaned authors entries by user_group_id
             $result = DB::table('authors AS a')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')->whereNull('ug.user_group_id')->distinct()->select('a.author_id AS author_id, a.publication_id AS publication_id, a.user_group_id AS user_group_id, p.submission_id AS submission_id')->get();
             foreach ($result as $row) {
-                $this->_installer->log("Found an orphaned authors entry with author_id ${row->author_id} for publication_id ${row->publication_id} with submission_id ${row->submission_id} and user_group_id ${row->user_group_id}.");
+                $this->_installer->log("Found an orphaned authors entry with author_id {$row->author_id} for publication_id {$row->publication_id} with submission_id {$row->submission_id} and user_group_id {$row->user_group_id}.");
             }
             if ($result->count()) {
                 throw new Exception('There are author records without matching user_group entries. Please correct these before upgrading.');
@@ -454,7 +460,8 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $contextId) {
                 DB::table($this->getContextSettingsTable())->where($this->getContextKeyField(), '=', $contextId)->delete();
             }
-        } catch (\Exception $e) {
+
+        } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
             }
@@ -488,4 +495,48 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         }
         return null;
     }
+
+    /**
+     * Check the contexts' contact details before upgrade
+     *
+     * @return void
+     * @throws Exception
+     */
+    protected function checkContactSetting(): void
+    {
+        $primaryLocale = DB::table('site')
+            ->select(['primary_locale'])
+            ->first()
+            ->primary_locale;
+
+        $missingContactContexts = DB::table("{$this->getContextTable()}")
+            ->select([
+                "{$this->getContextKeyField()}",
+            ])
+            ->addSelect(["title" => DB::table("{$this->getContextSettingsTable()}")
+                ->select(["setting_value"])
+                ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
+                ->where("locale", $primaryLocale)
+                ->where("setting_name", "name")
+            ])
+            ->whereNotIn("{$this->getContextKeyField()}", fn($query) => $query
+                ->select("{$this->getContextKeyField()}")
+                ->from("{$this->getContextSettingsTable()}")
+                ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
+                ->whereIn("setting_name", ["contactEmail", "contactName"])
+            )
+            ->get();
+        
+        if ($missingContactContexts->count() <= 0) {
+            return;
+        }
+
+        throw new Exception(
+            sprintf(
+                "Missing contact name/email information for contexts [%s], please set those before upgrading",
+                $missingContactContexts->pluck('title')->implode(',')
+            )
+        );
+    }
+
 }

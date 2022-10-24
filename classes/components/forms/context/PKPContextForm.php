@@ -57,12 +57,13 @@ class PKPContextForm extends FormComponent
             return strcmp($a['label'], $b['label']);
         });
 
-        $this->addField(new FieldText('name', [
-            'label' => __('manager.setup.contextTitle'),
-            'isRequired' => true,
-            'isMultilingual' => true,
-            'value' => $context ? $context->getData('name') : null,
-        ]))
+        $this
+            ->addField(new FieldText('name', [
+                'label' => __('manager.setup.contextTitle'),
+                'isRequired' => true,
+                'isMultilingual' => true,
+                'value' => $context ? $context->getData('name') : null,
+            ]))
             ->addField(new FieldText('acronym', [
                 'label' => __('manager.setup.contextInitials'),
                 'size' => 'small',
@@ -70,6 +71,16 @@ class PKPContextForm extends FormComponent
                 'isMultilingual' => true,
                 'groupId' => 'identity',
                 'value' => $context ? $context->getData('acronym') : null,
+            ]))
+            ->addField(new FieldText('contactName', [
+                'label' => __('manager.setup.principalContact') .' '. __('common.name'),
+                'isRequired' => true,
+                'value' => $context ? $context->getData('contactName') : null,
+            ]))
+            ->addField(new FieldText('contactEmail', [
+                'label' => __('manager.setup.principalContact') .' '. __('user.email'),
+                'isRequired' => true,
+                'value' => $context ? $context->getData('contactEmail') : null,
             ]))
             ->addField(new FieldSelect('country', [
                 'label' => __('common.country'),

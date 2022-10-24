@@ -41,8 +41,8 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
 
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             $table->bigInteger('user_group_id')->nullable(false)->change();
-            $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups');
+            $table->index(['user_group_id'], 'subeditor_submission_group_user_group_id');
         });
     }
 
@@ -54,7 +54,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     public function down(): void
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $table->dropForeign('user_group_id');
+            $table->dropForeign('subeditor_submission_group_user_group_id_foreign');
             $table->dropColumn('user_group_id');
         });
     }
@@ -67,29 +67,30 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     protected function setUserGroup(): void
     {
-        DB::table('user_groups')
+        $row = DB::table('user_groups')
             ->where('role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
             ->orderBy('is_default')
             ->get(['user_group_id', 'context_id'])
-            ->each(function ($row) {
-                DB::table('subeditor_submission_group')
-                    ->whereNull('user_group_id')
-                    ->where('context_id', '=', $row->context_id)
-                    ->update(['user_group_id' => $row->user_group_id]);
-            });
+            ->first();
+
+        if ($row) {
+            DB::table('subeditor_submission_group')
+                ->whereNull('user_group_id')
+                ->where('context_id', '=', $row->context_id)
+                ->update(['user_group_id' => $row->user_group_id]);
+        }
     }
 
     /**
      * Delete any orphaned records
      *
-     * 1. Users without a user group. They wouldn't have been
-     *    assigned anyway so the cleanup should not impact
-     *    existing workflows.
+     * 1. Editorial assignments without a user group. They wouldn't have been
+     *    assigned anyway so the cleanup should not impact existing workflows.
      * 2. Editorial assignments without a matching user record.
      */
     protected function deleteOrphanedAssignments(): void
     {
-        DB::table('user_groups')
+        DB::table('subeditor_submission_group')
             ->whereNull('user_group_id')
             ->delete();
 

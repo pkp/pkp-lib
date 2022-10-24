@@ -20,11 +20,12 @@ use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
-use PKP\components\listPanels\PKPContributorsListPanel;
+use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -274,11 +275,9 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
         }
 
-        $contributorsListPanel = new PKPContributorsListPanel(
-            'contributors',
-            __('publication.contributors'),
+        $contributorsListPanel = $this->getContributorsListPanel(
             $submission,
-            $request->getContext(),
+            $submissionContext,
             $locales,
             $authorItems,
             $canEditPublication
@@ -349,6 +348,22 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'workflowStages' => $workflowStages,
             'canAccessProductionStage' => $canAccessProductionStage,
         ]);
+    }
+
+    /**
+     * Get the contributor's list panel
+     */
+    protected function getContributorsListPanel(Submission $submission, Context $context, array $locales, array $authorItems, ?bool $canEditPublication): ContributorsListPanel
+    {
+        return new ContributorsListPanel(
+            'contributors',
+            __('publication.contributors'),
+            $submission,
+            $context,
+            $locales,
+            $authorItems,
+            $canEditPublication
+        );
     }
 
     /**

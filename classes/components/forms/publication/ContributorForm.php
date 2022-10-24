@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/components/form/publication/PKPContributorForm.php
+ * @file classes/components/form/publication/ContributorForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPContributorForm
+ * @class ContributorForm
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for adding and editing a contributor for a publication.
@@ -28,7 +28,7 @@ use Sokil\IsoCodes\IsoCodesFactory;
 
 define('FORM_CONTRIBUTOR', 'contributor');
 
-class PKPContributorForm extends FormComponent
+class ContributorForm extends FormComponent
 {
     /** @copydoc FormComponent::$id */
     public $id = FORM_CONTRIBUTOR;

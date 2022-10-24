@@ -2223,3 +2223,7 @@ msgstr ""
 "Dette er ikke et gyldigt land. Landet skal angives som den internationale "
 "landekode på to bogstaver (fx DK for Danmark). Se alle landekoder på https://"
 "en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

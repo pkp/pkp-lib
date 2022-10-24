@@ -61,7 +61,7 @@
             label="{translate key="submission.wizard.completeSteps"}"
             progress-label="{translate key="common.showingSteps"}"
             :scroll-to="$refs.pageTitle"
-            show-steps-label="{$common.showAllSteps}"
+            show-steps-label="{translate key="common.showAllSteps"}"
             @step:open="openStep"
         >
             <step

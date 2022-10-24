@@ -23,7 +23,6 @@ use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
-use PKP\userGroup\UserGroup;
 
 class UpdateAuthorStageAssignments
 {
@@ -53,7 +52,7 @@ class UpdateAuthorStageAssignments
 
         /** @var StageAssignment $stageAssignment */
         while ($stageAssignment = $stageAssigments->next()) {
-            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $stageAssignment->getUserGroupId());
+            $userGroup = $userGroups->get($stageAssignment->getUserGroupId());
             if (!$userGroup || $stageAssignment->getCanChangeMetadata() === $userGroup->getPermitMetadataEdit()) {
                 continue;
             }

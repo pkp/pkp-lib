@@ -35,7 +35,7 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
      */
     public function __construct($request, &$args, $publicationParameterName = null, $operations = null)
     {
-        parent::__construct($request, $args, $publicationParameterName ?? '', 'user.authorization.invalidPublication', $operations);
+        parent::__construct($request, $args, $publicationParameterName, 'user.authorization.invalidPublication', $operations);
         $this->publicationParameterName = $publicationParameterName;
 
         $callOnDeny = [$request->getDispatcher(), 'handle404', []];

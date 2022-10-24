@@ -9,13 +9,13 @@
  *}
 <div class="submissionWizard__reviewPanel">
     <div class="submissionWizard__reviewPanel__header">
-        <h3 id="review{$step.id}">
-            {$step.reviewName}
+        <h3 id="review{$step.id|escape}">
+            {$step.reviewName|escape}
         </h3>
         <pkp-button
-            aria-describedby="review{$step.id}"
+            aria-describedby="review{$step.id|escape}"
             class="submissionWizard__reviewPanel__edit"
-            @click="openStep('{$step.id}')"
+            @click="openStep('{$step.id|escape}')"
         >
             {translate key="common.edit"}
         </pkp-button>
@@ -23,7 +23,7 @@
     <div
         class="
             submissionWizard__reviewPanel__body
-            submissionWizard__reviewPanel__body--{$step.id}
+            submissionWizard__reviewPanel__body--{$step.id|escape}
         "
     >
         <notification v-if="!components.submissionFiles.items.length" type="warning" class="submissionWizard__reviewEmptyWarning">

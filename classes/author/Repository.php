@@ -209,6 +209,8 @@ class Repository
         $author->setIncludeInBrowse(1);
         $author->setOrcid($user->getOrcid());
 
+        Hook::call('Author::newAuthorFromUser', [$author, $user]);
+
         return $author;
     }
 

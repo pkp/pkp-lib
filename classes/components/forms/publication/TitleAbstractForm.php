@@ -30,7 +30,7 @@ abstract class TitleAbstractForm extends FormComponent
     /** @var bool Whether or not this form is for the submission wizard */
     public bool $isSubmissionWizard = false;
 
-    /** @var int The abstract word limit for this submission */
+    /** @var int The abstract word limit for this submission or 0 for no limit */
     public int $abstractWordLimit = 0;
 
     /** @var bool The abstract word limit for this submission */

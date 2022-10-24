@@ -16,15 +16,10 @@
 
 namespace APP\services\queryBuilders;
 
-use Illuminate\Database\Query\Builder;
 use PKP\services\queryBuilders\PKPStatsGeoQueryBuilder;
 
 class StatsGeoQueryBuilder extends PKPStatsGeoQueryBuilder
 {
-    /**
-     * @copydoc PKPStatsQueryBuilder::_getAppSpecificQuery()
-     */
-    protected function _getAppSpecificQuery(Builder &$q): void
-    {
-    }
+    /** The name of the section column */
+    public string $sectionColumn = 'section_id';
 }

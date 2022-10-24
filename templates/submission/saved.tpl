@@ -18,11 +18,11 @@
         <p>{translate key="submission.wizard.saved.description"}</p>
         <p>
             <a href="{$submissionWizardUrl}">
-                {$submission->getCurrentPublication()->getShortAuthorString()}
+                {$submission->getCurrentPublication()->getShortAuthorString()|escape}
                 —
-                {$submission->getCurrentPublication()->getLocalizedFullTitle()}
+                {$submission->getCurrentPublication()->getLocalizedFullTitle()|escape}
             </a>
         </p>
-        <p>{translate key="submission.wizard.saved.emailConfirmation" email=$email}</p>
+        <p>{translate key="submission.wizard.saved.emailConfirmation" email=$email|escape}</p>
     </div>
 {/block}

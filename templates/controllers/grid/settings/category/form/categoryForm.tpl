@@ -85,7 +85,7 @@
 					id="subEditors[{$userGroupId}][]"
 					value=$id
 					checked=in_array($id, $assignedSubeditors)
-					label={translate key="manager.sections.form.assignEditorAs" name=$username role=$role}
+					label={translate key="manager.sections.form.assignEditorAs" name=$username|escape role=$role|escape}
 					translate=false
 				}
 			{/foreach}

@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/components/listPanels/PKPContributorsListPanel.php
+ * @file classes/components/listPanels/ContributorsListPanel.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPContributorsListPanel
+ * @class ContributorsListPanel
  * @ingroup classes_components_list
  *
  * @brief A ListPanel component for viewing and editing contributors
@@ -14,12 +14,12 @@
 
 namespace PKP\components\listPanels;
 
-use APP\components\forms\publication\ContributorForm;
 use APP\core\Application;
 use APP\submission\Submission;
+use PKP\components\forms\publication\ContributorForm;
 use PKP\context\Context;
 
-class PKPContributorsListPanel extends ListPanel
+class ContributorsListPanel extends ListPanel
 {
     public Submission $submission;
     public Context $context;
@@ -108,22 +108,32 @@ class PKPContributorsListPanel extends ListPanel
     {
         uksort($this->locales, fn ($a, $b) => $a === $this->submission->getLocale() ? -1 : 1);
 
-        $form = new ContributorForm(
-            Application::get()->getRequest()->getDispatcher()->url(
-                Application::get()->getRequest(),
-                Application::ROUTE_API,
-                $this->context->getPath('urlPath'),
-                'submissions/' . $this->submission->getId() . '/publications/__publicationId__/contributors'
-            ),
-            $this->locales,
-            $this->submission,
-            $this->context
+        $apiUrl = Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_API,
+            $this->context->getPath('urlPath'),
+            'submissions/' . $this->submission->getId() . '/publications/__publicationId__/contributors'
         );
+
+        $form = $this->getForm($apiUrl);
 
         $data = $form->getConfig();
         $data['primaryLocale'] = $this->submission->getLocale();
         $data['visibleLocales'] = [$this->submission->getLocale()];
 
         return $data;
+    }
+
+    /**
+     * Get the contributor form
+     */
+    protected function getForm(string $url): ContributorForm
+    {
+        return new ContributorForm(
+            $url,
+            $this->locales,
+            $this->submission,
+            $this->context
+        );
     }
 }

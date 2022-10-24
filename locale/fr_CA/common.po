@@ -2035,3 +2035,7 @@ msgstr "Joindre des fichiers"
 
 msgid "common.attachSelected"
 msgstr "Joindre la sélection"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

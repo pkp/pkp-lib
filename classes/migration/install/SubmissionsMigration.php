@@ -179,8 +179,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_group_id');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups');
+            $table->index(['user_group_id'], 'subeditor_submission_group_user_group_id');
 
-            $table->index(['context_id'], 'section_editors_context_id');
             $table->index(['assoc_id', 'assoc_type'], 'subeditor_submission_group_assoc_id');
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
         });

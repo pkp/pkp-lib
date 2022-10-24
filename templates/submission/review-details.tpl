@@ -10,17 +10,17 @@
 {foreach from=$locales item=$locale key=$localeKey}
     <div class="submissionWizard__reviewPanel">
         <div class="submissionWizard__reviewPanel__header">
-            <h3 id="review{$step.id}">
+            <h3 id="review{$step.id|escape}">
                 {if count($locales) > 1}
-                    {translate key="common.withParenthesis" item=$step.reviewName inParenthesis=$locale}
+                    {translate key="common.withParenthesis" item=$step.reviewName|escape inParenthesis=$locale}
                 {else}
-                    {$step.reviewName}
+                    {$step.reviewName|escape}
                 {/if}
             </h3>
             <pkp-button
-                aria-describedby="review{$step.id}"
+                aria-describedby="review{$step.id|escape}"
                 class="submissionWizard__reviewPanel__edit"
-                @click="openStep('{$step.id}')"
+                @click="openStep('{$step.id|escape}')"
             >
                 {translate key="common.edit"}
             </pkp-button>
@@ -28,7 +28,7 @@
         <div
             class="
                 submissionWizard__reviewPanel__body
-                submissionWizard__reviewPanel__body--{$step.id}
+                submissionWizard__reviewPanel__body--{$step.id|escape}
             "
         >
             {include file="/submission/review-publication-field.tpl" prop="title" inLocale=$localeKey name="{translate key="common.title"}" type="string"}
@@ -49,17 +49,19 @@
                         <h4 class="submissionWizard__reviewPanel__item__header">
                             {translate key="submission.citations"}
                         </h4>
-                        <div
-                            class="submissionWizard__reviewPanel__item__value"
-                            v-html="
-                                publication.citationsRaw
-                                    ? publication
-                                        .citationsRaw
-                                        .trim()
-                                        .replace(/(?:\r\n|\r|\n)/g, '<br>')
-                                    : '{translate key="common.noneProvided"}'
-                            "
-                        ></div>
+                        <div class="submissionWizard__reviewPanel__item__value">
+                            <template v-if="!publication.citationsRaw">
+                                {translate key="common.noneProvided"}
+                            </template>
+                            <div
+                                v-else
+                                v-for="(citation, index) in publication.citationsRaw.trim().split(/(?:\r\n|\r|\n)/g).filter(c => c)"
+                                :key="index"
+                                class="submissionWizard__reviewPanel__citation"
+                            >
+                                {{ citation }}
+                            </div>
+                        </div>
                     </div>
                 {/if}
             {/if}

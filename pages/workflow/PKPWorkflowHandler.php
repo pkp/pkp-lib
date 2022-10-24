@@ -25,7 +25,7 @@ use APP\template\TemplateManager;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
-use PKP\components\listPanels\PKPContributorsListPanel;
+use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -265,11 +265,9 @@ abstract class PKPWorkflowHandler extends Handler
             $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
         }
 
-        $contributorsListPanel = new PKPContributorsListPanel(
-            'contributors',
-            __('publication.contributors'),
+        $contributorsListPanel = $this->getContributorsListPanel(
             $submission,
-            $request->getContext(),
+            $submissionContext,
             $locales,
             $authorItems,
             $canEditPublication
@@ -806,6 +804,22 @@ abstract class PKPWorkflowHandler extends Handler
             throw new Exception('Could not find label for unknown recommendation type.');
         }
         return $decisionType->getRecommendationLabel();
+    }
+
+    /**
+     * Get the contributor list panel
+     */
+    protected function getContributorsListPanel(Submission $submission, Context $context, array $locales, array $authorItems, bool $canEditPublication): ContributorsListPanel
+    {
+        return new ContributorsListPanel(
+            'contributors',
+            __('publication.contributors'),
+            $submission,
+            $context,
+            $locales,
+            $authorItems,
+            $canEditPublication
+        );
     }
 
 

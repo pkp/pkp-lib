@@ -10,17 +10,17 @@
 {foreach from=$locales item=$locale key=$localeKey}
     <div class="submissionWizard__reviewPanel">
         <div class="submissionWizard__reviewPanel__header">
-            <h3 id="review{$step.id}">
+            <h3 id="review{$step.id|escape}">
                 {if count($locales) > 1}
-                    {translate key="common.withParenthesis" item=$step.reviewName inParenthesis=$locale}
+                    {translate key="common.withParenthesis" item=$step.reviewName|escape inParenthesis=$locale}
                 {else}
-                    {$step.reviewName}
+                    {$step.reviewName|escape}
                 {/if}
             </h3>
             <pkp-button
-                aria-describedby="review{$step.id}"
+                aria-describedby="review{$step.id|escape}"
                 class="submissionWizard__reviewPanel__edit"
-                @click="openStep('{$step.id}')"
+                @click="openStep('{$step.id|escape}')"
             >
                 {translate key="common.edit"}
             </pkp-button>
@@ -28,7 +28,7 @@
         <div
             class="
                 submissionWizard__reviewPanel__body
-                submissionWizard__reviewPanel__body--{$step.id}
+                submissionWizard__reviewPanel__body--{$step.id|escape}
             "
         >
             {if in_array($currentContext->getData('keywords'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}

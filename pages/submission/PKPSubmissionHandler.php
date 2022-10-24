@@ -31,7 +31,7 @@ use PKP\components\forms\submission\CommentsForTheEditors;
 use PKP\components\forms\submission\ConfirmSubmission;
 use PKP\components\forms\submission\ForTheEditors;
 use PKP\components\forms\submission\PKPSubmissionFileForm;
-use PKP\components\listPanels\PKPContributorsListPanel;
+use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
 use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
@@ -42,7 +42,6 @@ use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
-use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionHandler extends Handler
 {
@@ -432,9 +431,9 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get an instance of the ContributorsListPanel component
      */
-    protected function getContributorsListPanel(Request $request, Submission $submission, Publication $publication, array $locales): PKPContributorsListPanel
+    protected function getContributorsListPanel(Request $request, Submission $submission, Publication $publication, array $locales): ContributorsListPanel
     {
-        return new PKPContributorsListPanel(
+        return new ContributorsListPanel(
             'contributors',
             __('publication.contributors'),
             $submission,
@@ -447,10 +446,8 @@ abstract class PKPSubmissionHandler extends Handler
 
     /**
      * Get the user groups that a user can submit in
-     *
-     * @return UserGroup[]
      */
-    protected function getSubmitUserGroups(Context $context, User $user): array
+    protected function getSubmitUserGroups(Context $context, User $user): LazyCollection
     {
         $userGroups = Repo::userGroup()
             ->getCollector()
@@ -462,11 +459,15 @@ abstract class PKPSubmissionHandler extends Handler
         // Users without a submitting role can submit as an
         // author role that allows self registration
         if (!$userGroups->count()) {
-            $defaultUserGroup = Repo::userGroup()->getDefaultAuthorUserGroup($context->getId());
-            return $defaultUserGroup ? [$defaultUserGroup] : [];
+            $defaultUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
+            return LazyCollection::make(function () use ($defaultUserGroup) {
+                if ($defaultUserGroup) {
+                    yield $defaultUserGroup->getId() => $defaultUserGroup;
+                }
+            });
         }
 
-        return $userGroups->values()->toArray();
+        return $userGroups;
     }
 
     /**

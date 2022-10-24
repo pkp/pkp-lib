@@ -48,12 +48,10 @@ abstract class SendSubmissionAcknowledgement
             $assignedUserIds[] = $stageAssignment->getUserId();
         }
 
-        $submitterUsers = !empty($assignedUserIds)
-            ? Repo::user()
-                ->getCollector()
-                ->filterByUserIds($assignedUserIds)
-                ->getMany()
-            : collect();
+        $submitterUsers = Repo::user()
+            ->getCollector()
+            ->filterByUserIds($assignedUserIds)
+            ->getMany();
 
         if ($submitterUsers->count()) {
             $mailable = $this->getSubmitterMailable($event, $submitterUsers);

@@ -2193,3 +2193,6 @@ msgstr "Pobierz raport"
 
 msgid "common.geographic"
 msgstr "Geografia"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"

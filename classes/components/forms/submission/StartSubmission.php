@@ -15,6 +15,7 @@
 namespace PKP\components\forms\submission;
 
 use APP\core\Application;
+use Illuminate\Support\Enumerable;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
@@ -32,12 +33,12 @@ class StartSubmission extends FormComponent
     public $id = 'startSubmission';
     public $method = 'POST';
     public Context $context;
-    public array $userGroups;
+    public Enumerable $userGroups;
 
     /**
      * @param UserGroup[] $userGroups The user groups this user can submit as in this context
      */
-    public function __construct(string $action, Context $context, array $userGroups)
+    public function __construct(string $action, Context $context, Enumerable $userGroups)
     {
         $this->action = $action;
         $this->context = $context;
@@ -147,27 +148,21 @@ class StartSubmission extends FormComponent
      *
      * This field is only shown when the user can submit in more
      * than one group.
-     *
-     * @param UserGroup[] $userGroups
      */
-    protected function addUserGroups(array $userGroups): void
+    protected function addUserGroups(Enumerable $userGroups): void
     {
-        if (count($userGroups) < 2) {
+        if ($userGroups->count() < 2) {
             return;
         }
 
-        $hasEditorialRole = false;
-        $options = [];
-        /** @var UserGroup $userGroup */
-        foreach ($userGroups as $userGroup) {
-            if (in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
-                $hasEditorialRole = true;
-            }
-            $options[] = [
-                'value' => $userGroup->getId(),
-                'label' => $userGroup->getLocalizedName(),
-            ];
-        }
+        $options = $userGroups->map(fn (UserGroup $userGroup) => [
+            'value' => $userGroup->getId(),
+            'label' => $userGroup->getLocalizedName(),
+        ]);
+
+        $hasEditorialRole = $userGroups->contains(
+            fn (UserGroup $userGroup) => in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
+        );
 
         $description = __('submission.submit.availableUserGroupsDescription');
         if ($hasEditorialRole) {
@@ -178,8 +173,8 @@ class StartSubmission extends FormComponent
             'label' => __('submission.submit.availableUserGroups'),
             'description' => $description,
             'type' => 'radio',
-            'options' => $options,
-            'value' => $options[0]['value'],
+            'options' => $options->values()->toArray(),
+            'value' => $options->first()['value'],
             'isRequired' => true,
         ]));
     }

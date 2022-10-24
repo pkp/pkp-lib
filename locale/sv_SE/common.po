@@ -2134,3 +2134,7 @@ msgstr "Bifoga filer från bidrag och biblioteket."
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

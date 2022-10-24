@@ -22,8 +22,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     /** @var array */
     public $_args;
 
-    /** @var string */
-    public $_parameterName;
+    public ?string $_parameterName;
 
     /** @var array */
     public $_operations;
@@ -56,11 +55,11 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
      *
      * @param PKPRequest $request
      * @param array $args request parameters
-     * @param string $parameterName the request parameter we expect
+     * @param ?string $parameterName the request parameter we expect
      * @param string $message
      * @param array $operations Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
      */
-    public function __construct($request, &$args, $parameterName, $message = null, $operations = null)
+    public function __construct($request, &$args, ?string $parameterName, $message = null, $operations = null)
     {
         parent::__construct($message);
         $this->_request = $request;
@@ -114,7 +113,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
         $router = $this->_request->getRouter();
         switch (true) {
             case $router instanceof \PKP\core\PKPPageRouter:
-                if (ctype_digit((string) $this->_request->getUserVar($this->_parameterName))) {
+                if ($this->_parameterName !== null && ctype_digit((string) $this->_request->getUserVar($this->_parameterName))) {
                     // We may expect a object id in the user vars
                     return (int) $this->_request->getUserVar($this->_parameterName);
                 } elseif (!$lookOnlyByParameterName && isset($this->_args[0]) && ctype_digit((string) $this->_args[0])) {
@@ -125,19 +124,20 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
 
             case $router instanceof \PKP\core\PKPComponentRouter:
                 // We expect a named object id argument.
-                if (isset($this->_args[$this->_parameterName])
+                if ($this->_parameterName !== null && isset($this->_args[$this->_parameterName])
                         && ctype_digit((string) $this->_args[$this->_parameterName])) {
                     return (int) $this->_args[$this->_parameterName];
                 }
                 break;
 
             case $router instanceof \PKP\core\APIRouter:
-                $handler = $router->getHandler();
-                return $handler->getParameter($this->_parameterName);
+                if ($this->_parameterName !== null) {
+                    $handler = $router->getHandler();
+                    return $handler->getParameter($this->_parameterName);
+                }
                 break;
 
-            default:
-                assert(false);
+            default: throw new Exception('DataObjectRequiredPolicy does not support routers of type ' . get_class($router) . '!');
         }
 
         return false;

@@ -486,7 +486,7 @@ abstract class Repository
             ]
         );
 
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
             ? Application::get()->getRequest()->getContext()
             : Services::get('context')->get($submission->getData('contextId'));
 

@@ -2204,3 +2204,7 @@ msgstr ""
 "Това не е валидна държава. Държавата трябва да е един от 2-буквените "
 "международни кодове. Можете да видите всички кодове на https://en.wikipedia."
 "org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

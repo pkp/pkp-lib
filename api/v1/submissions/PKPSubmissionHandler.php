@@ -513,7 +513,7 @@ class PKPSubmissionHandler extends APIHandler
                 })
                 ->first();
         } else {
-            $submitAsUserGroup = Repo::userGroup()->getDefaultAuthorUserGroup($context->getId());
+            $submitAsUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
             if (!$submitAsUserGroup) {
                 return $response->withStatus(400)->withJson([
                     'userGroupId' => [__('submission.wizard.notAllowed.description')]

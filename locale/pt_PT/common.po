@@ -2219,3 +2219,7 @@ msgstr ""
 "Não é um país válido. O país deve ter um código internacional de duas "
 "letras. Ver todos os códigos em: https://en.wikipedia.org/wiki/"
 "ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

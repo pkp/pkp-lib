@@ -2110,3 +2110,7 @@ msgstr "ここにファイルをドラッグアンドドロップする。"
 
 msgid "common.keepWorking"
 msgstr "働き続ける"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

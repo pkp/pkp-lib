@@ -20,9 +20,9 @@
 {/if}
 
 <div class="submissionWizard__reviewPanel__item">
-    <template v-if="errors.{$prop} && errors.{$localizedProp}">
+    <template v-if="errors.{$prop|escape} && errors.{$localizedProp|escape}">
         <notification
-            v-for="(error, i) in errors.{$localizedProp}"
+            v-for="(error, i) in errors.{$localizedProp|escape}"
             :key="i"
             type="warning"
         >
@@ -36,15 +36,15 @@
     <div
         class="submissionWizard__reviewPanel__item__value"
         {if $type === 'html'}
-            v-html="publication.{$localizedProp}
-                ? publication.{$localizedProp}
+            v-html="publication.{$localizedProp|escape}
+                ? publication.{$localizedProp|escape}
                 : '{translate key="common.noneProvided"}'"
         {/if}
     >
         {if $type === 'array'}
-            <template v-if="publication.{$localizedProp} && publication.{$localizedProp}.length">
+            <template v-if="publication.{$localizedProp|escape} && publication.{$localizedProp|escape}.length">
                 {{
-                    publication.{$localizedProp}
+                    publication.{$localizedProp|escape}
                         .join(
                             __('common.commaListSeparator')
                         )
@@ -56,8 +56,8 @@
         {elseif $type === 'html'}
             {* empty. see v-html above *}
         {else}
-            <template v-if="publication.{$localizedProp}">
-                {{ publication.{$localizedProp} }}
+            <template v-if="publication.{$localizedProp|escape}">
+                {{ publication.{$localizedProp|escape} }}
             </template>
             <template v-else>
                 {translate key="common.noneProvided"}

@@ -2106,7 +2106,7 @@ msgstr "Saved for Later"
 msgid "submission.wizard.saved.description"
 msgstr ""
 "Your submission details have been saved in our system, but it has not yet been submitted for "
-"review. You can return to complete your submission at any time by following the link below."
+"consideration. You can return to complete your submission at any time by following the link below."
 
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr "We have emailed a copy of this link to you at {$email}."

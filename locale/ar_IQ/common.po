@@ -2139,3 +2139,7 @@ msgstr ""
 "هذا ليس بلدًا صحيحًا. البلد ينبغي أن يكون بأحد الرموز العالمية ذات الحرفين. "
 "أنظر رموز كل البلدان في https://en.wikipedia.org/wiki/"
 "ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+

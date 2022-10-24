@@ -72,9 +72,10 @@ class Repository
     {
         return !$parent
             ? $category->getLocalizedTitle()
-            : $parent->getLocalizedTitle()
-                . ' > '
-                . $category->getLocalizedTitle();
+            : __('common.categorySeparator', [
+                'parent' => $parent->getLocalizedTitle(),
+                'child' => $category->getLocalizedTitle()
+            ]);
     }
 
     /**

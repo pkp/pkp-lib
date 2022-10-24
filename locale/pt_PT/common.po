@@ -1,11 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-09-27 12:01+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2022-10-24 10:37+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -746,9 +747,10 @@ msgstr ""
 "\t\t\t<img alt=\"Licença Creative Commons\" style=\"border-width:0\" src=\""
 "//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
-"\t\t<br/>Este trabalho está licenciado sob uma <a rel=\"license\" target=\""
-"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licença "
-"Creative Commons Atribuição 3.0 </a>.\n"
+"\t\t<br/>\n"
+"\t\tEste trabalho está licenciado sob uma <a rel=\"license\" target=\"_blank"
+"\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licença Creative "
+"Commons Attribution 3.0 </a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -2216,3 +2218,12 @@ msgstr "E-mail semanal com tarefas pendentes"
 
 msgid "notification.reviewerResendRequest"
 msgstr "Pedido para reconsiderar o trabalho de revisão enviado."
+
+msgid "common.downloadReport"
+msgstr "Descarregar Relatório"
+
+msgid "common.geographic"
+msgstr "Geográfico"
+
+msgid "common.searchPhrase"
+msgstr "Termo de Pesquisa"

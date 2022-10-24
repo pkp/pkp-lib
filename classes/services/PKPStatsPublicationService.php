@@ -233,7 +233,9 @@ abstract class PKPStatsPublicationService
     /**
      * Consider/add application specific QB filters
      */
-    abstract protected function getAppSpecificFilters(array $args = [], StatsPublicationQueryBuilder &$statsQB): void;
+    protected function getAppSpecificFilters(array $args = [], StatsPublicationQueryBuilder &$statsQB): void
+    {
+    }
 
     /**
      * Get a QueryBuilder object with the passed args

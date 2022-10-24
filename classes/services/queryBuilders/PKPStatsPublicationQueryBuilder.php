@@ -125,7 +125,9 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
     /**
      * Consider/add application specific queries
      */
-    abstract protected function _getAppSpecificQuery(Builder &$q): void;
+    protected function _getAppSpecificQuery(Builder &$q): void
+    {
+    }
 
     /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
@@ -161,10 +163,7 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
         $q->whereBetween(PKPStatisticsHelper::STATISTICS_DIMENSION_DATE, [$this->dateStart, $this->dateEnd]);
 
         if (!empty($this->pkpSectionIds)) {
-            $sectionColumn = 'p.section_id';
-            if (Application::get()->getName() == 'omp') {
-                $sectionColumn = 'p.series_id';
-            }
+            $sectionColumn = 'p.' . $this->sectionColumn;
             $sectionSubmissionIds = DB::table('publications as p')->select('p.submission_id')->distinct()
                 ->from('publications as p')
                 ->where('p.status', Submission::STATUS_PUBLISHED)

@@ -118,14 +118,45 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     }
 
     /**
-     * Get application specific initially allowed parameters for getMany methods
-     */
-    abstract public function getAppSpecificParams(): array;
-
-    /**
      * A helper method to filter and sanitize the application specific request params
      */
-    abstract protected function _processAppSpecificAllowedParams(string $requestParam, mixed $value, array &$returnParams): void;
+    protected function _processAppSpecificAllowedParams(string $requestParam, mixed $value, array &$returnParams): void
+    {
+    }
+
+    /**
+     * Get allowed parameters for getMany methos:
+     * getMany(), getManyFiles(), getManyCountries(), getManyRegions(), getManyCities
+     */
+    protected function getManyAllowedParams()
+    {
+        return [
+            'dateStart',
+            'dateEnd',
+            'count',
+            'offset',
+            'orderDirection',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+        ];
+    }
+
+    /**
+     * Get allowed parameters for getManyTimeline method
+     */
+    protected function getManyTimelineAllowedParams()
+    {
+        return [
+            'dateStart',
+            'dateEnd',
+            'timelineInterval',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+            'type'
+        ];
+    }
 
     /**
      * Get usage stats for a set of publications
@@ -140,19 +171,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $defaultParams = [
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = array_merge(
-            [
-                'dateStart',
-                'dateEnd',
-                'count',
-                'offset',
-                'orderDirection',
-                'searchPhrase',
-                $this->sectionIdsQueryParam,
-                'submissionIds',
-            ],
-            $this->getAppSpecificParams()
-        );
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -217,18 +236,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $defaultParams = [
             'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
-        $initAllowedParams = array_merge(
-            [
-                'dateStart',
-                'dateEnd',
-                'timelineInterval',
-                'searchPhrase',
-                $this->sectionIdsQueryParam,
-                'submissionIds',
-                'type'
-            ],
-            $this->getAppSpecificParams()
-        );
+        $initAllowedParams = $this->getManyTimelineAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -350,19 +358,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $defaultParams = [
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = array_merge(
-            [
-                'dateStart',
-                'dateEnd',
-                'count',
-                'offset',
-                'orderDirection',
-                'searchPhrase',
-                $this->sectionIdsQueryParam,
-                'submissionIds',
-            ],
-            $this->getAppSpecificParams()
-        );
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -430,19 +426,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $defaultParams = [
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = array_merge(
-            [
-                'dateStart',
-                'dateEnd',
-                'count',
-                'offset',
-                'orderDirection',
-                'searchPhrase',
-                $this->sectionIdsQueryParam,
-                'submissionIds',
-            ],
-            $this->getAppSpecificParams()
-        );
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -509,19 +493,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $defaultParams = [
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = array_merge(
-            [
-                'dateStart',
-                'dateEnd',
-                'count',
-                'offset',
-                'orderDirection',
-                'searchPhrase',
-                $this->sectionIdsQueryParam,
-                'submissionIds',
-            ],
-            $this->getAppSpecificParams()
-        );
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -594,19 +566,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $defaultParams = [
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = array_merge(
-            [
-                'dateStart',
-                'dateEnd',
-                'count',
-                'offset',
-                'orderDirection',
-                'searchPhrase',
-                $this->sectionIdsQueryParam,
-                'submissionIds',
-            ],
-            $this->getAppSpecificParams()
-        );
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -706,6 +666,53 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     }
 
     /**
+     * Filter and sanitize the request param
+     */
+    protected function _processParam(string $requestParam, mixed $value): array
+    {
+        $returnParams = [];
+        switch ($requestParam) {
+            case 'dateStart':
+            case 'dateEnd':
+            case 'timelineInterval':
+            case 'searchPhrase':
+            case 'type':
+                $returnParams[$requestParam] = $value;
+                break;
+
+            case 'count':
+                $returnParams[$requestParam] = min(100, (int) $value);
+                break;
+
+            case 'offset':
+                $returnParams[$requestParam] = (int) $value;
+                break;
+
+            case 'orderDirection':
+                $returnParams[$requestParam] = strtoupper($value);
+                break;
+
+            case $this->sectionIdsQueryParam:
+                if (is_string($value) && str_contains($value, ',')) {
+                    $value = explode(',', $value);
+                } elseif (!is_array($value)) {
+                    $value = [$value];
+                }
+                $returnParams['pkpSectionIds'] = array_map('intval', $value);
+                break;
+            case 'submissionIds':
+                if (is_string($value) && str_contains($value, ',')) {
+                    $value = explode(',', $value);
+                } elseif (!is_array($value)) {
+                    $value = [$value];
+                }
+                $returnParams[$requestParam] = array_map('intval', $value);
+                break;
+        }
+        return $returnParams;
+    }
+
+    /**
      * A helper method to filter and sanitize the request params
      *
      * Only allows the specified params through and enforces variable
@@ -718,48 +725,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             if (!in_array($requestParam, $allowedParams)) {
                 continue;
             }
-            switch ($requestParam) {
-                case 'dateStart':
-                case 'dateEnd':
-                case 'timelineInterval':
-                case 'searchPhrase':
-                case 'type':
-                    $returnParams[$requestParam] = $value;
-                    break;
-
-                case 'count':
-                    $returnParams[$requestParam] = min(100, (int) $value);
-                    break;
-
-                case 'offset':
-                    $returnParams[$requestParam] = (int) $value;
-                    break;
-
-                case 'orderDirection':
-                    $returnParams[$requestParam] = strtoupper($value);
-                    break;
-
-                case $this->sectionIdsQueryParam:
-                    if (is_string($value) && str_contains($value, ',')) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $returnParams['pkpSectionIds'] = array_map('intval', $value);
-                    break;
-                case 'submissionIds':
-                    if (is_string($value) && str_contains($value, ',')) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $returnParams[$requestParam] = array_map('intval', $value);
-                    break;
-                default:
-                    $this->_processAppSpecificAllowedParams($requestParam, $value, $returnParams);
-            }
+            $returnParams += $this->_processParam($requestParam, $value);
         }
-        /*
         // Get the context's earliest date of publication if no start date is set
         if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
             $dateRange = Repo::publication()->getDateBoundaries(
@@ -769,7 +736,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             );
             $returnParams['dateStart'] = $dateRange->min_date_published;
         }
-        */
         return $returnParams;
     }
 

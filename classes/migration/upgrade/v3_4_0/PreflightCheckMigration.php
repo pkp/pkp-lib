@@ -13,8 +13,8 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Exception;
 use APP\core\Application;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
@@ -461,6 +461,35 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table($this->getContextSettingsTable())->where($this->getContextKeyField(), '=', $contextId)->delete();
             }
 
+            // Flag users that have same emails if we consider them case insensitively
+            $result = DB::table('users AS a')
+                ->join('users AS b', function ($join) {
+                    $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
+                    $join->on('a.user_id', '<>', 'b.user_id');
+                })
+                ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                ->get();
+            foreach ($result as $row) {
+                $this->_installer->log("The user with user_id {$row->user_id} and email {$row->email} collides with user_id {$row->paired_user_id} and email {$row->paired_email}.");
+            }
+            if ($result->count()) {
+                throw new Exception('Starting with 3.4.0, email addresses are not case sensitive. Your database contains users that have same emails if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
+            }
+
+            // Flag users that have same username if we consider them case insensitively
+            $result = DB::table('users AS a')
+                ->join('users AS b', function ($join) {
+                     $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
+                     $join->on('a.user_id', '<>', 'b.user_id');
+                 })
+                ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                ->get();
+            foreach ($result as $row) {
+                $this->_installer->log("The user with user_id {$row->user_id} and username {$row->username} collides with user_id {$row->paired_user_id} and username {$row->username}.");
+            }
+            if ($result->count()) {
+                throw new Exception('Starting with 3.4.0, usernames are not case sensitive. Your database contains users that have same username if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
+            }
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
@@ -499,7 +528,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Check the contexts' contact details before upgrade
      *
-     * @return void
      * @throws Exception
      */
     protected function checkContactSetting(): void
@@ -513,30 +541,31 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             ->select([
                 "{$this->getContextKeyField()}",
             ])
-            ->addSelect(["title" => DB::table("{$this->getContextSettingsTable()}")
-                ->select(["setting_value"])
-                ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
-                ->where("locale", $primaryLocale)
-                ->where("setting_name", "name")
+            ->addSelect(['title' => DB::table("{$this->getContextSettingsTable()}")
+            ->select(['setting_value'])
+            ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
+            ->where('locale', $primaryLocale)
+            ->where('setting_name', 'name')
             ])
-            ->whereNotIn("{$this->getContextKeyField()}", fn($query) => $query
-                ->select("{$this->getContextKeyField()}")
-                ->from("{$this->getContextSettingsTable()}")
-                ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
-                ->whereIn("setting_name", ["contactEmail", "contactName"])
+            ->whereNotIn(
+                "{$this->getContextKeyField()}",
+                fn ($query) => $query
+            ->select("{$this->getContextKeyField()}")
+            ->from("{$this->getContextSettingsTable()}")
+            ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
+            ->whereIn('setting_name', ['contactEmail', 'contactName'])
             )
             ->get();
-        
+
         if ($missingContactContexts->count() <= 0) {
             return;
         }
 
         throw new Exception(
             sprintf(
-                "Missing contact name/email information for contexts [%s], please set those before upgrading",
+                'Missing contact name/email information for contexts [%s], please set those before upgrading',
                 $missingContactContexts->pluck('title')->implode(',')
             )
         );
     }
-
 }

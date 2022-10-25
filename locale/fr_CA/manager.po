@@ -1,9 +1,10 @@
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-06-22 20:34+0000\n"
+"PO-Revision-Date: 2022-10-25 15:23+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "manager.website.information"
@@ -2194,3 +2195,6 @@ msgstr ""
 "Ce courriel est envoyé automatiquement chaque mois aux rédacteurs et "
 "rédactrices en chef et aux directeurs et directrices de revues pour leur "
 "fournir un aperçu de l'intégrité du système."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Autres soumissions"

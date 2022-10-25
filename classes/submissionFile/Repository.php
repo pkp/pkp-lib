@@ -64,7 +64,12 @@ class Repository extends BaseRepository
                 Repo::galley()->edit($galley, []);
             }
 
-            event(new SubmissionFileDeleted($submissionFile));
+            event(
+                new SubmissionFileDeleted(
+                    (int)$submissionFile->getData('submissionId'), 
+                    (int)$submissionFile->getId()
+                )
+            );
         }
     }
 

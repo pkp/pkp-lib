@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\DB;
 use PKP\plugins\Hook;
 use PKP\statistics\PKPStatisticsHelper;
 
-class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
+abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
 {
     /**
      *Include records for one of these object types:
@@ -123,6 +123,13 @@ class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
     }
 
     /**
+     * Consider/add application specific queries
+     */
+    protected function _getAppSpecificQuery(Builder &$q): void
+    {
+    }
+
+    /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
      */
     protected function _getObject(): Builder
@@ -156,10 +163,7 @@ class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
         $q->whereBetween(PKPStatisticsHelper::STATISTICS_DIMENSION_DATE, [$this->dateStart, $this->dateEnd]);
 
         if (!empty($this->pkpSectionIds)) {
-            $sectionColumn = 'p.section_id';
-            if (Application::get()->getName() == 'omp') {
-                $sectionColumn = 'p.series_id';
-            }
+            $sectionColumn = 'p.' . $this->sectionColumn;
             $sectionSubmissionIds = DB::table('publications as p')->select('p.submission_id')->distinct()
                 ->from('publications as p')
                 ->where('p.status', Submission::STATUS_PUBLISHED)
@@ -168,6 +172,8 @@ class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
                 $join->on('metrics_submission.' . PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, '=', 'ss.submission_id');
             });
         }
+
+        $this->_getAppSpecificQuery($q);
 
         if ($this->limit > 0) {
             $q->limit($this->limit);

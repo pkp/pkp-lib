@@ -204,13 +204,12 @@
 									</tr>
 								</table>
 								<action-panel class="pkpStats__reportAction">
-									<h2 id="report-type-articles">{translate key="common.publications"}</h2>
-									<p id="report-type-articles-description">
+									<h2>{translate key="common.publications"}</h2>
+									<p>
 										{translate key="stats.publications.downloadReport.downloadSubmissions.description"}
 									</p>
 									<template slot="actions">
 										<pkp-button
-											aria-describedby="report-type-articles report-type-articles-description"
 											@click="downloadReport"
 										>
 											{translate key="stats.publications.downloadReport.downloadSubmissions"}
@@ -218,13 +217,12 @@
 									</template>
 								</action-panel>
 								<action-panel class="pkpStats__reportAction">
-									<h2 id="report-type-files">Files</h2>
-									<p id="report-type-files-description">
+									<h2>{translate key="submission.files"}</h2>
+									<p>
 										{translate key="stats.publications.downloadReport.downloadFiles.description"}
 									</p>
 									<template slot="actions">
 										<pkp-button
-											aria-describedby="report-type-files report-type-files-description"
 											@click="downloadReport('files')"
 										>
 											{translate key="stats.publications.downloadReport.downloadFiles"}
@@ -233,16 +231,18 @@
 								</action-panel>
 								{if $geoReportType}
 									<action-panel class="pkpStats__reportAction">
-										<h2 id="report-type-geographic">{translate key="common.geographic"}</h2>
-										<p id="report-type-geographic-description">
+										<h2>
+											{translate key="common.geographic"}
+											<tooltip
+												tooltip="{translate key="stats.geographic.ccAttribution"}"
+												label="{translate key="stats.geographic.tooltip.label"}"
+											></tooltip>
+										</h2>
+										<p>
 											{translate key="stats.publications.downloadReport.downloadGeographic.description"}
-										</p>
-										<p id="report-type-geographic-ccAttribution">
-											{translate key="stats.geographic.ccAttribution"}
 										</p>
 										<template slot="actions">
 											<pkp-button
-												aria-describedby="report-type-geographic report-type-geographic-description"
 												@click="downloadReport('{$geoReportType}')"
 											>
 												{translate key="stats.publications.downloadReport.downloadGeographic"}

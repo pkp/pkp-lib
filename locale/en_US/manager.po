@@ -2515,7 +2515,10 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr "<a href='https://db-ip.com'>IP Geolocation by DB-IP</a>"
+msgstr "Geolocation provided by <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "About Geolocation"
 
 msgid "stats.downloadReport.betweenDates"
 msgstr "{$startDate} to {$endDate}"

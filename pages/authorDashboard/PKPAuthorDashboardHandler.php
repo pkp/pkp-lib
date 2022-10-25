@@ -367,10 +367,10 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $templateMgr->assign([
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
-            'pageTitle' => join(__('common.titleSeparator'), [
+            'pageTitle' => implode(__('common.titleSeparator'), array_filter([
                 $submission->getShortAuthorString(),
                 $submission->getLocalizedTitle()
-            ]),
+            ])),
             'submission' => $submission,
             'workflowStages' => $workflowStages,
             'canAccessProductionStage' => $canAccessProductionStage,

@@ -15,7 +15,7 @@
  */
 
 namespace APP\API\v1\stats\publications;
- 
+
 class StatsPublicationHandler extends \PKP\API\v1\stats\publications\PKPStatsPublicationHandler
 {
     /** @var string The name of the section ids query param for this application */

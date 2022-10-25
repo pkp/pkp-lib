@@ -14,8 +14,8 @@
  *
  */
 
-namespace APP\API\v1\stats;
- 
+namespace APP\API\v1\stats\editorial;
+
 class StatsEditorialHandler extends \PKP\API\v1\stats\editorial\PKPStatsEditorialHandler
 {
     /** @var string The name of the section ids query param for this application */

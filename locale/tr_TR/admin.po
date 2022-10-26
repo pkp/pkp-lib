@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-09-05 15:57+0000\n"
+"PO-Revision-Date: 2022-10-27 11:08+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr_TR/>\n"
@@ -422,3 +422,71 @@ msgstr "DB-IP city lite veritabanını güncelleyin"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Zaman geçersiz bir formatta."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Aşağıdakilerden birini mi demek istediniz?"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Seçenek boş bırakılamaz! Kullanım yöntemini kontrol edin."
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "{$option} seçeneği mevcut değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Context ID bir tam sayı değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "Aday makale ID bir tam sayı değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "Kurum kimlikleri bir dizi değildir."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Günlük ve aylık istatistikleri takip edin"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Veri Toplama"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Ne tür kullanım istatistiklerinin toplanması gerektiğini yapılandırın."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Veri Depolama"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"Sunucuda hangi kullanım istatistiklerinin depolanması gerektiğini "
+"yapılandırın."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi Protokol"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platform"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "Representation ID bir tam sayı değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Bağlantı türü desteklenmiyor."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Dosya türü desteklenmiyor."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Ülke, iki alfabetik karakterden oluşan bir dize değildir."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Aylık veya Günlük İstatistikler"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Yalnızca aylık istatistikleri izleyin"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Kayıtları Sıkıştır"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"

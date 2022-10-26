@@ -63,6 +63,8 @@ class PKPStatsPublicationPage extends PKPStatsComponent
                 'timelineInterval' => $this->timelineInterval,
                 'timelineType' => $this->timelineType,
                 'items' => $this->items,
+                'dateRangeLabel' => __('stats.dateRange'),
+                'searchPhraseLabel' => __('common.searchPhrase'),
                 'itemsOfTotalLabel' => __('stats.publications.countOfTotal'),
                 'betweenDatesLabel' => __('stats.downloadReport.betweenDates'),
                 'allDatesLabel' => __('stats.dateRange.allDates'),

@@ -38,6 +38,14 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
     public const PARSEREGEX = '/^(?P<ip>\S+) \S+ \S+ "(?P<date>.*?)" (?P<url>\S+) (?P<returnCode>\S+) "(?P<userAgent>.*?)"/';
 
     /**
+     * Weather the URL parameters are used instead of CGI PATH_INFO.
+     * This is the former variable 'disable_path_info' in the config.inc.php
+     *
+     * This needs to be set to true if the URLs in the old log file contain the paramteres as URL query string.
+     */
+    public const PATH_INFO_DISABLED = false;
+
+    /**
      * Name of the log file that should be converted into the new format.
      *
      * The file needs to be in the folder usageStats/archive/
@@ -272,16 +280,14 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
 
         $expectedPageAndOp = $this->getExpectedPageAndOp();
 
-        $pathInfoDisabled = Config::getVar('general', 'disable_path_info');
-
         // Apache and usage stats plugin log files come with complete or partial base url,
         // remove it so we can retrieve path, page, operation and args.
         $url = Core::removeBaseUrl($url);
         if ($url) {
-            $contextPaths = Core::getContextPaths($url, !$pathInfoDisabled);
-            $page = Core::getPage($url, !$pathInfoDisabled);
-            $operation = Core::getOp($url, !$pathInfoDisabled);
-            $args = Core::getArgs($url, !$pathInfoDisabled);
+            $contextPaths = $this->getContextPaths($url, !self::PATH_INFO_DISABLED);
+            $page = Core::getPage($url, !self::PATH_INFO_DISABLED);
+            $operation = Core::getOp($url, !self::PATH_INFO_DISABLED);
+            $args = Core::getArgs($url, !self::PATH_INFO_DISABLED);
         } else {
             // Could not remove the base url, can't go on.
             // __('plugins.generic.usageStats.removeUrlError', array('file' => $filePath, 'lineNumber' => $lineNumber))
@@ -367,6 +373,8 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
                 ];
                 $pageAndOp[Application::getContextAssocType()][] = 'index';
                 break;
+            default:
+                throw new Exception('Unrecognized application name.');
         }
         return $pageAndOp;
     }
@@ -396,22 +404,29 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
                     break;
                 }
 
-                if (Application::get()->getName() == 'omp') {
-                    if (!isset($args[2])) {
-                        echo "Missing URL parameter.\n";
+                switch (Application::get()->getName()) {
+                    case 'ojs2':
+                    case 'ops':
+                        // consider this issue: https://github.com/pkp/pkp-lib/issues/6573
+                        // apache log files contain URL download/submissionId/galleyId, i.e. without third argument
+                        $submissionFileId = $galley->getData('submissionFileId');
+                        if (isset($args[2]) && $args[2] != $submissionFileId) {
+                            echo "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}.\n";
+                            break 2;
+                        }
                         break;
-                    } else {
-                        $submissionFileId = (int) $args[2];
-                    }
-                } else {
-                    // consider this issue: https://github.com/pkp/pkp-lib/issues/6573
-                    // apache log files contain URL download/submissionId/galleyId, i.e. without third argument
-                    $submissionFileId = $galley->getData('submissionFileId');
-                    if (isset($args[2]) && $args[2] != $submissionFileId) {
-                        echo "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}.\n";
+                    case 'omp':
+                        if (!isset($args[2])) {
+                            echo "Missing URL parameter.\n";
+                            break 2;
+                        } else {
+                            $submissionFileId = (int) $args[2];
+                        }
                         break;
-                    }
+                    default:
+                        throw new Exception('Unrecognized application name!');
                 }
+
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
                     echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
@@ -443,13 +458,11 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
                 }
                 // If the operation is 'view' and the arguments count > 1
                 // the arguments must be: $submissionId/version/$publicationId.
-                // Else, it is not considered hier, as submission abstract count.
+                // Else, it is not considered here, as submission abstract count.
                 if ($op == 'view' && count($args) > 1) {
                     if ($args[1] !== 'version') {
-                        echo "Wrong URL parameter. Expected 'verison' found {$args[1]}.\n";
                         break;
                     } elseif (count($args) != 3) {
-                        echo "Missing URL parameter.\n.\n";
                         break;
                     }
                     $publicationId = (int) $args[2];
@@ -483,6 +496,10 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
                 case 'omp':
                     $this->setOMPAssoc($assocType, $args, $newEntry);
                     break;
+                case 'ops':
+                    break; // noop
+                default:
+                    throw new Exception('Unrecognized application name!');
             }
         }
     }
@@ -563,6 +580,119 @@ class ConvertUsageStatsLogFile extends \PKP\cliTool\CommandLineTool
                 $newEntry['assocType'] = $assocType;
                 break;
         }
+    }
+
+
+    /**
+     * Get context paths present into the passed
+     * url information.
+     */
+    protected static function getContextPaths(string $urlInfo, bool $isPathInfo): array
+    {
+        $contextPaths = [];
+        $application = Application::get();
+        $contextList = $application->getContextList();
+        $contextDepth = $application->getContextDepth();
+        // Handle context depth 0
+        if (!$contextDepth) {
+            return $contextPaths;
+        }
+        if ($isPathInfo) {
+            // Split the path info into its constituents. Save all non-context
+            // path info in $contextPaths[$contextDepth]
+            // by limiting the explode statement.
+            $contextPaths = explode('/', trim((string) $urlInfo, '/'), $contextDepth + 1);
+            // Remove the part of the path info that is not relevant for context (if present)
+            unset($contextPaths[$contextDepth]);
+        } else {
+            // Retrieve context from url query string
+            foreach ($contextList as $key => $contextName) {
+                parse_str((string) parse_url($urlInfo, PHP_URL_QUERY), $userVarsFromUrl);
+                $contextPaths[$key] = $userVarsFromUrl[$contextName] ?? null;
+            }
+        }
+        // Canonicalize and clean context paths
+        for ($key = 0; $key < $contextDepth; $key++) {
+            $contextPaths[$key] = (
+                isset($contextPaths[$key]) && !empty($contextPaths[$key]) ?
+                $contextPaths[$key] : 'index'
+            );
+            $contextPaths[$key] = Core::cleanFileVar($contextPaths[$key]);
+        }
+        return $contextPaths;
+    }
+
+    /**
+     * Get the page present into
+     * the passed url information. It expects that urls
+     * were built using the system.
+     */
+    protected static function getPage(string $urlInfo, bool $isPathInfo): string
+    {
+        $page = self::getUrlComponents($urlInfo, $isPathInfo, 0, 'page');
+        return Core::cleanFileVar(is_null($page) ? '' : $page);
+    }
+
+    /**
+     * Get the operation present into
+     * the passed url information. It expects that urls
+     * were built using the system.
+     */
+    protected static function getOp(string $urlInfo, bool $isPathInfo): string
+    {
+        $operation = self::getUrlComponents($urlInfo, $isPathInfo, 1, 'op');
+        return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
+    }
+
+    /**
+     * Get the arguments present into
+     * the passed url information (not GET/POST arguments,
+     * only arguments appended to the URL separated by "/").
+     * It expects that urls were built using the system.
+     */
+    protected static function getArgs(string $urlInfo, bool $isPathInfo): array
+    {
+        return self::getUrlComponents($urlInfo, $isPathInfo, 2, 'path');
+    }
+
+    /**
+     * Get url components (page, operation and args)
+     * based on the passed offset.
+     */
+    protected static function getUrlComponents(string $urlInfo, bool $isPathInfo, int $offset, string $varName = ''): mixed
+    {
+        $component = null;
+
+        $isArrayComponent = false;
+        if ($varName == 'path') {
+            $isArrayComponent = true;
+        }
+        if ($isPathInfo) {
+            $application = Application::get();
+            $contextDepth = $application->getContextDepth();
+
+            $vars = explode('/', trim($urlInfo, '/'));
+            if (count($vars) > $contextDepth + $offset) {
+                if ($isArrayComponent) {
+                    $component = array_slice($vars, $contextDepth + $offset);
+                } else {
+                    $component = $vars[$contextDepth + $offset];
+                }
+            }
+        } else {
+            parse_str((string) parse_url($urlInfo, PHP_URL_QUERY), $userVarsFromUrl);
+            $component = $userVarsFromUrl[$varName] ?? null;
+        }
+
+        if ($isArrayComponent) {
+            if (empty($component)) {
+                $component = [];
+            } elseif (!is_array($component)) {
+                $component = [$component];
+            }
+        }
+
+        return $component;
     }
 }
 

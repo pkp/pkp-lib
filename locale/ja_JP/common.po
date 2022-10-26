@@ -1,8 +1,9 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-11 08:31+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2022-10-27 11:08+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja_JP/>\n"
 "Language: ja_JP\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.downloadPdf"
 msgstr "PDFダウンロード"
@@ -2124,3 +2125,6 @@ msgstr "テンプレートの検索"
 
 msgid "common.dragAndDropHere"
 msgstr "ここにファイルをドラッグアンドドロップする。"
+
+msgid "common.keepWorking"
+msgstr "働き続ける"

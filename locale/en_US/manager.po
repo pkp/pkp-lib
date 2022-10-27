@@ -2547,6 +2547,21 @@ msgstr "Search by title, author and ID"
 msgid "stats.submissionsActive"
 msgstr "Active Submissions"
 
+msgid "stats.timeline"
+msgstr "Timeline"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "The number of {$type} for each {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Download Timeline"
+
+msgid "stats.timelineInterval"
+msgstr "Timeline Interval"
+
+msgid "stats.timelineType"
+msgstr "Timeline Type"
+
 msgid "stats.total"
 msgstr "Total"
 

@@ -233,6 +233,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      */
     public function getManyTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
         $defaultParams = [
             'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
@@ -251,6 +253,10 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                 $dateStart = empty($allowedParams['dateStart']) ? StatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
                 $dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
                 $emptyTimeline = $statsService->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
+                if ($responseCSV) {
+                    $csvColumnNames = $statsService->getTimelineReportColumnNames();
+                    return $response->withCSV($emptyTimeline, $csvColumnNames, 0);
+                }
                 return $response->withJson($emptyTimeline, 200);
             }
             return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
@@ -261,6 +267,10 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER];
         };
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
+        if ($responseCSV) {
+            $csvColumnNames = $statsService->getTimelineReportColumnNames();
+            return $response->withCSV($data, $csvColumnNames, count($data));
+        }
         return $response->withJson($data, 200);
     }
 

@@ -163,6 +163,8 @@ class PKPStatsContextHandler extends APIHandler
      */
     public function getManyTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
         $defaultParams = [
             'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
@@ -197,12 +199,19 @@ class PKPStatsContextHandler extends APIHandler
                 $dateStart = empty($allowedParams['dateStart']) ? PKPStatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
                 $dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
                 $emptyTimeline = Services::get('contextStats')->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
+                if ($responseCSV) {
+                    $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
+                    return $response->withCSV($emptyTimeline, $csvColumnNames, 0);
+                }
                 return $response->withJson($emptyTimeline, 200);
             }
         }
 
         $data = Services::get('contextStats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
-
+        if ($responseCSV) {
+            $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
+            return $response->withCSV($data, $csvColumnNames, count($data));
+        }
         return $response->withJson($data, 200);
     }
 

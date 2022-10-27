@@ -1,8 +1,9 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
+# Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-20 16:56+0000\n"
-"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"PO-Revision-Date: 2022-10-27 14:26+0000\n"
+"Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
 "Language: is_IS\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "metadata.property.displayName.sici"
 msgstr "SICI"
@@ -19,7 +20,7 @@ msgid "submission.layout.confirmDeleteGalley"
 msgstr "Ertu viss um að þú viljir eyða þessu galley?"
 
 msgid "submission.layout.addGalley"
-msgstr "Bæta við Galley  fyrir umbrot"
+msgstr "Bæta við Galley fyrir umbrot"
 
 msgid "submission.lastModified"
 msgstr "Síðast breytt"
@@ -47,7 +48,7 @@ msgstr "Virkja fyrir {$objects}"
 
 msgid "submission.publisherId.description"
 msgstr ""
-"Kenni útgefanda er hægt að nota til að skrá kenni frá ytri gagnagrunni.  Til "
+"Kenni útgefanda er hægt að nota til að skrá kenni frá ytri gagnagrunni. Til "
 "dæmis geta atriði flutt út í geymslu hjá PubMed falið í sér kenni útgefanda. "
 "Þetta á ekki að nota fyrir DOI númer."
 
@@ -2129,3 +2130,11 @@ msgstr "Hætt við ritrýni"
 
 msgid "submission.list.reviewComplete"
 msgstr "Ritrýni skilað"
+
+msgid "submission.firstPublished"
+msgstr "Fyrst birt"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Tölvupóstur með tilkynningu um niðurstöðu var sendur til {$recipientCount} "
+"undir efninu {$subject}."

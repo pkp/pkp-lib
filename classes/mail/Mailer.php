@@ -52,6 +52,11 @@ class Mailer extends IlluminateMailer
      */
     public const BULK_EMAIL_SIZE_LIMIT = 50;
 
+    /*
+     * The encoded symbols count limit in sendmail for addresses in correspondent email header fields
+     */
+    public const SENDMAIL_ADDRESS_LIMIT = 210;
+
     /**
      * Creates new Mailer instance without binding with View
      *
@@ -142,11 +147,11 @@ class Mailer extends IlluminateMailer
 
         if (array_key_exists(Mailable::DATA_KEY_CONTEXT, $data)) {
             $context = $data[Mailable::DATA_KEY_CONTEXT];
-            return $this->events->until(new MessageSendingContext($context, $message, $data)) !== false;
+            return $this->events->until(new MessageSendingContext($context, $message, $this, $data)) !== false;
         }
 
         $site = Application::get()->getRequest()->getSite();
-        return $this->events->until(new MessageSendingSite($site, $message, $data)) !== false;
+        return $this->events->until(new MessageSendingSite($site, $message, $this, $data)) !== false;
     }
 
     /**

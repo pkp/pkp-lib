@@ -2514,10 +2514,16 @@ msgstr "Monthly"
 msgid "stats.pdf"
 msgstr "PDF"
 
-msgid "stats.publications.downloadReport.betweenDates"
+msgid "stats.geographic.ccAttribution"
+msgstr "Geolocation provided by <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "About Geolocation"
+
+msgid "stats.downloadReport.betweenDates"
 msgstr "{$startDate} to {$endDate}"
 
-msgid "stats.publications.downloadReport.allFilters"
+msgid "stats.downloadReport.allFilters"
 msgstr "All {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"

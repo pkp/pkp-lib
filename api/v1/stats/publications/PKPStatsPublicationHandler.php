@@ -322,6 +322,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'dateStart',
             'dateEnd',
             'timelineInterval',
+            'type'
         ]);
 
         Hook::call('API::stats::publication::timeline::params', [&$allowedParams, $slimRequest]);

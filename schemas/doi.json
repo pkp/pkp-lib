@@ -15,21 +15,21 @@
 	  "type": "string",
 	  "description": "Persistent identifier",
 	  "apiSummary": true,
-			"validation": [
-				"regex:/^\\d+(.\\d+)+\\//"
-			]
+	  "validation": [
+		"regex:/^\\d+(.\\d+)+\\//"
+	  ]
 	},
 	"id": {
 	  "type": "integer",
 	  "apiSummary": true,
 	  "readOnly": true
 	},
-		"resolvingUrl": {
-			"type": "string",
-			"description": "DOI URL that resolves to the indicated item",
-			"apiSummary": true,
-			"readOnly": true
-		},
+	"resolvingUrl": {
+	  "type": "string",
+	  "description": "DOI URL that resolves to the indicated item",
+	  "apiSummary": true,
+	  "readOnly": true
+	},
 	"status": {
 	  "type": "integer",
 	  "description": "Persistent identifier status",

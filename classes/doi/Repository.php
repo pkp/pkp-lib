@@ -18,9 +18,9 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use Exception;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
+use PKP\core\PKPString;
 use PKP\Jobs\Doi\DepositSubmission;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -165,8 +165,22 @@ abstract class Repository
             }
         });
 
+        $validator->after(function ($validator) use ($object, $props) {
+            $doi = $props['doi'] ?? null;
+            if ($doi !== null && !$validator->errors()->get('doi')) {
+                $validRegexPattern = '/[^-._;()\/A-Za-z0-9]/';
+
+                Hook::call('Doi::suffixValidation', [&$validRegexPattern]);
+
+                $hasInvalidCharacters = PKPString::regexp_match($validRegexPattern, $doi);
+                if ($hasInvalidCharacters) {
+                    $validator->errors()->add('doi', __('doi.editor.doiSuffixInvalidCharacters'));
+                }
+            }
+        });
+
         if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get(PKPSchemaService::SCHEMA_DOI), []);
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         Hook::call('Doi::validate', [&$errors, $object, $props]);

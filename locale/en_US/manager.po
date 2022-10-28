@@ -910,6 +910,9 @@ msgstr "None"
 msgid "doi.authorization.enabledRequired"
 msgstr "You cannot call this operation without DOIs enabled."
 
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "The DOI contains invalid characters."
+
 msgid "manager.setup.publishing"
 msgstr "Publishing Details"
 

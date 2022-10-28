@@ -399,8 +399,11 @@ abstract class Repository
      * This method performs any actions necessary when a submission's
      * status changes, such as changing the current publication ID
      * and creating or deleting tombstones.
+     *
+     * @param ?int $sectionId If this submission is being deleted, its previous section ID should be specified
+     *    in order to ensure a correctly created tombstone.
      */
-    public function updateStatus(Submission $submission, ?int $newStatus = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null, ?int $sectionId = null)
     {
         $status = $submission->getData('status');
 

@@ -555,11 +555,14 @@ abstract class Repository
     {
         Hook::call('Publication::delete::before', [&$publication]);
 
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $sectionId = $submission->getSectionId();
+
         $this->dao->delete($publication);
 
         // Update a submission's status based on the status of its remaining publications
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        Repo::submission()->updateStatus($submission);
+        Repo::submission()->updateStatus($submission, null, $sectionId);
 
         Hook::call('Publication::delete', [&$publication]);
     }

@@ -20,6 +20,7 @@ use APP\submission\Submission;
 use PKP\config\Config;
 
 use PKP\context\Context;
+use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
 use PKP\oai\OAIUtils;
 use PKP\plugins\Hook;
@@ -33,7 +34,7 @@ class PreprintTombstoneManager
     {
     }
 
-    public function insertPreprintTombstone($preprint, $context)
+    public function insertPreprintTombstone($preprint, $context, PKPSection $section)
     {
         $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /** @var DataObjectTombstoneDAO $tombstoneDao */
@@ -41,7 +42,6 @@ class PreprintTombstoneManager
 
         $tombstoneDao->deleteByDataObjectId($preprint->getId());
         // insert preprint tombstone
-        $section = $sectionDao->getById($preprint->getSectionId());
         $setSpec = $context->getPath() . ':' . OAIUtils::toValidSetSpec($section->getLocalizedAbbrev());
         $oaiIdentifier = 'oai:' . Config::getVar('oai', 'repository_id') . ':' . 'preprint/' . $preprint->getId();
         $oaiSetObjectIds = [

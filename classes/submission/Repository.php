@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use APP\preprint\PreprintTombstoneManager;
 use APP\server\ServerDAO;
 use PKP\context\Context;
+use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
 
@@ -28,7 +29,7 @@ class Repository extends \PKP\submission\Repository
     public $schemaMap = maps\Schema::class;
 
     /** @copydoc \PKP\submission\Repo::updateStatus() */
-    public function updateStatus(Submission $submission, ?int $newStatus = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null, ?PKPSection $section = null)
     {
         $oldStatus = $submission->getData('status');
         parent::updateStatus($submission, $newStatus);
@@ -46,7 +47,11 @@ class Repository extends \PKP\submission\Repository
                 $context = Services::get('context')->get($submission->getData('contextId'));
             }
             $preprintTombstoneManager = new PreprintTombstoneManager();
-            $preprintTombstoneManager->insertPreprintTombstone($submission, $context);
+            if (!$section) {
+                $sectionDao = Application::get()->getSectionDAO();
+                $section = $sectionDao->getById($submission->getSectionId());
+            }
+            $preprintTombstoneManager->insertPreprintTombstone($submission, $context, $section);
         }
     }
 

@@ -113,7 +113,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->string('label', 255)->nullable();
 
             $table->bigInteger('submission_file_id')->unsigned()->nullable();
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('SET NULL');
             $table->index(['submission_file_id'], 'publication_galleys_submission_file_id');
 
             $table->float('seq', 8, 2)->default(0);

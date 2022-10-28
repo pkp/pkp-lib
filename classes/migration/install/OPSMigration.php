@@ -92,7 +92,7 @@ class OPSMigration extends \PKP\migration\Migration
         // The following foreign key relationships are for tables defined in SubmissionsMigration
         // but they depend on publications to exist so are created here.
         Schema::table('submissions', function (Blueprint $table) {
-            $table->foreign('current_publication_id', 'submissions_current_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->foreign('current_publication_id', 'submissions_current_publication_id')->references('publication_id')->on('publications')->onDelete('set null');
         });
         Schema::table('publication_settings', function (Blueprint $table) {
             $table->foreign('publication_id', 'publication_settings_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');

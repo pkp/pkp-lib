@@ -22,21 +22,21 @@ use PKP\tests\PKPTestCase;
 
 class DoiGeneratorTest extends PKPTestCase
 {
-
     public function testEncodeDoi()
     {
         // Provides public access to protected method for testing
-        $doiUtils = new class extends DoiGenerator {
-            public static function base32EncodeSuffix(int $number): string {
+        $doiUtils = new class () extends DoiGenerator {
+            public static function base32EncodeSuffix(int $number): string
+            {
                 return parent::base32EncodeSuffix($number);
             }
         };
         $number = 123;
 
-        self::assertEquals('0000-3v20', $doiUtils::base32EncodeSuffix($number));
-        self::assertEquals('0000-3v20', $doiUtils::base32EncodeSuffix((string) $number));
+        self::assertEquals('00003v20', $doiUtils::base32EncodeSuffix($number));
+        self::assertEquals('00003v20', $doiUtils::base32EncodeSuffix((string) $number));
         self::assertMatchesRegularExpression(
-            '/^[0-9abcdefghjkmnpqrstvwxyz]{4}-[0-9abcdefghjkmnpqrstvwxyz]{2}[0-9]{2}$/',
+            '/^[0-9abcdefghjkmnpqrstvwxyz]{6}[0-9]{2}$/',
             DoiGenerator::encodeSuffix()
         );
     }
@@ -47,7 +47,7 @@ class DoiGeneratorTest extends PKPTestCase
         $decodedValidSuffix = DoiGenerator::decodeSuffix($validSuffix);
         self::assertIsNumeric($decodedValidSuffix);
 
-        $invalidSuffix = '0000-3v25';
+        $invalidSuffix = '00003v25';
         $decodedInvalidSuffix = DoiGenerator::decodeSuffix($invalidSuffix);
         self::assertNull($decodedInvalidSuffix);
     }

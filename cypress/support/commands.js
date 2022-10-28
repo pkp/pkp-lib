@@ -26,7 +26,7 @@ Cypress.Commands.add('runQueueJobs', (queue, test, once) => {
 	if ( queue ) {
 		command = command + ' --queue=' + queue;
 	}
-	
+
 	if ( test || false ) {
 		command = command + ' --test';
 	}
@@ -755,7 +755,7 @@ Cypress.Commands.add('checkDoiAssignment', (selectorId) => {
 	cy.get(`input#${selectorId}`).should($input => {
 		const val = $input.val();
 		expect(val).to.match(
-			/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{4}-[0-9abcdefghjkmnpqrstvwxyz]{2}[0-9]{2}/
+			/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{6}[0-9]{2}/
 			);
 	});
 });

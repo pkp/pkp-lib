@@ -270,10 +270,7 @@ msgid "discussion.notification.subject"
 msgstr "{$subject}"
 
 msgid "discussion.notification.body"
-msgstr ""
-"{$content}"
-"<hr>"
-"<p>Reply to this message at <a href=\"{$submissionUrl}\">{$contextName}</a>."
+msgstr "{$content}"
 
 msgid "discussion.notification.description"
 msgstr "This email is sent when a user creates a new discussion or replies to an existing discussion"

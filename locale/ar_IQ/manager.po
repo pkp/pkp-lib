@@ -1,11 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022.
+# Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-10-23 03:01+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2022-10-29 18:23+0000\n"
+"Last-Translator: Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
 "Language: ar_IQ\n"
@@ -416,13 +417,17 @@ msgid "manager.people.mergeUser"
 msgstr "دمج المستخدمين"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "هل أنت متأكد من رغبتك في دمج {$oldAccountCount}  حساب/حسابات مع الحساب ذو اسم الدخول \"{$newUsername}\"؟ الحساب/الحسابات البالغ عددها {$oldAccountCount} لن يكون لها وجود بعد ذلك. هذا الإجراء غير قابل للتراجع."
+msgstr ""
+"هل أنت متأكد من رغبتك في دمج {$oldAccountCount} حساب/حسابات مع الحساب ذو اسم "
+"الدخول \"{$newUsername}\"؟ الحساب/الحسابات البالغ عددها {$oldAccountCount} "
+"لن يكون لها وجود بعد ذلك. هذا الإجراء غير قابل للتراجع."
 
 msgid "manager.people.mergeUsers"
 msgstr "دمج المستخدمين"
 
 msgid "manager.people.mustChooseRole"
-msgstr "لطفاً، إختر أحد الأدوار من أعلى الصفحة قبل النقر على  \"منح الدور للمستخدم\"."
+msgstr ""
+"لطفاً، إختر أحد الأدوار من أعلى الصفحة قبل النقر على \"منح الدور للمستخدم\"."
 
 msgid "manager.people.mustProvideName"
 msgstr "لطفاً، أدرج الاسم الأخير للمستخدم على الأقل."
@@ -1422,7 +1427,7 @@ msgid "manager.setup.metadata.citations.enable"
 msgstr "تمكين البيانات الوصفية للمراجع"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr "لا تطالب المؤلف بالمراجع  خلال مرحلة التقديم."
+msgstr "لا تطالب المؤلف بالمراجع خلال مرحلة التقديم."
 
 msgid "manager.setup.metadata.citations.request"
 msgstr "أطلب من المؤلف تحديد المراجع خلال مرحلة التقديم."
@@ -2224,7 +2229,7 @@ msgid "manager.dois.actions.deposit.all"
 msgstr "إيداع الكل"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "استعمال النمط الافتراضي."
+msgstr "القياسي."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2553,7 +2558,7 @@ msgstr "عنوان المراسلة للمجلة"
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد "
-"تسليم التحكيم"
+"تسليم التحكيم."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "تذكير التحكيم (مؤتمت)"
@@ -2746,7 +2751,7 @@ msgid "manager.dois.actions.markStale.label"
 msgstr "تأشير معرفات المكونات الرقمية على أنها قديمة"
 
 msgid "manager.dois.actions.description"
-msgstr "إتخذ إجراءً لـ {$count} من العناصر المحددة"
+msgstr "إتخذ إجراءً لـ {$count} من العناصر المحددة."
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
 msgstr "تم تأشير العناصر على أنها غير مسجلة بنجاح"
@@ -2976,3 +2981,30 @@ msgstr ""
 "فيما إذا كان ينبغي تقييد الوصول إلى النهايات الطرفية لواجهة برمجة التطبيق "
 "العائدة إلى COUNTER SUSHI. إذا لم يؤشر، ستكون واجهة برمجة التطبيق متاحة فقط "
 "للمستخدمين الذين يمتلكون دور المشرف أو المدير."
+
+msgid "stats.geographic.ccAttribution"
+msgstr "الموقع الجغرافي بواسطة <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "حول الموقع الجغرافي"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} الى {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "الكل{$filter}"
+
+msgid "stats.timeline"
+msgstr "مخطط الوقت"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "عدد ال {$type} لكل {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "تحميل مخطط الوقت"
+
+msgid "stats.timelineInterval"
+msgstr "فترات مخطط الوقت"
+
+msgid "stats.timelineType"
+msgstr "نوع مخطط الوقت"

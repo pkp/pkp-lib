@@ -20,13 +20,14 @@
  */
 
 namespace PKP\template;
-use APP\facades\Repo;
+
+use APP\core\Application;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
-use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\notification\Notification;
 use APP\submission\Submission;
@@ -1080,6 +1081,11 @@ class PKPTemplateManager extends Smarty
                                     'url' => $router->url($request, null, 'stats', 'publications', 'publications'),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
                                 ],
+                                'context' => [
+                                    'name' => __('context.context'),
+                                    'url' => $router->url($request, null, 'stats', 'context', 'context'),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'context',
+                                ],
                                 'editorial' => [
                                     'name' => __('stats.editorialActivity'),
                                     'url' => $router->url($request, null, 'stats', 'editorial', 'editorial'),
@@ -1241,7 +1247,7 @@ class PKPTemplateManager extends Smarty
                 $userGroups = Repo::userGroup()->userUserGroups($user->getId());
 
                 $userRoles = [];
-                foreach($userGroups as $userGroup) {
+                foreach ($userGroups as $userGroup) {
                     $userRoles[] = (int) $userGroup->getRoleId();
                 }
                 $currentUser = [
@@ -2520,6 +2526,7 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Defines the HTTP headers which will be appended to the output once the display() method gets called
+     *
      * @param string[] List of formatted headers (['header: content', ...])
      */
     public function setHeaders(array $headers): static

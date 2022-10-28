@@ -40,7 +40,7 @@ class PKPStatsHandler extends Handler
         parent::__construct();
         $this->addRoleAssignment(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-            ['editorial', 'publications', 'users', 'reports']
+            ['editorial', 'publications', 'context', 'users', 'reports']
         );
     }
 
@@ -347,6 +347,86 @@ class PKPStatsHandler extends Handler
         ]);
 
         $templateMgr->display('stats/publications.tpl');
+    }
+
+    /**
+     * Display published submissions statistics page
+     *
+     * @param PKPRequest $request
+     * @param array $args
+     */
+    public function context($args, $request)
+    {
+        $dispatcher = $request->getDispatcher();
+        $context = $request->getContext();
+
+        if (!$context) {
+            $dispatcher->handle404();
+        }
+
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+
+        $dateStart = date('Y-m-d', strtotime('-31 days'));
+        $dateEnd = date('Y-m-d', strtotime('yesterday'));
+
+        $timeline = Services::get('contextStats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
+            'dateStart' => $dateStart,
+            'dateEnd' => $dateEnd,
+            'contextIds' => [$context->getId()]
+        ]);
+
+        $statsComponent = new \PKP\components\PKPStatsContextPage(
+            $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'stats/contexts/' . $context->getId()),
+            [
+                'timeline' => $timeline,
+                'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_DAY,
+                'tableColumns' => [
+                    [
+                        'name' => 'title',
+                        'label' => __('common.title'),
+                    ],
+                    [
+                        'name' => 'total',
+                        'label' => __('stats.total'),
+                        'value' => 'total',
+                    ],
+                ],
+                'dateStart' => $dateStart,
+                'dateEnd' => $dateEnd,
+                'dateRangeOptions' => [
+                    [
+                        'dateStart' => $dateStart,
+                        'dateEnd' => $dateEnd,
+                        'label' => __('stats.dateRange.last30Days'),
+                    ],
+                    [
+                        'dateStart' => date('Y-m-d', strtotime('-91 days')),
+                        'dateEnd' => $dateEnd,
+                        'label' => __('stats.dateRange.last90Days'),
+                    ],
+                    [
+                        'dateStart' => date('Y-m-d', strtotime('-12 months')),
+                        'dateEnd' => $dateEnd,
+                        'label' => __('stats.dateRange.last12Months'),
+                    ],
+                    [
+                        'dateStart' => '',
+                        'dateEnd' => '',
+                        'label' => __('stats.dateRange.allDates'),
+                    ],
+                ]
+            ]
+        );
+
+        $templateMgr->setState($statsComponent->getConfig());
+        $templateMgr->assign([
+            'pageComponent' => 'StatsContextPage',
+            'pageTitle' => __('stats.contextStats'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
+        ]);
+
+        $templateMgr->display('stats/context.tpl');
     }
 
     /**

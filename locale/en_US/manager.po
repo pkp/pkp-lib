@@ -2401,6 +2401,18 @@ msgstr "All Users"
 msgid "stats.city"
 msgstr "City"
 
+msgid "stats.views"
+msgstr "Views"
+
+msgid "stats.downloads"
+msgstr "Downloads"
+
+msgid "stats.views.timelineInterval"
+msgstr "Total views by date"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Total downloads by date"
+
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
 

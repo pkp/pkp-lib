@@ -204,7 +204,6 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('submissions', function (Blueprint $table) {
             $table->foreign('context_id', 'submissions_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
             $table->foreign('current_publication_id', 'submissions_publication_id')->references('publication_id')->on('publications')->onDelete('set null');
-            $table->index(['current_publication_id'], 'submissions_publication_id');
         });
         Schema::table('submission_settings', function (Blueprint $table) {
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');

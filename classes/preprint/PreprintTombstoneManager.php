@@ -36,7 +36,6 @@ class PreprintTombstoneManager
 
     public function insertPreprintTombstone($preprint, $context, PKPSection $section)
     {
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /** @var DataObjectTombstoneDAO $tombstoneDao */
         // delete preprint tombstone -- to ensure that there aren't more than one tombstone for this preprint
 
@@ -74,8 +73,10 @@ class PreprintTombstoneManager
                 ->filterByStatus([Submission::STATUS_PUBLISHED])
                 ->getMany();
 
+        $sectionDao = DAORegistry::getDAO('SectionDAO');
         foreach ($submissions as $submission) {
-            $this->insertPreprintTombstone($submission, $context);
+            $section = $sectionDao->getById($submission->getSectionId());
+            $this->insertPreprintTombstone($submission, $context, $section);
         }
     }
 

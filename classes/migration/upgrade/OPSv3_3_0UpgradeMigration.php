@@ -127,7 +127,7 @@ class OPSv3_3_0UpgradeMigration extends \PKP\migration\upgrade\PKPv3_3_0UpgradeM
 
         Schema::table('publication_galleys', function (Blueprint $table) {
             $table->bigInteger('submission_file_id')->nullable()->unsigned()->change();
-            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('SET NULL');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
         });
     }
 }

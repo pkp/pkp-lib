@@ -47,6 +47,10 @@ class I6093_AddForeignKeys extends \PKP\migration\upgrade\v3_4_0\I6093_AddForeig
         });
 
         Schema::table('publication_galleys', function (Blueprint $table) {
+            // Add the SET NULL constraint (didn't exist previously)
+            $table->dropForeign('publication_galleys_submission_file_id_foreign');
+            $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('SET NULL');
+
             $table->foreign('publication_id', 'publication_galleys_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
             $table->index(['submission_file_id'], 'publication_galleys_submission_file_id');
         });

@@ -26,11 +26,7 @@ class DAO extends \PKP\submission\DAO
      */
     public function deleteById(int $id)
     {
-        $preprintSearchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $preprintSearchDao */
-        $preprintSearchDao->deleteSubmissionKeywords($id);
-
         event(new SubmissionDeleted($id));
-
         parent::deleteById($id);
     }
 

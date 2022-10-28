@@ -201,6 +201,13 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
                 $table->index(['review_id'], 'review_form_responses_review_id');
             });
         }
+        // The submissions_publication_id index was created for <3.3.0 but may be incorrect.
+        $schemaManager = DB::getDoctrineSchemaManager();
+        if (in_array('submissions_publication_id', array_keys($schemaManager->listTableIndexes('submissions')))) {
+            Schema::table('submissions', function (Blueprint $table) {
+                $table->dropIndex('submissions_publication_id');
+            });
+        }
         Schema::table('submissions', function (Blueprint $table) {
             $table->foreign('context_id', 'submissions_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
             $table->foreign('current_publication_id', 'submissions_publication_id')->references('publication_id')->on('publications')->onDelete('set null');

@@ -233,7 +233,7 @@ abstract class PKPStatsPublicationService
     /**
      * Consider/add application specific QB filters
      */
-    protected function getAppSpecificFilters(array $args = [], StatsPublicationQueryBuilder &$statsQB): void
+    protected function getAppSpecificFilters(StatsPublicationQueryBuilder &$statsQB, array $args = []): void
     {
     }
 
@@ -272,7 +272,7 @@ abstract class PKPStatsPublicationService
             $statsQB->filterBySubmissionFiles($args['submissionFileIds']);
         }
 
-        $this->getAppSpecificFilters($args, $statsQB);
+        $this->getAppSpecificFilters($statsQB, $args);
 
         if (isset($args['count'])) {
             $statsQB->limit($args['count']);

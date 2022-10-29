@@ -379,7 +379,7 @@ abstract class PKPStatsEditorialQueryBuilder
         })
             ->where(function ($q) {
                 $q->whereNull('pi.date_published')
-                    ->orWhere('s.date_submitted', '<', DB::raw('pi.date_published'));
+                    ->orWhere('s.date_submitted', '<=', DB::raw('pi.date_published'));
             });
 
         Hook::call('Stats::editorial::queryObject', [&$q, $this]);

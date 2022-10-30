@@ -1992,6 +1992,12 @@ msgstr "Submissions Received"
 msgid "stats.name.submissionsSkipped"
 msgstr "Other Submissions"
 
+msgid "stats.name.submissionsInProgress"
+msgstr "Submissions In Progress"
+
+msgid "stats.name.submissionsImported"
+msgstr "Imported Submissions"
+
 msgid "stats.name.submissionsAccepted"
 msgstr "Submissions Accepted"
 

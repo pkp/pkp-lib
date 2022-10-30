@@ -32,7 +32,9 @@ class PKPStatsEditorialService {
 		$received = $this->countSubmissionsReceived($args);
 		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
 		$submissionsPublished = $this->countSubmissionsPublished($args);
-		$submissionsSkipped = $this->countSubmissionsSkipped($args);
+		$submissionsInProgress = $this->countSubmissionsInProgress($args);
+		$submissionsImported = $this->countSubmissionsImported($args);
+		$submissionsSkipped = $submissionsInProgress + $submissionsImported;
 		$declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
 		$declinedReview = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
 		$declined = $declinedDesk + $declinedReview;
@@ -121,6 +123,16 @@ class PKPStatsEditorialService {
 				'key' => 'submissionsSkipped',
 				'name' => 'stats.name.submissionsSkipped',
 				'value' => $submissionsSkipped,
+			],
+			[
+				'key' => 'submissionsInProgress',
+				'name' => 'stats.name.submissionsInProgress',
+				'value' => $submissionsInProgress,
+			],
+			[
+				'key' => 'submissionsImported',
+				'name' => 'stats.name.submissionsImported',
+				'value' => $submissionsImported,
 			],
 			[
 				'key' => 'daysToDecision',
@@ -362,6 +374,32 @@ class PKPStatsEditorialService {
 	 */
 	public function countSubmissionsSkipped($args = []) {
 		return $this->getQueryBuilder($args)->countSkipped();
+	}
+
+	/**
+	 * Get a count of the submissions which are incomplete
+	 *
+	 * Date restrictions will not be applied. It will return the count of
+	 * all incomplete submissions.
+	 *
+	 * @param array $args See self::getQueryBuilder()
+	 * @return int
+	 */
+	public function countSubmissionsInProgress($args = []) {
+		return $this->getQueryBuilder($args)->countInProgress();
+	}
+
+	/**
+	 * Get a count of the submissions which are imported
+	 *
+	 * Date restrictions will not be applied. It will return the count of
+	 * all imported submissions.
+	 *
+	 * @param array $args See self::getQueryBuilder()
+	 * @return int
+	 */
+	public function countSubmissionsImported($args = []) {
+		return $this->getQueryBuilder($args)->countImported();
 	}
 
 	/**

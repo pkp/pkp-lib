@@ -316,14 +316,11 @@ abstract class PKPStatsEditorialQueryBuilder {
 	}
 
 	/**
-	 * Generate a query object based on the configured conditions.
-	 *
-	 * The dateStart and dateEnd filters are not handled here because
-	 * the dates must be applied differently for each set of data.
+	 * Generate a base query object with context and section filters.
 	 *
 	 * @return QueryObject
 	 */
-	protected function _getObject() {
+	protected function _getBaseQuery() {
 		$q = Capsule::table('submissions as s');
 		if (!empty($this->contextIds)) {
 			$q->whereIn('s.context_id', $this->contextIds);
@@ -334,23 +331,40 @@ abstract class PKPStatsEditorialQueryBuilder {
 				->whereNotNull('ps.publication_id');
 		}
 
+		// First publication included to flag imported submissions through heuristics
+		$q->leftJoin('publications as pi', function($q) {
+			$q->where('pi.publication_id', function($q) {
+				$q->from('publications as pi2')
+					->whereColumn('pi2.submission_id', '=', 's.submission_id')
+					->where('pi2.status', '=', STATUS_PUBLISHED)
+					->orderBy('pi2.date_published', 'ASC')
+					->limit(1)
+					->select('pi2.publication_id');
+			});
+		});
+
+		return $q;
+	}
+
+	/**
+	 * Generate a query object based on the configured conditions.
+	 * Incomplete and imported submissions are excluded.
+	 *
+	 * The dateStart and dateEnd filters are not handled here because
+	 * the dates must be applied differently for each set of data.
+	 *
+	 * @return QueryObject
+	 */
+	protected function _getObject(bool $includeSkipped = false, bool $includeImported = false) {
+		$q = $this->_getBaseQuery();
+
 		// Exclude incomplete submissions
 		$q->where('s.submission_progress', '=', 0);
 
 		// Exclude submissions when the date_submitted is later
 		// than the first date_published. This prevents imported
 		// submissions from being counted in editorial stats.
-		$q->leftJoin('publications as pi', function($q) {
-			$q->where('pi.publication_id', function($q) {
-				$q->from('publications as pi2')
-					->where('pi2.submission_id', '=', Capsule::raw('s.submission_id'))
-					->where('pi2.status', '=', STATUS_PUBLISHED)
-					->orderBy('pi2.date_published', 'ASC')
-					->limit(1)
-					->select('pi2.publication_id');
-			});
-		})
-		->where(function($q) {
+		$q->where(function($q) {
 			$q->whereNull('pi.date_published')
 				->orWhere('s.date_submitted', '<=', Capsule::raw('pi.date_published'));
 		});
@@ -404,19 +418,36 @@ abstract class PKPStatsEditorialQueryBuilder {
 	}
 
 	/**
+	 * Get the count of imported submissions.
+	 * Not counted by static::countSubmissionsReceived().
+	 *
+	 * @return int
+	 */
+	public function countImported() {
+		return $this->_getBaseQuery()
+			->whereColumn('s.date_submitted', '>', 'pi.date_published')
+			->count();
+	}
+
+	/**
+	 * Get the count of incomplete submissions.
+	 * Not counted by static::countSubmissionsReceived().
+	 *
+	 * @return int
+	 */
+	public function countInProgress() {
+		return $this->_getBaseQuery()
+			->where('s.submission_progress', '<>', 0)
+			->count();
+	}
+
+	/**
 	 * Get the count of submissions skipped by the other statistics
 	 *
 	 * @return int
 	 */
 	public function countSkipped() {
-		$query = $this->_getObject()
-			->whereColumn('s.submission_id', '=', 'parent.submission_id');
-
-		// Select rows which are not present in the default query
-		$skippedQuery = Capsule::table('submissions AS parent')
-			->addWhereExistsQuery($query, 'and',  true);
-
-		return $skippedQuery->count();
+		return $this->countInProgress() + $this->countImported();
 	}
 
 	/**

@@ -100,6 +100,8 @@ class PKPStatsHandler extends Handler {
 			'daysToReject',
 			'declinedDeskRate',
 			'declinedReviewRate',
+			'submissionsInProgress',
+			'submissionsImported'
 		];
 
 		// Compile table rows

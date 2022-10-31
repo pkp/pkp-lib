@@ -685,3 +685,18 @@ msgstr "Choose a type..."
 
 msgid "grid.action.view"
 msgstr "View"
+
+msgid "author.users.contributor.name"
+msgstr "Name"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Role"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "In Browse Lists"
+
+msgid "grid.action.editContributor"
+msgstr "Edit Contributor"

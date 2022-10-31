@@ -721,3 +721,18 @@ msgstr "Authentifizierungsquelle"
 
 msgid "grid.action.addInstitution"
 msgstr "Einrichtung hinzufügen"
+
+msgid "author.users.contributor.name"
+msgstr "Name"
+
+msgid "author.users.contributor.email"
+msgstr "E-Mail"
+
+msgid "author.users.contributor.role"
+msgstr "Rolle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "In Browse Liste"
+
+msgid "grid.action.editContributor"
+msgstr "Beiträger/in bearbeiten"

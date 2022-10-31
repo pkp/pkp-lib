@@ -731,3 +731,19 @@ msgstr "Visualizar"
 
 msgid "grid.columns.locale.code"
 msgstr "Código"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Papel"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Nas Listas de Navegação"
+
+msgid "grid.action.editContributor"
+msgstr "Editar coautor"
+

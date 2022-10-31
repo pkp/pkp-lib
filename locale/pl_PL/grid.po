@@ -691,3 +691,18 @@ msgstr "Widok"
 
 msgid "grid.columns.locale.code"
 msgstr "Kod"
+
+msgid "author.users.contributor.name"
+msgstr "Nazwisko"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Role"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Widoczny na liście"
+
+msgid "grid.action.editContributor"
+msgstr "Edytuj współautora"

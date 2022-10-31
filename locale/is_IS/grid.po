@@ -699,3 +699,18 @@ msgstr "Taka með ókláruð handrit sem ekki voru send inn af höfundi."
 
 msgid "grid.artworkFile.placement"
 msgstr "Staðsetning í handriti"
+
+msgid "author.users.contributor.name"
+msgstr "Nafn"
+
+msgid "author.users.contributor.email"
+msgstr "Netfang"
+
+msgid "author.users.contributor.role"
+msgstr "Hlutverk"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Á vafralistum"
+
+msgid "grid.action.editContributor"
+msgstr "Breyta framlagsaðila"

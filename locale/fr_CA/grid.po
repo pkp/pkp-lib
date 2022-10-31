@@ -648,3 +648,18 @@ msgstr "Aucun menu de navigation"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Choisir un type..."
 
+
+msgid "author.users.contributor.name"
+msgstr "Nom"
+
+msgid "author.users.contributor.email"
+msgstr "Courriel"
+
+msgid "author.users.contributor.role"
+msgstr "Rôle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dans les listes à parcourir"
+
+msgid "grid.action.editContributor"
+msgstr "Modifier un-e contributeur-trice"

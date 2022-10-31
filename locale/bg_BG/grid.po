@@ -711,3 +711,18 @@ msgstr "Преглед"
 
 msgid "grid.columns.locale.code"
 msgstr "Код"
+
+msgid "author.users.contributor.name"
+msgstr "Име"
+
+msgid "author.users.contributor.email"
+msgstr "Имейл адрес"
+
+msgid "author.users.contributor.role"
+msgstr "Роля"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Включване в списъци"
+
+msgid "grid.action.editContributor"
+msgstr "Редактиране на спомагател/спомоществовател"

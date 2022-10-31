@@ -2359,3 +2359,52 @@ msgstr "Başvuruya herhangi bir dosya eklenmemiştir."
 
 msgid "author.submit.confirmation"
 msgstr "Onay"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Lütfen bir dil ekleyiniz."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Lütfen bir konu ekleyiniz."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Lütfen bir disiplin ekleyiniz."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Lütfen bir anahtar kelime ekleyiniz."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Lütfen kapsam bilgilerini girin."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Lütfen tür giriniz."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Lütfen kaynak giriniz."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Lütfen hakları giriniz."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Lütfen referansları giriniz."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın."
+
+msgid "submission.type.tip"
+msgstr "Gönderi türü genellikle 'görsel', 'metin' veya 'yazılım' veya 'etkileşimli' dahil olmak üzere diğer çoklu ortam türlerinden biridir. Lütfen gönderinizle ilgili olanı seçin. Örnekler <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> adresinde bulunabilir."
+
+msgid "submission.source.tip"
+msgstr "Bu gönderi başka bir kaynaktan mı yapılıyor? Öyleyse, bu kaynağın bir URL'sini veya açıklamasını girebilirsiniz."
+
+msgid "submission.rights.tip"
+msgstr "Dilerseniz, bu gönderi veya bu erişim üzerinde tutulan erişim hakları hakkında kısa bir açıklama girebilirsiniz."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden gönderinin birincil dilini seçin."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Editör yazışmaları için ana iletişim."

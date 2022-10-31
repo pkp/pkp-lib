@@ -1926,3 +1926,50 @@ msgstr "Δεν έχουν επισυναφθεί αρχεία στη συγκε�
 
 msgid "author.submit.confirmation"
 msgstr "5. Επιβεβαίωση"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Εισάγετε μια γλώσσα."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Εισάγετε ένα θέμα."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Εισάγετε μια λέξη-κλειδί."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Προσθέστε επιπλέον πληροφορίες για την υποβολή σας.  Πατήστε «enter» μετά "
+"από κάθε όρο."
+
+msgid "submission.type.tip"
+msgstr ""
+"Ο τύπος υποβολής είναι συνήθως «εικόνα», «κείμενο» ή άλλα πολυμέσα, όπως "
+"«λογισμικό» και «διαδραστικό υλικό».  Επιλέξτε αυτό που είναι πλέον σχετικό "
+"με την υποβολή σας.  Μπορείτε να βρείτε παραδείγματα στο  <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Αν αυτή η υποβολή απορρέει από μια άλλη πηγή, μπορείτε να εισάγετε έναν "
+"σύνδεσμο ή μια περιγραφή αυτής της πηγής."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Αν επιθυμείτε, μπορείτε να προσθέσετε μια περιληπτική δήλωση σχετικά με τα "
+"δικαιώματα πρόσβασης που ακολουθούν αυτή την υποβολή."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Προσθέστε επιπλέον πληροφορίες για την υποβολή σας.  Πατήστε «enter» μετά "
+"από κάθε όρο."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Γίνονται δεκτές υποβολές σε αρκετές γλώσσες.  Επιλέξτε την κύρια γλώσσα της "
+"υποβολής από την ακόλουθη λίστα."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Κύρια επαφή για την συντακτική αλληλογραφία."

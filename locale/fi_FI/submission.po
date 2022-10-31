@@ -1932,3 +1932,52 @@ msgstr "Tähän käsikirjoitukseen ei ole liitetty tiedostoja."
 
 msgid "author.submit.confirmation"
 msgstr "Vahvistus"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Anna kieli."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Anna aihe."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Anna tieteenala."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Anna avainsana."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Anna kattavuustiedot."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Anna tyyppi."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Anna lähde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Anna oikeudet."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Anna viitteet."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lisää käsikirjoitukseesi lisätietoja. Paina enteriä jokaisen termin jälkeen."
+
+msgid "submission.type.tip"
+msgstr "Käsikirjoitustiedosto on yleensä muodoltaan \"kuva\", \"teksti\" tai muu multimediamuoto, kuten \"ohjelmisto\" tai \"interaktiivinen\". Valitse käsikirjoituksesi kannalta oleellisin muoto. Esimerkkejä löytyy osoitteesta <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Onko tämä käsikirjoitus peräisin toisesta resurssista? Siinä tapauksessa voit antaa URL-osoitteen tai kuvauksen kyseisestä resurssista."
+
+msgid "submission.rights.tip"
+msgstr "Voit halutessasi kertoa lyhyesti tämän käsikirjoituksen käyttöoikeuksista."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lisää käsikirjoitukseesi lisätietoja. Paina enteriä jokaisen termin jälkeen."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Tämä paino hyväksyy käsikirjoituksia useilla kielillä. Valitse käsikirjoituksen ensisijainen kieli yllä olevasta vetovalikosta."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Pääasiallinen yhteyshenkilö toimituksellisissa yhteydenotoissa."

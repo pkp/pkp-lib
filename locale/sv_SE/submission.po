@@ -2325,3 +2325,52 @@ msgstr "Inga filer har laddats upp till det här bidraget."
 
 msgid "author.submit.confirmation"
 msgstr "Bekräfta"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vänligen ange språk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vänligen ange ett ämne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vänligen ange en disciplin."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vänligen ange nyckelord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vänligen ange information om täckning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vänligen ange typ."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vänligen ange källa."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vänligen ange rättigheter."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vänligen ange referenser."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
+
+msgid "submission.type.tip"
+msgstr "Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för ditt bidrag. Det finns exempel på <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL eller en beskriving av den resursen."
+
+msgid "submission.rights.tip"
+msgstr "Om du vill kan du ange en kort beskrivning för vilka rättigheter för tillgång som gäller för det här bidraget."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten nedan."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Huvudkontakt för redaktionens korrespondens."

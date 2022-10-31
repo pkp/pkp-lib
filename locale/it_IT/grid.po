@@ -649,3 +649,18 @@ msgstr "Creare una nuova versione"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Rimuovere questo gruppo di utenti"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Ruolo"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Includi nei risultati di ricerca"
+
+msgid "grid.action.editContributor"
+msgstr "Modifica un contributore"

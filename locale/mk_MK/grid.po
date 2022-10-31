@@ -662,3 +662,18 @@ msgstr "Додади нов шаблон за имејли"
 
 msgid "grid.action.resetAll"
 msgstr "Ресетирај ги сите"
+
+msgid "author.users.contributor.name"
+msgstr "Име"
+
+msgid "author.users.contributor.email"
+msgstr "Имејл"
+
+msgid "author.users.contributor.role"
+msgstr "Улога"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Во листата за преглед"
+
+msgid "grid.action.editContributor"
+msgstr "Уреди соработник"

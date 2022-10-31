@@ -2140,3 +2140,9 @@ msgstr ""
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
+msgid "notification.addedAuthor"
+msgstr "المؤلف أُضيف."
+
+msgid "notification.editedAuthor"
+msgstr "المؤلف عُدِّل."
+

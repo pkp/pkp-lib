@@ -721,11 +721,6 @@ msgstr "Կախյալ նիշքեր"
 msgid "submission.submit.submissionFiles"
 msgstr "Ներկայացման նիշքեր"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Ընդունվում են ներկայացումներ մի քանի լեզուներով: Ընտրեք ներկայացման հիմնական "
-"լեզուն վերևի բացվող ցանկից:"
-
 msgid "submission.submit.submissionLocale"
 msgstr "Ներկայացման լեզուն"
 
@@ -2472,3 +2467,68 @@ msgstr "Ոչ մի նիշք չի կցվել այս ներկայացմանը:"
 
 msgid "author.submit.confirmation"
 msgstr "Հաստատում"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Մուտք արեք լեզուն։"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Մուտք արեք խորագիրը։"
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Մուտք արեք գիտակարգը։"
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Մուտք արեք բանալի բառը։"
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Մուտք արեք ծածկույթի մասին տեղեկատվությունը։"
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Մուտք արեք տեսակը։"
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Մուտք արեք աղբյուրը։"
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Մուտք արեք իրավունքները։"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Մուտք արեք մատենագիտական հղումը։"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Ձեր ներկայացման համար ավելացրեք լրացուցիչ տեղեկություններ: Յուրաքանչյուր "
+"տերմինից հետո սեղմեք «enter»:"
+
+msgid "submission.type.tip"
+msgstr ""
+"Ներկայացման տեսակը սովորաբար «պատկեր», «տեքստ» կամ այլ մուլտիմեդիա "
+"տեսակներից է, ներառյալ «ծրագրային ապահովումը» կամ «ինտերակտիվը»: Խնդրում ենք "
+"ընտրել ձեր ներկայացման համար առավել համապատասխանը:  Օրինակները կարելի է "
+"գտնել <a target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Արդյո՞ք այս ներկայացումը բխում է այլ պաշարից: Եթե այո, կարող եք մուտքագրել "
+"URL կամ այդ պաշարի նկարագրությունը:"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Եթե ցանկանում եք, կարող եք մուտքագրել հակիրճ հայտարարություն այս "
+"ներկայացմանը վերաբերվող կամ փոխանցվող մուտքի իրավունքների մասին:"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Ձեր ներկայացման համար ավելացրեք լրացուցիչ տեղեկություններ: Յուրաքանչյուր "
+"տերմինից հետո սեղմեք «enter»:"
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Ընդունվում են ներկայացումներ մի քանի լեզուներով: Ընտրեք ներկայացման հիմնական "
+"լեզուն վերևի բացվող ցանկից:"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Գլխավոր կոնտակտ խմբագրական նամակագրության համար:"

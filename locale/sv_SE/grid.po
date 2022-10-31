@@ -686,3 +686,18 @@ msgstr "Spara ordning"
 
 msgid "grid.action.addInstitution"
 msgstr "Lägg till institution"
+
+msgid "author.users.contributor.name"
+msgstr "Namn"
+
+msgid "author.users.contributor.email"
+msgstr "E-postadress"
+
+msgid "author.users.contributor.role"
+msgstr "Roll"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "I bläddringslista"
+
+msgid "grid.action.editContributor"
+msgstr "Redigera medarbetare"

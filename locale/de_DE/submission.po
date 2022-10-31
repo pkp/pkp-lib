@@ -1948,3 +1948,52 @@ msgstr "Dieser Einreichung wurden keine Dateien beigefügt."
 
 msgid "author.submit.confirmation"
 msgstr "Bestätigung"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Bitte geben Sie eine Sprache ein."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Bitte geben Sie ein Thema ein."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Bitte geben Sie ein Fachgebiet ein."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Bitte geben Sie ein Schlagwort ein."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Bitte geben Sie Informationen zum Abdeckungsbereich ein."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Bitte geben Sie den Typ ein."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Bitte geben Sie die Quelle ein."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Bitte geben Sie die Rechte ein."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Bitte geben Sie die Literaturnachweise ein."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Fügen Sie zusätzliche Informationen für Ihre Einreichung hinzu. Drücken Sie 'Enter' nach jedem Begriff."
+
+msgid "submission.type.tip"
+msgstr "Der Einreichungstyp ist normalerweise 'image', 'text' oder ein anderer multimedialer Typ inklusive 'software' oder 'interactive'.  Bitte wählen Sie den passendsten Typ für Ihre Einreichung aus. Beispiele können Sie unter <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> finden."
+
+msgid "submission.source.tip"
+msgstr "Basiert diese Einreichung auf einer anderen Quelle? In diesem Fall können Sie eine URL oder Beschreibung dieser Quelle eingeben."
+
+msgid "submission.rights.tip"
+msgstr "Wenn Sie möchten, können Sie eine kurze Aussage zu den Rechten, die an dieser Einreichung bestehen, eingeben."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Fügen Sie zusätzliche Informationen für Ihre Einreichung hinzu. Drücken Sie 'Enter' nach jedem Begriff."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Es werden Einreichungen in verschiedenen Sprachen akzeptiert. Wählen Sie die Hauptsprache der Einreichung im Pulldown-Menü oben aus."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Hauptkontakt für die redaktionelle Korrespondenz."

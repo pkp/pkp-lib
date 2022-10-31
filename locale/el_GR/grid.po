@@ -649,3 +649,18 @@ msgstr "Δημιουργία νέας έκδοσης"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Διαγραφή αυτής της Ομάδας Χρηστών"
+
+msgid "author.users.contributor.name"
+msgstr "Όνομα"
+
+msgid "author.users.contributor.email"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
+msgid "author.users.contributor.role"
+msgstr "Ρόλος"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Σε λίστες πλοήγησης"
+
+msgid "grid.action.editContributor"
+msgstr "Επεξεργασία Συντελεστή"

@@ -2344,3 +2344,59 @@ msgstr "Nobena datoteka ni bila priložena oddaji."
 
 msgid "author.submit.confirmation"
 msgstr "Potrdi"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Prosimo vnesite jezik prispevka."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Prosimo vnesite naslov prispevka."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Prosimo vnesite disciplino."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Prosimo vnesite ključne besede."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Prosimo vnesite informacije o pokritosti."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Prosimo vnesite tip."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Prosimo vnesite vir."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Prosimo vnesite pravice."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Prosimo vnesite referencirano literaturo."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Dodajte dodatne informacije za vaš prispevek. Pritisnite \"enter\" po vsakem terminu."
+
+msgid "submission.type.tip"
+msgstr ""
+"Tip prispevka je običajno eno od 'slika', 'besedilo', ali drug multimedijski "
+"tip vključno s 'programska oprema' ali 'interaktivno'. Prosimo, izberite "
+"najbolj relevantno možnost. Primere lahko najdete na <a target=\"_blank\" "
+"href=\"https://www.dublincore.org/documents/2001/04/12/usageguide/generic."
+"shtml#typespecifications/dublin-core/usageguide/2001-04-12/generic/\""
+">https://www.dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"typespecifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr "Ali je ta prispevek pridobljen iz drugega vira? Če ja, lahko vpišete URL povezavo ali opis tega vira."
+
+msgid "submission.rights.tip"
+msgstr "Če želite, lahko zapišete kratko izjavo o pravicah do dostopa, ki jih posedujete za ta prispevek."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Dodajte dodatne informacije za vaš prispevek. Pritisnite \"enter\" po vsakem terminu."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Revija objavlja prispevke v različnih jezikih. Izberite primarni jezik vašega prispevka iz spodnjega spustnega menija."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Glavni kontakt za korespondenco z uredništvom."

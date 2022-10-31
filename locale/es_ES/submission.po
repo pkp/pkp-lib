@@ -2021,3 +2021,54 @@ msgstr "No se han adjuntado archivos a este envío."
 
 msgid "author.submit.confirmation"
 msgstr "Confirmación"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduzca un idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduzca un tema."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduzca una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduzca una palabra clave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduzca la información de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduzca la tipología."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduzca la fuente."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduzca los derechos."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduzca las referencias."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Añada más información al envío.  Pulse \"Intro\" después de cada término."
+
+msgid "submission.type.tip"
+msgstr "El tipo de envío suele ser de \"imagen\", \"texto\" u otros archivos multimedia entre los que se incluyen \"software\" e \"interactivo\". Elija el que sea más pertinente para su envío. Pueden encontrarse ejemplos en <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "¿Se deriva este envío de otro recurso? Si es así, puede introducir una URL o una descripción del recurso."
+
+msgid "submission.rights.tip"
+msgstr "Si lo desea, puede escribir una breve declaración sobre los derechos de acceso que tiene respecto a este envío."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Añada más información al envío.  Pulse \"Intro\" después de cada término."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Se aceptan envíos en varios idiomas. Elija el idioma principal del envío "
+"desde el menú desplegable de arriba."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacto principal para la correspondencia editorial."

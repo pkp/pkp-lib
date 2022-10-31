@@ -1990,3 +1990,66 @@ msgstr "Tidak ada file yang dilampirkan pada penyerahan ini."
 
 msgid "author.submit.confirmation"
 msgstr "Konfirmasi"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Pilih bahasa."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Tambahkan subjek."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Masukkan bidang ilmu."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Tambahkan kata kunci."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Tambahkan informasi cakupan."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Tambahkan Tipe."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Masukkan sumber."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Masukkan hak cipta."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Masukkan referensi."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan informasi tambahan pada naskah Anda. Tekan \"enter' per istilah."
+
+msgid "submission.type.tip"
+msgstr ""
+"Jenis naskah biasanya salah satu dari 'gambar', 'teks', atau jenis "
+"multimedia lainnya termasuk 'software' atau 'interactive'.  Silakan pilih "
+"jenis yang dengan naskah Anda. Contoh bisa dilihat pada <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Apakah naskah ini diambil dari sumber lain? Jika iya, Anda bisa menambahkan "
+"URL atau deskripsi sumbernya."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Jika mau, Anda bisa menambahkan uraian singkat tentang akses hak cipta yang "
+"melekat pada naskah ini."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan informasi tambahan pada naskah Anda. Tekan \"enter' per istilah."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Menerima naskah dalama beberapa bahasa. Pilih bahasa utama naskah pada "
+"daftar di atas."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Narahubung utama untuk korespondensi editorial."

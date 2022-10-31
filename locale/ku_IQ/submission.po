@@ -1449,3 +1449,67 @@ msgstr "هیچ فایلێک بۆ ئەم پێشکەشکردنە بار نەکرا
 
 msgid "author.submit.confirmation"
 msgstr "پشتڕاستکردنەوە"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "زمانێکی داخل بکە."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "تکایە بابەتێک داخل بکە."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "تکایە بوارێک داخل بکە."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "تکایە کلیلە وشەیەک بنوسە."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "تکایە زانیارییەکانی پەراوێز بنوسە."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "تکایە جۆرەکەی داخل بکە."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "تکایە سەرچاوەکە داخل بکە."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "تکایە مافەکان داخل بکە."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "تکایە سەرچاوەکان داخل بکە."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"زانیارییەکانی دیکە بۆ پێشکەشکردنەکەت زیاد بکە. تکایە دوای هەر دەربڕینێک "
+"'enter' لێ بدە."
+
+msgid "submission.type.tip"
+msgstr ""
+"پێشکەشکردن دەبێت تێکست، وێنە یان جۆرەکانی دیکەی مەڵتیمیدیا وەک پڕۆگرام و "
+"فایلی چالاککەر بێت. تکایە گونجاوترین پێشکەشکردن هەڵبژێرە. نمونەکان لێرەوە "
+"دەدۆزیتەوە <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/"
+"04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/"
+"04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"ئایا ئەم پێشکەشکردنە لە سەرچاوەیەکی دیکەوە داڕێژراوە؟ ئەگەر بەڵێ، لینکی "
+"سەرچاوە ڕەسەنەکە دابنێ یان کورتەیەک دەربارەی بنوسە."
+
+msgid "submission.rights.tip"
+msgstr ""
+"ئەگەر دەتەوێت، دەتوانیت کورتەیەک دەربارەی دەستپێڕاگەیشتن بەم پێشکەشکردنە "
+"بنوسیت."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"زانیارییەکانی دیکە بۆ پێشکەشکردنەکەت زیاد بکە. تکایە دوای هەر دەربڕینێک "
+"'enter' لێ بدە."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"پێشکەشکردن بە چەند زمانێکی جیاواز قبوڵ کراوە. تکایە زمانی سەرەکی "
+"پێشکەشکردنەکە هەڵ ببژێرە."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "کەسی سەرەکیی پەیوەندیدار بۆ پەیوەندیکردن بە سەرنوسەرەوە."

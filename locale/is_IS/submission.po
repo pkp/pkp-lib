@@ -2,7 +2,7 @@
 # Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-27 14:26+0000\n"
+"PO-Revision-Date: 2022-10-31 16:45+0000\n"
 "Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
@@ -1073,7 +1073,7 @@ msgstr "Þú verður að velja notendahóp."
 
 msgid "editor.submission.removeStageParticipant.description"
 msgstr ""
-"Þú ert við það að fjarlægja þennan þátttakanda frá  <strong>öllum</strong> "
+"Þú ert við það að fjarlægja þennan þátttakanda frá <strong>öllum</strong> "
 "þrepum."
 
 msgid "editor.submission.removeStageParticipant"
@@ -1185,7 +1185,7 @@ msgstr "Hlaða þessari skrá upp sem (veldu hlutverk)...."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
-"Ef þú ert að hlaða upp endurskoðun á skrá sem til er,  gefðu þá til kynna "
+"Ef þú ert að hlaða upp endurskoðun á skrá sem til er gefðu þá til kynna "
 "hvaða skrá."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
@@ -1198,9 +1198,8 @@ msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
 "Nafn á skrá sem var hlaðið upp líkist nafni á skrá sem áður hefur verið "
 "hlaðið upp, \"{$revisedFileName}.\" Á þessi skrá að koma í staðinn fyrir \""
-"{$revisedFileName}\"? Ef svo er, veldu þá skrána fyrir neðan.  Ef ekki, "
-"veldu þá \"Þetta er ekki endurskoðun á skrá sem til er\" áður en þú heldur "
-"áfram."
+"{$revisedFileName}\"? Ef svo er, veldu þá skrána fyrir neðan. Ef ekki, veldu "
+"þá \"Þetta er ekki endurskoðun á skrá sem til er\" áður en þú heldur áfram."
 
 msgid "submission.upload.possibleRevision"
 msgstr "Vart varð mögulegrar tvöföldunar eða endurskoðunar"
@@ -1338,10 +1337,10 @@ msgid "submission.type.tip"
 msgstr ""
 "Tegund innsendingar er venjulega eitt af eftirfarandi: 'mynd', 'texti', eða "
 "aðrar margmiðlunartegundir, þ.m.t. 'hugbúnaður' eða 'gagnvirkt'.  Vinsamlega "
-"veldu það sem best á við fyrir þína innsendingu.  Dæmi má finna á   <a "
-"target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
-"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
-"usageguide/generic.shtml#type</a>"
+"veldu það sem best á við fyrir þína innsendingu.  Dæmi má finna á <a target="
+"\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titill og útdráttur"
@@ -1383,7 +1382,7 @@ msgstr "Innsendingarskrár"
 
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
-"Tekið er á móti handritum á fleiri en einu tungumáli.  Veldu frumtungumál "
+"Tekið er á móti handritum á fleiri en einu tungumáli. Veldu frumtungumál "
 "fyrir innsendinguna af fellilistanum hér fyrir ofan."
 
 msgid "submission.submit.submissionLocale"
@@ -1450,8 +1449,8 @@ msgstr "Senda inn"
 
 msgid "submission.source.tip"
 msgstr ""
-"Á þessi innsending rætur að rekja til annars uppruna?  Ef svo er, þá getur "
-"þú skráð vefslóð eða lýsingu á því hvaðan hún er fengin."
+"Á þessi innsending rætur að rekja til annars uppruna? Ef svo er, þá getur þú "
+"skráð vefslóð eða lýsingu á því hvaðan hún er fengin."
 
 msgid "submission.source"
 msgstr "Uppruni"
@@ -2138,3 +2137,272 @@ msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
 "Tölvupóstur með tilkynningu um niðurstöðu var sendur til {$recipientCount} "
 "undir efninu {$subject}."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} hefur sent innsendinguna í framleiðsluferli."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} hefur óskað eftir endurbættri útgáfu fyrir þessa innsendingu - "
+"sú útgáfa ætti að fara í nýja umferð ritrýni."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Innsendingin {$title} hefur verið samþykkt til útgáfu og áframsend til "
+"yfirferðar hjá textatækni."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda með upplýsingum um að endurbóta er þörf og "
+"innsending kalli á nýja umferð ritrýni. Allar nauðsynlegar upplýsingar skulu "
+"fylgja. Þar sem við á, þarf að yfirfara og fjarlægja allar upplýsingar sem "
+"stefnt gætu í hættu nafnleynd ritrýna."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} hefur sent þessa innsendingu til baka í textatækniferli."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Óskað eftir endurbótum"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Höfundur verður að senda inn endurbætta útgáfu sem send verður í nýja lotu "
+"ritrýni áður en innsendingin verður samþykkt til útgáfu."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Til baka í textatækniferli"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Hefja nýja umferð ritrýni fyrir þessa innsendingu."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} hefur stofnað nýja umferð ritrýni fyrir innsendinguna."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Sent í ritrýni"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Senda þessa innsendingu til baka í textatækniferli."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Innsendingunni hefur verið hafnað. Hætt verður við ritrýniferli og "
+"innsending færð til vistunar."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Veldu skrár til að senda í framleiðsluferli."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Til baka á stig textatækni"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Tilkynning til ritrýna"
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Innsendingu hafnað"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Óskað hefur verið eftir endurbótum á innsendingunni {$title}. Ákvörðun um "
+"hvort endurbætt útgáfa verði send í nýja umferð ritrýni hefur verið skráð."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Senda í ritrýni"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} óskaði eftir endurbættri útgáfu innsendingar."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Innsendingin {$title} var send til baka í textatækniferli."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Innsending samþykkt"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Ný innsending bíður þess að vera send til ritrýni eða höfnunar."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda(r) með upplýsingum um að óskað verði eftir "
+"endurbættri útgáfu áður en innsending verður samþykkt til útgáfu. Allar "
+"upplýsingar um nauðsynlegar endurbætur skulu fylgja. Þar sem það á við, skal "
+"yfirfara og fjarlægja allar upplýsingar sem stefnt gætu í hættu nafnleynd "
+"ritrýna."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} hefur samþykkt innsendinguna og sent til yfirferðar hjá "
+"textatækni."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Innsendingin {$title} fór framhjá ritrýniferli og var send beint á "
+"textatæknistig."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Senda tölvupóst til ritrýna þar sem þeim er þökkuð ritrýnin og tilkynnt um "
+"niðurstöðu."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Óskað eftir endurbótum"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} hefur hafnað þessari innsendingu."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Höfundur verður að skila endurbættri útgáfu áður en hægt verður að samþykkja "
+"innsendingu til útgáfu."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Innsendingin {$title} hefur verið send í ritrýniferli."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Innsendingin er tilbúin til að senda í ritrýni."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Höfundi sendur tölvupóstur þar sem upplýst er um að innsending hafi verið "
+"send í nýja umferð ritrýni."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} hefur sent innsendinguna í ritrýniferli."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Afvirkja til lengri tíma en {$days} á {$stage} stigi."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Innsendingin samþykkt til útgáfu og verður send til yfirferðar hjá "
+"textatækni."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Ný umferð ritrýni"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Óskað hefur verið eftir endurbættri útgáfu innsendingarinnar {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Ný umferð ritrýni stofnuð"
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda með upplýsingum um að innsendingin hafi verið "
+"endursend á textatæknistig. Útskýrðu hvers vegna þessi ákvörðun var tekin og "
+"upplýstu höfund um frekari ritstjórnarlegu ákvarðanir liggja til grundvallar "
+"endanlegri ákvörðun um framleiðslu."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Veldu skrár til að senda í textatækniferli."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda þar sem þeir eru upplýstir um að innsendingu "
+"þeirra hafi verið hafnað."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda(r) þar sem þeir er tilkynnt um að innsending "
+"þeirra hafi verið samþykkt til úrgáfu."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Þessari innsendingu verður hafnað. Frekari ritrýni mun ekki fara fram og "
+"innsendingin verður send til vistunar."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "Ný umferð ritrýni hefur verið stofnuð fyrir innsendinguna {$title}."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Ritrýni sleppt"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Innsendingin {$title} hefur verið send í framleiðsluferli."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Senda tölvupóst til viðkomandi ritrýna þar sem þeim er tilkynnt að beiðni um "
+"ritrýni hafi verið afturkölluð."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda(r) þar sem upplýst er um lokun ritrýniumferðar."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Umferð ritrýni hætt"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Hætta við núverandi umferð ritrýni og senda innsendingu aftur í fyrri "
+"umferð. Ef þetta er fyrsta umferð ritrýni mun innsendingin fara aftur í "
+"innsendingarferli."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} hefur afturkallað ritrýniumferð."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Nýjustu umferð ritrýni hætt."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "Ritrýniumferð innsendingarinnar {$title} hefur verið hætt."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Ekki er mögulegt að hætta nýrri umferð ritrýni hafi einhver ritrýna lokið "
+"eða birt ritrýni í viðkomandi umferð."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Textatækni hætt"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Senda innsendingu til baka í textatækniferli."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Sent til baka úr textatækniferli"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Senda höfundi tölvupóst með tilkynningu um að innsendingin hafi verið send á "
+"framleiðslustig."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} hefur sent innsendingu til baka á textatæknistig."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} hefur tekið ákvörðun um að sleppa ritrýniferli og senda "
+"innsendingu beint á textatæknistig."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Sent í framleiðsluferli"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Tilkynning til höfunda"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "Senda innsendinguna í framleiðsluferli til undirbúnings útgáfu."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Samþykkja innsendingu án ritrýniferlis. Þessi ákvörðun mun senda "
+"innsendinguna beint í textatækniferli."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Innsendingunni, {$title}, hefur verið hafnað og hún send til vistunar."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda(r) þar sem tilkynnt er um að innsending hafi "
+"verið samþykkt og fari beint á textatæknistig án ritrýni."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "Innsendingin {$title} hefur verið send til baka úr textatækniferli."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Senda tölvupóst til höfunda(r) með upplýsingum um að textatækniferli hafi "
+"verið hætt og að innsending þeirra krefjist frekari yfirferðar frá ritstjórn."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Veldu skrár til að senda í ritrýni."

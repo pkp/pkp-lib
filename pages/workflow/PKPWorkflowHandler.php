@@ -439,10 +439,10 @@ abstract class PKPWorkflowHandler extends Handler
             'identifiersEnabled' => $identifiersEnabled,
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
-            'pageTitle' => join(__('common.titleSeparator'), [
+            'pageTitle' => implode(__('common.titleSeparator'), array_filter([
                 $submission->getShortAuthorString(),
                 $submission->getLocalizedTitle()
-            ]),
+            ])),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
             'requestedStageId' => $requestedStageId,
             'submission' => $submission,

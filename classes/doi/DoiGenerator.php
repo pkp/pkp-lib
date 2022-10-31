@@ -24,7 +24,7 @@ class DoiGenerator
     protected const UPPER_LIMIT = 1073741823;
 
     /**
-     * Constructs a DOI with a hyphen-separated 8-character suffix, using a Crockford Base 32 algorithm
+     * Constructs a DOI with an 8-character suffix, using a Crockford Base 32 algorithm
      * to generate the suffix.
      *
      */
@@ -42,7 +42,6 @@ class DoiGenerator
      */
     public static function decodeSuffix(string $suffix): ?int
     {
-        $suffix = str_replace('-', '', $suffix);
         $suffix = strtoupper($suffix);
         $suffixParts = str_split($suffix, 6);
         $encodedString = $suffixParts[0];
@@ -58,8 +57,7 @@ class DoiGenerator
     /**
      * Encodes suffix as 8-digit base32 encoded string where the final two numbers are a checksum.
      *
-     * E.g. DDDD-DDYY where 'D' is a base32 encoded character and 'YY' is the checksum.
-     * A hyphen is inserted for readability.
+     * E.g. DDDDDDYY where 'D' is a base32 encoded character and 'YY' is the checksum.
      *
      * @param int $number A random number between 1 and 1073741823 (UPPER_LIMIT). Used as seed for encoding suffix.
      */
@@ -72,10 +70,7 @@ class DoiGenerator
         $remainder = self::calculateChecksum($number);
         $payload = $encodedNumber . sprintf('%02d', $remainder);
 
-        $paddedPayload = str_pad($payload, 8, '0', STR_PAD_LEFT);
-
-        // Insert hyphen in middle to improve readability and return
-        return substr($paddedPayload, 0, 4) . '-' . substr($paddedPayload, 4);
+        return str_pad($payload, 8, '0', STR_PAD_LEFT);
     }
 
 

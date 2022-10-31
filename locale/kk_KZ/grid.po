@@ -698,3 +698,18 @@ msgstr "Барлығын жабу"
 
 msgid "grid.action.collapse"
 msgstr "Жиыру"
+
+msgid "author.users.contributor.name"
+msgstr "Атауы"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Рөлі"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Бақылау тізімдеріне"
+
+msgid "grid.action.editContributor"
+msgstr "Редакторды өңдеуші"

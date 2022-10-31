@@ -2389,3 +2389,60 @@ msgstr "Der er ikke vedhæftet nogen filer til dette manuskript."
 
 msgid "author.submit.confirmation"
 msgstr "Bekræftelse"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Indtast et sprog."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Indtast et emne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Indtast et fagområde."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Indtast et nøgleord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Indtast information om dækning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Indtast en type."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Indtast en kilde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Indtast rettighederne."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Indtast referencerne."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
+
+msgid "submission.type.tip"
+msgstr ""
+"Indsendelsestypen er som regel enten 'billede', 'tekst' eller anden "
+"multimedietype inklusiv 'software' og 'interaktiv'.  Vælg den, der er mest "
+"relevant i forbindelse med din indsendelse.  Eksempler kan ses her: <a "
+"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr "Er denne indsendelse hentet fra en anden ressource? Hvis det er tilfældet, kan du indsætte en URL eller en beskrivelse af ressourcen."
+
+msgid "submission.rights.tip"
+msgstr "Hvis du ønsker, kan du indsætte en kort erklæring om adgangsrettighederne i forbindelse med denne indsendelse."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Dette tidsskrift accepterer indsendelser på en række sprog. Vælg det primære "
+"sprog for indsendelsen i rullemenuen."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Primær kontaktperson for redaktionel korrespondance."

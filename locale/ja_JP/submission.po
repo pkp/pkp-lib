@@ -1923,3 +1923,56 @@ msgstr "この投稿物にはファイルが添付されていません。"
 
 msgid "author.submit.confirmation"
 msgstr "確認"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "言語を入力してください。"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "件名を入力してください。"
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "分野を入力してください。"
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "キーワードを入力してください。"
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "カバレッジ情報を入力してください。"
+
+msgid "submission.submit.form.typeRequired"
+msgstr "タイプを入力してください。"
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "ソースを入力してください。"
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "権限を入力してください。"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "参考文献を入力してください。"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "稿の追加情報の入力ができます。 各用語の後に「エンター」を押してください。"
+
+msgid "submission.type.tip"
+msgstr ""
+"投稿タイプは通常、「画像」、「テキスト」、または「ソフトウェア」や「インタラクティブ」などのマルチメディアタイプのいずれかです。 "
+"投稿に最も近いものを選択してください。 例は以下のサイトにあります： <a target=\"_blank\" href=\""
+"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\""
+">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "この投稿物は別のリソースから派生していますか？ その場合は、そのリソースの URL または説明を入力できます。"
+
+msgid "submission.rights.tip"
+msgstr "必要に応じて、この投稿物で保持されているアクセス権に関する簡単な説明を入力できます。"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "稿の追加情報の入力ができます。 各用語の後に「エンター」を押してください。"
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "いくつかの言語での投稿が可能です。上記のプルダウンから投稿の第一言語を選択してください。"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "編集上の連絡を取る第一著者。"

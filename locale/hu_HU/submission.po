@@ -2322,3 +2322,52 @@ msgstr "Ehhez a benyújtáshoz nem csatolt fájlt."
 
 msgid "author.submit.confirmation"
 msgstr "Megerősítés"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Kérjük, adja meg a nyelvet."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Kérjük, adjon meg tárgyat."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Kérjük, adja meg a szakterületet."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Kérjük, adjon meg kulcsszót."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Kérjük, adja meg a megjelenési adatokat."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Kérjük, adja meg a típust."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Kérjük, adja meg a forrást."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Kérjük, adja meg a felhasználási jogokat."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Kérjük, adja meg a hivatkozásokat."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "További információk hozzáadása a beküldött anyaghoz. Mindegyik után nyomjon entert."
+
+msgid "submission.type.tip"
+msgstr "Ez a beküldési típus rendszerint 'kép', 'szöveg', vagy más multimádia típus beleértve a 'szoftver' vagy 'interaktív' típust is. Kérjük, válassza ki a cikkéhez a legrelevánsabbat.  Példákat itt talál <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Ez a benyújtott anyag más forrásból származik? Ha igen, adja meg az URL-t vagy a forrás leírását."
+
+msgid "submission.rights.tip"
+msgstr "Ha szeretne, megadhat egy rövid leírást, hogy a cikk jogai kit illetnek meg."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "További információk hozzáadása a beküldött anyaghoz. Mindegyik után nyomjon entert."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Ez a folyóirat többnyelvű cikkeket is fogad. Válassza ki a beküldés elsődleges nyelvét a legördülő listából."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Fő kapcsolattartó a szerkesztőségi levelezésnél."

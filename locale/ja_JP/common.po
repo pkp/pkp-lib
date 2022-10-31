@@ -2111,3 +2111,9 @@ msgstr "働き続ける"
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
+msgid "notification.addedAuthor"
+msgstr "著者が追加されました。"
+
+msgid "notification.editedAuthor"
+msgstr "著者が編集されました。"
+

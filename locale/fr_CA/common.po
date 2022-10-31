@@ -2039,3 +2039,9 @@ msgstr "Joindre la sélection"
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
+msgid "notification.addedAuthor"
+msgstr "Auteur-e ajouté-e."
+
+msgid "notification.editedAuthor"
+msgstr "Auteur-e modifié-e."
+

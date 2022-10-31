@@ -693,3 +693,18 @@ msgstr "Код"
 
 msgid "grid.action.addInstitution"
 msgstr "Добавить организацию"
+
+msgid "author.users.contributor.name"
+msgstr "Имя"
+
+msgid "author.users.contributor.email"
+msgstr "Адрес электронной почты"
+
+msgid "author.users.contributor.role"
+msgstr "Роль"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "В списки просмотра"
+
+msgid "grid.action.editContributor"
+msgstr "Редактировать поддерживающего"

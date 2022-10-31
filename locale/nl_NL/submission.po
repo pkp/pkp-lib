@@ -1659,3 +1659,52 @@ msgstr "Geen bestanden gekoppeld aan deze inzending."
 
 msgid "author.submit.confirmation"
 msgstr "Bevestiging"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vul een taal in."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vul een onderwerp in."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vul een discipline in."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vul een trefwoord in."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vul de gegevens over het bereik in."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vul het type in."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vul de bron in."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vul de rechten in."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vul de referenties in."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Voeg bijkomende gegevens toe voor uw inzending. Druk \"enter\" na elke term."
+
+msgid "submission.type.tip"
+msgstr "De inzending is doorgaans een 'afbeelding', 'tekst' of ander multimediatype, zoals 'software' of 'interactief'. Kies het meest relevante type voor uw inzending. Voorbeelden kunnen worden gevonden op <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>."
+
+msgid "submission.source.tip"
+msgstr "Is deze inzending afgeleid van een andere bron? In dat geval kunt u een URL of beschrijving van die bron geven."
+
+msgid "submission.rights.tip"
+msgstr "Als u dat wilt, kunt u hier een korte beschrijving geven van de toegangsrechten voor deze inzending."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Voeg bijkomende gegevens toe voor uw inzending. Druk \"enter\" na elke term."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Inzendingen worden aanvaard in verschillende talen. Kies de hoofdtaal van de inzending in bovenstaand selectiemenu."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Eerste contactpersoon voor redactionele correspondentie."

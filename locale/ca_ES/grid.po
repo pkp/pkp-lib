@@ -723,3 +723,18 @@ msgid "contributor.listPanel.preview.description"
 msgstr ""
 "Els col·laboradors/ores d'aquesta publicació s'identificaran en aquesta "
 "revista en els següents formats."
+
+msgid "author.users.contributor.name"
+msgstr "Nom"
+
+msgid "author.users.contributor.email"
+msgstr "Correu electrònic"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "En la llista de navegació"
+
+msgid "grid.action.editContributor"
+msgstr "Edita col·laborador"

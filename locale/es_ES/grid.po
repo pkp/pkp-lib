@@ -650,3 +650,18 @@ msgstr "Ver/Seleccionar usuarios/as"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Eliminar este grupo de usuarios/as"
+
+msgid "author.users.contributor.name"
+msgstr "Nombre"
+
+msgid "author.users.contributor.email"
+msgstr "Correo electrónico"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "En listas de navegación"
+
+msgid "grid.action.editContributor"
+msgstr "Editar colaborador/a"

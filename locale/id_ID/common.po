@@ -2108,3 +2108,9 @@ msgstr "{$item}/{$afterSlash}"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Penulis telah ditambahkan."
+
+msgid "notification.editedAuthor"
+msgstr "Penulis telah diubah."

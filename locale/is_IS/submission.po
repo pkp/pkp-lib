@@ -2456,3 +2456,68 @@ msgstr "Engar skrár hafa verið tengdar við innsendinguna."
 
 msgid "author.submit.confirmation"
 msgstr "Staðfesting"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Settu inn tungumál."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Settu inn efni."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Settu inn fræðasvið."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Settu inn lykilorð."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Settu inn upplýsingar um umfang."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Settu inn tegund."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Settu inn uppruna."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Settu inn réttindi."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Settu inn heimildir."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Bæta við upplýsingum um innsendinguna þína.  Ýttu á \"enter\" eftir hvert "
+"hugtak."
+
+msgid "submission.type.tip"
+msgstr ""
+"Tegund innsendingar er venjulega eitt af eftirfarandi: 'mynd', 'texti', eða "
+"aðrar margmiðlunartegundir, þ.m.t. 'hugbúnaður' eða 'gagnvirkt'.  Vinsamlega "
+"veldu það sem best á við fyrir þína innsendingu.  Dæmi má finna á   <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Á þessi innsending rætur að rekja til annars uppruna?  Ef svo er, þá getur "
+"þú skráð vefslóð eða lýsingu á því hvaðan hún er fengin."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Hér getur þú valið að slá inn stutta yfirlýsingu um aðgengisréttindi "
+"varðandi þessa innsendingu."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Bæta við upplýsingum um innsendinguna þína.  Ýttu á \"enter\" eftir hvert "
+"hugtak."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Tekið er á móti handritum á fleiri en einu tungumáli.  Veldu frumtungumál "
+"fyrir innsendinguna af fellilistanum hér fyrir ofan."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Aðaltengiliður fyrir samskipti við ritstjórn."

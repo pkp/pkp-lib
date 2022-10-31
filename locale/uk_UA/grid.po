@@ -650,3 +650,18 @@ msgstr "Переглянути/Обрати користувачів"
 
 msgid "grid.action.newVersion"
 msgstr "Створити нову версію"
+
+msgid "author.users.contributor.name"
+msgstr "Ім'я"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Роль"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "У списки перегляду"
+
+msgid "grid.action.editContributor"
+msgstr "Редагувати учасника"

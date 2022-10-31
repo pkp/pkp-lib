@@ -701,3 +701,18 @@ msgstr "პუბლიკაციების სიები"
 
 msgid "contributor.listPanel.preview.full"
 msgstr "სრული"
+
+msgid "author.users.contributor.name"
+msgstr "სახელი"
+
+msgid "author.users.contributor.email"
+msgstr "ელფოსტა"
+
+msgid "author.users.contributor.role"
+msgstr "როლი"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "სიების დათვალიერება"
+
+msgid "grid.action.editContributor"
+msgstr "წევრის ჩასწორება"

@@ -693,3 +693,19 @@ msgstr "معاينة"
 
 msgid "grid.columns.locale.code"
 msgstr "النص البرمجي"
+
+msgid "author.users.contributor.name"
+msgstr "الاسم"
+
+msgid "author.users.contributor.email"
+msgstr "البريد الالكتروني"
+
+msgid "author.users.contributor.role"
+msgstr "الدور"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "ضمن قوائم التصفح"
+
+msgid "grid.action.editContributor"
+msgstr "تعديل المساهم"
+

@@ -1997,3 +1997,9 @@ msgstr "{$item}/{$afterSlash}"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Đã thêm tác giả."
+
+msgid "notification.editedAuthor"
+msgstr "Đã chỉnh sửa tác giả."

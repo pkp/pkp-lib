@@ -2046,3 +2046,68 @@ msgstr "Ingen filer er lagt ved denne innleveringen."
 
 msgid "author.submit.confirmation"
 msgstr "Bekreftelse"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Angi et språk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Legg inn et emne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Angi et fagfelt."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Angi et nøkkelord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Angi informasjon om dekning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Angi typen."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Angi kilde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Angi informasjon om rettigheter."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Angi referanser."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
+"ord."
+
+msgid "submission.type.tip"
+msgstr ""
+"Denne typen innlevering er vanligvis av typen bilde, tekst eller andre "
+"multimediatyper, f.eks. programvare og interaktive media. Velg en av de mest "
+"relevante for din innlevering. Du finner eksempler her: <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Er innleveringen ledet ut av en annen ressurs? Hvis så, kan du legge in en "
+"URL eller en beskrivelse av ressursen."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Her kan du kan legge inn en kort erklæring om tilgangsrettighetene til "
+"innleveringen."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
+"ord."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Utgiveren godtar innleveringer på flere språk. Velg språk i "
+"rullegardinmenyen over."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Kontaktperson for redaksjonell korrespondanse."

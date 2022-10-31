@@ -2099,11 +2099,6 @@ msgstr "Тәуелді файлдар"
 msgid "submission.submit.submissionFiles"
 msgstr "Материалдың файлы"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Өтініштер бірнеше тілде қабылданады. Жоғарыдағы ашылмалы мәзірден жіберудің "
-"негізгі тілін таңдаңыз."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Материалдың тілі"
 
@@ -2389,3 +2384,68 @@ msgstr "Бұл жіберілген мақалаға ешқандай файл �
 
 msgid "author.submit.confirmation"
 msgstr "Растау"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Тілді енгізіңіз."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Тақырыпты енгізіңіз."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Тақырыпты көрсетіңіз."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Кілт сөзді енгізіңіз."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Қамту туралы ақпаратты беріңіз."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Түрін көрсетіңіз."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Дереккөзді көрсетіңіз."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Материалға құқықтарды көрсетіңіз."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Библиографиялық анықтамаларды беріңіз."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Материалыңыз үшін қосымша ақпаратты қосыңыз. Әр терминнан кейін «Enter» "
+"түймесін басыңыз."
+
+msgid "submission.type.tip"
+msgstr ""
+"Мазмұн түрі әдетте «сурет», «мәтін» немесе басқа медиа түрлері, соның ішінде "
+"«бағдарламалық құрал» немесе «интерактивті» болып табылады. Материалыңызға "
+"ең қолайлысын таңдаңыз. Мысалдар мына жерден табуға болады <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/ 2001 /04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Бұл материал басқа ресурстан алынды ма? Иә болса, осы ресурстың URL "
+"мекенжайын немесе сипаттамасын енгізуге болады."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Қаласаңыз, осы материалға қалған немесе өту құқығы туралы қысқаша хабарлама "
+"енгізуге болады."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Материалыңыз үшін қосымша ақпаратты қосыңыз. Әр терминнан кейін «Enter» "
+"түймесін басыңыз."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Өтініштер бірнеше тілде қабылданады. Жоғарыдағы ашылмалы мәзірден жіберудің "
+"негізгі тілін таңдаңыз."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Редакциямен хат алмасу үшін байланысатын адам."

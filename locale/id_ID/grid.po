@@ -713,3 +713,18 @@ msgstr "Batalkan tahapan"
 
 msgid "grid.userGroup.assignStage"
 msgstr "Buat tahapan penugasan"
+
+msgid "author.users.contributor.name"
+msgstr "Nama"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Peran"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dalam Daftar Pencarian"
+
+msgid "grid.action.editContributor"
+msgstr "Sunting Kontributor"

@@ -2438,3 +2438,56 @@ msgstr "Żadne pliki nie zostały dołączone."
 
 msgid "author.submit.confirmation"
 msgstr "Potwierdź"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Włącz języki."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Włącz hasła przedmiotowe."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Włącz dyscypliny."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Włącz słowa kluczowe."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Włącz informacje o zasięgu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Włącz typy."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Włącz źródło."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Włącz prawa."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Włącz opisy bibliograficzne."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Podaj dodatkowe informacje do zgłoszenia. Wciśnij 'enter' po każdym z terminów."
+
+msgid "submission.type.tip"
+msgstr ""
+"Rodzaj zgłoszenia to zazwyczaj 'image', 'text' lub inne rodzaje multimediów, "
+"włączając w to 'software' oraz 'interactive'. Jeżeli nie wiesz jaki typ "
+"wybrać, spójrz na przykłady <a target=\"_blank\" href=\"http://dublincore."
+"org/documents/2001/04/12/usageguide/generic.shtml#type\">pod tym adresem.</a>"
+
+msgid "submission.source.tip"
+msgstr "Czy to zgłoszenie pochodzi z innego źródła? Jeśli tak, możesz podać adres URL lub opis tego zasobu."
+
+msgid "submission.rights.tip"
+msgstr "Jeśli chcesz, możesz podać krótkie oświadczenie dotyczące praw dostępu do tego zgłoszenia."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Podaj dodatkowe informacje do zgłoszenia. Wciśnij 'enter' po każdym z terminów."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Wydawca przyjmuje zgłoszenia w kilku językach. Wybierz język."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Główna osoba do kontaktu z redakcją."

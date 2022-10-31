@@ -1425,3 +1425,25 @@ msgstr "Фајлови нису додати уз ову пријаву."
 
 msgid "author.submit.confirmation"
 msgstr "Потврда"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додајте додатне информације з ваш пријављен чланак. Притисните 'enter' након сваког термина."
+
+msgid "submission.type.tip"
+msgstr "Тип пријављеног дела је обично 'слика', 'текст', или други мултимедијални тип укључујући и 'компјутерски програм' или 'интерактивно'."
+
+msgid "submission.source.tip"
+msgstr "Да ли јевај пријављени чланак изведен из другог извора? АКо јесте, можете уписати URL или описати тај извор."
+
+msgid "submission.rights.tip"
+msgstr "АКо желите можете уписати кратки став о правима приступа за овај пријављени чланак."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додајте додатне информације з ваш пријављен чланак. Притисните 'enter' након сваког термина."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Овај часопис прихвата предаје радова на више језика. Одаберите примарни језик предај из менија."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Главни контакт за уредничку коресподенцију."

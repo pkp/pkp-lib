@@ -1891,3 +1891,52 @@ msgstr "Жодних файлів не було приєднано до пода
 
 msgid "author.submit.confirmation"
 msgstr "Підтвердження"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Будь ласка, вкажіть мову."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Будь ласка, вкажіть тему."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Будь ласка, вкажіть предмет."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Будь ласка, вкажіть ключове слово."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Будь ласка, вкажіть інформацію про охоплення."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Будь ласка, вкажіть тип."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Будь ласка, вкажіть джерело."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Будь ласка, вкажіть авторські права."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Будь ласка, вкажіть посилання."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додайте додаткову інформацію для вашого подання. Натискайте \"Enter\" після кожного терміну."
+
+msgid "submission.type.tip"
+msgstr "Тип подання зазвичай є чимось з \"малюнок\", \"текст\" або інших типів мультимедіа, зокрема \"програмне забезпечення\" або \"інтерактивний\". Будь-ласка, виберіть найбільш відповідний для вашого подання тип. Приклади можна знайти на сторінці <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Це подання отримано з іншого ресурсу? Якщо так, ви можете ввести URL-адресу або опис цього ресурсу."
+
+msgid "submission.rights.tip"
+msgstr "Якщо хочете, ви можете ввести короткий виклад прав доступу, які матиме або набуде цей матеріал."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додайте додаткову інформацію для вашого подання. Натискайте \"Enter\" після кожного терміну."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Матеріали приймаються на декількох мовах. Виберіть основну мову подання з вищенаведеного списку, що розкривається."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Контактна особа для редакційної кореспонденції."

@@ -717,3 +717,19 @@ msgstr "Vis"
 
 msgid "grid.columns.locale.code"
 msgstr "Kode"
+
+msgid "author.users.contributor.name"
+msgstr "Navn"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Rolle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "I browse-liste"
+
+msgid "grid.action.editContributor"
+msgstr "Redigér bidragyder"
+

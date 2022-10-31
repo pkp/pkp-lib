@@ -664,3 +664,18 @@ msgstr "Tetapan"
 
 msgid "grid.noItems"
 msgstr "Tiada Item"
+
+msgid "author.users.contributor.name"
+msgstr "Nama"
+
+msgid "author.users.contributor.email"
+msgstr "E-mel"
+
+msgid "author.users.contributor.role"
+msgstr "Peranan"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dalam Senarai Pelayar"
+
+msgid "grid.action.editContributor"
+msgstr "Sunting Penyumbang"

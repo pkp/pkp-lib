@@ -713,3 +713,19 @@ msgstr "Náhled"
 
 msgid "grid.columns.locale.code"
 msgstr "Kód"
+
+msgid "author.users.contributor.name"
+msgstr "Název"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.role"
+msgstr "Role"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "V seznamech k procházení"
+
+msgid "grid.action.editContributor"
+msgstr "Upravit autora"
+

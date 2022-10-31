@@ -2016,3 +2016,68 @@ msgstr "Không có tập tin đã được đính kèm với bài gửi này."
 
 msgid "author.submit.confirmation"
 msgstr "Xác nhận"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vui lòng nhập một ngôn ngữ hợp lệ."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vui lòng nhập một chủ đề."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vui lòng nhập một chuyên ngành hợp lệ."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vui lòng nhập một từ khoá."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vui lòng nhập thông tin phủ sóng hợp lệ."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vui lòng nhập một loại."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vui lòng nhập nguồn."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vui lòng nhập các quyền tác giả."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vui lòng nhập các tài liệu tham khảo."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Thông tin bổ sung cho bài gửi của bạn.  Nhấn 'enter' sau mỗi thông tin bổ "
+"sung."
+
+msgid "submission.type.tip"
+msgstr ""
+"Loại bài gửi thường là một trong các loại \"hình ảnh\", \"văn bản\" hoặc các "
+"loại đa phương tiện khác bao gồm \"phần mềm\" hoặc \"tương tác\". Vui lòng "
+"chọn một trong những trường hợp phù hợp nhất cho bài nộp của bạn. Bạn có thể "
+"tìm thấy các ví dụ tại <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type\"> http://dublincore.org/"
+"documents/ 2001/04/12/usingguide/generic.shtml#type </a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Bài gửi này có nguồn gốc từ một nguồn khác không? Nếu có, bạn có thể nhập "
+"URL hoặc mô tả của tài nguyên đó."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Nếu muốn, bạn có thể nhập một tuyên bố ngắn gọn về các quyền truy cập có "
+"trong hoặc đối với nội dung gửi này."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Thông tin bổ sung cho bài gửi của bạn.  Nhấn 'enter' sau mỗi thông tin bổ "
+"sung."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Gửi bài bằng một số ngôn ngữ được chấp nhận. Chọn ngôn ngữ chính của bài gửi "
+"từ menu thả xuống ở trên."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Người liên hệ chính với ban biên tập."

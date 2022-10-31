@@ -685,3 +685,18 @@ msgstr "Afficher/Sélectionner les utilisateurs-trices"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Supprimer ce groupe d'utilisateurs-trices"
+
+msgid "author.users.contributor.name"
+msgstr "Nom"
+
+msgid "author.users.contributor.email"
+msgstr "Courriel"
+
+msgid "author.users.contributor.role"
+msgstr "Rôle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dans la liste de navigation"
+
+msgid "grid.action.editContributor"
+msgstr "Modifier un contributeur"

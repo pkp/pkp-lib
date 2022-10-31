@@ -640,3 +640,18 @@ msgstr "Er zijn geen navigatiemenu's"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Kies een type..."
+
+msgid "author.users.contributor.name"
+msgstr "Naam"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "In bladerlijsten"
+
+msgid "grid.action.editContributor"
+msgstr "Bewerk bijdrager"

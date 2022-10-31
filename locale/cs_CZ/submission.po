@@ -2369,3 +2369,58 @@ msgstr "K příspěvku nebyly připojeny žádné soubory."
 
 msgid "author.submit.confirmation"
 msgstr "Potvrzení"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vložte, prosím, jazyk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vložte, prosím, předmět."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vložte, prosím, disciplínu."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vložte, prosím, klíčová slova."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vložte, prosím, informace o pokrytí."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vložte, prosím, typ."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vložte, prosím, zdroj."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vložte, prosím, autorská práva."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vložte, prosím, reference."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na klávesu \"Enter\"."
+
+msgid "submission.type.tip"
+msgstr ""
+"Typ příspěvku je obvykle jeden z 'image', 'text' nebo jiných multimediálních "
+"typů, včetně 'software' nebo 'interactive'. Zvolte prosím ten, který je pro "
+"váš příspěvek nejrelevantnější. Příklady lze nalézt na adrese  <a target=\""
+"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr "Je tento příspěvek odvozen z jiného zdroje? Pokud ano, můžete zadat adresu URL nebo popis daného zdroje."
+
+msgid "submission.rights.tip"
+msgstr "Chcete-li, můžete zadat stručné prohlášení o přístupových právech obsažených v tomto příspěvku nebo v jeho rámci."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na klávesu \"Enter\"."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Jsou přijímány příspěvky v několika jazycích. V níže uvedeném rozbalovacím seznamu vyberte primární jazyk příspěvku."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Hlavní kontakt pro komunikaci s redakcí."

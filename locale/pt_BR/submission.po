@@ -2691,3 +2691,62 @@ msgstr "Nenhum documento anexado à submissão."
 
 msgid "author.submit.confirmation"
 msgstr "Confirmação"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Por favor, insira um idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Por favor, insira um assunto."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Por favor, insira uma disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Por favor, insira uma palavra-chave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Por favor, insira a informação de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Por favor, insira o tipo."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Por favor, insira a fonte."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Por favor, insira os direitos."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Por favor, insira as referências."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Adicione informações adicionais para sua submissão. Pressione 'Enter' depois de cada termo."
+
+msgid "submission.type.tip"
+msgstr ""
+"O tipo da submissão é geralmente é uma 'imagem', 'texto', ou outro tipos de "
+"mídia, incluindo 'software' ou 'interativo'. Por favor, escolha o mais "
+"relevante para a sua submissão. Exemplos podem ser encontrados em <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Esta submissão é derivada de outro recurso? Se assim for, informe uma URL ou "
+"uma descrição destes recursos."
+
+msgid "submission.rights.tip"
+msgstr "Se desejar, você pode inserir uma breve declaração sobre os direitos de acesso sobre esta submissão."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Adicione informações adicionais para sua submissão. Pressione 'Enter' depois de cada termo."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Submissões em múltiplos idiomas são aceitas. Escolha o idioma principal da "
+"submissão nas opções acima."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contato principal para correspondência editorial."

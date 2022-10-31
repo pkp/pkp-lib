@@ -2245,3 +2245,59 @@ msgstr "لم يتم ربط أي مرفقات بطلب النشر هذا."
 
 msgid "author.submit.confirmation"
 msgstr "تأكيد الطلب"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "لطفاً، أدخل اللغة."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "لطفاً، أدخل الموضوع."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "لطفاً، أدخل التخصص."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "لطفاً، أدخل كلمة مفتاحية."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "لطفاً، أدخل معلومات التغطية."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "لطفاً، أدخل النوع."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "لطفاً، أدخل المصدر."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "لطفاً، أدخل الحقوق."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "لطفاً، أدخل المراجع."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة."
+
+msgid "submission.type.tip"
+msgstr ""
+"نوع التقديم عادة ما يكون واحداً من: صورة، نص، أو غيرهما من متعددات الوسائط "
+"التي بضمنها: البرامجات أو الملفات التفاعلية. لطفاً، إختر ما تجده أنسبها "
+"لطلبك.\n"
+"أمثلة ذلك قد تجدها في <a target=\"_blank\" href=\"https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/\""
+">https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/"
+"generic/</a>"
+
+msgid "submission.source.tip"
+msgstr "هل إن هذا المؤلَّف مستقى من مصدر آخر؟ إن كان كذلك، بإمكانك إدخال رابط أو وصف لذلك المصدر."
+
+msgid "submission.rights.tip"
+msgstr "إذا رغبت، بإمكانك إدخال عبارة موجزة عن حقوق الوصول التي تتعلق بطلب النشر هذا."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "نقبل نشر المؤلفات بعدة لغات. لطفاً إختر اللغة الأساسية لمؤلَّفِك من القائمة المنسدلة."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "هذا عنوان الاتصال الرئيسي فيما يتعلق بمهام التحرير."

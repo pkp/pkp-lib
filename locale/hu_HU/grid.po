@@ -696,3 +696,18 @@ msgstr ""
 
 msgid "grid.action.saveOrdering"
 msgstr "Sorrend mentése"
+
+msgid "author.users.contributor.name"
+msgstr "Név"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Szerepkör"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Böngészés listákban"
+
+msgid "grid.action.editContributor"
+msgstr "Közreműködő szerkesztése"

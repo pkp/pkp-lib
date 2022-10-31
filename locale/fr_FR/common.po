@@ -2155,3 +2155,9 @@ msgstr "{$item}/{$afterSlash}"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Auteur ajouté."
+
+msgid "notification.editedAuthor"
+msgstr "Auteur modifié."

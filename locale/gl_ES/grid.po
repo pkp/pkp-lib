@@ -662,3 +662,18 @@ msgstr "Preferencias"
 
 msgid "grid.noItems"
 msgstr "Non hai artigos"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "Correo electrónico"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "En listas de navegación"
+
+msgid "grid.action.editContributor"
+msgstr "Editar colaborador/a"

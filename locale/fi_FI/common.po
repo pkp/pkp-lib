@@ -2010,3 +2010,9 @@ msgstr "{$item}/{$afterSlash}"
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
+msgid "notification.addedAuthor"
+msgstr "Kirjoittaja lisätty."
+
+msgid "notification.editedAuthor"
+msgstr "Kirjoittajaa muokattu."
+

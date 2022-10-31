@@ -2116,3 +2116,54 @@ msgstr "No s’ha adjuntat cap fitxer a aquesta tramesa."
 
 msgid "author.submit.confirmation"
 msgstr "Confirmació"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduïu un idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduïu un tema."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduïu una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduïu una paraula clau."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduïu la informació de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduïu la tipologia."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduïu la font."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduïu els drets."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduïu les referències."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després de cada terme."
+
+msgid "submission.type.tip"
+msgstr "El tipus de tramesa normalment és un tipus d'imatge, text o qualsevol altre tipus d'element multimèdia que pot ser programari o interactiu. Seleccioneu el més rellevant per a la tramesa. Podeu trobar-ne exemples a <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Aquesta tramesa deriva d'un altre recurs? Si és així, podeu introduir un URL o una descripció del recurs."
+
+msgid "submission.rights.tip"
+msgstr "Si ho voleu, podeu introduir una breu declaració sobre els drets d'accés a aquesta tramesa."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després de cada terme."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"S'accepten trameses en diversos idiomes. Trieu l'idioma principal de la "
+"tramesa des del menú desplegable que hi ha a sobre."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacte principal per a la correspondència editorial."

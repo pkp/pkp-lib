@@ -651,3 +651,18 @@ msgstr "設定"
 
 msgid "grid.noItems"
 msgstr "アイテムなし"
+
+msgid "author.users.contributor.name"
+msgstr "名前"
+
+msgid "author.users.contributor.email"
+msgstr "メール"
+
+msgid "author.users.contributor.role"
+msgstr "役割"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "リストで表示"
+
+msgid "grid.action.editContributor"
+msgstr "寄稿者を編集"

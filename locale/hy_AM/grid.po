@@ -710,3 +710,19 @@ msgstr "Դիտել"
 
 msgid "grid.columns.locale.code"
 msgstr "Կոդ"
+
+msgid "author.users.contributor.name"
+msgstr "Անուն"
+
+msgid "author.users.contributor.email"
+msgstr "Էլ․ փոստ"
+
+msgid "author.users.contributor.role"
+msgstr "Դեր"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Զննման ցուցակներում"
+
+msgid "grid.action.editContributor"
+msgstr "Խմբագրել աջակցողին"
+

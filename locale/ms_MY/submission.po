@@ -2026,3 +2026,68 @@ msgstr "Tiada fail yang dilampirkan pada penyerahan ini."
 
 msgid "author.submit.confirmation"
 msgstr "Pengesahan"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Sila masukkan bahasa."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Sila masukkan subjek."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Sila masukkan disiplin."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Sila masukkan kata kunci."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Sila masukkan maklumat liputan."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Sila masukkan jenis."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Sila masukkan sumber."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Sila masukkan hak."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Sila masukkan rujukan."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan maklumat tambahan untuk penyerahan anda. Tekan 'enter' selepas "
+"setiap penggal."
+
+msgid "submission.type.tip"
+msgstr ""
+"Jenis penyerahan biasanya salah satu daripada 'imej', 'teks', atau jenis "
+"multimedia lain termasuk 'perisian' atau 'interaktif'. Sila pilih yang "
+"paling relevan untuk penyerahan anda. Contoh boleh didapati di <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/ 2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Adakah penyerahan ini diperoleh daripada sumber lain? Jika ya, anda boleh "
+"memasukkan URL atau penerangan tentang sumber tersebut."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Jika anda mahu, anda boleh memasukkan kenyataan ringkas tentang hak akses "
+"yang dipegang dalam atau atas penyerahan ini."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan maklumat tambahan untuk penyerahan anda. Tekan 'enter' selepas "
+"setiap penggal."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Penyerahan dalam beberapa bahasa diterima. Pilih bahasa utama penyerahan "
+"daripada tarik turun di atas."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Hubungan utama untuk surat-menyurat editorial."

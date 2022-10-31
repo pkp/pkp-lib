@@ -631,3 +631,18 @@ msgstr "بدون المان برای منوی گشت‌وگذار"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "بدون منوی گشت‌وگذار"
+
+msgid "author.users.contributor.name"
+msgstr "نام"
+
+msgid "author.users.contributor.email"
+msgstr "ایمیل"
+
+msgid "author.users.contributor.role"
+msgstr "نقش"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "در لیست نویسندگان سایت قرار بگیرد"
+
+msgid "grid.action.editContributor"
+msgstr "ویرایش پدیدآورنده"

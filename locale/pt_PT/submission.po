@@ -2389,3 +2389,52 @@ msgstr "Nenhum documento anexado à submissão."
 
 msgid "author.submit.confirmation"
 msgstr "Confirmação"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduza uma língua."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduza um assunto."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduza uma Área de Conhecimento."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduza uma palavra-chave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduza a informação de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduza o tipo."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduza a fonte."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduza os direitos."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduza as referências."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Adicionar informações extra à sua submissão. Pressione 'enter' após cada termo."
+
+msgid "submission.type.tip"
+msgstr "O tipo de submissão normalmente é 'imagem', 'texto' ou outros tipos de multimédia, incluindo 'software' ou 'interactivo'. Escolha o mais relevante para a sua submissão. Exemplos podem ser encontrados em <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\"> http://dublincore.org/documents/2001/04/12/useguide / generic.shtml # type</a>"
+
+msgid "submission.source.tip"
+msgstr "Este envio é proveniente de outro recurso? Se assim for, pode inserir um URL ou descrição desse recurso."
+
+msgid "submission.rights.tip"
+msgstr "Se desejar, pode inserir uma breve declaração sobre os direitos de acesso mantidos em ou sobre esta submissão."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Adicionar informações extra à sua submissão. Pressione 'enter' após cada termo."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "São permitidas submissões em vários idiomas. Escolha o idioma principal da submissão a partir da lista abaixo."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacto principal para correspondência editorial."

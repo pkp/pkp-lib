@@ -628,3 +628,18 @@ msgstr "Улога {$userGroupName} је додељена фази {$stageName}.
 
 msgid "grid.userGroup.unassignedStage"
 msgstr "Улога {$userGroupName} је уклоњена из фазе {$stageName}."
+
+msgid "author.users.contributor.name"
+msgstr "Име"
+
+msgid "author.users.contributor.email"
+msgstr "Имејл"
+
+msgid "author.users.contributor.role"
+msgstr "Улога"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "У листи за преглед"
+
+msgid "grid.action.editContributor"
+msgstr "Имени сарадника"

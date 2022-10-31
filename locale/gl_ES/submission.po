@@ -2019,3 +2019,68 @@ msgstr "Non se anexou  ningún arquivo a este envío."
 
 msgid "author.submit.confirmation"
 msgstr "Confirmación do envío"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Insira un idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Insira un asunto."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Insira unha disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Insira unha palabra clave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Insira a información de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Insira a topoloxía."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Insira a fonte."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Insira os dereitos."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Insira as referencias."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Engade información adicional a o teu envío. Preme \"Enter\" despois de cada "
+"termo."
+
+msgid "submission.type.tip"
+msgstr ""
+"O tipo de envío adoita ser de \"imaxe\", \"texto\" ou outros tipos "
+"multimedia, incluído \"software\" ou \"interactivo\". Escolla o máis "
+"relevante para o seu envío. Pódense atopar exemplos en <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/ 12/04/2001/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Este envío deriva doutro recurso? Se é así, pode inserir un URL ou unha "
+"descrición dese recurso."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Se o desexas, podes poñer unha breve declaración sobre os dereitos de acceso "
+"sobre este envío."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Engade información adicional a o teu envío. Preme \"Enter\" despois de cada "
+"termo."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Aceptanse envíos en varios idiomas. Escolla o idioma principal do envío no "
+"menú desplegable de abaixo."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacto principal para a correspondencia editorial."

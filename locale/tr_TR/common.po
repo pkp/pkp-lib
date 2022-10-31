@@ -2192,3 +2192,9 @@ msgstr "{$item}/{$afterSlash}"
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
+msgid "notification.addedAuthor"
+msgstr "Yazar eklendi."
+
+msgid "notification.editedAuthor"
+msgstr "Yazar düzeltildi."
+

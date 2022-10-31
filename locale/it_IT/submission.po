@@ -2362,3 +2362,60 @@ msgstr "Non hai caricato alcun file per questa proposta."
 
 msgid "author.submit.confirmation"
 msgstr "Conferma"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Inserire una lingua."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Inserire un oggetto."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Inserire una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Per favore inserisci le parole chiave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Inserirei la copertura dell'articolo."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Inserire la tipologia."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Inserire la fonte."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Inserire i diritti sull'articolo."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Per favore inserisci le citazioni."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Aggiungi ulteriori informazioni sulla tua proposta. Premi 'Invio' dopo ogni termine."
+
+msgid "submission.type.tip"
+msgstr ""
+"La tipologia di solito è qualcosa come 'image', 'text', o formati "
+"multimediali come 'software' o 'interactive'. Per favore scegli quello più "
+"rilevante per la tua proposta. Esempi possono essere trovarti in <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Questo manoscritto proviene da altra fonte? Se si, inserire un URL o una "
+"descrizione della fonte."
+
+msgid "submission.rights.tip"
+msgstr "Se vuoi inserisci una breve dichiarazione sui diritti di accesso per o sopra questa proposta."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Aggiungi ulteriori informazioni sulla tua proposta. Premi 'Invio' dopo ogni termine."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Sono accettate proposte in numerose lingue. Scegli la lingua primaria della proposta da questa lista a menu."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Principale contatto per la corrispondenza editoriale."

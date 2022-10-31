@@ -672,3 +672,18 @@ msgid "grid.task.status.reviewReady"
 msgstr ""
 "Această recenzie este gata. Faceți clic pe pictograma notei din stânga "
 "pentru a o citi."
+
+msgid "author.users.contributor.name"
+msgstr "Nume"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "În Listele de navigare"
+
+msgid "grid.action.editContributor"
+msgstr "Editare contributor"

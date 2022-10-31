@@ -651,3 +651,18 @@ msgstr "Luo uusi versio"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Poista tämä käyttäjäryhmä"
+
+msgid "author.users.contributor.name"
+msgstr "Nimi"
+
+msgid "author.users.contributor.email"
+msgstr "Sähköposti"
+
+msgid "author.users.contributor.role"
+msgstr "Rooli"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Näkyy luetteloissa"
+
+msgid "grid.action.editContributor"
+msgstr "Muokkaa tekijää"

@@ -671,3 +671,18 @@ msgstr "Dette elementet ligger på en annen server."
 
 msgid "grid.noAuditors"
 msgstr "Ingen oppnevnt for sluttkontroll"
+
+msgid "author.users.contributor.name"
+msgstr "Navn"
+
+msgid "author.users.contributor.email"
+msgstr "E-post"
+
+msgid "author.users.contributor.role"
+msgstr "Rolle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Inkluder i «Bla gjennom»-listen"
+
+msgid "grid.action.editContributor"
+msgstr "Endre bidragsyter"

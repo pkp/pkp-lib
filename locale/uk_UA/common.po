@@ -1923,3 +1923,10 @@ msgstr "{$item}/{$afterSlash}"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Автора додано."
+
+msgid "notification.editedAuthor"
+msgstr "Автор відредагований."
+

@@ -661,3 +661,18 @@ msgstr "Cài đặt"
 
 msgid "grid.noItems"
 msgstr "Không có mục nào"
+
+msgid "author.users.contributor.name"
+msgstr "Tên"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.role"
+msgstr "Vai trò"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Trong Danh sách Duyệt"
+
+msgid "grid.action.editContributor"
+msgstr "Chỉnh sửa người tham gia"

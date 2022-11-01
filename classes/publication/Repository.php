@@ -625,7 +625,7 @@ abstract class Repository
                     $publicFileManager->removeContextFile($submission->getData('contextId'), $fileName);
                 }
             }
-            return false;
+            return null;
         }
 
         // Check if there is something to upload
@@ -659,7 +659,7 @@ abstract class Repository
             }
         }
 
-        return false;
+        return null;
     }
 
     /**

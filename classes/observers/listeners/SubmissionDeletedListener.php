@@ -38,7 +38,7 @@ class SubmissionDeletedListener
     /**
      * Handle the listener call
      */
-    public function handle(SubmissionDeleted $event)
+    public function handle(SubmissionDeleted $event): void
     {
         dispatch(new RemoveSubmissionFromSearchIndexJob($event->submissionId));
     }

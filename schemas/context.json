@@ -286,7 +286,7 @@
 		},
 		"doiSuffixType": {
 			"type": "string",
-		  	"default": "default"
+			"default": "default"
 		},
 		"registrationAgency": {
 			"type": "string",

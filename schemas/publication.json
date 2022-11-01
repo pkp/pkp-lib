@@ -330,13 +330,13 @@
 				"min:1"
 			]
 		},
-        "dataAvailability": {
+		"dataAvailability": {
 			"type": "string",
 			"description": "A brief statement about whether the evidence supporting this publication is available, and if so, where readers may access it.",
 			"multilingual": true,
 			"validation": [
 				"nullable"
 			]
-        }
+		}
 	}
 }

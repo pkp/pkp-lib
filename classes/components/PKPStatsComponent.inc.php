@@ -73,6 +73,7 @@ class PKPStatsComponent {
 			'apiUrl' => $this->apiUrl,
 			'tableColumns' => $this->tableColumns,
 			'dateStart' => $this->dateStart,
+			'dateStartMin' =>  preg_replace('/^(\d{4})(\d{2})(\d{2})/', '$1-$2-$3', STATISTICS_EARLIEST_DATE),
 			'dateEnd' => $this->dateEnd,
 			'dateEndMax' => date('Y-m-d', strtotime('yesterday')),
 			'dateRangeOptions' => $this->dateRangeOptions,

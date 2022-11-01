@@ -27,6 +27,7 @@ use PKP\context\PKPSection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
+use PKP\observers\events\SubmissionDeleted;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -373,6 +374,7 @@ abstract class Repository
     public function delete(Submission $submission)
     {
         Hook::call('Submission::delete::before', [&$submission]);
+        event(new SubmissionDeleted($submission));
 
         $this->dao->delete($submission);
 

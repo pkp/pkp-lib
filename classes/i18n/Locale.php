@@ -341,9 +341,18 @@ class Locale implements LocaleInterface
     /**
      * @copy LocaleInterface::getLanguages()
      */
-    public function getLanguages(?string $locale = null): LanguagesInterface
+    public function getLanguages(?string $locale = null, bool $fromCache = true): LanguagesInterface
     {
-        return $this->_getLocaleCache(__METHOD__, $locale, fn () => $this->_getIsoCodes($locale)->getLanguages());
+        if ( $fromCache ) {
+
+            return $this->_getLocaleCache(
+                __METHOD__, 
+                $locale, 
+                fn () => $this->_getIsoCodes($locale)->getLanguages()
+            );
+        }
+
+        return $this->_getIsoCodes($locale)->getLanguages();
     }
 
     /**

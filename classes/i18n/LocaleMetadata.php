@@ -90,7 +90,10 @@ class LocaleMetadata
             '', 
             PKPString::ucfirst(
                 $this
-                    ->_getLanguage($langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale)
+                    ->_getLanguage(
+                        $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale,
+                        $langLocaleStatus === self::LANGUAGE_LOCALE_WITH
+                    )
                     ->getLocalName()
             )
         );
@@ -235,9 +238,9 @@ class LocaleMetadata
     /**
      * Retrieves the language
      */
-    private function _getLanguage(?string $locale = null): ?Language
+    private function _getLanguage(?string $locale = null, bool $fromCache = true): ?Language
     {
-        return Locale::getLanguages($locale)->getByAlpha2($this->_parse()->language);
+        return Locale::getLanguages($locale, $fromCache)->getByAlpha2($this->_parse()->language);
     }
 
     /**

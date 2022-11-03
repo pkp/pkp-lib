@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2022-06-15 15:07+0000\n"
+"PO-Revision-Date: 2022-09-27 20:51+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sv_SE/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Inställningens namn"
@@ -334,3 +334,63 @@ msgstr "Deponera DOI:er hos den inställda organisationen"
 
 msgid "admin.deleteCache"
 msgstr "Radera cache"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platform för COUNTER SUSHI-statistik"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Använd siten som plattform för alla tidskrifter."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Plattforms-ID"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Ett plattforms-ID krävs"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
+"protokollet. Det kräver en specificerad plattform. Tidskriften är på förhand "
+"angiven som plattformen för all statistik, men om alla tidskrifter på denna "
+"OJS-installation tillhör samma utgivare går det även att ange hela siten som "
+"plattform."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Plattforms-ID FÅR ENBART innehålla ASCII-tecken (a-z, A-Z), siffror (0-9), "
+"understreck (_), punkter (.) och snedstreck (/), och längden FÅR INTE "
+"överstiga 17 tecken. Observera att plattforms-ID används i olika kolumner "
+"och bör därför vara så korta som möjligt, men fortfarande igenkännliga. "
+"Plattforms-ID bör vanligtvis vara baserat på utgivarens namn. En kort "
+"beteckning enligt en standard såsom GRID eller ROR (utan https://) kan också "
+"användas."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimera arkiv"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Låt loggfilerna vara"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Välj vad som ska göras med arkiverade loggfiler."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Radera cache-filer från systemet. Ska endast utföras i utvecklingsmiljöer."
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Skicka ett e-postmeddelande med en påminnelse om ofärdiga uppgifter till "
+"varje redaktör"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Alla användare, inklusive du själv, kommer bli utloggade och måste logga in "
+"igen."

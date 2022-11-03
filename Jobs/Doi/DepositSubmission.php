@@ -56,10 +56,9 @@ class DepositSubmission extends BaseJob
         $submission = Repo::submission()->get($this->submissionId);
 
         if (!$submission || !$this->agency) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
-
-            return;
+            throw new JobException(JobException::INVALID_PAYLOAD);
         }
-        $retResults = $this->agency->depositSubmissions([$submission], $this->context);
+
+        $this->agency->depositSubmissions([$submission], $this->context);
     }
 }

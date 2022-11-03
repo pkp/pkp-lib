@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-07-11 12:48+0000\n"
+"PO-Revision-Date: 2022-10-08 04:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "إن العامل {$param} غير مدعوم."
@@ -267,3 +267,9 @@ msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا ل
 
 msgid "api.dois.403.prefixRequired"
 msgstr "توليد معرفات المكونات الرقمية يتطلب وجود بادئتها."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr "طلبك لم يكن صحيحًا. الفترة الزمنية ينبغي أن تكون إما`day` أو `month`."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "تعذر العثور على المؤسسة التي طلبتها."

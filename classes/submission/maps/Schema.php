@@ -17,8 +17,10 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 
-use Illuminate\Support\Enumerable;
+use Illuminate\Support\Collection;
 
+use Illuminate\Support\Enumerable;
+use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -29,8 +31,6 @@ use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
-use Illuminate\Support\Collection;
-use Illuminate\Support\LazyCollection;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -235,7 +235,7 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'publications':
                     $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
-                        ->summarizeMany($submission->getData('publications'), $anonymize);
+                        ->summarizeMany($submission->getData('publications'), $anonymize)->values();
                     break;
                 case 'reviewAssignments':
                     $output[$prop] = $this->getPropertyReviewAssignments($submission);
@@ -367,7 +367,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function getPropertyStages(Submission $submission): array
     {
-        $stageIds = Application::get()->getApplicationStages();
+        $stageIds = Application::getApplicationStages();
         $currentUser = Application::get()->getRequest()->getUser();
         $context = Application::get()->getRequest()->getContext();
         $contextId = $context ? $context->getId() : Application::CONTEXT_ID_NONE;

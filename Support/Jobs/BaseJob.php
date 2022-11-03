@@ -19,14 +19,11 @@ namespace PKP\Support\Jobs;
 
 use APP\core\Application;
 use Illuminate\Bus\Queueable;
-
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use PKP\config\Config;
-
-use Throwable;
 
 abstract class BaseJob implements ShouldQueue
 {
@@ -65,20 +62,4 @@ abstract class BaseJob implements ShouldQueue
     }
 
     abstract public function handle();
-
-    public function failed(Throwable $e)
-    {
-        $jobArr = '';
-
-        if ($this->job) {
-            $jobArr = (string) $this->job->getRawBody();
-        }
-
-        app('queue.failer')->log(
-            $this->connection,
-            $this->queue,
-            $jobArr,
-            $e
-        );
-    }
 }

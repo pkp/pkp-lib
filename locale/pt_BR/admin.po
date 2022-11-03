@@ -1,19 +1,20 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# cicilia conceiçao de maria <ccmaria@uem.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-06-28 13:47+0000\n"
+"PO-Revision-Date: 2022-10-18 07:27+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/admin/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nome da Configuração"
@@ -322,11 +323,12 @@ msgid "admin.copyAccessLogFileTool.success"
 msgstr "Sucesso: {$filePath} para {$destinationPath}"
 
 msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" retornou o seguinte erro após executado: {$output}"
+msgstr ""
+"A execução do programa \"{$utilPath}\" retornou o seguinte erro: {$output}"
 
 msgid "admin.error.executingUtil"
 msgstr ""
-"Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuração de "
+"Erro: não foi possível executar \"{$utilPath}\". Verifique a configuração de "
 "{$utilVar} em config.inc.php."
 
 msgid "admin.settings.siteLogo"
@@ -456,7 +458,10 @@ msgid "admin.cli.tool.jobs.available.options.usage.description"
 msgstr "Exibir os parâmetros de uso de Tarefas"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Adicionar uma tarefa de teste à fila padrão"
+msgstr ""
+"Adicione um job de teste à fila de teste. use os parâmetros opcionais --"
+"only= e pass 'failed' ou 'success' para despachar um job com falha ou bem-"
+"sucedido."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Disponibilizar o comando de uso Tarefas"
@@ -691,8 +696,8 @@ msgstr ""
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
-"O arquivo não pôde ser compactado. O arquivo gz de destino aberto "
-"{$filePath} não pôde ser fechado com gzclose."
+"O arquivo não pôde ser compactado. O arquivo gz de destino aberto {$filePath}"
+" não pôde ser fechado com gzclose."
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
@@ -704,3 +709,201 @@ msgid "admin.job.compileMetrics.error"
 msgstr ""
 "Falha na tarefa que carrega os dados de estatísticas de uso do arquivo "
 "{$file}. O arquivo foi movido para o diretório stage."
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Plataforma para Estatísticas COUNTER SUSHI"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use o site como plataforma para todos os periódicos."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID da plataforma"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"Um ID de plataforma deve ser exigido quando o site for identificado como a "
+"plataforma SUSHI."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Este software fornece estatísticas de uso de acordo com o protocolo COUNTER "
+"SUSHI. Este protocolo solicita que uma plataforma seja especificada. Por "
+"padrão, a revista será designada como a plataforma para todas as "
+"estatísticas. No entanto, se todos os periódicos neste site forem "
+"publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
+"designar o site como a plataforma."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–9)"
+", sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE exceder "
+"17 caracteres. Observe que o ID da plataforma é usado em várias colunas e, "
+"portanto, deve ser o mais curto possível, mas ainda reconhecível. O ID da "
+"plataforma geralmente deve ser baseado no nome, em uma abreviação exclusiva "
+"bem conhecida ou no domínio do editor ou da plataforma. Um identificador "
+"padrão curto como GRID ou ROR (sem o https://) também pode ser usado."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Estatísticas Mensais ou Diárias"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Se deve ou não rastrear estatísticas de uso diárias ou mensais. O "
+"rastreamento de estatísticas diárias pode aumentar consideravelmente o "
+"tamanho do seu banco de dados."
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"As estatísticas são geradas a partir de arquivos de log de acesso que são "
+"movidos para <code>{$path}</code> depois de processados. Os arquivos de log "
+"devem ser compactados em arquivos <code>.gz</code> depois de processados? A "
+"compactação de arquivos de log pode economizar espaço em disco no servidor."
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Compactar arquivos de logs"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Deixe os arquivos de log arquivados como estão"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Coleção de Dados"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Configure o tipo de estatística de uso que deve ser coletada."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Armazenamento de dados"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Configure quais estatísticas de uso devem ser armazenadas no servidor."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Protocolo Sushi"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Configure o protocolo <a href=\"https://www.projectcounter.org/counter-sushi/"
+"\">COUNTER 5 SUSHI</a>, um formato reconhecido pela indústria para "
+"distribuir estatísticas de uso."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Acompanhe estatísticas diárias e mensais"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Acompanhe apenas estatísticas mensais"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Envie os jobs disponíveis para a fila. se você quiser despachar um job para "
+"uma fila específica, passe o parâmetro --queue=QUEUE_NAME. Também pode "
+"passar --test para executar o job de teste e --once para executar um job de "
+"cada vez"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Completou a execução de {$jobCount} jobs na fila chamada {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Nenhum job disponível para execução na fila chamada {$queueName}."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Job de teste despachado que está destinado a falhar na fila chamada "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Job de teste despachado que está vinculado ao sucesso na fila chamada "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Opção de job de teste inválida. Só pode levar 'failed' ou 'success' para a "
+"opção '--only='"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Nenhum job encontrado para excluir."
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Compactar Logs"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Restrinja o acesso à API de estatísticas do COUNTER SUSHI a gerentes da "
+"revista e administradores"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "opções de comando de trabalho"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "uso : [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Opções disponíveis para comando de trabalho"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "O nome da conexão da fila para trabalhar[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"O número de segundos para esperar antes de tentar novamente um job que "
+"encontrou uma exceção não capturada[default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "O limite de memória em megabytes[default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"O número de segundos que um processo filho pode executar[default: "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Número de segundos para sleep quando nenhum job está disponível[default: "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "O nome do worker[default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "O nome da fila para worker[default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Número de tentativas de um job antes de registrá-lo falhou[default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Forçar o worker a ser executado mesmo no modo de manutenção[default : "
+"{$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Pare quando a fila estiver vazia[default: {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"O número de jobs a serem processados antes de parar[default: '{$default}']"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Processar jobs pendentes na fila"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Não é possível executar jobs da fila porque o modo de manutenção do sistema "
+"está ativado."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Execute um processo de trabalho de daemon infinito que continuará "
+"processando jobs. Use a flag --help para ver as opções disponíveis "
+"associadas a este comando."
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"O número máximo de segundos que o worker deve executar[default: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Número de segundos para descanso entre jobs [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Execute o daemon do worker para a fila de teste"

@@ -312,7 +312,7 @@ abstract class PKPWorkflowHandler extends Handler
                 'status' => $publication->getData('status'),
                 'version' => $publication->getData('version')
             ];
-        });
+        })->values();
 
         // Get full details of the working publication and the current publication
         $mapper = Repo::publication()->getSchemaMap($submission, $authorUserGroups, $genres);
@@ -439,10 +439,10 @@ abstract class PKPWorkflowHandler extends Handler
             'identifiersEnabled' => $identifiersEnabled,
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
-            'pageTitle' => join(__('common.titleSeparator'), [
+            'pageTitle' => implode(__('common.titleSeparator'), array_filter([
                 $submission->getShortAuthorString(),
                 $submission->getLocalizedTitle()
-            ]),
+            ])),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
             'requestedStageId' => $requestedStageId,
             'submission' => $submission,

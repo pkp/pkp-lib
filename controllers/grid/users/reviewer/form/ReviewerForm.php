@@ -17,11 +17,11 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\Core;
@@ -32,13 +32,12 @@ use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
-use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
-use PKP\security\Validation;
 use PKP\submission\action\EditorAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class ReviewerForm extends Form
@@ -218,27 +217,6 @@ class ReviewerForm extends Form
         $this->setData('reviewMethod', $reviewMethod);
         $this->setData('reviewFormId', $reviewFormId);
         $this->setData('reviewRoundId', $reviewRound->getId());
-
-        $context = $request->getContext();
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->newDataObject();
-        $reviewAssignment->setSubmissionId($this->getSubmissionId());
-
-        $mailable = $this->getMailable($context, $submission, $reviewAssignment);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-        $mailable->sender($request->getUser());
-        $mailable->addData([
-            'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-            'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
-        ]);
-
-        // Remove template variables that haven't been set yet during form initialization
-        $data = $mailable->getData(Locale::getLocale());
-        unset($data[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
-        unset($data[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
-        unset($data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL]);
-
-        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $data));
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);
@@ -256,7 +234,6 @@ class ReviewerForm extends Form
         // Get the review method options.
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewMethods = $reviewAssignmentDao->getReviewMethodsTranslationKeys();
-        $submission = $this->getSubmission();
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('reviewMethods', $reviewMethods);
@@ -277,31 +254,8 @@ class ReviewerForm extends Form
             'reviewAssignmentUrl' => __('common.url'),
             'recipientUsername' => __('user.username'),
         ]);
-        // Allow the default template
-        $templateKeys[] = $this->getReviewRound()->getRound() == 1 ?
-            ReviewRequest::getEmailTemplateKey() :
-            ReviewRequestSubsequent::getEmailTemplateKey();
 
-        // Determine if the current user can use any custom templates defined.
-        $user = $request->getUser();
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-
-        $userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
-        foreach ($userRoles as $userRole) {
-            if (in_array($userRole->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-                $emailTemplatesIterator = Repo::emailTemplate()->getCollector()
-                    ->filterByContext($submission->getData('contextId'))
-                    ->filterByIsCustom(true)
-                    ->getMany();
-
-                $customTemplateKeys = [];
-                foreach ($emailTemplatesIterator as $emailTemplate) {
-                    $customTemplateKeys[] = $emailTemplate->getData('key');
-                };
-                $templateKeys = array_merge($templateKeys, $customTemplateKeys);
-                break;
-            }
-        }
+        $templateKeys = $this->getEmailTemplateKeys($request, $templateMgr);
 
         $templatesCollection = Repo::emailTemplate()->getCollector()
             ->filterByKeys($templateKeys)
@@ -490,15 +444,64 @@ class ReviewerForm extends Form
     }
 
     /**
-     * Get the Mailable depending on a review round.
+     * Get the Mailable and populate with data
      */
-    protected function getMailable(
-        Context $context,
-        Submission $submission,
-        ReviewAssignment $reviewAssignment
-    ): ReviewRequest|ReviewRequestSubsequent {
-        return $this->getReviewRound()->getRound() == 1 ?
-            new ReviewRequest($context, $submission, $reviewAssignment) :
-            new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
+    protected function getMailable(): ReviewRequest
+    {
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignment = $reviewAssignmentDao->newDataObject();
+        $reviewAssignment->setSubmissionId($this->getSubmissionId());
+        $submission = $this->getSubmission();
+        $request = Application::get()->getRequest();
+        $mailable = new ReviewRequest($request->getContext(), $submission, $reviewAssignment);
+        $mailable->sender($request->getUser());
+        $mailable->addData([
+            'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
+            'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+        ]);
+
+        // Remove template variables that haven't been set yet during form initialization
+        $mailable->setData(Locale::getLocale());
+        unset($mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
+        unset($mailable->viewData[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
+        unset($mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL]);
+
+        return $mailable;
+    }
+
+    /**
+     * Get email template keys associated with the form
+     *
+     * @return string[]
+     */
+    protected function getEmailTemplateKeys(Request $request, TemplateManager $templateMgr): array
+    {
+        $templateKeys = [ReviewRequest::getEmailTemplateKey()];
+
+        // Determine if the current user can use any custom templates defined.
+        $user = $request->getUser();
+        $context = $request->getContext();
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+
+        $userRoles = $roleDao->getByUserId($user->getId(), $context->getId());
+        foreach ($userRoles as $userRole) {
+            if (in_array($userRole->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
+                $emailTemplatesIterator = Repo::emailTemplate()->getCollector()
+                    ->filterByContext($context->getId())
+                    ->filterByIsCustom(true)
+                    ->getMany();
+
+                $customTemplateKeys = [];
+                foreach ($emailTemplatesIterator as $emailTemplate) {
+                    $customTemplateKeys[] = $emailTemplate->getData('key');
+                };
+                $templateKeys = array_merge($templateKeys, $customTemplateKeys);
+                break;
+            }
+        }
+
+        $templateMgr->assign('hasCustomTemplates' , (count($templateKeys) > 1));
+
+        return $templateKeys;
     }
 }

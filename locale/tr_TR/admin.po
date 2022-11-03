@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-04-16 10:57+0000\n"
+"PO-Revision-Date: 2022-09-05 15:57+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr_TR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Yönetsel İşlevler"
@@ -407,3 +407,18 @@ msgstr ""
 
 msgid "admin.deleteCache"
 msgstr "Önbelleği Sil"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "{$contextId} bağlamında editörlere hatırlatılacak durumları belirleyin"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Doğrulanmamış, süresi dolmuş kullanıcıları silin"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Editörlere bekleyen görevlerini hatırlatan bir e-posta gönderin"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "DB-IP city lite veritabanını güncelleyin"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Zaman geçersiz bir formatta."

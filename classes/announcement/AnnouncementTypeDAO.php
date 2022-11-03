@@ -196,16 +196,6 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
             yield $row->type_id => $this->_fromRow((array) $row);
         }
     }
-
-    /**
-     * Get the ID of the last inserted announcement type.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('announcement_types', 'type_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -29,10 +29,12 @@
 	<input type="hidden" id="sitePrimaryLocale" name="sitePrimaryLocale" value="{$sitePrimaryLocale|escape}" />
 	<div id="userDetailsFormContainer">
 		<div id="userDetails" class="full left">
-			{if $userId}
-				<h3>{translate key="grid.user.userDetails"}</h3>
-			{else}
-				<h3>{translate key="grid.user.step1"}</h3>
+			{if !$userGroupUpdateOnly}
+				{if $userId}
+					<h3>{translate key="grid.user.userDetails"}</h3>
+				{else}
+					<h3>{translate key="grid.user.step1"}</h3>
+				{/if}
 			{/if}
 			{if $userId}
 				<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
@@ -40,16 +42,25 @@
 			{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userDetailsFormNotification"}
 		</div>
 
-		{if $userId}{assign var="disableSendNotifySection" value=true}{/if}
-		{include
-			file="common/userDetails.tpl"
-			disableSendNotifySection=$disableSendNotifySection
-		}
+		{if !$userGroupUpdateOnly}
+			{if $userId}
+				{assign var="disableSendNotifySection" value=true}
+			{/if}
 
-		{if $canCurrentUserGossip}
-			{fbvFormSection label="user.gossip" description="user.gossip.description"}
-				{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
-			{/fbvFormSection}
+			{include
+				file="common/userDetails.tpl"
+				disableSendNotifySection=$disableSendNotifySection
+			}
+
+			{if $canCurrentUserGossip}
+				{fbvFormSection label="user.gossip" description="user.gossip.description"}
+					{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
+				{/fbvFormSection}
+			{/if}
+		{/if}
+
+		{if $userGroupUpdateOnly}
+			{include file="common/userDetailsReadOnly.tpl"}
 		{/if}
 
 		{if $userId}

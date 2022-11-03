@@ -2149,3 +2149,6 @@ msgstr "Bifoga filer till biblioteket"
 
 msgid "email.addAttachment.libraryFiles.description"
 msgstr "Bifoga filer från bidrag och biblioteket."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

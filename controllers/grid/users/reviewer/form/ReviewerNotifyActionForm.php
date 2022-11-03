@@ -16,8 +16,12 @@ namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\form\Form;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\mail\Mailable;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 abstract class ReviewerNotifyActionForm extends Form
 {
@@ -46,7 +50,7 @@ abstract class ReviewerNotifyActionForm extends Form
         parent::__construct($template);
     }
 
-    abstract protected function getEmailKey();
+    abstract protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable;
 
     //
     // Overridden template methods
@@ -71,19 +75,13 @@ abstract class ReviewerNotifyActionForm extends Form
             'reviewerId' => $reviewerId,
         ]);
 
-        $template = new SubmissionMailTemplate($submission, $this->getEmailKey());
-        if ($template) {
-            $reviewer = Repo::user()->get($reviewerId);
-            $user = $request->getUser();
+        $context = $request->getContext();
+        $mailable = $this->getMailable($context, $submission, $reviewAssignment);
+        $mailable->sender($request->getUser());
+        $mailable->recipients([Repo::user()->get($reviewerId)]);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
-            $template->assignParams([
-                'recipientName' => $reviewer->getFullName(),
-                'senderName' => $user->getFullname(),
-            ]);
-            $template->replaceParams();
-
-            $this->setData('personalMessage', $template->getBody());
-        }
+        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData()));
     }
 
     /**

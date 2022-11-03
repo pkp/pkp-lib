@@ -30,11 +30,9 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\mail\SubmissionMailTemplate;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
@@ -646,7 +644,7 @@ class QueriesGridHandler extends GridHandler
             foreach ($added as $userId) {
                 $user = Repo::user()->get((int) $userId);
 
-                $notificationMgr->createNotification(
+                $notification = $notificationMgr->createNotification(
                     $request,
                     $userId,
                     PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
@@ -666,11 +664,15 @@ class QueriesGridHandler extends GridHandler
                     continue;
                 }
                 $submission = $this->getSubmission();
-                $mailable = $this->getStageMailable($request->getContext(), $submission);
-                $mailable->sender($currentUser);
-                $mailable->body($note->getData('contents'));
-                $mailable->subject($note->getData('title'));
-                $mailable->recipients([$user]);
+
+                $context = $request->getContext();
+                $mailable = $this->getStageMailable($context, $submission, $note->getData('title'), $note->getData('contents'));
+                $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+                $mailable->sender($currentUser)
+                        ->recipients([$user])
+                        ->subject($emailTemplate->getLocalizedData('subject'))
+                        ->body($emailTemplate->getLocalizedData('body'))
+                        ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
                 $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
@@ -752,17 +754,16 @@ class QueriesGridHandler extends GridHandler
     public function fetchTemplateBody(array $args, PKPRequest $request): JSONMessage
     {
         $templateId = $request->getUserVar('template');
-        $template = new SubmissionMailTemplate($this->getSubmission(), $templateId);
+        $context = $request->getContext();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateId);
         if ($template) {
-            $user = $request->getUser();
-            $template->assignParams([
-                'editorialContactSignature' => $user->getSignature(Locale::getLocale()) ?? '',
-                'signatureFullName' => $user->getFullname(),
-            ]);
-            $template->replaceParams();
+            $mailable = $this->getStageMailable($context, $this->getSubmission());
+            $mailable->sender($request->getUser());
+            $data = $mailable->getData();
+
             return new JSONMessage(
                 true,
-                ['body' => $template->getBody()]
+                ['body' => Mail::compileParams($template->getLocalizedData('body'), $data)]
             );
         }
     }

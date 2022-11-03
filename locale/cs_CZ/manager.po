@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-07-19 06:29+0000\n"
+"PO-Revision-Date: 2022-10-14 19:01+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Oznámení"
@@ -3023,71 +3023,32 @@ msgstr "Neplatný rozsah IP adres"
 msgid "manager.setup.statistics"
 msgstr "Statistiky"
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Zvolte, jak naložit s archivovanými soubory protokolu."
-
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Archivované soubory protokolu ponechat tak, jak jsou"
-
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimace archivů"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Denní metriky"
-
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"Statistiky využití COUNTER a Geo jsou shrnuty za jednotlivé měsíce. Poté "
-"jsou denní záznamy smazány. Tuto možnost vyberte, pokud chcete denní záznamy "
-"v databázi ponechat. Uvědomte si, že se tím výrazně zvětší databáze."
-
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Uchovávání denních metrik v databázi"
-
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geo statistiky používání"
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Zvolte, jaké geografické statistiky používání chcete shromažďovat. To "
-"ovlivní možné statistické přehledy, které můžete získat, a bude mít také "
-"vliv na velikost databáze."
+msgstr "Geografické statistiky"
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Neshromažďujte žádná geodata"
+msgstr "Neshromažďovat žádné zeměpisné údaje"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Stát"
+msgstr "Shromáždění země návštěvníka"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Stát a region"
+msgstr "Shromažďování země a regionu návštěvníka"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Stát, region a město"
+msgstr "Shromažďování státu, regionu a města návštěvníka"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Statistiky používání instituce"
+msgstr "Institucionální statistiky"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Tuto možnost vyberte, pokud chcete spravovat instituce a shromažďovat "
-"statistiky jejich přístupů. To ovlivní možné statistické přehledy, které "
-"můžete získat, a bude to mít také vliv na velikost databáze."
+"Pokud chcete shromažďovat statistiky o používání podle institucí, povolte "
+"institucionální statistiky. Pokud je tato možnost povolena, je třeba "
+"nakonfigurovat rozsahy IP pro každou instituci, kterou chcete sledovat."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Umožnit správu instituce a statistiky používání"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Platforma pro statistiky COUNTER SUSHI"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Použijte tento web jako platformu pro všechny časopisy."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "ID platformy"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Je požadováno ID platformy"
+msgstr "Povolit institucionální statistiky"
 
 msgid "manager.setup.institutions"
 msgstr "Instituce"
@@ -3100,24 +3061,6 @@ msgstr "Unikátní"
 
 msgid "stats.unknown"
 msgstr "neznámý"
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Tento software poskytuje statistiky používání podle protokolu COUNTER SUSHI. "
-"Tento protokol vyžaduje zadání platformy. Ve výchozím nastavení je tato "
-"platforma nastavována pro jednotlivé časopisy. Pokud jsou však všechny "
-"časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
-"poskytovatelem, můžete platformu nastavit pro celé stránky."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"ID platformy MUSÍ obsahovat pouze písmena ASCII (a–z, A–Z), číslice (0–9), "
-"podtržítka (_), tečky (.) a lomítka (/) a jeho délka NESMÍ překročit 17 "
-"znaků. Upozorňujeme, že ID platformy se používá v různých sloupcích, a proto "
-"by mělo být co nejkratší, ale stále rozpoznatelné. ID platformy by obvykle "
-"mělo vycházet z názvu, známé jedinečné zkratky nebo domény vydavatele či "
-"platformy. Lze také použít krátký standardní identifikátor, jako je GRID "
-"nebo ROR (bez https://)."
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Označit DOI jako neregistrované"
@@ -3288,3 +3231,57 @@ msgstr ""
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
 "Tento e-mail oznamuje autorovi, že recenzní kolo jeho příspěvku bylo zrušeno."
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Veřejné API"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Omezit/neomezit přístup ke koncovým bodům API pro statistiku COUNTER SUSHI. "
+"Pokud není zaškrtnuto, bude rozhraní API přístupné pouze uživatelům s rolí "
+"správce nebo manažera."
+
+msgid "manager.settings.statistics.publicSushiApi.option"
+msgstr "Zpřístupnit koncové body API pro statistiky COUNTER SUSHI veřejnosti."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Opětovné odeslání žádosti o recenzi recenzentovi"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Tento e-mail zasílá editor recenzentovi, který odmítl žádost o recenzi, "
+"pokud si editor přeje žádost znovu zaslat."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Vyberte typ statistik geografického využití, které chcete shromažďovat. "
+"Podrobnější geografické statistiky mohou značně zvětšit velikost vaší "
+"databáze a v některých vzácných případech mohou narušit anonymitu "
+"návštěvníků."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Zveřejnit statistiky COUNTER SUSHI"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Obsah nové diskuse nebo odpovědi"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Předmět diskuse"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} do {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Všechny {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Stáhnout soubory"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Počet stažení každého souboru."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Stáhnout Geografická data"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Počet zobrazení a stažení pro každé město, region nebo zemi."

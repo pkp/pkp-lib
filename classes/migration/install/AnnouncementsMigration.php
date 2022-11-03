@@ -30,7 +30,6 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
-
             $table->index(['context_id'], 'announcement_types_context_id');
         });
 
@@ -38,11 +37,13 @@ class AnnouncementsMigration extends \PKP\migration\Migration
         Schema::create('announcement_type_settings', function (Blueprint $table) {
             $table->bigInteger('type_id');
             $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('cascade');
+            $table->index(['type_id'], 'announcement_type_settings_type_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
-            $table->index(['type_id'], 'announcement_type_settings_type_id');
+
             $table->unique(['type_id', 'locale', 'setting_name'], 'announcement_type_settings_pkey');
         });
 
@@ -52,8 +53,11 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             //  NOT NULL not included for upgrade purposes
             $table->smallInteger('assoc_type')->nullable();
             $table->bigInteger('assoc_id');
+
             $table->bigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('set null');
+            $table->index(['type_id'], 'announcements_type_id');
+
             $table->date('date_expire')->nullable();
             $table->datetime('date_posted');
             $table->index(['assoc_type', 'assoc_id'], 'announcements_assoc');
@@ -63,11 +67,13 @@ class AnnouncementsMigration extends \PKP\migration\Migration
         Schema::create('announcement_settings', function (Blueprint $table) {
             $table->bigInteger('announcement_id');
             $table->foreign('announcement_id')->references('announcement_id')->on('announcements')->onDelete('cascade');
+            $table->index(['announcement_id'], 'announcement_settings_announcement_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->nullable();
-            $table->index(['announcement_id'], 'announcement_settings_announcement_id');
+
             $table->unique(['announcement_id', 'locale', 'setting_name'], 'announcement_settings_pkey');
         });
     }

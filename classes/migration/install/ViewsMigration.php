@@ -30,6 +30,7 @@ class ViewsMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'item_views_user_id');
 
             $table->datetime('date_last_viewed')->nullable();
             $table->unique(['assoc_type', 'assoc_id', 'user_id'], 'item_views_pkey');

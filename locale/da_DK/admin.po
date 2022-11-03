@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-06-29 13:31+0000\n"
+"PO-Revision-Date: 2022-09-29 12:01+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Administrative funktioner"
@@ -435,7 +435,10 @@ msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "Vis antal opgaver i køen"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Tilføj en test opgave til default køen"
+msgstr ""
+"Tilføj en test opgave til testkøen. Anvend de valgfrie parametre --only= og "
+"tildel 'failed' eller 'success' for at afsende fejlede eller succesfulde "
+"opgaver."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -696,3 +699,192 @@ msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
 "Opgave, der indlæser brugsstatistikdata fra filen {$file} fejlede, og filen "
 "kunne ikke flyttes fra {$archivedFilePath} til {$stagingPath}."
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platform"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"Et platform-ID er påkrævet, hvis webstedet skal identificeres som SUSHI-"
+"platformen."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Ifølge COUNTER SUSHI-protokollen skal hver statistikrapport identificere "
+"\"platformen\", der leverer statistikken. Som standard vil tidsskriftet "
+"blive udpeget som platform for al statistik. Men hvis alle tidsskrifter på "
+"dette websted er udgivet, ejet eller drevet af den samme udbyder, kan du "
+"vælge at udpege webstedet som platformen."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Sådan identificeres denne platform i COUNTER SUSHI-rapporter. Platform-ID'et "
+"skal være på 17 tegn eller mindre og kan indeholde bogstaver (a–z, A–Z), "
+"cifre (0–9), bundstreger (_), prikker (.) og skråstreger (/). Platform-ID'et "
+"bruges i flere kolonner og bør være så kort som muligt men samtidig forblive "
+"genkendeligt. Platform-ID'et er normalt baseret på navnet på en udgiver "
+"eller platform, et domænenavn eller en velkendt, unik forkortelse."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Månedlig eller daglig statistik"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Hvorvidt der skal spores daglige eller månedlige brugsstatistikker. Sporing "
+"af daglige statistikker kan øge din databases størrelse betydeligt."
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Statistik genereres fra adgangslogfiler, som flyttes til <code>{$path}</"
+"code>, når de er blevet behandlet. Skal logfilerne komprimeres til <code>."
+"gz</code> filer, når de er blevet behandlet? Komprimering af logfiler kan "
+"spare diskplads på serveren."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Lad logfilerne forblive hvor de er"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimer logfilerne"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Konfigurer, hvilken type brugsstatistik der skal indsamles."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Datalagring"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Konfigurer hvilken brugsstatistik, der skal gemmes på serveren."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi protokol"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Konfigurer <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> protokollen, et brancheanerkendt format til distribution af "
+"brugsstatistikker."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Spor daglige og månedlige statistikker"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Spor kun månedlige statistikker"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Begræns adgangen til COUNTER SUSHI statistik API til ledere og "
+"administratorer"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Data Indsamling"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Komprimer logfiler"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Behandl afventende opgaver i kø"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Kan ikke køre opgaver i kø, fordi applikationens vedligeholdelsestilstand er "
+"aktiveret."
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Tilgængelige muligheder for arbejdskommando"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Navnet på køforbindelse til arbejdet[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Navnet på kø til arbejdet[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Antal sekunder, der ventes inden en opgave forsøges igen efter en "
+"undtagelse, der ikke blev fanget[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Grænse for hukommelsen in megabytes[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Antal sekunder i dvale når der ikke er en opgave tilgængelig[default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Antal gange en opgave forsøges før den logges som fejlet[default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Påtving arbejderen at køre selv i vedligeholdelsestilstand[default : "
+"{$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "Antal opgaver, der behandles før stop[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr "Maximum antal sekunder arbejderen skal køre[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Antal sekunder i hvile mellem opgaver[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Kør \"worker deamon\" i testkø"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Kør en uendelig \"daemon worker\" proces som vil fortsætte med at behandle "
+"opgaver. Anvend --help flaget for at se tilgængelige muligheder for denne "
+"kommando."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "arbejdskommando-muligheder"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "usage : [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Navnet på arbejder[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"Antal sekunder en afledt proces (\"child process\") kan køre[default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Stop når køen er tom[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Afsend tilgængelige opgaver til køen. Hvis du ønsker at afsende en opgave "
+"til en specifik kø, skal du angive parameteren --queue=QUEUE_NAME. Du kan "
+"også blot angive --test for at køre en testopgave, eller --once for at køre "
+"én opgave ad gangen"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Færdiggjorte {$jobCount} opgaver i køen kaldet {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Ingen opgaver tilgængelige i køen kaldet {$queueName}."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr "Afsendte testopgave, der vil mislykkes, til køen kaldet {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr "Afsendte testopgave, der vil lykkes, til køen kaldet {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Ugyldig testopgave-parameter. Du kan kun angive 'failed' eller 'success' til "
+"'--only=' parameteren"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Fandt ingen opgaver at slette."

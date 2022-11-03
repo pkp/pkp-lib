@@ -32,16 +32,36 @@ class Site extends \PKP\core\DataObject
      *
      * @return array
      */
-    public function getSupportedLocaleNames()
+    public function getSupportedLocaleNames(): array
     {
         static $supportedLocales;
         if (isset($supportedLocales)) {
             return $supportedLocales;
         }
-        $supportedLocales = array_fill_keys($this->getSupportedLocales(), '');
-        array_walk($supportedLocales, fn (&$item, string $locale) => $item = Locale::getMetadata($locale)->getDisplayName());
+        
+        $supportedLocales = Locale::getFormattedDisplayNames($this->getSupportedLocales());
+
         asort($supportedLocales);
         return $supportedLocales;
+    }
+
+    /**
+     * Return associative array of all locales currently by the site.
+     * These locales are used to provide a language toggle on the main site pages.
+     *
+     * @return array
+     */
+    public function getInstalledLocaleNames(): array
+    {
+        static $installedLocales;
+        if (isset($installedLocales)) {
+            return $installedLocales;
+        }
+        
+        $installedLocales = Locale::getFormattedDisplayNames($this->getInstalledLocales());
+
+        asort($installedLocales);
+        return $installedLocales;
     }
 
     //

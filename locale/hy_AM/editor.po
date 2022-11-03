@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"PO-Revision-Date: 2022-09-22 05:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Գրադարան"
@@ -605,3 +605,14 @@ msgstr "Վերանշանակել"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr "Այս գրախոսը ավարտեց վերանայումը վերջին փուլում:"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Կրկին ուղարկել գրախոսման հարցումը"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Հարցումն կրկին ուղարկվել է"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Տեղի ունեցավ սխալ գրախոսին խնդրելով վերանայել գրախոսման հրավերը: Խնդրում եմ "
+"կրկին փորձեք."

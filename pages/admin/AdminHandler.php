@@ -22,6 +22,7 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
+use PDO;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
@@ -305,7 +306,7 @@ class AdminHandler extends Handler
             $userGroups = Repo::userGroup()->getCollector()
                 ->filterByContextIds([$context->getId()])
                 ->getMany();
-                
+
             $restrictBulkEmailsForm = new \PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
             $components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();
         }

@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:45+00:00\n"
-"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Zapytanie odrzucone. Być może czas logowania minął. Przeładuj stronę i spróbuj ponownie."
@@ -60,7 +61,7 @@ msgstr "Zapytanie nie jest poprawne. Funkcja \"codzienny\" może być używana r
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Nie możesz modyfikować statusu bezpośrednio poprzez API. Zamiast tej metody, "
-"użyj  endpointów /publish /unpublish."
+"użyj endpointów /publish /unpublish."
 
 msgid "api.publicFiles.400.extensionNotSupported"
 msgstr ""
@@ -135,10 +136,173 @@ msgstr ""
 "użytkowników."
 
 msgid "api.emails.400.missingUserGroups"
-msgstr "Wskazanie grupy odbiorców  jest niezbędne do wysłania wiadomości."
+msgstr "Wskazanie grupy odbiorców jest niezbędne do wysłania wiadomości."
 
 msgid "api.emails.400.missingSubject"
 msgstr "Email musi posiadać temat."
 
 msgid "api.emails.400.missingBody"
 msgstr "Treść jest wymagana aby wysłać wiadomość."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Musisz podać temat i treść wiadomości e-mail."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Do wygenerowania numerów DOI wymagany jest prefiks DOI."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Token API nie może być użyty do uzyskania dostępu do tej witryny, ponieważ "
+"administrator witryny nie skonfigurował tajnego klucza."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Nie można zweryfikować tokenu API. Może to oznaczać błąd w tokenie API lub "
+"że token API jest już nieważny."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nie możesz dodawać i edytować tych plików."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Żądana instytucja nie została znaleziona."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"Nie możesz edytować DOI elementu, który nie znajduje się w tym kontekście."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Ten punkt końcowy nie jest dostępny w przestrzeni nazw całej witryny i musi "
+"być wymagany dla danego kontekstu."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Żądany dokument DOI nie został znaleziony."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Nieopublikowane elementy nie mogą być eksportowane/deponowane. Usuń "
+"zaznaczenie nieopublikowanych elementów i spróbuj ponownie."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Wystąpił błąd i nie można utworzyć obiektu DOI."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Wystąpił błąd sprawdzania poprawności XML i nie można wyeksportować XML."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Wystąpił błąd i niektóre z przesłanych pozycji nie zostały oznaczone jako "
+"zarejestrowane."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Niektóre przedmioty nie zostały pomyślnie zdeponowane. Sprawdź poszczególne "
+"pozycje pod kątem konkretnych komunikatów o błędach."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Do żądania nie dołączono żadnych poprawnych obiektów publikacji."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "Do żądania dołączono co najmniej jeden niepoprawny obiekt publikacji."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Data zakończenia nie może być późniejsza niż wczoraj."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Twoje żądanie było nieprawidłowe. TimelineInterval musi mieć wartość „dzień” "
+"lub „miesiąc”."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Data rozpoczęcia nie może być wcześniejsza niż 01-01-2001."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Twoje żądanie było nieważne. OrderDirection musi mieć postać „desc” lub "
+"„asc”."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Twoja prośba była nieważna. TimelineInterval musi mieć wartość „dzień” lub "
+"„miesiąc”."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Nie można powiązać pliku z tego etapu pliku z notatką do dyskusji."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Nie można powiązać pliku z tego etapu pliku z przydziałem recenzji."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Nie można powiązać pliku z tego etapu pliku z rundą recenzji."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Musisz podać ID etap tego pliku."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nie masz dostępu do plików podczas tej recenzji."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Podany etap pliku jest nieprawidłowy."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Nie znaleziono zmian w żądaniu edycji tego pliku."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Musisz podać identyfikator rundy recenzji podczas przenoszenia pliku do tego "
+"etapu pliku."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nie masz dostępu do tych plików."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nie masz uprawnień do edycji tej publikacji."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Aktywny motyw {$themePluginPath} nie jest włączony i może nie być "
+"zainstalowany."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Język {$locale} nie jest obsługiwany."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Żądany e-mail nie został znaleziony."
+
+msgid "api.mailables.404.templateNotFound"
+msgstr ""
+"Nie można przypisać szablonu do tego e-maila, ponieważ nie znaleziono "
+"szablonu."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Następujące języki nie są obsługiwane: {$locales}."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Nie można powiązać pliku z tego etapu pliku z innym plikiem do przesłania."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Podana przez Ciebie runda recenzji nie jest częścią tego zgłoszenia."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ten punkt końcowy nie jest dostępny z kontekstu. Musi być dostępny z "
+"przestrzeni nazw całej witryny."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Nie można zdekodować apiToken z powodu następującego błędu: {$error}"
+
+msgid "api.mailables.400.templateKeysMissing"
+msgstr "Klucze szablonu wiadomości e-mail nie są określone."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Nie możesz nagrać decyzji ani zarekomendować decyzji dla tego zgłoszenia, "
+"ponieważ zostało ono już opublikowane."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Musisz określić rundę recenzji, gdy żądasz plików na etapie recenzji."
+
+msgid "api.mailables.400.invalidTemplateKeys"
+msgstr "Dane wejściowe templateKeys powinny być tablicą lub pustym ciągiem"

@@ -26,7 +26,9 @@ use PKP\Support\Jobs\BaseJob;
 class RemoveSubmissionFromSearchIndexJob extends BaseJob
 {
     /**
-     * @var int The submission ID
+     * The submission id of the targeted submission to delete
+     * 
+     * @var int
      */
     protected $submissionId;
 
@@ -47,16 +49,8 @@ class RemoveSubmissionFromSearchIndexJob extends BaseJob
      */
     public function handle(): void
     {
-        $submission = Repo::submission()->get($this->submissionId);
-
-        if (!$submission) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
-
-            return;
-        }
-
         $submissionSearchIndex = Application::getSubmissionSearchIndex();
-        $submissionSearchIndex->deleteTextIndex($submission->getId());
+        $submissionSearchIndex->deleteTextIndex($this->submissionId);
         $submissionSearchIndex->submissionChangesFinished();
     }
 }

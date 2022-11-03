@@ -40,6 +40,29 @@
 			$('[id^="selectedReviewerName"]').html(reviewer.fullName);
 			$('#searchGridAndButton').hide();
 			$('#regularReviewerForm').show();
+
+			// Set the email message for reviewers depending on previous completed assignments
+			var $textarea = $('#reviewerFormFooter [name="personalMessage"]');
+			if ($textarea.val()) {
+				return; // The message is already set; shouldn't happen
+			}
+			var $templateInput = $('#reviewerFormFooter input[name="template"]'); // Only 1 template available
+			var $templateOption = $('#reviewerFormFooter select[name="template"]'); // Multiple available templates
+			var editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+			var templateKey = '';
+			if (options.lastRoundReviewerIds.includes(reviewer.id)) {
+				templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
+				editor.setContent(options.reviewerMessages[templateKey]);
+				$templateInput.val(templateKey);
+				$templateOption.find('[value="REVIEW_REQUEST"]').remove();
+			} else {
+				templateKey = 'REVIEW_REQUEST';
+				editor.setContent(options.reviewerMessages[templateKey]);
+				$templateInput.val(templateKey);
+				$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
+			}
+			// Select the right template option to correspond the one, which is set in TinyMCE
+			$templateOption.find('[value="' + templateKey + '"]').prop('selected', true);
 		});
 
 		$('#regularReviewerForm').hide();

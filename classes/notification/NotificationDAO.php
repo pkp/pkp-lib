@@ -20,7 +20,6 @@ namespace PKP\notification;
 use APP\notification\Notification;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 
 use PKP\db\DAOResultFactory;
 
@@ -239,7 +238,7 @@ class NotificationDAO extends \PKP\db\DAO
     {
         $query = DB::table('notifications')
             ->where('notification_id', '=', $notificationId);
-        
+
         if ($userId) {
             $query->where('user_id', '=', $userId);
         }
@@ -277,16 +276,6 @@ class NotificationDAO extends \PKP\db\DAO
         while ($notification = $notificationsFactory->next()) {
             $this->deleteObject($notification);
         }
-    }
-
-    /**
-     * Get the ID of the last inserted notification
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('notifications', 'notification_id');
     }
 
     /**

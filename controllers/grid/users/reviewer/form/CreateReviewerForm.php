@@ -21,7 +21,6 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
@@ -66,6 +65,18 @@ class CreateReviewerForm extends ReviewerForm
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
     }
 
+    /**
+     * @copydoc Form::init()
+     */
+    public function initData()
+    {
+        parent::initData();
+
+        $mailable = $this->getMailable();
+        $context = Application::get()->getRequest()->getContext();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
+    }
 
     /**
      * @copydoc ReviewerForm::fetch

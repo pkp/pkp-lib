@@ -40,6 +40,11 @@ class SubmissionFileDeletedListener
      */
     public function handle(SubmissionFileDeleted $event)
     {
-        dispatch(new RemoveSubmissionFileFromSearchIndexJob($event->submissionFile->getId()));
+        dispatch(
+            new RemoveSubmissionFileFromSearchIndexJob(
+                $event->submissionId, 
+                $event->submissionFileId
+            )
+        );
     }
 }

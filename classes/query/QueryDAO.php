@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -29,7 +30,6 @@ use PKP\mail\Mailable;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
-use Illuminate\Support\Facades\DB;
 
 class QueryDAO extends \PKP\db\DAO
 {
@@ -279,7 +279,7 @@ class QueryDAO extends \PKP\db\DAO
     {
         $queryQuery = DB::table('queries')
             ->where('query_id', '=', $queryId);
-        
+
         if ($assocType) {
             $queryQuery->where('assoc_type', '=', $assocType)
                 ->where('assoc_id', '=', $assocId);
@@ -301,7 +301,6 @@ class QueryDAO extends \PKP\db\DAO
 
             $queryQuery->delete();
         }
-        
     }
 
     /**
@@ -321,16 +320,6 @@ class QueryDAO extends \PKP\db\DAO
             $this->update('UPDATE queries SET seq = ? WHERE query_id = ?', [$i, $row->query_id]);
             $result->next();
         }
-    }
-
-    /**
-     * Get the ID of the last inserted submission query.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('queries', 'query_id');
     }
 
     /**

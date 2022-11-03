@@ -47,7 +47,7 @@ class SubmissionSearchDAO extends \PKP\db\DAO
                 true,
                 false
             )) {
-                $keywordId = $this->_getInsertId('submission_search_keyword_list', 'keyword_id');
+                $keywordId = $this->_getInsertId();
             } else {
                 $keywordId = null; // Bug #2324
             }
@@ -113,7 +113,7 @@ class SubmissionSearchDAO extends \PKP\db\DAO
                 'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
                 [(int) $submissionId, (int) $type, (int) $assocId]
             );
-            return $this->_getInsertId('submission_search_objects', 'object_id');
+            return $this->_getInsertId();
         }
     }
 

@@ -262,7 +262,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
                 'status' => $publication->getData('status'),
                 'version' => $publication->getData('version')
             ];
-        });
+        })->values();
 
         // Get full details of the working publication and the current publication
         $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups, $contextGenres);
@@ -367,10 +367,10 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $templateMgr->assign([
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
-            'pageTitle' => join(__('common.titleSeparator'), [
+            'pageTitle' => implode(__('common.titleSeparator'), array_filter([
                 $submission->getShortAuthorString(),
                 $submission->getLocalizedTitle()
-            ]),
+            ])),
             'submission' => $submission,
             'workflowStages' => $workflowStages,
             'canAccessProductionStage' => $canAccessProductionStage,

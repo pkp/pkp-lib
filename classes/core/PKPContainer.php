@@ -16,10 +16,8 @@
 namespace PKP\core;
 
 use APP\core\AppServiceProvider;
-
 use Exception;
 use Illuminate\Config\Repository;
-
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
@@ -28,7 +26,6 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
-use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\Support\ProxyParser;
 
@@ -91,6 +88,10 @@ class PKPContainer extends Container
             Kernel::class
         );
 
+        $this->singleton('pkpJobQueue', function ($app) {
+            return new PKPQueueProvider($app);
+        });
+
         $this->singleton(
             'queue.failer',
             function ($app) {
@@ -112,16 +113,13 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
-
         $this->register(new PKPEventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
-        $this->register(new \Illuminate\Queue\QueueServiceProvider($this));
-        $this->register(new PKPQueueProvider());
+        $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
-        $this->register(new JobServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
@@ -346,6 +344,16 @@ class PKPContainer extends Container
     public function runningUnitTests()
     {
         return false;
+    }
+
+    /**
+     * Determine if the application is currently down for maintenance.
+     *
+     * @return bool
+     */
+    public function isDownForMaintenance()
+    {
+        return PKPApplication::isUnderMaintenance();
     }
 }
 

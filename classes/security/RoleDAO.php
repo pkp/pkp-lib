@@ -10,14 +10,16 @@
  * @class RoleDAO
  * @ingroup security
  *
+ * @deprecated Deprecated in 3.4; use the UserGroup repository and collector etc.
+ *
  * @brief Operations for retrieving and modifying Role objects.
  */
 
 namespace PKP\security;
 
+use APP\facades\Repo;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
-use APP\facades\Repo;
 
 class RoleDAO extends DAO
 {
@@ -87,7 +89,6 @@ class RoleDAO extends DAO
      * Return an array of objects corresponding to the roles a given user has,
      * grouped by context id.
      *
-     * @param int $userId
      *
      * @return array
      */

@@ -106,4 +106,16 @@ trait PKPStatsServiceTrait
 
         return $timelineIntervals;
     }
+
+    /**
+     * Get column names for the timeline CSV report
+     */
+    public function getTimelineReportColumnNames(): array
+    {
+        return [
+            __('common.date'),
+            __('common.label'),
+            __('stats.total')
+        ];
+    }
 }

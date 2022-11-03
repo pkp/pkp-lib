@@ -18,15 +18,21 @@ namespace PKP\controllers\grid\queries\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\query\QueryDAO;
 use PKP\security\Role;
-use PKP\security\Validation;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class QueryForm extends Form
 {
+    use StageMailable;
+
     /** @var int ASSOC_TYPE_... */
     public $_assocType;
 
@@ -245,134 +251,135 @@ class QueryForm extends Form
             'assocType' => $query->getAssocType(),
         ]);
 
-        // Queryies only support ASSOC_TYPE_SUBMISSION so far
-        if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
-            $submission = Repo::submission()->get($query->getAssocId());
+        // Queries only support ASSOC_TYPE_SUBMISSION so far
+        if ($query->getAssocType() !== PKPApplication::ASSOC_TYPE_SUBMISSION) {
+            return parent::fetch($request, $template, $display);
+        }
+
+        $submission = Repo::submission()->get($query->getAssocId());
+
+        // Determine if the current user can use any custom templates defined.
+        $templateKeySubjectPairs = [];
+        if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
+            $emailTemplates = Repo::emailTemplate()->getCollector()
+                ->filterByContext($context->getId())
+                ->filterByIsCustom(true)
+                ->getMany()
+                ->toArray();
 
             // All stages can select the default template
-            $templateKeys = [];
-            // Determine if the current user can use any custom templates defined.
-            if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
-                $emailTemplates = Repo::emailTemplate()->getCollector()
-                    ->filterByContext($context->getId())
-                    ->filterByIsCustom(true)
-                    ->getMany();
+            $emailTemplates[] = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION_CENTER_DEFAULT');
 
-                $templateKeys[] = 'NOTIFICATION_CENTER_DEFAULT';
-                foreach ($emailTemplates as $emailTemplate) {
-                    $templateKeys[] = $emailTemplate->getData('key');
+            $mailable = $this->getStageMailable($context, $submission);
+            $data = $mailable->getData();
+            foreach ($emailTemplates as $emailTemplate) {
+                $templateKeySubjectPairs[$emailTemplate->getData('key')] = Mail::compileParams(
+                    $emailTemplate->getLocalizedData('subject'),
+                    $data
+                );
+            }
+        }
+
+        $templateMgr->assign('templates', $templateKeySubjectPairs);
+
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+
+        // Get currently selected participants in the query
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $assignedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : [];
+
+        // Always include current user, even if not with a stage assignment
+        $includeUsers[] = $user->getId();
+        $excludeUsers = null;
+
+        // When in review stage, include/exclude users depending on the current users role
+        $reviewAssignments = [];
+        if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
+
+            // Get all review assignments for current submission
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+
+            // Get current users roles
+            $assignedRoles = [];
+            $usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
+            while ($usersAssignment = $usersAssignments->next()) {
+                $userGroup = Repo::userGroup()->get($usersAssignment->getUserGroupId());
+                $assignedRoles[] = $userGroup->getRoleId();
+            }
+
+            // if current user is editor, add all reviewers
+            if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
+                    array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $assignedRoles)) {
+                foreach ($reviewAssignments as $reviewAssignment) {
+                    $includeUsers[] = $reviewAssignment->getReviewerId();
                 }
             }
 
-            $templates = [];
-            foreach ($templateKeys as $templateKey) {
-                $mailTemplate = new SubmissionMailTemplate($submission, $templateKey);
-                $mailTemplate->assignParams([]);
-                $mailTemplate->replaceParams();
-                $templates[$templateKey] = $mailTemplate->getSubject();
-            }
-            $templateMgr->assign('templates', $templates);
-
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-
-            // Get currently selected participants in the query
-            $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $assignedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : [];
-
-            // Always include current user, even if not with a stage assignment
-            $includeUsers[] = $user->getId();
-            $excludeUsers = null;
-
-            // When in review stage, include/exclude users depending on the current users role
-            $reviewAssignments = [];
-            if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
-
-                // Get all review assignments for current submission
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-                $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
-                ;
-
-                // Get current users roles
-                $assignedRoles = [];
-                $usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
-                while ($usersAssignment = $usersAssignments->next()) {
-                    $userGroup = Repo::userGroup()->get($usersAssignment->getUserGroupId());
-                    $assignedRoles[] = $userGroup->getRoleId();
+            // if current user is an anonymous reviewer, filter out authors
+            foreach ($reviewAssignments as $reviewAssignment) {
+                if ($reviewAssignment->getReviewerId() == $user->getId()) {
+                    if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
+                        $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), Role::ROLE_ID_AUTHOR);
+                        while ($assignment = $authorAssignments->next()) {
+                            $excludeUsers[] = $assignment->getUserId();
+                        }
+                    }
                 }
+            }
 
-                // if current user is editor, add all reviewers
-                if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
-                        array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $assignedRoles)) {
-                    foreach ($reviewAssignments as $reviewAssignment) {
+            // if current user is author, add open reviewers who have accepted the request
+            if (array_intersect([Role::ROLE_ID_AUTHOR], $assignedRoles)) {
+                foreach ($reviewAssignments as $reviewAssignment) {
+                    if ($reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()) {
                         $includeUsers[] = $reviewAssignment->getReviewerId();
                     }
                 }
+            }
+        }
 
-                // if current user is an anonymous reviewer, filter out authors
-                foreach ($reviewAssignments as $reviewAssignment) {
-                    if ($reviewAssignment->getReviewerId() == $user->getId()) {
-                        if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
-                            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), Role::ROLE_ID_AUTHOR);
-                            while ($assignment = $authorAssignments->next()) {
-                                $excludeUsers[] = $assignment->getUserId();
-                            }
-                        }
-                    }
-                }
+        $usersIterator = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->limit(100)
+            ->offset(0)
+            ->assignedTo($query->getAssocId(), $query->getStageId())
+            ->excludeUserIds($excludeUsers)
+            ->getMany();
 
-                // if current user is author, add open reviewers who have accepted the request
-                if (array_intersect([Role::ROLE_ID_AUTHOR], $assignedRoles)) {
-                    foreach ($reviewAssignments as $reviewAssignment) {
-                        if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()) {
-                            $includeUsers[] = $reviewAssignment->getReviewerId();
-                        }
+        $includedUsersIterator = Repo::user()->getCollector()->filterByUserIds($includeUsers)->getMany();
+        $usersIterator = $usersIterator->merge($includedUsersIterator);
+
+        $allParticipants = [];
+        foreach ($usersIterator as $user) {
+            $allUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $context->getId());
+
+            $userRoles = [];
+            $userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+            foreach ($userAssignments as $userAssignment) {
+                foreach ($allUserGroups as $userGroup) {
+                    if ($userGroup->getId() == $userAssignment->getUserGroupId()) {
+                        $userRoles[] = $userGroup->getLocalizedName();
                     }
                 }
             }
-
-            $usersIterator = Repo::user()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->limit(100)
-                ->offset(0)
-                ->assignedTo($query->getAssocId(), $query->getStageId())
-                ->excludeUserIds($excludeUsers)
-                ->getMany();
-
-            $includedUsersIterator = Repo::user()->getCollector()->filterByUserIds($includeUsers)->getMany();
-            $usersIterator = $usersIterator->merge($includedUsersIterator);
-
-            $allParticipants = [];
-            foreach ($usersIterator as $user) {
-                $allUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $context->getId());
-
-                $userRoles = [];
-                $userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
-                foreach ($userAssignments as $userAssignment) {
-                    foreach ($allUserGroups as $userGroup) {
-                        if ($userGroup->getId() == $userAssignment->getUserGroupId()) {
-                            $userRoles[] = $userGroup->getLocalizedName();
-                        }
-                    }
+            foreach ($reviewAssignments as $assignment) {
+                if ($assignment->getReviewerId() == $user->getId()) {
+                    $userRoles[] = __('user.role.reviewer') . ' (' . __($assignment->getReviewMethodKey()) . ')';
                 }
-                foreach ($reviewAssignments as $assignment) {
-                    if ($assignment->getReviewerId() == $user->getId()) {
-                        $userRoles[] = __('user.role.reviewer') . ' (' . __($assignment->getReviewMethodKey()) . ')';
-                    }
-                }
-                if (!count($userRoles)) {
-                    $userRoles[] = __('submission.status.unassigned');
-                }
-                $allParticipants[$user->getId()] = __('submission.query.participantTitle', [
-                    'fullName' => $user->getFullName(),
-                    'userGroup' => join(__('common.commaListSeparator'), $userRoles),
-                ]);
             }
-
-            $templateMgr->assign([
-                'allParticipants' => $allParticipants,
-                'assignedParticipants' => $assignedParticipants,
+            if (!count($userRoles)) {
+                $userRoles[] = __('submission.status.unassigned');
+            }
+            $allParticipants[$user->getId()] = __('submission.query.participantTitle', [
+                'fullName' => $user->getFullName(),
+                'userGroup' => join(__('common.commaListSeparator'), $userRoles),
             ]);
         }
+
+        $templateMgr->assign([
+            'allParticipants' => $allParticipants,
+            'assignedParticipants' => $assignedParticipants,
+        ]);
 
         return parent::fetch($request, $template, $display);
     }

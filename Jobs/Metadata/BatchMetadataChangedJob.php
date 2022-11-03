@@ -63,9 +63,7 @@ class BatchMetadataChangedJob extends BaseJob
         }
 
         if (!$successful) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
-
-            return;
+            throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
         $submissionSearchIndex->submissionChangesFinished();

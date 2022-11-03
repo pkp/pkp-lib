@@ -126,7 +126,7 @@ class DashboardHandler extends Handler
                 'includeIssuesFilter' => $includeIssuesFilter,
                 'includeCategoriesFilter' => $includeCategoriesFilter,
                 'includeActiveSectionFiltersOnly' => true,
-                'items' => $items,
+                'items' => $items->values(),
                 'itemsMax' => $itemsMax,
                 'categories' => $categories,
             ]

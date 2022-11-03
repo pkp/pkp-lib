@@ -14,6 +14,7 @@
 namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CommonMigration extends \PKP\migration\Migration
@@ -80,18 +81,31 @@ class CommonMigration extends \PKP\migration\Migration
             $table->smallInteger('disabled')->default(0);
             $table->text('disabled_reason')->nullable();
             $table->smallInteger('inline_help')->nullable();
-            $table->unique(['username'], 'users_username');
-            $table->unique(['email'], 'users_email');
         });
+
+        switch (DB::getDriverName()) {
+            case 'mysql':
+                Schema::table('users', function (Blueprint $table) {
+                    $table->unique(['username'], 'users_username');
+                    $table->unique(['email'], 'users_email');
+                });
+                break;
+            case 'pgsql':
+                DB::unprepared('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
+                DB::unprepared('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
+                break;
+        }
 
         // Locale-specific user data
         Schema::create('user_settings', function (Blueprint $table) {
             $table->bigInteger('user_id');
-            $table->foreign('user_id', 'user_settings_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'user_settings_user_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
+
             $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
@@ -102,6 +116,7 @@ class CommonMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_id')->nullable();
             $table->foreign('user_id', 'sessions_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'sessions_user_id');
 
             $table->string('ip_address', 39);
             $table->string('user_agent', 255)->nullable();
@@ -110,6 +125,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->smallInteger('remember')->default(0);
             $table->text('data');
             $table->string('domain', 255)->nullable();
+
             $table->unique(['session_id'], 'sessions_pkey');
         });
 
@@ -121,6 +137,7 @@ class CommonMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'access_keys_user_id');
 
             $table->bigInteger('assoc_id')->nullable();
             $table->datetime('expiry_date');
@@ -147,12 +164,15 @@ class CommonMigration extends \PKP\migration\Migration
         // Stores metadata for specific notifications
         Schema::create('notification_settings', function (Blueprint $table) {
             $table->bigInteger('notification_id');
+            $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
+            $table->index(['notification_id'], 'notification_settings_notification_id');
+
+
             $table->string('locale', 14)->nullable();
             $table->string('setting_name', 64);
             $table->mediumText('setting_value');
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_pkey');
-            $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
         });
 
         // Stores user preferences on what notifications should be blocked and/or emailed to them
@@ -163,24 +183,14 @@ class CommonMigration extends \PKP\migration\Migration
 
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'notification_subscription_settings_user_id');
 
             $table->bigInteger('context');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context'], 'notification_subscription_settings_context');
 
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-        });
-
-        // Default email templates.
-        Schema::create('email_templates_default', function (Blueprint $table) {
-            $table->bigInteger('email_id')->autoIncrement();
-            $table->string('email_key', 255)->comment('Unique identifier for this email.');
-            $table->smallInteger('can_disable')->default(0);
-            $table->smallInteger('can_edit')->default(0);
-            $table->bigInteger('from_role_id')->nullable();
-            $table->bigInteger('to_role_id')->nullable();
-            $table->bigInteger('stage_id')->nullable();
-            $table->index(['email_key'], 'email_templates_default_email_key');
         });
 
         // Default data for email templates.
@@ -189,7 +199,6 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->default('en_US');
             $table->string('subject', 255);
             $table->text('body')->nullable();
-            $table->text('description')->nullable();
             $table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
         });
 
@@ -201,6 +210,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'email_templates_context_id');
 
             $table->smallInteger('enabled')->default(1);
             $table->unique(['email_key', 'context_id'], 'email_templates_email_key');
@@ -208,19 +218,24 @@ class CommonMigration extends \PKP\migration\Migration
 
         Schema::create('email_templates_settings', function (Blueprint $table) {
             $table->bigInteger('email_id');
-            $table->foreign('email_id', 'email_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
+            $table->foreign('email_id', 'email_templates_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
+            $table->index(['email_id'], 'email_templates_settings_email_id');
 
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
+
             $table->unique(['email_id', 'locale', 'setting_name'], 'email_settings_pkey');
         });
 
         // Association between Mailables and Email Templates
         Schema::create('mailable_templates', function (Blueprint $table) {
             $table->bigInteger('email_id');
-            $table->string('mailable_id', 255);
             $table->foreign('email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
+            $table->index(['email_id'], 'mailable_templates_email_id');
+
+            $table->string('mailable_id', 255);
+
             $table->primary(['email_id', 'mailable_id']);
         });
 
@@ -255,7 +270,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('email_templates_settings');
         Schema::drop('email_templates');
         Schema::drop('email_templates_default_data');
-        Schema::drop('email_templates_default');
         Schema::drop('mailable_templates');
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');

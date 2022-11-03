@@ -10,6 +10,52 @@
 import 'cypress-file-upload';
 import 'cypress-wait-until';
 
+// See https://stackoverflow.com/questions/58657895/is-there-a-reliable-way-to-have-cypress-exit-as-soon-as-a-test-fails/58660504#58660504
+Cypress.Commands.add('abortEarly', (self) => {
+	if (self.currentTest.state === 'failed') {
+		return cy.task('shouldSkip', true);
+	}
+	cy.task('shouldSkip').then(value => {
+		if (value) self.skip();
+	});
+});
+
+Cypress.Commands.add('runQueueJobs', (queue, test, once) => {
+	let command = 'php lib/pkp/tools/jobs.php run';
+
+	if ( queue ) {
+		command = command + ' --queue=' + queue;
+	}
+
+	if ( test || false ) {
+		command = command + ' --test';
+	}
+
+	if ( once || false ) {
+		command = command + ' --once';
+	}
+
+	cy.exec(command);
+});
+
+Cypress.Commands.add('purgeQueueJobs', (queue, all) => {
+	let command = 'php lib/pkp/tools/jobs.php purge';
+
+	if ( queue ) {
+		command = command + ' --queue=' + queue;
+	}
+
+	if ( all || false ) {
+		command = command + ' --all';
+	}
+
+	cy.exec(command);
+});
+
+Cypress.Commands.add('dispatchTestQueueJobs', () => {
+	cy.exec('php lib/pkp/tools/jobs.php test');
+});
+
 Cypress.Commands.add('install', function() {
 	cy.visit('/');
 
@@ -709,7 +755,7 @@ Cypress.Commands.add('checkDoiAssignment', (selectorId) => {
 	cy.get(`input#${selectorId}`).should($input => {
 		const val = $input.val();
 		expect(val).to.match(
-			/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{4}-[0-9abcdefghjkmnpqrstvwxyz]{2}[0-9]{2}/
+			/10.1234\/[0-9abcdefghjkmnpqrstvwxyz]{6}[0-9]{2}/
 			);
 	});
 });

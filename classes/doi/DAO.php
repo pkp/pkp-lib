@@ -100,7 +100,7 @@ abstract class DAO extends EntityDAO
 
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
-                yield $this->fromRow($row);
+                yield $row->doi_id => $this->fromRow($row);
             }
         });
     }

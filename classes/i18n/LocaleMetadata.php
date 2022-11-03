@@ -23,6 +23,7 @@ declare(strict_types=1);
 namespace PKP\i18n;
 
 use DomainException;
+use Exception;
 use PKP\core\ExportableTrait;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
@@ -32,6 +33,10 @@ use Sokil\IsoCodes\Database\Languages\Language;
 class LocaleMetadata
 {
     use ExportableTrait;
+
+    public const LANGUAGE_LOCALE_WITHOUT = 1;
+    public const LANGUAGE_LOCALE_WITH = 2;
+    public const LANGUAGE_LOCALE_ONLY = 3;
 
     private ?object $_parsedLocale = null;
 
@@ -46,20 +51,101 @@ class LocaleMetadata
     }
 
     /**
+     * Get the language locale conversion status
+     *
+     * @return array
+     */
+    public static function getLanguageLocaleStatuses(): array
+    {
+        return [
+            self::LANGUAGE_LOCALE_WITHOUT, 
+            self::LANGUAGE_LOCALE_WITH, 
+            self::LANGUAGE_LOCALE_ONLY
+        ];
+    }
+
+    /**
      * Retrieves the display name
      *
-     * @param bool $withCountry Whether to append the country name to language
+     * @param string    $locale             The locale code
+     * @param bool      $withCountry        Whether to append the country name to language
+     * @param int       $langLocaleStatus   The language locale conversion value specified by const LocaleMetadata::LANGUAGE_LOCALE_*
+     * 
+     * @return string The fully qualified locale with/without own translated locale and with/without country name 
      */
-    public function getDisplayName(?string $locale = null, bool $withCountry = false): string
+    public function getDisplayName(?string $locale = null, bool $withCountry = false, int $langLocaleStatus = self::LANGUAGE_LOCALE_WITHOUT): string
     {
-        $name = PKPString::regexp_replace('/\s*\([^)]*\)\s*/', '', PKPString::ucfirst($this->_getLanguage($locale)->getLocalName()));
+        if (!in_array($langLocaleStatus, static::getLanguageLocaleStatuses())) {
+            throw new Exception(
+                sprintf(
+                    "Invalid language locale conversion status %s given, must be among [%s]",
+                    $langLocaleStatus,
+                    implode(',', static::getLanguageLocaleStatuses())
+                )
+            );
+        }
+
+        $name = PKPString::regexp_replace(
+            '/\s*\([^)]*\)\s*/', 
+            '', 
+            PKPString::ucfirst(
+                $this
+                    ->_getLanguage(
+                        $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale,
+                        $langLocaleStatus === self::LANGUAGE_LOCALE_WITH
+                    )
+                    ->getLocalName()
+            )
+        );
+
+        if ( $langLocaleStatus === self::LANGUAGE_LOCALE_WITH ) {
+
+            // Get the translated laguage name in language's own locale
+            $nameInLangLocale = PKPString::regexp_replace(
+                '/\s*\([^)]*\)\s*/', 
+                '', 
+                PKPString::ucfirst($this->_getLanguage($this->locale)->getLocalName())
+            );
+
+            $name = __(
+                'common.withForwardSlash',
+                [
+                    'item' => $name,
+                    'afterSlash' => $nameInLangLocale,
+                ]
+            );
+        }
+        
         if (!$withCountry) {
             return $name;
         }
 
         $country = $this->getCountry($locale);
+
         if (!$country) {
             return $name;
+        }
+
+        if ($langLocaleStatus !== self::LANGUAGE_LOCALE_WITHOUT) {
+            
+            $localizedCountryName = $this->getCountry($this->locale);
+
+            if ($langLocaleStatus === self::LANGUAGE_LOCALE_ONLY) {
+                
+                $country = $localizedCountryName;
+
+            } else {
+
+                if (strcmp($localizedCountryName, $country) !== 0) {
+                    $country = __(
+                        'common.withForwardSlash',
+                        [
+                            'item' => $country,
+                            'afterSlash' => $localizedCountryName
+                        ]
+                    );    
+                }
+            }
         }
 
         return __(
@@ -70,6 +156,7 @@ class LocaleMetadata
             ]
         );
     }
+
     /**
      * Retrieves the language name
      */
@@ -151,9 +238,9 @@ class LocaleMetadata
     /**
      * Retrieves the language
      */
-    private function _getLanguage(?string $locale = null): ?Language
+    private function _getLanguage(?string $locale = null, bool $fromCache = true): ?Language
     {
-        return Locale::getLanguages($locale)->getByAlpha2($this->_parse()->language);
+        return Locale::getLanguages($locale, $fromCache)->getByAlpha2($this->_parse()->language);
     }
 
     /**

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-07-08 01:57+0000\n"
+"PO-Revision-Date: 2022-10-23 03:01+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "اسم الإعداد"
@@ -423,7 +423,9 @@ msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "عرض كمية الأعمال التي في الطابور"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "إضافة عمل تجريبي إلى الطابور الافتراضي"
+msgstr ""
+"إضافة عمل تجريبي إلى الطابور التجريبي. استعمل العوامل الاختيارية --only= "
+"ومرر لها القيمة 'failed' أو 'success' للتخلص من الأعمال الموفقة أو الفاشلة."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -487,3 +489,332 @@ msgstr "تحديد المحررين المراد تذكيرهم في سياق {$
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr "أرسل بريدًا الكترونيًا إلى كل محرر لتذكيرهم بمهامهم المعلقة"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "الرمز التعريفي للسياق ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"لقد تم إنهاء العملية الجانبية التي ستعالج ملف سجل الوقوعات {$file} وتخزن "
+"بيانات الإحصائيات."
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "تحديث قاعدة البيانات DB-IP city lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"عملية تغيير اسم ملف قاعدة البيانات DB-IP city lite {$sourceFilename} "
+"إلى{$targetFilename} قد فشلت."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"إن المجلد {$directory} ليس فارغًا. قد يشير ذلك إلى عملية سابقة فاشلة، أو "
+"عملية شغالة الآن. ستتم إعادة معالجة هذا الملف تلقائيًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"إن الملف {$file} هو ملف سجل وقوعات قديم لا يمكن معالجته ولهذا السبب ستتم "
+"إعادته إلى مجلد المرحلة."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"تم تخطي ملف سجل الوقوعات {$file} لأن الإحصائيات من ذلك الشهر قد تم احتسابها "
+"مسبقًا. لإعادة حساب الإحصائيات لشهر سابق، ينبغي عليك استعادة كل ملفات سجل "
+"الوقوعات لذلك الشهر واستعمال أداة سطر الأوامر لإعادة معالجة الإحصائيات."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"السطر {$lineNumber} في ملف سجل الوقوعات {$file} هو بصيغة خاطئة ولذلك سيتم "
+"تخطيه."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"إدخال خاطئ في سجل الوقوعات عند السطر {$lineNumber} في ملف الوقوعات {$file}: "
+"{$error}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "الوقت ليس بتاريخ صحيح."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "الرمز التعريفي للعرض التقديمي ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "نوع الملف غير مدعوم."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "رمز البلد ليس بصيغة نص من حرفين."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "المنطقة ليست بنص من ثلاثة محارف."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "الرمز التعريفي للمؤسسة ليس مصفوفة."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"وقع خطأ عند معالجة ملف سجل الوقوعات {$file} عند السطر {$lineNumber}: {$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "الرمز التعريفي لطلب التقديم ليس عددًا صحيحًا."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت قراءة الملف المصدري الذي بصيغة gz {$file} باستعمال "
+"gzread."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"تعذر ضغط الملف. تعذر فتح الملف المصدري الذي بصيغة gz {$filePath} باستعمال "
+"fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr "تعذر ضغط الملف. تعذرت قراءة الملف المصدري {$file} باستعمال fread."
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "العملية تنتظر أعمال الطابور"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر فتح الملف المصدري الذي بصيغة gz {$filePath} باستعمال "
+"gzopen."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر فتح الملف المستهدف الذي بصيغة gz {$filePath} "
+"باستعمال fopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت كتابة الملف المستهدف {$filePath} باستعمال fwrite."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر إغلاق الملف المستهدف المفتوح {$filePath} باستعمال "
+"fclose."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر إغلاق الملف المصدري الذي بصيغة gz {$filePath} "
+"باستعمال gzclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت إزالة الملف المصدري المفتوح الذي بصيغة gz "
+"{$filePath} باستعمال unlink."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"تعذر ضغط الملف. تعذر فتح الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
+"gzopen."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"تعذر ضغط الملف. تعذرت كتابة الملف المستهدف الذي بصيغة gz {$filePath} "
+"باستعمال gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"تعذر ضغط الملف. تعذر إغلاق الملف المصدري المفتوح {$filePath} باستعمال fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"تعذر ضغط الملف. تعذر إغلاق الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
+"gzclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"تعذر ضغط الملف. تعذرت إزالة الملف المصدري المضغوط {$filePath} باستعمال "
+"unlink."
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr "يتعذر تشغيل أعمال الطابور بسبب تمكين وضع الصيانة في التطبيق."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"التخلص من الأعمال المتاحة في الطبور. إذا أردت التخلص من عمل ما في طابور معين،"
+" مرر المعامل --queue=QUEUE_NAME. يمكنك أيضًا الاقتصار على تمرير --test "
+"لتشغيل العمل التجريبي والمعامل --once لتشغيل عمل واحد تلو الآخر"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "إكتمل تشغيل {$jobCount} من الأعمال في الطابور المسمى {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "ليست هناك أعمال متاحة لتشغيلها في الطابور {$queueName}."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"تم التخلص من الأعمال التجريبية المؤشرة على أنها فاشلة ضمن الطابور المسمى "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"تم التخلص من الأعمال التجريبية المؤشرة على أنها موفقة ضمن الطابور المسمى "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "لم يتم العثور على أي أعمال لحذفها."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "نوع Assoc غير مدعوم."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "ترك ملفات سجل الوقوعات في مكانها"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "ضغط ملفات سجلات الوقوعات"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"حصر إمكانية الوصول إلى واجهة برمجة التطبيق لإحصائيات COUNTER SUSHI بالمدراء "
+"والمشرفين"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "المنصة"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "استعمال الموقع كمنصة لكل المجلات."
+
+msgid "admin.settings.statistics.collection"
+msgstr "جمع البيانات"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "تعريف نوعية إحصائيات الاستعمال التي ينبغي جمعها."
+
+msgid "admin.settings.statistics.storage"
+msgstr "خزن البيانات"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "تعريف ماهية إحصائيات الاستعمال التي ينبغي خزنها في الملقم."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "بروتوكول Sushi"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"تهيئة البروتوكول <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a>، وهو صيغة خاصة بصنعة توزيع إحصائيات الاستعمال."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "إحصائيات شهرية أم يومية"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"فيما إذا كان تقفي بيانات إحصائيات الاستعمال يكون على أساس شهري أم يومي. تقفي "
+"الإحصائيات اليومية قد يرفع من حجم قاعدة بياناتك بشكل ملحوظ."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "تقفي إحصائيات شهرية ويومية"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "تقفي إحصائيات شهرية فقط"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "ضغط سجلات الوقوعات"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"يتم توليد الإحصائيات من ملفات سجلات الوقوعات والتي يتم نقلها إلى "
+"<code>{$path}</code> بمجرد معالجتها. هل ينبغي ضغط ملفات سجلات الوقوعات بصيغة "
+"ملفات <code>.gz</code> بمجرد معالجتها أم لا؟ ضغط تلك الملفات قد يوفر في "
+"مساحة الخزن المتاحة في الملقم."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "الرمز التعريفي للمنصة"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"تشغيل عملية دائمية يقوم بها برنامج آلي تستمر في معالجة الأعمال. إستعمل مُعلَّ"
+"م --help لمعاينة الخيارات المتاحة ذات الصلة بهذا الأمر."
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"خيار عملية الفحص خاطئ. ينبغي أن يقتصر على احتمالين اثنين هما 'failed' أو "
+"'success' بالنسبة إلى الخيار '--only=' option"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"فشلت المهمة التي تقوم بتحميل بيانات الاستعمال الإحصائية من الملف {$file}، "
+"والملف تعذر نقله من {$archivedFilePath} إلى {$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"فشلت المهمة التي تقوم بتحميل بيانات الاستعمال الإحصائية من الملف {$file}. "
+"الملف تم نقله إلى مجلد المرحلة."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"وفقًا لبروتوكول COUNTER SUSHI، ينبغي على كل تقرير إحصائي تعريف \"المنصة\" "
+"الموفرة للإحصائيات. إفتراضيًا سيتم النظر إلى المجلة على أنها المنصة لكل "
+"الإحصائيات. مع ذلك، إذا كانت كل مجلات الموقع مملوكة أو عائدة إلى نفس المؤسسة "
+"أو دار النشر، فقد ترغب باعتبار الموقع بمثابة المنصة."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "خيارات أمر العمل"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "طريقة الاستعمال: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "الخيارات المتاحة لأمر العمل"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "تسمية وصلة الطابور بالعمل [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "تسمية الطابور للعمل [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "تسمية العامل [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "حد الذاكرة بالميغا بايت [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "عدد الثواني المسموح بها للمهمة الفرعية [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"عدد ثواني الخمول عندما لا توجد أي مهام للقيام بها [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "إجبار العامل على التنفيذ حتى في وضع الصيانة [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "التوقف عندما يكون الطابور فارغًا [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "عدد ثواني الاستراحة ما بين المهام [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "تشغيل برنامج العامل في الخلفية للطابور التجريبي"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"عدد ثواني الانتظار قبل معاودة المهمة التي تعرضت إلى خطأ ليست له معالجة "
+"[الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"عدد محاولات إعادة المهمة قبل تأشيرها على انها فاشلة [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "عدد المهام التي ينبغي تنفيذها قبل التوقف [الافتراضي: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"أقصى عدد من الثواني التي ينبغي أن يعمل خلالها العامل [الافتراضي: "
+"'{$default}']"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"كيفية تمييز هذه المنصة في تقارير COUNTER SUSHI. الرمز التعريفي للمنصة ينبغي "
+"أن يكون من 17 حرف أو أقل ويمكن له أن يضم حروفًا (a–z، A–Z)، أرقامًا (0–9)، "
+"الشرطة التحتانية (_)، نقطًا (.) والشرطة المائلة الأمامية (/). الرمز التعريفي "
+"للمنصة يُستعمل في أعمدة عديدة وينبغي أن يكون قصيرًا قدر الإمكان ومميزًا في "
+"نفس الوقت. عادة ما يكون الرمز التعريفي للمنصة مبنيًا على اسم الناشر أو "
+"المنصة، اسم النطاق، أو مختصر مشهور وفريد."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"الرمز التعريفي للمنصة ينبغي أن يكون مطلوبًا عندما يكون الموقع معرفًا على "
+"أساس أنه منصةSUSHI."

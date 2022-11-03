@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-04-24 07:57+0000\n"
-"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"PO-Revision-Date: 2022-10-24 16:34+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr_TR/>\n"
 "Language: tr_TR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "about.aboutSite"
 msgstr "Site Hakkında"
@@ -1794,9 +1794,11 @@ msgstr "Bu katılımcıda hiçbir değişiklik yapılamaz"
 msgid "stageParticipants.selectedUser"
 msgstr "Katılımcı"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Bu kişinin yayın ayrıntılarını düzenlemesine izin ver."
+msgstr ""
+"Bu kişinin makalenin başlık, özet, üst veriler ve diğer yayın ayrıntıları "
+"gibi bilgilerinde değişiklikler yapmasına izin verin. Makale son kontrolden "
+"geçtiyse ve yayına hazırsa bu ayrıcalığı iptal etmek isteyebilirsiniz."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "İzinler"
@@ -2094,3 +2096,113 @@ msgstr "Dosya Ekle"
 
 msgid "common.addCCBCC"
 msgstr "CC/BCC Ekle"
+
+msgid "common.findTemplate"
+msgstr "Şablon Bul"
+
+msgid "common.dragAndDropHere"
+msgstr "Dosyaları buraya sürükleyip bırakın."
+
+msgid "common.orUploadFile"
+msgstr "Veya bir dosya yükleyin"
+
+msgid "common.insertContent"
+msgstr "İçerik Ekle"
+
+msgid "common.insertContentSearch"
+msgstr "Eklenecek içeriği bulun"
+
+msgid "common.keepWorking"
+msgstr "Çalışmaya devam ediyor"
+
+msgid "common.numberedMore"
+msgstr "{$number} daha"
+
+msgid "common.searching"
+msgstr "Aranıyor"
+
+msgid "common.showAllSteps"
+msgstr "Tüm adımları göster"
+
+msgid "common.switchTo"
+msgstr "Değiştir"
+
+msgid "common.switchToNamedItem"
+msgstr "{$name}'i değiştir"
+
+msgid "common.viewError"
+msgstr "Hatayı Görüntüle"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Aday Makale Dosyalarını Ekle"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Gönderim aşamasında yazar tarafından yüklenen dosyaları ekleyin."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Kütüphane Dosyaları"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Kütüphane Dosyalarını Ekle"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Gönderim ve Yayıncı Kitaplıklarından dosya ekleyin."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Değerlendirme Dosyaları Ekle"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Hakemler tarafından yüklenen dosyaları ekleyin"
+
+msgid "institution.institutions"
+msgstr "Kurumlar"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Bilinmeyen komut {$komut}"
+
+msgid "common.loadTemplate"
+msgstr "Şablon Yükle"
+
+msgid "common.upload.addFile.description"
+msgstr "Bilgisayarınızdan bir dosya yükleyin."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Hakeme gönderilecek düzeltilmiş dosyalar gibi iş akışı sırasında yüklenen "
+"dosyaları ekleyin."
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} dosyası eklenemedi."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Bu e-postayı oluşturmak için {$localeName} olarak değiştirmek istediğinizden "
+"emin misiniz? E-postanın konusu ve gövdesinde yaptığınız tüm değişiklikler "
+"kaybolacaktır."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Hakemlik ataması yeniden gözden geçirmesi için istek gönderildi."
+
+msgid "notification.type.editorialReminder"
+msgstr "Bekleyen görevlerin haftalık e-postası"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.downloadReport"
+msgstr "Rapor İndir"
+
+msgid "common.geographic"
+msgstr "Coğrafi"
+
+msgid "common.searchPhrase"
+msgstr "Arama İfadesi"
+
+msgid "validator.country.regex"
+msgstr ""
+"Geçerli bir ülke kodu değil. Ülke kodu 2 harfli uluslararası kodlardan biri "
+"olmalıdır. https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#"
+"Officially_assigned_code_elements adresinden tüm ülke kodlarına bakın."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

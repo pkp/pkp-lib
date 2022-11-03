@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/about/HelpHandler.php
+ * @file pages/help/HelpHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,7 +13,7 @@
  * @brief Handle requests for help functions.
  */
 
-namespace PKP\pages\about;
+namespace PKP\pages\help;
 
 use APP\handler\Handler;
 use PKP\core\JSONMessage;

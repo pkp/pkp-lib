@@ -101,7 +101,10 @@ class Repository
 
         $validator = ValidatorFactory::make(
             $props,
-            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales),
+            [
+                'country.regex' => __('validator.country.regex'),
+            ]
         );
 
         // Check required fields

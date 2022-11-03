@@ -517,24 +517,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     }
 
     /**
-     * Return a list of author email addresses of the current publication.
-     *
-     * @return array
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getAuthorEmails()
-    {
-        $authors = Repo::author()->getSubmissionAuthors($this);
-
-        $returner = [];
-        foreach ($authors as $author) {
-            $returner[] = Mail::encodeDisplayName($author->getFullName()) . ' <' . $author->getEmail() . '>';
-        }
-        return $returner;
-    }
-
-    /**
      * Get the primary author of the current publication
      *
      * @return Author|null

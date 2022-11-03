@@ -25,6 +25,7 @@ use APP\notification\NotificationManager;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
+use PKP\core\APIResponse;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
@@ -43,6 +44,7 @@ use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use Slim\Http\Request as SlimRequest;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -58,6 +60,7 @@ class PKPSubmissionHandler extends APIHandler
         'edit',
         'delete',
         'getGalleys',
+        'getDecisions',
         'getParticipants',
         'getPublications',
         'getPublication',
@@ -118,6 +121,11 @@ class PKPSubmissionHandler extends APIHandler
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
                     'handler' => [$this, 'get'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/decisions',
+                    'handler' => [$this, 'getDecisions'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants',
@@ -303,7 +311,7 @@ class PKPSubmissionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
         ], 200);
     }
 
@@ -551,6 +559,30 @@ class PKPSubmissionHandler extends APIHandler
     }
 
     /**
+     * Get the decisions recorded on a submission
+     */
+    public function getDecisions(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!$submission || $submission->getData('contextId') !== $context->getId()) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        $decisionIterator = Repo::decision()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->getMany();
+
+        $data = Repo::decision()
+            ->getSchemaMap()
+            ->mapMany($decisionIterator->values());
+
+        return $response->withJson($data, 200);
+    }
+
+    /**
      * Get the participants assigned to a submission
      *
      * This does not return reviewers.
@@ -629,7 +661,7 @@ class PKPSubmissionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize),
+            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
         ], 200);
     }
 
@@ -1102,7 +1134,7 @@ class PKPSubmissionHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors),
+            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
         ], 200);
     }
 

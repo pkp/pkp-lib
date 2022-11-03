@@ -18,10 +18,15 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
+use PKP\mail\mailables\ReviewerUnassign;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\Mailable;
 
 class UnassignReviewerForm extends ReviewerNotifyActionForm
 {
@@ -38,11 +43,11 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
     }
 
     /**
-     * @copydoc ReviewerNotifyActionForm::getEmailKey()
+     * @copydoc ReviewerNotifyActionForm::getMailable()
      */
-    public function getEmailKey()
+    protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
     {
-        return 'REVIEW_CANCEL';
+        return new ReviewerUnassign($context, $submission, $reviewAssignment);
     }
 
     /**

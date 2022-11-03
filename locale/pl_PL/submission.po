@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2022-01-11 15:46+0000\n"
+"PO-Revision-Date: 2022-10-21 13:55+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl_PL/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Należy dostarczyć odpowiednio sformatowaną listę cytowanych prac. Proszę o rozdzielenie poszczególnych opisów bibliograficznych pustym wierszem."
@@ -265,7 +265,11 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Typ publikacji"
 
 msgid "metadata.property.validationMessage.publication-type"
-msgstr "Proszę o upewnienie się, czy został wybrany poprawny typ publikacji. Obecnie wspierane są następujące typy: książka (książka lub rozdział w książce) oraz czasopisma (artykuł w czasopiśmie). W innych przypadkach cytowanie nie będzie poprawne."
+msgstr ""
+"Proszę o upewnienie się, czy został wybrany poprawny typ publikacji. Obecnie "
+"wspierane są następujące typy: książka (lub rozdział w książce) oraz "
+"czasopisma (artykuł w czasopiśmie). W innych przypadkach cytowanie nie "
+"będzie poprawne."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Typ tytułu"
@@ -1018,7 +1022,7 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Główna osoba do kontaktu z redakcją."
 
 msgid "submission.submit.contributorRole"
-msgstr "Rola współautora"
+msgstr "Rola autora"
 
 msgid "submission.submit.addAuthor"
 msgstr "Dodaj współautora"
@@ -1144,7 +1148,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nowe recenzje zostały przesłane."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Recenzje zakończone."
+msgstr "Wszyscy recenzenci odpowiedzieli. Wymagana decyzja redaktora."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Uczestnicy"
@@ -1500,9 +1504,9 @@ msgstr "\"{$name}\" ({$username}) jest usunięty z {$userGroupName}."
 msgid "submission.howToCite.downloadCitation"
 msgstr "Pobierz cytowania"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Poprawki zostały przesłane."
+msgstr ""
+"Poprawki zostały przesłane. Wymagana decyzja o dalszym toku postępowania."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Recenzja jest opóźniona."
@@ -1775,7 +1779,7 @@ msgstr ""
 msgid "submission.outdatedVersion"
 msgstr ""
 "Istnieje nowsza wersja tego artykułu opublikowanego {$datePublished}. "
-"Przeczytaj  <a href=\"{$urlRecentVersion}\">wersję najnowszą</a>."
+"Przeczytaj <a href=\"{$urlRecentVersion}\">wersję najnowszą</a>."
 
 msgid "submission.versionIdentity"
 msgstr "{$datePublished} - ({$version})"
@@ -2040,9 +2044,9 @@ msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
 "\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\" /></a><p>Praca jest udostępniana na  licencji <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
-"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"by-nc-nd/3.0/88x31.png\" /></a><p>Praca jest udostępniana na licencji <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\""
+">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
 "License</a>.</p>"
 
 msgid "submission.copyrightOther.description"
@@ -2106,3 +2110,380 @@ msgstr "Kategorie"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Widoczność na listach publikacji"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} wysłał zgłoszenie do etapu produkcji."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} zarekomendował autorowi wysłanie poprawek do tekstu i "
+"zgłoszenie ich do następnej rundy recenzji."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Zmień poprzednią decyzję o odrzuceniu zgłoszenia i wróć do procesu "
+"redakcyjnego."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} wygenerował prośbę o poprawki do zgłoszenia zanim przekaże "
+"całość do kolejnej rundy recenzji."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Zgłoszenie {$title}, zostało zaakceptowane do publikacji i wysłane do etapu "
+"korekty technicznej."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Wyślij wiadomość e-mail do autorów, aby poinformować ich, że poprawki będą "
+"musiały zostać ukończone i przesłane do kolejnej rundy recenzji. Uwzględnij "
+"wszystkie szczegóły, których autor będzie potrzebował, aby poprawić swoje "
+"zgłoszenie. W stosownych przypadkach pamiętaj o anonimizacji komentarzy "
+"recenzentów."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} odesłał zgłoszenie do etapu Korekty."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Wymagane poprawki"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Autor przed zaakceptowaniem tego zgłoszenia lub wysłaniem go do kolejnej "
+"rundy recenzji powinien przesłać poprawki do tekstu."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Rekomenduj odrzucenie tekstu"
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Powrót do korekty"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Rozpocznij nową rundę recenzji."
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Decyzja została wysłana mailem do {$recipientCount} recenzentów opatrzona "
+"tematem {$subject}."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Zarekomenduj wysłanie do autora prośby o poprawki zanim zgłoszenie będzie "
+"zaakceptowane do publikacji."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} stworzył nową rundę recenzji."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Wyślij wiadomość e-mail do autorów, aby poinformować ich, że poprzednia "
+"decyzja o odrzuceniu tego zgłoszenia została cofnięta. Wyjaśnij, dlaczego "
+"decyzja została cofnięta i poinformuj ich, czy zgłoszenie ma zostać poddane "
+"dalszej weryfikacji."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Rekomenduj akceptację"
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Wysłane do recenzji"
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Zgłoszenie z powrotem aktywne"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Odeślij zgłoszenie z powrotem do etapu Korekty."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Zgłoszenie nie zostanie opublikowane. Proces recenzji zostanie zamknięty i "
+"razem z całym zgłoszeniem trafi do archiwum."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Wybierz pliki nad którymi będziesz pracował na etapie produkcji."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Wysłane do Produkcji"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Zarekomenduj aby tekst został odrzucony przez redakcję."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Odesłane powtórnie do Korekty"
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Rekomenduj poprawki"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Powiadom recenzentów"
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Zgłoszenie odrzucone"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Zobacz wszystko"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} pominął etap recenzji i wysłał zgłoszenie do etapu korekty."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Wyślij do recenzji"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} zlecił konieczność poprawek do zgłoszenia."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Zgłoszenie: {$title} zostało odesłane ponownie do Korekty."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Wyślij email do autorów z powiadomieniem o wysłaniu zgłoszenia do etapu "
+"produkcji."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Nowe zgłoszenie oczekuje na wysłanie do recenzji lub odrzucenie."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Wyślij wiadomość e-mail do autorów, aby poinformować ich, że poprawki będą "
+"wymagane, zanim zgłoszenie zostanie przyjęte do publikacji. Załącz wszystkie "
+"szczegóły, których autor będzie potrzebował, aby poprawić swoje zgłoszenie. "
+"W stosownych przypadkach pamiętaj o anonimizacji komentarzy recenzentów."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} zaakceptował zgłoszenie i wysłał do następnego etapu korekty "
+"technicznej."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Zgłoszenie {$title} zostało przesłane do Korekty z pominięciem etapu "
+"recenzji."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Wyślij email do recenzentów z podziękowaniem za dokonaną recenzję i "
+"informacją o decyzji redakcji dotyczącej tekstu."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Wymagane poprawki"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} zarekomendował prośbę o poprawki do tekstu."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} odrzucił to zgłoszenie."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Autor powinien przesłać poprawki zanim zgłoszenie będzie mogło być "
+"zaakceptowane do publikacji."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr "Rekomenduj zgłoszenie do publikacji i wyślij do etapu Korekty."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Wybierz pliki które mają być dostępne w etapie recenzji."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Zgłoszenie {$title} zostało wysłane do etapu recenzji."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Zgłoszenie jest gotowe do etapu recenzji."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Wyślij email do autorów z powiadomieniem, że ich zgłoszenie zostało wysłane "
+"do nowej rundy recenzji."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} wysłał zgłoszenie do etapu recenzji."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Nieaktywne przez więcej niż {$days} na etapie {$stage}."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Zgłoszenie zostanie zaakceptowane do publikacji i wysłane do etapu korekty."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Nowa runda recenzji"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Wygenerowano prośbę o poprawki do zgłoszenia {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Nowa runda recenzji stworzona"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Wyślij wiadomość do decydujących redaktorów, aby przekazać im rekomendację. "
+"Wyjaśnij, dlaczego ta rekomendacja została wydana w odpowiedzi na "
+"rekomendacje i komentarze zgłoszone przez recenzentów."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Wyślij e-mail do autorów, aby poinformować ich, że zgłoszenie zostało "
+"odesłane z powrotem do etapu redakcji. Wyjaśnij, dlaczego podjęto tę decyzję "
+"i poinformuj autora, jakie dalsze redakcje będą wymagane, zanim zgłoszenie "
+"będzie gotowe do produkcji."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Wybierz pliki nad którymi będziesz pracował na etapie korekty."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr "Rekomenduj aby autor wysłał poprawki do kolejnego etapu recenzji."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Rekomenduj powtórne zgłoszenie do recenzji"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} odwrócił decyzję o odrzuceniu tego zgłoszenia."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr "Wyślij email do autorów z powiadomieniem o odrzuceniu tekstu."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Nie możesz zapisać rekomendacji dopóki nie zostanie przydzielony redaktor "
+"mogący podjąć ostateczną decyzję."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Wyślij email do autorów z powiadomieniem, że ich zgłoszenie zostało "
+"zaakceptowane do publikacji."
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "Twoja rekomendacja została zapisana a redaktor prowadzący powiadomiony."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Zgłoszenie nie zostanie opublikowane. Nie będzie dalszej recenzji, całe "
+"zgłoszenie zostanie przeniesione do archiwum."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} zarekomendował zaakceptowanie zgłoszenia i wysłanie do etapu "
+"Korekty."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "Nowa runda recenzji została utworzona dla zgłoszenia: {$title}."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Recenzja pominięta"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Zgłoszenie: {$title} zostało wysłane do etapu produkcji."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+"Zgłoszenie: {$title} jest obecnie aktywnym zgłoszeniem w etapie zgłoszenia."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} zarekomendował odrzucenie zgłoszenia."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} odesłał to zgłoszenie z etapu redakcji."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Odesłane z etapu Korekty"
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Odeślij z etapu Korekty"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Odeślij to zgłoszenie do wcześniejszego etapu."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr "Zgłoszenie {$title}, zostało odesłane z etapu redakcji."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Wyślij email do autorów z informacją, że etap korekty został anulowany i "
+"zgłoszenie będzie ponownie rozpatrzone przez redakcję."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Wyślij email do zaangażowanych recenzentów z informacją, że ich przydział "
+"został anulowany."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Wyślij email do autorów z informacją, że ta runda recenzji została zamknięta."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Anuluj rundę recenzji"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Anuluj bieżącą rundę recenzji i cofnij tekst do poprzedniego etapu zbierania "
+"ocen. Jeśli była to pierwsza runda recenzji, tekst przeniesie się do etapu "
+"zgłoszenia."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} anulował rundę recenzji."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Ostatnia runda recenzji została anulowana."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr "Runda recenzji dla zgłoszenia: {$title} została anulowana."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Anulowanie rundy recenzji może się odbyć tylko wtedy kiedy recenzent nie "
+"przesłał recenzji lub nie został do niej zaproszony."
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Powiadom autorów"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Wyślij zgłoszenie do etapu produkcji w celu przygotowania do publikacji."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Zaakceptuj zgłoszenie do publikacji pomijając etap recenzji. Wybranie tej "
+"opcji przesunie zgłoszenie od razu do etapu Korekty."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Zgłoszenie {$title} zostało odrzucone i przeniesione do archiwum."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Została zgłoszona rekomendacja"
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Zgłoszenie: {$title} jest obecnie aktywnym tekstem w etapie zgłoszenia."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Wyślij email do autorów z informacją, że zgłoszenie zostało zaakceptowane do "
+"publikacji z pominięciem recenzji i znajduje się w etapie Korekty."
+
+msgid "submission.firstPublished"
+msgstr "Opublikowane"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Nie udało się oznaczyć DOI jako nieaktualnego dla {$pubObjectTitle}. DOI nie "
+"może być oznaczony jako nieaktualny, ponieważ nie został jeszcze "
+"zarejestrowany ani zgłoszony."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Nie udało się oznaczyć DOI jako zarejestrowanego dla {$pubObjectTitle}. "
+"Zgłoszenie musi zostać opublikowane przed aktualizacją statusu."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Wyślij powtórnie prośbę o recenzję w rundzie {$round} do {$reviewerName} w "
+"zgłoszeniu {$submissionid}."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Zgłoszenie zaakceptowane do publikacji"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Została wygenerowana prośba o poprawki dla zgłoszenia {$title}. Zapisano "
+"decyzję o wysłaniu poprawek do następnej rundy recenzji."

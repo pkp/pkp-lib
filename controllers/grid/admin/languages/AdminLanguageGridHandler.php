@@ -18,6 +18,7 @@
 namespace PKP\controllers\grid\admin\languages;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
@@ -33,6 +34,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
+use PKP\site\Site;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
 {
@@ -110,8 +112,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             )
         );
 
-        // Locale name.
-        $this->addNameColumn();
+        $this->addNameColumn(); // Locale name.
+        $this->addLocaleCodeColumn(); // Locale code.
 
         // Primary locale.
         if ($this->_canManage($request)) {
@@ -137,16 +139,17 @@ class AdminLanguageGridHandler extends LanguageGridHandler
      */
     protected function loadData($request, $filter)
     {
-        $site = $request->getSite();
+        $site = $request->getSite(); /** @var Site $site */
         $data = [];
 
-        $installedLocales = $site->getInstalledLocales();
+        $installedLocales = $site->getInstalledLocaleNames();
         $supportedLocales = $site->getSupportedLocales();
         $primaryLocale = $site->getPrimaryLocale();
 
-        foreach ($installedLocales as $localeKey) {
+        foreach ($installedLocales as $localeKey => $localeName) {
             $data[$localeKey] = [];
-            $data[$localeKey]['name'] = Locale::getMetadata($localeKey)->getDisplayName(null, true);
+            $data[$localeKey]['code'] = $localeKey;
+            $data[$localeKey]['name'] = $localeName;
             $data[$localeKey]['incomplete'] = !Locale::getMetadata($localeKey)->isComplete();
             $data[$localeKey]['supported'] = in_array($localeKey, $supportedLocales);
 
@@ -416,7 +419,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     {
         $site = $request->getSite();
         $siteSupportedLocales = $site->getSupportedLocales();
-        $contextService = \Services::get('context');
+        $contextService = Services::get('context');
 
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll();
@@ -453,7 +456,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     {
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll();
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         [$firstContext, $secondContext] = [$contexts->next(), $contexts->next()];
         return ($firstContext && !$secondContext && $request->getContext() && in_array(Role::ROLE_ID_MANAGER, $userRoles));
     }

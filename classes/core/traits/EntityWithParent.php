@@ -42,7 +42,7 @@ trait EntityWithParent
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
-            ->when($parentId !== null, fn (Builder $query, int $parentId) => $query->where($this->getParentColumn(), $parentId))
+            ->when($parentId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $parentId))
             ->exists();
     }
 
@@ -56,7 +56,7 @@ trait EntityWithParent
     {
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
-            ->when($parentId !== null, fn (Builder $query, int $parentId) => $query->where($this->getParentColumn(), $parentId))
+            ->when($parentId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $parentId))
             ->first();
         return $row ? $this->fromRow($row) : null;
     }

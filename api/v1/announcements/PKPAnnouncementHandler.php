@@ -171,7 +171,7 @@ class PKPAnnouncementHandler extends APIHandler
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements),
+            'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements)->values(),
         ], 200);
     }
 
@@ -244,7 +244,7 @@ class PKPAnnouncementHandler extends APIHandler
                     $contextId,
                     $announcementId,
                     $request->getUser(),
-                    Locale::getLocale()
+                    Locale::getPrimaryLocale()
                 );
                 $jobs[] = $mailJob;
             }

@@ -1,18 +1,18 @@
 # Ruslan Shodmonov <belovedspy1209@gmail.com>, 2021.
 # OBIDJON ABDULLOYEV <obidjon1987@mail.ru>, 2022.
+# Bobir Bobayev <bobayevbobirnasrullayevich1986@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-03 08:14+0000\n"
-"Last-Translator: OBIDJON ABDULLOYEV <obidjon1987@mail.ru>\n"
-"Language-Team: Uzbek <http://translate.pkp.sfu.ca/projects/ojs/manager/uz_UZ@"
-"latin/>\n"
+"PO-Revision-Date: 2022-10-11 17:38+0000\n"
+"Last-Translator: Bobir Bobayev <bobayevbobirnasrullayevich1986@gmail.com>\n"
+"Language-Team: Uzbek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"uz_UZ@latin/>\n"
 "Language: uz_UZ@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
-
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -69,6 +69,7 @@ msgstr ""
 "bosish bilan tekshiruvchiga kirish o'chirilganida, bu elektron pochta "
 "avtomatik ravishda yuboriladi. Rejalashtirilgan vazifalar yoqilgan va "
 "sozlangan bo'lishi kerak (sayt konfiguratsiya faylini ko'ring)."
+
 msgid "mailable.passwordReset.description"
 msgstr ""
 "Bu xat PASSWORD_RESET_CONFIRM elektron pochtasida tasvirlangan jarayondan "
@@ -138,3 +139,139 @@ msgstr ""
 "Bu elektron pochta har oy muharrirlarga va jurnal menejerlariga tizim "
 "salomatligi haqida umumiy ma'lumot berish uchun avtomatik ravishda "
 "yuboriladi."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Qisqacha e'lon tavsifi talab qilinadi."
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Tahrirlash"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Hech qanday e'lon yaratilmagan."
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "E'lon sarlavhasi kerak."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Qisqacha tavsif"
+
+msgid "manager.announcements.form.title"
+msgstr "Sarlavha"
+
+msgid "manager.announcementTypes"
+msgstr "E'lon turlari"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Rasm fayli talab qilinadi. Faylni tanlaganingizga va yuklaganingizga ishonch "
+"hosil qiling."
+
+msgid "manager.announcements.title"
+msgstr "Sarlavha"
+
+msgid "manager.announcements.type"
+msgstr "Turi"
+
+msgid "manager.announcements.editTitle"
+msgstr "Tahrirlash"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Bunday nomdagi e'lon turi allaqachon mavjud."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Iltimos, amal qilish muddati tugagan oydan tashqari yil va/yoki kunni "
+"tanlang."
+
+msgid "manager.website.appearance"
+msgstr "Tashqi ko'rinish"
+
+msgid "manager.announcements.datePublish"
+msgstr "Chop etilgan"
+
+msgid "manager.announcementTypes.edit"
+msgstr "E'lon turini tahrirlash"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "E'lonning to'liq matni."
+
+msgid "manager.announcements.form.description"
+msgstr "E'lon"
+
+msgid "manager.announcementTypes.create"
+msgstr "E'lon turini yaratish"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Muddati"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Turi"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "E'lon turi nomi talab qilinadi."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Ism"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "E'lonni o'chirish"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Yaroqlilik sanasidan tashqari oy va/yoki kunni tanlang."
+
+msgid "manager.website.information"
+msgstr "Ma `lumot"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Saqlash va boshqasini yaratish"
+
+msgid "manager.announcements.create"
+msgstr "Yangi e'lon yaratish"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Ogohlantirish! Ushbu turdagi e'lonlar ham o'chiriladi. Haqiqatan ham bu "
+"eʼlon turini davom ettirib, oʻchirib tashlamoqchimisiz?"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Yaratmoq"
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Quyidagi sanagacha foydalanilsin"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"E'lon shu kungacha o'quvchilarga ko'rsatiladi. Agar e'lon cheksiz "
+"ko'rsatilishi kerak bo'lsa, bo'sh qoldiring."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Saqlash va boshqasini yaratish"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Iltimos, toʻgʻri eʼlon turini tanlang."
+
+msgid "manager.announcements.edit"
+msgstr "E'lonni tahrirlash"
+
+msgid "manager.announcements.createTitle"
+msgstr "Yaratmoq"
+
+msgid "manager.announcements"
+msgstr "E'lonlar"
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Iltimos, to'g'ri e'lonning amal qilish muddatini tanlang."
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Haqiqatan ham {$title} eʼlonini butunlay oʻchirib tashlamoqchimisiz?"
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "E'lon tavsifi talab qilinadi."
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr ""
+"Iltimos, amal qilish muddati tugagan kundan tashqari yil va/yoki oyni "
+"tanlang."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "E'lon sarlavhasi bilan birga ko'rsatiladigan qisqacha tavsif."

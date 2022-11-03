@@ -53,7 +53,6 @@ use PKP\mail\variables\SiteEmailVariable;
 use PKP\mail\variables\SubmissionEmailVariable;
 use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
-use PKP\plugins\HookRegistry;
 use PKP\site\Site;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -106,6 +105,9 @@ class Mailable extends IlluminateMailable
 
     /** @var Variable[] The email variables supported by this mailable */
     protected array $variables = [];
+
+    /** @var string embedded footer of the email */
+    protected string $footer;
 
     public function __construct(array $variables = [])
     {
@@ -166,6 +168,19 @@ class Mailable extends IlluminateMailable
     }
 
     /**
+     * Alias of self::addData()
+     * @see \Illuminate\Mail\Mailable::with()
+     */
+    public function with($key, $value = null)
+    {
+        if (is_array($key)) {
+            return $this->addData($key);
+        }
+
+        return $this->addData([$key => $value]);
+    }
+
+    /**
      * Get the data for this email
      */
     public function getData(?string $locale = null): array
@@ -188,6 +203,8 @@ class Mailable extends IlluminateMailable
                 $variable->values($locale)
             );
         }
+
+        $this->addFooter($locale); // set the locale for the email footer
     }
 
     /**
@@ -300,6 +317,17 @@ class Mailable extends IlluminateMailable
     }
 
     /**
+     * Add a footer to the email
+     *
+     * A mailable may override this method to add a footer to the end of the email body before it is sent.
+     * Use this to add an unsubscribe link or append other automated messages.
+     */
+    protected function addFooter(string $locale): self
+    {
+        return $this;
+    }
+
+    /**
      * Allow data to be passed to the subject
      *
      * @param \Illuminate\Mail\Message $message
@@ -308,11 +336,14 @@ class Mailable extends IlluminateMailable
      */
     protected function buildSubject($message): self
     {
-        if (!$this->subject) {
-            throw new Exception('Subject isn\'t specified in ' . static::class);
-        }
-
+        $this->subject ??= ''; // Allow email with empty subject if not set
         $subject = app('mailer')->compileParams($this->subject, $this->viewData);
+        if (empty($subject)) {
+            trigger_error(
+                'You are sending ' . static::getName() ?? static::class . ' email with empty subject',
+                E_USER_WARNING
+            );
+        }
         $message->subject($subject);
 
         return $this;
@@ -457,6 +488,32 @@ class Mailable extends IlluminateMailable
             }
         }
         return $params;
+    }
+
+    /**
+     * @copydoc Illuminate\Mail\Mailable::buildView()
+     */
+    protected function buildView()
+    {
+        $view = parent::buildView();
+        if (!isset($this->footer)) {
+            return $view;
+        }
+
+        /**
+         * If it's an array with numerical keys, append footer to the first element;
+         * if a string, just append to the view;
+         * see: Illuminate\Mail\Mailer::parseView()
+         */
+        if (is_array($view) && isset($view[0])) {
+            return [$view[0] . $this->footer, $view[1]];
+        }
+
+        if (is_string($view)) {
+            return $view . $this->footer;
+        }
+
+        return $view; // $this->html, $this->textView or $this->markdown; see parent::buildView() for details
     }
 
     /**

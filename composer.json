@@ -58,7 +58,8 @@
 		"patches": {
 			"adodb/adodb-php": {
 				"Apply PKP ADODB patches": "lib/adodb.diff",
-				"Apply PKP ADODB PHP8.1 patches": "lib/adodb-php8.1.diff"
+				"Apply PKP ADODB PHP8.1 patches": "lib/adodb-php8.1.diff",
+				"Apply PKP ADODB patches for error handling": "lib/adodb-datadict-errors.diff"
 			}
 		}
 	},

@@ -2161,3 +2161,9 @@ msgstr "Vous avez été désabonné(e)"
 
 msgid "common.insert"
 msgstr "Insérer"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

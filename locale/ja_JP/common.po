@@ -2010,3 +2010,9 @@ msgstr "有効なオプションではありません。"
 
 msgid "common.insert"
 msgstr "挿入"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

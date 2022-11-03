@@ -21,7 +21,7 @@ use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
-
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\security\Validation;
 
 class ReviewerGridRow extends GridRow
@@ -62,8 +62,8 @@ class ReviewerGridRow extends GridRow
         $round = (int) $request->getUserVar('round');
 
         // Authors can't perform any actions on anonymous reviews
-        $reviewAssignment = $this->getData();
-        $isReviewAnonymous = in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);
+        $reviewAssignment = $this->getData(); /** @var ReviewAssignment $reviewAssignment */
+        $isReviewAnonymous = in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);
         if ($this->_isCurrentUserAssignedAuthor && $isReviewAnonymous) {
             return;
         }
@@ -111,6 +111,22 @@ class ReviewerGridRow extends GridRow
             );
 
             if (!$this->_isCurrentUserAssignedAuthor) {
+
+                if ($reviewAssignment->canResendReviewRequest()) {
+                    $this->addAction(
+                        new LinkAction(
+                            'resendRequestReviewer',
+                            new AjaxModal(
+                                $router->url($request, null, null, 'resendRequestReviewer', null, $actionArgs),
+                                __('editor.review.resendRequestReviewer'),
+                                'modal_add'
+                            ),
+                            __('editor.review.resendRequestReviewer'),
+                            'add'
+                        )
+                    );
+                }
+
                 if (!$reviewAssignment->getCancelled()) {
                     $this->addAction(new LinkAction(
                         'manageAccess',
@@ -165,7 +181,7 @@ class ReviewerGridRow extends GridRow
             if (
                 !Validation::isLoggedInAs() &&
                 $user->getId() != $reviewAssignment->getReviewerId() &&
-                Validation::canAdminister($reviewAssignment->getReviewerId(), $user->getId()) &&
+                Validation::getAdministrationLevel($reviewAssignment->getReviewerId(), $user->getId()) === Validation::ADMINISTRATION_FULL &&
                 !$reviewAssignment->getCancelled()
             ) {
                 $dispatcher = $router->getDispatcher();

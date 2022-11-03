@@ -146,6 +146,9 @@ msgstr "Cancel Reviewer"
 msgid "editor.review.reinstateReviewer"
 msgstr "Reinstate Reviewer"
 
+msgid "editor.review.resendRequestReviewer"
+msgstr "Resend Review Request"
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Review Type"
 
@@ -278,6 +281,9 @@ msgstr "Review Submitted"
 msgid "editor.review.reviewerThanked"
 msgstr "Reviewer Thanked"
 
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Request Resent"
+
 msgid "editor.review.reviewerComments"
 msgstr "Reviewer Comments"
 
@@ -301,6 +307,9 @@ msgstr "There was an error deleting the reviewer.  Please try again."
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr "There was an error reinstating the reviewer.  Please try again."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr "There was an error reuqesting the reviewer to reconsider the review invitation.  Please try again."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Enroll the user with this reviewer user group"

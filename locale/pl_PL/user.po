@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:49+00:00\n"
-"PO-Revision-Date: 2020-12-10 14:59+0000\n"
+"PO-Revision-Date: 2022-10-21 13:55+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.affiliation"
 msgstr "Afiliacja"
@@ -76,7 +77,9 @@ msgid "user.gossip"
 msgstr "Prywatne notatki"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Nieprawidłowy format lub za duży rozmiar zdjęcia. Akceptowane formaty to: GIF, JPG lub PNG. Maksymalna wielkość zdjęcia to:  150x150 pikseli."
+msgstr ""
+"Nieprawidłowy format lub za duży rozmiar zdjęcia. Akceptowane formaty to: "
+"GIF, JPG lub PNG. Maksymalna wielkość zdjęcia to: 150x150 pikseli."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Twoje konto zostało wyłączone z nastepujących powodów: {$reason}"
@@ -105,9 +108,10 @@ msgstr "Błędna nazwa użytkownika lub hasło. Spróbuj ponownie."
 msgid "user.login"
 msgstr "Zaloguj się"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Potwierdzenie zostało wysłane na skrzynkę e-mail. Aby zmienić hasło, proszę postępować zgodnie ze wskazówkami zamieszczonymi w przesłanej wiadomości."
+msgstr ""
+"Potwierdzenie zostało wysłane na skrzynkę e-mail. Aby zmienić hasło, proszę "
+"postępować zgodnie ze wskazówkami zamieszczonymi w przesłanej wiadomości."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -136,7 +140,7 @@ msgid "user.myAccount"
 msgstr "Moje konto"
 
 msgid "user.name"
-msgstr "Imię (Nazwa)"
+msgstr "Imię i nazwisko"
 
 msgid "user.password"
 msgstr "Hasło (dozwolone małe litery i cyfry)"
@@ -427,7 +431,9 @@ msgid "user.preferredPublicName"
 msgstr "Preferowana (publiczna) nazwa"
 
 msgid "user.preferredPublicName.description"
-msgstr "Jak chcesz być nazywany? Jeżeli chcesz możesz dodać tutaj: zwrot, drugie imię lub sufiks."
+msgstr ""
+"Jak chcesz aby oznaczono Cię jako autora? Jeżeli chcesz możesz dodać tutaj: "
+"zwrot, drugie imię lub sufiks. Np. Dr. Jan A. Kozłowski"
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "Podanie imienia/nazwiska jest wymagane."
@@ -446,3 +452,14 @@ msgstr "Tak, chciałbym(chciałabym) otrzymywać powiadomienia o nowych publikac
 
 msgid "user.privacyLink"
 msgstr "Twoje dane są gromadzone zgodnie z naszą <a href=\"{$privacyUrl}\" target=\"_blank\">polityką prywatności</a>."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Czy na pewno chcesz skasować klucz API?"
+
+msgid "user.apiKey.remove"
+msgstr "Usuń"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Skasowanie klucza spowoduje cofnięcie dostępu dla wszystkich aplikacji które "
+"go używają."

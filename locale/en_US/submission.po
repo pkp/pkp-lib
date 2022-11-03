@@ -1827,6 +1827,9 @@ msgstr "{$editorName} has marked the round {$round} review for submission {$subm
 msgid "log.review.reviewReinstated"
 msgstr "The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated."
 
+msgid "log.review.reviewerResendRequest"
+msgstr "Resent the request to review in round {$round} to {$reviewerName} for submission {$submissionid}."
+
 msgid "log.review.reviewConfirmed"
 msgstr "Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}."
 

@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-03 16:16+0000\n"
+"PO-Revision-Date: 2022-10-24 16:34+0000\n"
 "Last-Translator: Artashes Mirzoyan <amirzoyan@sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -2221,3 +2221,24 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "institution.institutions"
 msgstr "Հաստատություններ"
+
+msgid "notification.reviewerResendRequest"
+msgstr "Գրախոսման առաջադրանքը վերանայելու հարցումը ուղարկվել է:"
+
+msgid "common.downloadReport"
+msgstr "Ներբեռնեք հաշվետվությունը"
+
+msgid "common.geographic"
+msgstr "Աշխարհագրական"
+
+msgid "common.searchPhrase"
+msgstr "Փնտրման արտահայտություն"
+
+msgid "validator.country.regex"
+msgstr ""
+"Սա վավեր երկիր չէ։ Երկիրը պետք է լինի 2-տառանոց միջազգային կոդերից մեկը։ "
+"Տեսեք բոլոր կոդերը https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#"
+"Officially_assigned_code_elements :"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

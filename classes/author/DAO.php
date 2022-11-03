@@ -81,10 +81,9 @@ class DAO extends EntityDAO
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
             ->where('a.author_id', '=', $id)
-            ->when($publicationId !== null, fn (Builder $query, int $publicationId) => $query->where('a.publication_id', $publicationId))
+            ->when($publicationId !== null, fn (Builder $query) => $query->where('a.publication_id', '=', $publicationId))
             ->select(['a.*', 's.locale AS submission_locale'])
             ->first();
-
         return $row ? $this->fromRow($row) : null;
     }
 
@@ -98,7 +97,7 @@ class DAO extends EntityDAO
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
-            ->when($publicationId !== null, fn (Builder $query, int $publicationId) => $query->where($this->getParentColumn(), $publicationId))
+            ->when($publicationId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $publicationId))
             ->exists();
     }
 
@@ -134,7 +133,7 @@ class DAO extends EntityDAO
 
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
-                yield $this->fromRow($row);
+                yield $row->author_id => $this->fromRow($row);
             }
         });
     }

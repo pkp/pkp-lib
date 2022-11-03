@@ -16,7 +16,9 @@ namespace PKP\API\v1\contexts;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\services\ContextService;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -24,8 +26,10 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
+
 
 class PKPContextHandler extends APIHandler
 {
@@ -152,7 +156,7 @@ class PKPContextHandler extends APIHandler
         // Anyone not a site admin should not be able to access contexts that are
         // not enabled
         if (empty($allowedParams['isEnabled'])) {
-            $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessDisabledContexts = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN], $userRoles));
             if (!$canAccessDisabledContexts) {
                 return $response->withStatus(403)->withJsonError('api.contexts.403.requestedDisabledContexts');
@@ -206,9 +210,9 @@ class PKPContextHandler extends APIHandler
         // A disabled journal can only be access by site admins and users with a
         // manager role in that journal
         if (!$context->getEnabled()) {
-            $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
-                $roleDao = DaoRegistry::getDao('RoleDAO');
+                $roleDao = DAORegistry::getDao('RoleDAO'); /** @var RoleDAO $roleDao */
                 if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
                     return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
                 }
@@ -252,9 +256,9 @@ class PKPContextHandler extends APIHandler
         // A disabled journal can only be access by site admins and users with a
         // manager role in that journal
         if (!$context->getEnabled()) {
-            $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
-                $roleDao = DaoRegistry::getDao('RoleDAO');
+                $roleDao = DAORegistry::getDao('RoleDAO'); /** @var RoleDAO $roleDao */
                 if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
                     return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
                 }
@@ -318,7 +322,7 @@ class PKPContextHandler extends APIHandler
             }
         }
 
-        $contextService = Services::get('context');
+        $contextService = Services::get('context'); /** @var ContextService $contextService */
         $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
@@ -370,7 +374,7 @@ class PKPContextHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
         }
 
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
         }
@@ -431,7 +435,7 @@ class PKPContextHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
         }
 
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
         }
@@ -514,7 +518,7 @@ class PKPContextHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.submissions.404.siteWideEndpoint');
         }
 
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedDelete');
         }

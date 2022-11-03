@@ -101,9 +101,9 @@
 									{translate key="stats.publications.abstracts"}
 								</pkp-button>
 								<pkp-button
-									:aria-pressed="timelineType === 'galley'"
+									:aria-pressed="timelineType === 'files'"
 									aria-describedby="publication-stats-graph-title"
-									@click="setTimelineType('galley')"
+									@click="setTimelineType('files')"
 								>
 									{translate key="submission.files"}
 								</pkp-button>
@@ -129,12 +129,12 @@
 						</div>
 					</div>
 					<table class="-screenReader" role="region" aria-live="polite">
-						<caption v-if="timelineType === 'galley'">{translate key="stats.publications.totalGalleyViews.timelineInterval"}</caption>
+						<caption v-if="timelineType === 'files'">{translate key="stats.publications.totalGalleyViews.timelineInterval"}</caption>
 						<caption v-else>{translate key="stats.publications.totalAbstractViews.timelineInterval"}</caption>
 						<thead>
 							<tr>
 								<th scope="col">{translate key="common.date"}</th>
-								<th v-if="timelineType === 'galley'" scope="col">{translate key="stats.fileViews"}</th>
+								<th v-if="timelineType === 'files'" scope="col">{translate key="stats.fileViews"}</th>
 								<th v-else scope="col">{translate key="submission.abstractViews"}</th>
 							</tr>
 						</thead>
@@ -172,6 +172,98 @@
 									{translate key="common.pagination.label"}
 								</a>
 							</div>
+							<pkp-button
+								ref="downloadReportModalButton"
+								@click="$modal.show('downloadReport')"
+							>
+								{translate key="common.downloadReport"}
+							</pkp-button>
+							<modal
+								close-label="{translate key="common.close"}"
+								name="downloadReport"
+								title={translate key="common.download"}
+								@closed="setFocusToRef('downloadReportModalButton')"
+							>
+								<p>{translate key="stats.publications.downloadReport.description"}</p>
+								<table class="pkpTable pkpStats__reportParams">
+									<tr class="pkpTable__row">
+										<th>{translate key="stats.dateRange"}</th>
+										<td>{{ getDateRangeDescription() }}</td>
+									</tr>
+									<tr
+										v-for="(filterSet, index) in filters"
+										class="pkpTable__row">
+										<th>{{ filterSet.heading }}</th>
+										<td>{{ getFilterDescription(filterSet) }}</td>
+									</tr>
+									<tr
+										v-if="searchPhrase"
+										class="pkpTable__row">
+										<th>{translate key="common.searchPhrase"}</th>
+										<td>{{ searchPhrase }}</td>
+									</tr>
+								</table>
+								<action-panel class="pkpStats__reportAction">
+									<h2>{translate key="common.publications"}</h2>
+									<p>
+										{translate key="stats.publications.downloadReport.downloadSubmissions.description"}
+									</p>
+									<template slot="actions">
+										<pkp-button
+											@click="downloadReport"
+										>
+											{translate key="stats.publications.downloadReport.downloadSubmissions"}
+										</pkp-button>
+									</template>
+								</action-panel>
+								<action-panel class="pkpStats__reportAction">
+									<h2>{translate key="submission.files"}</h2>
+									<p>
+										{translate key="stats.publications.downloadReport.downloadFiles.description"}
+									</p>
+									<template slot="actions">
+										<pkp-button
+											@click="downloadReport('files')"
+										>
+											{translate key="stats.publications.downloadReport.downloadFiles"}
+										</pkp-button>
+									</template>
+								</action-panel>
+								<action-panel class="pkpStats__reportAction">
+									<h2>{translate key="stats.timeline"}</h2>
+									<p>
+										{{ getTimelineDescription() }}
+									</p>
+									<template slot="actions">
+										<pkp-button
+											@click="downloadReport('timeline')"
+										>
+											{translate key="stats.timeline.downloadReport.downloadTimeline"}
+										</pkp-button>
+									</template>
+								</action-panel>
+								{if $geoReportType}
+									<action-panel class="pkpStats__reportAction">
+										<h2>
+											{translate key="common.geographic"}
+											<tooltip
+												tooltip="{translate key="stats.geographic.ccAttribution"}"
+												label="{translate key="stats.geographic.tooltip.label"}"
+											></tooltip>
+										</h2>
+										<p>
+											{translate key="stats.publications.downloadReport.downloadGeographic.description"}
+										</p>
+										<template slot="actions">
+											<pkp-button
+												@click="downloadReport('{$geoReportType}')"
+											>
+												{translate key="stats.publications.downloadReport.downloadGeographic"}
+											</pkp-button>
+										</template>
+									</action-panel>
+								{/if}
+							</modal>
 						</template>
 					</pkp-header>
 					<pkp-table
@@ -233,3 +325,4 @@
 		</div>
 	</div>
 {/block}
+

@@ -21,11 +21,17 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\site\SiteDAO;
+use PKP\site\Site;
 
 use PKP\session\SessionManager;
 
 class Validation
 {
+    public const ADMINISTRATION_PROHIBITED = 0;
+    public const ADMINISTRATION_PARTIAL = 1;
+    public const ADMINISTRATION_FULL = 2;
+    
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
      *
@@ -286,8 +292,8 @@ class Validation
     public static function generatePassword($length = null)
     {
         if (!$length) {
-            $siteDao = DAORegistry::getDAO('SiteDAO');
-            $site = $siteDao->getSite();
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $site = $siteDao->getSite(); /** @var Site $site */
             $length = $site->getMinPasswordLength();
         }
         $letters = 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
@@ -429,6 +435,8 @@ class Validation
      * @param int $administratorUserId User ID of user who wants to do the administrating
      *
      * @return bool True IFF the administration operation is permitted
+     * 
+     * @deprecated 3.4 Use the method getAdministrationLevel and checked against the ADMINISTRATION_* constants
      */
     public static function canAdminister($administeredUserId, $administratorUserId)
     {
@@ -473,6 +481,87 @@ class Validation
 
         // There were no conflicting roles. Permit administration.
         return true;
+    }
+
+    /**
+     * Get the user's administration level
+     *
+     * @param int   $administeredUserId     User ID of user to potentially administer
+     * @param int   $administratorUserId    User ID of user who wants to do the administrating
+     * @param int   $contextId              The journal/context Id
+     * 
+     * @return int The authorized administration level 
+     */
+    public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, int $contextId = null): int
+    {
+        // You can administer yourself
+        if ($administeredUserId == $administratorUserId) {
+            return self::ADMINISTRATION_FULL;
+        }
+
+        $filteredSiteAdminUserGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([\PKP\core\PKPApplication::CONTEXT_SITE])
+            ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN]);
+
+        // You cannot administer administrators
+        if ($filteredSiteAdminUserGroups->filterByUserIds([$administeredUserId])->getCount() > 0) {
+            return self::ADMINISTRATION_PROHIBITED;
+        }
+
+        // Otherwise, administrators can administer everyone
+        if ($filteredSiteAdminUserGroups->filterByUserIds([$administratorUserId])->getCount() > 0) {
+            return self::ADMINISTRATION_FULL;
+        }
+
+        // Make sure the administering user has a manager role somewhere
+        $roleManagerCount = Repo::userGroup()
+            ->getCollector()
+            ->filterByUserIds([$administratorUserId])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+            ->getCount();
+
+        if ( $roleManagerCount <= 0 ) {
+            return self::ADMINISTRATION_PROHIBITED;
+        }
+
+        $administeredUserAssignedGroupIds = Repo::userGroup()
+            ->getCollector()
+            ->filterByUserIds([$administeredUserId])
+            ->getMany()
+            ->map(fn($userGroup) => $userGroup->getContextId())
+            ->sort()
+            ->toArray();
+        
+        $administratorUserAssignedGroupIds = Repo::userGroup()
+            ->getCollector()
+            ->filterByUserIds([$administratorUserId])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+            ->getMany()
+            ->map(fn($userGroup) => $userGroup->getContextId())
+            ->sort()
+            ->toArray();
+
+        // Check for administered user group assignments in other contexts
+        // that the administrator user doesn't have a manager role in.
+        if ( collect($administeredUserAssignedGroupIds)->diff($administratorUserAssignedGroupIds)->count() > 0 ) {
+            // Found an assignment: disqualified.
+            // But also determine if a partial administrate is allowed
+            // if the Administrator User is a Journal Manager in the current context
+            if ($contextId !== null && 
+                Repo::userGroup()
+                    ->getCollector()
+                    ->filterByContextIds([$contextId])
+                    ->filterByUserIds([$administratorUserId])
+                    ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+                    ->getCount()) {
+                return self::ADMINISTRATION_PARTIAL;
+            }
+            return self::ADMINISTRATION_PROHIBITED;
+        }
+
+        // There were no conflicting roles. Permit administration.
+        return self::ADMINISTRATION_FULL;
     }
 }
 

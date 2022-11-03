@@ -340,16 +340,6 @@ class GenreDAO extends DAO
     }
 
     /**
-     * Get the ID of the last inserted genre.
-     *
-     * @return int Inserted genre ID
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('genres', 'genre_id');
-    }
-
-    /**
      * Install default data for settings.
      *
      * @param int $contextId Context ID

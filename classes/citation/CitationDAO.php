@@ -202,20 +202,6 @@ class CitationDAO extends \PKP\db\DAO
     }
 
     //
-    // Protected helper methods
-    //
-    /**
-     * Get the id of the last inserted citation.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return parent::_getInsertId('citations', 'citation_id');
-    }
-
-
-    //
     // Private helper methods
     //
     /**

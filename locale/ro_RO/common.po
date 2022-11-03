@@ -2015,3 +2015,9 @@ msgstr "Reprezentare nevalidă."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Înregistrare nevalidă."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

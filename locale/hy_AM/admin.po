@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"PO-Revision-Date: 2022-09-23 13:53+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.languages.availableLocales"
 msgstr "Հասանելի լեզուները"
@@ -455,7 +455,10 @@ msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "Ցուցադրել հերթագրված աշխատանքների քանակը"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Ավելացրեք փորձնական աշխատանք լռելյայն հերթում"
+msgstr ""
+"Ավելացրեք թեստային աշխատանք փորձարկման հերթում. օգտագործեք կամընտրական "
+"պարամետրերը --only= և անցեք «failed' կամ 'success'՝ անհաջող կամ հաջողված "
+"աշխատանք ուղարկելու համար:"
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -699,3 +702,199 @@ msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
 "Ետնամասային աշխատանքը, որը կմշակի գրանցամատյանի {$file} նիշքը և կպահի "
 "վիճակագրության տվյալները, ուղարկվել է:"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Հարթակ"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Հարթակի ID"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Հարթակի ID-ն պահանջվում է, երբ կայքը կնույնականացվի որպես SUSHI հարթակ:"
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Համաձայն COUNTER SUSHI արձանագրության՝ յուրաքանչյուր վիճակագրական զեկույց "
+"պետք է բացահայտի վիճակագրություն տրամադրող «հարթակը»: Լռելյայնորեն, ամսագիրը "
+"կնշանակվի որպես հարթակ բոլոր վիճակագրությունների համար: Այնուամենայնիվ, եթե "
+"այս կայքի բոլոր ամսագրերը հրատարակված են, պատկանում կամ շահագործվում են "
+"միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես հարթակ:"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Ինչպես նույնականացնել այս հարթակը COUNTER SUSHI զեկույցներում: Հարթակի ID-ն "
+"պետք է լինի 17 նիշ կամ պակաս և կարող է պարունակել տառեր (a–z, A–Z), "
+"թվանշաններ (0–9), ընդգծում (_), կետեր (.) և դեպի առաջ շեղեր (/): Հարթակի ID-"
+"ն օգտագործվում է մի քանի սյունակներում և պետք է հնարավորինս կարճ լինի՝ "
+"միաժամանակ ճանաչելի: Հարթակի ID-ն սովորաբար հիմնված է հրատարակչի կամ հարթակի "
+"անվան, տիրույթի անվան կամ հանրահայտ և եզակի հապավումի վրա:"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Ամսական կամ ամենօրյա վիճակագրություն"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Հետևել օրական կամ ամսական օգտագործման վիճակագրությանը, թե ոչ: Ամենօրյա "
+"վիճակագրությանը հետևելը կարող է զգալիորեն մեծացնել ձեր տվյալների շտեմարանի "
+"չափը:"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Վիճակագրությունը ստեղծվում է մուտքամատյան նիշքերից, որոնք մշակվելուց հետո "
+"տեղափոխվում են <code>{$path}</code>: Արդյո՞ք գրանցամատյանի նիշքերը "
+"մշակվելուց հետո պետք է սեղմվեն <code>.gz</code> նիշքերի մեջ: Մատյան նիշքերի "
+"սեղմումը կարող է խնայել սկավառակի տարածությունը կայանի վրա:"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Սեղմեք գրանցամատյանների նիշքերը"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Գրանցամատյանների նիշքերը թողեք տեղում"
+
+msgid "admin.settings.statistics.storage"
+msgstr "Տվյալների պահոց"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"Կարգավորեք թե ինչ տեսակի օգտագործման վիճակագրություն է հարկավոր պահել "
+"կայանում:"
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi համաձայնագիր"
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Հետևեք ամենօրյա և ամսական վիճակագրությանը"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Հետևեք միայն ամսական վիճակագրությանը"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Սեղմել տեղեկամատյանները"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Տվյալների հավաքագրում"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Կարգավորեք թե ինչ տեսակի օգտագործման վիճակագրություն է պետք հավաքել:"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Կազմաձևեք <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> արձանագրությունը, որը արդյունաբերության կողմից ընդունված ձևաչափ "
+"է օգտագործման վիճակագրության բաշխման համար:"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Սահմանափակել մուտքը COUNTER SUSHI վիճակագրության API-երին կառավարիչների և "
+"ադմինների համար"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Գործարկեք անսահման daemon worker գործընթաց, որը կշարունակի մշակել "
+"աշխատանքները: Օգտագործեք --help դրոշը՝ այս հրամանի հետ կապված առկա "
+"տարբերակները տեսնելու համար:"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Ավարտվել է {$jobCount} աշխատանքը {$queueName} անունով հերթում:"
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "{$queueName} անունով հերթում առաջադրանքներ չկան:"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Ուղարկված փորձնական աշխատանք, որը կարող է ձախողվել {$queueName} անունով "
+"հերթում"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Ուղարկված թեստային աշխատանք, որը պետք է հաջողությամբ ավարտվի {$queueName} "
+"անունով հերթում"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Ջնջելու համար աշխատանքներ չեն գտնվել:"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "աշխատանքային հրամանի ընտրանքներ"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "օգտագործում : [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Աշխատանքային հրամանի առկա տարբերակները"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Աշխատանքային հերթի անվանումը[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Աշխատողի անունը[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Հիշողության սահմանաչափը մեգաբայթերով[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"Վայրկյանների թիվը, որի ընթացքում կարող է գործարկվել երեխա գործընթացը[default "
+": '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Քուն մտնելու վայրկյանների քանակը, երբ աշխատանք չկա[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Դադարեցրեք, երբ հերթը դատարկ է[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Վայրկյանների առավելագույն քանակը, որի ընթացքում պետք է աշխատի աշխատողը["
+"default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Գործարկեք աշխատողի deamon -ը փորձարկման հերթի համար"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Մշակել սպասվող հերթերի աշխատանքները"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Հնարավոր չէ գործարկել հերթերի աշխատանքները, քանի որ հավելվածի սպասարկման "
+"ռեժիմը միացված է:"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Ուղարկեք հասանելի աշխատանքները հերթում: եթե ցանկանում եք աշխատանք ուղարկել "
+"որոշակի հերթում, փոխանցեք պարամետրը --queue=QUEUE_NAME: Նաև կարող է պարզապես "
+"անցնել --test ՝ թեստային աշխատանքը գործարկելու համար և --once ՝ միաժամանակ "
+"մեկ աշխատանք կատարելու համար"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Անվավեր թեստային աշխատանքի տարբերակ: Այն կարող է լինել միայն «'failed' կամ "
+"'success' այս '--only=' տարբերակի համար"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Աշխատանքին հերթի միացման անվանումը[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Վայրկյանների քանակը, որոնք պետք է սպասել նախքան աշխատանքը նորից փորձելը, որի "
+"համար հանդիպել է չբացահայտված բացառության[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Աշխատանքի մուտքագրումը ձախողվելուց առաջ փորձերի քանակը[default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Ստիպեք աշխատողին աշխատել նույնիսկ սպասարկման ռեժիմում[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"Աշխատանքների քանակը, որոնք պետք է մշակվեն մինչև դադարեցնելը[default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Աշխատանքների միջև հանգստի վայրկյանների քանակը[default : '{$default}']"

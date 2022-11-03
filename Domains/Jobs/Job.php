@@ -19,17 +19,14 @@ namespace PKP\Domains\Jobs;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\InteractsWithTime;
-
 use PKP\config\Config;
 use PKP\Domains\Jobs\Traits\Attributes;
-use PKP\Domains\Jobs\Traits\Worker;
 use PKP\Support\Database\Model;
 
 class Job extends Model
 {
     use Attributes;
     use InteractsWithTime;
-    use Worker;
 
     protected const DEFAULT_MAX_ATTEMPTS = 3;
 
@@ -180,6 +177,11 @@ class Job extends Model
     public function scopeNotQueue(Builder $query, string $queue): Builder
     {
         return $query->where('queue', '!=', $queue);
+    }
+
+    public function scopeOnQueue(Builder $query, string $queue): Builder
+    {
+        return $query->where('queue', '=', $queue);
     }
 
     public function scopeNonReserved(Builder $query): Builder

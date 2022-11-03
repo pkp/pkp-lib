@@ -126,11 +126,9 @@ abstract class Field
         if (isset($this->showWhen)) {
             $config['showWhen'] = $this->showWhen;
         }
-        if (isset($this->value) || is_null($this->value)) {
-            $config['value'] = $this->value;
-        } elseif (isset($this->default) || is_null($this->default)) {
-            $config['value'] = $this->default;
-        }
+
+        $config['value'] = $this->value ?? $this->default ?? null;
+
         return $config;
     }
 

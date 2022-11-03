@@ -335,10 +335,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedFormLocaleNames()
     {
-        return $this->getData('supportedFormLocaleNames') ?? array_map(
-            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
-            array_combine($locales = $this->getSupportedFormLocales(), $locales)
-        );
+        return $this->getData('supportedFormLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedFormLocales());
     }
 
     /**
@@ -359,10 +356,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedSubmissionLocaleNames()
     {
-        return $this->getData('supportedSubmissionLocaleNames') ?? array_map(
-            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
-            array_combine($locales = $this->getSupportedSubmissionLocales(), $locales)
-        );
+        return $this->getData('supportedSubmissionLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedSubmissionLocales());
     }
 
     /**
@@ -382,11 +376,8 @@ abstract class Context extends \PKP\core\DataObject
      * @return array
      */
     public function getSupportedLocaleNames()
-    {
-        return $this->getData('supportedLocaleNames') ?? array_map(
-            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
-            array_combine($locales = $this->getSupportedLocales(), $locales)
-        );
+    {   
+        return $this->getData('supportedLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedLocales());
     }
 
     /**
@@ -545,6 +536,25 @@ abstract class Context extends \PKP\core\DataObject
             $enableInstitutionUsageStats = $this->getData('enableInstitutionUsageStats');
         }
         return (bool) $enableInstitutionUsageStats;
+    }
+
+    /**
+    * What Geo data to track for usage statistics.
+    * Consider context setting only if the site setting is enabled and context setting considers less Geo data than site setting.
+    *
+    * @return ?string Possible return values: null, disabled, PKPStatisticsHelper::self::STATISTICS_SETTING_COUNTRY, PKPStatisticsHelper::self::STATISTICS_SETTING_REGION, PKPStatisticsHelper::self::STATISTICS_SETTING_CITY
+    */
+    public function getEnableGeoUsageStats(Site $site): ?string
+    {
+        $siteSetting = $site->getData('enableGeoUsageStats');
+        if ($siteSetting == null || $siteSetting === 'disabled') {
+            return $siteSetting;
+        }
+        $contextSetting = $this->getData('enableGeoUsageStats');
+        if ($contextSetting != null && str_starts_with($siteSetting, $contextSetting)) {
+            return $contextSetting;
+        }
+        return $siteSetting;
     }
 }
 

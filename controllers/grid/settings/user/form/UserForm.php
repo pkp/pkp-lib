@@ -16,6 +16,7 @@
 namespace PKP\controllers\grid\settings\user\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use APP\facades\Repo;
@@ -106,16 +107,35 @@ class UserForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        if (isset($this->userId)) {
-            Repo::userGroup()->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
+        parent::execute(...$functionArgs);
+    }
 
-            if ($this->getData('userGroupIds')) {
-                foreach ($this->getData('userGroupIds') as $userGroupId) {
-                    Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId);
-                }
-            }
+    /**
+     * Save the user group assignments
+     */
+    public function saveUserGroupAssignments(Request $request): void
+    {
+        if (!isset($this->userId)) {
+            return;
         }
 
-        parent::execute(...$functionArgs);
+        Repo::userGroup()
+            ->deleteAssignmentsByContextId(
+                Application::get()->getRequest()->getContext()->getId(), 
+                $this->userId
+            );
+
+        
+        if ($this->getData('userGroupIds')) {
+            
+            $contextId = $request->getContext()->getId();
+            
+            collect($this->getData('userGroupIds'))
+                ->each(fn($userGroupId) =>
+                    Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
+                        ? Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId)
+                        : null
+                );
+        }
     }
 }

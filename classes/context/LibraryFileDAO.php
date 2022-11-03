@@ -274,16 +274,6 @@ class LibraryFileDAO extends \PKP\db\DAO
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;
     }
-
-    /**
-     * Get the ID of the last inserted library file.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('library_files', 'file_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

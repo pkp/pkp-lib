@@ -171,16 +171,6 @@ class TemporaryFileDAO extends \PKP\db\DAO
         }
         return $temporaryFiles;
     }
-
-    /**
-     * Get the ID of the last inserted temporary file.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('temporary_files', 'file_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -30,11 +30,14 @@ class I6895_CreateNewInstitutionsTables extends Migration
         // Institutions.
         Schema::create('institutions', function (Blueprint $table) {
             $table->bigInteger('institution_id')->autoIncrement();
+
             $table->bigInteger('context_id');
-            $table->string('ror', 255)->nullable();
-            $table->softDeletes('deleted_at', 0);
             $contextDao = Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'institutions_context_id');
+
+            $table->string('ror', 255)->nullable();
+            $table->softDeletes('deleted_at', 0);
         });
 
         // Locale-specific institution data
@@ -64,6 +67,7 @@ class I6895_CreateNewInstitutionsTables extends Migration
         if (Schema::hasTable('institutional_subscriptions') && Schema::hasColumn('institutional_subscriptions', 'institution_id')) {
             Schema::table('institutional_subscriptions', function (Blueprint $table) {
                 $table->foreign('institution_id')->references('institution_id')->on('institutions');
+                $table->index(['institution_id'], 'institutional_subscriptions_institution_ip');
             });
         }
     }

@@ -149,11 +149,11 @@ class PKPStatsHandler extends Handler
 
         // Get the worflow stage counts
         $activeByStage = [];
-        foreach (Application::get()->getApplicationStages() as $stageId) {
+        foreach (Application::getApplicationStages() as $stageId) {
             $activeByStage[] = [
-                'name' => __(Application::get()->getWorkflowStageName($stageId)),
+                'name' => __(Application::getWorkflowStageName($stageId)),
                 'count' => Services::get('editorialStats')->countActiveByStages($stageId, $args),
-                'color' => Application::get()->getWorkflowStageColor($stageId),
+                'color' => Application::getWorkflowStageColor($stageId),
             ];
         }
 
@@ -256,7 +256,7 @@ class PKPStatsHandler extends Handler
             [
                 'timeline' => $timeline,
                 'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_DAY,
-                'timelineType' => 'timeline',
+                'timelineType' => 'abstract',
                 'tableColumns' => [
                     [
                         'name' => 'title',
@@ -286,11 +286,6 @@ class PKPStatsHandler extends Handler
                         'name' => 'other',
                         'label' => __('common.other'),
                         'value' => 'otherViews',
-                    ],
-                    [
-                        'name' => 'suppFileViews',
-                        'label' => __('stats.suppFileViews'),
-                        'value' => 'suppFileViews',
                     ],
                     [
                         'name' => 'total',
@@ -330,11 +325,25 @@ class PKPStatsHandler extends Handler
             ]
         );
 
+        $geoAPIEndPoint = null;
+        $geoStatsSetting = $context->getEnableGeoUsageStats($request->getSite());
+        switch ($geoStatsSetting) {
+            case PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY:
+                $geoAPIEndPoint = 'countries';
+                break;
+            case PKPStatisticsHelper::STATISTICS_SETTING_REGION:
+                $geoAPIEndPoint = 'regions';
+                break;
+            case PKPStatisticsHelper::STATISTICS_SETTING_CITY:
+                $geoAPIEndPoint = 'cities';
+                break;
+        }
         $templateMgr->setState($statsComponent->getConfig());
         $templateMgr->assign([
             'pageComponent' => 'StatsPublicationsPage',
             'pageTitle' => __('stats.publicationStats'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
+            'geoReportType' => $geoAPIEndPoint
         ]);
 
         $templateMgr->display('stats/publications.tpl');

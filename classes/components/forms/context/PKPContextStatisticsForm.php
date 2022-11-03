@@ -18,6 +18,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\site\Site;
+use PKP\statistics\PKPStatisticsHelper;
 
 define('FORM_CONTEXT_STATISTICS', 'contextStatistics');
 
@@ -42,9 +43,9 @@ class PKPContextStatisticsForm extends FormComponent
 
         $possibleGeoOptions = [
             'disabled' => __('manager.settings.statistics.geoUsageStats.disabled'),
-            'country' => __('manager.settings.statistics.geoUsageStats.countryLevel'),
-            'country+region' => __('manager.settings.statistics.geoUsageStats.regionLevel'),
-            'country+region+city' => __('manager.settings.statistics.geoUsageStats.cityLevel'),
+            PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY => __('manager.settings.statistics.geoUsageStats.countryLevel'),
+            PKPStatisticsHelper::STATISTICS_SETTING_REGION => __('manager.settings.statistics.geoUsageStats.regionLevel'),
+            PKPStatisticsHelper::STATISTICS_SETTING_CITY => __('manager.settings.statistics.geoUsageStats.cityLevel'),
         ];
         $geoOptions = [];
         foreach ($possibleGeoOptions as $value => $label) {
@@ -56,18 +57,25 @@ class PKPContextStatisticsForm extends FormComponent
                 break;
             }
         }
+        $selectedGeoOption = $site->getData('enableGeoUsageStats');
+        if ($context->getData('enableGeoUsageStats') != null &&
+            str_starts_with($selectedGeoOption, $context->getData('enableGeoUsageStats'))) {
+            $selectedGeoOption = $context->getData('enableGeoUsageStats');
+        }
 
         if ($site->getData('enableGeoUsageStats') && $site->getData('enableGeoUsageStats') !== 'disabled') {
             $this->addField(new FieldOptions('enableGeoUsageStats', [
                 'label' => __('manager.settings.statistics.geoUsageStats'),
+                'description' => __('manager.settings.statistics.geoUsageStats.description'),
                 'type' => 'radio',
                 'options' => $geoOptions,
-                'value' => $context->getData('enableGeoUsageStats') !== null ? $context->getData('enableGeoUsageStats') : $site->getData('enableGeoUsageStats'),
+                'value' => $selectedGeoOption,
             ]));
         }
         if ($site->getData('enableInstitutionUsageStats')) {
             $this->addField(new FieldOptions('enableInstitutionUsageStats', [
                 'label' => __('manager.settings.statistics.institutionUsageStats'),
+                'description' => __('manager.settings.statistics.institutionUsageStats.description'),
                 'options' => [
                     [
                         'value' => true,
@@ -84,7 +92,7 @@ class PKPContextStatisticsForm extends FormComponent
                 'options' => [
                     [
                         'value' => true,
-                        'label' => __('manager.settings.statistics.publicSushiApi.option'),
+                        'label' => __('manager.settings.statistics.publicSushiApi.public'),
                     ],
                 ],
                 'value' => $context->getData('isSushiApiPublic') !== null ? $context->getData('isSushiApiPublic') : $site->getData('isSushiApiPublic'),

@@ -1796,3 +1796,9 @@ msgstr "De {$attribute} bestaat al."
 
 msgid "validator.url"
 msgstr "Dit is geen geldige URL."
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

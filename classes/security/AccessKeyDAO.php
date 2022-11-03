@@ -224,16 +224,6 @@ class AccessKeyDAO extends \PKP\db\DAO
             )
         );
     }
-
-    /**
-     * Get the ID of the last inserted accessKey.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('access_keys', 'access_key_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

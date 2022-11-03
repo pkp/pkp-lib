@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\queries\traits;
 
+use APP\notification\Notification;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
@@ -30,7 +31,7 @@ trait StageMailable
     /**
      * @return Mailable which corresponds to the given workflow stage
      */
-    protected function getStageMailable(Context $context, Submission $submission): Mailable
+    protected function getStageMailable(Context $context, Submission $submission, string $subject = '', string $message = ''): Mailable
     {
         $map = [
             WORKFLOW_STAGE_ID_SUBMISSION => DiscussionSubmission::class,
@@ -40,6 +41,6 @@ trait StageMailable
             WORKFLOW_STAGE_ID_PRODUCTION => DiscussionProduction::class,
         ];
         $mailableClassName = $map[$this->getStageId()];
-        return new $mailableClassName($context, $submission);
+        return new $mailableClassName($context, $submission, $subject, $message);
     }
 }

@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
-"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"PO-Revision-Date: 2022-09-23 13:53+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "pl_PL/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Zapytanie"
@@ -110,3 +111,9 @@ msgstr "Bieżący użytkownik nie jest przydzielony jako recenzent do wskazanego
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Zapisz i wróć później"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Wyślij do recenzentów"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Wyślij kopię tego maila jako BCC do następujących recenzentów."

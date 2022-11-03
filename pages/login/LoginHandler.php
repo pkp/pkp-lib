@@ -15,12 +15,15 @@
 
 namespace PKP\pages\login;
 
+use Exception;
+use App\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
+use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\mail\mailables\PasswordReset;
 use PKP\mail\mailables\PasswordResetRequested;
@@ -30,7 +33,7 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\form\LoginChangePasswordForm;
-use PKP\validation\FormValidatorReCaptcha;
+use PKP\form\validation\FormValidatorReCaptcha;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class LoginHandler extends Handler
@@ -102,7 +105,7 @@ class LoginHandler extends Handler
         // If there's a context, send them to the dashboard after login.
         if ($context && $request->getUserVar('source') == '' && array_intersect(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
-            (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+            (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
         )) {
             return $request->redirect($context->getPath(), 'dashboard');
         }
@@ -367,7 +370,7 @@ class LoginHandler extends Handler
         if (isset($args[0]) && !empty($args[0])) {
             $userId = (int)$args[0];
             $session = $request->getSession();
-            if (!Validation::canAdminister($userId, $session->getUserId())) {
+            if (Validation::getAdministrationLevel($userId, $session->getUserId()) !== Validation::ADMINISTRATION_FULL) {
                 $this->setupTemplate($request);
                 // We don't have administrative rights
                 // over this user. Display an error.

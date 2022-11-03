@@ -202,16 +202,6 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the ID of the last inserted submission comment.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('submission_comments', 'comment_id');
-    }
-
-    /**
      * Removes a submission comment from the submission_comments table
      *
      * @param SubmissionComment $submissionComment object

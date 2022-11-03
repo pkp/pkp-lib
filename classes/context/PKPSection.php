@@ -112,20 +112,16 @@ class PKPSection extends \PKP\core\DataObject
 
     /**
      * Get ID of primary review form.
-     *
-     * @return int
      */
-    public function getReviewFormId()
+    public function getReviewFormId(): ?int
     {
         return $this->getData('reviewFormId');
     }
 
     /**
      * Set ID of primary review form.
-     *
-     * @param int $reviewFormId
      */
-    public function setReviewFormId($reviewFormId)
+    public function setReviewFormId(?int $reviewFormId)
     {
         $this->setData('reviewFormId', $reviewFormId);
     }

@@ -266,16 +266,6 @@ class ControlledVocabDAO extends \PKP\db\DAO
         }
         return $returner;
     }
-
-    /**
-     * Get the ID of the last inserted controlled vocab.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return parent::_getInsertId('controlled_vocabs', 'controlled_vocab_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -613,6 +613,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             $table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
             $table->dropIndex('review_files_pkey');
             $table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
+
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
         });
         Schema::table('submission_file_revisions', function (Blueprint $table) {

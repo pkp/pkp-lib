@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file mail/traits/ReviewerComments.php
+ * @file classes/mail/traits/ReviewerComments.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky

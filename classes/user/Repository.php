@@ -237,7 +237,7 @@ class Repository
 
         $report = new Report($dataSource);
 
-        Hook::call('User::getReport', $report);
+        Hook::call('User::getReport', [$report]);
 
         return $report;
     }

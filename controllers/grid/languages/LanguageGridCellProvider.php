@@ -17,6 +17,7 @@ namespace PKP\controllers\grid\languages;
 
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridHandler;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -30,6 +31,7 @@ class LanguageGridCellProvider extends GridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
+
         switch ($columnId) {
             case 'enable':
                 return ['selected' => $element['supported'],
@@ -37,10 +39,13 @@ class LanguageGridCellProvider extends GridCellProvider
             case 'locale':
                 $label = $element['name'];
                 $returnArray = ['label' => $label];
-
                 if (isset($element['incomplete'])) {
                     $returnArray['incomplete'] = $element['incomplete'];
                 }
+                return $returnArray;
+            case 'code':
+                $label = $element['code'];
+                $returnArray = ['label' => $label];
                 return $returnArray;
             case 'sitePrimary':
                 return ['selected' => $element['primary'],

@@ -280,16 +280,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the ID of the last inserted review round.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('review_rounds', 'review_round_id');
-    }
-
-    /**
      * Update the review round status.
      *
      * @param ReviewRound $reviewRound

@@ -19,17 +19,17 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-use PKP\submission\PKPSubmission;
-
 class SubmissionDeleted
 {
     use Dispatchable;
 
-    /** @var PKPSubmission $submission Submission associated */
-    public $submission;
+    /**
+     * The submission id of the targeted submission to delete
+     */
+    public int $submissionId;
 
-    public function __construct(PKPSubmission $submission)
+    public function __construct(int $submissionId)
     {
-        $this->submission = $submission;
+        $this->submissionId = $submissionId;
     }
 }

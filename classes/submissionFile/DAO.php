@@ -87,7 +87,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         $row = $query
             ->getQueryBuilder()
             ->where($this->primaryKeyColumn, '=', $id)
-            ->when($submissionId !== null, fn (Builder $query, int $submissionId) => $query->where('sf.submission_id', $submissionId))
+            ->when($submissionId !== null, fn (Builder $query) => $query->where('sf.submission_id', $submissionId))
             ->first();
 
         return $row ? $this->fromRow($row) : null;
@@ -103,7 +103,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
-            ->when($submissionId !== null, fn (Builder $query, int $submissionId) => $query->where($this->getParentColumn(), $submissionId))
+            ->when($submissionId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $submissionId))
             ->exists();
     }
 

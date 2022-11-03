@@ -15,14 +15,20 @@
 
 namespace PKP\controllers\grid\users\reviewer\form;
 
+use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
+use PKP\mail\mailables\ReviewRequest;
+use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
@@ -53,6 +59,29 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         parent::readInputData();
 
         $this->readUserVars(['reviewerId']);
+    }
+
+    /**
+     * @copydoc Form::initData()
+     */
+    public function initData()
+    {
+        parent::initData();
+
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $mailable = $this->getMailable();
+
+        $templates = Repo::emailTemplate()->getCollector()
+            ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
+            ->filterByContext($context->getId())
+            ->getMany()
+            ->mapWithKeys(function(EmailTemplate $item, int $key) use ($mailable) {
+                return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
+            });
+
+        $this->setData('personalMessage', '');
+        $this->setData('reviewerMessages', $templates->toArray());
     }
 
     /**
@@ -134,6 +163,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         );
 
         // Get reviewers who completed a review in the last round
+        $lastRoundReviewerIds = [];
         if ($this->getReviewRound()->getRound() > 1) {
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');/** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $previousRound = $this->getReviewRound()->getRound() - 1;
@@ -141,7 +171,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
             if ($lastReviewRound) {
                 $lastReviewAssignments = $reviewAssignmentDao->getByReviewRoundId($lastReviewRound->getId());
-                $lastRoundReviewerIds = [];
                 foreach ($lastReviewAssignments as $reviewAssignment) {
                     if (in_array($reviewAssignment->getStatus(), [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
                         $lastRoundReviewerIds[] = (int) $reviewAssignment->getReviewerId();
@@ -163,12 +192,15 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             }
         }
 
+        $templateMgr = TemplateManager::getManager($request);
+        // Used to determine the right email template
+        $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);
+
         $selectReviewerListPanel->set([
             'items' => $selectReviewerListPanel->getItems($request),
             'itemsMax' => $selectReviewerListPanel->getItemsMax(),
         ]);
 
-        $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('selectReviewerListData', [
             'components' => [
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),
@@ -200,5 +232,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         }
 
         return parent::fetch($request, $template, $display);
+    }
+
+    /**
+     * @copydoc ReviewerForm::getEmailTemplateKeys()
+     */
+    protected function getEmailTemplateKeys(Request $request, TemplateManager $templateMgr): array
+    {
+        return array_merge(parent::getEmailTemplateKeys($request, $templateMgr), [ReviewRequestSubsequent::getEmailTemplateKey()]);
     }
 }

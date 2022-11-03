@@ -37,21 +37,27 @@ class TombstoneMigration extends \PKP\migration\Migration
         // Data object tombstone settings.
         Schema::create('data_object_tombstone_settings', function (Blueprint $table) {
             $table->bigInteger('tombstone_id');
+            $table->foreign('tombstone_id', 'data_object_tombstone_settings_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
+            $table->index(['tombstone_id'], 'data_object_tombstone_settings_tombstone_id');
+
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-            $table->index(['tombstone_id'], 'data_object_tombstone_settings_tombstone_id');
+
             $table->unique(['tombstone_id', 'locale', 'setting_name'], 'data_object_tombstone_settings_pkey');
         });
 
         // Objects that are part of a data object tombstone OAI set.
         Schema::create('data_object_tombstone_oai_set_objects', function (Blueprint $table) {
             $table->bigInteger('object_id')->autoIncrement();
+
             $table->bigInteger('tombstone_id');
+            $table->foreign('tombstone_id', 'data_object_tombstone_oai_set_objects_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
+            $table->index(['tombstone_id'], 'data_object_tombstone_oai_set_objects_tombstone_id');
+
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
-            $table->index(['tombstone_id'], 'data_object_tombstone_oai_set_objects_tombstone_id');
         });
     }
 

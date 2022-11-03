@@ -2043,3 +2043,9 @@ msgstr "Προσθήκη CC/BCC"
 
 msgid "form.saved"
 msgstr "Επιτυχής Αποθήκευση"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

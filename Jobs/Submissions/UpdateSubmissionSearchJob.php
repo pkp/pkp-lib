@@ -51,9 +51,7 @@ class UpdateSubmissionSearchJob extends BaseJob
         $submission = Repo::submission()->get($this->submissionId);
 
         if (!$submission) {
-            $this->failed(new JobException(JobException::INVALID_PAYLOAD));
-
-            return;
+            throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
         if ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {

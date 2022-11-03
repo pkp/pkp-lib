@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-19 12:59+0000\n"
+"PO-Revision-Date: 2022-10-13 07:01+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3103,32 +3103,14 @@ msgstr "Месец на отчета"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Връзка към страницата на редакционната дейност"
 
-msgid "manager.settings.statistics.compressStatsLogs.description"
-msgstr "Изберете какво да правите с архивираните регистрационни файлове."
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Изберете кои географски данни за статистически данни за употреба искате да "
-"събирате. Това ще повлияе на възможните статистически отчети, които можете "
-"да извлечете, и също ще окаже влияние върху размера на базата данни."
-
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Държава"
+msgstr "Събиране на данни за държавата на посетителя"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Държава и регион"
+msgstr "Събиране на данни за държавата и региона на посетителя"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Държава, регион и град"
-
-msgid "manager.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Използване на сайта като платформа за всички списания."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Идентификатор за платформата (Platform ID)"
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Изисква се идентификатор на платформата (Platform ID)"
+msgstr "Събиране на данни за държава, регион и град на посетителя"
 
 msgid "stats.unique"
 msgstr "Уникални"
@@ -3163,41 +3145,23 @@ msgstr "Редактиране на институция"
 msgid "manager.setup.statistics"
 msgstr "Статистики"
 
-msgid "manager.settings.statistics.compressStatsLogs.default"
-msgstr "Оставяне на архивираните лог файлове такива, каквито са"
-
-msgid "manager.settings.statistics.keepDaily"
-msgstr "Ежедневни показатели"
-
-msgid "manager.settings.statistics.keepDaily.option"
-msgstr "Съхраняване на дневните показатели в базата данни"
-
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Статистики за Гео използване (Geo usage)"
+msgstr "Географски статистики"
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Не събирайте никакви географски данни"
 
-msgid "manager.settings.statistics.compressStatsLogs.compress"
-msgstr "Компресиране на архиви"
-
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Изберете тази опция, ако искате да управлявате институции и да събирате "
-"статистически данни за тяхното използване. Това ще повлияе на възможните "
-"статистически отчети, които можете да извлечете, и също ще окаже влияние "
-"върху размера на базата данни."
+"Активирайте институционална статистика, ако искате да събирате статистика за "
+"употребата по институция. Ако е активирано, ще трябва да конфигурирате IP "
+"обхватите за всяка институция, която искате да проследявате."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
-"Разрешаване на управлението на институцията и статистическите данни за "
-"използването"
-
-msgid "manager.settings.statistics.sushiPlatform"
-msgstr "Платформа за COUNTER SUSHI статистика"
+msgstr "Активиране на институционална статистика"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Статистика за използване от институцията"
+msgstr "Статистика за използване от институция"
 
 msgid "stats.suppFileViews"
 msgstr "Допълнителни изгледи на файлове"
@@ -3217,34 +3181,6 @@ msgstr ""
 "Валидните стойности включват IP адрес (напр. 142.58.103.1), IP диапазон ("
 "напр. 142.58.103.1 - 142.58.103.4), IP диапазон със заместващ знак „*“ ("
 "напр. 142.58.*.*) и IP диапазон с CIDR (напр. 142.58.100.0/24)."
-
-msgid "manager.settings.statistics.keepDaily.description"
-msgstr ""
-"Статистиките за БРОЯЧ (COUNTER) и Гео използване (Geo usage) се обобщават на "
-"месец. След това дневните записи се изтриват. Изберете тази опция, ако "
-"искате да запазите ежедневните записи в базата данни. Имайте предвид, че "
-"това значително ще увеличи вашата база данни."
-
-msgid "manager.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Този софтуер предоставя статистически данни за използването според протокола "
-"COUNTER SUSHI. Този протокол изисква да бъде посочена платформа. По "
-"подразбиране списанието ще бъде определено като платформа за всички "
-"статистики. Въпреки това, ако всички списания на този сайт са публикувани, "
-"притежавани или управлявани от един и същ доставчик, може да пожелаете да "
-"посочите сайта като платформа."
-
-msgid "manager.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Идентификатора на платформата (Platform ID) ТРЯБВА да съдържа само ASCII "
-"букви (a–z, A–Z), цифри (0–9), долна черта (_), точки (.) и наклонени черти "
-"(/), а дължината НЕ ТРЯБВА да надвишава 17 знака. Имайте предвид, че "
-"идентификаторът на платформата се използва в различни колони и следователно "
-"трябва да бъде възможно най-кратък, но все пак разпознаваем. "
-"Идентификационният номер на платформата обикновено трябва да се базира на "
-"името, добре познато уникално съкращение или домейна на издателя или "
-"платформата. Може да се използва и кратък стандартен идентификатор като GRID "
-"или ROR (без https://)."
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Маркираане на DOI като нерегистрирани"
@@ -3394,3 +3330,59 @@ msgstr "Редакционно напомняне"
 
 msgid "mailable.editorialReminder.description"
 msgstr "Автоматичен имейл, изпратен до редакторите с неизпълнени задачи"
+
+msgid "manager.settings.statistics.publicSushiApi.option"
+msgstr ""
+"Направете крайните точки на API за статистиките на COUNTER SUSHI публично "
+"достъпни."
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Публично API"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Дали да се ограничи или не достъпът до крайните точки на API за "
+"статистически данни за COUNTER SUSHI. Ако не е отметнато, API ще бъде "
+"достъпен само за потребители с администраторски или мениджърски роли."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Изберете типа географска статистика за използване, която да събирате. По-"
+"подробната географска статистика може значително да увеличи размера на "
+"вашата база данни и в някои редки случаи може да подкопае анонимността на "
+"вашите посетители."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Повторно изпращане на молба за рецензия до рецензента"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Този имейл се изпраща от редактор до рецензент, който е отхвърлил молба за "
+"рецензия, когато редакторът иска да изпрати отново молбата."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Направете статистиката на COUNTER SUSHI публично достъпна"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Предмет на дискусията"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Съдържанието на новата дискусия или отговор"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} до {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Всички {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Сваляне на файлове"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Брой сваляния на всеки файл."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Сваляне на географска информация"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Броят гледания и изтегляния за всеки град, регион или държава."

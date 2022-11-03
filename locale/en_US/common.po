@@ -354,6 +354,9 @@ msgstr "Download"
 msgid "common.downloadPdf"
 msgstr "Download PDF"
 
+msgid "common.downloadReport"
+msgstr "Download Report"
+
 msgid "common.dragAndDropHere"
 msgstr "Drag and drop files here."
 
@@ -435,6 +438,9 @@ msgstr "Find Template"
 msgid "common.fromWithValue"
 msgstr "From: {$value}"
 
+msgid "common.geographic"
+msgstr "Geographic"
+
 msgid "common.go"
 msgstr "Go"
 
@@ -476,6 +482,9 @@ msgstr "Items per page"
 
 msgid "common.keywords"
 msgstr "Keywords"
+
+msgid "common.label"
+msgstr "Label"
 
 msgid "common.language"
 msgstr "Language"
@@ -738,6 +747,9 @@ msgstr "Saving"
 msgid "common.search"
 msgstr "Search"
 
+msgid "common.searchPhrase"
+msgstr "Search Phrase"
+
 msgid "common.searching"
 msgstr "Searching"
 
@@ -896,6 +908,9 @@ msgstr "weeks"
 
 msgid "common.width"
 msgstr "Width"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
@@ -1727,6 +1742,9 @@ msgstr "Reviewer cancelled."
 msgid "notification.reinstatedReviewer"
 msgstr "Reviewer reinstated."
 
+msgid "notification.reviewerResendRequest"
+msgstr "Request to reconsider the review assignment was sent."
+
 msgid "notification.addedStageParticipant"
 msgstr "User added as a stage participant."
 
@@ -1934,6 +1952,9 @@ msgstr "The confirmation for this field does not match."
 msgid "validator.country"
 msgstr "This is not a valid country."
 
+msgid "validator.country.regex"
+msgstr "This is not a valid country. The country must be one of the 2-letter international codes. See all codes at https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
 msgid "validator.currency"
 msgstr "This is not a valid currency."
 
@@ -2090,3 +2111,5 @@ msgstr "Could not import XML Node"
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Unknown command {$command}"
 
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

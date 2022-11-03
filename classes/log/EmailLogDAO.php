@@ -223,16 +223,6 @@ class EmailLogDAO extends \PKP\db\DAO
         );
     }
 
-    /**
-     * Get the ID of the last inserted log entry.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('email_log', 'log_id');
-    }
-
 
     //
     // Private helper methods.

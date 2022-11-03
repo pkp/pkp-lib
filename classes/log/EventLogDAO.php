@@ -204,16 +204,6 @@ class EventLogDAO extends \PKP\db\DAO
             [(int) $newUserId, (int) $oldUserId]
         );
     }
-
-    /**
-     * Get the ID of the last inserted log entry.
-     *
-     * @return int
-     */
-    public function getInsertId()
-    {
-        return $this->_getInsertId('event_log', 'log_id');
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -45,6 +45,10 @@ class PKPPublicIdentifiersForm extends Form
      */
     public $_formParams;
 
+    /** @var bool indicates whether the form should be editable */
+    public bool $_isEditable = true;
+
+
     /**
      * Constructor.
      *
@@ -52,13 +56,14 @@ class PKPPublicIdentifiersForm extends Form
      * @param int $stageId
      * @param array $formParams
      */
-    public function __construct($pubObject, $stageId = null, $formParams = null)
+    public function __construct($pubObject, $stageId = null, $formParams = null, bool $isEditable = true)
     {
         parent::__construct('controllers/tab/pubIds/form/publicIdentifiersForm.tpl');
 
         $this->_pubObject = $pubObject;
         $this->_stageId = $stageId;
         $this->_formParams = $formParams;
+        $this->_isEditable = $isEditable;
 
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -85,6 +90,7 @@ class PKPPublicIdentifiersForm extends Form
             'pubObject' => $this->getPubObject(),
             'stageId' => $this->getStageId(),
             'formParams' => $this->getFormParams(),
+            'formDisabled' => !$this->_isEditable,
         ]);
         if ($this->getPubObject() instanceof Representation || $this->getPubObject() instanceof \APP\monograph\Chapter) {
             $publicationId = $this->getPubObject()->getData('publicationId');
@@ -199,6 +205,11 @@ class PKPPublicIdentifiersForm extends Form
         }
         $pubIdPluginHelper = new PKPPubIdPluginHelper();
         $pubIdPluginHelper->validate($this->getContextId(), $this, $this->getPubObject());
+
+        if (!$this->_isEditable) {
+            $this->addError('', __('galley.cantEditPublished'));
+        }
+
         return parent::validate($callHooks);
     }
 

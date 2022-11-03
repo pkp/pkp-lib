@@ -110,11 +110,52 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         if (!is_null($slimRequest) && ($route = $slimRequest->getAttribute('route'))) {
             $routeName = $route->getName();
         }
-        if (in_array($routeName, ['get', 'getAbstract', 'getGalley'])) {
+        if (in_array($routeName, ['get', 'getTimeline'])) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
+    }
+
+    /**
+     * A helper method to filter and sanitize the application specific request params
+     */
+    protected function _processAppSpecificAllowedParams(string $requestParam, mixed $value, array &$returnParams): void
+    {
+    }
+
+    /**
+     * Get allowed parameters for getMany methos:
+     * getMany(), getManyFiles(), getManyCountries(), getManyRegions(), getManyCities
+     */
+    protected function getManyAllowedParams()
+    {
+        return [
+            'dateStart',
+            'dateEnd',
+            'count',
+            'offset',
+            'orderDirection',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+        ];
+    }
+
+    /**
+     * Get allowed parameters for getManyTimeline method
+     */
+    protected function getManyTimelineAllowedParams()
+    {
+        return [
+            'dateStart',
+            'dateEnd',
+            'timelineInterval',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+            'type'
+        ];
     }
 
     /**
@@ -128,20 +169,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = [
-            'dateStart',
-            'dateEnd',
-            'count',
-            'offset',
-            'orderDirection',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-        ];
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -179,9 +209,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $metricsByType = $statsService->getTotalsByType($submissionId, $this->getRequest()->getContext()->getId(), $dateStart, $dateEnd);
 
             if ($responseCSV) {
-                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $metricsByType['suppFileViews']);
+                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other']);
             } else {
-                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $metricsByType['suppFileViews']);
+                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other']);
             }
         }
 
@@ -203,18 +233,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      */
     public function getManyTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
         $defaultParams = [
             'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
-        $initAllowedParams = [
-            'dateStart',
-            'dateEnd',
-            'timelineInterval',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-            'type'
-        ];
+        $initAllowedParams = $this->getManyTimelineAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -229,6 +253,10 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                 $dateStart = empty($allowedParams['dateStart']) ? StatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
                 $dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
                 $emptyTimeline = $statsService->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
+                if ($responseCSV) {
+                    $csvColumnNames = $statsService->getTimelineReportColumnNames();
+                    return $response->withCSV($emptyTimeline, $csvColumnNames, 0);
+                }
                 return $response->withJson($emptyTimeline, 200);
             }
             return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
@@ -239,6 +267,10 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER];
         };
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
+        if ($responseCSV) {
+            $csvColumnNames = $statsService->getTimelineReportColumnNames();
+            return $response->withCSV($data, $csvColumnNames, count($data));
+        }
         return $response->withJson($data, 200);
     }
 
@@ -269,14 +301,13 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
         $metricsByType = $statsService->getTotalsByType($submission->getId(), $request->getContext()->getId(), $dateStart, $dateEnd);
 
-        $galleyViews = $metricsByType['pdf'] + $$metricsByType['html'] + $metricsByType['other'];
+        $galleyViews = $metricsByType['pdf'] + $metricsByType['html'] + $metricsByType['other'];
         return $response->withJson([
             'abstractViews' => $metricsByType['abstract'],
             'galleyViews' => $galleyViews,
             'pdfViews' => $metricsByType['pdf'],
             'htmlViews' => $metricsByType['html'],
             'otherViews' => $metricsByType['other'],
-            'suppFileViews' => $metricsByType['suppFileViews'],
             'publication' => Repo::submission()->getSchemaMap()->mapToStats($submission),
         ], 200);
     }
@@ -301,6 +332,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'dateStart',
             'dateEnd',
             'timelineInterval',
+            'type'
         ]);
 
         Hook::call('API::stats::publication::timeline::params', [&$allowedParams, $slimRequest]);
@@ -335,20 +367,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = [
-            'dateStart',
-            'dateEnd',
-            'count',
-            'offset',
-            'orderDirection',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-        ];
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -414,20 +435,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = [
-            'dateStart',
-            'dateEnd',
-            'count',
-            'offset',
-            'orderDirection',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-        ];
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -492,20 +502,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = [
-            'dateStart',
-            'dateEnd',
-            'count',
-            'offset',
-            'orderDirection',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-        ];
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -576,20 +575,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
-            'count' => 30,
-            'offset' => 0,
             'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-        $initAllowedParams = [
-            'dateStart',
-            'dateEnd',
-            'count',
-            'offset',
-            'orderDirection',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-        ];
+        $initAllowedParams = $this->getManyAllowedParams();
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
         $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
@@ -689,6 +677,53 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     }
 
     /**
+     * Filter and sanitize the request param
+     */
+    protected function _processParam(string $requestParam, mixed $value): array
+    {
+        $returnParams = [];
+        switch ($requestParam) {
+            case 'dateStart':
+            case 'dateEnd':
+            case 'timelineInterval':
+            case 'searchPhrase':
+            case 'type':
+                $returnParams[$requestParam] = $value;
+                break;
+
+            case 'count':
+                $returnParams[$requestParam] = min(100, (int) $value);
+                break;
+
+            case 'offset':
+                $returnParams[$requestParam] = (int) $value;
+                break;
+
+            case 'orderDirection':
+                $returnParams[$requestParam] = strtoupper($value);
+                break;
+
+            case $this->sectionIdsQueryParam:
+                if (is_string($value) && str_contains($value, ',')) {
+                    $value = explode(',', $value);
+                } elseif (!is_array($value)) {
+                    $value = [$value];
+                }
+                $returnParams['pkpSectionIds'] = array_map('intval', $value);
+                break;
+            case 'submissionIds':
+                if (is_string($value) && str_contains($value, ',')) {
+                    $value = explode(',', $value);
+                } elseif (!is_array($value)) {
+                    $value = [$value];
+                }
+                $returnParams[$requestParam] = array_map('intval', $value);
+                break;
+        }
+        return $returnParams;
+    }
+
+    /**
      * A helper method to filter and sanitize the request params
      *
      * Only allows the specified params through and enforces variable
@@ -701,46 +736,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             if (!in_array($requestParam, $allowedParams)) {
                 continue;
             }
-            switch ($requestParam) {
-                case 'dateStart':
-                case 'dateEnd':
-                case 'timelineInterval':
-                case 'searchPhrase':
-                case 'type':
-                    $returnParams[$requestParam] = $value;
-                    break;
-
-                case 'count':
-                    $returnParams[$requestParam] = min(100, (int) $value);
-                    break;
-
-                case 'offset':
-                    $returnParams[$requestParam] = (int) $value;
-                    break;
-
-                case 'orderDirection':
-                    $returnParams[$requestParam] = strtoupper($value);
-                    break;
-
-                case $this->sectionIdsQueryParam:
-                    if (is_string($value) && str_contains($value, ',')) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $returnParams['pkpSectionIds'] = array_map('intval', $value);
-                    break;
-                case 'submissionIds':
-                    if (is_string($value) && str_contains($value, ',')) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $returnParams[$requestParam] = array_map('intval', $value);
-                    break;
-            }
+            $returnParams += $this->_processParam($requestParam, $value);
         }
-        /*
         // Get the context's earliest date of publication if no start date is set
         if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
             $dateRange = Repo::publication()->getDateBoundaries(
@@ -750,7 +747,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             );
             $returnParams['dateStart'] = $dateRange->min_date_published;
         }
-        */
         return $returnParams;
     }
 
@@ -792,8 +788,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             __('stats.fileViews'),
             __('stats.pdf'),
             __('stats.html'),
-            __('common.other'),
-            __('stats.suppFileViews')
+            __('common.other')
         ];
     }
 
@@ -803,11 +798,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     protected function _getFileReportColumnNames(): array
     {
         return [
-            __('common.id'),
-            __('common.title'),
-            __('stats.fileViews'),
             __('common.publication') . ' ' . __('common.id'),
             __('submission.title'),
+            __('common.file') . ' ' . __('common.id'),
+            __('common.fileName'),
+            __('stats.fileViews'),
         ];
     }
 
@@ -827,10 +822,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         if ($scale == StatisticsHelper::STATISTICS_DIMENSION_CITY) {
             $scaleColumns = [
                 __('stats.city'),
-                __('stats.region')
+                __('stats.region'),
+                __('common.country')
             ];
         } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_REGION) {
-            $scaleColumns = [__('stats.region')];
+            $scaleColumns = [__('stats.region'), __('common.country')];
         } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_COUNTRY) {
             $scaleColumns = [__('common.country'),];
         }
@@ -844,7 +840,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     /**
      * Get the CSV row with submission metrics
      */
-    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $suppFileViews): array
+    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
         $totalViews = $abstractViews + $galleyViews;
@@ -861,15 +857,14 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $galleyViews,
             $pdfViews,
             $htmlViews,
-            $otherViews,
-            $suppFileViews
+            $otherViews
         ];
     }
 
     /**
      * Get the JSON data with submission metrics
      */
-    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $suppFileViews): array
+    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
 
@@ -883,7 +878,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'pdfViews' => $pdfViews,
             'htmlViews' => $htmlViews,
             'otherViews' => $otherViews,
-            'suppFileViews' => $suppFileViews,
             'publication' => $submissionProps,
         ];
     }
@@ -897,11 +891,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
         return [
+            $submissionId,
+            $submissionTitle,
             $submissionFileId,
             $title,
-            $downloads,
-            $submissionId,
-            $submissionTitle
+            $downloads
         ];
     }
 
@@ -914,11 +908,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
         return [
+            'submissionId' => $submissionId,
+            'submissionTitle' => $submissionTitle,
             'submissionFileId' => $submissionFileId,
             'fileName' => $title,
-            'downloads' => $downloads,
-            'submissionId' => $submissionId,
-            'submissionTitle' => $submissionTitle
+            'downloads' => $downloads
         ];
     }
 

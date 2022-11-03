@@ -45,8 +45,6 @@ class PKPEmailSetupForm extends FormComponent {
 				'value' => $context->getData('emailSignature'),
 				'preparedContent' => [
 					'contextName' => $context->getLocalizedName(),
-					'senderName' => __('email.senderName'),
-					'senderEmail' => __('email.senderEmail'),
 				]
 			]));
 

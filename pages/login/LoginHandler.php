@@ -249,6 +249,10 @@ class LoginHandler extends Handler
      */
     public function resetPassword($args, $request)
     {
+        if (!$request->isGet()) {
+            return $request->redirect($request->getContext()?->getData('urlPath') ?? $request->getBasePath());
+        }
+
         $this->setupTemplate($request);
 
         $username = $args[0] ?? null;

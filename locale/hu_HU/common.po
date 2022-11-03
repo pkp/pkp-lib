@@ -1916,9 +1916,6 @@ msgstr "Kiválasztott kép megtekintése."
 msgid "common.upload.restore"
 msgstr "Eredeti visszaállítása"
 
-msgid "common.toWithValue"
-msgstr "ig: {$value}"
-
 msgid "common.submenu"
 msgstr "Almenü"
 
@@ -1930,9 +1927,6 @@ msgstr "{$item} eltávolítása"
 
 msgid "common.noItemsFound"
 msgstr "Nem találtunk tételt."
-
-msgid "common.fromWithValue"
-msgstr "Tól/től: {$value}"
 
 msgid "notification.cancelledReviewer"
 msgstr "Szakmai lektor lektorálása megszakítva."

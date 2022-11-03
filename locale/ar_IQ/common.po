@@ -419,9 +419,6 @@ msgstr "إضافة التصفية: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "تصفير التصفية: {$filterTitle}"
 
-msgid "common.fromWithValue"
-msgstr "من: {$value}"
-
 msgid "common.go"
 msgstr "إذهب"
 
@@ -760,9 +757,6 @@ msgstr "العنوان"
 
 msgid "common.top"
 msgstr "أعلى"
-
-msgid "common.toWithValue"
-msgstr "إلى: {$value}"
 
 msgid "common.true"
 msgstr "صحيح"

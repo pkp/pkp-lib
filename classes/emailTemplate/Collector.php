@@ -30,16 +30,12 @@ class Collector implements CollectorInterface
      */
     public ?bool $isModified = null;
     public ?int $contextId = null;
-    public ?bool $isEnabled = null;
     public ?bool $isCustom = null;
-    public ?array $fromRoleIds = null;
-    public ?array $toRoleIds = null;
     public ?array $keys = null;
     public ?string $searchPhrase = null;
-    public ?array $stageIds = null;
     public ?int $count = null;
     public ?int $offset = null;
-    public ?array $mailables = null;
+    public ?array $alternateTo = null;
 
     public const EMAIL_TEMPLATE_STAGE_DEFAULT = 0;
 
@@ -58,7 +54,7 @@ class Collector implements CollectorInterface
         return $this->dao->getCount($this);
     }
 
-    public function filterByIsModified(?bool $isModified): self
+    public function isModified(?bool $isModified): self
     {
         $this->isModified = $isModified;
         return $this;
@@ -74,56 +70,11 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Set isEnabled filter
-     */
-    public function filterByIsEnabled(?bool $isEnabled): self
-    {
-        $this->isEnabled = $isEnabled;
-        return $this;
-    }
-
-    /**
-     * Set isCustom filter
-     */
-    public function filterByIsCustom(?bool $isCustom): self
-    {
-        $this->isCustom = $isCustom;
-        return $this;
-    }
-
-    /**
-     * Set sender roles filter
-     */
-    public function filterByFromRoleIds(?array $fromRoleIds): self
-    {
-        $this->fromRoleIds = $fromRoleIds;
-        return $this;
-    }
-
-    /**
-     * Set recipient roles filter
-     */
-    public function filterByToRoleIds(?array $toRoleIds): self
-    {
-        $this->toRoleIds = $toRoleIds;
-        return $this;
-    }
-
-    /**
      * Set email keys filter
      */
     public function filterByKeys(?array $keys): self
     {
         $this->keys = $keys;
-        return $this;
-    }
-
-    /**
-     * Set stage ID filter
-     */
-    public function filterByStageIds(?array $stageIds): self
-    {
-        $this->stageIds = $stageIds;
         return $this;
     }
 
@@ -156,13 +107,13 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Filter results by those assigned to one or more mailables
+     * Filter results by custom templates that are alternates of another other email
      *
-     * @param string[] $mailables One or more mailable class names
+     * @param string[] $emailTemplateKeys One or more default email template keys
      */
-    public function filterByMailables(?array $mailables): self
+    public function alternateTo(?array $emailTemplateKeys): self
     {
-        $this->mailables = $mailables;
+        $this->alternateTo = $emailTemplateKeys;
         return $this;
     }
 
@@ -177,18 +128,11 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $q = $this->isModified === true || $this->isEnabled === false || !is_null($this->mailables) || $this->isCustom === true ?
-            $this->getCustomQueryBuilder() :
-            $this->getDefaultQueryBuilder()->union($this->getCustomQueryBuilder());
+        $q = $this->isModified === true || !is_null($this->alternateTo)
+            ? $this->getCustomQueryBuilder()
+            : $this->getDefaultQueryBuilder()->union($this->getCustomQueryBuilder());
 
         $q
-            ->when($this->isCustom === true, function (Builder $q) {
-                return $q->whereNotIn('et.email_key', function (Builder $q) {
-                    return $q->select('email_key')
-                        ->from('email_templates_default_data as etddata');
-                });
-            })
-
             ->when(!is_null($this->count), function (Builder $q) {
                 return $q->limit($this->count);
             })
@@ -219,11 +163,16 @@ class Collector implements CollectorInterface
         $q = DB::table('email_templates_default_data as etddata')
             ->select('email_key')
             ->selectRaw('NULL as email_id')
-            ->selectRaw('1 as enabled')
             ->selectRaw('NULL as context_id')
+            ->selectRaw('NULL as alternate_to')
 
             ->whereNotIn('etddata.email_key', function (Builder $q) {
-                $q->select('et.email_key')->from('email_templates as et');
+                $q
+                    ->select('et.email_key')
+                    ->from('email_templates as et')
+                    ->when(!is_null($this->contextId), function (Builder $q) {
+                        $q->where('et.context_id', $this->contextId);
+                    });
             })
 
             ->when(!is_null($this->keys), function (Builder $q) {
@@ -260,37 +209,23 @@ class Collector implements CollectorInterface
     protected function getCustomQueryBuilder(): Builder
     {
         $q = DB::table($this->dao->table . ' as et')
-            ->select('et.email_key')
-            ->addSelect('et.email_id')
-            ->addSelect('et.enabled')
-            ->addSelect('et.context_id')
+            ->select([
+                'et.email_key',
+                'et.email_id',
+                'et.context_id',
+                'et.alternate_to',
+            ])
 
             ->when(!is_null($this->contextId), function (Builder $q) {
                 return $q->where('et.context_id', $this->contextId);
-            })
-
-            ->when(!is_null($this->isEnabled), function (Builder $q) {
-                return $q->when(
-                    $this->isEnabled === true,
-                    function (Builder $q) {
-                        return $q->where('et.enabled', '=', 1);
-                    },
-                    function (Builder $q) {
-                        return $q->where('et.enabled', '!=', 1);
-                    }
-                );
             })
 
             ->when(!is_null($this->keys), function (Builder $q) {
                 return $q->whereIn('et.email_key', $this->keys);
             })
 
-            ->when(!is_null($this->mailables), function (Builder $q) {
-                return $q->whereIn('et.email_id', function (Builder $q) {
-                    return $q->select('email_id')
-                        ->from('mailable_templates')
-                        ->whereIn('mailable_id', $this->mailables);
-                });
+            ->when(!is_null($this->alternateTo), function (Builder $q) {
+                return $q->whereIn('et.alternate_to', $this->alternateTo);
             })
 
             ->when(!is_null($this->searchPhrase), function (Builder $q) {

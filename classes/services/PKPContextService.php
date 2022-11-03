@@ -529,6 +529,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
 
+        Repo::emailTemplate()->dao->installAlternateEmailTemplates($context->getId());
+
         // Load all plugins so they can hook in and add their installation settings
         PluginRegistry::loadAllPlugins();
 

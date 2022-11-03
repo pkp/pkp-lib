@@ -168,3 +168,8 @@ msgstr ""
 "Quyết định của chúng tôi là: Từ chối"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Một thông báo liên quan đến {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Vui lòng nhập tin nhắn của bạn."

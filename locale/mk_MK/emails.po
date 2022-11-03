@@ -169,3 +169,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Одлука на уредникот"
+
+msgid "emails.discussion.subject"
+msgstr "Порака во врска со {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Ве молиме да ја внесете вашата порака."

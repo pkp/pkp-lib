@@ -19,28 +19,10 @@ trait Discussion
 {
     use Unsubscribe;
 
-    protected static string $discussionSubject = 'subject';
-    protected static string $discussionContent = 'content';
-
-    /**
-     * Add a variable with comments from all completed review assignments
-     */
-    protected function setupDiscussionVariables(string $subject, string $content): void
+    protected function addFooter(string $locale): self
     {
-        $this->addData([
-            self::$discussionSubject => $subject,
-            self::$discussionContent => $content
-        ]);
-    }
-
-    /**
-     * Add the title of the discussion and the content of the current note to the list of registered variables
-     */
-    protected static function addDiscussionDescription(array $variables): array
-    {
-        $variables[self::$discussionSubject] = __('emailTemplate.variable.discussion.subject');
-        $variables[self::$discussionContent] = __('emailTemplate.variable.discussion.content');
-        return $variables;
+        $this->setupUnsubscribeFooter($locale, $this->context);
+        return $this;
     }
 
     protected function setFooterText(string $locale, string $localeKey = null): string
@@ -50,13 +32,5 @@ trait Discussion
         }
 
         return __($localeKey, [], $locale);
-    }
-
-    /**
-     * Get the name of the subject email template variable
-     */
-    public static function getSubjectVariableName()
-    {
-        return self::$discussionSubject;
     }
 }

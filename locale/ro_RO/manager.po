@@ -62,9 +62,6 @@ msgstr ""
 msgid "manager.filesBrowser"
 msgstr "Browser de fișiere"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Subiect: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Trimis la"
 
@@ -79,9 +76,6 @@ msgstr ""
 "Dacă resetați acest șablon, toate datele mesajului vor fi resetate la "
 "valoarea implicită, pierzând toate modificările. Doriți să confirmați "
 "această operație?"
-
-msgid "manager.emails.reset"
-msgstr "Resetare"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -116,9 +110,6 @@ msgstr "Activare"
 msgid "manager.emails.enabled"
 msgstr "Activați acest șablon de e-mail"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Cheia pe care ați furnizat-o este deja folosită."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "La adăugarea unui șablon de e-mail trebuie să furnizați un ID de context."
@@ -129,24 +120,11 @@ msgstr "Modele de e-mail"
 msgid "manager.emails.emailTemplate"
 msgstr "Model de e-mail"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Există deja un e-mail cu cheia dată. Cheile de e-mail trebuie să fie unice."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Cheia de e-mail nu poate conține decât litere, numere și underscores."
-
-msgid "manager.emails.emailKey"
-msgstr "Cheie de e-mail"
-
 msgid "manager.emails.editTestExample"
 msgstr "Editați exemplul de testare prin e-mail"
 
 msgid "manager.emails.editEmail.success"
 msgstr "Modelul de e-mail a fost modificat."
-
-msgid "manager.emails.editEmail"
-msgstr "Editați e-mailul"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -163,9 +141,6 @@ msgstr "Detalii model"
 msgid "manager.emails.data"
 msgstr "Șablon Date Mesaj"
 
-msgid "manager.emails.customTemplate"
-msgstr "Șablon personalizat"
-
 msgid "manager.emails.createEmail"
 msgstr "Creați e-mail"
 
@@ -174,12 +149,6 @@ msgstr "Modelul de e-mail a fost adăugat."
 
 msgid "manager.emails.addEmail"
 msgstr "Adăugați șablon"
-
-msgid "manager.emails.confirmReset"
-msgstr "Sigur doriți să resetați acest șablon de e-mail la valorile implicite?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Sigur doriți să ștergeți acest șablon de e-mail?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Detaliile privind memento-ul de revizuire au fost actualizate."
@@ -2273,6 +2242,7 @@ msgstr ""
 "faptul că și-a uitat parola sau nu se poate autentifica. Oferă o adresă URL "
 "pe care o poate urma pentru a-și reseta parola."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Acest e-mail este trimis unui utilizator nou înregistrat pentru a-i ura bun "
@@ -2286,6 +2256,7 @@ msgstr ""
 "parolei."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Acest e-mail, atunci când este activat, este trimis automat unui autor "
@@ -2294,7 +2265,8 @@ msgstr ""
 "autorului pentru depunere."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Acest email, atunci când este activat, se trimite automat și celorlalți "
 "autori ai manuscrisului, nu doar autorului înregistrat."

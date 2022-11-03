@@ -108,9 +108,6 @@ msgstr "Вид"
 msgid "common.true"
 msgstr "Точно"
 
-msgid "common.toWithValue"
-msgstr "До: {$value}"
-
 msgid "common.top"
 msgstr "Горе"
 
@@ -453,9 +450,6 @@ msgstr "Висина"
 
 msgid "common.go"
 msgstr "Оди"
-
-msgid "common.fromWithValue"
-msgstr "Од: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Исчисти филтер: {$filterTitle}"

@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use APP\notification\NotificationManager;
 use PKP\query\Query;
+use APP\submission\Submission;
 
 class QueryNotesGridHandler extends GridHandler
 {
@@ -60,10 +61,8 @@ class QueryNotesGridHandler extends GridHandler
     //
     /**
      * Get the authorized submission.
-     *
-     * @return Submission
      */
-    public function getSubmission()
+    public function getSubmission(): Submission
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
     }
@@ -330,14 +329,12 @@ class QueryNotesGridHandler extends GridHandler
                 continue;
             }
 
-            $mailable = $this->getStageMailable($context, $submission, $title, $note->getContents());
-            $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-
             $recipient = Repo::user()->get($userId);
-            $mailable->sender($sender)
+            $mailable = $this->getStageMailable($context, $submission)
+                ->sender($sender)
                 ->recipients([$recipient])
-                ->subject(__('common.re').' '.$emailTemplate->getLocalizedData('subject'))
-                ->body($emailTemplate->getLocalizedData('body'));
+                ->subject(__('common.re').' '.$title)
+                ->body($note->getContents());
 
             Mail::send($mailable);
         }

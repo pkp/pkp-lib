@@ -435,9 +435,6 @@ msgstr "Clear filter: {$filterTitle}"
 msgid "common.findTemplate"
 msgstr "Find Template"
 
-msgid "common.fromWithValue"
-msgstr "From: {$value}"
-
 msgid "common.geographic"
 msgstr "Geographic"
 
@@ -821,9 +818,6 @@ msgstr " | "
 
 msgid "common.top"
 msgstr "Top"
-
-msgid "common.toWithValue"
-msgstr "To: {$value}"
 
 msgid "common.true"
 msgstr "True"

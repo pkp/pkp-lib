@@ -162,3 +162,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Tahririyat qarori"
+
+msgid "emails.discussion.subject"
+msgstr "{$ ContextName} haqida xabar"
+
+msgid "emails.discussion.body"
+msgstr "Xabaringizni kiriting."

@@ -234,11 +234,15 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         return parent::fetch($request, $template, $display);
     }
 
-    /**
-     * @copydoc ReviewerForm::getEmailTemplateKeys()
-     */
-    protected function getEmailTemplateKeys(Request $request, TemplateManager $templateMgr): array
+    protected function getEmailTemplates(): array
     {
-        return array_merge(parent::getEmailTemplateKeys($request, $templateMgr), [ReviewRequestSubsequent::getEmailTemplateKey()]);
+        $subsequentTempate = Repo::emailTemplate()->getByKey(
+            Application::get()->getRequest()->getContext()->getId(),
+            ReviewRequestSubsequent::getEmailTemplateKey()
+        );
+        return array_merge(
+            parent::getEmailTemplates(),
+            [ReviewRequestSubsequent::getEmailTemplateKey() => $subsequentTempate->getLocalizedData('name')]
+        );
     }
 }

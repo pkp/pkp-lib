@@ -31,7 +31,7 @@ trait StageMailable
     /**
      * @return Mailable which corresponds to the given workflow stage
      */
-    protected function getStageMailable(Context $context, Submission $submission, string $subject = '', string $message = ''): Mailable
+    protected function getStageMailable(Context $context, Submission $submission): Mailable
     {
         $map = [
             WORKFLOW_STAGE_ID_SUBMISSION => DiscussionSubmission::class,
@@ -41,6 +41,6 @@ trait StageMailable
             WORKFLOW_STAGE_ID_PRODUCTION => DiscussionProduction::class,
         ];
         $mailableClassName = $map[$this->getStageId()];
-        return new $mailableClassName($context, $submission, $subject, $message);
+        return new $mailableClassName($context, $submission);
     }
 }

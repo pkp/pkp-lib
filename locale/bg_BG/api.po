@@ -292,19 +292,8 @@ msgstr "Трябва да посочите тема и съдържание на
 msgid "api.dois.403.prefixRequired"
 msgstr "За генериране на DOI е необходим префикс за DOI."
 
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "Входът templateKeys трябва да бъде масив или празен низ"
-
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"Шаблонът не можа да бъде присвоен на този имейл, защото самия шаблон не беше "
-"намерен."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Имейлът, който търсите, не беше намерен."
-
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "Ключовете на шаблона за имейл не са посочени."
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""

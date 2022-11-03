@@ -165,12 +165,6 @@ msgstr "Herstellung"
 msgid "manager.publication.emails"
 msgstr "E-Mails"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Sind Sie sicher, dass Sie diese E-Mail-Vorlage löschen wollen?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform zurücksetzen wollen?"
-
 msgid "manager.emails.createEmail"
 msgstr "E-Mail erstellen"
 
@@ -186,17 +180,8 @@ msgstr "Deaktivieren"
 msgid "manager.emails.disable.message"
 msgstr "Sie sind dabei, diese E-Mail-Vorlage zu deaktivieren. Wenn es Systemprozesse geben sollte, die diese Vorlage benutzen, werden sie sie nicht mehr benutzen. Möchten Sie diese Aktion bestätigen?"
 
-msgid "manager.emails.editEmail"
-msgstr "E-Mail bearbeiten"
-
 msgid "manager.emails.editTestExample"
 msgstr "Das E-Mail-Testbeispiel bearbeiten"
-
-msgid "manager.emails.emailKey"
-msgstr "E-Mail-Kennung"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Eine E-Mail dieser Kennung existiert bereits. Die E-Mail-Kennungen müssen eindeutig sein."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-Mail-Vorlage"
@@ -224,9 +209,6 @@ msgstr "E-Mail-Vorlagen"
 
 msgid "manager.emails.resetAll.message"
 msgstr "Wenn Sie alle Vorlagen zurücksetzen, gehen alle Veränderungen an den E-Mail-Vorlagen verloren. Möchten Sie diese Aktion bestätigen?"
-
-msgid "manager.emails.reset"
-msgstr "Zurücksetzen"
 
 msgid "manager.emails.reset.message"
 msgstr "Wenn Sie diese Vorlage zurücksetzen, werden alle Daten dieser Vorlage auf ihre Standardwerte zurückgesetzt, alle Veränderungen gehen verloren. Möchten Sie diese Aktion bestätigen?"
@@ -1616,9 +1598,6 @@ msgstr ""
 "Sie können diesen Vertreter nicht löschen. Er ist  den market Metadaten "
 "eines oder mehrerer Puklikationsformate zugeordnet."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Betreff: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Gesendet an"
 
@@ -1628,9 +1607,6 @@ msgstr "Gesendet von"
 msgid "manager.emails.resetAll"
 msgstr "Alles zurücksetzen"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Der Schlüssel, den Sie angeben, ist bereits in Benutzung."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Es muss eine Context ID zur Verfügung gestellt werden, wenn eine E-Mail-"
@@ -1638,13 +1614,6 @@ msgstr ""
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-Mail-Vorlagen"
-
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"Der E-Mail-Schlüssel darf nur Buchstaben, Zahlen und Unterstriche enthalten."
-
-msgid "manager.emails.customTemplate"
-msgstr "benutzerdefinierte Vorlage"
 
 msgid "manager.emails.addEmail"
 msgstr "Vorlage hinzufügen"
@@ -2032,12 +2001,6 @@ msgstr ""
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Export nach Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Die E-Mail-Vorlage wurde erfolgreich zurückgesetzt."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Mitteilung löschen"
@@ -2472,12 +2435,14 @@ msgstr "Diese E-Mail wird an registrierte Benutzer/innen gesendet, nachdem sie i
 msgid "mailable.passwordResetRequested.description"
 msgstr "Diese E-Mail wird an registrierte Benutzer/innen der Benachrichtigungs-Mailingliste gesendet, die angegeben haben, dass sie ihr Passwort vergessen haben oder sich nicht einloggen können. Sie liefert eine URL, der die Benutzer/innen folgen können, um ihr Passwort zurückzusetzen."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Diese E-Mail wird an neu registrierte Benutzer/innen gesendet, um sie beim System willkommen zu heißen und ihnen Benutzer/innennamen und Passwort zu bestätigen."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Diese E-Mail wird an neu registrierte Gutachter/innen gesendet, um sie beim System willkommen zu heißen und ihnen Benutzer/innennamen und Passwort zu bestätigen."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2488,7 +2453,8 @@ msgstr ""
 "dem Autor für die Einreichung."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Diese E-Mail wird, sofern aktiviert, automatisch an die weiteren Autor/innen geschickt, die laut Einreichung keine OJS-Benutzeraccounts haben."
 
 msgid "mailable.revisedVersionNotify.description"

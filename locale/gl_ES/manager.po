@@ -470,9 +470,6 @@ msgstr "Seleccione os usuarios que se exportarán a un arquivo Excel/CSV."
 msgid "manager.export.usersToCsv.label"
 msgstr "Exportar a Excel/CSV"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Asunto: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Enviado a"
 
@@ -487,15 +484,6 @@ msgstr ""
 "Se restableces este modelo, todos os datos das mensaxes restableceranse ao "
 "seu valor predeterminado, perdendo todas as modificacións. ¿Queres confirmar "
 "esta operación?"
-
-msgid "manager.emails.resetComplete"
-msgstr "Restableceuse correctamente o modelo de correo electrónico."
-
-msgid "manager.emails.reset"
-msgstr "Restaurar"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Restauráronse os modelos de correo electrónico predeterminados."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -530,9 +518,6 @@ msgstr "Habilitar"
 msgid "manager.emails.enabled"
 msgstr "Habilitar este modelo de correo electrónico"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "O contrasinal que proporcionou xa está en uso."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Debe proporcionar un ID de contexto ao engadir un modelo de correo "
@@ -544,24 +529,8 @@ msgstr "Modelos de correo electrónico"
 msgid "manager.emails.emailTemplate"
 msgstr "Modelo de correo electrónico"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Xa existe un correo electrónico co contrasinal indicado. As chaves do correo "
-"electrónico deben ser únicas."
-
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"O contrasinal do correo electrónico só pode conter letras, números e guións "
-"baixos."
-
-msgid "manager.emails.emailKey"
-msgstr "Chave de correo electrónico"
-
 msgid "manager.emails.editTestExample"
 msgstr "Editar exemplo de proba de correo electrónico"
-
-msgid "manager.emails.editEmail"
-msgstr "Editar correo electrónico"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -578,22 +547,11 @@ msgstr "Detalles do modelo"
 msgid "manager.emails.data"
 msgstr "Modelo de datos de mensaxe"
 
-msgid "manager.emails.customTemplate"
-msgstr "Modelo personalizado"
-
 msgid "manager.emails.createEmail"
 msgstr "Crear correo electrónico"
 
 msgid "manager.emails.addEmail"
 msgstr "Engadir modelo"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Seguro que queres restablecer aos valores predeterminados este modelo de "
-"correo electrónico?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Seguro que queres eliminar este modelo de correo electrónico?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Actualizáronse os detalles do recordatorio de revisión."
@@ -2385,6 +2343,7 @@ msgstr ""
 "seu contrasinal ou que non pode iniciar a sesión. Proporciona un URL para o "
 "cambio do seu contrasinal."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Este correo electrónico envíaselle a un/unha usuario/a que se acaba de "
@@ -2398,6 +2357,7 @@ msgstr ""
 "contrasinal."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Este correo electrónico, se está activado, envíase automaticamente ao autor/"
@@ -2406,7 +2366,8 @@ msgstr ""
 "editorial e agradécelle ao autor/a o seu envío."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Este correo electrónico, cando está activado, envíase automaticamente aos  "
 "outros autores/as que non son usuarios/as do OJS especificados durante o "

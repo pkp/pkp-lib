@@ -159,12 +159,6 @@ msgstr "Megjelentetés"
 msgid "manager.publication.emails"
 msgstr "Emailek"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Biztos benne, hogy törölni akarja ezt az email sablont?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Biztos benne, hogy visszaállítja ezt az email sablont az eredeti állapotra?"
-
 msgid "manager.emails.addEmail"
 msgstr "Email sablon hozzáadása"
 
@@ -183,17 +177,8 @@ msgstr "Kikapcsol"
 msgid "manager.emails.disable.message"
 msgstr "Ennek az email sablonnak a letiltására készül. Ha a rendszerben használják ezt a sablont, akkor többé nem fogják elérni és használni azt. Megerősíti ezt a műveletet?"
 
-msgid "manager.emails.editEmail"
-msgstr "Email szerkesztése"
-
 msgid "manager.emails.editTestExample"
 msgstr "Email teszt eset szerkesztése"
-
-msgid "manager.emails.emailKey"
-msgstr "Email kulcs"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Egy email a megadott kulccsal már létezik. Az email kulcsoknak egyedinek kell lennie."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Email Sablon"
@@ -227,9 +212,6 @@ msgstr "Minden sablon visszaállítása"
 
 msgid "manager.emails.resetAll.message"
 msgstr "Ha minden sablont visszaállít, akkor az azokon végzett valamennyi módosítás el fog veszni Megerősíti ezt a műveletet?"
-
-msgid "manager.emails.reset"
-msgstr "Visszaállítás"
 
 msgid "manager.emails.reset.message"
 msgstr "Ha visszaállítja ez a sablont, akkor az adatok az eredeti állapotba állnak vissza és elveszti az összes módosítást. Megerősíti ezt a műveletet?"
@@ -2077,26 +2059,14 @@ msgstr "Haladó beállítások"
 msgid "manager.setup.additionalContent.description"
 msgstr "Bármi, amit itt megad, megjelenik a főoldalán."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Tárgy: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Címzett"
 
 msgid "manager.emails.sentFrom"
 msgstr "Küldő"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "A megadott kulcs már használatban van."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "E-mail sablon hozzáadásakor meg kell adnia egy ' context ID'-t."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Az e-mail kulcs csak betűket, számokat és aláhúzást tartalmazhat."
-
-msgid "manager.emails.customTemplate"
-msgstr "Egyéni sablon"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "A szakmai lektorálási emlékeztető részletei frissítve."
@@ -2326,12 +2296,6 @@ msgstr "Válassza ki az Excel/CSV fájlba exportálandó felhasználókat."
 msgid "manager.export.usersToCsv.label"
 msgstr "Export Excel/CSV formátumba"
 
-msgid "manager.emails.resetComplete"
-msgstr "E-mail sablon sikeresen visszaállítva."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Az alapértelmezett e-mail sablonok vissza lettek állítva."
-
 msgid "manager.emails.otherTemplates"
 msgstr "Egyéb sablonok"
 
@@ -2544,6 +2508,7 @@ msgstr "Ez az email egy regisztrált felhasználónak kerül kiküldésre, amiko
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ez a levél egy regisztrált felhasználónak kerül kiküldésre, amikor jelzi, hogy elfelejtette a jelszavát, és nem tud bejelentkezni. Tartalmaz egy linket, amire kattintva visszaállítható a jelszava."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Ez az email az újonnan regisztrált felhasználóknak kerül kiküldésre, köszöntésként, felhasználónevük, jelszavuk megadásával."
 
@@ -2551,11 +2516,13 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Ez az email az újonnan regisztrált lektoroknak kerül kiküldésre, köszöntésként és a felhasználónevük, jelszavuk elküldéséhez."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Ez az email, ha be van kapcsolva, akkor automatikusan kiküldésre kerül a Szerzőnek, amikor a folyóirathoz beküldte kéziratát. Információt ad a benyújtási folyamatról és megköszöni a Szerzőnek a benyújtott kéziratot."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Ha be van kapcsolva ez az email, akkor automatikusan értesítést küld azoknak a Szerzőknek, akik a benyújtás idején nem szerepelnek aktívan ennek a beküldésnek a munkafolyamatában."
 
 msgid "mailable.revisedVersionNotify.description"

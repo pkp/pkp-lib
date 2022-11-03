@@ -250,17 +250,8 @@ msgstr ""
 msgid "api.400.requireEmailSubjectBody"
 msgstr "ينبغي عليك توفير موضوع البريد الالكتروني ومتنه."
 
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "مفاتيح القالب ينبغي أن تكون مصفوفة أو نصًا خاليًا"
-
-msgid "api.mailables.404.templateNotFound"
-msgstr "تعذر تعيين القالب لهذا البريد الالكتروني لأنه تعذر العثور على القالب."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "تعذر العثور على البريد الالكتروني الذي طلبته."
-
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "لم يتم تحديد مفاتيح قالب البريد الالكتروني."
 
 msgid "api.dois.400.prefixRequired"
 msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا لتوليد معرفات المكونات الرقمية."

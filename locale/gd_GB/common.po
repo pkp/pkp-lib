@@ -319,9 +319,6 @@ msgstr ""
 "Thachair mearachd ris nach robh dùil. Ath-luchdaich an duilleag is feuch ris "
 "a-rithist."
 
-msgid "common.toWithValue"
-msgstr "Gu: {$value}"
-
 msgid "common.titleSeparator"
 msgstr "|"
 
@@ -436,9 +433,6 @@ msgstr "Cuir criathrag ris: {$filterTitle}"
 
 msgid "common.filterRemove"
 msgstr "Falamhaich a’ chriathrag: {$filterTitle}"
-
-msgid "common.fromWithValue"
-msgstr "O: {$value}"
 
 msgid "common.go"
 msgstr "Siuthad"

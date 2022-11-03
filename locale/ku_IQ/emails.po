@@ -161,3 +161,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "بڕیاری سەرنوسەر"
+
+msgid "emails.discussion.subject"
+msgstr "نامەی پەیوەندیدار بە  {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "تکایە نامەکەت بنوسە."

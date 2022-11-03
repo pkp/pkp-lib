@@ -33,10 +33,11 @@ class ReviewResponseRemindAuto extends Mailable
     }
     use PasswordResetUrl;
 
-    protected static ?string $name = 'mailable.ReviewResponseOverdueAuto.name';
-    protected static ?string $description = 'mailable.ReviewResponseOverdueAuto.description';
+    protected static ?string $name = 'mailable.reviewResponseOverdueAuto.name';
+    protected static ?string $description = 'mailable.reviewResponseOverdueAuto.description';
     protected static ?string $emailTemplateKey = 'REVIEW_RESPONSE_OVERDUE_AUTO';
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;

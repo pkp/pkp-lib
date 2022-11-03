@@ -102,6 +102,7 @@ msgstr ""
 "sozlamalar> ish oqimi> ko'rib chiqish bo'limida standart ko'rib chiqish "
 "jarayoni tanlanganida ishlatiladi."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Bu elektron pochta yangi ro'yxatdan o'tgan foydalanuvchiga tizimga xush "
@@ -114,6 +115,7 @@ msgstr ""
 "yuboriladi."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Bu elektron pochta, qo'lyozmani jurnalga topshirish jarayonini tugatgandan "
@@ -121,7 +123,8 @@ msgstr ""
 "kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Bu elektron pochta yoqilganda avtomatik ravishda yuborish jarayonida "
 "ko'rsatilgan OJS ichida bo'lmagan boshqa mualliflarga yuboriladi."

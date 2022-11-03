@@ -161,3 +161,8 @@ msgstr ""
 "Onze beslissing is: Weiger inzending"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Een bericht over {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Voeg hier uw boodschap in."

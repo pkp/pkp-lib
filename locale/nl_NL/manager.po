@@ -161,12 +161,6 @@ msgstr "Reviewer richtlijnen"
 msgid "manager.publication.reviewReminders.success"
 msgstr "De instellingen voor review herinneringen zijn bijgewerkt."
 
-msgid "manager.emails.confirmDelete"
-msgstr "Weet u zeker dat u dit e-mail sjabloon wilt verwijderen?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Weet u zeker dat u dit e-mail sjabloon wilt terugzetten naar de standaardwaarde?"
-
 msgid "manager.emails.addEmail"
 msgstr "Voeg e-mail sjabloon toe"
 
@@ -185,17 +179,8 @@ msgstr "Schakel uit"
 msgid "manager.emails.disable.message"
 msgstr "U staat op het punt dit sjabloon uit te schakelen. Als er systeemprocessen zijn die dit sjabloon gebruiken, zullen ze het niet meer gebruiken. Wilt u deze bewerking bevestigen?"
 
-msgid "manager.emails.editEmail"
-msgstr "E-mail bewerken"
-
 msgid "manager.emails.editTestExample"
 msgstr "Bewerk testvoorbeeld e-mail"
-
-msgid "manager.emails.emailKey"
-msgstr "E-mail sleutel"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Een e-mail met de opgegeven sleutel bestaat al. E-mail sleutels moeten uniek zijn."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-mail sjabloon"
@@ -220,9 +205,6 @@ msgstr "De e-mail moet een onderwerp hebben."
 
 msgid "manager.emails"
 msgstr "Voorbereide e-mails"
-
-msgid "manager.emails.reset"
-msgstr "Herstel"
 
 msgid "manager.emails.reset.message"
 msgstr "Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?"
@@ -1676,12 +1658,14 @@ msgstr "Deze e-mail wordt verstuurd naar een geregistreerde gebruiker als ze met
 msgid "mailable.passwordResetRequested.description"
 msgstr "Deze e-mail wordt gestuurd naar een geregistreerde gebruiker die heeft aangegeven zijn wachtwoord vergeten te zijn of niet in te kunnen loggen. Het bevat een URL die ze kunnen volgen om hun wachtwoord te herstellen."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Deze e-mail wordt verstuurd naar alle nieuw geregistreerde gebruikers om ze welkom te heten bij het tijdschrift en om ze te voorzien van een kopie van hun gebruikersnaam en wachtwoord."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Deze e-mail wordt naar iedere nieuwe reviewer gestuurd om ze welkom te heten bij het systeem en ze van een kopie van hun gebruikersnaam en wachtwoord te voorzien."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -1691,7 +1675,8 @@ msgstr ""
 "procedure en de auteur wordt bedankt voor de inzending."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar de andere auteurs die niet geregistreerd zijn als gebruikers van OJS.."
 
 msgid "mailable.revisedVersionNotify.description"

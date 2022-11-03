@@ -160,3 +160,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Naskah Anda ditolak"
+
+msgid "emails.discussion.subject"
+msgstr "Pesan terkait {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Silakan tuliskan pesan Anda."

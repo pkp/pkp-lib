@@ -162,12 +162,6 @@ msgstr "Correus electrònics"
 msgid "manager.publication.libraryDescription"
 msgstr "Aquests fitxers s'han preparat per utilitzar-los com a plantilles i guies i formen part dels <span class=\"pkp_help_title\">Documents enviats</span>."
 
-msgid "manager.emails.confirmDelete"
-msgstr "Esteu segur/a que voleu suprimir aquesta plantilla de missatge de correu electrònic?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Esteu segur/a que voleu reiniciar aquesta plantilla de missatge de correu electrònic als seus valors predeterminats?"
-
 msgid "manager.emails.createEmail"
 msgstr "Crea un missatge de correu electrònic"
 
@@ -183,17 +177,8 @@ msgstr "Inhabilita"
 msgid "manager.emails.disable.message"
 msgstr "Ara es desactivarà aquesta plantilla de missatge de correu electrònic.  Els processos del sistema que facin servir aquesta plantilla ho deixaran de fer.  Voleu confirmar aquesta operació?"
 
-msgid "manager.emails.editEmail"
-msgstr "Edita el missatge de correu electrònic"
-
 msgid "manager.emails.editTestExample"
 msgstr "Edita l’exemple de missatge de correu electrònic de prova"
-
-msgid "manager.emails.emailKey"
-msgstr "Clau per al missatge de correu electrònic"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Ja existeix un missatge de correu electrònic amb la clau indicada. Les claus de correu electrònic han de ser úniques."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Plantilla de missatge de correu electrònic"
@@ -221,9 +206,6 @@ msgstr "Plantilles de missatges de correu electrònic"
 
 msgid "manager.emails.resetAll.message"
 msgstr "Si restabliu totes les plantilles, es perdran totes les modificacions fetes a les plantilles de missatge de correu electrònic.  Voleu confirmar aquesta operació?"
-
-msgid "manager.emails.reset"
-msgstr "Reinicia"
 
 msgid "manager.emails.reset.message"
 msgstr "Si restabliu aquesta plantilla, totes les dades del missatge es restabliran als valors per defecte i es perdran totes les modificacions.  Voleu confirmar aquesta operació?"
@@ -2106,9 +2088,6 @@ msgstr "Cercar usuari/ària per nom"
 msgid "manager.people.existingUserRequired"
 msgstr "Heu d'introduir un usuari/ària ja existent."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Assumpte: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Enviat a"
 
@@ -2118,9 +2097,6 @@ msgstr "Enviat des de"
 msgid "manager.emails.resetAll"
 msgstr "Reiniciar-ho tot"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "La contrasenya que heu introduït ja està en ús."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Heu de proporcionar una ID de context quan afegiu una plantilla de correu "
@@ -2129,16 +2105,8 @@ msgstr ""
 msgid "manager.emails.emailTemplates"
 msgstr "Plantilles de correu electrònic"
 
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"La contrasenya de correu electrònic només pot contenir lletres, números i "
-"guions baixos."
-
 msgid "manager.emails.editEmail.success"
 msgstr "S'ha modificat la plantilla de correu electrònic."
-
-msgid "manager.emails.customTemplate"
-msgstr "Plantilla personalitzada"
 
 msgid "manager.emails.addEmail.success"
 msgstr "S'ha afegit la plantilla de correu electrònic."
@@ -2290,12 +2258,6 @@ msgstr "Deshabilitar trameses"
 
 msgid "manager.people.signedInAs"
 msgstr "Actualment esteu connectat com a {$username}"
-
-msgid "manager.emails.resetComplete"
-msgstr "Plantilla de correu electrònic reiniciada correctament."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "S'han restaurat les plantilles de correu electrònic predeterminades."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Eliminar avís"
@@ -2497,12 +2459,14 @@ msgstr "Aquest missatge de correu electrònic s'envia a un usuari registrat per 
 msgid "mailable.passwordResetRequested.description"
 msgstr "Aquest missatge de correu electrònic s'envia a un usuari registrat si ha indicat que no recorda la seva contrasenya o que no pot iniciar la sessió. Inclou un URL per a la reinicialització de la contrasenya."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Aquest missatge de correu electrònic s'envia a un usuari que s'acaba de registrar a la revista per a donar-li la benvinguda al sistema i fer-li arribar el seu nom d'usuari i la seva contrasenya."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Aquest missatge de correu electrònic s'envia a un revisor que s'acaba de registrar per a donar-li la benvinguda al sistema i fer-li arribar el seu nom d'usuari i la seva contrasenya."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2512,7 +2476,8 @@ msgstr ""
 "editorial i agraeix a l'autor/a la seva contribució a la revista."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Aquest correu electrònic, quan està habilitat, s'envia automàticament als altres autors/ores que no són usuaris/àries a l'OMP especificats durant el procés de tramesa."
 
 msgid "mailable.revisedVersionNotify.description"

@@ -36,7 +36,8 @@ class RevisedVersionNotify extends Mailable
     protected static ?string $emailTemplateKey = 'REVISED_VERSION_NOTIFY';
     protected static bool $supportsTemplates = false;
     protected static array $groupIds = [self::GROUP_REVIEW];
-    protected static array $toRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
+    protected static array $toRoleIds = [Role::ROLE_ID_SUB_EDITOR];
 
     protected Submission $submission;
     protected static string $submitterName = 'submitterName';

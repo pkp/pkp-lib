@@ -159,3 +159,8 @@ msgstr ""
 "إن قرارنا هو: رفض النشر"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "رسالة تتعلق بالمجلة {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "لطفاً أكتب رسالتك هنا."

@@ -132,26 +132,14 @@ msgstr "Tidak ada tipe pengumuman telah dibuat."
 msgid "manager.announcementTypes.typeName"
 msgstr "Tipe pengumuman"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Apakah Anda ingin menghapus template email ini?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Apakah Anda yakin ingin mengatur ulang template email ini ke nilai defaultnya?"
-
 msgid "manager.emails.createEmail"
 msgstr "Buat Email"
 
 msgid "manager.emails.disable"
 msgstr "Nonaktifkan"
 
-msgid "manager.emails.editEmail"
-msgstr "Sunting Surel"
-
 msgid "manager.emails.editTestExample"
 msgstr "Contoh tes Edit Email"
-
-msgid "manager.emails.emailKey"
-msgstr "Kunci Email"
 
 msgid "manager.emails.emailfile:///usr/share/blankon-artwork/home/index.htmlKeyExists"
 msgstr "Email dengan kunci yang telah diberikan sudah ada. Kunci email harus unik."
@@ -179,9 +167,6 @@ msgstr "Surel yang Disiapkan"
 
 msgid "manager.emails.resetAll"
 msgstr "Atur ulang semua template"
-
-msgid "manager.emails.reset"
-msgstr "Atur Ulang"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Atur ulang ke Default"
@@ -1604,9 +1589,6 @@ msgstr "Naskah Masuk"
 msgid "manager.language.ui"
 msgstr "UI"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Subjek: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Kirim Ke"
 
@@ -1626,22 +1608,11 @@ msgstr ""
 msgid "manager.emails.enable.message"
 msgstr "Anda akan mengaktifkan surel ini. Yakin ingin melanjutkan?"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Key yang ada masukkan sudah ada."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "ID konteks harus disertakan bila ingin menambahkan templat surel."
 
 msgid "manager.emails.emailTemplates"
 msgstr "Daftar Template Surel"
-
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Surel dengan key tersebut sudah ada. Key yang dimasukkan harus berbeda "
-"dengan yang sudah ada."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Key surel hanya boleh mengandung huruf, angka dan garis bawah."
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -1654,9 +1625,6 @@ msgstr "Rincian Template"
 
 msgid "manager.emails.data"
 msgstr "Data Pesan Template"
-
-msgid "manager.emails.customTemplate"
-msgstr "Template Baru"
 
 msgid "manager.emails.addEmail"
 msgstr "Tambahkan Template"
@@ -2178,12 +2146,6 @@ msgstr "Pilih user untuk diekspor ke file Ecel/CSV."
 msgid "manager.export.usersToCsv.label"
 msgstr "Ekspor ke Excel/CSV"
 
-msgid "manager.emails.resetComplete"
-msgstr "Template surel telah berhasil direst."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Template surel bawaan telah dipulihkan."
-
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Hapus Pengumuman"
 
@@ -2319,12 +2281,14 @@ msgstr "Email ini dikirimkan ke pengguna terdaftar saat proses reset password be
 msgid "mailable.passwordResetRequested.description"
 msgstr "Email ini dikirimkan ke pengguna terdaftar ketika lupa sandi atau tidak dapat login. Email ini memberikan URL untuk melakukan reset sandi."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Email ini dikirimkan ke pengguna baru untuk menyambut dan memberikan informasi nama pengguna dan sandi."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Email ini dikirimkan ke reviewer baru untuk menyambut dan memberikan informasi nama pengguna dan sandi."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2334,7 +2298,8 @@ msgstr ""
 "naskah yang dikirimkan."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Email ini, jika diaktifkan, secara otomatis dikirimkan ke semua penulis yang "
 "tertera di dalam naskah yang bukan pengirim naskah langsung."

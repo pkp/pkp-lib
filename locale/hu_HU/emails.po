@@ -177,3 +177,8 @@ msgstr ""
 "{$signature}<br />"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Üzenet a(z) {$contextName} folyóirattól"
+
+msgid "emails.discussion.body"
+msgstr "Kérjük, adja meg itt üzenete tartalmát."

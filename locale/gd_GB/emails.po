@@ -178,3 +178,8 @@ msgstr ""
 "Cho-dhùin sinn an tagradh a dhiùltadh"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Teachdaireachd a thaobh {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Cuir a-steach do theachdaireachd."

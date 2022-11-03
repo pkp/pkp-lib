@@ -292,17 +292,6 @@ msgstr "Et DOI prefiks er påkrævet for at generere DOI'er."
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Den e-mail, du anmodede om, blev ikke fundet."
 
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "templateKeys input skal være et skema eller tom streng"
-
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"Skabelonen kunne ikke tildeles denne e-mail, fordi skabelonen ikke blev "
-"fundet."
-
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "E-mail-skabelonernes nøgler er ikke angivet."
-
 msgid "api.institutions.404.institutionNotFound"
 msgstr "Den institution, du efterspurgte, blev ikke fundet."
 

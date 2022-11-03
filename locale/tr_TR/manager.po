@@ -132,29 +132,14 @@ msgstr "Duyuru türü oluşturulmadı."
 msgid "manager.announcementTypes.typeName"
 msgstr "Duyuru Türü"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Bu e-posta şablonunu silmek istediğinizden emin misiniz?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Bu şablonunu ön tanımlı biçimine döndürmek istediğinizden emin misiniz?"
-
 msgid "manager.emails.createEmail"
 msgstr "E-posta Oluştur"
 
 msgid "manager.emails.disable"
 msgstr "Kapat"
 
-msgid "manager.emails.editEmail"
-msgstr "E-posta Düzenle"
-
 msgid "manager.emails.editTestExample"
 msgstr "E-posta Test Örneğini Düzenle"
-
-msgid "manager.emails.emailKey"
-msgstr "E-posta Anahtarı"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Belirtilen anahtara sahip bir e-posta zaten var. E-posta anahtarları tekil olmalıdır."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-posta Şablonu"
@@ -176,9 +161,6 @@ msgstr "E-posta için bir konu belirlenmesi gereklidir."
 
 msgid "manager.emails"
 msgstr "Hazırlanmış E-postalar"
-
-msgid "manager.emails.reset"
-msgstr "Sıfırla"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Ön Tanımlı Biçime Dön"
@@ -1943,9 +1925,6 @@ msgstr ""
 "Bu yayın için temsilci bir veya daha fazla yayın formatı için pazar "
 "üstverilerine atandığıdan bu temsilciyi silemezsiniz."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Konu: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "adresine gönderildi"
 
@@ -1955,23 +1934,14 @@ msgstr "adresinden gönderildi"
 msgid "manager.emails.resetAll"
 msgstr "Hepsini sıfırla"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Girdiğiniz anahtar zaten kullanılıyor."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Bir e-posta şablonu eklerken bağlam kimliği sağlamanız gerekir."
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-posta Şablonları"
 
-msgid "manager.emails.emailKey.description"
-msgstr "E-posta anahtarı yalnızca harf, rakam ve alt çizgi içerebilir."
-
 msgid "manager.emails.editEmail.success"
 msgstr "E-posta şablonu değiştirildi."
-
-msgid "manager.emails.customTemplate"
-msgstr "Özel Şablon"
 
 msgid "manager.emails.addEmail.success"
 msgstr "E-posta şablonu eklendi."
@@ -2089,12 +2059,6 @@ msgstr "Makale Gönderimini Devre Dışı Bırak"
 
 msgid "manager.people.signedInAs"
 msgstr "Şu anda {$username} olarak giriş yaptınız"
-
-msgid "manager.emails.resetComplete"
-msgstr "E-posta şablonu başarıyla sıfırlandı."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Varsayılan e-posta şablonları geri yüklendi."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Duyuruyu Sil"
@@ -2359,12 +2323,14 @@ msgstr ""
 "kayıtlı kullanıcılara gönderilmektedir. Şifrelerini sıfırlamak için "
 "izleyebilecekleri bir URL bağlantısı içerir."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Bu e-posta yeni kaydolmuş kullanıcıya sisteme kabul edildiğini belirtmek ve kullanıcı adı ile şifresini bildirmek amacı ile gönderilmektedir."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Bu e-posta, yeni kayıt olan bir hakeme, sisteme hoş geldiniz mesajı ile birlikte kullanıcı adı ve şifresini iletmek için gönderilir."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2374,7 +2340,8 @@ msgstr ""
 "edebilmesi için gerekli olan bilgileri içerir."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Bu e-posta etkinleştirildiğinde, aday makale başvurusu sırasında belirtilen "
 "diğer yazarlara da e-posta gönderilir."

@@ -132,29 +132,14 @@ msgstr "没有公告类别已经创建."
 msgid "manager.announcementTypes.typeName"
 msgstr "公告类别"
 
-msgid "manager.emails.confirmDelete"
-msgstr "你确定要删除此电子邮件范本?"
-
-msgid "manager.emails.confirmReset"
-msgstr "你确定要以默认值重置此电子邮件模板?"
-
 msgid "manager.emails.createEmail"
 msgstr "创建邮件"
 
 msgid "manager.emails.disable"
 msgstr "禁用"
 
-msgid "manager.emails.editEmail"
-msgstr "编辑电子邮件"
-
 msgid "manager.emails.editTestExample"
 msgstr "编辑电子邮件测试例子"
-
-msgid "manager.emails.emailKey"
-msgstr "电子邮件键"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "一个给定的电子邮件键已经存在，电子邮件键必须是唯一的."
 
 msgid "manager.emails.emailTemplate"
 msgstr "电子邮件模板"
@@ -176,9 +161,6 @@ msgstr "这个电子邮件的主题是必须的."
 
 msgid "manager.emails"
 msgstr "编写电子邮件"
-
-msgid "manager.emails.reset"
-msgstr "重置"
 
 msgid "manager.emails.resetToDefault"
 msgstr "重置到默认"
@@ -624,9 +606,6 @@ msgstr "提交"
 msgid "manager.language.ui"
 msgstr "用户界面"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "主题：{$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "发给"
 
@@ -636,23 +615,14 @@ msgstr "来自"
 msgid "manager.emails.resetAll"
 msgstr "重置所有"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "您提供的密钥已在使用中。"
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "添加电子邮件模板时，必须提供上下文ID。"
 
 msgid "manager.emails.emailTemplates"
 msgstr "电子邮件模板"
 
-msgid "manager.emails.emailKey.description"
-msgstr "电子邮件密钥只能包含字母，数字和下划线。"
-
 msgid "manager.emails.editEmail.success"
 msgstr "电子邮件模板已修改。"
-
-msgid "manager.emails.customTemplate"
-msgstr "自定义模板"
 
 msgid "manager.emails.addEmail.success"
 msgstr "电子邮件模板已添加。"
@@ -1567,12 +1537,6 @@ msgstr "选择要导出到 Excel/CSV 文件的用户。"
 msgid "manager.export.usersToCsv.label"
 msgstr "导出到 Excel/CSV"
 
-msgid "manager.emails.resetComplete"
-msgstr "电子邮件模板已成功重置。"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "默认电子邮件模板已恢复。"
-
 msgid "manager.emails.otherTemplates"
 msgstr "其它模板"
 
@@ -1613,6 +1577,7 @@ msgstr "当注册用户成功依照PASSWORD_RESET_CONFIRM电子邮件的指示�
 msgid "mailable.passwordResetRequested.description"
 msgstr "当注册用户忘记他们的密码或者无法登入的时候，这封电子邮件会寄给他们。信中会提供一个网址让它们能够登入并重置他们的密码。"
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "这封电子邮件会被寄给新注册的用户，欢迎他们加入这个系统，并且提供他们一个用户名称和密码的记录。"
 
@@ -1620,11 +1585,13 @@ msgid "mailable.reviewerRegister.description"
 msgstr "这封电子邮件发送给新注册的审稿人，欢迎他们的加入并提供关于他们的用户名和密码的记录。"
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "这封电子邮件，一旦启用，就会在作者完成投稿一份稿件到期刊的流程之后，会自动地寄发给作者。邮件中提供了有关追踪稿件编辑进度的信息，以及感谢作者的投稿。"
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "启用此电子邮件后，它将自动发送给不是提交过程中指定的OJS中用户的其他作者。"
 
 msgid "mailable.revisedVersionNotify.description"

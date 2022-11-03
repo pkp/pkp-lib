@@ -35,7 +35,7 @@ class DecisionBackFromProductionNotifyAuthor extends Mailable
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_BACK_FROM_PRODUCTION';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_PRODUCTION];
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     public function __construct(Context $context, Submission $submission, Decision $decision)

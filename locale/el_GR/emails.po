@@ -157,3 +157,8 @@ msgstr ""
 "Η απόφασή μας είναι: Απόρριψη υποβολής"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Ένα μήνυμα σχετικά με το περιοδικό {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Παρακαλούμε εισάγετε το μήνυμά σας."

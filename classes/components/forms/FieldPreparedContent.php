@@ -14,6 +14,8 @@
 
 namespace PKP\components\forms;
 
+use stdClass;
+
 class FieldPreparedContent extends FieldRichTextarea
 {
     public $component = 'field-prepared-content';
@@ -23,7 +25,7 @@ class FieldPreparedContent extends FieldRichTextarea
      *
      * @see FieldPreparedContent in the UI Library for details on the expected format
      */
-    public array $preparedContent;
+    public array $preparedContent = [];
 
     public function getConfig()
     {
@@ -32,9 +34,7 @@ class FieldPreparedContent extends FieldRichTextarea
         $config['insertLabel'] = __('common.insert');
         $config['insertModalLabel'] = __('common.insertContent');
         $config['searchLabel'] = __('common.insertContentSearch');
-        if (!empty($this->preparedContent)) {
-            $config['preparedContent'] = $this->preparedContent;
-        }
+        $config['preparedContent'] = $this->preparedContent;
 
         return $config;
     }

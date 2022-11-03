@@ -176,3 +176,8 @@ msgstr ""
 "Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Wiadomość do czasopisma \"{$contextName}\""
+
+msgid "emails.discussion.body"
+msgstr "Proszę o wpisanie wiadomości."

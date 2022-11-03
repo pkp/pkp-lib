@@ -264,9 +264,6 @@ msgstr "Velja notendur til að flytja út í Excel/CSV skrá."
 msgid "manager.export.usersToCsv.label"
 msgstr "Flytja út í Excel/CSV"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Efni: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Móttakandi"
 
@@ -280,15 +277,6 @@ msgid "manager.emails.reset.message"
 msgstr ""
 "Ef þú endurstillir þetta sniðmát, munu öll skilaboðagögn vera endurstillt í "
 "upprunalegt horf, og allar breytingar tapast.  Viltu staðfesta þessa aðgerð?"
-
-msgid "manager.emails.resetComplete"
-msgstr "Það tókst að endurstilla sniðmát tölvupóstsins."
-
-msgid "manager.emails.reset"
-msgstr "Endurstilla"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Upprunalegu tölvupóstsniðmátin hafa verið endurheimt."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -321,9 +309,6 @@ msgstr "Virkja"
 msgid "manager.emails.enabled"
 msgstr "Virkja sniðmát tölvupósts"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Lykillinn sem þú slóst inn er nú þegar í notkun."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Þú verður að gefa upp kenni samhengis þegar þú bætir við sniðmáti fyrir "
@@ -338,22 +323,8 @@ msgstr "Tölvupóstur - sniðmát"
 msgid "manager.emails.emailTemplate"
 msgstr "Tölvupóstur - sniðmát"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Tölvupóstur með þessum lykli er til. Tölvupóstslyklar verða að vera "
-"einkvæmir."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Tölvupóstslykill má bara innihalda bókstafi, númer og undirstrik."
-
-msgid "manager.emails.emailKey"
-msgstr "Tölvupóstslykill"
-
 msgid "manager.emails.editTestExample"
 msgstr "Breyta tölvupósti - dæmi um prófun"
-
-msgid "manager.emails.editEmail"
-msgstr "Breyta tölvupósti"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -369,22 +340,11 @@ msgstr "Sniðmát - nánar"
 msgid "manager.emails.data"
 msgstr "Sniðmát - skilaboð"
 
-msgid "manager.emails.customTemplate"
-msgstr "Sérsniðið sniðmát"
-
 msgid "manager.emails.createEmail"
 msgstr "Stofna tölvupóst"
 
 msgid "manager.emails.addEmail"
 msgstr "Bæta við sniðmáti"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Ertu viss um að þú villjir endurstilla þetta sniðmát tölvupósts í upphaflegt "
-"form?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Ertu viss um að þú viljir eyða þessu sniðmáti tölvupósts?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Búið að uppfæra upplýsingar í áminningu um ritrýni."
@@ -2377,6 +2337,7 @@ msgstr ""
 "lykilorði sínu og geta ekki skráð sig inn.  Tölvupósturinn sendir vefslóð "
 "sem notandinn getur notað til að endurstilla lykilorðið sitt."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Þessi tölvupóstur er sendur á nýja notendur til að bjóða þá velkomna og "
@@ -2387,6 +2348,7 @@ msgstr ""
 "Þessi tölvupóstur er sendur á nýlega skráða ritrýna til að bjóða þá velkomna "
 "og til að senda þeim notendanafn og lykilorð."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Þessi tölvupóstur, þegar hann er virkjaður, er sendur sjálfkrafa til höfunda "
@@ -2394,7 +2356,8 @@ msgstr ""
 "hvernig hægt sé að fylgjast með framgangi innsendingar í gengum "
 "ritsjórnarferlið."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Þessi tölvupóstur, ef virkjaður, er sendur sjálfkrafa á meðhöfunda "
 "innsendingar ef viðkomandi er ekki sendandinn."

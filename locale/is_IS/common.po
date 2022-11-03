@@ -413,9 +413,6 @@ msgstr "Tegund"
 msgid "common.true"
 msgstr "Satt"
 
-msgid "common.toWithValue"
-msgstr "Til: {$value}"
-
 msgid "common.top"
 msgstr "Efst"
 
@@ -781,9 +778,6 @@ msgstr ""
 
 msgid "common.error.databaseErrorUnknown"
 msgstr "Upp kom óþekkt villa við tengingu við gagnagrunn."
-
-msgid "common.fromWithValue"
-msgstr "Frá: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Hreinsa síu: {$filterTitle}"

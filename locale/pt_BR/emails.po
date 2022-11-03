@@ -183,3 +183,8 @@ msgstr ""
 "periódico. </p> <p> Atenciosamente, </p> {$signature}"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Uma mensagem sobre {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Insira a sua mensagem por gentileza."

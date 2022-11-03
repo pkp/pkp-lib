@@ -134,29 +134,14 @@ msgstr "Não há tipos de notícia."
 msgid "manager.announcementTypes.typeName"
 msgstr "Tipo de Notícia"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Deseja realmente elimininar esta mensagem padrão?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Deseja realmente restaurar este e-mail para o padrão original?"
-
 msgid "manager.emails.createEmail"
 msgstr "Criar E-mail"
 
 msgid "manager.emails.disable"
 msgstr "Desactivar"
 
-msgid "manager.emails.editEmail"
-msgstr "Editar E-mail"
-
 msgid "manager.emails.editTestExample"
 msgstr "Editar Exemplo de E-mail"
-
-msgid "manager.emails.emailKey"
-msgstr "Senha de E-mail"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Já existe uma conta e-mail com a senha fornecida. As senhas de e-mail devem ser únicas."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-mail Padrão"
@@ -175,9 +160,6 @@ msgstr "É obrigatório o assunto da mensagem ."
 
 msgid "manager.emails"
 msgstr "E-mails"
-
-msgid "manager.emails.reset"
-msgstr "Restabelecer"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Restabelecer para Original"
@@ -1660,9 +1642,6 @@ msgstr ""
 "Não pode eliminar este representante porque está designado aos metadados de "
 "mercados para um ou mais formatos de publicação para esta submissão."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Assunto: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Enviado para"
 
@@ -1672,20 +1651,11 @@ msgstr "Enviado de"
 msgid "manager.emails.resetAll"
 msgstr "Restaurar tudo"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "A chave que inseriu já se encontra em uso."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Deve inserir um ID do contexto quando adiciona um modelo de e-mail."
 
 msgid "manager.emails.emailTemplates"
 msgstr "Modelos de e-mail"
-
-msgid "manager.emails.emailKey.description"
-msgstr "A senha de e-mail só pode conter letras, números e underscores."
-
-msgid "manager.emails.customTemplate"
-msgstr "Modelo personalizado"
 
 msgid "manager.emails.addEmail"
 msgstr "Adicionar modelo"
@@ -2046,12 +2016,6 @@ msgstr ""
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Exportar para Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "O e-mail padrão foi reiniciado com sucesso."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "O e-mail padrão foi restaurado."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Eliminar Notícia"
@@ -2617,6 +2581,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Nova Ronda de Revisão iniciada"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Submissão Rejeitada"
 
@@ -2765,9 +2730,10 @@ msgstr "Pedido de Revisão Subsequente"
 msgid "mailable.reviewRequest.name"
 msgstr "Pedido de Revisão"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Lembrete de resposta atrasada (automatizada)"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Este e-mail é enviado por um Editor de Secção para confirmar a receção de "
@@ -2798,6 +2764,7 @@ msgstr ""
 "aceder à revista. O link fornecido permite ao utilizador concluir a "
 "atualização da senha."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Mensagem enviada aos utilizadores recém-registados no sistema, para dar-lhes "
@@ -2806,13 +2773,15 @@ msgstr ""
 msgid "mailable.reviewerRegister.description"
 msgstr "Mensagem de boas-vindas enviada a novo revisor registado no sistema, com nome de utilizador e senha para acesso."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Este e-mail, quando ativo, é enviado automaticamente ao autor quando submete "
 "um trabalho à revista. Oferece informações sobre como acompanhar o trabalho "
 "pelo processo editorial e agradece a submissão ao autor."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Este e-mail, quando ativo, é enviado automaticamente para os autores "
 "nomeados que não o autor que submeteu o trabalho."

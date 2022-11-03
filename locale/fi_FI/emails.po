@@ -176,3 +176,8 @@ msgstr ""
 "Päätöksemme on: Käsikirjoitus on hylätty"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Viesti julkaisua {$contextName} koskien"
+
+msgid "emails.discussion.body"
+msgstr "Kirjoita viesti."

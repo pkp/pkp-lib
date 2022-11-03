@@ -79,9 +79,6 @@ msgstr ""
 msgid "manager.filesBrowser"
 msgstr "پیشاندەری فایلەکان"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "بابەت: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "ناردن بۆ"
 
@@ -96,9 +93,6 @@ msgstr ""
 "ئەگەر ڕێکخستنی ئەم قاڵبە هەڵ بوەشێنیتەوە، هەمو زانیارییەکانی نامەکان بۆ "
 "حاڵەتی یەکەمجاری دەگەڕێتەوە و هەمو تایبەتمەندییەکان لەدەست دەچن. ئایا تۆ "
 "دەتەوێت ئەم کارە بکەیت؟"
-
-msgid "manager.emails.reset"
-msgstr "هەڵوەشاندنەوەی ڕێکخستن"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -130,9 +124,6 @@ msgstr "چالاککردن"
 msgid "manager.emails.enabled"
 msgstr "چالاککردنی ئەم قاڵبی ئیمەیڵە"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "ئەو کلیلەی تۆ نوسیوتە، دوبارەیە."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "تۆ دەبێت ناسنامەیەکی کۆنتێکستەکە داخل بکەیت بۆ زیادکردنی قاڵبی ئیمەیڵ."
 
@@ -142,24 +133,11 @@ msgstr "قاڵبەکانی ئیمەیڵ"
 msgid "manager.emails.emailTemplate"
 msgstr "قاڵبی ئیمەیڵ"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"ئیمەیڵێک بە هەمان کلیلەوە هەیە. کلیلەکانی هەر ئیمەیڵێک دەبێت دوبارە نەبن."
-
-msgid "manager.emails.emailKey.description"
-msgstr "کلیلی ئیمەیڵ دەبێت پیت، ژمارە یان ژێرخەت بێت."
-
-msgid "manager.emails.emailKey"
-msgstr "کلیلی ئیمەیڵ"
-
 msgid "manager.emails.editTestExample"
 msgstr "نمونەی ئەزمونکردنی قاڵبی ئیمەیڵ بگۆڕە"
 
 msgid "manager.emails.editEmail.success"
 msgstr "قاڵبی ئیمەیڵەکە بە سەرکەوتویی گۆڕدرا."
-
-msgid "manager.emails.editEmail"
-msgstr "گۆڕینی ئیمەیڵ"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -175,9 +153,6 @@ msgstr "وردەکارییەکانی قاڵبەکە"
 msgid "manager.emails.data"
 msgstr "زانیاریی نامەکانی قاڵبەکە"
 
-msgid "manager.emails.customTemplate"
-msgstr "قاڵبی تایبەت"
-
 msgid "manager.emails.createEmail"
 msgstr "دروستکردنی ئیمەیڵ"
 
@@ -186,12 +161,6 @@ msgstr "ئەم قاڵبی ئیمەیڵە زیاد کرا."
 
 msgid "manager.emails.addEmail"
 msgstr "زیادکردنی قاڵب"
-
-msgid "manager.emails.confirmReset"
-msgstr "ئایا تۆ دڵنیایت لە هەڵوەشاندنەوەی ڕێکخستنەکانی قاڵبی ئەم ئیمەیڵە؟"
-
-msgid "manager.emails.confirmDelete"
-msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی قاڵبی ئەم ئیمەیڵە؟"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "زانیارییە بیرخەرەوەکانی هەڵسەنگاندن نوێ کرانەوە."
@@ -640,6 +609,7 @@ msgstr ""
 "بيرچووە  و/يان نەيانتوانيوە بێنە ناو سستەمەوە. بۆ سفركردنەوەى وشەى نهێنيتان "
 "بەدواى بەستەرە بكەوە كە لەم ئيمەيلەدايە."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "ئه‌م ئیمێڵه‌ نێردراوه‌ بۆ به‌كارهێنه‌ره‌ نوێیه‌كان بۆ به‌خێرهاتنیان بۆناو "
@@ -651,6 +621,7 @@ msgstr ""
 "دابینکردنی ناوی بەکارهێنەر و وشەی نهێنییەکەیان."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "کاتێک ئەم ئیمەیڵە کارا کرابێت، بە شێوەیەکی تۆماتیکی دەچێت بۆ توێژەر بۆ "
@@ -659,7 +630,8 @@ msgstr ""
 "پێشکەشکردنی توێژینەوەکەی."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "کاتێک ئەم ئیمەیڵە کارا بکرێت، بە شێوەیەکی تۆماتیکی دەچێت بۆ ئەو توێژەرانەی "
 "کە بەکارهێنەری سیستەمی گۆڤاری کراوە نین بەڵام لە کاتی پرۆسەی پێشکەشکردندا "

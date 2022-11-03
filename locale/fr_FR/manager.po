@@ -134,31 +134,14 @@ msgstr "Aucun type d'annonce n'a été créé."
 msgid "manager.announcementTypes.typeName"
 msgstr "Type d'annonce"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Voulez-vous vraiment supprimer ce modèle de courriel ?"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Voulez-vous vraiment réinitialiser ce modèle de courriel à ses valeurs par "
-"défaut ?"
-
 msgid "manager.emails.createEmail"
 msgstr "Créer un courriel"
 
 msgid "manager.emails.disable"
 msgstr "Désactiver"
 
-msgid "manager.emails.editEmail"
-msgstr "Modifier un courriel"
-
 msgid "manager.emails.editTestExample"
 msgstr "Modifier l'exemple du test de courriel"
-
-msgid "manager.emails.emailKey"
-msgstr "Clé du courriel"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Un courriel avec cette clé existe déjà. Les clés de courriels doivent être uniques."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Modèle de courriels"
@@ -177,9 +160,6 @@ msgstr "L'objet du courriel est obligatoire."
 
 msgid "manager.emails"
 msgstr "Courriels préparés"
-
-msgid "manager.emails.reset"
-msgstr "Réinitialiser"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Réinitialiser aux valeurs par défaut"
@@ -2025,9 +2005,6 @@ msgstr ""
 "est affecté aux métadonnées du marché pour un ou plusieurs formats de "
 "publication pour cette soumission."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Objet : {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Envoyé à"
 
@@ -2037,9 +2014,6 @@ msgstr "Envoyé par"
 msgid "manager.emails.resetAll"
 msgstr "Réinitialiser tout"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "La clé que vous avez fournie est déjà utilisée."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Vous devez fournir un identifiant de contexte lors de l'ajout d'un modèle de "
@@ -2048,15 +2022,8 @@ msgstr ""
 msgid "manager.emails.emailTemplates"
 msgstr "Modèles de courriel"
 
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"La clé du courriel ne peut contenir que des lettres, chiffres ou tirets bas."
-
 msgid "manager.emails.editEmail.success"
 msgstr "Le modèle de courriel a été modifié."
-
-msgid "manager.emails.customTemplate"
-msgstr "Modèle personnalisé"
 
 msgid "manager.emails.addEmail.success"
 msgstr "Le modèle de courriel a été ajouté."
@@ -2196,12 +2163,6 @@ msgstr ""
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Exporter au format Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Le modèle de courriel a été réinitialisé avec succès."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Les modèles de courriels par défaut ont été réinitialisés."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Supprimer l'annonce"
@@ -2431,12 +2392,14 @@ msgstr "Ce courriel est envoyé aux utilisateurs inscrits lorsqu'ils ont réussi
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ce courriel est envoyé aux utilisateurs qui nous signalent avoir oublié leur mot de passe ou qui sont incapables d'ouvrir une session. Il fournit le lien URL pour réinitialiser leur mot de passe."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Ce courriel est envoyé aux utilisateurs nouvellement inscrits pour leur souhaiter la bienvenue à la revue et leur faire connaître leur nom d'utilisateur et leur mot de passe."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Ce courriel est envoyé à un rapporteur nouvellement inscrit, afin de l'accueillir dans le système et lui offrir un enregistrement de son nom d'utilisateur et mot de passe."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2447,7 +2410,8 @@ msgstr ""
 "l'auteure pour sa soumission."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteurs, i.e. ceux qui ne sont pas l'utilisateur enregistré faisant la soumission."
 
 msgid "mailable.revisedVersionNotify.description"

@@ -1899,9 +1899,6 @@ msgstr "Seçili olan görüntünün önizlemesi."
 msgid "common.upload.restore"
 msgstr "Orijinali Geri Yükle"
 
-msgid "common.toWithValue"
-msgstr "Kime: {$value}"
-
 msgid "common.submenu"
 msgstr "Alt Menü"
 
@@ -1937,9 +1934,6 @@ msgstr "Hiç bir öğe bulunamadı."
 
 msgid "common.lastActivity"
 msgstr "Son etkinlik tarihi: {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Gönderen: {$value}"
 
 msgid "common.dateDecided"
 msgstr "Karar Tarihi"

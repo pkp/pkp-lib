@@ -37,7 +37,7 @@ class ReviewConfirm extends Mailable
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static bool $canDisable = true;
     protected static array $fromRoleIds = [Role::ROLE_ID_REVIEWER];
-    protected static array $toRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $toRoleIds = [Role::ROLE_ID_SUB_EDITOR];
 
     public function __construct(PKPSubmission $submission, ReviewAssignment $reviewAssignment, Context $context)
     {

@@ -20,6 +20,7 @@ use PKP\mail\Mailable;
 use PKP\context\Context;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
 use PKP\user\User;
 
 class UserCreated extends Mailable
@@ -34,6 +35,17 @@ class UserCreated extends Mailable
     protected static ?string $description = 'mailable.userRegister.description';
     protected static ?string $emailTemplateKey = 'USER_REGISTER';
     protected static array $groupIds = [self::GROUP_OTHER];
+    protected static array $fromRoleIds = [
+        Role::ROLE_ID_SUB_EDITOR,
+    ];
+    protected static array $toRoleIds = [
+        Role::ROLE_ID_SUB_EDITOR,
+        Role::ROLE_ID_ASSISTANT,
+        Role::ROLE_ID_AUTHOR,
+        Role::ROLE_ID_READER,
+        Role::ROLE_ID_REVIEWER,
+        Role::ROLE_ID_SUBSCRIPTION_MANAGER,
+    ];
     protected static ?string $variablePassword = 'password';
 
     public function __construct(Context $context)

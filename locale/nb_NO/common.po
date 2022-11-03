@@ -1777,9 +1777,6 @@ msgstr "Opplastningsdato"
 msgid "common.component"
 msgstr "Komponent"
 
-msgid "common.toWithValue"
-msgstr "Til: {$value}"
-
 msgid "common.subtitle"
 msgstr "Undertittel"
 
@@ -1898,9 +1895,6 @@ msgstr "Elementer per side"
 
 msgid "common.homepageNavigationLabel"
 msgstr "Hjem"
-
-msgid "common.fromWithValue"
-msgstr "Fra: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Fjern filter: {$filterTitle}"

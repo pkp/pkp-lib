@@ -197,6 +197,7 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('email_templates_default_data', function (Blueprint $table) {
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->string('locale', 14)->default('en_US');
+            $table->string('name', 255);
             $table->string('subject', 255);
             $table->text('body')->nullable();
             $table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
@@ -212,7 +213,9 @@ class CommonMigration extends \PKP\migration\Migration
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context_id'], 'email_templates_context_id');
 
-            $table->smallInteger('enabled')->default(1);
+            $table->string('alternate_to', 255)->nullable();
+            $table->index(['alternate_to'], 'email_templates_alternate_to');
+
             $table->unique(['email_key', 'context_id'], 'email_templates_email_key');
         });
 
@@ -226,17 +229,6 @@ class CommonMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
 
             $table->unique(['email_id', 'locale', 'setting_name'], 'email_settings_pkey');
-        });
-
-        // Association between Mailables and Email Templates
-        Schema::create('mailable_templates', function (Blueprint $table) {
-            $table->bigInteger('email_id');
-            $table->foreign('email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
-            $table->index(['email_id'], 'mailable_templates_email_id');
-
-            $table->string('mailable_id', 255);
-
-            $table->primary(['email_id', 'mailable_id']);
         });
 
         // Resumption tokens for the OAI protocol interface.

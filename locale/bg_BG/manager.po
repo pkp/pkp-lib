@@ -256,9 +256,6 @@ msgstr "Изберете потребителите, които да бъдат 
 msgid "manager.export.usersToCsv.label"
 msgstr "Експорт към Excel/CSV"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Тема: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Изпратено на"
 
@@ -273,15 +270,6 @@ msgstr ""
 "Ако нулирате този шаблон, всички данни за съобщението ще бъдат нулирани до "
 "стойността по подразбиране, като всички модификации ще бъдат загубени. "
 "Искате ли да потвърдите тази операция?"
-
-msgid "manager.emails.resetComplete"
-msgstr "Шаблонът за имейл беше успешно нулиран."
-
-msgid "manager.emails.reset"
-msgstr "Нулиране"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Стандартните имейл шаблони са възстановени."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -311,9 +299,6 @@ msgstr "Ще активирате този имейл. Искате ли да п
 msgid "manager.emails.enabled"
 msgstr "Активиране на този шаблон за имейл"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Предоставеният от вас ключ вече се използва."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Трябва да предоставите идентификатор на контекста, когато добавяте шаблон за "
@@ -328,22 +313,8 @@ msgstr "Шаблони за имейл"
 msgid "manager.emails.emailTemplate"
 msgstr "Шаблон за имейл"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Вече съществува имейл с дадения ключ. Ключовете за имейл трябва да са "
-"уникални."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Ключът за имейл може да съдържа само букви, цифри и долни черти."
-
-msgid "manager.emails.emailKey"
-msgstr "Имейл ключ"
-
 msgid "manager.emails.editTestExample"
 msgstr "Редактиране на тестов пример за имейл"
-
-msgid "manager.emails.editEmail"
-msgstr "Редакция на имейл"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -378,22 +349,11 @@ msgstr "Детайли за шаблон"
 msgid "manager.emails.data"
 msgstr "Данни за шаблонно съобщение"
 
-msgid "manager.emails.customTemplate"
-msgstr "Потребителски шаблон"
-
 msgid "manager.emails.createEmail"
 msgstr "Създаване на имейл"
 
 msgid "manager.emails.addEmail"
 msgstr "Добавяне на шаблон"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Наистина ли искате да нулирате този шаблон за имейл до неговите стойности по "
-"подразбиране?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Наистина ли искате да изтриете този шаблон за имейл?"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
@@ -1883,6 +1843,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Започнат е нов кръг (етап) на рецензиране"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Подадените материали са отхвърлени"
 
@@ -3024,9 +2985,10 @@ msgstr "Следваща заявка за рецензия"
 msgid "mailable.reviewRequest.name"
 msgstr "Заявка за рецензия"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Просрочен отговор за рецензия (автоматичен)"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Този имейл се изпраща от редактор на раздел, за да потвърди получаването на "
@@ -3047,6 +3009,7 @@ msgstr ""
 "забравил паролата си или не може да влезе. В имейла се предоставя URL адрес "
 "с връзка за задаване на нова парола."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Този имейл се изпраща на новорегистриран потребител, за да ги приветства в "
@@ -3057,6 +3020,7 @@ msgstr ""
 "Този имейл се изпраща на новорегистриран рецензент, за да го приветства в "
 "системата и да им предостави запис с потребителско име и парола."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
@@ -3064,7 +3028,8 @@ msgstr ""
 "информация за проследяване на подаването на ръкописа и благодари на автора "
 "за изпращането."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Този имейл, когато е разрешен, автоматично се изпраща до другите автори на "
 "ръкописа, които не са изпращащия автор."
@@ -3237,13 +3202,16 @@ msgstr "Нулиране на парола"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Потвърждение за нулиране на парола"
 
+#, fuzzy
 msgid "mailable.userRegister.name"
 msgstr "Регистър на потребителя"
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Потвърждение за подадени материали"
 
-msgid "mailable.submissionAckNotUser.name"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Потвърждение за подадени материали"
 
 msgid "mailable.reviewerRegister.name"

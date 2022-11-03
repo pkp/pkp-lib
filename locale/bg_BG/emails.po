@@ -165,3 +165,9 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Нашето решение е да: Отхвърлим изпратените материали"
+
+msgid "emails.discussion.subject"
+msgstr "Съобщение относно {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Моля, въведете вашето съобщение."

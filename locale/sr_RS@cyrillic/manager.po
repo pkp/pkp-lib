@@ -135,29 +135,14 @@ msgstr "Нема креираних типова обавештења."
 msgid "manager.announcementTypes.typeName"
 msgstr "Тип обавештења"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Да ли сте сигурни да желите обрисати овај шаблон имејла?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Да ли сте сигурни да желите вратити почетни шаблон имејла на његове стандардне вредности?"
-
 msgid "manager.emails.createEmail"
 msgstr "Креирај имејл"
 
 msgid "manager.emails.disable"
 msgstr "Онемогући"
 
-msgid "manager.emails.editEmail"
-msgstr "Измени имејл"
-
 msgid "manager.emails.editTestExample"
 msgstr "Уредите пробни пример имејла"
-
-msgid "manager.emails.emailKey"
-msgstr "Кључ имејла"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Имајл с датим кључем већ постоји. Кључ имејла мора бити јединствен."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Шаблон имејла"
@@ -179,9 +164,6 @@ msgstr "Субјекат је обавезан у имејлу."
 
 msgid "manager.emails"
 msgstr "Припремљени обрасци имејла"
-
-msgid "manager.emails.reset"
-msgstr "Врати на почетно"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Вратите на почетну вредност"

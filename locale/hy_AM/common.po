@@ -178,9 +178,6 @@ msgstr "Գլխավոր"
 msgid "common.height"
 msgstr "Բարձրություն"
 
-msgid "common.fromWithValue"
-msgstr "Սկսած: {$value}"
-
 msgid "common.filterRemove"
 msgstr "Հեռացնել զտիչը: {$filterTitle}"
 
@@ -566,9 +563,6 @@ msgstr "Տիպ"
 
 msgid "common.true"
 msgstr "Ճիշտ"
-
-msgid "common.toWithValue"
-msgstr "To: {$value}-"
 
 msgid "common.top"
 msgstr "Գագաթ"

@@ -20,7 +20,6 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
-use APP\mail\variables\ContextEmailVariable;
 use PKP\security\Role;
 use PKP\mail\traits\Notification as NotificationTrait;
 
@@ -34,7 +33,8 @@ class PublicationVersionNotify extends Mailable
     protected static ?string $description = 'mailable.publicationVersionNotify.description';
     protected static ?string $emailTemplateKey = 'NOTIFICATION';
     protected static array $groupIds = [self::GROUP_PRODUCTION];
-    protected static array $toRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
+    protected static array $toRoleIds = [Role::ROLE_ID_SUB_EDITOR];
 
     public function __construct(Context $context, Submission $submission, Notification $notification)
     {

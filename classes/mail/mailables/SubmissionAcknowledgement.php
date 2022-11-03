@@ -32,6 +32,7 @@ class SubmissionAcknowledgement extends Mailable
     protected static ?string $emailTemplateKey = 'SUBMISSION_ACK';
     protected static bool $canDisable = true;
     protected static array $groupIds = [self::GROUP_SUBMISSION];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     public function __construct(Context $context, Submission $submission)

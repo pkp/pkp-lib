@@ -18,10 +18,8 @@ namespace PKP\mail\traits;
 use APP\core\Application;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
-use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
-use PKP\mail\variables\SubmissionEmailVariable;
 use APP\mail\variables\ContextEmailVariable;
 use Exception;
 
@@ -38,7 +36,7 @@ trait Unsubscribe
     /**
      * @var string[] template variables required for the unsubscribe footer
      */
-    protected static array $requiredVariables = [PKPContextEmailVariable::class, SubmissionEmailVariable::class];
+    protected static array $requiredVariables = [PKPContextEmailVariable::class];
 
     abstract function addData(array $data): Mailable;
     abstract function getVariables(): array;
@@ -94,7 +92,7 @@ trait Unsubscribe
             }
         }
 
-        return count($included) === 2;
+        return count($included) === count(self::$requiredVariables);
     }
 
     /**

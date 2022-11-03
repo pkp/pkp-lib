@@ -45,6 +45,10 @@ abstract class Context extends \PKP\core\DataObject
     public const SETTING_DOI_CREATION_TIME = 'doiCreationTime';
     public const SETTING_DOI_AUTOMATIC_DEPOSIT = 'automaticDoiDeposit';
 
+    public const SUBMISSION_ACKNOWLEDGEMENT_OFF = null;
+    public const SUBMISSION_ACKNOWLEDGEMENT_SUBMITTING_AUTHOR = 'submittingAuthor';
+    public const SUBMISSION_ACKNOWLEDGEMENT_ALL_AUTHORS = 'allAuthors';
+
     /**
      * Whether DOIs are enabled for this context
      *

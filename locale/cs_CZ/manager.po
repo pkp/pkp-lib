@@ -136,31 +136,14 @@ msgstr "Nebyly vytvořeny žádné typy oznámení."
 msgid "manager.announcementTypes.typeName"
 msgstr "Typ oznámení"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Jste si jistý, že chcete smazat tuto šablonu emailu?"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Jste si jistý, že chcete resetovat tuto šablonu emailu na její výchozí "
-"hodnoty?"
-
 msgid "manager.emails.createEmail"
 msgstr "Vytvořit email"
 
 msgid "manager.emails.disable"
 msgstr "Zakázat"
 
-msgid "manager.emails.editEmail"
-msgstr "Editovat email"
-
 msgid "manager.emails.editTestExample"
 msgstr "Editovat testovací příklad emailu"
-
-msgid "manager.emails.emailKey"
-msgstr "Klíč emailu"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Email s daným klíčem již existuje. Klíče emailu musí být jedinečné."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Šablona emailu"
@@ -182,9 +165,6 @@ msgstr "Je vyžadován předmět emailu."
 
 msgid "manager.emails"
 msgstr "Připravené e-maily"
-
-msgid "manager.emails.reset"
-msgstr "Resetovat"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Resetovat na výchozí"
@@ -2041,9 +2021,6 @@ msgstr ""
 "Tento zástupce nelze odstranit, protože jsou přiřazena k tržním metadatům "
 "pro jeden nebo více publikačních formátů pro tento příspěvek."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Předmět: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Odesláno do"
 
@@ -2053,23 +2030,14 @@ msgstr "Odesláno z"
 msgid "manager.emails.resetAll"
 msgstr "Resetovat vše"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Klíč, který jste zadali, se již používá."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Při přidávání e-mailové šablony musíte zadat ID kontextu."
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-mailové šablony"
 
-msgid "manager.emails.emailKey.description"
-msgstr "Klíč e-mailu může obsahovat pouze písmena, čísla a podtržítka."
-
 msgid "manager.emails.editEmail.success"
 msgstr "Šablona e-mailu byla upravena."
-
-msgid "manager.emails.customTemplate"
-msgstr "Vlastní šablona"
 
 msgid "manager.emails.addEmail.success"
 msgstr "Byla přidána šablona e-mailu."
@@ -2203,12 +2171,6 @@ msgstr ""
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Export do formátu Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Šablona e-mailu byla úspěšně obnovena."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Výchozí e-mailové šablony byly obnoveny."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Smazat oznámení"
@@ -2678,6 +2640,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Zahájení nového kola recenzí"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Příspěvek odmítnut"
 
@@ -2917,9 +2880,10 @@ msgstr "Požadavek na následnou recenzi"
 msgid "mailable.reviewRequest.name"
 msgstr "Požadavek na recenzi"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Uplynula lhůta na reakci na požadavek na recenzi (automatizované)"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Tento e-mail zasílá redaktor sekce, aby potvrdil přijetí dokončené recenze a "
@@ -2954,6 +2918,7 @@ msgstr ""
 "heslo nebo se nemůže přihlásit. Obsahuje adresu URL, kterou může následovat "
 "a resetovat své heslo."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Tento email je zaslán nově registrovanému uživateli jako přivítání do "
@@ -2964,13 +2929,15 @@ msgstr ""
 "Tento email je zaslán nově registrovanému recenzentovi jako přivítání do "
 "systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Pokud je tato možnost povolena, je tento e-mail automaticky odeslán autorovi "
 "při odeslání příspěvku do časopisu. Obsahuje informace o sledování příspěvku "
 "v redakčním procesu a poděkování autorovi za příspěvek."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Pokud je tato funkce povolena, je tento e-mail automaticky zasílán autorům "
 "uvedeným v příspěvku, kteří nejsou kontaktním autorem."
@@ -3134,16 +3101,19 @@ msgstr "Obnovení hesla"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potvrzení obnovení hesla"
 
+#, fuzzy
 msgid "mailable.userRegister.name"
 msgstr "Registrace uživatelů"
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Registrace recenzentů"
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Poděkování za podání příspěvku"
 
-msgid "mailable.submissionAckNotUser.name"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Potvrzení podání příspěvku"
 
 msgid "mailable.discussionSubmission.name"

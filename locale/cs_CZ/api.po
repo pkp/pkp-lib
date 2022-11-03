@@ -299,19 +299,8 @@ msgstr "Musíte zadat předmět a tělo e-mailu."
 msgid "api.dois.403.prefixRequired"
 msgstr "Pro generování identifikátorů DOI je vyžadován prefix DOI."
 
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "Vstupem templateKeys by mělo být pole nebo prázdný řetězec"
-
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"Šablonu nebylo možné přiřadit tomuto e-mailu, protože šablona nebyla "
-"nalezena."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Požadovaný email nebyl nalezen."
-
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "Nebyly zadány klíče emailové šablony."
 
 msgid "api.institutions.404.institutionNotFound"
 msgstr "Požadovaná instituce nebyla nalezena."

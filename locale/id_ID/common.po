@@ -1276,9 +1276,6 @@ msgstr "Belum dibaca"
 msgid "common.component"
 msgstr "Komponen"
 
-msgid "common.toWithValue"
-msgstr "Ke: {$value}"
-
 msgid "common.subtitle"
 msgstr "Subjudul"
 
@@ -1421,9 +1418,6 @@ msgstr "Beranda"
 
 msgid "common.go"
 msgstr "Lanjut"
-
-msgid "common.fromWithValue"
-msgstr "Dari: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Hapus filter: {$filterTitle}"

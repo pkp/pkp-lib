@@ -133,29 +133,14 @@ msgstr "Żadne rodzaje wpisów nie zostały utworzone."
 msgid "manager.announcementTypes.typeName"
 msgstr "Rodzaje wpisów"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Czy na pewno usunąć szablony wiadomości e-mail?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Czy na pewno powrócić do ustawień domyślnych tego szablonu?"
-
 msgid "manager.emails.createEmail"
 msgstr "Utwórz e-mail"
 
 msgid "manager.emails.disable"
 msgstr "Wyłącz"
 
-msgid "manager.emails.editEmail"
-msgstr "Edytuj e-mail"
-
 msgid "manager.emails.editTestExample"
 msgstr "Edytuj szablon testowy wiadomości e-mail"
-
-msgid "manager.emails.emailKey"
-msgstr "Klucz e-mail"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "E-mail o podanym kluczu już istnieje."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Szablon wiadomości e-mail"
@@ -183,9 +168,6 @@ msgstr "Przygotowane wiadomości e-mail"
 
 msgid "manager.emails.resetAll"
 msgstr "Powrót do ustawień domyślnych dla wszystkich szablonów wiadomości e-mail"
-
-msgid "manager.emails.reset"
-msgstr "Ustawienia domyślne"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Wróć do ustawień domyślnych"
@@ -2089,32 +2071,14 @@ msgstr ""
 msgid "manager.people.signedInAs"
 msgstr "Jesteś zalogowany jako {$username}"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Temat: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Odbiorca"
 
 msgid "manager.emails.sentFrom"
 msgstr "Nadawca"
 
-msgid "manager.emails.resetComplete"
-msgstr "Szablon email został poprawnie zresetowany."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Domyślne szablony email zostały przywrócone."
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Klucz który podałeś jest już w użyciu."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Musisz podać ID kontekstu kiedy tworzysz nowy szablon email."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Klucz email może zawierać jedynie litery, cyfry i znaki interpunkcyjne."
-
-msgid "manager.emails.customTemplate"
-msgstr "Własny szablon"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Ustawienia przypomnień dot. recenzji zostały zaktualizowane."
@@ -2192,12 +2156,14 @@ msgstr "Wiadomość jest przesyłana do zarejestrowanych użytkowników po zrese
 msgid "mailable.passwordResetRequested.description"
 msgstr "Wiadomość jest przesyłana do zarejestrowanych użytkowników w celu potwierdzenia zresetowania hasła. Załączony jest link do strony resetowania hasła."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Wiadomość jest wysyłana do nowych użytkowników systemu. Zawiera powitanie i dane do zalogowania."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Wiadomość jest wysyłana do nowych recenzentów, celem powitania ich i przesłania danych do logowania."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2207,7 +2173,8 @@ msgstr ""
 "zgłoszenia."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Jeżeli jest włączona, ta wiadomość jest automatycznie wysyłana do innych autorów, którzy nie posiadają kont w OJS."
 
 msgid "mailable.revisedVersionNotify.description"

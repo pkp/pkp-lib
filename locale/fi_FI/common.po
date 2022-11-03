@@ -1862,9 +1862,6 @@ msgstr "Valitun kuvan esikatselu."
 msgid "common.upload.restore"
 msgstr "Palauta alkuperäinen"
 
-msgid "common.toWithValue"
-msgstr "Vastaanottaja: {$value}"
-
 msgid "common.submenu"
 msgstr "Alavalikko"
 
@@ -1894,9 +1891,6 @@ msgstr "Kohteita ei löytynyt."
 
 msgid "common.lastActivity"
 msgstr "Viimeisin toiminta {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Lähettäjä: {$value}"
 
 msgid "common.dateDecided"
 msgstr "Päätetty (pvm)"

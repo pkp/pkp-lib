@@ -424,9 +424,6 @@ msgstr "Înălțime"
 msgid "common.go"
 msgstr "Mergi"
 
-msgid "common.fromWithValue"
-msgstr "Din: {$value}"
-
 msgid "common.filterRemove"
 msgstr "Elimină filtrul: {$filterTitle}"
 
@@ -845,9 +842,6 @@ msgstr "Tip"
 
 msgid "common.true"
 msgstr "Adevărat"
-
-msgid "common.toWithValue"
-msgstr "Pentru: {$value}"
 
 msgid "common.top"
 msgstr "Top"

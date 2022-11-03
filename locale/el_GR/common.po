@@ -1932,9 +1932,6 @@ msgstr "Προεπισκόπηση της επιλεγμένης εικόνας.
 msgid "common.upload.restore"
 msgstr "Επαναφορά αρχικού"
 
-msgid "common.toWithValue"
-msgstr "Μέχρι: {$value}"
-
 msgid "common.submenu"
 msgstr "Υπομενού"
 
@@ -1971,9 +1968,6 @@ msgstr "Λιγότερο από"
 
 msgid "common.lastActivity"
 msgstr "Η τελευταία δραστηριότητα καταγράφηκε στις {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Από: {$value}"
 
 msgid "common.inactive"
 msgstr "Ανενεργό"

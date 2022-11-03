@@ -159,12 +159,6 @@ msgstr "Публікація"
 msgid "manager.publication.emails"
 msgstr "Електронні листи"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Ви впевнені, що хочете видалити цей поштовий шаблон?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Ви впевнені, що хочете відновити значення за замовчуванням для цього поштового шаблону?"
-
 msgid "manager.emails.addEmail"
 msgstr "Додати шаблон листа"
 
@@ -183,17 +177,8 @@ msgstr "Відключити"
 msgid "manager.emails.disable.message"
 msgstr "Ви намагаєтеся відключити цей шаблон листа. Якщо система була налаштована на використання цього шаблону, вона не зможе надалі його використовувати. Ви підтверджуєте цю дію?"
 
-msgid "manager.emails.editEmail"
-msgstr "Редагувати лист"
-
 msgid "manager.emails.editTestExample"
 msgstr "Редагувати тестовий лист"
-
-msgid "manager.emails.emailKey"
-msgstr "Ключ листа"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Лист із таким ключем вже існує. Ключі листів повинні бути унікальними."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Шаблон листа"
@@ -227,9 +212,6 @@ msgstr "Скинути всі шаблони"
 
 msgid "manager.emails.resetAll.message"
 msgstr "Якщо ви скинете всі шаблони, всі зміни до шаблонів електронної пошти будуть втрачені. Ви хочете підтвердити цю операцію?"
-
-msgid "manager.emails.reset"
-msgstr "Скинути"
 
 msgid "manager.emails.reset.message"
 msgstr "Якщо ви скинете цей шаблон, усі дані повідомлення будуть скинуті до усталеного значення, втративши усі зміни. Ви хочете підтвердити цю операцію?"
@@ -1596,26 +1578,14 @@ msgstr "Настанови для рецензента"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Деталі нагадування для рецензентів оновлено."
 
-msgid "manager.emails.customTemplate"
-msgstr "Власний шаблон"
-
-msgid "manager.emails.emailKey.description"
-msgstr "Ключ для електронних листів може включати лише букви, числа та нижні підкреслення."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Ви повинні зазначити ID при додаванні шаблона для email."
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Ключ, який зазначено, вже у використанні."
 
 msgid "manager.emails.sentFrom"
 msgstr "Надіслано від"
 
 msgid "manager.emails.sentTo"
 msgstr "Відправлено до"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Предмет: {$subject}"
 
 msgid "manager.setup.advanced"
 msgstr "Додаткові налаштування"
@@ -2006,6 +1976,7 @@ msgstr "Цей лист надсилається зареєстрованому 
 msgid "mailable.passwordResetRequested.description"
 msgstr "Цей лист надсилається зареєстрованому користувачу, який вказав, що забув свій пароль і не може увійти до системи. У листі міститься URL, натиснувши на який користувач може скинути свій пароль."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Цей лист надсилається новому зареєстрованому користувачу для того, щоб привітати його з реєстрацією та надіслати йому його ім'я користувача та пароль."
 
@@ -2013,11 +1984,13 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Цей лист надсилається новому зареєстрованому рецензенту для того, щоб повідомити йому про реєстрацію та надіслати його ім'я користувача та пароль."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Якщо розсилання таких листів дозволене, цей лист автоматично надсилається автору, коли він або вона завершує процес подання рукопису до журналу. У ньому міститься інформація про відстеження редакційного опрацювання рукопису та подяка автору за подання."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "При ввімкненні цей електронний лист автоматично надсилається іншим авторам, "
 "які не є користувачами OJS, зазначеними у процесі подання рукопису."

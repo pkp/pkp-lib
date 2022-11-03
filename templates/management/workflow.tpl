@@ -50,11 +50,6 @@
 						@set="set"
 					/>
 				</tab>
-				<tab id="notifications" label="{translate key="manager.setup.submissionsNotifications"}">
-					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SUBMISSIONS_NOTIFICATIONS}" @set="set"
-					/>
-				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
 			</tabs>
 		</tab>
@@ -87,23 +82,11 @@
 		</tab>
 		<tab id="emails" label="{translate key="manager.publication.emails"}">
 			{help file="settings/workflow-settings" section="emails" class="pkp_help_tab"}
-			<tabs :track-history="true">
-				<tab id="emailsSetup" label="{translate key="navigation.setup"}">
-					<pkp-form
-						v-bind="components.{$smarty.const.FORM_EMAIL_SETUP}"
-						@set="set"
-					/>
-				</tab>
-				<tab id="emailTemplates" label="{translate key="manager.emails.emailTemplates"}">
-					<email-templates-list-panel
-						v-bind="components.emailTemplates"
-						@set="set"
-					/>
-					{capture assign=preparedEmailsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}{/capture}
-					{load_url_in_div id="preparedEmailsGridDiv" url=$preparedEmailsGridUrl}
-				</tab>
-				{call_hook name="Template::Settings::workflow::emails"}
-			</tabs>
+			<pkp-form
+				v-bind="components.emailSetup"
+				@set="set"
+			/>
+			{call_hook name="Template::Settings::workflow::emails"}
 		</tab>
 		{call_hook name="Template::Settings::workflow"}
 	</tabs>

@@ -22,10 +22,13 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\forms\context\PKPNotifyUsersForm;
+use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
+use PKP\mail\Mailable;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -83,6 +86,9 @@ class ManagementHandler extends Handler
             case 'workflow':
                 $this->workflow($args, $request);
                 break;
+            case 'manageEmails':
+                $this->manageEmails($args, $request);
+                break;
             case 'distribution':
                 $this->distribution($args, $request);
                 break;
@@ -118,8 +124,8 @@ class ManagementHandler extends Handler
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
         $locales = Locale::getFormattedDisplayNamesFromOnlySpecifiedLocales(
-            array_keys($context->getSupportedFormLocaleNames()), 
-            Locale::getLocales(), 
+            array_keys($context->getSupportedFormLocaleNames()),
+            Locale::getLocales(),
             LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
         );
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
@@ -184,8 +190,8 @@ class ManagementHandler extends Handler
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
         $locales = Locale::getFormattedDisplayNamesFromOnlySpecifiedLocales(
-            array_keys($context->getSupportedFormLocaleNames()), 
-            Locale::getLocales(), 
+            array_keys($context->getSupportedFormLocaleNames()),
+            Locale::getLocales(),
             LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
         );
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
@@ -239,7 +245,6 @@ class ManagementHandler extends Handler
         $dispatcher = $request->getDispatcher();
 
         $contextApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-        $emailTemplatesApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'emailTemplates');
 
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
@@ -250,31 +255,15 @@ class ManagementHandler extends Handler
         $emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
         $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
         $reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
-        $submissionsNotificationsForm = new \PKP\components\forms\context\PKPSubmissionsNotificationsForm($contextApiUrl, $locales, $context);
-
-        $emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
-            'emailTemplates',
-            __('manager.emails.emailTemplates'),
-            $locales,
-            [
-                'apiUrl' => $emailTemplatesApiUrl,
-                'count' => 200,
-                'items' => [],
-                'itemsMax' => 0,
-                'lazyLoad' => true,
-            ]
-        );
 
         $templateMgr->setState([
             'components' => [
                 FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
                 FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
                 FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
-                FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
+                $emailSetupForm->id => $emailSetupForm->getConfig(),
                 FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
                 FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
-                FORM_SUBMISSIONS_NOTIFICATIONS => $submissionsNotificationsForm->getConfig(),
-                'emailTemplates' => $emailTemplatesListPanel->getConfig(),
             ],
         ]);
         $templateMgr->assign('pageTitle', __('manager.workflow.title'));
@@ -487,5 +476,84 @@ class ManagementHandler extends Handler
         ]);
 
         $templateMgr->display('management/access.tpl');
+    }
+
+    /**
+     * Display the page to manage emails
+     */
+    public function manageEmails(array $args, Request $request): void
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+
+        $context = $request->getContext();
+        $emailTemplatesApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'emailTemplates');
+        $mailablesApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'mailables');
+
+        $templateMgr->assign([
+            'pageComponent' => 'ManageEmailsPage',
+            'pageTitle' => __('manager.manageEmails'),
+        ]);
+
+        $templateMgr->setState([
+            'fromFilters' => $this->getEmailFromFilters(),
+            'groupFilters' => $this->getEmailGroupFilters(),
+			'i18nAssignTemplate' => __('manager.mailables.assignTemplate'),
+			'i18nAssignTemplateMessage' => __('manager.mailables.assignTemplate.confirm'),
+			'i18nRemoveTemplate' => __('manager.mailables.removeTemplate'),
+			'i18nRemoveTemplateMessage' => __('manager.mailables.removeTemplate.confirm'),
+			'i18nResetTemplate' => __('manager.mailables.resetTemplate'),
+			'i18nResetTemplateMessage' => __('manager.mailables.resetTemplate.confirm'),
+			'i18nResetAll' => __('manager.emails.resetAll'),
+			'i18nResetAllMessage' => __('manager.emails.resetAll.message'),
+            'mailables' => Repo::mailable()->getMany($context)->values()->toArray(),
+            'mailablesApiUrl' => $mailablesApiUrl,
+            'templatesApiUrl' => $emailTemplatesApiUrl,
+            'templateForm' => $this->getEmailTemplateForm($context, $emailTemplatesApiUrl)->getConfig(),
+            'toFilters' => $this->getEmailToFilters(),
+        ]);
+
+        $templateMgr->display('management/manageEmails.tpl');
+    }
+
+    protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm
+    {
+        $locales = $context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+
+        return new EmailTemplateForm($apiUrl, $locales);
+    }
+
+    protected function getEmailGroupFilters(): array
+    {
+        return [
+            Mailable::GROUP_SUBMISSION => __('submission.submission'),
+            Mailable::GROUP_REVIEW => __('submission.review'),
+            Mailable::GROUP_COPYEDITING => __('submission.copyediting'),
+            Mailable::GROUP_PRODUCTION => __('submission.production'),
+            Mailable::GROUP_OTHER => __('common.other'),
+        ];
+    }
+
+    protected function getEmailFromFilters(): array
+    {
+        return [
+            Role::ROLE_ID_SUB_EDITOR => __('user.role.editor'),
+            Role::ROLE_ID_REVIEWER => __('user.role.reviewer'),
+            Role::ROLE_ID_ASSISTANT => __('user.role.assistant'),
+            Role::ROLE_ID_READER => __('user.role.reader'),
+            Mailable::FROM_SYSTEM => __('mailable.system'),
+        ];
+    }
+
+    protected function getEmailToFilters(): array
+    {
+        return [
+            Role::ROLE_ID_SUB_EDITOR => __('user.role.editor'),
+            Role::ROLE_ID_REVIEWER => __('user.role.reviewer'),
+            Role::ROLE_ID_ASSISTANT => __('user.role.assistant'),
+            Role::ROLE_ID_AUTHOR => __('user.role.author'),
+            Role::ROLE_ID_READER => __('user.role.reader'),
+        ];
     }
 }

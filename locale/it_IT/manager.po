@@ -134,29 +134,14 @@ msgstr "Non è stata creata nessuna tipologia di avviso."
 msgid "manager.announcementTypes.typeName"
 msgstr "Tipo di avviso"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Sei sicuro di voler cancellare questo modello di email?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Sei sicuro di voler ripristinare questo modello di email alla sua impostazione di default?"
-
 msgid "manager.emails.createEmail"
 msgstr "Crea una email"
 
 msgid "manager.emails.disable"
 msgstr "Disabilita"
 
-msgid "manager.emails.editEmail"
-msgstr "Modifica l'email"
-
 msgid "manager.emails.editTestExample"
 msgstr "Modifica l'email di esempio"
-
-msgid "manager.emails.emailKey"
-msgstr "Chiave email"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Una email con la chiave data già esiste. Le chiavi email devono essere uniche."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Modello dell'email"
@@ -175,9 +160,6 @@ msgstr "È necessario inserire il soggetto del messaggio."
 
 msgid "manager.emails"
 msgstr "Email"
-
-msgid "manager.emails.reset"
-msgstr "Ripristina"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Torna alle impostazioni di default"
@@ -1953,9 +1935,6 @@ msgstr ""
 "Non è possibile rimuovere questa entità in quanto è assegnata ai metadati di "
 "marketing per una o più formati di questo articolo."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Oggetto: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Destinatario"
 
@@ -1965,21 +1944,11 @@ msgstr "Mittente"
 msgid "manager.emails.resetAll"
 msgstr "Resettare tutto"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Il codice che hai inserito è già in uso."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Quando si aggiunge un nuovo template è necessario aggiungere un ID."
 
 msgid "manager.emails.emailTemplates"
 msgstr "Template delle emails"
-
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"Il codice della mail puo' contenere solo lettera, numeri e sottolineature."
-
-msgid "manager.emails.customTemplate"
-msgstr "Template personalizzato"
 
 msgid "manager.emails.addEmail"
 msgstr "Aggiungere un template"
@@ -2016,12 +1985,6 @@ msgstr "Seleziona gli utenti da esportare in un file Excel/CSV."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Esporta in formato Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Il modello di email è stato reimpostato correttamente."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "I modelli di posta elettronica predefiniti sono stati ripristinati."
 
 msgid "manager.emails.otherTemplates"
 msgstr "Altri modelli"
@@ -2385,6 +2348,7 @@ msgstr "Questa email viene mandata ad un utente registrato quando ha resettato l
 msgid "mailable.passwordResetRequested.description"
 msgstr "Questa email viene mandata ad un utente registrato quando questi indica che ha dimenticato la sua password o non riesce a fare il log in. Fornisce una URL per il reset della password."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Questa email viene mandata agli utenti appena registrati per dar loro il benvenuto nel sistema e fornirgli una nota della loro username e password."
 
@@ -2394,6 +2358,7 @@ msgstr ""
 "la prima volta, inviandogli username e password."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Questa email, quando è abilitata, viene inviata automaticamente all'autore "
@@ -2402,7 +2367,8 @@ msgstr ""
 "ringrazia l'autore per la proposta."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Questa mail, quando abilitata, è inviata in automatico ai co-autori "
 "registrati al momento della sottomissione."

@@ -1857,9 +1857,6 @@ msgstr "Excel/CSVファイルにエクスポートするユーザーを選択し
 msgid "manager.export.usersToCsv.label"
 msgstr "Excel/CSV にエクスポート"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "件名: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "宛先"
 
@@ -1871,15 +1868,6 @@ msgstr "ディフォルトに戻す"
 
 msgid "manager.emails.reset.message"
 msgstr "このテンプレートをリセットすると、すべてのメッセージデータがデフォルト値にリセットされ、変更内容はすべて失われます。 この操作を承認しますか？"
-
-msgid "manager.emails.resetComplete"
-msgstr "メールテンプレートのリセットに成功しました。"
-
-msgid "manager.emails.reset"
-msgstr "リセット"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "デフォルトのメールテンプレートが復元されました。"
 
 msgid "manager.emails.resetAll.message"
 msgstr "すべてのテンプレートをリセットすると、メールテンプレートの変更内容はすべて失われます。 この操作を承認しますか？"
@@ -1908,9 +1896,6 @@ msgstr "有効化"
 msgid "manager.emails.enabled"
 msgstr "メールテンプレートを有効にする"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "提供されたキーはすでに使用されています。"
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "メールテンプレートの追加には、コンテキストIDを指定する必要があります。"
 
@@ -1923,20 +1908,8 @@ msgstr "メールテンプレート"
 msgid "manager.emails.emailTemplate"
 msgstr "メールテンプレート"
 
-msgid "manager.emails.emailKeyExists"
-msgstr "指定されたキーを持つメールがすでに存在しています。メールのキーは一意でなければなりません。"
-
-msgid "manager.emails.emailKey.description"
-msgstr "Eメールキーには、アルファベット、数字、アンダースコアしか使用できません。"
-
-msgid "manager.emails.emailKey"
-msgstr "Eメールキー"
-
 msgid "manager.emails.editTestExample"
 msgstr "メール文章例の編集"
-
-msgid "manager.emails.editEmail"
-msgstr "メールの編集"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -1952,20 +1925,11 @@ msgstr "テンプレート詳細"
 msgid "manager.emails.data"
 msgstr "テンプレートメッセージデータ"
 
-msgid "manager.emails.customTemplate"
-msgstr "独自テンプレート"
-
 msgid "manager.emails.createEmail"
 msgstr "電子メールの作成"
 
 msgid "manager.emails.addEmail"
 msgstr "テンプレートの追加"
-
-msgid "manager.emails.confirmReset"
-msgstr "このメールテンプレートをデフォルトに戻してよろしいですか？"
-
-msgid "manager.emails.confirmDelete"
-msgstr "このメールテンプレートを削除してよろしいですか？"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "査読リマインドの詳細を更新しました。"
@@ -2165,6 +2129,7 @@ msgstr ""
 "このメールは、登録ユーザーからパスワードを忘れた、または、ログインできない旨の連絡を受けた場合に、登録ユーザーに送信されるものです。このメールではパスワー"
 "ドをリセットするためのURLを提供します。"
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "このメールは、新規に登録したユーザーに送信されるもので、システムへの登録を歓迎し、ユーザー名とパスワードの記録を提供します。"
 
@@ -2172,13 +2137,15 @@ msgid "mailable.reviewerRegister.description"
 msgstr "このメールは新規に登録された査読者に送付され、ユーザー名とパスワードが通知されます。"
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できる"
 "ことを伝える同時に、著者に投稿に対するお礼をしています。"
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "このメールは（設定で有効になっていれば）OJSに登録していない著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。"
 
 msgid "mailable.revisedVersionNotify.description"

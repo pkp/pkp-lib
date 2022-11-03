@@ -165,31 +165,14 @@ msgstr "Editoração"
 msgid "manager.publication.emails"
 msgstr "E-mails"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Deseja realmente excluir esta mensagem padrão?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Deseja realmente restaurar este e-mail para o padrão original?"
-
 msgid "manager.emails.createEmail"
 msgstr "Criar e-mail"
 
 msgid "manager.emails.disable"
 msgstr "Desabilitar"
 
-msgid "manager.emails.editEmail"
-msgstr "Editar e-mail"
-
 msgid "manager.emails.editTestExample"
 msgstr "Editar e-mail de teste"
-
-msgid "manager.emails.emailKey"
-msgstr "Chave de e-mail"
-
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Um e-mail com a chave informada já existe. As chaves de e-mail devem ser "
-"únicas."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-mail padrão"
@@ -208,9 +191,6 @@ msgstr "O assunto da mensagem é obrigatório."
 
 msgid "manager.emails"
 msgstr "E-mails"
-
-msgid "manager.emails.reset"
-msgstr "Restaurar"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Restaurar para original"
@@ -1594,9 +1574,6 @@ msgstr ""
 msgid "manager.people.existingUserRequired"
 msgstr "Um usuário existente deve ser inserido."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Assunto: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Enviado para"
 
@@ -1606,21 +1583,12 @@ msgstr "Enviado de"
 msgid "manager.emails.resetAll"
 msgstr "Redefinir Tudo"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "A chave que você forneceu já está em uso."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Você precisa fornecer um ID de contexto ao adicionar um modelo de e-mail."
 
 msgid "manager.emails.emailTemplates"
 msgstr "Modelos de E-mail"
-
-msgid "manager.emails.emailKey.description"
-msgstr "A chave de e-mail pode conter apenas letras, números e sobrescritos."
-
-msgid "manager.emails.customTemplate"
-msgstr "Modelo Customizado"
 
 msgid "manager.emails.addEmail"
 msgstr "Adicionar modelo"
@@ -2233,12 +2201,6 @@ msgstr "Selecione os usuários para serem exportados para um arquivo Excel/CSV."
 msgid "manager.export.usersToCsv.label"
 msgstr "Exportar para Excel/CSV"
 
-msgid "manager.emails.resetComplete"
-msgstr "O modelo de email foi redefinido com sucesso."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Os modelos de email padrão foram restaurados."
-
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Excluir Notícia"
 
@@ -2725,6 +2687,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Nova rodada de avaliação iniciada"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Submissão Recusada"
 
@@ -2954,9 +2917,10 @@ msgstr "Falha nas atualizações do DOI"
 msgid "mailable.reviewRequest.name"
 msgstr "Solicitação de Avaliação"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Lembrete de resposta atrasada (automatizada)"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Este e-mail é enviado por um Editor de Seção para confirmar o recebimento de "
@@ -2995,6 +2959,7 @@ msgstr ""
 "tenha esquecido sua senha ou não consiga efetuar login. Um link é fornecido "
 "que permite ao usuário redefinir sua senha."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Esta mensagem é enviada aos usuários recém-cadastrados no sistema, para dar-"
@@ -3005,13 +2970,15 @@ msgstr ""
 "Esta mensagem é enviada a um avaliador recém-cadastrado para dar-lhe as boas-"
 "vindas e deixar registrado o seu nome de login e senha."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Este e-mail, quando ativado, é enviado automaticamente a um autor quando ele "
 "submete para a revista. Ele fornece informações sobre o rastreamento da "
 "submissão através do processo editorial e agradece ao autor pela submissão."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Quando habilitada, esta mensagem é enviado automaticamente para os autores "
 "informados durante o processo de submissão, que não seja o autor que está "
@@ -3198,16 +3165,19 @@ msgstr "Redefinição de Senha"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Confirmar redefinição de Senha"
 
+#, fuzzy
 msgid "mailable.userRegister.name"
 msgstr "Cadastro de Usuário"
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Cadastro de Avaliador"
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Agradecimento da Submissão"
 
-msgid "mailable.submissionAckNotUser.name"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Confirmação de Submissão"
 
 msgid "mailable.discussionReview.name"

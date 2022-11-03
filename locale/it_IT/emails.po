@@ -168,3 +168,9 @@ msgstr ""
 "Ci rincresce informarla che non ci è possibile accettare il suo contributo"
 
 #, fuzzy
+
+msgid "emails.discussion.subject"
+msgstr "Nuovo messaggio da: {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Inserisci qui il testo del tuo messaggio."

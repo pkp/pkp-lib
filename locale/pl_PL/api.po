@@ -270,11 +270,6 @@ msgstr "Język {$locale} nie jest obsługiwany."
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Żądany e-mail nie został znaleziony."
 
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"Nie można przypisać szablonu do tego e-maila, ponieważ nie znaleziono "
-"szablonu."
-
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Następujące języki nie są obsługiwane: {$locales}."
 
@@ -293,9 +288,6 @@ msgstr ""
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "Nie można zdekodować apiToken z powodu następującego błędu: {$error}"
 
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "Klucze szablonu wiadomości e-mail nie są określone."
-
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
 "Nie możesz nagrać decyzji ani zarekomendować decyzji dla tego zgłoszenia, "
@@ -303,6 +295,3 @@ msgstr ""
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr "Musisz określić rundę recenzji, gdy żądasz plików na etapie recenzji."
-
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "Dane wejściowe templateKeys powinny być tablicą lub pustym ciągiem"

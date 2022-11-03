@@ -13,7 +13,10 @@
 
 namespace PKP\emailTemplate;
 
+use APP\core\Services;
 use APP\emailTemplate\DAO;
+use APP\facades\Repo;
+use PKP\context\Context;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -74,13 +77,13 @@ class Repository
      * Perform validation checks on data used to add or edit an email template.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
-     *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(?EmailTemplate $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?EmailTemplate $object, array $props, Context $context): array
     {
+        $primaryLocale = $context->getData('primaryLocale');
+        $allowedLocales = $context->getData('supportedFormLocales');
+
         $errors = [];
         $validator = ValidatorFactory::make(
             $props,
@@ -97,24 +100,26 @@ class Repository
             $primaryLocale
         );
 
-        // Validate fields only when adding a template
-        if (!$object) {
-
-            // Require a context id
-            $validator->after(function ($validator) use ($props) {
-                if (!isset($props['contextId'])) {
-                    $validator->errors()->add('contextId', __('manager.emails.emailTemplate.contextRequired'));
+        if (isset($props['contextId'])) {
+            $validator->after(function ($validator) use ($props, $context) {
+                if (!Services::get('context')->exists($props['contextId'])) {
+                    $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
+                }
+                if ($context->getId() !== $props['contextId']) {
+                    $validator->errors()->add('contextId', __('api.emailTemplates.400.invalidContext'));
                 }
             });
+        }
 
-            // Don't allow duplicate keys in the same context
-            $validator->after(function ($validator) use ($props) {
-                if (!isset($props['contextId'])) {
-                    return;
-                }
-                $existingEmailTemplate = $this->getByKey($props['contextId'], $props['key']);
-                if (!empty($existingEmailTemplate) && !empty($existingEmailTemplate->getData('id'))) {
-                    $validator->errors()->add('key', __('manager.emails.emailTemplate.noDuplicateKeys'));
+        // An email template can only be an alternate to a mailable's default email template
+        if (isset($props['alternateTo'])) {
+            $validator->after(function ($validator) use ($props, $context) {
+                $mailableExists = Repo::mailable()
+                    ->getMany($context)
+                    ->contains(fn(array $mailable) => $mailable['emailTemplateKey'] === $props['alternateTo']);
+
+                if (!$mailableExists) {
+                    $validator->errors()->add('alternateTo', __('api.emailTemplates.400.invalidAlternateTo'));
                 }
             });
         }
@@ -131,14 +136,16 @@ class Repository
         return $errors;
     }
 
-    /** @copydoc DAO::insert() */
-    public function add(EmailTemplate $emailTemplate): int
+    /**
+     * Add a new email template
+    */
+    public function add(EmailTemplate $emailTemplate): string
     {
-        $id = $this->dao->insert($emailTemplate);
+        $key = $this->dao->insert($emailTemplate);
 
         Hook::call('EmailTemplate::add', [$emailTemplate]);
 
-        return $id;
+        return $key;
     }
 
     /** @copydoc DAO::update() */
@@ -184,7 +191,7 @@ class Repository
     {
         $results = $this->getCollector()
             ->filterByContext($contextId)
-            ->filterByIsModified(true)
+            ->isModified(true)
             ->getMany();
 
         $deletedKeys = [];
@@ -192,6 +199,7 @@ class Repository
             $deletedKeys[] = $emailTemplate->getData('key');
             $this->delete($emailTemplate);
         });
+        $this->dao->installAlternateEmailTemplates($contextId);
         Hook::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
         return $deletedKeys;
     }

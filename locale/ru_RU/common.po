@@ -425,9 +425,6 @@ msgstr "Добавить фильтр: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Сбросить фильтр: {$filterTitle}"
 
-msgid "common.fromWithValue"
-msgstr "От: {$value}"
-
 msgid "common.go"
 msgstr "Выполнить"
 
@@ -772,9 +769,6 @@ msgstr " | "
 
 msgid "common.top"
 msgstr "Верх"
-
-msgid "common.toWithValue"
-msgstr "Кому: {$value}"
 
 msgid "common.true"
 msgstr "Истина"

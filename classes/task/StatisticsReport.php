@@ -54,6 +54,10 @@ class StatisticsReport extends ScheduledTask
         $jobs = [];
         for ($contexts = $contextDao->getAll(true); $context = $contexts->next();) {
 
+            if (!$context->getData('editorialStatsEmail')) {
+                continue;
+            }
+
             /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             $editorialReportNotificationManager = new EditorialReportNotificationManager(PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT);

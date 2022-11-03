@@ -316,6 +316,11 @@
 				"nullable"
 			]
 		},
+		"editorialStatsEmail": {
+			"type": "boolean",
+			"description": "Whether or not to send the monthly editorial statistics email to editors. Default: `true`",
+			"default": true
+		},
 		"enableClockss": {
 			"type": "boolean",
 			"validation": [
@@ -693,6 +698,15 @@
 			"validation": [
 				"nullable",
 				"in:0,enable,request,require"
+			]
+		},
+		"submissionAcknowledgement": {
+			"type": "string",
+			"description": "Which authors should receive an email confirmation when a new submission is submitted, which acknowledges that their submission was submitted. When empty, the author will not be sent an email. Default: `allAuthors`",
+			"default": "allAuthors",
+			"validation": [
+				"nullable",
+				"in:,submittingAuthor,allAuthors"
 			]
 		},
 		"submissionChecklist": {

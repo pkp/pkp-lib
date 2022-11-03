@@ -167,3 +167,8 @@ msgstr ""
 "Naša odločitev je: Prispevek se zavrne"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Sporočilo v zvezi s publikacijo {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Prosimo, vnesite vaše sporočilo."

@@ -64,5 +64,7 @@ class EditorialReminders extends ScheduledTask
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
         }
+
+        return true;
     }
 }

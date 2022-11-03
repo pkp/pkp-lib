@@ -36,10 +36,15 @@ class RemoveUnvalidatedExpiredUsers extends ScheduledTask
      */
     public function executeActions()
     {
+        // No need to remove invalidated users if validation requirement is turned off
+        if ( !Config::getVar('email', 'require_validation', false) ) {
+            return true;
+        }
+
         $validationMaxDeadlineInDays = (int) Config::getVar('general', 'user_validation_period');
 
         if ($validationMaxDeadlineInDays <= 0) {
-            return;
+            return true;
         }
 
         $dateTillValid = Carbon::now()->startOfDay()->subDays($validationMaxDeadlineInDays);

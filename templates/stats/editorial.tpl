@@ -42,6 +42,7 @@
 						slot="thead-dateRange"
 						unique-id="editorial-stats-date-range"
 						:date-start="dateStart"
+						:date-start-min="dateStartMin"
 						:date-end="dateEnd"
 						:date-end-max="dateEndMax"
 						:options="dateRangeOptions"

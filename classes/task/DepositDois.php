@@ -42,5 +42,7 @@ class DepositDois extends ScheduledTask
         foreach ($contextIds as $contextId) {
             dispatch(new DepositContext($contextId));
         }
+
+        return true;
     }
 }

@@ -25,7 +25,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     abstract protected function getContextTable(): string;
     abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;
-    abstract protected function getContextSettingsTable(): string;
 
     /**
      * Run the migrations.
@@ -480,9 +479,9 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Flag users that have same username if we consider them case insensitively
             $result = DB::table('users AS a')
                 ->join('users AS b', function ($join) {
-                     $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
-                     $join->on('a.user_id', '<>', 'b.user_id');
-                 })
+                    $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
+                    $join->on('a.user_id', '<>', 'b.user_id');
+                })
                 ->select('a.user_id as user_id, b.user_id as paired_user_id')
                 ->get();
             foreach ($result as $row) {
@@ -572,10 +571,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             ->whereNotIn(
                 "{$this->getContextKeyField()}",
                 fn ($query) => $query
-            ->select("{$this->getContextKeyField()}")
-            ->from("{$this->getContextSettingsTable()}")
-            ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
-            ->whereIn('setting_name', ['contactEmail', 'contactName'])
+                    ->select("{$this->getContextKeyField()}")
+                    ->from("{$this->getContextSettingsTable()}")
+                    ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
+                    ->whereIn('setting_name', ['contactEmail', 'contactName'])
             )
             ->get();
 

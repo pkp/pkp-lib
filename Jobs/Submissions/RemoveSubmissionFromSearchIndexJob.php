@@ -18,19 +18,14 @@ declare(strict_types=1);
 namespace PKP\Jobs\Submissions;
 
 use APP\core\Application;
-use APP\facades\Repo;
-use PKP\Domains\Jobs\Exceptions\JobException;
-
 use PKP\Support\Jobs\BaseJob;
 
 class RemoveSubmissionFromSearchIndexJob extends BaseJob
 {
     /**
      * The submission id of the targeted submission to delete
-     * 
-     * @var int
      */
-    protected $submissionId;
+    protected int $submissionId;
 
     /**
      * Create a new job instance.

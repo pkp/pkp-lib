@@ -23,10 +23,10 @@ use APP\submission\DAO;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use PKP\context\PKPSection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
+use PKP\observers\events\SubmissionDeleted;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -373,6 +373,7 @@ abstract class Repository
     public function delete(Submission $submission)
     {
         Hook::call('Submission::delete::before', [&$submission]);
+        event(new SubmissionDeleted($submission));
 
         $this->dao->delete($submission);
 
@@ -400,11 +401,8 @@ abstract class Repository
      * This method performs any actions necessary when a submission's
      * status changes, such as changing the current publication ID
      * and creating or deleting tombstones.
-     *
-     * @param ?PKPSection $section If this submission is being deleted, its previous section ID should be specified
-     *    in order to ensure a correctly created tombstone.
      */
-    public function updateStatus(Submission $submission, ?int $newStatus = null, ?PKPSection $section = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null)
     {
         $status = $submission->getData('status');
 

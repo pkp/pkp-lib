@@ -220,6 +220,8 @@ class PKPStatsContextHandler extends APIHandler
      */
     public function get(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
         $request = $this->getRequest();
 
         $context = Services::get('context')->get((int) $args['contextId']);
@@ -255,6 +257,11 @@ class PKPStatsContextHandler extends APIHandler
             'slimRequest' => $slimRequest,
         ];
         $contextProps = Services::get('context')->getSummaryProperties($context, $propertyArgs);
+        if ($responseCSV) {
+            $csvColumnNames = $this->_getContextReportColumnNames();
+            $items = [$this->getItemForCSV($context->getId(), $contextViews)];
+            return $response->withCSV($items, $csvColumnNames, 1);
+        }
         return $response->withJson([
             'total' => $contextViews,
             'context' => $contextProps
@@ -266,6 +273,8 @@ class PKPStatsContextHandler extends APIHandler
      */
     public function getTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
         $request = $this->getRequest();
 
         $context = Services::get('context')->get((int) $args['contextId']);
@@ -305,6 +314,10 @@ class PKPStatsContextHandler extends APIHandler
         $statsService = Services::get('contextStats');
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
+        if ($responseCSV) {
+            $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
+            return $response->withCSV($data, $csvColumnNames, count($data));
+        }
         return $response->withJson($data, 200);
     }
 
@@ -390,7 +403,7 @@ class PKPStatsContextHandler extends APIHandler
         $context = array_filter($contexts, function ($context) use ($contextId) {
             return $context->id == $contextId;
         });
-        $title = current($context)->name();
+        $title = current($context)->name;
         return [
             $contextId,
             $title,

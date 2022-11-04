@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-28 20:20+0000\n"
+"PO-Revision-Date: 2022-11-04 09:06+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -3353,3 +3353,6 @@ msgstr "Ժամանակացույց"
 
 msgid "stats.timeline.downloadReport.description"
 msgstr "{$type} -ի թիվը յուրաքանչյուր {$interval} -ի համար:"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI-ն պարունակում է անվավեր նիշեր:"

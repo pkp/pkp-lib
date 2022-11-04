@@ -1,11 +1,11 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-24 16:34+0000\n"
+"PO-Revision-Date: 2022-11-04 17:21+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
-"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/lv/"
-">\n"
-"Language: lv\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"lv_LV/>\n"
+"Language: lv_LV\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,3 +18,440 @@ msgstr "Literārais redaktors"
 
 msgid "user.role.copyeditors"
 msgstr "Literārie redaktori"
+
+msgid "user.accountInformation"
+msgstr "Konta informācija"
+
+msgid "user.affiliation.description"
+msgstr "(Jūsu iestāde, piemēram, \"Latvijas Universitāte\")"
+
+msgid "user.affiliations"
+msgstr "Piederība iestādēm"
+
+msgid "user.affiliation"
+msgstr "Piederība iestādei"
+
+msgid "user.authorization.accessDenied"
+msgstr "Piekļuve liegta."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Šo darbību nevar izsaukt bez konteksta (prese, žurnāls, konference utt.)."
+
+msgid "user.authorization.privateOperation"
+msgstr "Darbība, kuru mēģinājāt veikt, ir vai nu nepieejama, vai neeksistē."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Pašreizējai lomai nav piekļuves šai darbībai."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Šim materiālam jums nav piešķirta loma, kurai būtu piekļuve šādai darbībai."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Lai piekļūtu šai darbībai, ir jāiestata derīga lietotāju grupa."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Darba plūsmas stadija netika norādīta."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Pašlaik jums nav piekļuves šai darbplūsmas stadijai."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Spraudnis nav norādīts, taču tas ir nepieciešams."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Jums nav tiesību piekļūt šim recenzēšanas uzdevumam."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Jums nav tiesību piekļūt šai diskusijai."
+
+msgid "user.changeMyPassword"
+msgstr "Mainīt manu paroli"
+
+msgid "user.changePassword"
+msgstr "Mainīt paroli"
+
+msgid "user.authorization.loginRequired"
+msgstr "Nepieciešams pieteikties."
+
+msgid "user.dateLastLogin"
+msgstr "Pēdējā pieteikšanās"
+
+msgid "user.dateRegistered"
+msgstr "Reģistrācijas datums"
+
+msgid "user.editMyProfile"
+msgstr "Rediģēt manu profilu"
+
+msgid "user.email"
+msgstr "E-pasts"
+
+msgid "user.givenName"
+msgstr "Vārds"
+
+msgid "user.interests"
+msgstr "Recenzenta intereses"
+
+msgid "user.gossip"
+msgstr "Redakcijas piezīmes"
+
+msgid "user.group"
+msgstr "Lietotāja grupa"
+
+msgid "user.familyName"
+msgstr "Uzvārds"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Nederīgs profila attēla formāts vai attēls ir pārāk liels. Pieņemamie "
+"formāti ir .gif, .jpg vai .png, un attēla izmērs nedrīkst pārsniegt 150x150 "
+"pikseļu."
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Jūsu konts ir atspējots. Lūdzu, sazinieties ar administratoru, lai saņemtu "
+"papildu informāciju."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Mēs esam nosūtījuši apstiprinājuma e-pasta vēstuli uz jūsu adresi {$email}. "
+"Lūdzu, izpildiet šajā e-pastā sniegtos norādījumus, lai aktivizētu savu "
+"jauno kontu. Ja e-pasta vēstuli neredzat, lūdzu, pārbaudiet, vai tā nav "
+"ievietota surogātpasta mapē."
+
+msgid "user.login.activate"
+msgstr "Aktivizēt kontu"
+
+msgid "user.login.activated"
+msgstr ""
+"Paldies par konta aktivizēšanu. Tagad varat pieteikties, izmantojot savus "
+"autorizācijas datus, kurus norādījāt, izveidojot kontu."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Pirms pieteikšanās šajā vietnē jāizvēlas jauna parole.<br /><br />Lūdzu "
+"ievadiet savu lietotājvārdu un pašreizējo un jauno paroli, lai mainītu sava "
+"konta paroli."
+
+msgid "user.login.forgotPassword"
+msgstr "Aizmirsāt paroli?"
+
+msgid "user.login.loginError"
+msgstr "Nederīgs lietotājvārds vai parole. Lūdzu, mēģiniet vēlreiz."
+
+msgid "user.login"
+msgstr "Pieslēgties"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Uz jūsu e-pasta adresi nosūtīts apstiprinājums, ja ir atrasts atbilstošs "
+"konts. Lūdzu, izpildiet e-pastā sniegtos norādījumus, lai atjaunotu paroli."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Atvainojiet, saites, uz kuras noklikšķinājāt, derīguma termiņš ir beidzies "
+"vai tā nav derīga. Lūdzu, mēģiniet vēlreiz atjaunot paroli."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Uz jūsu e-pasta adresi ir nosūtīta jauna parole. Tagad varat pieteikties "
+"vietnē, izmantojot jauno paroli."
+
+msgid "user.login.registeredEmail"
+msgstr "Reģistrētā lietotāja e-pasts"
+
+msgid "user.login.registrationComplete"
+msgstr "Reģistrācija pabeigta"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Paldies par reģistrēšanos! Ko jūs vēlētos darīt tālāk?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Pārskatīt iesniegtos materiālus"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Iesniegt jaunu materiālu"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Turpināt pārlūkošanu"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Reģistrācija gaida verifikāciju"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Atcerēties mani"
+
+msgid "user.login.resetPassword"
+msgstr "Atjaunot paroli"
+
+msgid "user.login.registerNewAccount"
+msgstr "Reģistrēties"
+
+msgid "user.logOut"
+msgstr "Iziet no sistēmas"
+
+msgid "user.hello"
+msgstr "Sveicināti, "
+
+msgid "user.mailingAddress"
+msgstr "Pasta adrese"
+
+msgid "user.myAccount"
+msgstr "Mans profils"
+
+msgid "user.password"
+msgstr "Parole"
+
+msgid "user.name"
+msgstr "Lietotāja vārds"
+
+msgid "user.repeatPassword"
+msgstr "Atkārtot paroli"
+
+msgid "user.phone"
+msgstr "Tālrunis"
+
+msgid "user.preferredPublicName"
+msgstr "Vēlamā uzruna"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Lai mainītu profila paroli, zemāk ievadiet pašreizējo un jauno paroli."
+
+msgid "user.profile.editProfile"
+msgstr "Rediģēt profilu"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Nepieciešams norādīt valsti."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Nepieciešams norādīt derīgu e-pasta adresi."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Nepieciešams norādīt vārdu."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Nepieciešams norādīt pasta adresi."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Jums jāievada jaunā parole."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Jūsu ievadītā pašreizējā parole bija nepareiza."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Izsūtīt atvērtās piekļuves e-pasta paziņojumus"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Nepieciešama parole."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Jaunā parole ir tāda pati kā iepriekšējā parole."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profila attēls"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Nepieciešams norādīt lietotāja grupu."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Nepieciešams norādīt lietotāja vārdu."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Nepieciešams piekrist privātuma atrunas noteikumiem."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Lai saglabātu pašreizējo paroli, paroles laukus atstājiet tukšus."
+
+msgid "user.profile.newPassword"
+msgstr "Jauna parole"
+
+msgid "user.profile.oldPassword"
+msgstr "Pašreizējā parole"
+
+msgid "user.profile"
+msgstr "Profils"
+
+msgid "user.profile.publicProfile"
+msgstr "Lietotāja profils"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Atkārtot jauno paroli"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Zemāk ievadiet sava konta e-pasta adresi, un jums tiks nosūtīts e-pasts ar "
+"norādījumiem, kā atjaunot paroli."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Jūs esat sekmīgi reģistrējies. <a href=\"{$profileUrl}\">Spiediet šeit</a> , "
+"lai aizpildītu savu lietotāja profilu."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Jā, es piekrītu, ka mani dati tiek vākti un glabāti saskaņā ar <a href=\""
+"{$privacyUrl}\" target=\"_blank\">privātuma atrunu</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Jā, es vēlos saņemt informāciju par jaunām publikācijām un paziņojumiem."
+
+msgid "user.register.form.emailExists"
+msgstr "Izvēlēto e-pasta adresi jau izmanto cits lietotājs."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Paroles nesakrīt."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "E-pasta adrešu lauki neatbilst."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Lietotājvārds var saturēt tikai mazos burtus, ciparus, pasvītrojuma zīmi un "
+"defisi, un tam jāsākas un jābeidzas ar burtu vai ciparu."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Jāizvēlas vismaz viena loma."
+
+msgid "user.register.form.usernameExists"
+msgstr "Izvēlēto lietotājvārdu jau izmanto cits lietotājs."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Parolei jāsatur vismaz {$lenght} rakstzīmes."
+
+msgid "user.register.registerAs"
+msgstr "Reģistrēties {$contextName} kā..."
+
+msgid "user.register"
+msgstr "Reģistrēties"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Lietotājvārdā jābūt tikai mazajiem burtiem, cipariem, defisēm vai "
+"pasvītrojuma zīmēm."
+
+msgid "user.role.assistant"
+msgstr "Palīgs"
+
+msgid "user.role.author"
+msgstr "Autors"
+
+msgid "user.role.author_s"
+msgstr "Autors(i)"
+
+msgid "user.role.authors"
+msgstr "Autori"
+
+msgid "user.role.editor"
+msgstr "Redaktors"
+
+msgid "user.role.editors"
+msgstr "Redaktori"
+
+msgid "user.role.reader"
+msgstr "Lasītājs"
+
+msgid "user.role.readers"
+msgstr "Lasītāji"
+
+msgid "user.role.reviewer"
+msgstr "Recenzents"
+
+msgid "user.role.reviewers"
+msgstr "Recenzenti"
+
+msgid "user.role.siteAdmin"
+msgstr "Vietnes pārvaldnieks"
+
+msgid "user.role.siteAdmins"
+msgstr "Vietnes pārvaldnieki"
+
+msgid "user.role.proofreader"
+msgstr "Korektors"
+
+msgid "user.role.proofreaders"
+msgstr "Korektori"
+
+msgid "user.role.layoutEditor"
+msgstr "Maketētājs"
+
+msgid "user.role.layoutEditors"
+msgstr "Maketētāji"
+
+msgid "user.roles"
+msgstr "Lomas"
+
+msgid "user.profile.identity"
+msgstr "Identifikācija"
+
+msgid "user.profile.contact"
+msgstr "Kontaktinformācija"
+
+msgid "user.profile.public"
+msgstr "Publisks"
+
+msgid "user.sendPassword"
+msgstr "Apstiprināšana"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Nosūtīt man apstiprinājuma e-pastu, kurā norādīts mans lietotājvārds un "
+"parole"
+
+msgid "user.signature"
+msgstr "Paraksts"
+
+msgid "user.title"
+msgstr "Tēma"
+
+msgid "user.url"
+msgstr "Mājaslapas URL"
+
+msgid "user.userHome"
+msgstr "Lietotāja mājas lapa"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr ""
+"Procesa autentifikācijas marķieris (token) nav norādīts vai ir nederīgs."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Jums ir liegta piekļuve. Piekļuve šai vietnei pašlaik ir ierobežota."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Lai varētu turpināt, šai stadijai jāpiešķir lietotājs ar pārvaldnieka lomu ("
+"t.i., izstrādes redaktors)."
+
+msgid "user.biography"
+msgstr "Biogrāfiskā informācija (piem., struktūrvienība un amats)"
+
+msgid "user.gossip.description"
+msgstr ""
+"Ierakstiet piezīmes par šo recenzentu, kuras vēlaties padarīt redzamas "
+"citiem administratoriem, vadītājiem un visiem redaktoriem. Piezīmes būs "
+"redzamas turpmākajos recenzēšanas uzdevumos."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Jūsu konts ir atspējots šāda iemesla dēļ: {$reason}"
+
+msgid "user.logOutAs"
+msgstr "Iziet no sistēmas kā {$username}"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Lūdzu, norādiet pilnu vārdu un uzvārdu, jo publicētajā darbā ir jānorāda "
+"autors. Piemērs: Dr. Alan P. Mwandenga"
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Jūs esat pievienojis uzvārdu valodā, kurā nav norādīts vārds. Lūdzu, "
+"pievienojiet šai valodai vārdu."
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-pasta paziņojumi par jaunu izdevumu"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Norādītais URL nav derīgs. Lūdzu, vēlreiz pārbaudiet URL un mēģiniet "
+"vēlreiz. (Ieteikums: mēģiniet URL sākumā pievienot http://.)"

@@ -15,19 +15,12 @@
 
 namespace PKP\mail\variables;
 
-use APP\core\Application;
-use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
-use Exception;
 use PKP\author\Author;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
-use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
 
 class SubmissionEmailVariable extends Variable
 {

@@ -1416,9 +1416,6 @@ msgstr "{$stage}-vaiheessa käsiteltävät korjaukset."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Korjaukset lähetetty {$stage}-vaiheeseen."
 
-msgid "notification.type.metadataModified"
-msgstr "Käsikirjoituksen \"{$title}\" metatietoja on muutettu."
-
 msgid "notification.type.reviewerComment"
 msgstr "Arvioija on kommentoinut käsikirjoitusta \"{$title}\"."
 

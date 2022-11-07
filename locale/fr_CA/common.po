@@ -1650,9 +1650,6 @@ msgstr "Révisions à prendre en compte à l'étape {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Révisions soumises à l'étape {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "Les métadonnées de « {$title} » ont été modifiées."
-
 msgid "notification.type.reviewerComment"
 msgstr "Un-e réviseur-e a inscrit un commentaire au sujet de « {$title} »."
 

@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Bus;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
-use PKP\Jobs\Notifications\NewAnnouncementMailUsers;
 use PKP\Jobs\Notifications\NewAnnouncementNotifyUsers;
 use PKP\mail\Mailer;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -220,17 +219,6 @@ class PKPAnnouncementHandler extends APIHandler
             [$contextId]
         );
 
-        $jobs = [];
-        foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
-            $notifyJob = new NewAnnouncementNotifyUsers(
-                $notifyUserIds,
-                $contextId,
-                $announcementId
-            );
-            $jobs[] = $notifyJob;
-        }
-
-        // Email users
         if ($sendEmail) {
             $userIdsToMail = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
                 [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY],
@@ -238,15 +226,35 @@ class PKPAnnouncementHandler extends APIHandler
                 [$contextId]
             );
 
-            foreach ($userIdsToMail->chunk(Mailer::BULK_EMAIL_SIZE_LIMIT) as $mailUserIds) {
-                $mailJob = new NewAnnouncementMailUsers(
-                    $mailUserIds,
+            list ($userIdsToNotify, $userIdsToNotifyAndMail) = [
+                $userIdsToNotify->diff($userIdsToMail),
+                $userIdsToNotify->intersect($userIdsToMail)
+            ];
+        }
+
+        $sender = $request->getUser();
+        $jobs = [];
+        foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
+            $notifyJob = new NewAnnouncementNotifyUsers(
+                $notifyUserIds,
+                $contextId,
+                $announcementId,
+                Locale::getPrimaryLocale()
+            );
+            $jobs[] = $notifyJob;
+        }
+
+        if (isset($userIdsToNotifyAndMail)) {
+            foreach ($userIdsToNotifyAndMail->chunk(Mailer::BULK_EMAIL_SIZE_LIMIT) as $notifyAndMailUserIds) {
+                $notifyAndMailJob = new NewAnnouncementNotifyUsers(
+                    $notifyAndMailUserIds,
                     $contextId,
                     $announcementId,
-                    $request->getUser(),
-                    Locale::getPrimaryLocale()
+                    Locale::getPrimaryLocale(),
+                    $sender,
+                    true
                 );
-                $jobs[] = $mailJob;
+                $jobs[] = $notifyAndMailJob;
             }
         }
 

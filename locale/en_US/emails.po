@@ -255,7 +255,7 @@ msgstr ""
 "<p>You are currently assigned to {$numberOfSubmissions} submissions in <a href=\"{$contextUrl}\">{$contextName}</a>. The following submissions are <b>waiting for your response</b>.</p>"
 "{$outstandingTasks}"
 "<p>View all of your assignments in your <a href=\"{$submissionsUrl}\">submission dashboard</a>.</p>"
-"<p>This is an automated email from {$contextName}. You are receiving this email because you are an editor. To unsubscribe from these emails, please visit your <a href=\"{$userProfileUrl}\">user profile</a>.</p>"
+"<p>This is an automated email from {$contextName}. You are receiving this email because you are an editor.</p>"
 "<p>If you have any questions about your assignments, please contact {$contactName} at {$contactEmail}.</p>"
 
 msgid "emails.editorialReminder.description"
@@ -343,3 +343,33 @@ msgstr "A message regarding {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Please enter your message."
+
+msgid "emails.versionCreated.subject"
+msgstr "New publication version"
+
+msgid "emails.versionCreated.body"
+msgstr ""
+"<p>Dear {$recipientName}, </p>"
+"<p>A new version of the publication was created:</p>"
+"<p><a href=\"{$submissionUrl}\">{$submissionId} {$submissionTitle}</a><br />"
+"{$contextName}</p>"
+"<p>Sincerely,</p>"
+"{$contextSignature}"
+
+msgid "emails.reviewComplete.subject"
+msgstr "Review completed"
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+"<p>Dear {$recipientName}, </p>"
+"<p>{$senderName} has completed the review on the submission <p><a href=\"{$submissionUrl}\">{$submissionId} {$submissionTitle}</a><br /></p>"
+"<p>This is an automatic email sent from {$contextName}</p>"
+
+msgid "emails.reviewEdited.subject"
+msgstr "Review details modified"
+
+msgid "emails.reviewEdited.body"
+msgstr ""
+"<p>Dear {$recipientName}, </p>"
+"<p>Review details on the submission <p><a href=\"{$submissionUrl}\">{$submissionId} {$submissionTitle}</a> have been changed.<br /></p>"
+"<p>This is an automatic email sent from {$contextName}</p>"

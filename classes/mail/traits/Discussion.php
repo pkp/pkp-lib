@@ -15,9 +15,13 @@
 
 namespace PKP\mail\traits;
 
+use PKP\mail\variables\SubmissionEmailVariable;
+
 trait Discussion
 {
-    use Unsubscribe;
+    use Unsubscribe {
+        getRequiredVariables as getTraitRequiredVariables;
+    }
 
     protected function addFooter(string $locale): self
     {
@@ -32,5 +36,16 @@ trait Discussion
         }
 
         return __($localeKey, [], $locale);
+    }
+
+    /**
+     * Adds email template variable class required to generate submission-related variables
+     */
+    protected static function getRequiredVariables(): array
+    {
+        return array_merge(
+            static::getTraitRequiredVariables(),
+            [SubmissionEmailVariable::class]
+        );
     }
 }

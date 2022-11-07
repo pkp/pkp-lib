@@ -1877,9 +1877,6 @@ msgstr "Skrá skoðuð."
 msgid "notification.type.reviewerComment"
 msgstr "Ritrýnir hefur skrifað athugasemd við \"{$title}\"."
 
-msgid "notification.type.metadataModified"
-msgstr "Lýsigögn hafa verið uppfærð fyrir \"{$title}\"."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Endurskoðun send til {$stage}."
 

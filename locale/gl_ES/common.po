@@ -1346,9 +1346,6 @@ msgstr "Arquivo examinado."
 msgid "notification.type.reviewerComment"
 msgstr "Un revisor comentou sobre \"{$title}\"."
 
-msgid "notification.type.metadataModified"
-msgstr "Modificáronse os metadatos de \"{$title}\"."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Revisións enviadas a {$stage}."
 

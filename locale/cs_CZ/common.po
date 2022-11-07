@@ -1395,9 +1395,6 @@ msgstr "Úpravy, které je třeba ve fázi {$stage} vzít v úvahu."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Ve fázi {$stage} byla nahrána recenze."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadata příspěvku \"{$title}\" byla upravena."
-
 msgid "notification.type.reviewerComment"
 msgstr "Recenzent okomentoval článek \"{$title}\"."
 

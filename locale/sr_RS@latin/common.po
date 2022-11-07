@@ -1365,9 +1365,6 @@ msgstr "Recenzija čeka."
 msgid "notification.type.allReviewsIn"
 msgstr "Sve recenzije su stigle i čeka se odluka u fazi: {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "Metapodaci naslova \"{$title}\" su izmenjeni."
-
 msgid "notification.type.reviewerComment"
 msgstr "Recenzent je ostavio komentar na \"{$title}\"."
 

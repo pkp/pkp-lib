@@ -14,14 +14,13 @@
 
 namespace PKP\mail\mailables;
 
-use APP\notification\Notification;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
-use PKP\mail\traits\Notification as NotificationTrait;
 use PKP\mail\traits\Sender;
+use PKP\mail\traits\Unsubscribe;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -30,29 +29,30 @@ class EditReviewNotify extends Mailable
     use Configurable;
     use Recipient;
     use Sender;
-    use NotificationTrait;
+    use Unsubscribe;
 
     protected static ?string $name = 'mailable.editReviewNotify.name';
     protected static ?string $description = 'mailable.editReviewNotify.description';
-    protected static ?string $emailTemplateKey = 'NOTIFICATION';
+    protected static ?string $emailTemplateKey = 'REVIEW_EDITED';
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
+    protected Context $context;
+
     public function __construct(
         Context $context,
         Submission $submission,
-        ReviewAssignment $reviewAssignment,
-        Notification $notification
+        ReviewAssignment $reviewAssignment
     )
     {
-        parent::__construct(array_slice(func_get_args(), 0, -1));
-        $this->setupNotificationVariables($notification);
+        parent::__construct(func_get_args());
+        $this->context = $context;
     }
 
-    public static function getDataDescriptions(): array
+    protected function addFooter(string $locale): self
     {
-        $variables = parent::getDataDescriptions();
-        return static::addNotificationVariablesDescription($variables);
+        $this->setupUnsubscribeFooter($locale, $this->context);
+        return $this;
     }
 }

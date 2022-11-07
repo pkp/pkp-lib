@@ -1828,9 +1828,6 @@ msgstr "File dipertimbangkan."
 msgid "notification.type.reviewerComment"
 msgstr "Mitra bestari telah mengomentari \"{$title}\"."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadata \"{$title}\" telah diubah ."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Revisi dikirim ke {$stage}."
 

@@ -1429,9 +1429,6 @@ msgstr "Descarrega el PDF"
 msgid "common.homepageNavigationLabel"
 msgstr "Pàgina d'inici"
 
-msgid "notification.type.metadataModified"
-msgstr "S'han modificat les metadades de \"{$title}\"."
-
 msgid "notification.type.reviewerComment"
 msgstr "Un revisor/a ha fet comentaris sobre \"{$title}\"."
 

@@ -17,15 +17,18 @@ declare(strict_types=1);
 
 namespace PKP\Jobs\Email;
 
+use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
+use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\Support\Jobs\BaseJob;
 use PKP\user\User;
@@ -137,6 +140,14 @@ class EditorialReminder extends BaseJob
             return;
         }
 
+        $notificationManager = new NotificationManager();
+        $notification = $notificationManager->createNotification(
+            Application::get()->getRequest(),
+            $this->editorId,
+            PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
+            $this->contextId
+        );
+
         $mailable = new MailablesEditorialReminder($context);
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
@@ -145,7 +156,8 @@ class EditorialReminder extends BaseJob
             ->from($context->getContactEmail(), $context->getLocalizedName(Locale::getLocale()))
             ->recipients([$editor])
             ->subject($emailTemplate->getLocalizedData('subject'))
-            ->body($emailTemplate->getLocalizedData('body'));
+            ->body($emailTemplate->getLocalizedData('body'))
+            ->allowUnsubscribe($notification);
 
         Mail::send($mailable);
 

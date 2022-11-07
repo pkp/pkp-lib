@@ -88,7 +88,6 @@ class PKPNotificationSettingsForm extends Form
                 'settings' => [
                     PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                     PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
-                    PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED,
                     PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
                     PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 ]

@@ -1467,9 +1467,6 @@ msgstr "O usuário atual não é o autor da submissão requisitada. Por favor ve
 msgid "navigation.dashboard"
 msgstr "Painel de Controle"
 
-msgid "notification.type.metadataModified"
-msgstr "Metadado de \"{$title}\" modificado."
-
 msgid "notification.type.reviewerComment"
 msgstr "Um avaliador comentou em \"{$title}\"."
 

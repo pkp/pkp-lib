@@ -1545,9 +1545,6 @@ msgstr "Er worden nog revisies verwacht in {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Revisies zijn ingediend in {$stage}"
 
-msgid "notification.type.metadataModified"
-msgstr "Metadata voor \"{$title}\" is bijgewerkt."
-
 msgid "notification.type.reviewerComment"
 msgstr "Een reviewer heeft opmerkingen toegevoegd voor \"{$title}\"."
 

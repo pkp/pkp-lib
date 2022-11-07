@@ -27,7 +27,7 @@ use PKP\notification\PKPNotification;
 class QueryNotificationManager extends NotificationManagerDelegate
 {
     /**
-     * @copydoc NotificationManagerDelegate::getNotifictionTitle()
+     * @copydoc NotificationManagerDelegate::getNotificationTitle()
      */
     public function getNotificationTitle($notification)
     {

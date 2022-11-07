@@ -1409,9 +1409,6 @@ msgstr "اصلاحاتی که در {$stage} باید بررسی شود "
 msgid "notification.type.pendingRevisions.title"
 msgstr "اصلاحات در {$stage} ثبت شد."
 
-msgid "notification.type.metadataModified"
-msgstr "فراداده‌های «{$title}» تغییر داده شده است"
-
 msgid "notification.type.reviewerComment"
 msgstr "داور برای \"{$title}\" نظری داده است"
 

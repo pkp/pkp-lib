@@ -602,20 +602,6 @@ msgstr ""
 msgid "emails.subscriptionNotify.description"
 msgstr "Mezu honek irakurle erregistratuari jakinarazten dio Kudeatzaileak harpidetza egin diola. Aldizkariaren URLa eta aldizkarian sartzeko argibideak ematen ditu."
 
-msgid "emails.notification.subject"
-msgstr "{$contextName} gunearen jakinarazpen berria"
-
-#, fuzzy
-msgid "emails.notification.body"
-msgstr ""
-"{$contextName} gunearen jakinarazpen berri bat daukazu:<br />\n"
-"<br />\n"
-"{$notificationContents}<br />\n"
-"<br />\n"
-"Esteka: {$notificationUrl}<br />\n"
-"<br />\n"
-"{$contextSignature}"
-
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Editorearen erabakia"
 

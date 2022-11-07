@@ -1831,9 +1831,6 @@ msgstr "Документот е земен за разгледување."
 msgid "notification.type.reviewerComment"
 msgstr "Рецензент коментираше на „{$title}“."
 
-msgid "notification.type.metadataModified"
-msgstr "Метаподатоците на „{$title}“ се изменети."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Ревизија предадена во {$stage}."
 

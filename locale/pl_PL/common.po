@@ -1474,9 +1474,6 @@ msgstr "Poprawiony tekst do rozważenia w etapie {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Poprawiony tekst przesłany do etapu {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadane tytułu \"{$title}\" zmodyfikowane."
-
 msgid "notification.type.reviewerComment"
 msgstr "Recenzent dodał komentarz do \"{$title}\"."
 

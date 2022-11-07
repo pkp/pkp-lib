@@ -2118,9 +2118,6 @@ msgstr "Файл қаралды."
 msgid "notification.type.reviewerComment"
 msgstr "Сарапшы \"{$title}\" деп пікір білдірді."
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}\" метадеректері өзгертілді."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Жаңа нұсқалар \"{$stage}\" кезеңіне жіберілді."
 

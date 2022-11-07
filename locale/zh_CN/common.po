@@ -1455,9 +1455,6 @@ msgstr "当前用户无权访问指定的提交文件。"
 msgid "notification.type.reviewerComment"
 msgstr "审阅者对“ {$title}”发表了评论。"
 
-msgid "notification.type.metadataModified"
-msgstr "“ {$title}” 的元数据已被修改。"
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "修订已提交到 {$stage}。"
 

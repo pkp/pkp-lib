@@ -1437,9 +1437,6 @@ msgstr "ფაილი განიხილება."
 msgid "notification.type.reviewerComment"
 msgstr "რეცენზენტმა კომენტარი გააკეთა \"{$title}\"-ზე."
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}\" მეტამონაცემები შეიცვალა."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "შესწორებები შეტანილია {$stage}-ზე."
 

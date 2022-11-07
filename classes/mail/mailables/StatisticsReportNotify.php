@@ -20,12 +20,14 @@ use PKP\core\PKPApplication;
 use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
+use PKP\mail\traits\Unsubscribe;
 use PKP\security\Role;
 
 class StatisticsReportNotify extends Mailable
 {
     use Recipient;
     use Configurable;
+    use Unsubscribe;
 
     protected static ?string $name = 'mailable.statisticsReportNotify.name';
     protected static ?string $description = 'mailable.statisticsReportNotify.description';
@@ -34,6 +36,8 @@ class StatisticsReportNotify extends Mailable
     protected static array $groupIds = [self::GROUP_OTHER];
     protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_SUB_EDITOR];
+
+    protected Context $context;
 
     public function __construct(
         Context $context,
@@ -44,6 +48,7 @@ class StatisticsReportNotify extends Mailable
     )
     {
         parent::__construct([$context]);
+        $this->context = $context;
         $this->setupStatisticsVariables($context, $editorialTrends, $totalSubmissions, $month, $year);
     }
 
@@ -97,5 +102,14 @@ class StatisticsReportNotify extends Mailable
             'editorialStatsLink' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'stats', 'editorial'),
             'publicationStatsLink' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'stats', 'publications')
         ]);
+    }
+
+    /**
+     * Adds a footer with unsubscribe link
+     */
+    protected function addFooter(string $locale): Mailable
+    {
+        $this->setupUnsubscribeFooter($locale, $this->context);
+        return $this;
     }
 }

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-04 17:21+0000\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "lv_LV/>\n"
@@ -455,3 +455,51 @@ msgid "user.profile.form.urlInvalid"
 msgstr ""
 "Norādītais URL nav derīgs. Lūdzu, vēlreiz pārbaudiet URL un mēģiniet "
 "vēlreiz. (Ieteikums: mēģiniet URL sākumā pievienot http://.)"
+
+msgid "user.username"
+msgstr "Lietotājvārds"
+
+msgid "user.workingLanguages"
+msgstr "Darba valodas"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Jūsu norādītais ORCID iD ir nederīgs. Lūdzu, norādiet pilnu URI (piemēram, "
+"\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.apiKey"
+msgstr "API atslēga"
+
+msgid "user.apiKeyEnabled"
+msgstr "Atļaut ārējām lietojumprogrammām ar API atslēgu piekļūt šim kontam"
+
+msgid "user.apiKey.generate"
+msgstr "Izveidot API atslēgu"
+
+msgid "user.apiKey.remove"
+msgstr "Dzēst"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Jaunas API atslēgas ģenerēšana anulēs jebkuru šī lietotāja esošo atslēgu."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Dzēšot atslēgu, tiks atsaukta piekļuve jebkurai lietojumprogrammai, kas to "
+"izmanto."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Vai esat pārliecināts, ka vēlaties dzēst šo API atslēgu?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Pirms API atslēgas ģenerēšanas jūsu vietnes administratoram ir jāiestata "
+"noslēpuma kods konfigurācijas failā (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"Jūsu dati tiek glabāti saskaņā ar mūsu <a href=\"{$privacyUrl}\" target="
+"\"_blank\">privātuma atrunu</a>."

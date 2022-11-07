@@ -15,7 +15,6 @@
 
 namespace PKP\controllers\grid\users\stageParticipant;
 
-use APP\controllers\grid\users\stageParticipant\form\StageParticipantNotifyForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
@@ -25,6 +24,7 @@ use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
+use PKP\controllers\grid\users\stageParticipant\form\StageParticipantNotifyForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;

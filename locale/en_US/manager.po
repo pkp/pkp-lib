@@ -2815,10 +2815,13 @@ msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
 msgstr "The number of skipped submissions"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr "Th total number of submissions received"
+msgstr "The total number of submissions received"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "The month of the report"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "The year of the report"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Issue identification, including volume, number, year, and title"
@@ -3276,10 +3279,10 @@ msgid "manager.submissionAck.off"
 msgstr "Do not send an email."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr "Send a confirmation email to the submitting author only."
+msgstr "Send an email to the submitting author only."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr "Send a confirmation email to all authors."
+msgstr "Send an email to all authors."
 
 msgid "manager.editorialDecisions"
 msgstr "Editorial Decisions"

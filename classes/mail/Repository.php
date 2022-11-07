@@ -33,23 +33,7 @@ class Repository
         return collect(Mail::getMailables($context->getId()))
             ->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
             ->filter(function(string $class) use ($context, $includeDisabled) {
-                if ($includeDisabled) {
-                    return true;
-                }
-                if ($class === StatisticsReportNotify::class) {
-                    return $context->getData('editorialStatsEmail');
-                } elseif (in_array($class, [SubmissionAcknowledgement::class, SubmissionAcknowledgementNotAuthor::class])) {
-                    $setting = $context->getData('submissionAcknowledgement');
-                    if ($setting === Context::SUBMISSION_ACKNOWLEDGEMENT_ALL_AUTHORS) {
-                        return true;
-                    } elseif ($setting === Context::SUBMISSION_ACKNOWLEDGEMENT_OFF) {
-                        return false;
-                    } elseif ($class === SubmissionAcknowledgementNotAuthor::class) {
-                        return false;
-                    }
-                    return true;
-                }
-                return true;
+                return $includeDisabled || $this->isMailableEnabled($class, $context);
             })
             ->map(fn(string $class) => $this->summarizeMailable($class))
             ->sortBy('name');
@@ -142,5 +126,26 @@ class Repository
 
 
         return $data;
+    }
+
+    /**
+     * Check if a mailable is enabled on this context
+     */
+    protected function isMailableEnabled(string $class, Context $context): bool
+    {
+        if ($class === StatisticsReportNotify::class) {
+            return (bool) $context->getData('editorialStatsEmail');
+        } elseif (in_array($class, [SubmissionAcknowledgement::class, SubmissionAcknowledgementNotAuthor::class])) {
+            $setting = $context->getData('submissionAcknowledgement');
+            if ($setting === Context::SUBMISSION_ACKNOWLEDGEMENT_ALL_AUTHORS) {
+                return true;
+            } elseif ($setting === Context::SUBMISSION_ACKNOWLEDGEMENT_OFF) {
+                return false;
+            } elseif ($class === SubmissionAcknowledgementNotAuthor::class) {
+                return false;
+            }
+            return true;
+        }
+        return true;
     }
 }

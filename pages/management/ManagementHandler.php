@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\components\forms\context\PKPEmailSetupForm;
 use PKP\components\forms\context\PKPNotifyUsersForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\config\Config;
@@ -252,7 +253,7 @@ class ManagementHandler extends Handler
         $authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
         $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $disableSubmissionsForm = new \PKP\components\forms\context\PKPDisableSubmissionsForm($contextApiUrl, $locales, $context);
-        $emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
+        $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
         $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
         $reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
 
@@ -555,5 +556,10 @@ class ManagementHandler extends Handler
             Role::ROLE_ID_AUTHOR => __('user.role.author'),
             Role::ROLE_ID_READER => __('user.role.reader'),
         ];
+    }
+
+    protected function getEmailSetupForm(string $contextApiUrl, array $locales, Context $context): PKPEmailSetupForm
+    {
+        return new PKPEmailSetupForm($contextApiUrl, $locales, $context);
     }
 }

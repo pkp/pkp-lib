@@ -53,7 +53,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         $this->addDefaultTemplateNames();
 
         Schema::table('email_templates_default_data', function(Blueprint $table) {
-            $table->string('name', 255);
+            $table->string('name', 255)->change();
         });
 
         // The order below is important
@@ -206,7 +206,8 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                 ->first()
         );
 
-        $initialLocale = Locale::getLocale();
+        $initialMissingLocaleKeyHandler = Locale::getMissingKeyHandler();
+        Locale::setMissingKeyHandler(fn (string $key): string => '');
 
         foreach ($locales as $locale) {
 
@@ -215,14 +216,15 @@ abstract class I5716_EmailTemplateAssignments extends Migration
             foreach ($data['email'] as $entry) {
                 $key = $entry['attributes']['key'];
                 $name = $entry['attributes']['name'];
+                $name = __($name, [], $locale);
                 DB::table('email_templates_default_data')
                     ->where('email_key', $key)
                     ->where('locale', $locale)
-                    ->update(['name' => __($name)]);
+                    ->update(['name' => $name ? $name : $key]);
             }
         }
 
-        Locale::setLocale($initialLocale);
+        Locale::setMissingKeyHandler($initialMissingLocaleKeyHandler);
 
         DB::table('email_templates_default_data')
             ->whereNull('name')

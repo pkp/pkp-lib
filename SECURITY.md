@@ -6,7 +6,7 @@
 | ------- | ----------------------------------------------------- | ------------- |
 | 3.4.x   | :heavy_check_mark: Active development                 |               |
 | 3.3.x   | :heavy_check_mark: Active maintenance                 |               |
-| 3.2.x   | :white_check_mark: Security only                      |               |
+| 3.2.x   | :white_check_mark: Security only                      | 2023          |
 
 ## Reporting a Vulnerability
 

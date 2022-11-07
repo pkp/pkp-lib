@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-10-27 11:08+0000\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -2785,3 +2785,65 @@ msgstr "Coğrafi İndirme"
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Değerlendirme Hatırlatıcısı (Otomatik)"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "<a href='https://db-ip.com'>DB-IP</a> tarafından sağlanan coğrafi konum"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Coğrafi Konum Hakkında"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} - {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Tümü {$filter}"
+
+msgid "stats.timeline"
+msgstr "Zaman çizelgesi"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Her {$interval} için {$type} sayısı."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Zaman çizelgesini indir"
+
+msgid "stats.timelineInterval"
+msgstr "Zaman Çizelgesi Aralığı"
+
+msgid "stats.timelineType"
+msgstr "Zaman Çizelgesi Türü"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI geçersiz karakterler içeriyor."
+
+msgid "stats.views"
+msgstr "Görüntüle"
+
+msgid "stats.downloads"
+msgstr "İndirmeler"
+
+msgid "stats.views.timelineInterval"
+msgstr "Tarihe göre toplam görüntüleme"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Tarihe göre toplam indirme"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Değerlendirme turu, kararın bir değerlendirme aşamasıyla ilgili olması "
+"durumunda bu kararın alındığı aşamadır."
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Bekleyen görevleri olan aday makale listesi"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Bu editöre atanan aday makale sayısı"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Yeni tartışmanın veya yanıtın içeriği"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Önerilen karar, kabul"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Tartışmanın konusu"

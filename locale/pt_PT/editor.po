@@ -1,11 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-18 17:42+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Deseja realmente eliminar esta submissão?"
@@ -396,9 +397,11 @@ msgstr "Redesignar"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor já foi designado a esta ronda de revisão."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Este revisor está bloqueado porque tem permissões para ver a identidade do autor. A revisão cega não pode ser garantida. Confirma que pretende desbloquear o revisor?"
+msgstr ""
+"Este revisor está bloqueado porque tem permissões para ver a identidade do "
+"autor. A revisão cega não pode ser garantida. Confirma que pretende "
+"desbloquear o revisor?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Desbloquar"
@@ -437,7 +440,7 @@ msgid "editor.review.requestDeclined"
 msgstr "Recusar Solicitação"
 
 msgid "editor.review.reinstateReviewer"
-msgstr "Restituir  Revisor"
+msgstr "Restituir Revisor"
 
 msgid "editor.review.cancelReviewer"
 msgstr "Cancelar Revisor"
@@ -568,3 +571,14 @@ msgstr "Redesignar {$name}"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr "Este revisor concluiu uma revisão na ronda anterior."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Ocorreu um erro ao solicitar que o(a) avaliador(a) reconsiderasse o convite "
+"para revisão. Por favor, tente novamente."
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Reenviar Solicitação de Revisão"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Solicitar Reenvio"

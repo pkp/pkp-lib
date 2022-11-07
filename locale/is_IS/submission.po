@@ -2,7 +2,7 @@
 # Þórný Barðadóttir <thorny@rmf.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-31 16:45+0000\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
 "Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
@@ -392,8 +392,8 @@ msgstr "Útdráttur"
 
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""
-"Vertu viss um að þú setjir gilda tegund heitis.  Studd gildi eru \""
-"persónulegt\", \"fyrirtæki\" og \"ráðstefna\"."
+"Vertu viss um að þú setjir gilda tegund heitis. Studd gildi eru \"persónulegt"
+"\", \"fyrirtæki\" og \"ráðstefna\"."
 
 msgid "metadata.property.displayName.name-type"
 msgstr "Tegund heitis"
@@ -433,14 +433,14 @@ msgstr "Horft framhjá hluta titils við flokkun"
 msgid "metadata.property.validationMessage.title-type"
 msgstr ""
 "Vinsamlega gakktu úr skugga um að þú setjir gilda tegund titils. Studd gildi "
-"eru  \"skammstöfun\", \"þýtt\", \"annar texti \" og \"samræmt\"."
+"eru \"skammstöfun\", \"þýtt\", \"annar texti \" og \"samræmt\"."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Titill tegundar"
 
 msgid "metadata.property.validationMessage.publication-type"
 msgstr ""
-"Vinsamlega gakktu úr skugga um að þú setjir alltaf tegund útgáfu.  Studd "
+"Vinsamlega gakktu úr skugga um að þú setjir alltaf tegund útgáfu. Studd "
 "gildi eru bækur (fyrir bækur eða bókarkafla) og tímarit (fyrir "
 "tímaritsgreinar). Að öðrum kosti verða tílvísanir ekki réttar."
 
@@ -640,11 +640,11 @@ msgstr "Titill greinar/handrits"
 
 msgid "metadata.property.validationMessage.editor"
 msgstr ""
-"Best er að slá inn ritstjóra á eftirfarandi formi:  Coleman Jr, D. (Ralf) Dr."
+"Best er að slá inn ritstjóra á eftirfarandi formi: Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.validationMessage.author"
 msgstr ""
-"Best er að slá inn höfunda á eftirfarandi formi:  Coleman Jr, D. (Ralf) Dr."
+"Best er að slá inn höfunda á eftirfarandi formi: Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
 msgstr "Ritstjórar"
@@ -654,7 +654,7 @@ msgstr "Höfundar"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
-"Innri villa.  Óleyfilegt gildi var birt fyrir stillingar á valkvæðum síum.  "
+"Innri villa. Óleyfilegt gildi var birt fyrir stillingar á valkvæðum síum. "
 "Vinsamlega tilkynntu þetta sem hugbúnaðarvillu."
 
 msgid "metadata.filters.settings.isOptional.displayName"
@@ -689,7 +689,7 @@ msgstr "ISBNdb API Lykill"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Vinsamlega sláðu inn gilt Crossref skráningar netfang.  Þú getur skráð "
+"Vinsamlega sláðu inn gilt Crossref skráningar netfang. Þú getur skráð "
 "netfangið þitt ókeypis á vefsíðu Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
@@ -732,7 +732,7 @@ msgid "submission.submit.copyrightNoticeAgreementLabel"
 msgstr "Staðfesta höfundarétt"
 
 msgid "submission.submit.submissionCompleteThanks"
-msgstr "Takk fyrir þann áhuga sem þú sýnir á birtingu í  {$contextName}."
+msgstr "Takk fyrir þann áhuga sem þú sýnir á birtingu í {$contextName}."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Innsendingu lokið"
@@ -766,13 +766,13 @@ msgid "submission.confirm.message"
 msgstr ""
 "Handriti þínu hefur verið hlaðið inn og er tilbúið til innsendingar. Þú "
 "getur farið til baka til að skoða og laga þær upplýsingar sem þú hefur gefið "
-"upp áður en þú heldur áfram.  Þegar þú ert tilbúin(n/-ð), smelltu á \"Klára "
+"upp áður en þú heldur áfram. Þegar þú ert tilbúin(n/-ð), smelltu á \"Klára "
 "innsendingu\"."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Einn eða fleiri ritrýnar eru á eftir áætlun. Ritstjórateymið hefur verið "
-"upplýst og mun bregðast við til að tryggja að ritrýni sé kláruð.  Þú þarft "
+"upplýst og mun bregðast við til að tryggja að ritrýni sé kláruð. Þú þarft "
 "ekki að gera neitt sem stendur. Þú færð skilaboð þegar ákvörðun hefur verið "
 "tekin."
 
@@ -782,7 +782,7 @@ msgstr "Nýrri ritrýni hefur verið skilað og er í athugun hjá ritstjóra."
 msgid "author.submit.submissionCitations"
 msgstr ""
 "Útvegaðu forsniðinn lista af heimildum fyrir verk sem vísað er til í þessu "
-"handriti.  Vinsamlega aðgreindu hverja heimild með auðri línu."
+"handriti. Vinsamlega aðgreindu hverja heimild með auðri línu."
 
 msgid "author.publicationNotFound"
 msgstr "Útgefið verk fyrir þennan höfund fannst ekki."
@@ -976,7 +976,7 @@ msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
 "\"><img alt=\"Creative Commons Leyfi\" src=\"//i.creativecommons.org/l/"
 "by-nc-nd/4.0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir "
-"leyfinu  <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"leyfinu <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
 "by-nc-nd/4.0/\">(Creative Commons Attribution-NonCommercial-NoDerivatives "
 "4.0 International License)</a>.</p>"
 
@@ -1788,7 +1788,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Ristjórinn {$userName} hefur staðfest ritrýni fyrir  {$round} umferð "
+"Ristjórinn {$userName} hefur staðfest ritrýni fyrir {$round} umferð "
 "innsendingar {$submissionId}."
 
 msgid "log.review.reviewReinstated"
@@ -1831,8 +1831,8 @@ msgstr "Ný útgáfa af innsendingu var búin til"
 
 msgid "notification.type.editorAssignment"
 msgstr ""
-"Það verður að úthluta ritstjóra áður en hægt er að hefja ritrýni.  "
-"Vinsamlega bættu við ritstjóra af þátttakendalistanum."
+"Það verður að úthluta ritstjóra áður en hægt er að hefja ritrýni. Vinsamlega "
+"bættu við ritstjóra af þátttakendalistanum."
 
 msgid "notification.uploadedResponse"
 msgstr "Svörum hlaðið upp."
@@ -1992,7 +1992,7 @@ msgstr "Orðafjöldi: {$count}/{$limit}"
 
 msgid "publication.wordCountLong"
 msgstr ""
-"Útdrátturinn er of langur. Hann ætti að vera {$limit} orð eða styttri.  "
+"Útdrátturinn er of langur. Hann ætti að vera {$limit} orð eða styttri. "
 "Núverandi lengd er {$count} orð."
 
 msgid "publication.version.confirm"
@@ -2097,7 +2097,7 @@ msgstr ""
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
 "Þér hefur verið úthlutað mörgum hlutverkum fyrir þessa insendingu. Viltu "
-"fara í  <a href=\"{$urlAuthorWorkflow}\">Verkferli höfundar</a>  eða <a href="
+"fara í <a href=\"{$urlAuthorWorkflow}\">Verkferli höfundar</a>  eða <a href="
 "\"{$urlEditorialWorkflow}\">Verkferli ritstjórnar</a>?"
 
 msgid "submission.list.discussions"
@@ -2406,3 +2406,104 @@ msgstr ""
 
 msgid "editor.submission.decision.promoteFiles.review"
 msgstr "Veldu skrár til að senda í ritrýni."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Fyrri ákvörðun um höfnun innsendingar snúið og grein endursend í "
+"ritstjórnarferli."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Mæla með höfnun"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Mælt er með því að óskað sé eftir endurbótum frá höfundi áður en "
+"innsendingin verði samþykkt til birtingar."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Mæla með samþykkt"
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Innsending endurvirkjuð"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Mæla með því að innsendingu verði hafnað."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Mælt með endurbótum"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Skoða allar innsendingar"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} mælir með því að óskað sé endurbóta."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr "Mælt með því að innsendingin verði samþykkt og hún send til textatækna."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Sendu skilaboð til ákvarðandi ritstjóra með upplýsingum um tilmæli. Útskýrðu "
+"rökstuðning tilmælanna út frá ráðleggingum og athugasemdum ritrýna."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Mælt með endursendingu í ritrýni"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Þú getur ekki veitt ráðleggingar án þess að ritstjóri úthluti þér heimild "
+"til að skrá ákvarðanir."
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "Tilmæli þín hafa verið skráð og tilkynning send til ritstjóra."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} hefur mælt með því að innsendingin verði samþykkt og hún send "
+"til textatækna."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Innsendingin {$title} er nú virk og hefur verið sett á ritrýnistig."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} mælir með því að innsendingu verði hafnað."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Sendu höfundi tölvupóst með upplýsingum um að fyrri ákvörðun um höfnun "
+"innsendingar hafi verið afturkölluð. Útskýrðu ástæðu þessa og upplýstu um "
+"hvort áætlað er að senda greinina í frekari ritrýni."
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Failed to mark the DOI stale for {$pubObjectTitle}. The DOI cannot be marked "
+"stale because they have not yet been registered or submitted."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Mælt með því að höfundur sé beðinn um að bregðast við tilmælum um endurbætur "
+"og skila á ný fyrir nýja umferð ritrýni."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Tilmæli send"
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Innsendingin {$title} er virk á innsendingarstigi."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Resent the request to review in round {$round} to {$reviewerName} for "
+"submission {$submissionid}."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Failed to mark the DOI registered for {$pubObjectTitle}. The submission must "
+"be published before the status can be updated."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} sneri ákvörðun um að hafna þessari innsendingu."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} mælir með því að farið sé fram á endurbætur og að ný umferð "
+"ritrýni fari fram eftir að höfundur hefur brugðist við tilmælum."

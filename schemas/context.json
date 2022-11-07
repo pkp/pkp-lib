@@ -35,6 +35,14 @@
 				]
 			}
 		},
+		"postedAcknowledgement": {
+			"type": "boolean",
+			"description": "Whether or not to send an email to the authors when their preprint is posted. This email is only sent when the first version is posted. Default: `true`",
+			"default": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"serverThumbnail": {
 			"type": "object",
 			"multilingual": true,

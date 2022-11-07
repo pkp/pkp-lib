@@ -153,17 +153,6 @@ msgstr ""
 msgid "emails.statisticsReportNotification.subject"
 msgstr "Atividade do servidor de pré-impressão para {$mês}, {$ano}"
 
-msgid "emails.notificationCenterDefault.description"
-msgstr ""
-"A mensagem pré-definida (em branco) usada no Notification Center Message "
-"Listbuilder."
-
-msgid "emails.notificationCenterDefault.body"
-msgstr "Por favor digite sua mensagem."
-
-msgid "emails.notificationCenterDefault.subject"
-msgstr "Uma mensagem a respeito de"
-
 msgid "emails.revisedVersionNotify.subject"
 msgstr "Versão revisada carregada"
 
@@ -178,13 +167,8 @@ msgstr ""
 "<br />\n"
 "{$editorialContactSignature}"
 
-msgid "emails.submissionAckNotUser.subject"
+msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmação da submissão"
-
-msgid "emails.postedAck.description"
-msgstr ""
-"Este e-mail, quando habilitado, é enviado automaticamente a um autor quando "
-"o preprint é postado online no servidor."
 
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
@@ -214,7 +198,7 @@ msgstr ""
 msgid "emails.editorAssign.subject"
 msgstr "Atribuição de moderador"
 
-msgid "emails.submissionAckNotUser.body"
+msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "Olá, <br/>\n"
 "<br/>\n"

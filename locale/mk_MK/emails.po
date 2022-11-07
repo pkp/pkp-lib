@@ -119,7 +119,7 @@ msgstr ""
 msgid "emails.notification.subject"
 msgstr "Ново известување од {$siteTitle}"
 
-msgid "emails.submissionAckNotUser.body"
+msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "Добар ден,<br />\n"
 "<br />\n"
@@ -131,13 +131,8 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
-msgid "emails.submissionAckNotUser.subject"
+msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Потврда за поднесување"
-
-msgid "emails.postedAck.description"
-msgstr ""
-"Кога е овозможена оваа е-пошта автоматски се испраќа до авторот кога "
-"отпечатокот е објавен онлајн на серверот."
 
 msgid "emails.announcement.body"
 msgstr ""
@@ -174,17 +169,6 @@ msgstr ""
 
 msgid "emails.statisticsReportNotification.subject"
 msgstr "Активност на серверот на отпечатоци за {$month}, {$year}"
-
-msgid "emails.notificationCenterDefault.description"
-msgstr ""
-"Стандардната (празна) порака што се користи во Градителот на пораки во "
-"Центарот за известувања."
-
-msgid "emails.notificationCenterDefault.body"
-msgstr "Ве молиме внесете ја вашата порака."
-
-msgid "emails.notificationCenterDefault.subject"
-msgstr "Порака во врска со {$contextName}"
 
 msgid "emails.revisedVersionNotify.body"
 msgstr ""

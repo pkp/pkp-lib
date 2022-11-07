@@ -158,6 +158,7 @@ msgstr "Näytä kotisivulla"
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Ota ilmoitukset käyttöön"
 
+#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
 "Valmiisiin sähköposteihin, jotka järjestelmä lähettää palvelimen puolesta, "

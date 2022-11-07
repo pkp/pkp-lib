@@ -47,10 +47,10 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I7624_StrftimeDeprecation"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7592_RemoveUnusedEmailTemplates"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7126_Galleys"/>
-		<migration class="PKP\migration\upgrade\v3_4_0\I7706_AssociateTemplatesWithMailables"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I8060_UpdateUserLocalesDefaultToEmptyArrayFromNull" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I7245_UpdateUserLocaleStringToParsableJsonString" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I8073_RemoveNotesWithoutQueriesAndRelatedObjects" />
+		<migration class="APP\migration\upgrade\v3_4_0\I5716_EmailTemplateAssignments"/>
 		<data file="dbscripts/xml/upgrade/3.4.0_preupdate_email_templates.xml" />
 		<code function="installEmailTemplate" key="EDITOR_DECISION_NOTIFY_OTHER_AUTHORS" locales="en_US" />
 		<code function="installEmailTemplate" key="EDITOR_DECISION_REVERT_INITIAL_DECLINE" locales="en_US" />
@@ -70,7 +70,7 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I8093_UpdateUserGroupRelationTablesFK"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7796_UpdateCrossrefSchema"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7287_RemoveEmailTemplatesDefault"/>
-		<code function="installEmailTemplate" key="DISCUSSION_NOTIFICATION" locales="en_US" />
+		<code function="installEmailTemplate" key="DISCUSSION_NOTIFICATION_PRODUCTION" locales="en_US" />
 		<note file="docs/release-notes/README-3.4.0" />
 	</upgrade>
 
@@ -81,7 +81,7 @@
 	<upgrade minversion="3.3.0.0" maxversion="3.3.9.9">
 		<migration class="PKP\migration\upgrade\v3_4_0\I7249_UpdateUsersUniqueIndex"/>
 	</upgrade>
-	
+
 	<!-- update plugin configuration - should be done as the final upgrade task -->
 	<code function="addPluginVersions" />
 </install>

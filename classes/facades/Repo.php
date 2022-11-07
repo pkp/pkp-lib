@@ -16,6 +16,7 @@ namespace APP\facades;
 
 use APP\decision\Repository as DecisionRepository;
 use APP\doi\Repository as DoiRepository;
+use APP\mail\Repository as MailRepository;
 use APP\publication\Repository as PublicationRepository;
 use APP\submission\Repository as SubmissionRepository;
 use APP\submissionFile\Repository as SubmissionFileRepository;
@@ -37,6 +38,11 @@ class Repo extends \PKP\facades\Repo
     public static function galley(): GalleyRepository
     {
         return app(GalleyRepository::class);
+    }
+
+    public static function mailable(): MailRepository
+    {
+        return app(MailRepository::class);
     }
 
     public static function publication(): PublicationRepository

@@ -41,7 +41,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
 
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             $table->bigInteger('user_group_id')->nullable(false)->change();
-            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
             $table->index(['user_group_id'], 'subeditor_submission_group_user_group_id');
         });
     }

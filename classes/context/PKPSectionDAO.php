@@ -61,7 +61,7 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     {
         return DB::table($this->_getTableName())
             ->where($this->_getIdColumnName(), $sectionId)
-            ->when($contextId, fn (Builder $q) => $q->where($this->_getContextIdColumnName(), $contextId))
+            ->when($contextId !== null, fn (Builder $q) => $q->where($this->_getContextIdColumnName(), $contextId))
             ->exists();
     }
 

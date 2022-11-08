@@ -23,16 +23,21 @@ class I7191_SubmissionProgressType extends \PKP\migration\Migration
     public function up(): void
     {
         Schema::table('submissions', function (Blueprint $table) {
-            $table->text('submission_progress')->default('files')->change();
+            $table->text('submission_progress_temp')->default('files');
         });
 
         foreach ($this->getStepMap() as $oldValue => $newValue) {
             DB::table('submissions')
                 ->where('submission_progress', $oldValue)
                 ->update([
-                    'submission_progress' => $newValue,
+                    'submission_progress_temp' => $newValue,
                 ]);
         }
+
+        Schema::table('submissions', function (Blueprint $table) {
+            $table->dropColumn('submission_progress');
+            $table->renameColumn('submission_progress_temp', 'submission_progress');
+        });
     }
 
     public function down(): void

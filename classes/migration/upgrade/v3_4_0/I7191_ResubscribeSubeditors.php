@@ -59,7 +59,7 @@ class I7191_ResubscribeSubeditors extends \PKP\migration\Migration
             ->whereNotNull('ug.user_group_id')
             ->get(['nss.*', 'nss.context']);
 
-        DB::table('notification_subscription_settings as nss')
+        DB::table('notification_subscription_settings')
             ->whereIn(
                 'setting_id',
                 $this->removedRows->map(fn ($row) => $row->setting_id)

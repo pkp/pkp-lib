@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -86,7 +87,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      * @param int[] $assocIds Section or category ids
      * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
      *
-     * @return Collection result rows with user_id and user_group_id columns
+     * @return Collection result rows with userId and userGroupId columns
      */
     public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId): Collection
     {
@@ -94,7 +95,7 @@ class SubEditorsDAO extends \PKP\db\DAO
             ->where('assoc_type', '=', $assocType)
             ->where('context_id', '=', $contextId)
             ->whereIn('assoc_id', $assocIds)
-            ->get(['user_id', 'user_group_id']);
+            ->get(['user_id as userId', 'user_group_id as userGroupId']);
     }
 
     /**
@@ -122,6 +123,16 @@ class SubEditorsDAO extends \PKP\db\DAO
      */
     public function deleteByUserId(int $userId)
     {
+        /**
+         * This warning was added in 3.4 due to a change in the function signature.
+         * It can be removed with the next LTS release.
+         *
+         * @deprecated 3.4
+         */
+        if (func_num_args() !== 1) {
+            throw new Exception('Invalid number of arguments passed to ' . self::class . '::' . __FUNCTION__);
+        }
+
         DB::table('subeditor_submission_group')
             ->where('user_id', '=', $userId)
             ->delete();
@@ -188,7 +199,7 @@ class SubEditorsDAO extends \PKP\db\DAO
         // Remove duplicate assignments for the same user in the
         // same user group by structuring the array with a key
         // that will cause duplicates to be overwritten
-        $assignments = collect($assignments)->mapWithKeys(fn ($assignment, $key) => [$assignment->user_id . '-' . $assignment->user_group_id => $assignment]);
+        $assignments = collect($assignments)->mapWithKeys(fn ($assignment, $key) => [$assignment->userId . '-' . $assignment->userGroupId => $assignment]);
 
         $userGroups = Repo::userGroup()
             ->getCollector()
@@ -198,15 +209,15 @@ class SubEditorsDAO extends \PKP\db\DAO
         $userGroupIds = $userGroups->keys();
 
         $assignments = $assignments->filter(function ($assignment) use ($userGroupIds) {
-            return Repo::userGroup()->userInGroup($assignment->user_id, $assignment->user_group_id)
-                && $userGroupIds->contains($assignment->user_group_id);
+            return Repo::userGroup()->userInGroup($assignment->userId, $assignment->userGroupId)
+                && $userGroupIds->contains($assignment->userGroupId);
         });
 
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         foreach ($assignments as $assignment) {
-            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $assignment->user_group_id);
-            $stageAssignmentDao->build($submission->getId(), $assignment->user_group_id, $assignment->user_id, $userGroup->getRecommendOnly());
+            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $assignment->userGroupId);
+            $stageAssignmentDao->build($submission->getId(), $assignment->userGroupId, $assignment->userId, $userGroup->getRecommendOnly());
         }
 
         // Update assignment notifications
@@ -223,7 +234,7 @@ class SubEditorsDAO extends \PKP\db\DAO
         foreach ($assignments as $assignment) {
             $notificationManager->createNotification(
                 Application::get()->getRequest(),
-                $assignment->user_id,
+                $assignment->userId,
                 Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                 $submission->getContextId(),
                 Application::ASSOC_TYPE_SUBMISSION,
@@ -263,7 +274,7 @@ class SubEditorsDAO extends \PKP\db\DAO
                     )
                 );
 
-                if ($unsubscribed && !in_array($editorAssignment->getUserId(), $notifiedEditors)) {
+                if ($unsubscribed || in_array($editorAssignment->getUserId(), $notifiedEditors)) {
                     continue;
                 }
 
@@ -284,7 +295,7 @@ class SubEditorsDAO extends \PKP\db\DAO
             }
         }
 
-        return $assignments->map(fn ($assignment) => $assignment->user_id);
+        return $assignments->map(fn ($assignment) => $assignment->userId);
     }
 }
 

@@ -1,8 +1,9 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-31 09:00+0000\n"
-"Last-Translator: Gints Buda <gints.buda@gmail.com>\n"
+"PO-Revision-Date: 2022-11-09 17:03+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv_LV/>\n"
 "Language: lv_LV\n"
@@ -11,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.clearTemplateCache"
 msgstr "Notīrīt Veidņu Kešatmiņu"
@@ -109,3 +110,18 @@ msgstr ""
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Vai tiešām vēlaties notīrīt kompilēto veidņu kešatmiņu?"
+
+msgid "admin.languages.languageSettings"
+msgstr "Valodas uzstādījumi"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Papildu lokalizācijas nav pieejamas uzstādīšanai."
+
+msgid "admin.languages.reload"
+msgstr "Atkārtoti ielādēt lokalizāciju"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Vai tiešām vēlaties atkārtoti ielādēt šo lokalizāciju? Tādējādi tiks dzēsti "
+"visi esošie ar lokalizāciju saistītie dati, piemēram, pielāgotās e-pasta "
+"veidnes."

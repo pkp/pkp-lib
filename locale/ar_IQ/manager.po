@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-10-29 18:23+0000\n"
-"Last-Translator: Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>\n"
+"PO-Revision-Date: 2022-11-09 17:03+0000\n"
+"Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
 "Language: ar_IQ\n"
@@ -3008,3 +3008,18 @@ msgstr "فترات مخطط الوقت"
 
 msgid "stats.timelineType"
 msgstr "نوع مخطط الوقت"
+
+msgid "stats.views"
+msgstr "المعاينات"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "معرف المكون الرقمي يحتوي على حروف غير صالحة."
+
+msgid "stats.downloads"
+msgstr "التنزيلات"
+
+msgid "stats.views.timelineInterval"
+msgstr "إجمالي المعاينات حسب التاريخ"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "إجمالي التنزيلات حسب التاريخ"

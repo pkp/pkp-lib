@@ -112,7 +112,10 @@
 					"type": "string"
 				},
 				"altText": {
-					"type": "string"
+					"type": "string",
+					"validation": [
+						"nullable"
+					]
 				}
 			}
 		},

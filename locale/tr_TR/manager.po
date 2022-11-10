@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-10-11 09:52+0000\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -2278,12 +2278,10 @@ msgstr ""
 "dolmakta olduğunu hatırlatmak için Bölüm Editörü tarafından hakemlere "
 "gönderilir."
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Hakemlik için verilen süre geçtiğinde bu elektronik posta otomatik olarak "
-"gönderilir. Otomatik hatırlatma için süre ayarlamalarına Değerlendirme "
-"Ayarları kısmından erişebilirsiniz."
+"Bu e-posta, bir hakeme, değerlendirme için verilen son tarihe kadar "
+"değerlendirmeyi tamamlamadığında otomatik olarak gönderilir."
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
@@ -2339,7 +2337,7 @@ msgstr ""
 "nesneler arasında aynı DOI ön eki almışlar arasında tekil olmalıdır:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "varsayılan örneği/şablonu kullan."
+msgstr "Varsayılan"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI Son Eki"
@@ -2704,3 +2702,148 @@ msgstr "Bu ögenin meta verileri {$registrationAgency}'e gönderildi."
 
 msgid "stats.name.submissionsSkipped"
 msgstr "Diğer Aday Makaleler"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Duyurunun kısa açıklaması"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "Duyuru URL'si"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Bu ay gelen başvuru sayısı"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Reddedilen başvuru sayısı"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Kabul edilen başvuru sayısı"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Toplam gelen başvuru sayısı"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Raporun verildiği ay"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Cilt, sayı, yıl ve başlık dahil olmak üzere sayıyı tanımlama"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Raporun yılı"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Editoryal etkinlik sayfasının bağlantısı"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Yayımlanan makale istatistikleri sayfasına bağlantı"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Duyuru başlığı"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} - {$endDate}"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Bu e-posta, editör tarafından değerlendirme talebini reddeden bir hakeme, "
+"talebi yeniden göndermek istediğinde gönderilir."
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Her şehir, bölge veya ülke için görüntüleme ve indirme sayısı."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Bir kullanıcıya atanan tüm gönderileri görüntülemek için URL."
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Kullanıcının profilini görüntülemesi ve düzenlemesi için URL."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Alınan kararın adı."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Alınan kararın açıklaması."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Bu kararın alındığı iş akış aşaması."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Değerlendirme için Teşekkür"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Ögeler başarıyla eski olarak işaretlendi"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Tümü {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Dosyaları İndir"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Her dosya için indirme sayısı."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Coğrafi İndirme"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Değerlendirme Hatırlatıcısı (Otomatik)"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "<a href='https://db-ip.com'>DB-IP</a> tarafından sağlanan coğrafi konum"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Coğrafi Konum Hakkında"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} - {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Tümü {$filter}"
+
+msgid "stats.timeline"
+msgstr "Zaman çizelgesi"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Her {$interval} için {$type} sayısı."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Zaman çizelgesini indir"
+
+msgid "stats.timelineInterval"
+msgstr "Zaman Çizelgesi Aralığı"
+
+msgid "stats.timelineType"
+msgstr "Zaman Çizelgesi Türü"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI geçersiz karakterler içeriyor."
+
+msgid "stats.views"
+msgstr "Görüntüle"
+
+msgid "stats.downloads"
+msgstr "İndirmeler"
+
+msgid "stats.views.timelineInterval"
+msgstr "Tarihe göre toplam görüntüleme"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Tarihe göre toplam indirme"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Değerlendirme turu, kararın bir değerlendirme aşamasıyla ilgili olması "
+"durumunda bu kararın alındığı aşamadır."
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Bekleyen görevleri olan aday makale listesi"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Bu editöre atanan aday makale sayısı"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Yeni tartışmanın veya yanıtın içeriği"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Önerilen karar, kabul"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Tartışmanın konusu"

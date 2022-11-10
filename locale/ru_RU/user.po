@@ -1,10 +1,10 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-12-26 09:24+0000\n"
+"PO-Revision-Date: 2022-11-04 17:21+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ru_RU/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.accountInformation"
 msgstr "Информация учетной записи"
@@ -92,7 +92,7 @@ msgid "user.editMyProfile"
 msgstr "Редактировать мой профиль"
 
 msgid "user.email"
-msgstr "Адрес (E-mail)"
+msgstr "Адрес электронной почты"
 
 msgid "user.givenName"
 msgstr "Имя"
@@ -142,9 +142,11 @@ msgstr "Неправильное имя пользователя или паро
 msgid "user.login"
 msgstr "Войти в систему"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Подтверждение было отправлено на ваш адрес электронной почты. Пожалуйста, следуйте инструкциям в письме, чтобы сбросить пароль."
+msgstr ""
+"Подтверждение было отправлено на ваш адрес электронной почты, если была "
+"найдена соответствующая учётная запись. Пожалуйста, следуйте инструкциям в "
+"письме, чтобы сбросить пароль."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Извините, ссылка на которой вы щелкнули, просрочена или неправильна. Пожалуйста, попробуйте сбросить ваш пароль еще раз."
@@ -434,7 +436,7 @@ msgid "user.apiKeyEnabled"
 msgstr "Разрешить внешним приложениям с ключом API доступ к этой учетной записи"
 
 msgid "user.apiKey.generate"
-msgstr "Сгенерировать новый ключ API"
+msgstr "Создать ключ API"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Генерирование нового ключа API сделает недействительным любой уже существующий ключ для этого пользователя."
@@ -444,3 +446,14 @@ msgstr "До генерации ключа API администратор ваш
 
 msgid "user.privacyLink"
 msgstr "Ваши данные хранятся в соответствии с нашим <a href=\"{$privacyUrl}\" target=\"_blank\">Заявлением о конфиденциальности</a>."
+
+msgid "user.apiKey.remove"
+msgstr "Удалить"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Удаление ключа приведёт к отключению доступа к системе любого приложения, "
+"которое использует данный ключ."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Вы уверены, что хотите удалить этот ключ API?"

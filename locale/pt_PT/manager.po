@@ -1,12 +1,13 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-06-29 13:31+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Notícias"
@@ -403,9 +404,8 @@ msgstr "O formato da imagem do logótipo do cabeçalho da página é inválido o
 msgid "manager.statistics"
 msgstr "Estatísticas &amp; Relatórios"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Gerador de Relatórios"
+msgstr "Relatórios"
 
 msgid "manager.statistics.reports.description"
 msgstr "O sistema gera relatórios que registam os detalhes associados com os procedimentos da submissão, da perspectiva de submissões, editores, revisores e secções, num dado período. Relatórios são gerados no formato CSV, que exigem um aplicativo para serem visualizados."
@@ -510,7 +510,7 @@ msgid "manager.reviewFormElements.form.elementTypeRequired"
 msgstr "É obrigatório o tipo do campo do formulário."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "É  obrigatória uma pergunta para o campo do formulário."
+msgstr "É obrigatória uma pergunta para o campo do formulário."
 
 msgid "manager.reviewFormElements.noneCreated"
 msgstr "Não foi criado nenhum campo do formulário."
@@ -558,7 +558,14 @@ msgid "manager.reviewForms.inReview"
 msgstr "Em Revisão"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Os formulários de revisão por pares criados aqui estarão disponíveis aos revisores para preenchimento, em vez do formulário padrão que consiste em duas caixas de texto de comentários com comentários exclusivos para o autor e outra para o  Editor e o Autor. Os formulários de revisão podem ser associadas a secções específicas e os editores poderão escolher qual o formulário a utilizar no momento da revisão. De qualquer forma, os Editores poderão incluir as revisões nas correspondências com o autor."
+msgstr ""
+"Os formulários de revisão por pares criados aqui estarão disponíveis aos "
+"revisores para preenchimento, em vez do formulário padrão que consiste em "
+"duas caixas de texto de comentários com comentários exclusivos para o autor "
+"e outra para o Editor e o Autor. Os formulários de revisão podem ser "
+"associadas a secções específicas e os editores poderão escolher qual o "
+"formulário a utilizar no momento da revisão. De qualquer forma, os Editores "
+"poderão incluir as revisões nas correspondências com o autor."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Nenhum / Formulário de revisão padrão"
@@ -1932,7 +1939,7 @@ msgstr "{$count} ({$average}/year)"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
-"O ficheiro de submissão  {$id} foi saltado porque está anexado a um registo "
+"O ficheiro de submissão {$id} foi ignorado porque está anexado a um registo "
 "que não será importado, tal como uma designação de revisão ou discussão."
 
 msgid "manager.setup.genres.metatadata.description"
@@ -2220,7 +2227,6 @@ msgstr ""
 "Este e-mail é enviado pelo Editor de Secção para o Revisor a solicitar que "
 "aceite ou recuse a tarefa de rever um artigo. "
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Este e-mail é enviado pelo Editor ao Revisor a solicitar que aceite ou "
@@ -2291,7 +2297,7 @@ msgstr ""
 "em uso."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Usar padrão."
+msgstr "Usar padrão"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2702,8 +2708,7 @@ msgstr "Rejeitar revisão"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Este e-mail é automaticamente enviado quando um revisor aceita aceita a "
-"revisor"
+"Este e-mail é automaticamente enviado quando um revisor aceita uma revisão"
 
 msgid "mailable.reviewConfirm.name"
 msgstr "Confirmar revisão"
@@ -2801,14 +2806,12 @@ msgstr ""
 msgid "mailable.reviewerRegister.description"
 msgstr "Mensagem de boas-vindas enviada a novo revisor registado no sistema, com nome de utilizador e senha para acesso."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Este e-mail,  quando ativo, é enviado automaticamente ao autor quando "
-"submete um trabalho à revista. Oferece informações sobre como acompanhar o "
-"trabalho pelo processo editorial e agradece a submissão ao autor."
+"Este e-mail, quando ativo, é enviado automaticamente ao autor quando submete "
+"um trabalho à revista. Oferece informações sobre como acompanhar o trabalho "
+"pelo processo editorial e agradece a submissão ao autor."
 
-#, fuzzy
 msgid "mailable.submissionAckNotUser.description"
 msgstr ""
 "Este e-mail, quando ativo, é enviado automaticamente para os autores "
@@ -2824,3 +2827,342 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Este email é enviado automaticamente todos os meses aos editores e editores-"
 "gestores para os informar do estado da revista."
+
+msgid "emailTemplate.variable.password"
+msgstr "Nova senha aleatória do utilizador"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Sobre a Geolocalização"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} até {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Todos {$filter}"
+
+msgid "stats.geographic.ccAttribution"
+msgstr ""
+"Geolocalização disponibilizada por <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "O título da notícia"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Breve descrição do anúncio"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "O endereço para o anúncio"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "O número de submissões recebidas este mês"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Reenviar pedido de revisão ao revisor"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "O nome completo de um utilizador que carregou um ficheiro de submissão"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "O número de submissões recusadas"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Confirmar Redefinição de Senha"
+
+msgid "stats.timeline"
+msgstr "Linha do Tempo"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "O número de {$type} por cada {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Descarregar a Linha do Tempo"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Identificação da edição, incluindo volume, número, ano e título"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "O ano do relatório"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "O link para a página de atividade editorial"
+
+msgid "mailable.discussionReview.name"
+msgstr "Discussão da Revisão"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Não registe nenhum dado geográfico"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Registe o país do visitante"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Registe o país e a região do visitante"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Registe o país, a região e a cidade do visitante"
+
+msgid "mailable.userRegister.name"
+msgstr "Registo de Utilizador"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "O DOI contém caracteres inválidos."
+
+msgid "stats.suppFileViews"
+msgstr "Visualizações de Ficheiros suplementares"
+
+msgid "stats.unknown"
+msgstr "desconhecido"
+
+msgid "stats.timelineInterval"
+msgstr "Intervalo da Linha do Tempo"
+
+msgid "stats.timelineType"
+msgstr "Tipo de Linha do Tempo"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "O número de submissões aceites"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Este e-mail é enviado por um editor para um revisor que recusou um pedido de "
+"revisão, quando o editor deseja reenviar o pedido."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma ronda de revisão para sua submissão "
+"foi cancelada."
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Este e-mail é enviado no passo de revisão no fluxo de trabalho para "
+"notificar um utilizador acerca da submissão"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Discussão da Edição de Texto"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Este e-mail é enviado no passo de edição de texto para notificar um "
+"utilizador acerca da submissão"
+
+msgid "stats.downloads"
+msgstr "Downloads"
+
+msgid "stats.views"
+msgstr "Visualizações"
+
+msgid "stats.views.timelineInterval"
+msgstr "Total de visualizações por data"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Total de downloads por data"
+
+msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
+msgstr "O número de submissões ignoradas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "O número total de submissões recebidas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "O mês do relatório"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "O link para a página de estatísticas de artigos publicados"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "O revisor convidado para a submissão não foi atribuído."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de novo para edição de texto"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão foi enviada de novo para "
+"o passo de edição de texto."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Ronda de Revisão Cancelada"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Este e-mail é enviado no passo de produção para notificar um utilizador "
+"acerca da submissão"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Notificação da Versão Revista"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Notificação do Relatório de Estatísticas"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Discussão da Submissão"
+
+msgid "manager.institutions.edit"
+msgstr "Editar instituição"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Identificação do Research Organization Registry para esta instituição."
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Os valores válidos incluem um endereço IP (por exemplo, 142.58.103.1), "
+"intervalo de IP (por exemplo, 142.58.103.1 - 142.58.103.4), intervalo de IP "
+"com asterisco '*' (por exemplo, 142.58.*.*) e um intervalo de IP com CIDR ("
+"por exemplo, 142.58.100.0/24)."
+
+msgid "manager.setup.statistics"
+msgstr "Estatísticas"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Estatísticas de uso geográfico"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Selecione o tipo de estatísticas de uso geográfico a serem coletadas. "
+"Estatísticas geográficas mais detalhadas podem aumentar consideravelmente o "
+"tamanho da sua base de dados e, em alguns casos raros, podem prejudicar o "
+"anonimato dos seus visitantes."
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Estatísticas de uso da instituição"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Ative as estatísticas institucionais se desejar registar estatísticas de uso "
+"por instituição. Se ativado, deverá configurar os intervalos de IP para cada "
+"instituição que deseja registar."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Ativar estatísticas institucionais"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "API Pública"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Se deve ou não restringir o acesso aos endpoints da API para estatísticas do "
+"COUNTER SUSHI. Se desmarcada, a API só poderá ser acedida por utilizadores "
+"com funções de administrador ou gestor."
+
+msgid "stats.unique"
+msgstr "Única"
+
+msgid "mailable.submissionAckNotUser.name"
+msgstr "Confirmação de Submissão"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Este e-mail é enviado no passo da submissão para notificar um utilizador "
+"acerca da submissão"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Discussão da Produção"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Notificação da Versão de Publicação"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Este e-mail notifica automaticamente os editores designados sobre a nova "
+"versão da publicação"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Editar Notificação de Revisão"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Este e-mail notifica automaticamente o revisor sobre os detalhes modificados "
+"na revisão"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Comentários do Avaliador para Notificar Editores"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Este e-mail é enviado automaticamente aos editores atribuídos quando o "
+"revisor faz uma recomendação na revisão"
+
+msgid "manager.people.authSource"
+msgstr "Fonte de autenticação"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Marcar DOIs como obsoletos"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Marcar DOIs como Não Registado"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Está prestes a marcar {$count} registos de metadados DOI como obsoletos. O "
+"status obsoleto só pode ser aplicado a DOIs enviados anteriormente. Tem "
+"certeza de que deseja marcar esses registos como obsoletos?"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Está prestes a marcar registos de metadados DOI para {$count} iten(s) como "
+"não registados. Tem a certeza de que deseja marcar esses registos como não "
+"registados?"
+
+msgid "manager.dois.actions.description"
+msgstr "Realize ações em {$count} item(ns) selecionado(s)."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Itens não registados marcados com sucesso"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Itens obsoletos marcados com sucesso"
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "intervalos de IP"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Excluir instituição"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Tem certeza de que deseja continuar e excluir esta instituição?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Intervalo de IP inválido"
+
+msgid "manager.setup.institutions"
+msgstr "Instituições"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Registo de Revisor"
+
+msgid "mailable.submissionAck.name"
+msgstr "Agradecimento da Submissão"
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Disponibilizar publicamente as estatísticas do COUNTER SUSHI"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "O assunto da discussão"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "O conteúdo da nova discussão ou resposta"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Descarregar Ficheiros"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "O número de downloads para cada ficheiro."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Descarregar dados Geográficos"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "O número de visualizações e downloads para cada cidade, região ou país."
+
+msgid "mailable.passwordReset.name"
+msgstr "Redefinição de Senha"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Um e-mail automático enviado aos editores com tarefas pendentes"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Lembrete Editorial"

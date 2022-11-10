@@ -1,12 +1,13 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-01-11 16:08+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.affiliation"
 msgstr "Afiliação"
@@ -62,7 +63,10 @@ msgid "user.login.activated"
 msgstr "O seu registo foi activado, permitindo aceder à revista com as credenciais fornecidas."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Deve ser definida uma nova senha  antes de registar-se na revista.<br /><br />Insira o nome de utilizador e senhas actual e nova para alterar a senha de acesso à sua conta."
+msgstr ""
+"Deve ser definida uma nova senha antes de registar-se na revista.<br /><br /"
+">Insira o nome de utilizador e senhas actual e nova para alterar a senha de "
+"acesso à sua conta."
 
 msgid "user.login.forgotPassword"
 msgstr "Esqueceu a sua senha?"
@@ -73,9 +77,10 @@ msgstr "Nome de utilizador e/ou senha inválido(s). Tente novamente."
 msgid "user.login"
 msgstr "Autenticação"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Foi enviado um e-mail de confirmação. Siga as instruções para criar uma nova senha."
+msgstr ""
+"Foi enviado um e-mail de confirmação. Siga as instruções para criar uma nova "
+"senha."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "O link acedido expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."
@@ -425,7 +430,9 @@ msgid "user.register.form.emailConsent"
 msgstr "Sim, quero ser notificado de novas publicações e outras notícias."
 
 msgid "user.privacyLink"
-msgstr "Os seus dados estão armazenados de acordo com os nossos  <a href=\"{$privacyUrl}\" target=\"_blank\">termos de privacidade</a>."
+msgstr ""
+"Os seus dados estão armazenados de acordo com os nossos <a href=\""
+"{$privacyUrl}\" target=\"_blank\">termos de privacidade</a>."
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
@@ -448,3 +455,12 @@ msgstr "Apelido"
 
 msgid "user.givenName"
 msgstr "Nome próprio"
+
+msgid "user.apiKey.remove"
+msgstr "Apagar"
+
+msgid "user.apiKey.removeWarning"
+msgstr "Apagar uma chave irá revogar o acesso de qualquer aplicação que a use."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Deseja apagar esta chave da API?"

@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-13 07:01+0000\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -3324,3 +3324,47 @@ msgstr "Յուրաքանչյուր նիշքի համար ներբեռնումն�
 
 msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr "Ներբեռնեք աշխարհագրականը"
+
+msgid "stats.geographic.ccAttribution"
+msgstr ""
+"Աշխարհագրական դիրքը տրամադրվել է <a href='https://db-ip.com'>DB-IP</a> -ի "
+"կողմից"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Գեոլոկացիայի մասին"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} մինչև {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Բոլոր {$filter}"
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Ներբեռնեք ժամանակացույցը"
+
+msgid "stats.timelineInterval"
+msgstr "Ժամանակացույցի միջակայք"
+
+msgid "stats.timelineType"
+msgstr "Ժամանակացույցի տեսակը"
+
+msgid "stats.timeline"
+msgstr "Ժամանակացույց"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "{$type} -ի թիվը յուրաքանչյուր {$interval} -ի համար:"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI-ն պարունակում է անվավեր նիշեր:"
+
+msgid "stats.views"
+msgstr "Դիտումներ"
+
+msgid "stats.downloads"
+msgstr "Ներբեռնումներ"
+
+msgid "stats.views.timelineInterval"
+msgstr "Ընդհանուր դիտումներ ըստ ամսաթվի"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Ընդհանուր ներբեռնումներ ըստ ամսաթվի"

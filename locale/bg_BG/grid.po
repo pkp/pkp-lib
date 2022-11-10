@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-17 15:57+0000\n"
+"PO-Revision-Date: 2022-10-31 09:07+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "bg_BG/>\n"
@@ -726,3 +726,9 @@ msgstr "Назначение на етап на обработка"
 
 msgid "grid.action.addInstitution"
 msgstr "Добавяне на институция"
+
+msgid "grid.action.view"
+msgstr "Преглед"
+
+msgid "grid.columns.locale.code"
+msgstr "Код"

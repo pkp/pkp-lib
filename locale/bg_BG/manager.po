@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-13 07:01+0000\n"
+"PO-Revision-Date: 2022-10-31 09:07+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3386,3 +3386,30 @@ msgstr "Сваляне на географска информация"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Броят гледания и изтегляния за всеки град, регион или държава."
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Геолокацията се предоставя от <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Относно геолокацията"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} до {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Всички {$filter}"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Броят на {$type} за всеки {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Изтегляне на хронологията"
+
+msgid "stats.timelineInterval"
+msgstr "Хронологичен интервал"
+
+msgid "stats.timelineType"
+msgstr "Хронологичен тип"
+
+msgid "stats.timeline"
+msgstr "Хронология"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-10-13 16:16+0000\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -3343,3 +3343,45 @@ msgstr "Download geografi"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Antal visninger og downloads for hver by, region eller land."
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Geo-lokation leveret af <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Om geo-lokation"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} til {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Alle {$filter}"
+
+msgid "stats.timeline"
+msgstr "Tidslinje"
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Download tidslinje"
+
+msgid "stats.timelineInterval"
+msgstr "Tidslinje interval"
+
+msgid "stats.timelineType"
+msgstr "Tidslinje type"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Antal {$type} for hvert {$interval}."
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI'en indeholder ugyldige tegn."
+
+msgid "stats.views"
+msgstr "Visninger"
+
+msgid "stats.downloads"
+msgstr "Downloads"
+
+msgid "stats.views.timelineInterval"
+msgstr "Total antal visninger per dato"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Total antal downloads per dato"

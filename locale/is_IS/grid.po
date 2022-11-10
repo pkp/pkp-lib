@@ -577,9 +577,6 @@ msgstr "Búa til lykilorð"
 msgid "grid.user.mustProvideName"
 msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notandans."
 
-msgid "grid.user.authSource"
-msgstr "Uppruni sannvottunnar"
-
 msgid "grid.user.cannotAdminister"
 msgstr ""
 "Þú hefur ekki heimild til að sýsla með þennan notanda. Til að geta unnið með "

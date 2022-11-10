@@ -115,17 +115,6 @@ msgstr "Minimum password length (characters)"
 msgid "admin.settings.introduction"
 msgstr "Introduction"
 
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tYour installation is configured to record more than one usage metric. "
-"Usage statistics will be displayed in several contexts.\n"
-"\t\tThere are cases where a single usage statistic must be used, e.g. to "
-"display an ordered list of most-used submissions or to rank\n"
-"\t\tsearch results. Please select one of the configured metrics as a default."
-"\n"
-"\t"
-
 msgid "admin.settings.contactName"
 msgstr "Name of principal contact"
 
@@ -293,18 +282,6 @@ msgstr "Clear Template Cache"
 
 msgid "admin.clearDataCache"
 msgstr "Clear Data Caches"
-
-msgid "admin.authSources"
-msgstr "Authentication Sources"
-
-msgid "admin.auth.noneCreated"
-msgstr "No authentication sources have been defined."
-
-msgid "admin.auth.create"
-msgstr "Create authentication source"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Are you sure you want to permanently delete this authentication source?"
 
 msgid "admin.adminFunctions"
 msgstr "Administrative Functions"

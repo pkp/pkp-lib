@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-20 16:56+0000\n"
+"PO-Revision-Date: 2022-07-18 15:16+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 msgid "common.designation"
 msgstr "Útnefning"
@@ -302,9 +302,6 @@ msgstr "Tungumálaskráin \"{$localeFile}\" lesinn inn frá  XML"
 msgid "debug.notes.localeListLoad"
 msgstr "Tungumálalistinn \"{$localeList}\" lesinn inn frá XML"
 
-msgid "defaultMetric.availableMetrics"
-msgstr "Mælikvarðar í boði"
-
 msgid "defaultMetric.title"
 msgstr "Sjálfgefinn mælikvarði"
 
@@ -325,9 +322,6 @@ msgstr "Opinber aðgangur"
 
 msgid "common.count"
 msgstr "Fjöldi"
-
-msgid "common.metric"
-msgstr "Mál"
 
 msgid "common.plugins"
 msgstr "Viðbótarforrit"
@@ -774,9 +768,6 @@ msgstr "Hæð"
 msgid "common.go"
 msgstr "Ræsa"
 
-msgid "common.until"
-msgstr "þar til"
-
 msgid "common.fileUploaderError"
 msgstr ""
 "Flutningur á skrá er í gangi. Ef svo virðist ekki vera, er mögulegt að "
@@ -793,9 +784,6 @@ msgstr "Upp kom óþekkt villa við tengingu við gagnagrunn."
 
 msgid "common.fromWithValue"
 msgstr "Frá: {$value}"
-
-msgid "common.from"
-msgstr "Frá"
 
 msgid "common.filterRemove"
 msgstr "Hreinsa síu: {$filterTitle}"
@@ -1180,7 +1168,7 @@ msgid "navigation.infoForReaders.long"
 msgstr "Upplýsingar fyrir lesendur"
 
 msgid "navigation.infoForReaders"
-msgstr "Fyrir lesendur"
+msgstr "Til lesenda"
 
 msgid "navigation.home"
 msgstr "Heim"
@@ -2062,3 +2050,9 @@ msgstr "Valmynd notanda"
 
 msgid "common.navigation.siteContext"
 msgstr "Valmynd ? (site context navigaion)"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"

@@ -30,7 +30,7 @@ use PKP\facades\Locale;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
 use PKP\user\User;
 
 class EditorialReminder extends BaseJob

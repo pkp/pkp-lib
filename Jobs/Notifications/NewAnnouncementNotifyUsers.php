@@ -23,13 +23,13 @@ use Illuminate\Support\Facades\Mail;
 use InvalidArgumentException;
 use PKP\announcement\Announcement;
 use PKP\context\Context;
-use PKP\Domains\Jobs\Exceptions\JobException;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\mail\mailables\AnnouncementNotify;
-use PKP\notification\managerDelegate\AnnouncementNotificationManager;
-use PKP\Support\Jobs\BaseJob;
-use Illuminate\Support\Collection;
 use PKP\user\User;
+use Illuminate\Support\Collection;
+use PKP\notification\managerDelegate\AnnouncementNotificationManager;
+use PKP\Jobs\BaseJob;
+use PKP\job\exceptions\JobException;
 
 class NewAnnouncementNotifyUsers extends BaseJob
 {

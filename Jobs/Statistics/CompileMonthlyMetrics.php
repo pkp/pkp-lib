@@ -17,7 +17,7 @@ namespace PKP\Jobs\Statistics;
 
 use APP\core\Services;
 use PKP\site\Site;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
 
 class CompileMonthlyMetrics extends BaseJob
 {

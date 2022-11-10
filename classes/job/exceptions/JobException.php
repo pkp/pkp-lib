@@ -3,19 +3,17 @@
 declare(strict_types=1);
 
 /**
- * @file Domains/Jobs/Exceptions/JobException.php
+ * @file classes/job/exceptions/JobException.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class JobException
- * @ingroup domains
- *
- * @brief Exception for Job domain
+ * 
  */
 
-namespace PKP\Domains\Jobs\Exceptions;
+namespace PKP\job\exceptions;
 
 use Exception;
 

@@ -27,7 +27,7 @@ use IntlDateFormatter;
 use PKP\context\Context;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\notification\PKPNotification;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
 use SplFileObject;
 
 class StatisticsReportMail extends BaseJob

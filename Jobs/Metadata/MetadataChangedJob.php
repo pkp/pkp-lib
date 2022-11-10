@@ -19,9 +19,8 @@ namespace PKP\Jobs\Metadata;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\Domains\Jobs\Exceptions\JobException;
-
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
+use PKP\job\exceptions\JobException;
 
 class MetadataChangedJob extends BaseJob
 {

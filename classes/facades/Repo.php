@@ -28,9 +28,10 @@ use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\decision\Repository as DecisionRepository;
-use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\institution\Repository as InstitutionRepository;
+use PKP\job\interfaces\JobRepositoryInterface;
+use PKP\mail\Repository as MailRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 

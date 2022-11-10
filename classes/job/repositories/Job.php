@@ -3,28 +3,27 @@
 declare(strict_types=1);
 
 /**
- * @file Domains/Jobs/Repositories/Job.php
+ * @file classes/job/repositories/Job.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Job
- * @ingroup repositories
  *
  * @brief Job Repository
  */
 
-namespace PKP\Domains\Jobs\Repositories;
+namespace PKP\job\repositories;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
-use PKP\Domains\Jobs\Job as Domain;
-use PKP\Domains\Jobs\Resources\CLIJobResource;
-use PKP\Domains\Jobs\Resources\HttpJobResource;
-use PKP\Support\Repositories\BaseRepository;
+use PKP\job\interfaces\JobRepositoryInterface;
+use PKP\job\models\Job as PKPJobModel;
+use PKP\job\resources\CLIJobResource;
+use PKP\job\resources\HttpJobResource;
+use PKP\job\repositories\BaseRepository;
 
 class Job extends BaseRepository implements JobRepositoryInterface
 {
@@ -34,7 +33,7 @@ class Job extends BaseRepository implements JobRepositoryInterface
     public const OUTPUT_CLI = 'cli';
     public const OUTPUT_HTTP = 'http';
 
-    public function __construct(Domain $job)
+    public function __construct(PKPJobModel $job)
     {
         $this->model = $job;
     }

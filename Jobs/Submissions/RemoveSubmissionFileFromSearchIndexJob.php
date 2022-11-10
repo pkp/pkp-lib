@@ -18,11 +18,8 @@ declare(strict_types=1);
 namespace PKP\Jobs\Submissions;
 
 use APP\core\Application;
-use APP\facades\Repo;
-
-use PKP\Domains\Jobs\Exceptions\JobException;
 use PKP\search\SubmissionSearch;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
 
 class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {

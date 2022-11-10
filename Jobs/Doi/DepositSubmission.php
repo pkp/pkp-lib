@@ -20,8 +20,8 @@ namespace PKP\Jobs\Doi;
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;
 use PKP\context\Context;
-use PKP\Domains\Jobs\Exceptions\JobException;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
+use PKP\job\exceptions\JobException;
 
 class DepositSubmission extends BaseJob
 {

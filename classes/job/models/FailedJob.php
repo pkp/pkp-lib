@@ -3,24 +3,23 @@
 declare(strict_types=1);
 
 /**
- * @file Domains/Jobs/FailedJob.php
+ * @file classes/job/models/FailedJob.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FailedJob
- * @ingroup domains
  *
  * @brief Laravel Eloquent model for Failed Jobs table
  */
 
-namespace PKP\Domains\Jobs;
+namespace PKP\job\models;
 
 use Illuminate\Database\Eloquent\Builder;
 
-use PKP\Domains\Jobs\Traits\Attributes;
-use PKP\Support\Database\Model;
+use PKP\job\models\Model;
+use PKP\job\traits\Attributes;
 
 class FailedJob extends Model
 {

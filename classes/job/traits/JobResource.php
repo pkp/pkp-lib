@@ -3,25 +3,24 @@
 declare(strict_types=1);
 
 /**
- * @file Domains/Jobs/Traits/JobResource.php
+ * @file classes/job/traits/JobResource.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class JobResource
- * @ingroup domains
  *
  * @brief JobResource trait
  */
 
-namespace PKP\Domains\Jobs\Traits;
+namespace PKP\job\traits;
 
 use Carbon\Carbon;
 
 trait JobResource
 {
-    protected $dateFormat = 'Y-m-d G:i:s T Z';
+    protected string $dateFormat = 'Y-m-d G:i:s T Z';
 
     public function getCreatedAt(): string
     {

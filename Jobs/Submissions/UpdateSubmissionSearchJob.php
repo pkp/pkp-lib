@@ -19,10 +19,9 @@ namespace PKP\Jobs\Submissions;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\Domains\Jobs\Exceptions\JobException;
-
 use PKP\submission\PKPSubmission;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
+use PKP\job\exceptions\JobException;
 
 class UpdateSubmissionSearchJob extends BaseJob
 {

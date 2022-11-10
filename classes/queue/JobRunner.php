@@ -3,21 +3,20 @@
 declare(strict_types=1);
 
 /**
- * @file Domains/Jobs/JobRunner.php
+ * @file classes/queue/JobRunner.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class JobRunner
- * @ingroup domains
  *
  * @brief   Synchronous job runner that will attempt to execute jobs at the end of web request
  *          life cycle. It class is designed to execute jobs when not running via a worker
  *          or a cron job.
  */
 
-namespace PKP\Domains\Jobs;
+namespace PKP\queue;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use PKP\config\Config;

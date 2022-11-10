@@ -21,8 +21,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
-use PKP\Domains\Jobs\Exceptions\JobException;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
+use PKP\job\exceptions\JobException;
 
 class DepositContext extends BaseJob
 {

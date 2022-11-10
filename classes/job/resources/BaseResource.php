@@ -3,26 +3,23 @@
 declare(strict_types=1);
 
 /**
- * @file Support/Resources/BaseResource.php
+ * @file classes/job/resources/BaseResource.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseResource
- * @ingroup support
  *
  * @brief Abstract class BaseResource
  */
 
-namespace PKP\Support\Resources;
+namespace PKP\job\resources;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-use Illuminate\Database\Eloquent\Model;
 use IteratorAggregate;
-
-use PKP\Support\Interfaces\Core\Resourceable;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Database\Eloquent\Model;
+use PKP\job\interfaces\Resourceable;
 
 abstract class BaseResource implements Resourceable
 {

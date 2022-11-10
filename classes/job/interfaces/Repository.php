@@ -3,19 +3,18 @@
 declare(strict_types=1);
 
 /**
- * @file Support/Interfaces/Core/Repository.php
+ * @file classes/job/interfaces/Repository.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
- * @ingroup support
  *
  * @brief Interface for Repository Classes
  */
 
-namespace PKP\Support\Interfaces\Core;
+namespace PKP\job\interfaces;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;

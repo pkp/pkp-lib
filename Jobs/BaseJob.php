@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Support/Jobs/BaseJob.php
+ * @file Jobs/BaseJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Abstract class for Jobs
  */
 
-namespace PKP\Support\Jobs;
+namespace PKP\Jobs;
 
 use APP\core\Application;
 use Illuminate\Bus\Queueable;

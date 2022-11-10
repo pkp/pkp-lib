@@ -18,7 +18,7 @@ namespace PKP\task;
 use APP\core\Application;
 use PKP\config\Config;
 use PKP\scheduledTask\ScheduledTask;
-use PKP\Domains\Jobs\JobRunner;
+use PKP\queue\JobRunner;
 
 class ProcessQueueJobs extends ScheduledTask
 {

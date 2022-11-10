@@ -27,11 +27,11 @@ use Illuminate\Queue\WorkerOptions;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
-use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
-use PKP\Domains\Jobs\Job as PKPJobModel;
-use PKP\Domains\Jobs\JobRunner;
-use PKP\Domains\Jobs\Repositories\Job as JobRepository;
-use PKP\Domains\Jobs\WorkerConfiguration;
+use PKP\job\interfaces\JobRepositoryInterface;
+use PKP\job\models\Job as PKPJobModel;
+use PKP\job\repositories\Job as JobRepository;
+use PKP\queue\JobRunner;
+use PKP\queue\WorkerConfiguration;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {

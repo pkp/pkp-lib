@@ -19,7 +19,7 @@ use APP\facades\Repo;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Collection;
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
-use PKP\Support\Jobs\BaseJob;
+use PKP\Jobs\BaseJob;
 
 class StatisticsReportNotify extends BaseJob
 {

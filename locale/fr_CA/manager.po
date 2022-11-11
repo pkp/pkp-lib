@@ -1,11 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-10-25 15:23+0000\n"
-"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"PO-Revision-Date: 2022-11-12 10:02+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -2198,3 +2200,9 @@ msgstr ""
 
 msgid "stats.name.submissionsSkipped"
 msgstr "Autres soumissions"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Aviser tous les auteurs-es"
+
+msgid "stats.unknown"
+msgstr "inconnu-e"

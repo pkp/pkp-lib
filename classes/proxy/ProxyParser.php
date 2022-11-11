@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 /**
- * @file Support/ProxyParser.php
+ * @file classes/proxy/ProxyParser.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProxyParser
- * @ingroup Support
+ * @ingroup proxy
  *
  * @brief Proxy parser class
  */
 
-namespace PKP\Support;
+namespace PKP\proxy;
 
 class ProxyParser
 {

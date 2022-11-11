@@ -17,7 +17,7 @@
 
 namespace PKP\tests\classes\core;
 
-use PKP\Support\ProxyParser;
+use PKP\proxy\ProxyParser;
 use PKP\tests\PKPTestCase;
 
 class ProxyParserTest extends PKPTestCase

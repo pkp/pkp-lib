@@ -1,19 +1,20 @@
+# Maria Češnik <mariaces237@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2021-04-23 10:47+0000\n"
-"Last-Translator: Dobrica Pavlinušić <dpavlin@ffzg.hr>\n"
+"PO-Revision-Date: 2022-11-12 10:02+0000\n"
+"Last-Translator: Maria Češnik <mariaces237@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hr_HR/>\n"
 "Language: hr_HR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Administrativne funkcije"
@@ -201,3 +202,34 @@ msgstr "Vrijednost postavke"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Naziv postavke"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Zakazani zadatak je pokrenut."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Obriši datoteke cache memorije iz sustava. Ovo bi se trebalo raditi samo u "
+"razvojnim okruženjima."
+
+msgid "admin.scheduledTask"
+msgstr "Zakazani zadatak"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Zakazani zadatak je završen."
+
+msgid "admin.languages.languageSettings"
+msgstr "Postavke jezika"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Jeste li sigurni da želite promijeniti primarnu lokalizaciju stranice? "
+"Korisnička imena potrebna za primarnu lokalizaciju stranice kopirat će se iz "
+"postojeće primarne lokalizacije gdje nedostaju."
+
+msgid "admin.deleteCache"
+msgstr "Obriši cache memoriju"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Svi korisnici će odmah biti odjavljeni iz aplikacije, uključujući i vas te "
+"će se morati ponovno prijaviti."

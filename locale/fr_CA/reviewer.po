@@ -1,10 +1,12 @@
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
-"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"PO-Revision-Date: 2022-11-12 10:02+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -12,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:54:20 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "reviewer.reviewSteps.request"
@@ -22,7 +24,7 @@ msgid "reviewer.reviewSteps.guidelines"
 msgstr "2. Lignes directrices"
 
 msgid "reviewer.reviewSteps.download"
-msgstr "3. Télécharger & Évaluer"
+msgstr "3. Télécharger et évaluer"
 
 msgid "reviewer.reviewSteps.completion"
 msgstr "4. Terminer"

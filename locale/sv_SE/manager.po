@@ -500,6 +500,12 @@ msgstr "Roller"
 msgid "manager.statistics"
 msgstr "Statistik &amp; Rapporter"
 
+msgid "stats.views"
+msgstr "Visningar av numrets innehållsförteckning"
+
+msgid "stats.downloads"
+msgstr "Visningar av numrets publiceringsversion"
+
 msgid "stats.city"
 msgstr "Stad"
 

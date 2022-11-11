@@ -840,6 +840,18 @@ msgstr "Регион"
 msgid "stats.city"
 msgstr "Град"
 
+msgid "stats.views"
+msgstr "Прегледи"
+
+msgid "stats.downloads"
+msgstr "Сваляния"
+
+msgid "stats.views.timelineInterval"
+msgstr "Общо гледания по дата"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Общо сваляния по дата"
+
 msgid "manager.statistics"
 msgstr "Статистика и отчети"
 

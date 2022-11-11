@@ -275,3 +275,9 @@ msgstr ""
 
 msgid "manager.announcements.form.descriptionShortInstructions"
 msgstr "E'lon sarlavhasi bilan birga ko'rsatiladigan qisqacha tavsif."
+
+msgid "stats.views"
+msgstr "TOC koʻrinishlarini chiqarish"
+
+msgid "stats.donwloads"
+msgstr "Qoralama nusxa ko'rinishlarining nashri"

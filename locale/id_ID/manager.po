@@ -1564,6 +1564,12 @@ msgstr "Wilayah"
 msgid "stats.city"
 msgstr "Kota"
 
+msgid "stats.views"
+msgstr "Tampilan Dafis Edisi"
+
+msgid "stats.downloads"
+msgstr "Tinjauan Galei Edisi"
+
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
 "Gunakan formulir berikut untuk menentukan nilai maksimum informasi yang "

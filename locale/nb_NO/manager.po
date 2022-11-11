@@ -692,6 +692,12 @@ msgstr ""
 "etter. Skjemaet er fylt inn med de beregnede gjennomsittene for disse "
 "verdiene."
 
+msgid "stats.downloads"
+msgstr "Visninger av nummerets oppsett"
+
+msgid "stats.views"
+msgstr "Visninger av innholdsfortegnelse for nummer"
+
 msgid "stats.city"
 msgstr "By"
 

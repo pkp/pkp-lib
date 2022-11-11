@@ -503,6 +503,18 @@ msgstr "Vloge"
 msgid "manager.statistics"
 msgstr "Statistike in poročila"
 
+msgid "stats.downloads.timelineInterval"
+msgstr "Skupno število prenosov po datumu"
+
+msgid "stats.views.timelineInterval"
+msgstr "Skupno število vpogledov po datumu"
+
+msgid "stats.views"
+msgstr "Število vpogledov v kazalo vsebine"
+
+msgid "stats.downloads"
+msgstr "Število vpogledov v prelom"
+
 msgid "stats.city"
 msgstr "Mesto"
 

@@ -17,8 +17,7 @@ declare(strict_types=1);
 namespace PKP\job\models;
 
 use Illuminate\Database\Eloquent\Builder;
-
-use PKP\job\models\Model;
+use Illuminate\Database\Eloquent\Model;
 use PKP\job\traits\Attributes;
 
 class FailedJob extends Model

@@ -49,9 +49,7 @@ abstract class BaseRepository implements Repository
 
     public function withTrashed(array $columns = ['*']): Collection
     {
-        return $this->model
-            ->all($columns)
-            ->withTrashed();
+        return $this->model->all($columns)->withTrashed();
     }
 
     public function get(int $modelId): ?Model
@@ -64,19 +62,13 @@ abstract class BaseRepository implements Repository
         return $this->model->create($attributes);
     }
 
-    public function edit(
-        int $modelId,
-        array $data
-    ): bool {
-        return $this->model
-            ->find($modelId)
-            ->update($data);
+    public function edit(int $modelId, array $data): bool 
+    {
+        return $this->model->find($modelId)->update($data);
     }
 
     public function delete(int $modelId): bool
     {
-        return $this->model
-            ->find($modelId)
-            ->delete();
+        return $this->model->find($modelId)->delete();
     }
 }

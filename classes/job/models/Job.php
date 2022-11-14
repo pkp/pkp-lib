@@ -19,7 +19,7 @@ namespace PKP\job\models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\InteractsWithTime;
 use PKP\config\Config;
-use PKP\job\models\Model;
+use Illuminate\Database\Eloquent\Model;
 use PKP\job\traits\Attributes;
 
 class Job extends Model

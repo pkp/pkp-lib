@@ -236,13 +236,25 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
     protected function getEmailTemplates(): array
     {
-        $subsequentTempate = Repo::emailTemplate()->getByKey(
+        $subsequentTemplate = Repo::emailTemplate()->getByKey(
             Application::get()->getRequest()->getContext()->getId(),
             ReviewRequestSubsequent::getEmailTemplateKey()
         );
-        return array_merge(
+
+        $alternateTemplates = Repo::emailTemplate()->getCollector()
+            ->filterByContext(Application::get()->getRequest()->getContext()->getId())
+            ->alternateTo([ReviewRequestSubsequent::getEmailTemplateKey()])
+            ->getMany();
+
+        $templateKeys = array_merge(
             parent::getEmailTemplates(),
-            [ReviewRequestSubsequent::getEmailTemplateKey() => $subsequentTempate->getLocalizedData('name')]
+            [ReviewRequestSubsequent::getEmailTemplateKey() => $subsequentTemplate->getLocalizedData('name')]
         );
+
+        foreach ($alternateTemplates as $alternateTemplate) {
+            $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
+        }
+
+        return $templateKeys;
     }
 }

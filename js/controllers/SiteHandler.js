@@ -154,7 +154,8 @@
 						'superscript subscript | link unlink code fullscreen | ' +
 						'image | pkpTags',
 				statusbar: false,
-				content_css: contentCSS
+				content_css: contentCSS,
+				browser_spellcheck: true
 			};
 
 			// Support image uploads

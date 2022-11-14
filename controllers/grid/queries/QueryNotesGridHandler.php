@@ -334,7 +334,8 @@ class QueryNotesGridHandler extends GridHandler
                 ->sender($sender)
                 ->recipients([$recipient])
                 ->subject(__('common.re').' '.$title)
-                ->body($note->getContents());
+                ->body($note->getContents())
+                ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
         }

@@ -30,7 +30,6 @@ class Collector implements CollectorInterface
      */
     public ?bool $isModified = null;
     public ?int $contextId = null;
-    public ?bool $isCustom = null;
     public ?array $keys = null;
     public ?string $searchPhrase = null;
     public ?int $count = null;

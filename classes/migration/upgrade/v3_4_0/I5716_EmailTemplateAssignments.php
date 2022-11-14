@@ -379,7 +379,6 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      */
     protected function assignRemainingCustomTemplates(Collection $contextIds): void
     {
-        $newIds = [];
         $contextIds->each(function(int $contextId) {
 
             DB::table('email_templates as et')
@@ -423,7 +422,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                             ]);
                         });
 
-                        $this->newEmailIds[] = $emailId;
+                        $this->newEmailIds[] = $newEmailId;
                     });
                 });
         });

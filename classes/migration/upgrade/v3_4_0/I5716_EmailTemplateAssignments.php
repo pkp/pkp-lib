@@ -139,14 +139,36 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      * This was the default template for the "Notify" feature
      * from the participants list in the workflow.
      *
-     * If journals customized this template, then we update the
-     * key for that customization and make copies for each stage
-     * discussion mailable. These mailables are used for the
-     * notify feature and discussions.
+     * We create a copy of the default template for each discussion
+     * stage mailable. Then, if journals customized this template,
+     * we update the keys for that custom template and make copies
+     * of it for each stage mailable.
      */
     protected function migrateNotificationCenterTemplates(): void
     {
         $alternateTos = $this->getDiscussionTemplates();
+
+        $newDefaultKeys = clone ($alternateTos);
+        $newDefaultKey = $newDefaultKeys->shift();
+
+        DB::table('email_templates_default_data')
+            ->where('email_key', 'NOTIFICATION_CENTER_DEFAULT')
+            ->update(['email_key' => $newDefaultKey]);
+
+        $newDefaultKeys->each(function(string $key) use ($newDefaultKey) {
+            DB::table('email_templates_default_data')
+                ->where('email_key', $newDefaultKey)
+                ->get()
+                ->each(function(stdClass $row) use ($key) {
+                    DB::table('email_templates_default_data')
+                        ->insert([
+                            'email_key' => $key,
+                            'locale' => $row->locale,
+                            'subject' => $row->subject,
+                            'body' => $row->body,
+                        ]);
+                });
+        });
 
         DB::table('email_templates')
             ->where('email_key', 'NOTIFICATION_CENTER_DEFAULT')

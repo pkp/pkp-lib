@@ -14,6 +14,8 @@
 
 namespace PKP\components\forms\context;
 
+use APP\mail\variables\ContextEmailVariable;
+use Illuminate\Support\Arr;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldPreparedContent;
@@ -57,38 +59,13 @@ class PKPEmailSetupForm extends FormComponent
             'label' => __('manager.setup.emailSignature'),
             'tooltip' => __('manager.setup.emailSignature.description'),
             'value' => $context->getData('emailSignature'),
-            'preparedContent' => [
-                [
-                    'key' => 'contextName',
-                    'description' => __('emailTemplate.variable.context.contextName'),
-                    'value' => '{$contextName}',
-                ],
-                [
-                    'key' => 'senderName',
-                    'description' => __('emailTemplate.variable.sender.senderName'),
-                    'value' => '{$senderName}',
-                ],
-                [
-                    'key' => 'senderEmail',
-                    'description' => __('emailTemplate.variable.sender.senderEmail'),
-                    'value' => '{$senderEmail}',
-                ],
-                [
-                    'key' => 'mailingAddress',
-                    'description' => __('emailTemplate.variable.context.mailingAddress'),
-                    'value' => '{$mailingAddress}',
-                ],
-                [
-                    'key' => 'contactEmail',
-                    'description' => __('emailTemplate.variable.context.contactEmail'),
-                    'value' => '{$contactEmail}',
-                ],
-                [
-                    'key' => 'contactName',
-                    'description' => __('emailTemplate.variable.context.contactName'),
-                    'value' => '{$contactName}',
-                ],
-            ]
+            'preparedContent' => array_values(Arr::map(ContextEmailVariable::descriptions(), function ($description, $key) {
+                return [
+                    'key' => $key,
+                    'description' => $description,
+                    'value' => '{$' . $key .'}'
+                ];
+            }))
         ]));
 
         $this->addEnveloperSenderField($context);

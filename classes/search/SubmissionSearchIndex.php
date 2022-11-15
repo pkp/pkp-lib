@@ -78,7 +78,7 @@ abstract class SubmissionSearchIndex
             // Load stopwords only once per request
             $searchStopwords = array_count_values(
                 array_filter(
-                    array_map('trim', file(self::SEARCH_STOPWORDS_FILE)),
+                    array_map('trim', file(dirname(__FILE__, 5) . '/' . self::SEARCH_STOPWORDS_FILE)),
                     function ($a) {
                         return !empty($a) && $a[0] != '#';
                     }

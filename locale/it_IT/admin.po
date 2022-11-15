@@ -510,7 +510,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "Voce di registro non valida alla riga {$lineNumber} nel file di registro "
-"{$file}: {$error}."
+"{$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "L'ora non è valida."

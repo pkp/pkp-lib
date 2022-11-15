@@ -642,7 +642,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "Невалиден запис в регистрационния файл на ред {$lineNumber} в "
-"регистрационния файл {$file}: {$error}."
+"регистрационния файл {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Часът не е валиднен формат."

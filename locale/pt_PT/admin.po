@@ -677,7 +677,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "Entrada de log inválida na linha {$lineNumber} no ficheiro de log {$file}: "
-"{$error}."
+"{$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
 msgstr "O ID de submissão não é um número inteiro."

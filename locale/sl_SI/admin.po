@@ -627,7 +627,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "Napačen zapis v vrstici {$lineNumber} v datoteki z dnevniškimi zapisi "
-"{$file}: {$error}."
+"{$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Čas ni veljaven datum."

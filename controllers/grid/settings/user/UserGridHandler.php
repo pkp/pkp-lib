@@ -351,6 +351,7 @@ class UserGridHandler extends GridHandler
 
         // Identify the user Id.
         $userId = $request->getUserVar('userId');
+        $administrationLevel = null;
 
         if ($userId !== null && ($administrationLevel = Validation::getAdministrationLevel($userId, $user->getId(), $request->getContext()->getId())) === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.

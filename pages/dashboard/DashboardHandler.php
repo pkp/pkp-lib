@@ -182,7 +182,7 @@ class DashboardHandler extends Handler
         }
         $archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
             SUBMISSIONS_LIST_ARCHIVE,
-            __('common.queue.long.submissionsArchived'),
+            __('submissions.archived'),
             [
                 'apiUrl' => $apiUrl,
                 'getParams' => $params,

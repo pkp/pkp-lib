@@ -572,7 +572,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "Entrada de log inválida na linha {$lineNumber} no arquivo de log {$file}: "
-"{$error}."
+"{$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Hora não é uma data válida."

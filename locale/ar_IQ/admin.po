@@ -530,7 +530,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "إدخال خاطئ في سجل الوقوعات عند السطر {$lineNumber} في ملف الوقوعات {$file}: "
-"{$error}."
+"{$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "الوقت ليس بتاريخ صحيح."

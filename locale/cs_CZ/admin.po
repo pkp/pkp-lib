@@ -554,7 +554,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
 "Neplatný záznam protokolu na řádku {$lineNumber} v souboru protokolu "
-"{$file}: {$error}."
+"{$file}: {$error}"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""

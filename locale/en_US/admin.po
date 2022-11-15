@@ -192,7 +192,7 @@ msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr "The line {$lineNumber} in the log file {$file} is in the wrong format and will thus be skipped."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
-msgstr "Invalid log entry at line {$lineNumber} in the log file {$file}: {$error}."
+msgstr "Invalid log entry at line {$lineNumber} in the log file {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Time is not a valid date."

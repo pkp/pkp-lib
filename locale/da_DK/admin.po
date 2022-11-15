@@ -555,7 +555,7 @@ msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
-"Ugyldig log-indgang i linje {$lineNumber} i logfilen {$file}: {$error}."
+"Ugyldig log-indgang i linje {$lineNumber} i logfilen {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Tidsangivelsen er ikke en gyldig dato."

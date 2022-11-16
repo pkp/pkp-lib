@@ -18,7 +18,7 @@
 			$('#queryForm').pkpHandler(
 				'$.pkp.controllers.grid.queries.QueryFormHandler',
 				{ldelim}
-					cancelUrl: {if $isNew}'{url|json_encode op="deleteQuery" queryId=$queryId csrfToken=$csrfToken params=$actionArgs escape=false}'{else}null{/if},
+					cancelUrl: {if $isNew}{url|json_encode op="deleteQuery" queryId=$queryId csrfToken=$csrfToken params=$actionArgs escape=false}{else}null{/if},
 					templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.queries.QueriesGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$assocId escape=false},
 				{rdelim}
 			);

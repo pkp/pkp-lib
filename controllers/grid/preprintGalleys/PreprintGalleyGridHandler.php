@@ -39,8 +39,6 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
-use APP\publication\Publication;
-use APP\submission\Submission;
 
 class PreprintGalleyGridHandler extends GridHandler
 {
@@ -66,9 +64,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Get the authorized submission.
      *
-     * @return Submission
      */
-    public function getSubmission() : Submission
+    public function getSubmission(): Submission
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
     }
@@ -76,9 +73,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Get the authorized publication.
      *
-     * @return Publication
      */
-    public function getPublication() : Publication
+    public function getPublication(): Publication
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
     }

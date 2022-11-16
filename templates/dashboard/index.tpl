@@ -38,7 +38,7 @@
 				/>
 			</tab>
 		{/if}
-		<tab id="archive" label="{translate key="navigation.archives"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}.itemsMax">
+		<tab id="archive" label="{translate key="submissions.archived"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}.itemsMax">
 			{help file="submissions" section="archives" class="pkp_help_tab"}
 			<submissions-list-panel
 				v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}"

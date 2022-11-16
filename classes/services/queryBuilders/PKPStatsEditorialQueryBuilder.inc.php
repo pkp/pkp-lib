@@ -355,7 +355,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 	 *
 	 * @return QueryObject
 	 */
-	protected function _getObject(bool $includeSkipped = false, bool $includeImported = false) {
+	protected function _getObject() {
 		$q = $this->_getBaseQuery();
 
 		// Exclude incomplete submissions

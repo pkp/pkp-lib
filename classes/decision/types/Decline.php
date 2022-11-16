@@ -163,15 +163,19 @@ class Decline extends DecisionType
         if (count($reviewAssignments)) {
             $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);
             $mailable = new DecisionNotifyReviewer($context, $submission, $fakeDecision);
-            $steps->addStep((new Email(
-                $this->ACTION_NOTIFY_REVIEWERS,
-                __('editor.submission.decision.notifyReviewers'),
-                __('editor.submission.decision.notifyReviewers.description'),
-                $reviewers,
-                $mailable->sender($editor),
-                $context->getSupportedFormLocales(),
-                $fileAttachers
-            ))->canChangeRecipients(true));
+            $steps->addStep(
+                (new Email(
+                    $this->ACTION_NOTIFY_REVIEWERS,
+                    __('editor.submission.decision.notifyReviewers'),
+                    __('editor.submission.decision.notifyReviewers.description'),
+                    $reviewers,
+                    $mailable->sender($editor),
+                    $context->getSupportedFormLocales(),
+                    $fileAttachers
+                ))
+                ->canChangeRecipients(true)
+                ->anonymizeRecipients(true)
+            );
         }
 
         return $steps;

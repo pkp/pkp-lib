@@ -1363,7 +1363,7 @@ msgid "editor.submission.decision.notifyReviewers"
 msgstr "Notify Reviewers"
 
 msgid "editor.submission.decision.notifyReviewers.description"
-msgstr "Send an email to the reviewers to thank them for their review and let them know that a decision was taken."
+msgstr "Send an email to the reviewers to thank them for their review and let them know that a decision was taken. Each reviewer will be sent a separate email to protect their anonymity. The phrase {$recipientName} can be used in the message to include each reviewer's name safely."
 
 msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr "Send an email to the assigned reviewers to let them know that their review assignment is cancelled."

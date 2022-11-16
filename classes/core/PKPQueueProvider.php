@@ -140,7 +140,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         );
 
         if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', false)) {
-            register_shutdown_function(function () {
+            $workingDirectory = getcwd();
+            register_shutdown_function(function () use ($workingDirectory) {
+                // Recovers the working directory (https://bugs.php.net/bug.php?id=40661)
+                chdir($workingDirectory);
                 (new JobRunner())
                     ->withMaxJobsConstrain()
                     ->setMaxJobsToProcess(1)

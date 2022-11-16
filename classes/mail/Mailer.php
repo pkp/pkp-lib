@@ -28,8 +28,8 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\mail\traits\Configurable;
-use PKP\observers\events\MessageSendingContext;
-use PKP\observers\events\MessageSendingSite;
+use PKP\observers\events\MessageSendingFromContext;
+use PKP\observers\events\MessageSendingFromSite;
 use PKP\plugins\Hook;
 use PKP\site\Site;
 use Symfony\Component\Finder\Finder;
@@ -142,11 +142,11 @@ class Mailer extends IlluminateMailer
 
         if (array_key_exists(Mailable::DATA_KEY_CONTEXT, $data)) {
             $context = $data[Mailable::DATA_KEY_CONTEXT];
-            return $this->events->until(new MessageSendingContext($context, $message, $data)) !== false;
+            return $this->events->until(new MessageSendingFromContext($context, $message, $data)) !== false;
         }
 
         $site = Application::get()->getRequest()->getSite();
-        return $this->events->until(new MessageSendingSite($site, $message, $data)) !== false;
+        return $this->events->until(new MessageSendingFromSite($site, $message, $data)) !== false;
     }
 
     /**

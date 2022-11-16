@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/listeners/SubmissionFileDeletedListener.php
+ * @file classes/observers/listeners/RemoveSubmissionFileFromSearchIndex.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionFileDeletedListener
+ * @class RemoveSubmissionFileFromSearchIndex
  * @ingroup core
  *
- * @brief Listener fired when submission file's deleted
+ * @brief Remove a submission file from the search index when it is deleted.
  */
 
 namespace PKP\observers\listeners;
@@ -22,7 +22,7 @@ use PKP\Jobs\Submissions\RemoveSubmissionFileFromSearchIndexJob;
 
 use PKP\observers\events\SubmissionFileDeleted;
 
-class SubmissionFileDeletedListener
+class RemoveSubmissionFileFromSearchIndex
 {
     /**
      * Maps methods with correspondent events to listen
@@ -42,7 +42,7 @@ class SubmissionFileDeletedListener
     {
         dispatch(
             new RemoveSubmissionFileFromSearchIndexJob(
-                $event->submissionId, 
+                $event->submissionId,
                 $event->submissionFileId
             )
         );

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/observers/listeners/UsageEventLog.php
+ * @file classes/observers/listeners/LogUsageEvent.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UsageEventLog
+ * @class LogUsageEvent
  * @ingroup observers_traits
  *
  * @brief Listener listening for and logging the usage events.
@@ -24,7 +24,7 @@ use PKP\cache\FileCache;
 use PKP\file\PrivateFileManager;
 use PKP\plugins\Hook;
 
-class UsageEventLog
+class LogUsageEvent
 {
     public FileCache $geoDataCache;
     public FileCache $institutionDataCache;

@@ -3,26 +3,26 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/listeners/SubmissionUpdatedListener.php
+ * @file classes/observers/listeners/UpdateSubmissionInSearchIndex.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionUpdatedListener
+ * @class UpdateSubmissionInSearchIndex
  * @ingroup core
  *
- * @brief Listener fired when submission's updated
+ * @brief Reindex a submission in the search index when a publication is published or unpublished
  */
 
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
-use PKP\observers\events\PublishedEvent;
-use PKP\observers\events\UnpublishedEvent;
+use PKP\observers\events\PublicationPublished;
+use PKP\observers\events\PublicationUnpublished;
 
-class SubmissionUpdatedListener
+class UpdateSubmissionInSearchIndex
 {
     /**
      * Maps methods with correspondent events to listen
@@ -30,22 +30,22 @@ class SubmissionUpdatedListener
     public function subscribe(Dispatcher $events): void
     {
         $events->listen(
-            PublishedEvent::class,
-            self::class . '@handlePublishedEvent'
+            PublicationPublished::class,
+            self::class . '@handlePublicationPublished'
         );
 
         $events->listen(
-            UnpublishedEvent::class,
+            PublicationUnpublished::class,
             self::class . '@handleUnpublished'
         );
     }
 
-    public function handleUnpublished(UnpublishedEvent $event)
+    public function handleUnpublished(PublicationUnpublished $event)
     {
         dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
     }
 
-    public function handlePublishedEvent(PublishedEvent $event)
+    public function handlePublicationPublished(PublicationPublished $event)
     {
         dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
     }

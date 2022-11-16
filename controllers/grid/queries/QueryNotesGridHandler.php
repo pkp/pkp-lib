@@ -33,6 +33,7 @@ use APP\notification\Notification;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use APP\notification\NotificationManager;
+use PKP\query\Query;
 
 class QueryNotesGridHandler extends GridHandler
 {
@@ -72,7 +73,7 @@ class QueryNotesGridHandler extends GridHandler
      *
      * @return Query
      */
-    public function getQuery()
+    public function getQuery(): ?Query
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
     }
@@ -172,12 +173,23 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * @copydoc GridHandler::loadData()
      *
+     * Incomplete notes are hidden from everyone except
+     * the user who created them. These are considered
+     * in-progress and not yet saved.
+     *
+     * @see https://github.com/pkp/pkp-lib/issues/1155
+     *
      * @param null|mixed $filter
      */
     public function loadData($request, $filter = null)
     {
         return $this->getQuery()
-            ->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC, $this->getCanManage(null));
+            ->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC)
+            ->filter(function(Note $note) use ($request) {
+                return (bool) $note->getContents() || (
+                    $note->getUserId() === $request->getUser()->getId()
+                );
+            });
     }
 
     //

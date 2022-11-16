@@ -132,7 +132,7 @@ class Query extends \PKP\core\DataObject
      */
     public function getHeadNote()
     {
-        $notes = $this->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC, true);
+        $notes = $this->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC);
         return $notes->first();
     }
 
@@ -142,14 +142,13 @@ class Query extends \PKP\core\DataObject
      * @param int $userId Optional user ID
      * @param int $sortBy Optional NoteDAO::NOTE_ORDER_...
      * @param int $sortOrder Optional SORT_DIRECTION_...
-     * @param bool $isAdmin Optional user sees all
      *
      * @return LazyCollection
      */
-    public function getReplies(?int $userId = null, int $sortBy = NoteDAO::NOTE_ORDER_ID, int $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC, bool $isAdmin = false) : LazyCollection
+    public function getReplies(?int $userId = null, int $sortBy = NoteDAO::NOTE_ORDER_ID, int $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC) : LazyCollection
     {
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        return $noteDao->getByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder, $isAdmin);
+        return $noteDao->getByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder);
     }
 }
 

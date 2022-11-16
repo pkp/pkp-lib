@@ -426,16 +426,6 @@ abstract class Repository
     }
 
     /**
-     * Delete a collection of submission files
-     */
-    public function deleteMany(Collector $collector): void
-    {
-        foreach ($collector->getMany() as $submissionFile) {
-            $this->delete($submissionFile);
-        }
-    }
-
-    /**
      * Get the file stage ids that a user can access based on their
      * stage assignments
      *

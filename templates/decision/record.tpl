@@ -64,7 +64,16 @@
 					</template>
 					<template v-else-if="step.type === 'email'">
 						<panel-section v-if="skippedSteps.includes(step.id)">
-							<p>{translate key="editor.decision.emailSkipped"}</p>
+							<notification type="warning">
+								{translate key="editor.decision.emailSkipped"}
+								<button
+									class="-linkButton"
+									:disabled="isSubmitting"
+									@click="toggleSkippedStep(step.id)"
+								>
+									{translate key="editor.decision.dontSkipEmail"}
+								</button>
+							</notification>
 						</panel-section>
 						<panel-section v-else>
 							{capture assign="attachedFilesLabel"}{translate key="common.attachedFiles"}{/capture}
@@ -150,48 +159,50 @@
 			</step>
 		</steps>
 
-		<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
-			<spinner v-if="isSubmitting"></spinner>
-			<pkp-button
-				:disabled="isSubmitting"
-				:is-warnable="true"
-				@click="cancel"
-			>
-				{translate key="common.cancel"}
-			</pkp-button>
-			<pkp-button
-				v-if="!isOnFirstStep && steps.length > 1"
-				:disabled="isSubmitting"
-				@click="previousStep"
-			>
-				{translate key="help.previous"}
-			</pkp-button>
-			<pkp-button
-				:disabled="isSubmitting"
-				:is-primary="isOnLastStep"
-				@click="nextStep"
-			>
-				<template v-if="isOnLastStep">
-					{translate key="editor.decision.recordDecision"}
-				</template>
-				<template v-else>
-					{translate key="common.continue"}
-				</template>
-			</pkp-button>
-			<button
-				class="decision__skipStep -linkButton"
-				v-if="currentStep.type === 'email' && currentStep.canSkip"
-				:disabled="isSubmitting"
-				@click="toggleSkippedStep(currentStep.id)"
-			>
-				<template v-if="skippedSteps.includes(currentStep.id)">
-					{translate key="editor.decision.dontSkipEmail"}
-				</template>
-				<template v-else>
-					{translate key="editor.decision.skipEmail"}
-				</template>
-			</button>
-		</div>
+		<panel class="decision__footer__panel">
+			<panel-section>
+				<span slot="header">
+					<!-- empty on purpose -->
+				</span>
+				<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
+					<spinner v-if="isSubmitting"></spinner>
+					<pkp-button
+						:disabled="isSubmitting"
+						:is-warnable="true"
+						@click="cancel"
+					>
+						{translate key="common.cancel"}
+					</pkp-button>
+					<pkp-button
+						v-if="!isOnFirstStep && steps.length > 1"
+						:disabled="isSubmitting"
+						@click="previousStep"
+					>
+						{translate key="help.previous"}
+					</pkp-button>
+					<pkp-button
+						:disabled="isSubmitting"
+						:is-primary="isOnLastStep"
+						@click="nextStep"
+					>
+						<template v-if="isOnLastStep">
+							{translate key="editor.decision.recordDecision"}
+						</template>
+						<template v-else>
+							{translate key="common.continue"}
+						</template>
+					</pkp-button>
+					<button
+						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"
+						class="decision__skipStep -linkButton"
+						:disabled="isSubmitting"
+						@click="toggleSkippedStep(currentStep.id)"
+					>
+						{translate key="editor.decision.skipEmail"}
+					</button>
+				</div>
+			</panel-section>
+		</panel>
 	</div>
 
 {/block}

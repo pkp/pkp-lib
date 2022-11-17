@@ -369,6 +369,9 @@ msgstr "Edit"
 msgid "common.editItem"
 msgstr "Edit {$name}"
 
+msgid "common.emailTemplates"
+msgstr "Email Templates"
+
 msgid "common.enable"
 msgstr "Enable"
 
@@ -500,9 +503,6 @@ msgstr "{$value} or less"
 
 msgid "common.lessThanOnly"
 msgstr "Less than"
-
-msgid "common.loadTemplate"
-msgstr "Load a Template"
 
 msgid "common.keepWorking"
 msgstr "Keep Working"

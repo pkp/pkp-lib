@@ -2055,9 +2055,6 @@ msgstr "Wstaw zawartość"
 msgid "common.insertContentSearch"
 msgstr "Znajdź zawartość do wstawienia"
 
-msgid "common.loadTemplate"
-msgstr "Załaduj szablon"
-
 msgid "common.keepWorking"
 msgstr "Kontynuuj"
 

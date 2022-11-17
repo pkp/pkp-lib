@@ -2096,9 +2096,6 @@ msgstr "კონტენტის ჩასმა"
 msgid "common.insertContentSearch"
 msgstr "იპოვნეთ ჩასასმელი შიგთავსი"
 
-msgid "common.loadTemplate"
-msgstr "ჩატვირთეთ შაბლონი"
-
 msgid "common.keepWorking"
 msgstr "გააგრძელეთ მუშაობა"
 

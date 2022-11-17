@@ -52,89 +52,72 @@
 				:id="step.id"
 				:label="step.name"
 			>
-				<template v-if="step.type === 'form'">
-					<panel>
+				<panel class="decision__stepPanel">
+					<panel-section class="decision__stepHeader">
+						<h2>{{ step.name }}</h2>
+						<p>{{ step.description }}</p>
+					</panel-section>
+					<template v-if="step.type === 'form'">
 						<panel-section>
-							<template slot="header">
-								<h2>{{ step.name }}</h2>
-								<p>{{ step.description }}</p>
-							</template>
 							<pkp-form v-bind="step.form" @set="updateStep"></pkp-form>
 						</panel-section>
-					</panel>
-				</template>
-				<template v-else-if="step.type === 'email'">
-					<panel v-if="skippedSteps.includes(step.id)">
-						<panel-section>
-							<template slot="header">
-								<h2>{{ step.name }}</h2>
-								<p>{translate key="editor.decision.emailSkipped"}</p>
-							</template>
+					</template>
+					<template v-else-if="step.type === 'email'">
+						<panel-section v-if="skippedSteps.includes(step.id)">
+							<p>{translate key="editor.decision.emailSkipped"}</p>
 						</panel-section>
-					</panel>
-					{capture assign="attachedFilesLabel"}{translate key="common.attachedFiles"}{/capture}
-					{capture assign="bccLabel"}{translate key="email.bcc"}{/capture}
-					{capture assign="ccLabel"}{translate key="email.cc"}{/capture}
-					{capture assign="subjectLabel"}{translate key="email.subject"}{/capture}
-					{capture assign="switchTolabel"}{translate key="common.switchTo"}{/capture}
-					{capture assign="recipientsLabel"}{translate key="email.to"}{/capture}
-					<composer
-						v-else
-						add-c-c-label="{translate key="common.addCCBCC"}"
-						attach-files-label="{translate key="common.attachFiles"}"
-						attached-files-label="{translate key="semicolon" label=$attachedFilesLabel}"
-						:attachers="step.attachers"
-						:attachments="step.attachments"
-						:bcc="step.bcc"
-						bcc-label="{translate key="semicolon" label=$bccLabel}"
-						:body="step.body"
-						body-label="{translate key="stageParticipants.notify.message"}"
-						:can-change-recipients="step.canChangeRecipients"
-						:cc="step.cc"
-						cc-label="{translate key="semicolon" label=$ccLabel}"
-						confirm-switch-locale-label="{translate key="email.confirmSwitchLocale"}"
-						deselect-label="{translate key="common.deselect"}"
-						:email-templates="step.emailTemplates"
-						:email-templates-api-url="emailTemplatesApiUrl"
-						find-template-label="{translate key="common.findTemplate"}"
-						:id="step.id"
-						:initial-template-key="step.initialTemplateKey"
-						insert-label="{translate key="common.insert"}"
-						insert-modal-label="{translate key="common.insertContent"}"
-						insert-content-label="{translate key="common.content"}"
-						insert-search-label="{translate key="common.insertContentSearch"}"
-						load-template-label="{translate key="common.loadTemplate"}"
-						:locale="step.locale"
-						:locales="step.locales"
-						more-search-results-label="{translate key="common.numberedMore"}"
-						:recipient-options="step.recipientOptions"
-						:recipients="step.recipients"
-						recipients-label="{translate key="semicolon" label=$recipientsLabel}"
-						remove-item-label="{translate key="common.removeItem"}"
-						searching-label="{translate key="common.searching"}"
-						search-results-label="{translate key="search.searchResults"}"
-						:separate-emails="step.anonymousRecipients"
-						:subject="step.subject"
-						subject-label="{translate key="semicolon" label=$subjectLabel}"
-						switch-to-label="{translate key="semicolon" label=$switchTolabel}"
-						switch-to-named-language-label="{translate key="common.switchToNamedItem"}"
-						:variables="step.variables"
-						@set="updateStep"
-					>
-
-						<template slot="description">
-							<h2>{{ step.name }}</h2>
-							<p v-html="step.description"></p>
-						</template>
-					</composer>
-				</template>
-				<template v-else-if="step.type === 'promoteFiles'">
-					<panel>
+						<panel-section v-else>
+							{capture assign="attachedFilesLabel"}{translate key="common.attachedFiles"}{/capture}
+							{capture assign="bccLabel"}{translate key="email.bcc"}{/capture}
+							{capture assign="ccLabel"}{translate key="email.cc"}{/capture}
+							{capture assign="subjectLabel"}{translate key="email.subject"}{/capture}
+							{capture assign="switchTolabel"}{translate key="common.switchTo"}{/capture}
+							{capture assign="recipientsLabel"}{translate key="email.to"}{/capture}
+							<composer
+								add-c-c-label="{translate key="common.addCCBCC"}"
+								attach-files-label="{translate key="common.attachFiles"}"
+								attached-files-label="{translate key="semicolon" label=$attachedFilesLabel}"
+								:attachers="step.attachers"
+								:attachments="step.attachments"
+								:bcc="step.bcc"
+								bcc-label="{translate key="semicolon" label=$bccLabel}"
+								:body="step.body"
+								body-label="{translate key="stageParticipants.notify.message"}"
+								:can-change-recipients="step.canChangeRecipients"
+								:cc="step.cc"
+								cc-label="{translate key="semicolon" label=$ccLabel}"
+								confirm-switch-locale-label="{translate key="email.confirmSwitchLocale"}"
+								deselect-label="{translate key="common.deselect"}"
+								:email-templates="step.emailTemplates"
+								:email-templates-api-url="emailTemplatesApiUrl"
+								find-template-label="{translate key="common.findTemplate"}"
+								:id="step.id"
+								:initial-template-key="step.initialTemplateKey"
+								insert-label="{translate key="common.insert"}"
+								insert-modal-label="{translate key="common.insertContent"}"
+								insert-content-label="{translate key="common.content"}"
+								insert-search-label="{translate key="common.insertContentSearch"}"
+								load-template-label="{translate key="common.emailTemplates"}"
+								:locale="step.locale"
+								:locales="step.locales"
+								more-search-results-label="{translate key="common.numberedMore"}"
+								:recipient-options="step.recipientOptions"
+								:recipients="step.recipients"
+								recipients-label="{translate key="semicolon" label=$recipientsLabel}"
+								remove-item-label="{translate key="common.removeItem"}"
+								searching-label="{translate key="common.searching"}"
+								search-results-label="{translate key="search.searchResults"}"
+								:subject="step.subject"
+								subject-label="{translate key="semicolon" label=$subjectLabel}"
+								switch-to-label="{translate key="semicolon" label=$switchTolabel}"
+								switch-to-named-language-label="{translate key="common.switchToNamedItem"}"
+								:variables="step.variables"
+								@set="updateStep"
+							></composer>
+						</panel-section>
+					</template>
+					<template v-else-if="step.type === 'promoteFiles'">
 						<panel-section>
-							<template slot="header">
-								<h2>{{ step.name }}</h2>
-								<p>{{ step.description }}</p>
-							</template>
 							<list-panel
 								v-for="(list, i) in step.lists"
 								:key="i"
@@ -162,8 +145,8 @@
 								</template>
 							</list-panel>
 						</panel-section>
-					</panel>
-				</template>
+					</template>
+				</panel>
 			</step>
 		</steps>
 
@@ -192,7 +175,7 @@
 					{translate key="editor.decision.recordDecision"}
 				</template>
 				<template v-else>
-					{translate key="help.next"}
+					{translate key="common.continue"}
 				</template>
 			</pkp-button>
 			<button

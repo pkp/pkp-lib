@@ -2086,9 +2086,6 @@ msgstr "še {$number}"
 msgid "common.keepWorking"
 msgstr "Nadaljuj z delom"
 
-msgid "common.loadTemplate"
-msgstr "Naloži predlogo"
-
 msgid "common.insertContentSearch"
 msgstr "Poišči vsebino za vstaviti"
 

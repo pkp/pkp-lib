@@ -2136,9 +2136,6 @@ msgstr "{$number} mere"
 msgid "common.keepWorking"
 msgstr "Fortsæt arbejdet"
 
-msgid "common.loadTemplate"
-msgstr "Indlæs en skabelon"
-
 msgid "common.findTemplate"
 msgstr "Find skabelon"
 

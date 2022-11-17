@@ -2154,9 +2154,6 @@ msgstr "Kurumlar"
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Bilinmeyen komut {$komut}"
 
-msgid "common.loadTemplate"
-msgstr "Şablon Yükle"
-
 msgid "common.upload.addFile.description"
 msgstr "Bilgisayarınızdan bir dosya yükleyin."
 

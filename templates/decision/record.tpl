@@ -113,6 +113,7 @@
 						remove-item-label="{translate key="common.removeItem"}"
 						searching-label="{translate key="common.searching"}"
 						search-results-label="{translate key="search.searchResults"}"
+						:separate-emails="step.anonymousRecipients"
 						:subject="step.subject"
 						subject-label="{translate key="semicolon" label=$subjectLabel}"
 						switch-to-label="{translate key="semicolon" label=$switchTolabel}"

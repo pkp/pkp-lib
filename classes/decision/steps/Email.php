@@ -28,6 +28,7 @@ class Email extends Step
     public array $attachers;
     public bool $canChangeRecipients = false;
     public bool $canSkip = true;
+    public bool $anonymousRecipients = false;
     public array $locales;
     public Mailable $mailable;
     /** @var array<User> */
@@ -58,6 +59,17 @@ class Email extends Step
     }
 
     /**
+     * Should the recipient names be shown in the
+     * email body and subject when writing the email
+     */
+    public function anonymizeRecipients(bool $value): self
+    {
+        $this->anonymousRecipients = $value;
+
+        return $this;
+    }
+
+    /**
      * Can the editor skip this email
      */
     public function canSkip(bool $value): self
@@ -75,6 +87,7 @@ class Email extends Step
         $config->emailTemplates = $this->getEmailTemplates();
         $config->initialTemplateKey = $this->mailable::getEmailTemplateKey();
         $config->recipientOptions = $this->getRecipientOptions();
+        $config->anonymousRecipients = $this->anonymousRecipients;
 
         $config->variables = [];
         $config->locale = Locale::getLocale();

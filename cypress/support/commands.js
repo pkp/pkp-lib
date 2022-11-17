@@ -396,7 +396,7 @@ Cypress.Commands.add('recordDecisionAcceptSubmission', (authorNames, completedRe
 		cy.get('h2').contains('Notify Reviewers').should('exist');
 		cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Reviewers")');
 		cy.checkComposerRecipients('.composer:contains("Notify Reviewers") .composer__recipients', completedReviewerNames);
-		cy.checkEmailTemplateVariables('#notifyReviewers-body-control');
+		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
 		cy.get('.decision__footer button').contains('Next').click();
 	}
 	cy.selectPromotedFiles(filesToPromote);
@@ -431,7 +431,7 @@ Cypress.Commands.add('recordDecisionRevisions', (revisionLabel, authorNames, com
 		cy.get('h2').contains('Notify Reviewers').should('exist');
 		cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Reviewers")');
 		cy.checkComposerRecipients('.composer:contains("Notify Reviewers") .composer__recipients', completedReviewerNames);
-		cy.checkEmailTemplateVariables('#notifyReviewers-body-control');
+		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
 	}
 	cy.recordDecision('have been requested.');
 });
@@ -513,6 +513,20 @@ Cypress.Commands.add('isActiveStageTab', (stageName) => {
 Cypress.Commands.add('checkEmailTemplateVariables', (selector) => {
 	cy.get(selector).should(($div) => {
 		expect($div.get(0).textContent).not.to.include('{$');
+	});
+});
+
+/**
+ * Check that the {$recipientName} variable matches what is expected
+ *
+ * This is used when the composer is set to send separate emails
+ * to each recipient, and {$recipientName} is kept in the message.
+ *
+ * @param string selector The HTML element selector for the text area where the value is stored
+ */
+Cypress.Commands.add('checkEmailRecipientVariable', (selector, value) => {
+	cy.get(selector).should(($div) => {
+		expect($div.get(0).textContent).to.include(value);
 	});
 });
 

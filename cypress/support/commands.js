@@ -779,66 +779,96 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 		return;
 	}
 
-	options = {
-		uploadUrl: /submissions\/\d+\/files$/,
-		editUrl: /submissions\/\d+\/files\/\d+/,
-		primaryFileGenres: ['Article Text', 'Book Manuscript', 'Chapter Manuscript'],
-		...options
-	};
-
-	// Setup upload listeners
-	cy.server();
-
-	cy.route({
-		method: "POST",
-		url: options.uploadUrl,
-	}).as('fileUploaded');
-
-	cy.route({
-		method: "POST",
-		url: options.editUrl
-	}).as('genreDefined');
-
-	files.forEach(file => {
-		cy.fixture(file.file, 'base64').then(fileContent => {
-
-			// Upload the file
-			cy.get('input[type=file]').attachFile(
-				{
-					fileContent,
-					encoding: 'base64',
-					filePath: file.fileName,
-					mimeType: file.mimetype,
-				}
-			);
-			cy.wait('@fileUploaded').its('status').should('eq', 200);
-
-			// Set the file genre
-			const $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
-			$row.contains('What kind of file is this?');
-			if (options.primaryFileGenres.includes(file.genre)) {
-				// For some reason this is locating two references to the button,
-				// so just click the last one, which should be the most recently
-				// uploaded file.
-				$row.get('button:contains("' + file.genre + '")').last().click();
-			} else {
-				$row.get('button:contains("Other")').last().click();
-				cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
-				cy.get('.modal button').contains('Save').click();
+	if (Cypress.env('contextTitles').en_US == 'Public Knowledge Preprint Server') {
+		// OPS uses the galley grid
+		files.forEach(file => {
+			cy.get('a:contains("Add File")').click();
+			cy.wait(2000); // Avoid occasional failure due to form init taking time
+			cy.get('div.pkp_modal_panel').then($modalDiv => {
+				cy.wait(3000);
+				$modalDiv.find('div.header:contains("Add File")');
+				cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
+				cy.get('div.pkp_modal_panel button:contains("Save")').click();
+				cy.wait(2000); // Avoid occasional failure due to form init taking time
+			});
+			cy.get('select[id=genreId]').select(file.genre);
+			cy.fixture(file.file, 'base64').then(fileContent => {
+				cy.get('input[type=file]').attachFile(
+					{fileContent, 'filePath': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
+				);
+			});
+			cy.get('#continueButton').click();
+			cy.wait(2000);
+			for (const field in file.metadata) {
+				cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
+				cy.get('input[id^="language"').click({force: true}); // Close multilingual and datepicker pop-overs
 			}
-			cy.wait('@genreDefined').its('status').should('eq', 200);
-
-			// Check if the file genre is set
-			//
-			// The phrase "What kind of file is this?" will exist on the page because
-			// it is there in the state data passed to the page component. So limit the
-			// search to a list panel.
-			//
-			// Don't use $row because it references an element no longer in the DOM.
-			cy.get('.listPanel:contains("What kind of file is this?")').should('not.exist');
-			cy
-				.get('.listPanel__item:contains("' + file.fileName + '")')
-				.get('.pkpBadge:contains("' + file.genre + '")');
+			cy.get('#continueButton').click();
+			cy.get('#continueButton').click();
 		});
-	});
+	} else {
+		// OJS uses the new submission wizard file upload process
+		options = {
+			uploadUrl: /submissions\/\d+\/files$/,
+			editUrl: /submissions\/\d+\/files\/\d+/,
+			primaryFileGenres: ['Article Text', 'Book Manuscript', 'Chapter Manuscript'],
+			...options
+		};
+
+		// Setup upload listeners
+		cy.server();
+
+		cy.route({
+			method: "POST",
+			url: options.uploadUrl,
+		}).as('fileUploaded');
+
+		cy.route({
+			method: "POST",
+			url: options.editUrl
+		}).as('genreDefined');
+
+		files.forEach(file => {
+			cy.fixture(file.file, 'base64').then(fileContent => {
+
+				// Upload the file
+				cy.get('input[type=file]').attachFile(
+					{
+						fileContent,
+						encoding: 'base64',
+						filePath: file.fileName,
+						mimeType: file.mimetype,
+					}
+				);
+				cy.wait('@fileUploaded').its('status').should('eq', 200);
+
+				// Set the file genre
+				const $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
+				$row.contains('What kind of file is this?');
+				if (options.primaryFileGenres.includes(file.genre)) {
+					// For some reason this is locating two references to the button,
+					// so just click the last one, which should be the most recently
+					// uploaded file.
+					$row.get('button:contains("' + file.genre + '")').last().click();
+				} else {
+					$row.get('button:contains("Other")').last().click();
+					cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
+					cy.get('.modal button').contains('Save').click();
+				}
+				cy.wait('@genreDefined').its('status').should('eq', 200);
+
+				// Check if the file genre is set
+				//
+				// The phrase "What kind of file is this?" will exist on the page because
+				// it is there in the state data passed to the page component. So limit the
+				// search to a list panel.
+				//
+				// Don't use $row because it references an element no longer in the DOM.
+				cy.get('.listPanel:contains("What kind of file is this?")').should('not.exist');
+				cy
+					.get('.listPanel__item:contains("' + file.fileName + '")')
+					.get('.pkpBadge:contains("' + file.genre + '")');
+			});
+		});
+	}
 });

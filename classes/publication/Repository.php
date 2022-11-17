@@ -150,7 +150,7 @@ class Repository extends \PKP\publication\Repository
 
     public function validatePublish(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
     {
-        $errors = $this->validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
+        $errors = parent::validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
 
         if (!$this->canCurrentUserPublish($submission->getId())) {
             $errors['authorCheck'] = __('author.submit.authorsCanNotPublish');

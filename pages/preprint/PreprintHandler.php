@@ -16,19 +16,19 @@
 
 namespace APP\pages\preprint;
 
-use APP\core\Services;
-use PKP\plugins\Hook;
-use PKP\plugins\PluginRegistry;
-use PKP\config\Config;
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use APP\observers\events\Usage;
+use APP\observers\events\UsageEvent;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
+use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
@@ -293,7 +293,7 @@ class PreprintHandler extends Handler
 
             if (!Hook::call('PreprintHandler::view', [&$request, &$preprint, $publication])) {
                 $templateMgr->display('frontend/pages/preprint.tpl');
-                event(new Usage(Application::ASSOC_TYPE_SUBMISSION, $context, $preprint));
+                event(new UsageEvent(Application::ASSOC_TYPE_SUBMISSION, $context, $preprint));
                 return;
             }
         } else {
@@ -381,7 +381,7 @@ class PreprintHandler extends Handler
                     if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
                         $assocType = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                     }
-                    event(new Usage($assocType, $request->getContext(), $this->preprint, $this->galley, $submissionFile));
+                    event(new UsageEvent($assocType, $request->getContext(), $this->preprint, $this->galley, $submissionFile));
                 }
                 $returner = true;
                 Hook::call('FileManager::downloadFileFinished', [&$returner]);

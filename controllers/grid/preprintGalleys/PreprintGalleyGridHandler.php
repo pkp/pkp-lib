@@ -20,8 +20,6 @@ use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
-use APP\publication\Publication;
-use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;

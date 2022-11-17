@@ -37,6 +37,8 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
+use APP\publication\Publication;
+use APP\submission\Submission;
 
 class PreprintGalleyGridHandler extends GridHandler
 {

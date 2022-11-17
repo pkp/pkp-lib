@@ -175,6 +175,7 @@ class Form {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_NO_STORE);
 
+		$context = $request->getContext();
 
 		// Attach this form object to the Form Builder Vocabulary for validation to work
 		$fbv = $templateMgr->getFBV();
@@ -187,6 +188,7 @@ class Form {
 				'errors' => $this->getErrorsArray(),
 				'formLocales' => $this->supportedLocales,
 				'formLocale' => $this->getDefaultFormLocale(),
+				'primaryLocale' => $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale(),
 			)
 		));
 

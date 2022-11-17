@@ -128,8 +128,8 @@
 									<select-submission-file-list-item
 										:document-type="item.documentType"
 										download-label="{translate key="common.download"}"
-										:genreName="item.genre.name"
-										:genreIsPrimary="!item.genre.dependent && !item.genre.supplementary"
+										:genre-name="item.genre.name"
+										:genre-is-primary="!item.genre.dependent && !item.genre.supplementary"
 										:genre="item.genre"
 										:file-id="item.id"
 										:name="localize(item.name)"

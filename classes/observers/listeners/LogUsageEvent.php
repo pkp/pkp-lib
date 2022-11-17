@@ -16,7 +16,7 @@
 namespace PKP\observers\listeners;
 
 use APP\core\Application;
-use APP\observers\events\Usage;
+use APP\observers\events\UsageEvent;
 use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
 use Illuminate\Events\Dispatcher;
@@ -35,7 +35,7 @@ class LogUsageEvent
     public function subscribe(Dispatcher $events): void
     {
         $events->listen(
-            Usage::class,
+            UsageEvent::class,
             self::class . '@handle'
         );
     }
@@ -43,7 +43,7 @@ class LogUsageEvent
     /**
      * Handle the event.
      */
-    public function handle(Usage $usageEvent): void
+    public function handle(UsageEvent $usageEvent): void
     {
         if (!$this->canHandle($usageEvent)) {
             return;
@@ -56,7 +56,7 @@ class LogUsageEvent
     /**
      * Shall this event be processed here
      */
-    protected function canHandle(Usage $usageEvent): bool
+    protected function canHandle(UsageEvent $usageEvent): bool
     {
         if ($usageEvent->request->getDoNotTrack()) {
             return false;
@@ -116,7 +116,7 @@ class LogUsageEvent
      *  get institution IDs, if needed
      *  hash the IP
      */
-    protected function prepareUsageEvent(Usage $usageEvent): array
+    protected function prepareUsageEvent(UsageEvent $usageEvent): array
     {
         $request = $usageEvent->request;
 

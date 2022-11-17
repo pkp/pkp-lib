@@ -8,13 +8,12 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UsageEvent
- * @ingroup observers_traits
+ * @ingroup observers_events
  *
- * @brief Usage event trait.
- *
+ * @brief Base class for the usage event used to record usage logs.
  */
 
-namespace PKP\observers\traits;
+namespace PKP\observers\events;
 
 use APP\core\Application;
 use APP\core\Request;
@@ -28,7 +27,7 @@ use PKP\core\Registry;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;
 
-trait UsageEvent
+abstract class UsageEvent
 {
     use Dispatchable;
 
@@ -58,7 +57,13 @@ trait UsageEvent
     /**
      * Create a new usage event instance.
      */
-    protected function traitConstruct(int $assocType, Context $context, Submission $submission = null, Representation $representation = null, SubmissionFile $submissionFile = null)
+    public function __construct(
+        int $assocType,
+        Context $context,
+        Submission $submission = null,
+        Representation $representation = null,
+        SubmissionFile $submissionFile = null
+    )
     {
         $this->time = Core::getCurrentDate();
         $this->assocType = $assocType;
@@ -76,7 +81,7 @@ trait UsageEvent
      *
      * @throws Exception
      */
-    protected function getTraitCanonicalUrl(): string
+    protected function getCanonicalUrl(): string
     {
         $canonicalUrlPage = $canonicalUrlOp = null;
         $canonicalUrlParams = [];

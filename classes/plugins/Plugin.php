@@ -517,7 +517,7 @@ abstract class Plugin
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao->updateSetting($contextId, $this->getName(), $name, $value, $type);
 
-        dispatch(new PluginSettingChanged($this, $name, $value, $contextId));
+        event(new PluginSettingChanged($this, $name, $value, $contextId));
     }
 
     /**

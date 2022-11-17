@@ -21,12 +21,14 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\mail\Mailable;
+use PKP\note\NoteDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
@@ -271,35 +273,36 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Delete a submission query by ID.
      *
+     * Deletes any associated notes and notifications. The
+     * participants will be deleted automatically through
+     * the onDelete CASCADE foreign key relationship in
+     * the database table.
+     *
      * @param int $queryId Query ID
      * @param int $assocType Optional ASSOC_TYPE_...
      * @param int $assocId Optional assoc ID per assocType
      */
     public function deleteById($queryId, $assocType = null, $assocId = null)
     {
-        $queryQuery = DB::table('queries')
-            ->where('query_id', '=', $queryId);
+        $countDeleted = DB::table('queries')
+            ->where('query_id', '=', $queryId)
+            ->when(!is_null($assocType), function(Builder $q) use ($assocType) {
+                $q->where('assoc_type', '=', $assocType);
+            })
+            ->when(!is_null($assocId), function(Builder $q) use ($assocId) {
+                $q->where('assoc_id', '=', $assocId);
+            })
+            ->delete();
 
-        if ($assocType) {
-            $queryQuery->where('assoc_type', '=', $assocType)
-                ->where('assoc_id', '=', $assocId);
-        }
-
-        if ($queryQuery->count()) {
-            // Remove associated notes
+        if ($countDeleted) {
             $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
             $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
 
-            // Remove associated participants: will be removed by onDelete CASCADE on foreign key query_id column
-
-            // Remove associated notifications
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
             $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
             while ($notification = $notifications->next()) {
                 $notificationDao->deleteObject($notification);
             }
-
-            $queryQuery->delete();
         }
     }
 

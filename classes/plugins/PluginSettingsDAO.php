@@ -19,6 +19,7 @@ namespace PKP\plugins;
 
 use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
+use PKP\observers\events\PluginSettingChanged;
 use PKP\xml\PKPXMLParser;
 
 class PluginSettingsDAO extends \PKP\db\DAO

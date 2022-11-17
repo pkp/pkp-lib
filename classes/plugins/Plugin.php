@@ -56,7 +56,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
-
+use PKP\observers\events\PluginSettingChanged;
 use PKP\template\PKPTemplateResource;
 
 // Define the well-known file name for filter configuration data.
@@ -514,18 +514,10 @@ abstract class Plugin
      */
     public function updateSetting($contextId, $name, $value, $type = null)
     {
-
-        // Construct the argument list and call the plug-in settings DAO
-        $arguments = [
-            $contextId,
-            $this->getName(),
-            $name,
-            $value,
-            $type,
-        ];
-
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-        call_user_func_array([&$pluginSettingsDao, 'updateSetting'], $arguments);
+        $pluginSettingsDao->updateSetting($contextId, $this->getName(), $name, $value, $type);
+
+        dispatch(new PluginSettingChanged($this, $name, $value, $contextId));
     }
 
     /**

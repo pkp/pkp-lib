@@ -284,16 +284,7 @@ class QueryDAO extends \PKP\db\DAO
      */
     public function deleteById($queryId, $assocType = null, $assocId = null)
     {
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
-
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
-        while ($notification = $notifications->next()) {
-            $notificationDao->deleteObject($notification);
-        }
-
-        DB::table('queries')
+        $countDeleted = DB::table('queries')
             ->where('query_id', '=', $queryId)
             ->when(!is_null($assocType), function(Builder $q) use ($assocType) {
                 $q->where('assoc_type', '=', $assocType);
@@ -302,6 +293,17 @@ class QueryDAO extends \PKP\db\DAO
                 $q->where('assoc_id', '=', $assocId);
             })
             ->delete();
+
+        if ($countDeleted) {
+            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+            $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
+
+            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+            $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
+            while ($notification = $notifications->next()) {
+                $notificationDao->deleteObject($notification);
+            }
+        }
     }
 
     /**

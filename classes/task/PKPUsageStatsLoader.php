@@ -17,7 +17,7 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\Jobs\Statistics\CompileUsageStatsFromTemporaryRecords;
+use APP\jobs\statistics\CompileUsageStatsFromTemporaryRecords;
 use APP\statistics\StatisticsHelper;
 use APP\statistics\TemporaryItemInvestigationsDAO;
 use APP\statistics\TemporaryItemRequestsDAO;
@@ -27,7 +27,7 @@ use Exception;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\Jobs\Statistics\CompileMonthlyMetrics;
+use PKP\jobs\statistics\CompileMonthlyMetrics;
 use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\statistics\TemporaryInstitutionsDAO;

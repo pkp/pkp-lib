@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file Jobs/Statistics/CompileMonthlyMetrics.php
+ * @file jobs/statistics/CompileMonthlyMetrics.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -13,11 +13,11 @@
  * @brief Compile and store monthly usage stats from the daily records.
  */
 
-namespace PKP\Jobs\Statistics;
+namespace PKP\jobs\statistics;
 
 use APP\core\Services;
 use PKP\site\Site;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 
 class CompileMonthlyMetrics extends BaseJob
 {

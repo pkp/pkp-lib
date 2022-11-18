@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Submissions/RemoveSubmissionFileFromSearchIndexJob.php
+ * @file jobs/submissions/RemoveSubmissionFileFromSearchIndexJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -15,11 +15,11 @@ declare(strict_types=1);
  * @brief Class to handle the Submission File deletion as a Job
  */
 
-namespace PKP\Jobs\Submissions;
+namespace PKP\jobs\submissions;
 
 use APP\core\Application;
 use PKP\search\SubmissionSearch;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 
 class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {

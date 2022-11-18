@@ -3,24 +3,25 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/TestJobs/TestJobSuccess.php
+ * @file jobs/testJobs/TestJobFailure.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class TestJobSuccess
+ * @class TestJobFailure
  *
- * @brief Example successful TestJob with a valid FQN (@see https://www.php.net/manual/pt_BR/language.namespaces.rules.php)
+ * @brief Example failed TestJob with a valid FQN (@see https://www.php.net/manual/pt_BR/language.namespaces.rules.php)
  */
 
-namespace PKP\Jobs\TestJobs;
+namespace PKP\jobs\testJobs;
 
+use Exception;
 use Illuminate\Bus\Batchable;
 use PKP\job\models\Job;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 
-class TestJobSuccess extends BaseJob
+class TestJobFailure extends BaseJob
 {
     use Batchable;
     
@@ -34,6 +35,6 @@ class TestJobSuccess extends BaseJob
 
     public function handle(): void
     {
-
+        throw new Exception('cli.test.job');
     }
 }

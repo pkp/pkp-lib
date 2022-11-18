@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Doi/DepositSubmission.php
+ * @file jobs/doi/DepositSubmission.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -15,12 +15,12 @@ declare(strict_types=1);
  * @brief Job to deposit submission DOI and metadata to the configured registration agency
  */
 
-namespace PKP\Jobs\Doi;
+namespace PKP\jobs\doi;
 
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;
 use PKP\context\Context;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
 
 class DepositSubmission extends BaseJob

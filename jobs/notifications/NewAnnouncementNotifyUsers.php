@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file Jobs/Notifications/NewAnnouncementNotifyUsers.php
+ * @file jobs/notifications/NewAnnouncementNotifyUsers.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -13,7 +13,7 @@
  * @brief Class to send system notifications when a new announcement is added
  */
 
-namespace PKP\Jobs\Notifications;
+namespace PKP\jobs\notifications;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -28,7 +28,7 @@ use PKP\mail\mailables\AnnouncementNotify;
 use PKP\user\User;
 use Illuminate\Support\Collection;
 use PKP\notification\managerDelegate\AnnouncementNotificationManager;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
 
 class NewAnnouncementNotifyUsers extends BaseJob
@@ -73,8 +73,9 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $context = Application::getContextDAO()->getById($this->contextId);
         $template = Repo::emailTemplate()->getByKey($context->getId(), AnnouncementNotify::getEmailTemplateKey());
 
-        foreach ($this->recipientIds as $recipientId) {
-            $recipient = Repo::user()->get($recipientId);
+        foreach ($this->recipientIds as $recipientId) { 
+            /** @var int $recipientId */
+            $recipient = Repo::user()->get($recipientId); 
             if (!$recipient) {
                 continue;
             }

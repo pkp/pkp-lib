@@ -18,7 +18,7 @@ namespace PKP\task;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\services\ContextService;
-use PKP\Jobs\Email\EditorialReminder;
+use PKP\jobs\email\EditorialReminder;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\Role;

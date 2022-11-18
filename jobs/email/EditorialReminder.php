@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Email/EditorialReminder.php
+ * @file jobs/email/EditorialReminder.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class to handle a job to send an editorial reminder
  */
 
-namespace PKP\Jobs\Email;
+namespace PKP\jobs\email;
 
 use APP\core\Application;
 use APP\core\Services;
@@ -30,7 +30,7 @@ use PKP\facades\Locale;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use PKP\user\User;
 
 class EditorialReminder extends BaseJob

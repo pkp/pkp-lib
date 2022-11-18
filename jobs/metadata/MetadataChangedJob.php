@@ -3,29 +3,29 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Submissions/RemoveSubmissionFromSearchIndexJob.php
+ * @file jobs/metadata/MetadataChangedJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class RemoveSubmissionFromSearchIndexJob
+ * @class MetadataChangedJob
  * @ingroup jobs
  *
- * @brief Class to handle the Deleted Submission data update as a Job
+ * @brief Class to handle the Metadata Changed job
  */
 
-namespace PKP\Jobs\Submissions;
+namespace PKP\jobs\metadata;
 
 use APP\core\Application;
-use PKP\Jobs\BaseJob;
+use APP\facades\Repo;
+use PKP\jobs\BaseJob;
+use PKP\job\exceptions\JobException;
 
-class RemoveSubmissionFromSearchIndexJob extends BaseJob
+class MetadataChangedJob extends BaseJob
 {
     /**
-     * The submission id of the targeted submission to delete
-     * 
-     * @var int
+     * @var int The submission ID
      */
     protected $submissionId;
 
@@ -46,8 +46,15 @@ class RemoveSubmissionFromSearchIndexJob extends BaseJob
      */
     public function handle(): void
     {
+        $submission = Repo::submission()->get($this->submissionId);
+
+        if (!$submission) {
+            throw new JobException(JobException::INVALID_PAYLOAD);
+        }
+
         $submissionSearchIndex = Application::getSubmissionSearchIndex();
-        $submissionSearchIndex->deleteTextIndex($this->submissionId);
+        $submissionSearchIndex->submissionMetadataChanged($submission);
+        $submissionSearchIndex->submissionFilesChanged($submission);
         $submissionSearchIndex->submissionChangesFinished();
     }
 }

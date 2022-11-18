@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file Jobs/Notifications/StatisticsReportMail.php
+ * @file jobs/notifications/StatisticsReportMail.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -13,7 +13,7 @@
  * @brief Class to send email to editors with monthly editorial report
  */
 
-namespace PKP\Jobs\Notifications;
+namespace PKP\jobs\notifications;
 
 use APP\core\Application;
 use APP\core\Services;
@@ -27,7 +27,7 @@ use IntlDateFormatter;
 use PKP\context\Context;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\notification\PKPNotification;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use SplFileObject;
 
 class StatisticsReportMail extends BaseJob
@@ -69,6 +69,7 @@ class StatisticsReportMail extends BaseJob
         $filePath = $this->createCsvAttachment($editorialTrends, $editorialTrendsTotal, $locale, $month, $year);
 
         foreach ($this->userIds as $userId) {
+            /** @var int $userId */
             $user = Repo::user()->get($userId);
             if (!$user) {
                 continue;

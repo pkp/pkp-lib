@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Metadata/BatchMetadataChangedJob.php
+ * @file jobs/metadata/BatchMetadataChangedJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -15,11 +15,11 @@ declare(strict_types=1);
  * @brief Class to handle the Batch Metadata Changed job
  */
 
-namespace PKP\Jobs\Metadata;
+namespace PKP\jobs\metadata;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
 
 class BatchMetadataChangedJob extends BaseJob

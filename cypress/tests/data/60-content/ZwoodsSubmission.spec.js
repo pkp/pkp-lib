@@ -7,9 +7,47 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Zwoods', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Finocchiaro: Arguments About Arguments';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'None.',
+			shortAuthorString: 'Woods',
+			authorNames: ['Zita Woods'],
+			sectionId: 1,
+			assignedAuthorNames: ['Zita Woods'],
+			authors: [
+				{
+					givenName: 'Zita',
+					familyName: 'Woods',
+					email: 'zwoods@mailinator.com',
+					country: 'United States',
+					affiliation: 'CUNY'
+				}
+			],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			],
+			keywords: [
+				'education',
+				'citizenship'
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Finocchiaro: Arguments About Arguments';
 		cy.register({
 			'username': 'zwoods',
 			'givenName': 'Zita',
@@ -18,10 +56,20 @@ describe('Data suite tests', function() {
 			'country': 'United States',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'None.'
-		});
+		// Go to page where CSRF token is available
+		cy.visit('/index.php/publicknowledge/user/profile');
+
+		let csrfToken = '';
+		cy.window()
+			.then((win) => {
+				csrfToken = win.pkp.currentUser.csrfToken;
+			})
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Woods');

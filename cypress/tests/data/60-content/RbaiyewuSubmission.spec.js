@@ -7,9 +7,43 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Rbaiyewu', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Yam diseases and its management in Nigeria';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'This review presents different diseases associated with yam and the management strategies employed in combating its menace in Nigeria. The field and storage diseases are presented, anthracnose is regarded as the most widely spread of all the field diseases, while yam mosaic virus disease is considered to cause the most severe losses in yams. Dry rot is considered as the most devastating of all the storage diseases of yam. Dry rot of yams alone causes a marked reduction in the quantity, marketable value and edible portions of tubers and those reductions are more severe in stored yams. The management strategies adopted and advocated for combating the field diseases includes the use of crop rotation, fallowing, planting of healthy material, the destruction of infected crop cultivars and the use of resistant cultivars. With regards to the storage diseases, the use of Tecto (Thiabendazole), locally made dry gins or wood ash before storage has been found to protect yam tubers against fungal infection in storage. Finally, processing of yam tubers into chips or cubes increases its shelf live for a period of between 6 months and one year.',
+			shortAuthorString: 'Baiyewu',
+			authorNames: ['Rana Baiyewu'],
+			sectionId: 1,
+			assignedAuthorNames: ['Rana Baiyewu'],
+			authors: [
+				{
+					givenName: 'Rana',
+					familyName: 'Baiyewu',
+					email: 'rbaiyewu@mailinator.com',
+					country: 'Kenya',
+					affiliation: 'University of Nairobi'
+				}
+			],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Yam diseases and its management in Nigeria';
 		cy.register({
 			'username': 'rbaiyewu',
 			'givenName': 'Rana',
@@ -18,10 +52,20 @@ describe('Data suite tests', function() {
 			'country': 'Kenya',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'This review presents different diseases associated with yam and the management strategies employed in combating its menace in Nigeria. The field and storage diseases are presented, anthracnose is regarded as the most widely spread of all the field diseases, while yam mosaic virus disease is considered to cause the most severe losses in yams. Dry rot is considered as the most devastating of all the storage diseases of yam. Dry rot of yams alone causes a marked reduction in the quantity, marketable value and edible portions of tubers and those reductions are more severe in stored yams. The management strategies adopted and advocated for combating the field diseases includes the use of crop rotation, fallowing, planting of healthy material, the destruction of infected crop cultivars and the use of resistant cultivars. With regards to the storage diseases, the use of Tecto (Thiabendazole), locally made dry gins or wood ash before storage has been found to protect yam tubers against fungal infection in storage. Finally, processing of yam tubers into chips or cubes increases its shelf live for a period of between 6 months and one year.',
-		});
+		// Go to page where CSRF token is available
+		cy.visit('/index.php/publicknowledge/user/profile');
+
+		let csrfToken = '';
+		cy.window()
+			.then((win) => {
+				csrfToken = win.pkp.currentUser.csrfToken;
+			})
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Baiyewu');

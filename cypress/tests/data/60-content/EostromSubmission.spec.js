@@ -7,7 +7,54 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Eostrom', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Developing efficacy beliefs in the classroom';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'The study of the commons has expe- rienced substantial growth and development over the past decades.1 Distinguished scholars in many disciplines had long studied how specific resources were managed or mismanaged at particular times and places (Coward 1980; De los Reyes 1980; MacKenzie 1979; Wittfogel 1957), but researchers who studied specific commons before the mid-1980s were, however, less likely than their contemporary colleagues to be well informed about the work of scholars in other disciplines, about other sec- tors in their own region of interest, or in other regions of the world.',
+			shortAuthorString: 'Ostrom',
+			authorNames: ['Elinor Ostrom'],
+			sectionId: 1,
+			assignedAuthorNames: ['Elinor Ostrom'],
+			authors: [
+				{
+					givenName: 'Elinor',
+					familyName: 'Ostrom',
+					email: 'eostrom@mailinator.com',
+					country: 'United States',
+					affiliation: 'Indiana University'
+				},
+				{
+					givenName: 'Frank',
+					familyName: 'van Laerhoven',
+					email: 'fvanlaerhoven@mailinator.com',
+					country: 'United States',
+					affiliation: 'Indiana University'
+				}
+			],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			],
+			keywords: [
+				'Common pool resource',
+				'common property',
+				'intellectual developments'
+			]
+		};
+	});
+
 	it('Create a submission', function() {
 		var title = 'Traditions and Trends in the Study of the Commons';
 		cy.register({
@@ -18,24 +65,20 @@ describe('Data suite tests', function() {
 			'country': 'United States',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'The study of the commons has expe- rienced substantial growth and development over the past decades.1 Distinguished scholars in many disciplines had long studied how specific resources were managed or mismanaged at particular times and places (Coward 1980; De los Reyes 1980; MacKenzie 1979; Wittfogel 1957), but researchers who studied specific commons before the mid-1980s were, however, less likely than their contemporary colleagues to be well informed about the work of scholars in other disciplines, about other sec- tors in their own region of interest, or in other regions of the world. ',
-			'keywords': [
-				'Common pool resource',
-				'common property',
-				'intellectual developments'
-			],
-			'additionalAuthors': [
-				{
-					'givenName': 'Frank',
-					'familyName': 'van Laerhoven',
-					'country': 'United States',
-					'affiliation': 'Indiana University',
-					'email': 'fvanlaerhoven@mailinator.com'
-				}
-			]
-		});
+		// Go to page where CSRF token is available
+		cy.visit('/index.php/publicknowledge/user/profile');
+
+		let csrfToken = '';
+		cy.window()
+			.then((win) => {
+				csrfToken = win.pkp.currentUser.csrfToken;
+			})
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Ostrom');

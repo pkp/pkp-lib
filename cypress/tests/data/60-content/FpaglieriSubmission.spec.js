@@ -7,9 +7,43 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Fpaglieri', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Hansen & Pinto: Reason Reclaimed';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'None.',
+			shortAuthorString: 'Paglieri',
+			authorNames: ['Fabio Paglieri'],
+			sectionId: 1,
+			assignedAuthorNames: ['Fabio Paglieri'],
+			authors: [
+				{
+					givenName: 'Fabio',
+					familyName: 'Paglieri',
+					email: 'fpaglieri@mailinator.com',
+					country: 'Italy',
+					affiliation: 'University of Rome'
+				}
+			],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Hansen & Pinto: Reason Reclaimed';
 		cy.register({
 			'username': 'fpaglieri',
 			'givenName': 'Fabio',
@@ -18,10 +52,20 @@ describe('Data suite tests', function() {
 			'country': 'Italy',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'None.',
-		});
+		// Go to page where CSRF token is available
+		cy.visit('/index.php/publicknowledge/user/profile');
+
+		let csrfToken = '';
+		cy.window()
+			.then((win) => {
+				csrfToken = win.pkp.currentUser.csrfToken;
+			})
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Paglieri');

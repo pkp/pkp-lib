@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Doi/DepositContext.php
+ * @file jobs/doi/DepositContext.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -15,13 +15,13 @@ declare(strict_types=1);
  * @brief Job to deposit all DOIs and associated metadata to the configured registration agency for a given context
  */
 
-namespace PKP\Jobs\Doi;
+namespace PKP\jobs\doi;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
 
 class DepositContext extends BaseJob

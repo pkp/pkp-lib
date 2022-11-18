@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Submissions/UpdateSubmissionSearchJob.php
+ * @file jobs/submissions/UpdateSubmissionSearchJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -15,12 +15,12 @@ declare(strict_types=1);
  * @brief Class to handle the Submission Search data update as a Job
  */
 
-namespace PKP\Jobs\Submissions;
+namespace PKP\jobs\submissions;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\submission\PKPSubmission;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
 
 class UpdateSubmissionSearchJob extends BaseJob

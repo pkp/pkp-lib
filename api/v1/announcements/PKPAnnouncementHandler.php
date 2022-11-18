@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Bus;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
-use PKP\Jobs\Notifications\NewAnnouncementNotifyUsers;
+use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
 use PKP\mail\Mailer;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;

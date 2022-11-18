@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file Jobs/Notifications/StatisticsReportNotify.php
+ * @file jobs/notifications/StatisticsReportNotify.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -13,13 +13,13 @@
  * @brief Class to create system notifications for editors about editorial report
  */
 
-namespace PKP\Jobs\Notifications;
+namespace PKP\jobs\notifications;
 
 use APP\facades\Repo;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Collection;
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
-use PKP\Jobs\BaseJob;
+use PKP\jobs\BaseJob;
 
 class StatisticsReportNotify extends BaseJob
 {
@@ -39,6 +39,7 @@ class StatisticsReportNotify extends BaseJob
     public function handle()
     {
         foreach ($this->userIds as $userId) {
+            /** @var int $userId */
             $user = Repo::user()->get($userId);
             if ($user) {
                 continue;

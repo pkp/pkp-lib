@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
-use PKP\Jobs\Metadata\MetadataChangedJob;
+use PKP\jobs\metadata\MetadataChangedJob;
 
 use PKP\observers\events\MetadataChanged;
 

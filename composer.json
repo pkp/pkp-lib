@@ -75,12 +75,8 @@
 			"APP\\": "../../classes/",
 			"PKP\\plugins\\": "plugins/",
 			"APP\\plugins\\": "../../plugins/",
-			"PKP\\Support\\": "Support/",
-			"APP\\Support\\": "../../Support/",
-			"PKP\\Domains\\": "Domains/",
-			"APP\\Domains\\": "../../Domains/",
-			"PKP\\Jobs\\": "Jobs/",
-			"APP\\Jobs\\": "../../Jobs/",
+			"PKP\\jobs\\": "jobs/",
+			"APP\\jobs\\": "../../jobs/",
 			"PKP\\tests\\": "tests/",
 			"APP\\tests\\": "../../tests/"
 		}

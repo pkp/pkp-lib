@@ -25,7 +25,7 @@ use PKP\doi\Doi;
 use PKP\doi\exceptions\DoiActionException;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
-use PKP\Jobs\Doi\DepositSubmission;
+use PKP\jobs\doi\DepositSubmission;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;

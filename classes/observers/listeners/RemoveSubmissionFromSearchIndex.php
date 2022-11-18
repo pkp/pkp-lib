@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
-use PKP\Jobs\Submissions\RemoveSubmissionFromSearchIndexJob;
+use PKP\jobs\submissions\RemoveSubmissionFromSearchIndexJob;
 
 use PKP\observers\events\SubmissionDeleted;
 

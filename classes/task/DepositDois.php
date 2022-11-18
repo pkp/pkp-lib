@@ -17,7 +17,7 @@ namespace PKP\task;
 
 use APP\core\Services;
 use APP\services\ContextService;
-use PKP\Jobs\Doi\DepositContext;
+use PKP\jobs\doi\DepositContext;
 use PKP\scheduledTask\ScheduledTask;
 
 class DepositDois extends ScheduledTask

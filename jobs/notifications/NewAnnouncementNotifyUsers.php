@@ -73,9 +73,9 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $context = Application::getContextDAO()->getById($this->contextId);
         $template = Repo::emailTemplate()->getByKey($context->getId(), AnnouncementNotify::getEmailTemplateKey());
 
-        foreach ($this->recipientIds as $recipientId) { 
+        foreach ($this->recipientIds as $recipientId) {
             /** @var int $recipientId */
-            $recipient = Repo::user()->get($recipientId); 
+            $recipient = Repo::user()->get($recipientId);
             if (!$recipient) {
                 continue;
             }

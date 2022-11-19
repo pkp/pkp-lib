@@ -454,6 +454,8 @@ abstract class PKPStatsEditorialQueryBuilder
     public function countImported() {
         return $this->_getBaseQuery()
             ->whereColumn('s.date_submitted', '>', 'pi.date_published')
+            ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
+            ->when($this->dateEnd, fn (Builder $q) => $q->where('s.date_submitted', '<=', $this->dateEnd))
             ->count();
     }
 
@@ -466,6 +468,8 @@ abstract class PKPStatsEditorialQueryBuilder
     public function countInProgress() {
         return $this->_getBaseQuery()
             ->where('s.submission_progress', '<>', 0)
+            ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
+            ->when($this->dateEnd, fn (Builder $q) => $q->where('s.date_submitted', '<=', $this->dateEnd))
             ->count();
     }
 

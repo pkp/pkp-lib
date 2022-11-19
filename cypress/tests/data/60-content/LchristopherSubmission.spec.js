@@ -23,15 +23,6 @@ describe('Data suite: Lchristopher', function() {
 			authorNames: ['Leo Christopher'],
 			sectionId: 1,
 			assignedAuthorNames: ['Leo Christopher'],
-			authors: [
-				{
-					givenName: 'Leo',
-					familyName: 'Christopher',
-					email: 'lchristopher@mailinator.com',
-					country: 'Australia',
-					affiliation: 'Australian National University'
-				}
-			],
 			files: [
 				{
 					'file': 'dummy.pdf',
@@ -56,19 +47,13 @@ describe('Data suite: Lchristopher', function() {
 			'country': 'Australia',
 		});
 
-		// Go to page where CSRF token is available
-		cy.visit('/index.php/publicknowledge/user/profile');
-
-		let csrfToken = '';
+		cy.getCsrfToken();
 		cy.window()
-			.then((win) => {
-				csrfToken = win.pkp.currentUser.csrfToken;
-			})
 			.then(() => {
-				return cy.createSubmissionWithApi(submission, csrfToken);
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
 			})
 			.then(xhr => {
-				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
 			});
 
 		cy.logout();

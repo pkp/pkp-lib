@@ -23,15 +23,6 @@ describe('Data suite: Rbaiyewu', function() {
 			authorNames: ['Rana Baiyewu'],
 			sectionId: 1,
 			assignedAuthorNames: ['Rana Baiyewu'],
-			authors: [
-				{
-					givenName: 'Rana',
-					familyName: 'Baiyewu',
-					email: 'rbaiyewu@mailinator.com',
-					country: 'Kenya',
-					affiliation: 'University of Nairobi'
-				}
-			],
 			files: [
 				{
 					'file': 'dummy.pdf',
@@ -52,19 +43,13 @@ describe('Data suite: Rbaiyewu', function() {
 			'country': 'Kenya',
 		});
 
-		// Go to page where CSRF token is available
-		cy.visit('/index.php/publicknowledge/user/profile');
-
-		let csrfToken = '';
+		cy.getCsrfToken();
 		cy.window()
-			.then((win) => {
-				csrfToken = win.pkp.currentUser.csrfToken;
-			})
 			.then(() => {
-				return cy.createSubmissionWithApi(submission, csrfToken);
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
 			})
 			.then(xhr => {
-				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
 			});
 
 		cy.logout();

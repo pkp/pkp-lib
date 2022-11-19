@@ -24,20 +24,14 @@ describe('Data suite: Cmontgomerie', function() {
 			authorNames: ['Craig Montgomerie', 'Mark Irvine'],
 			sectionId: 1,
 			assignedAuthorNames: ['Craig Montgomerie'],
-			authors: [
+			additionalAuthors: [
 				{
-					givenName: 'Craig',
-					familyName: 'Montgomerie',
-					email: 'cmontgomerie@mailinator.com',
-					country: 'Canada',
-					affiliation: 'University of Alberta'
-				},
-				{
-					givenName: 'Mark',
-					familyName: 'Irvine',
-					country: 'Canada',
-					affiliation: 'University of Victoria',
-					email: 'mirvine@mailinator.com'
+					givenName: {en_US: 'Mark'},
+					familyName: {en_US: 'Irvine'},
+					country: 'CA',
+					affiliation: {en_US: 'University of Victoria'},
+					email: 'mirvine@mailinator.com',
+					userGroupId: Cypress.env('authorUserGroupId')
 				}
 			],
 			files: [
@@ -70,19 +64,13 @@ describe('Data suite: Cmontgomerie', function() {
 			'country': 'Canada'
 		});
 
-		// Go to page where CSRF token is available
-		cy.visit('/index.php/publicknowledge/user/profile');
-
-		let csrfToken = '';
+		cy.getCsrfToken();
 		cy.window()
-			.then((win) => {
-				csrfToken = win.pkp.currentUser.csrfToken;
-			})
 			.then(() => {
-				return cy.createSubmissionWithApi(submission, csrfToken);
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
 			})
 			.then(xhr => {
-				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
 			});
 
 		cy.logout();

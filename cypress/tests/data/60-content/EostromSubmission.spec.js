@@ -23,20 +23,14 @@ describe('Data suite: Eostrom', function() {
 			authorNames: ['Elinor Ostrom'],
 			sectionId: 1,
 			assignedAuthorNames: ['Elinor Ostrom'],
-			authors: [
+			additionalAuthors: [
 				{
-					givenName: 'Elinor',
-					familyName: 'Ostrom',
-					email: 'eostrom@mailinator.com',
-					country: 'United States',
-					affiliation: 'Indiana University'
-				},
-				{
-					givenName: 'Frank',
-					familyName: 'van Laerhoven',
+					givenName: {en_US: 'Frank'},
+					familyName: {en_US: 'van Laerhoven'},
+					country: 'US',
+					affiliation: {en_US: 'Indiana University'},
 					email: 'fvanlaerhoven@mailinator.com',
-					country: 'United States',
-					affiliation: 'Indiana University'
+					userGroupId: Cypress.env('authorUserGroupId')
 				}
 			],
 			files: [
@@ -65,19 +59,13 @@ describe('Data suite: Eostrom', function() {
 			'country': 'United States',
 		});
 
-		// Go to page where CSRF token is available
-		cy.visit('/index.php/publicknowledge/user/profile');
-
-		let csrfToken = '';
+		cy.getCsrfToken();
 		cy.window()
-			.then((win) => {
-				csrfToken = win.pkp.currentUser.csrfToken;
-			})
 			.then(() => {
-				return cy.createSubmissionWithApi(submission, csrfToken);
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
 			})
 			.then(xhr => {
-				return cy.submitSubmissionWithApi(submission.id, csrfToken);
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
 			});
 
 		cy.logout();

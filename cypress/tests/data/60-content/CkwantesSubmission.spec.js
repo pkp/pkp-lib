@@ -86,7 +86,7 @@ describe('Data suite: Ckwantes', function() {
 		// Upload files and set file genres
 		cy.get('h2').contains('Upload Files');
 		cy.get('h2').contains('Files');
-		cy.uploadSubmissionFiles(submission.files);
+		cy.addSubmissionGalleys(submission.files);
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 

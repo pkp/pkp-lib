@@ -195,101 +195,111 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 	cy.contains('View ' + familyName).click({force: true});
 });
 
-Cypress.Commands.add('createSubmissionWithApi', (data, csrfToken) => {
-	const api = new Api(Cypress.env('baseUrl') + '/index.php/publicknowledge/api/v1');
+// Provides: @csrfToken
+Cypress.Commands.add('getCsrfToken', () => {
+	// Go to page where CSRF token is available
+	cy.visit('/index.php/publicknowledge/user/profile');
+
+	return cy.window().then((win) => {
+		cy.wrap(win.pkp.currentUser.csrfToken).as('csrfToken');
+	});
+});
+
+// Provides: @submissionId, @currentPublicationId, @currentPublicationApiUrl
+Cypress.Commands.add('beginSubmissionWithApi', (api, data, csrfToken) => {
+	return cy.request({
+		url: api.submissions(),
+		method: 'POST',
+		headers: {
+			'X-Csrf-Token': csrfToken
+		},
+		body: {
+			sectionId: data.sectionId
+		}
+	}).then(xhr => {
+		expect(xhr.status).to.eq(200);
+	}).then(xhr => {
+		cy.wrap(xhr.body.id).as('submissionId');
+		cy.wrap(xhr.body.currentPublicationId).as('currentPublicationId');
+		cy.wrap(xhr.body.publications[0]._href).as('currentPublicationApiUrl');
+	});
+});
+
+// Requires: @currentPublicationApiUrl
+Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 	const hasKeywords = typeof data.keywords !== 'undefined' && data.keywords.length;
 
-	return cy.request({
-			url: api.submissions(),
-			method: 'POST',
+	let body = {
+		title: {en_US: data.title},
+		abstract: {en_US: data.abstract},
+	};
+	if (hasKeywords) {
+		body.keywords = {en_US: data.keywords}
+	}
+
+	return cy.get('@currentPublicationApiUrl').then((currentPublicationApiUrl) => {
+		cy.request({
+			url: currentPublicationApiUrl,
+			method: 'PUT',
 			headers: {
 				'X-Csrf-Token': csrfToken
 			},
-			body: {
-				sectionId: data.sectionId
-			}
-		})
-		.then(xhr => {
+			body: body,
+			timeout: 60000
+		}).then(xhr => {
 			expect(xhr.status).to.eq(200);
-		})
-		.then(xhr => {
-			data.id = xhr.body.id;
-			data.currentPublicationId = xhr.body.currentPublicationId;
-			let body = {
-				title: {en_US: data.title},
-				abstract: {en_US: data.abstract},
-			};
+			expect(xhr.body.title.en_US).to.eq(data.title);
+			expect(xhr.body.abstract.en_US).to.eq(data.abstract);
 			if (hasKeywords) {
-				body.keywords = {en_US: data.keywords}
-			}
-			return cy.request({
-					url: xhr.body.publications[0]._href,
-					method: 'PUT',
-					headers: {
-						'X-Csrf-Token': csrfToken
-					},
-					body: body
-				})
-				.then(xhr => {
-					expect(xhr.status).to.eq(200);
-					expect(xhr.body.title.en_US).to.eq(data.title);
-					expect(xhr.body.abstract.en_US).to.eq(data.abstract);
-					if (hasKeywords) {
-						expect(xhr.body.keywords.en_US.length).to.eq(data.keywords.length);
-						data.keywords.forEach((keyword, i) => {
-							expect(xhr.body.keywords.en_US[i]).to.eq(keyword);
-						});
-					}
+				expect(xhr.body.keywords.en_US.length).to.eq(data.keywords.length);
+				data.keywords.forEach((keyword, i) => {
+					expect(xhr.body.keywords.en_US[i]).to.eq(keyword);
 				});
-		})
-		.then(xhr => {
-			if (typeof data.files === 'undefined' || !data.files.length) {
-				return xhr;
 			}
-			cy.visit('/index.php/publicknowledge/submission?id=' + data.id);
+		});
+	});
+});
 
-			// Must use the UI to upload files until we upgrade Cypress
-			// to 7.4.0 or higher.
-			// @see https://github.com/cypress-io/cypress/issues/1647
-			cy.uploadSubmissionFiles(data.files);
-		})
-		.then(xhr => {
-			if (typeof data.additionalAuthors === 'undefined' || !data.additionalAuthors.length) {
-				return xhr;
-			}
+
+Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
+	if (typeof data.additionalAuthors === 'undefined' || !data.additionalAuthors.length) {
+		return;
+	}
+	return cy.get('@currentPublicationId').then((currentPublicationId) => {
+		cy.get('@submissionId').then((submissionId) => {
 			data.additionalAuthors.forEach(author => {
 				cy.request({
-						url: api.contributors(data.id, data.currentPublicationId),
+						url: api.contributors(submissionId, currentPublicationId),
 						method: 'POST',
 						headers: {
 							'X-Csrf-Token': csrfToken
 						},
 						body: author
-					})
-					.then(xhr => {
-						expect(xhr.status).to.eq(200);
-					})
-			});
-			return cy.request({
-					url: api.publications(data.id, data.currentPublicationId),
-					method: 'GET'
+				}).then(xhr => {
+					expect(xhr.status).to.eq(200);
 				})
-				.then(xhr => {
-					data.additionalAuthors.forEach(author => {
-						let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en_US === pAuthor.givenName.en_US);
-						expect(publicationAuthor.familyName.en_US).to.equal(author.familyName.en_US);
-						expect(publicationAuthor.affiliation.en_US).to.equal(author.affiliation.en_US);
-						expect(publicationAuthor.email).to.equal(author.email);
-						expect(publicationAuthor.country).to.equal(author.country);
-					});
+			});
+			cy.request({
+				url: api.publications(submissionId, currentPublicationId),
+				method: 'GET'
+			}).then(xhr => {
+				data.additionalAuthors.forEach(author => {
+					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en_US === pAuthor.givenName.en_US);
+					expect(publicationAuthor.familyName.en_US).to.equal(author.familyName.en_US);
+					expect(publicationAuthor.affiliation.en_US).to.equal(author.affiliation.en_US);
+					expect(publicationAuthor.email).to.equal(author.email);
+					expect(publicationAuthor.country).to.equal(author.country);
 				});
+			});
 		});
+	});
 });
 
 Cypress.Commands.add('submitSubmissionWithApi', (id, csrfToken) => {
 	const api = new Api(Cypress.env('baseUrl') + '/index.php/publicknowledge/api/v1');
-	return cy.request({
-			url: api.submit(id),
+	return cy.get('@submissionId').then((submissionId) => {
+		cy.request({
+			url: api.submit(submissionId),
 			method: 'PUT',
 			headers: {
 				'X-Csrf-Token': csrfToken
@@ -298,6 +308,7 @@ Cypress.Commands.add('submitSubmissionWithApi', (id, csrfToken) => {
 		.then(xhr => {
 			expect(xhr.status).to.eq(200);
 		});
+	});
 });
 
 /**
@@ -779,96 +790,66 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 		return;
 	}
 
-	if (Cypress.env('contextTitles').en_US == 'Public Knowledge Preprint Server') {
-		// OPS uses the galley grid
-		files.forEach(file => {
-			cy.get('a:contains("Add File")').click();
-			cy.wait(2000); // Avoid occasional failure due to form init taking time
-			cy.get('div.pkp_modal_panel').then($modalDiv => {
-				cy.wait(3000);
-				$modalDiv.find('div.header:contains("Add File")');
-				cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
-				cy.get('div.pkp_modal_panel button:contains("Save")').click();
-				cy.wait(2000); // Avoid occasional failure due to form init taking time
-			});
-			cy.get('select[id=genreId]').select(file.genre);
-			cy.fixture(file.file, 'base64').then(fileContent => {
-				cy.get('input[type=file]').attachFile(
-					{fileContent, 'filePath': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
-				);
-			});
-			cy.get('#continueButton').click();
-			cy.wait(2000);
-			for (const field in file.metadata) {
-				cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
-				cy.get('input[id^="language"').click({force: true}); // Close multilingual and datepicker pop-overs
-			}
-			cy.get('#continueButton').click();
-			cy.get('#continueButton').click();
-		});
-	} else {
-		// OJS uses the new submission wizard file upload process
-		options = {
-			uploadUrl: /submissions\/\d+\/files$/,
-			editUrl: /submissions\/\d+\/files\/\d+/,
-			primaryFileGenres: ['Article Text', 'Book Manuscript', 'Chapter Manuscript'],
-			...options
-		};
+	options = {
+		uploadUrl: /submissions\/\d+\/files$/,
+		editUrl: /submissions\/\d+\/files\/\d+/,
+		primaryFileGenres: ['Article Text', 'Book Manuscript', 'Chapter Manuscript'],
+		...options
+	};
 
-		// Setup upload listeners
-		cy.server();
+	// Setup upload listeners
+	cy.server();
 
-		cy.route({
-			method: "POST",
-			url: options.uploadUrl,
-		}).as('fileUploaded');
+	cy.route({
+		method: "POST",
+		url: options.uploadUrl,
+	}).as('fileUploaded');
 
-		cy.route({
-			method: "POST",
-			url: options.editUrl
-		}).as('genreDefined');
+	cy.route({
+		method: "POST",
+		url: options.editUrl
+	}).as('genreDefined');
 
-		files.forEach(file => {
-			cy.fixture(file.file, 'base64').then(fileContent => {
+	files.forEach(file => {
+		cy.fixture(file.file, 'base64').then(fileContent => {
 
-				// Upload the file
-				cy.get('input[type=file]').attachFile(
-					{
-						fileContent,
-						encoding: 'base64',
-						filePath: file.fileName,
-						mimeType: file.mimetype,
-					}
-				);
-				cy.wait('@fileUploaded').its('status').should('eq', 200);
-
-				// Set the file genre
-				const $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
-				$row.contains('What kind of file is this?');
-				if (options.primaryFileGenres.includes(file.genre)) {
-					// For some reason this is locating two references to the button,
-					// so just click the last one, which should be the most recently
-					// uploaded file.
-					$row.get('button:contains("' + file.genre + '")').last().click();
-				} else {
-					$row.get('button:contains("Other")').last().click();
-					cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
-					cy.get('.modal button').contains('Save').click();
+			// Upload the file
+			cy.get('input[type=file]').attachFile(
+				{
+					fileContent,
+					encoding: 'base64',
+					filePath: file.fileName,
+					mimeType: file.mimetype,
 				}
-				cy.wait('@genreDefined').its('status').should('eq', 200);
+			);
+			cy.wait('@fileUploaded').its('status').should('eq', 200);
 
-				// Check if the file genre is set
-				//
-				// The phrase "What kind of file is this?" will exist on the page because
-				// it is there in the state data passed to the page component. So limit the
-				// search to a list panel.
-				//
-				// Don't use $row because it references an element no longer in the DOM.
-				cy.get('.listPanel:contains("What kind of file is this?")').should('not.exist');
-				cy
-					.get('.listPanel__item:contains("' + file.fileName + '")')
-					.get('.pkpBadge:contains("' + file.genre + '")');
-			});
+			// Set the file genre
+			const $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
+			$row.contains('What kind of file is this?');
+			if (options.primaryFileGenres.includes(file.genre)) {
+				// For some reason this is locating two references to the button,
+				// so just click the last one, which should be the most recently
+				// uploaded file.
+				$row.get('button:contains("' + file.genre + '")').last().click();
+			} else {
+				$row.get('button:contains("Other")').last().click();
+				cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
+				cy.get('.modal button').contains('Save').click();
+			}
+			cy.wait('@genreDefined').its('status').should('eq', 200);
+
+			// Check if the file genre is set
+			//
+			// The phrase "What kind of file is this?" will exist on the page because
+			// it is there in the state data passed to the page component. So limit the
+			// search to a list panel.
+			//
+			// Don't use $row because it references an element no longer in the DOM.
+			cy.get('.listPanel:contains("What kind of file is this?")').should('not.exist');
+			cy
+				.get('.listPanel__item:contains("' + file.fileName + '")')
+				.get('.pkpBadge:contains("' + file.genre + '")');
 		});
-	}
+	});
 });

@@ -41,7 +41,7 @@ class StatisticsReportNotify extends BaseJob
         foreach ($this->userIds as $userId) {
             /** @var int $userId */
             $user = Repo::user()->get($userId);
-            if ($user) {
+            if (!$user) {
                 continue;
             }
             $this->notificationManager->notify($user);

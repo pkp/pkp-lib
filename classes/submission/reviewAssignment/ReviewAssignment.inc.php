@@ -530,33 +530,29 @@ class ReviewAssignment extends DataObject {
 	 * @return bool
 	 */
 	function isRead() {
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
-		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
 
 		$submission = $submissionDao->getById($this->getSubmissionId());
 
-		// Get the user groups for this stage
-		$userGroups = $userGroupDao->getUserGroupsByStage(
-			$submission->getContextId(),
-			$this->getStageId()
-		);
+		// Get the user groups for this context
+		$userGroups = $userGroupDao->getByContextId($submission->getContextId());
+
 		while ($userGroup = $userGroups->next()) {
+			
 			$roleId = $userGroup->getRoleId();
+			
+			// If user group do not has manager or editor role, look for next one
 			if ($roleId != ROLE_ID_MANAGER && $roleId != ROLE_ID_SUB_EDITOR) {
 				continue;
 			}
 
-			// Get the users assigned to this stage and user group
-			$stageUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId(
-				$this->getSubmissionId(),
-				$this->getStageId(),
-				$userGroup->getId()
-			);
+			// Get the users assigned to this user group for this context
+			$userGroupUsers = $userGroupDao->getUsersById($userGroup->getId(), $submission->getContextId());
 
 			// Check if any of these users have viewed it
-			while ($user = $stageUsers->next()) {
+			while ($user = $userGroupUsers->next()) {
 				if ($viewsDao->getLastViewDate(
 					ASSOC_TYPE_REVIEW_RESPONSE,
 					$this->getId(),

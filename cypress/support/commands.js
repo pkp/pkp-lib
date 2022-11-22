@@ -150,44 +150,6 @@ Cypress.Commands.add('register', data => {
 	cy.get('button').contains('Register').click();
 });
 
-Cypress.Commands.add('addChapters', (chapters) => {
-	chapters.forEach(chapter => {
-		cy.waitJQuery();
-		cy.get('a[id^="component-grid-users-chapter-chaptergrid-addChapter-button-"]:visible').click();
-		cy.wait(2000); // Avoid occasional failure due to form init taking time
-
-		// Contributors
-		chapter.contributors.forEach(contributor => {
-			cy.get('form[id="editChapterForm"] label:contains("' + Cypress.$.escapeSelector(contributor) + '")').click();
-		});
-
-		// Title/subtitle
-		cy.get('form[id="editChapterForm"] input[id^="title-en_US-"]').type(chapter.title, {delay: 0});
-		if ('subtitle' in chapter) {
-			cy.get('form[id="editChapterForm"] input[id^="subtitle-en_US-"]').type(chapter.subtitle, {delay: 0});
-		}
-		cy.get('div.pkp_modal_panel div:contains("Add Chapter")').click(); // FIXME: Resolve focus problem on title field
-
-		cy.flushNotifications();
-		cy.get('form[id="editChapterForm"] button:contains("Save")').click();
-		cy.get('div:contains("Your changes have been saved.")');
-		cy.waitJQuery();
-
-		// Files
-		if ('files' in chapter) {
-			cy.get('div[id="chaptersGridContainer"] a:contains("' + Cypress.$.escapeSelector(chapter.title) + '")').click();
-			chapter.files.forEach(file => {
-				cy.get('form[id="editChapterForm"] label:contains("' + Cypress.$.escapeSelector(chapter.title.substring(0, 40)) + '")').click();
-			});
-			cy.flushNotifications();
-			cy.get('form[id="editChapterForm"] button:contains("Save")').click();
-			cy.get('div:contains("Your changes have been saved.")');
-		}
-
-		cy.get('div[id^="component-grid-users-chapter-chaptergrid-"] a.pkp_linkaction_editChapter:contains("' + Cypress.$.escapeSelector(chapter.title) + '")');
-	});
-});
-
 Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context) => {
 	context = context || 'publicknowledge';
 	cy.login(username, password, context);
@@ -228,6 +190,7 @@ Cypress.Commands.add('beginSubmissionWithApi', (api, data, csrfToken) => {
 // Requires: @currentPublicationApiUrl
 Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 	const hasKeywords = typeof data.keywords !== 'undefined' && data.keywords.length;
+	const hasWorkType = typeof data.workType !== 'undefined'; // OMP: Monograph or Edited Volume
 
 	let body = {
 		title: {en_US: data.title},
@@ -235,6 +198,9 @@ Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 	};
 	if (hasKeywords) {
 		body.keywords = {en_US: data.keywords}
+	}
+	if (hasWorkType) {
+		body.workType = data.workType;
 	}
 
 	return cy.get('@currentPublicationApiUrl').then((currentPublicationApiUrl) => {

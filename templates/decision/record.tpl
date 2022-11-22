@@ -135,6 +135,7 @@
 							>
 								<template v-slot:item="{ldelim}item{rdelim}">
 									<select-submission-file-list-item
+										:created-at="item.createdAt"
 										:document-type="item.documentType"
 										download-label="{translate key="common.download"}"
 										:genre-name="item.genre.name"
@@ -142,6 +143,7 @@
 										:genre="item.genre"
 										:file-id="item.id"
 										:name="localize(item.name)"
+										:uploaded-by="item.uploaderUserName"
 										:url="item.url"
 									>
 										<input

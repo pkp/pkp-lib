@@ -825,6 +825,12 @@ msgstr "True"
 msgid "common.type"
 msgstr "Type"
 
+msgid "common.uploadedBy"
+msgstr "Uploaded by {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Uploaded by {$name} on {$date}"
+
 msgid "common.component"
 msgstr "Component"
 

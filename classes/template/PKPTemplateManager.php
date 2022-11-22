@@ -846,6 +846,8 @@ class PKPTemplateManager extends Smarty
             'common.search',
             'common.selectWithName',
             'common.unknownError',
+            'common.uploadedBy',
+            'common.uploadedByAndWhen',
             'common.view',
             'list.viewLess',
             'list.viewMore',

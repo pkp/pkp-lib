@@ -175,6 +175,13 @@ class Schema extends BaseSchema
                 continue;
             }
 
+            if ($prop === 'uploaderUserName') {
+                $user = Repo::user()->get($submissionFile->getData('uploaderUserId'));
+                $output[$prop] = $user ? $user->getUsername() : '';
+
+                continue;
+            }
+
             if ($prop === 'url') {
                 $output[$prop] = $this->request->getDispatcher()->url(
                     $this->request,

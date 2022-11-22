@@ -1955,6 +1955,7 @@ msgstr "إعادته إلى مرحلة التقديم"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "عودة إلى طلب التقديم"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم قبوله للنشر."
@@ -1971,6 +1972,7 @@ msgstr "{$editorName} قبِل طلب التقديم هذا وأرسله إلى 
 msgid "editor.submission.decision.accept.description"
 msgstr "طلب التقديم هذا سيتم قبوله للنشر وسيُرسل إلى مرحلة التدقيق."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "إرسال بريد الكتروني إلى المحكمين لشكرهم على مجهوداتهم في التحكيم وإبلاغهم "
@@ -2055,6 +2057,7 @@ msgstr "{$editorName} عكس قرار رفض طلب التقديم هذا."
 msgid "editor.submission.decision.revertDecline.description"
 msgstr "التراجع عن قرار رفض طلب التقديم هذا وإعادته إلى خط أعمال التحرير."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بقبول طلب التقديم هذا للنشر "
@@ -2096,6 +2099,7 @@ msgstr "أرجع طلب التقديم هذا إلى مرحلة التدقيق."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "إعادة إلى التدقيق"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُرسل إلى "
@@ -2153,6 +2157,7 @@ msgstr ""
 "{$editorName} إلتمسَ إجراء تنقيحات لطلب التقديم هذا لإرساله إلى جولة تحكيم "
 "أخرى."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن التنقيحات ستكون مطلوبة قبل أن "
@@ -2181,6 +2186,7 @@ msgstr "إختر الملفات التي ينبغي إرسالها إلى الت
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "إختر الملفات التي ينبغي إرسالها إلى مرحلة التدقيق."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم إخضاعه إلى "
@@ -2206,6 +2212,7 @@ msgstr ""
 "سيتم رفض طلب التقديم هذا ولن يتم نشره. لن يتم إجراء أي تحكيم إضافي وسيذهب "
 "طلب التقديم إلى المحفوظات."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم برفض طلب تقديمهم."
 
@@ -2234,6 +2241,7 @@ msgstr ""
 "أرسل بريدًا الكترونيًا إلى المحكمين المعينين لإبلاغهم بأن مهمة تحكيمهم قد "
 "أُلغيت."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "أرسل بريدًا الكترونيًا إلى المؤلفين لإبلاغهم بأن جولة التحكيم قد أُغلقت."

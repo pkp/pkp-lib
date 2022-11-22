@@ -2066,6 +2066,7 @@ msgstr ""
 "Återkalla beslutet att refusera bidraget och skicka tillbaka det till den "
 "redaktionella processen."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna och meddela dem att bidraget "
@@ -2099,6 +2100,7 @@ msgstr "{$editorName} skickade tillbaka bidraget till manusredigeringssteget."
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Skicka tillbaka bidraget till manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande för att meddela författarna att deras bidrag har "
@@ -2158,6 +2160,7 @@ msgstr ""
 "Författaren måste göra ändringar som skickas till en ny granskningsomgång "
 "innan bidraget kan accepteras."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande för att meddela författarna att ändringar krävs "
@@ -2186,6 +2189,7 @@ msgstr "Välj filer som ska skickas till granskning."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Välj filer som ska skickas till manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att "
@@ -2211,6 +2215,7 @@ msgstr ""
 "Bidraget kommer refuseras. Ingen ytterligare granskning kommer utföras och "
 "bidraget kommer arkiveras."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att deras "
@@ -2256,6 +2261,7 @@ msgstr "Skickat tillbaka till inskickat-steget"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Tillbaka till inskickat-steget"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna och meddela dem att deras "
@@ -2278,6 +2284,7 @@ msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Bidraget kommer accepteras för publicering, och skickas till manusredigering."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Skicka ett e-postmeddelande till granskare för att tacka och meddela dem att "
@@ -2356,6 +2363,7 @@ msgstr ""
 "manusredigeringen har avbrutits och deras bidrag kommer genomgå ytterligare "
 "redaktionell granskning."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna och meddela dem att "

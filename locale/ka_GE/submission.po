@@ -2111,6 +2111,7 @@ msgstr "შეატყობინეთ ავტორებს"
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "აცნობეთ მიმომხილველებს"
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "გაუგზავნეთ ელ.წერილი მიმომხილველებს, რომ მადლობა გადაგიხადოთ განხილვისთვის "
@@ -2133,6 +2134,7 @@ msgstr ""
 "წარდგენა, {$title}, მიღებულია გამოსაქვეყნებლად და გაგზავნილია კოპირების "
 "რედაქტირების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ მათი წარდგენა მიღებულია "
@@ -2178,6 +2180,7 @@ msgstr "გაგზავნა უარყოფილია"
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "გაგზავნა, {$title}, უარყოფილია და გაგზავნილია არქივში."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ მათი გაგზავნა უარყოფილია."
@@ -2202,6 +2205,7 @@ msgstr "განხილვის რაუნდი შეიქმნა"
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "განხილვის ახალი რაუნდი შეიქმნა წარდგენისთვის, {$title}."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ მათი წარდგენა გაიგზავნა "
@@ -2231,6 +2235,7 @@ msgstr "მოთხოვნილი რევიზიები"
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "მოთხოვნილი იქნა წარდგენის, {$title}, ცვლილებები."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობოთ მათ, რომ საჭირო იქნება ცვლილებები, "
@@ -2292,6 +2297,7 @@ msgstr "წარმოებისთვის გაგზავნილი."
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "წარდგენა, {$title}, გაიგზავნა წარმოების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა გაიგზავნა "
@@ -2337,6 +2343,7 @@ msgstr ""
 "გაგზავნამ, {$title}, გამოტოვა განხილვის ეტაპი და გაიგზავნა კოპირების "
 "რედაქტირების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა მიღებულია "

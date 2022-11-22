@@ -2424,6 +2424,7 @@ msgstr ""
 "Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao "
 "processo editorial ativo."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que esta submissão foi "
@@ -2471,6 +2472,7 @@ msgstr "Envie esta submissão de volta para o estágio de edição de texto."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Voltar para edição de texto"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores informando que esta submissão foi enviada "
@@ -2530,6 +2532,7 @@ msgstr ""
 "O autor deve fornecer revisões que serão enviadas para outra rodada de "
 "avaliação antes que esta submissão seja aceita para publicação."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que serão necessárias "
@@ -2561,6 +2564,7 @@ msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr ""
 "Selecione os arquivos que devem ser enviados para a etapa de edição de texto."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores para que eles saibam que sua submissão foi "
@@ -2586,6 +2590,7 @@ msgstr ""
 "Esta submissão será rejeitada para publicação. Nenhuma avaliação adicional "
 "será realizada e a submissão será arquivada."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores para que eles saibam que sua submissão foi "
@@ -2631,6 +2636,7 @@ msgstr "Voltar para Submissão"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Voltar para a submissão"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que sua submissão foi "
@@ -2653,6 +2659,7 @@ msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Esta submissão será aceita para publicação e enviada para edição de texto."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Envie um e-mail aos avaliadores para agradecê-los por sua avaliação e "
@@ -2690,6 +2697,7 @@ msgstr ""
 "Falha ao marcar o DOI como registrado para {$pubObjectTitle}. A submissão "
 "deve ser publicada antes que o status possa ser atualizado."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que a rodada de avaliação "

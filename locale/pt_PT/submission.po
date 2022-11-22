@@ -2071,6 +2071,7 @@ msgstr ""
 "O autor deve enviar revisões que serão enviadas para outra ronda de revisão "
 "antes da submissão ser aceite para publicação."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para informá-los que serão solicitadas revisões "
@@ -2101,6 +2102,7 @@ msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr ""
 "Selecione ficheiros que devem ser enviados para a etapa de edição de texto."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores a informá-los que a sua submissão foi enviada "
@@ -2126,6 +2128,7 @@ msgstr ""
 "Esta submissão será rejeitada. Não será conduzida qualquer revisão adicional "
 "e a submissão será arquivada."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para informá-los que a sua submissão foi "
@@ -2171,6 +2174,7 @@ msgstr "Enviar de volta à Submissão"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Voltar à Submissão"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Enviar um e-mail aos autores para informá-los que a sua submissão foi aceite "
@@ -2193,6 +2197,7 @@ msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Esta submissão será aceite para publicação e enviada para edição de texto."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Enviar um e-mail aos revisores para agradecer a sua revisão e informá-los "
@@ -2225,6 +2230,7 @@ msgstr ""
 "Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao ativo "
 "no processo editorial."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para informá-los que esta submissão foi aceite "
@@ -2272,6 +2278,7 @@ msgstr "Envie esta submissão de volta para a etapa de edição de texto."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Voltar para Edição de texto"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores para informá-lo que esta submissão foi "
@@ -2368,6 +2375,7 @@ msgstr ""
 "Envie um e-mail para os revisores designados a informá-los de que sua "
 "atribuição de revisão foi cancelada."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que a ronda de revisão foi "

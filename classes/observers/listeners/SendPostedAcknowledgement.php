@@ -55,12 +55,6 @@ class SendPostedAcknowledgement
         $mailable = new PostedAcknowledgement($context, $submission);
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), PostedAcknowledgement::getEmailTemplateKey());
 
-        // Backwards-compatibility for old email templates with {$authorPrimary}
-        $primaryAuthor = $submission->getPrimaryAuthor();
-        $mailable->addData([
-            'authorPrimary' => $primaryAuthor ? $primaryAuthor->getFullName() : '',
-        ]);
-
         $assignedAuthors = Repo::author()->getSubmissionAuthors($submission);
 
         $mailable

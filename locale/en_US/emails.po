@@ -111,7 +111,7 @@ msgstr "Preprint Posted Acknowledgement"
 
 msgid "emails.postedAck.body"
 msgstr ""
-"{$authorPrimary}:<br />\n"
+"{$recipientName}:<br />\n"
 "<br />\n"
 "Your preprint, &quot;{$submissionTitle}&quot; has been posted online on {$contextName}.<br />\n"
 "<br />\n"

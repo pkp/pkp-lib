@@ -3115,9 +3115,6 @@ msgstr "Unik"
 msgid "stats.unknown"
 msgstr "ukendt"
 
-msgid "stats.suppFileViews"
-msgstr "Visninger af supplerende filer"
-
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Marker DOI'er som uregistrerede"
 

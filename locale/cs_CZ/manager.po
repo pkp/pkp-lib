@@ -3053,9 +3053,6 @@ msgstr "Povolit institucionální statistiky"
 msgid "manager.setup.institutions"
 msgstr "Instituce"
 
-msgid "stats.suppFileViews"
-msgstr "Zobrazení doplňkových souborů"
-
 msgid "stats.unique"
 msgstr "Unikátní"
 

@@ -57,7 +57,7 @@ class SubmissionEmailVariable extends Variable
     {
         return
         [
-            self::AUTHOR_SUBMISSION_URL => __('emailTemplate.variable.submission.authors'),
+            self::AUTHOR_SUBMISSION_URL => __('emailTemplate.variable.submission.authorSubmissionUrl'),
             self::AUTHORS => __('emailTemplate.variable.submission.authors'),
             self::AUTHORS_SHORT => __('emailTemplate.variable.submission.authorsShort'),
             self::SUBMISSION_ABSTRACT => __('emailTemplate.variable.submission.submissionAbstract'),

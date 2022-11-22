@@ -499,8 +499,6 @@ class ManagementHandler extends Handler
         $templateMgr->setState([
             'fromFilters' => $this->getEmailFromFilters(),
             'groupFilters' => $this->getEmailGroupFilters(),
-			'i18nAssignTemplate' => __('manager.mailables.assignTemplate'),
-			'i18nAssignTemplateMessage' => __('manager.mailables.assignTemplate.confirm'),
 			'i18nRemoveTemplate' => __('manager.mailables.removeTemplate'),
 			'i18nRemoveTemplateMessage' => __('manager.mailables.removeTemplate.confirm'),
 			'i18nResetTemplate' => __('manager.mailables.resetTemplate'),

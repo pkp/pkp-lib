@@ -250,9 +250,10 @@ Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
 				method: 'GET'
 			}).then(xhr => {
 				data.additionalAuthors.forEach(author => {
-					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en_US === pAuthor.givenName.en_US);
-					expect(publicationAuthor.familyName.en_US).to.equal(author.familyName.en_US);
-					expect(publicationAuthor.affiliation.en_US).to.equal(author.affiliation.en_US);
+					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en_US === pAuthor.givenName.en_US && author.familyName.en_US === pAuthor.familyName.en_US);
+					if (typeof author.affiliation !== 'undefined') {
+						expect(publicationAuthor.affiliation.en_US).to.equal(author.affiliation.en_US);
+					}
 					expect(publicationAuthor.email).to.equal(author.email);
 					expect(publicationAuthor.country).to.equal(author.country);
 				});

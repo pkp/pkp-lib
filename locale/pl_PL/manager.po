@@ -2491,9 +2491,6 @@ msgstr "Niepoprawny zakres IP"
 msgid "manager.setup.statistics"
 msgstr "Statystyki"
 
-msgid "stats.suppFileViews"
-msgstr "Wyświetlenia plików dodatkowych"
-
 msgid "stats.unique"
 msgstr "Unikalne"
 

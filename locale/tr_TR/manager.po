@@ -2626,9 +2626,6 @@ msgstr ""
 msgid "manager.setup.institutions"
 msgstr "Kurumlar"
 
-msgid "stats.suppFileViews"
-msgstr "Ek Dosyaları Görüntüle"
-
 msgid "stats.unknown"
 msgstr "bilinmeyen"
 

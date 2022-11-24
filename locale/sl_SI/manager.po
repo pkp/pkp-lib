@@ -3186,9 +3186,6 @@ msgstr "Omogoči statistike institucij"
 msgid "manager.setup.institutions"
 msgstr "Institucije"
 
-msgid "stats.suppFileViews"
-msgstr "Ogledi dodatne datoteke"
-
 msgid "stats.unique"
 msgstr "Unikatni"
 

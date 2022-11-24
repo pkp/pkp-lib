@@ -2907,9 +2907,6 @@ msgstr "Registo de Utilizador"
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "O DOI contém caracteres inválidos."
 
-msgid "stats.suppFileViews"
-msgstr "Visualizações de Ficheiros suplementares"
-
 msgid "stats.unknown"
 msgstr "desconhecido"
 

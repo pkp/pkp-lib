@@ -264,7 +264,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
 
         $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION];
         if (array_key_exists('type', $allowedParams) && $allowedParams['type'] == 'files') {
-            $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER];
+            $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE];
         };
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
         if ($responseCSV) {
@@ -341,7 +341,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $allowedParams['submissionIds'] = [$submission->getId()];
         $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION];
         if (array_key_exists('type', $allowedParams) && $allowedParams['type'] == 'files') {
-            $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER];
+            $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE];
         };
 
         $result = $this->_validateStatDates($allowedParams);
@@ -400,6 +400,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $submissionId = $fileMetric->submission_id;
             $submissionFileId = $fileMetric->submission_file_id;
             $downloads = $fileMetric->metric;
+            $type = $fileMetric->assoc_type;
 
             if (!isset($submissionTitles[$submissionId])) {
                 $submission = Repo::submission()->get($submissionId);
@@ -407,9 +408,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             }
 
             if ($responseCSV) {
-                $items[] = $this->getFilesCSVItem($submissionFileId, $downloads, $submissionId, $submissionTitles[$submissionId]);
+                $items[] = $this->getFilesCSVItem($submissionFileId, $downloads, $type, $submissionId, $submissionTitles[$submissionId]);
             } else {
-                $items[] = $this->getFilesJSONItem($submissionFileId, $downloads, $submissionId, $submissionTitles[$submissionId]);
+                $items[] = $this->getFilesJSONItem($submissionFileId, $downloads, $type, $submissionId, $submissionTitles[$submissionId]);
             }
         }
 
@@ -802,6 +803,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             __('submission.title'),
             __('common.file') . ' ' . __('common.id'),
             __('common.fileName'),
+            __('common.type'),
             __('stats.fileViews'),
         ];
     }
@@ -885,16 +887,18 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     /**
      * Get CSV row with file metrics
      */
-    protected function getFilesCSVItem(int $submissionFileId, int $downloads, int $submissionId, string $submissionTitle): array
+    protected function getFilesCSVItem(int $submissionFileId, int $downloads, int $assocType, int $submissionId, string $submissionTitle): array
     {
         // Get submission file title for display
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
+        $type = $assocType == Application::ASSOC_TYPE_SUBMISSION_FILE ? __('stats.file.type.primaryFile') : __('stats.file.type.suppFile');
         return [
             $submissionId,
             $submissionTitle,
             $submissionFileId,
             $title,
+            $type,
             $downloads
         ];
     }
@@ -902,16 +906,18 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     /**
      * Get JSON data with file metrics
      */
-    protected function getFilesJSONItem(int $submissionFileId, int $downloads, int $submissionId, string $submissionTitle): array
+    protected function getFilesJSONItem(int $submissionFileId, int $downloads, int $assocType, int $submissionId, string $submissionTitle): array
     {
         // Get submission file title for display
         $submissionFile = Repo::submissionFile()->get($submissionFileId);
         $title = $submissionFile->getLocalizedData('name');
+        $type = $assocType == Application::ASSOC_TYPE_SUBMISSION_FILE ? __('stats.file.type.primaryFile') : __('stats.file.type.suppFile');
         return [
             'submissionId' => $submissionId,
             'submissionTitle' => $submissionTitle,
             'submissionFileId' => $submissionFileId,
             'fileName' => $title,
+            'fileType' => $type,
             'downloads' => $downloads
         ];
     }

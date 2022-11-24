@@ -2514,8 +2514,11 @@ msgstr "Description for {$stat}"
 msgid "stats.editorialActivity"
 msgstr "Editorial Activity"
 
-msgid "stats.suppFileViews"
-msgstr "Supplementary File Views"
+msgid "stats.file.type.primaryFile"
+msgstr "Primary File"
+
+msgid "stats.file.type.suppFile"
+msgstr "Supplementary File"
 
 msgid "stats.fileViews"
 msgstr "File Views"

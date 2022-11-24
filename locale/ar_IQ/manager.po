@@ -2798,9 +2798,6 @@ msgstr "موضوع المناقشة"
 msgid "emailTemplate.variable.discussion.content"
 msgstr "محتوى المناقشة أو الرد الجديدين"
 
-msgid "stats.suppFileViews"
-msgstr "معاينات الملفات التكميلية"
-
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"
 

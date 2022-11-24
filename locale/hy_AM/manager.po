@@ -3043,9 +3043,6 @@ msgstr ""
 "կազմաձևեք IP միջակայքերը յուրաքանչյուր հաստատության համար, որը ցանկանում եք "
 "հետևել:"
 
-msgid "stats.suppFileViews"
-msgstr "Լրացուցիչ նիշքերի դիտումներ"
-
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
 "Դուք պատրաստվում եք նշել DOI մետատվյալներով գրառումները {$count} "

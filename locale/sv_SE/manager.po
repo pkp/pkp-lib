@@ -3110,9 +3110,6 @@ msgstr ""
 "beslutet. Detta alternativ väljs i samband med att redaktörer tilldelas ett "
 "bidrag."
 
-msgid "stats.suppFileViews"
-msgstr "Visningar av bilagor"
-
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
 "Denna tidskrift tillämpar en dubbelt anonym sakkunniggranskning. Granskarna "

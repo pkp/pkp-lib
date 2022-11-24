@@ -3066,9 +3066,6 @@ msgstr "Ativar estatísticas institucionais"
 msgid "manager.setup.institutions"
 msgstr "Instituições"
 
-msgid "stats.suppFileViews"
-msgstr "Visualizações de Arquivos Suplementares"
-
 msgid "stats.unique"
 msgstr "Única"
 

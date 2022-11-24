@@ -77,7 +77,7 @@ abstract class PKPStatsPublicationService
         $defaultArgs = $this->getDefaultArgs();
         $args = array_merge(
             $defaultArgs,
-            ['assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER]],
+            ['assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE]],
             $args
         );
         unset($args['count']);
@@ -97,7 +97,7 @@ abstract class PKPStatsPublicationService
         $defaultArgs = $this->getDefaultArgs();
         $args = array_merge(
             $defaultArgs,
-            ['assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER],
+            ['assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE],
                 'orderDirection' => PKPStatisticsHelper::STATISTICS_ORDER_DESC],
             $args
         );
@@ -206,7 +206,7 @@ abstract class PKPStatsPublicationService
 
         Hook::call('StatsPublication::getFilesTotals::queryBuilder', [&$metricsQB, $args]);
 
-        $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_FILE_ID];
+        $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_FILE_ID, PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE];
         $metricsQB = $metricsQB->getSum($groupBy);
 
         $orderDirection = $args['orderDirection'] === PKPStatisticsHelper::STATISTICS_ORDER_ASC ? 'asc' : 'desc';

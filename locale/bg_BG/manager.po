@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-31 09:07+0000\n"
+"PO-Revision-Date: 2022-11-13 12:35+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
@@ -3425,3 +3425,6 @@ msgstr "Хронологичен тип"
 
 msgid "stats.timeline"
 msgstr "Хронология"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI съдържа невалидни знаци."

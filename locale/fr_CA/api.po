@@ -1,11 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2021.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-07-07 11:03+0000\n"
-"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"PO-Revision-Date: 2022-11-15 13:08+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "api/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -13,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T03:04:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "api.400.paramNotSupported"
@@ -200,13 +202,12 @@ msgstr ""
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr ""
-"Vous devez spécifier un cycle d'évaluation lorsque vous demander des "
+"Vous devez spécifier un cycle d'évaluation lorsque vous demandez des "
 "fichiers dans une étape d'évaluation."
 
-#, fuzzy
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr ""
-"Vous ne pouvez pas associer un fichier de cette étape  avec un cycle "
+"Vous ne pouvez pas associer un fichier de cette étape avec un cycle "
 "d'évaluation."
 
 #, fuzzy
@@ -220,12 +221,10 @@ msgstr ""
 "Vous ne pouvez pas associer un fichier à cette étape avec un autre fichier "
 "de soumission."
 
-#, fuzzy
 msgid "api.submissionFiles.400.badNoteAssocType"
 msgstr ""
 "Vous ne pouvez pas associer un fichier de cette étape avec une note de "
 "discussion."
 
-#, fuzzy
 msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Vous devez fournir une étape de fichier"
+msgstr "Vous devez fournir une étape de fichier."

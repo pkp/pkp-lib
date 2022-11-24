@@ -1,11 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-10-25 15:23+0000\n"
-"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"PO-Revision-Date: 2022-11-15 13:08+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -2061,7 +2063,7 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Oui, envoyer une copie à {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Aviser le contact principal"
+msgstr "Aviser la personne-ressource principale"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Avis"
@@ -2198,3 +2200,29 @@ msgstr ""
 
 msgid "stats.name.submissionsSkipped"
 msgstr "Autres soumissions"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Aviser tous les auteurs-es"
+
+msgid "stats.unknown"
+msgstr "inconnu-e"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Tout déposer"
+
+#, fuzzy
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Vous êtes sur le point d'envoyer des notices de métadonnées DOI pour {$count}"
+" article(s) à {$registrationAgency}. Êtes-vous certain.e de vouloir déposer "
+"ces notices ?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Marquer les DOIs enregistrés"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Un préfixe DOI est requis"
+
+#, fuzzy
+msgid "manager.dois.actions.deposit.label"
+msgstr "Déposer les DOIs"

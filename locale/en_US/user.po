@@ -128,6 +128,9 @@ msgstr "Thank you for activating your account. You may now log in using the cred
 msgid "user.login.changePasswordInstructions"
 msgstr "You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account."
 
+msgid "user.login.resetPasswordInstructions"
+msgstr "Enter new password to update login password."
+
 msgid "user.login.forgotPassword"
 msgstr "Forgot your password?"
 
@@ -148,6 +151,9 @@ msgstr "No user exists with the specified email address."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "A new password has been sent to your email address. You may now login to the site with your new password."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Password has been updated successfully. Please login with updated password."
 
 msgid "user.login.registeredEmail"
 msgstr "Registered user's email"

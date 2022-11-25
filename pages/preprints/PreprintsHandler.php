@@ -18,6 +18,7 @@ namespace APP\pages\preprints;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
@@ -68,7 +69,7 @@ class PreprintsHandler extends Handler
         $collector = Repo::submission()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
+            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED);
         $total = $collector->getCount();
         $publishedSubmissions = $collector->limit($count)->getMany();
 

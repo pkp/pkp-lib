@@ -97,7 +97,10 @@ class PreprintHandler extends Handler
             }
         }
 
-        if (!$submission || $submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
+        $user = $request->getUser();
+
+        // Serve 404 if no submission available OR submission is unpublished and no user is logged in OR submission is unpublished and we have a user logged in but the user does not have access to preview
+        if (!$submission || ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED && !$user) || ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED && $user && !Repo::submission()->canPreview($user, $submission))) {
             $request->getDispatcher()->handle404();
         }
 
@@ -129,7 +132,7 @@ class PreprintHandler extends Handler
             $galleyId = $subPath;
         }
 
-        if ($this->publication->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
+        if ($this->publication->getData('status') !== PKPSubmission::STATUS_PUBLISHED && !Repo::submission()->canPreview($user, $submission)) {
             $request->getDispatcher()->handle404();
         }
 
@@ -219,7 +222,7 @@ class PreprintHandler extends Handler
 
 
 
-        if ($this->galley && !$this->userCanViewGalley($request, $preprint->getId(), $this->galley->getId())) {
+        if ($this->galley && !$this->userCanViewGalley($request)) {
             fatalError('Cannot view galley.');
         }
 
@@ -336,7 +339,7 @@ class PreprintHandler extends Handler
         }
         if ($this->galley->getRemoteURL()) {
             $request->redirectUrl($this->galley->getRemoteURL());
-        } elseif ($this->userCanViewGalley($request, $this->preprint->getId(), $this->galley->getId())) {
+        } elseif ($this->userCanViewGalley($request)) {
             if (!$this->submissionFileId) {
                 $this->submissionFileId = $this->galley->getData('submissionFileId');
             }
@@ -398,17 +401,16 @@ class PreprintHandler extends Handler
      * Determines whether a user can view this preprint galley or not.
      *
      * @param \APP\core\Request $request
-     * @param string $preprintId
-     * @param int $galleyId or string
      */
-    public function userCanViewGalley($request, $preprintId, $galleyId = null)
+    public function userCanViewGalley($request)
     {
         $submission = $this->preprint;
-        if ($submission->getStatus() == PKPSubmission::STATUS_PUBLISHED) {
+        $user = $request->getUser();
+
+        // If the preprint is posted OR author or server manager who can view unposted preprints
+        if (($submission && $submission->getStatus() === PKPSubmission::STATUS_PUBLISHED) || ($submission && $user && Repo::submission()->canPreview($user, $submission))) {
             return true;
-        } else {
-            $request->redirect(null, 'search');
         }
-        return true;
+        return false;
     }
 }

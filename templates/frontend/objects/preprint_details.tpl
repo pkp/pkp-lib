@@ -66,6 +66,16 @@
  *}
 <article class="obj_preprint_details">
 
+	{* Indicate if this is only a preview *}
+	{if $publication->getData('status') !== \PKP\submission\PKPSubmission::STATUS_PUBLISHED}
+		<div class="cmp_notification notice">
+
+			{capture assign="submissionUrl"}{url page="workflow" op="access" path=$preprint->getId()}{/capture}
+
+			{translate key="submission.viewingPreview" url=$submissionUrl}
+		</div>
+	{/if}
+
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
 		<div class="cmp_notification notice">

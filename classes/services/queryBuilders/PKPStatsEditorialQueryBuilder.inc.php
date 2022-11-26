@@ -17,6 +17,7 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Query\Builder;
 
 abstract class PKPStatsEditorialQueryBuilder {
 
@@ -320,7 +321,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 	 *
 	 * @return QueryObject
 	 */
-	protected function _getBaseQuery() {
+	protected function _getBaseQuery(): Builder {
 		$q = Capsule::table('submissions as s');
 		if (!empty($this->contextIds)) {
 			$q->whereIn('s.context_id', $this->contextIds);
@@ -426,6 +427,12 @@ abstract class PKPStatsEditorialQueryBuilder {
 	public function countImported() {
 		return $this->_getBaseQuery()
 			->whereColumn('s.date_submitted', '>', 'pi.date_published')
+			->when($this->dateStart, function (Builder $q) {
+				$q->where('s.date_submitted', '>=', $this->dateStart);
+			})
+			->when($this->dateEnd, function (Builder $q) {
+				$q->where('s.date_submitted', '<=', $this->dateEnd);
+			})
 			->count();
 	}
 
@@ -438,6 +445,12 @@ abstract class PKPStatsEditorialQueryBuilder {
 	public function countInProgress() {
 		return $this->_getBaseQuery()
 			->where('s.submission_progress', '<>', 0)
+			->when($this->dateStart, function (Builder $q) {
+				$q->where('s.date_submitted', '>=', $this->dateStart);
+			})
+			->when($this->dateEnd, function (Builder $q) {
+				$q->where('s.date_submitted', '<=', $this->dateEnd);
+			})
 			->count();
 	}
 

@@ -17,6 +17,7 @@
 namespace PKP\services;
 
 use APP\decision\Decision;
+use APP\services\queryBuilders\StatsEditorialQueryBuilder;
 use PKP\plugins\Hook;
 
 class PKPStatsEditorialService
@@ -33,7 +34,9 @@ class PKPStatsEditorialService
         $received = $this->countSubmissionsReceived($args);
         $accepted = $this->countByDecisions(Decision::ACCEPT, $args);
         $submissionsPublished = $this->countSubmissionsPublished($args);
-        $submissionsSkipped = $this->countSubmissionsSkipped($args);
+        $submissionsInProgress = $this->countSubmissionsInProgress($args);
+        $submissionsImported = $this->countSubmissionsImported($args);
+        $submissionsSkipped = $submissionsInProgress + $submissionsImported;
         $declinedDesk = $this->countByDecisions(Decision::INITIAL_DECLINE, $args);
         $declinedReview = $this->countByDecisions(Decision::DECLINE, $args);
         $declined = $declinedDesk + $declinedReview;
@@ -122,6 +125,16 @@ class PKPStatsEditorialService
                 'key' => 'submissionsSkipped',
                 'name' => 'stats.name.submissionsSkipped',
                 'value' => $submissionsSkipped,
+            ],
+            [
+                'key' => 'submissionsInProgress',
+                'name' => 'stats.name.submissionsInProgress',
+                'value' => $submissionsInProgress,
+            ],
+            [
+                'key' => 'submissionsImported',
+                'name' => 'stats.name.submissionsImported',
+                'value' => $submissionsImported,
             ],
             [
                 'key' => 'daysToDecision',
@@ -376,6 +389,32 @@ class PKPStatsEditorialService
     }
 
     /**
+     * Get a count of the submissions which are incomplete
+     *
+     * Date restrictions will not be applied. It will return the count of
+     * all incomplete submissions.
+     *
+     * @param array $args See self::getQueryBuilder()
+     * @return int
+     */
+    public function countSubmissionsInProgress($args = []) {
+        return $this->getQueryBuilder($args)->countInProgress();
+    }
+
+    /**
+     * Get a count of the submissions which are imported
+     *
+     * Date restrictions will not be applied. It will return the count of
+     * all imported submissions.
+     *
+     * @param array $args See self::getQueryBuilder()
+     * @return int
+     */
+    public function countSubmissionsImported($args = []) {
+        return $this->getQueryBuilder($args)->countImported();
+    }
+
+    /**
      * Get a count of the active submissions in one or more stages
      *
      * Date restrictions will not be applied. It will return the count of
@@ -453,14 +492,7 @@ class PKPStatsEditorialService
     /**
      * Get a QueryBuilder object with the passed args
      *
-     * @param array $args [
-     * 		@option string dateStart
-     *  	@option string dateEnd
-     *  	@option array|int contextIds
-     *    @option array|int sectionIds (will match seriesId in OMP)
-     * ]
-     *
-     * @return \APP\services\queryBuilders\StatsEditorialQueryBuilder
+     * @param array{dateStart:string,dateEnd:string,contextIds:array|int,sectionIds:array|int $args
      */
     protected function getQueryBuilder($args = [])
     {

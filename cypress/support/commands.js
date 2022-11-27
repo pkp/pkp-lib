@@ -10,6 +10,24 @@
 import 'cypress-file-upload';
 import 'cypress-wait-until';
 
+Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
+	cy.window().then((win) => {
+		cy.waitUntil(() => win.tinymce?.editors[tinyMceId]?.initialized, {timeout: 10000}).then(() => {
+			const editor = win.tinymce.editors[tinyMceId];
+			editor.setContent(content);
+		});
+	});
+});
+
+Cypress.Commands.add('getTinyMceContent', (tinyMceId, content) => {
+	return cy.window().then((win) => {
+		return cy.waitUntil(() => win.tinymce?.editors[tinyMceId]?.initialized, {timeout: 10000}).then(() => {
+			const editor = win.tinymce.editors[tinyMceId];
+			return editor.getContent();
+		});
+	});
+});
+
 // See https://stackoverflow.com/questions/58657895/is-there-a-reliable-way-to-have-cypress-exit-as-soon-as-a-test-fails/58660504#58660504
 Cypress.Commands.add('abortEarly', (self) => {
 	if (self.currentTest.state === 'failed') {

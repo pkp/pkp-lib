@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-11-25 15:25+0000\n"
+"PO-Revision-Date: 2022-11-28 05:40+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -3330,3 +3330,9 @@ msgstr "Doplňkový soubor"
 
 msgid "stats.file.type.primaryFile"
 msgstr "Primární soubor"
+
+msgid "stats.name.submissionsImported"
+msgstr "Importované příspěvky"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Probíhající podání příspěvků"

@@ -45,7 +45,7 @@ class AppLocale extends PKPLocale {
 	 * method required during setup of
 	 * the PKP application framework
 	 */
-	static function registerLocaleFile($locale, $filename, $addToTop = false) {
+	static function registerLocaleFile($locale, $filename) {
 		// do nothing
 	}
 

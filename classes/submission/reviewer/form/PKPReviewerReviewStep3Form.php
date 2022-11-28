@@ -196,7 +196,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 ->recipients([$user])
                 ->subject($template->getLocalizedData('subject'))
                 ->body($template->getLocalizedData('body'))
-                ->unsubscribe($notification);
+                ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
 

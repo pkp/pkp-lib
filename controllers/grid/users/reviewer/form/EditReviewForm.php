@@ -196,7 +196,7 @@ class EditReviewForm extends Form
                     ->recipients([$reviewer])
                     ->subject($template->getLocalizedData('subject'))
                     ->body($template->getLocalizedData('body'))
-                    ->unsubscribe($notification);
+                    ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
             }

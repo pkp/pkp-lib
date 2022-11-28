@@ -45,6 +45,7 @@ class ReviewCompleteNotifyEditors extends Mailable
     )
     {
         parent::__construct(func_get_args());
+        $this->context = $context;
     }
 
     protected function addFooter(string $locale): self

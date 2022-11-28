@@ -824,7 +824,7 @@ class PKPSubmissionHandler extends APIHandler
                 ->recipients([$user])
                 ->body($template->getLocalizedData('body'))
                 ->subject($template->getLocalizedData('subject'))
-                ->unsubscribe($notification);
+                ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
         }

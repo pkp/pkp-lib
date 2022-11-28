@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-11-21 05:44+0000\n"
+"PO-Revision-Date: 2022-11-29 05:32+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -3343,3 +3343,15 @@ msgstr "Tip časovnega intervala"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "DOI oznaka vsebuje neveljavne znake."
+
+msgid "stats.name.submissionsImported"
+msgstr "Uvoženi prispevki"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Prispevki v postopku"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Primarna datoteka"
+
+msgid "stats.file.type.suppFile"
+msgstr "Dodatna datoteka"

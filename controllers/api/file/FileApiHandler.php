@@ -118,7 +118,7 @@ class FileApiHandler extends Handler
                 \Stringy\Stringy::create($request->getContext()->getLocalizedData('acronym'))->toLowerCase(),
                 \Stringy\Stringy::create(__('submission.list.reviewAssignment'))->dasherize(),
                 $submissionFile->getData('submissionId'),
-                $genre->getLocalizedName(),
+                $genre ? $genre->getLocalizedName() : 'none',
                 $submissionFile->getId()
             );
         }

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2022-10-29 18:23+0000\n"
+"PO-Revision-Date: 2022-11-29 15:08+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl_PL/>\n"
@@ -2624,3 +2624,94 @@ msgstr ""
 "Bardziej szczegółowe statystyki geograficzne mogą znacznie zwiększyć rozmiar "
 "bazy danych, a w niektórych rzadkich przypadkach mogą podważyć anonimowość "
 "odwiedzających."
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} do {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Wszystkie {$filter}"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Geolokalizacja poprzez <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "O geolokalizacji"
+
+msgid "stats.timeline"
+msgstr "Skala czasu"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Liczba {$type} dla każdego {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Pobierz raport osi czasu"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI zawiera nieprawidłowe znaki."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Kopia wiadomości e-mail z potwierdzeniem przesłania zostanie wysłana na "
+"każdy z wprowadzonych tutaj adresów e-mail. Oddziel adresy e-mail "
+"przecinkami. Przykład: jeden@example.com, dwa@example.com"
+
+msgid "stats.views"
+msgstr "Odsłony"
+
+msgid "stats.downloads"
+msgstr "Pobrania"
+
+msgid "stats.views.timelineInterval"
+msgstr "Wszystkie odsłony wg daty"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Wszystkie pobrania wg daty"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Obejmuje to zgłoszenia, które nie są wliczane do innych sum, takie jak te, "
+"które są nadal w toku i te, które wyglądają na zaimportowane."
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Włącz statystyki instytucjonalne, jeśli chcesz zbierać statystyki "
+"użytkowania według instytucji. Jeśli ta opcja jest włączona, konieczne "
+"będzie skonfigurowanie zakresów adresów IP dla każdej instytucji, którą "
+"chcesz śledzić."
+
+msgid "stats.file.type.primaryFile"
+msgstr "Plik główny"
+
+msgid "stats.file.type.suppFile"
+msgstr "Pliki dodatkowe"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Czy ograniczyć dostęp do punktów końcowych API dla statystyk COUNTER SUSHI. "
+"Jeśli to pole nie zostanie zaznaczone, interfejs API będzie dostępny tylko "
+"dla użytkowników z rolami administratora lub menedżera."
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Rejestracja DOI i metadane mogą być automatycznie zdeponowane w wybranej "
+"agencji rejestracyjnej za każdym razem, gdy zostanie opublikowana pozycja z "
+"DOI. Automatyczne wpłaty będą dokonywane w zaplanowanych odstępach czasu, a "
+"status rejestracji każdego DOI można monitorować na stronie zarządzania DOI."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"Numery DOI mogą być automatycznie wybijane i zdeponowane w agencji "
+"rejestracyjnej. Aby skorzystać z tej funkcji, znajdź i zainstaluj wtyczkę od "
+"odpowiedniej agencji rejestracyjnej."
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Pobierz plik raportu"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Ilość pobrań dla każdego pliku."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Pobierz dane geograficzne"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Ilość odsłon i pobrań dla każdego miasta, regionu i kraju."

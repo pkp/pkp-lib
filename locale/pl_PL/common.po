@@ -1,11 +1,12 @@
 # rl <biuro@fimagis.pl>, 2022.
+# Pressto <pressto@amu.edu.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
 "PO-Revision-Date: 2022-11-29 15:08+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Last-Translator: Pressto <pressto@amu.edu.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl_PL/>\n"
 "Language: pl_PL\n"
@@ -458,7 +459,7 @@ msgid "common.status"
 msgstr "Status"
 
 msgid "common.subject"
-msgstr "Przedmiot"
+msgstr "Tytuł wiadomości"
 
 msgid "common.suggest"
 msgstr "Zasugeruj"

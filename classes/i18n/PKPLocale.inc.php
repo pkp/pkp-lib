@@ -417,24 +417,16 @@ class PKPLocale {
 	 * Register a locale file against the current list.
 	 * @param $locale string Locale key
 	 * @param $filename string Filename to new locale XML file
-	 * @param $addToTop boolean Whether to add to the top of the list (true)
-	 * 	or the bottom (false). Allows overriding.
 	 */
-	static function registerLocaleFile ($locale, $filename, $addToTop = false) {
+	static function registerLocaleFile ($locale, $filename) {
 		$localeFiles =& AppLocale::getLocaleFiles($locale);
 		$localeFile = new LocaleFile($locale, $filename);
 
 		if (!HookRegistry::call('PKPLocale::registerLocaleFile::isValidLocaleFile', array(&$localeFile))) {
 			if (!$localeFile->isValid()) return null;
 		}
-		if ($addToTop) {
-			// Work-around: unshift by reference.
-			array_unshift($localeFiles, '');
-			$localeFiles[0] =& $localeFile;
-		} else {
-			$localeFiles[] =& $localeFile;
-		}
-		HookRegistry::call('PKPLocale::registerLocaleFile', array(&$locale, &$filename, &$addToTop));
+		$localeFiles[] =& $localeFile;
+		HookRegistry::call('PKPLocale::registerLocaleFile', array(&$locale, &$filename));
 		return $localeFile;
 	}
 

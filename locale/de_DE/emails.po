@@ -161,3 +161,8 @@ msgstr ""
 "Wir haben entschieden, Ihre Einreichung abzulehnen."
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Eine Nachricht bezüglich {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Bitte geben Sie Ihre Nachricht ein."

@@ -158,3 +158,8 @@ msgstr ""
 "Vårt beslut är att: Refusera bidrag"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Ett meddelande angående {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Skriv in ditt meddelande."

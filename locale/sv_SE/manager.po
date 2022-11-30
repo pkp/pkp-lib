@@ -163,13 +163,6 @@ msgstr "Produktion"
 msgid "manager.publication.emails"
 msgstr "E-post"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Är du säker på att du vill ta bort e-postmallen?"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Är du säker på att du vill återställa e-postmallen till dess defaultvärde?"
-
 msgid "manager.emails.createEmail"
 msgstr "Skapa e-postmeddelande"
 
@@ -187,19 +180,8 @@ msgstr ""
 "Du är på väg att inaktivera den här e-postmallen. Systemprocesser som "
 "använder mallen kommer inte längre kunna göra det. Vill du fortsätta?"
 
-msgid "manager.emails.editEmail"
-msgstr "Redigera e-postmeddelande"
-
 msgid "manager.emails.editTestExample"
 msgstr "Redigera e-postexemplet"
-
-msgid "manager.emails.emailKey"
-msgstr "Kod för e-postadress"
-
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"En e-postadress med angiven kod existerar redan. Koder för e-postadresser "
-"måste vara unika."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-postmall"
@@ -230,9 +212,6 @@ msgid "manager.emails.resetAll.message"
 msgstr ""
 "Alla ändringar som gjorts i e-postmallarna kommer att försvinna. Vill du "
 "fortsätta?"
-
-msgid "manager.emails.reset"
-msgstr "Återställ"
 
 msgid "manager.emails.reset.message"
 msgstr ""
@@ -2008,9 +1987,6 @@ msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
 msgid "manager.setup.checklist"
 msgstr "Checklista"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Ämne: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Skickats till"
 
@@ -2020,17 +1996,8 @@ msgstr "Skickats från"
 msgid "manager.emails.resetAll"
 msgstr "Återställ alla"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Nyckeln du angav används redan."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Du måste ange ett ID när en e-postmall läggs till."
-
-msgid "manager.emails.emailKey.description"
-msgstr "E-postnyckeln kan bara innehålla bokstäver, nummer eller understreck."
-
-msgid "manager.emails.customTemplate"
-msgstr "Anpassad mall"
 
 msgid "manager.emails.addEmail"
 msgstr "Lägg till mall"
@@ -2185,12 +2152,6 @@ msgstr "Välj vilka användare som ska exporteras till Excel/CSV."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Exportera till Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "E-postmallen har återställts."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Default e-postmall har återställts."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Ta bort meddelande"
@@ -2571,6 +2532,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Ny granskningsomgång har startats"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Bidraget har refuserats"
 
@@ -2825,6 +2787,7 @@ msgstr ""
 "har glömt sitt lösenord eller inte kan logga in. E-postmeddelandet "
 "innehåller en URL som leder till återställning av lösenordet."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Det här e-postmeddelandet skickas till nyregistrerade användare för att "
@@ -2837,6 +2800,7 @@ msgstr ""
 "dem till systemet och förse dem med dokumentation på deras användarnamn och "
 "lösenord."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
@@ -2844,7 +2808,8 @@ msgstr ""
 "innehåller information om hur författaren kan följa bidraget genom "
 "redaktionella processen samt ett tack för för inskickat bidrag."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
 "författare knutna till bidraget som inte är den som skickat in bidraget."
@@ -3022,6 +2987,7 @@ msgstr ""
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "Länken till sidan om statistik för publicerade artiklar"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Det här e-postmeddelandet skickas av en sektionsredaktör för att bekräfta "
@@ -3131,7 +3097,7 @@ msgstr "Påminnelse om granskning (automatisk)"
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
 msgstr "Skickat till granskning"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Svar på granskning försenat (automatisk)"
 
 #, fuzzy

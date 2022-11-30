@@ -37,14 +37,13 @@ class DecisionNotifyOtherAuthors extends Mailable
     protected static ?string $name = 'mailable.decision.notifyOtherAuthors.name';
     protected static ?string $description = 'mailable.decision.notifyOtherAuthors.description';
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_NOTIFY_OTHER_AUTHORS';
-    protected static bool $supportsTemplates = true;
     protected static array $groupIds = [
         self::GROUP_SUBMISSION,
         self::GROUP_REVIEW,
         self::GROUP_COPYEDITING,
         self::GROUP_PRODUCTION,
     ];
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     /** @var User[] */

@@ -158,12 +158,6 @@ msgstr "Tuotanto"
 msgid "manager.publication.emails"
 msgstr "Sähköpostit"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Haluatko varmasti poistaa tämän sähköpostipohjan?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Haluatko varmasti palauttaa tähän sähköpostipohjaan sen oletusarvot?"
-
 msgid "manager.emails.createEmail"
 msgstr "Luo sähköposti"
 
@@ -179,17 +173,8 @@ msgstr "Poista käytöstä"
 msgid "manager.emails.disable.message"
 msgstr "Olet poistamassa tämän sähköpostipohjan käytöstä. Jos jotkin järjestelmäprosessit käyttivät tätä pohjaa, ne eivät käytä sitä enää. Haluatko vahvistaa tämän toimenpiteen?"
 
-msgid "manager.emails.editEmail"
-msgstr "Muokkaa sähköpostia"
-
 msgid "manager.emails.editTestExample"
 msgstr "Muokkaa sähköpostin testiesimerkkiä"
-
-msgid "manager.emails.emailKey"
-msgstr "Sähköpostiavain"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Sähköposti, jolla on kyseinen avain, on jo olemassa. Sähköpostiavainten on oltava uniikkeja."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Sähköpostipohja"
@@ -217,9 +202,6 @@ msgstr "Valmiit sähköpostit"
 
 msgid "manager.emails.resetAll.message"
 msgstr "Jos palautat kaikki mallipohjat oletusarvoisiksi, kaikki sähköpostipohjiin tehdyt muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
-
-msgid "manager.emails.reset"
-msgstr "Palauta"
 
 msgid "manager.emails.reset.message"
 msgstr "Jos palautat tämän mallipohjan, kaikki viestitiedot palautetaan oletusarvoisiksi ja kaikki muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
@@ -1423,14 +1405,8 @@ msgstr "Käyttäjällä \"{$username}\" on salaamaton salasana, jota ei sallita.
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr "Käyttäjänimi \"{$username}\" ja sähköposti \"{$email}\" eivät täsmää saman olemassa olevan käyttäjän tietojen kanssa."
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Avain on jo käytössä."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Sähköpostipohjaa lisättäessä täytyy antaa kontekstin tunniste."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Sähköpostiavain voi sisältää vain kirjaimia, numeroita ja alaviivan."
 
 msgid "stats.name.submissionsPublished"
 msgstr "Julkaistut käsikirjoitukset"
@@ -1518,9 +1494,6 @@ msgstr "Kirjoittajan ohjeet on päivitetty."
 msgid "manager.setup.appearance.success"
 msgstr "Ulkoasuasetukset on päivitetty."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Aihe: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Vastaanottaja"
 
@@ -1535,9 +1508,6 @@ msgstr "Sähköpostipohjat"
 
 msgid "manager.emails.editEmail.success"
 msgstr "Sähköpostipohjaa muokattiin."
-
-msgid "manager.emails.customTemplate"
-msgstr "Räätälöity sähköpostipohja"
 
 msgid "manager.emails.addEmail.success"
 msgstr "Sähköpostipohja lisättiin."
@@ -2044,12 +2014,6 @@ msgstr "Valitse Excel/CSV-tiedostoon vietävät käyttäjät."
 msgid "manager.export.usersToCsv.label"
 msgstr "Vie Excel/CSV-muotoon"
 
-msgid "manager.emails.resetComplete"
-msgstr "Sähköpostipohja tallennettiin onnistuneesti."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Alkuperäiset sähköpostipohjat palautettu."
-
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Poista ilmoitus"
 
@@ -2129,12 +2093,14 @@ msgstr ""
 "ilmoittaa unohtaneensa salasanansa tai joka ei pysty kirjautumaan. Viesti "
 "sisältää ULR:n, jonka kautta salasana voidaan vaihtaa."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "This email is sent to a newly registered user to welcome them to the system and provide them with a record of their username and password."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2144,7 +2110,8 @@ msgstr ""
 "käsikirjoituksen lähettämisestä."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "This email, when enabled, is automatically sent to the other authors who are not users specified during the submission process."
 
 msgid "mailable.revisedVersionNotify.description"

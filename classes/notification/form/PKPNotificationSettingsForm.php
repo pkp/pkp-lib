@@ -21,6 +21,7 @@ namespace PKP\notification\form;
 use APP\core\Application;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 
 use PKP\form\Form;
@@ -72,7 +73,7 @@ class PKPNotificationSettingsForm extends Form
      *
      * @return array
      */
-    public function getNotificationSettingCategories()
+    public function getNotificationSettingCategories(Context $context)
     {
         $result = [
             // Changing the `categoryKey` for public notification types will disrupt
@@ -98,15 +99,17 @@ class PKPNotificationSettingsForm extends Form
                 ]
             ],
             ['categoryKey' => 'user.role.editors',
-                'settings' => [
+                'settings' => array_filter([
                     PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
-                    PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
-                ]
+                    $context->getData('editorialStatsEmail')
+                        ? PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT
+                        : '',
+                ])
             ],
         ];
 
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::call(strtolower_codesafe(end($classNameParts) . '::getNotificationSettingCategories'), [$this, &$result]);
+        Hook::call(strtolower_codesafe(end($classNameParts) . '::getNotificationSettingCategories'), [$this, &$result, $context]);
 
         return $result;
     }
@@ -126,7 +129,7 @@ class PKPNotificationSettingsForm extends Form
         $templateMgr->assign([
             'blockedNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $contextId),
             'emailSettings' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, $contextId),
-            'notificationSettingCategories' => $this->getNotificationSettingCategories(),
+            'notificationSettingCategories' => $this->getNotificationSettingCategories($context),
             'notificationSettings' => $this->getNotificationSettingsMap(),
         ]);
         return parent::fetch($request, $template, $display);

@@ -33,6 +33,7 @@ class SubmissionAcknowledgementNotAuthor extends Mailable
     protected static ?string $emailTemplateKey = 'SUBMISSION_ACK_NOT_USER';
     protected static bool $canDisable = true;
     protected static array $groupIds = [self::GROUP_SUBMISSION];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     protected static string $submitterName = 'submitterName';

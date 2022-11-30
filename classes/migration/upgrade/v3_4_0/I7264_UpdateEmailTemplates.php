@@ -444,7 +444,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
             ],
             // in OPS only
             'POSTED_ACK' => [
-                'authorName' => 'authorPrimary',
+                'authorName' => 'recipientName',
                 'publicationUrl' => 'submissionUrl',
                 'editorialContactSignature' => 'signature'
             ]

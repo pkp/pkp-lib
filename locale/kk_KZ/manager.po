@@ -74,22 +74,11 @@ msgstr "Үлгі мәліметтері"
 msgid "manager.emails.data"
 msgstr "Электрондық пошта үлгісі деректері"
 
-msgid "manager.emails.customTemplate"
-msgstr "Хат жазу"
-
 msgid "manager.emails.createEmail"
 msgstr "Хат жасау"
 
 msgid "manager.emails.addEmail"
 msgstr "Үлгіні қосыңыз"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Осы электрондық пошта үлгісін әдепкі көрінісіне қайтарғыңыз келетініне "
-"сенімдісіз бе?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Осы электрондық пошта үлгісін шынымен жойғыңыз келе ме?"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr "{$registrationAgency} тіркеу ақпараты бар келесі хабарды қайтарды:"
@@ -797,9 +786,6 @@ msgstr "Excel/CSV файлына экспорттау үшін пайдалан�
 msgid "manager.export.usersToCsv.label"
 msgstr "Excel/CSV файлына экспорттау"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Тақырып: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Қабылдаушы"
 
@@ -813,15 +799,6 @@ msgid "manager.emails.reset.message"
 msgstr ""
 "Бұл үлгіні қалпына келтірсеңіз, барлық хабар деректері әдепкі мәндерімен "
 "ауыстырылады, барлық өзгерістер жойылады. Бұл әрекетті растағыңыз келе ме?"
-
-msgid "manager.emails.resetComplete"
-msgstr "Электрондық пошта үлгісі сәтті қалпына келтірілді."
-
-msgid "manager.emails.reset"
-msgstr "Қалпына келтіру"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Әдепкі электрондық пошта үлгілері қалпына келтірілді."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -856,9 +833,6 @@ msgstr "Қосу"
 msgid "manager.emails.enabled"
 msgstr "Осы электрондық пошта үлгісін қосыңыз"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Сіз берген кілт бұрыннан қолданыста."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Электрондық пошта үлгісін қосқанда мәтінмән идентификаторын көрсету керек."
@@ -872,23 +846,8 @@ msgstr "Хат үлгілері"
 msgid "manager.emails.emailTemplate"
 msgstr "Хат үлгісі"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Бұл emailдің құпия сөзі  бұрыннан бар. Электрондық пошта кілттері бірегей "
-"болуы керек."
-
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"The email құпия сөзі тек әріптер, сандар және астыңғы сызулар болуы мүмкін. ."
-
-msgid "manager.emails.emailKey"
-msgstr "Email  кілті"
-
 msgid "manager.emails.editTestExample"
 msgstr "Сынақ электрондық поштасын өңдеңіз"
-
-msgid "manager.emails.editEmail"
-msgstr "Emailды жазу"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -2708,6 +2667,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Рецензиялаудың жаңа кезеңі басталды"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Материал қабылданбады"
 
@@ -2919,6 +2879,7 @@ msgstr ""
 "сайтқа кіре алмайтындығын айтқан кезде жіберіледі. Хатта пайдаланушы құпия "
 "сөзін қалпына келтіре алатын сілтеме (URL) бар."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Бұл хат жаңадан тіркелген пайдаланушыға жіберіледі, оны жүйеде қарсы алады "
@@ -2930,6 +2891,7 @@ msgstr ""
 "қарсы алады және сайтқа кіру үшін пайдаланушы аты мен құпия сөзді береді."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Бұл хат (егер қосылған болса) журналға материалды жіберу процесін аяқтаған "
@@ -2938,7 +2900,8 @@ msgstr ""
 "үшін авторға алғыс айтылады."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Бұл электрондық пошта, егер ол қосылған болса, жіберуде көрсетілген "
 "авторларға автоматты түрде жіберіледі, олар жіберуші автор емес."

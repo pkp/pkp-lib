@@ -724,9 +724,6 @@ msgstr "Заголовок"
 msgid "common.top"
 msgstr "До початку"
 
-msgid "common.toWithValue"
-msgstr "До: {$value}"
-
 msgid "common.true"
 msgstr "Істина"
 
@@ -1926,9 +1923,6 @@ msgstr ""
 
 msgid "common.lastActivity"
 msgstr "Остання активність зафіксована {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Від: {$value}"
 
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"

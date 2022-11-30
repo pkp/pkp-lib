@@ -171,3 +171,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Redaktørens beslutning"
+
+msgid "emails.discussion.subject"
+msgstr "En beskjed angående {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Skriv inn beskjeden din her."

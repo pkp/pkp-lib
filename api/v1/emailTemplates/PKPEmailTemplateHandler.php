@@ -28,6 +28,8 @@ use Slim\Http\Response;
 
 class PKPEmailTemplateHandler extends APIHandler
 {
+    public const MAX_PER_PAGE = 100;
+
     /**
      * @copydoc APIHandler::__construct()
      */
@@ -110,29 +112,17 @@ class PKPEmailTemplateHandler extends APIHandler
         // Process query params to format incoming data as needed
         foreach ($slimRequest->getQueryParams() as $param => $val) {
             switch ($param) {
+                case 'alternateTo':
+                    $collector->alternateTo($this->paramToArray($val));
+                    break;
                 case 'isModified':
-                    $collector->filterByIsModified((bool) $val);
-                    break;
-                case 'isCustom':
-                    $collector->filterByIsCustom((bool) $val);
-                    break;
-                case 'isEnabled':
-                    $collector->filterByIsEnabled((bool) $val);
-                    break;
-                case 'fromRoleIds':
-                    $collector->filterByFromRoleIds(array_map('intval', $this->paramToArray($val)));
-                    break;
-                case 'toRoleIds':
-                    $collector->filterByToRoleIds(array_map('intval', $this->paramToArray($val)));
-                    break;
-                case 'stageIds':
-                    $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
+                    $collector->isModified((bool) $val);
                     break;
                 case 'searchPhrase':
                     $collector->searchPhrase(trim($val));
                     break;
                 case 'count':
-                    $collector->limit((int) $val);
+                    $collector->limit(min((int) $val, self::MAX_PER_PAGE));
                     break;
                 case 'offset':
                     $collector->offset((int) $val);
@@ -142,14 +132,13 @@ class PKPEmailTemplateHandler extends APIHandler
 
         Hook::call('API::emailTemplates::params', [$collector, $slimRequest]);
 
-        // Always restrict results to the current context
-        $collector->filterByContext($request->getContext()->getId());
-
-        $emailTemplatesCollection = $collector->getMany();
+        $emailTemplates = $collector
+            ->filterByContext($request->getContext()->getId())
+            ->getMany();
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::emailTemplate()->getSchemaMap()->summarizeMany($emailTemplatesCollection),
+            'items' => Repo::emailTemplate()->getSchemaMap()->summarizeMany($emailTemplates),
         ], 200);
     }
 
@@ -190,14 +179,9 @@ class PKPEmailTemplateHandler extends APIHandler
         $requestContext = $request->getContext();
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
+        $params['contextId'] = $requestContext->getId();
 
-        if (!isset($params['contexId'])) {
-            $params['contextId'] = $requestContext->getId();
-        }
-
-        $primaryLocale = $requestContext->getData('primaryLocale');
-        $allowedLocales = $requestContext->getData('supportedFormLocales');
-        $errors = Repo::emailTemplate()->validate(null, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::emailTemplate()->validate(null, $params, $requestContext);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -247,8 +231,7 @@ class PKPEmailTemplateHandler extends APIHandler
         $errors = Repo::emailTemplate()->validate(
             $emailTemplate,
             $params,
-            $requestContext->getData('supportedFormLocales'),
-            $requestContext->getData('primaryLocale')
+            $requestContext
         );
 
         if (!empty($errors)) {

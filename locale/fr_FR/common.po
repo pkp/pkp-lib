@@ -1816,9 +1816,6 @@ msgstr "Aperçu de l'image sélectionnée."
 msgid "common.upload.restore"
 msgstr "Restaurer l'original"
 
-msgid "common.toWithValue"
-msgstr "À : {$value}"
-
 msgid "common.submenu"
 msgstr "Sous-menu"
 
@@ -1856,9 +1853,6 @@ msgstr "Moins que"
 
 msgid "common.lastActivity"
 msgstr "Dernière activité enregistrée le {$date}."
-
-msgid "common.fromWithValue"
-msgstr "De : {$value}"
 
 msgid "common.dateDecided"
 msgstr "Date fixée"

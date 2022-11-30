@@ -428,9 +428,6 @@ msgstr "Ajouter le filtre : {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Enlever le filtre : {$filterTitle}"
 
-msgid "common.fromWithValue"
-msgstr "De : {$value}"
-
 msgid "common.go"
 msgstr "Continuer"
 
@@ -762,9 +759,6 @@ msgstr "Titre"
 
 msgid "common.top"
 msgstr "Haut"
-
-msgid "common.toWithValue"
-msgstr "À : {$value}"
 
 msgid "common.true"
 msgstr "Vrai"

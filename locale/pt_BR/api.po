@@ -290,19 +290,8 @@ msgstr ""
 msgid "api.dois.403.prefixRequired"
 msgstr "Um prefixo DOI é necessário para gerar DOIs."
 
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "A entrada de chaves do modelo deve ser uma matriz ou uma string vazia"
-
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"O modelo não pôde ser atribuído a este e-mail porque o modelo não foi "
-"encontrado."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "O e-mail solicitado não foi encontrado."
-
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "As chaves do modelo de e-mail não foram definidas."
 
 msgid "api.institutions.404.institutionNotFound"
 msgstr "A instituição solicitada não foi encontrada."

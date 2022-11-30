@@ -1562,9 +1562,6 @@ msgstr ""
 msgid "common.upload.restore"
 msgstr "Restaurar Original"
 
-msgid "common.toWithValue"
-msgstr "Para: {$value}"
-
 msgid "common.selectedPrefix"
 msgstr "Selecionado:"
 
@@ -1605,9 +1602,6 @@ msgstr "{$value} ou menor"
 
 msgid "common.lastActivity"
 msgstr "Última atividade registrada em {$date}."
-
-msgid "common.fromWithValue"
-msgstr "De: {$value}"
 
 msgid "common.filterAdd"
 msgstr "Adicionar filtro: {$filterTitle}"

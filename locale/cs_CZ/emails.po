@@ -178,3 +178,8 @@ msgstr ""
 "pozdravem,</p>{$signature}"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Zpráva týkající se {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Vložte, prosím, vaši zprávu."

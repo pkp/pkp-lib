@@ -105,9 +105,6 @@ msgstr "Pilih pengguna untuk dieksport ke fail Excel/CSV."
 msgid "manager.export.usersToCsv.label"
 msgstr "Eksport ke Excel/CSV"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Subjek: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Dihantar kepada"
 
@@ -122,15 +119,6 @@ msgstr ""
 "Jika anda menetapkan semula templat ini, semua data mesej akan ditetapkan "
 "semula kepada nilai lalainya, kehilangan semua pengubahsuaian. Adakah anda "
 "ingin mengesahkan operasi ini?"
-
-msgid "manager.emails.resetComplete"
-msgstr "Templat e-mel berjaya ditetapkan semula."
-
-msgid "manager.emails.reset"
-msgstr "Tetapkan semula"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Templat e-mel lalai telah dipulihkan."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -164,9 +152,6 @@ msgstr "Dayakan"
 msgid "manager.emails.enabled"
 msgstr "Dayakan templat e-mel ini"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Kunci yang anda berikan sudah digunakan."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Anda mesti memberikan ID konteks semasa menambah templat e-mel."
 
@@ -179,21 +164,8 @@ msgstr "Templat E-mel"
 msgid "manager.emails.emailTemplate"
 msgstr "Templat E-mel"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"E-mel dengan kunci yang diberikan sudah wujud. Kunci e-mel mestilah unik."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Kunci e-mel hanya boleh mengandungi huruf, nombor dan garis bawah."
-
-msgid "manager.emails.emailKey"
-msgstr "Kunci E-mel"
-
 msgid "manager.emails.editTestExample"
 msgstr "Sunting Contoh Ujian E-mel"
-
-msgid "manager.emails.editEmail"
-msgstr "Sunting E-mel"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -210,22 +182,11 @@ msgstr "Template Details"
 msgid "manager.emails.data"
 msgstr "Data Mesej Templat"
 
-msgid "manager.emails.customTemplate"
-msgstr "Templat Custom"
-
 msgid "manager.emails.createEmail"
 msgstr "Cipta E-mel"
 
 msgid "manager.emails.addEmail"
 msgstr "Tambah Templat"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Adakah anda pasti mahu menetapkan semula templat e-mel ini kepada nilai "
-"lalainya?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Adakah anda pasti mahu memadamkan templat e-mel ini?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Butiran peringatan ulasan telah dikemas kini."
@@ -2410,6 +2371,7 @@ msgstr ""
 "menyediakan URL yang dapat mereka ikuti untuk menetapkan semula kata laluan "
 "mereka."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "E-mel ini dihantar kepada pengguna yang baru mendaftar untuk menyambut "
@@ -2423,6 +2385,7 @@ msgstr ""
 "laluan mereka."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "E-mel ini, apabila didayakan, secara automatik dikirimkan kepada pengarang "
@@ -2431,7 +2394,8 @@ msgstr ""
 "kasih pengarang atas penyerahannya."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "E-mel ini, apabila didayakan, secara automatik dihantar kepada pengarang "
 "lain yang bukan pengguna dalam OJS yang ditentukan semasa proses penyerahan."

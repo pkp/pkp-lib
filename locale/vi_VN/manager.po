@@ -205,9 +205,6 @@ msgstr ""
 msgid "manager.filesBrowser"
 msgstr "Duyệt tệp"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Chủ đề: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Gửi đến"
 
@@ -222,9 +219,6 @@ msgstr ""
 "Nếu bạn đặt lại mẫu này, tất cả dữ liệu tin nhắn sẽ được đặt lại về giá trị "
 "mặc định, làm mất tất cả các sửa đổi. Bạn có muốn xác nhận thao tác này "
 "không?"
-
-msgid "manager.emails.reset"
-msgstr "Đặt lại"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -257,9 +251,6 @@ msgstr "Kích hoạt"
 msgid "manager.emails.enabled"
 msgstr "Kích hoạt mẫu email"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Khóa bạn cung cấp đã được sử dụng."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Bạn phải cung cấp ID ngữ cảnh khi thêm mẫu email."
 
@@ -269,23 +260,11 @@ msgstr "Mẫu email"
 msgid "manager.emails.emailTemplate"
 msgstr "Mẫu email"
 
-msgid "manager.emails.emailKeyExists"
-msgstr "Đã tồn tại một email với khóa nhất định. Khóa email phải là duy nhất."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Khóa email chỉ có thể chứa các chữ cái, số và dấu gạch dưới."
-
-msgid "manager.emails.emailKey"
-msgstr "Khóa email"
-
 msgid "manager.emails.editTestExample"
 msgstr "Chỉnh sửa ví dụ kiểm tra email"
 
 msgid "manager.emails.editEmail.success"
 msgstr "Mẫu email đã được sửa"
-
-msgid "manager.emails.editEmail"
-msgstr "Chỉnh sửa email"
 
 msgid "manager.emails.disable"
 msgstr "Vô hiệu hóa"
@@ -296,9 +275,6 @@ msgstr "Chi tiết về mẫu email"
 msgid "manager.emails.data"
 msgstr "Dữ liệu tin nhắn mẫu"
 
-msgid "manager.emails.customTemplate"
-msgstr "Mẫu tùy chỉnh"
-
 msgid "manager.emails.createEmail"
 msgstr "Tạo Email"
 
@@ -307,14 +283,6 @@ msgstr "Mẫu email đã được thêm vào"
 
 msgid "manager.emails.addEmail"
 msgstr "Thêm mẫu"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Bạn có chắc chắn muốn đặt lại mẫu email này về các giá trị mặc định của nó "
-"không?"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Bạn có chắc chắn muốn xóa mẫu thư này không?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Chi tiết nhắc nhở phản biện đã được cập nhật."
@@ -2216,6 +2184,7 @@ msgstr ""
 "mật khẩu hoặc không thể đăng nhập. Nó cung cấp một URL mà họ có thể theo dõi "
 "để đặt lại mật khẩu của họ."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Email này được gửi đến một người dùng mới đăng ký để chào đón họ vào hệ "
@@ -2227,6 +2196,7 @@ msgstr ""
 "thống và cung cấp cho họ một username và mật khẩu của họ."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Email này, khi được bật, sẽ tự động được gửi cho tác giả khi người đó hoàn "
@@ -2234,7 +2204,8 @@ msgstr ""
 "dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Email này, khi được bật, sẽ tự động được gửi đến các đồng tác giả khác không "
 "phải là người gửi bài."

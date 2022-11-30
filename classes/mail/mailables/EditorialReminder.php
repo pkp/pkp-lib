@@ -35,8 +35,9 @@ class EditorialReminder extends Mailable
     protected static ?string $name = 'mailable.editorialReminder.name';
     protected static ?string $description = 'mailable.editorialReminder.description';
     protected static ?string $emailTemplateKey = 'EDITORIAL_REMINDER';
-    protected static array $groupIds = [self::GROUP_REVIEW];
-    protected static array $toRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $groupIds = [self::GROUP_OTHER];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
+    protected static array $toRoleIds = [Role::ROLE_ID_SUB_EDITOR];
 
     protected Context $context;
     protected array $outstanding = [];

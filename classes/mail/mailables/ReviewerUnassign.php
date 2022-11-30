@@ -40,7 +40,7 @@ class ReviewerUnassign extends Mailable
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static bool $canDisable = true;
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected ?Decision $decision;

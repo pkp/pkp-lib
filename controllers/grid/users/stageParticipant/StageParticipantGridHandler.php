@@ -15,7 +15,6 @@
 
 namespace PKP\controllers\grid\users\stageParticipant;
 
-use APP\controllers\grid\users\stageParticipant\form\StageParticipantNotifyForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
@@ -25,6 +24,7 @@ use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
+use PKP\controllers\grid\users\stageParticipant\form\PKPStageParticipantNotifyForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -491,7 +491,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         $this->setupTemplate($request);
 
-        $notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+        $notifyForm = new PKPStageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
         $notifyForm->initData();
 
         return new JSONMessage(true, $notifyForm->fetch($request));
@@ -509,7 +509,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         $this->setupTemplate($request);
 
-        $notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+        $notifyForm = new PKPStageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
         $notifyForm->readInputData();
 
         if ($notifyForm->validate()) {
@@ -562,7 +562,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $mailable->sender($request->getUser());
             $data = $mailable->getData();
 
-            $notifyForm = new StageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+            $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
             return new JSONMessage(
                 true,
                 [

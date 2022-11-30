@@ -501,9 +501,6 @@ msgstr "Височина"
 msgid "common.go"
 msgstr "Изпълни"
 
-msgid "common.fromWithValue"
-msgstr "От: {$value}"
-
 msgid "common.filterRemove"
 msgstr "Изчистване на филтър: {$filterTitle}"
 
@@ -853,9 +850,6 @@ msgstr "Тип"
 
 msgid "common.true"
 msgstr "Истина"
-
-msgid "common.toWithValue"
-msgstr "До: {$value}"
 
 msgid "common.top"
 msgstr "Горе"

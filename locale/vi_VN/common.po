@@ -680,9 +680,6 @@ msgstr "Kiểu"
 msgid "common.true"
 msgstr "Đúng"
 
-msgid "common.toWithValue"
-msgstr "Tới: {$value}"
-
 msgid "common.top"
 msgstr "Trên đầu"
 
@@ -1014,9 +1011,6 @@ msgstr "Chiều cao"
 
 msgid "common.go"
 msgstr "Đi đến"
-
-msgid "common.fromWithValue"
-msgstr "Từ: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Xoá bộ lọc: {$filterTitle}"

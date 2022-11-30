@@ -175,3 +175,8 @@ msgstr ""
 "Notre décision est de refuser votre soumission."
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Un message à propos de la revue {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Prière de saisir votre message."

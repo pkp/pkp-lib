@@ -251,7 +251,6 @@ class Locale implements LocaleInterface
     {
         // Delete locale-specific data
         Repo::emailTemplate()->dao->deleteEmailTemplatesByLocale($locale);
-        Repo::emailTemplate()->dao->deleteDefaultEmailTemplatesByLocale($locale);
     }
 
     /**

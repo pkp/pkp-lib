@@ -87,6 +87,7 @@ msgstr ""
 "chleachdadh nuair a thaghar am pròiseas lèirmheis stannardach fo “Stiùireadh”"
 " > “Roghainnean” > “Sruth-obrach” > “Lèirmheas”."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Thèid am post-d seo a chur gu cleachdaiche a tha air ùr-chlàradh agus a’ cur "
@@ -100,6 +101,7 @@ msgstr ""
 "chleachdaiche is facal-faire aca."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Thèid am post-d seo, ma bhios e an comas, a chur gu fèin-obrachail gu ùghdar "
@@ -108,7 +110,8 @@ msgstr ""
 "phròiseas agus tha e a’ toirt taing dhan ùghdar airson an tagraidh."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Thèid am post-d seo, ma bhios e an comas, a chur gu fèin-obrachail gu na h-"
 "ùghdaran eile a chaidh ainmeachadh rè an tagraidh ach nach eil nan "

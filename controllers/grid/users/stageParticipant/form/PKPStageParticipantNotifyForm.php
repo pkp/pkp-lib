@@ -16,9 +16,11 @@
 namespace PKP\controllers\grid\users\stageParticipant\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
@@ -90,47 +92,31 @@ abstract class PKPStageParticipantNotifyForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $submission = Repo::submission()->get($this->_submissionId);
-
-        // All stages can choose the default template
-        $templateKeys = ['NOTIFICATION_CENTER_DEFAULT'];
-
-        // Determine if the current user can use any custom templates defined.
-        $user = $request->getUser();
-        $customTemplateKeys = [];
-        $roleDao = DAORegistry::getDAO('RoleDAO');
-        if ($roleDao->userHasRole($submission->getData('contextId'), $user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-            $emailTemplates = Repo::emailTemplate()->getCollector()
-                ->filterByContext($submission->getData('contextId'))
-                ->filterByIsCustom(true)
-                ->getMany();
-
-            foreach ($emailTemplates as $emailTemplate) {
-                $customTemplateKeys[] = $emailTemplate->getData('key');
-            }
-        }
-
         $context = $request->getContext();
-        $mailable = $this->getStageMailable($context, $submission);
+        $user = $request->getUser();
 
-        $currentStageId = $this->getStageId();
-        $stageTemplates = $this->getStageTemplates();
-        $templateKeys = array_merge($templateKeys, $stageTemplates ?? []);
-
-        $templateKeyToSubject = function ($templateKey) use ($context, $submission, $mailable) {
-            $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
-            $data = $mailable->getData(Locale::getLocale());
-            return Mail::compileParams($template->getLocalizedData('subject'), $data);
-        };
-
-        $templates = array_combine($templateKeys, array_map($templateKeyToSubject, $templateKeys));
-        if (count($customTemplateKeys)) {
-            $templates[__('manager.emails.otherTemplates')] = array_combine($customTemplateKeys, array_map($templateKeyToSubject, $customTemplateKeys));
+        // Add the templates that can be used for this message
+        if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
+            $mailable = $this->getStageMailable($context, $submission);
+            $data = $mailable->getData();
+            $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+            $templates = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
+            $alternateTemplates = Repo::emailTemplate()->getCollector()
+                ->filterByContext($context->getId())
+                ->alternateTo([$mailable::getEmailTemplateKey()])
+                ->getMany();
+            foreach ($alternateTemplates as $alternateTemplate) {
+                $templates[$alternateTemplate->getData('key')] = Mail::compileParams(
+                    $alternateTemplate->getLocalizedData('name'),
+                    $data
+                );
+            }
         }
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'templates' => $templates,
-            'stageId' => $currentStageId,
+            'stageId' => $this->getStageId(),
             'submissionId' => $this->_submissionId,
             'itemId' => $this->_itemId,
         ]);
@@ -172,12 +158,8 @@ abstract class PKPStageParticipantNotifyForm extends Form
 
     /**
      * Send a message to a user.
-     *
-     * @param int $userId the user id to send email to.
-     * @param Submission $submission
-     * @param PKPRequest $request
      */
-    public function sendMessage($userId, $submission, $request)
+    public function sendMessage(int $userId, Submission $submission, Request $request)
     {
         $user = Repo::user()->get($userId);
         if (!isset($user)) {
@@ -186,31 +168,64 @@ abstract class PKPStageParticipantNotifyForm extends Form
 
         $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
         $context = $contextDao->getById($submission->getData('contextId'));
+        $mailable = $this->getStageMailable($context, $submission);
         $templateKey = $this->getData('template');
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
         if (!$template) {
-            $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
+            $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         }
 
-        $messageContent = $this->getData('message');
-        // Set the empty subject; compile when template variables are set
-        $mailable = $this->getStageMailable($context, $submission, '', $messageContent);
+        // Create a query
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $query = $queryDao->newDataObject();
+        $query->setAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION);
+        $query->setAssocId($submission->getId());
+        $query->setStageId($this->_stageId);
+        $query->setSequence(REALLY_BIG_NUMBER);
+        $queryDao->insertObject($query);
+        $queryDao->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
-        $fromUser = $request->getUser();
-        $mailable->sender($fromUser)
-            ->recipients([$user]);
+        // Add the current user and message recipient as participants.
+        $queryDao->insertParticipant($query->getId(), $user->getId());
+        if ($user->getId() != $request->getUser()->getId()) {
+            $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
+        }
 
-        $mailable->addData(['authorName' => $user->getFullName()]); // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
-        $mailableData = $mailable->getData();
-        $messageSubject = Mail::compileParams($template->getLocalizedData('subject'), $mailableData);
-        $mailable->addData([
-            $mailable::getSubjectVariableName() => $messageSubject,
-        ]);
+        // Create a head note
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $headNote = $noteDao->newDataObject();
+        $headNote->setUserId($request->getUser()->getId());
+        $headNote->setAssocType(PKPApplication::ASSOC_TYPE_QUERY);
+        $headNote->setAssocId($query->getId());
+        $headNote->setDateCreated(Core::getCurrentDate());
+        $headNote->setTitle(
+            Mail::compileParams(
+                $template->getLocalizedData('subject'),
+                $mailable->getData()
+            )
+        );
+        $headNote->setContents($this->getData('message'));
+        $noteDao->insertObject($headNote);
 
-        // Include DISCUSSION_NOTIFICATION template rather than the message itself
-        $notificationTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-        $mailable->body($notificationTemplate->getLocalizedData('body'))
-            ->subject($notificationTemplate->getLocalizedData('subject'));
+        // Send the email
+        $notificationMgr = new NotificationManager();
+        $notification = $notificationMgr->createNotification(
+            $request,
+            $userId,
+            Notification::NOTIFICATION_TYPE_NEW_QUERY,
+            $request->getContext()->getId(),
+            PKPApplication::ASSOC_TYPE_QUERY,
+            $query->getId(),
+            Notification::NOTIFICATION_LEVEL_TASK
+        );
+
+        $mailable
+            ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
+            ->sender($request->getUser())
+            ->recipients([$user])
+            ->body($this->getData('message'))
+            ->subject($template->getLocalizedData('subject'))
+            ->allowUnsubscribe($notification);
 
         $logDao = null;
         try {
@@ -254,33 +269,6 @@ abstract class PKPStageParticipantNotifyForm extends Form
                 !$logDao ?: $logDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
                 break;
         }
-
-        // Create a query
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->newDataObject();
-        $query->setAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION);
-        $query->setAssocId($submission->getId());
-        $query->setStageId($this->_stageId);
-        $query->setSequence(REALLY_BIG_NUMBER);
-        $queryDao->insertObject($query);
-        $queryDao->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
-
-        // Add the current user and message recipient as participants.
-        $queryDao->insertParticipant($query->getId(), $user->getId());
-        if ($user->getId() != $request->getUser()->getId()) {
-            $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
-        }
-
-        // Create a head note
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $headNote = $noteDao->newDataObject();
-        $headNote->setUserId($request->getUser()->getId());
-        $headNote->setAssocType(PKPApplication::ASSOC_TYPE_QUERY);
-        $headNote->setAssocId($query->getId());
-        $headNote->setDateCreated(Core::getCurrentDate());
-        $headNote->setTitle($messageSubject);
-        $headNote->setContents($messageContent);
-        $noteDao->insertObject($headNote);
 
         if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
             $submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {

@@ -1090,9 +1090,6 @@ msgstr "最近的活动记录在{$date}。"
 msgid "common.itemsPerPage"
 msgstr "每页项目"
 
-msgid "common.fromWithValue"
-msgstr "来自: {$value}"
-
 msgid "common.filterRemove"
 msgstr "清除过滤器：{$filterTitle}"
 
@@ -1908,9 +1905,6 @@ msgstr "上传日期"
 
 msgid "common.component"
 msgstr "组件"
-
-msgid "common.toWithValue"
-msgstr "至：{$value}"
 
 msgid "common.subtitle"
 msgstr "副标题"

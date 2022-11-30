@@ -1141,9 +1141,6 @@ msgstr ""
 msgid "common.true"
 msgstr "正"
 
-msgid "common.toWithValue"
-msgstr "宛先: {$value}"
-
 msgid "common.submenu"
 msgstr "サブメニュー"
 
@@ -1265,9 +1262,6 @@ msgstr "最近活動記録日: {$date}"
 
 msgid "common.itemsPerPage"
 msgstr "ページごとの要素"
-
-msgid "common.fromWithValue"
-msgstr "{$value} から"
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "スパム送信を防ぐための検証チェックを完了する必要があります。"

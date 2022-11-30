@@ -106,6 +106,7 @@ msgstr ""
 "zabudol svoje heslo alebo sa nemôže prihlásiť. Obsahuje adresu URL, ktorú "
 "môže navštíviť a obnoviť si svoje heslo."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Tento email je odoslaný novo zaregistrovanému používateľovi ako privítanie "
@@ -117,6 +118,7 @@ msgstr ""
 "systému a poskytne mu informáciu o jeho používateľskom mene a hesle."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
@@ -125,7 +127,8 @@ msgstr ""
 "autorovi za príspevok."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Tento email, ak je povolené, je automaticky odoslaný ostatným autorom "
 "článku, ktorí nie sú používateľmi v rámci OJS uvedenými počas procesu "

@@ -136,29 +136,14 @@ msgstr "Ingen oppslagstyper er opprettet."
 msgid "manager.announcementTypes.typeName"
 msgstr "Oppslagstype"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Er du sikker på at du vil slette denne e-postmalen?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Er du sikker på at du vil tilbakestille e-postmalen til standard?"
-
 msgid "manager.emails.createEmail"
 msgstr "Skriv e-post"
 
 msgid "manager.emails.disable"
 msgstr "Slå av"
 
-msgid "manager.emails.editEmail"
-msgstr "Rediger e-post"
-
 msgid "manager.emails.editTestExample"
 msgstr "Rediger eksempel på e-posttest"
-
-msgid "manager.emails.emailKey"
-msgstr "E-postnøkkel"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "En e-post med denne nøkkelen finnes allerede. E-postnøkler må være unike."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-postmal"
@@ -177,9 +162,6 @@ msgstr "E-posten må ha et emne."
 
 msgid "manager.emails"
 msgstr "E-postmaler"
-
-msgid "manager.emails.reset"
-msgstr "Tilbakestill"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Tilbakestill til standard"
@@ -1711,9 +1693,6 @@ msgstr ""
 msgid "manager.people.existingUserRequired"
 msgstr "Du må legge inn en eksisterende bruker."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Emne: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Sendt til"
 
@@ -1723,23 +1702,14 @@ msgstr "Sendt fra"
 msgid "manager.emails.resetAll"
 msgstr "Tilbakestill alle malene"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Nøkkelen du valgte er opptatt."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Du må angi et ID når en e-postmal legges til."
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-postmaler"
 
-msgid "manager.emails.emailKey.description"
-msgstr "E-postnøkkelen kan kun inneholde bokstaver, tall og understrek."
-
 msgid "manager.emails.editEmail.success"
 msgstr "E-postmalen har blitt endret."
-
-msgid "manager.emails.customTemplate"
-msgstr "Brukerdefinert mal"
 
 msgid "manager.emails.addEmail.success"
 msgstr "E-postmalen ble lagt til."
@@ -2232,12 +2202,6 @@ msgstr "Velg brukerne som skal eksporteres til en Excel/CSV-fil."
 msgid "manager.export.usersToCsv.label"
 msgstr "Eksporter til Excel/CSV"
 
-msgid "manager.emails.resetComplete"
-msgstr "E-postmalen har blitt tilbakestilt."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Standard-e-postene har blitt gjenopprettet."
-
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Slett oppslag"
 
@@ -2328,6 +2292,7 @@ msgstr ""
 msgid "mailable.passwordResetRequested.description"
 msgstr "Denne e-posten sendes til registrerte brukere når de melder fra om at de har glemt passordet sitt, eller at de ikke klarer å logge inn. Den gir en URL-lenke brukeren kan følge for å fornye passordet sitt."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Denne e-posten sendes for å ønske nyregistrerte brukere velkommen som brukere av nettstedet, og gir dem opplysning om brukernavn og passord."
 
@@ -2337,6 +2302,7 @@ msgstr ""
 "til systemet og tildele dem brukernavn og passord."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Når denne funksjonen er slått på, sendes denne e-posten automatisk til "
@@ -2345,7 +2311,8 @@ msgstr ""
 "redaksjonelle prosessen og takker forfatteren for bidraget."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Denne e-posten sendes automatisk (dersom den er aktivert) til de andre "
 "forfatterne som er oppgitt i innleveringen, som ikke har brukerkonto på "

@@ -5,7 +5,7 @@
 	"required": [
 		"contextId",
 		"body",
-		"key",
+		"name",
 		"subject"
 	],
 	"properties": {
@@ -13,6 +13,11 @@
 			"type": "string",
 			"format": "uri",
 			"readOnly": true,
+			"apiSummary": true
+		},
+		"alternateTo": {
+			"type": "string",
+			"description": "The `key` of another email template. This is used to assign a custom template to a `Mailable`. The value of `alternateTo` must match the email template key of a `Mailable`.",
 			"apiSummary": true
 		},
 		"body": {
@@ -24,18 +29,6 @@
 				"nullable"
 			]
 		},
-		"canDisable": {
-			"type": "boolean",
-			"description": "Can this email template be disabled in the context settings area? Default is `true`.",
-			"apiSummary": true,
-			"readOnly": true
-		},
-		"canEdit": {
-			"type": "boolean",
-			"description": "Can this email template be edited in the context settings area? Default is `true`.",
-			"apiSummary": true,
-			"readOnly": true
-		},
 		"contextId": {
 			"type": "integer",
 			"description": "The ID of the context (journal/press) this email is related to. Only used for custom email templates. Default is `null`.",
@@ -44,24 +37,6 @@
 				"nullable",
 				"min:0"
 			]
-		},
-		"description": {
-			"type": "string",
-			"description": "A description of when this email template is used.",
-			"multilingual": true,
-			"apiSummary": true,
-			"readOnly": true
-		},
-		"enabled": {
-			"type": "boolean",
-			"description": "Is this email template enabled? Default is `true`.",
-			"apiSummary": true
-		},
-		"fromRoleId": {
-			"type": "integer",
-			"description": "The `ROLE_ID_*` of the user who will send this email.",
-			"apiSummary": true,
-			"readOnly": true
 		},
 		"id": {
 			"type": "integer",
@@ -72,9 +47,16 @@
 		"key": {
 			"type": "string",
 			"description": "A unique key for this email template.",
+			"apiSummary": true
+		},
+		"name": {
+			"type": "string",
+			"description": "A name for this email template.",
+			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
-				"alpha_dash"
+				"nullable",
+				"max:255"
 			]
 		},
 		"subject": {
@@ -85,18 +67,6 @@
 			"validation": [
 				"nullable"
 			]
-		},
-		"toRoleId": {
-			"type": "integer",
-			"description": "The `ROLE_ID_*` of the user who will receive this email.",
-			"apiSummary": true,
-			"readOnly": true
-		},
-		"stageId": {
-			"type": "integer",
-			"description": "The `WORKFLOW_STAGE_ID_*` that email template is associated with or `null` if it is not associated with a stage.",
-			"apiSummary": true,
-			"readOnly": true
 		}
 	}
 }

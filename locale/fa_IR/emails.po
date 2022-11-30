@@ -893,10 +893,6 @@ msgstr ""
 "{$senderName}<br />\n"
 "ویراستار, {$contextName}"
 
-msgid "emails.citationEditorAuthorQuery.description"
-msgstr ""
-
-#, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "تصمیم دبیر"
 
@@ -949,21 +945,17 @@ msgstr ""
 "توصیه اینجانب در مورد مقاله ارسالی (&quot;{$submissionTitle}&quot;) در {$contextName} ، {$recommendation} می باشد."
 
 #, fuzzy
-msgid "emails.notificationCenterDefault.subject"
+msgid "emails.discussion.subject"
 msgstr "پیامی برای {$contextName}"
 
-msgid "emails.notificationCenterDefault.body"
+msgid "emails.discussion.body"
 msgstr "لطفاً پیام خود را وارد کنید"
 
-msgid "emails.notificationCenterDefault.description"
-msgstr "پیام خالی که در قسمت اطلاع رسانی استفاده می شود"
-
-#, fuzzy
-msgid "emails.submissionAckNotUser.subject"
+msgid "emails.submissionAckNotAuthor.subject"
 msgstr "قدردانی برای ارسال مقاله"
 
 #, fuzzy
-msgid "emails.submissionAckNotUser.body"
+msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "با سلام,<br />\n"
 "<br />\n"
@@ -1043,3 +1035,39 @@ msgstr ""
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr "ایمیلی که خودکار پس از آپلود نسخه اصلاحی توسط نویسنده  برای دبیر ارسال می شود"
+
+#, fuzzy
+msgid "emails.reviewRequestSubsequent.subject"
+msgstr "درخواست داوری مقاله"
+
+#, fuzzy
+msgid "emails.reviewRequestSubsequent.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"شما به عنوان یک کارشناس ممتاز برای بررسی مقاله &quot;{$submissionTitle}&quot; که برای {$contextName} ارسال شده است انتخاب شده اید. در ذیل، چکیده مقاله ارسالی برای شما گنجانده شده است و امیدوارم که در این زمینه مایل به همکاری با این مجله باشید.<br />\n"
+"<br />\n"
+"لطفا قبل از تاریخ {$responseDueDate} وارد وب سایت مجله شده و مشخص سازید که آیا مایل به قبول کارشناسی هستید یا خیر؟ همچنین به طور همزمان می توانید به مقاله ارسالی دسترسی پیدا کرده و متن کارشناسی و توصیه های خودرا ذخیره کنید.<br />\n"
+"<br />\n"
+"چنانچه رمز عبور خود را فراموش کرده اید می توانید از لینک زیر به بازیابی رمز خود بپردازید: {$passwordLostUrl}\n"
+"<br/>\n"
+"ضمنا آخرین مهلت بررسی این مقاله تا تاریخ {$reviewDueDate} می باشد.<br />\n"
+"<br />\n"
+"آدرس مقاله: <a href=\"{$reviewAssignmentUrl}\">{$reviewAssignmentUrl}</a><br />\n"
+"<br />\n"
+"از توجه شما به این درخواست متشکرم.<br />\n"
+"<br />\n"
+"{$signature}<br />\n"
+"<br />\n"
+"<br />\n"
+"--------------------------------<br />\n"
+"&quot;{$submissionTitle}&quot;<br />\n"
+"<br />\n"
+"چکیده:<br />\n"
+"{$submissionAbstract}"
+
+msgid "emails.discussion.subject"
+msgstr "پیامی برای {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "لطفاً پیام خود را وارد کنید"

@@ -14,29 +14,29 @@
 namespace PKP\mail;
 
 use APP\core\Application;
-use Exception;
-use Illuminate\Support\Facades\DB;
+use APP\facades\Repo;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
-use PKP\context\ContextDAO;
 use PKP\core\PKPString;
-use PKP\emailTemplate\EmailTemplate;
+use PKP\mail\mailables\StatisticsReportNotify;
+use PKP\mail\mailables\SubmissionAcknowledgement;
+use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
 
 class Repository
 {
     /**
-     * Get an array of mailables depending on a context and given search string
+     * Get an array of mailables
      */
-    public function getMany(Context $context, ?string $searchPhrase = null): array
+    public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
     {
-        $mailables = [];
-        foreach (Mail::getMailables($context) as $classname) {
-            if (!$searchPhrase || $this->containsSearchPhrase($classname, $searchPhrase)) {
-                $mailables[] = $classname;
-            }
-        }
-
-        return $mailables;
+        return collect(Mail::getMailables($context->getId()))
+            ->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
+            ->filter(function(string $class) use ($context, $includeDisabled) {
+                return $includeDisabled || $this->isMailableEnabled($class, $context);
+            })
+            ->map(fn(string $class) => $this->summarizeMailable($class))
+            ->sortBy('name');
     }
 
     /**
@@ -55,52 +55,97 @@ class Repository
     }
 
     /**
-     * Get a mailable by its id
-     *
-     * @return ?string fully qualified class name.
+     * Get a mailable by its email template key
      */
-    public function get(string $id, Context $context): ?string
+    public function get(string $emailTemplateKey, int $contextId): ?array
     {
-        $mailables = $this->getMany($context);
-        foreach ($mailables as $mailable) {
-            if ($mailable::getId() === $id) {
-                return $mailable;
-            }
+        /** @var ?string $mailable */
+        $mailable = collect(Mail::getMailables($contextId))
+            ->first(fn(string $mailable) => $mailable::getEmailTemplateKey() === $emailTemplateKey);
+
+        if (!$mailable) {
+            return null;
         }
-        return null;
+
+        return $this->describeMailable($mailable, $contextId);
+    }
+
+    protected function summarizeMailable(string $class): array
+    {
+        $dataDescriptions = $class::getDataDescriptions();
+        ksort($dataDescriptions);
+
+        return [
+            '_href' => Application::get()->getRequest()->getDispatcher()->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_API,
+                Application::get()->getRequest()->getContext()->getPath(),
+                'mailables/' . $class::getEmailTemplateKey(),
+            ),
+            'dataDescriptions' => $dataDescriptions,
+            'description' => $class::getDescription(),
+            'emailTemplateKey' => $class::getEmailTemplateKey(),
+            'fromRoleIds' => $class::getFromRoleIds(),
+            'groupIds' => $class::getGroupIds(),
+            'name' => $class::getName(),
+            'supportsTemplates' => $class::getSupportsTemplates(),
+            'toRoleIds' => $class::getToRoleIds(),
+        ];
     }
 
     /**
-     * Associate mailable with custom templates
-     *
-     * @param array<EmailTemplate> $customTemplates
-     *
-     * @throws Exception
+     * Gets information about the mailable with its assigned templates
      */
-    public function assignTemplates(string $id, array $customTemplates): void
+    protected function describeMailable(string $class, int $contextId): array
     {
-        // Remove already assigned first
-        DB::table('mailable_templates')->where('mailable_id', $id)->delete();
+        $data = $this->summarizeMailable($class);
 
-        // Allow one-to-many relationship between templates and mailables
-        $checkedIds = [];
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
-        foreach ($customTemplates as $emailTemplate) {
+        if (!$class::getSupportsTemplates()) {
+            $data['emailTemplates'] = [];
+        } else {
+            $templates = Repo::emailTemplate()
+                ->getCollector()
+                ->filterByContext($contextId)
+                ->alternateTo([$class::getEmailTemplateKey()])
+                ->getMany();
 
-            // Data integrity check whether Mailable exists and is in the same context with the template
-            $contextId = $emailTemplate->getData('contextId');
-            $mailableExists = in_array($contextId, $checkedIds);
-            if (!$mailableExists) {
-                $context = $contextDao->getById($contextId);
-                $mailableExists = (bool) $this->get($id, $context);
-            }
+            $defaultTemplate = Repo::emailTemplate()->getByKey($contextId, $class::getEmailTemplateKey());
 
-            if ($mailableExists) {
-                DB::table('mailable_templates')
-                    ->insert(['email_id' => $emailTemplate->getId(), 'mailable_id' => $id]);
-            } else {
-                throw new Exception('Tried to insert unexisting Mailable ' . $id);
-            }
+            $data['emailTemplates'] = Repo::emailTemplate()
+                ->getSchemaMap()
+                ->summarizeMany(
+                    collect(
+                        array_merge(
+                            [$defaultTemplate],
+                            $templates->values()->toArray()
+                        )
+                    )
+                )
+                ->values();
         }
+
+
+        return $data;
+    }
+
+    /**
+     * Check if a mailable is enabled on this context
+     */
+    protected function isMailableEnabled(string $class, Context $context): bool
+    {
+        if ($class === StatisticsReportNotify::class) {
+            return (bool) $context->getData('editorialStatsEmail');
+        } elseif (in_array($class, [SubmissionAcknowledgement::class, SubmissionAcknowledgementNotAuthor::class])) {
+            $setting = $context->getData('submissionAcknowledgement');
+            if ($setting === Context::SUBMISSION_ACKNOWLEDGEMENT_ALL_AUTHORS) {
+                return true;
+            } elseif ($setting === Context::SUBMISSION_ACKNOWLEDGEMENT_OFF) {
+                return false;
+            } elseif ($class === SubmissionAcknowledgementNotAuthor::class) {
+                return false;
+            }
+            return true;
+        }
+        return true;
     }
 }

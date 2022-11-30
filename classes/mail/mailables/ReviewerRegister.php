@@ -20,6 +20,7 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\security\Role;
 use PKP\user\User;
 
 class ReviewerRegister extends Mailable
@@ -34,6 +35,13 @@ class ReviewerRegister extends Mailable
     protected static ?string $description = 'mailable.reviewerRegister.description';
     protected static ?string $emailTemplateKey = 'REVIEWER_REGISTER';
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $fromRoleIds = [
+        Role::ROLE_ID_SUB_EDITOR,
+        Role::ROLE_ID_ASSISTANT,
+    ];
+    protected static array $toRoleIds = [
+        Role::ROLE_ID_REVIEWER,
+    ];
     protected static ?string $variablePassword = 'password';
 
     public function __construct(Context $context)

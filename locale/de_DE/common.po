@@ -1636,9 +1636,6 @@ msgstr "Vorschau des derzeit ausgewählten Bildes."
 msgid "common.upload.restore"
 msgstr "Original wiederherstellen"
 
-msgid "common.toWithValue"
-msgstr "An: {$value}"
-
 msgid "common.submenu"
 msgstr "Untermenü"
 
@@ -1670,9 +1667,6 @@ msgstr "Keine Elemente gefunden."
 
 msgid "common.lastActivity"
 msgstr "Letzte Aktivität verzeichnet am {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Von: {$value}"
 
 msgid "common.dateDecided"
 msgstr "Entscheidungsdatum"

@@ -9,7 +9,7 @@
  *
  * @class DecisionSendExternalReviewNotifyAuthor
  *
- * @brief Email sent to the author(s) when a the following decisions is made: 
+ * @brief Email sent to the author(s) when a the following decisions is made:
  *      Decision::EXTERNAL_REVIEW
  */
 
@@ -38,7 +38,7 @@ class DecisionSendExternalReviewNotifyAuthor extends Mailable
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_SEND_TO_EXTERNAL';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_SUBMISSION];
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
     public function __construct(Context $context, Submission $submission, Decision $decision)

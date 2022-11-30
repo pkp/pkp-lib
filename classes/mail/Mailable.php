@@ -75,6 +75,13 @@ class Mailable extends IlluminateMailable
     public const GROUP_COPYEDITING = 'copyediting';
     public const GROUP_PRODUCTION = 'production';
 
+    /**
+     * A dummy "role" for the Sent From filters in the mailable UI.
+     *
+     * Mailables sent from this "role" are sent by the system itself.
+     */
+    public const FROM_SYSTEM = -1;
+
     public const ATTACHMENT_TEMPORARY_FILE = 'temporaryFileId';
     public const ATTACHMENT_SUBMISSION_FILE = 'submissionFileId';
     public const ATTACHMENT_LIBRARY_FILE = 'libraryFileId';
@@ -156,6 +163,22 @@ class Mailable extends IlluminateMailable
     public static function getGroupIds(): array
     {
         return static::$groupIds;
+    }
+
+    /**
+     * Get role IDs of users that are able to send the Mailable
+     */
+    public static function getFromRoleIds(): array
+    {
+        return static::$fromRoleIds;
+    }
+
+    /**
+     * Get role IDs of recipients
+     */
+    public static function getToRoleIds(): array
+    {
+        return static::$toRoleIds;
     }
 
     /**
@@ -275,22 +298,6 @@ class Mailable extends IlluminateMailable
     public static function canDisable(): bool
     {
         return static::$canDisable;
-    }
-
-    /**
-     * Get role IDs of users that are able to send the Mailable
-     */
-    public static function getFromRoleIds(): array
-    {
-        return static::$fromRoleIds;
-    }
-
-    /**
-     * Get role IDs of recipients
-     */
-    public static function getToRoleIds(): array
-    {
-        return static::$toRoleIds;
     }
 
     /**

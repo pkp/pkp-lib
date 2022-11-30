@@ -13,6 +13,7 @@
 
 namespace PKP\emailTemplate;
 
+use APP\core\Services;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
@@ -20,9 +21,11 @@ use PKP\core\EntityDAO;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
-use PKP\facades\Repo;
+use APP\facades\Repo;
+use PKP\context\Context;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
+use Stringy\Stringy;
 
 class DAO extends EntityDAO
 {
@@ -35,6 +38,8 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$settingsTable */
     public $settingsTable = 'email_templates_settings';
 
+    public $defaultTable = 'email_templates_default_data';
+
     /** @copydoc EntityDAO::$primarykeyColumn */
     public $primaryKeyColumn = 'email_id';
 
@@ -42,6 +47,7 @@ class DAO extends EntityDAO
     public $primaryTableColumns = [
         'id' => 'email_id',
         'key' => 'email_key',
+        'alternateTo' => 'alternate_to',
         'contextId' => 'context_id',
         'enabled' => 'enabled',
     ];
@@ -65,11 +71,20 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::insert()
      *
+     * Custom email templates will need to generate a unique key,
+     * but the key will be set when this template is a customization
+     * of a default template.
+     *
      * @throws Exception
+     * @return string The email template key
      */
-    public function insert(EmailTemplate $object): int
+    public function insert(EmailTemplate $object): string
     {
-        return parent::_insert($object);
+        if (!$object->getData('key')) {
+            $object->setData('key', $this->getUniqueKey($object));
+        }
+        parent::_insert($object);
+        return $object->getData('key');
     }
 
     /**
@@ -86,9 +101,6 @@ class DAO extends EntityDAO
     public function delete(EmailTemplate $emailTemplate)
     {
         parent::_delete($emailTemplate);
-
-        // Remove template from mailable_templates table
-        DB::table('mailable_templates')->where('email_id', $emailTemplate->getId())->delete();
     }
 
     /**
@@ -108,7 +120,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a singe email template that matches the given key
+     * Get a single email template that matches the given key
      */
     public function getByKey(int $contextId, string $key): ?EmailTemplate
     {
@@ -142,11 +154,11 @@ class DAO extends EntityDAO
         $emailTemplate = parent::fromRow($row);
         $schema = $this->schemaService->get($this->schema);
 
-        $rows = DB::table('email_templates_default_data')
+        $rows = DB::table($this->defaultTable)
             ->where('email_key', '=', $emailTemplate->getData('key'))
             ->get();
 
-        $props = ['subject', 'body'];
+        $props = ['name', 'subject', 'body'];
 
         $rows->each(function ($row) use ($emailTemplate, $schema, $props) {
             foreach ($props as $prop) {
@@ -174,14 +186,7 @@ class DAO extends EntityDAO
     public function deleteEmailTemplatesByLocale(string $locale)
     {
         DB::table($this->settingsTable)->where('locale', $locale)->delete();
-    }
-
-    /**
-     * Delete all default email templates for a specific locale.
-     */
-    public function deleteDefaultEmailTemplatesByLocale(string $locale)
-    {
-        DB::table('email_templates_default_data')->where('locale', $locale)->delete();
+        DB::table($this->defaultTable)->where('locale', $locale)->delete();
     }
 
     /**
@@ -193,7 +198,7 @@ class DAO extends EntityDAO
      */
     public function defaultTemplateIsInstalled(string $key)
     {
-        return DB::table('email_templates_default_data')->where('email_key', $key)->exists();
+        return DB::table($this->defaultTable)->where('email_key', $key)->exists();
     }
 
     /**
@@ -254,6 +259,13 @@ class DAO extends EntityDAO
 
             // Add localized data
             $this->installEmailTemplateLocaleData($templatesFile, $locales, $attrs['key']);
+
+            if (isset($attrs['alternateTo'])) {
+                $contextIds = Services::get('context')->getIds();
+                foreach ($contextIds as $contextId) {
+                    $this->installAlternateEmailTemplates($contextId, $attrs['key']);
+                }
+            }
         }
         return true;
     }
@@ -284,24 +296,27 @@ class DAO extends EntityDAO
                 continue;
             }
 
+            $name = $attrs['name'] ?? null;
             $subject = $attrs['subject'] ?? null;
             $body = $attrs['body'] ?? null;
-            if ($subject && $body) {
+            if ($name && $subject && $body) {
                 foreach ($locales as $locale) {
-                    DB::table('email_templates_default_data')
+                    DB::table($this->defaultTable)
                         ->where('email_key', $attrs['key'])
                         ->where('locale', $locale)
                         ->delete();
 
                     $previous = Locale::getMissingKeyHandler();
                     Locale::setMissingKeyHandler(fn (string $key): string => '');
+                    $translatedName = $name ? __($name, [], $locale) : $attrs['key'];
                     $translatedSubject = __($subject, [], $locale);
                     $translatedBody = __($body, [], $locale);
                     Locale::setMissingKeyHandler($previous);
                     if ($translatedSubject !== null && $translatedBody !== null) {
-                        DB::table('email_templates_default_data')->insert([
+                        DB::table($this->defaultTable)->insert([
                             'email_key' => $attrs['key'],
                             'locale' => $locale,
+                            'name' => $translatedName,
                             'subject' => $this->renameApplicationVariables($translatedSubject),
                             'body' => $this->renameApplicationVariables($translatedBody),
                         ]);
@@ -310,6 +325,53 @@ class DAO extends EntityDAO
             }
         }
         return true;
+    }
+
+    /**
+     * Installs the "extra" email templates for a context
+     *
+     * These are default email templates that are not the default email
+     * template for a particular mailable. They are extra templates listed
+     * alongside the default template for this mailable.
+     *
+     * These templates are defined by the presence of the `alternateTo`
+     * attribute in the email templates XML file. For them to appear in the
+     * UI, they must have an entry in the `email_templates` database.
+     */
+    public function installAlternateEmailTemplates(int $contextId, ?string $emailKey = null): void
+    {
+        $xmlDao = new XMLDAO();
+        $data = $xmlDao->parseStruct(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), ['email']);
+        if (!isset($data['email'])) {
+            throw new Exception('Unable to install email templates.');
+        }
+
+        foreach ($data['email'] as $entry) {
+
+            $attrs = $entry['attributes'];
+            $alternateTo = $attrs['alternateTo'] ?? null;
+
+            if ($emailKey && $emailKey != $attrs['key']) {
+                continue;
+            }
+            if (!$alternateTo) {
+                continue;
+            }
+
+            $exists = DB::table($this->defaultTable)
+                ->where('email_key', $alternateTo)
+                ->exists();
+
+            if (!$exists) {
+                throw new Exception('Tried to install email template as an alternate to `' . $alternateTo . '`, but no default template exists with this key.');
+            }
+
+            DB::table($this->table)->insert([
+                'email_key' => $attrs['key'],
+                'context_id' => $contextId,
+                'alternate_to' => $attrs['alternateTo'],
+            ]);
+        }
     }
 
     /**
@@ -347,12 +409,12 @@ class DAO extends EntityDAO
             if ($emailKey && $emailKey != $emailNode->getAttribute('key')) {
                 continue;
             }
-            DB::table('email_templates_default_data')
+            DB::table($this->defaultTable)
                 ->where('email_key', $emailNode->getAttribute('key'))
                 ->where('locale', $locale)
                 ->delete();
 
-            DB::table('email_templates_default_data')->insert([
+            DB::table($this->defaultTable)->insert([
                 'email_key' => $emailNode->getAttribute('key'),
                 'locale' => $locale,
                 'subject' => $subject,
@@ -390,5 +452,35 @@ class DAO extends EntityDAO
     protected function variablesToRename(): array
     {
         return [];
+    }
+
+    /**
+     * Gets a unique key for an email template
+     *
+     * Use this to generate a unique key before adding a template to the
+     * database.
+     */
+    protected function getUniqueKey(EmailTemplate $emailTemplate): string
+    {
+        $key = Stringy::create($emailTemplate->getLocalizedData('name'))
+            ->slugify()
+            ->regexReplace('[^a-z0-9\-\_.]', '')
+            ->truncate(30)
+            ->toString();
+
+        if (!$key) {
+            $key = uniqid();
+        }
+
+        $emailTemplate = $this->getByKey($emailTemplate->getData('contextId'), $key);
+
+        $i = 0;
+        while ($emailTemplate) {
+            $key = $i ? (substr($key, 0, -1) . $i) : ($key . $i);
+            $emailTemplate = $this->getByKey($emailTemplate->getData('contextId'), $key);
+            $i++;
+        }
+
+        return $key;
     }
 }

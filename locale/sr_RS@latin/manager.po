@@ -135,29 +135,14 @@ msgstr "Nema kreiranih tipova obaveštenja."
 msgid "manager.announcementTypes.typeName"
 msgstr "Tip obaveštenja"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Da li ste sigurni da želite obrisati ovaj šablon imejla?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Da li ste sigurni da želite vratiti početni šablon imejla na njegove standardne vrednosti?"
-
 msgid "manager.emails.createEmail"
 msgstr "Napravi imejl"
 
 msgid "manager.emails.disable"
 msgstr "Onemogući"
 
-msgid "manager.emails.editEmail"
-msgstr "Izmeni imejl"
-
 msgid "manager.emails.editTestExample"
 msgstr "Uredite probni primer imejla"
-
-msgid "manager.emails.emailKey"
-msgstr "Ključ imejla"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Imajl s datim ključem već postoji. Ključ imejla mora biti jedinstven."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Šablon imejla"
@@ -179,9 +164,6 @@ msgstr "Subjekat je obavezan u imejlu."
 
 msgid "manager.emails"
 msgstr "Pripremljeni obrasci imejla"
-
-msgid "manager.emails.reset"
-msgstr "Vrati na početno"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Vratite na početnu vrednost"

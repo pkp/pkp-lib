@@ -138,33 +138,14 @@ msgstr "Der er ikke oprettet nogen meddelelsestyper."
 msgid "manager.announcementTypes.typeName"
 msgstr "Meddelelsestype"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Er du sikker på, at du vil slette denne e-mail-skabelon?"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Er du sikker på, at du vil nulstille denne e-mail-skabelon til dens "
-"standardværdier?"
-
 msgid "manager.emails.createEmail"
 msgstr "Opret e-mail"
 
 msgid "manager.emails.disable"
 msgstr "Deaktivér"
 
-msgid "manager.emails.editEmail"
-msgstr "Redigér e-mail"
-
 msgid "manager.emails.editTestExample"
 msgstr "Redigér eksempel på e-mail-test"
-
-msgid "manager.emails.emailKey"
-msgstr "E-mail-nøgle"
-
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Der findes allerede en e-mail med den angivne nøgle. E-mail-nøgler skal være "
-"entydige."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-mail-skabelon"
@@ -183,9 +164,6 @@ msgstr "Et emne er påkrævet for denne e-mail."
 
 msgid "manager.emails"
 msgstr "Forberedte e-mails"
-
-msgid "manager.emails.reset"
-msgstr "Nulstil"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Nulstil til standard"
@@ -1753,9 +1731,6 @@ msgstr ""
 "markedsmetadata til et eller flere publikationsformater i forbindelse med "
 "denne indsendelse."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Emne: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Sendt til"
 
@@ -1765,20 +1740,11 @@ msgstr "Sendt fra"
 msgid "manager.emails.resetAll"
 msgstr "Nulstil alt"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Den angivne nøgle er allerede i brug."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Du skal angive et kontekst-id, når du tilføjer en e-mail-skabelon."
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-mail-skabelon"
-
-msgid "manager.emails.emailKey.description"
-msgstr "E-mail-nøglen kan kun indeholde bogstaver, tal og understregninger."
-
-msgid "manager.emails.customTemplate"
-msgstr "Brugerdefineret skabelon"
 
 msgid "manager.emails.addEmail"
 msgstr "Tilføj skabelon"
@@ -2162,12 +2128,6 @@ msgstr "Deaktiver indsendelser"
 
 msgid "manager.people.signedInAs"
 msgstr "Du er i øjeblikket logget ind som {$brugernavn}"
-
-msgid "manager.emails.resetComplete"
-msgstr "E-mail-skabelonen blev nulstillet."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Standard-e-mail-skabelonerne er blevet gendannet."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Slet meddelelse"
@@ -2795,6 +2755,7 @@ msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
 "blevet sendt tilbage til indsendelsestrinnet."
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Indsendelse afslået"
 
@@ -2963,6 +2924,7 @@ msgstr "Du kan ikke vælge denne handling uden at have DOI'er slået til."
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI opdatering mislykkedes"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Denne e-mail sendes af en sektionsredaktør for at bekræfte modtagelsen af en "
@@ -2971,7 +2933,7 @@ msgstr ""
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Bekræftelse af bedømmelse"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Svar på bedømmelse er overskredet (automatiseret)"
 
 msgid "mailable.reviewRequest.name"
@@ -3007,6 +2969,7 @@ msgstr ""
 "glemt deres adgangskode eller ikke kan logge på. Den indeholder en URL-"
 "adresse, de kan følge for at nulstille deres adgangskode."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Denne e-mail sendes til netop registrerede brugere for at byde dem velkommen "
@@ -3018,6 +2981,7 @@ msgstr ""
 "velkommen til systemet og for at oplyse dem om deres brugernavn og "
 "adgangskode."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Når denne e-mail er aktiveret, bliver den automatisk sendt til en forfatter, "
@@ -3025,7 +2989,8 @@ msgstr ""
 "oplysninger om, hvordan forfatteren kan følge manuskriptet igennem "
 "processen, og den takker forfatteren for manuskriptet."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Når denne e-mail er aktiveret, sendes den automatisk til de øvrige "
 "forfattere, udover indsenderen, angivet under indsendelsesprocessen."
@@ -3181,10 +3146,12 @@ msgstr "Bekræft nulstilling af password"
 msgid "mailable.reviewerRegister.name"
 msgstr "Bedømmerregister"
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Anerkendelse af indsendelse"
 
-msgid "mailable.submissionAckNotUser.name"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Bekræftelse af indsendelse"
 
 msgid "mailable.discussionReview.name"
@@ -3218,6 +3185,7 @@ msgstr "Notifikation om redigering af bedømmelse"
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "Titlen på meddelelsen"
 
+#, fuzzy
 msgid "mailable.userRegister.name"
 msgstr "Brugerregister"
 

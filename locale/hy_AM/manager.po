@@ -845,9 +845,6 @@ msgstr "Ընտրեք օգտվողներին, որոնք պետք է արտահա
 msgid "manager.export.usersToCsv.label"
 msgstr "Արտահանել Excel/CSV"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Թեմա՝ {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Ուղարկվել է"
 
@@ -862,15 +859,6 @@ msgstr ""
 "Եթե զրոյացնեք այս ձևանմուշը, հաղորդագրության բոլոր տվյալները կվերակայվեն "
 "նախնական արժեքին՝ կորցնելով բոլոր փոփոխությունները: Ցանկանու՞մ եք հաստատել "
 "այս գործողությունը:"
-
-msgid "manager.emails.resetComplete"
-msgstr "Էլ․ փոստի ձևանմուշը հաջողությամբ զրոյացվել է:"
-
-msgid "manager.emails.reset"
-msgstr "Վերակայել"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Էլ․ փոստի կանխադրված ձևանմուշները վերականգնվել են:"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -905,9 +893,6 @@ msgstr "Միացնել"
 msgid "manager.emails.enabled"
 msgstr "Միացնել էլ․ փոստի այս ձևանմուշը"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Ձեր տրամադրած բանալին արդեն օգտագործվում է:"
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Էլ․ փոստի ձևանմուշ ավելացնելիս պետք է տրամադրեք համատեքստի ID:"
 
@@ -920,22 +905,8 @@ msgstr "Էլ․ փոստի ձևանմուշներ"
 msgid "manager.emails.emailTemplate"
 msgstr "Էլ․ փոստի ձևանմուշ"
 
-msgid "manager.emails.emailKeyExists"
-msgstr ""
-"Տվյալ բանալիով էլ․ փոստ արդեն գոյություն ունի: Էլ․ փոստի բանալիները պետք է "
-"եզակի լինեն:"
-
-msgid "manager.emails.emailKey.description"
-msgstr "Էլ․ փոստի բանալին կարող է պարունակել միայն տառեր, թվեր և ընդգծումներ:"
-
-msgid "manager.emails.emailKey"
-msgstr "Էլ․ փոստի բանալի"
-
 msgid "manager.emails.editTestExample"
 msgstr "Խմբագրել էլ․ փոստի փորձնական օրինակը"
-
-msgid "manager.emails.editEmail"
-msgstr "Խմբագրել էլ․ նամակը"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -952,22 +923,11 @@ msgstr "Ձևանմուշի մանրամասներ"
 msgid "manager.emails.data"
 msgstr "Ձևանմուշի հաղորդագրության տվյալներ"
 
-msgid "manager.emails.customTemplate"
-msgstr "Անհատական ձևանմուշ"
-
 msgid "manager.emails.createEmail"
 msgstr "Ստեղծել էլ․ նամակ"
 
 msgid "manager.emails.addEmail"
 msgstr "Ավելացնել ձևանմուշ"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Իսկապե՞ս ուզում եք վերականգնել էլփոստի այս ձևանմուշը իր կանխադրված "
-"արժեքներին:"
-
-msgid "manager.emails.confirmDelete"
-msgstr "Իսկապե՞ս ուզում եք ջնջել էլփոստի այս ձևանմուշը:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
@@ -2614,6 +2574,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Սկսվել է վերանայման նոր փուլ"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Ներկայացումը մերժվել է"
 
@@ -2947,9 +2908,10 @@ msgstr ""
 "Այս նամակն ինքնաշխատ կերպով ուղարկվում է, երբ վերանայման հարցմանը "
 "պատասխանելու վերջնաժամկետը լրանա:"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Վերանայման պատասխանը ժամկետանց է (ավտոմատացված)"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Այս նամակն ուղարկվում է Բաժնի խմբագրի կողմից՝ հաստատելու ավարտված վերանայման "
@@ -3116,6 +3078,7 @@ msgstr "Հղում դեպի խմբագրական գործունեության է
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "Հրապարակված հոդվածների վիճակագրության էջի հղումը"
 
+#, fuzzy
 msgid "mailable.userRegister.name"
 msgstr "Օգտագործողի գրանցում"
 
@@ -3133,6 +3096,7 @@ msgstr "Գաղտնաբառի վերականգնում"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Գաղտնաբառի վերականգնման Հաստատում"
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Այս էլ․ նամակն ուղարկվում է նոր գրանցված օգտատիրոջը՝ ողջունելու նրան "
@@ -3146,13 +3110,16 @@ msgstr ""
 "Այս էլ․ նամակն ուղարկվում է նոր գրանցված գրախոսին, որպեսզի ողջունի նրան "
 "համակարգում և տրամադրի օգտվողի անվան և գաղտնաբառի գրառումը:"
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Ներկայացման հաստատում"
 
-msgid "mailable.submissionAckNotUser.name"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Ներկայացման հաստատում"
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Այս էլ․ նամակը, երբ միացված է, ինքնաշխատ կերպով ուղարկվում է այն "
 "հեղինակներին, որոնց անունները նշված են ներկայացման մեջ, և ովքեր ուղարկող "
@@ -3227,6 +3194,7 @@ msgstr ""
 "մոռացել են իրենց գաղտնաբառը կամ չեն կարողանում մուտք գործել: Այն տրամադրում "
 "է URL, որին հետևելով նրանք կարող են վերականգնելու իրենց գաղտնաբառը:"
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Այս էլ․ նամակը, երբ միացված է, ինքնաբերաբար ուղարկվում է հեղինակին, երբ "

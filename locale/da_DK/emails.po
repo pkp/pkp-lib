@@ -218,3 +218,8 @@ msgstr ""
 "hilsen</p>{$signature}"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Besked omhandlende {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Skriv venligst din besked."

@@ -167,3 +167,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Keputusan Editor"
+
+msgid "emails.discussion.subject"
+msgstr "Mesej mengenai {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Sila masukkan mesej anda."

@@ -152,10 +152,10 @@ class Mailer extends IlluminateMailer
     /**
      * @return string[] mailable class names
      */
-    public static function getMailables(Context $context): array
+    public static function getMailables(int $contextId): array
     {
-        $mailables = static::getMailablesFromCache($context->getId());
-        Hook::call('Mailer::Mailables', [&$mailables]);
+        $mailables = static::getMailablesFromCache($contextId);
+        Hook::call('Mailer::Mailables', [&$mailables, $contextId]);
 
         return $mailables;
     }

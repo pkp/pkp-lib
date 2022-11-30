@@ -1939,9 +1939,6 @@ msgstr "Vista prèvia de la imatge seleccionada actualment."
 msgid "common.upload.restore"
 msgstr "Restaurar l'original"
 
-msgid "common.toWithValue"
-msgstr "Fins a: {$value}"
-
 msgid "common.submenu"
 msgstr "Submenú"
 
@@ -1996,9 +1993,6 @@ msgstr "{$value} o menys"
 
 msgid "common.lastActivity"
 msgstr "Darrera activitat registrada el {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Des de: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Netejar filtre: {$filterTitle}"

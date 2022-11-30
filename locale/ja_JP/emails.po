@@ -153,3 +153,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "編集者の判断"
+
+msgid "emails.discussion.subject"
+msgstr "{$contextName}に関するメッセージ"
+
+msgid "emails.discussion.body"
+msgstr "メッセージを入力してください。"

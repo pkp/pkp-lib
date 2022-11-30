@@ -155,12 +155,6 @@ msgstr "تولید"
 msgid "manager.publication.emails"
 msgstr "ایمیل"
 
-msgid "manager.emails.confirmDelete"
-msgstr "آیا می‌خواهید این الگوی ایمیل را حذف کنید؟"
-
-msgid "manager.emails.confirmReset"
-msgstr "آیا می‌خواهید این الگوی ایمیل را به حالت نخست برگردانید؟"
-
 msgid "manager.emails.createEmail"
 msgstr "ایجاد ایمیل"
 
@@ -176,17 +170,8 @@ msgstr "غیرفعال ساختن"
 msgid "manager.emails.disable.message"
 msgstr "شما در حال غیرفعال کردن این الگوی ایمیل هستید. اگر سیستم در حال استفاده از این الگو باشد، ممکن است دچار اختلال شود. آیا مطمئن به ادامه این کار هستید؟"
 
-msgid "manager.emails.editEmail"
-msgstr "ویرایش ایمیل"
-
 msgid "manager.emails.editTestExample"
 msgstr "ویرایش ایمیل آزمایشی"
-
-msgid "manager.emails.emailKey"
-msgstr "شناسه ایمیل"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "ایمیلی با این شناسه در حال حاضر موجود است. کلید ایمیل می‌بایست منحصربه‌فرد باشد."
 
 msgid "manager.emails.emailTemplate"
 msgstr "الگوی ایمیل"
@@ -214,9 +199,6 @@ msgstr "ایمیل‌های از پیش آماده شده"
 
 msgid "manager.emails.resetAll.message"
 msgstr "اگر تمامی الگوها را رست کنید، تمامی تغییرات انجام شده بر روی الگوها از دست خواهد رفت. مطمئن به ادامه این کار هستید؟"
-
-msgid "manager.emails.reset"
-msgstr "ریست"
 
 msgid "manager.emails.reset.message"
 msgstr "اگر این الگو را رست کنید، تمامی تغییرات آن به حالت پیش‌فرض بر خواهد گشت. مطمئن به ادامه این کار هستید؟"
@@ -1451,6 +1433,7 @@ msgstr "ایمیلی برای کاربرانی که رمز خود را رست ن
 msgid "mailable.passwordResetRequested.description"
 msgstr "This email is sent to a registered user when they indicate that they have forgotten their password or are unable to login. It provides a URL they can follow to reset their password."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "This email is sent to a newly registered user to welcome them to the system and provide them with a record of their username and password."
 
@@ -1458,11 +1441,13 @@ msgid "mailable.reviewerRegister.description"
 msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."
 
 msgid "mailable.revisedVersionNotify.description"

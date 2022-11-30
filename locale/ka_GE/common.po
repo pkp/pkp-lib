@@ -957,9 +957,6 @@ msgstr "მოხდა მოულოდნელი შეცდომა. �
 msgid "common.uninitiated"
 msgstr "გაუცნობიერებელი"
 
-msgid "common.toWithValue"
-msgstr "მიმღები: {$value}"
-
 msgid "common.titleSeparator"
 msgstr " | "
 
@@ -1144,9 +1141,6 @@ msgstr "მთავარი გვერდის სათაური"
 
 msgid "common.go"
 msgstr "გადასვლა"
-
-msgid "common.fromWithValue"
-msgstr "გამგზავნი: {$value}"
 
 msgid "common.filterRemove"
 msgstr "ფილტრის გასუფთავება: {$filterTitle}"

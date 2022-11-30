@@ -168,3 +168,8 @@ msgstr ""
 "Değerlendirme sonucu karar:  Aday Makale Reddedildi"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "{$contextName} ile ilgili bir mesaj"
+
+msgid "emails.discussion.body"
+msgstr "Lütfen mesajınızı giriniz."

@@ -825,6 +825,7 @@ class PKPTemplateManager extends Smarty
             'common.filter',
             'common.filterAdd',
             'common.filterRemove',
+            'common.insertContent',
             'common.loading',
             'common.no',
             'common.noItemsFound',

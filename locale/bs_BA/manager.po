@@ -122,26 +122,14 @@ msgstr "Nema kreiranih tipova obavijesti."
 msgid "manager.announcementTypes.typeName"
 msgstr "Tip obavijesti"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Jeste li sigurni da želite obrisati ovaj predložak e-pošte?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Jeste li sigurni da želite vratiti izvorni predložak e-pošte na njegove standardne vrijednosti?"
-
 msgid "manager.emails.createEmail"
 msgstr "Izradi novi obrazac"
 
 msgid "manager.emails.disable"
 msgstr "Onemogući"
 
-msgid "manager.emails.editEmail"
-msgstr "Uredi e-poštu"
-
 msgid "manager.emails.editTestExample"
 msgstr "Uredite testni primjer e-pošte"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "E-pošta s datim ključem već postoji. Ključe e-pošte mora biti jedinstven."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Predložak e-pošte"
@@ -160,9 +148,6 @@ msgstr "Naslov je obavezan u e-pošti."
 
 msgid "manager.emails"
 msgstr "Pripremljeni obrasci e-pošte"
-
-msgid "manager.emails.reset"
-msgstr "Vrati izvorno"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Vratite na standardnu vrijednost"
@@ -558,12 +543,14 @@ msgstr "Ovaj obrazac e-pošte šalje se registriranim korisnicima nakon što  us
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ovaj obrazac e-pošte šalje se registriranim korisnicima kada informiraju sustav da su zaboravili svoju lozinku ili da se ne mogu prijaviti u sustav. U poruci se nalazi URL koji mogu slijediti kao bi postavili svoju novu lozinku."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Ovaj se obrazac e-pošte šalje novoregistriranim korisnicima u sustavu i sadrži njihovo korisničko ime i lozinku."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Ova se poruka šalje recenzentima koje registriraju urednici. Njome se novoregistriranom recenzentu želi dobrodošlica te pružaju informacije o korisničkom imenu i lozinki."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Ovaj se obrazac e-pošte automatski šalje autoru kada su on ili ona završili postupak prijave priloga časopisu. Poruka daje informacije o tome kako mogu pratiti prilog kroz uređivački postupak."

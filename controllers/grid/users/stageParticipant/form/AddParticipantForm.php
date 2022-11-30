@@ -15,14 +15,13 @@
 
 namespace PKP\controllers\grid\users\stageParticipant\form;
 
-use APP\controllers\grid\users\stageParticipant\form\StageParticipantNotifyForm;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\userGroup\relationships\UserGroupStage;
 
-class AddParticipantForm extends StageParticipantNotifyForm
+class AddParticipantForm extends PKPStageParticipantNotifyForm
 {
     /** @var Submission The submission associated with the submission contributor being edited */
     public $_submission;

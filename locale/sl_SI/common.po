@@ -1867,9 +1867,6 @@ msgstr "Predogled trenutno izbrane slike."
 msgid "common.upload.restore"
 msgstr "Obnovi na prvotno"
 
-msgid "common.toWithValue"
-msgstr "Do: {$value}"
-
 msgid "common.submenu"
 msgstr "Podmeni"
 
@@ -1895,9 +1892,6 @@ msgstr "Ni najdenih predmetov."
 
 msgid "common.lastActivity"
 msgstr "Zadnja aktivnost zabeležena {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Od: {$value}"
 
 msgid "common.altTextInstructions"
 msgstr ""

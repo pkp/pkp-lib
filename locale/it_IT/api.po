@@ -288,19 +288,8 @@ msgstr "Non è consentito aggiungere e modificare questi file."
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
 msgstr "Non è possibile accedere ai file in questo turno di revisione."
 
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "Le chiavi del modello di e-mail non sono specificate."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "L'e-mail richiesta non è stata trovata."
-
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"Non è stato possibile assegnare il modello a questa e-mail perché il modello "
-"non è stato trovato."
-
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "L'input templateKeys deve essere un array o una stringa vuota"
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "Il giro di revisione da voi fornito non appartiene a questa proposta."

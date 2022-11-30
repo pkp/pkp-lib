@@ -174,3 +174,8 @@ msgstr ""
 "уважением,</p>{$signature}"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Сообщение о журнале «{$contextName}»"
+
+msgid "emails.discussion.body"
+msgstr "Пожалуйста, введите свое сообщение."

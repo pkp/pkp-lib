@@ -1668,9 +1668,6 @@ msgstr "Náhled aktuálně vybraného obrázku."
 msgid "common.upload.restore"
 msgstr "Obnovit originál"
 
-msgid "common.toWithValue"
-msgstr "Do: {$value}"
-
 msgid "common.submenu"
 msgstr "Podnabídka"
 
@@ -1712,9 +1709,6 @@ msgstr ", "
 
 msgid "common.lastActivity"
 msgstr "Poslední aktivita zaznamenaná dne {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Od: {$value}"
 
 msgid "common.dateDecided"
 msgstr "Datum rozhodnutí"

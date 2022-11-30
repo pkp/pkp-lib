@@ -166,14 +166,6 @@ msgstr "Produkcija"
 msgid "manager.publication.emails"
 msgstr "Emaili"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Ali ste prepričani, da želite zbrisati to predlogo e-pošte?"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Ali ste prepričani, da želite ponastaviti to predlogo e-pošte na privzete "
-"vrednosti?"
-
 msgid "manager.emails.createEmail"
 msgstr "Ustvari e-pošto"
 
@@ -191,17 +183,8 @@ msgstr ""
 "Onemogočate predlogo e-pošte. Če procesi sistema to predlogo uporabljajo, je "
 "ne bodo več mogli. Želite potrditi to operacijo?"
 
-msgid "manager.emails.editEmail"
-msgstr "Uredi e-pošto"
-
 msgid "manager.emails.editTestExample"
 msgstr "Uredi testni primer e-pošte"
-
-msgid "manager.emails.emailKey"
-msgstr "Ključ e-pošte"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "E-pošta s tem ključem že obstaja. Ključi e-pošte morajo biti unikatni."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Predloga e-pošte"
@@ -231,9 +214,6 @@ msgid "manager.emails.resetAll.message"
 msgstr ""
 "Če boste ponastavili vse e-poštne predloge, se bodo vse dosedanje spremembe "
 "le-teh izgubile. Ste prepričani, da želite nadaljevati?"
-
-msgid "manager.emails.reset"
-msgstr "Ponastavi"
 
 msgid "manager.emails.reset.message"
 msgstr ""
@@ -2098,9 +2078,6 @@ msgstr ""
 "Tega predstavnika ne morete odstraniti, ker je dodeljen na tržne metapodatke "
 "za enega ali več formatov izdaje tega prispevka."
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Zadeva: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Poslano k"
 
@@ -2110,20 +2087,11 @@ msgstr "Poslano od"
 msgid "manager.emails.resetAll"
 msgstr "Ponastavi vse"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Izbrani ključ je že uporabljen."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Ko dodajate email predlogo, morate določiti ID konteksta."
 
 msgid "manager.emails.emailTemplates"
 msgstr "Email predloge"
-
-msgid "manager.emails.emailKey.description"
-msgstr "Ključ emaila lahko vsebuje le črke, številke in podčrtaje."
-
-msgid "manager.emails.customTemplate"
-msgstr "Predloga po meri"
 
 msgid "manager.emails.addEmail"
 msgstr "Dodaj predlogo"
@@ -2248,12 +2216,6 @@ msgstr "Izberite uporabnike za izvoz v Excel/CSV datoteko."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Izvoz v Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Email predloga je bila uspešno ponastavljena."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Privzete email predloge so bile ponastavljene."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Zbriši obvestilo"
@@ -2806,6 +2768,7 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Odprt je bil nov krog recenzije"
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Prispevek zavrnjen"
 
@@ -2967,9 +2930,10 @@ msgstr "Naknadna prošnja za recenzijo"
 msgid "mailable.reviewRequest.name"
 msgstr "Zahteva za recenzijo"
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Opravljanje recenzije zamuja (avtomatsko)"
 
+#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Ta email pošlje urednik kot potrditev sprejema opravljene recenzije in kot "
@@ -2998,6 +2962,7 @@ msgstr ""
 "ponastavitev gesla. V emailu se nahaja povezava, ki jo mora uporabnik "
 "klikniti za ponastavitev gesla."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Email se pošlje novoregistriranemu uporabniku kot dobrodošlica, skupaj z "
@@ -3008,13 +2973,15 @@ msgstr ""
 "Email se pošlje novo registriranim recenzentom kot dobrodošlica, skupaj z "
 "uporabniškim imenom in geslom za dostop do spletišča revije."
 
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Email, če je vključen, se avtomatično pošlje avtorju na koncu oddaje "
 "rokopisa v revijo. Vključuje informacijo o sledenju prispevku skozi "
 "uredniški postopek in zahvalo za oddan prispevek."
 
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Ta email, če je vključen, se avtomatično pošlje po uspešni oddaji vsem "
 "soavtorjem, ki so navedeni kot soavtorji."
@@ -3074,13 +3041,16 @@ msgstr "Povezava do strani statistik objavljenih člakov"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potrditev ponastavitve gesla"
 
+#, fuzzy
 msgid "mailable.userRegister.name"
 msgstr "Registracija uporabnika"
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Potrditev prejema prispevka"
 
-msgid "mailable.submissionAckNotUser.name"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Potrditev prispevka"
 
 msgid "mailable.discussionSubmission.name"

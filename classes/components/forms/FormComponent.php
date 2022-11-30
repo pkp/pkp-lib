@@ -82,10 +82,8 @@ class FormComponent
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The field to position it before or after
      * ]
-     *
-     * @return FormComponent
      */
-    public function addField($field, $position = [])
+    public function addField($field, $position = []): self
     {
         if (empty($position)) {
             $this->fields[] = $field;
@@ -99,10 +97,8 @@ class FormComponent
      * Remove a form field
      *
      * @param string $fieldName
-     *
-     * @return FormComponent
      */
-    public function removeField($fieldName)
+    public function removeField($fieldName): self
     {
         $this->fields = array_values(array_filter($this->fields, function ($field) use ($fieldName) {
             return $field->name !== $fieldName;
@@ -140,10 +136,8 @@ class FormComponent
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The group to position it before or after
      * ]
-     *
-     * @return FormComponent
      */
-    public function addGroup($args, $position = [])
+    public function addGroup($args, $position = []): self
     {
         if (empty($args['id'])) {
             fatalError('Tried to add a form group without an id.');
@@ -160,10 +154,8 @@ class FormComponent
      * Remove a form group
      *
      * @param string $groupId
-     *
-     * @return FormComponent
      */
-    public function removeGroup($groupId)
+    public function removeGroup($groupId): self
     {
         $this->groups = array_filter($this->groups, function ($group) use ($groupId) {
             return $group['id'] !== $groupId;
@@ -188,10 +180,8 @@ class FormComponent
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The page to position it before or after
      * ]
-     *
-     * @return FormComponent
      */
-    public function addPage($args, $position = [])
+    public function addPage($args, $position = []): self
     {
         if (empty($args['id'])) {
             fatalError('Tried to add a form page without an id.');
@@ -208,10 +198,8 @@ class FormComponent
      * Remove a form page
      *
      * @param string $pageId
-     *
-     * @return FormComponent
      */
-    public function removePage($pageId)
+    public function removePage($pageId): self
     {
         $this->pages = array_filter($this->pages, function ($page) use ($pageId) {
             return $page['id'] !== $pageId;

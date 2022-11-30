@@ -98,6 +98,12 @@ msgstr "You must indicate the user roles that should receive this email."
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr "You are not allowed to send an email to users in one or more of the selected roles."
 
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "This is not a default email template for a known email."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "This is not a valid context."
+
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
 
@@ -239,14 +245,5 @@ msgstr "The active theme, {$themePluginPath}, is not enabled and may not be inst
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "The {$locale} locale is not supported."
 
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "The email template keys aren't specified."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "The email you requested was not found."
-
-msgid "api.mailables.404.templateNotFound"
-msgstr "The template could not be assigned to this email because the template was not found."
-
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "The templateKeys input should be an array or empty string"

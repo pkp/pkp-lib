@@ -1640,9 +1640,6 @@ msgstr "Mniej niż"
 msgid "common.upload.thumbnailPreview"
 msgstr "Podgląd wybranego obrazka."
 
-msgid "common.toWithValue"
-msgstr "Odbiorca: {$value}"
-
 msgid "form.disallowedProp"
 msgstr "Te właściwości są niedozowolone."
 
@@ -1673,9 +1670,6 @@ msgstr "Podmenu"
 
 msgid "common.moreThanOnly"
 msgstr "Więcej niż"
-
-msgid "common.fromWithValue"
-msgstr "Nadawca: {$value}"
 
 msgid "form.dropzone.dictDefaultMessage"
 msgstr "Aby wgrać pliki upuść je tutaj"

@@ -187,3 +187,13 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "संपादक का निर्णय"
+
+msgid "emails.discussion.subject"
+msgstr "{$contextName} के बारे में एक संदेश"
+
+# (pofilter) endpunc: Different punctuation at the end
+msgid "emails.discussion.body"
+msgstr "कृपया अपना संदेश लिखें."
+
+# (pofilter) brackets: Added '(', ')'
+# (pofilter) endpunc: Different punctuation at the end

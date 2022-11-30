@@ -23,6 +23,7 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\form\Form;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
@@ -258,23 +259,20 @@ class QueryForm extends Form
 
         $submission = Repo::submission()->get($query->getAssocId());
 
-        // Determine if the current user can use any custom templates defined.
+        // Add the templates that can be used for this discussion
         $templateKeySubjectPairs = [];
         if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
-            $emailTemplates = Repo::emailTemplate()->getCollector()
-                ->filterByContext($context->getId())
-                ->filterByIsCustom(true)
-                ->getMany()
-                ->toArray();
-
-            // All stages can select the default template
-            $emailTemplates[] = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION_CENTER_DEFAULT');
-
             $mailable = $this->getStageMailable($context, $submission);
             $data = $mailable->getData();
-            foreach ($emailTemplates as $emailTemplate) {
-                $templateKeySubjectPairs[$emailTemplate->getData('key')] = Mail::compileParams(
-                    $emailTemplate->getLocalizedData('subject'),
+            $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+            $templateKeySubjectPairs = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
+            $alternateTemplates = Repo::emailTemplate()->getCollector()
+                ->filterByContext($context->getId())
+                ->alternateTo([$mailable::getEmailTemplateKey()])
+                ->getMany();
+            foreach ($alternateTemplates as $alternateTemplate) {
+                $templateKeySubjectPairs[$alternateTemplate->getData('key')] = Mail::compileParams(
+                    $alternateTemplate->getLocalizedData('name'),
                     $data
                 );
             }

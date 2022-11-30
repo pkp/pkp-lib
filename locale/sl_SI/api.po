@@ -276,18 +276,8 @@ msgstr "Navesti morate zadevo in vsebino emaila."
 msgid "api.dois.403.prefixRequired"
 msgstr "Za pripravo DOI-jev je potrebna DOI predpona."
 
-msgid "api.mailables.400.invalidTemplateKeys"
-msgstr "Vhodni parameter templateKeys mora biti niz ali prazen string"
-
-msgid "api.mailables.404.templateNotFound"
-msgstr ""
-"Predloga ni mogla biti dodeljena temu emailu, ker je ni bilo mogoče najti."
-
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Zahtevanega emaila ni bilo moč najti."
-
-msgid "api.mailables.400.templateKeysMissing"
-msgstr "Ključniki emaila niso specificirani."
 
 msgid "api.institutions.404.institutionNotFound"
 msgstr "Zahtevane institucije ni bilo mogoče najti."

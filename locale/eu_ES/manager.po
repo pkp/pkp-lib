@@ -132,29 +132,14 @@ msgstr "Ez da anuntzio motarik sortu."
 msgid "manager.announcementTypes.typeName"
 msgstr "Anuntzio mota"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Ziur zaude mezu-txantiloi hau ezabatu nahi duzula?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Ziur zaude mezu-txantiloi hau berrezarri nahi duzula balio lehenetsiekin?"
-
 msgid "manager.emails.createEmail"
 msgstr "Sortu mezu elektronikoa"
 
 msgid "manager.emails.disable"
 msgstr "Desgaitu"
 
-msgid "manager.emails.editEmail"
-msgstr "Editatu mezu elektronikoa"
-
 msgid "manager.emails.editTestExample"
 msgstr "Editatu mezua probatzeko adibidea"
-
-msgid "manager.emails.emailKey"
-msgstr "Posta elektronikoko gakoa"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Gako hori beste posta elektroniko batek erabiltzen du. Gako unibokoa izan behar du."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Mezu elektronikoen txantiloia"
@@ -173,9 +158,6 @@ msgstr "Mezuak gaia eduki behar du."
 
 msgid "manager.emails"
 msgstr "Prestatutako mezu elektronikoak"
-
-msgid "manager.emails.reset"
-msgstr "Berrezarri"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Berrezarri lehenetsia"
@@ -644,6 +626,7 @@ msgstr "Mezu hau bidaltzen zaie PASSWORD_RESET_CONFIRM mezuan azaldutako prozesu
 msgid "mailable.passwordResetRequested.description"
 msgstr "Pasahitza ahaztu duten erabiltzaile erregistratuei edo webgunean sartu ezinda dabiltzanei bidaltzen zaie mezu hau. Pasahitza berrezartzeko URL bat ematen du."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Erabiltzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
@@ -651,9 +634,11 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Ebaluatzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana bidaltzeagatik."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana bidaltzeagatik."

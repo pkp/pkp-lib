@@ -166,3 +166,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "რედაქციის გადაწყვეტილება"
+
+msgid "emails.discussion.subject"
+msgstr "შეტყობინება ჟურანლის შესახებ {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "გთხოვთ, შეიტანოთ შეტყობინება."

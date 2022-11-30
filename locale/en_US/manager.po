@@ -362,21 +362,11 @@ msgstr ""
 "The following message was returned by {$registrationAgency} and contains "
 "details about the registration:"
 
-msgid "manager.emails.confirmDelete"
-msgstr "Are you sure you want to delete this email template?"
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Are you sure you want to reset this email template to its default values?"
-
 msgid "manager.emails.addEmail"
 msgstr "Add Template"
 
 msgid "manager.emails.createEmail"
 msgstr "Create Email"
-
-msgid "manager.emails.customTemplate"
-msgstr "Custom Template"
 
 msgid "manager.emails.data"
 msgstr "Template Message Data"
@@ -393,20 +383,8 @@ msgstr ""
 "processes using this template, they will not use it anymore.  Do you want to "
 "confirm this operation?"
 
-msgid "manager.emails.editEmail"
-msgstr "Edit Email"
-
 msgid "manager.emails.editTestExample"
 msgstr "Edit Email Test Example"
-
-msgid "manager.emails.emailKey"
-msgstr "Email Key"
-
-msgid "manager.emails.emailKey.description"
-msgstr "The email key can only contain letters, numbers and underscores."
-
-msgid "manager.emails.emailKeyExists"
-msgstr "An email with the given key already exists. Email keys must be unique."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Email Template"
@@ -419,9 +397,6 @@ msgstr "Other Templates"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "You must provide a context ID when adding an email template."
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "The key you provided is already in use."
 
 msgid "manager.emails.enabled"
 msgstr "Enable this email template"
@@ -455,15 +430,6 @@ msgstr ""
 "If you reset all templates, all modifications to the email templates will be "
 "lost.  Do you want to confirm this operation?"
 
-msgid "manager.emails.resetAll.complete"
-msgstr "The default email templates have been restored."
-
-msgid "manager.emails.reset"
-msgstr "Reset"
-
-msgid "manager.emails.resetComplete"
-msgstr "Email template was successfully reset."
-
 msgid "manager.emails.reset.message"
 msgstr ""
 "If you reset this template, all message data will be reset to its default "
@@ -477,9 +443,6 @@ msgstr "Sent From"
 
 msgid "manager.emails.sentTo"
 msgstr "Sent To"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Subject: {$subject}"
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Export to Excel/CSV"
@@ -2852,10 +2815,13 @@ msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
 msgstr "The number of skipped submissions"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr "Th total number of submissions received"
+msgstr "The total number of submissions received"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "The month of the report"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "The year of the report"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Issue identification, including volume, number, year, and title"
@@ -2976,7 +2942,7 @@ msgstr ""
 "peer review."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Submission Declined"
+msgstr "Submission Declined (Pre-Review)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "New Review Round Initiated"
@@ -3035,7 +3001,7 @@ msgstr ""
 "production stage."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Review Skipped"
+msgstr "Submission Accepted (Without Review)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
@@ -3087,10 +3053,9 @@ msgstr "Review Acknowledgement"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"This email is sent by a Section Editor to confirm receipt of a completed "
-"review and thank the reviewer for their contributions."
+"This email is sent to a reviewer to confirm that their review has been received and to thank the reviewer for their contributions."
 
-msgid "mailable.ReviewResponseOverdueAuto.name"
+msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Review Response Overdue (Automated)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
@@ -3147,11 +3112,11 @@ msgstr ""
 "follow to reset their password."
 
 msgid "mailable.userRegister.name"
-msgstr "User Register"
+msgstr "User Created"
 
 msgid "mailable.userRegister.description"
 msgstr ""
-"This email is sent to a newly registered user to welcome them to the system "
+"This email is sent to a newly created user when the editorial manager has created the user through the user settings. The email should welcome them to the system "
 "and provide them with a record of their username and password."
 
 msgid "mailable.reviewerRegister.name"
@@ -3163,50 +3128,46 @@ msgstr ""
 "system and provide them with a record of their username and password."
 
 msgid "mailable.submissionAck.name"
-msgstr "Submission Acknowledgement"
+msgstr "Submission Confirmation"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
-"This email, when enabled, is automatically sent to an author when they "
-"submit to the journal. It provides information about tracking the submission "
-"through the editorial process and thanks the author for the submission."
+"This email is sent to an author when they make a new submission. It should confirm that the submission was received and provide guidance on what they can expect next."
 
-msgid "mailable.submissionAckNotUser.name"
-msgstr "Submission Confirmation"
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Submission Confirmation (Other Authors)"
 
-msgid "mailable.submissionAckNotUser.description"
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"This email, when enabled, is automatically sent to authors named on a "
-"submission who are not the submitting author."
+"This email is sent to the authors named on a submission, other than the submitting author. It should inform them that they have been named as an author and provide a way for them to contact editorial staff with any concerns or corrections."
 
 msgid "mailable.discussionSubmission.name"
-msgstr "Discussion Submission"
+msgstr "Discussion (Submission)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"This email is sent on the submission stage to notify a user about submission"
+"This email is sent when a discussion is created or replied to in the submission stage."
 
 msgid "mailable.discussionReview.name"
-msgstr "Discussion Review"
+msgstr "Discussion (Review)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"This email is sent on the review workflow stage to notify a user about "
-"submission"
+"This email is sent when a discussion is created or replied to in the review stage."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr "Discussion Copyediting"
+msgstr "Discussion (Copyediting)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"This email is sent on the copyediting stage to notify a user about submission"
+"This email is sent when a discussion is created or replied to in the copyediting stage."
 
 msgid "mailable.discussionProduction.name"
-msgstr "Discussion Production"
+msgstr "Discussion (Production)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"This email is sent on the production stage to notify a user about submission"
+"This email is sent when a discussion is created or replied to in the production stage."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Revised Version Notification"
@@ -3215,6 +3176,9 @@ msgid "mailable.revisedVersionNotify.description"
 msgstr ""
 "This email is automatically sent to the assigned editor when author uploads "
 "a revised version of an article."
+
+msgid "mailable.announcementNotify.name"
+msgstr "New Announcement"
 
 msgid "mailable.announcementNotify.description"
 msgstr "This email is sent when a new announcement is created."
@@ -3240,7 +3204,7 @@ msgstr "Edit Review Notification"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"This email automatically notifies the reviewer about modified review details"
+"This email automatically notifies the reviewer when the details of their review assignment have been changed."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Reviewer Commented Notify Editors"
@@ -3269,3 +3233,92 @@ msgstr ""
 "This email notifies the author that their submission has been sent back to "
 "the submission stage."
 
+msgid "manager.manageEmails"
+msgstr "Manage Emails"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr "<p><a href=\"{$url}\">Add and edit templates</a> for all of the emails sent by the system.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr "Add and edit templates that you would like to make available to the user when they are sending this email. The default will be loaded automatically, and the user will be able to quickly load any other templates you add here."
+
+msgid "manager.mailables.templates"
+msgstr "Templates"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Edit Template"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Remove Template"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr "Are you sure you want to delete the template <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Reset Template"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr "Are you sure you want to reset the subject and body to their defaults for the template <strong>{$template}</strong>?"
+
+msgid "manager.mailables.search"
+msgstr "Search by name or description"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Enter a brief name to help you find this template."
+
+msgid "manager.newSubmission"
+msgstr "New Submission"
+
+msgid "manager.newSubmission.description"
+msgstr "Configure the email notifications to send when a new submission is made."
+
+msgid "manager.submissionAck.description"
+msgstr "Who should receive an email when a new submission is completed."
+
+msgid "manager.submissionAck.off"
+msgstr "Do not send an email."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Send an email to the submitting author only."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Send an email to all authors."
+
+msgid "manager.editorialDecisions"
+msgstr "Editorial Decisions"
+
+msgid "manager.editorialDecisions.description"
+msgstr "Configure the email notifications to send to authors when an editorial decision is recorded."
+
+msgid "manager.forEditors"
+msgstr "For Editors"
+
+msgid "manager.forEditors.description"
+msgstr "Configure the email notifications to send to editors."
+
+msgid "manager.editorialStatistics"
+msgstr "Editorial statistics"
+
+msgid "manager.editorialStatistics.description"
+msgstr "Whether or not to send a monthly email to editors with the editorial statistics of the journal, such as accept and decline rates. Editors can unsubscribe from this email from their user profile."
+
+msgid "manager.editorialStatistics.on"
+msgstr "Send a monthly email to editors."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Do not send the email to editors."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Request Copyedit"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Question About Citation"
+
+msgid "mailable.editorAssign.name"
+msgstr "Editor Assigned"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Ready for Production"
+
+msgid "mailable.system"
+msgstr "System"

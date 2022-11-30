@@ -169,3 +169,8 @@ msgstr ""
 "Decizia noastră este: Manuscrisul nu este acceptat"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Un mesaj cu privire la {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Vă rugăm să introduceți mesajul dvs."

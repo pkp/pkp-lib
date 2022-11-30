@@ -37,6 +37,7 @@ class ReviewRemindAuto extends Mailable
     protected static ?string $description = 'mailable.reviewRemindAuto.description';
     protected static ?string $emailTemplateKey = 'REVIEW_REMIND_AUTO';
     protected static array $groupIds = [self::GROUP_REVIEW];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;

@@ -13,11 +13,7 @@
 <!ELEMENT email EMPTY>
 	<!ATTLIST email
 		key CDATA #REQUIRED
+		name CDATA #REQUIRED
 		subject CDATA #REQUIRED
 		body CDATA #REQUIRED
-		description CDATA #IMPLIED
-		can_edit CDATA #IMPLIED
-		can_disable CDATA #IMPLIED
-		to_role_id CDATA #IMPLIED
-		from_role_id CDATA #IMPLIED
-		stage_id CDATA #IMPLIED>
+		alternateTo CDATA #IMPLIED

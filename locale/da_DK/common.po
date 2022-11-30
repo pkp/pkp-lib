@@ -1954,9 +1954,6 @@ msgstr "Se det aktuelt valgte billede på forhånd."
 msgid "common.upload.restore"
 msgstr "Gendan original"
 
-msgid "common.toWithValue"
-msgstr "Til: {$value}"
-
 msgid "common.submenu"
 msgstr "Undermenu"
 
@@ -1974,9 +1971,6 @@ msgstr "Der blev ikke fundet nogen elementer."
 
 msgid "common.lastActivity"
 msgstr "Sidste aktivitet registreret d. {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Fra: {$value}"
 
 msgid "common.altTextInstructions"
 msgstr ""

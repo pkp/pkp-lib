@@ -665,14 +665,12 @@ class QueriesGridHandler extends GridHandler
                 }
                 $submission = $this->getSubmission();
 
-                $context = $request->getContext();
-                $mailable = $this->getStageMailable($context, $submission, $note->getData('title'), $note->getData('contents'));
-                $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-                $mailable->sender($currentUser)
-                        ->recipients([$user])
-                        ->subject($emailTemplate->getLocalizedData('subject'))
-                        ->body($emailTemplate->getLocalizedData('body'))
-                        ->allowUnsubscribe($notification);
+                $mailable = $this->getStageMailable($request->getContext(), $submission)
+                    ->sender($currentUser)
+                    ->recipients([$user])
+                    ->subject($note->getData('title'))
+                    ->body($note->getData('contents'))
+                    ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
                 $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */

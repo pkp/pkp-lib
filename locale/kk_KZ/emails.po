@@ -211,3 +211,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Редакциялық шешім"
+
+msgid "emails.discussion.subject"
+msgstr "«{$contextName}» журнал хабарламасы"
+
+msgid "emails.discussion.body"
+msgstr "Хабарламаңызды енгізіңіз."

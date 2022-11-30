@@ -32,7 +32,7 @@ class StatisticsReportNotify extends Mailable
     protected static ?string $emailTemplateKey = 'STATISTICS_REPORT_NOTIFICATION';
     protected static bool $canDisable = true;
     protected static array $groupIds = [self::GROUP_OTHER];
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_SUB_EDITOR];
 
     public function __construct(

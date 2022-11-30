@@ -1675,9 +1675,6 @@ msgstr "Är du säker på att du vill avbryta uppladdningen?"
 msgid "common.upload.restore"
 msgstr "Återställ original"
 
-msgid "common.toWithValue"
-msgstr "Till: {$value}"
-
 msgid "common.submenu"
 msgstr "Undermeny"
 
@@ -1701,9 +1698,6 @@ msgstr "Förbigå"
 
 msgid "common.lastActivity"
 msgstr "Senaste aktivitet {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Från: {$value}"
 
 msgid "common.dateDecided"
 msgstr "Datum bestämt"

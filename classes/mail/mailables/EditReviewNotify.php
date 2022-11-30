@@ -36,7 +36,7 @@ class EditReviewNotify extends Mailable
     protected static ?string $description = 'mailable.editReviewNotify.description';
     protected static ?string $emailTemplateKey = 'NOTIFICATION';
     protected static array $groupIds = [self::GROUP_REVIEW];
-    protected static array $fromRoleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+    protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     public function __construct(

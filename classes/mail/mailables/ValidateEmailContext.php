@@ -19,6 +19,7 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
+use PKP\security\Role;
 
 class ValidateEmailContext extends Mailable
 {
@@ -28,6 +29,16 @@ class ValidateEmailContext extends Mailable
     protected static ?string $name = 'mailable.validateEmailContext.name';
     protected static ?string $description = 'mailable.validateEmailContext.description';
     protected static ?string $emailTemplateKey = 'USER_VALIDATE_CONTEXT';
+    protected static array $groupIds = [self::GROUP_OTHER];
+    protected static array $fromRoleIds = [self::FROM_SYSTEM];
+    protected static array $toRoleIds = [
+        Role::ROLE_ID_SUB_EDITOR,
+        Role::ROLE_ID_ASSISTANT,
+        Role::ROLE_ID_AUTHOR,
+        Role::ROLE_ID_READER,
+        Role::ROLE_ID_REVIEWER,
+        Role::ROLE_ID_SUBSCRIPTION_MANAGER,
+    ];
 
     public function __construct(Context $context)
     {

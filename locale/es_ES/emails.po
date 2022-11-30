@@ -167,3 +167,8 @@ msgstr ""
 "Nuestra decisión es: Rechazar el envío"
 
 #, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Mensaje sobre {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Introduzca su mensaje."

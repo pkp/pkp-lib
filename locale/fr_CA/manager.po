@@ -170,20 +170,11 @@ msgstr "Conseils aux évaluateurs-trices"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Les renseignements du rappel d'évaluation ont été mis à jour."
 
-msgid "manager.emails.confirmDelete"
-msgstr "Êtes-vous certain-e de vouloir supprimer ce modèle de courriel ?"
-
-msgid "manager.emails.confirmReset"
-msgstr "Êtes-vous certain-e de vouloir réinitialiser ce modèle de courriel à ses valeurs par défaut ?"
-
 msgid "manager.emails.addEmail"
 msgstr "Ajouter un modèle de courriel"
 
 msgid "manager.emails.createEmail"
 msgstr "Créer un courriel"
-
-msgid "manager.emails.customTemplate"
-msgstr "Modèle de courriel personnalisé"
 
 msgid "manager.emails.data"
 msgstr "Données du modèle de courriel"
@@ -197,20 +188,8 @@ msgstr "Désactiver"
 msgid "manager.emails.disable.message"
 msgstr "Vous êtes sur le point de désactiver ce modèle de courriel. Si des processus système utilisent ce modèle, ils ne pourront plus l'utiliser. Souhaitez-vous confirmer cette action ?"
 
-msgid "manager.emails.editEmail"
-msgstr "Modifier un courriel"
-
 msgid "manager.emails.editTestExample"
 msgstr "Modifier l'exemple du test de courriel"
-
-msgid "manager.emails.emailKey"
-msgstr "Clé du courriel"
-
-msgid "manager.emails.emailKey.description"
-msgstr "La clé du courriel ne peut contenir que des lettres, des chiffres et des traits de soulignement."
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Un courriel avec cette clé existe déjà. Les clés de courriels doivent être uniques."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Modèle de courriel"
@@ -220,9 +199,6 @@ msgstr "Modèles de courriel"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Vous devez fournir un identifiant de contexte lors de l'ajout d'un modèle de courriel."
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "La clé que vous avez fournie est déjà utilisée."
 
 msgid "manager.emails.enabled"
 msgstr "Activer ce modèle de courriel"
@@ -253,9 +229,6 @@ msgstr "Réinitialiser tous les modèles"
 msgid "manager.emails.resetAll.message"
 msgstr "Si vous réinitialisez tous les modèles, toutes vos modifications aux modèles de courriel seront perdues. Vous souhaitez confirmer cette opération ?"
 
-msgid "manager.emails.reset"
-msgstr "Réinitialiser"
-
 msgid "manager.emails.reset.message"
 msgstr "Si vous réinitialisez ce modèle, toutes les données des messages seront réinitialisées à leur valeur par défaut et vous perdrez toutes les modifications. Souhaitez-vous confirmer cette opération ?"
 
@@ -267,9 +240,6 @@ msgstr "Envoyé par"
 
 msgid "manager.emails.sentTo"
 msgstr "Envoyé à"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Objet : {$subject}"
 
 msgid "manager.filesBrowser"
 msgstr "Explorateur de fichiers"
@@ -1923,12 +1893,6 @@ msgstr ""
 msgid "manager.export.usersToCsv.label"
 msgstr "Exporter en format Excel/CSV"
 
-msgid "manager.emails.resetComplete"
-msgstr "Le modèle de courriel a été réinitialisé avec succès."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Les modèles de courriels par défaut ont été réinitialisés."
-
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Supprimer l'annonce"
 
@@ -2166,12 +2130,14 @@ msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e lorsqu'il a ré
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e qui nous signale avoir oublié son mot de passe ou qui est incapable d'ouvrir une session. Il fournit le lien URL à cliquer pour pouvoir réinitialiser son mot de passe."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Ce courriel est envoyé à utilisateur-trice nouvellement inscrit-e pour lui souhaiter la bienvenue à la revue et l'informer de son nom d'utilisateur-trice et de son mot de passe."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Ce courriel est envoyé à un,une évaluateur-trice nouvellement inscrit-e, afin de lui souhaiter la bienvenue dans le système et l'informer de son nom d'utilisateur-trice et de son mot de passe."
 
+#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2181,7 +2147,8 @@ msgstr ""
 "processus éditorial, et remercie l'auteur-e pour sa soumission."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteur-e-s qui ne sont pas des utilisateurs-trices de OJS signalés-es comme effectuant la soumission."
 
 msgid "mailable.revisedVersionNotify.description"

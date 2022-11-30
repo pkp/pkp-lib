@@ -39,6 +39,7 @@ use PKP\submission\action\EditorAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
+use Prophecy\Prophecy\Revealer;
 
 class ReviewerForm extends Form
 {
@@ -255,19 +256,12 @@ class ReviewerForm extends Form
             'recipientUsername' => __('user.username'),
         ]);
 
-        $templateKeys = $this->getEmailTemplateKeys($request, $templateMgr);
+        $templates = $this->getEmailTemplates();
 
-        $templatesCollection = Repo::emailTemplate()->getCollector()
-            ->filterByKeys($templateKeys)
-            ->filterByContext($context->getId())
-            ->getMany();
-
-        $templates = $templatesCollection->mapWithKeys(function (EmailTemplate $emailTemplate, int $key) {
-            return [
-                $emailTemplate->getData('key') => $emailTemplate->getLocalizedData('subject')
-            ];
-        });
-        $templateMgr->assign('templates', $templates->all());
+        $templateMgr->assign([
+            'hasCustomTemplates' => (count($templates) > 1),
+            'templates' => $templates,
+        ]);
 
         // Get the reviewer user groups for the create new reviewer/enroll existing user tabs
         $reviewRound = $this->getReviewRound();
@@ -470,37 +464,26 @@ class ReviewerForm extends Form
     }
 
     /**
-     * Get email template keys associated with the form
+     * Get email templates associated with the form
      *
-     * @return string[]
+     * @return array [key => name]
      */
-    protected function getEmailTemplateKeys(Request $request, TemplateManager $templateMgr): array
+    protected function getEmailTemplates(): array
     {
-        $templateKeys = [ReviewRequest::getEmailTemplateKey()];
+        $defaultTemplate = Repo::emailTemplate()->getByKey(
+            Application::get()->getRequest()->getContext()->getId(),
+            ReviewRequest::getEmailTemplateKey()
+        );
+        $templateKeys = [ReviewRequest::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
 
-        // Determine if the current user can use any custom templates defined.
-        $user = $request->getUser();
-        $context = $request->getContext();
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        $alternateTemplates = Repo::emailTemplate()->getCollector()
+            ->filterByContext(Application::get()->getRequest()->getContext()->getId())
+            ->alternateTo([ReviewRequest::getEmailTemplateKey()])
+            ->getMany();
 
-        $userRoles = $roleDao->getByUserId($user->getId(), $context->getId());
-        foreach ($userRoles as $userRole) {
-            if (in_array($userRole->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-                $emailTemplatesIterator = Repo::emailTemplate()->getCollector()
-                    ->filterByContext($context->getId())
-                    ->filterByIsCustom(true)
-                    ->getMany();
-
-                $customTemplateKeys = [];
-                foreach ($emailTemplatesIterator as $emailTemplate) {
-                    $customTemplateKeys[] = $emailTemplate->getData('key');
-                };
-                $templateKeys = array_merge($templateKeys, $customTemplateKeys);
-                break;
-            }
+        foreach ($alternateTemplates as $alternateTemplate) {
+            $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
         }
-
-        $templateMgr->assign('hasCustomTemplates' , (count($templateKeys) > 1));
 
         return $templateKeys;
     }

@@ -236,9 +236,6 @@ msgstr "Tipo"
 msgid "common.true"
 msgstr "Verdadeiro"
 
-msgid "common.toWithValue"
-msgstr "Ata: {$value}"
-
 msgid "common.top"
 msgstr "Principio"
 
@@ -584,9 +581,6 @@ msgstr "Altura"
 
 msgid "common.go"
 msgstr "Ir"
-
-msgid "common.fromWithValue"
-msgstr "Dende: {$value}"
 
 msgid "common.filterRemove"
 msgstr "Limpar filtros: {$filterTitle}"

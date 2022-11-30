@@ -133,32 +133,14 @@ msgstr "Δεν έχουν δημιουργηθεί τύποι ανακοινώσ
 msgid "manager.announcementTypes.typeName"
 msgstr "Τύπος ανακοίνωσης"
 
-msgid "manager.emails.confirmDelete"
-msgstr ""
-"Επιβεβαιώστε ότι επιθυμείτε να διαγράψετε το συγκεκριμένο πρότυπο μηνύματος."
-
-msgid "manager.emails.confirmReset"
-msgstr ""
-"Επιβεβαιώστε ότι επιθυμείτε να επαναφέρετε το συγκεκριμένο πρότυπο μηνύματος "
-"στις προεπιλεγμένες τιμές του."
-
 msgid "manager.emails.createEmail"
 msgstr "Δημιουργία μηνύματος"
 
 msgid "manager.emails.disable"
 msgstr "Απενεργοποίηση"
 
-msgid "manager.emails.editEmail"
-msgstr "Επεξεργασία μηνύματος"
-
 msgid "manager.emails.editTestExample"
 msgstr "Επεξεργασία παραδείγματος δοκιμής ηλεκτρονικού ταχυδρομείου"
-
-msgid "manager.emails.emailKey"
-msgstr "Κλειδί ηλεκτρονικού ταχυδρομείου"
-
-msgid "manager.emails.emailKeyExists"
-msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου με το συγκεκριμένο κλειδί υπάρχει ήδη. Τα κλειδιά του ηλεκτρονικού ταχυδρομείου πρέπει να είναι μοναδικά."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Πρότυπο e-mail μήνυμα ηλεκτρονικού ταχυδρομείου"
@@ -177,9 +159,6 @@ msgstr "Απαιτείται ο ορισμός θέματος για το μήν
 
 msgid "manager.emails"
 msgstr "Έτοιμα Emails"
-
-msgid "manager.emails.reset"
-msgstr "Επαναφορά"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Επαναφορά των προεπιλογών"
@@ -780,9 +759,6 @@ msgstr "Υποβολές"
 msgid "manager.language.ui"
 msgstr "Διεπαφή Χρήστη"
 
-msgid "manager.emails.subjectWithValue"
-msgstr "Θέμα: {$subject}"
-
 msgid "manager.emails.sentTo"
 msgstr "Παραλήπτης"
 
@@ -808,9 +784,6 @@ msgstr ""
 "Πρόκειται να ενεργοποιήσετε αυτό το μήνυμα email. Θέλετε να επιβεβαιώσετε "
 "αυτήν τη λειτουργία;"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Το κλειδί που παρείχατε χρησιμοποιείται ήδη."
-
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
 "Πρέπει να παρέχετε ένα αναγνωριστικό (context ID) κατά την προσθήκη ενός "
@@ -820,11 +793,6 @@ msgid "manager.emails.emailTemplates"
 msgstr "Πρότυπα μηνυμάτων email"
 
 #, fuzzy
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"Το κλειδί (email key) μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω "
-"παύλες."
-
 msgid "manager.emails.editEmail.success"
 msgstr "Τροποποιήθηκε το πρότυπο μηνυμάτων email."
 
@@ -839,9 +807,6 @@ msgstr "Λεπτομέρειες Προτύπου"
 
 msgid "manager.emails.data"
 msgstr "Δεδομένα προτύπου μηνυμάτων"
-
-msgid "manager.emails.customTemplate"
-msgstr "Προσαρμοσμένο πρότυπο"
 
 msgid "manager.emails.addEmail.success"
 msgstr "Προστέθηκε το πρότυπο μηνυμάτων email."
@@ -2160,6 +2125,7 @@ msgstr "Το παρόν μήνυμα αποστέλλεται στους εγγ�
 msgid "mailable.passwordResetRequested.description"
 msgstr "Το παρόν μήνυμα αποστέλλεται στους εγγεγραμμένους Χρήστες που δηλώνουν ότι έχουν ξεχάσει τον κωδικό πρόσβασής τους ή αδυνατούν να συνδεθούν. Παρέχει έναν σύνδεσμο όπου μπορούν να αλλάξουν τον κωδικό πρόσβασής τους."
 
+#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr "Το παρόν μήνυμα καλωσορίσματος αποστέλλεται στους νέους Χρήστες. Περιέχει το όνομα Χρήστη και τον κωδικό πρόσβασής τους στον ιστότοπο."
 
@@ -2167,11 +2133,13 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Το παρόν μήνυμα καλωσορίσματος αποστέλλεται στους νέους Αξιολογητές. Περιέχει το όνομα Χρήστη και τον κωδικό πρόσβασής τους στον ιστότοπο."
 
 #, fuzzy
+#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Εφόσον έχει ενεργοποιηθεί η αντίστοιχη επιλογή, το παρόν μήνυμα αποστέλλεται αυτόματα σε έναν Συγγραφέα, κατά την ολοκλήρωση της διαδικασίας υποβολής άρθρου. Ευχαριστεί τον Συγγραφέα για την υποβολή και παρέχει πληροφορίες σχετικά με την παρακολούθηση της υποβολής."
 
 #, fuzzy
-msgid "mailable.submissionAckNotUser.description"
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Εφόσον έχει ενεργοποιηθεί η αντίστοιχη επιλογή, το παρόν μήνυμα αποστέλλεται αυτόματα στους μη εγγεγραμμένους στην πλατφόρμα Συγγραφείς, όπως καθορίστηκαν κατά τη διαδικασία υποβολής."
 
 msgid "mailable.revisedVersionNotify.description"

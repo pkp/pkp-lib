@@ -163,3 +163,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Rozhodnutie redaktora"
+
+msgid "emails.discussion.subject"
+msgstr "Správa týkajúca sa {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Vložte, prosím, vašu správu."

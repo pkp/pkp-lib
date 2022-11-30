@@ -17,6 +17,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\components\fileAttachers\BaseAttacher;
 use PKP\decision\Step;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\user\User;
@@ -130,6 +131,12 @@ class Email extends Step
             if ($emailTemplate) {
                 $emailTemplates->add($emailTemplate);
             }
+            Repo::emailTemplate()
+                ->getCollector()
+                ->filterByContext($context->getId())
+                ->alternateTo([$this->mailable::getEmailTemplateKey()])
+                ->getMany()
+                ->each(fn(EmailTemplate $e) => $emailTemplates->add($e));
         }
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->toArray();

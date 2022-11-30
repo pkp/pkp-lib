@@ -149,3 +149,9 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "总编决定"
+
+msgid "emails.discussion.subject"
+msgstr "关于{$contextName} 的信息"
+
+msgid "emails.discussion.body"
+msgstr "请输入您的信息。"

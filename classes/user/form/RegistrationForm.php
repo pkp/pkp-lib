@@ -279,7 +279,7 @@ class RegistrationForm extends Form
 
             // Get the public notification types
             $notificationSettingsForm = new NotificationSettingsForm();
-            $notificationCategories = $notificationSettingsForm->getNotificationSettingCategories();
+            $notificationCategories = $notificationSettingsForm->getNotificationSettingCategories($request->getContext());
             foreach ($notificationCategories as $notificationCategory) {
                 if ($notificationCategory['categoryKey'] === 'notification.type.public') {
                     $publicNotifications = $notificationCategory['settings'];

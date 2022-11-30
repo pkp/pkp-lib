@@ -208,7 +208,12 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
             $submissionFile->setData('uploaderUserId', $user->getId());
             $submissionFile->setData('assocType', $this->getData('assocType') ? (int) $this->getData('assocType') : null);
             $submissionFile->setData('assocId', $this->getData('assocId') ? (int) $this->getData('assocId') : null);
-            $submissionFile->setData('genreId', (int) $this->getData('genreId'));
+
+            $genreId = (int) $this->getData('genreId');
+            if ($genreId === 0) {
+                $genreId = null;
+            }
+            $submissionFile->setData('genreId', $genreId);
 
             if ($this->getReviewRound() && $this->getReviewRound()->getId() && empty($submissionFile->getData('assocType'))) {
                 $submissionFile->setData('assocType', ASSOC_TYPE_REVIEW_ROUND);

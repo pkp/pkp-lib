@@ -119,53 +119,6 @@ msgstr "Исчистете ги мемориските податоци"
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нема достапни локализации за преземање."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Грешка: не може да се изврши \"{$utilPath}\". Проверете ја поставката "
-"{{$utilVar} во конфигурацијата.inc.php."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Извршувањето на програмата \"{$utilPath}\" ја врати следната грешка: "
-"{$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Успешно: {$filePath} во {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Предупредување: датотека {$filePath} веќе постои во директориумот за "
-"статистика на употреба."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Грешка: не може да се избрише датотеката {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr ""
-"Грешка: не може да ја копирате датотеката од {$filePath} во {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Грешка: Датотека {$filePath} не постои или не може да се пристапи."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Грешка: не може да се создаде привремена папка {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Копирајте ги положените записи apache, филтрирај ги записите поврзани со "
-"оваа инсталација,\n"
-"до тековниот директориум со датотеки, во рамките на фазата на директориум "
-"UsageStatsPlugin. Мора да работи под корисник со доволно привилегии за да ги "
-"прочита датотеките за логирање пристап.\n"
-"\n"
-"Оваа алатка само ќе копира датотеки што веќе не се во директориумот "
-"usageStats  (фаза, обработка, архивирање, отфрлање).\n"
-"\n"
-"Употреба {$scriptName} path/to/apache/log/file.log\n"
-"Употреба (processing all files inside a directory): {$scriptName} path/to/"
-"apache/directory\n"
-"\t"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Учитувач на фајл"
 

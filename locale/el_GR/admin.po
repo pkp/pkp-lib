@@ -290,40 +290,6 @@ msgstr "Το αρχείο {$filename} επεξεργάστηκε και αρχε
 msgid "admin.fileLoader.emailSubject"
 msgstr "Φορτωτής αρχείων"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Αντιγράψτε τη λίστα αρχείων προσβασης apache access log file(s) στον τρέχοντα κατάλογο αρχείων στο μενού UsageStatsPlugin, φιλτράροντας τις καταχωρήσεις που σχετίζονται με αυτή την εγκατάσταση. Η ενέργεια πρέπει να πραγματοποιηθεί από Χρήστη με δικαιώματα πρόσβασης στα αρχεία apache.\n"
-"\n"
-"Αυτό το εργαλείο θα αντιγράψει μόνο τα αρχεία που δεν βρίσκονται ήδη στη λίστα usageStats (στάδιο, επεξεργασία, αρχειοθέτηση, απόρριψη).\n"
-"\n"
-"Usage: {$scriptName} path/to/apache/log/file.log\n"
-"Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Σφάλμα: ο προσωρινός φάκελος δε μπορεί να δημιουργηθεί {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Σφάλμα: Ο φάκελος {$filePath} δεν υπάρχει ή δεν υπάρχει πρόσβαση σ'αυτόν."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Σφάλμα: δε μπορεί να γίνει αντιγραφή φακέλου από {$filePath} στο {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Σφάλμα: δε μπορεί να γίνει διαγραφή του φακέλου {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Προσοχή: ο φάκελος {$filePath} ήδη υπάρχει μέσα στον κατάλογο στατιστικών στοιχείων χρήσης."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Επιτυχία: {$filePath} σε {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "H εκτέλεση του προγράμματος \"{$utilPath}\" επέστρεψε το ακόλουθο σφάλμα: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Σφάλμα: δε μπορεί να εκτελεστεί to \"{$utilPath}\". Ελέγξτε την {$utilVar} ρύθμιση στο config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Δεν υπάρχουν γλώσσες διαθέσιμες για λήψη."
 

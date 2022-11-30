@@ -223,26 +223,6 @@ msgstr "Tilgængelige sprog"
 msgid "admin.languages.installLocale"
 msgstr "Installér sprog"
 
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Fejl: Kan ikke danne midlertidig mappe {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Fejl: Filen {$filePath} eksisterer ikke eller kan ikke tilgås."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Fejl: Kan ikke kopiere filen fra {$filePath} til {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Fejl: Kan ikke slette filen {$tmpFilePath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" programudførelse returnerede følgende fejl: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Fejl: Kan ikke eksekvere \"{$utilPath}\".  Tjek {$utilVar} indstillinger i "
-"config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Ingen sprog er tilgængelige til download."
 
@@ -307,30 +287,6 @@ msgstr "Filen {$filename} blev færdigbehandlet og arkiveret."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Fillæser"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopier de(n) godkendte apache-adgangslogfil(er), der har filtreret de "
-"poster, som er relateret til denne installation,\n"
-"til det aktuelle fil-katalog, inde i UsageStatsPlugin-kartoteket. Skal "
-"gennemføres af bruger med tilstrækkelige rettigheder til at læse adgangs-"
-"apache logfiler.\n"
-"\n"
-"Dette værktøj kopierer kun filer, der ikke allerede er inde i usageStats-fil-"
-"indlæsningskatalogerne (trin, behandling, arkivering, afvisning).\n"
-"\n"
-"Anvendelse: {$scriptName} path/to/apache/log/file.log\n"
-"Anvendelse (databehandling af alle filer inde i et indeks): {$scriptName} "
-"path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Advarsel: filen {$filePath} eksisterer allerede inde i brugerstatistik-"
-"indekset."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Succes: {$filePath} til {$destinationPath}"
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""

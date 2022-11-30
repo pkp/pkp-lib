@@ -258,50 +258,6 @@ msgstr "Introdución"
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Non hai traducións dispoñibels para descargar."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Error: non se pode executar \"{$utilPath}\". Comprobe a súa configuración "
-"{$utilVar} en config.inc.php."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"A execución do programa \"{$utilPath}\" produciu o seguinte erro: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "A operación realizouse con éxito: {$filePath} a {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Aviso: o arquivo {$filePath} xa existe no cartafol de estatísticas de uso."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Error: non se pode eliminar o arquivo {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Error: no se pode copiar o arquivo de {$filePath} a {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Error: o arquivo {$filePath} non existe ou non se pode acceder a él."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Error: no se pode crear o cartafol temporal {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copie o arquivo ou os arquivos de acceso de rexistro do apache e filtre as "
-"entradas relacionadas con esta instalación no cartafol de archivo actual, "
-"dentro do directorio de fase UsageStatsPlugin. Debe executalo un usuario/a "
-"que teña os permisos necesarios para a lectura de arquivos de acceso de "
-"rexistro do apache.\n"
-"\n"
-"A ferramenta só copiará arquivos que ainda non estean nos cartafoles de "
-"carga de arquivo usageStats (fase, procesamento, arquivo, rexeitar).\n"
-"\n"
-"Uso: {$scriptName} ruta/a/apache/log/file.log\n"
-"Uso (procesamento de todos os arquivos dentro de un cartafol): {$scriptName} "
-"ruta/a/apache/directorio\n"
-"\t"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Cargador de arquivos"
 

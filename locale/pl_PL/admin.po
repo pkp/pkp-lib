@@ -246,12 +246,6 @@ msgstr "Plik {$filename} nie mógł być przesunięty z {$currentFilePath} do {$
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Plik {$filename} został zarchiwizowany."
 
-msgid "admin.error.utilExecutionProblem"
-msgstr "Program \"{$utilPath}\" zwrócił błąd: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Błąd: nie można uruchomić \"{$utilPath}\".  Sprawdź parametr {$utilVar} w pliku config.inc.php."
-
 msgid "admin.systemInfo.settingName"
 msgstr "Nazwa"
 
@@ -273,32 +267,8 @@ msgstr "Logo strony"
 msgid "admin.fileLoader.emailSubject"
 msgstr "Załaduj plik"
 
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Błąd: Nie można utworzyć folderu tymczasowego {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Błąd: Plik {$filePath} nie istnieje lub nie może zostać odczytany."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Błąd: Nie można skopiować pliku z {$filePath} do {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Błąd: Nie można usunąć pliku {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Ostrzeżenie: Plik {$filePath} już istnieje w katalogu statystyk."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Powodzenie: {$filePath} do {$destinationPath}"
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Brak plików tłumaczeń do pobrania."
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopiuj pliki dziennika apache.\n"
-"Zastosowanie: {$scriptName} path/to/apache/log/file.log\n"
-"Zastosowanie (przetworzenie wszystkich plików w folderze): {$scriptName} path/to/apache/directory"
 
 msgid "admin.contexts.confirmDelete"
 msgstr "Czy na pewno usunąć {$contextName} wraz z całą zawartością?"

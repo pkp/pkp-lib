@@ -155,52 +155,6 @@ msgstr "Изтриване на кеша на данните"
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Няма достъпни езици за изтегляне."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Грешка: не може да се изпълни \"{$utilPath}\".  Проверете {$utilVar} "
-"настройките в config.inc.php."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Изпълнението на програмата \"{$utilPath}\" върна следната грешка: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Успешно действие: {$filePath} в {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Предупреждение: файл {$filePath} вече съществува в директорията със "
-"статистически данни за употреба."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Грешка: файлът не може да бъде изтрит {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Грешка: не може да се копира файл от {$filePath} в {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Грешка: Файлът {$filePath} не съществува или не е достъпен."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Грешка: не може да се създаде временна директория {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Копирайте миналите регистрационни файлове (log) за достъп до apache, като "
-"филтрирате записите, свързани с тази инсталация,\n"
-"към текущата директория с файлове, в рамките на директорията на "
-"UsageStatsPlugin. Трябва да се изпълнява от потребител с достатъчни права за "
-"четене на файлове с достъп до apache.\n"
-"\n"
-"Този инструмент ще копира само файлове, които все още не са в директориите "
-"за зареждане на файлове useStats (етап, обработка, архивиране, отхвърляне))."
-"\n"
-"\n"
-"Употреба: {$scriptName} path/to/apache/log/file.log\n"
-"Употреба (обработка на всички файлове в директория): {$scriptName} path/to/"
-"apache/directory\n"
-"\t"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Зареждане на файлове"
 

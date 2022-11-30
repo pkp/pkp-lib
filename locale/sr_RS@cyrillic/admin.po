@@ -270,35 +270,8 @@ msgstr "Фајл {$filename} је обрађен и архивиран."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Учитавач фајла"
 
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Грешка: не могу направити привремени директоријум {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Грешка: фајл {$filePath} не постоји или му се не може приступити."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Грешка: не могу копирати фајл из {$filePath} у {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Грешка: не могу да обришем фајл {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Упозорење: фајл {$filePath} већ постоји унутар директоријума статистике употребе."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Успешно: {$filePath} у {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" извршавање програма дало је следећу грешку: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Грешка: не могу да извршим \"{$utilPath}\".  Проверите ваше подешавање {$utilVar} у config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нема локализација доступних за преузимање."
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr "Ископирајте приступне лог фајлове за apache, филтрирајући уписе везане за ову инсталацију у директориј за фајлове унутар UsageStatsPlugin статус/stage директорија. Морате обезбедити привилегије за читање и приступ apache лог фајловима. Овај алат ће ископирати само оне фајлове  који нису већ у директоријима  за usageStats (статус, обрада, архивирај, одбиј)."
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
 msgstr "Само администратор може да промени подешавање."

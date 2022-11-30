@@ -268,49 +268,6 @@ msgstr "Le fichier {$filename} a été traité et archivé."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Chargeur de fichier"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copier le(s) fichier(s) journal(aux) d'accès Apache, en filtrant les entrées "
-"liées à cette installation, vers le répertoire de fichiers actuel, à "
-"l'intérieur du répertoire UsageStatsPlugin stage. Doit être exécuté par un.e "
-"utilisateur.trice ayant suffisamment de privilèges pour lire les fichiers "
-"journaux d'accès Apache.\n"
-"\n"
-"Cet outil ne copiera que les fichiers qui ne sont pas déjà dans les "
-"répertoires chargeurs usageStats file/n (étape, traitement, archive, rejet)."
-"\n"
-"\n"
-"Utilisation : {$scriptName} path/to/apache/log/file.log\n"
-"Utilisation (traitement de tous les fichiers dans le répertoire) : "
-"{$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Erreur : le dossier temporaire {$tmpDir} ne peut être créé"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Erreur : Le fichier {$filePath} n'existe pas ou n'est pas accessible."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Erreur : vous ne pouvez pas copier {$filePath} dans {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Erreur : vous ne pouvez pas effacer le fichier {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Attention : le fichier {$filePath} existe déjà dans le répertoire des statistiques d'utilisation."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Succès : {$filePath} dans {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "L'exécution de « {$utilPath} » s'est terminée avec l'erreur suivante : {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Erreur : impossible de lancer « {$utilPath} ». Veuillez vérifier la "
-"configuration de {$utilVar} dans le fichier config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
 

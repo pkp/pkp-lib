@@ -197,30 +197,6 @@ msgstr "站点主题"
 msgid "admin.languages.noLocalesToDownload"
 msgstr "没有可供下载的语言。"
 
-msgid "admin.error.executingUtil"
-msgstr "错误：无法执行“ {$utilPath}”。 检查config.inc.php中的{$utilVar}设置。"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "“ {$utilPath}”程序执行返回以下错误：{$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "成功：{$filePath}至{$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "警告：使用情况统计目录中已经存在文件{$filePath}。"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "错误：无法删除文件{$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "错误：无法将文件从{$filePath}复制到{$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "错误：文件{$filePath}不存在或无法访问。"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "错误：无法创建临时文件夹{$tmpDir}"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "文件加载器"
 
@@ -301,14 +277,3 @@ msgstr "设置值"
 
 msgid "admin.systemInfo.settingName"
 msgstr "设置名称"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"复制 apache 访问日志文件，过滤与此安装相关的条目到 UsageStatsPlugin 阶段目录中的当前文件目录。 "
-"必须以具有足够权限的用户运行以读取 apache 日志文件。\n"
-"\n"
-"该工具将仅复制尚不位于 usageStats 文件加载器目录（stage, processing, archive, reject）中的文件。\n"
-"\n"
-"用法：{$scriptName} path/to/apache/log/file.log\n"
-"用法（处理目录内的所有文件）：{$scriptName} path/to/apache/directory\n"
-"\t"

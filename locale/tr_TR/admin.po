@@ -260,35 +260,6 @@ msgstr "{$path} bir klasör değil veya okunabilir değil."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Dosya yükleyici"
 
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Hata: {$tmpDir} geçici klasörü oluşturulamadı"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Hata: {$filePath} dosyası yok veya erişilebilir değil."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr ""
-"Hata: Dosya {$filePath}  konumundan {$tmpFilePath} konumuna kopyalanamadı"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Hata: {$tmpFilePath} dosyası silinemedi"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Uyarı: {$filePath}  adlı dosya kullanım istatistikleri dizini içerisinde "
-"zaten mevcut."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Başarılı: {$filePath} konumundan {$destinationPath} konumuna"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" program yürütmesi şu hatayı döndürdü: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Hata:  \"{$utilPath}\" işlemi yürütülemedi. config.inc.php dosyasındaki "
-"{$utilVar} ayarını kontrol edin."
-
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
 "{$softwareName} kurulumu bu görevi otomatik olarak yürüttü ve tamamladı. "
@@ -309,21 +280,6 @@ msgid "admin.languages.cantDisable"
 msgstr ""
 "Bu dil sitenin birincil dilidir. Başka bir dili birincil dil olarak seçmeden "
 "önce bunu silemezsiniz."
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"UsageStatsPlugin dizininin içindeki geçerli dosya dizinine, bu yükleme ile "
-"ilgili girdileri filtreleyen geçirilmiş apache erişim günlüğü dosyalarını "
-"kopyalayın. Erişim apache günlük dosyalarını okumak için yeterli "
-"ayrıcalıklarla kullanıcı altında çalışmalıdır.\n"
-"\n"
-"Bu araç, yalnızca useStats dosya yükleyici dizinlerinin içinde olmayan "
-"dosyaları (evre, işleme, arşivleme, reddetme) kopyalayacaktır.\n"
-"\n"
-"Kullanımı: {$scriptName} path/to/apache/log/file.log\n"
-"Kullanım (bir dizinin içindeki tüm dosyaların işlenmesi):  {$scriptName} "
-"path/to/apache/directory\n"
-"\t"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Yayın için planlanmış gönderileri yayımla"

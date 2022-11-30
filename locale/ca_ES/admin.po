@@ -42,40 +42,6 @@ msgstr "Esteu segur/a que voleu vèncer totes les sessions d'usuari/ària? Tots 
 msgid "admin.contentsOfConfigFile"
 msgstr "Continguts del fitxer de configuració"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copiar els arxius de registre d'accés apache passats, filtrant les entrades "
-"relacionades amb aquesta instal·lació,\n"
-"al directori d'arxius actual, dins del directori UsageStatsPlugin. Heu de "
-"fer-ho amb un usuari/ària amb suficients privilegis per llegir els arxius de "
-"registre apache d'accés.\n"
-"\n"
-"Aquesta eina només copiarà els arxius que no es trobin en els directoris de "
-"càrrega d'arxiu usageStats (fase, processament, arxiu, rebutjar).\n"
-"\n"
-"Ús: {$scriptName} path/to/apache/log/file.log\n"
-"Ús (s'estan processant tots els arxius en un directori): {$scriptName} path/"
-"to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Hi ha hagut un error: no s'ha pogut crear un directori temporal a {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Hi ha hagut un error: el fitxer {$filePath} no existeix o bé no s'hi pot accedir."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Hi ha hagut un error: no es pot copiar el fitxer des de {$filePath} a {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Hi ha hagut un error: no s'ha pogut eliminar el fitxer {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Atenció: el fitxer {$filePath} ja existeix dins del directori d'estats d'ús."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "{$filePath} a {$destinationPath} s'ha fet correctament"
-
 msgid "admin.currentVersion"
 msgstr "Versió actual"
 
@@ -300,12 +266,6 @@ msgstr "Esteu segur que voleu eliminar tots els registres d'execució de tasques
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Neteja els registres de tasques programades"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "L'execució del programa \"{$utilPath}\" ha produït el següent error: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Error: no es pot executar \"{$utilPath}\". Comprovi la configuració de {$utilVar} a config.inc.php."
 
 msgid "admin.contexts.confirmDelete"
 msgstr "Segur que voleu eliminar permanentment {$contextName} i tots els seus continguts?"

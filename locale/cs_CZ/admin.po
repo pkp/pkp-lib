@@ -278,48 +278,6 @@ msgstr "Nahrávání souboru"
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nejsou dostupné žádné lokalizace ke stažení."
 
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Chyba: nelze zkopírovat soubor z {$filePath} do {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Chyba: nelze smazat soubor {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Varování: soubor {$filePath} již v knihovně usage stats existuje."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Úspěch: {$filePath} do {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Při běhu programu \"{$utilPath}\" došlo k následující chybě: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Chyba: nelze spustit \"{$utilPath}\".  Zkontrolujte vaše nastavení "
-"{$utilVar} v config.inc.php."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Chyba: nezle otevřít dočasnou složku {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Chyba: Soubor {$filePath} neexistuje, nebo je k němu zakázaný přístup."
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Zkopírujte soubor protokolu přístupů v Apache, proveďte filtraci položek "
-"souvisejících s touto instalací,\n"
-"do aktuální knihovny souborů v rámci knihovny UsageStatsPlugin stage. Toto "
-"je třeba dělat pod uživatelem, který má dostatečná práva ke čtení souborů "
-"protokolu Apache.\n"
-"\n"
-"Tento nástroj zkopíruje pouze ty soubory, které doposud v knihovnách v rámci "
-"usageStats neexistují (etapa, zpracování, archiv, odmítnutí).\n"
-"\n"
-"Použití: {$scriptName} cesta/k/apache/log/file.log\n"
-"Použití (zpracování všech souborů v knihovně): {$scriptName} cesta/k/apache/"
-"directory\n"
-"\t"
-
 msgid "admin.contexts.confirmDelete"
 msgstr ""
 "Jste si jisti, že chcete trvale odstranit {$contextName} a všechen jeho/její "

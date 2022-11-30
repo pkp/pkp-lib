@@ -218,15 +218,6 @@ msgstr ""
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "La cartella {$path} non è una cartella o non è scrivibile."
 
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Attenzione: il file {$filePath} esiste già nella cartella delle statistiche d'uso."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Successo: {$filePath} a{$destinationPath}"
-
-msgid "admin.error.executingUtil"
-msgstr "Error: non posso eseguire \"{$utilPath}\".  Controlla la configurazione di {$utilVar} config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Non ci sono lingue disponibili per il download."
 
@@ -273,36 +264,6 @@ msgstr "Il file {$filename} è stato lavorato e salvato."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Caricamento file"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copia i log di Apache, filtrando solo le operazioni collegate a questa "
-"installazione, \n"
-"dentro la directory stage del UsageStatsPlugin. Deve essere eseguito con "
-"abbastanza privilegi per leggere i file access log di Apache.\n"
-"\n"
-"Questo strumento copia solo i file che non sono già nelle dir usageStats ("
-"stage, processing, archive, reject).\n"
-"\n"
-"Uso: {$scriptName} path/al/apache/log/file.log\n"
-"Uso (per lavorare tutti i file dentro una dir): {$scriptName} path/ad/apache/"
-"directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Errore: non riesco a creare la dir temporanea {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Errore: il file {$filePath} non esiste o non è accessibile."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Errore: non puoi copiare il file da {$filePath} a {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Errore: non puoi cancellare il file {$tmpFilePath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "L'esecuzione di \"{$utilPath}\" ha generato questo errore: {$output}"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Pubblica gli articoli pianificati"

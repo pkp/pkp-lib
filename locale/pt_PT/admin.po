@@ -256,46 +256,6 @@ msgstr "O ficheiro {$filename} foi processado e arquivado."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Uploader do ficheiro"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copie o(s) ficheiro(s) de registo/log do apache, filtrando as entradas "
-"relacionadas com este portal,\n"
-"para a pasta de ficheiros actual, dentro da pasta stage do UsageStatsPlugin. "
-"Deve ser executado por um utilizadro com permissões para ler os registos/"
-"logs do apache.\n"
-"\n"
-"Esta ferramenta irá apenas copiar os ficheiros que já não estão dentro das "
-"pastas do usageStats (stage, processing, archive, reject).\n"
-"\n"
-"Uso: {$scriptName} caminho/para/ficheiro/de/log/doapache.log\n"
-"Uso (processando todos os ficheiros dentro de uma pasta): {$scriptName} "
-"caminho/para/pasta/doapache\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Erro: não foi possível criar a pasta temporária {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Erro: O ficheiro {$filePath} não existe ou não está acessível."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Erro: não é possível copiar o ficheiro de {$filePath} para {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Erro: não é possível eliminar o ficheiro {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Advertência: o ficheiro {$filePath} já existe na pasta de estatísticas de uso."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Sucesso: {$filePath} para {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "A \"{$utilPath}\" execução do programa devolveu o seguinte erro: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Erro: não foi possível executar \"{$utilPath}\".  Verifique {$utilVar} as configurações em config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Não estão disponíveis idiomas para download."
 

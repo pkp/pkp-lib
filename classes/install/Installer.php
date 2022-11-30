@@ -32,6 +32,7 @@ use PKP\db\DAOResultFactory;
 use PKP\db\DBDataXMLParser;
 use PKP\facades\Locale;
 use APP\facades\Repo;
+use PKP\db\XMLDAO;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
 use PKP\notification\PKPNotification;
@@ -103,6 +104,9 @@ class Installer
 
     /** @var array List of migrations executed already */
     public $migrations = [];
+
+    /** @var array List of email template variables to rename. App-specific */
+    protected $appEmailTemplateVariableNames = [];
 
     /**
      * Constructor.
@@ -728,6 +732,10 @@ class Installer
     /**
      * For upgrade: install email templates and data
      *
+     * @deprecated 3.4 Do not use <code function="installEmailTemplate" ...>
+     *   in upgrade scripts to 3.4 and later versions. This is no longer in
+     *   sync with the PKP\emailTemplates\DAO methods to install email templates.
+     *
      * @param object $installer
      * @param array $attr Attributes: array containing
      *  'key' => 'EMAIL_KEY_HERE',
@@ -736,8 +744,86 @@ class Installer
     public function installEmailTemplate($installer, $attr)
     {
         $locales = explode(',', $attr['locales'] ?? '');
-        Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $locales, $attr['key']);
+        $emailKey = $attr['key'] ?? '';
+
+        if (!$emailKey) {
+            throw new Exception('Tried to install email template but no template key provided.');
+        }
+
+        $xmlDao = new XMLDAO();
+        $data = $xmlDao->parseStruct('registry/emailTemplates.xml', ['email']);
+        if (!isset($data['email'])) {
+            return false;
+        }
+
+        if (empty($locales)) {
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $site = $siteDao->getSite(); /** @var Site $site */
+            $locales = $site->getInstalledLocales();
+        }
+
+        // filter out any invalid locales that is not supported by site
+        $allLocales = array_keys(Locale::getLocales());
+        if (!empty($invalidLocales = array_diff($locales, $allLocales))) {
+            $locales = array_diff($locales, $invalidLocales);
+        }
+
+        foreach ($data['email'] as $entry) {
+            $attrs = $entry['attributes'];
+            if ($emailKey && $emailKey != $attrs['key']) {
+                continue;
+            }
+            if (DB::table('email_templates_default_data')->where('email_key', $attrs['key'])->exists()) {
+                continue;
+            }
+
+            $subject = $attrs['subject'] ?? null;
+            $body = $attrs['body'] ?? null;
+            if ($subject && $body) {
+                foreach ($locales as $locale) {
+                    DB::table('email_templates_default_data')
+                        ->where('email_key', $attrs['key'])
+                        ->where('locale', $locale)
+                        ->delete();
+
+                    $previous = Locale::getMissingKeyHandler();
+                    Locale::setMissingKeyHandler(fn (string $key): string => '');
+                    $translatedSubject = __($subject, [], $locale);
+                    $translatedBody = __($body, [], $locale);
+                    Locale::setMissingKeyHandler($previous);
+                    if ($translatedSubject !== null && $translatedBody !== null) {
+                        DB::table('email_templates_default_data')->insert([
+                            'email_key' => $attrs['key'],
+                            'locale' => $locale,
+                            'subject' => $this->renameEmailTemplateVariables($translatedSubject),
+                            'body' => $this->renameEmailTemplateVariables($translatedBody),
+                        ]);
+                    }
+                }
+            }
+        }
+
         return true;
+    }
+
+    /**
+     * @deprecated 3.4
+     * @see self::installEmailTemplate()
+     */
+    protected function renameEmailTemplateVariables($string): string
+    {
+        if (empty($this->appEmailTemplateVariableNames)) {
+            return $string;
+        }
+
+        $variables = [];
+        $replacements = [];
+        foreach ($this->appEmailTemplateVariableNames as $key => $value) {
+            $variables[] = '/\{\$' . $key . '\}/';
+            $replacements[] = '{$' . $value . '}';
+        }
+
+        return preg_replace($variables, $replacements, $string);
     }
 
     /**

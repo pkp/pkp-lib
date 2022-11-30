@@ -19,13 +19,6 @@ Cypress.Commands.add('addCategory', (categoryName, categoryPath) => {
 	cy.wait(2000); // Avoid occasional failure due to form save taking time
 });
 
-Cypress.Commands.add('isInIssue', (submissionTitle, issueTitle) => {
-	cy.visit('');
-	cy.get('a:contains("Archives")').click();
-	cy.get('a:contains("' + issueTitle + '")').click();
-	cy.get('a:contains("' + submissionTitle + '")');
-});
-
 Cypress.Commands.add('addSubmissionGalleys', (files) => {
 	files.forEach(file => {
 		cy.get('a:contains("Add File")').click();

@@ -64,6 +64,19 @@ class Repository
     }
 
     /**
+     * Get a galley by "best" galley id -- url path if it exists,
+     * falling back on the internal galley ID otherwise.
+     */
+    public function getByBestId(string $idOrUrlPath, Publication $publication): ?Galley
+    {
+        $galley = $this->getByUrlPath($idOrUrlPath, $publication);
+        if (!$galley && (is_int($idOrUrlPath) || ctype_digit($idOrUrlPath))) {
+            $galley = $this->get((int) $idOrUrlPath, $publication->getId());
+        }
+        return $galley ?? null;
+    }
+
+    /**
      * Get a publication galley by a url path
      */
     public function getByUrlPath(string $urlPath, Publication $publication): ?Galley

@@ -111,7 +111,7 @@ msgstr "Preprint Posted Acknowledgement"
 
 msgid "emails.postedAck.body"
 msgstr ""
-"{$authorPrimary}:<br />\n"
+"{$recipientName}:<br />\n"
 "<br />\n"
 "Your preprint, &quot;{$submissionTitle}&quot; has been posted online on {$contextName}.<br />\n"
 "<br />\n"
@@ -121,13 +121,10 @@ msgstr ""
 "<br />\n"
 "{$signature}"
 
-msgid "emails.postedAck.description"
-msgstr "This email, when enabled, is automatically sent to an author when the preprint is posted online on the server."
-
-msgid "emails.submissionAckNotUser.subject"
+msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Submission Acknowledgement"
 
-msgid "emails.submissionAckNotUser.body"
+msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "Hello,<br />\n"
 "<br />\n"
@@ -174,15 +171,6 @@ msgstr ""
 "Submission URL: {$submissionUrl}<br />\n"
 "<br />\n"
 "{$editorialContactSignature}"
-
-msgid "emails.notificationCenterDefault.subject"
-msgstr "A message regarding {$contextName}"
-
-msgid "emails.notificationCenterDefault.body"
-msgstr "Please enter your message."
-
-msgid "emails.notificationCenterDefault.description"
-msgstr "The default (blank) message used in the Notification Center Message Listbuilder."
 
 msgid "emails.statisticsReportNotification.subject"
 msgstr "Preprint Server activity for {$month}, {$year}"

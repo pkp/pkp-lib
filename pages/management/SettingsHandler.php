@@ -15,10 +15,12 @@
 
 namespace APP\pages\management;
 
-use PKP\pages\management\ManagementHandler;
+use APP\components\forms\context\EmailSetupForm;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\facades\Locale;
+use PKP\mail\Mailable;
+use PKP\pages\management\ManagementHandler;
 use PKP\security\Role;
 
 class SettingsHandler extends ManagementHandler
@@ -97,5 +99,37 @@ class SettingsHandler extends ManagementHandler
         $templateMgr->setState(['components' => $components]);
 
         $templateMgr->display('management/distribution.tpl');
+    }
+
+    protected function getEmailGroupFilters(): array
+    {
+        return [
+            Mailable::GROUP_SUBMISSION => __('submission.submission'),
+            Mailable::GROUP_PRODUCTION => __('submission.production'),
+            Mailable::GROUP_OTHER => __('common.other'),
+        ];
+    }
+
+    protected function getEmailFromFilters(): array
+    {
+        return [
+            Role::ROLE_ID_SUB_EDITOR => __('default.groups.name.sectionEditor'),
+            Role::ROLE_ID_READER => __('user.role.reader'),
+            Mailable::FROM_SYSTEM => __('mailable.system'),
+        ];
+    }
+
+    protected function getEmailToFilters(): array
+    {
+        return [
+            Role::ROLE_ID_SUB_EDITOR => __('default.groups.name.sectionEditor'),
+            Role::ROLE_ID_AUTHOR => __('user.role.author'),
+            Role::ROLE_ID_READER => __('user.role.reader'),
+        ];
+    }
+
+    protected function getEmailSetupForm(string $contextApiUrl, array $locales, Context $context): EmailSetupForm
+    {
+        return new EmailSetupForm($contextApiUrl, $locales, $context);
     }
 }

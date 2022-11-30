@@ -10,22 +10,21 @@
   * Email templates XML file.
   -->
 <emails>
-	<email key="NOTIFICATION" subject="emails.notification.subject" body="emails.notification.body"/>
-	<email key="NOTIFICATION_CENTER_DEFAULT" can_disable="0" subject="emails.notificationCenterDefault.subject" description="emails.notificationCenterDefault.description" body="emails.notificationCenterDefault.body"/>
-	<email key="PASSWORD_RESET_CONFIRM" subject="emails.passwordResetConfirm.subject" body="emails.passwordResetConfirm.body"/>
-	<email key="PASSWORD_RESET" subject="emails.passwordReset.subject" body="emails.passwordReset.body"/>
-	<email key="USER_REGISTER" can_disable="0" subject="emails.userRegister.subject" description="emails.userRegister.description" body="emails.userRegister.body"/>
-	<email key="USER_VALIDATE_CONTEXT" subject="emails.userValidateContext.subject" body="emails.userValidateContext.body"/>
-	<email key="USER_VALIDATE_SITE" subject="emails.userValidateSite.subject" body="emails.userValidateSite.body"/>
-	<email key="SUBMISSION_ACK" subject="emails.submissionAck.subject" body="emails.submissionAck.body"/>
-	<email key="POSTED_ACK" can_disable="1" to_role_id="65536" stage_id="5" subject="emails.postedAck.subject" description="emails.postedAck.description" body="emails.postedAck.body"/>
-	<email key="SUBMISSION_ACK_NOT_USER" subject="emails.submissionAckNotUser.subject" body="emails.submissionAckNotUser.body"/>
-	<email key="EDITOR_ASSIGN" subject="emails.editorAssign.subject" body="emails.editorAssign.body"/>
-	<email key="EDITOR_DECISION_ACCEPT" subject="emails.editorDecisionAccept.subject" body="emails.editorDecisionAccept.body"/>
-	<email key="EDITOR_DECISION_INITIAL_DECLINE" subject="emails.editorDecisionInitialDecline.subject" body="emails.editorDecisionInitialDecline.body"/>
-	<email key="EDITOR_DECISION_REVERT_INITIAL_DECLINE" subject="emails.editorDecisionRevertInitialDecline.subject" body="emails.editorDecisionRevertInitialDecline.body"/>
-	<email key="EDITOR_DECISION_NOTIFY_OTHER_AUTHORS" subject="emails.decision.notifyOtherAuthors.subject" body="emails.decision.notifyOtherAuthors.body"/>
-	<email key="STATISTICS_REPORT_NOTIFICATION" subject="emails.statisticsReportNotification.subject" body="emails.statisticsReportNotification.subject"/>
-	<email key="ANNOUNCEMENT" subject="emails.announcement.subject" body="emails.announcement.body"/>
-	<email key="DISCUSSION_NOTIFICATION" subject="discussion.notification.subject" body="discussion.notification.body"/>
+	<email key="NOTIFICATION" name="notification.notification" subject="emails.notification.subject" body="emails.notification.body"/>
+	<email key="PASSWORD_RESET_CONFIRM" name="mailable.passwordResetRequested.name" subject="emails.passwordResetConfirm.subject" body="emails.passwordResetConfirm.body"/>
+	<email key="PASSWORD_RESET" name="mailable.passwordReset.name" subject="emails.passwordReset.subject" body="emails.passwordReset.body"/>
+	<email key="USER_REGISTER" name="mailable.userRegister.name" subject="emails.userRegister.subject" body="emails.userRegister.body"/>
+	<email key="USER_VALIDATE_CONTEXT" name="mailable.validateEmailContext.name" subject="emails.userValidateContext.subject" body="emails.userValidateContext.body"/>
+	<email key="USER_VALIDATE_SITE" name="mailable.validateEmailSite.name" subject="emails.userValidateSite.subject" body="emails.userValidateSite.body"/>
+	<email key="SUBMISSION_ACK" name="mailable.submissionAck.name" subject="emails.submissionAck.subject" body="emails.submissionAck.body"/>
+	<email key="POSTED_ACK" name="mailable.postedAck.name" subject="emails.postedAck.subject" body="emails.postedAck.body"/>
+	<email key="SUBMISSION_ACK_NOT_USER" name="mailable.submissionAckNotAuthor.name" subject="emails.submissionAckNotAuthor.subject" body="emails.submissionAckNotAuthor.body"/>
+	<email key="EDITOR_DECISION_ACCEPT" name="mailable.decision.accept.notifyAuthor.name" subject="emails.editorDecisionAccept.subject" body="emails.editorDecisionAccept.body"/>
+	<email key="EDITOR_DECISION_INITIAL_DECLINE" name="mailable.decision.initialDecline.notifyAuthor.name" subject="emails.editorDecisionInitialDecline.subject" body="emails.editorDecisionInitialDecline.body"/>
+	<email key="EDITOR_DECISION_REVERT_INITIAL_DECLINE" name="mailable.decision.revertInitialDecline.notifyAuthor.name" subject="emails.editorDecisionRevertInitialDecline.subject" body="emails.editorDecisionRevertInitialDecline.body"/>
+	<email key="EDITOR_DECISION_NOTIFY_OTHER_AUTHORS" name="mailable.decision.notifyOtherAuthors.name" subject="emails.decision.notifyOtherAuthors.subject" body="emails.decision.notifyOtherAuthors.body"/>
+	<email key="STATISTICS_REPORT_NOTIFICATION" name="mailable.statisticsReportNotify.name" subject="emails.statisticsReportNotification.subject" body="emails.statisticsReportNotification.body"/>
+	<email key="ANNOUNCEMENT" name="mailable.announcementNotify.name" subject="emails.announcement.subject" body="emails.announcement.body"/>
+	<email key="DISCUSSION_NOTIFICATION_PRODUCTION" name="mailable.discussionProduction.name" subject="emails.discussion.subject" body="emails.discussion.body"/>
+	<email key="EDITOR_ASSIGN" name="mailable.editorAssign.name" alternateTo="DISCUSSION_NOTIFICATION_PRODUCTION" subject="emails.editorAssign.subject" body="emails.editorAssign.body"/>
 </emails>

@@ -141,7 +141,7 @@ msgid "manager.setup.emailSignature"
 msgstr "Signature"
 
 msgid "manager.setup.emailSignature.description"
-msgstr "The prepared emails that are sent by the system on behalf of the server will have the following signature added to the end."
+msgstr "Emails sent automatically on behalf of the preprint server will have the following signature added."
 
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Enable announcements"
@@ -673,3 +673,21 @@ msgstr "Only DOIs can be edited after a publication has been published"
 
 msgid "manager.institutions.noContext"
 msgstr "This institution's press could not be found."
+
+msgid "manager.manageEmails.description"
+msgstr "Edit the messages sent in emails from this journal."
+
+msgid "mailable.postedAck.name"
+msgstr "Posted Acknowledgement"
+
+msgid "mailable.postedAck.description"
+msgstr "This email is automatically sent to an author when the preprint is posted online on the server."
+
+msgid "manager.preprintPosted"
+msgstr "Preprint Posted"
+
+msgid "manager.preprintPosted.description"
+msgstr "Configure the email notifications to send when a new preprint is posted."
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr "Whether or not to send an email to the authors of the preprint when it is posted."

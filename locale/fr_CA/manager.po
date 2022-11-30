@@ -116,6 +116,7 @@ msgstr ""
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Activer les annonces"
 
+#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
 "La signature suivante sera ajoutée à la fin de chaque courriel prédéfini "

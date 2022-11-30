@@ -15,15 +15,10 @@ namespace APP\publication;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
-use APP\notification\NotificationManager;
 use APP\submission\Submission;
-use Exception;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\mail\Mailable;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\Collector;
@@ -173,50 +168,6 @@ class Repository extends \PKP\publication\Repository
         // If there is no publish date, set it
         if (!$publication->getData('datePublished')) {
             $publication->setData('datePublished', Core::getCurrentDate());
-        }
-    }
-
-    /** @copydoc \PKP\publication\Repository::publish() */
-    public function publish(Publication $publication)
-    {
-        parent::publish($publication);
-
-        // Send preprint posted acknowledgement email when the first version is published
-        if ($publication->getData('version') == 1) {
-            $submission = Repo::submission()->get($publication->getData('submissionId'));
-            $context = $this->request->getContext();
-            $dispatcher = $this->request->getDispatcher();
-
-            // FIXME actual mailable should be created as part of pkp/pkp-lib7191 and replace the generic one
-            $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), 'POSTED_ACK');
-            if ($emailTemplate->getData('enabled')) {
-
-                // posted ack emails should be from the contact.
-                $mailable = new Mailable([$context, $submission]);
-                $assignedAuthors = Repo::author()->getSubmissionAuthors($submission);
-                $mailable
-                    ->from($context->getData('contactEmail'), $context->getData('contactName'))
-                    ->to($assignedAuthors->toArray()); // Send to all authors
-
-                $primaryAuthor = $submission->getPrimaryAuthor(); // Use primary author details in email
-                $mailable->addData([
-                    'authorPrimary' => $primaryAuthor ? $primaryAuthor->getFullName() : '',
-                    'editorialContactSignature' => $context->getData('contactName'),
-                    'submissionUrl' => $dispatcher->url($this->request, Application::ROUTE_PAGE, $context->getData('urlPath')),
-                ]);
-
-                try {
-                    Mail::send($mailable);
-                } catch (Exception $e) {
-                    $notificationMgr = new NotificationManager();
-                    $notificationMgr->createTrivialNotification(
-                        $this->request->getUser()->getId(),
-                        Notification::NOTIFICATION_TYPE_ERROR,
-                        ['contents' => __('email.compose.error')]
-                    );
-                    error_log($e->getMessage());
-                }
-            }
         }
     }
 

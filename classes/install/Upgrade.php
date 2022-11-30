@@ -23,6 +23,12 @@ use PKP\install\Installer;
 
 class Upgrade extends Installer
 {
+    protected $appEmailTemplateVariableNames = [
+        'contextName' => 'serverName',
+        'contextUrl' => 'serverUrl',
+        'contextSignature' => 'serverSignature',
+    ];
+
     /**
      * Constructor.
      *

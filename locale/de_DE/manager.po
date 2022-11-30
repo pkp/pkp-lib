@@ -405,6 +405,7 @@ msgstr ""
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Ankündigungen einschalten"
 
+#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
 "Die vorbereiteten E-Mails, die vom System im Namen des Servers versendet "
@@ -740,3 +741,8 @@ msgstr ""
 "geändert haben, speichern Sie bitte Ihre Änderungen, bevor Sie diese Aktion "
 "starten. Die Zuweisung von DOIs kann je nach der Anzahl der veröffentlichten "
 "Objekte auf dem Server lange dauern."
+
+msgid "mailable.postedAck.description"
+msgstr ""
+"Diese E-Mail wird, wenn die Funktion aktiviert ist, automatisch an den Autor "
+"gesendet, wenn der Preprint auf dem Server online gestellt wird."

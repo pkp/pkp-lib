@@ -208,6 +208,7 @@ msgstr ""
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Habilitar anúncios"
 
+#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
 "Os e-mails preparados que o sistema envia em nome do servidor terão a "
@@ -815,3 +816,8 @@ msgstr ""
 
 msgid "stats.publications.downloadReport.downloadSubmissions"
 msgstr "Baixar Preprints"
+
+msgid "mailable.postedAck.description"
+msgstr ""
+"Este e-mail, quando habilitado, é enviado automaticamente a um autor quando "
+"o preprint é postado online no servidor."

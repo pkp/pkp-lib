@@ -218,6 +218,7 @@ msgstr ""
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Овозможете соопштенија"
 
+#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
 "Подготвените е-пошти што системот ги испраќа во име на серверот ќе го "
@@ -715,3 +716,8 @@ msgstr ""
 
 msgid "doi.displayName"
 msgstr "ДОИ"
+
+msgid "mailable.postedAck.description"
+msgstr ""
+"Кога е овозможена оваа е-пошта автоматски се испраќа до авторот кога "
+"отпечатокот е објавен онлајн на серверот."

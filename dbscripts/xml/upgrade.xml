@@ -52,8 +52,6 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I8073_RemoveNotesWithoutQueriesAndRelatedObjects" />
 		<migration class="APP\migration\upgrade\v3_4_0\I5716_EmailTemplateAssignments"/>
 		<data file="dbscripts/xml/upgrade/3.4.0_preupdate_email_templates.xml" />
-		<code function="installEmailTemplate" key="EDITOR_DECISION_NOTIFY_OTHER_AUTHORS" locales="en_US" />
-		<code function="installEmailTemplate" key="EDITOR_DECISION_REVERT_INITIAL_DECLINE" locales="en_US" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I6895_CreateNewInstitutionsTables" />
 		<migration class="APP\migration\upgrade\v3_4_0\I6782_OrphanedMetrics" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I6782_UsageStatsSettings" />
@@ -70,7 +68,6 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I8093_UpdateUserGroupRelationTablesFK"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7796_UpdateCrossrefSchema"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7287_RemoveEmailTemplatesDefault"/>
-		<code function="installEmailTemplate" key="DISCUSSION_NOTIFICATION_PRODUCTION" locales="en_US" />
 		<note file="docs/release-notes/README-3.4.0" />
 	</upgrade>
 

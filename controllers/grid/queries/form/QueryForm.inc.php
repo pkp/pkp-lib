@@ -44,12 +44,12 @@ class QueryForm extends Form {
 		parent::__construct('controllers/grid/queries/form/queryForm.tpl');
 		$this->setStageId($stageId);
 
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
 		if (!$queryId) {
 			$this->_isNew = true;
 
 			// Create a query
-			$query = $queryDao->newDataObject();
+			$query = $queryDao->newDataObject(); /** @var Query $query */
 			$query->setAssocType($assocType);
 			$query->setAssocId($assocId);
 			$query->setStageId($stageId);
@@ -61,7 +61,7 @@ class QueryForm extends Form {
 			$queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
 
 			// Create a head note
-			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
 			$headNote = $noteDao->newDataObject();
 			$headNote->setUserId($request->getUser()->getId());
 			$headNote->setAssocType(ASSOC_TYPE_QUERY);
@@ -170,7 +170,7 @@ class QueryForm extends Form {
 	 * Initialize form data from the associated author.
 	 */
 	function initData() {
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
 		if ($query = $this->getQuery()) {
 			$headNote = $query->getHeadNote();
 			$this->_data = array(
@@ -197,7 +197,7 @@ class QueryForm extends Form {
 
 		$query = $this->getQuery();
 		$headNote = $query->getHeadNote();
-		$user = $request->getUser();
+		$user = $request->getUser(); /** @var User $user */
 		$context = $request->getContext();
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -211,10 +211,10 @@ class QueryForm extends Form {
 		// Queryies only support ASSOC_TYPE_SUBMISSION so far
 		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
 
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
 			// Get currently selected participants in the query
-			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+			$queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
 			$assignedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
 
 			// Always include current user, even if not with a stage assignment
@@ -226,21 +226,20 @@ class QueryForm extends Form {
 			if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
 				// Get all review assignments for current submission
-				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 				$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
 
 				// Get current users roles
 				$assignedRoles = [];
 				$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
 				while ($usersAssignment = $usersAssignments->next()) {
-					$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 					$userGroup = $userGroupDao->getById($usersAssignment->getUserGroupId());
 					$assignedRoles[] = $userGroup->getRoleId();
 				}
 
-				// if current user is editor, add all reviewers
-				if ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()) ||
-						array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $assignedRoles)) {
+				// if current user is editor/journal manager/site admin and not have author role , add all reviewers
+				if ( array_intersect($assignedRoles, [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]) || ( empty($assignedRoles) && ( $user->hasRole([ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) ) ) ) {
 					foreach ($reviewAssignments as $reviewAssignment) {
 						$includeUsers[] = $reviewAssignment->getReviewerId();
 					}
@@ -283,7 +282,7 @@ class QueryForm extends Form {
 			$usersIterator = $userService->getMany($params);
 
 			$allParticipants = [];
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 			foreach ($usersIterator as $user) {
 				$allUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId())->toArray();
 
@@ -350,9 +349,9 @@ class QueryForm extends Form {
 			$submissionId = $query->getAssocId();
 			$stageId = $query->getStageId();
 
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 
 			// get the selected participants
 			$newParticipantIds = (array) $this->getData('users');
@@ -423,14 +422,14 @@ class QueryForm extends Form {
 	 */
 	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
 		$query = $this->getQuery();
 
 		$headNote = $query->getHeadNote();
 		$headNote->setTitle($this->getData('subject'));
 		$headNote->setContents($this->getData('comment'));
 
-		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
 		$noteDao->updateObject($headNote);
 
 		$queryDao->updateObject($query);
@@ -449,7 +448,7 @@ class QueryForm extends Form {
 		$added = array_diff($newParticipantIds, $oldParticipantIds);
 		foreach($removed as $userId) {
 			// Delete this users's notifications relating to this query
-			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 			$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $userId);
 		}
 		$currentUser = $request->getUser();
@@ -473,7 +472,7 @@ class QueryForm extends Form {
 		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
 			$submission = Services::get('submission')->get($query->getAssocId());
 			$submission->stampLastActivity();
-			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao  */
 			$submissionDao->updateObject($submission);
 		}
 

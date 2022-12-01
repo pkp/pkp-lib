@@ -14,7 +14,9 @@
 namespace APP\mail;
 
 use APP\mail\mailables\PostedAcknowledgement;
+use Illuminate\Support\Collection;
 use PKP\context\Context;
+use PKP\mail\mailables as pkpMailables;
 
 class Repository extends \PKP\mail\Repository
 {
@@ -24,5 +26,30 @@ class Repository extends \PKP\mail\Repository
             return (bool) $context->getData('postedAcknowledgement');
         }
         return parent::isMailableEnabled($class, $context);
+    }
+
+    /**
+     * Overrides the map from the shared library as OPS uses distinct mailables from OJS and OMP
+     */
+    public function map(): Collection
+    {
+        return collect([
+            pkpMailables\AnnouncementNotify::class,
+            pkpMailables\DecisionAcceptNotifyAuthor::class,
+            pkpMailables\DecisionInitialDeclineNotifyAuthor::class,
+            pkpMailables\DecisionNotifyOtherAuthors::class,
+            pkpMailables\DecisionRevertInitialDeclineNotifyAuthor::class,
+            pkpMailables\DiscussionProduction::class,
+            pkpMailables\EditorialReminder::class,
+            pkpMailables\PasswordReset::class,
+            pkpMailables\PasswordResetRequested::class,
+            pkpMailables\StatisticsReportNotify::class,
+            pkpMailables\SubmissionAcknowledgement::class,
+            pkpMailables\SubmissionAcknowledgementNotAuthor::class,
+            pkpMailables\UserCreated::class,
+            pkpMailables\ValidateEmailContext::class,
+            pkpMailables\ValidateEmailSite::class,
+            mailables\PostedAcknowledgement::class,
+        ]);
     }
 }

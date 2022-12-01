@@ -14,6 +14,8 @@
 
 namespace PKP\components;
 
+use PKP\statistics\PKPStatisticsHelper;
+
 class PKPStatsComponent
 {
     /** @var string The URL to the /stats API endpoint */
@@ -72,6 +74,7 @@ class PKPStatsComponent
             'apiUrl' => $this->apiUrl,
             'tableColumns' => $this->tableColumns,
             'dateStart' => $this->dateStart,
+            'dateStartMin' => PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => $this->dateEnd,
             'dateEndMax' => date('Y-m-d', strtotime('yesterday')),
             'dateRangeOptions' => $this->dateRangeOptions,

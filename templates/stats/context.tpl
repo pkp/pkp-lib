@@ -20,6 +20,7 @@
 				<date-range
 					unique-id="context-stats-date-range"
 					:date-start="dateStart"
+					:date-start-min="dateStartMin"
 					:date-end="dateEnd"
 					:date-end-max="dateEndMax"
 					:options="dateRangeOptions"

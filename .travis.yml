@@ -22,6 +22,9 @@ addons:
   postgresql: "9.5"
   apt:
     update: true
+    packages:
+      - libvulkan1
+      - libu2f-udev
 
 before_install:
   - ./tools/startSubmodulesTRAVIS.sh

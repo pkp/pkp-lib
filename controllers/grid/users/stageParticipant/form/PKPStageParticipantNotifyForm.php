@@ -38,7 +38,7 @@ use Symfony\Component\Mailer\Exception\TransportException;
 
 use PKP\core\Core;
 
-abstract class PKPStageParticipantNotifyForm extends Form
+class PKPStageParticipantNotifyForm extends Form
 {
     use StageMailable;
 

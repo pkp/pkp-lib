@@ -155,7 +155,8 @@ class Repository
     /**
      * @return Collection the map of available mailables used by the app
      */
-    public function map(): Collection {
+    public function map(): Collection
+    {
         return collect([
             mailables\AnnouncementNotify::class,
             mailables\DecisionAcceptNotifyAuthor::class,

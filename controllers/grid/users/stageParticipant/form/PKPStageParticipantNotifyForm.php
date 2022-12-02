@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;

@@ -17,6 +17,7 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -362,9 +363,11 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
 				review_form_id,
 				review_round_id,
 				unconsidered,
-				request_resent
+				request_resent,
+                review_confirmed_at,
+                review_confirming_user_id
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?, %s, ?
 				)',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -375,7 +378,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 $this->datetimeToDB($reviewAssignment->getDateResponseDue()),
                 $this->datetimeToDB($reviewAssignment->getDateRated()),
                 $this->datetimeToDB($reviewAssignment->getLastModified()),
-                $this->datetimeToDB($reviewAssignment->getDateReminded())
+                $this->datetimeToDB($reviewAssignment->getDateReminded()),
+                $this->datetimeToDB($reviewAssignment->getReviewConfirmedAt())
             ),
             [
                 (int) $reviewAssignment->getSubmissionId(),
@@ -393,6 +397,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 (int) $reviewAssignment->getReviewRoundId(),
                 (int) $reviewAssignment->getUnconsidered(),
                 (int) $reviewAssignment->getRequestResent(),
+                $reviewAssignment->getReviewConfirmingUserId(),
             ]
         );
 
@@ -436,7 +441,9 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
 					review_form_id = ?,
 					review_round_id = ?,
 					unconsidered = ?,
-					request_resent = ?
+					request_resent = ?,
+                    review_confirmed_at = %s,
+                    review_confirming_user_id = ?
 				WHERE review_id = ?',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -447,7 +454,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 $this->datetimeToDB($reviewAssignment->getDateResponseDue()),
                 $this->datetimeToDB($reviewAssignment->getDateRated()),
                 $this->datetimeToDB($reviewAssignment->getLastModified()),
-                $this->datetimeToDB($reviewAssignment->getDateReminded())
+                $this->datetimeToDB($reviewAssignment->getDateReminded()),
+                $this->datetimeToDB($reviewAssignment->getReviewConfirmedAt())
             ),
             [
                 (int) $reviewAssignment->getSubmissionId(),
@@ -465,6 +473,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 (int) $reviewAssignment->getReviewRoundId(),
                 (int) $reviewAssignment->getUnconsidered(),
                 (int) $reviewAssignment->getRequestResent(),
+                $reviewAssignment->getReviewConfirmingUserId(),
                 (int) $reviewAssignment->getId(),
             ]
         );
@@ -535,6 +544,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewAssignment->setStageId((int) $row['stage_id']);
         $reviewAssignment->setUnconsidered((int) $row['unconsidered']);
         $reviewAssignment->setRequestResent((int) $row['request_resent'] ?? null);
+        $reviewAssignment->setReviewConfirmedAt($this->datetimeFromDB($row['review_confirmed_at']));
+        $reviewAssignment->setReviewConfirmingUserId($row['review_confirming_user_id'] ?? null);
 
         return $reviewAssignment;
     }
@@ -563,7 +574,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewFilesDao->revokeByReviewId($reviewId);
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
+        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
 
         // Retrieve the review assignment before it's deleted, so it can be
         // be used to fire an update on the review round status.

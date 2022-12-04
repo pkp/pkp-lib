@@ -19,6 +19,7 @@ namespace PKP\submission\reviewAssignment;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
@@ -544,6 +545,46 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * 
+     *
+     * @return string|null
+     */
+    public function getReviewConfirmedAt()
+    {
+        return $this->getData('reviewConfirmedAt');
+    }
+
+    /**
+     * 
+     *
+     * @param string|null $reviewConfirmedAt
+     */
+    public function setReviewConfirmedAt($reviewConfirmedAt)
+    {
+        $this->setData('reviewConfirmedAt', $reviewConfirmedAt);
+    }
+
+    /**
+     * 
+     *
+     * @return int|null
+     */
+    public function getReviewConfirmingUserId()
+    {
+        return $this->getData('reviewConfirmingUserId');
+    }
+
+    /**
+     * 
+     *
+     * @param int|null $userId
+     */
+    public function setReviewConfirmingUserId($userId)
+    {
+        $this->setData('reviewConfirmingUserId', $userId);
+    }
+
+    /**
      * Get a boolean indicating whether or not the last reminder was automatic.
      *
      * @return bool
@@ -624,6 +665,28 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * 
+     *
+     * @param int|null $userId
+     */
+    public function markRead($userId = null)
+    {
+        $this->setReviewConfirmedAt(Core::getCurrentDate());
+        $this->setReviewConfirmingUserId($userId);
+    }
+
+    /**
+     * 
+     *
+     * @return void
+     */
+    public function markUnread()
+    {
+        $this->setReviewConfirmedAt(null);
+        $this->setReviewConfirmingUserId(null);
+    }
+
+    /**
      * Get the current status of this review assignment
      *
      * @return int REVIEW_ASSIGNMENT_STATUS_...
@@ -688,40 +751,48 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function isRead()
     {
-        $viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
-
-        $submission = Repo::submission()->get($this->getSubmissionId());
-
-        // Get the user groups for this stage
-        $userGroups = Repo::userGroup()->getUserGroupsByStage(
-            $submission->getContextId(),
-            $this->getStageId()
-        );
-
-        foreach ($userGroups as $userGroup) {
-            $roleId = $userGroup->getRoleId();
-            if ($roleId != Role::ROLE_ID_MANAGER && $roleId != Role::ROLE_ID_SUB_EDITOR) {
-                continue;
-            }
-
-            // Get the users assigned to this stage and user group
-            $stageUsers = Repo::user()->getCollector()
-                ->assignedTo($this->getSubmissionId(), $this->getStageId(), $userGroup->getId())
-                ->getMany();
-
-            // Check if any of these users have viewed it
-            foreach ($stageUsers as $user) {
-                if ($viewsDao->getLastViewDate(
-                    Application::ASSOC_TYPE_REVIEW_RESPONSE,
-                    $this->getId(),
-                    $user->getId()
-                )) {
-                    return true;
-                }
-            }
+        if ( $this->getReviewConfirmedAt() ) {
+            return true;
         }
 
-        return false;
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
+		$submission = Repo::submission()->get($this->getSubmissionId());
+
+		// Get the user groups for this context
+		$userGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->getMany();
+
+        foreach ($userGroups as $userGroup) {
+			
+			$roleId = $userGroup->getRoleId();
+			
+			// If user group do not has manager or editor role, look for next one
+			if ($roleId != Role::ROLE_ID_MANAGER && $roleId != Role::ROLE_ID_SUB_EDITOR) {
+				continue;
+			}
+
+			// Get the users assigned to this user group for this context
+            $users = Repo::user()
+                ->getCollector()
+                ->filterByContextIds([$submission->getData('contextId')])
+                ->filterByUserGroupIds([$userGroup->getId()])
+                ->getMany();
+
+			// Check if any of these users have viewed it
+			foreach ($users as $user) {
+				if ($viewsDao->getLastViewDate(
+					Application::ASSOC_TYPE_REVIEW_RESPONSE,
+					$this->getId(),
+					$user->getId()
+				)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
     }
 
     /**

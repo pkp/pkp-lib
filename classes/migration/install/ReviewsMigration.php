@@ -87,6 +87,11 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->smallInteger('unconsidered')->nullable();
             $table->smallInteger('request_resent')->default(0);
 
+            $table->dateTime('review_confirmed_at')->nullable();
+
+            $table->bigInteger('review_confirming_user_id')->nullable();
+            $table->foreign('review_confirming_user_id')->references('user_id')->on('users')->onDelete('set null');
+
             // Normally reviewer can't be assigned twice on the same review round.
             // HOWEVER, if two reviewer user accounts are subsequently merged, both will keep
             // separate review assignments but the reviewer_id will become the same!

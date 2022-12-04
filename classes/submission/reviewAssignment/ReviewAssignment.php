@@ -545,7 +545,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * 
+     * Get the review comfirm datetime
      *
      * @return string|null
      */
@@ -555,7 +555,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * 
+     * Get the review comfirm datetime
      *
      * @param string|null $reviewConfirmedAt
      */
@@ -565,7 +565,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * 
+     * Get the user id who confirmed review
      *
      * @return int|null
      */
@@ -575,7 +575,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * 
+     * Set the user id who confirmed review
      *
      * @param int|null $userId
      */
@@ -754,43 +754,6 @@ class ReviewAssignment extends \PKP\core\DataObject
         if ( $this->getReviewConfirmedAt() ) {
             return true;
         }
-
-		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
-		$submission = Repo::submission()->get($this->getSubmissionId());
-
-		// Get the user groups for this context
-		$userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
-
-        foreach ($userGroups as $userGroup) {
-			
-			$roleId = $userGroup->getRoleId();
-			
-			// If user group do not has manager or editor role, look for next one
-			if ($roleId != Role::ROLE_ID_MANAGER && $roleId != Role::ROLE_ID_SUB_EDITOR) {
-				continue;
-			}
-
-			// Get the users assigned to this user group for this context
-            $users = Repo::user()
-                ->getCollector()
-                ->filterByContextIds([$submission->getData('contextId')])
-                ->filterByUserGroupIds([$userGroup->getId()])
-                ->getMany();
-
-			// Check if any of these users have viewed it
-			foreach ($users as $user) {
-				if ($viewsDao->getLastViewDate(
-					Application::ASSOC_TYPE_REVIEW_RESPONSE,
-					$this->getId(),
-					$user->getId()
-				)) {
-					return true;
-				}
-			}
-		}
 
 		return false;
     }

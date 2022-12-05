@@ -387,7 +387,7 @@ Cypress.Commands.add('recordDecisionSendToReview', (decisionLabel, authorNames, 
 	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
 	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	cy.selectPromotedFiles(filesToPromote);
 	// Check for the correct confirmation message for different
 	// decisions in OJS and OMP.
@@ -409,13 +409,13 @@ Cypress.Commands.add('recordDecisionAcceptSubmission', (authorNames, completedRe
 	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
 	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	if (completedReviewerNames && completedReviewerNames.length) {
 		cy.get('h2').contains('Notify Reviewers').should('exist');
 		cy.waitForEmailTemplateToBeLoaded('Notify Reviewers');
 		cy.checkComposerRecipients('Notify Reviewers', completedReviewerNames);
 		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
-		cy.get('.decision__footer button').contains('Next').click();
+		cy.get('.decision__footer button').contains('Continue').click();
 	}
 	cy.selectPromotedFiles(filesToPromote);
 	cy.recordDecision('has been accepted for publication and sent to the copyediting stage');
@@ -430,7 +430,7 @@ Cypress.Commands.add('recordDecisionSendToProduction', (authorNames, filesToProm
 	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
 	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	cy.selectPromotedFiles(filesToPromote);
 	cy.recordDecision('was sent to the production stage');
 });
@@ -444,7 +444,7 @@ Cypress.Commands.add('recordDecisionRevisions', (revisionLabel, authorNames, com
 	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
 	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	if (completedReviewerNames && completedReviewerNames.length) {
 		cy.get('h2').contains('Notify Reviewers').should('exist');
 		cy.waitForEmailTemplateToBeLoaded('Notify Reviewers');

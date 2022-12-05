@@ -19,19 +19,19 @@ declare(strict_types=1);
 namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-use PKP\plugins\LazyLoadPlugin;
+use PKP\plugins\Plugin;
 
 class PluginSettingChanged
 {
     use Dispatchable;
 
-    public LazyLoadPlugin $plugin;
+    public Plugin $plugin;
     public string $settingName;
     public mixed $newValue;
     public ?int $contextId;
 
     public function __construct(
-        LazyLoadPlugin $plugin,
+        Plugin $plugin,
         string $settingName,
         $newValue,
         ?int $contextId = null

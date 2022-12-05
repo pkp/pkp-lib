@@ -2108,9 +2108,6 @@ msgstr "Inhalt einfügen"
 msgid "common.insertContentSearch"
 msgstr "Inhalt zum Einfügen suchen"
 
-msgid "common.loadTemplate"
-msgstr "Eine Vorlage laden"
-
 msgid "common.keepWorking"
 msgstr "Weiterarbeiten"
 

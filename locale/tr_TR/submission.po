@@ -2049,6 +2049,7 @@ msgstr ""
 "{$editorName} aday makaleyi kabul etti ve son kopya düzenleme aşamasına "
 "gönderdi."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Hakemlere değerlendirmeleri için teşekkür etmek ve kararın alındığını "
@@ -2065,11 +2066,13 @@ msgstr "{$stage} aşamasında {$days} günden fazla süredir aktif değil."
 msgid "editor.submission.decision.accept.description"
 msgstr "Aday makale kabul edilerek ve son kopya düzenlemesi için gönderilecek."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara aday makalelerinin reddedildiğini bildirmek için bir e-posta "
 "gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara aday makalelerinin kabul edildiğini bildirmek için bir e-posta "
@@ -2085,6 +2088,7 @@ msgstr ""
 "Hakeme, değerlendirmenin iptal edildiğini bildirmek için bir e-posta "
 "gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Değerlendirme turunun kapandığını bildirmek için yazarlara bir e-posta "
@@ -2131,6 +2135,7 @@ msgstr ""
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} aday makale için düzeltme istedi."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Aday makale kabul edilmeden önce düzeltme gerekli olduğunu bildirmek için "
@@ -2148,6 +2153,7 @@ msgstr ""
 msgid "editor.submission.decision.promoteFiles.review"
 msgstr "Değerlendirme aşaması için gönderilmesi gereken dosyaları seçin."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara aday makalelerinin yeni bir değerlendirme turu için gönderildiğini "
@@ -2260,6 +2266,7 @@ msgstr ""
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Değerlendirmeye Gönder"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Makalenin üretim aşamasına gönderildiğini bildirmek için yazarlara e-posta "
@@ -2350,6 +2357,7 @@ msgstr ""
 msgid "editor.submission.recommend.completed"
 msgstr "Öneri Gönderildi"
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara, aday makalenin değerlendirmeye alınmadan yayına kabul edildiğini "

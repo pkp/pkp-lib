@@ -384,10 +384,10 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 Cypress.Commands.add('recordDecisionSendToReview', (decisionLabel, authorNames, filesToPromote) => {
 	cy.get('h1').contains(decisionLabel).should('exist');
 	cy.get('h2').contains('Notify Authors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
-	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
+	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	cy.selectPromotedFiles(filesToPromote);
 	// Check for the correct confirmation message for different
 	// decisions in OJS and OMP.
@@ -406,16 +406,16 @@ Cypress.Commands.add('recordDecisionSendToReview', (decisionLabel, authorNames, 
 Cypress.Commands.add('recordDecisionAcceptSubmission', (authorNames, completedReviewerNames, filesToPromote) => {
 	cy.get('h1').contains('Accept Submission').should('exist');
 	cy.get('h2').contains('Notify Authors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
-	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
+	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	if (completedReviewerNames && completedReviewerNames.length) {
 		cy.get('h2').contains('Notify Reviewers').should('exist');
-		cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Reviewers")');
-		cy.checkComposerRecipients('.composer:contains("Notify Reviewers") .composer__recipients', completedReviewerNames);
+		cy.waitForEmailTemplateToBeLoaded('Notify Reviewers');
+		cy.checkComposerRecipients('Notify Reviewers', completedReviewerNames);
 		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
-		cy.get('.decision__footer button').contains('Next').click();
+		cy.get('.decision__footer button').contains('Continue').click();
 	}
 	cy.selectPromotedFiles(filesToPromote);
 	cy.recordDecision('has been accepted for publication and sent to the copyediting stage');
@@ -427,10 +427,10 @@ Cypress.Commands.add('recordDecisionAcceptSubmission', (authorNames, completedRe
 Cypress.Commands.add('recordDecisionSendToProduction', (authorNames, filesToPromote) => {
 	cy.get('h1').contains('Send To Production').should('exist');
 	cy.get('h2').contains('Notify Authors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
-	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
+	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	cy.selectPromotedFiles(filesToPromote);
 	cy.recordDecision('was sent to the production stage');
 });
@@ -441,14 +441,14 @@ Cypress.Commands.add('recordDecisionSendToProduction', (authorNames, filesToProm
 Cypress.Commands.add('recordDecisionRevisions', (revisionLabel, authorNames, completedReviewerNames) => {
 	cy.get('h1').contains(revisionLabel).should('exist');
 	cy.get('h2').contains('Notify Authors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
-	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
+	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
-	cy.get('.decision__footer button').contains('Next').click();
+	cy.get('.decision__footer button').contains('Continue').click();
 	if (completedReviewerNames && completedReviewerNames.length) {
 		cy.get('h2').contains('Notify Reviewers').should('exist');
-		cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Reviewers")');
-		cy.checkComposerRecipients('.composer:contains("Notify Reviewers") .composer__recipients', completedReviewerNames);
+		cy.waitForEmailTemplateToBeLoaded('Notify Reviewers');
+		cy.checkComposerRecipients('Notify Reviewers', completedReviewerNames);
 		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
 	}
 	cy.recordDecision('have been requested.');
@@ -457,8 +457,8 @@ Cypress.Commands.add('recordDecisionRevisions', (revisionLabel, authorNames, com
 Cypress.Commands.add('recordDecisionDecline', (authorNames) => {
 	cy.get('h1').contains('Decline Submission').should('exist');
 	cy.get('h2').contains('Notify Authors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
-	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
+	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
 	cy.recordDecision('has been declined and sent to the archives');
 });
@@ -466,8 +466,8 @@ Cypress.Commands.add('recordDecisionDecline', (authorNames) => {
 Cypress.Commands.add('recordDecisionRevertDecline', (authorNames) => {
 	cy.get('h1').contains('Revert Decline').should('exist');
 	cy.get('h2').contains('Notify Authors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Authors")');
-	cy.checkComposerRecipients('.composer:contains("Notify Authors") .composer__recipients', authorNames);
+	cy.waitForEmailTemplateToBeLoaded('Notify Authors');
+	cy.checkComposerRecipients('Notify Authors', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
 	cy.recordDecision('now active in the submission stage');
 });
@@ -478,8 +478,8 @@ Cypress.Commands.add('recordDecisionRevertDecline', (authorNames) => {
 Cypress.Commands.add('recordRecommendation', (decisionLabel, decidingEditors) => {
 	cy.get('h1').contains(decisionLabel).should('exist');
 	cy.get('h2').contains('Notify Editors').should('exist');
-	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Editors")');
-	cy.checkComposerRecipients('.composer__recipients', decidingEditors);
+	cy.waitForEmailTemplateToBeLoaded('Notify Editors');
+	cy.checkComposerRecipients('Notify Editors', decidingEditors);
 	cy.checkEmailTemplateVariables('#discussion-body-control');
 	cy.recordDecision('Your recommendation has been recorded');
 });
@@ -551,27 +551,37 @@ Cypress.Commands.add('checkEmailRecipientVariable', (selector, value) => {
 /**
  * Wait for an email template to be loaded into an email composer
  *
- * @param string selector An HTML element selector for a parent element that contains the email composer to check
+ * @param string stepName The name of the step to wait for the email template to be loaded
  */
-Cypress.Commands.add('waitForEmailTemplateToBeLoaded', (selector) => {
-	cy.get(selector);
-	cy.get(selector + ' .composer__loadingTemplateMask').should('not.exist');
+Cypress.Commands.add('waitForEmailTemplateToBeLoaded', (stepName) => {
+	cy.get('h2:contains("' + stepName + '")')
+		.parents('.pkpStep')
+		.find('.composer__loadingTemplateMask')
+		.should('not.exist');
 });
 
 /**
  * Check that the recipients in an email composer element match
  * those expected
  *
- * @param string selector The HTML element selector for the recipients field in the composer element
+ * @param string stepName The name of the step to look for the email recipients
  * @param string[] recipientNames The expected names of recipients
  */
-Cypress.Commands.add('checkComposerRecipients', (selector, recipientNames) => {
+Cypress.Commands.add('checkComposerRecipients', (stepName, recipientNames) => {
+
 	// Every expected name is there
 	recipientNames.forEach(function(recipientName) {
-		cy.get(selector).find('.pkpAutosuggest__selection').contains(recipientName);
+		cy.get('h2:contains("' + stepName + '")')
+			.parents('.pkpStep')
+			.find('.composer__recipients .pkpAutosuggest__selection')
+			.contains(recipientName);
 	});
+
 	// No unexpected names are there
-	cy.get(selector).find('.pkpAutosuggest__selection').should('have.length', recipientNames.length);
+	cy.get('h2:contains("' + stepName + '")')
+		.parents('.pkpStep')
+		.find('.composer__recipients .pkpAutosuggest__selection')
+		.should('have.length', recipientNames.length);
 });
 
 Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {

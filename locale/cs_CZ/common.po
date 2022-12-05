@@ -2118,9 +2118,6 @@ msgstr "{$number} krát více"
 msgid "common.keepWorking"
 msgstr "Pokračovat v práci"
 
-msgid "common.loadTemplate"
-msgstr "Nahrát šablonu"
-
 msgid "common.findTemplate"
 msgstr "Najít šablonu"
 

@@ -2139,9 +2139,6 @@ msgstr "още {$number}"
 msgid "common.keepWorking"
 msgstr "Продължаване на обработката (работата)"
 
-msgid "common.loadTemplate"
-msgstr "Зареди шаблон"
-
 msgid "common.findTemplate"
 msgstr "Намери шаблон"
 

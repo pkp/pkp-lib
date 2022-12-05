@@ -2221,6 +2221,7 @@ msgstr "Innsending samþykkt"
 msgid "editor.submission.status.waitingInitialReview"
 msgstr "Ný innsending bíður þess að vera send til ritrýni eða höfnunar."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Senda tölvupóst til höfunda(r) með upplýsingum um að óskað verði eftir "
@@ -2239,6 +2240,7 @@ msgstr ""
 "Innsendingin {$title} fór framhjá ritrýniferli og var send beint á "
 "textatæknistig."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Senda tölvupóst til ritrýna þar sem þeim er þökkuð ritrýnin og tilkynnt um "
@@ -2261,6 +2263,7 @@ msgstr "Innsendingin {$title} hefur verið send í ritrýniferli."
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Innsendingin er tilbúin til að senda í ritrýni."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Höfundi sendur tölvupóstur þar sem upplýst er um að innsending hafi verið "
@@ -2296,11 +2299,13 @@ msgstr ""
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Veldu skrár til að senda í textatækniferli."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Senda tölvupóst til höfunda þar sem þeir eru upplýstir um að innsendingu "
 "þeirra hafi verið hafnað."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Senda tölvupóst til höfunda(r) þar sem þeir er tilkynnt um að innsending "
@@ -2325,6 +2330,7 @@ msgstr ""
 "Senda tölvupóst til viðkomandi ritrýna þar sem þeim er tilkynnt að beiðni um "
 "ritrýni hafi verið afturkölluð."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Senda tölvupóst til höfunda(r) þar sem upplýst er um lokun ritrýniumferðar."
@@ -2361,6 +2367,7 @@ msgstr "Senda innsendingu til baka í textatækniferli."
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Sent til baka úr textatækniferli"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Senda höfundi tölvupóst með tilkynningu um að innsendingin hafi verið send á "
@@ -2391,6 +2398,7 @@ msgstr ""
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Innsendingunni, {$title}, hefur verið hafnað og hún send til vistunar."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Senda tölvupóst til höfunda(r) þar sem tilkynnt er um að innsending hafi "

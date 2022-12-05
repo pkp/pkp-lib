@@ -2072,6 +2072,7 @@ msgstr ""
 "Vrátit předchozí rozhodnutí o zamítnutí tohoto příspěvku a vrátit jej do "
 "aktivního redakčního procesu."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že tento příspěvek byl "
@@ -2117,6 +2118,7 @@ msgstr "Poslat tento příspěvek zpět do fáze konečných úprav."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Zpět do fáze copyeditingu"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Odeslání e-mailu autorům, abyste jim oznámili, že tento příspěvek byl "
@@ -2174,6 +2176,7 @@ msgstr ""
 "Před přijetím příspěvku k publikaci musí autor předložit úpravy, která budou "
 "zaslány do dalšího kola recenzního řízení."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém je upozorníte, že před přijetím příspěvku "
@@ -2202,6 +2205,7 @@ msgstr "Vyberte soubory, které mají být odeslány do recenzního řízení."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Vyberte soubory, které mají být odeslány do fáze závěrečných úprav."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že jejich příspěvky byly "
@@ -2227,6 +2231,7 @@ msgstr ""
 "Tento příspěvek bude odmítnut ke zveřejnění. Nebude provedeno žádné další "
 "recenzní řízení a příspěvek bude archivován."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Poslat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
@@ -2272,6 +2277,7 @@ msgstr "Poslat zpět do fáze podávání příspěvku"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Zpět k příspěvku"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Pošlat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
@@ -2295,6 +2301,7 @@ msgstr ""
 "Tento příspěvek bude přijat ke zveřejnění a odeslán k závěrečnému "
 "formátování."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Pošlete recenzentům e-mail, ve kterém jim poděkujete za jejich recenzi a "
@@ -2363,6 +2370,7 @@ msgstr ""
 "Nepodařilo se označit DOI registrovaný pro {$pubObjectTitle}. Než bude možné "
 "stav aktualizovat, musí být příspěvek zveřejněn."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že kolo recenzního řízení "

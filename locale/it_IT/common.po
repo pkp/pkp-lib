@@ -2116,9 +2116,6 @@ msgstr "Inserisci contenuto"
 msgid "common.insertContentSearch"
 msgstr "Trova contenuto da inserire"
 
-msgid "common.loadTemplate"
-msgstr "Carica un template"
-
 msgid "common.keepWorking"
 msgstr "Continua l'operazione"
 

@@ -2023,6 +2023,7 @@ msgstr "Sendt tilbage til indsendelse"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Tilbage til indsendelse"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne og informer dem om, at deres indsendelse er "
@@ -2046,6 +2047,7 @@ msgstr ""
 "{$editorName} accepterede denne indsendelse og sendte den videre til "
 "manuskriptredigeringstrinnet."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Send en e-mail til bedømmerne for at takke dem for deres bedømmelse og "
@@ -2082,6 +2084,7 @@ msgstr ""
 "foretages ikke yderligere fagfællebedømmelse og indsendelsen vil blive "
 "arkiveret."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
@@ -2133,6 +2136,7 @@ msgstr "Vælg filer der skal sendes til bedømmelse."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Vælg filer der skal sendes til manuskriptredigeringstrinnet."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
@@ -2146,6 +2150,7 @@ msgstr ""
 "Forfatteren skal indsende ændringer før indsendelsen kan godkendes til "
 "publicering."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne og lad dem vide, at rettelser til denne "
@@ -2193,6 +2198,7 @@ msgstr "Send denne indsendelse tilbage til manuskriptredigeringstrinnet."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Tilbage til manuskriptredigering"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
@@ -2308,6 +2314,7 @@ msgstr ""
 "Omgør en tidligere beslutning om at afvise denne indsendelse, og aktiver "
 "dermed den redaktionelle proces."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne og informer dem om, at deres indsendelse er "
@@ -2413,6 +2420,7 @@ msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
 "Indsendelsen, {$title}, blev sendt tilbage fra manuskriptredigeringstrinnet."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at meddele dem, at bedømmelsesrunden er "

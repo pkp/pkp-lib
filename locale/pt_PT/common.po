@@ -2154,9 +2154,6 @@ msgstr "{$number} mais"
 msgid "common.keepWorking"
 msgstr "Continuar a trabalhar"
 
-msgid "common.loadTemplate"
-msgstr "Carregar um Modelo"
-
 msgid "common.findTemplate"
 msgstr "Procurar Modelo"
 

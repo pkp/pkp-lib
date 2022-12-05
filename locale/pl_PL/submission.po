@@ -2236,6 +2236,7 @@ msgstr "{$editorName} zlecił konieczność poprawek do zgłoszenia."
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Zgłoszenie: {$title} zostało odesłane ponownie do Korekty."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Wyślij email do autorów z powiadomieniem o wysłaniu zgłoszenia do etapu "
@@ -2244,6 +2245,7 @@ msgstr ""
 msgid "editor.submission.status.waitingInitialReview"
 msgstr "Nowe zgłoszenie oczekuje na wysłanie do recenzji lub odrzucenie."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Wyślij wiadomość e-mail do autorów, aby poinformować ich, że poprawki będą "
@@ -2261,6 +2263,7 @@ msgstr ""
 "Zgłoszenie {$title} zostało przesłane do Korekty z pominięciem etapu "
 "recenzji."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Wyślij email do recenzentów z podziękowaniem za dokonaną recenzję i "
@@ -2292,6 +2295,7 @@ msgstr "Zgłoszenie {$title} zostało wysłane do etapu recenzji."
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Zgłoszenie jest gotowe do etapu recenzji."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Wyślij email do autorów z powiadomieniem, że ich zgłoszenie zostało wysłane "
@@ -2341,6 +2345,7 @@ msgstr "Rekomenduj powtórne zgłoszenie do recenzji"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} odwrócił decyzję o odrzuceniu tego zgłoszenia."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr "Wyślij email do autorów z powiadomieniem o odrzuceniu tekstu."
 
@@ -2349,6 +2354,7 @@ msgstr ""
 "Nie możesz zapisać rekomendacji dopóki nie zostanie przydzielony redaktor "
 "mogący podjąć ostateczną decyzję."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Wyślij email do autorów z powiadomieniem, że ich zgłoszenie zostało "
@@ -2408,6 +2414,7 @@ msgstr ""
 "Wyślij email do zaangażowanych recenzentów z informacją, że ich przydział "
 "został anulowany."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Wyślij email do autorów z informacją, że ta runda recenzji została zamknięta."
@@ -2456,6 +2463,7 @@ msgstr "Została zgłoszona rekomendacja"
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Zgłoszenie: {$title} jest obecnie aktywnym tekstem w etapie zgłoszenia."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Wyślij email do autorów z informacją, że zgłoszenie zostało zaakceptowane do "

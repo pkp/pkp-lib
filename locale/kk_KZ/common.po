@@ -516,8 +516,8 @@ msgstr "Көбірек"
 msgid "common.keepWorking"
 msgstr "Жұмысты жалғастырыңыз"
 
-msgid "common.loadTemplate"
-msgstr "Үлгіні жүктеңіз"
+msgid "common.fromWithValue"
+msgstr "Кімнен: {$value}"
 
 msgid "common.findTemplate"
 msgstr "Үлгіні табыңыз"

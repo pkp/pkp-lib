@@ -813,6 +813,7 @@ class PKPTemplateManager extends Smarty
 
         // Common locale keys available in the browser for every page
         $this->setLocaleKeys([
+            'common.attachFiles',
             'common.cancel',
             'common.clearSearch',
             'common.close',
@@ -845,6 +846,8 @@ class PKPTemplateManager extends Smarty
             'common.search',
             'common.selectWithName',
             'common.unknownError',
+            'common.uploadedBy',
+            'common.uploadedByAndWhen',
             'common.view',
             'list.viewLess',
             'list.viewMore',

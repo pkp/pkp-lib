@@ -2285,6 +2285,7 @@ msgstr "Fájlok kiválasztása a szakmai lektoráláshoz."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Fájlok kiválasztása az olvasószerkesztői szakaszhoz."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "E-mail küldése a szerzőknek arról, hogy kéziratuk egy újabb bírálati "
@@ -2310,6 +2311,7 @@ msgstr ""
 "Ezt a kéziratot nem lesz elfogadva közlésre. További felülvizsgálata nem "
 "lesz, archiválásra kerül."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "E-mail küldése a szerzőknek arról, hogy a kéziratuk vissza lett utasítva."
@@ -2347,6 +2349,7 @@ msgstr "Visszaküldve a kézirat státuszba"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Vissza a kézirat státuszba"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "E-mail küldése a szerzőknek arról, hogy a kéziratuk el lett fogadva közlésre."
@@ -2369,6 +2372,7 @@ msgstr ""
 "Ez a kézirat el lehet fogadva megjelentetésre, és tovább lett küldve az "
 "olvasószerkesztőnek."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "E-mail küldése a szakmai lektoroknak, köszönettel a bírálataikért és "

@@ -1991,6 +1991,7 @@ msgstr ""
 msgid "category.category"
 msgstr "Kategorije"
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorejm z obvestilom, da so zahtevani popravki preden bo "
@@ -2019,6 +2020,7 @@ msgstr "Izberi datoteke, ki naj se pošljejo v recenzijo."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Izberite datoteke, ki naj bodo poslane v fazo lektoriranja."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek poslan v nov "
@@ -2044,6 +2046,7 @@ msgstr ""
 "Prispevek bo zavrnjen. Nobene recenzije ne bo več opravljene in prispevek bo "
 "arhiviran."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek zavrnjen."
@@ -2087,6 +2090,7 @@ msgstr "Pošlji nazaj v fazo oddaje prispevka"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Nazaj na fazo oddaje prispevka"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek sprejet za "
@@ -2106,6 +2110,7 @@ msgstr ""
 msgid "editor.submission.decision.accept.description"
 msgstr "Prispevek bo sprejet za objavo in poslan v lektoriranje."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Pošlji email recenzentom v zahvalo za njihovo recenzijo in jih obvesti o "
@@ -2142,6 +2147,7 @@ msgstr "Premakni ta prispevek nazaj v fazo lektoriranja."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Nazaj v fazo lektoriranja"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Pošljite email avtorjem z obvestilom, da je bil ta prispevek premaknjen v "
@@ -2290,6 +2296,7 @@ msgstr ""
 "Spremeni prejšnjo odločitev o zavrnitvi tega prispevka in povrni prispevek v "
 "uredniški postopek."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil prispevek sprejet za objavo in "
@@ -2332,6 +2339,7 @@ msgstr ""
 "Prišlo je do napake pri označevanju DOI stanja za {$pubObjectTitle}. Stanje "
 "DOI ne more biti označeno, ker še ni bil registriran ali oddan."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil recenzijski krog zaključen."

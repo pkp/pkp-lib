@@ -2105,9 +2105,6 @@ msgstr "コンテンツを挿入"
 msgid "common.insertContentSearch"
 msgstr "挿入するコンテンツを検索"
 
-msgid "common.loadTemplate"
-msgstr "テンプレートを読み込む"
-
 msgid "common.downloadReport"
 msgstr "報告ダウンロード"
 

@@ -13,7 +13,7 @@
 	<div class="app__page--decision">
 		<h1 class="app__pageHeading">
 			<template v-if="steps.length > 1">
-				{translate key="semicolon" label=$decisionType->getLabel()}
+				{translate|escape key="semicolon" label=$decisionType->getLabel()}
 				{{ currentStep.name }}
 			</template>
 			<template v-else>
@@ -33,7 +33,7 @@
 		>
 			{{ error }}
 			<button class="-linkButton" @click="openStep(stepId)">
-				{translate key="common.viewError"}
+				{translate|escape key="common.viewError"}
 			</button>
 		</notification>
 
@@ -41,9 +41,9 @@
 			v-if="steps.length"
 			:current="currentStep.id"
 			:started-steps="startedSteps"
-			label="{translate key="editor.decision.completeSteps"}"
+			label="{translate|escape key="editor.decision.completeSteps"}"
 			progress-label="{$current}/{$total} steps"
-			show-steps-label="{translate key="common.showAllSteps"}"
+			show-steps-label="{translate|escape key="common.showAllSteps"}"
 			@step:open="openStep"
 		>
 			<step
@@ -52,89 +52,81 @@
 				:id="step.id"
 				:label="step.name"
 			>
-				<template v-if="step.type === 'form'">
-					<panel>
+				<panel class="decision__stepPanel">
+					<panel-section class="decision__stepHeader">
+						<h2>{{ step.name }}</h2>
+						<p>{{ step.description }}</p>
+					</panel-section>
+					<template v-if="step.type === 'form'">
 						<panel-section>
-							<template slot="header">
-								<h2>{{ step.name }}</h2>
-								<p>{{ step.description }}</p>
-							</template>
 							<pkp-form v-bind="step.form" @set="updateStep"></pkp-form>
 						</panel-section>
-					</panel>
-				</template>
-				<template v-else-if="step.type === 'email'">
-					<panel v-if="skippedSteps.includes(step.id)">
-						<panel-section>
-							<template slot="header">
-								<h2>{{ step.name }}</h2>
-								<p>{translate key="editor.decision.emailSkipped"}</p>
-							</template>
+					</template>
+					<template v-else-if="step.type === 'email'">
+						<panel-section v-if="skippedSteps.includes(step.id)">
+							<notification type="warning">
+								{translate|escape key="editor.decision.emailSkipped"}
+								<button
+									class="-linkButton"
+									:disabled="isSubmitting"
+									@click="toggleSkippedStep(step.id)"
+								>
+									{translate|escape key="editor.decision.dontSkipEmail"}
+								</button>
+							</notification>
 						</panel-section>
-					</panel>
-					{capture assign="attachedFilesLabel"}{translate key="common.attachedFiles"}{/capture}
-					{capture assign="bccLabel"}{translate key="email.bcc"}{/capture}
-					{capture assign="ccLabel"}{translate key="email.cc"}{/capture}
-					{capture assign="subjectLabel"}{translate key="email.subject"}{/capture}
-					{capture assign="switchTolabel"}{translate key="common.switchTo"}{/capture}
-					{capture assign="recipientsLabel"}{translate key="email.to"}{/capture}
-					<composer
-						v-else
-						add-c-c-label="{translate key="common.addCCBCC"}"
-						attach-files-label="{translate key="common.attachFiles"}"
-						attached-files-label="{translate key="semicolon" label=$attachedFilesLabel}"
-						:attachers="step.attachers"
-						:attachments="step.attachments"
-						:bcc="step.bcc"
-						bcc-label="{translate key="semicolon" label=$bccLabel}"
-						:body="step.body"
-						body-label="{translate key="stageParticipants.notify.message"}"
-						:can-change-recipients="step.canChangeRecipients"
-						:cc="step.cc"
-						cc-label="{translate key="semicolon" label=$ccLabel}"
-						confirm-switch-locale-label="{translate key="email.confirmSwitchLocale"}"
-						deselect-label="{translate key="common.deselect"}"
-						:email-templates="step.emailTemplates"
-						:email-templates-api-url="emailTemplatesApiUrl"
-						find-template-label="{translate key="common.findTemplate"}"
-						:id="step.id"
-						:initial-template-key="step.initialTemplateKey"
-						insert-label="{translate key="common.insert"}"
-						insert-modal-label="{translate key="common.insertContent"}"
-						insert-content-label="{translate key="common.content"}"
-						insert-search-label="{translate key="common.insertContentSearch"}"
-						load-template-label="{translate key="common.loadTemplate"}"
-						:locale="step.locale"
-						:locales="step.locales"
-						more-search-results-label="{translate key="common.numberedMore"}"
-						:recipient-options="step.recipientOptions"
-						:recipients="step.recipients"
-						recipients-label="{translate key="semicolon" label=$recipientsLabel}"
-						remove-item-label="{translate key="common.removeItem"}"
-						searching-label="{translate key="common.searching"}"
-						search-results-label="{translate key="search.searchResults"}"
-						:separate-emails="step.anonymousRecipients"
-						:subject="step.subject"
-						subject-label="{translate key="semicolon" label=$subjectLabel}"
-						switch-to-label="{translate key="semicolon" label=$switchTolabel}"
-						switch-to-named-language-label="{translate key="common.switchToNamedItem"}"
-						:variables="step.variables"
-						@set="updateStep"
-					>
-
-						<template slot="description">
-							<h2>{{ step.name }}</h2>
-							<p v-html="step.description"></p>
-						</template>
-					</composer>
-				</template>
-				<template v-else-if="step.type === 'promoteFiles'">
-					<panel>
+						<panel-section v-else>
+							{capture assign="attachedFilesLabel"}{translate key="common.attachedFiles"}{/capture}
+							{capture assign="bccLabel"}{translate key="email.bcc"}{/capture}
+							{capture assign="ccLabel"}{translate key="email.cc"}{/capture}
+							{capture assign="subjectLabel"}{translate key="email.subject"}{/capture}
+							{capture assign="switchTolabel"}{translate key="common.switchTo"}{/capture}
+							{capture assign="recipientsLabel"}{translate key="email.to"}{/capture}
+							<composer
+								add-c-c-label="{translate|escape key="common.addCCBCC"}"
+								attach-files-label="{translate|escape key="common.attachFiles"}"
+								attached-files-label="{translate|escape key="semicolon" label=$attachedFilesLabel}"
+								:attachers="step.attachers"
+								:attachments="step.attachments"
+								:bcc="step.bcc"
+								bcc-label="{translate|escape key="semicolon" label=$bccLabel}"
+								:body="step.body"
+								body-label="{translate|escape key="stageParticipants.notify.message"}"
+								:can-change-recipients="step.canChangeRecipients"
+								:cc="step.cc"
+								cc-label="{translate|escape key="semicolon" label=$ccLabel}"
+								confirm-switch-locale-label="{translate|escape key="email.confirmSwitchLocale"}"
+								deselect-label="{translate|escape key="common.deselect"}"
+								:email-templates="step.emailTemplates"
+								:email-templates-api-url="emailTemplatesApiUrl"
+								find-template-label="{translate|escape key="common.findTemplate"}"
+								:id="step.id"
+								:initial-template-key="step.initialTemplateKey"
+								insert-label="{translate|escape key="common.insert"}"
+								insert-modal-label="{translate|escape key="common.insertContent"}"
+								insert-content-label="{translate|escape key="common.content"}"
+								insert-search-label="{translate|escape key="common.insertContentSearch"}"
+								load-template-label="{translate|escape key="common.emailTemplates"}"
+								:locale="step.locale"
+								:locales="step.locales"
+								more-search-results-label="{translate|escape key="common.numberedMore"}"
+								:recipient-options="step.recipientOptions"
+								:recipients="step.recipients"
+								recipients-label="{translate|escape key="semicolon" label=$recipientsLabel}"
+								remove-item-label="{translate|escape key="common.removeItem"}"
+								searching-label="{translate|escape key="common.searching"}"
+								search-results-label="{translate|escape key="search.searchResults"}"
+								:subject="step.subject"
+								subject-label="{translate|escape key="semicolon" label=$subjectLabel}"
+								switch-to-label="{translate|escape key="semicolon" label=$switchTolabel}"
+								switch-to-named-language-label="{translate|escape key="common.switchToNamedItem"}"
+								:variables="step.variables"
+								@set="updateStep"
+							></composer>
+						</panel-section>
+					</template>
+					<template v-else-if="step.type === 'promoteFiles'">
 						<panel-section>
-							<template slot="header">
-								<h2>{{ step.name }}</h2>
-								<p>{{ step.description }}</p>
-							</template>
 							<list-panel
 								v-for="(list, i) in step.lists"
 								:key="i"
@@ -143,13 +135,15 @@
 							>
 								<template v-slot:item="{ldelim}item{rdelim}">
 									<select-submission-file-list-item
+										:created-at="item.createdAt"
 										:document-type="item.documentType"
-										download-label="{translate key="common.download"}"
-										:genreName="item.genre.name"
-										:genreIsPrimary="!item.genre.dependent && !item.genre.supplementary"
+										download-label="{translate|escape key="common.download"}"
+										:genre-name="item.genre.name"
+										:genre-is-primary="!item.genre.dependent && !item.genre.supplementary"
 										:genre="item.genre"
 										:file-id="item.id"
 										:name="localize(item.name)"
+										:uploaded-by="item.uploaderUserName"
 										:url="item.url"
 									>
 										<input
@@ -162,53 +156,55 @@
 								</template>
 							</list-panel>
 						</panel-section>
-					</panel>
-				</template>
+					</template>
+				</panel>
 			</step>
 		</steps>
 
-		<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
-			<spinner v-if="isSubmitting"></spinner>
-			<pkp-button
-				:disabled="isSubmitting"
-				:is-warnable="true"
-				@click="cancel"
-			>
-				{translate key="common.cancel"}
-			</pkp-button>
-			<pkp-button
-				v-if="!isOnFirstStep && steps.length > 1"
-				:disabled="isSubmitting"
-				@click="previousStep"
-			>
-				{translate key="help.previous"}
-			</pkp-button>
-			<pkp-button
-				:disabled="isSubmitting"
-				:is-primary="isOnLastStep"
-				@click="nextStep"
-			>
-				<template v-if="isOnLastStep">
-					{translate key="editor.decision.recordDecision"}
-				</template>
-				<template v-else>
-					{translate key="help.next"}
-				</template>
-			</pkp-button>
-			<button
-				class="decision__skipStep -linkButton"
-				v-if="currentStep.type === 'email' && currentStep.canSkip"
-				:disabled="isSubmitting"
-				@click="toggleSkippedStep(currentStep.id)"
-			>
-				<template v-if="skippedSteps.includes(currentStep.id)">
-					{translate key="editor.decision.dontSkipEmail"}
-				</template>
-				<template v-else>
-					{translate key="editor.decision.skipEmail"}
-				</template>
-			</button>
-		</div>
+		<panel class="decision__footer__panel">
+			<panel-section>
+				<span slot="header">
+					<!-- empty on purpose -->
+				</span>
+				<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
+					<spinner v-if="isSubmitting"></spinner>
+					<pkp-button
+						:disabled="isSubmitting"
+						:is-warnable="true"
+						@click="cancel"
+					>
+						{translate|escape key="common.cancel"}
+					</pkp-button>
+					<pkp-button
+						v-if="!isOnFirstStep && steps.length > 1"
+						:disabled="isSubmitting"
+						@click="previousStep"
+					>
+						{translate|escape key="help.previous"}
+					</pkp-button>
+					<pkp-button
+						:disabled="isSubmitting"
+						:is-primary="isOnLastStep"
+						@click="nextStep"
+					>
+						<template v-if="isOnLastStep">
+							{translate|escape key="editor.decision.recordDecision"}
+						</template>
+						<template v-else>
+							{translate|escape key="common.continue"}
+						</template>
+					</pkp-button>
+					<button
+						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"
+						class="decision__skipStep -linkButton"
+						:disabled="isSubmitting"
+						@click="toggleSkippedStep(currentStep.id)"
+					>
+						{translate|escape key="editor.decision.skipEmail"}
+					</button>
+				</div>
+			</panel-section>
+		</panel>
 	</div>
 
 {/block}

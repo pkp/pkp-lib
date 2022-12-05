@@ -2159,9 +2159,6 @@ msgstr "{$number} ավելին"
 msgid "common.keepWorking"
 msgstr "Շարունակել աշխատել"
 
-msgid "common.loadTemplate"
-msgstr "Բեռնեք ձևանմուշը"
-
 msgid "common.findTemplate"
 msgstr "Գտեք ձևանմուշը"
 

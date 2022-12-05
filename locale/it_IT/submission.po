@@ -2048,6 +2048,7 @@ msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Questa proposta sarà accettata per la pubblicazione e inviata al copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Invia una email ai revisori per ringraziarli della revisione e far loro "
@@ -2188,6 +2189,7 @@ msgstr "Raccomandare di ripresentare per la revisione"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} ha annullato la decisione di rifiutare la proposta."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che il loro lavoro è stato "
@@ -2276,6 +2278,7 @@ msgstr ""
 msgid "editor.submission.decision.decline.log"
 msgstr "{$editorName} ha rifiutato questa proposta."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Inviare un'email agli autori per informarli che la loro proposta è stata "
@@ -2289,6 +2292,7 @@ msgstr ""
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Nuovo giro di revisioni organizzato"
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che il loro lavoro è stato "
@@ -2305,6 +2309,7 @@ msgstr ""
 "L'autore deve effettuare delle correzioni prima che questo lavoro venga "
 "accettato per la pubblicazione."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che saranno necessarie delle "
@@ -2313,6 +2318,7 @@ msgstr ""
 "proprio lavoro. Se opportuno, ricordate di rendere anonimi i commenti dei "
 "revisori."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che la proposta è stata inviata "
@@ -2331,6 +2337,7 @@ msgstr ""
 "La proposta, {$title}, ha saltato la fase di revisione ed è stata inviata "
 "alla fase di copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che la proposta è stata accettata "
@@ -2388,6 +2395,7 @@ msgstr ""
 "Invia una email ai revisori assegnati per fargli sapere che le loro "
 "assegnazioni per la revisione sono state cancellate."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che il round di revisione è stato "

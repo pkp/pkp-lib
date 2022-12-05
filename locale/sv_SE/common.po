@@ -2079,9 +2079,6 @@ msgstr "{$number} fler"
 msgid "common.keepWorking"
 msgstr "Fortsätt arbeta"
 
-msgid "common.loadTemplate"
-msgstr "Ladda in en mall"
-
 msgid "common.findTemplate"
 msgstr "Hitta mall"
 

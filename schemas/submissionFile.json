@@ -275,6 +275,11 @@
 			"type": "integer",
 			"apiSummary": true
 		},
+		"uploaderUserName": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"url": {
 			"type": "string",
 			"apiSummary": true,

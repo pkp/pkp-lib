@@ -2075,9 +2075,6 @@ msgstr "إضافة {$number}"
 msgid "common.keepWorking"
 msgstr "متابعة العمل"
 
-msgid "common.loadTemplate"
-msgstr "تحميل القالب"
-
 msgid "common.findTemplate"
 msgstr "إعثر على القالب"
 

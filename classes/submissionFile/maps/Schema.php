@@ -177,7 +177,7 @@ class Schema extends BaseSchema
 
             if ($prop === 'uploaderUserName') {
                 $user = Repo::user()->get($submissionFile->getData('uploaderUserId'));
-                $output[$prop] = $user ? $user->getUsername() : '';
+                $output[$prop] = $user?->getUsername() ?? '';
 
                 continue;
             }

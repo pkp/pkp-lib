@@ -31,10 +31,10 @@ class Repository
      */
     public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
     {
-        $map = $this->map();
-        Hook::call('Mailer::Mailables', [$map, $context]);
+        $mailables = $this->map();
+        Hook::call('Mailer::Mailables', [$mailables, $context]);
 
-        return $map->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
+        return $mailables->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
             ->filter(function(string $class) use ($context, $includeDisabled) {
                 return $includeDisabled || $this->isMailableEnabled($class, $context);
             })
@@ -153,7 +153,7 @@ class Repository
     }
 
     /**
-     * @return Collection the map of available mailables used by the app
+     * Get the mailables used in this app
      */
     public function map(): Collection
     {

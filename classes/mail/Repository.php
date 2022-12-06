@@ -22,6 +22,7 @@ use PKP\core\PKPString;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
+use PKP\plugins\Hook;
 
 class Repository
 {
@@ -30,8 +31,10 @@ class Repository
      */
     public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
     {
-        return collect(Mail::getMailables($context->getId()))
-            ->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
+        $mailables = $this->map();
+        Hook::call('Mailer::Mailables', [$mailables, $context]);
+
+        return $mailables->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
             ->filter(function(string $class) use ($context, $includeDisabled) {
                 return $includeDisabled || $this->isMailableEnabled($class, $context);
             })
@@ -147,5 +150,61 @@ class Repository
             return true;
         }
         return true;
+    }
+
+    /**
+     * Get the mailables used in this app
+     */
+    public function map(): Collection
+    {
+        return collect([
+            mailables\AnnouncementNotify::class,
+            mailables\DecisionAcceptNotifyAuthor::class,
+            mailables\DecisionBackFromCopyeditingNotifyAuthor::class,
+            mailables\DecisionBackFromProductionNotifyAuthor::class,
+            mailables\DecisionCancelReviewRoundNotifyAuthor::class,
+            mailables\DecisionDeclineNotifyAuthor::class,
+            mailables\DecisionInitialDeclineNotifyAuthor::class,
+            mailables\DecisionNewReviewRoundNotifyAuthor::class,
+            mailables\DecisionNotifyOtherAuthors::class,
+            mailables\DecisionNotifyReviewer::class,
+            mailables\DecisionRequestRevisionsNotifyAuthor::class,
+            mailables\DecisionResubmitNotifyAuthor::class,
+            mailables\DecisionRevertDeclineNotifyAuthor::class,
+            mailables\DecisionRevertInitialDeclineNotifyAuthor::class,
+            mailables\DecisionSendExternalReviewNotifyAuthor::class,
+            mailables\DecisionSendToProductionNotifyAuthor::class,
+            mailables\DecisionSkipExternalReviewNotifyAuthor::class,
+            mailables\DiscussionCopyediting::class,
+            mailables\DiscussionProduction::class,
+            mailables\DiscussionReview::class,
+            mailables\DiscussionSubmission::class,
+            mailables\EditReviewNotify::class,
+            mailables\EditorialReminder::class,
+            mailables\PasswordReset::class,
+            mailables\PasswordResetRequested::class,
+            mailables\PublicationVersionNotify::class,
+            mailables\RecommendationNotifyEditors::class,
+            mailables\ReviewAcknowledgement::class,
+            mailables\ReviewCompleteNotifyEditors::class,
+            mailables\ReviewConfirm::class,
+            mailables\ReviewDecline::class,
+            mailables\ReviewRemind::class,
+            mailables\ReviewRemindAuto::class,
+            mailables\ReviewRequest::class,
+            mailables\ReviewRequestSubsequent::class,
+            mailables\ReviewResponseRemindAuto::class,
+            mailables\ReviewerRegister::class,
+            mailables\ReviewerReinstate::class,
+            mailables\ReviewerResendRequest::class,
+            mailables\ReviewerUnassign::class,
+            mailables\RevisedVersionNotify::class,
+            mailables\StatisticsReportNotify::class,
+            mailables\SubmissionAcknowledgement::class,
+            mailables\SubmissionAcknowledgementNotAuthor::class,
+            mailables\UserCreated::class,
+            mailables\ValidateEmailContext::class,
+            mailables\ValidateEmailSite::class,
+        ]);
     }
 }

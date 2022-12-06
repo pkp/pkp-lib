@@ -16,7 +16,6 @@ namespace APP\mail;
 use APP\mail\mailables\PostedAcknowledgement;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
-use PKP\mail\mailables as pkpMailables;
 
 class Repository extends \PKP\mail\Repository
 {
@@ -34,21 +33,21 @@ class Repository extends \PKP\mail\Repository
     public function map(): Collection
     {
         return collect([
-            pkpMailables\AnnouncementNotify::class,
-            pkpMailables\DecisionAcceptNotifyAuthor::class,
-            pkpMailables\DecisionInitialDeclineNotifyAuthor::class,
-            pkpMailables\DecisionNotifyOtherAuthors::class,
-            pkpMailables\DecisionRevertInitialDeclineNotifyAuthor::class,
-            pkpMailables\DiscussionProduction::class,
-            pkpMailables\EditorialReminder::class,
-            pkpMailables\PasswordReset::class,
-            pkpMailables\PasswordResetRequested::class,
-            pkpMailables\StatisticsReportNotify::class,
-            pkpMailables\SubmissionAcknowledgement::class,
-            pkpMailables\SubmissionAcknowledgementNotAuthor::class,
-            pkpMailables\UserCreated::class,
-            pkpMailables\ValidateEmailContext::class,
-            pkpMailables\ValidateEmailSite::class,
+            \PKP\mail\mailables\AnnouncementNotify::class,
+            \PKP\mail\mailables\DecisionAcceptNotifyAuthor::class,
+            \PKP\mail\mailables\DecisionInitialDeclineNotifyAuthor::class,
+            \PKP\mail\mailables\DecisionNotifyOtherAuthors::class,
+            \PKP\mail\mailables\DecisionRevertInitialDeclineNotifyAuthor::class,
+            \PKP\mail\mailables\DiscussionProduction::class,
+            \PKP\mail\mailables\EditorialReminder::class,
+            \PKP\mail\mailables\PasswordReset::class,
+            \PKP\mail\mailables\PasswordResetRequested::class,
+            \PKP\mail\mailables\StatisticsReportNotify::class,
+            \PKP\mail\mailables\SubmissionAcknowledgement::class,
+            \PKP\mail\mailables\SubmissionAcknowledgementNotAuthor::class,
+            \PKP\mail\mailables\UserCreated::class,
+            \PKP\mail\mailables\ValidateEmailContext::class,
+            \PKP\mail\mailables\ValidateEmailSite::class,
             mailables\PostedAcknowledgement::class,
         ]);
     }

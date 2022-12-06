@@ -17,14 +17,14 @@ namespace APP\pages\index;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\observers\events\Usage;
+use APP\observers\events\UsageEvent;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\pages\index\PKPIndexHandler;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Validation;
-use PKP\pages\index\PKPIndexHandler;
 
 class IndexHandler extends PKPIndexHandler
 {
@@ -73,11 +73,11 @@ class IndexHandler extends PKPIndexHandler
             // Latest preprints
             $collector = Repo::submission()->getCollector();
             $publishedSubmissions = $collector
-                    ->filterByContextIds([$server->getId()])
-                    ->filterByStatus([Submission::STATUS_PUBLISHED])
-                    ->orderBy($collector::ORDERBY_DATE_PUBLISHED)
-                    ->limit(10)
-                    ->getMany();
+                ->filterByContextIds([$server->getId()])
+                ->filterByStatus([Submission::STATUS_PUBLISHED])
+                ->orderBy($collector::ORDERBY_DATE_PUBLISHED)
+                ->limit(10)
+                ->getMany();
 
             // Assign header and content for home page
             $templateMgr->assign([
@@ -94,7 +94,7 @@ class IndexHandler extends PKPIndexHandler
             $this->_setupAnnouncements($server, $templateMgr);
 
             $templateMgr->display('frontend/pages/indexServer.tpl');
-            event(new Usage(Application::ASSOC_TYPE_SERVER, $server));
+            event(new UsageEvent(Application::ASSOC_TYPE_SERVER, $server));
             return;
         } else {
             $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var APP\server\ServerDAO $serverDao */

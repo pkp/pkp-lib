@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/observers/listeners/UsageEventLog.php
+ * @file classes/observers/listeners/LogUsageEvent.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UsageEventLog
+ * @class LogUsageEvent
  * @ingroup observers_traits
  *
  * @brief Listener listening for and logging the usage events.
@@ -16,7 +16,7 @@
 namespace PKP\observers\listeners;
 
 use APP\core\Application;
-use APP\observers\events\Usage;
+use APP\observers\events\UsageEvent;
 use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
 use Illuminate\Events\Dispatcher;
@@ -24,7 +24,7 @@ use PKP\cache\FileCache;
 use PKP\file\PrivateFileManager;
 use PKP\plugins\Hook;
 
-class UsageEventLog
+class LogUsageEvent
 {
     public FileCache $geoDataCache;
     public FileCache $institutionDataCache;
@@ -35,7 +35,7 @@ class UsageEventLog
     public function subscribe(Dispatcher $events): void
     {
         $events->listen(
-            Usage::class,
+            UsageEvent::class,
             self::class . '@handle'
         );
     }
@@ -43,7 +43,7 @@ class UsageEventLog
     /**
      * Handle the event.
      */
-    public function handle(Usage $usageEvent): void
+    public function handle(UsageEvent $usageEvent): void
     {
         if (!$this->canHandle($usageEvent)) {
             return;
@@ -56,7 +56,7 @@ class UsageEventLog
     /**
      * Shall this event be processed here
      */
-    protected function canHandle(Usage $usageEvent): bool
+    protected function canHandle(UsageEvent $usageEvent): bool
     {
         if ($usageEvent->request->getDoNotTrack()) {
             return false;
@@ -116,7 +116,7 @@ class UsageEventLog
      *  get institution IDs, if needed
      *  hash the IP
      */
-    protected function prepareUsageEvent(Usage $usageEvent): array
+    protected function prepareUsageEvent(UsageEvent $usageEvent): array
     {
         $request = $usageEvent->request;
 

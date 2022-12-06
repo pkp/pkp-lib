@@ -17,7 +17,6 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-use PKP\observers\events\PluginEnabledChanged;
 
 abstract class LazyLoadPlugin extends Plugin
 {
@@ -93,7 +92,6 @@ abstract class LazyLoadPlugin extends Plugin
             $contextId = 0;
         }
         $this->updateSetting($contextId, 'enabled', $enabled, 'bool');
-        PluginEnabledChanged::dispatch($this);
     }
 
     /**

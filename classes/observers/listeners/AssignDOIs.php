@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/listeners/DecisionAddedListener.php
+ * @file classes/observers/listeners/AssignDOIs.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DecisionAddedListener
+ * @class AssignDOIs
  * @ingroup core
  *
- * @brief Listener fired when an editorial decision is added
+ * @brief Assign DOIs when a submission is moved to the appropriate stage
  */
 
 namespace PKP\observers\listeners;
@@ -22,7 +22,7 @@ use Illuminate\Events\Dispatcher;
 use PKP\context\Context;
 use PKP\observers\events\DecisionAdded;
 
-class DecisionAddedListener
+class AssignDOIs
 {
     /**
      * Maps methods with corresponding events to listen to
@@ -31,14 +31,14 @@ class DecisionAddedListener
     {
         $events->listen(
             DecisionAdded::class,
-            self::class . '@handleAutomaticDoiCreation'
+            self::class . '@handle'
         );
     }
 
     /**
      * Allows DOI creation upon reaching copy-editing or production workflow stage
      */
-    public function handleAutomaticDoiCreation(DecisionAdded $event)
+    public function handle(DecisionAdded $event)
     {
         $context = $event->context;
         $doiCreationTime = $context->getData(Context::SETTING_DOI_CREATION_TIME);

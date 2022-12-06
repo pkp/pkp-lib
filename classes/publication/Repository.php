@@ -29,8 +29,8 @@ use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
-use PKP\observers\events\PublishedEvent;
-use PKP\observers\events\UnpublishedEvent;
+use PKP\observers\events\PublicationPublished;
+use PKP\observers\events\PublicationUnpublished;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
@@ -470,7 +470,7 @@ abstract class Repository
                 $submission
             ]
         );
-        event(new PublishedEvent($newPublication, $publication, $submission));
+        event(new PublicationPublished($newPublication, $publication, $submission));
     }
 
     /**
@@ -547,7 +547,7 @@ abstract class Repository
             ]
         );
 
-        event(new UnpublishedEvent($newPublication, $publication, $submission));
+        event(new PublicationUnpublished($newPublication, $publication, $submission));
     }
 
     /** @copydoc DAO::delete() */

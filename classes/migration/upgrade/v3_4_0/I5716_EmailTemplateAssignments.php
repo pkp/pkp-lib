@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I5716_EmailTemplateAssignments
+ *
  * @brief Refactors relationship between Mailables and Email Templates
  */
 
@@ -81,5 +82,13 @@ class I5716_EmailTemplateAssignments extends \PKP\migration\upgrade\v3_4_0\I5716
     protected function modifyEditorAssignTemplate(Collection $contextIds): void
     {
         // Empty on purpose
+    }
+
+    /**
+     * OPS doesn't require any additional templates to be reassigned
+     */
+    protected function mapIncludedAlternateTemplates(): array
+    {
+        return [];
     }
 }

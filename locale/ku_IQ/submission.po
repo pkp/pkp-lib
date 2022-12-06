@@ -1499,6 +1499,7 @@ msgid "editor.submission.addAuditorError"
 msgstr ""
 "هەڵەیەک لە ئەرکدارکردنی وردبینی ژمێریاریدا هەیە. تکایە دوبارە هەوڵ بدەوە."
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "سەرنوسەرێک دیاری بکە بۆ چالاککردنی بڕیاری سەرنوسەری لەم قۆناغەدا."
 

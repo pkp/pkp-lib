@@ -1526,6 +1526,7 @@ msgstr "Zaakceptuj i pomiń recenzję"
 msgid "notification.type.editorAssign"
 msgstr "Zostałeś(aś) przydzielony(a) jako redaktor do tekstu \"{$title}\"."
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Przydziel redaktora, aby umożliwić zapisywanie decyzji redaktorskich na tym etapie."
 
@@ -2119,6 +2120,7 @@ msgstr ""
 "{$editorName} zarekomendował autorowi wysłanie poprawek do tekstu i "
 "zgłoszenie ich do następnej rundy recenzji."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Zmień poprzednią decyzję o odrzuceniu zgłoszenia i wróć do procesu "
@@ -2129,6 +2131,7 @@ msgstr ""
 "{$editorName} wygenerował prośbę o poprawki do zgłoszenia zanim przekaże "
 "całość do kolejnej rundy recenzji."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Zgłoszenie {$title}, zostało zaakceptowane do publikacji i wysłane do etapu "
@@ -2233,6 +2236,7 @@ msgstr "Wyślij do recenzji"
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} zlecił konieczność poprawek do zgłoszenia."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Zgłoszenie: {$title} zostało odesłane ponownie do Korekty."
 
@@ -2258,6 +2262,7 @@ msgstr ""
 "{$editorName} zaakceptował zgłoszenie i wysłał do następnego etapu korekty "
 "technicznej."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Zgłoszenie {$title} zostało przesłane do Korekty z pominięciem etapu "
@@ -2289,6 +2294,7 @@ msgstr "Rekomenduj zgłoszenie do publikacji i wyślij do etapu Korekty."
 msgid "editor.submission.decision.promoteFiles.review"
 msgstr "Wybierz pliki które mają być dostępne w etapie recenzji."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "Zgłoszenie {$title} zostało wysłane do etapu recenzji."
 
@@ -2314,6 +2320,7 @@ msgstr ""
 msgid "editor.submission.decision.newReviewRound"
 msgstr "Nowa runda recenzji"
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Wygenerowano prośbę o poprawki do zgłoszenia {$title}."
 
@@ -2373,12 +2380,14 @@ msgstr ""
 "{$editorName} zarekomendował zaakceptowanie zgłoszenia i wysłanie do etapu "
 "Korekty."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "Nowa runda recenzji została utworzona dla zgłoszenia: {$title}."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Recenzja pominięta"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "Zgłoszenie: {$title} zostało wysłane do etapu produkcji."
 
@@ -2401,6 +2410,7 @@ msgstr "Odeślij z etapu Korekty"
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "Odeślij to zgłoszenie do wcześniejszego etapu."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "Zgłoszenie {$title}, zostało odesłane z etapu redakcji."
 
@@ -2434,6 +2444,7 @@ msgstr "{$editorName} anulował rundę recenzji."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Ostatnia runda recenzji została anulowana."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Runda recenzji dla zgłoszenia: {$title} została anulowana."
 
@@ -2454,12 +2465,14 @@ msgstr ""
 "Zaakceptuj zgłoszenie do publikacji pomijając etap recenzji. Wybranie tej "
 "opcji przesunie zgłoszenie od razu do etapu Korekty."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Zgłoszenie {$title} zostało odrzucone i przeniesione do archiwum."
 
 msgid "editor.submission.recommend.completed"
 msgstr "Została zgłoszona rekomendacja"
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Zgłoszenie: {$title} jest obecnie aktywnym tekstem w etapie zgłoszenia."
 
@@ -2491,6 +2504,7 @@ msgstr ""
 msgid "editor.submission.decision.accept.completed"
 msgstr "Zgłoszenie zaakceptowane do publikacji"
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Została wygenerowana prośba o poprawki dla zgłoszenia {$title}. Zapisano "

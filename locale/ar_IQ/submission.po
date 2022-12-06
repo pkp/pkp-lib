@@ -1355,6 +1355,7 @@ msgstr "المصادقة على التصحيحات"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "إن هذا الملف لن يكون متاحاً للعامة لأغراض التنزيل أو الشراء. هل تريد رفع المصادقة منه؟"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "عيِّن محرراً لتمكين قرارات التحرير لهذه المرحلة."
 
@@ -1960,6 +1961,7 @@ msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم قبوله للنشر."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr "طلب التقديم، {$title}، قد تم قبوله للنشر وأرسِل إلى مرحلة التدقيق."
 
@@ -2036,6 +2038,7 @@ msgstr ""
 "إرسال رسالة إلى المحررين أصحاب القرار لإبلاغهم بشأن التوصية. أعطِ تفسيرًا عن "
 "أسباب تقديم تلك التوصية في ضوء التوصيات والتعليقات التي قدمها المحكمون."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "طلب التقديم، {$title}، عاد الآن إلى مرحلة التقديم."
 
@@ -2054,6 +2057,7 @@ msgstr "طلب التقديم أُعيد إلى التحرير"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} عكس قرار رفض طلب التقديم هذا."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr "التراجع عن قرار رفض طلب التقديم هذا وإعادته إلى خط أعمال التحرير."
 
@@ -2063,6 +2067,7 @@ msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بقبول طلب التقديم هذا للنشر "
 "وإرساله إلى مرحلة التدقيق بدون تحكيم."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "طلب التقديم، {$title}، تجاوز مرحلة التحكيم وتم إرساله إلى مرحلة التدقيق."
@@ -2084,6 +2089,7 @@ msgstr ""
 "مرحلة التدقيق. أعطِ تبريرًا لهذا القرار وبين للمؤلف ما توجب القيام به من "
 "تعديلات إضافية قبل اعتبار العمل جاهزًا للإنتاج."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "طلب التقديم، {$title}، قد أُعيد إلى مرحلة التدقيق."
 
@@ -2105,6 +2111,7 @@ msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُرسل إلى "
 "مرحلة الإنتاج."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "طلب التقديم، {$title}، تم إرساله إلى مرحلة الإنتاج."
 
@@ -2117,6 +2124,7 @@ msgstr "{$editorName} أرسل طلب التقديم هذا إلى مرحلة ا
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr "إرسال طلب التقديم هذا إلى مرحلة الإنتاج لتحضيره للنشر."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "طلب التقديم، {$title}، قد تم إرساله إلى مرحلة التحكيم."
 
@@ -2139,6 +2147,7 @@ msgstr ""
 "يحتاجها المؤلف لتنقيح عمله. حيثما وجب الأمر، تذكر إخفاء هويات المحكمين في "
 "تعليقاتهم."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "تم طلب إجراء تنقيحات في طلب التقديم، {$title}. تم تسجيل القرار بإرساله إلى "
@@ -2165,6 +2174,7 @@ msgstr ""
 "المؤلف لمراجعة عمله. حيثما يتطلب الأمر، تذكر إخفاء هويات المحكمين من "
 "تعليقاتهم."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "تم التماس التنقيحات لطلب التقديم، {$title}."
 
@@ -2192,6 +2202,7 @@ msgstr ""
 "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم إخضاعه إلى "
 "جولة تحكيم جديدة."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "تم إنشاء جولة تحكيم جديدة لطلب التقديم، {$title}."
 
@@ -2216,6 +2227,7 @@ msgstr ""
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم برفض طلب تقديمهم."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "طلب التقديم، {$title}، قد تم رفضه وأُرسل إلى المحفوظات."
 
@@ -2264,6 +2276,7 @@ msgstr "المنشور أولاً"
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "الإرجاع من مرحلة التدقيق"
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "طلب التقديم {$title}، تم إرجاعه من مرحلة التدقيق."
 
@@ -2295,6 +2308,7 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "إرجاع طلب التقديم هذا من مرحلة التدقيق."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "جولة تحكيم عائدة لطلب التقديم {$title}، قد تم إلغاؤها."
 

@@ -1287,6 +1287,7 @@ msgstr "Odobri korekturo"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Ta korektura ne bo več javno na voljo za prenos ali nakup. Ali ste prepričani, da jo želite zavrniti?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Dodeli urednika, ki bo zadolžen za sprejetje uredniške odločitve za to fazo."
 
@@ -1999,6 +2000,7 @@ msgstr ""
 "potrebuje, da bo lahko popravil prispevek. Ne pozabite na anonimizacijo "
 "recenzentskih mnenj, kjer je potrebno."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Za prispevek, {$title}, so bili zahtevani popravki."
 
@@ -2026,6 +2028,7 @@ msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek poslan v nov "
 "krog recenzije."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "Odprt je bil nov krog recenzije za prispevek {$title}."
 
@@ -2051,6 +2054,7 @@ msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek zavrnjen."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Prispevek, {$title}, je bil zavrnjen in arhiviran."
 
@@ -2096,6 +2100,7 @@ msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek sprejet za "
 "objavo."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Prispevek, {$title}, je bil sprejet za objavo in poslan v fazo lektoriranja."
@@ -2132,6 +2137,7 @@ msgstr ""
 "Email o odločitvi je bil poslan {$recipientCount} recenzent(om) z zadevo "
 "{$subject}."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Prispevek, {$title}, je bil premaknjen nazaj v fazo lektoriranja."
 
@@ -2153,6 +2159,7 @@ msgstr ""
 "Pošljite email avtorjem z obvestilom, da je bil ta prispevek premaknjen v "
 "fazo produkcije."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "Prispevek, {$title}, je bil premaknjen v fazo produkcije."
 
@@ -2165,6 +2172,7 @@ msgstr "{$editorName} je premaknil ta prispevek v fazo produkcije."
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr "Premakni prispevek v fazo produkcije, da bo pripravljen za objavo."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "Prizpevek, {$title}, je bil premaknjen v fazo recenzije."
 
@@ -2198,6 +2206,7 @@ msgstr ""
 "ki jih so potrebne, da bodo lahko ustrezno popravili prispevek. Ne pozabite "
 "aninimizirati vse komentarje recenzentov, kjer je potrebno."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Zahtevani so popravki za prispevek, {$title}. Odločeno je bilo, da bodo "
@@ -2273,6 +2282,7 @@ msgstr ""
 "Razložite zakaj tako priporočilo glede na priporočila in komentarje "
 "recenzentov."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Prispevek, {$title}, je sedaj aktiven v fazi oddaje."
 
@@ -2291,6 +2301,7 @@ msgstr "Prispevek je ponovno aktiviran"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} je spremenil odločitev o zavrnitvi tega prispevka."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Spremeni prejšnjo odločitev o zavrnitvi tega prispevka in povrni prispevek v "
@@ -2302,6 +2313,7 @@ msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil prispevek sprejet za objavo in "
 "da je bil premaknjen v fazo lektoriranja brez recenzije."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Pri prispevku, {$title}, je bila faza recenzije izpuščena, prispevek je bil "
@@ -2353,6 +2365,7 @@ msgstr "{$editorName} je preklical recenzijski krog."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Zadnji recenzijski krog je bil preklican."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Recenzijski krog za prispevek {$title} je bil preklican."
 
@@ -2389,6 +2402,7 @@ msgstr ""
 "prejšnji krog recenzije. Če gre za prvi krog recenzije, bo prispevek "
 "prestavljen nazaj v fazo rokopis."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "Prispevek {$title} je bil prestavljen nazaj v fazo recenzije."
 

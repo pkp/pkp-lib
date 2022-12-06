@@ -1307,6 +1307,7 @@ msgstr "Approuver les épreuves"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Ce fichier d'épreuves ne pourra plus être disponible publiquement pour téléchargement ou achat. Souhaitez-vous le désapprouver ?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assigner un-e rédacteur-trice pour activer les décisions éditoriales à cette étape."
 

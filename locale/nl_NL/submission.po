@@ -1282,6 +1282,7 @@ msgstr "Proeven goedkeuren"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Deze drukproef zal niet langer publiek beschikbaar zijn voor downloaden of aankopen. Wilt u ze afkeuren?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Wijs een redacteur toe om editeursbeslissingen voor deze stap in te schakelen."
 

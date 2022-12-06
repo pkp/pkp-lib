@@ -1290,6 +1290,7 @@ msgstr "Thay đổi Khuyến nghị"
 msgid "editor.submission.makeRecommendation"
 msgstr "Tạo Khuyến nghị"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Chỉ định một biên tập viên để đưa ra các quyết định biên tập cho giai đoạn "

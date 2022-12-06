@@ -1281,6 +1281,7 @@ msgstr "Godkänn korrektur"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Den här korrekturfilen kommer inte längre vara publikt tillgänglig för nedladdning eller köp. Vill du avslå det?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Tilldela bidraget en redaktör för att möjliggöra redaktionella beslut i det här steget."
 
@@ -2043,6 +2044,7 @@ msgstr ""
 "Skicka ett meddelande till ansvariga redaktörer och meddela dem er "
 "rekommendation. Förklara orsaken till rekommendationen."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Bidraget {$title} är nu aktivt i bidragssteget."
 
@@ -2061,6 +2063,7 @@ msgstr "Bidraget har återinförts"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} återkallade beslutet att refusera bidraget."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Återkalla beslutet att refusera bidraget och skicka tillbaka det till den "
@@ -2073,6 +2076,7 @@ msgstr ""
 "har accepterats och har skickats direkt till manusredigering utan att "
 "granskas."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Bidraget {$title} har gått förbi granskningssteget och gått direkt till "
@@ -2091,6 +2095,7 @@ msgstr ""
 "Acceptera bidraget för publicering och hoppa över granskningssteget. Detta "
 "beslut skickar bidraget direkt till manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Bidraget {$title} har skickats tillbaka manusredigeringssteget."
 
@@ -2106,6 +2111,7 @@ msgstr ""
 "Skicka ett e-postmeddelande för att meddela författarna att deras bidrag har "
 "skickats till produktionssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "Bidraget {$title} skickades produktionssteget."
 
@@ -2120,6 +2126,7 @@ msgstr ""
 "Skicka detta bidrag till produktionssteget för att färdigställa det för "
 "publicering."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "Bidraget {$title} har skickats till granskningssteget."
 
@@ -2142,6 +2149,7 @@ msgstr ""
 "detaljer om ändringar som behöver göras. Kom ihåg att anonymisera granskares "
 "kommentarer där så är lämpligt."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Ändringar för bidraget {$title} har begärts. Beslut att skicka ändringar "
@@ -2168,6 +2176,7 @@ msgstr ""
 "behöver göras. Kom ihåg att anonymisera granskares kommentarer där så är "
 "lämpligt."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Ändringar för bidraget {$title} har begärts."
 
@@ -2195,6 +2204,7 @@ msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att "
 "bidraget har skickats till en ny granskningsomgång."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "En ny granskningsomgång har startats för {$title}."
 
@@ -2221,6 +2231,7 @@ msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att deras "
 "bidrag har refuserats."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Bidraget {$title} har refuserats och arkiverats."
 
@@ -2267,6 +2278,7 @@ msgstr ""
 "Skicka ett e-postmeddelande till författarna och meddela dem att deras "
 "bidrag har accepterats för publicering."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Bidraget {$title} har accepterats för publicering och skickats till "
@@ -2322,6 +2334,7 @@ msgstr "{$editorName} avbröt granskningsomgången."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Senaste granskningsomgången avbruten."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Granskningsomgången för {$title} har avbrutits."
 
@@ -2335,6 +2348,7 @@ msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
 "{$editorName} har skickat bidraget tillbaka till manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "Bidraget {$title} skickades tillbaka från manusredigeringssteget."
 

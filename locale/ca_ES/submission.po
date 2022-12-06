@@ -1819,6 +1819,7 @@ msgstr "Modificar recomanació"
 msgid "editor.submission.makeRecommendation"
 msgstr "Fer recomanació"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Assigneu un editor/a per habilitar les decisions editorials en aquesta fase."

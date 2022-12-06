@@ -1514,6 +1514,7 @@ msgstr "Acceptér indsendelse"
 msgid "editor.submission.decision.skipReview"
 msgstr "Acceptér og spring bedømmelse over"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Tilmeld en redaktør for at aktivere de redaktionelle beslutninger på dette trin."
 
@@ -2034,6 +2035,7 @@ msgstr ""
 "Denne indsendelse vil blive accepteret til publicering og sendt til "
 "manuskriptredigering."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Indsendelsen, {$title}, er blevet accepteret til publicering og sendt videre "
@@ -2090,6 +2092,7 @@ msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
 "blevet afslået."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Indsendelsen, {$title}, er blevet afslået og er arkiveret."
 
@@ -2112,12 +2115,14 @@ msgstr ""
 msgid "editor.submission.decision.sendToProduction.log"
 msgstr "{$editorName} sendte denne indsendelse til produktionstrinnet."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "Indsendelsen, {$title} blev sendt til produktionstrinnet."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Sendt til produktion"
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "En ny bedømmelsesrunde er startet for indsendelsen, {$title}."
 
@@ -2159,6 +2164,7 @@ msgstr ""
 "indsendelse. Husk, hvor det er nødvendigt, at anonymisere "
 "fagfællebedømmerens bemærkninger."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Rettelser til indsendelsen, {$title}, er blevet ønsket."
 
@@ -2175,6 +2181,7 @@ msgstr ""
 "Forfatteren skal indsende rettelser, som skal sendes til en ny "
 "bedømmelsesrunde, før indsendelsen vil blive accepteret til udgivelse."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Rettelser til denne indsendelse, {$title}, er ønskede. Det er registreret, "
@@ -2209,6 +2216,7 @@ msgstr ""
 "Send denne indsendelse til produktionstrinnet for at forberede den til "
 "udgivelse."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "Indsendelsen, {$title}, er blevet sendt til bedømmelsestrinnet."
 
@@ -2289,6 +2297,7 @@ msgstr ""
 "redaktør. Forklar hvorfor denne anbefaling blev truffet som reaktion på "
 "anbefalingerne og kommentarerne indsendt af bedømmerne."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Indsendelsen, {$title}, er nu aktiv på indsendelsestrinnet."
 
@@ -2309,6 +2318,7 @@ msgstr "Indsendelse genaktiveret"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} omgjorde beslutningen om at afvise denne indsendelse."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Omgør en tidligere beslutning om at afvise denne indsendelse, og aktiver "
@@ -2321,6 +2331,7 @@ msgstr ""
 "blevet accepteret til publicering og sendt til manuskriptredigeringstrinnet "
 "uden bedømmelse."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Indsendelsen, {$title}, sprang over bedømmelsestrinnet og er blevet sendt "
@@ -2347,6 +2358,7 @@ msgstr ""
 "redigering, der vil være påkrævet, før indsendelsen kan blive klar til "
 "produktion."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Indsendelsen, {$title}, blev sendt tilbage til manuskriptredigeringstrinnet."
@@ -2394,6 +2406,7 @@ msgstr "{$editorName} annullerede bedømmelsesrunden."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Annullerede den seneste bedømmelsesrunde."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Bedømmelsesrunden for indsendelsen, {$title}, er blevet annulleret."
 
@@ -2416,6 +2429,7 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Sendt tilbage fra manuskriptredigering"
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
 "Indsendelsen, {$title}, blev sendt tilbage fra manuskriptredigeringstrinnet."

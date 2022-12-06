@@ -1265,6 +1265,7 @@ msgstr "Approva le bozze"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Il file non sarà disponibile al pubblico o acquistabile. Vuoi non approvarlo ?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assegna un editor a prende le decisioni per questa fase."
 
@@ -2065,11 +2066,13 @@ msgstr ""
 "Una email riguardante la decisione è stata inviata ai {$recipientCount} "
 "revisori con oggetto {$subject}."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Ripristina una precedente decisione di rifiutare la proposta e reinserirla "
 "nel processo editoriale attivo."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "La proposta, {$title}, è stata accettata per la pubblicazione e inviata alla "
@@ -2145,6 +2148,7 @@ msgstr ""
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} ha richiesto correzioni per questa proposta."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "La proposta, {$title}, è stata rimandata alla fase di copyediting."
 
@@ -2168,6 +2172,7 @@ msgstr "Inattivo per più di {$days} giorni nella fase {$stage}."
 msgid "editor.submission.decision.newReviewRound"
 msgstr "Nuovo giro di revisioni"
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Sono state richieste correzioni per la proposta {$title}."
 
@@ -2200,6 +2205,7 @@ msgstr ""
 "{$editorName} ha raccomandato che questo lavoro venga accettato per la "
 "pubblicazione e inviato al copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
 "Un Nuovo giro di revisioni è stato organizzato per questa proposta, {$title}."
@@ -2207,6 +2213,7 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Revisione saltata"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "La proposta, {$title}, è stata inviata alla fase di produzione."
 
@@ -2219,6 +2226,7 @@ msgstr "Torna alla proposta"
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Correzioni richieste"
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Sono state richieste correzioni per la proposta {$title}. È stata registrata "
@@ -2243,6 +2251,7 @@ msgstr "{$editorName} ha inviato questa proposta alla fase di revisione."
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Inviato a revisione"
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "La proposta, {$title}, è stata inviata alla fase di revisione."
 
@@ -2257,6 +2266,7 @@ msgstr "{$editorName} ha inviato questa proposta alla fase di produzione."
 msgid "editor.submission.decision.revertDecline.completed.description"
 msgstr "La proposta, {$title}, è ora una proposta attiva in fase di revisione."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "La proposta, {$title}, è ora attiva nella fase di presentazione."
 
@@ -2332,6 +2342,7 @@ msgstr ""
 "Accetta la proposta di pubblicazione e salta la fase di revisione. Questa "
 "decisione invierà la proposta alla fase di copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "La proposta, {$title}, ha saltato la fase di revisione ed è stata inviata "
@@ -2369,6 +2380,7 @@ msgstr ""
 msgid "submission.list.viewAllSubmissions"
 msgstr "Vedi tutte le proposte"
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "La proposta, {$title}, è stata rifiutata e messa in archivio."
 
@@ -2419,6 +2431,7 @@ msgstr "{$editorName} ha cancellato il round di revisione."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Ultimo round di revisione annullato."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Il round di revisione per la proposta {$title}, e' stato cancellato."
 

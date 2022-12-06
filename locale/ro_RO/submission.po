@@ -1053,6 +1053,7 @@ msgstr "Schimbare recomandare"
 msgid "editor.submission.makeRecommendation"
 msgstr "Faceți Recomandare"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Alocați un editor pentru a activa deciziile editoriale pentru această etapă."

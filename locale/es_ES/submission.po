@@ -1531,6 +1531,7 @@ msgstr "Aceptar envío"
 msgid "editor.submission.decision.skipReview"
 msgstr "Aceptar y omitir la revisión"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Asigne un editor/a para habilitar las decisiones editoriales en esta fase."
 

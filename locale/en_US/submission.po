@@ -1381,7 +1381,7 @@ msgid "editor.submission.decision.accept.completed"
 msgstr "Submission Accepted"
 
 msgid "editor.submission.decision.accept.completedDescription"
-msgstr "The submission, {$title}, has been accepted for publication and sent to the copyediting stage."
+msgstr "The submission, {$title}, has been accepted for publication and sent to the copyediting stage. All notifications have been sent, except any you chose to skip."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that their submission has been accepted for publication. This email will not be sent until the decision has been recorded."
@@ -1402,7 +1402,7 @@ msgid "editor.submission.decision.decline.completed"
 msgstr "Submission Declined"
 
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "The submission, {$title}, has been declined and sent to the archives."
+msgstr "The submission, {$title}, has been declined and sent to the archives. All notifications have been sent, except any you chose to skip."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that their submission has been declined. This email will not be sent until the decision has been recorded."
@@ -1423,7 +1423,7 @@ msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Review Round Created"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "A new round of review has been created for the submission, {$title}."
+msgstr "A new round of review has been created for the submission, {$title}. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that their submission has been sent for a new round of review. This email will not be sent until the decision has been recorded."
@@ -1450,7 +1450,7 @@ msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Revisions Requested"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Revisions for the submission, {$title}, have been requested."
+msgstr "Revisions for the submission, {$title}, have been requested. All notifications have been sent, except any you chose to skip."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that revisions will be required before this submission will be accepted for publication. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments. This email will not be sent until the decision is recorded."
@@ -1468,7 +1468,7 @@ msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Cancelled the latest round of review."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "The review round for the submission, {$title}, has been cancelled."
+msgstr "The review round for the submission, {$title}, has been cancelled. All notifications have been sent, except any you chose to skip."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr "Can only cancel review round if no associated reviewer has any completed or submitted review available."
@@ -1486,7 +1486,7 @@ msgid "editor.submission.decision.resubmit.completed"
 msgstr "Revisions Requested"
 
 msgid "editor.submission.decision.resubmit.completed.description"
-msgstr "Revisions for the submission, {$title}, have been requested. A decision to send the revisions for another round of reviews was recorded."
+msgstr "Revisions for the submission, {$title}, have been requested. A decision to send the revisions for another round of reviews was recorded. All notifications have been sent, except any you chose to skip."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that revisions will be need to be completed and sent for another round of review. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments."
@@ -1504,7 +1504,7 @@ msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Sent for Review"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "The submission, {$title}, has been sent to the review stage."
+msgstr "The submission, {$title}, has been sent to the review stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.newRound"
 msgstr "New review round"
@@ -1522,7 +1522,7 @@ msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Sent to Production"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "The submission, {$title}, was sent to the production stage."
+msgstr "The submission, {$title}, was sent to the production stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that this submission has been sent to the production stage. This email will not be sent until the decision is recorded."
@@ -1540,7 +1540,7 @@ msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Sent Back from Copyediting"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "The submission, {$title}, was sent back from the copyediting stage."
+msgstr "The submission, {$title}, was sent back from the copyediting stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that copyediting is cancelled and their submission will undergo further editorial review."
@@ -1558,7 +1558,7 @@ msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Sent Back to Copyediting"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "The submission, {$title}, was sent back to the copyediting stage."
+msgstr "The submission, {$title}, was sent back to the copyediting stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that this submission has been sent back to the copyediting stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
@@ -1576,7 +1576,7 @@ msgid "editor.submission.decision.skipReview.completed"
 msgstr "Skipped Review"
 
 msgid "editor.submission.decision.skipReview.completed.description"
-msgstr "The submission, {$title}, skipped the review stage and has been sent to the copyediting stage."
+msgstr "The submission, {$title}, skipped the review stage and has been sent to the copyediting stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that this submission has been accepted for publication and sent to the copyediting stage without review. This email will not be sent until the decision is recorded."
@@ -1597,7 +1597,7 @@ msgid "editor.submission.decision.revertDecline"
 msgstr "Revert Decline"
 
 msgid "editor.submission.decision.revertDecline.description"
-msgstr "Revert a previous decision to decline this submission and return it to the active editorial process."
+msgstr "Revert a previous decision to decline this submission and return it to the active editorial process. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} reversed the decision to decline this submission."
@@ -1612,7 +1612,7 @@ msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that a previous decision to decline this submission has been reverted. Explain why the decision was reverted and let them know whether the submission is expected to undergo further review."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "The submission, {$title}, is now active in the submission stage."
+msgstr "The submission, {$title}, is now active in the submission stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assign an editor to enable the editorial decisions for this stage."

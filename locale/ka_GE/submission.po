@@ -420,6 +420,7 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "გადაწყვეტილების შეცვლა"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "დანიშნეთ რედაქტორი, ამ ეტაპის სარედაქციო გადაწყვეტილებების მისაღებად."
 
@@ -2129,6 +2130,7 @@ msgstr ""
 msgid "editor.submission.decision.accept.completed"
 msgstr "წარდგენა მიღებულია"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "წარდგენა, {$title}, მიღებულია გამოსაქვეყნებლად და გაგზავნილია კოპირების "
@@ -2177,6 +2179,7 @@ msgstr "{$editorName}-მა უარყო ეს გაგზავნა."
 msgid "editor.submission.decision.decline.completed"
 msgstr "გაგზავნა უარყოფილია"
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "გაგზავნა, {$title}, უარყოფილია და გაგზავნილია არქივში."
 
@@ -2202,6 +2205,7 @@ msgstr "{$editorName}-მა შექმნა განხილვის ა�
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "განხილვის რაუნდი შეიქმნა"
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "განხილვის ახალი რაუნდი შეიქმნა წარდგენისთვის, {$title}."
 
@@ -2232,6 +2236,7 @@ msgstr "{$editorName}-მა მოითხოვა ცვლილებე�
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "მოთხოვნილი რევიზიები"
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "მოთხოვნილი იქნა წარდგენის, {$title}, ცვლილებები."
 
@@ -2256,6 +2261,7 @@ msgstr ""
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "მოთხოვნილი რევიზიები"
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "მოთხოვნილი იქნა წარდგენის, {$title}, ცვლილებები. დაფიქსირდა გადაწყვეტილება "
@@ -2281,6 +2287,7 @@ msgstr "{$editorName}-მა გაგზავნა ეს წარდგე�
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "გაგზავნილია განსახილველად"
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "გაგზავნა, {$title}, გაიგზავნა განხილვის ეტაპზე."
 
@@ -2294,6 +2301,7 @@ msgstr "{$editorName}-მა გაგზავნა ეს წარდგე�
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "წარმოებისთვის გაგზავნილი."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "წარდგენა, {$title}, გაიგზავნა წარმოების ეტაპზე."
 
@@ -2315,6 +2323,7 @@ msgstr "{$editorName}-მა ეს გაგზავნა დააბრუ�
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "გაგზავნილია უკან კოპირების რედაქტირებაზე"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "წარდგენა, {$title}, დაბრუნდა კოპირების რედაქტირების ეტაპზე."
 
@@ -2338,6 +2347,7 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "გამოტოვებული მიმოხილვა"
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "გაგზავნამ, {$title}, გამოტოვა განხილვის ეტაპი და გაიგზავნა კოპირების "
@@ -2350,6 +2360,7 @@ msgstr ""
 "გამოსაქვეყნებლად და გადაგზავნილია კოპირების რედაქტირების ეტაპზე განხილვის "
 "გარეშე."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "დააბრუნეთ წინა გადაწყვეტილება ამ წარდგენის უარყოფის შესახებ და დააბრუნეთ იგი "
@@ -2371,6 +2382,7 @@ msgstr ""
 "გადაწყვეტილება და აცნობეთ მათ, მოსალოდნელია თუ არა წარდგენის შემდგომი "
 "განხილვა."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "წარდგენა, {$title}, ახლა აქტიურია წარდგენის ეტაპზე."
 

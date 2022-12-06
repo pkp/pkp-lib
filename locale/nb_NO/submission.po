@@ -901,6 +901,7 @@ msgstr "Endre anbefalingen"
 msgid "editor.submission.makeRecommendation"
 msgstr "Legg inn din anbefaling"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Oppnevn en redaktør til å ta de redaksjonelle avgjørelsene på dette stadiet."

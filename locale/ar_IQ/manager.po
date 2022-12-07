@@ -2779,9 +2779,6 @@ msgstr "إجمالي عدد طلبات التقديم المستلمة"
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "مُعرَّف العدد، متضمنًا المجلد، العدد، السنة، والعنوان"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "عدد طلبات التقديم المتخطاة"
-
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "السنة في التقرير"
 

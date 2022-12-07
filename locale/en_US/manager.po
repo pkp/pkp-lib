@@ -2811,8 +2811,8 @@ msgstr "The number of declined submissions"
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "The number of accepted submissions"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "The number of skipped submissions"
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "The number of submissions not included in other totals"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "The total number of submissions received"

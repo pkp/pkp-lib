@@ -3122,9 +3122,6 @@ msgstr "URL til meddelelsen"
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
 msgstr "Antal afviste indsendelser"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "Antal af oversprungne indsendelser"
-
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "Måneden for rapporten"
 

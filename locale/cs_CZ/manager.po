@@ -3077,9 +3077,6 @@ msgstr "Počet odmítnutých příspěvků"
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "Počet přijatých příspěvků"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "Počet vynechaných příspěvků"
-
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "Celkový počet přijatých příspěvků"
 

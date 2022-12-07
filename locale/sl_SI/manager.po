@@ -3020,9 +3020,6 @@ msgstr "Število zavrnjenih prispevkov"
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "Število sprejetih prisepvkov"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "Število preskočenih prispevkov"
-
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "Skupno število prejetih prispevkov"
 

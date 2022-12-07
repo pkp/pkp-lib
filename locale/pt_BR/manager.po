@@ -3119,9 +3119,6 @@ msgstr "O número de submissões recebidas este mês"
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
 msgstr "O número de submissões recusadas"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "O número de submissões ignoradas"
-
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "O número total de submissões recebidas"
 

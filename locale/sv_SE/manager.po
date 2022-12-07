@@ -2837,9 +2837,6 @@ msgstr "Antal refuserade bidrag"
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "Antal accepterade bidrag"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "Antal bidrag som hoppats över"
-
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "Antal mottagna bidrag"
 

@@ -53,7 +53,7 @@ class StatisticsReportNotify extends Mailable
             'newSubmissions' => __('emailTemplate.variable.statisticsReportNotify.newSubmissions'),
             'declinedSubmissions' => __('emailTemplate.variable.statisticsReportNotify.declinedSubmissions'),
             'acceptedSubmissions' => __('emailTemplate.variable.statisticsReportNotify.acceptedSubmissions'),
-            'skippedSubmissions' => __('emailTemplate.variable.statisticsReportNotify.skippedSubmissions'),
+            'skippedSubmissions' => __('emailTemplate.variable.statisticsReportNotify.otherSubmissions'),
             'totalSubmissions' => __('emailTemplate.variable.statisticsReportNotify.totalSubmissions'),
             'month' => __('emailTemplate.variable.statisticsReportNotify.month'),
             'year' => __('emailTemplate.variable.statisticsReportNotify.year'),

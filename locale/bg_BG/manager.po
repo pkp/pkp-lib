@@ -3071,9 +3071,6 @@ msgstr "Брой изпратени материали, получени тоз�
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
 msgstr "Брой на отхвърлените материали"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "Брой на пропуснати материали"
-
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "Месец на отчета"
 

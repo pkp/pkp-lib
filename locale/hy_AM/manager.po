@@ -3057,9 +3057,6 @@ msgstr "Մերժված ներկայացումների քանակը"
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "Ընդունված ներկայացումների քանակը"
 
-msgid "emailTemplate.variable.statisticsReportNotify.skippedSubmissions"
-msgstr "Բաց թողնված ներկայացումների քանակը"
-
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "Ստացված հայտերի ընդհանուր թիվը"
 

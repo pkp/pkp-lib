@@ -1370,6 +1370,7 @@ msgstr "Одобрить корректуры"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Назначить редактора, чтобы включить решения редакции для этого этапа."
 

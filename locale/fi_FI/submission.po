@@ -1527,6 +1527,7 @@ msgstr "Tämä arvio on valmis."
 msgid "submission.review.status.thanked"
 msgstr "Tämä arvio on valmis ja arvioijaa on kiitetty."
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Osoita toimittaja, jotta voidaan tehdä toimituksellisia päätöksiä."
 

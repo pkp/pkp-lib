@@ -614,6 +614,7 @@ msgstr "Tukar Cadangan"
 msgid "editor.submission.makeRecommendation"
 msgstr "Buat Cadangan"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Tugaskan editor untuk membolehkan keputusan editorial untuk peringkat ini."

@@ -1369,6 +1369,7 @@ msgstr "Сменете препорака"
 msgid "editor.submission.makeRecommendation"
 msgstr "Направете препораки"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Назначете уредник за да ги овозможите уредничките одлуки за оваа фаза."
 

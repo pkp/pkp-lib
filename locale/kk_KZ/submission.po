@@ -1511,11 +1511,13 @@ msgstr ""
 "жіберіңіз. Рецензенттер ұсынған ұсыныстар мен ескертулерге жауап ретінде бұл "
 "ұсыныстың неліктен жасалғанын түсіндіріңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Осы кезеңге арналған редакциялық шешімдерді қосу үшін редакторды "
 "тағайындаңыз."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "{$title} материалы жіберу кезеңінде белсенді."
 
@@ -1534,6 +1536,7 @@ msgstr "Материал қайта белсенді"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} бұл материалды қабылдамау туралы шешім өзгертілді."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Бұл материалды қабылдамау туралы алдыңғы шешімді қайтарып, оны белсенді "
@@ -1564,6 +1567,7 @@ msgstr ""
 "Авторларға бұл материалдың жарияланымға қабылданғанын және қараусыз өңдеу "
 "кезеңіне жіберілгенін хабарлау үшін электрондық поштаны жіберіңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "{$title} атты материалды қарап шығу кезеңін өткізіп жіберіңіз және өңдеу "
@@ -1592,6 +1596,7 @@ msgstr ""
 "және авторға бұл ұсыныс шығаруға дайын болғанға дейін одан әрі қандай "
 "редакциялау қажет болатынын хабарлаңыз."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "{$title} материал өңдеу кезеңіне қайта жіберілді."
 
@@ -1613,6 +1618,7 @@ msgstr ""
 "Авторларға бұл материалдың шығару кезеңіне жіберілгенін хабарлау үшін "
 "электрондық хат жіберіңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "{$title} материалы шығару кезеңіне жіберілді."
 
@@ -1633,6 +1639,7 @@ msgstr "Басылымға жіберу"
 msgid "editor.submission.decision.newRound"
 msgstr "Сараптаманың жаңа кезеңі"
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "{$title} материалы тексеру кезеңіне жіберілді."
 
@@ -1655,6 +1662,7 @@ msgstr ""
 "қажет барлық мәліметтерді қосыңыз. Қажет болса, кез келген рецензенттің "
 "пікірін анонимді етуді ұмытпаңыз."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "{$title} файлын жіберуге өзгертулер сұралды. Түзетулерді қайта тексеруге "
@@ -1687,6 +1695,7 @@ msgstr ""
 "авторға қажет мәліметтердің барлығын қосыңыз. Қажет болған жағдайда, кез "
 "келген рецензенттің пікірін анонимді етуді ұмытпаңыз."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "{$title} материалды жіберуге арналған түзетулер сұралды."
 
@@ -1718,6 +1727,7 @@ msgstr ""
 "Авторларға олардың жіберген материалдары тексерудің жаңа кезеңіне "
 "жіберілгенін хабарлау үшін электрондық хат жіберіңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "{$title} материалы үшін жаңа рецензиялау кезеңі енгізілді."
 
@@ -1744,6 +1754,7 @@ msgstr ""
 "Авторларға олардың материалының қабылданбағанын хабарлау үшін электрондық "
 "хат жіберіңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "{$title} материал қабылданбады және архивке жіберілді."
 
@@ -1793,6 +1804,7 @@ msgstr "Қайта жіберу кезеңіне жіберілді"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Жіберу кезеңіне қайта оралу"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "{$title} атты материал жариялануға қабылданып, өңдеу кезеңіне жіберілді."

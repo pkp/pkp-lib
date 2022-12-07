@@ -443,6 +443,7 @@ msgstr "Modificar a recomendación"
 msgid "editor.submission.makeRecommendation"
 msgstr "Facer unha recomendación"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Asigne un editor/a para habilitar as decisións editoriais nesta fase."
 

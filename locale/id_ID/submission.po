@@ -1482,6 +1482,7 @@ msgstr "Ubah Rekomendasi"
 msgid "editor.submission.makeRecommendation"
 msgstr "Buat Rekomendasi"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Tugaskan seorang editor untuk mengaktifkan keputusan editoria pada tahap ini."

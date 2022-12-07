@@ -1393,6 +1393,7 @@ msgstr "Αλλαγή Σύστασης"
 msgid "editor.submission.makeRecommendation"
 msgstr "Κάντε Σύσταση"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Κάντε ανάθεση σε έναν Συντάκτη για να ενεργοποιήσετε τις συντακτικές "

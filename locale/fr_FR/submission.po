@@ -1632,6 +1632,7 @@ msgstr "Les rapporteurs ont déclinés l'évaluation."
 msgid "editor.submission.decision.skipReview"
 msgstr "Accepter et ne pas faire l'évaluation"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assigner un rédacteur à cette étape pour pouvoir faire des actions."
 

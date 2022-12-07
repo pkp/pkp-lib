@@ -1304,6 +1304,7 @@ msgstr "Korrekturfahne akzeptieren"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Diese Korrekturfahne wird nicht weiter zum Download oder Erwerb zur Verfügung stehen. Wollen Sie sie ablehnen?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Weisen Sie eine/n Redakteur/in zu, um redaktionelle Entscheidungen in dieser Phase zu ermöglichen."
 

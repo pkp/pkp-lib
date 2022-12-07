@@ -1895,6 +1895,7 @@ msgstr "査読結果の編集"
 msgid "editor.submission.makeRecommendation"
 msgstr "査読結果の提出"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "編集者を割り当てて、この段階の編集上の決定を可能にします。"
 

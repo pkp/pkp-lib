@@ -1498,6 +1498,7 @@ msgstr "Byly odevzdány nová doporučení redaktorů."
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Všechna doporučení jsou odevzdána a očekává se rozhodnutí."
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Přidělte redaktora, aby bylo možné vytvořit redakční rozhodnutí pro tuto etapu."
 
@@ -2048,6 +2049,7 @@ msgstr ""
 "Vysvětlete, proč bylo toto doporučení vydáno v reakci na doporučení a "
 "připomínky předložené recenzenty."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Příspěvek {$title} je nyní aktivní ve fázi podání."
 
@@ -2067,6 +2069,7 @@ msgstr "Opětovná aktivace příspěvku"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} zrušil/a rozhodnutí o zamítnutí tohoto příspěvku."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Vrátit předchozí rozhodnutí o zamítnutí tohoto příspěvku a vrátit jej do "
@@ -2078,6 +2081,7 @@ msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že tento příspěvek byl "
 "přijat k publikaci a odeslán do fáze copyeditingu bez recenze."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Příspěvek {$title} přeskočil fázi recenzního řízení a byl odeslán do fáze "
@@ -2103,6 +2107,7 @@ msgstr ""
 "učiněno, a informujte autora o tom, jaké další úpravy budou nutné, než bude "
 "toto podání připraveno k publikování."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Příspěvek {$title} byl odeslán zpět do fáze finálních úprav."
 
@@ -2124,6 +2129,7 @@ msgstr ""
 "Odeslání e-mailu autorům, abyste jim oznámili, že tento příspěvek byl "
 "odeslán do produkční fáze."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "Příspěvek {$title} byl odeslán do produkční fáze."
 
@@ -2136,6 +2142,7 @@ msgstr "{$editorName} odeslal tento příspěvek do produkční fáze."
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr "Odeslání tohoto příspěvku do produkční fáze k přípravě na zveřejnění."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "Příspěvek {$title} byl odeslán do recenzního řízení."
 
@@ -2158,6 +2165,7 @@ msgstr ""
 "které bude autor potřebovat k úpravě svého příspěvku. Případně nezapomeňte "
 "anonymizovat všechny připomínky recenzentů."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Byly vyžádány úpravy předloženého příspěvku {$title}. Bylo zaznamenáno "
@@ -2184,6 +2192,7 @@ msgstr ""
 "autor potřebovat k úpravám svého příspěvku. Případně nezapomeňte "
 "anonymizovat všechny připomínky recenzentů."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Byly vyžádány úpravy příspěvku {$title}."
 
@@ -2211,6 +2220,7 @@ msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že jejich příspěvky byly "
 "odeslány do nového kola recenzního řízení."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "Pro příspěvek {$title} bylo vytvořeno nové kolo recenzního řízení."
 
@@ -2237,6 +2247,7 @@ msgstr ""
 "Poslat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
 "odmítnut."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Příspěvek {$title} byl odmítnut a odeslán do archivu."
 
@@ -2283,6 +2294,7 @@ msgstr ""
 "Pošlat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
 "přijat k publikaci."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Příspěvek s názvem {$title} byl přijat k publikaci a odeslán do fáze "
@@ -2405,6 +2417,7 @@ msgstr "Odeslat tento příspěvek zpět z fáze copyeditingu."
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Odesláno zpět z copyeditingu"
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "Příspěvek s názvem {$title} byl odeslán zpět z fáze copyeditingu."
 
@@ -2416,6 +2429,7 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr "{$editorName} odeslal/a tento příspěvek zpět z fáze copyeditingu."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Recenzní kolo pro příspěvek {$title}, bylo zrušeno."
 

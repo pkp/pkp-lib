@@ -1271,6 +1271,7 @@ msgstr "Схвалити коректури"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Цей файл коректури більше не буде доступний для завантаження або придбання. Ви хочете відхилити схвалення?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Призначте редактора, щоб включити рішення редакції для цього етапу."
 

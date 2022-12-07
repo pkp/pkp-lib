@@ -995,6 +995,7 @@ msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
 msgid "submission.license.cc.by-nc4"
 msgstr "CC Attribution-NonCommercial 4.0"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Úthluta ritstjóra til að gera ritstjórnarákvörðun mögulega á þessu þrepi."
@@ -2146,6 +2147,7 @@ msgstr ""
 "{$editorName} hefur óskað eftir endurbættri útgáfu fyrir þessa innsendingu - "
 "sú útgáfa ætti að fara í nýja umferð ritrýni."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Innsendingin {$title} hefur verið samþykkt til útgáfu og áframsend til "
@@ -2201,6 +2203,7 @@ msgstr "Tilkynning til ritrýna"
 msgid "editor.submission.decision.decline.completed"
 msgstr "Innsendingu hafnað"
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Óskað hefur verið eftir endurbótum á innsendingunni {$title}. Ákvörðun um "
@@ -2212,6 +2215,7 @@ msgstr "Senda í ritrýni"
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} óskaði eftir endurbættri útgáfu innsendingar."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Innsendingin {$title} var send til baka í textatækniferli."
 
@@ -2235,6 +2239,7 @@ msgstr ""
 "{$editorName} hefur samþykkt innsendinguna og sent til yfirferðar hjá "
 "textatækni."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Innsendingin {$title} fór framhjá ritrýniferli og var send beint á "
@@ -2257,6 +2262,7 @@ msgstr ""
 "Höfundur verður að skila endurbættri útgáfu áður en hægt verður að samþykkja "
 "innsendingu til útgáfu."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "Innsendingin {$title} hefur verið send í ritrýniferli."
 
@@ -2283,6 +2289,7 @@ msgstr ""
 msgid "editor.submission.decision.newReviewRound"
 msgstr "Ný umferð ritrýni"
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Óskað hefur verið eftir endurbættri útgáfu innsendingarinnar {$title}."
 
@@ -2316,12 +2323,14 @@ msgstr ""
 "Þessari innsendingu verður hafnað. Frekari ritrýni mun ekki fara fram og "
 "innsendingin verður send til vistunar."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "Ný umferð ritrýni hefur verið stofnuð fyrir innsendinguna {$title}."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Ritrýni sleppt"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "Innsendingin {$title} hefur verið send í framleiðsluferli."
 
@@ -2350,6 +2359,7 @@ msgstr "{$editorName} hefur afturkallað ritrýniumferð."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Nýjustu umferð ritrýni hætt."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "Ritrýniumferð innsendingarinnar {$title} hefur verið hætt."
 
@@ -2395,6 +2405,7 @@ msgstr ""
 "Samþykkja innsendingu án ritrýniferlis. Þessi ákvörðun mun senda "
 "innsendinguna beint í textatækniferli."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "Innsendingunni, {$title}, hefur verið hafnað og hún send til vistunar."
 
@@ -2404,6 +2415,7 @@ msgstr ""
 "Senda tölvupóst til höfunda(r) þar sem tilkynnt er um að innsending hafi "
 "verið samþykkt og fari beint á textatæknistig án ritrýni."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "Innsendingin {$title} hefur verið send til baka úr textatækniferli."
 
@@ -2415,6 +2427,7 @@ msgstr ""
 msgid "editor.submission.decision.promoteFiles.review"
 msgstr "Veldu skrár til að senda í ritrýni."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Fyrri ákvörðun um höfnun innsendingar snúið og grein endursend í "
@@ -2495,6 +2508,7 @@ msgstr ""
 msgid "editor.submission.recommend.completed"
 msgstr "Tilmæli send"
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "Innsendingin {$title} er virk á innsendingarstigi."
 

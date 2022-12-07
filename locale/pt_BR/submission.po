@@ -1815,6 +1815,7 @@ msgstr "Aceitar Submissão"
 msgid "editor.submission.decision.skipReview"
 msgstr "Aceitar e Enviar para Edição de Texto"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Designe um editor para habilitar as decisões editoriais nesse estágio."
 
@@ -2399,6 +2400,7 @@ msgstr ""
 "recomendação. Explique por que essa recomendação foi feita em resposta às "
 "recomendações e comentários enviados pelos avaliadores."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "A submissão, {$title}, agora está ativa no estágio de submissão."
 
@@ -2419,6 +2421,7 @@ msgstr "Submissão Reativada"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} reverteu a decisão de recusar esta avaliação."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao "
@@ -2431,6 +2434,7 @@ msgstr ""
 "aceita para publicação e enviada para a fase de edição de texto sem passar "
 "pela avaliação."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "A submissão, {$title}, pulou a etapa de avaliação e foi enviada para a etapa "
@@ -2456,6 +2460,7 @@ msgstr ""
 "decisão foi tomada e informe ao autor quais edições adicionais serão "
 "necessárias antes que esta submissão esteja pronto para editoração."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "A submissão, {$title}, foi enviada de volta à fase de edição de texto."
 
@@ -2478,6 +2483,7 @@ msgstr ""
 "Envie um e-mail para os autores informando que esta submissão foi enviada "
 "para a fase de editoração."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "A submissão, {$title}, foi enviada para a fase de editoração."
 
@@ -2492,6 +2498,7 @@ msgstr ""
 "Envie esta submissão para a fase de editoração para ser preparada para "
 "publicação."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "A submissão, {$title}, foi enviada para a fase de avaliação."
 
@@ -2514,6 +2521,7 @@ msgstr ""
 "detalhes que o autor precisará para revisar sua submissão. Quando "
 "apropriado, lembre-se de anonimizar quaisquer comentários do avaliador."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Revisões para a submissão, {$title}, foram solicitadas. A decisão de enviar "
@@ -2540,6 +2548,7 @@ msgstr ""
 "os detalhes que o autor precisará para revisar sua submissão. Quando "
 "apropriado, lembre-se de anonimizar quaisquer comentários do avaliador."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Revisões para a submissão, {$title}, foram solicitadas."
 
@@ -2570,6 +2579,7 @@ msgstr ""
 "Envie um e-mail para os autores para que eles saibam que sua submissão foi "
 "enviada para uma nova rodada de avaliação."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "Uma nova rodada de avaliação foi criada para a submissão, {$title}."
 
@@ -2596,6 +2606,7 @@ msgstr ""
 "Envie um e-mail para os autores para que eles saibam que sua submissão foi "
 "rejeitada."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "A submissão, {$title}, foi rejeitada e enviada aos arquivos."
 
@@ -2642,6 +2653,7 @@ msgstr ""
 "Envie um e-mail aos autores para que eles saibam que sua submissão foi "
 "aceita para publicação."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "A submissão, {$title}, foi aceita para publicação e enviada para a fase de "
@@ -2712,6 +2724,7 @@ msgstr "{$editorName} cancelou a rodada de avaliação."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Cancelada a última rodada de avaliação."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "A rodada de avaliação para a submissão, {$title}, foi cancelada."
 
@@ -2729,6 +2742,7 @@ msgstr "Envie esta submissão de volta para o estágio de edição de texto."
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Enviado de volta da edição de texto"
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr "A submissão, {$title}, foi enviada de volta da fase de edição de texto."
 

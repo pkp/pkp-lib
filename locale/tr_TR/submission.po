@@ -1288,6 +1288,7 @@ msgstr "Düzeltmeleri Kabul Et"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Bu dosya düzeltmeleri artık indirme veya satın alma için herkese açık olmayacaktır. Onaylamamak mı istiyorsun?"
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Bu aşamada editör kararlarını etkinleştirmek için bir editör atayın."
 
@@ -2029,6 +2030,7 @@ msgstr "Yeni Değerlendirme Turu"
 msgid "editor.submission.decision.decline.completed"
 msgstr "Makale Reddedildi"
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "{$title} başlıklı aday makale, yayımlanmak üzere kabul edildi ve son kopya "
@@ -2094,6 +2096,7 @@ msgstr ""
 "Değerlendirme turunun kapandığını bildirmek için yazarlara bir e-posta "
 "gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "{$title} başlıklı aday makale, reddedildi ve arşive gönderildi."
 
@@ -2127,6 +2130,7 @@ msgstr "{$editorName} tarafından yeni bir değerlendirme turu başlatıldı."
 msgid "editor.submission.decision.promoteFiles.production"
 msgstr "Üretim aşamasına gönderilmesi gereken dosyaları seçin."
 
+#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale için yeni bir değerlendirme turuna alınmak "
@@ -2159,6 +2163,7 @@ msgstr ""
 "Yazarlara aday makalelerinin yeni bir değerlendirme turu için gönderildiğini "
 "bildirmek üzere e-posta gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "{$title} başlıklı aday makale için düzeltme istendi."
 
@@ -2168,6 +2173,7 @@ msgstr "Değerlendirme Turu Oluşturuldu"
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Son kopya düzenleme aşamasına gönderilmesi gereken dosyaları seçin."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
 "{$title} başlıklı aday makale için yeni bir değerlendirme turu oluşturuldu."
@@ -2187,6 +2193,7 @@ msgstr "{$editorName} tarafından değerlendirme turu iptal edildi."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "En son değerlendirme turu iptal edildi."
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr "{$title} başlıklı aday makale için değerlendirme turu iptal edildi."
 
@@ -2203,6 +2210,7 @@ msgstr ""
 "{$editorName}, yeni bir değerlendirme turu için düzeltme gönderilmesini "
 "önerdi."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Aday makalenin red kararını geri alın ve değerlendirme aşamasına geri "
@@ -2272,6 +2280,7 @@ msgstr ""
 "Makalenin üretim aşamasına gönderildiğini bildirmek için yazarlara e-posta "
 "gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale değerlendirme aşamasına alınmadan kabul edildi "
@@ -2285,6 +2294,7 @@ msgstr ""
 "Aday makalenin kabul edilmesini ve son kopya düzenleme aşamasına "
 "gönderilmesini önerin."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "{$title} başlıklı aday makale değerlendirme aşamasına gönderildi."
 
@@ -2332,6 +2342,7 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Değerlendirmeyi Atla"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "{$title} başlıklı makale üretim aşamasına gönderildi."
 
@@ -2373,6 +2384,7 @@ msgstr "{$editorName}, makaleyi son kopya düzenleme aşamasından geri gönderd
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Son Kopya Düzenlemeden Geri Gönderildi"
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale , son kopya düzenleme aşamasından geri "
@@ -2401,9 +2413,11 @@ msgstr ""
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Son Kopya Düzenlemeye Geri Dön"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale, son kopya düzenleme aşamasına geri gönderildi."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "{$title} başlıklı aday makale artık yeni başvuru aşamasında aktiftir."

@@ -1817,6 +1817,7 @@ msgstr "A szakmai lektorálás elfogadva."
 msgid "notification.type.editorAssign"
 msgstr "Szerkesztőként lett hozzárendelve a következő beküldéshez: \"{$title}\""
 
+#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Rendeljen hozzá egy szerkesztőt, úgy hogy szerkesztőségi döntésre lehetősége legyen ebben a szakaszban."
 
@@ -2262,6 +2263,7 @@ msgstr "Szakmai lektorálásra küldés"
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Átdolgozás igényelve"
 
+#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr "Átdolgozás igényelve ehhez a kézirathoz, {$title},."
 
@@ -2291,6 +2293,7 @@ msgstr ""
 "E-mail küldése a szerzőknek arról, hogy kéziratuk egy újabb bírálati "
 "szakaszba lett küldve."
 
+#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr "Egy új bírálati szakasz létrehozva ehhez a kézirathoz, {$title}."
 
@@ -2316,6 +2319,7 @@ msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "E-mail küldése a szerzőknek arról, hogy a kéziratuk vissza lett utasítva."
 
+#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
 msgstr "A kézirat, {$title}, vissza lett utasítva, majd archiválva lett."
 
@@ -2354,6 +2358,7 @@ msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "E-mail küldése a szerzőknek arról, hogy a kéziratuk el lett fogadva közlésre."
 
+#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "A kézirat, {$title}, el lett fogadva közlésre és el lett küldve az "

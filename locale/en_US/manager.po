@@ -3322,3 +3322,12 @@ msgstr "Ready for Production"
 
 msgid "mailable.system"
 msgstr "System"
+
+msgid "mailable.versionCreated.name"
+msgstr "Publication Version Created"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Review Complete"
+
+msgid "mailable.reviewEdited.name"
+msgstr "Review Edited"

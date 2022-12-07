@@ -76,6 +76,10 @@ class NewAnnouncementNotifyUsers extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
+        if ($this->sendEmail && !$this->sender) {
+            throw new JobException(JobException::INVALID_PAYLOAD);
+        }
+
         $announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
         $announcementNotificationManager->initialize($announcement);
         $context = Application::getContextDAO()->getById($this->contextId);
@@ -91,13 +95,11 @@ class NewAnnouncementNotifyUsers extends BaseJob
             if (!$this->sendEmail) {
                 continue;
             }
-            if (!$this->sender) {
-                throw new JobException(JobException::INVALID_PAYLOAD);
-            }
 
             // Send email
-            $mailable = $this->createMailable($context, $recipient, $announcement, $template);
-            $mailable->allowUnsubscribe($notification);
+            $mailable = $this->createMailable($context, $recipient, $announcement, $template)
+                ->allowUnsubscribe($notification);
+
             $mailable->setData($this->locale);
             Mail::send($mailable);
         }

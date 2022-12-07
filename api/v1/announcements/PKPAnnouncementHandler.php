@@ -226,27 +226,24 @@ class PKPAnnouncementHandler extends APIHandler
                 [$contextId]
             );
 
-            list ($userIdsToNotify, $userIdsToNotifyAndMail) = [
-                $userIdsToNotify->diff($userIdsToMail),
-                $userIdsToNotify->intersect($userIdsToMail)
-            ];
+            $userIdsToNotifyAndMail = $userIdsToNotify->intersect($userIdsToMail);
+            $userIdsToNotify = $userIdsToNotify->diff($userIdsToMail);
         }
 
         $sender = $request->getUser();
         $jobs = [];
         foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
-            $notifyJob = new NewAnnouncementNotifyUsers(
+            $jobs[] = new NewAnnouncementNotifyUsers(
                 $notifyUserIds,
                 $contextId,
                 $announcementId,
                 Locale::getPrimaryLocale()
             );
-            $jobs[] = $notifyJob;
         }
 
         if (isset($userIdsToNotifyAndMail)) {
             foreach ($userIdsToNotifyAndMail->chunk(Mailer::BULK_EMAIL_SIZE_LIMIT) as $notifyAndMailUserIds) {
-                $notifyAndMailJob = new NewAnnouncementNotifyUsers(
+                $jobs[] = new NewAnnouncementNotifyUsers(
                     $notifyAndMailUserIds,
                     $contextId,
                     $announcementId,
@@ -254,7 +251,6 @@ class PKPAnnouncementHandler extends APIHandler
                     $sender,
                     true
                 );
-                $jobs[] = $notifyAndMailJob;
             }
         }
 

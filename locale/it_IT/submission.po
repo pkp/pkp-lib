@@ -2437,3 +2437,9 @@ msgstr "Il round di revisione per la proposta {$title}, e' stato cancellato."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Annulla il Copyediting"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Questa è una preview non ancora pubblicata  <a href=\"{$url}\">Vai "
+"all'articolo</a>"

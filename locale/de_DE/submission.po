@@ -2010,3 +2010,9 @@ msgstr "Kategorien"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Publikationslisten"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Diese Vorschau wurde noch nicht veröffentlicht. <a href=\"{$url}\">Beitrag "
+"anzeigen</a>"

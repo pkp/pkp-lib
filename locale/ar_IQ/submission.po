@@ -2319,3 +2319,8 @@ msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بإلغاء التدقيق وبأن طلب تقديمهم "
 "سيخضع للمزيد من مراجعات التحرير."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"هذه معاينة استعراضية ولم يتم نشرها بعد. <a href=\"{$url}\">View ""submission</a>"

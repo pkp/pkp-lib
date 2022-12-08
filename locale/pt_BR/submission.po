@@ -2774,3 +2774,7 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Reenvie a solicitação de avaliação na rodada {$round} para {$reviewerName} "
 "para submissão {$submissionid}."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Esta é uma prévia e não foi publicada. <a href=\"{$url}\"> Ver submissão</a>"

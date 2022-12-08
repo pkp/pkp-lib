@@ -30,6 +30,7 @@ use PKP\doi\exceptions\DoiActionException;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -328,6 +329,37 @@ abstract class Repository
         return false;
     }
 
+    /**
+     * Checks if this user is granted reader access to pre-publication submissions
+     * based on their roles in the context (i.e. Manager, Editor, etc).
+     *
+     * @param $user User
+     * @param $submission Submission
+     *
+     * @return bool
+     */
+    public function canPreview(User $user, Submission $submission): bool
+    {
+        // Only grant access when in copyediting or production stage
+        if (!in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
+            return false;
+        }
+
+        if ($this->_roleCanPreview($user, $submission)) {
+            return true;
+        }
+
+        if ($user) {
+            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+            $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $user->getId());
+            $stageAssignment = $stageAssignments->next();
+            if ($stageAssignment) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /** @copydoc DAO::insert */
     public function add(Submission $submission, Publication $publication): int
     {
@@ -575,5 +607,35 @@ abstract class Repository
         }
 
         return $newCurrentPublicationId ?? $submission->getData('currentPublicationId');
+    }
+
+    /**
+     * Checks if this user is granted access to preview
+     * based on their roles in the context (i.e. Manager, Editor, etc).
+     *
+     * @param $user User
+     * @param $submission Submission
+     *
+     * @return bool
+     */
+    protected function _roleCanPreview(User $user, Submission $submission): bool
+    {
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+        if ($user && $submission) {
+            $subscriptionAssumedRoles = [
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_SUBSCRIPTION_MANAGER
+            ];
+
+            $roles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
+            foreach ($roles as $role) {
+                if (in_array($role->getRoleId(), $subscriptionAssumedRoles)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

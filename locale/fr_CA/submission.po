@@ -2051,3 +2051,9 @@ msgstr "Soumission acceptée"
 
 msgid "submission.firstPublished"
 msgstr "Première publication"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Ceci est un aperçu et n'a pas été publié. <a href=\"{$url}\">Afficher la "
+"soumission</a>"

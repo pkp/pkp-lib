@@ -2413,3 +2413,9 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Recenzentu {$reviewerName} ponovno pošjli prošnjo za opravljanje recenzije v "
 "recenzijskem krogu {$round} za prispevek {$submissionid}."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"To je le predogled, še ni bilo objavljeno. <a href=\"{$url}\">View "
+"submission</a>"

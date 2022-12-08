@@ -2387,3 +2387,8 @@ msgid "doi.submission.notPublished"
 msgstr ""
 "Misslyckades med att markera DOI som registrerad för {$pubObjectTitle}. "
 "Bidraget måste vara publicerat innan statusen kan uppdateras."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Detta är en förhandsvisning och har därmed inte blivit publicerad än. <a "
+"href=\"{$url}\">Visa bidrag</a>"

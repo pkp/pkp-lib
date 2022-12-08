@@ -1907,3 +1907,5 @@ msgstr "Категории"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Списки публикаций"
+
+msgid "submission.viewingPreview"msgstr "Это предварительный просмотр, материал пока не опубликован. <a href=\"{$url}\">Просмотреть материал</a>"

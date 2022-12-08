@@ -2459,3 +2459,9 @@ msgstr "ყველა წარდგენის ნახვა"
 
 msgid "category.category"
 msgstr "კატეგორიები"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"ეს არის წინასწარი დათვალიერების რეჟიმი, მასალა ჯერ არ გამოქვეყნებულა. <a "
+"href=\"{$url}\">მასალის ნახვა</a>"

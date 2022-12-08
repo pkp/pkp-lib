@@ -2127,3 +2127,8 @@ msgstr ""
 "vil ta skritt for å sikre at fagfellevurderingen blir fullført. Du trenger "
 "ikke å foreta deg noe på dette tidspunkt. Du får beskjed når det er tatt en "
 "beslutning."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Dette er en forhåndsvisning og har ikke blitt publisert enda. <a href=\""
+"{$url}\">Se innleveringen</a>"

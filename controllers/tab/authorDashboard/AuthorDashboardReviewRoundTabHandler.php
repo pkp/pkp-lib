@@ -15,11 +15,9 @@
 
 namespace PKP\controllers\tab\authorDashboard;
 
-// Import the base Handler.
-import('pages.authorDashboard.AuthorDashboardHandler');
-
 use APP\core\Application;
 use APP\notification\Notification;
+use APP\pages\authorDashboard\AuthorDashboardHandler;
 use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;

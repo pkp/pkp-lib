@@ -261,9 +261,6 @@ msgstr ""
 "<p>View all of your assignments in your <a href=\"{$submissionsUrl}\">submission dashboard</a>.</p>"
 "<p>If you have any questions about your assignments, please contact {$contactName} at {$contactEmail}.</p>"
 
-msgid "emails.editorialReminder.description"
-msgstr "An automated email sent to editors with outstanding tasks"
-
 msgid "discussion.notification.description"
 msgstr "This email is sent when a user creates a new discussion or replies to an existing discussion"
 

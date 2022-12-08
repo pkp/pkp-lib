@@ -87,16 +87,3 @@ msgstr ""
 
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmación de restablecimiento de contraseña"
-
-msgid "emails.notification.body"
-msgstr ""
-"Tiene una nueva notificación de {$siteTitle}: <br />\n"
-"<br />\n"
-"{$notificationContents} <br />\n"
-"<br />\n"
-"Enlace: {$notificationUrl} <br />\n"
-"<br />\n"
-"{$contextSignature}"
-
-msgid "emails.notification.subject"
-msgstr "Nueva notificación de {$siteTitle}"

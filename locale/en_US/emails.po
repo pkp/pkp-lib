@@ -262,9 +262,6 @@ msgstr ""
 "<p>This is an automated email from {$contextName}. You are receiving this email because you are an editor. To unsubscribe from these emails, please visit your <a href=\"{$userProfileUrl}\">user profile</a>.</p>"
 "<p>If you have any questions about your assignments, please contact {$contactName} at {$contactEmail}.</p>"
 
-msgid "emails.editorialReminder.description"
-msgstr "An automated email sent to editors with outstanding tasks"
-
 msgid "discussion.notification.description"
 msgstr "This email is sent when a user creates a new discussion or replies to an existing discussion"
 

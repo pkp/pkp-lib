@@ -10,13 +10,15 @@
  * @class AuthorGridHandler
  * @ingroup controllers_grid_users_author
  *
+ * @deprecated 3.4
+ *
  * @brief base PKP class to handle author grid requests.
  */
 
 namespace PKP\controllers\grid\users\author;
 
-use App\core\Application;
 use APP\controllers\grid\users\author\form\AuthorForm;
+use App\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -24,7 +26,6 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\settings\user\form\UserDetailsForm;
 use PKP\core\JSONMessage;
-use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
@@ -470,5 +471,4 @@ class AuthorGridHandler extends GridHandler
 
         return new JSONMessage(true, $userForm->display($request));
     }
-
 }

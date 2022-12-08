@@ -920,9 +920,6 @@ msgstr "Är du säker på att du vill skicka formuläret?"
 msgid "form.confirmSubmit.title"
 msgstr "Bekräfta"
 
-msgid "form.emailRequired"
-msgstr "En e-postadress krävs."
-
 msgid "form.dataHasChanged"
 msgstr "Informationen i formuläret har ändrats. Vill du fortsätta utan att spara?"
 
@@ -1237,12 +1234,6 @@ msgstr "Meddelandetyp borttagen."
 
 msgid "notification.removedAnnouncement"
 msgstr "Meddelande borttaget."
-
-msgid "notification.addedAuthor"
-msgstr "Författare tillagd."
-
-msgid "notification.editedAuthor"
-msgstr "Författare redigerad."
 
 msgid "notification.confirmError"
 msgstr "Det uppstod ett problem när din prenumeration skulle bekräftas."
@@ -2143,3 +2134,13 @@ msgstr "Bifoga filer från bidrag och biblioteket."
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Författare tillagd."
+
+msgid "notification.editedAuthor"
+msgstr "Författare redigerad."
+

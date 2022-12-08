@@ -554,3 +554,11 @@ msgstr "Ova se poruka šalje recenzentima koje registriraju urednici. Njome se n
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Ovaj se obrazac e-pošte automatski šalje autoru kada su on ili ona završili postupak prijave priloga časopisu. Poruka daje informacije o tome kako mogu pratiti prilog kroz uređivački postupak."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Uvjeti za predaju članka"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Pri prijavljivanju priloga za časopis, od autora se prvo traži da potvrde kako njihov prilog zadovoljava svaku stavku \"uvjeta za predaju priloga\" prije nego što mogu nastaviti s postupkom prijave. Uvjeti za predaju priloga se također navode i kod \"smjernica za autore\", unutar rubrike \"o časopisu\". Popis uvjeta se može nadopuniti ili prilagoditi, a autori će uz svaku navedenu stavku svoju suglasnost morati označiti kvačicom."

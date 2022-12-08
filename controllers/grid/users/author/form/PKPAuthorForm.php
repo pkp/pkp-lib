@@ -10,6 +10,8 @@
  * @class PKPAuthorForm
  * @ingroup controllers_grid_users_author_form
  *
+ * @deprecated 3.4
+ *
  * @brief Form for adding/editing a author
  */
 
@@ -21,7 +23,6 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\template\TemplateManager;
 
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;

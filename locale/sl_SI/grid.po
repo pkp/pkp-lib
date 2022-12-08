@@ -196,12 +196,6 @@ msgstr "Uvozi ali izvozi vsebino ali podatke spletišča"
 msgid "grid.action.orderItems"
 msgstr "Omogoči urejanje vrstnega reda"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Uredi to postavko kontrolnega seznama"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Odstrani to postavko kontrolnega seznama"
-
 msgid "grid.action.resetAll"
 msgstr "Ponastavi vse postavke na privzete vrednosti"
 
@@ -394,9 +388,6 @@ msgstr "Sodelavci"
 msgid "grid.action.addContributor"
 msgstr "Dodaj sodelavca"
 
-msgid "grid.action.editContributor"
-msgstr "Uredi sodelavca"
-
 msgid "grid.action.deleteContributor"
 msgstr "Odstrani sodelavca"
 
@@ -433,20 +424,8 @@ msgstr "Kontrolni seznam za oddajo"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Postavka kontrolnega seznama"
 
-msgid "author.users.contributor.name"
-msgstr "Ime"
-
-msgid "author.users.contributor.email"
-msgstr "Email"
-
-msgid "author.users.contributor.role"
-msgstr "Vloga"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Primarni kontakt"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Objavljen v seznamu"
 
 msgid "grid.roles.currentRoles"
 msgstr "Trenutna vloga"
@@ -734,3 +713,19 @@ msgstr "Pogled"
 
 msgid "grid.columns.locale.code"
 msgstr "Koda"
+
+msgid "author.users.contributor.name"
+msgstr "Ime"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.role"
+msgstr "Vloga"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Objavljen v seznamu"
+
+msgid "grid.action.editContributor"
+msgstr "Uredi sodelavca"
+

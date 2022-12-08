@@ -908,9 +908,6 @@ msgstr "Да ли сте сигурни да желите да пошаљете 
 msgid "form.confirmSubmit.title"
 msgstr "Потврди"
 
-msgid "form.emailRequired"
-msgstr "Имејл адреса је неопходна"
-
 msgid "form.dataHasChanged"
 msgstr "Подаци у форми су промењени, да ли ипак желите да наставите?"
 
@@ -1247,12 +1244,6 @@ msgstr "Тип обавештења је уклоњен."
 msgid "notification.removedAnnouncement"
 msgstr "Обавештење уклоњено."
 
-msgid "notification.addedAuthor"
-msgstr "Аутор је додат."
-
-msgid "notification.editedAuthor"
-msgstr "Аутор је измењен."
-
 msgid "notification.addedNote"
 msgstr "Напомена послата."
 
@@ -1439,3 +1430,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Аутор је додат."
+
+msgid "notification.editedAuthor"
+msgstr "Аутор је измењен."
+

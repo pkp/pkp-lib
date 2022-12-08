@@ -914,9 +914,6 @@ msgstr ""
 "Податоците за оваа форма се променети. Дали сакате да продолжите без да ги "
 "снимите?"
 
-msgid "form.emailRequired"
-msgstr "Имејл адреса е неопходна."
-
 msgid "form.confirmSubmit.title"
 msgstr "Потврди"
 
@@ -1235,12 +1232,6 @@ msgstr "Вие сте успешно претплатени."
 
 msgid "notification.confirmError"
 msgstr "Настана грешка при потврдување на вашата претплата."
-
-msgid "notification.editedAuthor"
-msgstr "Авторот е уреден."
-
-msgid "notification.addedAuthor"
-msgstr "Авторот е додаден."
 
 msgid "notification.removedAnnouncement"
 msgstr "Објавата е отстранета."
@@ -2161,3 +2152,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Авторот е додаден."
+
+msgid "notification.editedAuthor"
+msgstr "Авторот е уреден."
+

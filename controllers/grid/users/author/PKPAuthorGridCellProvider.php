@@ -10,6 +10,8 @@
  * @class DataObjectGridCellProvider
  * @ingroup controllers_grid_users_author
  *
+ * @deprecated 3.4
+ *
  * @brief Base class for a cell provider that can retrieve labels for submission contributors
  */
 

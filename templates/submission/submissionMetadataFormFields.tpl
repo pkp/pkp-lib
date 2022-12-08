@@ -7,6 +7,8 @@
  *
  * Submission's metadata form fields. To be included in any form that wants to handle
  * submission metadata.
+ *
+ * @deprecated 3.4
  *}
 
 {if $citationsEnabled && array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR, \PKP\security\Role::ROLE_ID_ASSISTANT, \PKP\security\Role::ROLE_ID_REVIEWER, \PKP\security\Role::ROLE_ID_AUTHOR), (array)$userRoles)}
@@ -18,7 +20,7 @@
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled}
 	{fbvFormArea id="additionalDublinCore" title="submission.metadata"}
 		{fbvFormSection description="submission.metadataDescription"}
-			
+
 		{/fbvFormSection}
 		{if $coverageEnabled}
 			{fbvFormSection title="submission.coverage" for="coverage" required=$coverageRequired}

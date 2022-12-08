@@ -93,15 +93,6 @@ msgstr "Gönderi Kontrol Listesi"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Kontrol Listesi Ögesi"
 
-msgid "author.users.contributor.name"
-msgstr "Ad"
-
-msgid "author.users.contributor.email"
-msgstr "E-posta"
-
-msgid "author.users.contributor.role"
-msgstr "Görev"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Birincil İletişim"
 
@@ -200,12 +191,6 @@ msgstr "İçeriği veya site verisini içeri veya dışarı aktar"
 
 msgid "grid.action.orderItems"
 msgstr "Sıralama seçeneğini etkinleştir"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Kontrol listesini düzenle"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Kontrol listesini sil"
 
 msgid "grid.action.resetAll"
 msgstr "Tüm ögeleri varsayılan biçime döndür"
@@ -326,9 +311,6 @@ msgstr "Kategori Sil"
 
 msgid "grid.action.addContributor"
 msgstr "Katkıda Bulunan Kişi Ekle"
-
-msgid "grid.action.editContributor"
-msgstr "Katkıda Bulunan Kişi Düzelt"
 
 msgid "grid.action.deleteContributor"
 msgstr "Katkıda Bulunan Kişi Sil"
@@ -657,9 +639,6 @@ msgstr "Tüm Kayıtlı Kullanıcılar"
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Yanıt Seçenekleri"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Gözatma Listelerinde"
-
 msgid "grid.user.allPermissionLevels"
 msgstr "Tüm İzin Düzeyleri"
 
@@ -717,3 +696,19 @@ msgstr "Görüntüle"
 
 msgid "grid.columns.locale.code"
 msgstr "Dil Kodu"
+
+msgid "author.users.contributor.name"
+msgstr "Ad"
+
+msgid "author.users.contributor.email"
+msgstr "E-posta"
+
+msgid "author.users.contributor.role"
+msgstr "Görev"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Gözatma Listelerinde"
+
+msgid "grid.action.editContributor"
+msgstr "Katkıda Bulunan Kişi Düzelt"
+

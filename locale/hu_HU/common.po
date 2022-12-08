@@ -898,9 +898,6 @@ msgstr "Biztos benne, hogy elküldi ezt az űrlapot?"
 msgid "form.confirmSubmit.title"
 msgstr "Megerősítés"
 
-msgid "form.emailRequired"
-msgstr "Szükséges egy e-mail cím."
-
 msgid "form.dataHasChanged"
 msgstr "Az űrlapon az adatok megváltoztak. Mentés nélkül akarja folytatni?"
 
@@ -1206,12 +1203,6 @@ msgstr "Értesítéstípus törölt."
 
 msgid "notification.removedAnnouncement"
 msgstr "Értesítés törölt."
-
-msgid "notification.addedAuthor"
-msgstr "Szerző hozzáadott."
-
-msgid "notification.editedAuthor"
-msgstr "Szerző szerkesztett."
 
 msgid "notification.confirmError"
 msgstr "Hiba történt a feliratkozás megerősítésekor."
@@ -2116,3 +2107,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Szerző hozzáadott."
+
+msgid "notification.editedAuthor"
+msgstr "Szerző szerkesztett."
+

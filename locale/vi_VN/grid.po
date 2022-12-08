@@ -238,20 +238,8 @@ msgstr "Tạo Vai trò Mới"
 msgid "grid.roles.currentRoles"
 msgstr "Các vai trò hiện tại"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Trong Danh sách Duyệt"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Liên hệ chính"
-
-msgid "author.users.contributor.role"
-msgstr "Vai trò"
-
-msgid "author.users.contributor.email"
-msgstr "Email"
-
-msgid "author.users.contributor.name"
-msgstr "Tên"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Mục kiểm tra"
@@ -291,9 +279,6 @@ msgstr "Tạo một phiên bản mới"
 
 msgid "grid.action.deleteContributor"
 msgstr "Xóa người tham gia"
-
-msgid "grid.action.editContributor"
-msgstr "Chỉnh sửa người tham gia"
 
 msgid "grid.action.addContributor"
 msgstr "Thêm người tham gia"
@@ -494,12 +479,6 @@ msgstr "Thêm một mẫu email mới"
 msgid "grid.action.resetAll"
 msgstr "Đặt lại tất cả các mục về giá trị mặc định"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Xóa mục danh sách kiểm tra này"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Chỉnh sửa mục danh sách kiểm tra này"
-
 msgid "grid.action.orderItems"
 msgstr "Bật chế độ sắp xếp"
 
@@ -682,3 +661,18 @@ msgstr "Cài đặt"
 
 msgid "grid.noItems"
 msgstr "Không có mục nào"
+
+msgid "author.users.contributor.name"
+msgstr "Tên"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.role"
+msgstr "Vai trò"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Trong Danh sách Duyệt"
+
+msgid "grid.action.editContributor"
+msgstr "Chỉnh sửa người tham gia"

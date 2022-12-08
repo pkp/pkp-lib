@@ -229,20 +229,8 @@ msgstr "新しい役割を作成"
 msgid "grid.roles.currentRoles"
 msgstr "現在の役割"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "リストで表示"
-
 msgid "author.users.contributor.principalContact"
 msgstr "主な連絡先"
-
-msgid "author.users.contributor.role"
-msgstr "役割"
-
-msgid "author.users.contributor.email"
-msgstr "メール"
-
-msgid "author.users.contributor.name"
-msgstr "名前"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "チェックリストアイテム"
@@ -282,9 +270,6 @@ msgstr "新しいバージョンを作成"
 
 msgid "grid.action.deleteContributor"
 msgstr "寄稿者の削除"
-
-msgid "grid.action.editContributor"
-msgstr "寄稿者を編集"
 
 msgid "grid.action.addContributor"
 msgstr "寄稿者を追加"
@@ -484,12 +469,6 @@ msgstr "新しいメールテンプレートを作成する"
 msgid "grid.action.resetAll"
 msgstr "すべてのアイテムをデフォルト値にリセットする"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "このチェックリストアイテムを削除"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "このチェックリストアイテムを編集"
-
 msgid "grid.action.orderItems"
 msgstr "配列モードを有効する"
 
@@ -672,3 +651,18 @@ msgstr "設定"
 
 msgid "grid.noItems"
 msgstr "アイテムなし"
+
+msgid "author.users.contributor.name"
+msgstr "名前"
+
+msgid "author.users.contributor.email"
+msgstr "メール"
+
+msgid "author.users.contributor.role"
+msgstr "役割"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "リストで表示"
+
+msgid "grid.action.editContributor"
+msgstr "寄稿者を編集"

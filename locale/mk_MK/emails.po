@@ -12,6 +12,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

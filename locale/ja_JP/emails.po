@@ -13,6 +13,13 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できる"
+"ことを伝える同時に、著者に投稿に対するお礼をしています。"
+
+#, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}様<br />\n"

@@ -18,10 +18,11 @@ namespace PKP\controllers\grid\settings\sections\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\security\Role;
-use PKP\security\Validation;
+use PKP\userGroup\UserGroup;
 
 class PKPSectionForm extends Form
 {
@@ -36,6 +37,11 @@ class PKPSectionForm extends Form
 
     /** @var array Cover image information from getimagesize */
     public $_sizeArray;
+
+    public ?PKPSection $section = null;
+
+    /** @var array Roles that can be assigned to this section */
+    public $assignableRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
 
     /**
      * Constructor.
@@ -86,6 +92,16 @@ class PKPSectionForm extends Form
         $this->_sectionId = $sectionId;
     }
 
+    public function getSection(): ?PKPSection
+    {
+        return $this->section;
+    }
+
+    public function setSection(PKPSection $section): void
+    {
+        $this->section = $section;
+    }
+
     /**
      * @copydoc Form::fetch()
      *
@@ -93,22 +109,52 @@ class PKPSectionForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $usersIterator = Repo::user()->getCollector()
-            ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
+        $assignableUserGroups = Repo::userGroup()
+            ->getCollector()
             ->filterByContextIds([$request->getContext()->getId()])
-            ->getMany();
-
-        $subeditors = [];
-        foreach ($usersIterator as $user) {
-            $subeditors[(int) $user->getId()] = $user->getFullName();
-        }
+            ->filterByRoleIds($this->assignableRoles)
+            ->filterByStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+            ->getMany()
+            ->map(function (UserGroup $userGroup) use ($request) {
+                return [
+                    'userGroup' => $userGroup,
+                    'users' => Repo::user()
+                        ->getCollector()
+                        ->filterByUserGroupIds([$userGroup->getId()])
+                        ->filterByContextIds([$request->getContext()->getId()])
+                        ->getMany()
+                        ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])
+                        ->toArray()
+                ];
+            });
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'subeditors' => $subeditors,
+            'assignableUserGroups' => $assignableUserGroups->toArray(),
         ]);
 
         return parent::fetch($request, $template, $display);
+    }
+
+    public function initData()
+    {
+        if ($this->getSection() !== null) {
+            $this->setData([
+                'assignedSubeditors' => Repo::user()
+                    ->getCollector()
+                    ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                    ->filterByRoleIds($this->assignableRoles)
+                    ->assignedToSectionIds([$this->getSectionId()])
+                    ->getIds()
+                    ->toArray(),
+            ]);
+        } else {
+            $this->setData([
+                'assignedSubeditors' => [],
+            ]);
+        }
+
+        parent::initData();
     }
 
     /**
@@ -119,13 +165,20 @@ class PKPSectionForm extends Form
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-        $subEditorsDao->deleteBySubmissionGroupId($this->getSectionId(), ASSOC_TYPE_SECTION, $contextId);
+        $subEditorsDao->deleteBySubmissionGroupId($this->getSectionId(), Application::ASSOC_TYPE_SECTION, $contextId);
         $subEditors = $this->getData('subEditors');
         if (!empty($subEditors)) {
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-            foreach ($subEditors as $subEditor) {
-                if ($roleDao->userHasRole($contextId, $subEditor, Role::ROLE_ID_SUB_EDITOR)) {
-                    $subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor, ASSOC_TYPE_SECTION);
+            $allowedEditors = Repo::user()
+                ->getCollector()
+                ->filterByRoleIds($this->assignableRoles)
+                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                ->getIds();
+            foreach ($subEditors as $userGroupId => $userIds) {
+                foreach ($userIds as $userId) {
+                    if (!$allowedEditors->contains($userId)) {
+                        continue;
+                    }
+                    $subEditorsDao->insertEditor($contextId, $this->getSectionId(), $userId, Application::ASSOC_TYPE_SECTION, (int) $userGroupId);
                 }
             }
         }

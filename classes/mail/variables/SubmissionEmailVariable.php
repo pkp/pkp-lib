@@ -15,29 +15,24 @@
 
 namespace PKP\mail\variables;
 
-use APP\core\Application;
-use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
-use Exception;
 use PKP\author\Author;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
-use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
 
-class SubmissionEmailVariable extends Variable
+abstract class SubmissionEmailVariable extends Variable
 {
     public const AUTHOR_SUBMISSION_URL = 'authorSubmissionUrl';
     public const AUTHORS = 'authors';
     public const AUTHORS_SHORT = 'authorsShort';
     public const SUBMISSION_ABSTRACT = 'submissionAbstract';
     public const SUBMISSION_ID = 'submissionId';
+    public const SUBMISSION_PUBLISHED_URL = 'submissionPublishedUrl';
     public const SUBMISSION_TITLE = 'submissionTitle';
     public const SUBMISSION_URL = 'submissionUrl';
+    public const SUBMISSION_WIZARD_URL = 'submissionWizardUrl';
 
     protected Submission $submission;
     protected Publication $currentPublication;
@@ -62,8 +57,10 @@ class SubmissionEmailVariable extends Variable
             self::AUTHORS_SHORT => __('emailTemplate.variable.submission.authorsShort'),
             self::SUBMISSION_ABSTRACT => __('emailTemplate.variable.submission.submissionAbstract'),
             self::SUBMISSION_ID => __('emailTemplate.variable.submission.submissionId'),
+            self::SUBMISSION_PUBLISHED_URL => __('emailTemplate.variable.submission.submissionPublishedUrl'),
             self::SUBMISSION_TITLE => __('emailTemplate.variable.submission.submissionTitle'),
             self::SUBMISSION_URL => __('emailTemplate.variable.submission.submissionUrl'),
+            self::SUBMISSION_WIZARD_URL => __('emailTemplate.variable.submission.submissionWizardUrl'),
         ];
     }
 
@@ -80,8 +77,10 @@ class SubmissionEmailVariable extends Variable
             self::AUTHORS_SHORT => $this->currentPublication->getShortAuthorString($locale),
             self::SUBMISSION_ABSTRACT => $this->currentPublication->getLocalizedData('abstract', $locale),
             self::SUBMISSION_ID => (string) $this->submission->getId(),
+            self::SUBMISSION_PUBLISHED_URL => $this->getSubmissionPublishedUrl($this->getContext()),
             self::SUBMISSION_TITLE => $this->currentPublication->getLocalizedFullTitle($locale),
             self::SUBMISSION_URL => $this->getSubmissionUrl($context),
+            self::SUBMISSION_WIZARD_URL => $this->getSubmissionWizardUrl($context),
         ];
     }
 
@@ -133,4 +132,30 @@ class SubmissionEmailVariable extends Variable
             $this->submission->getId()
         );
     }
+
+    /**
+     * URL to the submission in the submission wizard
+     */
+    protected function getSubmissionWizardUrl(Context $context): string
+    {
+        $application = PKPApplication::get();
+        $request = $application->getRequest();
+        $dispatcher = $application->getDispatcher();
+        return $dispatcher->url(
+            $request,
+            PKPApplication::ROUTE_PAGE,
+            $context->getPath(),
+            'submission',
+            null,
+            null,
+            [
+                'id' => $this->submission->getId(),
+            ]
+        );
+    }
+
+    /**
+     * URL to the published submission
+     */
+    abstract protected function getSubmissionPublishedUrl(Context $context): string;
 }

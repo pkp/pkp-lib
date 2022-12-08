@@ -1072,9 +1072,6 @@ msgstr "次の言語のみが許可されています: {$languages}。"
 msgid "form.dataHasChanged"
 msgstr "このフォームのデータが変更されました。 保存せずに続行しますか？"
 
-msgid "form.emailRequired"
-msgstr "メールアドレスは必須です。"
-
 msgid "form.confirmSubmit.title"
 msgstr "確認"
 
@@ -1838,12 +1835,6 @@ msgstr "正常に登録されました。"
 msgid "notification.confirmError"
 msgstr "登録確認でエラーが発生しました。"
 
-msgid "notification.editedAuthor"
-msgstr "著者が編集されました。"
-
-msgid "notification.addedAuthor"
-msgstr "著者が追加されました。"
-
 msgid "notification.removedAnnouncement"
 msgstr "お知らせが削除されました。"
 
@@ -2119,3 +2110,13 @@ msgstr "ここにファイルをドラッグアンドドロップする。"
 
 msgid "common.keepWorking"
 msgstr "働き続ける"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "著者が追加されました。"
+
+msgid "notification.editedAuthor"
+msgstr "著者が編集されました。"
+

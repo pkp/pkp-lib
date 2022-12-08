@@ -17,7 +17,7 @@
 		"adodb/adodb-php": "v5.20.18",
 		"gettext/gettext": "5.*",
 		"sokil/php-isocodes": "^4.1",
-		"doctrine/dbal": "^2.10",
+		"doctrine/dbal": "^3.5",
 		"guzzlehttp/guzzle": "^7.0",
 		"league/flysystem": "^3.0",
 		"league/flysystem-sftp-v3": "^3.0",

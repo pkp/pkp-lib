@@ -2386,3 +2386,16 @@ msgstr ""
 "Este correo electrónico envíase automaticamente cada mes a editores/as e "
 "administradores/as de revistas para ofrecerlles unha visión xeral da "
 "actividade do sistema."
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Lista de verificación para preparar o envío"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Ao facer un envío á revista, pídese aos autores/as que comproben cada "
+"elemento da lista de verificación de preparación de envíos antes de "
+"continuar. A lista de verificación tamén aparece nas Directrices do autor, "
+"en Acerca da revista. A lista pódese editar a continuación, pero todos os "
+"elementos da lista requirirán unha verificación antes de que os autores "
+"poidan continuar co envío."

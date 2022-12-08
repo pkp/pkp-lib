@@ -870,20 +870,8 @@ msgstr "Tilføj en anden fil"
 msgid "submission.submit.metadataForm"
 msgstr "Yderligere beskrivelse"
 
-msgid "submission.confirm.message"
-msgstr "Din indsendelse er blevet uploadet og klar til at blive vidersendt. Hvis du ønsker det, kan du gå tilbage og gennemse og tilrette dine informationer, før du fortsætter. Klik på \"Afslut indsendelse\" når du er klar."
-
-msgid "submission.submit.finishSubmission"
-msgstr "Afslut indsendelse"
-
 msgid "submission.submit.submissionComplete"
 msgstr "Indsendelsen afsluttet"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Tak, fordi du er interesseret i at publicere i {$contextName}."
-
-msgid "submission.submit.whatNext"
-msgstr "Hvad er det næste, der sker?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "På nuværende tidspunkt kan du:"
@@ -1042,9 +1030,6 @@ msgstr "Dette er ikke en tilretning af en eksisterende fil"
 msgid "submission.submit.contributorRole"
 msgstr "Bidragyders rolle"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Primær kontaktperson for redaktionel korrespondance."
-
 msgid "submission.submit.includeInBrowse"
 msgstr ""
 "Tilføj denne bidragyder når forfattere identificeres i lister over "
@@ -1107,25 +1092,15 @@ msgstr "Upload manuskriptredigeret fil"
 msgid "submission.submit.submissionLocale"
 msgstr "Indsendelsessprog"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Dette tidsskrift accepterer indsendelser på en række sprog. Vælg det primære "
-"sprog for indsendelsen i rullemenuen."
-
 msgid "notification.type.copyeditorRequest"
 msgstr "Du er blevet bedt om at gennemse manuskriptredigeringen af \"{$title}\"."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Indsendelseskrav"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Du skal tilkendegive, at du opfylder nedenstående krav inden du fortsætter."
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Jeg accepterer at underlægge mig copyright-betingelserne."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acceptér copyright-betingelser"
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nye bedømmelser er blevet indsendt og bliver behandlet af redaktøren."
@@ -1175,14 +1150,8 @@ msgstr "Se events fra tidligere versioner"
 msgid "submission.rights"
 msgstr "Rettigheder"
 
-msgid "submission.rights.tip"
-msgstr "Hvis du ønsker, kan du indsætte en kort erklæring om adgangsrettighederne i forbindelse med denne indsendelse."
-
 msgid "submission.source"
 msgstr "Kilde"
-
-msgid "submission.source.tip"
-msgstr "Er denne indsendelse hentet fra en anden ressource? Hvis det er tilfældet, kan du indsætte en URL eller en beskrivelse af ressourcen."
 
 msgid "submission.submissionTitle"
 msgstr "Title på indsendelse:"
@@ -1199,20 +1168,8 @@ msgstr "Relaterede filer"
 msgid "submission.manageDependentFiles"
 msgstr "Håndtér relaterede filer"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
-
 msgid "submission.upload.dependent"
 msgstr "Upload en relateret fil"
-
-msgid "submission.type.tip"
-msgstr ""
-"Indsendelsestypen er som regel enten 'billede', 'tekst' eller anden "
-"multimedietype inklusiv 'software' og 'interaktiv'.  Vælg den, der er mest "
-"relevant i forbindelse med din indsendelse.  Eksempler kan ses her: <a "
-"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
-"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
-"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
 
 msgid "submission.submit.addAuthor"
 msgstr "Tilføj bidragyder"
@@ -1650,47 +1607,11 @@ msgstr "Indsendelsen skal fremsendes igen til en ny bedømmelsesrunde."
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Indsendelsen er blevet fremsendt igen til en ny bedømmelsesrunde."
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Indtast et sprog."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Indtast et emne."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Indtast et fagområde."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Indtast et nøgleord."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Indtast information om dækning."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Indtast en type."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Indtast en kilde."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Indtast rettighederne."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Indtast referencerne."
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Indsend som"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Vælg den rolle, som bedst beskriver dit bidrag til denne indsendelse."
-
-msgid "submission.submit.contactConsent"
-msgstr "Tilhørende kontakt"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ja, jeg vil gerne kontaktes i forbindelse med denne indsendelse."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}"
 
 msgid "log.review.reviewUnconsidered"
 msgstr ""
@@ -1976,9 +1897,6 @@ msgstr ""
 
 msgid "submission.submit.removeConfirm"
 msgstr "Er du sikker på, at du vil fjerne filen?"
-
-msgid "submission.submit.genre.error"
-msgstr "Vælg typen af fil til hver upload."
 
 msgid "submission.submit.genre.description"
 msgstr "Vælg den mulighed, der bedst beskriver denne fil."
@@ -2459,3 +2377,67 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Sendte anmodningen om at bedømme i bedømmelsesrunde {$round} til "
 "{$reviewerName} for indsendelsen {$submissionid} igen."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Der er ikke vedhæftet nogen filer til dette manuskript."
+
+msgid "author.submit.confirmation"
+msgstr "Bekræftelse"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Indtast et sprog."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Indtast et emne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Indtast et fagområde."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Indtast et nøgleord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Indtast information om dækning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Indtast en type."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Indtast en kilde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Indtast rettighederne."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Indtast referencerne."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
+
+msgid "submission.type.tip"
+msgstr ""
+"Indsendelsestypen er som regel enten 'billede', 'tekst' eller anden "
+"multimedietype inklusiv 'software' og 'interaktiv'.  Vælg den, der er mest "
+"relevant i forbindelse med din indsendelse.  Eksempler kan ses her: <a "
+"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr "Er denne indsendelse hentet fra en anden ressource? Hvis det er tilfældet, kan du indsætte en URL eller en beskrivelse af ressourcen."
+
+msgid "submission.rights.tip"
+msgstr "Hvis du ønsker, kan du indsætte en kort erklæring om adgangsrettighederne i forbindelse med denne indsendelse."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Dette tidsskrift accepterer indsendelser på en række sprog. Vælg det primære "
+"sprog for indsendelsen i rullemenuen."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Primær kontaktperson for redaktionel korrespondance."

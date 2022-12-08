@@ -23,8 +23,7 @@ use PKP\file\ContextFileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\form\Form;
 use PKP\security\Role;
-
-use PKP\security\Validation;
+use PKP\userGroup\UserGroup;
 
 class CategoryForm extends Form
 {
@@ -42,6 +41,9 @@ class CategoryForm extends Form
 
     /** @var array $_sizeArray Cover image information from getimagesize */
     public $_sizeArray;
+
+    /** @var array Roles that can be assigned to this category */
+    public $assignableRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
 
 
     /**
@@ -134,6 +136,8 @@ class CategoryForm extends Form
     {
         $category = Repo::category()->get($this->getCategoryId());
 
+        $this->setData('assignedSubeditors', []);
+
         if ($category) {
             if ($category->getContextId() != $this->getContextId()) {
                 throw new \Exception('Wrong context ID for category!');
@@ -147,6 +151,17 @@ class CategoryForm extends Form
 
             $sortOption = $category->getSortOption() ? $category->getSortOption() : Repo::submission()->getDefaultSortOption();
             $this->setData('sortOption', $sortOption);
+
+            $this->setData(
+                'assignedSubeditors',
+                Repo::user()
+                    ->getCollector()
+                    ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                    ->filterByRoleIds($this->assignableRoles)
+                    ->assignedToCategoryIds([$this->getCategoryId()])
+                    ->getIds()
+                    ->toArray()
+            );
         }
 
         return parent::initData();
@@ -231,28 +246,28 @@ class CategoryForm extends Form
         // Sort options.
         $templateMgr->assign('sortOptions', Repo::submission()->getSortSelectOptions());
 
-        // Sub Editors
-        $usersIterator = Repo::user()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->getMany();
+        $assignableUserGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$request->getContext()->getId()])
+            ->filterByRoleIds($this->assignableRoles)
+            ->filterByStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+            ->getMany()
+            ->map(function (UserGroup $userGroup) use ($request) {
+                return [
+                    'userGroup' => $userGroup,
+                    'users' => Repo::user()
+                        ->getCollector()
+                        ->filterByUserGroupIds([$userGroup->getId()])
+                        ->filterByContextIds([$request->getContext()->getId()])
+                        ->getMany()
+                        ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])
+                        ->toArray()
+                ];
+            });
 
-        $availableSubeditors = [];
-        foreach ($usersIterator as $user) {
-            $availableSubeditors[$user->getId()] = $user->getFullName();
-        }
-        $assignedToCategory = [];
-        if ($this->getCategoryId()) {
-            $assignedToCategory = Repo::user()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-                ->assignedToCategoryIds([$this->getCategoryId()])
-                ->getIds()
-                ->toArray();
-        }
+        $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'availableSubeditors' => $availableSubeditors,
-            'assignedToCategory' => $assignedToCategory,
+            'assignableUserGroups' => $assignableUserGroups->toArray(),
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -264,6 +279,7 @@ class CategoryForm extends Form
     public function execute(...$functionArgs)
     {
         $categoryId = $this->getCategoryId();
+        $context = Application::get()->getRequest()->getContext();
 
         // Get a category object to edit or create
         if ($categoryId == null) {
@@ -294,13 +310,20 @@ class CategoryForm extends Form
 
         // Update category editors
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-        $subEditorsDao->deleteBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $category->getContextId());
+        $subEditorsDao->deleteBySubmissionGroupId($category->getId(), Application::ASSOC_TYPE_CATEGORY, $category->getContextId());
         $subEditors = $this->getData('subEditors');
         if (!empty($subEditors)) {
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-            foreach ($subEditors as $subEditor) {
-                if ($roleDao->userHasRole($category->getContextId(), $subEditor, Role::ROLE_ID_SUB_EDITOR)) {
-                    $subEditorsDao->insertEditor($category->getContextId(), $category->getId(), $subEditor, ASSOC_TYPE_CATEGORY);
+            $allowedEditors = Repo::user()
+                ->getCollector()
+                ->filterByRoleIds($this->assignableRoles)
+                ->filterByContextIds([$context->getId()])
+                ->getIds();
+            foreach ($subEditors as $userGroupId => $userIds) {
+                foreach ($userIds as $userId) {
+                    if (!$allowedEditors->contains($userId)) {
+                        continue;
+                    }
+                    $subEditorsDao->insertEditor($context->getId(), $this->getCategoryId(), $userId, Application::ASSOC_TYPE_CATEGORY, (int) $userGroupId);
                 }
             }
         }

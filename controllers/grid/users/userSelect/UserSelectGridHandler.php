@@ -20,7 +20,6 @@ use PKP\controllers\grid\feature\CollapsibleGridFeature;
 use PKP\controllers\grid\feature\InfiniteScrollingFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 
@@ -98,7 +97,7 @@ class UserSelectGridHandler extends GridHandler
         $this->addColumn(
             new GridColumn(
                 'name',
-                'author.users.contributor.name',
+                'common.name',
                 null,
                 null,
                 $cellProvider,

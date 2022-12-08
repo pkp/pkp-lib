@@ -17,8 +17,26 @@
 
 namespace PKP\context;
 
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
+
 abstract class PKPSectionDAO extends \PKP\db\DAO
 {
+    /**
+     * Get the name of the section table in the database
+     */
+    abstract protected function _getTableName(): string;
+
+    /**
+     * Get the id column of the section table in the database
+     */
+    abstract protected function _getIdColumnName(): string;
+
+    /**
+     * Get the context_id column of the section table in the database
+     */
+    abstract protected function _getContextIdColumnName(): string;
+
     /**
      * Create a new data object.
      *
@@ -35,6 +53,17 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
      * @return Section
      */
     abstract public function getById($sectionId, $contextId = null);
+
+    /**
+     * Check if a section exists
+     */
+    public function exists(int $sectionId, ?int $contextId = null)
+    {
+        return DB::table($this->_getTableName())
+            ->where($this->_getIdColumnName(), $sectionId)
+            ->when($contextId !== null, fn (Builder $q) => $q->where($this->_getContextIdColumnName(), $contextId))
+            ->exists();
+    }
 
     /**
      * Generate a new PKPSection object from row.
@@ -125,6 +154,19 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
             $sections[$section->getId()] = $section->getLocalizedTitle();
         }
         return $sections;
+    }
+
+    /**
+     * Check if a section is inactive
+     */
+    public function isInactive(int $sectionId): bool
+    {
+        $row = DB::table($this->_getTableName())
+            ->where($this->_getIdColumnName(), '=', $sectionId)
+            ->get('is_inactive')
+            ->first();
+
+        return $row && $row->is_inactive > 0;
     }
 }
 

@@ -20,9 +20,11 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\LazyCollection;
+use PKP\context\Context;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 class Repository
@@ -90,14 +92,14 @@ class Repository
      *
      * @param Author|null $author The author being edited. Pass `null` if creating a new author
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported submission locales
-     * @param string $primaryLocale The submission's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate($author, $props, $allowedLocales, $primaryLocale)
+    public function validate($author, $props, Submission $submission, Context $context)
     {
         $schemaService = Services::get('schema');
+        $allowedLocales = $context->getSupportedSubmissionLocales();
+        $primaryLocale = $submission->getLocale();
 
         $validator = ValidatorFactory::make(
             $props,
@@ -187,6 +189,29 @@ class Repository
         $this->dao->resetContributorsOrder($author->getData('publicationId'));
 
         Hook::call('Author::delete', [$author]);
+    }
+
+    /**
+     * Create an Author object from a User object
+     *
+     * This does not save the author in the database.
+     */
+    public function newAuthorFromUser(User $user): Author
+    {
+        $author = Repo::author()->newDataObject();
+        $author->setGivenName($user->getGivenName(null), null);
+        $author->setFamilyName($user->getFamilyName(null), null);
+        $author->setAffiliation($user->getAffiliation(null), null);
+        $author->setCountry($user->getCountry());
+        $author->setEmail($user->getEmail());
+        $author->setUrl($user->getUrl());
+        $author->setBiography($user->getBiography(null), null);
+        $author->setIncludeInBrowse(1);
+        $author->setOrcid($user->getOrcid());
+
+        Hook::call('Author::newAuthorFromUser', [$author, $user]);
+
+        return $author;
     }
 
     /**

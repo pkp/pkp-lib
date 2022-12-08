@@ -795,21 +795,10 @@ msgstr "Xem lại bài gửi này"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Hiện tại, bạn có thể:"
 
-msgid "submission.submit.whatNext"
-msgstr "Tiếp theo là gì?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Có, tôi đồng ý tuân theo các điều khoản của tuyên bố bản quyền."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Thừa nhận tuyên bố bản quyền"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Cảm ơn bạn đã quan tâm đến việc xuất bản với {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Hoàn thành gửi bài"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Bạn phải đọc và xác nhận rằng bạn đã hoàn thành các yêu cầu bên dưới trước "
@@ -818,28 +807,11 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Yêu cầu gửi bài"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Gửi trong bất kỳ vai trò nào sau đây nếu bạn muốn có thể tự chỉnh sửa và "
-"xuất bản nội dung bài gửi này: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Có, tôi muốn được liên hệ về bài gửi này."
-
-msgid "submission.submit.contactConsent"
-msgstr "Liên hệ tương ứng"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Chọn vai trò mô tả tốt nhất đóng góp của bạn cho bài nộp này."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Gửi dưới dạng"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Bài gửi của bạn đã được tải lên và sẵn sàng được gửi đi. Bạn có thể quay lại "
-"để xem xét và điều chỉnh bất kỳ thông tin nào bạn đã nhập trước khi tiếp "
-"tục. Khi bạn đã sẵn sàng, hãy nhấp vào \"Hoàn tất gửi bài\"."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Các đánh giá mới đã được gửi và đang được xem xét bởi biên tập viên."
@@ -931,11 +903,6 @@ msgstr "Gửi lại để đánh giá tiếp."
 
 msgid "notification.type.editorDecisionPendingRevisions"
 msgstr "Yêu cầu sửa chữa."
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Thông tin bổ sung cho bài gửi của bạn.  Nhấn 'enter' sau mỗi thông tin bổ "
-"sung."
 
 msgid "submission.notes.confirmDeleteAll"
 msgstr "Xoá Tất cả Các ghi chú bài gửi?"
@@ -1555,38 +1522,8 @@ msgstr "Thay thế một tệp hiện có?"
 msgid "submission.form.name"
 msgstr "Đặt tên cho tập tin (ví dụ: Bản thảo; Bảng 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Vui lòng nhập các tài liệu tham khảo."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Vui lòng nhập các quyền tác giả."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Vui lòng nhập nguồn."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Vui lòng nhập một loại."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Vui lòng nhập thông tin phủ sóng hợp lệ."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Vui lòng nhập một từ khoá."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Vui lòng nhập một chuyên ngành hợp lệ."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Vui lòng nhập một chủ đề."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Vui lòng nhập một ngôn ngữ hợp lệ."
-
 msgid "submission.submit.addAuthor"
 msgstr "Thêm cộng sự"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Người liên hệ chính với ban biên tập."
 
 msgid "submission.date.yyyymmdd"
 msgstr "NNNN-TT-NN"
@@ -1624,15 +1561,6 @@ msgstr "Tải tập tin lên"
 msgid "submission.underway"
 msgstr "Đang tiến hành"
 
-msgid "submission.type.tip"
-msgstr ""
-"Loại bài gửi thường là một trong các loại \"hình ảnh\", \"văn bản\" hoặc các "
-"loại đa phương tiện khác bao gồm \"phần mềm\" hoặc \"tương tác\". Vui lòng "
-"chọn một trong những trường hợp phù hợp nhất cho bài nộp của bạn. Bạn có thể "
-"tìm thấy các ví dụ tại <a target=\"_blank\" href=\"http://dublincore.org/"
-"documents/2001/04/12/usageguide/generic.shtml#type\"> http://dublincore.org/"
-"documents/ 2001/04/12/usingguide/generic.shtml#type </a>"
-
 msgid "submission.titleAndAbstract"
 msgstr "Tiêu đề và Tóm tắt"
 
@@ -1666,11 +1594,6 @@ msgstr "Các tập tin phụ thuộc"
 msgid "submission.submit.submissionFiles"
 msgstr "Các tập tin Bài gửi"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Gửi bài bằng một số ngôn ngữ được chấp nhận. Chọn ngôn ngữ chính của bài gửi "
-"từ menu thả xuống ở trên."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Ngôn ngữ Bài gửi"
 
@@ -1691,9 +1614,6 @@ msgstr "Thông tin Tập tin"
 
 msgid "submission.submit.selectFile"
 msgstr "Chọn tập tin"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Hoàn thành gửi bài"
 
 msgid "submission.submitter"
 msgstr "Người gửi bài"
@@ -1721,11 +1641,6 @@ msgstr "Đã gửi bài"
 
 msgid "submissions.submit"
 msgstr "Gửi bài"
-
-msgid "submission.source.tip"
-msgstr ""
-"Bài gửi này có nguồn gốc từ một nguồn khác không? Nếu có, bạn có thể nhập "
-"URL hoặc mô tả của tài nguyên đó."
 
 msgid "submission.source"
 msgstr "Nguồn"
@@ -1762,11 +1677,6 @@ msgstr "Lưu trữ"
 
 msgid "submissions.active"
 msgstr "Hoạt động"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Nếu muốn, bạn có thể nhập một tuyên bố ngắn gọn về các quyền truy cập có "
-"trong hoặc đối với nội dung gửi này."
 
 msgid "submission.rights"
 msgstr "Quyền lợi"
@@ -2099,3 +2009,75 @@ msgstr "giấy phép CC Attribution-NonCommercial 4.0"
 
 msgid "submission.license.cc.by-nc-nd4"
 msgstr "CC Attribution-NonCommercial-NoDeriates 4.0"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Không có tập tin đã được đính kèm với bài gửi này."
+
+msgid "author.submit.confirmation"
+msgstr "Xác nhận"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vui lòng nhập một ngôn ngữ hợp lệ."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vui lòng nhập một chủ đề."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vui lòng nhập một chuyên ngành hợp lệ."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vui lòng nhập một từ khoá."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vui lòng nhập thông tin phủ sóng hợp lệ."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vui lòng nhập một loại."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vui lòng nhập nguồn."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vui lòng nhập các quyền tác giả."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vui lòng nhập các tài liệu tham khảo."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Thông tin bổ sung cho bài gửi của bạn.  Nhấn 'enter' sau mỗi thông tin bổ "
+"sung."
+
+msgid "submission.type.tip"
+msgstr ""
+"Loại bài gửi thường là một trong các loại \"hình ảnh\", \"văn bản\" hoặc các "
+"loại đa phương tiện khác bao gồm \"phần mềm\" hoặc \"tương tác\". Vui lòng "
+"chọn một trong những trường hợp phù hợp nhất cho bài nộp của bạn. Bạn có thể "
+"tìm thấy các ví dụ tại <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type\"> http://dublincore.org/"
+"documents/ 2001/04/12/usingguide/generic.shtml#type </a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Bài gửi này có nguồn gốc từ một nguồn khác không? Nếu có, bạn có thể nhập "
+"URL hoặc mô tả của tài nguyên đó."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Nếu muốn, bạn có thể nhập một tuyên bố ngắn gọn về các quyền truy cập có "
+"trong hoặc đối với nội dung gửi này."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Thông tin bổ sung cho bài gửi của bạn.  Nhấn 'enter' sau mỗi thông tin bổ "
+"sung."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Gửi bài bằng một số ngôn ngữ được chấp nhận. Chọn ngôn ngữ chính của bài gửi "
+"từ menu thả xuống ở trên."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Người liên hệ chính với ban biên tập."

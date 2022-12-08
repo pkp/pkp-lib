@@ -284,9 +284,11 @@ abstract class Repository
      */
     public function getDecisionType(int $decision): ?DecisionType
     {
-        return $this->getDecisionTypes()->first(function (DecisionType $decisionType) use ($decision) {
+        $decision = $this->getDecisionTypes()->first(function (DecisionType $decisionType) use ($decision) {
             return $decisionType->getDecision() === $decision;
         });
+
+        return $decision ?? null;
     }
 
     /**
@@ -413,7 +415,7 @@ abstract class Repository
         $authorIds = [];
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $result = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, $decisionType->getStageId());
+        $result = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], $decisionType->getStageId());
         /** @var StageAssignment $stageAssignment */
         while ($stageAssignment = $result->next()) {
             $authorIds[] = (int) $stageAssignment->getUserId();

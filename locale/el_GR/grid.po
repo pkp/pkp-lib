@@ -197,12 +197,6 @@ msgstr "Εισαγωγή/εξαγωγή περιεχομένου ή δεδομέ
 msgid "grid.action.orderItems"
 msgstr "Ενεργοποίηση παραγγελιών"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Επεξεργασία αντικειμένου της λίστας"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Διαγραφή αντικειμένου της λίστας"
-
 msgid "grid.action.resetAll"
 msgstr "Επαναφορά αντικειμένων στις προκαθορισμένες τιμές"
 
@@ -398,9 +392,6 @@ msgstr "Συντελεστής"
 msgid "grid.action.addContributor"
 msgstr "Προσθήκη Συντελεστή"
 
-msgid "grid.action.editContributor"
-msgstr "Επεξεργασία Συντελεστή"
-
 msgid "grid.action.deleteContributor"
 msgstr "Διαγραφή Συντελεστή"
 
@@ -437,20 +428,8 @@ msgstr "Λίστα ελέγχου υποβολής"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Στοιχείο λίστας ελέγχου υποβολής"
 
-msgid "author.users.contributor.name"
-msgstr "Όνομα"
-
-msgid "author.users.contributor.email"
-msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
-
-msgid "author.users.contributor.role"
-msgstr "Ρόλος"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Κύρια επαφή"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Σε λίστες πλοήγησης"
 
 msgid "grid.roles.currentRoles"
 msgstr "Ρόλοι"
@@ -670,3 +649,18 @@ msgstr "Δημιουργία νέας έκδοσης"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Διαγραφή αυτής της Ομάδας Χρηστών"
+
+msgid "author.users.contributor.name"
+msgstr "Όνομα"
+
+msgid "author.users.contributor.email"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
+msgid "author.users.contributor.role"
+msgstr "Ρόλος"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Σε λίστες πλοήγησης"
+
+msgid "grid.action.editContributor"
+msgstr "Επεξεργασία Συντελεστή"

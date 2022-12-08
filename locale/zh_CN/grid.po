@@ -75,15 +75,6 @@ msgstr "投稿检查列表"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "项目清单"
 
-msgid "author.users.contributor.name"
-msgstr "姓名"
-
-msgid "author.users.contributor.email"
-msgstr "电子邮件"
-
-msgid "author.users.contributor.role"
-msgstr "角色"
-
 msgid "author.users.contributor.principalContact"
 msgstr "主要联系人"
 
@@ -270,12 +261,6 @@ msgstr "导入或导出内容或网站数据"
 msgid "grid.action.orderItems"
 msgstr "启用排序模式"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "编辑清单项目"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "消除清单项目"
-
 msgid "grid.action.requestAccount"
 msgstr "添加参与者"
 
@@ -377,9 +362,6 @@ msgstr "消除范畴"
 
 msgid "grid.action.addContributor"
 msgstr "添加合著者"
-
-msgid "grid.action.editContributor"
-msgstr "编辑合著者"
 
 msgid "grid.action.deleteContributor"
 msgstr "消除合著者"
@@ -608,3 +590,15 @@ msgstr "项目是远程托管。"
 
 msgid "grid.noAuditors"
 msgstr "没有审校"
+
+msgid "author.users.contributor.name"
+msgstr "姓名"
+
+msgid "author.users.contributor.email"
+msgstr "电子邮件"
+
+msgid "author.users.contributor.role"
+msgstr "角色"
+
+msgid "grid.action.editContributor"
+msgstr "编辑合著者"

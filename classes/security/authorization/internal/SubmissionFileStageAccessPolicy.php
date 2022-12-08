@@ -87,7 +87,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
             if (!empty($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
                     && count($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]) === 1
                     && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
-                    && $submission->getData('submissionProgress') > 0) {
+                    && $submission->getData('submissionProgress')) {
                 $assignedFileStages[] = SubmissionFile::SUBMISSION_FILE_SUBMISSION;
             }
         }

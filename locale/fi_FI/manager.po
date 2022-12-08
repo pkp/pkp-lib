@@ -2125,3 +2125,11 @@ msgstr ""
 "Tämä sähköposti lähetetään joka kuukausi automaattisesti toimittajille ja "
 "julkaisun hallinnoijille ja he näkevät siitä julkaisun toimitustyötä "
 "koskevan tilanteen."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Käsikirjoituksen lähetettäessä kirjoittajia pyydetään ennen jatkamista vahvistamaan (rastittamalla kohdat), että käsikirjoitus noudattaa tarkistuslistan jokaista kohtaa. Tarkistuslista on näkyvillä myös Kirjoittajan ohjeet -sivun Tietoa julkaisusta -kohdassa. Listaa voidaan muokata alla, mutta kaikki listan kohdat on rastitettava ennen kuin kirjoittaja voi jatkaa lähetysprosessia."

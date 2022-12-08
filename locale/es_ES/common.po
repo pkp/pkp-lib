@@ -786,9 +786,6 @@ msgstr "¿Está seguro/a de que desea enviar este formulario?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmar"
 
-msgid "form.emailRequired"
-msgstr "Se requiere una dirección de correo electrónico."
-
 msgid "form.dataHasChanged"
 msgstr "Los datos del formulario han cambiado. ¿Desea continuar sin guardar?"
 
@@ -1049,12 +1046,6 @@ msgstr "Tipo de aviso eliminado."
 
 msgid "notification.removedAnnouncement"
 msgstr "Aviso eliminado."
-
-msgid "notification.addedAuthor"
-msgstr "Autor/a añadido."
-
-msgid "notification.editedAuthor"
-msgstr "Autor/a editado."
 
 msgid "notification.confirmError"
 msgstr "Se ha producido un error al confirmar su suscripción."
@@ -2057,3 +2048,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor/a añadido."
+
+msgid "notification.editedAuthor"
+msgstr "Autor/a editado."
+

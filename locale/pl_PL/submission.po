@@ -813,29 +813,15 @@ msgstr "Zamiana istniejącego pliku?"
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora."
 
-msgid "submission.confirm.message"
-msgstr "Twoje zgłoszenie zostało umieszczone na serwerze i jest gotowe do wysłania. Możesz ponownie sprawdzić dane zanim ukończysz proces zgłaszania tekstu. Jeżeli jesteś gotowy(a), kliknij \"Zakończ proces zgłaszania tekstu\"."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Wymagania wobec zgłaszanego tekstu"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Przed zgłoszeniem musisz potwierdzić, że tekst spełnia wymogi określone poniżej."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Proces zgłoszenia tekstu zakończony"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Dziękujemy za zainteresowanie publikacją w czasopiśmie {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Potwierdź oświadczenie dotyczące praw autorskich"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Zgadzam się na przedstawione warunki."
-
-msgid "submission.submit.whatNext"
-msgstr "Co dalej?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "W tej chwili możesz:"
@@ -951,23 +937,14 @@ msgstr "Realizacja"
 msgid "submission.rights"
 msgstr "Prawa"
 
-msgid "submission.rights.tip"
-msgstr "Jeśli chcesz, możesz podać krótkie oświadczenie dotyczące praw dostępu do tego zgłoszenia."
-
 msgid "submission.source"
 msgstr "Źródło"
-
-msgid "submission.source.tip"
-msgstr "Czy to zgłoszenie pochodzi z innego źródła? Jeśli tak, możesz podać adres URL lub opis tego zasobu."
 
 msgid "submission.submission"
 msgstr "Zgłoszenie"
 
 msgid "submission.submissionTitle"
 msgstr "Tytuł zgłaszanego tekstu:"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Zakończ proces zgłaszania tekstu"
 
 msgid "submission.submit.selectFile"
 msgstr "Wybierz plik"
@@ -987,14 +964,8 @@ msgstr "Dodaj kolejny plik"
 msgid "submission.submit.metadataForm"
 msgstr "Dodatkowe metadane"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Podaj dodatkowe informacje do zgłoszenia. Wciśnij 'enter' po każdym z terminów."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Język zgłoszenia"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Wydawca przyjmuje zgłoszenia w kilku językach. Wybierz język."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Pliki zgłoszenia"
@@ -1010,16 +981,6 @@ msgstr "Prześlij plik powiązany"
 
 msgid "submission.upload.query"
 msgstr "Prześlij plik dyskusji"
-
-msgid "submission.type.tip"
-msgstr ""
-"Rodzaj zgłoszenia to zazwyczaj 'image', 'text' lub inne rodzaje multimediów, "
-"włączając w to 'software' oraz 'interactive'. Jeżeli nie wiesz jaki typ "
-"wybrać, spójrz na przykłady <a target=\"_blank\" href=\"http://dublincore."
-"org/documents/2001/04/12/usageguide/generic.shtml#type\">pod tym adresem.</a>"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Główna osoba do kontaktu z redakcją."
 
 msgid "submission.submit.contributorRole"
 msgstr "Rola autora"
@@ -1614,15 +1575,6 @@ msgstr "Zgłoś jako"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Wybierz rolę, która najlepiej opisuje twój udział w zgłoszeniu."
 
-msgid "submission.submit.contactConsent"
-msgstr "Autor korespondencyjny"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Wyrażam zgodę na kontakt w sprawie tego zgłoszenia."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Zgłoś korzystając z jednej z poniższych ról. Jeżeli chcesz mieć możliwość samodzielnego edytowania i publikowania tego tekstu wybierz: {$managerGroups}"
-
 msgid "submission.citations.description"
 msgstr "Wpisz każdy opis bibliograficzny w nowej linii, aby można było go wyodrębnić."
 
@@ -1638,35 +1590,8 @@ msgstr "Następujące opisy bibliograficzne zostały wyodrębnione i zostaną po
 msgid "submission.parsedAndSaveCitations"
 msgstr "Wyodrębnij i zapisz opisy bibliograficzne"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Włącz języki."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Włącz hasła przedmiotowe."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Włącz dyscypliny."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Włącz słowa kluczowe."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Włącz instytucję wspierającą."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Włącz informacje o zasięgu."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Włącz typy."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Włącz źródło."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Włącz prawa."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Włącz opisy bibliograficzne."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Tekst musi zostać ponownie przesłany do kolejnej rundy recenzji."
@@ -1820,9 +1745,6 @@ msgstr "Abstrakt"
 
 msgid "submission.submit.removeConfirm"
 msgstr "Czy na pewno chcesz usunąć ten plik?"
-
-msgid "submission.submit.genre.error"
-msgstr "Proszę wybrać rodzaj pliku dla każdego elementu."
 
 msgid "submission.submit.genre.description"
 msgstr "Wybierz opcję która najlepiej opisuje rodzaj treści tego pliku."
@@ -2509,3 +2431,63 @@ msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Została wygenerowana prośba o poprawki dla zgłoszenia {$title}. Zapisano "
 "decyzję o wysłaniu poprawek do następnej rundy recenzji."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Żadne pliki nie zostały dołączone."
+
+msgid "author.submit.confirmation"
+msgstr "Potwierdź"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Włącz języki."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Włącz hasła przedmiotowe."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Włącz dyscypliny."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Włącz słowa kluczowe."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Włącz informacje o zasięgu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Włącz typy."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Włącz źródło."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Włącz prawa."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Włącz opisy bibliograficzne."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Podaj dodatkowe informacje do zgłoszenia. Wciśnij 'enter' po każdym z terminów."
+
+msgid "submission.type.tip"
+msgstr ""
+"Rodzaj zgłoszenia to zazwyczaj 'image', 'text' lub inne rodzaje multimediów, "
+"włączając w to 'software' oraz 'interactive'. Jeżeli nie wiesz jaki typ "
+"wybrać, spójrz na przykłady <a target=\"_blank\" href=\"http://dublincore."
+"org/documents/2001/04/12/usageguide/generic.shtml#type\">pod tym adresem.</a>"
+
+msgid "submission.source.tip"
+msgstr "Czy to zgłoszenie pochodzi z innego źródła? Jeśli tak, możesz podać adres URL lub opis tego zasobu."
+
+msgid "submission.rights.tip"
+msgstr "Jeśli chcesz, możesz podać krótkie oświadczenie dotyczące praw dostępu do tego zgłoszenia."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Podaj dodatkowe informacje do zgłoszenia. Wciśnij 'enter' po każdym z terminów."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Wydawca przyjmuje zgłoszenia w kilku językach. Wybierz język."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Główna osoba do kontaktu z redakcją."

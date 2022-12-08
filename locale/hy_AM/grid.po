@@ -263,23 +263,11 @@ msgstr ""
 msgid "contributor.listPanel.preview"
 msgstr "Նախադիտում"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Զննման ցուցակներում"
-
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Սահմանել առաջնային կոնտակտը"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Առաջնային կապ"
-
-msgid "author.users.contributor.role"
-msgstr "Դեր"
-
-msgid "author.users.contributor.email"
-msgstr "Էլ․ փոստ"
-
-msgid "author.users.contributor.name"
-msgstr "Անուն"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Ստուգացանկի կետ"
@@ -324,9 +312,6 @@ msgstr ""
 
 msgid "grid.action.deleteContributor"
 msgstr "Ջնջել աջակցողին"
-
-msgid "grid.action.editContributor"
-msgstr "Խմբագրել աջակցողին"
 
 msgid "grid.action.addContributor"
 msgstr "Ավելացրեք աջակցող"
@@ -528,12 +513,6 @@ msgstr "Ավելացնել էլ․ փոստի նոր ձևանմուշ"
 msgid "grid.action.resetAll"
 msgstr "Վերականգնել բոլոր տարրերը լռելյայն արժեքներին"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Ջնջել այս ստուգաթերթի տարրը"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Խմբագրել այս ստուգաթերթի տարրը"
-
 msgid "grid.action.orderItems"
 msgstr "Միացնել կարգավորման ռեժիմը"
 
@@ -731,3 +710,19 @@ msgstr "Դիտել"
 
 msgid "grid.columns.locale.code"
 msgstr "Կոդ"
+
+msgid "author.users.contributor.name"
+msgstr "Անուն"
+
+msgid "author.users.contributor.email"
+msgstr "Էլ․ փոստ"
+
+msgid "author.users.contributor.role"
+msgstr "Դեր"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Զննման ցուցակներում"
+
+msgid "grid.action.editContributor"
+msgstr "Խմբագրել աջակցողին"
+

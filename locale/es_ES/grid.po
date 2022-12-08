@@ -174,12 +174,6 @@ msgstr "Importar o exportar contenido o datos del sitio"
 msgid "grid.action.orderItems"
 msgstr "Activar el modo ordenación"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Editar este elemento de la lista de control"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Eliminar este elemento de la lista de control"
-
 msgid "grid.action.resetAll"
 msgstr "Restaurar todos los elementos a los valores predefinidos"
 
@@ -390,15 +384,6 @@ msgstr "Más información"
 msgid "grid.action.addAuthor"
 msgstr "Añadir autor/a"
 
-msgid "author.users.contributor.name"
-msgstr "Nombre"
-
-msgid "author.users.contributor.email"
-msgstr "Correo electrónico"
-
-msgid "author.users.contributor.role"
-msgstr "Rol"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contacto principal"
 
@@ -450,9 +435,6 @@ msgstr "Eliminar categoría"
 msgid "grid.action.addContributor"
 msgstr "Añadir colaborador/a"
 
-msgid "grid.action.editContributor"
-msgstr "Editar colaborador/a"
-
 msgid "grid.action.deleteContributor"
 msgstr "Eliminar colaborador/a"
 
@@ -461,9 +443,6 @@ msgstr "Opciones de respuesta"
 
 msgid "grid.noFiles"
 msgstr "No hay archivos"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "En listas de navegación"
 
 msgid "grid.roles.currentRoles"
 msgstr "Roles actuales"
@@ -671,3 +650,18 @@ msgstr "Ver/Seleccionar usuarios/as"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Eliminar este grupo de usuarios/as"
+
+msgid "author.users.contributor.name"
+msgstr "Nombre"
+
+msgid "author.users.contributor.email"
+msgstr "Correo electrónico"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "En listas de navegación"
+
+msgid "grid.action.editContributor"
+msgstr "Editar colaborador/a"

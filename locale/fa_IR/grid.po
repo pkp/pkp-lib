@@ -191,12 +191,6 @@ msgstr "برون دهی با درون‌ریزی محتویات سایت"
 msgid "grid.action.orderItems"
 msgstr "فعال کردن مرتب‌سازی"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "ویرایش موارد این لیست"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "حذف این مورد از لیست"
-
 msgid "grid.action.resetAll"
 msgstr "بازگرداندن تمامی موارد به مقادیر پیش‌فرض خود"
 
@@ -389,9 +383,6 @@ msgstr "منبع حمایتی"
 msgid "grid.action.addContributor"
 msgstr "افزودن پدیدآورنده"
 
-msgid "grid.action.editContributor"
-msgstr "ویرایش پدیدآورنده"
-
 msgid "grid.action.deleteContributor"
 msgstr "حذف پدیدآورنده"
 
@@ -428,20 +419,8 @@ msgstr "چک‌لیست مقاله ارسالی"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "موارد چک‌لیست"
 
-msgid "author.users.contributor.name"
-msgstr "نام"
-
-msgid "author.users.contributor.email"
-msgstr "ایمیل"
-
-msgid "author.users.contributor.role"
-msgstr "نقش"
-
 msgid "author.users.contributor.principalContact"
 msgstr "نویسنده مسئول"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "در لیست نویسندگان سایت قرار بگیرد"
 
 msgid "grid.roles.currentRoles"
 msgstr "نقش‌های کنونی"
@@ -652,3 +631,18 @@ msgstr "بدون المان برای منوی گشت‌وگذار"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "بدون منوی گشت‌وگذار"
+
+msgid "author.users.contributor.name"
+msgstr "نام"
+
+msgid "author.users.contributor.email"
+msgstr "ایمیل"
+
+msgid "author.users.contributor.role"
+msgstr "نقش"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "در لیست نویسندگان سایت قرار بگیرد"
+
+msgid "grid.action.editContributor"
+msgstr "ویرایش پدیدآورنده"

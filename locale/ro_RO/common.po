@@ -1366,12 +1366,6 @@ msgstr "Ați fost înregistrat cu succes."
 msgid "notification.confirmError"
 msgstr "A apărut o eroare la confirmarea abonamentului."
 
-msgid "notification.editedAuthor"
-msgstr "Autor editat."
-
-msgid "notification.addedAuthor"
-msgstr "Autor adăugat."
-
 msgid "notification.removedAnnouncement"
 msgstr "Anunțul a fost îndepărtat."
 
@@ -1658,9 +1652,6 @@ msgid "form.dataHasChanged"
 msgstr ""
 "Datele din acest formular au fost schimbate. Doriți să continuați fără a "
 "salva?"
-
-msgid "form.emailRequired"
-msgstr "Este necesară o adresă de email."
 
 msgid "form.confirmSubmit.title"
 msgstr "Confirmă"
@@ -2015,3 +2006,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor adăugat."
+
+msgid "notification.editedAuthor"
+msgstr "Autor editat."
+

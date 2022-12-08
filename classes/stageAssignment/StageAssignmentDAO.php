@@ -61,15 +61,32 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * Retrieve StageAssignments by submission and role IDs.
      *
      * @param int $submissionId Submission ID
-     * @param int $roleId ROLE_ID_...
+     * @param int[] $roleIds [ROLE_ID_...]
      * @param int $stageId (optional)
      * @param int $userId (optional)
      *
      * @return DAOResultFactory StageAssignment
      */
+    public function getBySubmissionAndRoleIds($submissionId, $roleIds, $stageId = null, $userId = null)
+    {
+        return $this->_getByIds($submissionId, $stageId, null, $userId, $roleIds);
+    }
+
+    /**
+     * Deprecated. Use self::getBySubmissionAndRoleIds() instead
+     *
+     * @param int $submissionId Submission ID
+     * @param int $roleId ROLE_ID_...
+     * @param int $stageId (optional)
+     * @param int $userId (optional)
+     *
+     * @return DAOResultFactory StageAssignment
+     *
+     * @deprecated 3.4
+     */
     public function getBySubmissionAndRoleId($submissionId, $roleId, $stageId = null, $userId = null)
     {
-        return $this->_getByIds($submissionId, $stageId, null, $userId, $roleId);
+        return $this->getBySubmissionAndRoleIds($submissionId, [$roleId], $stageId, $userId);
     }
 
     /**
@@ -109,9 +126,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
      */
     public function getEditorsAssignedToStage($submissionId, $stageId)
     {
-        $managerAssignmentFactory = $this->getBySubmissionAndRoleId($submissionId, Role::ROLE_ID_MANAGER, $stageId);
-        $subEditorAssignmentFactory = $this->getBySubmissionAndRoleId($submissionId, Role::ROLE_ID_SUB_EDITOR, $stageId);
-        return array_merge($managerAssignmentFactory->toArray(), $subEditorAssignmentFactory->toArray());
+        $assignmentFactory = $this->getBySubmissionAndRoleIds($submissionId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $stageId);
+        return $assignmentFactory->toArray();
     }
 
     /**
@@ -152,9 +168,9 @@ class StageAssignmentDAO extends \PKP\db\DAO
     public function getDecidingEditorIds(int $submissionId, int $stageId): array
     {
         $decidingEditorIds = [];
-        $result = $this->getBySubmissionAndRoleId(
+        $result = $this->getBySubmissionAndRoleIds(
             $submissionId,
-            Role::ROLE_ID_MANAGER,
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
             $stageId
         );
         /** @var StageAssignment $stageAssignment */
@@ -163,18 +179,6 @@ class StageAssignmentDAO extends \PKP\db\DAO
                 $decidingEditorIds[] = (int) $stageAssignment->getUserId();
             }
         }
-        $result = $this->getBySubmissionAndRoleId(
-            $submissionId,
-            Role::ROLE_ID_SUB_EDITOR,
-            $stageId
-        );
-        /** @var StageAssignment $stageAssignment */
-        while ($stageAssignment = $result->next()) {
-            if (!$stageAssignment->getRecommendOnly()) {
-                $decidingEditorIds[] = (int) $stageAssignment->getUserId();
-            }
-        }
-
         return $decidingEditorIds;
     }
 
@@ -367,12 +371,12 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int $stageId optional
      * @param int $userGroupId optional
      * @param int $userId optional
-     * @param int $roleId optional ROLE_ID_...
+     * @param int[] $roleIds optional [ROLE_ID_...]
      * @param bool $single specify if only one stage assignment (default is a ResultFactory)
      *
      * @return StageAssignment|ResultFactory Mixed, depending on $single
      */
-    public function _getByIds($submissionId = null, $stageId = null, $userGroupId = null, $userId = null, $roleId = null, $single = false)
+    public function _getByIds($submissionId = null, $stageId = null, $userGroupId = null, $userId = null, $roleIds = null, $single = false)
     {
         $conditions = [];
         $params = [];
@@ -393,14 +397,14 @@ class StageAssignmentDAO extends \PKP\db\DAO
             $params[] = (int) $userId;
         }
 
-        if (isset($roleId)) {
-            $conditions[] = 'ug.role_id = ?';
-            $params[] = (int) $roleId;
+        if (isset($roleIds)) {
+            $sanitizedRoleIds = join(',', array_map(fn ($roleId) => (int) $roleId, (array) $roleIds));
+            $conditions[] = 'ug.role_id IN (' . $sanitizedRoleIds . ')';
         }
 
         $result = $this->retrieve(
             $this->getBaseQueryForAssignmentSelection() .
-            (isset($roleId) ? ' LEFT JOIN user_groups ug ON sa.user_group_id = ug.user_group_id ' : '') .
+            (isset($roleIds) ? ' LEFT JOIN user_groups ug ON sa.user_group_id = ug.user_group_id ' : '') .
             'WHERE ' . (implode(' AND ', $conditions)),
             $params
         );

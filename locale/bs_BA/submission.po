@@ -487,14 +487,8 @@ msgstr "Pregledaj predaju rada"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Za sada možete:"
 
-msgid "submission.submit.whatNext"
-msgstr "Šta je sljedeće?"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Jeste li sigurni da želite ukloniti ovu datoteku?"
-
-msgid "submission.submit.genre.error"
-msgstr "Molimo odaberite vrstu datoteke za svaki prijenos."
 
 msgid "submission.submit.genre.description"
 msgstr "Odaberite opciju koja najbolje opisuje ovu datoteku."
@@ -502,18 +496,10 @@ msgstr "Odaberite opciju koja najbolje opisuje ovu datoteku."
 msgid "submission.submit.genre.label"
 msgstr "O kakvoj datoteci je riječ?"
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Da, pristajem se pridržavati uslova izjave o autorskim pravima."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Potvrdite izjavu o autorskim pravima"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Zahvaljujemo na vašem interesovanju za objavljivanje sa {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Predaja rada završena"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Prije nastavka morate pročitati i potvrditi da ste ispunili dolje navedene "
@@ -522,28 +508,11 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Uslovi predaje rada"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Pošaljite u bilo kojoj od sljedećih uloga ako želite sami urediti i objaviti "
-"ovu predaju rada: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Da, volio bih da me kontaktiraju u vezi s ovom predajom rada."
-
-msgid "submission.submit.contactConsent"
-msgstr "Odgovarajući kontakt"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Odaberite ulogu koja najbolje opisuje vaš doprinos ovoj predaji rada."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Pošalji kao"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Vaša predaja rada je prenesena i spremna je za slanje. Možete se vratiti na "
-"recenziju i prilagođavanje bilo koje informacije koju ste unijeli prije "
-"nastavka. Kada budete spremni, kliknite \"Završi predaju rada\"."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -565,3 +534,10 @@ msgstr "Publikacija za ovog autora nije pronađena."
 
 msgid "author.editPublishedDisabled"
 msgstr "Autore ove publikacije nije moguće uređivati jer je već objavljena."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Nema datoteka priloženih ovoj prijavi."
+
+msgid "author.submit.confirmation"
+msgstr "Potvrda"

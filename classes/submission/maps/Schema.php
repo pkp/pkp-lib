@@ -16,9 +16,6 @@ namespace PKP\submission\maps;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
-
-use Illuminate\Support\Collection;
-
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
@@ -26,11 +23,13 @@ use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\userGroup\UserGroup;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -228,10 +227,7 @@ class Schema extends \PKP\core\maps\Schema
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
-                    $output[$prop] = $this->getApiUrl(
-                        'submissions/' . $submission->getId(),
-                        $this->context->getData('urlPath')
-                    );
+                    $output[$prop] = Repo::submission()->getUrlApi($this->context, $submission->getId());
                     break;
                 case 'publications':
                     $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
@@ -250,24 +246,13 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = __($submission->getStatusKey());
                     break;
                 case 'urlAuthorWorkflow':
-                    $output[$prop] = $this->request->getDispatcher()->url(
-                        $this->request,
-                        Application::ROUTE_PAGE,
-                        $this->context->getData('urlPath'),
-                        'authorDashboard',
-                        'submission',
-                        $submission->getId()
-                    );
+                    $output[$prop] = Repo::submission()->getUrlAuthorWorkflow($this->context, $submission->getId());
                     break;
                 case 'urlEditorialWorkflow':
-                    $output[$prop] = $this->request->getDispatcher()->url(
-                        $this->request,
-                        Application::ROUTE_PAGE,
-                        $this->context->getData('urlPath'),
-                        'workflow',
-                        'access',
-                        $submission->getId()
-                    );
+                    $output[$prop] = Repo::submission()->getUrlEditorialWorkflow($this->context, $submission->getId());
+                    break;
+                case 'urlSubmissionWizard':
+                    $output[$prop] = Repo::submission()->getUrlSubmissionWizard($this->context, $submission->getId());
                     break;
                 case 'urlWorkflow':
                     $output[$prop] = Repo::submission()->getWorkflowUrlByUserRoles($submission);
@@ -367,10 +352,16 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function getPropertyStages(Submission $submission): array
     {
-        $stageIds = Application::getApplicationStages();
-        $currentUser = Application::get()->getRequest()->getUser();
-        $context = Application::get()->getRequest()->getContext();
-        $contextId = $context ? $context->getId() : Application::CONTEXT_ID_NONE;
+        $stageIds = Application::get()->getApplicationStages();
+        $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
+        $context = $request->getContext();
+
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId() ?? 0)->toArray();
+
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $openPerStage = $queryDao->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
 
         $stages = [];
         foreach ($stageIds as $stageId) {
@@ -379,32 +370,18 @@ class Schema extends \PKP\core\maps\Schema
                 'id' => (int) $stageId,
                 'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
                 'isActiveStage' => $submission->getData('stageId') == $stageId,
+                'openQueryCount' => $openPerStage[$stageId],
             ];
-
-            // Discussions in this stage
-            $stage['queries'] = [];
-            $request = Application::get()->getRequest();
-            $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $queries = $queryDao->getByAssoc(
-                Application::ASSOC_TYPE_SUBMISSION,
-                $submission->getId(),
-                $stageId,
-                $request->getUser()->getId() // Current user restriction should prevent unauthorized access
-            );
-
-            while ($query = $queries->next()) {
-                $stage['queries'][] = [
-                    'id' => (int) $query->getId(),
-                    'assocType' => (int) $query->getAssocType(),
-                    'assocId' => (int) $query->getAssocId(),
-                    'stageId' => $stageId,
-                    'seq' => (int) $query->getSequence(),
-                    'closed' => (bool) $query->getIsClosed(),
-                ];
-            }
 
             $currentUserAssignedRoles = [];
             if ($currentUser) {
+                /** @var StageAssignment $stageAssignment */
+                foreach ($stageAssignments as $stageAssignment) {
+                    $userGroup = $this->getUserGroup($stageAssignment->getUserGroupId());
+                    if ($userGroup) {
+                        $currentUserAssignedRoles[] = $userGroup->getRoleId();
+                    }
+                }
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId(), $stageId);
                 while ($stageAssignment = $stageAssignmentsResult->next()) {
@@ -488,5 +465,16 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return $stages;
+    }
+
+    protected function getUserGroup(int $userGroupId): ?UserGroup
+    {
+        /** @var UserGroup $userGroup */
+        foreach ($this->userGroups as $userGroup) {
+            if ($userGroup->getId() === $userGroupId) {
+                return $userGroup;
+            }
+        }
+        return null;
     }
 }

@@ -16,25 +16,27 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\publication\Publication;
-
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class PublicationRequiredPolicy extends DataObjectRequiredPolicy
 {
+    protected ?string $publicationParameterName;
+
     /**
      * Constructor
      *
      * @param PKPRequest $request
      * @param array $args request parameters
-     * @param string $publicationParameterName the request parameter we expect
-     *  the submission id in.
+     * @param ?string $publicationParameterName the request parameter we expect
+     *  the submission id in. Pass null to look for the current publication in an authorized
+     *   submission object instead.
      * @param null|mixed $operations
      */
-    public function __construct($request, &$args, $publicationParameterName = 'publicationId', $operations = null)
+    public function __construct($request, &$args, $publicationParameterName = null, $operations = null)
     {
         parent::__construct($request, $args, $publicationParameterName, 'user.authorization.invalidPublication', $operations);
+        $this->publicationParameterName = $publicationParameterName;
 
         $callOnDeny = [$request->getDispatcher(), 'handle404', []];
         $this->setAdvice(
@@ -51,14 +53,19 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
      */
     public function dataObjectEffect()
     {
-        // Get the publication id.
-        $publicationId = $this->getDataObjectId();
-        if ($publicationId === false) {
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        // Get the publication id from the policy or, if
+        // no parameter name is passed, look for the current
+        // publication in an authorized submission object
+        if ($this->publicationParameterName) {
+            $publication = Repo::publication()->get((int) $this->getDataObjectId());
+        } else {
+            $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+            if ($submission) {
+                $publication = $submission->getCurrentPublication();
+            }
         }
 
-        $publication = Repo::publication()->get((int) $publicationId);
-        if (!$publication instanceof Publication) {
+        if (!isset($publication)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

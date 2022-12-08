@@ -2156,3 +2156,11 @@ msgstr "このメールは、新しいお知らせが作成された際に送信
 
 msgid "mailable.statisticsReportNotify.description"
 msgstr "このメールは、編集者や雑誌管理者に毎月自動的に送信され、システムの健全性の概要を提供します。"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "提出準備チェックリスト"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "本誌への投稿の際には，まず投稿準備チェックリストの各項目が完了していることを確認した上で，投稿を進めてください。このチェックリストは，「ジャーナルについて」の「著者ガイドライン」にも掲載されています。チェックリストは以下で編集可能ですが，すべての項目にチェックが入っていないと投稿できません。"

@@ -955,9 +955,6 @@ msgstr "你确定你要提交这个表单吗？"
 msgid "form.confirmSubmit.title"
 msgstr "确认"
 
-msgid "form.emailRequired"
-msgstr "电子邮件地址是必需的."
-
 msgid "navigation.data"
 msgstr "数据"
 
@@ -1630,12 +1627,6 @@ msgstr "删除的文件。"
 msgid "notification.email"
 msgstr "不要给我发送有关此类通知的电子邮件。"
 
-msgid "notification.editedAuthor"
-msgstr "作者已编辑。"
-
-msgid "notification.addedAuthor"
-msgstr "作者已添加。"
-
 msgid "notification.removedAnnouncement"
 msgstr "公告已删除。"
 
@@ -1944,3 +1935,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "作者已添加。"
+
+msgid "notification.editedAuthor"
+msgstr "作者已编辑。"
+

@@ -923,9 +923,6 @@ msgstr "Sind Sie sicher, dass Sie dieses Formular übermitteln möchten?"
 msgid "form.confirmSubmit.title"
 msgstr "Bestätigen"
 
-msgid "form.emailRequired"
-msgstr "Eine E-Mail-Adresse wird benötigt."
-
 msgid "form.dataHasChanged"
 msgstr "Die Daten in diesem Formular haben sich geändert. Trotzdem fortfahren?"
 
@@ -1240,12 +1237,6 @@ msgstr "Mitteilungstyp gelöscht."
 
 msgid "notification.removedAnnouncement"
 msgstr "Mitteilung gelöscht."
-
-msgid "notification.addedAuthor"
-msgstr "Autor/in hinzugefügt."
-
-msgid "notification.editedAuthor"
-msgstr "Autor/in bearbeitet."
 
 msgid "notification.confirmError"
 msgstr "Es gab einen Fehler beim Bestätigen Ihrer Registrierung."
@@ -2167,3 +2158,13 @@ msgstr ""
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor/in hinzugefügt."
+
+msgid "notification.editedAuthor"
+msgstr "Autor/in bearbeitet."
+

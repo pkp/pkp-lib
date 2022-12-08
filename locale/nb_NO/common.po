@@ -980,9 +980,6 @@ msgstr "Skriv inn tekst i e-postens tekstfelt."
 msgid "form.confirmSubmit"
 msgstr "Er du sikker på at du vil sende inn dette skjemaet?"
 
-msgid "form.emailRequired"
-msgstr "Du må oppgi en e-postadresse."
-
 msgid "form.dataHasChanged"
 msgstr "Data i skjemaet har blitt endret. Vil du fortsette uten å lagre?"
 
@@ -1467,12 +1464,6 @@ msgstr "Notater lagt ut."
 
 msgid "notification.email"
 msgstr "Ikke send meg en e-post for disse varslingstypene."
-
-msgid "notification.editedAuthor"
-msgstr "Forfatter redigert."
-
-msgid "notification.addedAuthor"
-msgstr "Forfatter lagt til."
 
 msgid "notification.removedAnnouncement"
 msgstr "Oppslag fjernet."
@@ -2121,3 +2112,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Forfatter lagt til."
+
+msgid "notification.editedAuthor"
+msgstr "Forfatter redigert."
+

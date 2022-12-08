@@ -10,257 +10,839 @@
  * @class PKPSubmissionHandler
  * @ingroup pages_submission
  *
- * @brief Base handler for submission requests.
+ * @brief Handles page requests to the submission wizard
  */
 
 namespace PKP\pages\submission;
 
+use APP\components\forms\submission\ReconfigureSubmission;
+use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\LazyCollection;
+use PKP\components\forms\FormComponent;
+use PKP\components\forms\publication\PKPCitationsForm;
+use PKP\components\forms\publication\TitleAbstractForm;
+use PKP\components\forms\submission\CommentsForTheEditors;
+use PKP\components\forms\submission\ConfirmSubmission;
+use PKP\components\forms\submission\ForTheEditors;
+use PKP\components\forms\submission\PKPSubmissionFileForm;
+use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
-use PKP\core\JSONMessage;
-use PKP\plugins\Hook;
+use PKP\context\PKPSection;
+use PKP\db\DAORegistry;
+use PKP\file\FileManager;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
-use PKP\submission\form\SubmissionSubmitForm;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 
 abstract class PKPSubmissionHandler extends Handler
 {
-    /** @copydoc PKPHandler::_isBackendPage */
+    public const SECTION_TYPE_CONTRIBUTORS = 'contributors';
+    public const SECTION_TYPE_FILES = 'files';
+    public const SECTION_TYPE_FORM = 'form';
+    public const SECTION_TYPE_TEMPLATE = 'template';
+    public const SECTION_TYPE_REVIEW = 'review';
+
     public $_isBackendPage = true;
 
-    /**
-     * @copydoc PKPHandler::authorize()
-     */
-    public function authorize($request, &$args, $roleAssignments)
+    public function __construct()
     {
-        // The policy for the submission handler depends on the
-        // step currently requested.
-        $step = isset($args[0]) ? (int) $args[0] : 1;
-        if ($step < 1 || $step > $this->getStepCount()) {
-            return false;
-        }
+        parent::__construct();
+        $this->addRoleAssignment(
+            [
+                Role::ROLE_ID_AUTHOR,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+            ],
+            [
+                'index',
+                'saved',
+                'wizard', // @deprecated 3.4
+            ]
+        );
+    }
 
-        // Do we have a submission present in the request?
-        $submissionId = (int)$request->getUserVar('submissionId');
+    /**
+     * @param Request $request
+     */
+    public function authorize($request, &$args, $roleAssignments): bool
+    {
+        $submissionId = (int) $request->getUserVar('id');
 
-        // Are we in step one without a submission present?
-        if ($step === 1 && $submissionId === 0) {
-            // Authorize submission creation. Author role not required.
+        // Creating a new submission
+        if ($submissionId === 0) {
             $this->addPolicy(new UserRequiredPolicy($request));
             $this->markRoleAssignmentsChecked();
         } else {
-            // Authorize editing of incomplete submissions.
-            $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
+            $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'id'));
         }
 
-        // Do policy checking.
-        if (!parent::authorize($request, $args, $roleAssignments)) {
-            return false;
-        }
-
-        // Execute additional checking of the step.
-        // NB: Move this to its own policy for reuse when required in other places.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-
-        // Permit if there is no submission set, but request is for initial step.
-        if (!($submission instanceof Submission) && $step == 1) {
-            return true;
-        }
-
-        // In all other cases we expect an authorized submission due to
-        // the submission access policy above.
-        assert($submission instanceof Submission);
-
-        // Deny if submission is complete (==0 means complete) and at
-        // any step other than the "complete" step (the last one)
-        if ($submission->getSubmissionProgress() == 0 && $step != $this->getStepCount()) {
-            return false;
-        }
-
-        // Deny if trying to access a step greater than the current progress
-        if ($submission->getSubmissionProgress() != 0 && $step > $submission->getSubmissionProgress()) {
-            return false;
-        }
-
-        return true;
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
-
-    //
-    // Public Handler Methods
-    //
     /**
-     * Redirect to the new submission wizard by default.
+     * Route the request to the correct page based
+     * on whether they are starting a new submission,
+     * working on a submission in progress, or viewing
+     * a submission that has been submitted.
      *
      * @param array $args
      * @param Request $request
      */
-    public function index($args, $request)
+    public function index($args, $request): void
     {
-        $request->redirect(null, null, 'wizard');
+        $this->setupTemplate($request);
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        if (!$submission) {
+            $this->start($args, $request);
+            return;
+        }
+
+        if ($submission->getData('submissionProgress')) {
+            $this->showWizard($args, $request, $submission);
+            return;
+        }
+
+        $this->complete($args, $request, $submission);
     }
 
     /**
-     * Display the tab set for the submission wizard.
-     *
-     * @param array $args
-     * @param PKPRequest $request
+     * Display the screen to start a new submission
      */
-    public function wizard($args, $request)
+    protected function start(array $args, Request $request): void
     {
-        $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
-        $step = isset($args[0]) ? (int) $args[0] : 1;
-        $templateMgr->assign('step', $step);
 
-        $templateMgr->assign('sectionId', (int) $request->getUserVar('sectionId')); // to add a sectionId parameter to tab links in template
-
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if ($submission) {
-            $templateMgr->assign('submissionId', $submission->getId());
-            $templateMgr->assign('submissionProgress', (int) $submission->getSubmissionProgress());
-        } else {
-            $templateMgr->assign('submissionProgress', 1);
-        }
         $templateMgr->assign([
-            'pageTitle' => __('submission.submit.title'),
+            'pageComponent' => 'StartSubmissionPage',
+            'pageTitle' => __('submission.wizard.title'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_NARROW,
         ]);
-        $templateMgr->display('submission/form/index.tpl');
+
+        $templateMgr->display('submission/start.tpl');
     }
 
     /**
-     * Display a step for the submission wizard.
-     * Displays submission index page if a valid step is not specified.
+     * Backwards compatibility for old links to the submission wizard
      *
-     * @param array $args
-     * @param Request $request
-     *
-     * @return JSONMessage JSON object
+     * @deprecated 3.4
      */
-    public function step($args, $request)
+    public function wizard(array $args, Request $request): void
     {
-        $step = isset($args[0]) ? (int) $args[0] : 1;
+        $submissionId = $request->getUserVar('submissionId')
+            ? (int) $request->getUserVar('submissionId')
+            : null;
 
+        $request->redirectUrl(
+            Repo::submission()->getUrlSubmissionWizard($request->getContext(), $submissionId)
+        );
+    }
+
+    /**
+     * Display the submission wizard
+     */
+    protected function showWizard(array $args, Request $request, Submission $submission): void
+    {
         $context = $request->getContext();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+
+        /** @var Publication $publication */
+        $publication = $submission->getCurrentPublication();
+
+        $supportedSubmissionLocales = $context->getSupportedSubmissionLocaleNames();
+        $formLocales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($supportedSubmissionLocales), $supportedSubmissionLocales);
+
+        // Order locales with submission locale first
+        $orderedLocales = $supportedSubmissionLocales;
+        uksort($orderedLocales, fn ($a, $b) => $a === $submission->getData('locale') ? $a : $b);
+
+        $userGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+
+        $sections = $this->getSubmitSections($context);
+        $categories = Repo::category()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        $submissionFilesListPanel = $this->getSubmissionFilesListPanel($request, $submission, $genres);
+        $contributorsListPanel = $this->getContributorsListPanel($request, $submission, $publication, $formLocales);
+        $reconfigureSubmissionForm = $this->getReconfigureForm($context, $submission, $publication, $sections, $categories);
+
+        $steps = $this->getSteps($request, $submission, $publication, $formLocales, $sections);
+
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->setState([
+            'categories' => Repo::category()->getBreadcrumbs($categories),
+            'components' => [
+                $submissionFilesListPanel['id'] => $submissionFilesListPanel,
+                $contributorsListPanel->id => $contributorsListPanel->getConfig(),
+                $reconfigureSubmissionForm->id => $reconfigureSubmissionForm->getConfig(),
+            ],
+            'i18nConfirmSubmit' => $this->getConfirmSubmitMessage($submission, $context),
+            'i18nDiscardChanges' => __('common.discardChanges'),
+            'i18nDisconnected' => __('common.disconnected'),
+            'i18nLastAutosaved' => __('common.lastSaved'),
+            'i18nPageTitle' => __('submission.wizard.titleWithStep'),
+            'i18nSubmit' => __('form.submit'),
+            'i18nTitleSeparator' => __('common.titleSeparator'),
+            'i18nUnableToSave' => __('submission.wizard.unableToSave'),
+            'i18nUnsavedChanges' => __('common.unsavedChanges'),
+            'i18nUnsavedChangesMessage' => __('common.unsavedChangesMessage'),
+            'publication' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            'publicationApiUrl' => $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId()),
+            'reconfigurePublicationProps' => $this->getReconfigurePublicationProps(),
+            'reconfigureSubmissionProps' => $this->getReconfigureSubmissionProps(),
+            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres),
+            'submissionApiUrl' => Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
+            'submissionSavedUrl' => $this->getSubmissionSavedUrl($request, $submission->getId()),
+            'submissionWizardUrl' => Repo::submission()->getUrlSubmissionWizard($context, $submission->getId()),
+            'submitApiUrl' => $this->getSubmitApiUrl($request, $submission->getId()),
+            'steps' => $steps,
+        ]);
+
+        $templateMgr->assign([
+            'locales' => $orderedLocales,
+            'pageComponent' => 'SubmissionWizardPage',
+            'pageTitle' => __('submission.wizard.title'),
+            'submission' => $submission,
+            'submittingTo' => $this->getSubmittingTo($context, $submission, $sections, $categories),
+            'reviewSteps' => $this->getReviewStepsForSmarty($steps),
+        ]);
+
+        $templateMgr->display('submission/wizard.tpl');
+    }
+
+    /**
+     * Display the submission completed screen
+     */
+    protected function complete(array $args, Request $request, Submission $submission): void
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'pageTitle' => __('submission.submit.submissionComplete'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_NARROW,
+            'submission' => $submission,
+            'workflowUrl' => $this->getWorkflowUrl($submission, $request->getUser()),
+        ]);
+        $templateMgr->display('submission/complete.tpl');
+    }
+
+    /**
+     * Display the saved for later screen
+     */
+    public function saved(array $args, Request $request): void
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        if (!$submission) {
+            $request->getDispatcher()->handle404();
+        }
 
         $this->setupTemplate($request);
 
-        if ($step < $this->getStepCount()) {
-            $submitForm = $this->getForm($step, $context, $submission);
-            $submitForm->initData();
-            return new JSONMessage(true, $submitForm->fetch($request));
-        } elseif ($step == $this->getStepCount()) {
-            $templateMgr = TemplateManager::getManager($request);
-            $templateMgr->assign('context', $context);
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'email' => $request->getUser()->getEmail(),
+            'pageTitle' => __('submission.wizard.saved'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_NARROW,
+            'submission' => $submission,
+            'submissionWizardUrl' => Repo::submission()->getUrlSubmissionWizard($request->getContext(), $submission->getId()),
+        ]);
+        $templateMgr->display('submission/saved.tpl');
+    }
 
-            // Retrieve the correct url for author review his submission.
-            $reviewSubmissionUrl = Repo::submission()->getWorkflowUrlByUserRoles($submission);
-            $router = $request->getRouter();
-            $dispatcher = $router->getDispatcher();
+    /**
+     * Get all steps of the submission wizard
+     */
+    protected function getSteps(Request $request, Submission $submission, Publication $publication, array $locales, array $sections): array
+    {
+        $publicationApiUrl = $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId());
 
-            $templateMgr->assign([
-                'reviewSubmissionUrl' => $reviewSubmissionUrl,
-                'submissionId' => $submission->getId(),
-                'submitStep' => $step,
-                'submissionProgress' => $submission->getSubmissionProgress(),
+        $steps = [];
+        $steps[] = $this->getFilesStep($request, $submission, $publication, $locales, $publicationApiUrl);
+        $steps[] = $this->getContributorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
+        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections);
+        $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
+        $steps[] = $this->getConfirmStep($request, $submission, $publication, $locales, $publicationApiUrl);
+
+        return $steps;
+    }
+
+    /**
+     * Get the url to the API endpoint to submit this submission
+     */
+    protected function getSubmitApiUrl(Request $request, int $submissionId): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_API,
+                $request->getContext()->getPath(),
+                'submissions/' . $submissionId . '/submit'
+            );
+    }
+
+    /**
+     * Get the url to the publication's API endpoint
+     */
+    protected function getPublicationApiUrl(Request $request, int $submissionId, int $publicationId): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_API,
+                $request->getContext()->getPath(),
+                'submissions/' . $submissionId . '/publications/' . $publicationId
+            );
+    }
+
+    /**
+     * Get the URL to the page that shows the submission
+     * has been saved
+     */
+    protected function getSubmissionSavedUrl(Request $request, int $submissionId): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                'submission',
+                'saved',
+                null,
+                [
+                    'id' => $submissionId,
+                ]
+            );
+    }
+
+    /**
+     * Get the url to the submission's files API endpoint
+     */
+    protected function getSubmissionFilesApiUrl(Request $request, int $submissionId): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_API,
+                $request->getContext()->getPath(),
+                'submissions/' . $submissionId . '/files'
+            );
+    }
+
+    /**
+     * Get the state needed for the SubmissionFilesListPanel component
+     */
+    protected function getSubmissionFilesListPanel(Request $request, Submission $submission, array $genres): array
+    {
+        $submissionFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
+            ->getMany();
+
+        // Don't allow dependent files to be uploaded with the submission
+        $genres = array_values(
+            array_filter($genres, fn ($genre) => !$genre->getDependent())
+        );
+
+        $form = new PKPSubmissionFileForm(
+            $this->getSubmissionFilesApiUrl($request, $submission->getId()),
+            $genres
+        );
+
+        return [
+            'addFileLabel' => __('common.addFile'),
+            'apiUrl' => $this->getSubmissionFilesApiUrl($request, $submission->getId()),
+            'cancelUploadLabel' => __('form.dropzone.dictCancelUpload'),
+            'genrePromptLabel' => __('submission.submit.genre.label'),
+            'documentTypes' => [
+                'DOCUMENT_TYPE_DEFAULT' => FileManager::DOCUMENT_TYPE_DEFAULT,
+                'DOCUMENT_TYPE_AUDIO' => FileManager::DOCUMENT_TYPE_AUDIO,
+                'DOCUMENT_TYPE_EXCEL' => FileManager::DOCUMENT_TYPE_EXCEL,
+                'DOCUMENT_TYPE_HTML' => FileManager::DOCUMENT_TYPE_HTML,
+                'DOCUMENT_TYPE_IMAGE' => FileManager::DOCUMENT_TYPE_IMAGE,
+                'DOCUMENT_TYPE_PDF' => FileManager::DOCUMENT_TYPE_PDF,
+                'DOCUMENT_TYPE_WORD' => FileManager::DOCUMENT_TYPE_WORD,
+                'DOCUMENT_TYPE_EPUB' => FileManager::DOCUMENT_TYPE_EPUB,
+                'DOCUMENT_TYPE_VIDEO' => FileManager::DOCUMENT_TYPE_VIDEO,
+                'DOCUMENT_TYPE_ZIP' => FileManager::DOCUMENT_TYPE_ZIP,
+            ],
+            'emptyLabel' => __('submission.upload.instructions'),
+            'emptyAddLabel' => __('common.upload.addFile'),
+            'fileStage' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+            'form' => $form->getConfig(),
+            'genres' => array_map(
+                fn ($genre) => [
+                    'id' => (int) $genre->getId(),
+                    'name' => $genre->getLocalizedName(),
+                    'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
+                ],
+                $genres
+            ),
+            'id' => 'submissionFiles',
+            'items' => Repo::submissionFile()
+                ->getSchemaMap()
+                ->summarizeMany($submissionFiles, $genres)
+                ->values(),
+            'options' => [
+                'maxFilesize' => Application::getIntMaxFileMBs(),
+                'timeout' => ini_get('max_execution_time') ? ini_get('max_execution_time') * 1000 : 0,
+                'dropzoneDictDefaultMessage' => __('form.dropzone.dictDefaultMessage'),
+                'dropzoneDictFallbackMessage' => __('form.dropzone.dictFallbackMessage'),
+                'dropzoneDictFallbackText' => __('form.dropzone.dictFallbackText'),
+                'dropzoneDictFileTooBig' => __('form.dropzone.dictFileTooBig'),
+                'dropzoneDictInvalidFileType' => __('form.dropzone.dictInvalidFileType'),
+                'dropzoneDictResponseError' => __('form.dropzone.dictResponseError'),
+                'dropzoneDictCancelUpload' => __('form.dropzone.dictCancelUpload'),
+                'dropzoneDictUploadCanceled' => __('form.dropzone.dictUploadCanceled'),
+                'dropzoneDictCancelUploadConfirmation' => __('form.dropzone.dictCancelUploadConfirmation'),
+                'dropzoneDictRemoveFile' => __('form.dropzone.dictRemoveFile'),
+                'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
+            ],
+            'otherLabel' => __('about.other'),
+            'primaryLocale' => $request->getContext()->getPrimaryLocale(),
+            'removeConfirmLabel' => __('submission.submit.removeConfirm'),
+            'stageId' => WORKFLOW_STAGE_ID_SUBMISSION,
+            'title' => __('submission.files'),
+            'uploadProgressLabel' => __('submission.upload.percentComplete'),
+        ];
+    }
+
+    /**
+     * Get an instance of the ContributorsListPanel component
+     */
+    protected function getContributorsListPanel(Request $request, Submission $submission, Publication $publication, array $locales): ContributorsListPanel
+    {
+        return new ContributorsListPanel(
+            'contributors',
+            __('publication.contributors'),
+            $submission,
+            $request->getContext(),
+            $locales,
+            [], // Populated by publication state
+            true
+        );
+    }
+
+    /**
+     * Get the user groups that a user can submit in
+     */
+    protected function getSubmitUserGroups(Context $context, User $user): LazyCollection
+    {
+        $userGroups = Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByUserIds([$user->getId()])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
+            ->getMany();
+
+        // Users without a submitting role can submit as an
+        // author role that allows self registration
+        if (!$userGroups->count()) {
+            $defaultUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
+            return LazyCollection::make(function () use ($defaultUserGroup) {
+                if ($defaultUserGroup) {
+                    yield $defaultUserGroup->getId() => $defaultUserGroup;
+                }
+            });
+        }
+
+        return $userGroups;
+    }
+
+    /**
+     * Get the state for the files step
+     */
+    protected function getFilesStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    {
+        return [
+            'id' => 'files',
+            'name' => __('submission.upload.uploadFiles'),
+            'reviewName' => __('submission.files'),
+            'sections' => [
+                [
+                    'id' => 'files',
+                    'name' => __('submission.upload.uploadFiles'),
+                    'type' => self::SECTION_TYPE_FILES,
+                    'description' => $request->getContext()->getLocalizedData('uploadFilesHelp'),
+                ],
+            ],
+            'reviewTemplate' => '/submission/review-files.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the contributors step
+     */
+    protected function getContributorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    {
+        return [
+            'id' => 'contributors',
+            'name' => __('publication.contributors'),
+            'reviewName' => __('publication.contributors'),
+            'sections' => [
+                [
+                    'id' => 'contributors',
+                    'name' => __('publication.contributors'),
+                    'type' => self::SECTION_TYPE_CONTRIBUTORS,
+                    'description' => $request->getContext()->getLocalizedData('contributorsHelp'),
+                ],
+            ],
+            'reviewTemplate' => '/submission/review-contributors.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the details step
+     */
+    protected function getDetailsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, array $sections): array
+    {
+        $titleAbstractForm = $this->getTitleAbstractForm(
+            $publicationApiUrl,
+            $locales,
+            $publication,
+            $request->getContext(),
+            $sections
+        );
+        $this->removeButtonFromForm($titleAbstractForm);
+
+        $sections = [
+            [
+                'id' => $titleAbstractForm->id,
+                'name' => __('submission.details'),
+                'type' => self::SECTION_TYPE_FORM,
+                'description' => $request->getContext()->getLocalizedData('detailsHelp'),
+                'form' => $this->getLocalizedForm($titleAbstractForm, $submission, $request->getContext()),
+            ],
+        ];
+
+        if (in_array($request->getContext()->getData('citations'), [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $citationsForm = new PKPCitationsForm(
+                $publicationApiUrl,
+                $publication,
+                $request->getContext()->getData('citations') === Context::METADATA_REQUIRE
+            );
+            $this->removeButtonFromForm($citationsForm);
+            $sections[] = [
+                'id' => $citationsForm->id,
+                'name' => '',
+                'type' => self::SECTION_TYPE_FORM,
+                'description' => '',
+                'form' => $citationsForm->getConfig(),
+            ];
+        }
+
+        return [
+            'id' => 'details',
+            'name' => __('common.details'),
+            'reviewName' => __('common.details'),
+            'sections' => $sections,
+            'reviewTemplate' => '/submission/review-details.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the For the Editors step
+     *
+     * If no metadata is enabled during submission, the metadata
+     * form is not shown.
+     */
+    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    {
+        $metadataForm = $this->getForTheEditorsForm(
+            $publicationApiUrl,
+            $locales,
+            $publication,
+            $submission,
+            $request->getContext(),
+            $request->getDispatcher()->url(
+                $request,
+                Application::ROUTE_API,
+                $request->getContext()->getData('urlPath'),
+                'vocabs',
+                null,
+                null,
+                ['vocab' => '__vocab__']
+            )
+        );
+        $this->removeButtonFromForm($metadataForm);
+
+        $commentsForm = new CommentsForTheEditors(
+            Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
+            $submission
+        );
+        $this->removeButtonFromForm($commentsForm);
+
+        $hasMetadataForm = count($metadataForm->fields);
+
+        $metadataFormData = $this->getLocalizedForm($metadataForm, $submission, $request->getContext());
+        $commentsFormData = $this->getLocalizedForm($commentsForm, $submission, $request->getContext());
+
+        $sections = [
+            [
+                'id' => $hasMetadataForm ? $metadataForm->id : $commentsForm->id,
+                'name' => __('submission.forTheEditors'),
+                'type' => self::SECTION_TYPE_FORM,
+                'description' => $request->getContext()->getLocalizedData('forTheEditorsHelp'),
+                'form' => $hasMetadataForm ? $metadataFormData : $commentsFormData,
+            ],
+        ];
+
+        if ($hasMetadataForm) {
+            $sections[] = [
+                'id' => $commentsForm->id,
+                'name' => '',
+                'type' => self::SECTION_TYPE_FORM,
+                'description' => '',
+                'form' => $commentsFormData,
+            ];
+        }
+
+        return [
+            'id' => 'editors',
+            'name' => __('submission.forTheEditors'),
+            'reviewName' => __('submission.forTheEditors'),
+            'sections' => $sections,
+            'reviewTemplate' => '/submission/review-editors.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the Confirm step
+     */
+    protected function getConfirmStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    {
+        $sections = [
+            [
+                'id' => 'review',
+                'name' => __('submission.reviewAndSubmit'),
+                'type' => self::SECTION_TYPE_REVIEW,
+                'description' => $request->getContext()->getLocalizedData('reviewHelp'),
+            ]
+        ];
+
+        $confirmForm = new ConfirmSubmission(
+            Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
+            $request->getContext()
+        );
+
+        if (!empty($confirmForm->fields)) {
+            $this->removeButtonFromForm($confirmForm);
+            $sections[] = [
+                'id' => $confirmForm->id,
+                'name' => __('author.submit.confirmation'),
+                'type' => self::SECTION_TYPE_FORM,
+                'description' => '<p>' . __('submission.wizard.confirm') . '</p>',
+                'form' => $confirmForm->getConfig(),
+            ];
+        }
+
+        return [
+            'id' => 'review',
+            'name' => __('submission.review'),
+            'sections' => $sections,
+        ];
+    }
+
+    /**
+     * A helper function to remove the save button forms in the wizard
+     *
+     * This creates a default group/page for each form and assigns each #
+     * field and group to that page.
+     */
+    protected function removeButtonFromForm(FormComponent $form): void
+    {
+        $form->addPage([
+            'id' => 'default',
+        ])
+            ->addGroup([
+                'id' => 'default',
+                'pageId' => 'default'
             ]);
 
-            return new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
+        foreach ($form->fields as $field) {
+            $field->groupId = 'default';
         }
     }
 
     /**
-     * Save a submission step.
-     *
-     * @param array $args first parameter is the step being saved
-     * @param Request $request
-     *
-     * @return JSONMessage JSON object
+     * Get details about the steps that are required by the smarty template
      */
-    public function saveStep($args, $request)
+    protected function getReviewStepsForSmarty(array $steps): array
     {
-        $step = isset($args[0]) ? (int) $args[0] : 1;
-
-        $router = $request->getRouter();
-        $context = $router->getContext($request);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-
-        $this->setupTemplate($request);
-
-        $submitForm = $this->getForm($step, $context, $submission);
-        $submitForm->readInputData();
-
-        if (!Hook::call('SubmissionHandler::saveSubmit', [$step, &$submission, &$submitForm])) {
-            if ($submitForm->validate()) {
-                $submissionId = $submitForm->execute();
-                if (!$submission) {
-                    return $request->redirectUrlJson($router->url($request, null, null, 'wizard', $step + 1, ['submissionId' => $submissionId], 'step-2'));
-                }
-                $json = new JSONMessage(true);
-                $json->setEvent('setStep', max($step + 1, $submission->getSubmissionProgress()));
-                return $json;
-            } else {
-                // Provide entered tagit fields values
-                $tagitKeywords = $submitForm->getData('keywords');
-                if (is_array($tagitKeywords)) {
-                    $tagitFieldNames = $submitForm->metadataForm->getTagitFieldNames();
-                    $locales = array_keys($submitForm->supportedLocales);
-                    $formTagitData = [];
-                    foreach ($tagitFieldNames as $tagitFieldName) {
-                        foreach ($locales as $locale) {
-                            $formTagitData[$locale] = array_key_exists($locale . "-${tagitFieldName}", $tagitKeywords) ? $tagitKeywords[$locale . "-${tagitFieldName}"] : [];
-                        }
-                        $submitForm->setData($tagitFieldName, $formTagitData);
-                    }
-                }
-                return new JSONMessage(true, $submitForm->fetch($request));
+        $reviewSteps = [];
+        foreach ($steps as $step) {
+            if ($step['id'] === 'review') {
+                continue;
             }
+            $reviewSteps[] = [
+                'id' => $step['id'],
+                'reviewTemplate' => $step['reviewTemplate'],
+                'reviewName' => $step['reviewName'],
+            ];
         }
+        return $reviewSteps;
     }
 
     /**
-     * Get the submission form correspondent to the step specified
+     * Show an error page
      */
-    protected function getForm(int $step, Context $context, ?Submission $submission): SubmissionSubmitForm
+    protected function showErrorPage(string $titleLocaleKey, string $message): void
     {
-        $formClass = "\\APP\\submission\\form\\SubmissionSubmitStep{$step}Form";
-        if (!class_exists($formClass)) {
-            $formClass = "\\PKP\\submission\\form\\PKPSubmissionSubmitStep{$step}Form";
+        $this->_isBackendPage = false;
+        $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+        $templateMgr->assign([
+            'pageTitle' => $titleLocaleKey,
+            'messageTranslated' => $message,
+        ]);
+        $templateMgr->display('frontend/pages/message.tpl');
+    }
+
+    /**
+     * Get the appropriate workflow URL for the current user
+     *
+     * Returns the author dashboard if the user has an author assignment
+     * and the editorial workflow if not.
+     */
+    protected function getWorkflowUrl(Submission $submission, User $user): string
+    {
+        /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+        $results = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], WORKFLOW_STAGE_ID_SUBMISSION, $user->getId());
+
+        $request = Application::get()->getRequest();
+
+        if (count($results->toArray())) {
+            return Repo::submission()->getUrlAuthorWorkflow($request->getContext(), $submission->getId());
         }
-        return new $formClass($context, $submission);
+
+        return Repo::submission()->getUrlEditorialWorkflow($request->getContext(), $submission->getId());
     }
 
-    //
-    // Protected helper methods
-    //
     /**
-     * Setup common template variables.
-     *
-     * @param Request $request
+     * Get the sections that this user can submit to
      */
-    public function setupTemplate($request)
+    protected function getSubmitSections(Context $context): array
     {
-        parent::setupTemplate($request);
-        // Get steps information.
-        $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('steps', $this->getStepsNumberAndLocaleKeys());
+        $allSections = Application::getSectionDAO()->getByContextId($context->getId())->toArray();
+
+        $submitSections = [];
+        /** @var Section $section */
+        foreach ($allSections as $section) {
+            if ($section->getIsInactive() || ($section->getEditorRestricted() && !$this->isEditor())) {
+                continue;
+            }
+            $submitSections[] = $section;
+        }
+
+        return $submitSections;
     }
 
     /**
-     * Get the step numbers and their corresponding title locale keys.
-     *
-     * @return array
+     * Get the "are you sure?" message shown to the user
+     * before they complete their submission
      */
-    abstract public function getStepsNumberAndLocaleKeys();
+    protected function getConfirmSubmitMessage(Submission $submission, Context $context): string
+    {
+        return __('submission.wizard.confirmSubmit', ['context' => $context->getLocalizedName()]);
+    }
 
     /**
-     * Get the number of submission steps.
-     *
-     * @return int
+     * Is the current user an editor
      */
-    abstract public function getStepCount();
+    protected function isEditor(): bool
+    {
+        return !empty(
+            array_intersect(
+                PKPSection::getEditorRestrictedRoles(),
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
+            )
+        );
+    }
+
+    /**
+     * Get the form configuration data with the correct
+     * locale settings based on the submission's locale
+     *
+     * Uses the submission locale as the primary and
+     * visible locale, and puts that locale first in the
+     * list of supported locales.
+     *
+     * Call this instead of $form->getConfig() to display
+     * a form with the correct submission locales
+     */
+    protected function getLocalizedForm(FormComponent $form, Submission $submission, Context $context): array
+    {
+        $config = $form->getConfig();
+
+        $config['primaryLocale'] = $submission->getLocale();
+        $config['visibleLocales'] = [$submission->getLocale()];
+
+        $supportedFormLocales = [];
+        foreach ($context->getSupportedSubmissionLocaleNames() as $localeKey => $name) {
+            $supportedFormLocales[] = [
+                'key' => $localeKey,
+                'label' => $name,
+            ];
+        }
+
+        usort($supportedFormLocales, fn ($a, $b) => $a['key'] === $submission->getLocale() ? -1 : 1);
+
+        $config['supportedFormLocales'] = $supportedFormLocales;
+
+        return $config;
+    }
+
+    /**
+     * Get a string describing the sections, languages, etc
+     * that the submission is in
+     */
+    abstract protected function getSubmittingTo(Context $context, Submission $submission, array $sections, LazyCollection $categories): string;
+
+    /**
+     * Get the form to reconfigure a submission that has already been started
+     */
+    abstract protected function getReconfigureForm(Context $context, Submission $submission, Publication $publication, array $sections, LazyCollection $categories): ReconfigureSubmission;
+
+    /**
+     * Get the form for entering the title/abstract details
+     */
+    abstract protected function getTitleAbstractForm(string $publicationApiUrl, array $locales, Publication $publication, Context $context, array $sections): TitleAbstractForm;
+
+    /**
+     * Get the form for entering information for the editors
+     */
+    abstract protected function getForTheEditorsForm(string $publicationApiUrl, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase): ForTheEditors;
+
+    /**
+     * Get the properties that should be saved to the Submission
+     * from the ReconfigureSubmission form
+     */
+    abstract protected function getReconfigurePublicationProps(): array;
+
+    /**
+     * Get the properties that should be saved to the Submission
+     * from the ReconfigureSubmission form
+     */
+    abstract protected function getReconfigureSubmissionProps(): array;
 }

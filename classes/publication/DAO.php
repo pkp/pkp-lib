@@ -479,15 +479,13 @@ class DAO extends EntityDAO
      */
     protected function setCategories(Publication $publication)
     {
-        $publication->setData('categoryIds', array_map(
-            function ($category) {
-                return (int) $category->getId();
-            },
+        $publication->setData(
+            'categoryIds',
             Repo::category()->getCollector()
                 ->filterByPublicationIds([$publication->getId()])
-                ->getMany()
+                ->getIds()
                 ->toArray()
-        ));
+        );
     }
 
     /**

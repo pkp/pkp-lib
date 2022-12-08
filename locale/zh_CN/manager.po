@@ -1602,3 +1602,11 @@ msgstr "此邮件当公告发布时将会自动发送。"
 
 msgid "mailable.statisticsReportNotify.description"
 msgstr "此为系统自动为总编和期刊管理提供系统运行状况报告的邮件。"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "投稿准备清单"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "在提交一份投稿文章给这个期刊时，作者首先会被要求检查是否完成「投稿准备清单」中的每个项目，才能继续下一步。这份清单也会出现在「期刊介绍」内的「作者须知」栏位中。这份清单能够在下面进行编辑，而所有的项目将会需要作者进行检查后，才能继续他们的投稿流程。"

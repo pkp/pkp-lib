@@ -21,6 +21,7 @@ msgid "emails.submissionAck.subject"
 msgstr "Obrigado pela submissão para {$contextName}"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Prezado(a) {$recipientName},</p>\n"
@@ -188,3 +189,9 @@ msgstr "Uma mensagem sobre {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Insira a sua mensagem por gentileza."
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+"Quando habilitada, esta mensagem é enviado automaticamente para os autores "
+"informados durante o processo de submissão, que não seja o autor que está "
+"submetendo o manuscrito."

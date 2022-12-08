@@ -31,14 +31,6 @@ msgstr ""
 "بکەیت؟ ئەگەر بەڵێ، تکایە ئەو فایلەی خوارەوە دیاری بکە. ئەگەر نا ''ئەمە "
 "فایلێکی چاککراوی بەردەست نییە'' دیاری بکە."
 
-msgid "submission.type.tip"
-msgstr ""
-"پێشکەشکردن دەبێت تێکست، وێنە یان جۆرەکانی دیکەی مەڵتیمیدیا وەک پڕۆگرام و "
-"فایلی چالاککەر بێت. تکایە گونجاوترین پێشکەشکردن هەڵبژێرە. نمونەکان لێرەوە "
-"دەدۆزیتەوە <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/"
-"04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/"
-"04/12/usageguide/generic.shtml#type</a>"
-
 msgid "notification.type.editorDecisionAccept"
 msgstr "پێشکەشکردنەکە قبوڵ کرا."
 
@@ -301,41 +293,11 @@ msgstr "ئایا دەتەوێت فایلەکە ئاڵوگۆڕ بکەیت؟"
 msgid "submission.form.name"
 msgstr "ناوی فایلەکەت بنێ ( بۆ نمونە، ڕەشنوس؛ خشتەی ١)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "تکایە سەرچاوەکان داخل بکە."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "تکایە مافەکان داخل بکە."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "تکایە سەرچاوەکە داخل بکە."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "تکایە جۆرەکەی داخل بکە."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "تکایە زانیارییەکانی پەراوێز بنوسە."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "تکایە کلیلە وشەیەک بنوسە."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "تکایە بوارێک داخل بکە."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "تکایە بابەتێک داخل بکە."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "زمانێکی داخل بکە."
-
 msgid "submission.submit.addAuthor"
 msgstr "هاوبەشێک زیاد بکە"
 
 msgid "submission.submit.contributorRole"
 msgstr "ڕۆڵی هاوبەشکار"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "کەسی سەرەکیی پەیوەندیدار بۆ پەیوەندیکردن بە سەرنوسەرەوە."
 
 msgid "submission.date.yyyymmdd"
 msgstr "YYYY-MM-DD"
@@ -403,18 +365,8 @@ msgstr "فایلە پاشکۆکان"
 msgid "submission.submit.submissionFiles"
 msgstr "فایلەکانی پێشکەشکردنەکە"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"پێشکەشکردن بە چەند زمانێکی جیاواز قبوڵ کراوە. تکایە زمانی سەرەکی "
-"پێشکەشکردنەکە هەڵ ببژێرە."
-
 msgid "submission.submit.submissionLocale"
 msgstr "زمانی توێژینەوەکە"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"زانیارییەکانی دیکە بۆ پێشکەشکردنەکەت زیاد بکە. تکایە دوای هەر دەربڕینێک "
-"'enter' لێ بدە."
 
 msgid "submission.submit.metadataForm"
 msgstr "چاککارییە زیادکراوەکان"
@@ -433,9 +385,6 @@ msgstr "زانیاریی فایلەکە"
 
 msgid "submission.submit.selectFile"
 msgstr "فایلەکە دیاری بکە"
-
-msgid "submission.submit.finishSubmission"
-msgstr "تەواوکردنی پێشکەشکردن"
 
 msgid "submission.submitter"
 msgstr "پێشکەشکەر"
@@ -463,11 +412,6 @@ msgstr "پێشکەش کرا"
 
 msgid "submissions.submit"
 msgstr "پێشکەشکردن"
-
-msgid "submission.source.tip"
-msgstr ""
-"ئایا ئەم پێشکەشکردنە لە سەرچاوەیەکی دیکەوە داڕێژراوە؟ ئەگەر بەڵێ، لینکی "
-"سەرچاوە ڕەسەنەکە دابنێ یان کورتەیەک دەربارەی بنوسە."
 
 msgid "submission.source"
 msgstr "سەرچاوە"
@@ -504,11 +448,6 @@ msgstr "ئەرشیف کراوە"
 
 msgid "submissions.active"
 msgstr "چالاکە"
-
-msgid "submission.rights.tip"
-msgstr ""
-"ئەگەر دەتەوێت، دەتوانیت کورتەیەک دەربارەی دەستپێڕاگەیشتن بەم پێشکەشکردنە "
-"بنوسیت."
 
 msgid "submission.rights"
 msgstr "مافەکان"
@@ -1376,21 +1315,10 @@ msgstr "بە پێشکەشکردنەکەدا بچۆوە"
 msgid "submission.submit.whatNext.forNow"
 msgstr "لە ئێستادا، تۆ دەتوانیت:"
 
-msgid "submission.submit.whatNext"
-msgstr "دواتر چی ڕو دەدات؟"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "بەڵێ، من بە مەرجەکان مافی خاوەندارێتی ڕازیم."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "زانیاری دەربارەی مافی خاوەندارێتی بزانە"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "سوپاس بۆ خواستی بڵاوکردنەوەت لە {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "توێژینەوەکە پێشکەش دەکرێت"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "پێویستە تۆ مەرجەکانی خوارەوە بخوێنیتەوە و قبوڵییان بکەیت پێش ئەوەی زیاتر "
@@ -1399,28 +1327,11 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "مەرجەکانی پێشکەشکردن"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"بە یەکێک لەم ڕۆڵانە توێژینەوەکەت پێشکەش بکە ئەگەر تۆ دەتەوێت بتوانیت بۆ خۆت "
-"ئەمە بڵاو بکەیتەوە یان گۆڕانکاری تێدا بکەیت: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "بەڵێ، من دەمەوێت دەربارەی ئەم توێژینەوەیە پەیوەندیم پێوە بکرێت."
-
-msgid "submission.submit.contactConsent"
-msgstr "پەیوەندیکردن بە لایەنی پەیوەندیدارەوە"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "ڕۆڵێک دیاری بکە کە تۆ بناسێنێت لە کاتی پێشکەشکردنی ئەم توێژینەوەیە."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "پێشکەشی بکە وەک"
-
-msgid "submission.confirm.message"
-msgstr ""
-"پێشکەشکردنەکەت بار کرا و ئامادەیە بۆ ناردن. پێش ئەوەی زیاتر بڕۆیت دەکرێت بە "
-"زانیارییەکانتدا بچیتەوە و گۆڕانکارییان تێدا بکەیت. ئەگەر هەست دەکەیت هەمو "
-"شتەکان تەواوە، کلیک لەسەر ''توێژینەوەکە پێشکەش بکە'' بکە."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
@@ -1531,3 +1442,74 @@ msgstr ""
 "بەکارهێنەرانەوە. هەر بەکارهێنەرێک بۆ ئەم قۆناغە ئەرکدار کرابێت، تۆماتیکی بۆ "
 "قۆناغەکانی دیکەی هەمان گروپ ئەرکدار دەکرێت. ئەمە بە گشتی تایبەتە بە "
 "سەرنوسەران، نوسەر و توێژەران و وەرگێڕان."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "هیچ فایلێک بۆ ئەم پێشکەشکردنە بار نەکراوە."
+
+msgid "author.submit.confirmation"
+msgstr "پشتڕاستکردنەوە"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "زمانێکی داخل بکە."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "تکایە بابەتێک داخل بکە."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "تکایە بوارێک داخل بکە."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "تکایە کلیلە وشەیەک بنوسە."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "تکایە زانیارییەکانی پەراوێز بنوسە."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "تکایە جۆرەکەی داخل بکە."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "تکایە سەرچاوەکە داخل بکە."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "تکایە مافەکان داخل بکە."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "تکایە سەرچاوەکان داخل بکە."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"زانیارییەکانی دیکە بۆ پێشکەشکردنەکەت زیاد بکە. تکایە دوای هەر دەربڕینێک "
+"'enter' لێ بدە."
+
+msgid "submission.type.tip"
+msgstr ""
+"پێشکەشکردن دەبێت تێکست، وێنە یان جۆرەکانی دیکەی مەڵتیمیدیا وەک پڕۆگرام و "
+"فایلی چالاککەر بێت. تکایە گونجاوترین پێشکەشکردن هەڵبژێرە. نمونەکان لێرەوە "
+"دەدۆزیتەوە <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/"
+"04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/"
+"04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"ئایا ئەم پێشکەشکردنە لە سەرچاوەیەکی دیکەوە داڕێژراوە؟ ئەگەر بەڵێ، لینکی "
+"سەرچاوە ڕەسەنەکە دابنێ یان کورتەیەک دەربارەی بنوسە."
+
+msgid "submission.rights.tip"
+msgstr ""
+"ئەگەر دەتەوێت، دەتوانیت کورتەیەک دەربارەی دەستپێڕاگەیشتن بەم پێشکەشکردنە "
+"بنوسیت."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"زانیارییەکانی دیکە بۆ پێشکەشکردنەکەت زیاد بکە. تکایە دوای هەر دەربڕینێک "
+"'enter' لێ بدە."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"پێشکەشکردن بە چەند زمانێکی جیاواز قبوڵ کراوە. تکایە زمانی سەرەکی "
+"پێشکەشکردنەکە هەڵ ببژێرە."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "کەسی سەرەکیی پەیوەندیدار بۆ پەیوەندیکردن بە سەرنوسەرەوە."

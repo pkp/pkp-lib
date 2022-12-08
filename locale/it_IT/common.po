@@ -913,9 +913,6 @@ msgstr "Inserisci un testo nel messaggio."
 msgid "form.confirmSubmit.title"
 msgstr "Conferma"
 
-msgid "form.emailRequired"
-msgstr "Inserisci un indirizzo email."
-
 msgid "form.invalidImage"
 msgstr "Formato dell'immagine non valido. I formati consentiti sono .png, .gif, or .jpg."
 
@@ -1327,12 +1324,6 @@ msgstr "Tipo annuncio rimosso."
 
 msgid "notification.removedAnnouncement"
 msgstr "Annuncio rimosso."
-
-msgid "notification.addedAuthor"
-msgstr "Autore aggiunto."
-
-msgid "notification.editedAuthor"
-msgstr "Autore modificato."
 
 msgid "notification.addedNote"
 msgstr "Nota inviata."
@@ -2198,3 +2189,13 @@ msgstr ""
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autore aggiunto."
+
+msgid "notification.editedAuthor"
+msgstr "Autore modificato."
+

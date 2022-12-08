@@ -456,36 +456,17 @@ msgstr "Naslov Članka/Rada"
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
 msgstr "Unesite važeću e-adresu za registraciju PubMed ako je imate."
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Da, pristajem se pridržavati uvjeta izjave o autorskim pravima."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Podnošenje završeno"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Prije nastavka morate pročitati i potvrditi da ste ispunili dolje navedene "
 "uvjete."
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Pošaljite u bilo kojoj od sljedećih uloga ako želite sami urediti i objaviti "
-"ovu prijavu: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Da, želio bih da me kontaktiraju u vezi s ovim podneskom."
-
-msgid "submission.submit.contactConsent"
-msgstr "Odgovarajući kontakt"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Odaberite ulogu koja najbolje opisuje vaš doprinos ovom podnošenju."
-
-msgid "submission.confirm.message"
-msgstr ""
-"Vaša prijava je prenesena i spremna je za slanje. Možete se vratiti na "
-"pregled i prilagodbu bilo koje informacije koju ste unijeli prije nastavka. "
-"Kada budete spremni, kliknite \"Završi predaju\"."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -594,26 +575,14 @@ msgstr "Pregledajte ovaj podnesak"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Za sada možete:"
 
-msgid "submission.submit.whatNext"
-msgstr "Što se dalje događa?"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Jeste li sigurni da želite ukloniti ovu datoteku?"
-
-msgid "submission.submit.genre.error"
-msgstr "Odaberite vrstu datoteke za svaki prijenos."
 
 msgid "submission.submit.genre.description"
 msgstr "Odaberite opciju koja najbolje opisuje ovu datoteku."
 
 msgid "submission.submit.genre.label"
 msgstr "O kakvoj je datoteci riječ?"
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Potvrdite izjavu o autorskim pravima"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Zahvaljujemo na vašem interesu za objavljivanje s {$contextName}."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Uvjeti za slanje"
@@ -631,3 +600,10 @@ msgstr ""
 
 msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Nema datoteka priloženih ovoj prijavi."
+
+msgid "author.submit.confirmation"
+msgstr "Potvrda"

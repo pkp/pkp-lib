@@ -21,44 +21,21 @@ msgstr "Lägg till en formaterad lista av referenser för verk som citeras i bid
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nya granskningar har inkommit och är under övervägande hos redaktör."
 
-msgid "submission.confirm.message"
-msgstr "Ditt bidrag har laddats upp och kan skickas in. Du kan gå tillbaka för att granska och justera informationen du har lagt in innan du skickar in. När du är färdig, klicka på \"Skicka in bidrag\"."
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Skicka in som"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Välj den roll som bäst beskriver din del i det här bidraget."
 
-msgid "submission.submit.contactConsent"
-msgstr "Kontaktperson"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ja, jag vil bli kontaktad i frågor angående det här bidraget."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Skicka in i någon av följande roller för att redigera och publicera det här bidraget själv: {$managerGroups}"
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Kravlista för bidrag"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Du måste läsa och godkänna nedanstående krav innan du kan fortsätta."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Bidraget är inskickat"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Tack för visat intresse av publicering i {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acceptera upphovsrättsdeklaration"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Ja, jag accepterar att följa villkoren i upphovsrättsdeklarationen."
-
-msgid "submission.submit.whatNext"
-msgstr "Vad händer nu?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Nu kan du:"
@@ -864,9 +841,6 @@ msgstr "Version för granskning"
 msgid "submission.rights"
 msgstr "Rättigheter"
 
-msgid "submission.rights.tip"
-msgstr "Om du vill kan du ange en kort beskrivning för vilka rättigheter för tillgång som gäller för det här bidraget."
-
 msgid "submissions.active"
 msgstr "Aktiv"
 
@@ -903,9 +877,6 @@ msgstr "Utslag"
 msgid "submission.source"
 msgstr "Källa"
 
-msgid "submission.source.tip"
-msgstr "Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL eller en beskriving av den resursen."
-
 msgid "submissions.submit"
 msgstr "Skicka in"
 
@@ -933,9 +904,6 @@ msgstr "Granskning av bidrag"
 msgid "submission.submitter"
 msgstr "Insändare"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Skicka in bidrag"
-
 msgid "submission.submit.selectFile"
 msgstr "Välj fil"
 
@@ -954,14 +922,8 @@ msgstr "Lägg till ytterligare en fil"
 msgid "submission.submit.metadataForm"
 msgstr "Ytterligare information"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Bidragets språk"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten nedan."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Bidragsfiler"
@@ -992,9 +954,6 @@ msgstr "Indexeringsinformation"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titel och abstract"
-
-msgid "submission.type.tip"
-msgstr "Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för ditt bidrag. Det finns exempel på <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "På väg"
@@ -1032,41 +991,11 @@ msgstr "MM-DD"
 msgid "submission.date.yyyymmdd"
 msgstr "ÅÅÅÅ-MM-DD"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Huvudkontakt för redaktionens korrespondens."
-
 msgid "submission.submit.contributorRole"
 msgstr "Medarbetares roll"
 
 msgid "submission.submit.addAuthor"
 msgstr "Lägg till medarbetare"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Vänligen ange språk."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Vänligen ange ett ämne."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Vänligen ange en disciplin."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Vänligen ange nyckelord."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Vänligen ange information om täckning."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Vänligen ange typ."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Vänligen ange källa."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Vänligen ange rättigheter."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Vänligen ange referenser."
 
 msgid "submission.form.name"
 msgstr "Namnge filen (t.ex. Manus; Tabell 1)"
@@ -1941,9 +1870,6 @@ msgstr "{$representation} av {$title}"
 msgid "submission.submit.removeConfirm"
 msgstr "Är du säker på att du vill ta bort filen?"
 
-msgid "submission.submit.genre.error"
-msgstr "Välj filtyp för varje uppladdning."
-
 msgid "submission.submit.genre.description"
 msgstr "Välj det alternativ som bäst beskriver denna fil."
 
@@ -2387,3 +2313,59 @@ msgid "doi.submission.notPublished"
 msgstr ""
 "Misslyckades med att markera DOI som registrerad för {$pubObjectTitle}. "
 "Bidraget måste vara publicerat innan statusen kan uppdateras."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Inga filer har laddats upp till det här bidraget."
+
+msgid "author.submit.confirmation"
+msgstr "Bekräfta"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vänligen ange språk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vänligen ange ett ämne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vänligen ange en disciplin."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vänligen ange nyckelord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vänligen ange information om täckning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vänligen ange typ."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vänligen ange källa."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vänligen ange rättigheter."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vänligen ange referenser."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
+
+msgid "submission.type.tip"
+msgstr "Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för ditt bidrag. Det finns exempel på <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL eller en beskriving av den resursen."
+
+msgid "submission.rights.tip"
+msgstr "Om du vill kan du ange en kort beskrivning för vilka rättigheter för tillgång som gäller för det här bidraget."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten nedan."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Huvudkontakt för redaktionens korrespondens."

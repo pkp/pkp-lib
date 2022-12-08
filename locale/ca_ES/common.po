@@ -801,9 +801,6 @@ msgstr "Esteu segur que voleu enviar aquest formulari?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmar"
 
-msgid "form.emailRequired"
-msgstr "Cal que introduïu un correu electrònic."
-
 msgid "form.dataHasChanged"
 msgstr "Les dades d'aquest formulari han canviat. Voleu continuar sense desar?"
 
@@ -1118,12 +1115,6 @@ msgstr "S'ha eliminat un tipus d'avís."
 
 msgid "notification.removedAnnouncement"
 msgstr "S'ha eliminat un avís."
-
-msgid "notification.addedAuthor"
-msgstr "S'ha afegit un autor/a."
-
-msgid "notification.editedAuthor"
-msgstr "S'ha editat un autor/a."
 
 msgid "notification.confirmError"
 msgstr "S’ha produït un error en confirmar la vostra subscripció."
@@ -2141,3 +2132,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "S'ha afegit un autor/a."
+
+msgid "notification.editedAuthor"
+msgstr "S'ha editat un autor/a."
+

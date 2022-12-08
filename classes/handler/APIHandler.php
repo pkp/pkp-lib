@@ -16,6 +16,7 @@
 namespace PKP\handler;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use PKP\config\Config;
 use PKP\core\APIResponse;

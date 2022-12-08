@@ -16,6 +16,7 @@ namespace PKP\components\listPanels;
 
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
+use PKP\user\Collector;
 
 class PKPSelectReviewerListPanel extends ListPanel
 {
@@ -186,12 +187,11 @@ class PKPSelectReviewerListPanel extends ListPanel
     /**
      * Helper method to compile initial params to get items
      */
-    protected function _getCollector() : \PKP\user\Collector
+    protected function _getCollector(): Collector
     {
-        $params = $this->getParams;
         return Repo::user()->getCollector()
-            ->filterByContextIds([$params['contextId']])
-            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->filterByContextIds([$this->getParams['contextId']])
+            ->filterByWorkflowStageIds([$this->getParams['reviewStage']])
             ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
             ->includeReviewerData()
             ->offset(null)

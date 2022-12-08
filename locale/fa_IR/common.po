@@ -870,9 +870,6 @@ msgstr "آیا مطمئن به ثبت این فرم هستید؟"
 msgid "form.confirmSubmit.title"
 msgstr "تأیید"
 
-msgid "form.emailRequired"
-msgstr "وارد کردن آدرس ایمیل الزامی است."
-
 msgid "form.dataHasChanged"
 msgstr "داده‌های موجود در این فرم تغییر داده شده‌اند. آیا مطمئنید که می‌خواهید بدون ذخیره آن‌ها ادامه دهید؟"
 
@@ -1181,12 +1178,6 @@ msgstr "نوع اطلاعیه حذف شد"
 
 msgid "notification.removedAnnouncement"
 msgstr "اطلاعیه حذف شد"
-
-msgid "notification.addedAuthor"
-msgstr "نویسنده افزوده شد"
-
-msgid "notification.editedAuthor"
-msgstr "نویسنده ویرایش شد"
 
 msgid "notification.confirmError"
 msgstr "بروز خطا هنگام تأیید اشتراک شما"
@@ -1507,3 +1498,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "نویسنده افزوده شد"
+
+msgid "notification.editedAuthor"
+msgstr "نویسنده ویرایش شد"
+

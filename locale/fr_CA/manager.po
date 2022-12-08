@@ -2193,3 +2193,11 @@ msgstr "Un préfixe DOI est requis"
 #, fuzzy
 msgid "manager.dois.actions.deposit.label"
 msgstr "Déposer les DOIs"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Liste de vérification de la soumission"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Lors d'une soumission à la revue, on demande d'abord aux auteurs-es de s'assurer, avant d'aller plus loin, que toutes les conditions requises pour soumettre un article sont remplies. La liste de vérification doit aussi apparaître dans « Directives aux auteurs-es », sous « À propos » de la revue. Cette liste peut être modifiée ci-dessous, mais tous les éléments de la liste devront être cochés avant que les auteurs-es puissent poursuivre la procédure de soumission."

@@ -29,7 +29,49 @@ class FieldAutosuggestPreset extends FieldBaseAutosuggest
     {
         $config = parent::getConfig();
         $config['options'] = $this->options;
+        $config['selected'] = $this->getSelected();
 
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getConfig()
+     */
+    protected function getSelected(): array
+    {
+        if ($this->isMultilingual) {
+            $selected = [];
+            foreach ($this->locales as $locale) {
+                if (array_key_exists($locale['key'], $this->value)) {
+                    $config['selected'][$locale['key']] = array_map([$this, 'mapSelected'], (array) $this->value[$locale['key']]);
+                } else {
+                    $config['selected'][$locale['key']] = [];
+                }
+            }
+            return $selected;
+        }
+
+        return array_map([$this, 'mapSelected'], $this->value);
+    }
+
+    /**
+     * Map the selected values to the format expected by an
+     * autosuggest field
+     *
+     * @param string $value
+     *
+     * @return array
+     */
+    protected function mapSelected($value)
+    {
+        foreach ($this->options as $option) {
+            if ($option['value'] === $value) {
+                return $option;
+            }
+        }
+        return [
+            'value' => $value,
+            'label' => $value,
+        ];
     }
 }

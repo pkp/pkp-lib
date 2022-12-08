@@ -26,18 +26,16 @@ class PublicationAccessPolicy extends ContextPolicy
      * @param PKPRequest $request
      * @param array $args request parameters
      * @param array $roleAssignments
-     * @param string $publicationParameterName the request parameter we
-     *  expect the submission id in.
      */
-    public function __construct($request, $args, $roleAssignments, $publicationParameterName = 'publicationId')
+    public function __construct($request, $args, $roleAssignments, $submissionIdParameter = 'submissionId', $publicationIdParameter = 'publicationId')
     {
         parent::__construct($request);
 
-        // Can the user access this submission? (parameter name: 'submissionId')
-        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+        // Can the user access this submission?
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, $submissionIdParameter));
 
         // Does the publication exist?
-        $this->addPolicy(new PublicationRequiredPolicy($request, $args));
+        $this->addPolicy(new PublicationRequiredPolicy($request, $args, $publicationIdParameter));
 
         // Is the publication attached to the correct submission?
         $this->addPolicy(new PublicationIsSubmissionPolicy(__('api.publications.403.submissionsDidNotMatch')));

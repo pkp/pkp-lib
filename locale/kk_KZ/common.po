@@ -827,9 +827,6 @@ msgstr "Келесі тілдерге ғана рұқсат етіледі: {$la
 msgid "form.dataHasChanged"
 msgstr "Бұл формадағы деректер өзгерді. Сақтамай жалғастыруды қалайсыз ба?"
 
-msgid "form.emailRequired"
-msgstr "Электрондық поштаның мекенжайы қажет."
-
 msgid "form.confirmSubmit.title"
 msgstr "Растау"
 
@@ -1331,12 +1328,6 @@ msgstr "Сіз сәтті жазылдыңыз."
 
 msgid "notification.confirmError"
 msgstr "Жазылымыңызды растау кезінде қателік орын алды."
-
-msgid "notification.editedAuthor"
-msgstr "Автор өңдеген."
-
-msgid "notification.addedAuthor"
-msgstr "Автор қосылды."
 
 msgid "notification.removedAnnouncement"
 msgstr "Жарнама жойылды."
@@ -2191,3 +2182,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Автор қосылды."
+
+msgid "notification.editedAuthor"
+msgstr "Автор өңдеген."
+

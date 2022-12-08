@@ -835,21 +835,10 @@ msgstr "Review naskah ini"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Sekarang, Anda bisa:"
 
-msgid "submission.submit.whatNext"
-msgstr "Apa Selanjutnya?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Ya, Saya setuju mengikuti syarat pernyataan hak cipta."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Setujui pernyataan hak cipta"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Terima kasih Anda berminat menerbitkan naskah pada {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Pengiriman Naskah Selesai"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Anda harus membaca dan menyatakan bahwa Anda sudah melengkapi persyaratan "
@@ -858,28 +847,11 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Persyaratan Mengirim Naskah"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Kirim dalam peran berikut jika ingin bisa menyunting dan menerbitkan naskah "
-"ini sendiri: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ya, Saya ingin dihubungi terkait naskah ini."
-
-msgid "submission.submit.contactConsent"
-msgstr "Narahubung Korenspondesi"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Pilih peran yang sesuai dengan kontribusi Anda bagi naskah ini."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Kirim Sebagai"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Naskah Anda telah diunggah dan siap dikirim. Anda masih bisa kembali "
-"mereview dan memperbaiki informasi yang kurang sebelum mengirim.nya Jika "
-"sudah siap, langsung klik \"Kirim Naskah Selesai\"."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
@@ -1728,53 +1700,14 @@ msgstr "Ganti File Sebeumnya?"
 msgid "submission.form.name"
 msgstr "Beri nama file (misalnya, Naskah; Tabel 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Masukkan referensi."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Masukkan hak cipta."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Masukkan sumber."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Tambahkan Tipe."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Tambahkan informasi cakupan."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Tambahkan kata kunci."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Masukkan bidang ilmu."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Tambahkan subjek."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Pilih bahasa."
-
 msgid "submission.submit.addAuthor"
 msgstr "Tambah Kontributor"
 
 msgid "submission.submit.contributorRole"
 msgstr "Peran kontributor"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Narahubung utama untuk korespondensi editorial."
-
 msgid "submission.createRemote"
 msgstr "Buat Alamat Luar"
-
-msgid "submission.type.tip"
-msgstr ""
-"Jenis naskah biasanya salah satu dari 'gambar', 'teks', atau jenis "
-"multimedia lainnya termasuk 'software' atau 'interactive'.  Silakan pilih "
-"jenis yang dengan naskah Anda. Contoh bisa dilihat pada <a target=\"_blank\" "
-"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
-"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
-"generic.shtml#type</a>"
 
 msgid "submission.upload.query"
 msgstr "Unggah File Diskusi"
@@ -1791,17 +1724,8 @@ msgstr "File Dependen"
 msgid "submission.submit.submissionFiles"
 msgstr "File Naskah"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Menerima naskah dalama beberapa bahasa. Pilih bahasa utama naskah pada "
-"daftar di atas."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Bahasa Naskah"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Tambahkan informasi tambahan pada naskah Anda. Tekan \"enter' per istilah."
 
 msgid "submission.submit.metadataForm"
 msgstr "Perbaikan Tambahan"
@@ -1821,27 +1745,14 @@ msgstr "Informasi File"
 msgid "submission.submit.selectFile"
 msgstr "Pilih File"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Selesaikan Kirim Naskah"
-
 msgid "submission.submissionTitle"
 msgstr "Judul Naskah:"
 
 msgid "submission.submission"
 msgstr "Naskah"
 
-msgid "submission.source.tip"
-msgstr ""
-"Apakah naskah ini diambil dari sumber lain? Jika iya, Anda bisa menambahkan "
-"URL atau deskripsi sumbernya."
-
 msgid "submission.source"
 msgstr "Sumber"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Jika mau, Anda bisa menambahkan uraian singkat tentang akses hak cipta yang "
-"melekat pada naskah ini."
 
 msgid "submission.rights"
 msgstr "Hak Cipta"
@@ -2055,9 +1966,6 @@ msgstr "{$representation} dari {$title}"
 msgid "submission.submit.removeConfirm"
 msgstr "Yakin ingin menghapus file ini?"
 
-msgid "submission.submit.genre.error"
-msgstr "Pilihlah tipe file untuk setiap unggahan."
-
 msgid "submission.submit.genre.description"
 msgstr "Pilih opsi yang paling tepat mendeskripsikan file ini."
 
@@ -2070,3 +1978,73 @@ msgstr ""
 "diberitahukan dan akan mengambil tindakan untuk memastikan proses review "
 "selesai dilakukan. Anda tidak perlu mengambil langkah apapun saat ini. Anda "
 "akan diberitahu bila sudah ada keputusan."
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Tidak ada file yang dilampirkan pada penyerahan ini."
+
+msgid "author.submit.confirmation"
+msgstr "Konfirmasi"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Pilih bahasa."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Tambahkan subjek."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Masukkan bidang ilmu."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Tambahkan kata kunci."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Tambahkan informasi cakupan."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Tambahkan Tipe."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Masukkan sumber."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Masukkan hak cipta."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Masukkan referensi."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan informasi tambahan pada naskah Anda. Tekan \"enter' per istilah."
+
+msgid "submission.type.tip"
+msgstr ""
+"Jenis naskah biasanya salah satu dari 'gambar', 'teks', atau jenis "
+"multimedia lainnya termasuk 'software' atau 'interactive'.  Silakan pilih "
+"jenis yang dengan naskah Anda. Contoh bisa dilihat pada <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Apakah naskah ini diambil dari sumber lain? Jika iya, Anda bisa menambahkan "
+"URL atau deskripsi sumbernya."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Jika mau, Anda bisa menambahkan uraian singkat tentang akses hak cipta yang "
+"melekat pada naskah ini."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan informasi tambahan pada naskah Anda. Tekan \"enter' per istilah."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Menerima naskah dalama beberapa bahasa. Pilih bahasa utama naskah pada "
+"daftar di atas."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Narahubung utama untuk korespondensi editorial."

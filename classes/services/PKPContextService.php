@@ -457,6 +457,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         // Specify values needed to render default locale strings
         $localeParams = [
+            'submissionGuidelinesUrl' => $request->getDispatcher()->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $context->getPath(),
+                'about',
+                'submissions'
+            ),
             'indexUrl' => $request->getIndexUrl(),
             'primaryLocale' => $context->getData('primaryLocale'),
             'contextName' => $context->getData('name', $context->getPrimaryLocale()),

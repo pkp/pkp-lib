@@ -560,6 +560,27 @@ abstract class Context extends \PKP\core\DataObject
         }
         return $siteSetting;
     }
+
+    /**
+     * Get the required metadata for this context
+     *
+     * @return array List of metadata property names. Example: ['keywords']
+     */
+    public function getRequiredMetadata(): array
+    {
+        return collect([
+            'agencies',
+            'citations',
+            'coverage',
+            'disciplines',
+            'keywords',
+            'languages',
+            'rights',
+            'source',
+            'subjects',
+            'type',
+        ])->filter(fn ($prop) => $this->getData($prop) === self::METADATA_REQUIRE)->toArray();
+    }
 }
 
 if (!PKP_STRICT_MODE) {

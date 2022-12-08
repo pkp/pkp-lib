@@ -122,15 +122,6 @@ msgstr "Plus d'information"
 msgid "grid.action.addAuthor"
 msgstr "Ajouter un auteur"
 
-msgid "author.users.contributor.name"
-msgstr "Nom"
-
-msgid "author.users.contributor.email"
-msgstr "Courriel"
-
-msgid "author.users.contributor.role"
-msgstr "Rôle"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contact principal"
 
@@ -153,9 +144,6 @@ msgstr "Supprimer la catégorie"
 
 msgid "grid.action.addContributor"
 msgstr "Ajouter un contributeur"
-
-msgid "grid.action.editContributor"
-msgstr "Modifier un contributeur"
 
 msgid "grid.action.deleteContributor"
 msgstr "Supprimer un contributeur"
@@ -375,12 +363,6 @@ msgstr "Importer ou exporter le contenu ou les données du site"
 
 msgid "grid.action.orderItems"
 msgstr "Activer le mode de commande"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Modifier cette liste des vérifications"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Supprimer cette liste des vérifications"
 
 msgid "grid.action.resetAll"
 msgstr "Réinitialiser tous les objets à leurs valeurs par défaut"
@@ -638,9 +620,6 @@ msgstr "Voir plus"
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Options pour les réponses"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Dans la liste de navigation"
-
 msgid "grid.user.allPermissionLevels"
 msgstr "Toutes les permissions"
 
@@ -706,3 +685,18 @@ msgstr "Afficher/Sélectionner les utilisateurs-trices"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Supprimer ce groupe d'utilisateurs-trices"
+
+msgid "author.users.contributor.name"
+msgstr "Nom"
+
+msgid "author.users.contributor.email"
+msgstr "Courriel"
+
+msgid "author.users.contributor.role"
+msgstr "Rôle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dans la liste de navigation"
+
+msgid "grid.action.editContributor"
+msgstr "Modifier un contributeur"

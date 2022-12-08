@@ -2811,3 +2811,16 @@ msgstr "Önerilen karar, kabul"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "Tartışmanın konusu"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Gönderi Hazırlık Kontrol Listesi"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Dergiye makale başvurusu yaparken, yazarlar önce Başvuru Hazırlık Kontrol "
+"Listesini kontrol etmelidirler. Kontrol listesi \"Dergi Hakkında\" altındaki "
+"\"Yazar Rehberi\" bölümündedir. Liste aşağıda düzenlenebilir, ama listedeki "
+"bütün öğelerin bir sonraki basamağa geçebilmek için yazarlar tarafından "
+"işaretlenmesi gerekmektedir."

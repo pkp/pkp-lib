@@ -167,6 +167,14 @@
 					<!-- empty on purpose -->
 				</span>
 				<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
+					<button
+						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"
+						class="decision__skipStep -linkButton"
+						:disabled="isSubmitting"
+						@click="toggleSkippedStep(currentStep.id)"
+					>
+						{translate|escape key="editor.decision.skipEmail"}
+					</button>
 					<spinner v-if="isSubmitting"></spinner>
 					<pkp-button
 						:disabled="isSubmitting"
@@ -194,14 +202,6 @@
 							{translate|escape key="common.continue"}
 						</template>
 					</pkp-button>
-					<button
-						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"
-						class="decision__skipStep -linkButton"
-						:disabled="isSubmitting"
-						@click="toggleSkippedStep(currentStep.id)"
-					>
-						{translate|escape key="editor.decision.skipEmail"}
-					</button>
 				</div>
 			</panel-section>
 		</panel>

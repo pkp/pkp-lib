@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Facades\Mail;
+use InvalidArgumentException;
 use PKP\announcement\Announcement;
 use PKP\context\Context;
 use PKP\Domains\Jobs\Exceptions\JobException;
@@ -60,11 +61,11 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $this->contextId = $contextId;
         $this->announcementId = $announcementId;
         $this->locale = $locale;
-        if (!is_null($sender)) {
-            $this->sender = $sender;
-        }
-        if ($sendEmail) {
-            $this->sendEmail = $sendEmail;
+        $this->sender = $sender;
+        $this->sendEmail = $sendEmail;
+
+        if ($this->sendEmail && is_null($sender)) {
+            throw new InvalidArgumentException("Sender should be set to send an email");
         }
     }
 
@@ -73,10 +74,6 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $announcement = Repo::announcement()->get($this->announcementId);
         // Announcement was removed
         if (!$announcement) {
-            throw new JobException(JobException::INVALID_PAYLOAD);
-        }
-
-        if ($this->sendEmail && !$this->sender) {
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 

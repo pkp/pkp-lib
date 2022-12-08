@@ -51,6 +51,7 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I7245_UpdateUserLocaleStringToParsableJsonString" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I8073_RemoveNotesWithoutQueriesAndRelatedObjects" />
 		<migration class="APP\migration\upgrade\v3_4_0\I5716_EmailTemplateAssignments"/>
+		<migration class="APP\migration\upgrade\v3_4_0\InstallEmailTemplates"/>
 		<data file="dbscripts/xml/upgrade/3.4.0_preupdate_email_templates.xml" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I6895_CreateNewInstitutionsTables" />
 		<migration class="APP\migration\upgrade\v3_4_0\I6782_OrphanedMetrics" />

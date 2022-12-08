@@ -371,10 +371,10 @@ msgstr ""
 "<hr>"
 "<p>This is an automatic email sent from <a href=\"{$contextUrl}\">{$contextName}</a>.</p>"
 
-msgid "emails.reviewEdited.subject"
+msgid "emails.reviewEdit.subject"
 msgstr "Your review assignment has been changed for {$contextName}"
 
-msgid "emails.reviewEdited.body"
+msgid "emails.reviewEdit.body"
 msgstr ""
 "<p>Dear {$recipientName}, </p>"
 "<p>Review details on the submission <p><a href=\"{$submissionUrl}\">{$submissionId} {$submissionTitle}</a> have been changed.<br /></p>"

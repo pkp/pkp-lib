@@ -3327,7 +3327,7 @@ msgid "mailable.versionCreated.name"
 msgstr "Publication Version Created"
 
 msgid "mailable.reviewComplete.name"
-msgstr "Review Complete"
+msgstr "Review Completed"
 
-msgid "mailable.reviewEdited.name"
+msgid "mailable.reviewEdit.name"
 msgstr "Review Edited"

@@ -2070,3 +2070,9 @@ msgstr ""
 "diberitahukan dan akan mengambil tindakan untuk memastikan proses review "
 "selesai dilakukan. Anda tidak perlu mengambil langkah apapun saat ini. Anda "
 "akan diberitahu bila sudah ada keputusan."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Naskah ini merupakan pratinjau dan belum diterbitkan. <a href=\"{$url}\">"
+"Lihat Naskah</a>"

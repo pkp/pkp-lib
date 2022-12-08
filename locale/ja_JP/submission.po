@@ -1996,3 +1996,7 @@ msgstr "カテゴリー"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "出版リスト"
+
+msgstr "全ての編集者推薦が提出され、決定が必要です。"
+
+msgid "submission.viewingPreview"msgstr "これはプレビューであり、公開されていません。 <a href=\"{$url}\">投稿表示</a>"

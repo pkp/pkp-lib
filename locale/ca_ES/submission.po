@@ -2195,3 +2195,9 @@ msgstr "S'ha reactivat la tramesa rebutjada."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Revertir el rebuig"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Això és una vista prèvia i encara no s'ha publicat. <a href=\"{$url}\">Veure "
+"tramesa</a>"

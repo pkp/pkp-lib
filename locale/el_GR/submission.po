@@ -1982,3 +1982,9 @@ msgstr "Δήλωση πνευματικών δικαιωμάτων"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Προσαρμοσμένη δήλωση πνευματικών δικαιωμάτων"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Αυτή είναι μια προεπισκόπηση και δεν έχει δημοσιευτεί ακόμα. <a href=\"{$url}"
+"\">Δείτε την υποβολή</a>"

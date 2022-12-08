@@ -1993,3 +1993,8 @@ msgstr ""
 "keräämään puuttuvat arviot mahdollisimman nopeasti. Sinun ei tässä vaiheessa "
 "tarvitse ryhtyä mihinkään toimenpiteisiin. Sinulle ilmoitetaan heti, kun "
 "arviot ovat valmiina ja toimittaja tekee päätöksen käsikirjoituksesi suhteen."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Tämä on esikatselu eikä käsikirjoituksen versiota ole julkaistu. <a href=\"{$url}\">Palaa "
+"käsikirjoitukseen</a>"

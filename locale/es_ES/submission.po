@@ -2085,3 +2085,9 @@ msgstr "Se ha reactivado el envío rechazado."
 
 msgid "notification.type.revertDecline"
 msgstr "Se ha revertido la decisión de rechazar este envío."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Esta es una vista previa y no se ha publicado. <a href=\"{$url}\">Ver "
+"envío</a>"

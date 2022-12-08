@@ -2421,3 +2421,9 @@ msgstr ""
 #, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr "{$title} başlıklı aday makale artık yeni başvuru aşamasında aktiftir."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Bu bir önizlemedir ve yayınlanmamıştır.  <a href=\"{$url}\">Makaleyi "
+"görüntüle</a>"

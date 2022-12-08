@@ -2459,3 +2459,8 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Sendte anmodningen om at bedømme i bedømmelsesrunde {$round} til "
 "{$reviewerName} for indsendelsen {$submissionid} igen."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Dette er en forhåndsvisning, der endnu ikke blevet offentliggjort. <a href=\""
+"{$url}\">Se indsendelse</a>"

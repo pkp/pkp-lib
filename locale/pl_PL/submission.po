@@ -2509,3 +2509,9 @@ msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Została wygenerowana prośba o poprawki dla zgłoszenia {$title}. Zapisano "
 "decyzję o wysłaniu poprawek do następnej rundy recenzji."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"To jest wgląd do artykułu, który jeszcze nie był publikowany.<a href=\"{$url}"
+"\">Wyświetl zgłoszenie</a>"

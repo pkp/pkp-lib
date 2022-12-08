@@ -565,3 +565,8 @@ msgstr "Publikacija za ovog autora nije pronađena."
 
 msgid "author.editPublishedDisabled"
 msgstr "Autore ove publikacije nije moguće uređivati jer je već objavljena."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Ovo je pregled i nije objavljeno. <a href=\"{$url}\">Pogledaj predaju</a>"

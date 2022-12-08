@@ -2445,3 +2445,9 @@ msgid "log.review.reviewerResendRequest"
 msgstr ""
 "Opětovné odeslání žádosti o recenzi v kole {$round} na adresu {$reviewerName}"
 " pro příspěvek {$submissionid}."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Toto je náhled – dosud nebyl publikován.  <a href=\"{$url}\">Zobrazit "
+"příspěvek</a>"

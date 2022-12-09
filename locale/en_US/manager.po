@@ -3191,14 +3191,6 @@ msgstr ""
 "This email is automatically sent monthly to editors and journal managers to "
 "provide them a system health overview."
 
-msgid "mailable.publicationVersionNotify.name"
-msgstr "Publication Version Notification"
-
-msgid "mailable.publicationVersionNotify.description"
-msgstr ""
-"This email automatically notifies assigned editors about new version of the "
-"publication"
-
 msgid "mailable.editReviewNotify.name"
 msgstr "Edit Review Notification"
 
@@ -3324,7 +3316,7 @@ msgid "mailable.system"
 msgstr "System"
 
 msgid "mailable.versionCreated.name"
-msgstr "Publication Version Created"
+msgstr "Version Created"
 
 msgid "mailable.reviewComplete.name"
 msgstr "Review Completed"

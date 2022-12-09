@@ -249,19 +249,19 @@ class SubEditorsDAO extends \PKP\db\DAO
             WORKFLOW_STAGE_ID_SUBMISSION
         )->toArray();
 
-        if (count($editorAssignments)) {
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), EditorAssigned::getEmailTemplateKey());
+        if (count($editorAssignments) && $emailTemplate) {
 
             // Never notify the same user twice, even if they are assigned in multiple roles
             $notifiedEditors = [];
 
             /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-            $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), EditorAssigned::getEmailTemplateKey());
             $mailable = new EditorAssigned($context, $submission);
             $mailable
                 ->from($context->getData('contactEmail'), $context->getData('contactName'))
-                ->subject($emailTemplate->getLocalizedData('subject'))
-                ->body($emailTemplate->getLocalizedData('body'));
+                ->subject($emailTemplate->getLocalizedData('subject') ?? '')
+                ->body($emailTemplate->getLocalizedData('body') ?? '');
 
             /** @var StageAssignment $editorAssignment */
             foreach ($editorAssignments as $editorAssignment) {

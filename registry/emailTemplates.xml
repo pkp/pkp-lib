@@ -26,4 +26,5 @@
 	<email key="ANNOUNCEMENT" name="mailable.announcementNotify.name" subject="emails.announcement.subject" body="emails.announcement.body"/>
 	<email key="DISCUSSION_NOTIFICATION_PRODUCTION" name="mailable.discussionProduction.name" subject="emails.discussion.subject" body="emails.discussion.body"/>
 	<email key="EDITOR_ASSIGN" name="mailable.editorAssign.name" alternateTo="DISCUSSION_NOTIFICATION_PRODUCTION" subject="emails.editorAssign.subject" body="emails.editorAssign.body"/>
+	<email key="VERSION_CREATED" name="mailable.versionCreated.name" subject="emails.versionCreated.subject" body="emails.versionCreated.body"/>
 </emails>

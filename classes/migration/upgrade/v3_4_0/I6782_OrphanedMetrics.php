@@ -17,6 +17,11 @@ class I6782_OrphanedMetrics extends \PKP\migration\upgrade\v3_4_0\I6782_Orphaned
 {
     private const ASSOC_TYPE_CONTEXT = 0x0000100;
 
+    protected function getMetricType(): string
+    {
+        return 'ops::counter';
+    }
+
     protected function getContextAssocType(): int
     {
         return self::ASSOC_TYPE_CONTEXT;
@@ -40,5 +45,15 @@ class I6782_OrphanedMetrics extends \PKP\migration\upgrade\v3_4_0\I6782_Orphaned
     protected function getRepresentationKeyField(): string
     {
         return 'galley_id';
+    }
+
+    protected function getAssocTypesToMigrate(): array
+    {
+        return array_merge(
+            [
+                self::ASSOC_TYPE_CONTEXT,
+            ],
+            parent::getAssocTypesToMigrate()
+        );
     }
 }

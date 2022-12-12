@@ -248,8 +248,7 @@ class PKPAnnouncementHandler extends APIHandler
                     $contextId,
                     $announcementId,
                     Locale::getPrimaryLocale(),
-                    $sender,
-                    true
+                    $sender
                 );
             }
         }

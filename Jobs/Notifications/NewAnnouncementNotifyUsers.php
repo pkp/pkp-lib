@@ -40,19 +40,15 @@ class NewAnnouncementNotifyUsers extends BaseJob
     protected int $announcementId;
     protected string $locale;
 
-    // Sender of the email, should be set if sendEmail is true
+    // Sender of the email
     protected ?User $sender;
-
-    // Whether to send emails; don't send to unsubscribed users
-    protected bool $sendEmail = false;
 
     public function __construct(
         Collection $recipientIds,
         int $contextId,
         int $announcementId,
         string $locale,
-        ?User $sender = null,
-        bool $sendEmail = false
+        ?User $sender = null // Leave null to not send an email
     )
     {
         parent::__construct();
@@ -62,11 +58,6 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $this->announcementId = $announcementId;
         $this->locale = $locale;
         $this->sender = $sender;
-        $this->sendEmail = $sendEmail;
-
-        if ($this->sendEmail && is_null($sender)) {
-            throw new InvalidArgumentException("Sender should be set to send an email");
-        }
     }
 
     public function handle()
@@ -89,7 +80,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
             }
             $notification = $announcementNotificationManager->notify($recipient);
 
-            if (!$this->sendEmail) {
+            if (!$this->sender) {
                 continue;
             }
 

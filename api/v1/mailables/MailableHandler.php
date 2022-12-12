@@ -91,7 +91,7 @@ class MailableHandler extends APIHandler
     {
         $context = $this->getRequest()->getContext();
 
-        $mailable = Repo::mailable()->get($args['id'], $context->getId());
+        $mailable = Repo::mailable()->get($args['id'], $context);
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');

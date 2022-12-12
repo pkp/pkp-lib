@@ -48,6 +48,7 @@ class Repository extends \PKP\mail\Repository
             \PKP\mail\mailables\UserCreated::class,
             \PKP\mail\mailables\ValidateEmailContext::class,
             \PKP\mail\mailables\ValidateEmailSite::class,
+            \PKP\mail\mailables\PublicationVersionNotify::class,
             mailables\PostedAcknowledgement::class,
         ]);
     }

@@ -11,21 +11,6 @@ msgstr ""
 "PO-Revision-Date: 2019-12-04T10:02:18-08:00\n"
 "Language: \n"
 
-msgid "emails.notification.subject"
-msgstr "New notification from {$siteTitle}"
-
-msgid "emails.notification.body"
-msgstr ""
-"You have a new notification from {$siteTitle}:<br />\n"
-"<br />\n"
-"{$notificationContents}<br />\n"
-"<br />\n"
-"Link: {$notificationUrl}<br />\n"
-"<br />\n"
-"{$contextSignature}"
-"<hr />"
-"{$unsubscribeLink}"
-
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Password Reset Confirmation"
 

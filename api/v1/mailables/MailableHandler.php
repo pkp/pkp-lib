@@ -15,7 +15,6 @@
 namespace PKP\API\v1\mailables;
 
 use APP\facades\Repo;
-use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
@@ -76,9 +75,11 @@ class MailableHandler extends APIHandler
     public function getMany(SlimRequest $slimRequest, Response $response, array $args): Response
     {
         $mailables = Repo::mailable()->getMany(
-            $this->getRequest()->getContext(),
-            $slimRequest->getQueryParam('searchPhrase')
-        );
+                $this->getRequest()->getContext(),
+                $slimRequest->getQueryParam('searchPhrase')
+            )
+            ->map(fn(string $class) => Repo::mailable()->summarizeMailable($class))
+            ->sortBy('name');
 
         return $response->withJson($mailables->values(), 200);
     }
@@ -88,12 +89,14 @@ class MailableHandler extends APIHandler
      */
     public function get(SlimRequest $slimRequest, Response $response, array $args): Response
     {
-        $mailable = Repo::mailable()->get($args['id'], $this->getRequest()->getContext()->getId());
+        $context = $this->getRequest()->getContext();
+
+        $mailable = Repo::mailable()->get($args['id'], $context);
 
         if (!$mailable) {
             return $response->withStatus(404)->withJsonError('api.mailables.404.mailableNotFound');
         }
 
-        return $response->withJson($mailable, 200);
+        return $response->withJson(Repo::mailable()->describeMailable($mailable, $context->getId()), 200);
     }
 }

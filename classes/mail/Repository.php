@@ -16,7 +16,6 @@ namespace PKP\mail;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\mail\mailables\StatisticsReportNotify;
@@ -27,7 +26,11 @@ use PKP\plugins\Hook;
 class Repository
 {
     /**
-     * Get an array of mailables
+     * Get a list of mailables
+     *
+     * @param string $searchPhrase Only include mailables with a name or description matching this search phrase
+     * @param ?bool $includeDisabled Whether or not to include mailables not used in this context, based on the context settings
+     * @return Collection<string> The fully-qualified class name of each mailable
      */
     public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
     {
@@ -37,16 +40,14 @@ class Repository
         return $mailables->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
             ->filter(function(string $class) use ($context, $includeDisabled) {
                 return $includeDisabled || $this->isMailableEnabled($class, $context);
-            })
-            ->map(fn(string $class) => $this->summarizeMailable($class))
-            ->sortBy('name');
+            });
     }
 
     /**
      * Simple check if mailable's name and description contains a search phrase
      * doesn't look up in associated email templates
      *
-     * @param string $className the fully qualified class name of the Mailable
+     * @param string $className The fully-qualified class name of the Mailable
      */
     protected function containsSearchPhrase(string $className, string $searchPhrase): bool
     {
@@ -59,21 +60,26 @@ class Repository
 
     /**
      * Get a mailable by its email template key
+     *
+     * @return ?string The fully-qualified class name of the mailable
      */
-    public function get(string $emailTemplateKey, int $contextId): ?array
+    public function get(string $emailTemplateKey, Context $context): ?string
     {
         /** @var ?string $mailable */
-        $mailable = collect(Mail::getMailables($contextId))
+        $mailable = $this->getMany($context)
             ->first(fn(string $mailable) => $mailable::getEmailTemplateKey() === $emailTemplateKey);
 
         if (!$mailable) {
             return null;
         }
 
-        return $this->describeMailable($mailable, $contextId);
+        return $mailable;
     }
 
-    protected function summarizeMailable(string $class): array
+    /**
+     * Get a summary of a mailable's properties
+     */
+    public function summarizeMailable(string $class): array
     {
         $dataDescriptions = $class::getDataDescriptions();
         ksort($dataDescriptions);
@@ -97,9 +103,10 @@ class Repository
     }
 
     /**
-     * Gets information about the mailable with its assigned templates
+     * Get a full description of a mailable's properties, including any
+     * assigned email templates
      */
-    protected function describeMailable(string $class, int $contextId): array
+    public function describeMailable(string $class, int $contextId): array
     {
         $data = $this->summarizeMailable($class);
 

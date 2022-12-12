@@ -505,7 +505,10 @@ class ManagementHandler extends Handler
 			'i18nResetTemplateMessage' => __('manager.mailables.resetTemplate.confirm'),
 			'i18nResetAll' => __('manager.emails.resetAll'),
 			'i18nResetAllMessage' => __('manager.emails.resetAll.message'),
-            'mailables' => Repo::mailable()->getMany($context)->values()->toArray(),
+            'mailables' => Repo::mailable()->getMany($context)
+                ->map(fn(string $class) => Repo::mailable()->summarizeMailable($class))
+                ->sortBy('name')
+                ->values(),
             'mailablesApiUrl' => $mailablesApiUrl,
             'templatesApiUrl' => $emailTemplatesApiUrl,
             'templateForm' => $this->getEmailTemplateForm($context, $emailTemplatesApiUrl)->getConfig(),

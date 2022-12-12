@@ -942,9 +942,6 @@ msgstr "Lèirmheasan ri ath-sgrùdadh ann an {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Chaidh na lèirmheasan a shìneadh air adhart gu {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "Chaidh am meata-dàta aig “{$title}” atharrachadh."
-
 msgid "notification.type.reviewerComment"
 msgstr "Thug lèirmheasaiche seachad beachd air “{$title}”."
 

@@ -1472,9 +1472,6 @@ msgstr "Revisões para considerar em {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Revisões enviadas para {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "Os metadados de \"{$title} foram modificados."
-
 msgid "notification.type.reviewerComment"
 msgstr "Um revisor comentou sobre \"{$title}\"."
 

@@ -22,12 +22,14 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
+use PKP\mail\traits\Unsubscribe;
 use PKP\security\Role;
 
 class EditorialReminder extends Mailable
 {
     use Configurable;
     use Recipient;
+    use Unsubscribe;
 
     public const OUTSTANDING_TASKS = 'outstandingTasks';
     public const NUMBER_OF_SUBMISSIONS = 'numberOfSubmissions';
@@ -108,5 +110,14 @@ class EditorialReminder extends Mailable
         $variables[static::OUTSTANDING_TASKS] = __('emailTemplate.variable.editorialReminder.outstandingTasks');
         $variables[static::NUMBER_OF_SUBMISSIONS] = __('emailTemplate.variable.editorialReminder.numberOfSubmissions');
         return $variables;
+    }
+
+    /**
+     * Adds a footer with unsubscribe link
+     */
+    protected function addFooter(string $locale): Mailable
+    {
+        $this->setupUnsubscribeFooter($locale, $this->context, __('emails.footer.unsubscribe.editorialReminder'));
+        return $this;
     }
 }

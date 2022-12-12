@@ -190,12 +190,13 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             }
 
             $user = Repo::user()->get($userId);
-            $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment, $notification);
+            $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment);
             $mailable
                 ->from($context->getData('contactEmail'), $context->getData('contactName'))
                 ->recipients([$user])
                 ->subject($template->getLocalizedData('subject'))
-                ->body($template->getLocalizedData('body'));
+                ->body($template->getLocalizedData('body'))
+                ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
 

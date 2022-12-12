@@ -1589,9 +1589,6 @@ msgstr "ファイルが考慮されました。"
 msgid "notification.type.reviewerComment"
 msgstr "「{$title}」について読者からコメントがあった。"
 
-msgid "notification.type.metadataModified"
-msgstr "「{$title}」のメタデータが編集されました。"
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "{$stage}に提出された改訂。"
 

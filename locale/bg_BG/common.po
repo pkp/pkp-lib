@@ -1728,9 +1728,6 @@ msgstr "Файлът е прегледан."
 msgid "notification.type.reviewerComment"
 msgstr "Рецензент коментира \"{$title}\"."
 
-msgid "notification.type.metadataModified"
-msgstr "Метаданните са променени за \"{$title}\"."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Ревизии изпратени към етап {$stage}."
 

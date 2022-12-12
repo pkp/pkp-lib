@@ -1646,9 +1646,6 @@ msgstr "التحكيمات التي ينبغي الأخذ بها في {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "التحكيمات المقدمة إلى {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "البيانات الوصفية للمؤلَّف الموسوم \"{$title}\" قد تم تعديلها."
-
 msgid "notification.type.reviewerComment"
 msgstr "علق أحد المحكمين على \"{$title}\"."
 

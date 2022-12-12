@@ -1681,9 +1681,6 @@ msgstr "Новые версии рассматриваются на этапе �
 msgid "notification.type.pendingRevisions.title"
 msgstr "Новые версии отправлены на этап «{$stage}»."
 
-msgid "notification.type.metadataModified"
-msgstr "Метаданные для «{$title}» были изменены."
-
 msgid "notification.type.reviewerComment"
 msgstr "Рецензент прокомментировал «{$title}»."
 

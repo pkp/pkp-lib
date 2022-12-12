@@ -1487,9 +1487,6 @@ msgstr "Bearbetningar att ta ställning till vid {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Bearbetningar inskickade till {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}s\" metadata har redigerats."
-
 msgid "notification.type.reviewerComment"
 msgstr "En granskare har kommenterat \"{$title}\"."
 

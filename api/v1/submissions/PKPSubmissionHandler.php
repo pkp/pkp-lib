@@ -817,13 +817,14 @@ class PKPSubmissionHandler extends APIHandler
                 continue;
             }
 
-            $mailable = new PublicationVersionNotify($context, $submission, $notification);
+            $mailable = new PublicationVersionNotify($context, $submission);
             $template = Repo::emailTemplate()->getByKey($context->getId(), PublicationVersionNotify::getEmailTemplateKey());
             $mailable
                 ->from($context->getData('contactEmail'), $context->getData('contactName'))
                 ->recipients([$user])
                 ->body($template->getLocalizedData('body'))
-                ->subject($template->getLocalizedData('subject'));
+                ->subject($template->getLocalizedData('subject'))
+                ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
         }

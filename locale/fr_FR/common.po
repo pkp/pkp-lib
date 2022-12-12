@@ -1087,9 +1087,6 @@ msgstr "Affectez un réviseur à l'aide du lien \"Ajouter\" dans la liste \"Part
 msgid "notification.type.awaitingCopyedits"
 msgstr "En attente de copies."
 
-msgid "notification.type.metadataModified"
-msgstr "Les metadata de \"{$title}\" ont été modifiées."
-
 msgid "notification.type.newAnnouncement"
 msgstr "Nouvelle annonce."
 

@@ -48,11 +48,10 @@ trait Unsubscribe
     {
         $this->notification = $notification;
 
-        $includedVariables = $this->hasRequiredVariables();
-        if (!$includedVariables) {
+        if (!$this->hasRequiredVariables()) {
             throw new Exception(
                 'Mailable should include the following template variables: ' .
-                implode(",", self::$requiredVariables));
+                implode(",", static::getRequiredVariables()));
         }
         return $this;
     }
@@ -83,7 +82,8 @@ trait Unsubscribe
     protected function hasRequiredVariables(): bool
     {
         $included = [];
-        foreach (self::$requiredVariables as $requiredVariable) {
+        $requiredVariables = static::getRequiredVariables();
+        foreach ($requiredVariables as $requiredVariable) {
             foreach ($this->getVariables() as $variable) {
                 if (is_a($variable, $requiredVariable, true)) {
                     $included[] = $requiredVariable;
@@ -92,7 +92,7 @@ trait Unsubscribe
             }
         }
 
-        return count($included) === count(self::$requiredVariables);
+        return count($included) === count($requiredVariables);
     }
 
     /**
@@ -120,5 +120,10 @@ trait Unsubscribe
         }
 
         return __($localeKey, [], $locale);
+    }
+
+    protected static function getRequiredVariables(): array
+    {
+        return static::$requiredVariables;
     }
 }

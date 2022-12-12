@@ -23,6 +23,7 @@ use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\mail\traits\Unsubscribe;
 use PKP\security\Role;
 
 class AnnouncementNotify extends Mailable
@@ -30,6 +31,7 @@ class AnnouncementNotify extends Mailable
     use Configurable;
     use Recipient;
     use Sender;
+    use Unsubscribe;
 
     protected static ?string $name = 'mailable.announcementNotify.name';
     protected static ?string $description = 'mailable.announcementNotify.description';
@@ -91,5 +93,14 @@ class AnnouncementNotify extends Mailable
                 ),
             ]
         );
+    }
+
+    /**
+     * Adds a footer with unsubscribe link
+     */
+    protected function addFooter(string $locale): Mailable
+    {
+        $this->setupUnsubscribeFooter($locale, $this->context);
+        return $this;
     }
 }

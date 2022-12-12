@@ -1299,9 +1299,6 @@ msgstr "Fil tatt stilling til."
 msgid "notification.type.reviewerComment"
 msgstr "En fagfelle har kommentert «{$title}»."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadataene til «{$title}» har blitt modifisert."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Revidering sendt inn til {$stage}."
 

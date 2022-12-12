@@ -1029,9 +1029,6 @@ msgid "notification.type.allRevisionsIn"
 msgstr ""
 "En tilrettet fil er blevet uploadet til redaktionel overvejelse i {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}'s\" metadata er blevet ændret."
-
 msgid "notification.type.reviewerComment"
 msgstr "En bedømmer har kommenteret \"{$title}\"."
 

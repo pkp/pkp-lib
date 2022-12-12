@@ -1894,9 +1894,6 @@ msgstr "Fail dipertimbangkan."
 msgid "notification.type.reviewerComment"
 msgstr "Seorang pengulas telah komen tentang \"{$title}\"."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadata \"{$title}'s\" telah diubah suai."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Semakan diserahkan kepada {$stage}."
 

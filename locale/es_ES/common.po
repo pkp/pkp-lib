@@ -1391,9 +1391,6 @@ msgstr "Mi lista"
 msgid "notification.type.newAnnouncement"
 msgstr "Nuevo aviso."
 
-msgid "notification.type.metadataModified"
-msgstr "Los metadatos de \"{$title}\" han sido modificados."
-
 msgid "notification.type.reviewerComment"
 msgstr "Un revisor ha hecho comentarios acerca de \"{$title}\"."
 

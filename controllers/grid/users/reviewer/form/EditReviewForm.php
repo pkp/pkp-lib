@@ -190,12 +190,13 @@ class EditReviewForm extends Form
             )
             ) {
                 $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
-                $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment, $notification);
+                $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment);
                 $mailable
                     ->sender($request->getUser())
                     ->recipients([$reviewer])
                     ->subject($template->getLocalizedData('subject'))
-                    ->body($template->getLocalizedData('body'));
+                    ->body($template->getLocalizedData('body'))
+                    ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
             }

@@ -1549,9 +1549,6 @@ msgstr "Απαιτούνται αναθεωρήσεις στο στάδιο {$st
 msgid "notification.type.pendingRevisions.title"
 msgstr "Ανθεωρήσεις έχουν υποβληθεί στο στάδιο {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}\": τα μεταδεδομένα έχουν τροποποιηθεί."
-
 msgid "notification.type.reviewerComment"
 msgstr "Ένας Αξιολογητής έχει καταθέσει σχόλια για την εργασία \"{$title}\"."
 

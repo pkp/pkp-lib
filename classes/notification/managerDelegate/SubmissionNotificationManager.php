@@ -35,8 +35,6 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
                 return __('notification.type.submissionSubmitted', ['title' => $submission->getLocalizedTitle()]);
-            case PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED:
-                return __('notification.type.metadataModified', ['title' => $submission->getLocalizedTitle()]);
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
                 return __('notification.type.submissionNewVersion');
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
@@ -57,7 +55,6 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
         assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-            case PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED:
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
                 $contextDao = Application::getContextDAO();
                 $context = $contextDao->getById($notification->getContextId());
@@ -83,8 +80,6 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
                 return 'notifyIconPageAlert';
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
                 return 'notifyIconNewPage';
-            case PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED:
-                return 'notifyIconEdit';
             default:
                 assert(false);
         }
@@ -99,7 +94,6 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
                 return NOTIFICATION_STYLE_CLASS_INFORMATION;
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-            case PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED:
                 return '';
             default:
                 assert(false);

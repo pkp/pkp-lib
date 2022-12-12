@@ -1506,9 +1506,6 @@ msgstr "Sie sollen Überarbeitungen in Phase {$stage} akzeptieren."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Überarbeitungen zu Phase {$stage} hinzugefügt."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadaten von \"{$title}\" wurden verändert."
-
 msgid "notification.type.reviewerComment"
 msgstr "Gutachter/in hat \"{$title}\" kommentiert."
 

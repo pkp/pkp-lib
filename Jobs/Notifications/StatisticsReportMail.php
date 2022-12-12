@@ -18,6 +18,7 @@ namespace PKP\Jobs\Notifications;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\notification\NotificationManager;
 use DateTimeImmutable;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Collection;
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Mail;
 use IntlDateFormatter;
 use PKP\context\Context;
 use PKP\mail\mailables\StatisticsReportNotify;
+use PKP\notification\PKPNotification;
 use PKP\Support\Jobs\BaseJob;
 use SplFileObject;
 
@@ -71,6 +73,15 @@ class StatisticsReportMail extends BaseJob
             if (!$user) {
                 continue;
             }
+
+            $notificationManager = new NotificationManager();
+            $notification = $notificationManager->createNotification(
+                Application::get()->getRequest(),
+                $user->getId(),
+                PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
+                $this->contextId
+            );
+
             $mailable = new StatisticsReportNotify($context, $editorialTrends, $totalSubmissions, $month, $year);
             $mailable->recipients([$user]);
             $mailable->from($context->getContactEmail(), $context->getContactName());
@@ -78,6 +89,7 @@ class StatisticsReportMail extends BaseJob
             $mailable->body($template->getLocalizedData('body', $locale));
             $mailable->setData($locale);
             $mailable->attach($filePath, ['as' => 'editorial-report.csv']);
+            $mailable->allowUnsubscribe($notification);
 
             Mail::send($mailable);
         }

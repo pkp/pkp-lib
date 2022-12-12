@@ -1333,9 +1333,6 @@ msgstr "էլ․ փոստի հասցե"
 msgid "notification.signedFile"
 msgstr "Ֆայլը դիտված է։"
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}'ի\" մետա տվյալները փոփոխվել են։"
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Նախադիտումները/Դիտողությունները կցված են:"
 

@@ -1130,9 +1130,6 @@ msgstr "Fișier considerat."
 msgid "notification.type.reviewerComment"
 msgstr "Un revizor a comentat \"{$title}\"."
 
-msgid "notification.type.metadataModified"
-msgstr "Metadatele \"{$title}'s\" au fost modificate."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Revizuire înregistrată în {$stage}."
 

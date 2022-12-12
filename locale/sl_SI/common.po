@@ -1452,9 +1452,6 @@ msgstr "Potrebno je pregledati spremembe v {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Spremembe so bila oddane v {$stage}."
 
-msgid "notification.type.metadataModified"
-msgstr "Metapodatki za \"{$title}\" so bili spremenjeni."
-
 msgid "notification.type.reviewerComment"
 msgstr "Recenzent je oddal komentar na \"{$title}\"."
 

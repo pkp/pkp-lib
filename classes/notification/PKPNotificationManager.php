@@ -402,9 +402,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => ['settingName' => 'notificationEditorAssignmentRequired',
                 'emailSettingName' => 'emailNotificationEditorAssignmentRequired',
                 'settingKey' => 'notification.type.editorAssignmentTask'],
-            PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED => ['settingName' => 'notificationMetadataModified',
-                'emailSettingName' => 'emailNotificationMetadataModified',
-                'settingKey' => 'notification.type.metadataModified'],
             PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT => ['settingName' => 'notificationReviewerComment',
                 'emailSettingName' => 'emailNotificationReviewerComment',
                 'settingKey' => 'notification.type.reviewerComment'],
@@ -486,7 +483,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     {
         switch ($notificationType) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-            case PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED:
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));

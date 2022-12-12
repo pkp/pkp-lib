@@ -1148,9 +1148,6 @@ msgstr "{$stage}. adımda değerlendirilecek düzeltmeler."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Düzeltmeler {$stage}. adıma gönderildi."
 
-msgid "notification.type.metadataModified"
-msgstr "\"{$title}\" gönderinin üst verileri düzenlendi."
-
 msgid "notification.type.reviewerComment"
 msgstr "Bir hakem \"{$title}\" hakkında yorum yaptı."
 

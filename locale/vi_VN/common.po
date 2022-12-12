@@ -1778,9 +1778,6 @@ msgstr "Đây phải là tệp thuộc loại {$values}."
 msgid "validator.max.array"
 msgstr "Giá trị trong mảng này không được lớn hơn {$max}."
 
-msgid "notification.type.metadataModified"
-msgstr "Siêu dữ liệu của \"{$title}\" đã được sửa đổi."
-
 msgid "notification.type.pendingRevisions.title"
 msgstr "Các bản sửa đổi đã được gửi tới {$stage}."
 

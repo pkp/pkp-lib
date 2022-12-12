@@ -1509,9 +1509,6 @@ msgstr "Átdolgozások áttekintésre a {$stage} szakaszban."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Feltöltött átdolgozások a {$stage} szakaszban."
 
-msgid "notification.type.metadataModified"
-msgstr "Módosították a \"{$title}\" cím metaadatát."
-
 msgid "notification.type.reviewerComment"
 msgstr "Egy szakmai lektor megjegyzést tett a  \"{$title}\" címhez."
 

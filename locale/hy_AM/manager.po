@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2022-11-28 05:40+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -3330,3 +3330,15 @@ msgstr "Ընդհանուր դիտումներ ըստ ամսաթվի"
 
 msgid "stats.downloads.timelineInterval"
 msgstr "Ընդհանուր ներբեռնումներ ըստ ամսաթվի"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Առաջնային նիշք"
+
+msgid "stats.file.type.suppFile"
+msgstr "Լրացուցիչ նիշք"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Ներկայացումները Ընթացքի մեջ են"
+
+msgid "stats.name.submissionsImported"
+msgstr "Ներմուծված ներկայացումներ"

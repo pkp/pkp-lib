@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2022-11-29 05:32+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -3347,3 +3347,15 @@ msgstr "Total antal visninger per dato"
 
 msgid "stats.downloads.timelineInterval"
 msgstr "Total antal downloads per dato"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Primær fil"
+
+msgid "stats.file.type.suppFile"
+msgstr "Supplerende fil"
+
+msgid "stats.name.submissionsImported"
+msgstr "Importerede indsendelser"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Igangværende indsendelser"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:11+00:00\n"
-"PO-Revision-Date: 2022-09-23 13:53+0000\n"
+"PO-Revision-Date: 2022-11-29 15:08+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "pl_PL/>\n"
@@ -706,3 +706,9 @@ msgstr "Dodaj instytucję"
 
 msgid "contributor.listPanel.preview"
 msgstr "Podgląd"
+
+msgid "grid.action.view"
+msgstr "Widok"
+
+msgid "grid.columns.locale.code"
+msgstr "Kod"

@@ -1,11 +1,12 @@
 # rl <biuro@fimagis.pl>, 2022.
+# Pressto <pressto@amu.edu.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2022-09-23 13:53+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2022-11-29 15:08+0000\n"
+"Last-Translator: Pressto <pressto@amu.edu.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl_PL/>\n"
 "Language: pl_PL\n"
@@ -458,7 +459,7 @@ msgid "common.status"
 msgstr "Status"
 
 msgid "common.subject"
-msgstr "Przedmiot"
+msgstr "Tytuł wiadomości"
 
 msgid "common.suggest"
 msgstr "Zasugeruj"
@@ -895,7 +896,7 @@ msgstr "Potwierdzony"
 msgid "common.titleSmallWords"
 msgstr ""
 "z i albo ani ale jeśli potem jeszcze kiedy w przez włącz wyłącz dla wewnątrz "
-"zewnątrz ponad do do wewnątrz"
+"zzewnątrz ponad do wewnątrz"
 
 msgid "common.warning"
 msgstr "Ostrzeżenie"
@@ -1642,7 +1643,7 @@ msgstr "Te właściwości są niedozowolone."
 
 msgid "common.noTemporaryFile"
 msgstr ""
-"Plik który wgrałeś nie może zostać odnaleziony.  Spróbuj załadować ponownie."
+"Plik który wgrałeś nie może zostać odnaleziony. Spróbuj załadować ponownie."
 
 msgid "common.orderUp"
 msgstr "Przesuń pozycję {$itemTitle} do góry"
@@ -1823,16 +1824,16 @@ msgid "validator.boolean"
 msgstr "Pole musi zawierać wartość logiczną 0/1."
 
 msgid "validator.between.array"
-msgstr "Wartość musi mieścić się  pomiędzy {$min} i {$max} elementów."
+msgstr "Wartość musi mieścić się pomiędzy {$min} i {$max} elementów."
 
 msgid "validator.between.string"
-msgstr "Wartość musi mieścić się  pomiędzy {$min} i {$max} znaków."
+msgstr "Wartość musi mieścić się pomiędzy {$min} i {$max} znaków."
 
 msgid "validator.between.file"
 msgstr "Objętość musi być pomiędzy {$min} i {$max} kilobajtów."
 
 msgid "validator.between.numeric"
-msgstr "Wartość musi mieścić się  pomiędzy {$min} and {$max}."
+msgstr "Wartość musi mieścić się pomiędzy {$min} and {$max}."
 
 msgid "validator.before"
 msgstr "Data musi być ustawiona wcześniej niż {$date}."
@@ -2124,10 +2125,10 @@ msgid "timeZone"
 msgstr "Strefa czasowa"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr "Twoja subskrypcja została anulowana"
+msgstr "Przerwano twoją subskrypcję"
 
 msgid "notification.unsubscribeNotifications.error"
-msgstr "Anulowanie subskrypcji nie powiodło się"
+msgstr "Nie mogliśmy przerwać twojej subskrypcji"
 
 msgid "notification.unsubscribeNotifications"
 msgstr "Anuluj subskrypcję"
@@ -2171,8 +2172,8 @@ msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
 "Wystąpił niespodziewany błąd i aplikacja nie była w stanie dokonać "
 "poprawnego anulowania subskrypcji adresu {$email}. Jest możliwość anulowania "
-"subskrypcji w  <a href=\"{$profileNotificationUrl}\"> profilu użytkownika</"
-"a> lub skontaktuj się z nami bezpośrednio."
+"subskrypcji w <a href=\"{$profileNotificationUrl}\"> profilu użytkownika</a> "
+"lub skontaktuj się z nami bezpośrednio."
 
 msgid "validator.country"
 msgstr "Nieprawidłowa nazwa kraju."
@@ -2186,3 +2187,18 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "validator.country.regex"
+msgstr ""
+"To nie jest prawidłowo zapisana nazwa kraju. Nazwa kraju musi być jednym z 2-"
+"literowych kodów międzynarodowych. Zobacz wszystkie kody na https://en."
+"wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.searchPhrase"
+msgstr "Fraza wyszukiwania"
+
+msgid "common.downloadReport"
+msgstr "Pobierz raport"
+
+msgid "common.geographic"
+msgstr "Geografia"

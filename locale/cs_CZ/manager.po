@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-11-07 08:02+0000\n"
+"PO-Revision-Date: 2022-11-29 15:08+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2627,11 +2627,11 @@ msgstr "Znovu podat do recenzního řízení"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
-"Tento e-mail oznamuje autorovi rozhodnutí o požadavcích na revizi textu "
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavcích na úpravu textu "
 "během recenzního řízení."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr "Byly vyžádány revize textu"
+msgstr "Byly vyžádány úpravy textu"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
@@ -2689,13 +2689,13 @@ msgstr "Vyzvali jsme autory, aby předložili revidovanou verzi k další recenz
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr "Vyzvali jsme autory k předložení revidovaného textu."
+msgstr "Vyzvali jsme autory k předložení upraveného textu."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
 msgstr "Rozhodli jsme se tento příspěvek odmítnout."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "Rozhodli jsme se přijmout tento příspěvek bez revizí."
+msgstr "Rozhodli jsme se přijmout tento příspěvek bez úprav."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
@@ -3291,3 +3291,15 @@ msgstr "Celkem náhledů podle data"
 
 msgid "stats.downloads.timelineInterval"
 msgstr "Celkem stažení podle data"
+
+msgid "stats.file.type.suppFile"
+msgstr "Doplňkový soubor"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Primární soubor"
+
+msgid "stats.name.submissionsImported"
+msgstr "Importované příspěvky"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Probíhající podání příspěvků"

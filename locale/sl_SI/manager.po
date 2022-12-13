@@ -2837,9 +2837,6 @@ msgstr ""
 "Ta email pošlje urednik recenzentu z obvestilom, kakšna odločitev je bila "
 "sprejeta v zvezi s prispevkom, ki ga je recenziral."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Zahvala recenzentu"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Kopija emaila, ki je bil poslan avtorju, ki je oddal prispevek"
 

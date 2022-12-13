@@ -2633,9 +2633,6 @@ msgstr ""
 "at der er blevet truffet en beslutning angående en indsendelse, som de har "
 "bedømt."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Bekræftelse af bedømmer"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "En kopi af den e-mail, der blev sendt til den indsendende forfatter"
 

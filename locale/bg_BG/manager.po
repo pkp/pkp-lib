@@ -1913,9 +1913,6 @@ msgstr ""
 "Този имейл се изпраща от редактор до рецензента, за да го уведоми, че е "
 "взето решение по отношение на подадени материали, които той е рецензирал."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Признание към рецензента"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Копие от имейл съобщението, изпратено до подаващия материалите автор"
 

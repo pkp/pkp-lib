@@ -2734,9 +2734,6 @@ msgstr ""
 "Бұл электрондық хатты редактор рецензентке өзі қарап шыққан материал бойынша "
 "шешім қабылданғаны туралы хабарлау үшін жібереді."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Рецензенттің растауы"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Авторға жіберілген электрондық хаттың көшірмесі"
 

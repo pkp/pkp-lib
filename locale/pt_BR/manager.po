@@ -2755,9 +2755,6 @@ msgstr ""
 "Este e-mail é enviado por um Editor a um Avaliador para notificá-lo de que "
 "uma decisão foi tomada em relação a uma submissão que ele avaliou."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Agradecimento do Avaliador"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Uma cópia da mensagem de e-mail que foi enviada ao autor da submissão"
 

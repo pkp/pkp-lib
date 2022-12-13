@@ -2464,9 +2464,6 @@ msgstr ""
 "Este e-mails é enviado por um Editor ao Revisor para o notificar que foi "
 "emitida uma decisão relativa a uma submissão que realizou a revisão."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Agradecimento ao Revisor"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Uma cópia do e-mail foi enviado para o autor da submissão"
 

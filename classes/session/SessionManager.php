@@ -251,7 +251,7 @@ class SessionManager
             $expireTime,
             ini_get('session.cookie_path'),
             $domain,
-            false,
+            true,
             true
         );
     }

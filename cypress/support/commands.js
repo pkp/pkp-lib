@@ -182,6 +182,7 @@ Cypress.Commands.add('beginSubmissionWithApi', (api, data, csrfToken) => {
 		expect(xhr.status).to.eq(200);
 	}).then(xhr => {
 		cy.wrap(xhr.body.id).as('submissionId');
+		data.id = xhr.body.id;
 		cy.wrap(xhr.body.currentPublicationId).as('currentPublicationId');
 		cy.wrap(xhr.body.publications[0]._href).as('currentPublicationApiUrl');
 	});

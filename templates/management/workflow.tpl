@@ -46,11 +46,6 @@
 					{capture assign=genresUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="genresGridContainer" url=$genresUrl}
 				</tab>
-				<tab id="notifications" label="{translate key="manager.setup.submissionsNotifications"}">
-					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SUBMISSIONS_NOTIFICATIONS}" @set="set"
-					/>
-				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
 			</tabs>
 		</tab>

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-11-29 15:08+0000\n"
+"PO-Revision-Date: 2022-12-13 16:00+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2583,7 +2583,7 @@ msgstr ""
 "závěrečných úprav a nebude podroben recenznímu řízení."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Recenzní řízení bylo přeskočeno"
+msgstr "Příspěvek byl přijat (bez recenzního řízení)"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
@@ -2640,9 +2640,8 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Zahájení nového kola recenzí"
 
-#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Příspěvek odmítnut"
+msgstr "Příspěvek odmítnut (před recenzním řízením)"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
@@ -2883,11 +2882,10 @@ msgstr "Požadavek na recenzi"
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Uplynula lhůta na reakci na požadavek na recenzi (automatizované)"
 
-#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Tento e-mail zasílá redaktor sekce, aby potvrdil přijetí dokončené recenze a "
-"poděkoval recenzentovi za jeho příspěvky."
+"Tento e-mail je zaslán recenzentovi jako potvrzení, že jeho recenze byla "
+"přijata, a jako poděkování za jeho příspěvky."
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Poděkování za recenzi"
@@ -2918,29 +2916,29 @@ msgstr ""
 "heslo nebo se nemůže přihlásit. Obsahuje adresu URL, kterou může následovat "
 "a resetovat své heslo."
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Tento email je zaslán nově registrovanému uživateli jako přivítání do "
-"systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
+"Tento e-mail je odeslán nově vytvořenému uživateli, pokud správce vytvořil "
+"uživatele prostřednictvím nastavení uživatele. Tento e-mail by měl uživatele "
+"přivítat v systému a poskytnout mu informaci o jeho uživatelském jménu a "
+"hesle."
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
 "Tento email je zaslán nově registrovanému recenzentovi jako přivítání do "
 "systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Pokud je tato možnost povolena, je tento e-mail automaticky odeslán autorovi "
-"při odeslání příspěvku do časopisu. Obsahuje informace o sledování příspěvku "
-"v redakčním procesu a poděkování autorovi za příspěvek."
+"Tento e-mail je autorovi zaslán při novém příspěvku. Měl by potvrdit, že "
+"příspěvek byl přijat, a poskytnout pokyny, co může autor očekávat dále."
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Pokud je tato funkce povolena, je tento e-mail automaticky zasílán autorům "
-"uvedeným v příspěvku, kteří nejsou kontaktním autorem."
+"Tento e-mail je zasílán těm autorům uvedeným na v rámci příspěvku, kteří "
+"nejsou kontaktními autory. Měl by je informovat o tom, že byli uvedeni jako "
+"autoři, a poskytnout jim možnost kontaktovat redakci s případnými dotazy "
+"nebo opravami."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3098,46 +3096,44 @@ msgstr "Obnovení hesla"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potvrzení obnovení hesla"
 
-#, fuzzy
 msgid "mailable.userRegister.name"
-msgstr "Registrace uživatelů"
+msgstr "Uživatelský účet byl vytvořen"
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Registrace recenzentů"
 
-#, fuzzy
 msgid "mailable.submissionAck.name"
-msgstr "Poděkování za podání příspěvku"
-
-#, fuzzy
-msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Potvrzení podání příspěvku"
 
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Potvrzení podání příspěvku (ostatní autoři)"
+
 msgid "mailable.discussionSubmission.name"
-msgstr "Předkládání diskusí"
+msgstr "Diskuse (k příspěvku)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Tento e-mail je odeslán ve fázi podání, aby upozornil uživatele na podání"
+"Tento e-mail je odeslán po vytvoření diskuse nebo odpovědi na ni ve fázi "
+"podávání příspěvku."
 
 msgid "mailable.discussionReview.name"
-msgstr "Diskuse k recenzi"
+msgstr "Diskuse (k recenzi)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Tento e-mail je odeslán ve fázi pracovního postupu recenze, aby upozornil "
-"uživatele na pokrok ve zpracování příspěvku"
+"Tento e-mail je odeslán po vytvoření diskuse nebo odpovědi na ni ve fázi "
+"recenzování."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr "Diskuse ve fázi copyeditingu"
+msgstr "Diskuse (ve fázi copyeditingu)"
 
 msgid "mailable.discussionProduction.name"
-msgstr "Diskuse v produkční fázi"
+msgstr "Diskuse (v produkční fázi)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Tento e-mail je odeslán v produkční fázi, aby upozornil uživatele na pokrok "
-"ve zpracování příspěvku"
+"Tento e-mail je odeslán při vytvoření diskuse nebo odpovědi na ni v "
+"produkční fázi."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Oznámení revidované verze"
@@ -3150,16 +3146,15 @@ msgstr "Oznámení o publikované verzi"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Tento e-mail automaticky informuje recenzenta o změněných podrobnostech "
-"recenze"
+"Tento e-mail automaticky upozorní recenzenta na změny v přiřazené recenzi."
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identifikace čísla, včetně svazku, čísla, roku a názvu"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Tento e-mail je odeslán ve fázi copyeditingu, aby upozornil uživatele na "
-"pokrok ve zpracování příspěvku"
+"Tento e-mail je odeslán po vytvoření diskuse nebo odpovědi na ni ve fázi "
+"copyeditingu."
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""
@@ -3303,3 +3298,124 @@ msgstr "Importované příspěvky"
 
 msgid "stats.name.submissionsInProgress"
 msgstr "Probíhající podání příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Počet příspěvků nezahrnutých do ostatních součtů"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Rok vydání zprávy"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Nové oznámení"
+
+msgid "manager.manageEmails"
+msgstr "Správa emailů"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Přidání a úprava šablon</a> pro všechny e-maily "
+"odesílané systémem.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Přidejte a upravte šablony, které chcete zpřístupnit uživateli při odesílání "
+"tohoto e-mailu. Výchozí se načte automaticky a uživatel bude moci rychle "
+"načíst jakékoli další šablony, které sem přidáte."
+
+msgid "manager.mailables.templates"
+msgstr "Šablony"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Úprava šablony"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Odstranění šablony"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr "Opravdu chcete odstranit šablonu <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Obnovení šablony"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Jste si jisti, že chcete pro šablonu <strong>{$template}</strong> obnovit "
+"výchozí hodnoty předmětu a těla?"
+
+msgid "manager.mailables.search"
+msgstr "Vyhledávání podle názvu nebo popisu"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Zadejte stručný název, který vám pomůže tuto šablonu najít."
+
+msgid "manager.newSubmission"
+msgstr "Nový příspěvek"
+
+msgid "manager.submissionAck.description"
+msgstr "Kdo by měl obdržet e-mail o dokončení podání nového příspěvku."
+
+msgid "manager.submissionAck.off"
+msgstr "Neposílejte e-mail."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "E-mail zašlete pouze autorovi, který práci předkládá."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Odeslání e-mailu všem autorům."
+
+msgid "manager.editorialDecisions"
+msgstr "Redakční rozhodnutí"
+
+msgid "manager.forEditors"
+msgstr "Pro redaktory"
+
+msgid "manager.forEditors.description"
+msgstr "Konfigurace e-mailových oznámení, která se mají odesílat redaktorům."
+
+msgid "manager.editorialStatistics"
+msgstr "Redakční statistiky"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Zasílání měsíčních e-mailů redaktorům."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Neposílat e-mail redaktorům."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Požadovat copyediting"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Otázka k citacím"
+
+msgid "mailable.editorAssign.name"
+msgstr "Byl přiřazen redaktor"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Hotovo pro produkci"
+
+msgid "mailable.system"
+msgstr "Systém"
+
+msgid "mailable.versionCreated.name"
+msgstr "Vytvořena verze"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Recenze byla dokončena"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Recenze upravena"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Konfigurace e-mailových oznámení, která se mají odesílat při novém příspěvku."
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Konfigurace e-mailových oznámení, která se mají odesílat autorům, když je "
+"zaznamenáno rozhodnutí redakce."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Zda zasílat redaktorům měsíční e-mail se statistikami o vydávání časopisu, "
+"například o počtu přijatých a odmítnutých příspěvků. Redaktoři se mohou z "
+"odběru tohoto e-mailu odhlásit ve svém uživatelském profilu."

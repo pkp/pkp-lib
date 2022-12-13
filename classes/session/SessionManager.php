@@ -245,13 +245,19 @@ class SessionManager
             setcookie(session_name(), '', 0, ini_get('session.cookie_path'), false);
         }
 
+		// Set secure flag to true when using HTTPS
+		$secure = true;
+		if (!isset($_SERVER['HTTPS']) || strtolower_codesafe($_SERVER['HTTPS']) != 'on') {
+			$secure = false;
+		}
+
         return setcookie(
             session_name(),
             ($sessionId === false) ? session_id() : $sessionId,
             $expireTime,
             ini_get('session.cookie_path'),
             $domain,
-            true,
+            $secure,
             true
         );
     }

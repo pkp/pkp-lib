@@ -3,8 +3,8 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-03 16:16+0000\n"
-"Last-Translator: Artashes Mirzoyan <amirzoyan@sci.am>\n"
+"PO-Revision-Date: 2022-12-13 13:38+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -297,3 +297,9 @@ msgstr "Ձեր հայցած հաստատությունը չի գտնվել:"
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
 "Ձեր հարցումը անվավեր էր: TimelineInterval-ը պետք է լինի «օր» կամ «ամիս»:"
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Սա վավեր համատեքստ չէ:"
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Սա հայտնի էլ․ փոստի կանխադրված էլ․ փոստի ձևանմուշ չէ:"

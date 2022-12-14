@@ -198,7 +198,8 @@ class Schema extends BaseSchema
             }
 
             if ($prop === 'uploaderUserName') {
-                $user = Repo::user()->get($submissionFile->getData('uploaderUserId'));
+                $userId = $submissionFile->getData('uploaderUserId');
+                $user = !is_null($userId) ? Repo::user()->get($userId) : null; // userId can be null, see pkp/pkp-lib#8493
                 $output[$prop] = $user?->getUsername() ?? '';
 
                 continue;

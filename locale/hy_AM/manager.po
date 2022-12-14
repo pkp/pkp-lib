@@ -2228,7 +2228,6 @@ msgstr "Թույլտվություններ"
 msgid "settings.libraryFiles.category.marketing"
 msgstr "Մարքեթինգ"
 
-#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Նամակ ուղարկեք միայն այն հեղինակներին, որոնք նշանակված են ներկայացման "
@@ -3111,10 +3110,8 @@ msgstr "Ներկայացման հաստատում (Այլ հեղինակներ)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Այս նամակն ուղարկվում է ներկայացման մեջ նշված հեղինակներին, բացի ուղարկող "
-"հեղինակից: Այն պետք է տեղեկացնի նրանց, որ նրանք անվանվել են որպես հեղինակ, և "
-"հնարավորություն ընձեռի նրանց հետ կապ հաստատել խմբագրության հետ ցանկացած "
-"մտահոգությունների կամ ուղղումների համար:"
+"Այս նամակն ինքնաշխատ կերպով ուղարկվում է այն հեղինակներին, որոնց անունները "
+"նշված են ներկայացման մեջ, որոնք ուղարկող հեղինակ չեն:"
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Քննարկում (ներկայացում)"
@@ -3187,9 +3184,10 @@ msgstr ""
 
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Այս նամակն ուղարկվում է հեղինակին, երբ նրանք կատարում են ներկայացնում: Այն "
-"պետք է հաստատի, որ ներկայացումը ստացվել է և ուղեցույց տրամադրի այն մասին, թե "
-"ինչ կարող են ակնկալել հաջորդիվ:"
+"Այս նամակն ինքնաշխատ կերպով ուղարկվում է հեղինակին, երբ նրանք դիմում են "
+"ներկայացնում: Այն տեղեկատվություն է տրամադրում խմբագրական գործընթացի միջոցով "
+"ներկայացմանը հետևելու մասին և շնորհակալություն է հայտնում հեղինակին "
+"ներկայացման համար:"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
@@ -3458,3 +3456,100 @@ msgstr ""
 "ամսական էլ․ նամակ ուղարկել, թե ոչ, օրինակ՝ ընդունելության և մերժման "
 "տոկոսադրույքները: Խմբագիրները կարող են չեղարկել էլ․ փոստի այս "
 "բաժանորդագրությունը իրենց օգտատիրոջ պրոֆիլից:"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Գրախոսի հաստատում"
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին աջակցողների քայլի ընթացքում: Տրամադրեք "
+"հակիրճ բացատրություն այն մասին, թե ինչ տեղեկատվություն պետք է տրամադրի "
+"հեղինակը իր, համահեղինակների և ցանկացած այլ աջակցի մասին:"
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Հեղինակի ուղեցույց"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Ներկայացման ստուգաթերթ"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Խմբագրական առաջադրանքներ"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Նշանակել {$name} որպես {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Ընտրեք խմբագրական օգտվողներին, ովքեր ինքնաշխատ կերպով պետք է վերագրվեն այս "
+"դասի բոլոր նոր ներկայացումներին:"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "Ներկայացման URL-ը ներկայացման հրաշագործում"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Ներկայացումը պահված է ավելի ուշ օգտագործման համար"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Ավտոմատացված էլ․ նամակ, որն ուղարկվում է հեղինակներին, երբ նրանք պահում են "
+"իրենց ներկայացումը ավելի ուշ ավարտելու համար"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Նշանակված է խմբագիր"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Ներկայացումը խմբագրի կարիք ունի"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին, նախքան նրանք կսկսեն իրենց ներկայացումը: "
+"Տրամադրեք ներկայացման գործընթացի հակիրճ բացատրությունը, որպեսզի հեղինակն "
+"իմանա, թե ինչ է սպասվում:"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին նիշքերի վերբեռնման քայլի ընթացքում: "
+"Տրամադրեք հակիրճ բացատրություն այն մասին, թե ինչ նիշքերով են ակնկալում "
+"հեղինակները կիսել իրենց ներկայացման հետ:"
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին մանրամասների քայլի ընթացքում, երբ նրանց "
+"խնդրում են տրամադրել վերնագիրը, ամփոփագիրը և այլ հիմնական տեղեկություններ "
+"իրենց ներկայացման վերաբերյալ:"
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին «Խմբագրողների համար» քայլի ընթացքում, "
+"երբ նրանց խնդրում են տրամադրել մետատվյալներ, ինչպիսիք են հիմնաբառերը, "
+"մեկնաբանությունները խմբագրին և այլ մանրամասներ՝ խմբագրական վերանայման համար:"
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին ներկայացման հրաշագործի վերջին քայլի "
+"ընթացքում, երբ նրանց խնդրում են վերանայել իրենց տրամադրած բոլոր "
+"տեղեկությունները նախքան իրենց աշխատանքը ներկայացնելը:"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Հետևյալը ցուցադրվում է հեղինակներին, երբ նրանք սկսում են իրենց ներկայացումը: "
+"Հեղինակներին խնդրում ենք հաստատել, որ իրենց ներկայացումը համապատասխանում է "
+"այստեղ նշված ցանկացած պահանջին, նախքան իրենց ներկայացումը սկսելը:"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Ընտրեք խմբագրական օգտվողներին, ովքեր ինքնաշխատ կերպով պետք է վերագրվեն այս "
+"բաժնի բոլոր նոր ներկայացումներին:"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Ներկայացման հեղինակների անուններն ու պատկանելությունը:"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "Հրապարակված ներկայացման URL-ը"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Ներկայացման հաստատում այլ հեղինակներին"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Այս նամակն ուղարկվում է խմբագրին, երբ նրան հանձնարարվում է ներկայացում:"

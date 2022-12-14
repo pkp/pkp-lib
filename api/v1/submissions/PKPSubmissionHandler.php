@@ -665,9 +665,20 @@ class PKPSubmissionHandler extends APIHandler
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @param Submission $submission */
+        $publication = $submission->getCurrentPublication();
 
         $errors = Repo::submission()->validateSubmit($submission, $context);
+
+        $section = Application::getSectionDAO()->getById($publication->getData(Application::getSectionIdPropName()), $context->getId());
+        if (!$section || $section->getIsInactive() || ($section->getEditorRestricted() && !$this->isEditor())) {
+            $errors[Application::getSectionIdPropName()] = __('submission.wizard.sectionClosed.message', [
+                'contextName' => $context->getLocalizedData('name'),
+                'section' => $section->getLocalizedTitle(),
+                'email' => $context->getData('contactEmail'),
+                'name' => $context->getData('contactName'),
+            ]);
+        }
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);

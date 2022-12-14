@@ -255,6 +255,7 @@ abstract class Repository
         $doi = $this->get($doiId);
         $editParams = [
             'status' => Doi::STATUS_REGISTERED,
+            'registrationAgency' => null
         ];
 
         Hook::call('Doi::markRegistered', [&$editParams]);

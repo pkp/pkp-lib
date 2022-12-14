@@ -232,6 +232,9 @@ msgstr "Are you sure you want to submit <strong>{$title}</strong> to <strong>{$c
 msgid "submission.wizard.confirmSubmit.canPublish"
 msgstr "Are you sure you want to submit <strong>{$title}</strong> to <strong>{$context}</strong>? Once you submit, you will be able to review your submission and post it online."
 
+msgid "submission.wizard.sectionClosed.message"
+msgstr "{$contextName} is not accepting submissions to the {$section} section. If you need help recovering your submission, please contact <a href='mailto:{$email}'>{$name}</a>."
+
 msgid "submission.forTheEditors"
 msgstr "For Readers"
 

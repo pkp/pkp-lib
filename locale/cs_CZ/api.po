@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-13 10:09+0000\n"
+"PO-Revision-Date: 2022-12-13 13:38+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -308,3 +308,9 @@ msgstr "Požadovaná instituce nebyla nalezena."
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
 "Váš požadavek nebyl platný. Časový interval musí být „den“ nebo „měsíc“."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Toto není výchozí šablona známého e-mailu."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Toto není platný kontext."

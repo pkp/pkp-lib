@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-28 05:40+0000\n"
+"PO-Revision-Date: 2022-12-13 13:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2517,7 +2517,7 @@ msgstr ""
 "անմիջապես սրբագրման փուլ և գործընկերային գրախոսություն չի լինի:"
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Գրախոսությունը բաց է թողված"
+msgstr "Ներկայացումն ընդունված է (առանց վերանայման)"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
@@ -2575,9 +2575,8 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Սկսվել է վերանայման նոր փուլ"
 
-#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Ներկայացումը մերժվել է"
+msgstr "Ներկայացումը մերժվել է՝ (Pre-Review)"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
@@ -2912,11 +2911,10 @@ msgstr ""
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Վերանայման պատասխանը ժամկետանց է (ավտոմատացված)"
 
-#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Այս նամակն ուղարկվում է Բաժնի խմբագրի կողմից՝ հաստատելու ավարտված վերանայման "
-"ստացումը և շնորհակալություն հայտնելու գրախոսներին իրենց ներդրումների համար։"
+"Այս նամակն ուղարկվում է գրախոսին՝ հաստատելու, որ նրա կարծիքը ստացվել է և "
+"շնորհակալություն հայտնելու գրախոսներին իրենց ներդրումների համար:"
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Վերանայեք հաստատումը"
@@ -3076,9 +3074,8 @@ msgstr "Հղում դեպի խմբագրական գործունեության է
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "Հրապարակված հոդվածների վիճակագրության էջի հղումը"
 
-#, fuzzy
 msgid "mailable.userRegister.name"
-msgstr "Օգտագործողի գրանցում"
+msgstr "Օգտագործողը ստեղծվել է"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
@@ -3094,11 +3091,12 @@ msgstr "Գաղտնաբառի վերականգնում"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Գաղտնաբառի վերականգնման Հաստատում"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Այս էլ․ նամակն ուղարկվում է նոր գրանցված օգտատիրոջը՝ ողջունելու նրան "
-"համակարգում և տրամադրելու օգտանունը և գաղտնաբառը:"
+"Այս նամակն ուղարկվում է նոր ստեղծված օգտվողին, երբ խմբագրության մենեջերը "
+"օգտատիրոջը ստեղծել է օգտատիրոջ կարգավորումների միջոցով: Էլեկտրոնային փոստը "
+"պետք է ողջունի նրանց մուտք գործել համակարգ և տրամադրի նրանց օգտանուն և "
+"գաղտնաբառ:"
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Գրախոսի գրանցում"
@@ -3108,42 +3106,40 @@ msgstr ""
 "Այս էլ․ նամակն ուղարկվում է նոր գրանցված գրախոսին, որպեսզի ողջունի նրան "
 "համակարգում և տրամադրի օգտվողի անվան և գաղտնաբառի գրառումը:"
 
-#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Ներկայացման հաստատում"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr "Ներկայացման հաստատում"
+msgstr "Ներկայացման հաստատում (Այլ հեղինակներ)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Այս էլ․ նամակը, երբ միացված է, ինքնաշխատ կերպով ուղարկվում է այն "
-"հեղինակներին, որոնց անունները նշված են ներկայացման մեջ, և ովքեր ուղարկող "
-"հեղինակ չեն:"
+"Այս նամակն ուղարկվում է ներկայացման մեջ նշված հեղինակներին, բացի ուղարկող "
+"հեղինակից: Այն պետք է տեղեկացնի նրանց, որ նրանք անվանվել են որպես հեղինակ, և "
+"հնարավորություն ընձեռի նրանց հետ կապ հաստատել խմբագրության հետ ցանկացած "
+"մտահոգությունների կամ ուղղումների համար:"
 
 msgid "mailable.discussionSubmission.name"
-msgstr "Ներկայացման Քննարկում"
+msgstr "Քննարկում (ներկայացում)"
 
 msgid "mailable.discussionReview.name"
-msgstr "Քննարկման վերանայում"
+msgstr "Քննարկում (ակնարկ)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Այս էլ․ նամակն ուղարկվում է վերանայման աշխատանքային գործընթացի փուլում՝ "
-"օգտատիրոջը ներկայացման մասին ծանուցելու համար"
+"Այս նամակն ուղարկվում է, երբ քննարկում է ստեղծվում կամ պատասխանվում է "
+"վերանայման փուլում:"
 
 msgid "mailable.discussionCopyediting.name"
-msgstr "Գրական սրբագրման քննարկում"
+msgstr "Քննարկում (Գրական սրբագրում)"
 
 msgid "mailable.discussionProduction.name"
-msgstr "Արտադրության քննարկում"
+msgstr "Քննարկում (Արտադրություն)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Այս էլ․ նամակն ուղարկվում է արտադրության փուլում՝ օգտատիրոջը ներկայացման "
-"մասին ծանուցելու համար"
+"Այս նամակն ուղարկվում է, երբ քննարկում է ստեղծվում կամ պատասխանվում է "
+"արտադրության փուլում:"
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Վերանայված տարբերակի ծանուցում"
@@ -3192,23 +3188,21 @@ msgstr ""
 "մոռացել են իրենց գաղտնաբառը կամ չեն կարողանում մուտք գործել: Այն տրամադրում "
 "է URL, որին հետևելով նրանք կարող են վերականգնելու իրենց գաղտնաբառը:"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Այս էլ․ նամակը, երբ միացված է, ինքնաբերաբար ուղարկվում է հեղինակին, երբ "
-"նրանք հոդված են ուղարկում ամսագրին: Այն տեղեկատվություն է տրամադրում "
-"խմբագրական գործընթացի միջոցով ներկայացմանը հետևելու մասին և շնորհակալություն "
-"է հայտնում հեղինակին ներկայացման համար:"
+"Այս նամակն ուղարկվում է հեղինակին, երբ նրանք կատարում են ներկայացնում: Այն "
+"պետք է հաստատի, որ ներկայացումը ստացվել է և ուղեցույց տրամադրի այն մասին, թե "
+"ինչ կարող են ակնկալել հաջորդիվ:"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Այս էլ․ նամակն ուղարկվում է ներկայացման փուլում՝ օգտատերին ծանուցելու "
-"ներկայացման մասին"
+"Այս նամակն ուղարկվում է, երբ քննարկում է ստեղծվում կամ ներկայացման փուլում "
+"պատասխան է ուղարկվում:"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Այս էլ․ նամակն ուղարկվում է գրական սրբագրման փուլում՝ օգտատիրոջը ներկայացման "
-"մասին ծանուցելու համար"
+"Այս նամակն ուղարկվում է, երբ քննարկում է ստեղծվում կամ պատասխանվում է գրական "
+"սրբագրման փուլում:"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3228,8 +3222,8 @@ msgstr ""
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Այս էլ․ նամակն ինքնաշխատ կերպով ծանուցում է գրախոսին վերանայման փոփոխված "
-"մանրամասների մասին"
+"Այս էլ․ նամակն ինքնաշխատ կերպով ծանուցում է գրախոսին, երբ նրա վերանայման "
+"հանձնարարության մանրամասները փոխվել են:"
 
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Հանրային API"
@@ -3343,3 +3337,127 @@ msgstr "Ներկայացումները Ընթացքի մեջ են"
 
 msgid "stats.name.submissionsImported"
 msgstr "Ներմուծված ներկայացումներ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Ներկայացումների քանակը, որոնք ներառված չեն այլ ընդհանուրների մեջ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Հաշվետվության տարին"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Նոր հայտարարություն"
+
+msgid "manager.manageEmails"
+msgstr "Կառավարեք էլ․ նամակները"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Ավելացնել և խմբագրել կաղապարներ</a> համակարգի կողմից "
+"ուղարկված բոլոր նամակների համար:</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Ավելացրեք և խմբագրեք ձևանմուշներ, որոնք ցանկանում եք հասանելի դարձնել "
+"օգտատերերին երբ նրանք այս էլ. նամակն են ուղարկում: Լռելյայնը կբեռնվի "
+"ինքնաշխատ կերպով, և օգտվողը կկարողանա արագ բեռնել ցանկացած այլ ձևանմուշ, որը "
+"դուք ավելացնում եք այստեղ:"
+
+msgid "manager.mailables.templates"
+msgstr "Ձևանմուշներ"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Խմբագրել ձևանմուշը"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Հեռացնել ձևանմուշը"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Վերականգնել ձևանմուշը"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Համոզվա՞ծ եք, որ ցանկանում եք վերակայել թեման և հիմնական նյութը "
+"<strong>{$template}</strong> կաղապարի համար իրենց կանխադրվածներին:"
+
+msgid "manager.mailables.search"
+msgstr "Որոնել ըստ անվանման կամ նկարագրության"
+
+msgid "manager.newSubmission"
+msgstr "Նոր ներկայացում"
+
+msgid "manager.submissionAck.description"
+msgstr "Ով պետք է նամակ ստանա, երբ նոր ներկայացումն ավարտվի:"
+
+msgid "manager.submissionAck.off"
+msgstr "Էլ․ նամակ մի ուղարկեք:"
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Նամակ ուղարկեք միայն ներկայացնող հեղինակին:"
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Նամակ ուղարկեք բոլոր հեղինակներին:"
+
+msgid "manager.editorialDecisions"
+msgstr "Խմբագրական որոշումներ"
+
+msgid "manager.forEditors"
+msgstr "Խմբագիրների համար"
+
+msgid "manager.forEditors.description"
+msgstr "Կարգավորեք էլ․ փոստի ծանուցումները խմբագրողներին ուղարկելու համար:"
+
+msgid "manager.editorialStatistics"
+msgstr "Խմբագրական վիճակագրություն"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Ամսական նամակ ուղարկեք խմբագիրներին:"
+
+msgid "manager.editorialStatistics.off"
+msgstr "Էլ․ նամակ մի ուղարկեք խմբագիրներին:"
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Հայցեք գրական խմբագրում"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Հարց մեջբերումների մասին"
+
+msgid "mailable.editorAssign.name"
+msgstr "Նշանակվել է խմբագիր"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Պատրաստ է արտադրության"
+
+msgid "mailable.system"
+msgstr "Համակարգ"
+
+msgid "mailable.versionCreated.name"
+msgstr "Ստեղծված տարբերակը"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Գրախոսումն ավարտված է"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Գրախոսությունը խմբագրված է"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr "Իսկապե՞ս ուզում եք ջնջել <strong>{$template}</strong> ձևանմուշը:"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Մուտքագրեք համառոտ անուն, որը կօգնի ձեզ գտնել այս ձևանմուշը:"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Կարգավորեք էլ․ փոստի ծանուցումները՝ ուղարկելու համար, երբ նոր ներկայացում է "
+"կատարվում:"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Կազմաձևեք էլ․ փոստի ծանուցումները, որպեսզի դրանք ուղարկվեն հեղինակներին, երբ "
+"խմբագրական որոշումը գրանցվի:"
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Անկախ նրանից, թե արդյոք ամսագրի խմբագրական վիճակագրությամբ խմբագիրներին "
+"ամսական էլ․ նամակ ուղարկել, թե ոչ, օրինակ՝ ընդունելության և մերժման "
+"տոկոսադրույքները: Խմբագիրները կարող են չեղարկել էլ․ փոստի այս "
+"բաժանորդագրությունը իրենց օգտատիրոջ պրոֆիլից:"

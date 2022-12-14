@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-11-29 05:32+0000\n"
+"PO-Revision-Date: 2022-12-14 07:16+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2756,9 +2756,8 @@ msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
 "blevet sendt tilbage til indsendelsestrinnet."
 
-#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Indsendelse afslået"
+msgstr "Indsendelse afslået (Inden bedømmelse)"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
@@ -2818,7 +2817,7 @@ msgstr ""
 "bedømt."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Bedømmelse sprunget over"
+msgstr "Indsendelse accepteret (uden bedømmelse)"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
@@ -2925,11 +2924,10 @@ msgstr "Du kan ikke vælge denne handling uden at have DOI'er slået til."
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI opdatering mislykkedes"
 
-#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Denne e-mail sendes af en sektionsredaktør for at bekræfte modtagelsen af en "
-"færdig bedømmelse og takke bedømmeren for vedkommendes bidrag."
+"Denne e-mail sendes til en bedømmer for at bekræfte at bedømmelsen er "
+"modtaget og takke bedømmeren for vedkommendes bidrag."
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Bekræftelse af bedømmelse"
@@ -2970,11 +2968,11 @@ msgstr ""
 "glemt deres adgangskode eller ikke kan logge på. Den indeholder en URL-"
 "adresse, de kan følge for at nulstille deres adgangskode."
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Denne e-mail sendes til netop registrerede brugere for at byde dem velkommen "
-"til systemet og for at oplyse dem om deres brugernavn og adgangskode."
+"Denne e-mail sendes til en netop oprettet bruger, når chefredaktøren har "
+"oprettet brugeren gennem brugerindstillingerne. E-mailen bør byde velkommen "
+"til systemet og oplyse vedkommende om sit brugernavn og adgangskode."
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -2982,19 +2980,18 @@ msgstr ""
 "velkommen til systemet og for at oplyse dem om deres brugernavn og "
 "adgangskode."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Når denne e-mail er aktiveret, bliver den automatisk sendt til en forfatter, "
-"når vedkommende har indsendt et manuskript til tidsskriftet. Den indeholder "
-"oplysninger om, hvordan forfatteren kan følge manuskriptet igennem "
-"processen, og den takker forfatteren for manuskriptet."
+"Denne e-mail sendes til en forfatter, når vedkommende har indsendt et "
+"manuskript til tidsskriftet. Den bør bekræfte modtagelse af manuskriptet og "
+"indeholde oplysninger om, hvad forfatteren kan forvente som næste skridt."
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Når denne e-mail er aktiveret, sendes den automatisk til de øvrige "
-"forfattere, udover indsenderen, angivet under indsendelsesprocessen."
+"Denne e-mail sendes til forfatterne angivet i indsendelsesprocessen, udover "
+"indsenderen. Den bør informere dem om, at de er blevet angivet som "
+"forfattere, og give dem mulighed for at kontakte redaktionen med eventuelle "
+"rettelser eller betænkeligheder."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3144,16 +3141,14 @@ msgstr "Bekræft nulstilling af password"
 msgid "mailable.reviewerRegister.name"
 msgstr "Bedømmerregister"
 
-#, fuzzy
 msgid "mailable.submissionAck.name"
-msgstr "Anerkendelse af indsendelse"
-
-#, fuzzy
-msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Bekræftelse af indsendelse"
 
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Bekræftelse af indsendelse (andre forfattere)"
+
 msgid "mailable.discussionReview.name"
-msgstr "Bedømmelsesdiskussion"
+msgstr "Diskussion (bedømmelse)"
 
 msgid "mailable.discussionCopyediting.name"
 msgstr "Manuskriptredigeringsdiskussion"
@@ -3183,9 +3178,8 @@ msgstr "Notifikation om redigering af bedømmelse"
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "Titlen på meddelelsen"
 
-#, fuzzy
 msgid "mailable.userRegister.name"
-msgstr "Brugerregister"
+msgstr "Bruger oprettet"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Antal indsendelser modtaget denne måned"
@@ -3194,15 +3188,15 @@ msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "Antal accepterede indsendelser"
 
 msgid "mailable.discussionSubmission.name"
-msgstr "Indsendelsesdiskussion"
+msgstr "Diskussion (indsendelse)"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "Total antal modtagne indsendelser"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Denne e-mail sendes på indsendelsestrinnet for at meddele en bruger om "
-"indsendelsen"
+"Denne e-mail sendes når der er oprettet eller svaret på en diskussion på "
+"indsendelsestrinnet."
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Nummer identifikation, inklusive årgang, nummer, år og titel"
@@ -3365,3 +3359,9 @@ msgstr "Tjekliste til forberedelse af manuskript"
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr "Forfattere, der fremsender et manuskript til tidsskriftet, bliver først bedt om at fuldføre hvert enkelt element på Tjekliste til forberedelse af manuskript, inden de fortsætter. Tjeklisten vises også under Retningslinjer for forfattere under Om tidsskriftet. Listen kan redigeres nedenfor, men alle elementer på listen skal afkrydses, inden forfatterne kan fortsætte med deres manuskript."
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Antallet af indsendelser, der ikke tælles med i andre totaler"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Året for rapporten"

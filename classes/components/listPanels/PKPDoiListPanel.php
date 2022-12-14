@@ -198,6 +198,7 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.status.registered.description',
             'manager.dois.status.error.description',
             'manager.dois.status.stale.description',
+            'manager.dois.registration.manuallyMarkedRegistered',
         ]);
 
         $this->setAppConfig($config);

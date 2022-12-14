@@ -38,6 +38,11 @@
 	  "validation": [
 		"in:1,2,3,4,5"
 	  ]
+	},
+	"registrationAgency": {
+	  "type": "string",
+	  "description": "The agency with which the DOI is registered. Will be null, if marked as manually registered.",
+	  "apiSummary": true
 	}
   }
 }

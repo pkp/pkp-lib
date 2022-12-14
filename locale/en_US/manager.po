@@ -232,6 +232,10 @@ msgid "manager.dois.registration.submittedDescription"
 msgstr ""
 "The metadata for this item has been submitted to {$registrationAgency}."
 
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+"This item has been manually registered with a registration agency."
+
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
 "The metadata for this item has not been submitted to {$registrationAgency}."

@@ -16,6 +16,7 @@
 namespace PKP\pages\workflow;
 
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
@@ -250,6 +251,47 @@ abstract class PKPWorkflowHandler extends Handler
             ['submissionId' => $submission->getId()]
         );
 
+        // Cancel and Revert Cancel decisions for all stages
+        $cancelDecisions = array(
+            WORKFLOW_STAGE_ID_SUBMISSION => array(
+                "cancel" => Decision::CANCEL_SUBMISSION_IN_SUBMISSION,
+                "revertCancel" => Decision::REVERT_CANCEL_SUBMISSION_IN_SUBMISSION,
+            ),
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => array(
+                "cancel" => Decision::CANCEL_SUBMISSION_IN_INTERNAL_REVIEW,
+                "revertCancel" => Decision::REVERT_CANCEL_SUBMISSION_IN_INTERNAL_REVIEW,
+            ),
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => array(
+                "cancel" => Decision::CANCEL_SUBMISSION_IN_EXTERNAL_REVIEW,
+                "revertCancel" => Decision::REVERT_CANCEL_SUBMISSION_IN_EXTERNAL_REVIEW,
+            ),
+            WORKFLOW_STAGE_ID_EDITING => array(
+                "cancel" => Decision::CANCEL_SUBMISSION_IN_COPYEDITING,
+                "revertCancel" => Decision::REVERT_CANCEL_SUBMISSION_IN_COPYEDITING,
+            ),
+            WORKFLOW_STAGE_ID_PRODUCTION => array(
+                "cancel" => Decision::CANCEL_SUBMISSION_IN_PRODUCTION,
+                "revertCancel" => Decision::REVERT_CANCEL_SUBMISSION_IN_PRODUCTION,
+            ),
+        );
+
+        $reviewRound = false;
+        if ($currentStageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $currentStageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+            $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $currentStageId);
+        }
+
+        $cancelSubmissionDecisionUrl = $request->url(
+            $submissionContext->getData('urlPath'),
+            'decision',
+            'record',
+            $submission->getId(),
+            [
+                'decision' => $submission->getStatus() === PKPSubmission::STATUS_CANCELED ? $cancelDecisions[$currentStageId]['revertCancel'] : $cancelDecisions[$currentStageId]['cancel'],
+                'reviewRoundId' => $reviewRound ? $reviewRound->getId() : '',
+            ]
+        );
+
         $publishUrl = $request->getDispatcher()->url(
             $request,
             PKPApplication::ROUTE_COMPONENT,
@@ -292,6 +334,7 @@ abstract class PKPWorkflowHandler extends Handler
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
+            'STATUS_CANCELED' => PKPSubmission::STATUS_CANCELED,
             'FORM_CITATIONS' => FORM_CITATIONS,
             'FORM_PUBLICATION_LICENSE' => FORM_PUBLICATION_LICENSE,
             'FORM_PUBLISH' => FORM_PUBLISH,
@@ -433,6 +476,8 @@ abstract class PKPWorkflowHandler extends Handler
         $templateMgr->assign([
             'canAccessEditorialHistory' => $canAccessEditorialHistory,
             'canAccessPublication' => $canAccessPublication,
+            'submissionWasPublishedBefore' => Repo::submission()->wasPublishedBefore($submission),
+            'cancelSubmissionDecisionUrl' => $cancelSubmissionDecisionUrl,
             'canEditPublication' => $canEditPublication,
             'canAccessProduction' => $canAccessProduction,
             'canPublish' => $canPublish,
@@ -680,6 +725,9 @@ abstract class PKPWorkflowHandler extends Handler
                 break;
             case PKPSubmission::STATUS_DECLINED:
                 $lastDecision = 'editor.submission.workflowDecision.submission.declined';
+                break;
+            case PKPSubmission::STATUS_CANCELED:
+                $lastDecision = 'editor.submission.workflowDecision.submission.canceled';
                 break;
         }
 

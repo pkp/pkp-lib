@@ -175,7 +175,7 @@ class DashboardHandler extends Handler
 
         // Archived
         $params = [
-            'status' => [PKPSubmission::STATUS_DECLINED, PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED],
+            'status' => [PKPSubmission::STATUS_CANCELED, PKPSubmission::STATUS_DECLINED, PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED],
         ];
         if (empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
             $params['assignedTo'] = (int) $currentUser->getId();

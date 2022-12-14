@@ -59,7 +59,16 @@ class Decision extends DataObject
     public const BACK_FROM_COPYEDITING = 30;
     public const CANCEL_REVIEW_ROUND = 31;
     public const CANCEL_INTERNAL_REVIEW_ROUND = 32;         // OMP Specific
-
+    public const CANCEL_SUBMISSION_IN_SUBMISSION = 34;
+    public const REVERT_CANCEL_SUBMISSION_IN_SUBMISSION = 35;
+    public const CANCEL_SUBMISSION_IN_INTERNAL_REVIEW = 36; // OMP Specific
+    public const REVERT_CANCEL_SUBMISSION_IN_INTERNAL_REVIEW  = 37; // OMP Specific
+    public const CANCEL_SUBMISSION_IN_EXTERNAL_REVIEW = 38;
+    public const REVERT_CANCEL_SUBMISSION_IN_EXTERNAL_REVIEW = 39;
+    public const CANCEL_SUBMISSION_IN_COPYEDITING = 40;
+    public const REVERT_CANCEL_SUBMISSION_IN_COPYEDITING = 41;
+    public const CANCEL_SUBMISSION_IN_PRODUCTION = 42;
+    public const REVERT_CANCEL_SUBMISSION_IN_PRODUCTION = 43;
 
     /**
      * Get the decision type for this decision

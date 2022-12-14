@@ -17,6 +17,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
 use APP\publication\Publication;
 use APP\submission\Collector;
 use APP\submission\DAO;
@@ -477,6 +478,23 @@ abstract class Repository
         return $this->getSortOption(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_DESC);
     }
 
+
+    /**
+     * Find out if the submission has been published previously
+     */
+    public function wasPublishedBefore(Submission $submission): bool
+    {
+        $submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /** @var SubmissionEventLogDAO $submissionEventLogDao */
+        $eventLogEntries = $submissionEventLogDao->getBySubmissionId($submission->getId())->toArray();
+        foreach ($eventLogEntries as $eventLogEntry) {
+            if ($eventLogEntry->getEventType() === SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     /**
      * Creates and assigns DOIs to all sub-objects if:
      * 1) the suffix pattern can currently be created, and
@@ -514,6 +532,7 @@ abstract class Repository
         return false;
     }
 
+
     /**
      * Get the appropriate status of a submission based on the
      * statuses of its publications
@@ -522,9 +541,13 @@ abstract class Repository
     {
         $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
 
-        // Declined submissions should remain declined regardless of their publications' statuses
+        // Declined and canceled submissions should remain declined regardless of their publications' statuses
         if ($submission->getData('status') === Submission::STATUS_DECLINED) {
             return Submission::STATUS_DECLINED;
+        }
+
+        if ($submission->getData('status') === Submission::STATUS_CANCELED) {
+            return Submission::STATUS_CANCELED;
         }
 
         // If there are no publications, we are probably in the process of deleting a submission.

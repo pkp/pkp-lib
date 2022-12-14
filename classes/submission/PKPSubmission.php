@@ -43,6 +43,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public const STATUS_PUBLISHED = 3;
     public const STATUS_DECLINED = 4;
     public const STATUS_SCHEDULED = 5;
+    public const STATUS_CANCELED = 6;
 
     // License settings (internal use only)
     public const PERMISSIONS_FIELD_LICENSE_URL = 1;
@@ -194,6 +195,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
             self::STATUS_PUBLISHED => 'submission.status.published',
             self::STATUS_DECLINED => 'submission.status.declined',
             self::STATUS_SCHEDULED => 'submission.status.scheduled',
+            self::STATUS_CANCELED => 'submission.status.canceled',
         ];
         return $statusMap;
     }
@@ -1513,7 +1515,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
 // Expose global constants unless operating in strict mode.
 if (!PKP_STRICT_MODE) {
     foreach ([
-        'STATUS_QUEUED', 'STATUS_PUBLISHED', 'STATUS_DECLINED', 'STATUS_SCHEDULED',
+        'STATUS_QUEUED', 'STATUS_PUBLISHED', 'STATUS_DECLINED', 'STATUS_SCHEDULED', 'STATUS_CANCELED',
         'PERMISSIONS_FIELD_LICENSE_URL', 'PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 'PERMISSIONS_FIELD_COPYRIGHT_YEAR'
     ] as $constantName) {
         if (!defined($constantName)) {

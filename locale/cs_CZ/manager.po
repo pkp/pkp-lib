@@ -2774,7 +2774,6 @@ msgstr ""
 "Všechny komentáře z dokončených recenzí. U anonymních recenzí jsou jména "
 "recenzentů skryta"
 
-#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Odeslat email pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
@@ -2928,15 +2927,14 @@ msgstr ""
 
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Tento e-mail je autorovi zaslán při novém příspěvku. Měl by potvrdit, že "
-"příspěvek byl přijat, a poskytnout pokyny, co může autor očekávat dále."
+"Tento e-mail je automaticky zaslán autorovi při odeslání příspěvku. Obsahuje "
+"informace o sledování příspěvku v redakčním procesu a poděkování autorovi za "
+"podání příspěvku."
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Tento e-mail je zasílán těm autorům uvedeným na v rámci příspěvku, kteří "
-"nejsou kontaktními autory. Měl by je informovat o tom, že byli uvedeni jako "
-"autoři, a poskytnout jim možnost kontaktovat redakci s případnými dotazy "
-"nebo opravami."
+"Tento e-mail je automaticky zasílán dalším autorům uvedeným u příspěvku, "
+"kteří nejsou přihlašujícím autorem."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3294,13 +3292,14 @@ msgstr "Importované příspěvky"
 msgid "stats.name.submissionsInProgress"
 msgstr "Probíhající podání příspěvků"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Zaškrtávací seznam pro přípravu příspěvku"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "V průběhu podávání příspěvku do časopisu jsou autoři nejdříve požádáni, aby zaškrtli všechny položky v Zaškrtávacím seznamu pro přípravu příspěvku a potvrdili tak jejich splnění; poté mohou postupovat dále. Zaškrtávací seznam je také zobrazen v Pokyny autorům v části O časopisu. Seznam můžete upravit níže, pamatujte ale, že aby autoři mohli pokračovat dále v odesílání svého příspěvku, budou muset zaškrtnutím potvrdit všechny položky tohoto seznamu."
+msgstr ""
+"Při zahájení odesílání se autorům zobrazí následující informace. Autoři jsou "
+"požádáni, aby před zahájením předkládání potvrdili, že jejich příspěvek "
+"splňuje všechny zde uvedené požadavky."
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
 msgstr "Počet příspěvků nezahrnutých do ostatních součtů"
@@ -3422,3 +3421,90 @@ msgstr ""
 "Zda zasílat redaktorům měsíční e-mail se statistikami o vydávání časopisu, "
 "například o počtu přijatých a odmítnutých příspěvků. Redaktoři se mohou z "
 "odběru tohoto e-mailu odhlásit ve svém uživatelském profilu."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Poděkování recenzentovi"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"V kroku nahrávání souborů se autorům zobrazí následující informace. "
+"Poskytněte stručné vysvětlení, jaké soubory mají autoři sdílet se svým "
+"příspěvkem."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v kroku podrobností, kdy jsou "
+"požádáni, aby uvedli název, abstrakt a další klíčové informace o svém "
+"příspěvku."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v posledním kroku průvodce "
+"odesláním, kdy jsou vyzváni, aby si před odesláním své práce zkontrolovali "
+"všechny poskytnuté informace."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Průvodce autora"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Přiřaďte {$name} jako {$role}"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Jména a afiliace autorů příspěvku."
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "Adresa URL pro odeslání v průvodci odesláním"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Příspěvek byl uložen na později"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Automatický e-mail zaslaný autorům, když uloží svůj příspěvek k pozdějšímu "
+"dokončení"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Redaktor přiřazen"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Příspěvek potřebuje přiřazení redaktora"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Autorům se před zahájením předkládání zobrazí následující informace. "
+"Poskytněte stručné vysvětlení procesu zpracování příspěvku, aby autor věděl, "
+"co může očekávat."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"V kroku přispěvatelů se autorům zobrazují následující údaje. Poskytněte "
+"stručné vysvětlení, jaké informace by měl autor poskytnout o sobě, "
+"spoluautorech a případných dalších přispěvatelích."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v kroku Pro redaktory, kdy jsou "
+"požádáni o uvedení metadat, jako jsou klíčová slova, komentáře pro redaktora "
+"a další podrobnosti, které pomohou při redakční kontrole."
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Redakční úkoly"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Vyberte redaktory, kteří mají být automaticky přiřazeni ke všem novým "
+"příspěvkům v této sekci."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Vyberte redaktory, kteří mají být automaticky přiřazeni ke všem novým "
+"příspěvkům v této kategorii."
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "Adresa URL zveřejněného příspěvku"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Poděkování ostatním autorům příspěvku"
+
+msgid "mailable.editorAssigned.description"
+msgstr "Tento e-mail je zaslán redaktorovi, když je mu přiřazen příspěvek."

@@ -388,7 +388,7 @@ class ManagementHandler extends Handler
                     'contextIds' => [$request->getContext()->getId()],
                     'count' => 30,
                 ],
-                'items' => $items,
+                'items' => $items->values(),
                 'itemsMax' => $itemsMax,
             ]
         );

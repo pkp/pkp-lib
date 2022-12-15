@@ -492,6 +492,7 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	cy.get('select[name=filterUserGroupId').select(role);
 	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1], {delay: 0});
 	cy.get('form[id="searchUserFilter-grid-users-userselect-userselectgrid"]').find('button[id^="submitFormButton-"]').click();
+	cy.waitJQuery();
 	cy.get('td:contains("' + name + '")').parents('tr').find('input[name="userId"]').check();
 	if (recommendOnly) cy.get('input[name="recommendOnly"]').click();
 	cy.flushNotifications();

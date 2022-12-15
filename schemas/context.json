@@ -57,6 +57,7 @@
 		"authorGuidelines": {
 			"type": "string",
 			"multilingual": true,
+			"defaultLocaleKey": "default.contextSettings.authorGuidelines",
 			"validation": [
 				"nullable"
 			]

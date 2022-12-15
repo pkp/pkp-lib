@@ -34,25 +34,24 @@
 		{/if}
 	</div>
 
-	{if $submissionChecklist}
-		<div class="submission_checklist">
-			<h2>
-				{translate key="about.submissionPreparationChecklist"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
-			</h2>
-			{translate key="about.submissionPreparationChecklist.description"}
-			{$submissionChecklist}
-		</div>
-	{/if}
-
 	{if $currentContext->getLocalizedData('authorGuidelines')}
 	<div class="author_guidelines" id="authorGuidelines">
 		<h2>
 			{translate key="about.authorGuidelines"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.authorGuidelines"}
 		</h2>
 		{$currentContext->getLocalizedData('authorGuidelines')}
 	</div>
+	{/if}
+
+	{if $submissionChecklist}
+		<div class="submission_checklist">
+			<h2>
+				{translate key="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.submissionPreparationChecklist"}
+			</h2>
+			{$submissionChecklist}
+		</div>
 	{/if}
 
 	{foreach from=$sections item="section"}

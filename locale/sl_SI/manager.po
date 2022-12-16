@@ -2423,7 +2423,6 @@ msgstr ""
 "Vključuje tudi prispevke, ki niso všteti v ostale številke, kot so tisti, ki "
 "so še vedno v procesu ali naj bi bili uvoženi."
 
-#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Pošljite email samo avtorjem določenim v delovnem toku prispevka. Običajno "
@@ -2769,9 +2768,8 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Odprt je bil nov krog recenzije"
 
-#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Prispevek zavrnjen"
+msgstr "Prispevek zavrnjen (pred recenzijo)"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
@@ -2931,7 +2929,6 @@ msgstr "Zahteva za recenzijo"
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Opravljanje recenzije zamuja (avtomatsko)"
 
-#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Ta email pošlje urednik kot potrditev sprejema opravljene recenzije in kot "
@@ -2960,29 +2957,27 @@ msgstr ""
 "ponastavitev gesla. V emailu se nahaja povezava, ki jo mora uporabnik "
 "klikniti za ponastavitev gesla."
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Email se pošlje novoregistriranemu uporabniku kot dobrodošlica, skupaj z "
-"uporabniškim imenom in geslom za prijavo v sistem."
+"Email se pošlje novoregistriranemu uporabniku, ki ga je ustvaril urednik. "
+"Email služi kot dobrodošlica uprabniku, skupaj z uporabniškim imenom in "
+"geslom za prijavo v sistem."
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
 "Email se pošlje novo registriranim recenzentom kot dobrodošlica, skupaj z "
 "uporabniškim imenom in geslom za dostop do spletišča revije."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Email, če je vključen, se avtomatično pošlje avtorju na koncu oddaje "
-"rokopisa v revijo. Vključuje informacijo o sledenju prispevku skozi "
-"uredniški postopek in zahvalo za oddan prispevek."
+"Ta email se avtomatično pošlje avtorju na koncu oddaje prispevka v revijo. "
+"Vključuje informacijo o sledenju prispevku skozi uredniški postopek in "
+"zahvalo za oddan prispevek."
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Ta email, če je vključen, se avtomatično pošlje po uspešni oddaji vsem "
-"soavtorjem, ki so navedeni kot soavtorji."
+"Ta email se avtomatično pošlje po uspešni oddaji vsem soavtorjem, ki so "
+"navedeni kot soavtorji."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3036,17 +3031,14 @@ msgstr "Povezava do strani statistik objavljenih člakov"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potrditev ponastavitve gesla"
 
-#, fuzzy
 msgid "mailable.userRegister.name"
-msgstr "Registracija uporabnika"
+msgstr "Uporabnik je registriran"
 
-#, fuzzy
 msgid "mailable.submissionAck.name"
 msgstr "Potrditev prejema prispevka"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr "Potrditev prispevka"
+msgstr "Potrditev prispevka (ostali avtorji)"
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Diskusija prispevka"
@@ -3056,14 +3048,16 @@ msgstr "Recenzijska diskusija"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Ta email se pošlje v fazi recenzije kot obvestilo uporabniku o prispevku"
+"Ta email se avtomatično pošlje, ko je je prispevek v fazi recenzije in je "
+"ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.discussionCopyediting.name"
 msgstr "Lektorska diskusija"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Ta email se pošlje v fazi lektoriranja kot obvestilo uporabniku o prispevku"
+"Ta email se avtomatično pošlje, ko je je prispevek v fazi lektoriranja in je "
+"ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Obvestilo o revidirani različici"
@@ -3082,7 +3076,8 @@ msgstr "Obvestilo glede recenzije"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Ta email avtomatično obvešča recenzenta o spremenjenih podrobnostih recenzije"
+"Ta email avtomatično obvešča recenzenta o spremenjenih podrobnostih "
+"dodeljene recenzije."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obvestilo urednikom o recenzentskem priporočilu"
@@ -3110,14 +3105,16 @@ msgstr "Registracija recenzenta"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Ta email se pošlje v fazi rokopisa kot obvestilo uporabniku o prispevku"
+"Ta email se avtomatično pošlje, ko je je prispevek v fazi rokopisa in je "
+"ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.discussionProduction.name"
 msgstr "Produkcijska diskusija"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Ta email se pošlje v fazi produkcije kot obvestilo uporabniku o prispevku"
+"Ta email se avtomatično pošlje, ko je je prispevek v fazi produkcije in je "
+"ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
@@ -3321,10 +3318,130 @@ msgstr "Primarna datoteka"
 msgid "stats.file.type.suppFile"
 msgstr "Dodatna datoteka"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Kontrolni seznam za oddajo prispevka"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "Ob oddaji prispevka za revijo morajo avtorji najprej potrditi, da njihov prispevek zadovoljuje vsako postavko na kontrolnem seznamu za oddajo prispevka. Kontrolni seznam za oddajo prispevka je tudi na strani O reviji pod rubriko Navodila avtorjem. Kontrolni seznam lahko urejate spodaj, avtorji pa morajo vedno s kljukico označiti vsak postavko kot izpolnjeno, preden lahko oddajo prispevek."
+msgstr ""
+"Spodnje se prikaže avtorjem, ko začnejo z oddajo prispevka. Avtorji so "
+"naprošeni, da potrdijo, da prispevek ustreza vsem zahtevam, preden začnejo "
+"oddajati prispevek."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Zahvala recenzentu"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"Spodnje se prikaže avtorjem med korakom nalaganja datotek. Na kratko opišite "
+"postopek kakšne datoteke se ob oddaji pričakujejo."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"Spodnje se prikaže avtorjem med dodajanjem sodelavcev (soavtorjev). Na "
+"kratko opišite kakšne informacije se pričakujejo od avtorja, o avtorjem "
+"samemu, soavtorjih in ostalih sodelavcih."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Spodnje se prikaže avtorjem med korakom za posredovanje dodatnih informacij "
+"za urednike, kot so ključne besede, komentarji uredniku in ostale "
+"podrobnosti, ki pomagajo pri uredniškem pregledu."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Spodnje se prikaže avtorjem med zadnjim korakom oddaje prispevka, ko so "
+"naprošeni, da pregledajo vse posredovane podatke pred končno oddajo "
+"prispevka."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Navodila za avtorja"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Uredniške zadolžitve"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Določite urednike, ki bodo avtomatično dodeljeni na prispevke oddane v to "
+"rubriko."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Dodeli {$name} kot {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Določite urednike, ki bodo avtomatično dodeljeni na vse prispevke v tej "
+"kategoriji."
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Imena avtorjev in njihova pripadnost."
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "URL do objavljenega prispevka"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "URL do prispevka v fazi oddaje"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Število prispevkov, ki niso vključeni v ostale skupne številke"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Leto poročila"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Prispevek shranjen za kasneje"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Ta email se avtomatično pošlje avtorjem, ko prispevek shranijo za kasnejšo "
+"oddajo"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Novo obvestilo"
+
+msgid "manager.manageEmails"
+msgstr "Urejanje emailov"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Dodajanje in urejanje predlog</a> za emaile, ki ji "
+"pošilja sistem.</p>"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"Ste prepričani, da želite odstraniti predlogo <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Ste prepričani, da želite ponastaviti zadevo in besedilo na privzeto za "
+"predlogo <strong>{$template}</strong>?"
+
+msgid "manager.mailables.search"
+msgstr "Išči po imenu ali opisu"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Spodnje se prikaže avtorjem pred začetkom oddaje prispevka. Na kratko "
+"opišite postopek oddaje prispevka, da bo avtor vedel, kaj sledi."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Spodnje se prikaže avtorjem med korakom oddaje podrobnosti, ko so naprošeni, "
+"da posredujejo naslov, izvleček in ostalje ključne informacije o prispevku."
+
+msgid "manager.mailables.templates"
+msgstr "Predloge"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Urejanje predloge"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Odstrani predlogo"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Dodajanje in urejanje predlog emailov, za katere želite, da so na voljo "
+"uporabnikom, ko pošiljajo emaile. Privzeta predloga bo naložena avtomatično, "
+"uporabnik pa bo lahko hitro izbral drugo predlogo, ki jo boste dodali tukaj."
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Ponastavi predlogo"

@@ -143,14 +143,14 @@ msgstr "Login"
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password."
 
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Unable to complete password reset request because {$reason}."
+
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "No user exists with the specified email address."
-
-msgid "user.login.lostPassword.passwordSent"
-msgstr "A new password has been sent to your email address. You may now login to the site with your new password."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr "Password has been updated successfully. Please login with updated password."

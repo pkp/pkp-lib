@@ -153,6 +153,10 @@ class LoginHandler extends Handler {
 	 * Display form to reset a user's password.
 	 */
 	function lostPassword($args, $request) {
+		if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
+
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('frontend/pages/userLostPassword.tpl');
@@ -170,30 +174,45 @@ class LoginHandler extends Handler {
 		$user = $userDao->getUserByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
-			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
-			$templateMgr->display('frontend/pages/userLostPassword.tpl');
+			$templateMgr
+				->assign('error', 'user.login.lostPassword.invalidUser')
+				->display('frontend/pages/userLostPassword.tpl');
 
-		} else {
-			// Send email confirming password reset
-			import('lib.pkp.classes.mail.MailTemplate');
-			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
-			$site = $request->getSite();
-			$this->_setMailFrom($request, $mail, $site);
-			$mail->assignParams([
-				'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
-				'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
-			]);
-			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
-
-			$templateMgr->assign(array(
-				'pageTitle' => 'user.login.resetPassword',
-				'message' => 'user.login.lostPassword.confirmationSent',
-				'backLink' => $request->url(null, $request->getRequestedPage()),
-				'backLinkLabel' => 'user.login',
-			));
-			$templateMgr->display('frontend/pages/message.tpl');
+			return;
 		}
+
+		if (!Validation::isEnable($user, $reason)) {
+			$templateMgr
+				->assign([
+					'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+					'reason' => empty($reason)
+						? __('user.login.accountDisabled')
+						: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+				])
+				->display('frontend/pages/userLostPassword.tpl');
+			
+			return;
+		}
+
+		// Send email confirming password reset as all check has passed
+		import('lib.pkp.classes.mail.MailTemplate');
+		$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
+		$site = $request->getSite();
+		$this->_setMailFrom($request, $mail, $site);
+		$mail->assignParams([
+			'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
+			'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+		]);
+		$mail->addRecipient($user->getEmail(), $user->getFullName());
+		$mail->send();
+
+		$templateMgr->assign([
+			'pageTitle' => 'user.login.resetPassword',
+			'message' => 'user.login.lostPassword.confirmationSent',
+			'backLink' => $request->url(null, $request->getRequestedPage()),
+			'backLinkLabel' => 'user.login',
+		]);
+		$templateMgr->display('frontend/pages/message.tpl');
 	}
 
 	/**
@@ -201,6 +220,10 @@ class LoginHandler extends Handler {
 	 * @param $args array first param contains the username of the user whose password is to be reset
 	 */
 	function resetPassword($args, $request) {
+
+		if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
 		
 		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
@@ -218,7 +241,27 @@ class LoginHandler extends Handler {
 			$request->redirect(null, null, 'lostPassword');
 		}
 
-		$templateMgr = TemplateManager::getManager($request);
+		if (!Validation::isEnable($user, $reason)) {
+			$templateMgr
+				->assign([
+					'pageTitle' => 'user.login.resetPassword',
+					'backLink' => $request->url(null, $request->getRequestedPage()),
+					'backLinkLabel' => 'user.login',
+					'messageTranslated' => __(
+						'user.login.lostPassword.confirmationSentFailedWithReason', 
+						[
+							'reason' => empty($reason)
+								? __('user.login.accountDisabled')
+								: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+						] 
+					),
+				])
+				->display('frontend/pages/message.tpl');
+			
+			return;
+		}
+
+		// $templateMgr = TemplateManager::getManager($request);
 
 		import('lib.pkp.classes.user.form.ResetPasswordForm');
 

@@ -22,7 +22,7 @@
 		{csrf}
 		{if $error}
 			<div class="pkp_form_error">
-				{translate key=$error}
+				{translate key=$error reason=$reason}
 			</div>
 		{/if}
 

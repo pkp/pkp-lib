@@ -35,7 +35,7 @@ class ResetPasswordForm extends Form {
 
 		$this->_user = $user;
 		$this->_site = $site;
-        $this->_hash = $hash;
+		$this->_hash = $hash;
 
 		$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
 		$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.newPasswordRequired'));
@@ -64,13 +64,13 @@ class ResetPasswordForm extends Form {
 		return $this->_site;
 	}
 
-    /**
+	/**
 	 * Get the password reset hash
 	 */
-    public function getHash()
+	public function getHash()
 	{
-        return $this->_hash;
-    }
+		return $this->_hash;
+	}
 
 	/**
 	 * @copydoc Form::display
@@ -78,10 +78,10 @@ class ResetPasswordForm extends Form {
 	public function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign([
-            'minPasswordLength' => $this->getSite()->getMinPasswordLength(),
-            'username' =>  $this->getUser()->getUsername(),
-            'hash' => $this->getHash(),
-        ]);
+			'minPasswordLength' => $this->getSite()->getMinPasswordLength(),
+			'username' =>  $this->getUser()->getUsername(),
+			'hash' => $this->getHash(),
+		]);
 		parent::display($request, $template);
 	}
 
@@ -97,27 +97,27 @@ class ResetPasswordForm extends Form {
 	 */
 	public function execute(...$functionArgs) {
         
-        $user = $this->getUser();
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+		$user = $this->getUser();
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
 		if ($user->getAuthId()) {
-            $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
-            $auth = $authDao->getPlugin($user->getAuthId());
-        }
+			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
+			$auth = $authDao->getPlugin($user->getAuthId());
+		}
 
-        if (isset($auth)) {
-            $auth->doSetUserPassword($user->getUsername(), $this->getData('password'));
-            $user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-        } else {
-            $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
-        }
+		if (isset($auth)) {
+			$auth->doSetUserPassword($user->getUsername(), $this->getData('password'));
+			$user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
+		} else {
+			$user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
+		}
 
-        $user->setMustChangePassword(0);
-        $userDao->updateObject($user);
+		$user->setMustChangePassword(0);
+		$userDao->updateObject($user);
 
 		parent::execute(...$functionArgs);
 
-        return true;
+		return true;
 	}
 
 	/**

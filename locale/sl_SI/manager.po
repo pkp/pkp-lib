@@ -3048,7 +3048,7 @@ msgstr "Recenzijska diskusija"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Ta email se avtomatično pošlje, ko je je prispevek v fazi recenzije in je "
+"Ta email se avtomatično pošlje, ko je prispevek v fazi recenzije in je "
 "ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.discussionCopyediting.name"
@@ -3056,7 +3056,7 @@ msgstr "Lektorska diskusija"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Ta email se avtomatično pošlje, ko je je prispevek v fazi lektoriranja in je "
+"Ta email se avtomatično pošlje, ko je prispevek v fazi lektoriranja in je "
 "ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.revisedVersionNotify.name"
@@ -3105,7 +3105,7 @@ msgstr "Registracija recenzenta"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Ta email se avtomatično pošlje, ko je je prispevek v fazi rokopisa in je "
+"Ta email se avtomatično pošlje, ko je prispevek v fazi rokopisa in je "
 "ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.discussionProduction.name"
@@ -3113,7 +3113,7 @@ msgstr "Produkcijska diskusija"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Ta email se avtomatično pošlje, ko je je prispevek v fazi produkcije in je "
+"Ta email se avtomatično pošlje, ko je prispevek v fazi produkcije in je "
 "ustvarjena nova diskusija ali odgovor nanjo."
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
@@ -3445,3 +3445,89 @@ msgstr ""
 
 msgid "manager.mailables.resetTemplate"
 msgstr "Ponastavi predlogo"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Vpišite kratko ime, ki vam bo pomagalo najti to predlogo."
+
+msgid "manager.newSubmission"
+msgstr "Nov prispevek"
+
+msgid "manager.newSubmission.description"
+msgstr "Nastavite email obvestila, ki se pošljejo, ko je oddan nov prispevek."
+
+msgid "manager.submissionAck.description"
+msgstr "Kdo naj prejme email, ko bo oddaja prispevka končana."
+
+msgid "manager.submissionAck.off"
+msgstr "Ne pošlji emaila."
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Nastavite email obvestila, ki se pošljejo avtorjem, ko je zabeležena "
+"uredniška odločitev."
+
+msgid "manager.forEditors"
+msgstr "Za urednike"
+
+msgid "manager.forEditors.description"
+msgstr "Nastavi email obvestila, ki se pošljejo urednikom."
+
+msgid "manager.editorialStatistics"
+msgstr "Uredniške statistike"
+
+msgid "manager.editorialStatistics.off"
+msgstr "Ne pošlji mesečna emaila urednikom."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Zahtevaj lektoriranje"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Vprašanje o citiranju"
+
+msgid "mailable.system"
+msgstr "Sistem"
+
+msgid "mailable.versionCreated.name"
+msgstr "Ustvarjena različica"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Recenzija končana"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Recenzija spremenjena"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Potrditev oddaje prispevka ostalim avtorjem"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Dodeljen urednik"
+
+msgid "mailable.editorAssigned.description"
+msgstr "Ta email se avtomatično pošlje uredniku, ko mu je dodeljen prispevek."
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Prispevek potrebuje urednika"
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Pošlji email le avtorju, ki je oddal prispevek."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Pošlji email vsem avtorjem."
+
+msgid "manager.editorialDecisions"
+msgstr "Uredniške odločitve"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Pošlji mesečni email urednikom."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Naj se pošljejo ali ne mesečni emaili urednikom z uredniškimi statistikami "
+"za revijo, kot sta stopnje sprejetja in zavrnitve. Uredniki se lahko od teh "
+"obvestil odjavijo v nastavitvah svojega profila."
+
+msgid "mailable.layoutRequest.name"
+msgstr "Pripravljeno za produkcijo"
+
+msgid "mailable.editorAssign.name"
+msgstr "Dodeljen urednik"

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file Jobs/Statistics/CompileUsageStatsFromTemporaryRecords.php
+ * @file jobs/statistics/CompileUsageStatsFromTemporaryRecords.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -13,12 +13,12 @@
  * @brief Class to handle the usage metrics data loading as a Job
  */
 
-namespace APP\Jobs\Statistics;
+namespace APP\jobs\statistics;
 
 use APP\statistics\StatisticsHelper;
 use PKP\db\DAORegistry;
-use PKP\Domains\Jobs\Exceptions\JobException;
-use PKP\Support\Jobs\BaseJob;
+use PKP\job\exceptions\JobException;
+use PKP\jobs\BaseJob;
 use PKP\task\FileLoader;
 
 class CompileUsageStatsFromTemporaryRecords extends BaseJob

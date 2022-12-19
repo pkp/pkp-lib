@@ -125,8 +125,9 @@ msgstr "Üzgünüz, tıklamış olduğunuz bağlantı geçerli değildir. Şifre
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Belirtilen e-posta adresiyle kayıtlı bir kullanıcı bulunamamıştır."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "E-posta adresinize yeni şifreniz gönderilmiştir. Yeni şifrenizi kullanarak siteme bağlanabilirsiniz."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Şifre başarıyla güncellendi. Lütfen güncel şifre ile giriş yapın."
 
 msgid "user.login.registeredEmail"
 msgstr "Kayıtlı kullanıcının e-posta adresi"
@@ -325,6 +326,14 @@ msgstr "Buraya girilen notlar yalnızca yöneticiler, dergi yöneticileri, edit�
 
 msgid "user.login.registerNewAccount"
 msgstr "Kayıt"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Parola sıfırlama isteği tamamlanamıyor çünkü {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Oturum açma parolasını güncellemek için yeni parolayı girin."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Hesabınızın e-posta adresini aşağıya girmeniz halinde şifrenizi nasıl sıfırlayacağınızla ilgili talimatlar içeren bir e-posta gönderilecektir."

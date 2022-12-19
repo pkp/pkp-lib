@@ -146,8 +146,9 @@ msgstr "Helaas, de link waar u op klikte is verlopen of ongeldig. Probeer het te
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Er is geen gebruiker met dit e-mailadres."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Er is een nieuw wachtwoord verstuurd naar uw e-mailadres. U kunt nu inloggen met uw nieuwe wachtwoord."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Wachtwoord is succesvol bijgewerkt. Gelieve in te loggen met bijgewerkt wachtwoord."
 
 msgid "user.login.registeredEmail"
 msgstr "E-mail van geregistreerde gebruiker"
@@ -283,6 +284,14 @@ msgstr "Herhaal nieuw wachtwoord"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registreer"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Kan het verzoek om het opnieuw instellen van het wachtwoord niet voltooien omdat {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Voer een nieuw wachtwoord in om het inlogwachtwoord bij te werken."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Vul het e-mailadres voor uw account in, en er zal een e-mail worden verstuurd met instructies voor het vernieuwen van uw wachtwoord."

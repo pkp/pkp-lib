@@ -82,8 +82,9 @@ msgstr "Det link, du har klikket på, er udløbet eller er ikke gyldigt. Forsøg
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Der findes ingen brugere med den angivne e-mail-adresse."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Der er sendt en ny adgangskode til din e-mail-adresse. Du kan nu logge på webstedet med din nye adgangskode."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Adgangskoden er blevet opdateret. Log venligst på med opdateret adgangskode."
 
 msgid "user.login.registeredEmail"
 msgstr "E-mail-adresse på registreret bruger"
@@ -357,6 +358,14 @@ msgstr "Fortsæt browsing"
 
 msgid "user.login.registrationPendingValidation"
 msgstr "Registrering afventer bekræftelse"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Kan ikke fuldføre anmodningen om nulstilling af adgangskode pga {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Indtast ny adgangskode for at opdatere login-adgangskoden."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Registrér din kontos e-mailadresse nedenfor. Du vil efterfølgende modtage en e-mail med en vejledning i, hvordan du nulstiller dit password."

@@ -128,9 +128,6 @@ msgstr "Thank you for activating your account. You may now log in using the cred
 msgid "user.login.changePasswordInstructions"
 msgstr "You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account."
 
-msgid "user.login.resetPasswordInstructions"
-msgstr "Enter new password to update login password."
-
 msgid "user.login.forgotPassword"
 msgstr "Forgot your password?"
 
@@ -289,6 +286,10 @@ msgstr "Repeat new password"
 
 msgid "user.login.registerNewAccount"
 msgstr "Register"
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Enter new password to update login password."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Enter your account email address below and an email will be sent with instructions on how to reset your password."

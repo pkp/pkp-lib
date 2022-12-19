@@ -80,8 +80,9 @@ msgstr "Sakatu duzun esteka iraungita dago edo ez da baliozkoa. Saiatu zure pasa
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Ez dago helbide elektroniko hori duen erabiltzailerik."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Pasahitz berri bat bidali da zure helbide elektronikora. Pasahitz berriarekin sartuko zara orain webgunean."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Pasahitza behar bezala eguneratu da. Mesedez, hasi saioa pasahitz eguneratuarekin."
 
 msgid "user.login.registeredEmail"
 msgstr "Erabiltzaile erregistratuaren helbide elektronikoa"

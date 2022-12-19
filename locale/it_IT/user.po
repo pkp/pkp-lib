@@ -80,8 +80,9 @@ msgstr "Il link utilizzato è scaduto o non è valido. Prova a rigenerare nuovam
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Non esiste nessun utente con l'indirizzo email specificato."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Una nuova password è stata inviata la tuo indirizzo email. Puoi fare il login con la tua nuova password."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "La password è stata aggiornata con successo. Effettua il login con la password aggiornata."
 
 msgid "user.login.registeredEmail"
 msgstr "Email dell'utente registrato"
@@ -371,6 +372,14 @@ msgid "user.orcid.orcidInvalid"
 msgstr ""
 "L'ORCID ID che hai specificato non è valido. Per favore includi un URI "
 "completo (ad es. \"https://orcid.org/0000-0002-1825-0097\")."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "mpossibile completare la richiesta di reimpostazione della password perché {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Inserisci la nuova password per aggiornare la password di accesso."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Inserisci l'email collegato al tuo username e una email ti verrà inviata con le istruzioni su come fare una nuova password."

@@ -86,8 +86,8 @@ msgstr "对不起，你点击链接已过期或无效,请尝试再次重置您�
 msgid "user.login.lostPassword.invalidUser"
 msgstr "指定的电子邮件相关用户不存在."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "一个新的密码已发送到您的电子邮件地址.您现在可以使用新的密码登录了."
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "密碼已成功更新。請使用更新後的密碼登錄。"
 
 msgid "user.login.registeredEmail"
 msgstr "注册的用户电子邮件"
@@ -376,6 +376,14 @@ msgstr "是的，我希望收到新的出版和公告的通知。"
 
 msgid "user.register.form.privacyConsent"
 msgstr "是的，我同意按照<a href=\"{$privacyUrl}\" target=\"_blank\">隐私声明</a>收集和存储我的数据。"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "無法完成密碼重置請求，因為 {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "輸入新密碼以更新登錄密碼。"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "在下面输入您帐户的电子邮件地址，一封电子邮件将会被发送，其中包含有关如何重设密码的说明。"

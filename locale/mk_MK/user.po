@@ -131,10 +131,9 @@ msgstr "Афилијација"
 msgid "user.affiliation.description"
 msgstr "(Вашата институција, на пр. „Универзитет Симон Фрејзер“)"
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"Испратена нова лозинка на имејл. Сега можете да се најавите на страницата со "
-"вашата нова лозинка."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Лозинката е успешно ажурирана. Ве молиме најавете се со ажурирана лозинка."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Ниту еден корисник не постои со наведениот имејл.."
@@ -349,6 +348,14 @@ msgid "user.register.form.privacyConsent"
 msgstr ""
 "Да, се согласувам  моите податоци да бидат собрани и чувани според <a href=\""
 "{$privacyUrl}\" target=\"_blank\"> изјава за приватност </a>."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Не може да се комплетира барањето за ресетирање лозинка затоа што {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Внесете нова лозинка за ажурирање на лозинката за најавување."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""

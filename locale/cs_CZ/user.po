@@ -101,8 +101,9 @@ msgstr "Promiňte, odkaz, na který jste kliknul, vypršel nebo není platný. P
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Neexistuje žádný uživatel s uvedenou emailovou adresou."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Nové heslo bylo odesláno na Vaši emailovou adresu. Nyní se můžete přihlásit pomocí nového hesla."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Heslo bylo úspěšně aktualizováno. Přihlaste se prosím pomocí aktualizovaného hesla."
 
 msgid "user.login.registeredEmail"
 msgstr "Email registrovaného uživatele"
@@ -341,6 +342,14 @@ msgstr "Je vyžadováno zadání uživatelské skupiny."
 
 msgid "user.login.registerNewAccount"
 msgstr "Registrovat"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Požadavek na resetování hesla nelze dokončit, protože {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Pro aktualizaci přihlašovacího hesla zadejte nové heslo."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Vložte email k vašemu účtu. Na tento email budou poslány pokyny v případě potřeby obnovení hesla."

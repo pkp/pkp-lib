@@ -31,7 +31,7 @@
 			{csrf}
 			{include file="common/formErrors.tpl"}
 
-			<p><span class="instruct">{translate key="user.login.resetPasswordInstructions"}</span></p>
+			<p><span class="instruct">{translate key="user.login.passwordResetProcessInstructions"}</span></p>
 
 			{fbvFormArea id="loginFields"}
 				{fbvFormSection label="user.profile.newPassword" for="password"}

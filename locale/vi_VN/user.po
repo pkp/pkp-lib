@@ -181,6 +181,14 @@ msgstr ""
 "Có, tôi đồng ý thu thập và lưu trữ dữ liệu của mình theo <a href=\""
 "{$privacyUrl}\" target=\"_blank\"> tuyên bố về quyền riêng tư </a>."
 
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Không thể hoàn thành yêu cầu đặt lại mật khẩu vì {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Nhập mật khẩu mới để cập nhật mật khẩu đăng nhập."
+
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
 "Nhập địa chỉ email tài khoản của bạn vào bên dưới và một email sẽ được gửi "
@@ -329,10 +337,9 @@ msgstr "Hoàn thành đăng ký"
 msgid "user.login.registeredEmail"
 msgstr "Email của người dùng đã đăng ký"
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"Một mật khẩu mới đã được gửi đến địa chỉ email của bạn. Bây giờ bạn có thể "
-"đăng nhập vào trang web bằng mật khẩu mới của mình."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Mật khẩu đã được cập nhật thành công. Vui lòng đăng nhập với mật khẩu cập nhật."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Không có người dùng nào tồn tại với địa chỉ email được chỉ định."

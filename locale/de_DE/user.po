@@ -149,8 +149,9 @@ msgstr "Leider ist der Link, den Sie angeklickt haben, abgelaufen oder ungültig
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Zu der angegebenen E-Mail-Adresse existiert kein/e Benutzer/in."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Ein neues Passwort wurde an Ihre E-Mail-Adresse versandt. Sie können sich jetzt mit dem neuen Passwort einloggen."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Passwort wurde erfolgreich aktualisiert. Bitte melden Sie sich mit aktualisiertem Passwort an."
 
 msgid "user.login.registeredEmail"
 msgstr "E-Mail-Adresse der registrierten Benutzerin/des registrierten Benutzers"
@@ -288,6 +289,14 @@ msgstr "Neues Passwort wiederholen"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registrieren"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Anfrage zum Zurücksetzen des Passworts kann nicht abgeschlossen werden, weil {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Geben Sie ein neues Passwort ein, um das Anmeldepasswort zu aktualisieren."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Aus Sicherheitsgründen schickt das System den registrierten Benutzer/innen ein neues Passwort statt des aktuellen Passworts per E-Mail. <br /><br />Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. Eine Bestätigung geht an diese E-Mail-Adresse."

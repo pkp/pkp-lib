@@ -105,7 +105,13 @@ class Validation {
 	 * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
 	 */
 	public static function registerUserSession($user, &$reason, $remember = false) {
-		if (!self::isEnable($user, $reason)) {
+		
+		if (!is_a($user, 'User')) return false;
+
+		if ($user->getDisabled()) {
+			// The user has been disabled.
+			$reason = $user->getDisabledReason();
+			if ($reason === null) $reason = '';
 			return false;
 		}
 
@@ -394,31 +400,7 @@ class Validation {
 	 */
 	public static function isSiteAdmin() {
 		return self::isAuthorized(ROLE_ID_SITE_ADMIN);
-	}
-
-	/**
-	 * Check if the user is enable
-	 * 
-	 * @param 	$user 		User user to register in the session
-	 * @param 	$reason 	string reference to string to receive the reason an account was disabled; null otherwise
-	 * 
-	 * @return 	bool 		true to identify user is enable and false otherwise
-	 */
-	public static function isEnable($user, &$reason) {
-		if (!is_a($user, 'User')) {
-			return false;
-		}
-
-		if ($user->getDisabled()) {
-			$reason = $user->getDisabledReason();
-			if ($reason === null) {
-				$reason = '';
-			}
-			return false;
-		}
-		
-		return true;
-	}
+	}	
 
 	/**
 	 * Check whether a user is allowed to administer another user.

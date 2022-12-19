@@ -181,11 +181,11 @@ class LoginHandler extends Handler {
 			return;
 		}
 
-		if (!Validation::isEnable($user, $reason)) {
+		if ($user->getDisabled()) {
 			$templateMgr
 				->assign([
 					'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
-					'reason' => empty($reason)
+					'reason' => empty($reason = $user->getDisabledReason() ?? '')
 						? __('user.login.accountDisabled')
 						: __('user.login.accountDisabledWithReason', ['reason' => $reason])
 				])
@@ -241,7 +241,7 @@ class LoginHandler extends Handler {
 			$request->redirect(null, null, 'lostPassword');
 		}
 
-		if (!Validation::isEnable($user, $reason)) {
+		if ($user->getDisabled()) {
 			$templateMgr
 				->assign([
 					'pageTitle' => 'user.login.resetPassword',
@@ -250,7 +250,7 @@ class LoginHandler extends Handler {
 					'messageTranslated' => __(
 						'user.login.lostPassword.confirmationSentFailedWithReason', 
 						[
-							'reason' => empty($reason)
+							'reason' => empty($reason = $user->getDisabledReason() ?? '')
 								? __('user.login.accountDisabled')
 								: __('user.login.accountDisabledWithReason', ['reason' => $reason])
 						] 

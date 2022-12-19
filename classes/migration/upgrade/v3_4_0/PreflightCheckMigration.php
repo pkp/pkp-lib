@@ -405,7 +405,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
 
             // Clean orphaned stage_assignments entries by user_group_id
-            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'sa.user_group_id')->whereNull('ug.user_group_id')->distinct()->pluck('ug.user_group_id');
+            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'sa.user_group_id')->whereNull('ug.user_group_id')->distinct()->pluck('sa.user_group_id');
             foreach ($orphanedIds as $userGroupId) {
                 DB::table('stage_assignments')->where('user_group_id', '=', $userGroupId)->delete();
             }

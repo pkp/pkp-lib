@@ -261,8 +261,6 @@ class LoginHandler extends Handler {
 			return;
 		}
 
-		// $templateMgr = TemplateManager::getManager($request);
-
 		import('lib.pkp.classes.user.form.ResetPasswordForm');
 
 		$passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);

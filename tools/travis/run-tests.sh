@@ -12,7 +12,7 @@
 set -e
 
 # Run the data build suite (integration tests).
-$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/data
+$(npm bin)/cypress run --headless --browser chrome --config '{"specPattern":["cypress/tests/data/**/*.cy.js"]}'
 
 # Dump the database and files before continuing. Tests may restore this to reset the
 # environment.
@@ -41,10 +41,10 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$SAVE_BUILD" == "true" ]]; then
 fi
 
 # Run the pkp-lib integration tests.
-$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=lib/pkp/cypress/tests/integration
+$(npm bin)/cypress run --headless --browser chrome --config '{"specPattern":["lib/pkp/cypress/tests/integration/**/*.cy.js"]}'
 if [ -d "cypress/tests/integration" ]; then
 	# If application integration tests are provided, run them.
-	$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/integration
+	$(npm bin)/cypress run --headless --browser chrome --config '{"specPattern":["cypress/tests/integration/**/*.cy.js"]}'
 fi
 
 # Run the unit tests.

@@ -3559,6 +3559,6 @@ msgstr "System"
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
-"Følgende vises til forfattere de skal beskrive forfatterne. Giv en kort "
+"Følgende vises til forfattere, når de skal angive bidragydere. Giv en kort "
 "forklaring på, hvilke oplysninger forfatteren skal give om sig selv, "
 "medforfattere og eventuelle andre bidragydere."

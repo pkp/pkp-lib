@@ -683,7 +683,7 @@ class PKPSubmissionHandler extends APIHandler
 
         $userGroups = Repo::userGroup()
             ->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
+            ->filterByContextIds([$context->getId()])
             ->getMany();
 
         /** @var GenreDAO $genreDao */

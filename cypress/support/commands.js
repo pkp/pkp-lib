@@ -268,6 +268,7 @@ Cypress.Commands.add('submitSubmissionWithApi', (id, csrfToken) => {
 	return cy.get('@submissionId').then((submissionId) => {
 		cy.request({
 			url: api.submit(submissionId),
+			timeout: 500000,
 			method: 'PUT',
 			headers: {
 				'X-Csrf-Token': csrfToken

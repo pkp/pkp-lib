@@ -2953,12 +2953,6 @@ msgstr "En liste af indsendelser med uafsluttede opgaver"
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL til en side, hvor brugeren kan se og redigere sin profil."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Denne e-mail sendes til registrerede brugere, når de har nulstillet deres "
-"adgangskode, efter at de har fulgt den proces, der er beskrevet i e-mailen "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Denne e-mail sendes til registrerede brugere, når de angiver, at de har "
@@ -3128,9 +3122,6 @@ msgstr "Link til siden om redaktionel aktivitet"
 
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "Link til side om statistik for publicerede artikler"
-
-msgid "mailable.passwordReset.name"
-msgstr "Nulstil password"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Bekræft nulstilling af password"

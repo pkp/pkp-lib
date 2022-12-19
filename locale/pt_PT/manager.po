@@ -2749,12 +2749,6 @@ msgstr "Uma lista e submissões com tarefas pendentes"
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "O URL para um utilizador visualizar e editar o seu perfil."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Este e-mail é enviado a um utilizador registado quando este atualizou com "
-"sucesso a senha seguindo o processo descrito no e-mail "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Este e-mail é enviado ao utilizador registado quando o mesmo solicita a "
@@ -3118,9 +3112,6 @@ msgstr "Descarregar dados Geográficos"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "O número de visualizações e downloads para cada cidade, região ou país."
-
-msgid "mailable.passwordReset.name"
-msgstr "Redefinição de Senha"
 
 msgid "mailable.editorialReminder.description"
 msgstr "Um e-mail automático enviado aos editores com tarefas pendentes"

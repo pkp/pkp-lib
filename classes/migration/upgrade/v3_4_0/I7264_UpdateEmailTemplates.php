@@ -158,10 +158,6 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'url' => 'passwordResetUrl',
                 'principalContactSignature' => 'siteContactName',
             ],
-            'PASSWORD_RESET' => [
-                'principalContactSignature' => 'siteContactName',
-                'username' => 'recipientUsername',
-            ],
             'USER_REGISTER' => [
                 'userFullName' => 'recipientName',
                 'principalContactSignature' => 'contextSignature',

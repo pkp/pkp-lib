@@ -20,6 +20,11 @@
 
 	<form class="cmp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post" role="form">
 		{csrf}
+		{if $error}
+			<div class="pkp_form_error">
+				{translate key=$error reason=$reason}
+			</div>
+		{/if}
 
 		<div class="fields">
 			<div class="email">

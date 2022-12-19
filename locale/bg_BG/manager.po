@@ -2995,12 +2995,6 @@ msgstr ""
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Признание за рецензия"
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Този имейл се изпраща на регистриран потребител, когато той успешно "
-"възстанови паролата си, следвайки процеса, описан в имейла "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Този имейл се изпраща на регистриран потребител, когато той посочи, че е "
@@ -3190,9 +3184,6 @@ msgstr "Невалиден IP диапазон"
 
 msgid "manager.setup.institutions"
 msgstr "Институции"
-
-msgid "mailable.passwordReset.name"
-msgstr "Нулиране на парола"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Потвърждение за нулиране на парола"

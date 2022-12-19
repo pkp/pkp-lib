@@ -2903,11 +2903,6 @@ msgstr "Seznam příspěvků s nevyřízenými úkoly"
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Tento email je zaslán registrovanému uživateli, když úspěšně resetuje své "
-"heslo postupem uvedeným v PASSWORD_RESET_CONFIRM emailu."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Tento email je zasílán registrovanému uživateli, když uvede, že zapomněl své "
@@ -3087,9 +3082,6 @@ msgstr "Odkaz na stránku s redakčními aktivitami"
 
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "Odkaz na stránku se statistikami publikovaných článků"
-
-msgid "mailable.passwordReset.name"
-msgstr "Obnovení hesla"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potvrzení obnovení hesla"

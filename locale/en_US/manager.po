@@ -3139,15 +3139,6 @@ msgstr "Editorial Reminder"
 msgid "mailable.editorialReminder.description"
 msgstr "An automated email sent to editors with outstanding tasks"
 
-msgid "mailable.passwordReset.name"
-msgstr "Password Reset"
-
-msgid "mailable.passwordReset.description"
-msgstr ""
-"This email is sent to a registered user when they have successfully reset "
-"their password following the process described in the PASSWORD_RESET_CONFIRM "
-"email."
-
 msgid "mailable.passwordResetRequested.name"
 msgstr "Password Reset Confirm"
 

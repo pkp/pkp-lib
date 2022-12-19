@@ -15,26 +15,26 @@
 
 namespace PKP\pages\login;
 
-use Exception;
 use App\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
-use PKP\mail\mailables\PasswordReset;
+use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
-use PKP\notification\PKPNotification;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
+use PKP\site\Site;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\form\LoginChangePasswordForm;
-use PKP\form\validation\FormValidatorReCaptcha;
-use Symfony\Component\Mailer\Exception\TransportException;
+use PKP\user\form\ResetPasswordForm;
+use PKP\user\User;
 
 class LoginHandler extends Handler
 {
@@ -201,6 +201,10 @@ class LoginHandler extends Handler
      */
     public function lostPassword($args, $request)
     {
+        if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
+
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->display('frontend/pages/userLostPassword.tpl');
@@ -215,102 +219,143 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $email = $request->getUserVar('email');
-        $user = Repo::user()->getByEmail($email);
+        $user = Repo::user()->getByEmail($email, true); /** @var User $user */
 
-        if ($user !== null) {
-            // Send email confirming password reset
-            $site = $request->getSite();
-            $context = $request->getContext();
-            $mailable = new PasswordResetRequested($site);
-            $mailable->recipients($user);
-            $mailable->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-            $template = Repo::emailTemplate()->getByKey(
-                $context ? $context->getId() : PKPApplication::CONTEXT_SITE,
-                PasswordResetRequested::getEmailTemplateKey()
-            );
-            $mailable->body($template->getLocalizedData('body'));
-            $mailable->subject($template->getLocalizedData('subject'));
-            Mail::send($mailable);
-        }
+        if ($user === null) {
+			$templateMgr
+				->assign('error', 'user.login.lostPassword.invalidUser')
+				->display('frontend/pages/userLostPassword.tpl');
+
+			return;
+		}
+
+        if ($user->getDisabled()) {
+			$templateMgr
+				->assign([
+					'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+					'reason' => empty($reason = $user->getDisabledReason() ?? '')
+						? __('user.login.accountDisabled')
+						: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+				])
+				->display('frontend/pages/userLostPassword.tpl');
+			
+			return;
+		}
+
+        // Send email confirming password reset
+        $site = $request->getSite(); /** @var Site $site */
+        $context = $request->getContext(); /** @var Context $context */
+        $template = Repo::emailTemplate()->getByKey(
+            $context ? $context->getId() : PKPApplication::CONTEXT_SITE,
+            PasswordResetRequested::getEmailTemplateKey()
+        );
+        $mailable = (new PasswordResetRequested($site))
+            ->recipients($user)
+            ->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName())
+            ->body($template->getLocalizedData('body'))
+            ->subject($template->getLocalizedData('subject'));
+        Mail::send($mailable);
 
         $templateMgr->assign([
             'pageTitle' => 'user.login.resetPassword',
             'message' => 'user.login.lostPassword.confirmationSent',
             'backLink' => $request->url(null, $request->getRequestedPage()),
             'backLinkLabel' => 'user.login',
-        ]);
-        $templateMgr->display('frontend/pages/message.tpl');
+        ])->display('frontend/pages/message.tpl');
     }
 
     /**
-     * Reset a user's password
-     *
+     * Present the password reset form to reset user's password
      * @param array $args first param contains the username of the user whose password is to be reset
      */
     public function resetPassword($args, $request)
     {
-        $this->setupTemplate($request);
+        if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
+
+        $this->_isBackendPage = true;
+		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->setupBackendPage();
+		$templateMgr->assign([
+			'pageTitle' => __('user.changePassword'),
+		]);
 
         $username = $args[0] ?? null;
         $confirmHash = $request->getUserVar('confirm');
 
-        if ($username == null || ($user = Repo::user()->getByUsername($username)) == null) {
-            $request->redirect(null, null, 'lostPassword');
+        if ($username == null || ($user = Repo::user()->getByUsername($username, true)) == null) {
+            return $request->redirect(null, null, 'lostPassword');
         }
 
-        $templateMgr = TemplateManager::getManager($request);
+        if ($user->getDisabled()) {
+			$templateMgr
+				->assign([
+					'pageTitle' => 'user.login.resetPassword',
+					'backLink' => $request->url(null, $request->getRequestedPage()),
+					'backLinkLabel' => 'user.login',
+					'messageTranslated' => __(
+						'user.login.lostPassword.confirmationSentFailedWithReason', 
+						[
+							'reason' => empty($reason = $user->getDisabledReason() ?? '')
+								? __('user.login.accountDisabled')
+								: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+						] 
+					),
+				])
+				->display('frontend/pages/message.tpl');
+			
+			return;
+		}
 
-        if (!Validation::verifyPasswordResetHash($user->getId(), $confirmHash)) {
-            $templateMgr->assign([
-                'errorMsg' => 'user.login.lostPassword.invalidHash',
-                'backLink' => $request->url(null, null, 'lostPassword'),
-                'backLinkLabel' => 'user.login.resetPassword',
-            ]);
-            $templateMgr->display('frontend/pages/error.tpl');
-        } else {
-            // Reset password
-            $newPassword = Validation::generatePassword();
+        $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
+		$passwordResetForm->initData();
 
-            $user->setPassword(Validation::encryptCredentials($user->getUsername(), $newPassword));
-
-            SessionManager::getManager()->invalidateSessions($user->getId());
-
-            $user->setMustChangePassword(1);
-            Repo::user()->edit($user);
-
-            // Send email with new password
-            $site = $request->getSite();
-            $mailable = new PasswordReset($site, $newPassword);
-            $mailable->recipients([$user]);
-            $mailable->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-            $context = $request->getContext();
-            $template = Repo::emailTemplate()->getByKey(
-                $context ? $context->getId() : Application::CONTEXT_SITE,
-                PasswordReset::getEmailTemplateKey()
-            );
-            $mailable->subject($template->getLocalizedData('subject'));
-            $mailable->body($template->getLocalizedData('body'));
-            try {
-                Mail::send($mailable);
-            } catch (TransportException $e) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification(
-                    $user->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_ERROR,
-                    ['contents' => __('email.compose.error')]
-                );
-                error_log($e->getMessage());
-            }
-
-            $templateMgr->assign([
-                'pageTitle' => 'user.login.resetPassword',
-                'message' => 'user.login.lostPassword.passwordSent',
-                'backLink' => $request->url(null, $request->getRequestedPage()),
-                'backLinkLabel' => 'user.login',
-            ]);
-            $templateMgr->display('frontend/pages/message.tpl');
-        }
+		$passwordResetForm->validatePasswordResetHash($request)
+			? $passwordResetForm->display($request)
+			: $passwordResetForm->displayInvalidHashErrorMessage($request);
     }
+
+    /**
+	 * Reset a user's password
+	 * @param $args array first param contains the username of the user whose password is to be reset
+	 */
+	public function updateResetPassword($args, $request)
+	{
+		$this->_isBackendPage = true;
+		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+
+		$username = $request->getUserVar('username');
+		$confirmHash = $request->getUserVar('hash');
+
+		if ($username == null || ($user = Repo::user()->getByUsername($username, true)) == null) {
+            return $request->redirect(null, null, 'lostPassword');
+        }
+
+		$passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
+		$passwordResetForm->readInputData();
+
+		if ( !$passwordResetForm->validatePasswordResetHash($request) ) {
+			return $passwordResetForm->displayInvalidHashErrorMessage($request);
+		}
+
+		if ($passwordResetForm->validate()) {
+			if ($passwordResetForm->execute()) {
+				$templateMgr->assign([
+					'pageTitle' => 'user.login.resetPassword',
+					'message' => 'user.login.resetPassword.passwordUpdated',
+					'backLink' => $request->url(null, $request->getRequestedPage()),
+					'backLinkLabel' => 'user.login',
+				]);
+
+				$templateMgr->display('frontend/pages/message.tpl');
+			}
+		} else {
+			$passwordResetForm->display($request);
+		}
+	}
 
     /**
      * Display form to change user's password.

@@ -362,7 +362,7 @@ class User extends Identity
      */
     public function getDisabledReason()
     {
-        return $this->getData('disabled_reason');
+        return $this->getData('disabledReason');
     }
 
     /**
@@ -372,7 +372,7 @@ class User extends Identity
      */
     public function setDisabledReason($reasonDisabled)
     {
-        $this->setData('disabled_reason', $reasonDisabled);
+        $this->setData('disabledReason', $reasonDisabled);
     }
 
     /**

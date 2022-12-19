@@ -3392,9 +3392,8 @@ msgstr "Tildel {$name} som {$role}"
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
-"Følgende vises til forfattere under når der skal angives detaljer om "
-"artiklen, når de bliver bedt om at give titlen, abstraktet og andre vigtige "
-"oplysninger om deres indsendelse."
+"Følgende vises til forfattere, når der skal angives detaljer om artiklen, "
+"såsom titel, resumé og andre vigtige oplysninger om deres indsendelse."
 
 msgid "manager.mailables.editTemplate"
 msgstr "Rediger skabelon"

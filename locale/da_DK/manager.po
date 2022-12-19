@@ -3562,3 +3562,6 @@ msgstr ""
 "Følgende vises til forfattere, når de skal angive bidragydere. Giv en kort "
 "forklaring på, hvilke oplysninger forfatteren skal give om sig selv, "
 "medforfattere og eventuelle andre bidragydere."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Anmod om Copyedit"

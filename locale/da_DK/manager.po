@@ -3563,4 +3563,4 @@ msgstr ""
 "medforfattere og eventuelle andre bidragydere."
 
 msgid "mailable.copyeditRequest.name"
-msgstr "Anmod om Copyedit"
+msgstr "Anmod om manuskriptredigering"

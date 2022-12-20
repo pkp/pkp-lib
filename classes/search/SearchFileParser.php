@@ -100,7 +100,7 @@ class SearchFileParser
      */
     public function doRead()
     {
-        return fgets($this->fp, 4096);
+        return fgets($this->fp);
     }
 
 

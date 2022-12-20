@@ -128,7 +128,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
                     foreach ($list as $language) {
                         $languageEntry = $submissionLanguageEntryDao->newDataObject();
                         $languageEntry->setControlledVocabId($currentLanguages->getId());
-                        $languageEntry->setLanguage(urldecode($language), $locale);
+                        $languageEntry->setLanguage($language, $locale);
                         $languageEntry->setSequence($i);
                         $i++;
                         $submissionLanguageEntryDao->insertObject($languageEntry);

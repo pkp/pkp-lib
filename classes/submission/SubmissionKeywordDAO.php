@@ -17,7 +17,9 @@
 
 namespace PKP\submission;
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
 class SubmissionKeywordDAO extends ControlledVocabDAO
@@ -32,7 +34,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
      *
      * @return ControlledVocab
      */
-    public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function build($publicationId, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         // may return an array of ControlledVocabs
         return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $assocType, $publicationId);
@@ -57,7 +59,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
      *
      * @return array
      */
-    public function getKeywords($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION)
+    public function getKeywords($publicationId, $locales = [], $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $result = [];
 
@@ -102,12 +104,9 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
      * @param int $publicationId
      * @param bool $deleteFirst
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
-     *
-     * @return int
      */
-    public function insertKeywords($keywords, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function insertKeywords($keywords, $publicationId, $deleteFirst = true, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
-        $keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /** @var SubmissionKeywordDAO $keywordDao */
         $submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /** @var SubmissionKeywordEntryDAO $submissionKeywordEntryDao */
 
         if ($deleteFirst) {
@@ -158,5 +157,5 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submission\SubmissionKeywordDAO', '\SubmissionKeywordDAO');
-    define('CONTROLLED_VOCAB_SUBMISSION_KEYWORD', \SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
+    define('CONTROLLED_VOCAB_SUBMISSION_KEYWORD', SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
 }

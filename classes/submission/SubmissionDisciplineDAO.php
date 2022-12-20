@@ -18,7 +18,9 @@
 
 namespace PKP\submission;
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
 class SubmissionDisciplineDAO extends ControlledVocabDAO
@@ -31,9 +33,9 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
      * @param int $publicationId
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      *
-     * @return ControlledVocabulary
+     * @return ControlledVocab
      */
-    public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function build($publicationId, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $assocType, $publicationId);
     }
@@ -57,7 +59,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
      *
      * @return array
      */
-    public function getDisciplines($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION)
+    public function getDisciplines($publicationId, $locales = [], $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $result = [];
 
@@ -68,9 +70,6 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
             $discipline = $disciplineEntry->getDiscipline();
             foreach ($discipline as $locale => $value) {
                 if (empty($locales) || in_array($locale, $locales)) {
-                    if (!array_key_exists($locale, $result)) {
-                        $result[$locale] = [];
-                    }
                     $result[$locale][] = $value;
                 }
             }
@@ -102,10 +101,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
      * @param int $publicationId
      * @param bool $deleteFirst
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
-     *
-     * @return int
      */
-    public function insertDisciplines($disciplines, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function insertDisciplines($disciplines, $publicationId, $deleteFirst = true, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /** @var SubmissionDisciplineDAO $disciplineDao */
         $submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /** @var SubmissionDisciplineEntryDAO $submissionDisciplineEntryDao */
@@ -141,5 +138,5 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submission\SubmissionDisciplineDAO', '\SubmissionDisciplineDAO');
-    define('CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE', \SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE);
+    define('CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE', SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE);
 }

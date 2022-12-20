@@ -17,7 +17,9 @@
 
 namespace PKP\submission;
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
 class SubmissionAgencyDAO extends ControlledVocabDAO
@@ -32,7 +34,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
      *
      * @return ControlledVocab
      */
-    public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function build($publicationId, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $assocType, $publicationId);
     }
@@ -56,7 +58,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
      *
      * @return array
      */
-    public function getAgencies($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION)
+    public function getAgencies($publicationId, $locales = [], $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $result = [];
 
@@ -67,9 +69,6 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
             $agency = $agencyEntry->getAgency();
             foreach ($agency as $locale => $value) {
                 if (empty($locales) || in_array($locale, $locales)) {
-                    if (!array_key_exists($locale, $result)) {
-                        $result[$locale] = [];
-                    }
                     $result[$locale][] = $value;
                 }
             }
@@ -101,10 +100,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
      * @param int $publicationId Submission ID.
      * @param bool $deleteFirst True iff existing agencies should be removed first.
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
-     *
-     * @return int
      */
-    public function insertAgencies($agencies, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function insertAgencies($agencies, $publicationId, $deleteFirst = true, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /** @var SubmissionAgencyDAO $agencyDao */
         $submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /** @var SubmissionAgencyEntryDAO $submissionAgencyEntryDao */
@@ -140,5 +137,5 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submission\SubmissionAgencyDAO', '\SubmissionAgencyDAO');
-    define('CONTROLLED_VOCAB_SUBMISSION_AGENCY', \SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY);
+    define('CONTROLLED_VOCAB_SUBMISSION_AGENCY', SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY);
 }

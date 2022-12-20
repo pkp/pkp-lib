@@ -52,7 +52,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
      * @param int $assocType
      * @param int $assocId
      *
-     * @return $controlledVocab
+     * @return ControlledVocab
      */
     public function _build($symbolic, $assocType = 0, $assocId = 0)
     {
@@ -81,7 +81,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Construct a new data object corresponding to this DAO.
      *
-     * @return ControlledVocabEntry
+     * @return ControlledVocab
      */
     public function newDataObject()
     {

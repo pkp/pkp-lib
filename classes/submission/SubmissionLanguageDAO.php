@@ -17,7 +17,9 @@
 
 namespace PKP\submission;
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
 class SubmissionLanguageDAO extends ControlledVocabDAO
@@ -32,7 +34,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
      *
      * @return ControlledVocab
      */
-    public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function build($publicationId, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         // may return an array of ControlledVocabs
         return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $assocType, $publicationId);
@@ -57,7 +59,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
      *
      * @return array
      */
-    public function getLanguages($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION)
+    public function getLanguages($publicationId, $locales = [], $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $result = [];
 
@@ -68,9 +70,6 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
             $language = $languageEntry->getLanguage();
             foreach ($language as $locale => $value) {
                 if (empty($locales) || in_array($locale, $locales)) {
-                    if (!array_key_exists($locale, $result)) {
-                        $result[$locale] = [];
-                    }
                     $result[$locale][] = $value;
                 }
             }
@@ -102,10 +101,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
      * @param int $publicationId
      * @param bool $deleteFirst
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
-     *
-     * @return int
      */
-    public function insertLanguages($languages, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function insertLanguages($languages, $publicationId, $deleteFirst = true, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $languageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /** @var SubmissionLanguageDAO $languageDao */
         $submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /** @var SubmissionLanguageEntryDAO $submissionLanguageEntryDao */
@@ -141,5 +138,5 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submission\SubmissionLanguageDAO', '\SubmissionLanguageDAO');
-    define('CONTROLLED_VOCAB_SUBMISSION_LANGUAGE', \SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
+    define('CONTROLLED_VOCAB_SUBMISSION_LANGUAGE', SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
 }

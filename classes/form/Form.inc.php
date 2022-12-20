@@ -181,16 +181,18 @@ class Form {
 		$fbv = $templateMgr->getFBV();
 		$fbv->setForm($this);
 
-		$templateMgr->assign(array_merge(
-			$this->_data,
-			array(
-				'isError' => !$this->isValid(),
-				'errors' => $this->getErrorsArray(),
-				'formLocales' => $this->supportedLocales,
-				'formLocale' => $this->getDefaultFormLocale(),
+		$templateMgr->assign(array_merge($this->_data,[
+			'isError' => !$this->isValid(),
+			'errors' => $this->getErrorsArray(),
+			'formLocales' => $this->supportedLocales,
+			'formLocale' => $this->getDefaultFormLocale(),
+		]));
+
+		if (!$templateMgr->getTemplateVars('primaryLocale')) {
+			$templateMgr->assign([
 				'primaryLocale' => $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale(),
-			)
-		));
+			]);
+		}
 
 		if ($display) {
 			$templateMgr->display($this->_template);

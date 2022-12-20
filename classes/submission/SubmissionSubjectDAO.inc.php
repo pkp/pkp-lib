@@ -111,7 +111,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 					foreach ($list as $subject) {
 						$subjectEntry = $submissionSubjectEntryDao->newDataObject();
 						$subjectEntry->setControlledVocabId($currentSubjects->getId());
-						$subjectEntry->setSubject(urldecode($subject), $locale);
+						$subjectEntry->setSubject($subject, $locale);
 						$subjectEntry->setSequence($i);
 						$i++;
 						$submissionSubjectEntryDao->insertObject($subjectEntry);

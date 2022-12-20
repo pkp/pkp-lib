@@ -105,10 +105,17 @@ class I7014_DoiMigration extends PKPI7014_DoiMigration
                         return;
                     case 'crossref::status':
                         $status = Doi::STATUS_ERROR;
+                        $registrationAgency = null;
                         if (in_array($item->setting_value, ['found', 'registered', 'markedRegistered'])) {
                             $status = Doi::STATUS_REGISTERED;
+                            if ($item->setting_value === 'registered') {
+                                $registrationAgency = 'CrossRefExportPlugin';
+                            }
                         }
                         $doisBySubmission[$item->submission_id]['status'] = $status;
+                        if ($registrationAgency !== null) {
+                            $doisBySubmission[$item->submission_id]['registrationAgency'] = $registrationAgency;
+                        }
                         return;
                     case 'crossref::batchId':
                         $doisBySubmission[$item->submission_id]['crossrefplugin_batchId'] = $item->setting_value;
@@ -137,6 +144,14 @@ class I7014_DoiMigration extends PKPI7014_DoiMigration
                         'doi_id' => $doiId,
                         'setting_name' => 'crossrefplugin_failedMsg',
                         'setting_value' => $item['crossrefplugin_failedMsg'],
+                    ];
+                }
+
+                if (isset($item['registrationAgency'])) {
+                    $doiSettingInserts[] = [
+                        'doi_id' => $doiId,
+                        'setting_name' => 'registrationAgency',
+                        'setting_value' => $item['registrationAgency'],
                     ];
                 }
 

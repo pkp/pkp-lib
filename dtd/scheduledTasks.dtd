@@ -41,6 +41,7 @@
 	  * dayofweek: 0-6 (Sunday-Saturday)
 	  -->
 	<!ATTLIST frequency
+		second CDATA #IMPLIED
 		minute CDATA #IMPLIED
 		hour CDATA #IMPLIED
 		day CDATA #IMPLIED

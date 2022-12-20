@@ -665,7 +665,8 @@ class PKPSubmissionHandler extends APIHandler
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @param Submission $submission */
+        /** @var Submission $submission*/
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $submission->getCurrentPublication();
 
         $errors = Repo::submission()->validateSubmit($submission, $context);

@@ -2706,9 +2706,6 @@ msgstr ""
 "Tento e-mail zasílá editor recenzentovi, aby mu oznámil, že bylo přijato "
 "rozhodnutí týkající se příspěvku, který recenzoval."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Poděkování recenzentovi"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Kopie e-mailové zprávy, která byla zaslána předkládajícímu autorovi"
 

@@ -36,10 +36,9 @@ class DecisionNotifyReviewer extends Mailable
 
     protected static ?string $name = 'mailable.decision.notifyReviewer.name';
     protected static ?string $description = 'mailable.decision.notifyReviewer.description';
-    protected static ?string $emailTemplateKey = 'REVIEW_ACK';
+    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_NOTIFY_REVIEWERS';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
-    protected static bool $canDisable = true;
     protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
     protected Decision $decision;

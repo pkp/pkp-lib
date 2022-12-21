@@ -2601,9 +2601,6 @@ msgstr ""
 "Detta e-postmeddelande skickas från en redaktör till en granskare för att "
 "meddela att beslut fattats om ett bidrag som de granskat."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Meddelande till granskare"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
 "En kopia av e-postmeddelandet som skickades till författaren som skickade in "

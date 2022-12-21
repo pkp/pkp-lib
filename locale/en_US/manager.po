@@ -2916,7 +2916,7 @@ msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "A copy of the email message that was sent to the submitting author"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr "Reviewer Acknowledgement"
+msgstr "Notify Reviewers of Decision"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -3099,7 +3099,7 @@ msgstr "Review Acknowledgement"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"This email is sent to a reviewer to confirm that their review has been received and to thank the reviewer for their contributions."
+"This email is sent by an editor to a reviewer to confirm that their review has been received and to thank the reviewer for their contributions."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Review Response Overdue (Automated)"

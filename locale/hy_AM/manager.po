@@ -2644,9 +2644,6 @@ msgstr ""
 "Այս նամակը խմբագրի կողմից ուղարկվում է գրախոսին՝ ծանուցելու որ որոշում է "
 "կայացվել իր կողմից գրախոսված ներկայացման վերաբերյալ:"
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Գրախոսի հաստատում"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
 "Էլ․ փոստի հաղորդագրության պատճենը, որն ուղարկվել է ներկայացնող հեղինակին"

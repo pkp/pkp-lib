@@ -2312,9 +2312,6 @@ msgstr ""
 "ეს ელფოსტა რედაქტორის მიერ ეგზავნება მიმომხილველს, რათა აცნობოს მათ, რომ "
 "მიღებულია გადაწყვეტილება მათ მიერ განხილულ წარდგენის შესახებ."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "რეცენზენტის აღიარება"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "ელფოსტის შეტყობინების ასლი, რომელიც გაეგზავნა გამომგზავნი ავტორს"
 

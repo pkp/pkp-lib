@@ -2392,9 +2392,6 @@ msgstr ""
 "هذا البريد الالكتروني يرسله المحرر إلى المحكم لإبلاغه باتخاذ القرار بشأن طلب "
 "تقديم قام بتحكيمه."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "عرفان المحكم"
-
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة الإنتاج."
 

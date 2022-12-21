@@ -41,13 +41,6 @@ use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewerAction
 {
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-    }
-
     //
     // Actions.
     //

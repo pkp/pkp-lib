@@ -604,6 +604,26 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * Get step.
+     *
+     * @return int
+     */
+    public function getStep()
+    {
+        return $this->getData('step');
+    }
+
+    /**
+     * Set step.
+     *
+     * @param int $step
+     */
+    public function setStep($step)
+    {
+        $this->setData('step', $step);
+    }
+
+    /**
      * Get review form id.
      *
      * @return int

@@ -15,18 +15,19 @@
 
 namespace PKP\submission\reviewer\form;
 
+use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\core\PKPRequest;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class PKPReviewerReviewStep2Form extends ReviewerReviewForm
 {
     /**
      * Constructor.
-     *
-     * @param ReviewerSubmission $reviewerSubmission
      */
-    public function __construct($request, $reviewerSubmission, $reviewAssignment)
+    public function __construct(PKPRequest $request, Submission $reviewSubmission, ReviewAssignment $reviewAssignment)
     {
-        parent::__construct($request, $reviewerSubmission, $reviewAssignment, 2);
+        parent::__construct($request, $reviewSubmission, $reviewAssignment, 2);
     }
 
 
@@ -60,7 +61,7 @@ class PKPReviewerReviewStep2Form extends ReviewerReviewForm
     public function execute(...$functionParams)
     {
         // Set review to next step.
-        $this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
+        $this->updateReviewStepAndSaveSubmission($this->getReviewAssignment());
 
         parent::execute(...$functionParams);
     }

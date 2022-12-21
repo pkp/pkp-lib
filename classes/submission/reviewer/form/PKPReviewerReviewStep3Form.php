@@ -19,11 +19,13 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
@@ -32,19 +34,17 @@ use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormResponse;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\SubmissionComment;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 {
     /**
      * Constructor.
-     *
-     * @param ReviewerSubmission $reviewerSubmission
-     * @param ReviewAssignment $reviewAssignment
      */
-    public function __construct($request, $reviewerSubmission, $reviewAssignment)
+    public function __construct(PKPRequest $request, Submission $reviewSubmission, ReviewAssignment $reviewAssignment)
     {
-        parent::__construct($request, $reviewerSubmission, $reviewAssignment, 3);
+        parent::__construct($request, $reviewSubmission, $reviewAssignment, 3);
 
         // Validation checks for this form
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
@@ -111,7 +111,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $templateMgr->assign([
             'reviewAssignment' => $reviewAssignment,
             'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-            'reviewerRecommendationOptions' => \PKP\submission\reviewAssignment\ReviewAssignment::getReviewerRecommendationOptions(),
+            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
@@ -204,7 +204,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         }
 
         // Set review to next step.
-        $this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
+        $this->updateReviewStepAndSaveSubmission($this->getReviewAssignment());
 
         // Mark the review assignment as completed.
         $reviewAssignment->setDateCompleted(Core::getCurrentDate());

@@ -26,7 +26,7 @@ class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Get the subject
      *
-     * @return string
+     * @return array
      */
     public function getSubject()
     {

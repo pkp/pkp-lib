@@ -17,7 +17,9 @@
 
 namespace PKP\submission;
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
 class SubmissionSubjectDAO extends ControlledVocabDAO
@@ -32,10 +34,10 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
      *
      * @return ControlledVocab
      */
-    public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function build($publicationId, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         // may return an array of ControlledVocabs
-        return parent::_build(CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $assocType, $publicationId);
+        return parent::_build(SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $assocType, $publicationId);
     }
 
     /**
@@ -57,20 +59,18 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
      *
      * @return array
      */
-    public function getSubjects($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION)
+    public function getSubjects($publicationId, $locales = [], $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $result = [];
 
         $subjects = $this->build($publicationId, $assocType);
         $submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /** @var SubmissionSubjectEntryDAO $submissionSubjectEntryDao */
         $submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
-        while ($subjectEntry = $submissionSubjects->next()) {
+        /** @var SubmissionSubject */
+        foreach ($submissionSubjects->toIterator() as $subjectEntry) {
             $subject = $subjectEntry->getSubject();
             foreach ($subject as $locale => $value) {
                 if (empty($locales) || in_array($locale, $locales)) {
-                    if (!array_key_exists($locale, $result)) {
-                        $result[$locale] = [];
-                    }
                     $result[$locale][] = $value;
                 }
             }
@@ -86,7 +86,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
      */
     public function getAllUniqueSubjects()
     {
-        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_SUBJECT]);
+        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT]);
 
         $subjects = [];
         foreach ($result as $row) {
@@ -102,17 +102,15 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
      * @param int $publicationId
      * @param bool $deleteFirst
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
-     *
-     * @return int
      */
-    public function insertSubjects($subjects, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION)
+    public function insertSubjects($subjects, $publicationId, $deleteFirst = true, $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION)
     {
         $subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /** @var SubmissionSubjectDAO $subjectDao */
         $submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /** @var SubmissionSubjectEntryDAO $submissionSubjectEntryDao */
         $currentSubjects = $this->build($publicationId, $assocType);
 
         if ($deleteFirst) {
-            $existingEntries = $subjectDao->enumerate($currentSubjects->getId(), CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
+            $existingEntries = $subjectDao->enumerate($currentSubjects->getId(), SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
 
             foreach ($existingEntries as $id => $entry) {
                 $entry = trim($entry);
@@ -128,7 +126,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
                     foreach ($list as $subject) {
                         $subjectEntry = $submissionSubjectEntryDao->newDataObject();
                         $subjectEntry->setControlledVocabId($currentSubjects->getId());
-                        $subjectEntry->setSubject(urldecode($subject), $locale);
+                        $subjectEntry->setSubject($subject, $locale);
                         $subjectEntry->setSequence($i);
                         $i++;
                         $submissionSubjectEntryDao->insertObject($subjectEntry);
@@ -141,5 +139,5 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submission\SubmissionSubjectDAO', '\SubmissionSubjectDAO');
-    define('CONTROLLED_VOCAB_SUBMISSION_SUBJECT', \SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
+    define('CONTROLLED_VOCAB_SUBMISSION_SUBJECT', SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
 }

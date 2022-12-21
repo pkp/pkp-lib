@@ -107,7 +107,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 					foreach ($list as $keyword) {
 						$keywordEntry = $submissionKeywordEntryDao->newDataObject();
 						$keywordEntry->setControlledVocabId($currentKeywords->getId());
-						$keywordEntry->setKeyword(urldecode($keyword), $locale);
+						$keywordEntry->setKeyword($keyword, $locale);
 						$keywordEntry->setSequence($i);
 						$i++;
 						$submissionKeywordEntryDao->insertObject($keywordEntry);

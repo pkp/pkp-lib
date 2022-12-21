@@ -28,7 +28,7 @@ export default {
 	 * @param object The data object to pass to the controller. Can include
 	 *  configuration parameters, translatable strings and initial data.
 	 */
-	init: function(id, type, data) {
+	init: function (id, type, data) {
 		if (pkp.controllers[type] === undefined) {
 			return;
 		}
@@ -40,7 +40,7 @@ export default {
 
 		var args = $.extend(true, {}, pkp.controllers[type], {
 			el: '#' + id,
-			data: $.extend(true, {}, baseData, data, {id: id})
+			data: $.extend(true, {}, baseData, data, {id: id}),
 		});
 
 		pkp.registry._instances[id] = new pkp.Vue(args);
@@ -50,7 +50,7 @@ export default {
 		// Register with a parent handler from the legacy JS framework, so that
 		// those componments can destroy a Vue instance when removing HTML code
 		var $parents = $(pkp.registry._instances[id].$el).parents();
-		$parents.each(function(i) {
+		$parents.each(function (i) {
 			if ($.pkp.classes.Handler.hasHandler($($parents[i]))) {
 				$.pkp.classes.Handler.getHandler($($parents[i])).handlerChildren_.push(
 					pkp.registry._instances[id]
@@ -58,5 +58,5 @@ export default {
 				return false; // only attach to the closest parent handler
 			}
 		});
-	}
+	},
 };

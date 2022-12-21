@@ -158,6 +158,32 @@ abstract class PKPSubmissionHandler extends Handler
         /** @var Publication $publication */
         $publication = $submission->getCurrentPublication();
 
+        /** @var int $sectionId */
+        $sectionId = $publication->getData(Application::getSectionIdPropName());
+
+        if ($sectionId) {
+            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+        }
+
+        if (isset($section) &&
+            (
+                $section->getIsInactive() ||
+                ($section->getEditorRestricted() && !$this->isEditor())
+            )
+        ) {
+            $this->showErrorPage(
+                'submission.wizard.sectionClosed',
+                __('submission.wizard.sectionClosed.message', [
+                    'contextName' => $context->getLocalizedData('name'),
+                    'section' => $section->getLocalizedTitle(),
+                    'email' => $context->getData('contactEmail'),
+                    'name' => $context->getData('contactName'),
+                ])
+            );
+            return;
+        }
+
+
         $supportedSubmissionLocales = $context->getSupportedSubmissionLocaleNames();
         $formLocales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($supportedSubmissionLocales), $supportedSubmissionLocales);
 

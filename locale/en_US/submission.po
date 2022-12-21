@@ -2111,6 +2111,9 @@ msgstr ""
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr "We have emailed a copy of this link to you at {$email}."
 
+msgid "submission.wizard.sectionClosed"
+msgstr "Section Closed"
+
 msgid "submission.wizard.start"
 msgstr "Begin Submission"
 

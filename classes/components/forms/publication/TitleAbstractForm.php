@@ -71,6 +71,7 @@ abstract class TitleAbstractForm extends FormComponent
             'label' => __('common.abstract'),
             'isMultilingual' => true,
             'isRequired' => $this->isAbstractRequired,
+            'size' => 'large',
             'wordLimit' => $this->abstractWordLimit,
             'value' => $publication->getData('abstract'),
         ]));

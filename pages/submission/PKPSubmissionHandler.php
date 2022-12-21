@@ -158,8 +158,19 @@ abstract class PKPSubmissionHandler extends Handler
         /** @var Publication $publication */
         $publication = $submission->getCurrentPublication();
 
-        $section = Application::getSectionDAO()->getById($publication->getData(Application::getSectionIdPropName()), $context->getId());
-        if (!$section || $section->getIsInactive() || ($section->getEditorRestricted() && !$this->isEditor())) {
+        /** @var int $sectionId */
+        $sectionId = $publication->getData(Application::getSectionIdPropName());
+
+        if ($sectionId) {
+            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+        }
+
+        if (isset($section) &&
+            (
+                $section->getIsInactive() ||
+                ($section->getEditorRestricted() && !$this->isEditor())
+            )
+        ) {
             $this->showErrorPage(
                 'submission.wizard.sectionClosed',
                 __('submission.wizard.sectionClosed.message', [
@@ -169,6 +180,7 @@ abstract class PKPSubmissionHandler extends Handler
                     'name' => $context->getData('contactName'),
                 ])
             );
+            return;
         }
 
 

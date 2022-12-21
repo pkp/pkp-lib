@@ -525,8 +525,11 @@ class PKPSubmissionHandler extends APIHandler
             );
         }
 
-        $publicationProps = [$sectionIdPropName => $params[$sectionIdPropName]];
-        unset($params[$sectionIdPropName]);
+        $publicationProps = [];
+        if (isset($params[$sectionIdPropName])) {
+            $publicationProps[$sectionIdPropName] = $params[$sectionIdPropName];
+            unset($params[$sectionIdPropName]);
+        }
 
         $submission = Repo::submission()->newDataObject($params);
         $publication = Repo::publication()->newDataObject($publicationProps);
@@ -671,8 +674,19 @@ class PKPSubmissionHandler extends APIHandler
 
         $errors = Repo::submission()->validateSubmit($submission, $context);
 
-        $section = Application::getSectionDAO()->getById($publication->getData(Application::getSectionIdPropName()), $context->getId());
-        if (!$section || $section->getIsInactive() || ($section->getEditorRestricted() && !$this->isEditor())) {
+        /** @var int $sectionId */
+        $sectionId = $publication->getData(Application::getSectionIdPropName());
+
+        if ($sectionId) {
+            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+        }
+
+        if (isset($section) &&
+            (
+                $section->getIsInactive() ||
+                ($section->getEditorRestricted() && !$this->isEditor())
+            )
+        ) {
             $errors[Application::getSectionIdPropName()] = __('submission.wizard.sectionClosed.message', [
                 'contextName' => $context->getLocalizedData('name'),
                 'section' => $section->getLocalizedTitle(),

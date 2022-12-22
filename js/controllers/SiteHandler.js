@@ -295,8 +295,6 @@
 			if (!tinyMCEObject.target.getContent().length) {
 				$('#mcePlaceholder-' + tinyMCEObject.id).show();
 			}
-			tinyMCEObject.target.dom.addClass(
-					tinyMCEObject.target.dom.select('li'), 'show');
 		});
 
 		tinyMCEObject.on('BeforeSetContent', function(e) {

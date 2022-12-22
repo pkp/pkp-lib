@@ -14,8 +14,11 @@ import 'cypress-wait-until';
 Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 	cy.window().then((win) => {
 		cy.waitUntil(() => win.tinymce?.editors[tinyMceId]?.initialized, {timeout: 10000}).then(() => {
-			const editor = win.tinymce.editors[tinyMceId];
-			editor.setContent(content);
+			cy.get('#' + tinyMceId + '_ifr')
+				.its('0.contentDocument').should('exist')
+				.its('body').should('not.be.undefined')
+				.then(cy.wrap)
+				.type(content);
 		});
 	});
 });

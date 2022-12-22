@@ -16,4 +16,4 @@
 		name CDATA #REQUIRED
 		subject CDATA #REQUIRED
 		body CDATA #REQUIRED
-		alternateTo CDATA #IMPLIED
+		alternateTo CDATA #IMPLIED>

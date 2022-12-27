@@ -104,12 +104,29 @@ Cypress.Commands.add('install', function() {
 });
 
 Cypress.Commands.add('login', (username, password, context) => {
+	if (Cypress.env('loginViaForm')) {
+		cy.loginViaForm(username, password, context);
+		return;
+	}
+
 	context = context || 'index';
 	password = password || (username + username);
 	cy.visit('index.php/' + context + '/login/signIn', {
 		method: 'POST',
 		body: {username: username, password: password}
 	});
+});
+
+Cypress.Commands.add('loginViaForm', (username, password, context) => {
+	context = context || 'index';
+	password = password || (username + username);
+
+	cy.visit('index.php/' + context + '/login');
+
+	cy.get('input[name=username]').clear().type(username);
+	cy.get('input[name=password]').clear().type(password);
+
+	cy.get('button').contains('Login').click();
 });
 
 Cypress.Commands.add('logout', function() {

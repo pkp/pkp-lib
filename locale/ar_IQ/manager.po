@@ -1,11 +1,11 @@
-# M. Ali <vorteem@gmail.com>, 2021, 2022.
+# M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-12-24 05:02+0000\n"
+"PO-Revision-Date: 2023-01-01 07:02+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2327,7 +2327,6 @@ msgstr ""
 "كل التعليقات من التحكيمات المكتملة. أسماء المحكمين مخفية في التحكيمات غير "
 "المشخصنة"
 
-#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "أرسل البريد الالكتروني فقط إلى المؤلفين المعينين إلى سير أعمال طلب التقديم. "
@@ -3159,3 +3158,52 @@ msgstr "الإصدار تم إنشاؤه"
 
 msgid "mailable.reviewComplete.name"
 msgstr "التحكيم تم إكماله"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة رفع الملفات. أعط شرحًا موجزًا عن ماهية "
+"الملفات التي على المؤلفين أن يتوقعوا مشاركتها خلال عملية التقديم."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة التفاصيل، عندما يُطلب منهم إدخال "
+"العنوان، الملخص، وغير ذلك من المعلومات الأساسية عن طلب تقديمهم."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال الخطوة الأخيرة من برنامج التقديم، عندما يُ"
+"طلب منهم مراجعة كل المعلومات التي قدموها قبل تسليم طلبهم."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين قبل أن يشرعوا بتقديمهم. أعط شرحًا موجزًا عن "
+"عملية التقديم يساعد المؤلف في توقع الإجراءات المطلوبة منه."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"إختر أعضاء التحرير الذين ينبغي تعيينهم تلقائيًا لكل طلبات التقديم الجديدة في "
+"هذا التصنيف."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة المساهمين. أعط شرحًا موجزًا عن ماهية "
+"المعلومات التي على المؤلفين توفيرها عن أنفسهم، عن المؤلفين المشاركين وغيرهم "
+"من المساهمين في العمل."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة (للمحررين)، عندما يُطلب منهم إدخال "
+"البيانات الوصفية، مثل الكلمات المفتاحية، التعليقات الموجهة للمحررين، وغير "
+"ذلك من التفاصيل التي تساعد مراجعات التحرير."
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"إضف أو حرر القوالب التي تريد إتاحتها للمستخدم عندما يُرسل رسالة البريد "
+"الالكتروني هذه. سيتم تحميل القالب الافتراضي تلقائيًا وسيتمكن المستخدم بشكل "
+"سريع من تحميل أي قوالب أخرى تضيفها هنا."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"فيما إذا كان ينبغي إرسال بريد الكتروني شهري إلى المحررين متضمًا إحصائيات "
+"التحرير الخاصة بالمجلة، مثل معدلات القبول والرفض. يمكن للمحررين إلغاء "
+"اشتراكهم بهذا الرسالة من صفحة ملفهم الشخصي."

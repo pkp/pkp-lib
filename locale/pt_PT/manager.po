@@ -1,12 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-11-29 05:32+0000\n"
+"PO-Revision-Date: 2023-01-03 10:02+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2744,9 +2744,8 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Nova Ronda de Revisão iniciada"
 
-#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Submissão Rejeitada"
+msgstr "Submissão Rejeitada (Pré-Revisão)"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
@@ -3346,3 +3345,21 @@ msgstr ""
 "contribuidores do trabalho. Forneça uma breve explicação sobre que "
 "informações devem indicar sobre eles, os seus coautores e restantes "
 "contribuidores."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"A seguinte informação é apresentada aos autores durante a etapa de detalhes, "
+"quando é solicitado o título, resumo e outras informações importantes sobre "
+"o seu trabalho."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Orientações para o Autor"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Atribuições Editoriais"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Designar {$name} como {$role}"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "O ano do relatório"

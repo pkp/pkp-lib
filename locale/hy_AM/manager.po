@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-13 13:38+0000\n"
+"PO-Revision-Date: 2023-01-05 02:07+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2909,8 +2909,8 @@ msgstr "Վերանայման պատասխանը ժամկետանց է (ավտո�
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Այս նամակն ուղարկվում է գրախոսին՝ հաստատելու, որ նրա կարծիքը ստացվել է և "
-"շնորհակալություն հայտնելու գրախոսներին իրենց ներդրումների համար:"
+"Այս նամակն ուղարկվում է խմբագրի կողմից գրախոսին՝ հաստատելու, որ նրա կարծիքը "
+"ստացվել է և շնորհակալություն հայտնելու գրախոսին իր կատարած ներդրումի համար:"
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Վերանայեք հաստատումը"
@@ -3458,7 +3458,7 @@ msgstr ""
 "բաժանորդագրությունը իրենց օգտատիրոջ պրոֆիլից:"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr "Գրախոսի հաստատում"
+msgstr "Տեղեկացնել գրախոսներին որոշման մասին"
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""

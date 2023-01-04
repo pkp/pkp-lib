@@ -67,7 +67,7 @@ class ConvertApacheAccessLogFile extends ConvertLogFile
     /**
      * Path to the egrep program, required for this tool to work, e.g. '/bin/egrep'
      */
-    public const EGREP_PATH = '';
+    public const EGREP_PATH = '/bin/egrep';
 
     /**
      * Weather the URL parameters are used instead of CGI PATH_INFO.
@@ -115,13 +115,13 @@ class ConvertApacheAccessLogFile extends ConvertLogFile
         parent::__construct($argv);
         if (count($this->argv) < 1 || count($this->argv) > 2) {
             $this->usage();
-            exit(1);
+            exit(8);
         }
 
         // This tool needs egrep path configured.
-        if (self::EGREP_PATH == '') {
-            echo "Error: This tool needs egrep program. Please define the constatn EGREP_PATH in this script, enter there the path to egrep command on your machine.\n";
-            exit(1);
+        if (file_exists(self::EGREP_PATH)) {
+            fwrite(STDERR, 'Error: This tool needs egrep program. Please define the constatn EGREP_PATH in this script, enter there the path to egrep command on your machine.' . PHP_EOL);
+            exit(9);
         }
     }
 
@@ -155,7 +155,7 @@ class ConvertApacheAccessLogFile extends ConvertLogFile
      */
     public function usage()
     {
-        echo "\nConvet the passed apache access log file into the new usage stats log file format.
+        echo "\nConvert the passed apache access log file into the new usage stats log file format.
 This will copy the apache access file to the usageStats/tmp/ folder in the files directory,
 filter entries related to this installation, split the file by day, rename the result file(s)
 into apache_usage_events_YYYYMMDD.log, convert them into the new JSON format, and
@@ -177,14 +177,15 @@ Must run under user with enough privilegies to read access apache log files.\n"
         }
 
         if (!$fileMgr->mkdir($this->getLogFileDir())) {
-            echo "Error: Can't create folder " . $this->getLogFileDir() . "\n";
-            exit(1);
+            fwrite(STDERR, "Error: Can't create folder " . $this->getLogFileDir() . PHP_EOL);
+            exit(10);
         }
 
         if ($fileMgr->fileExists($filePath)) {
             $this->processAccessLogFile($filePath);
         } else {
-            echo "Error: File {$filePath} don't exist or can't be accessed.\n";
+            fwrite(STDERR, "Error: File {$filePath} don't exist or can't be accessed." . PHP_EOL);
+            exit(11);
         }
 
         // Do not remove tmp/ folder here -- it could be used by admins for checking and debugging
@@ -223,8 +224,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
         $tmpFilePath = "{$this->getLogFileDir()}/{$fileName}";
         $fileMgr = new FileManager();
         if (!$fileMgr->copyFile($filePath, $tmpFilePath)) {
-            echo "Could not copy file from {$filePath} to {$tmpFilePath}.\n";
-            exit(1);
+            fwrite(STDERR, "Could not copy file from {$filePath} to {$tmpFilePath}." . PHP_EOL);
+            exit(12);
         }
         echo "File {$filePath} copied to {$tmpFilePath}.\n";
         return $tmpFilePath;
@@ -242,8 +243,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
             try {
                 $filePath = $fileMgr->gzDecompressFile($filePath);
             } catch (Exception $e) {
-                printf($e->getMessage() . "\n");
-                exit(1);
+                fwrite(STDERR, $e->getMessage() . PHP_EOL);
+                exit(13);
             }
         }
 
@@ -254,13 +255,13 @@ Must run under user with enough privilegies to read access apache log files.\n"
         $returnValue = 0;
         exec(escapeshellarg(self::EGREP_PATH) . " -i '" . $escapedContextPaths . "' " . escapeshellarg($filePath) . ' > ' . escapeshellarg($filteredFilePath), $output, $returnValue);
         if ($returnValue > 1) {
-            echo 'Error: the execution of ' . self::EGREP_PATH . " is not possible.\n";
-            exit(1);
+            fwrite(STDERR, 'Error: the execution of ' . self::EGREP_PATH . ' is not possible.' . PHP_EOL);
+            exit(14);
         }
         clearstatcache();
         if (filesize($filePath) == 0) {
-            echo "Error: No entries found related to this installation.\n";
-            exit(1);
+            fwrite(STDERR, 'Error: No entries found related to this installation.' . PHP_EOL);
+            exit(15);
         }
         return $filteredFilePath;
     }
@@ -297,8 +298,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
         $splFileObject = null;
 
         if (is_null($firstDate) || is_null($lastDate)) {
-            echo "Error: First or last date not found.\n";
-            exit(1);
+            fwrite(STDERR, 'Error: First or last date not found.' . PHP_EOL);
+            exit(16);
         }
 
         // Get all days between the first and the last date, including the last date
@@ -317,7 +318,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
             $countPartOfFileName = '';
             if ($existingApacheUsageEventsFilesCount) {
                 $countPartOfFileName = "_{$existingApacheUsageEventsFilesCount}_";
-                echo "Warning: One or more files apache_usage_events_{$day}.log already exist. You will need to clean or merge them into one before reprocessing the statistics.\n";
+                fwrite(STDERR, "Warning: One or more files apache_usage_events_{$day}.log already exist. You will need to clean or merge them into one before reprocessing the statistics." . PHP_EOL);
             }
             $dailyFileName = 'apache_usage_events_' . $day . $countPartOfFileName . '.log';
             $dayFilePath = $this->getLogFileDir() . '/' . $dailyFileName;
@@ -325,8 +326,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
             $returnValue = 0;
             exec(escapeshellarg(self::EGREP_PATH) . " -i '" . preg_quote($value->format(self::PHP_DATE_FORMAT)) . "' " . escapeshellarg($filePath) . ' > ' . escapeshellarg($dayFilePath), $output, $returnValue);
             if ($returnValue > 1) {
-                echo "Error: Could not split file by day.\n";
-                exit(1);
+                fwrite(STDERR, 'Error: Could not split file by day.' . PHP_EOL);
+                exit(17);
             }
             $dailyFiles[] = $dailyFileName;
             echo "File {$dayFilePath} created.\n";
@@ -344,8 +345,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
         $archiveFilePath = StatisticsHelper::getUsageStatsDirPath() . '/' . FileLoader::FILE_LOADER_PATH_ARCHIVE . '/' . $fileName;
         $fileMgr = new FileManager();
         if (!$fileMgr->copyFile($tmpFilePath, $archiveFilePath)) {
-            echo "Error: Could not copy file from {$tmpFilePath} to {$archiveFilePath}\n";
-            exit(1);
+            fwrite(STDERR, "Error: Could not copy file from {$tmpFilePath} to {$archiveFilePath}." . PHP_EOL);
+            exit(18);
         }
         echo "File {$tmpFilePath} successfully archived to {$archiveFilePath}.\n";
     }
@@ -442,13 +443,13 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
             case Application::ASSOC_TYPE_SUBMISSION:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -460,11 +461,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 // for other and remote galleys.
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 } elseif (count($args) == 2) {
@@ -498,17 +500,16 @@ Must run under user with enough privilegies to read access apache log files.\n"
                         }
                     }
                     if (!isset($galley)) {
-                        echo "Galley with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Galley with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                     $submissionFileId = $galley->getData('submissionFileId');
                     if (!isset($submissionFileId)) {
-                        // it is a remote galley from releases 2.x
                         break;
                     }
                     $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                     if (!isset($submissionFile)) {
-                        echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                     $fileType = StatisticsHelper::getDocumentType($submissionFile->getData('mimetype'));
@@ -528,14 +529,18 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                if (!isset($args[0]) || !isset($args[1])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing galley ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -550,6 +555,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2]) || !isset($args[3])) {
                         // if version is there, there must be $publicationId and $representationId arguments
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/<galleyId>/<fileId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
@@ -571,7 +577,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $representationId = (int) $representationUrlPath;
                     $galley = Repo::galley()->get($representationId);
                     if (!$galley) {
-                        echo "Galley with the ID {$representationUrlPath} does not exist.\n";
+                        fwrite(STDERR, "Galley with the ID {$representationUrlPath} does not exist." . PHP_EOL);
                         break;
                     }
                 } else {
@@ -582,12 +588,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                             return $value->getId() == $publicationId;
                         });
                         if (!$publication) {
-                            echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                            fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                             break;
                         }
                         $galley = Repo::galley()->getByUrlPath($representationUrlPath, $publication);
                         if (!$galley) {
-                            echo "Galley with the URL path {$representationUrlPath} does not exist in the publication (submission version) with the ID {$publicationId}.\n";
+                            fwrite(STDERR, "Galley with the URL path {$representationUrlPath} does not exist in the publication (submission version) with the ID {$publicationId}." . PHP_EOL);
                             break;
                         }
                         $representationId = $galley->getId();
@@ -611,7 +617,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                             }
                         }
                         if (empty($possibleGalleys)) {
-                            echo "Galley with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}.\n";
+                            fwrite(STDERR, "Galley with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                             break;
                         }
                         // if no matching galley has been found yet, take the first possible
@@ -626,12 +632,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
-                    echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                     break;
                 }
                 if ($galley->getData('submissionFileId') != $submissionFileId) {
                     // This check is e.g. when representation ID (and not URL path) and submissionFileId are given as arguments
-                    echo "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}." . PHP_EOL);
                     break;
                 }
 
@@ -651,14 +657,18 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
                 // This is the URL article/downloadSuppFile/articleId/suppFileId from a 2.x log file
-                if (!isset($args[0]) || !isset($args[1])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing supp file ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -697,13 +707,13 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $newEntry['submissionFileId'] = $submissionFile->getId();
                     $newEntry['fileType'] = StatisticsHelper::getDocumentType($submissionFile->getData('mimetype'));
                 } else {
-                    echo "Supp file could not be found.\n";
+                    fwrite(STDERR, 'Supp file could not be found.' . PHP_EOL);
                 }
                 break;
 
             case Application::ASSOC_TYPE_ISSUE:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing issue ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 // Consider issue https://github.com/pkp/pkp-lib/issues/6611
@@ -715,7 +725,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
                 $issue = Repo::issue()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$issue) {
-                    echo "Issue with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Issue with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $issueId = $issue->getId();
@@ -724,20 +734,25 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 break;
 
             case Application::ASSOC_TYPE_ISSUE_GALLEY:
-                if (!isset($args[0]) || !isset($args[1])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing issue ID URL parameter.' . PHP_EOL);
                     break;
                 }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing issue galley ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+
                 $issue = Repo::issue()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$issue) {
-                    echo "Issue with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Issue with the URL path or ID {$args[0]} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $issueId = $issue->getId();
                 $issueGalleyDao = DAORegistry::getDAO('IssueGalleyDAO');
                 $issueGalley = $issueGalleyDao->getByBestId($args[1], $issueId);
                 if (!$issueGalley) {
-                    echo "Issue galley with the URL path or ID {$args[1]} does not exist in the issue with the ID {$issueId}.\n";
+                    fwrite(STDERR, "Issue galley with the URL path or ID {$args[1]} does not exist in the issue with the ID {$issueId}." . PHP_EOL);
                     break;
                 }
                 $newEntry['issueId'] = $issueId;
@@ -761,13 +776,13 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
             case Application::ASSOC_TYPE_SUBMISSION:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the press with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -777,11 +792,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $publicationId = null;
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 }
@@ -792,12 +808,14 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     if (isset($publicationId)) {
                         // The URL is $submissionId/version/$publicationId/chapter/$chapterId
                         if ($args[3] !== 'chapter' || !isset($args[4])) {
+                            fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/chapter/<chapterId>.' . PHP_EOL);
                             break;
                         }
                         $chapterId = (int) $args[4];
                     } else {
                         // The URL is $submissionId/chapter/$chapterId
                         if ($args[1] !== 'chapter' || !isset($args[2])) {
+                            fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/chapter/<chapterId>.' . PHP_EOL);
                             break;
                         }
                         $chapterId = (int) $args[2];
@@ -805,7 +823,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $chapterDao = DAORegistry::getDAO('ChapterDAO'); /** @var ChapterDAO $chapterDao */
                     $chapter = $chapterDao->getChapter($chapterId);
                     if (!$chapter) {
-                        echo "Chapter with the ID {$chapterId} does not exist.\n";
+                        fwrite(STDERR, "Chapter with the ID {$chapterId} does not exist." . PHP_EOL);
                         break;
                     }
                 }
@@ -816,14 +834,22 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                if (!isset($args[0]) || !isset($args[1]) || !isset($args[2])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing publication format ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[2])) {
+                    fwrite(STDERR, 'Missing file or publication ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the press with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -833,6 +859,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $publicationId = null;
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2]) || !isset($args[3])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/<publicationFormatId>/<fileId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
@@ -845,11 +872,11 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
-                    echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                     break;
                 }
                 if ($submissionFile->getData('assocType') != Application::ASSOC_TYPE_PUBLICATION_FORMAT) {
-                    echo "Submission file with the ID {$submissionFileId} does not belong to a publication format.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to a publication format." . PHP_EOL);
                     break;
                 }
                 $representationId = $submissionFile->getData('assocId');
@@ -857,11 +884,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 if (is_int($representationUrlPath) || ctype_digit($representationUrlPath)) {
                     // assume it is ID and not the URL path
                     if ($representationUrlPath != $representationId) {
-                        echo "Submission file with the ID {$submissionFileId} does not belong to the publication format with ID {$representationUrlPath}.\n";
+                        fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the publication format with ID {$representationUrlPath}." . PHP_EOL);
+                        break;
                     }
                     $publicationFormat = $publicationFormatDao->getById($representationId, $publicationId);
                     if (!$publicationFormat) {
-                        echo "Publication format with the ID {$representationUrlPath} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication format with the ID {$representationUrlPath} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 } else {
@@ -872,16 +900,16 @@ Must run under user with enough privilegies to read access apache log files.\n"
                             return $value->getId() == $publicationId;
                         });
                         if (!$publication) {
-                            echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                            fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                             break;
                         }
                         $publicationFormat = $publicationFormatDao->getByBestId($representationUrlPath, $publication->getId());
                         if (!$publicationFormat) {
-                            echo "Publication format with the URL path {$representationUrlPath} does not exist in the publication (submission version) with the ID {$publicationId}.\n";
+                            fwrite(STDERR, "Publication format with the URL path {$representationUrlPath} does not exist in the publication (submission version) with the ID {$publicationId}." . PHP_EOL);
                             break;
                         }
                         if ($representationId != $publicationFormat->getId()) {
-                            echo "Submission file with the ID {$submissionFileId} does not exist in the publication (submission version) with the ID {$publicationId}.\n";
+                            fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the publication (submission version) with the ID {$publicationId}." . PHP_EOL);
                             break;
                         }
                     } else {
@@ -904,7 +932,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                             }
                         }
                         if (!$publicationFormat) {
-                            echo "Publication format with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}.\n";
+                            fwrite(STDERR, "Publication format with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                             break;
                         }
                     }
@@ -927,14 +955,14 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
             case Application::ASSOC_TYPE_SERIES:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing series path URL parameter.' . PHP_EOL);
                     break;
                 }
                 $seriesPath = $args[0];
                 $seriesDao = Application::getSectionDAO(); /* @var $seriesDao SeriesDAO */
                 $series = $seriesDao->getByPath($seriesPath, $newEntry['contextId']);
                 if (!$series) {
-                    echo "Series with the path {$seriesPath} does not exist in the press with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Series with the path {$seriesPath} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $newEntry['seriesId'] = $series->getId();
@@ -957,13 +985,13 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
             case Application::ASSOC_TYPE_SUBMISSION:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the server with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the server with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -972,11 +1000,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 // $submissionId/version/$publicationId.
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 }
@@ -985,14 +1014,22 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                if (!isset($args[0]) || !isset($args[1]) || !isset($args[2])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing galley ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[2])) {
+                    fwrite(STDERR, 'Missing file or publication ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submission = Repo::submission()->getByBestId($args[0], $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the URL path or ID {$args[0]} does not exist in the server with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the URL path or ID {$args[0]} does not exist in the server with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $submissionId = $submission->getId();
@@ -1002,6 +1039,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $publicationId = null;
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2]) || !isset($args[3])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/<galleyId>/<fileId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
@@ -1014,7 +1052,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
-                    echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                     break;
                 }
 
@@ -1025,7 +1063,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $representationId = (int) $representationUrlPath;
                     $galley = Repo::galley()->get($representationId);
                     if (!$galley) {
-                        echo "Galley with the ID {$representationUrlPath} does not exist.\n";
+                        fwrite(STDERR, "Galley with the ID {$representationUrlPath} does not exist." . PHP_EOL);
                         break;
                     }
                 } else {
@@ -1036,12 +1074,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                             return $value->getId() == $publicationId;
                         });
                         if (!$publication) {
-                            echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                            fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                             break;
                         }
                         $galley = Repo::galley()->getByUrlPath($representationUrlPath, $publication);
                         if (!$galley) {
-                            echo "Galley with the URL path {$representationUrlPath} does not exist in the publication (submission version) with the ID {$publicationId}.\n";
+                            fwrite(STDERR, "Galley with the URL path {$representationUrlPath} does not exist in the publication (submission version) with the ID {$publicationId}." . PHP_EOL);
                             break;
                         }
                         $representationId = $galley->getId();
@@ -1065,14 +1103,14 @@ Must run under user with enough privilegies to read access apache log files.\n"
                             }
                         }
                         if (!$representationId) {
-                            echo "Galley with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}.\n";
+                            fwrite(STDERR, "Galley with the URL path {$representationUrlPath} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                             break;
                         }
                     }
                 }
                 if ($galley->getData('submissionFileId') != $submissionFileId) {
                     // This check is e.g. when representation ID (and not URL path) and submissionFileId are given as arguments
-                    echo "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}." . PHP_EOL);
                     break;
                 }
 

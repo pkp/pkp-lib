@@ -60,7 +60,7 @@ class ConvertUsageStatsLogFile extends ConvertLogFile
         parent::__construct($argv);
         if (count($this->argv) != 1) {
             $this->usage();
-            exit(1);
+            exit(8);
         }
         $this->fileName = array_shift($this->argv);
     }

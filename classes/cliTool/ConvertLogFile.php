@@ -90,25 +90,36 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
     {
         $filePath = $this->getLogFileDir() . '/' . $fileName;
 
-        $path_parts = pathinfo($filePath);
-        $extension = $path_parts['extension'];
+        $pathParts = pathinfo($filePath);
+        $extension = $pathParts['extension'];
 
-        $newFilePath = $this->getLogFileDir() . '/' . $path_parts['filename'] . '_new.log';
+        $newFilePath = $this->getLogFileDir() . '/' . $pathParts['filename'] . '_new.log';
         if ($extension == 'gz') {
             $fileMgr = new FileManager();
             try {
                 $filePath = $fileMgr->gzDecompressFile($filePath);
             } catch (Exception $e) {
-                printf($e->getMessage() . "\n");
+                fwrite(STDERR, $e->getMessage() . PHP_EOL);
                 exit(1);
             }
         }
 
         $fhandle = fopen($filePath, 'r');
         if (!$fhandle) {
-            echo "Error: Can not open file {$filePath}.\n";
-            exit(1);
+            fwrite(STDERR, "Error: Can not open file {$filePath}." . PHP_EOL);
+            exit(2);
         }
+
+        $fnewHandle = fopen($newFilePath, 'a+b');
+        if (!$fnewHandle) {
+            fwrite(STDERR, "Error: Can not open file {$newFilePath}." . PHP_EOL);
+            exit(3);
+        }
+
+        // Read the salt for IP hashing here and not for each line
+        $saltFileName = StatisticsHelper::getSaltFileName();
+        $salt = trim(file_get_contents($saltFileName));
+
         $lineNumber = 0;
         $isSuccessful = false;
         while (!feof($fhandle)) {
@@ -122,7 +133,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             $entryData = $this->getDataFromLogEntry($line);
 
             if (!$this->isLogEntryValid($entryData)) {
-                echo "Invalid log entry at line {$lineNumber}.\n";
+                fwrite(STDERR, "Invalid log entry at line {$lineNumber}." . PHP_EOL);
                 continue;
             }
 
@@ -140,11 +151,9 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             $newEntry['time'] = $entryData['date'];
 
             $ip = $entryData['ip'];
-            $ipNotHashed = preg_match('/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/', $ip);
-            // shell IPv6 be considered ?
-            if ($ipNotHashed === 1) {
-                $saltFileName = StatisticsHelper::getSaltFileName();
-                $salt = trim(file_get_contents($saltFileName));
+            $ipNotHashed = filter_var($ip, FILTER_VALIDATE_IP);
+            if ($ipNotHashed) {
+                // valid IP address i.e. the IP is not hashed
                 $hashedIp = StatisticsHelper::hashIp($ip, $salt);
                 $newEntry['ip'] = $hashedIp;
             } else {
@@ -155,11 +164,18 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             $newEntry['userAgent'] = $entryData['userAgent'];
             $newEntry['canonicalUrl'] = $entryData['url'];
 
-            [$assocType, $contextPaths, $page, $op, $args] = $this->getUrlMatches($entryData['url'], $lineNumber);
+            [
+                'workingAssocType' => $assocType,
+                'contextPaths' => $contextPaths,
+                'page' => $page,
+                'operation' => $op,
+                'args' => $args
+            ] = $this->getUrlMatches($entryData['url'], $lineNumber);
+
             if ($assocType && $contextPaths && $page && $op) {
                 $foundContextPath = current($contextPaths);
                 if (!array_key_exists($foundContextPath, $this->contextsByPath)) {
-                    echo "Context with the path {$foundContextPath} does not exist.\n";
+                    fwrite(STDERR, "Context with the path {$foundContextPath} does not exist." . PHP_EOL);
                     continue;
                 }
                 $context = $this->contextsByPath[$foundContextPath];
@@ -168,7 +184,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 $this->setAssoc($assocType, $op, $args, $newEntry);
                 if (!array_key_exists('assocType', $newEntry)) {
                     if (!$this->isApacheAccessLogFile()) {
-                        echo "The URL {$entryData['url']} in the line number {$lineNumber} was not considered.\n";
+                        fwrite(STDERR, "The URL {$entryData['url']} in the line number {$lineNumber} was not considered." . PHP_EOL);
                     }
                     continue;
                 }
@@ -178,7 +194,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             // Geo data
             $country = $region = $city = null;
-            if ($ipNotHashed === 1) {
+            if ($ipNotHashed) {
                 $statisticsHelper = new StatisticsHelper();
                 $site = Application::get()->getRequest()->getSite();
                 [$country, $region, $city] = $statisticsHelper->getGeoData($site, $context, $ip, $hashedIp, false);
@@ -189,7 +205,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             // institutions IDs
             $institutionIds = [];
-            if ($ipNotHashed === 1 && $context->isInstitutionStatsEnabled($site)) {
+            if ($ipNotHashed && $context->isInstitutionStatsEnabled($site)) {
                 $institutionIds = $statisticsHelper->getInstitutionIds($context->getId(), $ip, $hashedIp, false);
             }
             $newEntry['institutionIds'] = $institutionIds;
@@ -198,16 +214,18 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             // write to a new file
             $newLogEntry = json_encode($newEntry) . PHP_EOL;
-            file_put_contents($newFilePath, $newLogEntry, FILE_APPEND);
+            fwrite($fnewHandle, $newLogEntry);
             $isSuccessful = true;
         }
         fclose($fhandle);
+        fclose($fnewHandle);
+
 
         if ($isSuccessful) {
-            $renameToOldFilePath = $this->getLogFileDir() . '/' . $path_parts['filename'] . '_old.log';
+            $renameToOldFilePath = $this->getLogFileDir() . '/' . $pathParts['filename'] . '_old.log';
             if (!rename($filePath, $renameToOldFilePath)) {
-                echo "Error: Cound not rename the file {$filePath} to {$renameToOldFilePath}.\n";
-                exit(1);
+                fwrite(STDERR, "Error: Cound not rename the file {$filePath} to {$renameToOldFilePath}." . PHP_EOL);
+                exit(4);
             } else {
                 if (!$this->isApacheAccessLogFile()) {
                     // This is not important information for the apache log file conversion --
@@ -216,8 +234,8 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 }
             }
             if (!rename($newFilePath, $filePath)) {
-                echo "Error: Cound not rename the new file {$newFilePath} to {$filePath}.\n";
-                exit(1);
+                fwrite(STDERR, "Error: Cound not rename the new file {$newFilePath} to {$filePath}." . PHP_EOL);
+                exit(5);
             } else {
                 echo "File {$filePath} is converted.\n";
             }
@@ -226,13 +244,13 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                     $renameToOldFilePath = $fileMgr->gzCompressFile($renameToOldFilePath);
                     $filePath = $fileMgr->gzCompressFile($filePath);
                 } catch (Exception $e) {
-                    printf($e->getMessage() . "\n");
-                    exit(1);
+                    fwrite(STDERR, $e->getMessage() . PHP_EOL);
+                    exit(6);
                 }
             }
         } else {
-            echo "Error: File {$filePath} could not be successfully converted.\n";
-            exit(1);
+            fwrite(STDERR, "Error: File {$filePath} could not be successfully converted." . PHP_EOL);
+            exit(7);
         }
     }
 
@@ -278,7 +296,13 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
      */
     protected function getUrlMatches(string $url, int $lineNumber): array
     {
-        $noMatchesReturner = [null, null, null, null, null];
+        $noMatchesReturner = [
+            'workingAssocType' => null,
+            'contextPaths' => null,
+            'page' => null,
+            'operation' => null,
+            'args' => null
+        ];
 
         $expectedPageAndOp = $this->getExpectedPageAndOp();
 
@@ -291,8 +315,8 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             $operation = Core::getOp($url, !$this->isPathInfoDisabled());
             $args = Core::getArgs($url, !$this->isPathInfoDisabled());
         } else {
-            // Could not remove the base url, can't go on.
-            echo "The line number {$lineNumber} contains an url that the system can't remove the base url from.\n";
+            // Could not remove the base URL, can't go on.
+            fwrite(STDERR, "The line number {$lineNumber} contains an url that the system can't remove the base URL from." . PHP_EOL);
             return $noMatchesReturner;
         }
 
@@ -311,7 +335,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
         }
 
         if (empty($contextPaths) || !$page || !$operation) {
-            echo "Either context paths, page or operation could not be parsed from the URL correctly.\n";
+            fwrite(STDERR, 'Either context paths, page or operation could not be parsed from the URL correctly.' . PHP_EOL);
             return $noMatchesReturner;
         }
 
@@ -328,10 +352,16 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             }
         }
         if ($pageAndOpMatch) {
-            return [$workingAssocType, $contextPaths, $page, $operation, $args];
+            return [
+                'workingAssocType' => $workingAssocType,
+                'contextPaths' => $contextPaths,
+                'page' => $page,
+                'operation' => $operation,
+                'args' => $args
+            ];
         } else {
             if (!$this->isApacheAccessLogFile()) {
-                echo "No matching page and operation found on line number {$lineNumber}.\n";
+                fwrite(STDERR, "No matching page and operation found on line number {$lineNumber}." . PHP_EOL);
             }
             return $noMatchesReturner;
         }
@@ -551,12 +581,12 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             case Application::ASSOC_TYPE_SUBMISSION:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 $submissionId = (int) $args[0];
                 if (!Repo::submission()->exists($submissionId, $newEntry['contextId'])) {
-                    echo "Submission with the ID {$submissionId} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 // If it is an older submission version, the arguments must be:
@@ -564,11 +594,12 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 $representationId = null;
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 } elseif (count($args) == 2) {
@@ -578,12 +609,12 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                     $galley = Repo::galley()->get($representationId);
                     $submissionFileId = $galley->getData('submissionFileId');
                     if (!$submissionFileId) {
-                        // it is a remote galley from release 2.x
+                        fwrite(STDERR, 'This is a remote galley from release 2.x.' . PHP_EOL);
                         break;
                     }
                     $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                     if (!$submissionFile) {
-                        echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                     // This should be then the HTML full text file
@@ -606,15 +637,19 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                if (!isset($args[0]) || !isset($args[1])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing galley ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submissionId = (int) $args[0];
                 $submissionExists = Repo::submission()->exists($submissionId, $newEntry['contextId']);
                 if (!$submissionExists) {
-                    echo "Submission with the ID {$submissionId} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
 
@@ -626,13 +661,14 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 if (in_array('version', $args)) {
                     // This is a newer log file and it should contain submissionId in this case
                     if ($args[1] !== 'version' || !isset($args[2]) || !isset($args[3]) || !isset($args[4])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/<galleyId>/<fileId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     $representationId = (int) $args[3];
                     $submissionFileId = (int) $args[4];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 } else {
@@ -644,7 +680,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
                 $galley = Repo::galley()->get($representationId, $publicationId);
                 if (!$galley) {
-                    echo "Galley with the ID {$representationId} does not exist.\n";
+                    fwrite(STDERR, "Galley with the ID {$representationId} does not exist." . PHP_EOL);
                     break;
                 }
                 if (!$submissionFileId) { // Log files from releases 2.x
@@ -652,12 +688,12 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 }
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
-                    echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                     break;
                 }
                 if ($galley->getData('submissionFileId') != $submissionFileId) {
                     // This check is relevant if representation and submission file ID are provided as arguments
-                    echo "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}." . PHP_EOL);
                     break;
                 }
 
@@ -679,14 +715,18 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
                 // This is the URL article/downloadSuppFile/articleId/suppFileId from a 2.x usage stats log file
-                if (!isset($args[0]) || !isset($args[1])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing supp file ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 $submissionId = (int) $args[0];
                 $submission = Repo::submission()->get($submissionId, $newEntry['contextId']);
                 if (!$submission) {
-                    echo "Submission with the ID {$submissionId} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $publications = $submission->getData('publications');
@@ -709,17 +749,17 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                         }
                     }
                 }
-                echo "Supp file could not be found.\n";
+                fwrite(STDERR, 'Supp file could not be found.' . PHP_EOL);
                 break;
 
             case Application::ASSOC_TYPE_ISSUE:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing issue ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 $issueId = (int) $args[0];
                 if (!Repo::issue()->exists($issueId, $newEntry['contextId'])) {
-                    echo "Issue with the ID {$issueId} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Issue with the ID {$issueId} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $newEntry['submissionId'] = null;
@@ -732,19 +772,23 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 break;
 
             case Application::ASSOC_TYPE_ISSUE_GALLEY:
-                if (!isset($args[0]) || !isset($args[1])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing issue ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing issue galley ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 $issueGalleyDao = DAORegistry::getDAO('IssueGalleyDAO');
                 $issueId = (int) $args[0];
                 if (!Repo::issue()->exists($issueId, $newEntry['contextId'])) {
-                    echo "Issue with the ID {$issueId} does not exist in the journal with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Issue with the ID {$issueId} does not exist in the journal with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $issueGalley = $issueGalleyDao->getByBestId($args[1], $issueId);
                 if (!$issueGalley) {
-                    echo "Issue galley with the URL path or ID {$args[1]} does not exist in the issue with the ID {$issueId}.\n";
+                    fwrite(STDERR, "Issue galley with the URL path or ID {$args[1]} does not exist in the issue with the ID {$issueId}." . PHP_EOL);
                     break;
                 }
                 $newEntry['submissionId'] = null;
@@ -778,23 +822,24 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             case Application::ASSOC_TYPE_SUBMISSION:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 $submissionId = (int) $args[0];
                 if (!Repo::submission()->exists($submissionId, $newEntry['contextId'])) {
-                    echo "Submission with the ID {$submissionId} does not exist in the press with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId.
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 }
@@ -808,15 +853,23 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                if (!isset($args[0]) || !isset($args[1]) || !isset($args[2])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing publication format ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[2])) {
+                    fwrite(STDERR, 'Missing file or publication ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submissionId = (int) $args[0];
                 $submissionExists = Repo::submission()->exists($submissionId, $newEntry['contextId']);
                 if (!$submissionExists) {
-                    echo "Submission with the ID {$submissionId} does not exist in the press with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
 
@@ -826,13 +879,14 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 if (in_array('version', $args)) {
                     // This is a newer log file and it should contain submissionId in this case
                     if ($args[1] !== 'version' || !isset($args[2]) || !isset($args[3]) || !isset($args[4])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/<publicationFormatId>/<fileId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     $representationId = (int) $args[3];
                     $submissionFileId = (int) $args[4];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 } else {
@@ -843,21 +897,21 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO');  /* @var $publicationFormatDao PublicationFormatDAO */
                 $publicationFormat = $publicationFormatDao->getById($representationId, $publicationId);
                 if (!$publicationFormat) {
-                    echo "Publication format with the ID {$representationId} does not exist.\n";
+                    fwrite(STDERR, "Publication format with the ID {$representationId} does not exist." . PHP_EOL);
                     break;
                 }
 
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
-                    echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                     break;
                 }
                 if ($submissionFile->getData('assocType') != Application::ASSOC_TYPE_PUBLICATION_FORMAT) {
-                    echo "Submission file with the ID {$submissionFileId} does not belong to a publication format.";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to a publication format." . PHP_EOL);
                     break;
                 }
                 if ($representationId != $submissionFile->getData('assocId')) {
-                    echo "Submission file with the ID {$submissionFileId} does not belong to the publication format with the ID {$representationId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the publication format with the ID {$representationId}." . PHP_EOL);
                     break;
                 }
 
@@ -879,14 +933,14 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             case Application::ASSOC_TYPE_SERIES:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing series path URL parameter.' . PHP_EOL);
                     break;
                 }
                 $seriesPath = $args[0];
                 $seriesDao = Application::getSectionDAO(); /* @var $seriesDao SeriesDAO */
                 $series = $seriesDao->getByPath($seriesPath, $newEntry['contextId']);
                 if (!$series) {
-                    echo "Series with the path {$seriesPath} does not exist in the press with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Series with the path {$seriesPath} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 $newEntry['submissionId'] = null;
@@ -919,23 +973,24 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
             case Application::ASSOC_TYPE_SUBMISSION:
                 if (!isset($args[0])) {
-                    echo "Missing URL parameter.\n";
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
                     break;
                 }
                 $submissionId = (int) $args[0];
                 if (!Repo::submission()->exists($submissionId, $newEntry['contextId'])) {
-                    echo "Submission with the ID {$submissionId} does not exist in the server with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the server with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId.
                 if (in_array('version', $args)) {
                     if ($args[1] !== 'version' || !isset($args[2])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 }
@@ -947,15 +1002,23 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                if (!isset($args[0]) || !isset($args[1]) || !isset($args[2])) {
-                    echo "Missing URL parameter.\n";
+                if (!isset($args[0])) {
+                    fwrite(STDERR, 'Missing submission ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[1])) {
+                    fwrite(STDERR, 'Missing galley ID URL parameter.' . PHP_EOL);
+                    break;
+                }
+                if (!isset($args[2])) {
+                    fwrite(STDERR, 'Missing file or publication ID URL parameter.' . PHP_EOL);
                     break;
                 }
 
                 $submissionId = (int) $args[0];
                 $submissionExists = Repo::submission()->exists($submissionId, $newEntry['contextId']);
                 if (!$submissionExists) {
-                    echo "Submission with the ID {$submissionId} does not exist in the server with the ID {$newEntry['contextId']}.\n";
+                    fwrite(STDERR, "Submission with the ID {$submissionId} does not exist in the server with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;
                 }
 
@@ -965,13 +1028,14 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 if (in_array('version', $args)) {
                     // This is a newer log file and it should contain submissionId in this case
                     if ($args[1] !== 'version' || !isset($args[2]) || !isset($args[3]) || !isset($args[4])) {
+                        fwrite(STDERR, 'The following arguments are expected and not found: <submissionId>/version/<publicationId>/<galleyId>/<fileId>.' . PHP_EOL);
                         break;
                     }
                     $publicationId = (int) $args[2];
                     $representationId = (int) $args[3];
                     $submissionFileId = (int) $args[4];
                     if (!Repo::publication()->exists($publicationId, $submissionId)) {
-                        echo "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}.\n";
+                        fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
                 } else {
@@ -981,16 +1045,16 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
                 $galley = Repo::galley()->get($representationId, $publicationId);
                 if (!$galley) {
-                    echo "Galley with the ID {$representationId} does not exist.\n";
+                    fwrite(STDERR, "Galley with the ID {$representationId} does not exist." . PHP_EOL);
                     break;
                 }
                 $submissionFile = Repo::submissionFile()->get($submissionFileId, $submissionId);
                 if (!$submissionFile) {
-                    echo "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                     break;
                 }
                 if ($galley->getData('submissionFileId') != $submissionFileId) {
-                    echo "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}.\n";
+                    fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the galley with the ID {$representationId}." . PHP_EOL);
                     break;
                 }
 

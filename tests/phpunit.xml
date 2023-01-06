@@ -30,12 +30,10 @@
     </testsuites>
     <coverage>
         <include>
-            <directory suffix=".inc.php">./../classes</directory>
-            <directory suffix=".inc.php">./../api</directory>
-            <directory suffix=".inc.php">./../controllers</directory>
-            <directory suffix=".php">./../Domains</directory>
-            <directory suffix=".inc.php">./../pages</directory>
-            <directory suffix=".php">./../Support</directory>
+            <directory suffix=".php">./../classes</directory>
+            <directory suffix=".php">./../api</directory>
+            <directory suffix=".php">./../controllers</directory>
+            <directory suffix=".php">./../pages</directory>
         </include>
         <report>
             <text outputFile="results/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>

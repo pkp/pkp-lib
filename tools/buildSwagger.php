@@ -84,7 +84,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
 
                     // Special handling to catch readOnly, writeOnly and apiSummary props in objects
                     if (!empty($propSchema->{'$ref'})) {
-                        if (empty($propSchema->readOnly)) {
+                        if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                             $editPropSchema->properties = $propSchema;
                         }
                         if (empty($propSchema->writeOnly)) {
@@ -96,7 +96,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                     } elseif ($propSchema->type === 'object') {
                         $subPropsEdit = $subPropsRead = $subPropsSummary = [];
                         foreach ($propSchema->properties as $subPropName => $subPropSchema) {
-                            if (empty($subPropSchema->readOnly)) {
+                            if (empty($subPropSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                                 $subPropsEdit[$subPropName] = $subPropSchema;
                             }
                             if (empty($subPropSchema->writeOnly)) {
@@ -121,7 +121,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                             $subPropsSchemaRead = $subPropsRead;
                             $subPropsSchemaSummary = $subPropsSummary;
                         }
-                        if (empty($propSchema->readOnly)) {
+                        if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                             $editPropSchema->properties = $subPropsSchemaEdit;
                         }
                         if (empty($propSchema->writeOnly)) {
@@ -139,7 +139,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                                 foreach ($locales as $localeKey) {
                                     $subProperties[$localeKey] = $propSchema->items;
                                 }
-                                if (empty($propSchema->readOnly)) {
+                                if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                                     $editPropSchema->properties = $subProperties;
                                 }
                                 if (empty($propSchema->writeOnly)) {
@@ -149,7 +149,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                                     $summaryPropSchema->properties = $subProperties;
                                 }
                             } else {
-                                if (empty($propSchema->readOnly)) {
+                                if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                                     $editPropSchema = ['$ref' => '#/definitions/LocaleObject'];
                                 }
                                 if (empty($propSchema->writeOnly)) {
@@ -162,7 +162,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                         }
                     }
 
-                    if (empty($propSchema->readOnly)) {
+                    if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                         $editDefinition['properties'][$propName] = $editPropSchema;
                     }
                     if (empty($propSchema->writeOnly)) {

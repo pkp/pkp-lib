@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
-use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
+use PKP\jobs\submissions\UpdateSubmissionSearchJob;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 

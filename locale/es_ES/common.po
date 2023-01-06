@@ -1,11 +1,12 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Diego Abadan <diego@lepidus.com.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-10-12 12:06+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2022-12-13 16:00+0000\n"
+"Last-Translator: Diego Abadan <diego@lepidus.com.br>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -433,7 +434,7 @@ msgid "common.none"
 msgstr "Ninguno"
 
 msgid "common.no"
-msgstr "Núm."
+msgstr "No"
 
 msgid "common.noComments"
 msgstr "No hay comentarios"
@@ -786,9 +787,6 @@ msgstr "¿Está seguro/a de que desea enviar este formulario?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmar"
 
-msgid "form.emailRequired"
-msgstr "Se requiere una dirección de correo electrónico."
-
 msgid "form.dataHasChanged"
 msgstr "Los datos del formulario han cambiado. ¿Desea continuar sin guardar?"
 
@@ -1049,12 +1047,6 @@ msgstr "Tipo de aviso eliminado."
 
 msgid "notification.removedAnnouncement"
 msgstr "Aviso eliminado."
-
-msgid "notification.addedAuthor"
-msgstr "Autor/a añadido."
-
-msgid "notification.editedAuthor"
-msgstr "Autor/a editado."
 
 msgid "notification.confirmError"
 msgstr "Se ha producido un error al confirmar su suscripción."
@@ -2054,3 +2046,12 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor/a añadido."
+
+msgid "notification.editedAuthor"
+msgstr "Autor/a editado."

@@ -21,16 +21,10 @@ msgstr "لیست مرتب شده‌ای از مراجع بکار رفته در �
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "داوری جدید ثبت شده و توسط سردبیر بررسی خواهد شد."
 
-msgid "submission.confirm.message"
-msgstr ""
-"مقاله شما با موفقیت بارگذاری گردید و آماده ارسال است. شما می‌توانید قبل از "
-"عبور از این مرحله برای بازنگری یا اصلاح اطلاعات وارد شده به مراحل قبل "
-"بازگردید. پس از اطمینان از صحت اطلاعات وارد شده روی «پایان ارسال مقاله» کلیک "
-"کنید."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "موارد ضروری برای ارسال"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "پیش از آغاز فرایند ارسال مقاله باید ضمن مطالعه دقیق موارد خواسته‌شده زیر، "
@@ -38,18 +32,6 @@ msgstr ""
 
 msgid "submission.submit.submissionComplete"
 msgstr "ثبت مقاله تکمیل شد"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "ممنونیم که در {$contextName} مقاله خود را ثبت نمودید."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "قوانین و شرایط ثبت"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "همه شرایط و ضوابط را میپذیرم."
-
-msgid "submission.submit.whatNext"
-msgstr "برای ادامه ؟"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "شما می توانید:"
@@ -1060,9 +1042,6 @@ msgstr "نسخه داوری"
 msgid "submission.rights"
 msgstr "حقوق"
 
-msgid "submission.rights.tip"
-msgstr "در صورت تمایل می توانید بیانیه کوتاهی در مورد حق دسترسی به این مقاله ارسالی بنویسید."
-
 msgid "submissions.active"
 msgstr "جاری"
 
@@ -1099,9 +1078,6 @@ msgstr "اتخاذ تصمیم"
 msgid "submission.source"
 msgstr "منبع"
 
-msgid "submission.source.tip"
-msgstr "آیا این مقاله از منابع دیگری بهره برده است. در صورت تمایل می توانید آدرس اینترنتی صفحه ای که در مورد این منابع توضیح می دهد را وارد کنید."
-
 msgid "submissions.submit"
 msgstr "ثبت"
 
@@ -1129,9 +1105,6 @@ msgstr "داوری مقاله ارسالی"
 msgid "submission.submitter"
 msgstr "ارسال کننده"
 
-msgid "submission.submit.finishSubmission"
-msgstr "نهایی کردن ارسال"
-
 msgid "submission.submit.selectFile"
 msgstr "انتخاب فایل"
 
@@ -1150,14 +1123,8 @@ msgstr "افزودن فایل جدید"
 msgid "submission.submit.metadataForm"
 msgstr "پالایش بیشتر"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "اطلاعات تکمیلی در مورد مقاله ثبت شده خود وارد کنید. هر مورد را با زدن اینتر مشخص کنید."
-
 msgid "submission.submit.submissionLocale"
 msgstr "زبان مقاله"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "مقاله را می توانید در چندین زبان مختلف ارسال کنید. از منوی زیر می توانید زبان اصلی مقاله را انتخاب نمایید"
 
 msgid "submission.submit.submissionFiles"
 msgstr "فایل مقاله"
@@ -1188,9 +1155,6 @@ msgstr "اطلاعات نمایه"
 
 msgid "submission.titleAndAbstract"
 msgstr "عنوان و چکیده"
-
-msgid "submission.type.tip"
-msgstr "نوع داده ارسالی معمولاً متن، تصویر و یا محتوای چند رسانه ای مانند نرم‌افزار است. لطفاً نوع داده ای که بیشترین ارتباط را با محتوای شما دارد را انتخاب کنید. می توانید مثالهایی را در لینک زیر مشاهده کنید:   <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "شروع"
@@ -1227,9 +1191,6 @@ msgstr "MM-DD"
 
 msgid "submission.date.yyyymmdd"
 msgstr "YYYY-MM-DD"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "نویسنده مسئول مکاتبات است"
 
 msgid "submission.submit.contributorRole"
 msgstr "نقش پدیدآورنده"
@@ -1827,17 +1788,6 @@ msgstr "فایل‌های دیگر"
 msgid "metadata.property.displayName.abstract"
 msgstr "چکیده"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"اگر می‌خواهید امکان ویرایش یا انتشار این مقاله برای شما فراهم باشد، با یکی "
-"از نقش‌های زیر مقاله را ارسال کنید: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "بله، مایلم در مورد این مقاله با من تماس گرفته شود."
-
-msgid "submission.submit.contactConsent"
-msgstr "نویسنده مسئول"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "نقشی را که بهتر از بقیه نوع مشارکت شما در این مقاله را توصیف می‌کند انتخاب "
@@ -1878,3 +1828,32 @@ msgstr "تاریخ نشر (از نو به قدیمی)"
 
 msgid "category.coverImage"
 msgstr "تصویر کاور"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "هیچ فایلی به این مقاله ارسالی ضمیمه نشده است"
+
+msgid "author.submit.confirmation"
+msgstr "تأییدیه"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "اطلاعات تکمیلی در مورد مقاله ثبت شده خود وارد کنید. هر مورد را با زدن اینتر مشخص کنید."
+
+msgid "submission.type.tip"
+msgstr "نوع داده ارسالی معمولاً متن، تصویر و یا محتوای چند رسانه ای مانند نرم‌افزار است. لطفاً نوع داده ای که بیشترین ارتباط را با محتوای شما دارد را انتخاب کنید. می توانید مثالهایی را در لینک زیر مشاهده کنید:   <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "آیا این مقاله از منابع دیگری بهره برده است. در صورت تمایل می توانید آدرس اینترنتی صفحه ای که در مورد این منابع توضیح می دهد را وارد کنید."
+
+msgid "submission.rights.tip"
+msgstr "در صورت تمایل می توانید بیانیه کوتاهی در مورد حق دسترسی به این مقاله ارسالی بنویسید."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "اطلاعات تکمیلی در مورد مقاله ثبت شده خود وارد کنید. هر مورد را با زدن اینتر مشخص کنید."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "مقاله را می توانید در چندین زبان مختلف ارسال کنید. از منوی زیر می توانید زبان اصلی مقاله را انتخاب نمایید"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "نویسنده مسئول مکاتبات است"

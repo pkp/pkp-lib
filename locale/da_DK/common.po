@@ -942,9 +942,6 @@ msgstr "Er du sikker på, at du vil sende denne formular?"
 msgid "form.confirmSubmit.title"
 msgstr "Bekræft"
 
-msgid "form.emailRequired"
-msgstr "En e-mail-adresse er påkrævet."
-
 msgid "form.dataHasChanged"
 msgstr "Dataene i denne formular er ændret. Fortsæt alligevel?"
 
@@ -1415,12 +1412,6 @@ msgstr "Meddelelsestype fjernet."
 
 msgid "notification.removedAnnouncement"
 msgstr "Meddelelse fjernet."
-
-msgid "notification.addedAuthor"
-msgstr "Forfatter tilføjet."
-
-msgid "notification.editedAuthor"
-msgstr "Forfatter redigeret."
 
 msgid "notification.removedNote"
 msgstr "Note slettet."
@@ -2232,3 +2223,13 @@ msgstr ""
 "Dette er ikke et gyldigt land. Landet skal angives som den internationale "
 "landekode på to bogstaver (fx DK for Danmark). Se alle landekoder på https://"
 "en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Forfatter tilføjet."
+
+msgid "notification.editedAuthor"
+msgstr "Forfatter redigeret."
+

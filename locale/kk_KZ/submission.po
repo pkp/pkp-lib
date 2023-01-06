@@ -15,28 +15,11 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Жіберу талаптары"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Осы материалды өзіңіз өңдеп, жариялай алғыңыз келсе, келесі рөлдердің бірі "
-"ретінде жіберіңіз: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Иә, осы материал бойынша маған хабарласуыңызға келісемін."
-
-msgid "submission.submit.contactConsent"
-msgstr "Корреспонденция байланысы"
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Осы материалға қосқан үлесіңізді сипаттайтын рөлді таңдаңыз."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Жіберу"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Материалыңыз серверге жүктелді және жіберуге дайын. Жалғастырмас бұрын "
-"енгізген кез келген ақпаратты тексеру және түзету үшін кері оралуға болады. "
-"Дайын болған кезде «Жіберуді аяқтау» батырмасын басыңыз."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
@@ -580,31 +563,14 @@ msgstr "Бұл материалды қараңыз"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Қазіргі уақытта сіз:"
 
-msgid "submission.submit.whatNext"
-msgstr "Әрі қарай не істеу керек?"
-
 msgid "submission.submit.removeConfirm"
 msgstr "Бұл файлды жойғыңыз келетініне сенімдісіз бе?"
-
-msgid "submission.submit.genre.error"
-msgstr "Жүктеп салынған файлдардың әрқайсысы үшін файл түрін таңдаңыз."
 
 msgid "submission.submit.genre.description"
 msgstr "Осы файлды жақсы сипаттайтын опцияны таңдаңыз."
 
 msgid "submission.submit.genre.label"
 msgstr "Бұл файлдың түрі қандай?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Иә, мен авторлық құқық шарттарымен міндетті түрде келісемін."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Авторлық құқық шарттарын  қабылдау"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr ""
-"\"{$contextName}\" материалыңызды жариялауға қызығушылық танытқаныңызға "
-"рахмет."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Жіберу аяқталды"
@@ -2053,41 +2019,11 @@ msgstr "Бар файлды ауыстыру керек пе?"
 msgid "submission.form.name"
 msgstr "Файлды атаңыз (мысалы, қолжазба; 1-кесте)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Библиографиялық анықтамаларды беріңіз."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Материалға құқықтарды көрсетіңіз."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Дереккөзді көрсетіңіз."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Түрін көрсетіңіз."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Қамту туралы ақпаратты беріңіз."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Кілт сөзді енгізіңіз."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Тақырыпты көрсетіңіз."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Тақырыпты енгізіңіз."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Тілді енгізіңіз."
-
 msgid "submission.submit.addAuthor"
 msgstr "Авторды қосыңыз"
 
 msgid "submission.submit.contributorRole"
 msgstr "Автордың рөлі"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Редакциямен хат алмасу үшін байланысатын адам."
 
 msgid "submission.date.yyyymmdd"
 msgstr "ЖЖЖЖ-АА-КК"
@@ -2124,15 +2060,6 @@ msgstr "Файлды жүктеп салыңыз"
 
 msgid "submission.underway"
 msgstr "Орындалу үстінде"
-
-msgid "submission.type.tip"
-msgstr ""
-"Мазмұн түрі әдетте «сурет», «мәтін» немесе басқа медиа түрлері, соның ішінде "
-"«бағдарламалық құрал» немесе «интерактивті» болып табылады. Материалыңызға "
-"ең қолайлысын таңдаңыз. Мысалдар мына жерден табуға болады <a target=\""
-"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
-"generic.shtml#type\">http://dublincore.org/documents/ 2001 /04/12/usageguide/"
-"generic.shtml#type</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Тақырып және реферат"
@@ -2172,18 +2099,8 @@ msgstr "Тәуелді файлдар"
 msgid "submission.submit.submissionFiles"
 msgstr "Материалдың файлы"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Өтініштер бірнеше тілде қабылданады. Жоғарыдағы ашылмалы мәзірден жіберудің "
-"негізгі тілін таңдаңыз."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Материалдың тілі"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Материалыңыз үшін қосымша ақпаратты қосыңыз. Әр терминнан кейін «Enter» "
-"түймесін басыңыз."
 
 msgid "submission.submit.metadataForm"
 msgstr "Қосымша түсініктемелер"
@@ -2205,9 +2122,6 @@ msgstr "Файл туралы мәлімет"
 
 msgid "submission.submit.selectFile"
 msgstr "Файлды таңдау"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Жіберілімді аяқтау"
 
 msgid "submission.submitter"
 msgstr "Жіберілді"
@@ -2235,11 +2149,6 @@ msgstr "Жіберілген"
 
 msgid "submissions.submit"
 msgstr "Жіберу"
-
-msgid "submission.source.tip"
-msgstr ""
-"Бұл материал басқа ресурстан алынды ма? Иә болса, осы ресурстың URL "
-"мекенжайын немесе сипаттамасын енгізуге болады."
 
 msgid "submission.source"
 msgstr "Дереккөз"
@@ -2276,11 +2185,6 @@ msgstr "Архивталған"
 
 msgid "submissions.active"
 msgstr "Белсенді"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Қаласаңыз, осы материалға қалған немесе өту құқығы туралы қысқаша хабарлама "
-"енгізуге болады."
 
 msgid "submission.rights"
 msgstr "Құқықтар"
@@ -2473,3 +2377,75 @@ msgstr "Соңғы әрекеттен кейінгі күндер"
 
 msgid "submission.list.activity"
 msgstr "Белсенділік"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Бұл жіберілген мақалаға ешқандай файл тіркелмеген."
+
+msgid "author.submit.confirmation"
+msgstr "Растау"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Тілді енгізіңіз."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Тақырыпты енгізіңіз."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Тақырыпты көрсетіңіз."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Кілт сөзді енгізіңіз."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Қамту туралы ақпаратты беріңіз."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Түрін көрсетіңіз."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Дереккөзді көрсетіңіз."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Материалға құқықтарды көрсетіңіз."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Библиографиялық анықтамаларды беріңіз."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Материалыңыз үшін қосымша ақпаратты қосыңыз. Әр терминнан кейін «Enter» "
+"түймесін басыңыз."
+
+msgid "submission.type.tip"
+msgstr ""
+"Мазмұн түрі әдетте «сурет», «мәтін» немесе басқа медиа түрлері, соның ішінде "
+"«бағдарламалық құрал» немесе «интерактивті» болып табылады. Материалыңызға "
+"ең қолайлысын таңдаңыз. Мысалдар мына жерден табуға болады <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/ 2001 /04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Бұл материал басқа ресурстан алынды ма? Иә болса, осы ресурстың URL "
+"мекенжайын немесе сипаттамасын енгізуге болады."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Қаласаңыз, осы материалға қалған немесе өту құқығы туралы қысқаша хабарлама "
+"енгізуге болады."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Материалыңыз үшін қосымша ақпаратты қосыңыз. Әр терминнан кейін «Enter» "
+"түймесін басыңыз."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Өтініштер бірнеше тілде қабылданады. Жоғарыдағы ашылмалы мәзірден жіберудің "
+"негізгі тілін таңдаңыз."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Редакциямен хат алмасу үшін байланысатын адам."

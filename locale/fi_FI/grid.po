@@ -194,12 +194,6 @@ msgstr "Tuo tai vie sisältöä tai sivuston tietoja"
 msgid "grid.action.orderItems"
 msgstr "Ota järjestämistila käyttöön"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Muokkaa tätä tarkistuslistan kohtaa"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Poista tämä tarkistuslistan kohta"
-
 msgid "grid.action.resetAll"
 msgstr "Palauta kaikki kohteet oletusarvoisiksi"
 
@@ -392,9 +386,6 @@ msgstr "Kannatuslähteet"
 msgid "grid.action.addContributor"
 msgstr "Lisää tekijä"
 
-msgid "grid.action.editContributor"
-msgstr "Muokkaa tekijää"
-
 msgid "grid.action.deleteContributor"
 msgstr "Poista tekijä"
 
@@ -431,20 +422,8 @@ msgstr "Käsikirjoituksen tarkistuslista"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Tarkistuslistan kohta"
 
-msgid "author.users.contributor.name"
-msgstr "Nimi"
-
-msgid "author.users.contributor.email"
-msgstr "Sähköposti"
-
-msgid "author.users.contributor.role"
-msgstr "Rooli"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Ensisijainen yhteyshenkilö"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Näkyy luetteloissa"
 
 msgid "grid.roles.currentRoles"
 msgstr "Nykyiset roolit"
@@ -672,3 +651,18 @@ msgstr "Luo uusi versio"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Poista tämä käyttäjäryhmä"
+
+msgid "author.users.contributor.name"
+msgstr "Nimi"
+
+msgid "author.users.contributor.email"
+msgstr "Sähköposti"
+
+msgid "author.users.contributor.role"
+msgstr "Rooli"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Näkyy luetteloissa"
+
+msgid "grid.action.editContributor"
+msgstr "Muokkaa tekijää"

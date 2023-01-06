@@ -179,9 +179,6 @@ msgstr ""
 msgid "grid.action.deleteContributor"
 msgstr "Изтриване на спомагател/спомоществовател"
 
-msgid "grid.action.editContributor"
-msgstr "Редактиране на спомагател/спомоществовател"
-
 msgid "grid.action.addContributor"
 msgstr "Добавяне на спомагател/спомоществовател"
 
@@ -382,12 +379,6 @@ msgstr "Добавяне на нов шаблон за имейл"
 msgid "grid.action.resetAll"
 msgstr "Нулиране на всички елементи до стойностите по подразбиране"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Изтриване на този елемент от контролния списък"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Редактиране на този елемент от контролния списък"
-
 msgid "grid.action.orderItems"
 msgstr "Активиране на режима на подредба"
 
@@ -444,23 +435,11 @@ msgstr ""
 msgid "contributor.listPanel.preview"
 msgstr "Преглед"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Включване в списъци"
-
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Задаване на основен контакт"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Основен контакт"
-
-msgid "author.users.contributor.role"
-msgstr "Роля"
-
-msgid "author.users.contributor.email"
-msgstr "Имейл адрес"
-
-msgid "author.users.contributor.name"
-msgstr "Име"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Елемент от контролния списък"
@@ -732,3 +711,18 @@ msgstr "Преглед"
 
 msgid "grid.columns.locale.code"
 msgstr "Код"
+
+msgid "author.users.contributor.name"
+msgstr "Име"
+
+msgid "author.users.contributor.email"
+msgstr "Имейл адрес"
+
+msgid "author.users.contributor.role"
+msgstr "Роля"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Включване в списъци"
+
+msgid "grid.action.editContributor"
+msgstr "Редактиране на спомагател/спомоществовател"

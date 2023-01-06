@@ -140,7 +140,7 @@ class FormComponent
     public function addGroup($args, $position = []): self
     {
         if (empty($args['id'])) {
-            fatalError('Tried to add a form group without an id.');
+            throw new Exception('Tried to add a form group without an id.');
         }
         if (empty($position)) {
             $this->groups[] = $args;

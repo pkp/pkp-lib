@@ -989,9 +989,6 @@ msgstr "Вы уверены, что хотите отправить эту фо�
 msgid "form.confirmSubmit.title"
 msgstr "Подтвердить"
 
-msgid "form.emailRequired"
-msgstr "Адрес электронной почты обязателен."
-
 msgid "form.dataHasChanged"
 msgstr "Данные этой формы были изменены. Хотите продолжить без сохранения?"
 
@@ -1399,12 +1396,6 @@ msgstr "Тип объявлений удален."
 
 msgid "notification.removedAnnouncement"
 msgstr "Объявление удалено."
-
-msgid "notification.addedAuthor"
-msgstr "Автор добавлен."
-
-msgid "notification.editedAuthor"
-msgstr "Автор отредактирован."
 
 msgid "notification.confirmError"
 msgstr "При подверждении вашей подписки возникла ошибка."
@@ -2029,3 +2020,12 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Автор добавлен."
+
+msgid "notification.editedAuthor"
+msgstr "Автор отредактирован."

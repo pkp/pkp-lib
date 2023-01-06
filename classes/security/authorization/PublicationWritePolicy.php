@@ -27,12 +27,12 @@ class PublicationWritePolicy extends ContextPolicy
      * @param array $args request arguments
      * @param array $roleAssignments
      */
-    public function __construct($request, &$args, $roleAssignments)
+    public function __construct($request, &$args, $roleAssignments, $submissionIdParameter = 'submissionId', $publicationIdParameter = 'publicationId')
     {
         parent::__construct($request);
 
         // Can the user access this publication?
-        $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments, $submissionIdParameter, $publicationIdParameter));
 
         // Is the user assigned to this submission in one of these roles, and does this role
         // have access to the _current_ stage of the submission?

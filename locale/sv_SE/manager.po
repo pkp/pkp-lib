@@ -2601,9 +2601,6 @@ msgstr ""
 "Detta e-postmeddelande skickas från en redaktör till en granskare för att "
 "meddela att beslut fattats om ett bidrag som de granskat."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Meddelande till granskare"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
 "En kopia av e-postmeddelandet som skickades till författaren som skickade in "
@@ -2691,6 +2688,7 @@ msgstr ""
 "Alla kommentarer från färdigställda granskningar. Granskares namn är dolda "
 "om granskningen är anonym"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Skicka enbart e-postavisering till författare som är knutna till "
@@ -3143,3 +3141,11 @@ msgid "mailable.publicationVersionNotify.description"
 msgstr ""
 "Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en ny "
 "version av publikationen"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Checklista för insändning av bidrag"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "När ett bidrag skickas in till tidskriften måste författaren först kontrollera de olika momenten i Checklista för insändning av bidrag. Checklistan syns också i Författarinstruktioner under Om tidskriften. Checklistan kan redigeras nedan men alla delmoment på listan måste markeras av författaren innan bidraget skickas in."

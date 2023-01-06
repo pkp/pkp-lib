@@ -1024,9 +1024,6 @@ msgid "form.dataHasChanged"
 msgstr ""
 "Данните в този формуляр са променени. Искате ли да продължите без запазване?"
 
-msgid "form.emailRequired"
-msgstr "Изисква се имейл адрес."
-
 msgid "form.confirmSubmit.title"
 msgstr "Потвърждаване"
 
@@ -1466,12 +1463,6 @@ msgstr "По автор"
 
 msgid "search.advancedFilters"
 msgstr "Разширени филтри"
-
-msgid "notification.editedAuthor"
-msgstr "Редактиран е автор."
-
-msgid "notification.addedAuthor"
-msgstr "Добавен е автор."
 
 msgid "notification.removedAnnouncement"
 msgstr "Изтрито е съобщение."
@@ -2210,3 +2201,13 @@ msgstr ""
 "Това не е валидна държава. Държавата трябва да е един от 2-буквените "
 "международни кодове. Можете да видите всички кодове на https://en.wikipedia."
 "org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Добавен е автор."
+
+msgid "notification.editedAuthor"
+msgstr "Редактиран е автор."
+

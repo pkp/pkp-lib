@@ -2327,6 +2327,7 @@ msgstr ""
 "كل التعليقات من التحكيمات المكتملة. أسماء المحكمين مخفية في التحكيمات غير "
 "المشخصنة"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "أرسل البريد الالكتروني فقط إلى المؤلفين المعينين إلى سير أعمال طلب التقديم. "
@@ -2390,9 +2391,6 @@ msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
 "هذا البريد الالكتروني يرسله المحرر إلى المحكم لإبلاغه باتخاذ القرار بشأن طلب "
 "تقديم قام بتحكيمه."
-
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "عرفان المحكم"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة الإنتاج."
@@ -2986,3 +2984,11 @@ msgstr "إجمالي المعاينات حسب التاريخ"
 
 msgid "stats.downloads.timelineInterval"
 msgstr "إجمالي التنزيلات حسب التاريخ"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "إجراءات تحضير طلب النشر"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "قبيل الشروع بتقديم طلب النشر إلى المجلة، يُطلب من المؤلفين أولاً التحقق من أن كل فقرة واردة في إجراءات تحضير طلب النشر مستوفاة لديهم. تظهر تلك الخطوات أيضاً في إرشادات المؤلفين، ضمن (عن المجلة). يمكن تعديل فقرات القائمة أدناه، غير أن جميع تلك الفقرات ستتطلب تأشير استيفائها قبل أن يتسنى للمؤلفين متابعة عملية التقديم."

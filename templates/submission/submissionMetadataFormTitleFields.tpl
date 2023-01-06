@@ -7,6 +7,8 @@
  *
  * Submission's metadata form title fields. To be included in any form that wants to handle
  * submission metadata.
+ *
+ * @deprecated 3.4
  *}
 {if $formParams.submissionVersion && ($formParams.submissionVersion < $currentSubmissionVersion)}
   {assign var=readOnly value=1}

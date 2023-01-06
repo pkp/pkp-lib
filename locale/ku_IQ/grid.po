@@ -187,12 +187,6 @@ msgstr "ئیمێڵێکی ئامادەکراوی نوێ زیاد بکە"
 msgid "grid.action.resetAll"
 msgstr "هەموو بڕگەکان بگەڕێنەوە بۆ باری ئاسایی خۆیان"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "ئەم لیستی پێداچوونەوەیە بسڕەوە"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "ئەم لیستی پێداچوونەوەیە دەستکاری بکە"
-
 msgid "grid.action.orderItems"
 msgstr "شێوازی ڕیزکردن چلاک بکە"
 
@@ -611,20 +605,8 @@ msgstr "ڕۆڵێکی نوێ دروستبکە"
 msgid "grid.roles.currentRoles"
 msgstr "ڕۆڵەکانی ئێستا"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "لە لیستەکانی گەڕان"
-
 msgid "author.users.contributor.principalContact"
 msgstr "لایەنی سەرەکی پەیوەندی پێوەکردن"
-
-msgid "author.users.contributor.role"
-msgstr "ڕۆڵ"
-
-msgid "author.users.contributor.email"
-msgstr "ئیمێڵ"
-
-msgid "author.users.contributor.name"
-msgstr "ناو"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "بڕگەکانی لیستی پێداچوونەوە"
@@ -665,9 +647,6 @@ msgstr "وەشانێکی نوێ دروستبکە"
 msgid "grid.action.deleteContributor"
 msgstr "هاوبەشکار بسڕەوە"
 
-msgid "grid.action.editContributor"
-msgstr "هاوبەشکار زیاد بکە"
-
 msgid "grid.contributor.title"
 msgstr "سەرچاوەکانی پشتیوانی"
 
@@ -691,3 +670,18 @@ msgstr "زنجیرەکان زیاد بکە"
 
 msgid "grid.action.wizard"
 msgstr "ڕێبەری ڕێکخستنەکان"
+
+msgid "author.users.contributor.name"
+msgstr "ناو"
+
+msgid "author.users.contributor.email"
+msgstr "ئیمێڵ"
+
+msgid "author.users.contributor.role"
+msgstr "ڕۆڵ"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "لە لیستەکانی گەڕان"
+
+msgid "grid.action.editContributor"
+msgstr "هاوبەشکار زیاد بکە"

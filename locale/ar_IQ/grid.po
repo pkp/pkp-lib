@@ -199,12 +199,6 @@ msgstr "استيراد أو تصدير محتوى أو بيانات الموقع
 msgid "grid.action.orderItems"
 msgstr "تمكين نمط الفرز"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "تعديل فقرة التأشير هذه"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "حذف فقرة التأشير هذه"
-
 msgid "grid.action.resetAll"
 msgstr "استعادة الإعدادات الإفتراضية لجميع الفقرات"
 
@@ -403,9 +397,6 @@ msgstr "المساهمون"
 msgid "grid.action.addContributor"
 msgstr "إضافة مساهم"
 
-msgid "grid.action.editContributor"
-msgstr "تعديل المساهم"
-
 msgid "grid.action.deleteContributor"
 msgstr "حذف المساهم"
 
@@ -445,20 +436,8 @@ msgstr "قائمة تأشيرات طلب التقديم"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "فقرة قائمة التأشير"
 
-msgid "author.users.contributor.name"
-msgstr "الاسم"
-
-msgid "author.users.contributor.email"
-msgstr "البريد الالكتروني"
-
-msgid "author.users.contributor.role"
-msgstr "الدور"
-
 msgid "author.users.contributor.principalContact"
 msgstr "عنوان الاتصال الرئيسي"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "ضمن قوائم التصفح"
 
 msgid "grid.roles.currentRoles"
 msgstr "الأدوار الحالية"
@@ -714,3 +693,19 @@ msgstr "معاينة"
 
 msgid "grid.columns.locale.code"
 msgstr "النص البرمجي"
+
+msgid "author.users.contributor.name"
+msgstr "الاسم"
+
+msgid "author.users.contributor.email"
+msgstr "البريد الالكتروني"
+
+msgid "author.users.contributor.role"
+msgstr "الدور"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "ضمن قوائم التصفح"
+
+msgid "grid.action.editContributor"
+msgstr "تعديل المساهم"
+

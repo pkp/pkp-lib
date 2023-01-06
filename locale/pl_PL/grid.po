@@ -94,15 +94,6 @@ msgstr "Lista kontrolna zgłoszenia"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Pozycja listy kontrolnej"
 
-msgid "author.users.contributor.name"
-msgstr "Nazwisko"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Role"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Główna osoba do kontaktu"
 
@@ -195,12 +186,6 @@ msgstr "Importuj lub eksportuj elementy lub zawartość strony"
 
 msgid "grid.action.orderItems"
 msgstr "Włącz tryb porządkowania"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Edytuj element listy"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Usuń element listy"
 
 msgid "grid.action.resetAll"
 msgstr "Resetuj wszystkie elementy do wartości domyślnych"
@@ -339,9 +324,6 @@ msgstr "Usuń kategorię"
 
 msgid "grid.action.addContributor"
 msgstr "Dodaj współautora"
-
-msgid "grid.action.editContributor"
-msgstr "Edytuj współautora"
 
 msgid "grid.action.deleteContributor"
 msgstr "Usuń współautora"
@@ -562,9 +544,6 @@ msgstr "Załaduj więcej"
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Opcje odpowiedzi"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Widoczny na liście"
-
 msgid "grid.user.allPermissionLevels"
 msgstr "Wszystkie poziomy dostępu"
 
@@ -712,3 +691,18 @@ msgstr "Widok"
 
 msgid "grid.columns.locale.code"
 msgstr "Kod"
+
+msgid "author.users.contributor.name"
+msgstr "Nazwisko"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Role"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Widoczny na liście"
+
+msgid "grid.action.editContributor"
+msgstr "Edytuj współautora"

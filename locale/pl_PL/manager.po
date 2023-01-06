@@ -2682,3 +2682,11 @@ msgstr "Pobierz dane geograficzne"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Ilość odsłon i pobrań dla każdego miasta, regionu i kraju."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Sprawdzenie tekstu przed wysłaniem"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Na stronie przesyłania tekstu, autorzy muszą oznaczyć każdy z elementów listy."

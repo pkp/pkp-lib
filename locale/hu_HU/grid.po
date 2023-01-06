@@ -195,12 +195,6 @@ msgstr "Tartalom vagy oldal adat importálása vagy exportálása"
 msgid "grid.action.orderItems"
 msgstr "Rendelési mód engedélyezése"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "A listaelem szerkesztése"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "A kijelölt elem törlése"
-
 msgid "grid.action.resetAll"
 msgstr "Minden elem alapértelmezett értékének a visszaállítása"
 
@@ -393,9 +387,6 @@ msgstr "Támogatási források"
 msgid "grid.action.addContributor"
 msgstr "Közreműködő létrehozása"
 
-msgid "grid.action.editContributor"
-msgstr "Közreműködő szerkesztése"
-
 msgid "grid.action.deleteContributor"
 msgstr "Közreműködő törlése"
 
@@ -432,20 +423,8 @@ msgstr "Beküldési ellenőrzőlista"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Ellenőrzőlista tétel"
 
-msgid "author.users.contributor.name"
-msgstr "Név"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Szerepkör"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Elsődleges kapcsolattartó"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Böngészés listákban"
 
 msgid "grid.roles.currentRoles"
 msgstr "Aktuális szerepkörök"
@@ -717,3 +696,18 @@ msgstr ""
 
 msgid "grid.action.saveOrdering"
 msgstr "Sorrend mentése"
+
+msgid "author.users.contributor.name"
+msgstr "Név"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Szerepkör"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Böngészés listákban"
+
+msgid "grid.action.editContributor"
+msgstr "Közreműködő szerkesztése"

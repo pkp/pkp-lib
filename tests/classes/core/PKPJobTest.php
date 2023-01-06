@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
 use PKP\tests\PKPTestCase;
-use PKP\Support\Jobs\Entities\TestJobFailure;
-use PKP\Support\Jobs\Entities\TestJobSuccess;
+use PKP\jobs\testJobs\TestJobFailure;
+use PKP\jobs\testJobs\TestJobSuccess;
 
 class PKPJobTest extends PKPTestCase
 {

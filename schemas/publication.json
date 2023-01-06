@@ -3,9 +3,7 @@
 	"description": "A published version of a submission.",
 	"type": "object",
 	"required": [
-		"locale",
 		"submissionId",
-		"title",
 		"version"
 	],
 	"properties": {

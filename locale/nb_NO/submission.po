@@ -1168,56 +1168,17 @@ msgstr "Intern vurdering"
 msgid "submission.form.name"
 msgstr "Gi filen et navn (f.eks. Manuskript; Tabell 1)"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Angi referanser."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Angi informasjon om rettigheter."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Angi kilde."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Angi typen."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Angi informasjon om dekning."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Angi et nøkkelord."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Angi et fagfelt."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Legg inn et emne."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Angi et språk."
-
 msgid "submission.submit.addAuthor"
 msgstr "Legg til bidragsyter"
 
 msgid "submission.submit.contributorRole"
 msgstr "Bidragsyterens rolle"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Kontaktperson for redaksjonell korrespondanse."
-
 msgid "submission.artworkFileDetails"
 msgstr "Detaljer: Fil med illustrasjoner"
 
 msgid "submission.createRemote"
 msgstr "Lag eksternt"
-
-msgid "submission.type.tip"
-msgstr ""
-"Denne typen innlevering er vanligvis av typen bilde, tekst eller andre "
-"multimediatyper, f.eks. programvare og interaktive media. Velg en av de mest "
-"relevante for din innlevering. Du finner eksempler her: <a target=\"_blank\" "
-"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
-"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
-"generic.shtml#type</a>"
 
 msgid "submission.indexingInformation"
 msgstr "Indekseringsinformasjon"
@@ -1243,18 +1204,8 @@ msgstr "Supplerende filer"
 msgid "submission.submit.submissionFiles"
 msgstr "Innleverte filer"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Utgiveren godtar innleveringer på flere språk. Velg språk i "
-"rullegardinmenyen over."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Språk"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
-"ord."
 
 msgid "submission.submit.metadataForm"
 msgstr "Ytterligere informasjon"
@@ -1274,27 +1225,14 @@ msgstr "Informasjon om filen"
 msgid "submission.submit.selectFile"
 msgstr "Velg fil"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Fullfør innlevering"
-
 msgid "submission.submissionTitle"
 msgstr "Tittel på innlevering:"
 
 msgid "submission.submission"
 msgstr "Innlevering"
 
-msgid "submission.source.tip"
-msgstr ""
-"Er innleveringen ledet ut av en annen ressurs? Hvis så, kan du legge in en "
-"URL eller en beskrivelse av ressursen."
-
 msgid "submission.source"
 msgstr "Kilde"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Her kan du kan legge inn en kort erklæring om tilgangsrettighetene til "
-"innleveringen."
 
 msgid "submission.rights"
 msgstr "Rettigheter"
@@ -2022,21 +1960,10 @@ msgstr "sjekke innleveringen"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Foreløpig kan du:"
 
-msgid "submission.submit.whatNext"
-msgstr "Hva skjer videre?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Jeg samtykker i vilkårene i «Erklæring om opphavsrett»."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Bekreft «Erklæring om opphavsrett»"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Takk for at du vil publisere i <i>{$contextName}<i>."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Innlevering fullført"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Du må lese gjennom og bekrefte at du har gjort alt på listen før du "
@@ -2044,17 +1971,6 @@ msgstr ""
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Sjekkliste"
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Lever i en av de følgene rollene dersom du ønsker å selv være i stand til å "
-"redigere denne innleveringen: {$managerGroups}"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Jeg godtar å bli kontaktet angående denne innleveringen."
-
-msgid "submission.submit.contactConsent"
-msgstr "Kontaktperson for korrespondanse"
 
 msgid "author.publicationNotFound"
 msgstr "Publikasjonen til denne forfatteren ble ikke funnet."
@@ -2069,12 +1985,6 @@ msgstr "Velg rollen som best beskriver ditt bidrag til denne innleveringen."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Lever inn som"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Innleveringen er lastet opp og er klar til innsending. Du kan gå tilbake for "
-"å sjekke og justere innholdet før du fortsetter. Klikk «Fullfør innlevering» "
-"når du er klar."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nye fagfellevurderinger er sendt inn. De vurderes av redaktøren."
@@ -2112,9 +2022,6 @@ msgstr ""
 msgid "submission.submit.removeConfirm"
 msgstr "Er du sikker på at du vil fjerne denne filen?"
 
-msgid "submission.submit.genre.error"
-msgstr "Velg type fil for hver opplasting."
-
 msgid "submission.submit.genre.description"
 msgstr "Velg det som best beskriver denne filen."
 
@@ -2132,3 +2039,75 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Dette er en forhåndsvisning og har ikke blitt publisert enda. <a href=\""
 "{$url}\">Se innleveringen</a>"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Ingen filer er lagt ved denne innleveringen."
+
+msgid "author.submit.confirmation"
+msgstr "Bekreftelse"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Angi et språk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Legg inn et emne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Angi et fagfelt."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Angi et nøkkelord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Angi informasjon om dekning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Angi typen."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Angi kilde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Angi informasjon om rettigheter."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Angi referanser."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
+"ord."
+
+msgid "submission.type.tip"
+msgstr ""
+"Denne typen innlevering er vanligvis av typen bilde, tekst eller andre "
+"multimediatyper, f.eks. programvare og interaktive media. Velg en av de mest "
+"relevante for din innlevering. Du finner eksempler her: <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Er innleveringen ledet ut av en annen ressurs? Hvis så, kan du legge in en "
+"URL eller en beskrivelse av ressursen."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Her kan du kan legge inn en kort erklæring om tilgangsrettighetene til "
+"innleveringen."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
+"ord."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Utgiveren godtar innleveringer på flere språk. Velg språk i "
+"rullegardinmenyen over."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Kontaktperson for redaksjonell korrespondanse."

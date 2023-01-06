@@ -970,9 +970,6 @@ msgstr "Êtes-vous certain-e de vouloir envoyer ce formulaire ?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmer"
 
-msgid "form.emailRequired"
-msgstr "Vous devez fournir une adresse de courriel."
-
 msgid "form.dataHasChanged"
 msgstr "Les données de ce formulaire ont été modifiées. Voulez-vous continuer sans sauvegarder ?"
 
@@ -1372,12 +1369,6 @@ msgstr "Type d'annonce supprimé."
 
 msgid "notification.removedAnnouncement"
 msgstr "Annonce supprimée."
-
-msgid "notification.addedAuthor"
-msgstr "Auteur-e ajouté-e."
-
-msgid "notification.editedAuthor"
-msgstr "Auteur-e modifié-e."
 
 msgid "notification.confirmError"
 msgstr "Il s'est produit une erreur lors de la confirmation de votre abonnement."
@@ -2044,3 +2035,13 @@ msgstr "Joindre des fichiers"
 
 msgid "common.attachSelected"
 msgstr "Joindre la sélection"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Auteur-e ajouté-e."
+
+msgid "notification.editedAuthor"
+msgstr "Auteur-e modifié-e."
+

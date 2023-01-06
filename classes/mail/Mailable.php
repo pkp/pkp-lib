@@ -31,9 +31,11 @@ use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
+use APP\mail\variables\SubmissionEmailVariable;
 use BadMethodCallException;
 use Exception;
 use Illuminate\Mail\Mailable as IlluminateMailable;
+use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -50,7 +52,6 @@ use PKP\mail\variables\RecipientEmailVariable;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\mail\variables\SenderEmailVariable;
 use PKP\mail\variables\SiteEmailVariable;
-use PKP\mail\variables\SubmissionEmailVariable;
 use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
 use PKP\site\Site;
@@ -59,7 +60,6 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
-use Illuminate\Support\Collection;
 
 class Mailable extends IlluminateMailable
 {
@@ -255,6 +255,8 @@ class Mailable extends IlluminateMailable
      * Multiple From addresses per mailbox-list syntax according to RFC 5322 isn't supported by PHPMailer transport
      *
      * @copydoc Illuminate\Mail\Mailable::from()
+     *
+     * @param null|mixed $name
      */
     public function from($address, $name = null)
     {
@@ -385,7 +387,7 @@ class Mailable extends IlluminateMailable
 
             // Pass context as additional data if exists, see pkp/pkp-lib#8204
             if (is_a($variable, Context::class)) {
-                static::buildViewDataUsing(function() use ($variable) {
+                static::buildViewDataUsing(function () use ($variable) {
                     return [self::DATA_KEY_CONTEXT => $variable];
                 });
             }

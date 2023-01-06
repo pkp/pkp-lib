@@ -818,29 +818,15 @@ msgstr "Değerlendirme Formu Yanıtı"
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Yeni değerlendirmeler gönderilmiştir ve editör tarafından incelenmektedir."
 
-msgid "submission.confirm.message"
-msgstr "Başvurunuz yüklendi ve gönderilmeye hazır. Devam etmeden önce girmiş olduğunuz bilgileri gözden geçirmek ve düzeltmek için geri dönebilirsiniz. Hazır olduğunuzda, \"Gönderiyi Sonlandır\"ı tıklayın."
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Gönderi Gereksinimleri"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Devam etmeden önce aşağıdaki koşulları tamamladığınızı okumalı ve kabul etmelisiniz."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Gönderi tamamlandı"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "{$contextName} ile yayınlama isteğiniz için teşekkür ederiz."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Telif hakkı bildirimini kabul et"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Telif hakkı bildiriminin koşullarına uymayı kabul ediyorum."
-
-msgid "submission.submit.whatNext"
-msgstr "Sonra ne olur?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Şimdilik şunları yapabilirsiniz:"
@@ -978,23 +964,14 @@ msgstr "Basım"
 msgid "submission.rights"
 msgstr "Haklar"
 
-msgid "submission.rights.tip"
-msgstr "Dilerseniz, bu gönderi veya bu erişim üzerinde tutulan erişim hakları hakkında kısa bir açıklama girebilirsiniz."
-
 msgid "submission.source"
 msgstr "Kaynak"
-
-msgid "submission.source.tip"
-msgstr "Bu gönderi başka bir kaynaktan mı yapılıyor? Öyleyse, bu kaynağın bir URL'sini veya açıklamasını girebilirsiniz."
 
 msgid "submission.submission"
 msgstr "Gönderi"
 
 msgid "submission.submissionTitle"
 msgstr "Gönderi Başlığı:"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Gönderiyi Bitir"
 
 msgid "submission.submit.selectFile"
 msgstr "Dosya Seç"
@@ -1014,14 +991,8 @@ msgstr "Başka Bir Dosya Ekle"
 msgid "submission.submit.metadataForm"
 msgstr "Ek İyileştirmeler"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Gönderi Dili"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden gönderinin birincil dilini seçin."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Gönderi Dosyaları"
@@ -1038,44 +1009,14 @@ msgstr "Bağımlı Bir Dosya Yükle"
 msgid "submission.upload.query"
 msgstr "Tartışma Dosyası Yükle"
 
-msgid "submission.type.tip"
-msgstr "Gönderi türü genellikle 'görsel', 'metin' veya 'yazılım' veya 'etkileşimli' dahil olmak üzere diğer çoklu ortam türlerinden biridir. Lütfen gönderinizle ilgili olanı seçin. Örnekler <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> adresinde bulunabilir."
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Editör yazışmaları için ana iletişim."
-
 msgid "submission.submit.contributorRole"
 msgstr "Katkıda bulunanın rolü"
 
 msgid "submission.submit.addAuthor"
 msgstr "Katkıda Bulunan Ekle"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Lütfen bir dil ekleyiniz."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Lütfen bir konu ekleyiniz."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Lütfen bir disiplin ekleyiniz."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Lütfen bir anahtar kelime ekleyiniz."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Lütfen bir destek veren kurumu ekleyin."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Lütfen kapsam bilgilerini girin."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Lütfen tür giriniz."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Lütfen kaynak giriniz."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Lütfen hakları giriniz."
 
 msgid "workflow.review.internalReview"
 msgstr "Dahili Değerlendirirme"
@@ -1672,18 +1613,6 @@ msgstr "olarak Gönder"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Bu gönderiye katkınızı en iyi tanımlayan rolü seçin."
 
-msgid "submission.submit.contactConsent"
-msgstr "Sorumlu İletişimi"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Evet, bu gönderi ile ilgili olarak iletişime geçmek istiyorum."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Bu gönderiyi kendiniz düzenleyip yayınlamak istiyorsanız, aşağıdaki rollerden herhangi birini gönderin: {$managerGroups}"
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Lütfen referansları giriniz."
-
 msgid "publication.wordCount"
 msgstr "Kelim Sayısı: {$count}/{$limit}"
 
@@ -1983,9 +1912,6 @@ msgstr ""
 
 msgid "submission.submit.removeConfirm"
 msgstr "Bu dosyayı silmek istediğinizden emin misiniz?"
-
-msgid "submission.submit.genre.error"
-msgstr "Lütfen yüklenen her dosya için dosya türünü seçin."
 
 msgid "submission.submit.genre.description"
 msgstr "Bu dosyayı en iyi tanımlayan seçeneği seçin."
@@ -2427,3 +2353,58 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Bu bir önizlemedir ve yayınlanmamıştır.  <a href=\"{$url}\">Makaleyi "
 "görüntüle</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Başvuruya herhangi bir dosya eklenmemiştir."
+
+msgid "author.submit.confirmation"
+msgstr "Onay"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Lütfen bir dil ekleyiniz."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Lütfen bir konu ekleyiniz."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Lütfen bir disiplin ekleyiniz."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Lütfen bir anahtar kelime ekleyiniz."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Lütfen kapsam bilgilerini girin."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Lütfen tür giriniz."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Lütfen kaynak giriniz."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Lütfen hakları giriniz."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Lütfen referansları giriniz."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın."
+
+msgid "submission.type.tip"
+msgstr "Gönderi türü genellikle 'görsel', 'metin' veya 'yazılım' veya 'etkileşimli' dahil olmak üzere diğer çoklu ortam türlerinden biridir. Lütfen gönderinizle ilgili olanı seçin. Örnekler <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> adresinde bulunabilir."
+
+msgid "submission.source.tip"
+msgstr "Bu gönderi başka bir kaynaktan mı yapılıyor? Öyleyse, bu kaynağın bir URL'sini veya açıklamasını girebilirsiniz."
+
+msgid "submission.rights.tip"
+msgstr "Dilerseniz, bu gönderi veya bu erişim üzerinde tutulan erişim hakları hakkında kısa bir açıklama girebilirsiniz."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden gönderinin birincil dilini seçin."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Editör yazışmaları için ana iletişim."

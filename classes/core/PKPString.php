@@ -580,6 +580,14 @@ class PKPString
             $phpFormat
         );
     }
+
+    /**
+     * Get the word count of a string
+     */
+    public static function getWordCount(string $str): int
+    {
+        return count(preg_split('/\s+/', trim(str_replace('&nbsp;', ' ', strip_tags($str)))));
+    }
 }
 
 if (!PKP_STRICT_MODE) {

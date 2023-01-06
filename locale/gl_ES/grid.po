@@ -240,20 +240,8 @@ msgstr "Crear un novo rol"
 msgid "grid.roles.currentRoles"
 msgstr "Roles actuais"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "En listas de navegación"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contacto principal"
-
-msgid "author.users.contributor.role"
-msgstr "Rol"
-
-msgid "author.users.contributor.email"
-msgstr "Correo electrónico"
-
-msgid "author.users.contributor.name"
-msgstr "Nome"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Elemento da lista de verificación"
@@ -293,9 +281,6 @@ msgstr "Crear unha nova versión"
 
 msgid "grid.action.deleteContributor"
 msgstr "Eliminar colaborador/a"
-
-msgid "grid.action.editContributor"
-msgstr "Editar colaborador/a"
 
 msgid "grid.action.addContributor"
 msgstr "Engadir colaborador/a"
@@ -495,12 +480,6 @@ msgstr "Engade un novo modelo de correo electrónico"
 msgid "grid.action.resetAll"
 msgstr "Restaurar todos os elementos aos valores predeterminados"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Eliminar este elemento da lista de verificación"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Editar este elemento da lista de verificación"
-
 msgid "grid.action.orderItems"
 msgstr "Activar o modo de ordeación"
 
@@ -683,3 +662,18 @@ msgstr "Preferencias"
 
 msgid "grid.noItems"
 msgstr "Non hai artigos"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "Correo electrónico"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "En listas de navegación"
+
+msgid "grid.action.editContributor"
+msgstr "Editar colaborador/a"

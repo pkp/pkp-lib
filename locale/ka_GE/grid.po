@@ -111,15 +111,6 @@ msgstr "კატეგორიის ჩასწორება"
 msgid "grid.libraryFiles.column.files"
 msgstr "ფაილები"
 
-msgid "author.users.contributor.name"
-msgstr "სახელი"
-
-msgid "author.users.contributor.email"
-msgstr "ელფოსტა"
-
-msgid "author.users.contributor.role"
-msgstr "როლი"
-
 msgid "grid.user.add"
 msgstr "მომხმარებლის დამატება"
 
@@ -263,12 +254,6 @@ msgstr "შიგთავსის, ან საიტის მონაც�
 msgid "grid.action.orderItems"
 msgstr "წვდომადობის რეჟიმის ჩართვა"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "ამ სიის ელემენტის ჩასწორება"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "ამ სიის ელემენტის წაშლა"
-
 msgid "grid.action.resetAll"
 msgstr "ყველა ელემენტის გადაყენება ნაგულისხმევი მნიშვნელობებით"
 
@@ -353,9 +338,6 @@ msgstr "კატეგორიის წაშლა"
 msgid "grid.action.addContributor"
 msgstr "წევრის დამატება"
 
-msgid "grid.action.editContributor"
-msgstr "წევრის ჩასწორება"
-
 msgid "grid.action.deleteContributor"
 msgstr "წევრის წაშლა"
 
@@ -364,9 +346,6 @@ msgstr "ახალი ვერსიის შექმნა"
 
 msgid "author.users.contributor.principalContact"
 msgstr "ძირითადი კონტაქტი"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "სიების დათვალიერება"
 
 msgid "grid.action.fileUnconsider"
 msgstr ""
@@ -722,3 +701,18 @@ msgstr "პუბლიკაციების სიები"
 
 msgid "contributor.listPanel.preview.full"
 msgstr "სრული"
+
+msgid "author.users.contributor.name"
+msgstr "სახელი"
+
+msgid "author.users.contributor.email"
+msgstr "ელფოსტა"
+
+msgid "author.users.contributor.role"
+msgstr "როლი"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "სიების დათვალიერება"
+
+msgid "grid.action.editContributor"
+msgstr "წევრის ჩასწორება"

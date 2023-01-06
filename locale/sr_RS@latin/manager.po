@@ -1137,3 +1137,11 @@ msgstr "DOI prefiks dodeljuje registraciona agencija (npr. <a href=\"http://www.
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Sadržaj časopisa"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Pripremna lista za pripremu prijavljivanja članka"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "U toku procesa prijavljivanja članka obavezno je da autori označe svaki stavku u listi za pripremu prijave članka pre nastavka. Ova kontrolna lista se takođe nalazi u Uputstvu za autore u stranici O časopisu. Ovu listu možete izmeniti, ali će i dalje svi delovi liste tražiti potvrdu ispunjenosti označavanjem svakog pitanja pre nego autor nastavi sa procesom prijave."

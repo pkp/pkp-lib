@@ -25,47 +25,21 @@ msgstr "Fournir une liste structurée de références pour les travaux cités da
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises et sont examinées par le,la rédacteur-trice."
 
-msgid "submission.confirm.message"
-msgstr "Votre soumission est complète et prête à être envoyée. Vous pouvez faire une dernière vérification et corriger, s'il y a lieu, les informations que vous avez saisies. Lorsque vous serez prêt-e, cliquez sur « Terminer la soumission »."
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Soumis en tant que"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Sélectionner le rôle qui décrit le mieux votre contribution à cette soumission."
 
-msgid "submission.submit.contactConsent"
-msgstr "Coordonnées du,de la responsable"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Oui, je souhaite être contacté-e à propos de cette soumission."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr ""
-"Soumettre sous l'un des rôles suivants si vous souhaitez pouvoir modifier et "
-"publier vous-même cette soumission : {$managerGroups}"
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérification de la soumission"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Vous devez lire et reconnaître que vous avez rempli les conditions ci-dessous avant de poursuivre."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Soumission complète"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr ""
-"Merci de votre intérêt à vouloir publier dans la revue « {$contextName} »."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acceptation de la déclaration de droit d'auteur"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "J'accepte et respecterai les conditions de la déclaration de droit d'auteur."
-
-msgid "submission.submit.whatNext"
-msgstr "Quelle est la prochaine étape ?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Pour le moment, vous pouvez :"
@@ -875,9 +849,6 @@ msgstr "Version d'évaluation"
 msgid "submission.rights"
 msgstr "Droits"
 
-msgid "submission.rights.tip"
-msgstr "Si vous le désirez, vous pouvez ajouter une brève note concernant les droits d'accès de votre soumission."
-
 msgid "submissions.active"
 msgstr "Active"
 
@@ -914,9 +885,6 @@ msgstr "Décision ferme"
 msgid "submission.source"
 msgstr "Source"
 
-msgid "submission.source.tip"
-msgstr "Est-ce que cette soumission dérive d'une autre ressource ? Si oui, vous pouvez indiquer l'adresse URL ou décrire cette ressource."
-
 msgid "submissions.submit"
 msgstr "Soumettre"
 
@@ -944,9 +912,6 @@ msgstr "Évaluation de la soumission"
 msgid "submission.submitter"
 msgstr "Soumissionnaire"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Terminer la soumission"
-
 msgid "submission.submit.selectFile"
 msgstr "Choisir un fichier"
 
@@ -965,14 +930,8 @@ msgstr "Soumettre un autre fichier"
 msgid "submission.submit.metadataForm"
 msgstr "Métadonnées additionnelles"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la touche « Entrée » après chaque terme."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Langue de la soumission"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Fichiers de la soumission"
@@ -1003,9 +962,6 @@ msgstr "Information d'indexation"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titre et résumé"
-
-msgid "submission.type.tip"
-msgstr "Par type de soumission, on entend « image », « texte » ou d'autres formats multimédias, y compris « logiciel » et « ressource interactive ». Veuillez choisir le type qui correspond le mieux à votre soumission. Vous trouverez des exemples au <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "En cours"
@@ -1043,41 +999,11 @@ msgstr "MM-JJ"
 msgid "submission.date.yyyymmdd"
 msgstr "AAAA-MM-JJ"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Personne-ressource principale pour la correspondance éditoriale."
-
 msgid "submission.submit.contributorRole"
 msgstr "Rôle du,de la contributeur-trice"
 
 msgid "submission.submit.addAuthor"
 msgstr "Ajouter un-e contributeur-trice"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Veuillez indiquer une langue."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Veuillez inscrire un sujet."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Veuillez inscrire une discipline."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Veuillez inscrire un mot-clé."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Veuillez indiquer la couverture du contenu."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Veuillez inscrire le type."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Veuillez indiquer la source."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Veuillez indiquer les droits."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Veuillez inscrire les références."
 
 msgid "submission.form.name"
 msgstr "Nommer le fichier (par exemple « Tableau 1 ; manuscrit »)"
@@ -1991,9 +1917,6 @@ msgstr "{$representation} de {$title}"
 msgid "submission.submit.removeConfirm"
 msgstr "Êtes-vous certain-e de vouloir retirer ce fichier ?"
 
-msgid "submission.submit.genre.error"
-msgstr "Veuillez sélectionner le type de fichier pour chaque téléversement."
-
 msgid "submission.submit.genre.description"
 msgstr "Choisir l'option qui décrit le mieux ce fichier."
 
@@ -2057,3 +1980,58 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Ceci est un aperçu et n'a pas été publié. <a href=\"{$url}\">Afficher la "
 "soumission</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Aucun fichier n'a été attaché à cette soumission."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmation"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Veuillez indiquer une langue."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Veuillez inscrire un sujet."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Veuillez inscrire une discipline."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Veuillez inscrire un mot-clé."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Veuillez indiquer la couverture du contenu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Veuillez inscrire le type."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Veuillez indiquer la source."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Veuillez indiquer les droits."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Veuillez inscrire les références."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la touche « Entrée » après chaque terme."
+
+msgid "submission.type.tip"
+msgstr "Par type de soumission, on entend « image », « texte » ou d'autres formats multimédias, y compris « logiciel » et « ressource interactive ». Veuillez choisir le type qui correspond le mieux à votre soumission. Vous trouverez des exemples au <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Est-ce que cette soumission dérive d'une autre ressource ? Si oui, vous pouvez indiquer l'adresse URL ou décrire cette ressource."
+
+msgid "submission.rights.tip"
+msgstr "Si vous le désirez, vous pouvez ajouter une brève note concernant les droits d'accès de votre soumission."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la touche « Entrée » après chaque terme."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Personne-ressource principale pour la correspondance éditoriale."

@@ -349,6 +349,26 @@ class Repository
     }
 
     /**
+     * Get the user group a new author may be assigned to
+     * when they make their first submission, if they are
+     * not already assigned to an author user group.
+     *
+     * This returns the first user group with ROLE_ID_AUTHOR
+     * that permits self-registration.
+     */
+    public function getFirstSubmitAsAuthorUserGroup(int $contextId): ?UserGroup
+    {
+        return Repo::userGroup()
+            ->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
+            ->filterByPermitSelfRegistration(true)
+            ->limit(1)
+            ->getMany()
+            ->first();
+    }
+
+    /**
      * Load the XML file and move the settings to the DB
      *
      * @param int $contextId

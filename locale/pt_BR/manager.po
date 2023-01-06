@@ -2755,9 +2755,6 @@ msgstr ""
 "Este e-mail é enviado por um Editor a um Avaliador para notificá-lo de que "
 "uma decisão foi tomada em relação a uma submissão que ele avaliou."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Agradecimento do Avaliador"
-
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Uma cópia da mensagem de e-mail que foi enviada ao autor da submissão"
 
@@ -2827,6 +2824,7 @@ msgstr ""
 "Todos os comentários de avaliações concluídas. Os nomes dos avaliadores "
 "estão ocultos para avaliações anônimas"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Envie um e-mail apenas para autores atribuídos ao fluxo de trabalho da "
@@ -3290,3 +3288,11 @@ msgstr "O número de downloads para cada arquivo."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr "Baixar Geográfico"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Condições para a submissão"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Ao submeter um trabalho para a revista, os autores devem ler, aceitar e marcar como realizados cada condição para a submissão, antes de proceder. A lista de condições também é apresentada em Diretrizes para autores, na página Sobre a revista. A lista pode ser modificada, porém todos os itens requerem a marcação dos autores para procederem à submissão."

@@ -874,9 +874,6 @@ msgstr "Deseja realmente enviar este formulário?"
 msgid "form.confirmSubmit.title"
 msgstr "Confirmar"
 
-msgid "form.emailRequired"
-msgstr "Um endereço de email é obrigatório."
-
 msgid "form.dataHasChanged"
 msgstr "Os dados deste formulário foram alterados. Continuar assim mesmo?"
 
@@ -1173,12 +1170,6 @@ msgstr "Tipo de notícia removido."
 
 msgid "notification.removedAnnouncement"
 msgstr "Notícia removida."
-
-msgid "notification.addedAuthor"
-msgstr "Autor adicionado."
-
-msgid "notification.editedAuthor"
-msgstr "Autor editado."
 
 msgid "notification.confirmError"
 msgstr "Ocorreu um erro ao confirmar sua assinatura."
@@ -2223,3 +2214,13 @@ msgstr "Geográfico"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor adicionado."
+
+msgid "notification.editedAuthor"
+msgstr "Autor editado."
+

@@ -10,6 +10,8 @@
  * @class AuthorGridRow
  * @ingroup controllers_grid_users_author
  *
+ * @deprecated 3.4
+ *
  * @brief Base class for author grid row definition
  */
 

@@ -20,6 +20,7 @@ msgid "emails.submissionAck.subject"
 msgstr "Cikk beküldésének visszaigazolása"
 
 #, fuzzy
+#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Tisztelt {$recipientName}!<br />\n"

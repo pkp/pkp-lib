@@ -11,7 +11,7 @@
 
 {block name="page"}
 	<div class="app__page--decision">
-		<h1 class="app__pageHeading">
+		<h1 class="app__pageHeading" ref="pageTitle">
 			<template v-if="steps.length > 1">
 				{translate|escape key="semicolon" label=$decisionType->getLabel()}
 				{{ currentStep.name }}
@@ -42,7 +42,8 @@
 			:current="currentStep.id"
 			:started-steps="startedSteps"
 			label="{translate|escape key="editor.decision.completeSteps"}"
-			progress-label="{$current}/{$total} steps"
+			progress-label="{translate key="common.showingSteps"}"
+			:scroll-to="$refs.pageTitle"
 			show-steps-label="{translate|escape key="common.showAllSteps"}"
 			@step:open="openStep"
 		>
@@ -137,10 +138,9 @@
 									<select-submission-file-list-item
 										:created-at="item.createdAt"
 										:document-type="item.documentType"
-										download-label="{translate|escape key="common.download"}"
-										:genre-name="item.genre.name"
-										:genre-is-primary="!item.genre.dependent && !item.genre.supplementary"
-										:genre="item.genre"
+										download-label="{translate key="common.download"}"
+										:genre-name="localize(item.genreName)"
+										:genre-is-primary="!item.genreIsDependent && !item.genreIsSupplementary"
 										:file-id="item.id"
 										:name="localize(item.name)"
 										:uploaded-by="item.uploaderUserName"
@@ -151,7 +151,7 @@
 											:name="'promoteFile' + item.id"
 											:value="item.id"
 											v-model="step.selected"
-										/>
+										></input>
 									</select-submission-file-list-item>
 								</template>
 							</list-panel>
@@ -167,6 +167,14 @@
 					<!-- empty on purpose -->
 				</span>
 				<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
+					<button
+						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"
+						class="decision__skipStep -linkButton"
+						:disabled="isSubmitting"
+						@click="toggleSkippedStep(currentStep.id)"
+					>
+						{translate|escape key="editor.decision.skipEmail"}
+					</button>
 					<spinner v-if="isSubmitting"></spinner>
 					<pkp-button
 						:disabled="isSubmitting"
@@ -194,14 +202,6 @@
 							{translate|escape key="common.continue"}
 						</template>
 					</pkp-button>
-					<button
-						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"
-						class="decision__skipStep -linkButton"
-						:disabled="isSubmitting"
-						@click="toggleSkippedStep(currentStep.id)"
-					>
-						{translate|escape key="editor.decision.skipEmail"}
-					</button>
 				</div>
 			</panel-section>
 		</panel>

@@ -496,7 +496,10 @@ class Collector implements CollectorInterface
      */
     protected function buildSubEditorFilter(Builder $query): self
     {
-        $subEditorFilters = [Application::ASSOC_TYPE_SECTION => $this->assignedSectionIds, Application::ASSOC_TYPE_CATEGORY => $this->assignedCategoryIds];
+        $subEditorFilters = [
+            Application::ASSOC_TYPE_SECTION => $this->assignedSectionIds,
+            Application::ASSOC_TYPE_CATEGORY => $this->assignedCategoryIds,
+        ];
         foreach (array_filter($subEditorFilters, fn (?array $assocIds) => !empty($assocIds)) as $assocType => $assocIds) {
             $query->whereExists(
                 fn (Builder $query) => $query->from('subeditor_submission_group', 'ssg')

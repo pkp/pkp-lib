@@ -198,12 +198,6 @@ msgstr "Імпорт чи експорт вмісту або даних сайт
 msgid "grid.action.orderItems"
 msgstr "Увімкнути режим впорядкування"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Редагувати цей пункт вимог"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Видалити цей пункт вимог"
-
 msgid "grid.action.resetAll"
 msgstr "Встановлення всіх елементів до усталених значень"
 
@@ -393,9 +387,6 @@ msgstr "Видалити категорію"
 msgid "grid.contributor.title"
 msgstr "Учасник"
 
-msgid "grid.action.editContributor"
-msgstr "Редагувати учасника"
-
 msgid "grid.action.deleteContributor"
 msgstr "Видалити учасника"
 
@@ -432,20 +423,8 @@ msgstr "Вимоги до подань"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Пункт вимог"
 
-msgid "author.users.contributor.name"
-msgstr "Ім'я"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Роль"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Контактна особа"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "У списки перегляду"
 
 msgid "grid.roles.currentRoles"
 msgstr "Поточні ролі"
@@ -671,3 +650,18 @@ msgstr "Переглянути/Обрати користувачів"
 
 msgid "grid.action.newVersion"
 msgstr "Створити нову версію"
+
+msgid "author.users.contributor.name"
+msgstr "Ім'я"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Роль"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "У списки перегляду"
+
+msgid "grid.action.editContributor"
+msgstr "Редагувати учасника"

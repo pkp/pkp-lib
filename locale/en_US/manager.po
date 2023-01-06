@@ -896,18 +896,16 @@ msgstr "Advanced"
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright Notice"
 
+#, fuzzy
 msgid "manager.setup.copyrightNotice.description"
-msgstr ""
-"Require authors to agree to the following copyright notice as part of the "
-"submission process."
+msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page where authors will learn about the requirements for submission. Authors will be required to confirm that they agree with the copyright notice before their submission is complete."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Author Guidelines"
 
+#, fuzzy
 msgid "manager.setup.authorGuidelines.description"
-msgstr ""
-"Recommended guidelines include bibliographic and formatting standards "
-"alongside examples of common citation formats to be used in submissions."
+msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page where authors will learn about what they must do to prepare their work for submission. Provide guidance on anything they might need to know, such as bibliographic and formatting standards, alongside examples of common citation formats to be used. You may also wish to provide details about the preferred format and subject matter of submissions."
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Disable Submissions"
@@ -1192,6 +1190,33 @@ msgstr ""
 msgid "manager.setup.theme.notFound"
 msgstr "The theme you selected is not installed or enabled."
 
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr "The following is shown to authors before they begin their submission. Provide a brief explanation of the submission process so that the author knows what to expect."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr "The following is shown to authors during the upload files step. Provide a brief explanation of what files authors are expected to share with their submission."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr "The following is shown to authors during the contributors step. Provide a brief explanation of what information the author should provide about themselves, co-authors, and any other contributors."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr "The following is shown to authors during the details step, when they are asked to provide the title, abstract, and other key information about their submission."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr "The following is shown to authors during the For the Editors step, when they are asked to provide metadata such as keywords, comments to the editor, and other details to assist in editorial review."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr "The following is shown to authors during the final step of the submission wizard, when they are asked to review all of the information they have provided before submitting their work."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Author Guidance"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Submission Checklist"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "The following is shown to authors when they begin their submission. Authors are asked to confirm that their submission complies with any requirements specified here before beginning their submission."
+
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Deactivate this section and do not allow new submissions to be made to it."
@@ -1201,6 +1226,18 @@ msgstr "Are you sure you wish to deactivate this section?"
 
 msgid "manager.sections.confirmActivateSection"
 msgstr "Are you sure you wish to activate this section?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Editorial Assignments"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr "Select the editorial users who should be assigned automatically to all new submissions to this section."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Assign {$name} as {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr "Select the editorial users who should be assigned automatically to all new submissions to this category."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
@@ -2652,6 +2689,9 @@ msgstr ""
 "All comments from completed reviews. Reviewer names are hidden for anonymous "
 "reviews"
 
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "The names and affiliations of the submission's authors."
+
 msgid "emailTemplate.variable.context.mailingAddress"
 msgstr "The mailing address of the journal"
 
@@ -2773,6 +2813,12 @@ msgstr "The author's URL to the submission"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "The URL to the submission in the editorial backend"
 
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "The URL to the published submission"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "The URL to the submission in the submission wizard"
+
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
 "The names of the authors assigned to the submission workflow. Usually this "
@@ -2870,7 +2916,7 @@ msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "A copy of the email message that was sent to the submitting author"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr "Reviewer Acknowledgement"
+msgstr "Notify Reviewers of Decision"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -3053,7 +3099,7 @@ msgstr "Review Acknowledgement"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"This email is sent to a reviewer to confirm that their review has been received and to thank the reviewer for their contributions."
+"This email is sent by an editor to a reviewer to confirm that their review has been received and to thank the reviewer for their contributions."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Review Response Overdue (Automated)"
@@ -3127,19 +3173,28 @@ msgstr ""
 "This email is sent to a newly registered reviewer to welcome them to the "
 "system and provide them with a record of their username and password."
 
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Submission Saved for Later"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr "An automated email sent to authors when they save their submission to complete later"
+
 msgid "mailable.submissionAck.name"
 msgstr "Submission Confirmation"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
-"This email is sent to an author when they make a new submission. It should confirm that the submission was received and provide guidance on what they can expect next."
+"This email is automatically sent to an author when they "
+"make a submission. It provides information about tracking the submission "
+"through the editorial process and thanks the author for the submission."
 
 msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Submission Confirmation (Other Authors)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"This email is sent to the authors named on a submission, other than the submitting author. It should inform them that they have been named as an author and provide a way for them to contact editorial staff with any concerns or corrections."
+"This email is automatically sent to authors named on a "
+"submission who are not the submitting author."
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Discussion (Submission)"
@@ -3323,3 +3378,16 @@ msgstr "Review Completed"
 
 msgid "mailable.reviewEdit.name"
 msgstr "Review Edited"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Submission Acknowledgement to Other Authors"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Editor Assigned"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"This email is sent to an editor when they are assigned to a submission."
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Submission Needs Editor"

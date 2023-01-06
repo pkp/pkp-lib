@@ -23,43 +23,35 @@
 			{translate key="author.submit.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
-				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+				{capture assign="newSubmission"}<a href="{url page="submission"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
 				{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
-					{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+				{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
 			{else}
 				{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
 				{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
-					{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
+				{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
 			{/if}
 		{/if}
 	</div>
-
-	{if $submissionChecklist}
-		<div class="submission_checklist">
-			<h2>
-				{translate key="about.submissionPreparationChecklist"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
-			</h2>
-			{translate key="about.submissionPreparationChecklist.description"}
-			<ul>
-				{foreach from=$submissionChecklist item=checklistItem}
-					<li>
-						<span class="fa fa-check" aria-hidden="true"></span>
-						{$checklistItem.content|nl2br}
-					</li>
-				{/foreach}
-			</ul>
-		</div>
-	{/if}
 
 	{if $currentContext->getLocalizedData('authorGuidelines')}
 	<div class="author_guidelines" id="authorGuidelines">
 		<h2>
 			{translate key="about.authorGuidelines"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.authorGuidelines"}
 		</h2>
 		{$currentContext->getLocalizedData('authorGuidelines')}
 	</div>
+	{/if}
+
+	{if $submissionChecklist}
+		<div class="submission_checklist">
+			<h2>
+				{translate key="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.submissionPreparationChecklist"}
+			</h2>
+			{$submissionChecklist}
+		</div>
 	{/if}
 
 	{foreach from=$sections item="section"}
@@ -68,7 +60,7 @@
 				<h2>{$section->getLocalizedTitle()|escape}</h2>
 				{$section->getLocalizedPolicy()}
 				{if $isUserLoggedIn}
-					{capture assign="sectionSubmissionUrl"}{url page="submission" op="wizard" sectionId=$section->getId()}{/capture}
+					{capture assign="sectionSubmissionUrl"}{url page="submission" sectionId=$section->getId()}{/capture}
 					<p>
 						{translate key="about.onlineSubmissions.submitToSection" name=$section->getLocalizedTitle() url=$sectionSubmissionUrl}
 					</p>

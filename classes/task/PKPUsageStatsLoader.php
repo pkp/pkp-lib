@@ -17,7 +17,7 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\Jobs\Statistics\CompileUsageStatsFromTemporaryRecords;
+use APP\jobs\statistics\CompileUsageStatsFromTemporaryRecords;
 use APP\statistics\StatisticsHelper;
 use APP\statistics\TemporaryItemInvestigationsDAO;
 use APP\statistics\TemporaryItemRequestsDAO;
@@ -27,7 +27,7 @@ use Exception;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\Jobs\Statistics\CompileMonthlyMetrics;
+use PKP\jobs\statistics\CompileMonthlyMetrics;
 use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\statistics\TemporaryInstitutionsDAO;
@@ -212,7 +212,6 @@ abstract class PKPUsageStatsLoader extends FileLoader
             // the log file is in old log file format
             // return the file to staging and
             // log the error
-            // TO-DO: once we decided how the log files in the old format should be reprocessed, this might change
             $this->addExecutionLogEntry(__(
                 'admin.scheduledTask.usageStatsLoader.veryOldLogFile',
                 ['file' => $loadId]
@@ -225,6 +224,11 @@ abstract class PKPUsageStatsLoader extends FileLoader
     /**
      * Check if stats for the log file's month do not already exist.
      * Return true if they do not exist, so that log file can be processed.
+     * Else, return the file to staging and log the error that
+     * the CLI script for reprocessing should be called.
+     * If the log files of the month are being reprocessed,
+     * the CLI reprocessing script will first remove all the stats for the month,
+     * so that this function will return true in that case.
      */
     protected function isMonthValid(string $loadId, string $month): bool
     {
@@ -233,18 +237,11 @@ abstract class PKPUsageStatsLoader extends FileLoader
         // If the daily metrics are not kept, and this is not the current month (which is kept in the DB)
         // the CLI script to reprocess the whole month should be called.
         if (!$site->getData('keepDailyUsageStats') && $month != $currentMonth) {
-            // Check if the month has already been processed,
-            // currently only the table metrics_counter_submission_monthly will be considered.
-            // TO-DO: once we decided how the log files in the old format should be reprocessed
-            // this should eventually be adapted, because the metrics_submission_geo_monthly could contain also earlier months
             $statsService = Services::get('sushiStats');
-            $monthExists = $statsService->monthExists($month);
-            if ($monthExists) {
-                // The month has already been processed
-                // return the file to staging and
-                // log the error that a script for reprocessing should be called for the whole month.
-                // If the log files of the month are being reprocessed, the CLI reprocessing script will first remove them,
-                // an then call this script, so this condition will not apply.
+            $counterMonthExists = $statsService->monthExists($month);
+            $geoService = Services::get('geoStats');
+            $geoMonthExists = $geoService->monthExists($month);
+            if ($counterMonthExists || $geoMonthExists) {
                 $this->addExecutionLogEntry(__(
                     'admin.scheduledTask.usageStatsLoader.monthExists',
                     ['file' => $loadId]
@@ -293,7 +290,7 @@ abstract class PKPUsageStatsLoader extends FileLoader
 
             $entryData = json_decode($line);
             if ($entryData === null) {
-                // This line is not in the right format..
+                // This line is not in the right format.
                 $this->addExecutionLogEntry(__('admin.scheduledTask.usageStatsLoader.wrongLoglineFormat', ['file' => $loadId, 'lineNumber' => $lineNumber]), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
                 continue;
             }
@@ -301,7 +298,6 @@ abstract class PKPUsageStatsLoader extends FileLoader
             try {
                 $this->isLogEntryValid($entryData);
             } catch (Exception $e) {
-                // reject the file if the entry in invalid ???
                 $this->addExecutionLogEntry(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry', ['file' => $loadId, 'lineNumber' => $lineNumber, 'error' => $e->getMessage()]), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
                 continue;
             }
@@ -326,10 +322,12 @@ abstract class PKPUsageStatsLoader extends FileLoader
     {
         $loadId = basename($filePath);
         $month = substr($loadId, -12, 6);
-
-        // Check if the log file is an old log file and if the stats for the month already exist
-        if (!$this->isDateValid($loadId) || !$this->isMonthValid($loadId, $month)) {
-            return self::FILE_LOADER_RETURN_TO_STAGING;
+        // if the file is not being reprocessed using the CLI tool
+        if (!in_array($loadId, $this->getOnlyConsiderFiles())) {
+            // Check if the log file is an old log file and if the stats for the month already exist
+            if (!$this->isDateValid($loadId) || !$this->isMonthValid($loadId, $month)) {
+                return self::FILE_LOADER_RETURN_TO_STAGING;
+            }
         }
 
         // Add this log file's month to the list of months the stats need to be aggregated for.

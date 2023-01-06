@@ -754,20 +754,8 @@ msgstr "Улога сарадника"
 msgid "submission.submit.addAuthor"
 msgstr "Додај сарадника"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Главни контакт за уредничку коресподенцију."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Прихватам изјаву о ауторским правима и обавезама"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Слажем се да ћу поштовати ауторске обавезе."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Језик предаје"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Овај часопис прихвата предаје радова на више језика. Одаберите примарни језик предај из менија."
 
 msgid "submission.views"
 msgstr "Прикази"
@@ -968,9 +956,6 @@ msgstr "Историја"
 msgid "submission.lastModified"
 msgstr "Последњи пут измењено"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Заврши предају"
-
 msgid "submission.submit.selectFile"
 msgstr "Одабери документ"
 
@@ -983,14 +968,8 @@ msgstr "Документ је додат"
 msgid "submission.submit.newFile"
 msgstr "Додај следећи документ"
 
-msgid "submission.confirm.message"
-msgstr "Ваша предаја и документи које сте доставили су спремни за слање. Можете се вратити и проверити све податке које сте унели пре наставка. Када се уверите да је све у реду, кликните на \"Заврши шредају\"."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Предаја је завршена"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Захваљујемо се на интересовању да објавите Ваш рад у нашем часопису {$contextName}."
 
 msgid "submission.rights"
 msgstr "Права"
@@ -1130,11 +1109,9 @@ msgstr "Нема поднесених рецензија нити рецензи
 msgid "submission.submit.submissionChecklist"
 msgstr "Услови за предају чланка"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Морате прочитати и потврдити д сте задовољили услове пре наставка пријаве."
-
-msgid "submission.submit.whatNext"
-msgstr "Шта се дешава следеће?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "За сада, можете:"
@@ -1169,15 +1146,6 @@ msgstr "Информација о широј области"
 msgid "submission.email.confirmClearLog"
 msgstr "Да ли сте сигурни да желите обрисати лог за поруке за овај пријављени чланак?"
 
-msgid "submission.type.tip"
-msgstr "Тип пријављеног дела је обично 'слика', 'текст', или други мултимедијални тип укључујући и 'компјутерски програм' или 'интерактивно'."
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Додајте додатне информације з ваш пријављен чланак. Притисните 'enter' након сваког термина."
-
-msgid "submission.source.tip"
-msgstr "Да ли јевај пријављени чланак изведен из другог извора? АКо јесте, можете уписати URL или описати тај извор."
-
 msgid "submission.submit.includeInBrowse"
 msgstr "Додати овог коаутора у листу за претрагу?"
 
@@ -1201,9 +1169,6 @@ msgstr "Преглед метаподатака"
 
 msgid "submission.reviewVersion"
 msgstr "Рецензирана верзија"
-
-msgid "submission.rights.tip"
-msgstr "АКо желите можете уписати кратки став о правима приступа за овај пријављени чланак."
 
 msgid "submissions.ruling"
 msgstr "Одлука"
@@ -1453,3 +1418,32 @@ msgstr "Лог догађаја"
 
 msgid "submission.history.submissionNotes"
 msgstr "Белешке о пријављеном чланку"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Фајлови нису додати уз ову пријаву."
+
+msgid "author.submit.confirmation"
+msgstr "Потврда"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додајте додатне информације з ваш пријављен чланак. Притисните 'enter' након сваког термина."
+
+msgid "submission.type.tip"
+msgstr "Тип пријављеног дела је обично 'слика', 'текст', или други мултимедијални тип укључујући и 'компјутерски програм' или 'интерактивно'."
+
+msgid "submission.source.tip"
+msgstr "Да ли јевај пријављени чланак изведен из другог извора? АКо јесте, можете уписати URL или описати тај извор."
+
+msgid "submission.rights.tip"
+msgstr "АКо желите можете уписати кратки став о правима приступа за овај пријављени чланак."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додајте додатне информације з ваш пријављен чланак. Притисните 'enter' након сваког термина."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Овај часопис прихвата предаје радова на више језика. Одаберите примарни језик предај из менија."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Главни контакт за уредничку коресподенцију."

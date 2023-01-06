@@ -195,12 +195,6 @@ msgstr "Importar ou exportar conteúdo ou dados do site"
 msgid "grid.action.orderItems"
 msgstr "Habilitar modo de ordenação"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Editar este item de verificação"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Excluir este item de verificação"
-
 msgid "grid.action.resetAll"
 msgstr "Restaurar todos os itens a seus valores originais"
 
@@ -394,9 +388,6 @@ msgstr "Fontes de Apoio"
 msgid "grid.action.addContributor"
 msgstr "Incluir Coautor"
 
-msgid "grid.action.editContributor"
-msgstr "Editar coautor"
-
 msgid "grid.action.deleteContributor"
 msgstr "Excluir Coautor"
 
@@ -433,20 +424,8 @@ msgstr "Diretrizes para submissão"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Item de verificação"
 
-msgid "author.users.contributor.name"
-msgstr "Nome"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Papel"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Contato principal"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Nas Listas de Navegação"
 
 msgid "grid.roles.currentRoles"
 msgstr "Papéis atuais"
@@ -752,3 +731,19 @@ msgstr "Visualizar"
 
 msgid "grid.columns.locale.code"
 msgstr "Código"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Papel"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Nas Listas de Navegação"
+
+msgid "grid.action.editContributor"
+msgstr "Editar coautor"
+

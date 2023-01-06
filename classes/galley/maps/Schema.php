@@ -31,11 +31,12 @@ class Schema extends \PKP\core\maps\Schema
     public string $schema = PKPSchemaService::SCHEMA_GALLEY;
     public Submission $submission;
 
-    public function __construct(Submission $submission, Publication  $publication, Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, Publication  $publication, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->publication = $publication;
         $this->submission = $submission;
+        $this->genres = $genres;
     }
     /**
      * Map a galley

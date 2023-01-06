@@ -199,12 +199,6 @@ msgstr "Импорт/экспорт контента или данных сай�
 msgid "grid.action.orderItems"
 msgstr "Включить режим упорядочивания"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Редактировать этот элемент контрольного списка"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Удалить этот элемент контрольного списка"
-
 msgid "grid.action.resetAll"
 msgstr "Установить всем элементам значения по умолчанию"
 
@@ -403,9 +397,6 @@ msgstr "Поддерживающие"
 msgid "grid.action.addContributor"
 msgstr "Добавить поддерживающего"
 
-msgid "grid.action.editContributor"
-msgstr "Редактировать поддерживающего"
-
 msgid "grid.action.deleteContributor"
 msgstr "Удалить поддерживающего"
 
@@ -445,20 +436,8 @@ msgstr "Контрольный список подготовки материа�
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Элемент контрольного списка"
 
-msgid "author.users.contributor.name"
-msgstr "Имя"
-
-msgid "author.users.contributor.email"
-msgstr "Адрес электронной почты"
-
-msgid "author.users.contributor.role"
-msgstr "Роль"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Контактное лицо"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "В списки просмотра"
 
 msgid "grid.roles.currentRoles"
 msgstr "Текущие роли"
@@ -714,3 +693,18 @@ msgstr "Код"
 
 msgid "grid.action.addInstitution"
 msgstr "Добавить организацию"
+
+msgid "author.users.contributor.name"
+msgstr "Имя"
+
+msgid "author.users.contributor.email"
+msgstr "Адрес электронной почты"
+
+msgid "author.users.contributor.role"
+msgstr "Роль"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "В списки просмотра"
+
+msgid "grid.action.editContributor"
+msgstr "Редактировать поддерживающего"

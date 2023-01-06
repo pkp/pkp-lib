@@ -1401,6 +1401,7 @@ msgstr "Уведомяване на основния контакт"
 msgid "manager.setup.submissionsNotifications"
 msgstr "Известия"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Изпращане на имейл само до автори, асоциирани с работния процес за "
@@ -1911,9 +1912,6 @@ msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
 "Този имейл се изпраща от редактор до рецензента, за да го уведоми, че е "
 "взето решение по отношение на подадени материали, които той е рецензирал."
-
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Признание към рецензента"
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Копие от имейл съобщението, изпратено до подаващия материалите автор"
@@ -3305,11 +3303,6 @@ msgstr "Редакционно напомняне"
 msgid "mailable.editorialReminder.description"
 msgstr "Автоматичен имейл, изпратен до редакторите с неизпълнени задачи"
 
-msgid "manager.settings.statistics.publicSushiApi.option"
-msgstr ""
-"Направете крайните точки на API за статистиките на COUNTER SUSHI публично "
-"достъпни."
-
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Публично API"
 
@@ -3402,3 +3395,16 @@ msgstr "Допълнителен файл"
 
 msgid "stats.name.submissionsInProgress"
 msgstr "Процес на изпратените материали"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Контролен списък за изпращане на материали"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"При подаване на материали към списанието авторите първо се приканват да "
+"проверят всеки елемент от контролния списък за подготовка за подаване на "
+"материали, преди да продължат. Контролният списък също се появява в Насоките "
+"за авторите, под „За списанието“. Списъкът може да бъде редактиран по-долу, "
+"но всички елементи в списъка ще изискват отметка, преди авторите да могат да "
+"продължат с изпращането си."

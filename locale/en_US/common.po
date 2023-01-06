@@ -330,11 +330,20 @@ msgstr "Designation"
 msgid "common.description"
 msgstr "Description"
 
+msgid "common.details"
+msgstr "Details"
+
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.discardChanges"
+msgstr "No, discard unsaved changes"
+
+msgid "common.disconnected"
+msgstr "Disconnected"
 
 msgid "common.disable"
 msgstr "Disable"
@@ -492,6 +501,9 @@ msgstr "Language"
 msgid "common.languages"
 msgstr "Languages"
 
+msgid "common.lastSaved"
+msgstr "Last saved {$when}"
+
 msgid "common.lastActivity"
 msgstr "Last activity recorded on {$date}."
 
@@ -545,6 +557,12 @@ msgstr "None assigned"
 
 msgid "common.none"
 msgstr "None"
+
+msgid "common.noneSelected"
+msgstr "None selected"
+
+msgid "common.noneProvided"
+msgstr "None provided"
 
 msgid "common.no"
 msgstr "No"
@@ -684,6 +702,9 @@ msgstr "Read More"
 msgid "common.readMoreWithTitle"
 msgstr "Read more about {$title}"
 
+msgid "common.reconnecting"
+msgstr "Reconnecting"
+
 msgid "common.record"
 msgstr "Record"
 
@@ -728,6 +749,9 @@ msgstr "Required"
 
 msgid "common.reset"
 msgstr "Reset"
+
+msgid "common.role"
+msgstr "Role"
 
 msgid "common.saveAndContinue"
 msgstr "Save and continue"
@@ -779,6 +803,9 @@ msgstr "Send Email"
 
 msgid "common.showAllSteps"
 msgstr "Show all steps"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} steps"
 
 msgid "common.size"
 msgstr "Size"
@@ -842,6 +869,12 @@ msgstr "An unexpected error has occurred. Please reload the page and try again."
 
 msgid "common.unread"
 msgstr "Unread"
+
+msgid "common.unsavedChanges"
+msgstr "Unsaved Changes"
+
+msgid "common.unsavedChangesMessage"
+msgstr "We found unsaved changes from {$when}. This can happen if you lose connection to the server while working. Restoring those changes may overwrite any changes you have made since then. Would you like to restore those changes now?"
 
 msgid "common.untitled"
 msgstr "Untitled"
@@ -1085,9 +1118,6 @@ msgstr "Are you sure you want to submit this form?"
 
 msgid "form.confirmSubmit.title"
 msgstr "Confirm"
-
-msgid "form.emailRequired"
-msgstr "An email address is required."
 
 msgid "form.dataHasChanged"
 msgstr "The data on this form has changed. Do you wish to continue without saving?"
@@ -1499,12 +1529,6 @@ msgstr "Announcement type removed."
 
 msgid "notification.removedAnnouncement"
 msgstr "Announcement removed."
-
-msgid "notification.addedAuthor"
-msgstr "Author added."
-
-msgid "notification.editedAuthor"
-msgstr "Author edited."
 
 msgid "notification.confirmError"
 msgstr "There was an error confirming your subscription."
@@ -2110,3 +2134,14 @@ msgstr "Unknown command {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Author added."
+
+msgid "notification.editedAuthor"
+msgstr "Author edited."
+

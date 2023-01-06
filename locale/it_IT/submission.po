@@ -820,9 +820,6 @@ msgstr "Risposta del modulo di revisione"
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr "Se stai caricando una revisione di un file già esistente, selezionare il file da sostituire."
 
-msgid "submission.confirm.message"
-msgstr "La tua proposta è stata caricata ed è pronta per essere inviata. Puoi tornare indietro per rivedere e modificare i dati inseriti. Quando sei pronto, clicca su \"Proposta finita\"."
-
 msgid "submission.contributors"
 msgstr "Lista degli autori"
 
@@ -847,23 +844,12 @@ msgstr "Nuove revisioni sono state inviate e sono in analisi da parte dell'edito
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisiti per le proposte"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Devi aver letto e completato i requisiti qui indicati prima di procedere."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Proposta completata"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Grazie per il tuo interesse a pubblicare su {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Leggi la dichiarazione di copyright"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Sono d'accordo e acconsento ai termi di copyright qui espressi."
-
-msgid "submission.submit.whatNext"
-msgstr "Cosa succede dopo ?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Ora puoi:"
@@ -986,25 +972,14 @@ msgstr "Produzione"
 msgid "submission.rights"
 msgstr "Diritti"
 
-msgid "submission.rights.tip"
-msgstr "Se vuoi inserisci una breve dichiarazione sui diritti di accesso per o sopra questa proposta."
-
 msgid "submission.source"
 msgstr "Fonte"
-
-msgid "submission.source.tip"
-msgstr ""
-"Questo manoscritto proviene da altra fonte? Se si, inserire un URL o una "
-"descrizione della fonte."
 
 msgid "submission.submission"
 msgstr "Proposta"
 
 msgid "submission.submissionTitle"
 msgstr "Titolo della proposta:"
-
-msgid "submission.submit.finishSubmission"
-msgstr "Proposta finita"
 
 msgid "submission.submit.selectFile"
 msgstr "Seleziona file"
@@ -1026,14 +1001,8 @@ msgstr "Aggiungi un altro file"
 msgid "submission.submit.metadataForm"
 msgstr "Ulteriori informazioni"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Aggiungi ulteriori informazioni sulla tua proposta. Premi 'Invio' dopo ogni termine."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Lingua della proposta"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Sono accettate proposte in numerose lingue. Scegli la lingua primaria della proposta da questa lista a menu."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Files della proposta"
@@ -1049,18 +1018,6 @@ msgstr "Carica un file subordinato"
 
 msgid "submission.upload.query"
 msgstr "Carica un file di discussione"
-
-msgid "submission.type.tip"
-msgstr ""
-"La tipologia di solito è qualcosa come 'image', 'text', o formati "
-"multimediali come 'software' o 'interactive'. Per favore scegli quello più "
-"rilevante per la tua proposta. Esempi possono essere trovarti in <a target="
-"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
-"usageguide/2001-04-12/generic/\">http://dublincore.org/documents/2001/04/12/"
-"usageguide/generic.shtml#type</a>"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Principale contatto per la corrispondenza editoriale."
 
 msgid "submission.submit.contributorRole"
 msgstr "Ruolo del contributore"
@@ -1685,50 +1642,14 @@ msgstr "La proposta deve essere inviata di nuovo per un altro giro di revisione.
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "La proposta è stata inviata di nuovo per un altro giro di revisione."
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Inserire una lingua."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Inserire un oggetto."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Inserire una disciplina."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Per favore inserisci le parole chiave."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Per favore inserisci una agenzia sponsorizzatrice"
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Inserirei la copertura dell'articolo."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Inserire la tipologia."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Inserire la fonte."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Inserire i diritti sull'articolo."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Carica come"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Seleziona il ruolo che meglio descrive il tuo contributo a questa proposta."
-
-msgid "submission.submit.contactConsent"
-msgstr "Indirizzo di contatto"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Si, voglio essere contattato al riguardo di questa proposta."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Carica in uno dei seguenti ruoli se vuoi essere in grado di modificare e pubblicare direttamente tua la proposta: {$managerGroups}"
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Per favore inserisci le citazioni."
 
 msgid "log.review.reviewUnconsidered"
 msgstr "{$editorName} ha segnalato il {$round} ciclio di revisione per la proposta {$submissionId} come da non considerare."
@@ -1949,9 +1870,6 @@ msgstr "{$representation} di {$title}"
 
 msgid "submission.submit.removeConfirm"
 msgstr "Sei sicuro di voler cancellare questo file?"
-
-msgid "submission.submit.genre.error"
-msgstr "Seleziona il tipo di file per ciascun caricamento."
 
 msgid "submission.submit.genre.description"
 msgstr "Scegli l'opzione che meglio descrive questo file."
@@ -2443,3 +2361,66 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Questa è una preview non ancora pubblicata  <a href=\"{$url}\">Vai "
 "all'articolo</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Non hai caricato alcun file per questa proposta."
+
+msgid "author.submit.confirmation"
+msgstr "Conferma"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Inserire una lingua."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Inserire un oggetto."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Inserire una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Per favore inserisci le parole chiave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Inserirei la copertura dell'articolo."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Inserire la tipologia."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Inserire la fonte."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Inserire i diritti sull'articolo."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Per favore inserisci le citazioni."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Aggiungi ulteriori informazioni sulla tua proposta. Premi 'Invio' dopo ogni termine."
+
+msgid "submission.type.tip"
+msgstr ""
+"La tipologia di solito è qualcosa come 'image', 'text', o formati "
+"multimediali come 'software' o 'interactive'. Per favore scegli quello più "
+"rilevante per la tua proposta. Esempi possono essere trovarti in <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Questo manoscritto proviene da altra fonte? Se si, inserire un URL o una "
+"descrizione della fonte."
+
+msgid "submission.rights.tip"
+msgstr "Se vuoi inserisci una breve dichiarazione sui diritti di accesso per o sopra questa proposta."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Aggiungi ulteriori informazioni sulla tua proposta. Premi 'Invio' dopo ogni termine."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Sono accettate proposte in numerose lingue. Scegli la lingua primaria della proposta da questa lista a menu."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Principale contatto per la corrispondenza editoriale."

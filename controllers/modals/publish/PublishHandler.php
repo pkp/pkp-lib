@@ -19,6 +19,8 @@ use APP\components\forms\publication\PublishForm;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 use PKP\security\authorization\PublicationAccessPolicy;
@@ -90,6 +92,7 @@ class PublishHandler extends Handler
         if (!$submissionContext || $submissionContext->getId() !== $this->submission->getData('contextId')) {
             $submissionContext = Services::get('context')->get($this->submission->getData('contextId'));
         }
+
         $primaryLocale = $submissionContext->getPrimaryLocale();
         $allowedLocales = $submissionContext->getSupportedSubmissionLocales();
         $errors = Repo::publication()->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);

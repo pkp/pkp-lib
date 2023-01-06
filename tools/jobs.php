@@ -28,10 +28,10 @@ use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
 use PKP\config\Config;
-use PKP\Domains\Jobs\Job as PKPJobModel;
-use PKP\Domains\Jobs\WorkerConfiguration;
-use PKP\Support\Jobs\Entities\TestJobFailure;
-use PKP\Support\Jobs\Entities\TestJobSuccess;
+use PKP\job\models\Job as PKPJobModel;
+use PKP\jobs\testJobs\TestJobFailure;
+use PKP\jobs\testJobs\TestJobSuccess;
+use PKP\queue\WorkerConfiguration;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
@@ -39,7 +39,6 @@ use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Helper\TableCellStyle;
 use Symfony\Component\Console\Input\StringInput;
-
 use Symfony\Component\Console\Output\StreamOutput;
 use Throwable;
 

@@ -2420,6 +2420,7 @@ msgstr ""
 "Quem deve receber um e-mail de notificação quando uma decisão editorial for "
 "registada?"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Enviar e-mail apenas aos autores designados no fluxo de trabalho da "
@@ -2462,9 +2463,6 @@ msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
 "Este e-mails é enviado por um Editor ao Revisor para o notificar que foi "
 "emitida uma decisão relativa a uma submissão que realizou a revisão."
-
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Agradecimento ao Revisor"
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Uma cópia do e-mail foi enviado para o autor da submissão"
@@ -3141,3 +3139,10 @@ msgstr "Ficheiro Principal"
 
 msgid "stats.file.type.suppFile"
 msgstr "Ficheiro Suplementar"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Normas de Submissão"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Ao submeter um trabalho para a revista, os autores devem ler, aceitar e marcar como realizados cada Item de Verificação nas Normas de Submissão, antes de proceder. A lista de Itens de Verificação também é apresentada em Instruções para Autores, na secção Sobre a Revista. A lista pode ser modificada, porém todos os itens requerem a marcação dos autores para procederem à submissão."

@@ -802,6 +802,17 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             define('RUNNING_UPGRADE', true);
         }
     }
+
+    /**
+     * Get the property name for a section id
+     *
+     * In OMP, the section is referred to as a series and the
+     * property name is different.
+     */
+    public static function getSectionIdPropName(): string
+    {
+        return 'sectionId';
+    }
 }
 
 define('REALLY_BIG_NUMBER', 10000);

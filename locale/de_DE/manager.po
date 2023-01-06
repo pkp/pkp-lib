@@ -2467,3 +2467,26 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Diese E-Mail wird monatlich an die Redakteure und Journal Manager gesendet "
 "und stellt Statistiken zum Journal zur Verfügung."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "Ein DOI-Suffix kann in beliebiger Form sein, muss aber eindeutig unter allen Publikationsobjekten, denen derselbe DOI-Präfix zugewiesen wird:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Die Standardmuster benutzen."
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-Suffix"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "Der DOI-Präfix wird von Registrierungsagenturen (z.B. <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) vergeben und hat das Format 10.xxxx (z.B. 10.1234):"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Zeitschrifteninhalt"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Checkliste für die Beitragseinreichung"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr "Autor/innen, die beabsichtigen, einen Beitrag einzureichen, werden zunächst gebeten, die Checkliste Punkt für Punkt abzuarbeiten. Die Liste erscheint bei den Richtlinien für Autor/innen unter \"Über uns\". Die Liste kann weiter unten verändert werden, doch müssen alle Punkte der Liste abgehakt sein, bevor die Autor/innen mit dem Einreichen ihres Beitrags fortfahren können."

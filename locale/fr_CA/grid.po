@@ -195,12 +195,6 @@ msgstr "Importer ou exporter le contenu ou les données du site"
 msgid "grid.action.orderItems"
 msgstr "Activer le tri"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Modifier cette liste de vérification"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Supprimer cette liste de vérification"
-
 msgid "grid.action.resetAll"
 msgstr "Réinitialiser tous les objets à leur valeur par défaut"
 
@@ -399,9 +393,6 @@ msgstr "Contributeurs-trices"
 msgid "grid.action.addContributor"
 msgstr "Ajouter un-e contributeur-trice"
 
-msgid "grid.action.editContributor"
-msgstr "Modifier un-e contributeur-trice"
-
 msgid "grid.action.deleteContributor"
 msgstr "Supprimer un-e contributeur-trice"
 
@@ -441,20 +432,8 @@ msgstr "Liste de vérification de la soumission"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Élément de la liste de vérification"
 
-msgid "author.users.contributor.name"
-msgstr "Nom"
-
-msgid "author.users.contributor.email"
-msgstr "Courriel"
-
-msgid "author.users.contributor.role"
-msgstr "Rôle"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Personne-ressource principale"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Dans les listes à parcourir"
 
 msgid "grid.roles.currentRoles"
 msgstr "Rôles actuels"
@@ -669,3 +648,18 @@ msgstr "Aucun menu de navigation"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Choisir un type..."
 
+
+msgid "author.users.contributor.name"
+msgstr "Nom"
+
+msgid "author.users.contributor.email"
+msgstr "Courriel"
+
+msgid "author.users.contributor.role"
+msgstr "Rôle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dans les listes à parcourir"
+
+msgid "grid.action.editContributor"
+msgstr "Modifier un-e contributeur-trice"

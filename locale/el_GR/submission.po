@@ -1646,35 +1646,14 @@ msgstr "Στάδιο"
 msgid "workflow.stage.any"
 msgstr "Οποιοδήποτε Στάδιο"
 
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Εισάγετε μια λέξη-κλειδί."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Εισάγετε ένα θέμα."
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Εισάγετε μια γλώσσα."
-
 msgid "submission.submit.addAuthor"
 msgstr "Προσθήκη Συντελεστή"
 
 msgid "submission.submit.contributorRole"
 msgstr "Ρόλος Συντελεστή"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Κύρια επαφή για την συντακτική αλληλογραφία."
-
 msgid "submission.createRemote"
 msgstr "Δημιουργήστε απομακρυσμένο"
-
-msgid "submission.type.tip"
-msgstr ""
-"Ο τύπος υποβολής είναι συνήθως «εικόνα», «κείμενο» ή άλλα πολυμέσα, όπως "
-"«λογισμικό» και «διαδραστικό υλικό».  Επιλέξτε αυτό που είναι πλέον σχετικό "
-"με την υποβολή σας.  Μπορείτε να βρείτε παραδείγματα στο  <a target=\""
-"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
-"generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/"
-"generic.shtml#type</a>"
 
 msgid "submission.supportingAgencies"
 msgstr "Οργανισμοί Υποστήριξης"
@@ -1694,18 +1673,8 @@ msgstr "Σχετιζόμενα αρχεία"
 msgid "submission.submit.submissionFiles"
 msgstr "Αρχεία της Υποβολής"
 
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Γίνονται δεκτές υποβολές σε αρκετές γλώσσες.  Επιλέξτε την κύρια γλώσσα της "
-"υποβολής από την ακόλουθη λίστα."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Γλώσσα Υποβολής"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr ""
-"Προσθέστε επιπλέον πληροφορίες για την υποβολή σας.  Πατήστε «enter» μετά "
-"από κάθε όρο."
 
 msgid "submission.submit.metadataForm"
 msgstr "Επιπλέον Βελτιώσεις"
@@ -1731,18 +1700,8 @@ msgstr "Τίτλος Υποβολής:"
 msgid "submission.submission"
 msgstr "Υποβολή"
 
-msgid "submission.source.tip"
-msgstr ""
-"Αν αυτή η υποβολή απορρέει από μια άλλη πηγή, μπορείτε να εισάγετε έναν "
-"σύνδεσμο ή μια περιγραφή αυτής της πηγής."
-
 msgid "submission.source"
 msgstr "Πηγή"
-
-msgid "submission.rights.tip"
-msgstr ""
-"Αν επιθυμείτε, μπορείτε να προσθέσετε μια περιληπτική δήλωση σχετικά με τα "
-"δικαιώματα πρόσβασης που ακολουθούν αυτή την υποβολή."
 
 msgid "submission.rights"
 msgstr "Δικαιώματα"
@@ -1886,9 +1845,6 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.authorBiographies"
 msgstr "Βιογραφικά Συγγραφέων"
 
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Αποδεχτείτε τη δήλωση περί πνευματικών δικαιωμάτων"
-
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Πρέπει να διαβάσετε και να αποδεχτείτε ότι πληροίτε τις απαιτήσεις που "
@@ -1927,40 +1883,16 @@ msgstr "Δημιουργήσετε μια νέα υποβολή"
 msgid "submission.submit.whatNext.forNow"
 msgstr "Προς το παρόν, μπορείτε να:"
 
-msgid "submission.submit.whatNext"
-msgstr "Τι ακολουθεί?"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr ""
-"Αποδέχομαι να συμμορφωθώ με τους όρους της δήλωσης πνευματικών δικαιωμάτων."
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr ""
-"Σας ευχαριστούμε για το ενδιαφέρον σας για δημοσίευση στο {$contextName}."
-
 msgid "submission.submit.submissionComplete"
 msgstr "Ολοκλήρωση Υποβολής"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Απαιτήσεις Υποβολής"
 
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ναι, θα ήθελα να επικοινωνήσετε μαζί μου σχετικά με αυτήν την υποβολή."
-
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Επιλέξτε το ρόλο που περιγράφει καλύτερα τη συνεισφορά σας σε αυτήν την "
 "υποβολή."
-
-msgid "submission.submit.finishSubmission"
-msgstr "Ολοκλήρωση Υποβολής"
-
-msgid "submission.confirm.message"
-msgstr ""
-"Η υποβολή σας έχει μεταφορτωθεί και είναι έτοιμη για αποστολή. Μπορείτε να "
-"επιστρέψετε για να ελέγξετε και να προσαρμόσετε  τις πληροφορίες που έχετε "
-"εισαγάγει πριν συνεχίσετε. Όταν είστε έτοιμοι, κάντε κλικ στο \"Ολοκλήρωση "
-"Υποβολής\"."
 
 msgid "author.publicationNotFound"
 msgstr "Δεν ήταν δυνατή η εύρεση της δημοσίευσης γι' αυτόν τον συγγραφέα."
@@ -1988,3 +1920,56 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Αυτή είναι μια προεπισκόπηση και δεν έχει δημοσιευτεί ακόμα. <a href=\"{$url}"
 "\">Δείτε την υποβολή</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Δεν έχουν επισυναφθεί αρχεία στη συγκεκριμένη υποβολή."
+
+msgid "author.submit.confirmation"
+msgstr "5. Επιβεβαίωση"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Εισάγετε μια γλώσσα."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Εισάγετε ένα θέμα."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Εισάγετε μια λέξη-κλειδί."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Προσθέστε επιπλέον πληροφορίες για την υποβολή σας.  Πατήστε «enter» μετά "
+"από κάθε όρο."
+
+msgid "submission.type.tip"
+msgstr ""
+"Ο τύπος υποβολής είναι συνήθως «εικόνα», «κείμενο» ή άλλα πολυμέσα, όπως "
+"«λογισμικό» και «διαδραστικό υλικό».  Επιλέξτε αυτό που είναι πλέον σχετικό "
+"με την υποβολή σας.  Μπορείτε να βρείτε παραδείγματα στο  <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Αν αυτή η υποβολή απορρέει από μια άλλη πηγή, μπορείτε να εισάγετε έναν "
+"σύνδεσμο ή μια περιγραφή αυτής της πηγής."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Αν επιθυμείτε, μπορείτε να προσθέσετε μια περιληπτική δήλωση σχετικά με τα "
+"δικαιώματα πρόσβασης που ακολουθούν αυτή την υποβολή."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Προσθέστε επιπλέον πληροφορίες για την υποβολή σας.  Πατήστε «enter» μετά "
+"από κάθε όρο."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Γίνονται δεκτές υποβολές σε αρκετές γλώσσες.  Επιλέξτε την κύρια γλώσσα της "
+"υποβολής από την ακόλουθη λίστα."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Κύρια επαφή για την συντακτική αλληλογραφία."

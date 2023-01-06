@@ -198,12 +198,6 @@ msgstr "Importera eller exportera innehåll eller webbplats-data"
 msgid "grid.action.orderItems"
 msgstr "Aktivera ordna-läge"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Redigera det här elementet i checklistan"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Ta bort det här elementet från checklistan"
-
 msgid "grid.action.resetAll"
 msgstr "Återställ alla element till defaultvärden"
 
@@ -396,9 +390,6 @@ msgstr "Med stöd från"
 msgid "grid.action.addContributor"
 msgstr "Lägg till medarbetare"
 
-msgid "grid.action.editContributor"
-msgstr "Redigera medarbetare"
-
 msgid "grid.action.deleteContributor"
 msgstr "Ta bort medarbetare"
 
@@ -435,20 +426,8 @@ msgstr "Checklista för bidrag"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Element i checklista"
 
-msgid "author.users.contributor.name"
-msgstr "Namn"
-
-msgid "author.users.contributor.email"
-msgstr "E-postadress"
-
-msgid "author.users.contributor.role"
-msgstr "Roll"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Primär kontaktperson"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "I bläddringslista"
 
 msgid "grid.roles.currentRoles"
 msgstr "Nuvarande roller"
@@ -707,3 +686,18 @@ msgstr "Spara ordning"
 
 msgid "grid.action.addInstitution"
 msgstr "Lägg till institution"
+
+msgid "author.users.contributor.name"
+msgstr "Namn"
+
+msgid "author.users.contributor.email"
+msgstr "E-postadress"
+
+msgid "author.users.contributor.role"
+msgstr "Roll"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "I bläddringslista"
+
+msgid "grid.action.editContributor"
+msgstr "Redigera medarbetare"

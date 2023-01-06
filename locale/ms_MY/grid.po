@@ -241,20 +241,8 @@ msgstr "Cipta Peranan Baharu"
 msgid "grid.roles.currentRoles"
 msgstr "Peranan Semasa"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Dalam Senarai Pelayar"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Kenalan Utama"
-
-msgid "author.users.contributor.role"
-msgstr "Peranan"
-
-msgid "author.users.contributor.email"
-msgstr "E-mel"
-
-msgid "author.users.contributor.name"
-msgstr "Nama"
 
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Item Senarai Semak"
@@ -294,9 +282,6 @@ msgstr "Cipta versi baru"
 
 msgid "grid.action.deleteContributor"
 msgstr "Padam Penyumbang"
-
-msgid "grid.action.editContributor"
-msgstr "Sunting Penyumbang"
 
 msgid "grid.action.addContributor"
 msgstr "Tambah Penyumbang"
@@ -497,12 +482,6 @@ msgstr "Tambahkan templat e-mel baharu"
 msgid "grid.action.resetAll"
 msgstr "Tetapkan semula semua item kepada nilai lalai"
 
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Padam item senarai semakan ini"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Sunting item senarai semak ini"
-
 msgid "grid.action.orderItems"
 msgstr "Dayakan mod urutan"
 
@@ -685,3 +664,18 @@ msgstr "Tetapan"
 
 msgid "grid.noItems"
 msgstr "Tiada Item"
+
+msgid "author.users.contributor.name"
+msgstr "Nama"
+
+msgid "author.users.contributor.email"
+msgstr "E-mel"
+
+msgid "author.users.contributor.role"
+msgstr "Peranan"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dalam Senarai Pelayar"
+
+msgid "grid.action.editContributor"
+msgstr "Sunting Penyumbang"

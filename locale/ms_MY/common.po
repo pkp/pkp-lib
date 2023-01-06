@@ -689,12 +689,6 @@ msgstr "Anda telah berjaya melanggan."
 msgid "notification.confirmError"
 msgstr "Terdapat ralat semasa mengesahkan langganan anda."
 
-msgid "notification.editedAuthor"
-msgstr "Pengarang disunting."
-
-msgid "notification.addedAuthor"
-msgstr "Tambah pengarang."
-
 msgid "notification.removedAnnouncement"
 msgstr "Pengumuman dibuang."
 
@@ -1125,9 +1119,6 @@ msgid "form.dataHasChanged"
 msgstr ""
 "Data pada borang ini telah berubah. Adakah anda ingin meneruskan tanpa "
 "menyimpan?"
-
-msgid "form.emailRequired"
-msgstr "Alamat e-mel diperlukan."
 
 msgid "form.confirmSubmit.title"
 msgstr "Sahkan"
@@ -2079,3 +2070,12 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Tambah pengarang."
+
+msgid "notification.editedAuthor"
+msgstr "Pengarang disunting."

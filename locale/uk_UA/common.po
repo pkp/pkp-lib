@@ -937,9 +937,6 @@ msgstr "Ви впевнені що бажаєте надіслати цю фор
 msgid "form.confirmSubmit.title"
 msgstr "Підтвердження"
 
-msgid "form.emailRequired"
-msgstr "Необхідно ввести email."
-
 msgid "form.dataHasChanged"
 msgstr "Дані цієї форми були змінені.Бажаєте продовжити без збереження?"
 
@@ -1339,12 +1336,6 @@ msgstr "Тип оголошення видалено."
 
 msgid "notification.removedAnnouncement"
 msgstr "Оголошення видалено."
-
-msgid "notification.addedAuthor"
-msgstr "Автора додано."
-
-msgid "notification.editedAuthor"
-msgstr "Автор відредагований."
 
 msgid "notification.confirmError"
 msgstr "Під час підтвердження вашої передплати сталася помилка."
@@ -1926,3 +1917,13 @@ msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Автора додано."
+
+msgid "notification.editedAuthor"
+msgstr "Автор відредагований."
+

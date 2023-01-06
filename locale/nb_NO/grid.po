@@ -69,15 +69,6 @@ msgstr "Legg til forfatter"
 msgid "grid.libraryFiles.column.files"
 msgstr "Filer"
 
-msgid "author.users.contributor.name"
-msgstr "Navn"
-
-msgid "author.users.contributor.email"
-msgstr "E-post"
-
-msgid "author.users.contributor.role"
-msgstr "Rolle"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Kontaktperson"
 
@@ -161,9 +152,6 @@ msgstr "Slett kategori"
 
 msgid "grid.action.addContributor"
 msgstr "Legg til bidragsyter"
-
-msgid "grid.action.editContributor"
-msgstr "Endre bidragsyter"
 
 msgid "grid.action.deleteContributor"
 msgstr "Slett bidragsyter"
@@ -477,9 +465,6 @@ msgstr "Nåværende verving"
 msgid "grid.roles.stageAssignment"
 msgstr "Stadie oppnevnt til"
 
-msgid "author.users.contributor.includeInBrowse"
-msgstr "Inkluder i «Bla gjennom»-listen"
-
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Element i sjekkliste"
 
@@ -581,12 +566,6 @@ msgstr "Deaktiver denne e-postmalen"
 
 msgid "grid.action.resetAll"
 msgstr "Tilbakestill alle elementene til standardverdiene"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Slett dette elementet på sjekklisten"
-
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Endre dette elementet på sjekklisten"
 
 msgid "grid.action.orderItems"
 msgstr "Aktiver sorteringsmodus"
@@ -692,3 +671,18 @@ msgstr "Dette elementet ligger på en annen server."
 
 msgid "grid.noAuditors"
 msgstr "Ingen oppnevnt for sluttkontroll"
+
+msgid "author.users.contributor.name"
+msgstr "Navn"
+
+msgid "author.users.contributor.email"
+msgstr "E-post"
+
+msgid "author.users.contributor.role"
+msgstr "Rolle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Inkluder i «Bla gjennom»-listen"
+
+msgid "grid.action.editContributor"
+msgstr "Endre bidragsyter"

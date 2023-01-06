@@ -17,8 +17,6 @@ namespace PKP\services;
 
 use APP\services\queryBuilders\StatsGeoQueryBuilder;
 use APP\statistics\StatisticsHelper;
-use Illuminate\Support\Facades\DB;
-use PKP\config\Config;
 
 class PKPStatsGeoService
 {
@@ -132,18 +130,25 @@ class PKPStatsGeoService
     }
 
     /**
+     * Do usage stats data already exist for the given month
+     *
+     * @param string $month Month in the form YYYYMM
+     */
+    public function monthExists(string $month): bool
+    {
+        $statsQB = new StatsGeoQueryBuilder();
+        return $statsQB->monthExists($month);
+    }
+
+    /**
      * Delete daily usage metrics for a month
      *
      * @param string $month Month in the form YYYYMM
      */
     public function deleteDailyMetrics(string $month): void
     {
-        // Construct the SQL part depending on the DB
-        $monthFormatSql = "DATE_FORMAT(date, '%Y%m')";
-        if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            $monthFormatSql = "to_char(date, 'YYYYMM')";
-        }
-        DB::table('metrics_submission_geo_daily')->where(DB::raw($monthFormatSql), '=', $month)->delete();
+        $statsQB = new StatsGeoQueryBuilder();
+        $statsQB->deleteDailyMetrics($month);
     }
 
     /**
@@ -153,7 +158,8 @@ class PKPStatsGeoService
      */
     public function deleteMonthlyMetrics(string $month): void
     {
-        DB::table('metrics_submission_geo_monthly')->where('month', $month)->delete();
+        $statsQB = new StatsGeoQueryBuilder();
+        $statsQB->deleteMonthlyMetrics($month);
     }
 
     /**
@@ -163,15 +169,7 @@ class PKPStatsGeoService
      */
     public function addMonthlyMetrics(string $month): void
     {
-        // Construct the SQL part depending on the DB
-        $monthFormatSql = "CAST(DATE_FORMAT(gd.date, '%Y%m') AS UNSIGNED)";
-        if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            $monthFormatSql = "to_char(gd.date, 'YYYYMM')::integer";
-        }
-        $selectSubmissionGeoDaily = DB::table('metrics_submission_geo_daily as gd')
-            ->select(DB::raw("gd.context_id, gd.submission_id, COALESCE(gd.country, ''), COALESCE(gd.region, ''), COALESCE(gd.city, ''), {$monthFormatSql} as gdmonth, SUM(gd.metric), SUM(gd.metric_unique)"))
-            ->whereRaw("{$monthFormatSql} = ?", [$month])
-            ->groupBy(DB::raw('gd.context_id, gd.submission_id, gd.country, gd.region, gd.city, gdmonth'));
-        DB::table('metrics_submission_geo_monthly')->insertUsing(['context_id', 'submission_id', 'country', 'region', 'city', 'month', 'metric', 'metric_unique'], $selectSubmissionGeoDaily);
+        $statsQB = new StatsGeoQueryBuilder();
+        $statsQB->addMonthlyMetrics($month);
     }
 }

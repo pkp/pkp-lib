@@ -22,12 +22,6 @@ msgstr "Proporcionar una lista de referencias formateada para trabajos citados e
 msgid "submission.submit.submissionComplete"
 msgstr "Envío completo"
 
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Gracias por su interés por publicar con {$contextName}."
-
-msgid "submission.submit.whatNext"
-msgstr "¿Y ahora qué?"
-
 msgid "submission.submit.whatNext.forNow"
 msgstr "Por ahora, usted puede:"
 
@@ -775,9 +769,6 @@ msgstr "Versión de revisión"
 msgid "submission.rights"
 msgstr "Derechos"
 
-msgid "submission.rights.tip"
-msgstr "Si lo desea, puede escribir una breve declaración sobre los derechos de acceso que tiene respecto a este envío."
-
 msgid "submissions.active"
 msgstr "Activo"
 
@@ -814,9 +805,6 @@ msgstr "Normativa"
 msgid "submission.source"
 msgstr "Fuente"
 
-msgid "submission.source.tip"
-msgstr "¿Se deriva este envío de otro recurso? Si es así, puede introducir una URL o una descripción del recurso."
-
 msgid "submissions.submit"
 msgstr "Enviar"
 
@@ -841,9 +829,6 @@ msgstr "Revisión de envío"
 msgid "submission.submitter"
 msgstr "Remitente"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Finalizar envío"
-
 msgid "submission.submit.selectFile"
 msgstr "Seleccionar archivo"
 
@@ -861,9 +846,6 @@ msgstr "Enviar otro archivo"
 
 msgid "submission.submit.metadataForm"
 msgstr "Mejoras adicionales"
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Añada más información al envío.  Pulse \"Intro\" después de cada término."
 
 msgid "submission.submit.submissionLocale"
 msgstr "Idioma del envío"
@@ -894,9 +876,6 @@ msgstr "Información de indexado"
 
 msgid "submission.titleAndAbstract"
 msgstr "Título y resumen"
-
-msgid "submission.type.tip"
-msgstr "El tipo de envío suele ser de \"imagen\", \"texto\" u otros archivos multimedia entre los que se incluyen \"software\" e \"interactivo\". Elija el que sea más pertinente para su envío. Pueden encontrarse ejemplos en <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "En curso"
@@ -933,9 +912,6 @@ msgstr "DD-MM"
 
 msgid "submission.date.yyyymmdd"
 msgstr "AAAA-MM-DD"
-
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Contacto principal para la correspondencia editorial."
 
 msgid "submission.submit.contributorRole"
 msgstr "Rol del colaborador/a"
@@ -1258,12 +1234,6 @@ msgstr "Debe asignarse un jefe/a de producción para que pueda comenzar el proce
 msgid "notification.type.editorAssignmentEditing"
 msgstr "Debe asignarse un editor/a para que pueda comenzar el proceso editorial. Añada a un jefe/a de producción a través del enlace Participantes que aparece arriba."
 
-msgid "submission.confirm.message"
-msgstr "Se ha subido su envío y ya está listo para ser enviado. Puede volver atrás para revisar y ajustar la información que desee antes de continuar. Cuando esté listo haga clic en \"Finalizar envío\"."
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Estoy de acuerdo en cumplir los términos de la declaración de derechos de autor."
-
 msgid "submission.shortAuthor"
 msgstr "{$author} et al."
 
@@ -1469,6 +1439,7 @@ msgstr "Ha sido añadido a la conversación titulada \"{$queryTitle}\" que hace 
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisitos del envío"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Antes de continuar debe leer y confirmar que ha completado los requisitos siguientes."
 
@@ -1487,9 +1458,6 @@ msgstr "ID de la editorial"
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Se han enviado nuevas revisiones y están siendo consideradas por el editor/a."
 
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Aceptar la declaración de derechos de autor"
-
 msgid "submission.authorBiography"
 msgstr "Biografía del autor/a"
 
@@ -1504,11 +1472,6 @@ msgstr "Cómo citar"
 
 msgid "submission.howToCite.citationFormats"
 msgstr "Más formatos de cita"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Se aceptan envíos en varios idiomas. Elija el idioma principal del envío "
-"desde el menú desplegable de arriba."
 
 msgid "submission.upload.proof"
 msgstr "Subir un archivo listo para publicación"
@@ -1592,15 +1555,6 @@ msgstr "Enviar como"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Seleccione el rol que describa mejor su contribución a este envío."
 
-msgid "submission.submit.contactConsent"
-msgstr "Persona de contacto"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Sí, deseo que se pongan en contacto conmigo respecto a este envío."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Haga el envío con cualquiera de los roles siguientes si desea poder editar y publicar este envío: {$managerGroups}"
-
 msgid "submission.citations.description"
 msgstr ""
 "Introduzca cada referencia en una línea nueva, así podrán ser extraídas y "
@@ -1615,35 +1569,8 @@ msgstr "Las referencias siguientes han sido extraídas y se enlazarán con los m
 msgid "submission.parsedAndSaveCitations"
 msgstr "Extraer y guardar referencias"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Introduzca un idioma."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Introduzca un tema."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Introduzca una disciplina."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Introduzca una palabra clave."
-
 msgid "submission.submit.form.agenciesRequired"
 msgstr "Introduzca una agencia de soporte."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Introduzca la información de cobertura."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Introduzca la tipología."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Introduzca la fuente."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Introduzca los derechos."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Introduzca las referencias."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "El artículo debe volverse a enviar para otra ronda de revisión."
@@ -2061,9 +1988,6 @@ msgstr ""
 msgid "submission.submit.removeConfirm"
 msgstr "¿Seguro que desea eliminar este archivo?"
 
-msgid "submission.submit.genre.error"
-msgstr "Seleccione el tipo de archivo para cada carga."
-
 msgid "submission.submit.genre.description"
 msgstr "Elija la opción que mejor describa a este archivo."
 
@@ -2091,3 +2015,60 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Esta es una vista previa y no se ha publicado. <a href=\"{$url}\">Ver "
 "envío</a>"
+
+msgid "author.submit.noFiles"
+msgstr "No se han adjuntado archivos a este envío."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmación"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduzca un idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduzca un tema."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduzca una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduzca una palabra clave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduzca la información de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduzca la tipología."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduzca la fuente."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduzca los derechos."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduzca las referencias."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Añada más información al envío.  Pulse \"Intro\" después de cada término."
+
+msgid "submission.type.tip"
+msgstr "El tipo de envío suele ser de \"imagen\", \"texto\" u otros archivos multimedia entre los que se incluyen \"software\" e \"interactivo\". Elija el que sea más pertinente para su envío. Pueden encontrarse ejemplos en <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "¿Se deriva este envío de otro recurso? Si es así, puede introducir una URL o una descripción del recurso."
+
+msgid "submission.rights.tip"
+msgstr "Si lo desea, puede escribir una breve declaración sobre los derechos de acceso que tiene respecto a este envío."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Añada más información al envío.  Pulse \"Intro\" después de cada término."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Se aceptan envíos en varios idiomas. Elija el idioma principal del envío "
+"desde el menú desplegable de arriba."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacto principal para la correspondencia editorial."

@@ -200,12 +200,6 @@ msgstr "Inhalte oder Einstellungen importieren oder exportieren"
 msgid "grid.action.orderItems"
 msgstr "Sortiermodus aktivieren"
 
-msgid "grid.action.editSubmissionChecklist"
-msgstr "Dieses Element der Checkliste bearbeiten"
-
-msgid "grid.action.deleteSubmissionChecklist"
-msgstr "Dieses Element der Checkliste löschen"
-
 msgid "grid.action.resetAll"
 msgstr "Alle Elemente auf ihre Standardwerte zurücksetzen"
 
@@ -405,9 +399,6 @@ msgstr "Beiträger/innen"
 msgid "grid.action.addContributor"
 msgstr "Beiträger/in hinzufügen"
 
-msgid "grid.action.editContributor"
-msgstr "Beiträger/in bearbeiten"
-
 msgid "grid.action.deleteContributor"
 msgstr "Beiträger/in löschen"
 
@@ -444,20 +435,8 @@ msgstr "Checkliste für Einreichungen"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Eintrag auf Checkliste"
 
-msgid "author.users.contributor.name"
-msgstr "Name"
-
-msgid "author.users.contributor.email"
-msgstr "E-Mail"
-
-msgid "author.users.contributor.role"
-msgstr "Rolle"
-
 msgid "author.users.contributor.principalContact"
 msgstr "Hauptkontakt"
-
-msgid "author.users.contributor.includeInBrowse"
-msgstr "In Browse Liste"
 
 msgid "grid.roles.currentRoles"
 msgstr "Aktuelle Rollen"
@@ -742,3 +721,18 @@ msgstr "Authentifizierungsquelle"
 
 msgid "grid.action.addInstitution"
 msgstr "Einrichtung hinzufügen"
+
+msgid "author.users.contributor.name"
+msgstr "Name"
+
+msgid "author.users.contributor.email"
+msgstr "E-Mail"
+
+msgid "author.users.contributor.role"
+msgstr "Rolle"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "In Browse Liste"
+
+msgid "grid.action.editContributor"
+msgstr "Beiträger/in bearbeiten"

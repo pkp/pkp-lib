@@ -131,7 +131,7 @@ class PKPEventServiceProvider extends EventServiceProvider
 
         return collect($this->discoverEventsWithin())
             ->reject(function ($directory) {
-                return ! is_dir($directory);
+                return !is_dir($directory);
             })
             ->reduce(function ($discovered, $directory) use ($discoverEvents) {
                 return array_merge_recursive(

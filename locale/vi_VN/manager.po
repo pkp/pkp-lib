@@ -2222,3 +2222,16 @@ msgid "mailable.statisticsReportNotify.description"
 msgstr ""
 "Email này được tự động gửi hàng tháng cho các biên tập viên và người quản lý "
 "tạp chí để cung cấp cho họ tổng quan về tình trạng hoạt động hệ thống."
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Checklist cho các bài chuẩn bị gửi"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Khi gửi bài cho tạp chí, trước tiên các tác giả được yêu cầu hoàn thành từng "
+"mục trong checklist cho các bài chuẩn bị gửi. Checklist cũng xuất hiện trong "
+"Hướng dẫn tác giả, bên dưới Giới thiệu về Tạp chí. Danh sách có thể được "
+"chỉnh sửa dưới đây, nhưng tất cả các mục trong danh sách sẽ yêu cầu đánh dấu "
+"trước khi tác giả có thể tiến hành gửi."

@@ -21,6 +21,8 @@ use PKP\submission\PKPSubmission;
 
 class SubmissionsMigration extends \PKP\migration\Migration
 {
+    protected int $defaultStageId = WORKFLOW_STAGE_ID_SUBMISSION;
+
     /**
      * Run the migrations.
      */
@@ -41,12 +43,12 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->datetime('date_last_activity')->nullable();
             $table->datetime('date_submitted')->nullable();
             $table->datetime('last_modified')->nullable();
-            $table->bigInteger('stage_id')->default(WORKFLOW_STAGE_ID_SUBMISSION);
+            $table->bigInteger('stage_id')->default($this->defaultStageId);
             $table->string('locale', 14)->nullable();
 
             $table->smallInteger('status')->default(PKPSubmission::STATUS_QUEUED);
 
-            $table->smallInteger('submission_progress')->default(1);
+            $table->string('submission_progress', 50)->default('files');
             //  Used in OMP only; should not be null there
             $table->smallInteger('work_type')->default(0)->nullable();
         });
@@ -174,6 +176,10 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('user_id');
             $table->foreign('user_id', 'subeditor_submission_group_user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'subeditor_submission_group_user_id');
+
+            $table->bigInteger('user_group_id');
+            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
+            $table->index(['user_group_id'], 'subeditor_submission_group_user_group_id');
 
             $table->index(['assoc_id', 'assoc_type'], 'subeditor_submission_group_assoc_id');
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');

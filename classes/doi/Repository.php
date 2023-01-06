@@ -21,7 +21,7 @@ use Exception;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\PKPString;
-use PKP\Jobs\Doi\DepositSubmission;
+use PKP\jobs\doi\DepositSubmission;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;

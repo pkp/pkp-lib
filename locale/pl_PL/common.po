@@ -976,9 +976,6 @@ msgstr "Czy na pewno przesłać ten formularz?"
 msgid "form.confirmSubmit.title"
 msgstr "Potwierdź"
 
-msgid "form.emailRequired"
-msgstr "Adres e-mail jest wymagany."
-
 msgid "form.dataHasChanged"
 msgstr "Dane w tym formularzu uległy zmianie. Kontynuować?"
 
@@ -1350,12 +1347,6 @@ msgstr "Rodzaj powiadomienia usunięty."
 
 msgid "notification.removedAnnouncement"
 msgstr "Powiadomienie usunięte."
-
-msgid "notification.addedAuthor"
-msgstr "Autor dodany."
-
-msgid "notification.editedAuthor"
-msgstr "Autor zmieniony."
 
 msgid "notification.addedNote"
 msgstr "Powiadomienie opublikowane."
@@ -2202,3 +2193,12 @@ msgstr "Pobierz raport"
 
 msgid "common.geographic"
 msgstr "Geografia"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor dodany."
+
+msgid "notification.editedAuthor"
+msgstr "Autor zmieniony."

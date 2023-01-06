@@ -31,41 +31,21 @@ msgstr "Новые рецензии были отправлены рецензе
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr "Один или несколько рецензентов пропустили сроки отправки. Редакция была уведомлена об этом и предпримет необходимые действия, чтобы рецензии были завершены. Сейчас Вам не нужно предпринимать никаких действий. Вы получите уведомление, когда решение будет принято."
 
-msgid "submission.confirm.message"
-msgstr "Ваш материал был загружен на сервер и готов к отправке. Вы можете вернуться назад, чтобы проверить и откорректировать любую информацию, которую вы ввели, перед тем как продолжить. Когда вы будете готовы, щелкните на кнопке «Завершить отправку»."
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Отправить как"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Выберите роль, которая лучше всего описывает ваш вклад в этот материал."
 
-msgid "submission.submit.contactConsent"
-msgstr "Контакт для переписки"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Да, я согласен, чтобы вы связывались со мной по поводу этого материала."
-
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Отправьте под одной из следующих ролей, если вы хотите иметь возможность редактировать и публиковать этот материал самостоятельно: {$managerGroups}"
-
 msgid "submission.submit.submissionChecklist"
 msgstr "Требования к отправляемому материалу"
 
+#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже требования, перед тем как продолжить."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Отправка материала завершена"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Спасибо вам за интерес к публикации в «{$contextName}»."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Принятие Условий передачи авторских прав"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Да, я согласен выполнять Условия передачи авторских прав."
 
 msgid "submission.submit.genre.label"
 msgstr "Какого типа этот файл?"
@@ -73,14 +53,8 @@ msgstr "Какого типа этот файл?"
 msgid "submission.submit.genre.description"
 msgstr "Выберите вариант, которые лучше всего описывает этот файл."
 
-msgid "submission.submit.genre.error"
-msgstr "Пожалуйста, выберите тип файла для каждого из загружаемых файлов."
-
 msgid "submission.submit.removeConfirm"
 msgstr "Вы уверены, что хотите удалить этот файл?"
-
-msgid "submission.submit.whatNext"
-msgstr "Что делать дальше?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "На текущий момент вы можете:"
@@ -928,9 +902,6 @@ msgstr "Версия для рецензии"
 msgid "submission.rights"
 msgstr "Права"
 
-msgid "submission.rights.tip"
-msgstr "Если хотите, вы можете ввести краткое уведомление о правах доступа, сохраняющихся или переходящих для этого материала."
-
 msgid "submissions.active"
 msgstr "В работе"
 
@@ -967,9 +938,6 @@ msgstr "Решение"
 msgid "submission.source"
 msgstr "Источник"
 
-msgid "submission.source.tip"
-msgstr "Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса."
-
 msgid "submissions.submit"
 msgstr "Отправка"
 
@@ -997,9 +965,6 @@ msgstr "Рецензирование материала"
 msgid "submission.submitter"
 msgstr "Прислал"
 
-msgid "submission.submit.finishSubmission"
-msgstr "Завершить отправку"
-
 msgid "submission.submit.selectFile"
 msgstr "Выбрать файл"
 
@@ -1018,14 +983,8 @@ msgstr "Добавить другой файл"
 msgid "submission.submit.metadataForm"
 msgstr "Дополнительные уточнения"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина."
-
 msgid "submission.submit.submissionLocale"
 msgstr "Язык материала"
-
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Файлы материала"
@@ -1063,9 +1022,6 @@ msgstr "Информация для индексирования"
 msgid "submission.titleAndAbstract"
 msgstr "Название и аннотация"
 
-msgid "submission.type.tip"
-msgstr "Тип материала обычно что-то из «изображение», «текст» или другие типы мультимедиа, включая «программное обеспечение» или «интерактив». Пожалуйста, выберите один наиболее подходящий тип для вашего материала. Примеры можно найти на <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
-
 msgid "submission.underway"
 msgstr "В процессе"
 
@@ -1102,41 +1058,11 @@ msgstr "ММ-ДД"
 msgid "submission.date.yyyymmdd"
 msgstr "ГГГГ-ММ-ДД"
 
-msgid "submission.submit.selectPrincipalContact"
-msgstr "Контактное лицо для переписки с редакцией."
-
 msgid "submission.submit.contributorRole"
 msgstr "Роль автора"
 
 msgid "submission.submit.addAuthor"
 msgstr "Добавить автора"
-
-msgid "submission.submit.form.languagesRequired"
-msgstr "Пожалуйста, укажите язык."
-
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Пожалуйста, укажите тему."
-
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Пожалуйста, укажите предмет."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Пожалуйста, укажите ключевое слово."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Пожалуйста, укаэите информацию об охвате."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Пожалуйста, укажите тип."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Пожалуйста, укажите источник."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Пожалуйста, укажите права на материал."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Пожалуйста, укажите библиографические ссылки."
 
 msgid "submission.form.name"
 msgstr "Назовите файл (например, Рукопись; Таблица 1)"
@@ -1908,4 +1834,58 @@ msgstr "Категории"
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Списки публикаций"
 
-msgid "submission.viewingPreview"msgstr "Это предварительный просмотр, материал пока не опубликован. <a href=\"{$url}\">Просмотреть материал</a>"
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Ни один файл не был прикреплен к этому отправляемому материалу."
+
+msgid "author.submit.confirmation"
+msgstr "Подтверждение"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Пожалуйста, укажите язык."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Пожалуйста, укажите тему."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Пожалуйста, укажите предмет."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Пожалуйста, укажите ключевое слово."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Пожалуйста, укаэите информацию об охвате."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Пожалуйста, укажите тип."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Пожалуйста, укажите источник."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Пожалуйста, укажите права на материал."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Пожалуйста, укажите библиографические ссылки."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина."
+
+msgid "submission.type.tip"
+msgstr "Тип материала обычно что-то из «изображение», «текст» или другие типы мультимедиа, включая «программное обеспечение» или «интерактив». Пожалуйста, выберите один наиболее подходящий тип для вашего материала. Примеры можно найти на <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr "Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса."
+
+msgid "submission.rights.tip"
+msgstr "Если хотите, вы можете ввести краткое уведомление о правах доступа, сохраняющихся или переходящих для этого материала."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Контактное лицо для переписки с редакцией."

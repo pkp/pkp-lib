@@ -219,6 +219,9 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr "Take action on {$count} selected item(s)."
 
+msgid "manager.dois.actions.bulkActions"
+msgstr "Bulk Actions"
+
 msgid "manager.dois.depositStatus"
 msgstr "Deposit Status"
 

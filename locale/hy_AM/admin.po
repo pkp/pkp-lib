@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-04 00:01+0000\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -872,7 +872,7 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Անվավեր թեստային աշխատանքի տարբերակ: Այն կարող է լինել միայն «'failed' կամ "
-"'success' այս '--only=' տարբերակի համար"
+"'success' այս '--only=' տարբերակի համար."
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
 msgstr "Աշխատանքին հերթի միացման անվանումը[default : '{$default}']"

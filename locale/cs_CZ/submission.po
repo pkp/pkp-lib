@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-11-29 15:08+0000\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -617,11 +617,8 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Požadavky na příspěvek"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Před pokračováním musíte přečíst a potvrdit, že jste splnili níže uvedené "
-"požadavky."
+msgstr "Všechny přihlášky musí splňovat následující požadavky."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Podání příspěvku bylo dokončeno"
@@ -1592,11 +1589,8 @@ msgstr "Byly odevzdány nová doporučení redaktorů."
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Všechna doporučení jsou odevzdána a očekává se rozhodnutí."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr ""
-"Přidělte redaktora, aby bylo možné vytvořit redakční rozhodnutí pro tuto "
-"etapu."
+msgstr "Přidělte editora, který umožní redakční rozhodnutí pro tuto fázi."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Vložit doporučení"
@@ -1770,8 +1764,8 @@ msgstr "Počet slov: {$count}/{$limit}"
 
 msgid "publication.wordCountLong"
 msgstr ""
-"Abstrakt je příliš dlouhý. Může být dlouhý maximálně {$limit} slov nebo "
-"méně. V současné době je {$count} slov dlouhý."
+"Abstrakt je příliš dlouhý. Může být dlouhý maximálně {$limit} slov. V "
+"současné době je {$count} slov dlouhý."
 
 msgid "publication.version.confirm"
 msgstr "Opravdu chcete vytvořit novou verzi?"
@@ -2122,9 +2116,10 @@ msgstr ""
 "Vysvětlete, proč bylo toto doporučení vydáno v reakci na doporučení a "
 "připomínky předložené recenzenty."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "Příspěvek {$title} je nyní aktivní ve fázi podání."
+msgstr ""
+"Příspěvek {$title} je nyní aktivní ve fázi podání. Autor byl informován, "
+"pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -2142,23 +2137,23 @@ msgstr "Opětovná aktivace příspěvku"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} zrušil/a rozhodnutí o zamítnutí tohoto příspěvku."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Vrátit předchozí rozhodnutí o zamítnutí tohoto příspěvku a vrátit jej do "
-"aktivního redakčního procesu."
+"aktivního redakčního procesu. Autor byl informován, pokud jste se nerozhodli "
+"tento e-mail přeskočit."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že tento příspěvek byl "
-"přijat k publikaci a odeslán do fáze copyeditingu bez recenze."
+"přijat k publikaci a odeslán do fáze copyeditingu bez recenze. Tento e-mail "
+"bude odeslán až po zaevidování rozhodnutí."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Příspěvek {$title} přeskočil fázi recenzního řízení a byl odeslán do fáze "
-"copyeditingu."
+"copyeditingu. Autor byl informován, pokud jste se nerozhodli tento e-mail "
+"přeskočit."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Přeskočené recenzní řízení"
@@ -2180,9 +2175,10 @@ msgstr ""
 "učiněno, a informujte autora o tom, jaké další úpravy budou nutné, než bude "
 "toto podání připraveno k publikování."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "Příspěvek {$title} byl odeslán zpět do fáze finálních úprav."
+msgstr ""
+"Příspěvek {$title} byl odeslán zpět do fáze finálních úprav. Autor byl "
+"informován, pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Posláno zpět do fáze finálních úprav"
@@ -2196,15 +2192,16 @@ msgstr "Poslat tento příspěvek zpět do fáze konečných úprav."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Zpět do fáze copyeditingu"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Odeslání e-mailu autorům, abyste jim oznámili, že tento příspěvek byl "
-"odeslán do produkční fáze."
+"odeslán do produkční fáze. Tento e-mail bude odeslán až po zaevidování "
+"rozhodnutí."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "Příspěvek {$title} byl odeslán do produkční fáze."
+msgstr ""
+"Příspěvek {$title} byl odeslán do produkční fáze. Autor byl informován, "
+"pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Odesláno do produkční fáze"
@@ -2215,9 +2212,10 @@ msgstr "{$editorName} odeslal tento příspěvek do produkční fáze."
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr "Odeslání tohoto příspěvku do produkční fáze k přípravě na zveřejnění."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "Příspěvek {$title} byl odeslán do recenzního řízení."
+msgstr ""
+"Příspěvek {$title} byl odeslán do recenzního řízení. Autor byl informován, "
+"pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Odeslat k recenzi"
@@ -2238,11 +2236,11 @@ msgstr ""
 "které bude autor potřebovat k úpravě svého příspěvku. Případně nezapomeňte "
 "anonymizovat všechny připomínky recenzentů."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Byly vyžádány úpravy předloženého příspěvku {$title}. Bylo zaznamenáno "
-"rozhodnutí o zaslání úprav k dalšímu kolu recenzí."
+"rozhodnutí o zaslání úprav k dalšímu kolu recenzí. Všechna oznámení byla "
+"odeslána, kromě těch, která jste se rozhodli přeskočit."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Jsou vyžadovány úpravy"
@@ -2257,17 +2255,18 @@ msgstr ""
 "Před přijetím příspěvku k publikaci musí autor předložit úpravy, která budou "
 "zaslány do dalšího kola recenzního řízení."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém je upozorníte, že před přijetím příspěvku "
-"k publikaci budou vyžadovány úpravy. Uveďte všechny podrobnosti, které bude "
-"autor potřebovat k úpravám svého příspěvku. Případně nezapomeňte "
-"anonymizovat všechny připomínky recenzentů."
+"k publikaci budou vyžadovány revize. Uveďte všechny údaje, které bude autor "
+"potřebovat k revizi svého příspěvku. Případně nezapomeňte anonymizovat "
+"všechny připomínky recenzentů. Tento e-mail bude odeslán až po zaznamenání "
+"rozhodnutí."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Byly vyžádány úpravy příspěvku {$title}."
+msgstr ""
+"Byly vyžádány revize předloženého příspěvku, {$title}. Všechna oznámení byla "
+"odeslána, kromě těch, která jste se rozhodli přeskočit."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Jsou vyžadovány úpravy textu"
@@ -2287,16 +2286,15 @@ msgstr "Vyberte soubory, které mají být odeslány do recenzního řízení."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Vyberte soubory, které mají být odeslány do fáze závěrečných úprav."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Pošlete autorům e-mail, ve kterém jim oznámíte, že jejich příspěvky byly "
-"odeslány do nového kola recenzního řízení."
+"Pošlete autorům e-mail, že jejich příspěvky byly odeslány k novému kolu "
+"recenzního řízení. Tento e-mail bude odeslán až po zaznamenání rozhodnutí."
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
-"Pro příspěvek {$title} bylo vytvořeno nové kolo recenzního řízení.  Autor "
-"byl informován, pokud jste se nerozhodli tento e-mail přeskočit."
+"Pro příspěvek {$title} bylo vytvořeno nové kolo recenzního řízení. Autor byl "
+"informován, pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Nové kolo recenzního řízení bylo vytvořeno"
@@ -2489,9 +2487,10 @@ msgstr "Odeslat tento příspěvek zpět z fáze copyeditingu."
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Odesláno zpět z copyeditingu"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "Příspěvek s názvem {$title} byl odeslán zpět z fáze copyeditingu."
+msgstr ""
+"Příspěvek s názvem {$title} byl odeslán zpět z fáze copyeditingu. Autor byl "
+"informován, pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
@@ -2502,9 +2501,10 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr "{$editorName} odeslal/a tento příspěvek zpět z fáze copyeditingu."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "Recenzní kolo pro příspěvek {$title}, bylo zrušeno."
+msgstr ""
+"Recenzní kolo pro příspěvek {$title}, bylo zrušeno. Všechna oznámení byla "
+"odeslána, kromě těch, která jste se rozhodli přeskočit."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -2516,10 +2516,9 @@ msgstr ""
 "Opětovné odeslání žádosti o recenzi v kole {$round} na adresu "
 "{$reviewerName} pro příspěvek {$submissionid}."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Toto je náhled – dosud nebyl publikován.  <a href=\"{$url}\">Zobrazit "
+"Toto je náhled – dosud nebyl publikován. <a href=\"{$url}\">Zobrazit "
 "příspěvek</a>"
 
 msgid "author.submit.noFiles"
@@ -2576,9 +2575,121 @@ msgstr "Chcete-li, můžete zadat stručné prohlášení o přístupových prá
 msgid "submission.submit.metadataForm.tip"
 msgstr "Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na klávesu \"Enter\"."
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Jsou přijímány příspěvky v několika jazycích. V níže uvedeném rozbalovacím seznamu vyberte primární jazyk příspěvku."
+msgstr "Zvolte primární jazyk podání."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Hlavní kontakt pro komunikaci s redakcí."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Chcete-li tento příspěvek upravovat a publikovat sami, vyberte redakční roli."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Ano, můj příspěvek splňuje všechny tyto požadavky."
+
+msgid "submission.details"
+msgstr "Podrobnosti příspěvku"
+
+msgid "submission.forTheEditors"
+msgstr "Pro redakci"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Zkontrolovat a podat"
+
+msgid "submission.copyright.agree"
+msgstr "Ano, souhlasím s prohlášením o autorských právech."
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Tento příspěvek již byl předložen. Pro jeho zobrazení prosím navštivte svůj "
+"<a href=\"{$url}\">panel příspěvků</a>."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Než začnete"
+
+msgid "submission.wizard.categories.description"
+msgstr "Vyberte pouze kategorie, které jsou pro váš příspěvek vhodné."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Změnit nastavení příspěvku"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Proveďte kroky k podání příspěvku"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Příspěvek s názvem <strong>{$title}</strong> bude předán <strong>{$context}</"
+"strong> k redakčnímu posouzení. Jste si jisti, že chcete toto podání "
+"dokončit?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Před odesláním je třeba odstranit jeden nebo více problémů. Zkontrolujte "
+"prosím níže uvedené informace a proveďte požadované změny."
+
+msgid "submission.wizard.validating"
+msgstr "Kontrola vašeho příspěvku"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Přidejte jakékoli informace, které by podle vás měla naše redakce při "
+"hodnocení vašeho příspěvku znát."
+
+msgid "submission.wizard.confirm"
+msgstr "Před odesláním potvrďte následující údaje."
+
+msgid "submission.wizard.title"
+msgstr "Podání příspěvku"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Podání příspěvku: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "K tomuto příspěvku nebyli přidáni žádní přispěvatelé."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Není povoleno"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Souhlas s ochranou osobních údajů"
+
+msgid "submission.wizard.saved"
+msgstr "Uloženo na později"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Kopii tohoto odkazu jsme vám zaslali e-mailem na adresu {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Sekce ja uzavřená"
+
+msgid "submission.wizard.start"
+msgstr "Začíst příspěvek"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Začít nový příspěvek"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Došlo k chybě a váš příspěvek se nám nepodařilo uložit. Možná jste byli "
+"odpojeni."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Příspěvek v <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Příspěvek do sekce <strong>{$section}</strong> ."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Příspěvek do sekce <strong>{$section}</strong> v jazyce "
+"<strong>{$language}</strong>."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "U jednoho nebo více přispěvatelů chybí údaje v {$jazyce}."
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Údaje o vašem příspěvku byly uloženy do našeho systému, ale ještě nebylo "
+"odesláno k posouzení. Kdykoli se můžete vrátit k dokončení svého příspěvku "
+"pomocí níže uvedeného odkazu."

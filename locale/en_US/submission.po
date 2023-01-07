@@ -2258,9 +2258,6 @@ msgstr "Please enter the rights."
 msgid "submission.submit.form.citationsRequired"
 msgstr "Please enter the references."
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "Add additional information for your submission.  Press 'enter' after each term."
-
 msgid "submission.type.tip"
 msgstr ""
 "The submission type is usually one of 'image', 'text', or other multimedia "

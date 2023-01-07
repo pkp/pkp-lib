@@ -542,7 +542,7 @@ msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr "Dispatched test job that is bound to success in queue named {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
-msgstr "Invalid test job option. It can only take 'failed' or 'success' for '--only=' option".
+msgstr "Invalid test job option. It can only take 'failed' or 'success' for '--only=' option."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Invalid job ID"

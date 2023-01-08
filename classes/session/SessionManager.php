@@ -39,9 +39,6 @@ class SessionManager
         $this->sessionDao = $sessionDao;
 
         // Configure PHP session parameters
-        ini_set('session.use_trans_sid', 0);
-        ini_set('session.serialize_handler', 'php');
-        ini_set('session.use_cookies', 1);
         ini_set('session.name', Config::getVar('general', 'session_cookie_name'));
         ini_set('session.cookie_lifetime', 0);
         ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'));
@@ -49,7 +46,9 @@ class SessionManager
         ini_set('session.cookie_httponly', 1);
         ini_set('session.cookie_samesite', Config::getVar('general', 'same_site', 'lax'));
         ini_set('session.cookie_secure', Config::getVar('security', 'force_ssl'));
-
+        ini_set('session.use_trans_sid', 0);
+        ini_set('session.serialize_handler', 'php');
+        ini_set('session.use_cookies', 1);
         ini_set('session.gc_probability', 1);
         ini_set('session.gc_maxlifetime', 60 * 60);
         ini_set('session.cache_limiter', 'none');
@@ -144,7 +143,7 @@ class SessionManager
     /**
      * Invalidate given user's all sessions or except for the given session id
      *
-     * @param int                   $userId     The target user id for whom to invalidate sessions
+     * @param int $userId The target user id for whom to invalidate sessions
      *
      */
     public function invalidateSessions(int $userId, string $excludableSessionId = null): bool
@@ -223,7 +222,7 @@ class SessionManager
 
     /**
      * Garbage collect unused session data.
-     * TODO: Use $lifetime instead of assuming 24 hours?
+     * @todo Use $lifetime instead of assuming 24 hours?
      *
      * @param int $lifetime the number of seconds after which data will be seen as "garbage" and cleaned up
      */

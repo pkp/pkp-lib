@@ -271,7 +271,7 @@ class SessionManager
         $success = false;
         $currentSessionId = session_id();
 
-        if (session_regenerate_id() && isset($this->userSession)) {
+        if (session_regenerate_id(true) && isset($this->userSession)) {
             // Delete old session and insert new session
             $this->sessionDao->deleteById($currentSessionId);
             $this->userSession->setId(session_id());

@@ -49,6 +49,15 @@ trait JobResource
         return $this->formatDate($this->getResource()->available_at);
     }
 
+    public function getFailedAt(): string
+    {
+        if (!isset($this->getResource()->failed_at)) {
+            return '-';
+        }
+
+        return $this->formatDate($this->getResource()->failed_at);
+    }
+
     public function getJobName(): ?string
     {
         if (!isset($this->getResource()->payload)) {

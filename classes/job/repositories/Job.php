@@ -19,46 +19,16 @@ namespace PKP\job\repositories;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use PKP\job\interfaces\JobRepositoryInterface;
-use PKP\job\models\Job as PKPJobModel;
 use PKP\job\resources\CLIJobResource;
 use PKP\job\resources\HttpJobResource;
 use PKP\job\repositories\BaseRepository;
+use PKP\job\models\Job as PKPJobModel;
 
-class Job extends BaseRepository implements JobRepositoryInterface
+class Job extends BaseRepository
 {
-    protected $model;
-    protected $perPage = 10;
-
-    public const OUTPUT_CLI = 'cli';
-    public const OUTPUT_HTTP = 'http';
-
-    public function __construct(PKPJobModel $job)
+    public function __construct(PKPJobModel $model)
     {
-        $this->model = $job;
-    }
-
-    public function setPage(int $page): self
-    {
-        LengthAwarePaginator::currentPageResolver(fn () => $page);
-
-        return $this;
-    }
-
-    public function perPage(int $perPage): self
-    {
-        $this->perPage = $perPage;
-
-        return $this;
-    }
-
-    public function deleteAll(): bool
-    {
-        $rows = $this->model
-            ->newQuery()
-            ->delete();
-
-        return (bool) $rows;
+        $this->model = $model;
     }
 
     public function total(): int
@@ -69,32 +39,7 @@ class Job extends BaseRepository implements JobRepositoryInterface
             ->count();
     }
 
-    public function deleteFromQueue(string $queue): bool
-    {
-        $rows = $this->model
-            ->queuedAt($queue)
-            ->delete();
-
-        return (bool) $rows;
-    }
-
-    public function setOutputFormat(string $format): self
-    {
-        $this->outputFormat = $format;
-
-        return $this;
-    }
-
-    protected function getOutput(Collection $data): Arrayable
-    {
-        if ($this->outputFormat == self::OUTPUT_CLI) {
-            return CLIJobResource::collection($data);
-        }
-
-        return HttpJobResource::collection($data);
-    }
-
-    public function showQueuedJobs(): LengthAwarePaginator
+    public function showJobs(): LengthAwarePaginator
     {
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $sanitizedPage = $currentPage - 1;
@@ -116,5 +61,14 @@ class Job extends BaseRepository implements JobRepositoryInterface
             $total,
             $this->perPage
         );
+    }
+
+    protected function getOutput(Collection $data): Arrayable
+    {
+        if ($this->outputFormat == self::OUTPUT_CLI) {
+            return CLIJobResource::collection($data);
+        }
+
+        return HttpJobResource::collection($data);
     }
 }

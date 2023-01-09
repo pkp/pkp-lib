@@ -107,6 +107,12 @@
 			>
 				{translate key="navigation.tools.jobs.view"}
 			</pkp-button>
+			<pkp-button
+				element="a"
+				href="{url op="failedJobs"}"
+			>
+				{translate key="navigation.tools.jobs.failed.view"}
+			</pkp-button>
 		</template>
 	</action-panel>
 	{call_hook name="Templates::Admin::Index::AdminFunctions"}

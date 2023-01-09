@@ -17,9 +17,10 @@ declare(strict_types=1);
 namespace PKP\job\models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\InteractsWithTime;
-use PKP\config\Config;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\InteractsWithTime;
+use PKP\job\casts\DatetimeToInt;
+use PKP\config\Config;
 use PKP\job\traits\Attributes;
 
 class Job extends Model
@@ -67,27 +68,11 @@ class Job extends Model
     public $timestamps = false;
 
     /**
-     * Following attributes could be mass assignable
+     * The attributes that are not mass assignable.
      *
-     * @var string[]
+     * @var string[]|bool
      */
-    protected $fillable = [
-        'attempts',
-        'payload',
-        'queue',
-        'reserved_at',
-    ];
-
-    /**
-     * Following attributes will be hidden from arrays
-     *
-     * @var string[]
-     */
-    protected $hidden = [
-        'available_at',
-        'created_at',
-        'reserved_at',
-    ];
+    protected $guarded = [];
 
     /**
      * Casting attributes to their native types
@@ -95,12 +80,12 @@ class Job extends Model
      * @var string[]
      */
     protected $casts = [
-        'attempts' => 'int',
-        'available_at' => 'datetime',
-        'created_at' => 'datetime',
-        'payload' => 'array',
-        'queue' => 'string',
-        'reserved_at' => 'datetime',
+        'queue'         => 'string',
+        'payload'       => 'array',
+        'attempts'      => 'int',
+        'reserved_at'   => DatetimeToInt::class,
+        'available_at'  => DatetimeToInt::class,
+        'created_at'    => DatetimeToInt::class,
     ];
 
     /**
@@ -168,21 +153,33 @@ class Job extends Model
         return $query->where('queue', $this->getQueue($queue));
     }
 
+    /**
+     * Add a local scope to get jobs with queue must defined
+     */
     public function scopeNonEmptyQueue(Builder $query): Builder
     {
         return $query->whereNotNull('queue');
     }
 
+    /**
+     * Add a local scope to filter jobs by not given queue
+     */
     public function scopeNotQueue(Builder $query, string $queue): Builder
     {
         return $query->where('queue', '!=', $queue);
     }
 
+    /**
+     * Add a local scope to filter jobs by given queue
+     */
     public function scopeOnQueue(Builder $query, string $queue): Builder
     {
         return $query->where('queue', '=', $queue);
     }
 
+    /**
+     * Add a local scope to filter jobs by non reserved
+     */
     public function scopeNonReserved(Builder $query): Builder
     {
         return $query->whereNull('reserved_at');

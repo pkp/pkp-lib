@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace PKP\core;
 
 use APP\core\Application;
+use PKP\core\PKPContainer;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\Events\JobFailed;
@@ -27,9 +28,7 @@ use Illuminate\Queue\WorkerOptions;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
-use PKP\job\interfaces\JobRepositoryInterface;
 use PKP\job\models\Job as PKPJobModel;
-use PKP\job\repositories\Job as JobRepository;
 use PKP\queue\JobRunner;
 use PKP\queue\WorkerConfiguration;
 
@@ -133,11 +132,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         parent::register();
 
         $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
-
-        $this->app->bind(
-            JobRepositoryInterface::class,
-            JobRepository::class
-        );
 
         if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', false)) {
             register_shutdown_function(function () {

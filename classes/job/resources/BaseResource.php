@@ -19,9 +19,8 @@ namespace PKP\job\resources;
 use IteratorAggregate;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
-use PKP\job\interfaces\Resourceable;
 
-abstract class BaseResource implements Resourceable
+abstract class BaseResource
 {
     protected $resource;
 
@@ -33,8 +32,7 @@ abstract class BaseResource implements Resourceable
     /**
      * Create a new resource collection.
      *
-     *
-     * @return self
+     * @return Arrayable
      */
     public static function collection(IteratorAggregate $resources): Arrayable
     {

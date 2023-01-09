@@ -164,6 +164,9 @@ msgstr "Subscription expiry reminder"
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Remove unvalidated expired users"
 
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr "Remove much older failed jobs from failed job list."
+
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Process pending queue jobs"
 
@@ -429,7 +432,7 @@ msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr "Can not run queue jobs because the application maintenance mode is enabled."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr "List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage="
+msgstr "List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage= . Pass flah --failed to list failied jobs."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr "Purge a specific queued job based on his Id. If you would like to purge all, pass the parameter --all. If you would like to purge all from a specific queue, pass the parameter --queue="
@@ -439,6 +442,9 @@ msgstr "Add a test job into the test queue. use the optional parameters --only= 
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr "Run an infinite daemon worker process that will continue to process jobs. Use --help flag to see available options associated with this command."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr "List all the failed jobs. Set parameter --queue=QUEUE_NAME and --connection=CONNECTION_NAME to filter the list. Also pass parameter/flag --redispatch and --clear to redispatch back to queue or clear all/specific failed jobs."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr "Dispatch available jobs into the queue. if you would like to dispatch a job into a specific queue, pass the parameter --queue=QUEUE_NAME. Also can just pass --test to run the test job and --once to run one job at a time"
@@ -450,7 +456,7 @@ msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr "No jobs available to run in the queue named {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Display the queued jobs quantity"
+msgstr "Display the total queued jobs. Pass the flag --failed to see failed total failed jobs."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Display the Jobs command usage"
@@ -461,6 +467,9 @@ msgstr "Display the Jobs usage parameters"
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Option could not be empty! Check the usage method."
 
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "Failed Queued Jobs"
+
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Queued Jobs"
 
@@ -469,6 +478,9 @@ msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "Queue"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "Connection"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Job Display Name"
@@ -484,6 +496,12 @@ msgstr "Available At"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Created At"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "Failed At"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "Exception Message"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Pagination"
@@ -524,6 +542,15 @@ msgstr "Was impossible to delete all jobs."
 msgid "admin.cli.tool.jobs.purge.successful.all"
 msgstr "Deleted all jobs!"
 
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "{$jobsCount} failed jobs removed from failed list successfully."
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "{$jobsCount} jobs redispatched successfully back to queue."
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "We have {$total} failed jobs"
+
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "We have {$total} queued jobs"
 
@@ -536,17 +563,26 @@ msgstr "Did you mean one of the following?"
 msgid "admin.jobs.totalCount"
 msgstr "There's a total of <strong>{$total}</strong> job(s) on the queue"
 
+msgid "admin.jobs.failed.totalCount"
+msgstr "There's a total of <strong>{$total}</strong> failed job(s)."
+
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "View queued jobs"
 
 msgid "navigation.tools.jobs"
 msgstr "Jobs"
 
+msgid "navigation.tools.jobs.failed"
+msgstr "Failed Jobs"
+
 msgid "navigation.tools.jobs.description"
 msgstr "View all of the queued jobs in the system and track failed attempts."
 
 msgid "navigation.tools.jobs.view"
 msgstr "View Jobs"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "View Failed Jobs"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -557,14 +593,44 @@ msgstr "Job"
 msgid "admin.jobs.list.queueName"
 msgstr "Queue"
 
+msgid "admin.jobs.list.connectionName"
+msgstr "Connection"
+
 msgid "admin.jobs.list.attempts"
 msgstr "Attempts"
 
 msgid "admin.jobs.list.createdAt"
 msgstr "Created At"
 
+msgid "admin.jobs.list.failedAt"
+msgstr "Failed At"
+
+msgid "admin.jobs.list.payload"
+msgstr "Payload"
+
+msgid "admin.jobs.list.exception"
+msgstr "Exception"
+
+msgid "admin.jobs.list.actions"
+msgstr "Actions"
+
+msgid "admin.jobs.failedAt"
+msgstr "Created at {$failedAt}"
+
 msgid "admin.jobs.createdAt"
 msgstr "Created at {$createdAt}"
+
+msgid "admin.jobs.action.redispatch"
+msgstr "Redispatch"
+
+msgid "admin.jobs.action.delete"
+msgstr "Delete"
+
+msgid "admin.jobs.action.view.error"
+msgstr "Error"
+
+msgid "admin.jobs.action.view.error.title"
+msgstr "Job Error Trace"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed, and the file could not be moved from {$archivedFilePath} to {$stagingPath}."

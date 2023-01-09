@@ -86,8 +86,25 @@ Cypress.Commands.add('purgeQueueJobs', (queue, all) => {
 	cy.exec(command);
 });
 
-Cypress.Commands.add('dispatchTestQueueJobs', () => {
-	cy.exec('php lib/pkp/tools/jobs.php test');
+Cypress.Commands.add('dispatchTestQueueJobs', (times) => {
+
+	times = times || 1;
+	for (let index = 0; index < times; index++) {
+		cy.exec('php lib/pkp/tools/jobs.php test');	
+	}
+});
+
+Cypress.Commands.add('clearFailedJobs', (queue) => {
+
+	let command = 'php lib/pkp/tools/jobs.php failed';
+
+	if ( queue ) {
+		command = command + ' --queue=' + queue;
+	}
+
+	command = command + ' --clear';
+
+	cy.exec(command);
 });
 
 Cypress.Commands.add('install', function() {

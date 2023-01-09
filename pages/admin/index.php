@@ -30,6 +30,7 @@ switch ($op) {
     case 'downloadScheduledTaskLogFile':
     case 'clearScheduledTaskLogFiles':
     case 'jobs':
+    case 'failedJobs':
         define('HANDLER_CLASS', 'PKP\pages\admin\AdminHandler');
         break;
 }

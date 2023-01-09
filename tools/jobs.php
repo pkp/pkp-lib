@@ -81,6 +81,7 @@ class commandJobs extends CommandLineTool
         'help' => 'admin.cli.tool.jobs.available.options.help.description',
         'run' => 'admin.cli.tool.jobs.available.options.run.description',
         'work' => 'admin.cli.tool.jobs.available.options.work.description',
+        'failed' => 'admin.cli.tool.jobs.available.options.failed.description',
         'usage' => 'admin.cli.tool.jobs.available.options.usage.description',
     ];
 
@@ -226,6 +227,42 @@ class commandJobs extends CommandLineTool
     }
 
     /**
+     * Failed jobs list/redispatch/remove 
+     */
+    protected function failed(): void
+    {
+        $parameterList = $this->getParameterList();
+
+        if ( in_array('--redispatch', $parameterList) || ($jobIds = $this->getParameterValue('redispatch')) ) {
+            $jobsCount = Repo::failedJob()->redispatchToQueue(
+                $this->getParameterValue('--queue'),
+                collect(explode(',', $jobIds ?? ''))
+                    ->filter()
+                    ->map(fn($item) => (int)$item)
+                    ->toArray()
+            );
+            $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.failed.redispatch.successful', ['jobsCount' => $jobsCount]));
+            return;
+        }
+
+        if ( in_array('--clear', $parameterList) || ($jobIds = $this->getParameterValue('clear')) ) {
+            $jobsCount = Repo::failedJob()->deleteJobs(
+                $this->getParameterValue('--queue'),
+                collect(explode(',', $jobIds ?? ''))
+                    ->filter()
+                    ->map(fn($item) => (int)$item)
+                    ->toArray()
+            );
+            $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.failed.clear.successful', ['jobsCount' => $jobsCount]));
+            return;
+        }
+
+        array_push($this->parameterList, '--failed');
+
+        $this->list();
+    }
+
+    /**
      * List all queued jobs
      */
     protected function list(): void
@@ -233,38 +270,19 @@ class commandJobs extends CommandLineTool
         $perPage = $this->getParameterValue('perPage', '10');
         $page = $this->getParameterValue('page', '1');
 
-        $this->total();
+        $parameterList = $this->getparameterList();
 
-        $data = Repo::job()
-            ->setOutputFormat(Repo::job()::OUTPUT_CLI)
+        $repository = in_array('--failed', $parameterList) ? Repo::failedJob() : Repo::job();
+
+        $data = $repository
+            ->setOutputFormat($repository::OUTPUT_CLI)
             ->perPage((int) $perPage)
             ->setPage((int) $page)
-            ->showQueuedJobs();
+            ->showJobs();
+        
+        $this->total();
 
-        $this->getCommandInterface()
-            ->table(
-                [
-                    [
-                        new TableCell(
-                            __('admin.cli.tool.jobs.queued.jobs.title'),
-                            [
-                                'colspan' => 7,
-                                'style' => new TableCellStyle(['align' => 'center'])
-                            ]
-                        )
-                    ],
-                    [
-                        __('admin.cli.tool.jobs.queued.jobs.fields.id'),
-                        __('admin.cli.tool.jobs.queued.jobs.fields.queue'),
-                        __('admin.cli.tool.jobs.queued.jobs.fields.job.display.name'),
-                        __('admin.cli.tool.jobs.queued.jobs.fields.attempts'),
-                        __('admin.cli.tool.jobs.queued.jobs.fields.reserved.at'),
-                        __('admin.cli.tool.jobs.queued.jobs.fields.available.at'),
-                        __('admin.cli.tool.jobs.queued.jobs.fields.created.at')
-                    ]
-                ],
-                $data->all(),
-            );
+        $this->getCommandInterface()->table($this->getListTableFromat(), $data->all());
 
         $pagination = [
             'pagination' => [
@@ -298,6 +316,42 @@ class commandJobs extends CommandLineTool
                 ],
                 $pagination
             );
+    }
+    
+    /**
+     * Get table format for list view
+     */
+    protected function getListTableFromat(): array
+    {
+        $listforFailedJobs = in_array('--failed', $this->getparameterList());
+
+        return [
+            [
+                new TableCell(
+                    $listforFailedJobs
+                        ? __('admin.cli.tool.jobs.queued.jobs.failed.title')
+                        : __('admin.cli.tool.jobs.queued.jobs.title'),
+                    [
+                        'colspan' => $listforFailedJobs ? 6 : 7,
+                        'style' => new TableCellStyle(['align' => 'center'])
+                    ]
+                )
+            ],
+            array_merge([
+                __('admin.cli.tool.jobs.queued.jobs.fields.id'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.queue'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.job.display.name'),
+            ], $listforFailedJobs ? [
+                __('admin.cli.tool.jobs.queued.jobs.fields.connection'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.failed.at'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.exception'),
+            ]: [
+                __('admin.cli.tool.jobs.queued.jobs.fields.attempts'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.reserved.at'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.available.at'),
+                __('admin.cli.tool.jobs.queued.jobs.fields.created.at')
+            ])
+        ];
     }
 
     /**
@@ -398,16 +452,16 @@ class commandJobs extends CommandLineTool
             throw new CommandInvalidArgumentException(__('admin.cli.tool.jobs.purge.without.id'));
         }
 
-        if (($this->getParameterList()[1] ?? null) === '--all') {
-            $this->purgeAllJobs();
+        $parameterList = $this->getParameterList();
 
-            return;
-        }
+        if ( in_array('--all', $parameterList) || ($queue = $this->getParameterValue('queue')) ) {
 
-        $queue = $this->getParameterValue('queue');
-        if ($queue) {
-            $this->purgeAllJobsFromQueue($queue);
+            if (!Repo::job()->deleteJobs($queue)) {
+                $this->getCommandInterface()->getOutput()->warning(__('admin.cli.tool.jobs.purge.impossible.to.purge.empty'));
+                return;
+            }
 
+            $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));
             return;
         }
 
@@ -418,36 +472,6 @@ class commandJobs extends CommandLineTool
         }
 
         $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful'));
-    }
-
-    /**
-     * Purged all queued jobs
-     */
-    protected function purgeAllJobs(): void
-    {
-        $deleted = Repo::job()->deleteAll();
-
-        if (!$deleted) {
-            $this->getCommandInterface()->getOutput()->warning(__('admin.cli.tool.jobs.purge.impossible.to.purge.empty'));
-            return;
-        }
-
-        $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));
-    }
-
-    /**
-     * Purged all queued jobs from a queue
-     */
-    protected function purgeAllJobsFromQueue(string $queue): void
-    {
-        $deleted = Repo::job()->deleteFromQueue($queue);
-
-        if (!$deleted) {
-            $this->getCommandInterface()->getOutput()->warning(__('admin.cli.tool.jobs.purge.impossible.to.purge.empty'));
-            return;
-        }
-
-        $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));
     }
 
     /**
@@ -609,16 +633,25 @@ class commandJobs extends CommandLineTool
     }
 
     /**
-     * Display the queued jobs quantity
+     * Display the queued/failed jobs quantity
      */
     protected function total(): void
     {
-        $total = Repo::job()
-            ->total();
+        $parameterList = $this->getParameterList();
 
-        $this->getCommandInterface()
-            ->getOutput()
-            ->warning(__('admin.cli.tool.jobs.total.jobs', ['total' => $total]));
+        $total = in_array('--failed', $parameterList)
+            ? Repo::failedJob()->total()
+            : Repo::job()->total();
+
+        $outputInterface = $this->getCommandInterface()->getOutput();
+
+        if (in_array('--failed', $parameterList)){
+            $method = $total > 0 ? 'error' : 'success';
+            $outputInterface->{$method}(__('admin.cli.tool.jobs.total.failed.jobs', ['total' => $total]));    
+            return;
+        }
+
+        $outputInterface->warning(__('admin.cli.tool.jobs.total.jobs', ['total' => $total]));
     }
 
     /**

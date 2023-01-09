@@ -30,10 +30,10 @@ use PKP\category\Repository as CategoryRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\institution\Repository as InstitutionRepository;
-use PKP\job\interfaces\JobRepositoryInterface;
-use PKP\mail\Repository as MailRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\job\repositories\Job as JobRepository;
+use PKP\job\repositories\FailedJob as FailedJobRepository;
 
 class Repo
 {
@@ -67,9 +67,14 @@ class Repo
         return app(SubmissionFileRepository::class);
     }
 
-    public static function job(): JobRepositoryInterface
+    public static function job(): JobRepository
     {
-        return app(JobRepositoryInterface::class);
+        return app()->make(JobRepository::class);
+    }
+
+    public static function failedJob(): FailedJobRepository
+    {
+        return app()->make(FailedJobRepository::class);
     }
 
     public static function institution(): InstitutionRepository

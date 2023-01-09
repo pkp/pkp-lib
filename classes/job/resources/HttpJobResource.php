@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/job/resources/JobResource.php
+ * @file classes/job/resources/HttpJobResource.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky

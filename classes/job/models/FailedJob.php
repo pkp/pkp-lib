@@ -46,16 +46,11 @@ class FailedJob extends Model
     public $timestamps = false;
 
     /**
-     * Following attributes could be mass assignable
+     * The attributes that are not mass assignable.
      *
-     * @var string[]
+     * @var string[]|bool
      */
-    protected $fillable = [
-        'connection',
-        'payload',
-        'queue',
-        'exception',
-    ];
+    protected $guarded = [];
 
     /**
      * Casting attributes to their native types
@@ -63,29 +58,26 @@ class FailedJob extends Model
      * @var string[]
      */
     protected $casts = [
-        'connection' => 'string',
-        'payload' => 'array',
-        'queue' => 'string',
-        'exception' => 'string',
-        'failed_at' => 'datetime',
+        'connection'    => 'string',
+        'payload'       => 'array',
+        'queue'         => 'string',
+        'exception'     => 'string',
+        'failed_at'     => 'datetime',
     ];
 
     /**
      * Add a local scope to handle jobs associated in a queue
      */
-    public function scopeQueuedAt(
-        Builder $query,
-        string $queue
-    ): Builder {
+    public function scopeQueuedAt(Builder $query, string $queue): Builder 
+    {
         return $query->where('queue', $queue);
     }
 
     /**
-     * Get queue's size
+     * Return the core exception message without the full exception trace
      */
-    public function size(string $queue): int
+    public function exceptionMessage(): string
     {
-        return $this->queuedAt($queue)
-            ->count();
+        return preg_replace('/\s+/', ' ', trim(explode('Stack trace', $this->exception)[0]));
     }
 }

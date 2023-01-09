@@ -26,6 +26,7 @@ use PDO;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
@@ -61,6 +62,7 @@ class AdminHandler extends Handler
                 'downloadScheduledTaskLogFile',
                 'clearScheduledTaskLogFiles',
                 'jobs',
+                'failedJobs',
             ]
         );
     }
@@ -455,6 +457,9 @@ class AdminHandler extends Handler
 
     /**
      * Download scheduled task execution log file.
+     * 
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function downloadScheduledTaskLogFile($args, $request)
     {
@@ -464,6 +469,9 @@ class AdminHandler extends Handler
 
     /**
      * Clear scheduled tasks execution logs.
+     *
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function clearScheduledTaskLogFiles($args, $request)
     {
@@ -476,6 +484,12 @@ class AdminHandler extends Handler
         $request->redirect(null, 'admin');
     }
 
+    /**
+     * List the jobs waiting to be executed in the queue
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     */
     public function jobs($args, $request)
     {
         $this->setupTemplate($request, true);
@@ -506,14 +520,13 @@ class AdminHandler extends Handler
      */
     protected function getJobsTableState(int $page = 1): array
     {
-        $total = Repo::job()
-            ->total();
+        $total = Repo::job()->total();
 
         $queuedJobsItems = Repo::job()
             ->setOutputFormat(Repo::job()::OUTPUT_HTTP)
             ->perPage(self::JOBS_PER_PAGE)
             ->setPage($page)
-            ->showQueuedJobs();
+            ->showJobs();
 
         return [
             'label' => __('admin.jobs.viewQueuedJobs'),
@@ -552,4 +565,93 @@ class AdminHandler extends Handler
             'isLoadingItems' => false,
         ];
     }
+
+    /**
+     * List the queue jobs failied to execute
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     */
+    public function failedJobs($args, $request)
+    {
+        $this->setupTemplate($request, true);
+
+        $templateMgr = TemplateManager::getManager($request);
+
+        $page = (int) ($request->getUserVar('page') ?? 1);
+
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
+        $breadcrumbs[] = [
+            'id' => 'failedJobs',
+            'name' => __('navigation.tools.jobs.failed'),
+        ];
+
+        $templateMgr->setState($this->getFailedJobsTableState($request, $page));
+
+        $templateMgr->assign([
+            'pageComponent' => 'FailedJobsPage',
+            'breadcrumbs' => $breadcrumbs,
+            'pageTitle' => __('navigation.tools.jobs.failed'),
+        ]);
+
+        $templateMgr->display('admin/failedJobs.tpl');
+    }
+
+    /**
+     * Build the state data for the queued jobs table
+     */
+    protected function getFailedJobsTableState(PKPRequest $request, int $page = 1): array
+    {
+        $total = Repo::failedJob()->total();
+
+        $failedJobs = Repo::failedJob()
+            ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
+            ->perPage(self::JOBS_PER_PAGE)
+            ->setPage($page)
+            ->showJobs();
+
+        return [
+            'label' => __('navigation.tools.jobs.failed.view'),
+            'description' => __('admin.jobs.failed.totalCount', ['total' => $total]),
+            'columns' => [
+                [
+                    'name' => 'id',
+                    'label' => __('admin.jobs.list.id'),
+                    'value' => 'id',
+                ],
+                [
+                    'name' => 'title',
+                    'label' => __('admin.jobs.list.displayName'),
+                    'value' => 'displayName',
+                ],
+                [
+                    'name' => 'queue',
+                    'label' => __('admin.jobs.list.queueName'),
+                    'value' => 'queue',
+                ],
+                [
+                    'name' => 'connection',
+                    'label' => __('admin.jobs.list.connectionName'),
+                    'value' => 'connection',
+                ],
+                [
+                    'name' => 'failed_at',
+                    'label' => __('admin.jobs.list.failedAt'),
+                    'value' => 'failed_at',
+                ],
+                [
+                    'name' => 'actions',
+                    'label' => __('admin.jobs.list.actions'),
+                    'value' => 'action',
+                ],
+            ],
+            'rows' => $failedJobs->all(),
+            'total' => $total,
+            'lastPage' => $failedJobs->lastPage(),
+            'currentPage' => $failedJobs->currentPage(),
+            'isLoadingItems' => false,
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'admin', 'jobs'),
+        ];
+    }
+    
 }

@@ -19,23 +19,18 @@ namespace PKP\job\repositories;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use PKP\job\interfaces\Repository;
+use Illuminate\Pagination\LengthAwarePaginator;
 
-abstract class BaseRepository implements Repository
+abstract class BaseRepository
 {
     /**
      * @var Model
      */
     protected $model;
+    protected $perPage = 10;
 
-    /**
-     * BaseRepository constructor.
-     *
-     */
-    public function __construct(Model $model)
-    {
-        $this->model = $model;
-    }
+    public const OUTPUT_CLI = 'cli';
+    public const OUTPUT_HTTP = 'http';
 
     public function newQuery(): Builder
     {
@@ -45,11 +40,6 @@ abstract class BaseRepository implements Repository
     public function all(array $columns = ['*']): Collection
     {
         return $this->model->all($columns);
-    }
-
-    public function withTrashed(array $columns = ['*']): Collection
-    {
-        return $this->model->all($columns)->withTrashed();
     }
 
     public function get(int $modelId): ?Model
@@ -71,4 +61,50 @@ abstract class BaseRepository implements Repository
     {
         return $this->model->find($modelId)->delete();
     }
+
+    public function total(): int
+    {
+        return $this->model->count();
+    }
+
+    public function setOutputFormat(string $format): self
+    {
+        $this->outputFormat = $format;
+
+        return $this;
+    }
+
+    public function setPage(int $page): self
+    {
+        LengthAwarePaginator::currentPageResolver(fn () => $page);
+
+        return $this;
+    }
+
+    public function perPage(int $perPage): self
+    {
+        $this->perPage = $perPage;
+
+        return $this;
+    }
+
+    public function deleteJobs(string $queue = null, array $ids = []): int
+    {
+        $query = $this->model->newQuery();
+
+        if ($queue) {
+            $query = $query->queuedAt($queue); 
+        }
+
+        if (!empty($ids)) {
+            $query = $query->whereIn('id', $ids);
+        }
+
+        return $query->delete();
+    }
+
+    /**
+     * Show jobs
+     */
+    abstract public function showJobs(): LengthAwarePaginator;
 }

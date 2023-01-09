@@ -15,52 +15,6 @@ msgstr ""
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nu există Fișiere de Limbă disponibile pentru descărcare."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Eroare: nu se poate executa \"{$utilPath}\".  Verificați setarea {$utilVar} "
-"în config.inc.php."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Execuția programului \"{$utilPath}\" a returnat următoarea eroare: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Succes: {$filePath} la {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Avertisment: fișierul {$filePath} există deja în directorul statisticilor de "
-"utilizare."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Eroare: nu se poate șterge fișierul {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Eroare: nu se poate copia fișierul de la {$filePath} la {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Eroare: Fișierul {$filePath} nu există sau nu poate fi accesat."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Eroare: nu se poate crea folderul temporar {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copiați fișierele (jurnalele) de acces Apache trecute, filtrând intrările "
-"legate de această instalare,\n"
-"la directorul fișierelor curente, în directorul de stadiu UsageStatsPlugin. "
-"Trebuie executat de un utilizator căruia i se permite citirea fișierelor tip "
-"jurnal de acces Apache.\n"
-"\n"
-"Acest instrument va copia numai fișierele care nu se află deja în "
-"directoarele de încărcare a fișierelor usageStats (stadiu, procesare, "
-"arhivare, respingere).\n"
-"\n"
-"Utilizare: {$scriptName} path/to/apache/log/file.log\n"
-"Utilizare (procesarea tuturor fișierelor dintr-un director): {$scriptName} "
-"path/to/apache/directory\n"
-"\t"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Încărcător de fișiere"
 

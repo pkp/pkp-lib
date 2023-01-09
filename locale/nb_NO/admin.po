@@ -238,53 +238,8 @@ msgstr ""
 msgid "admin.settings.siteLogo"
 msgstr "Nettstedets logo"
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Feilmelding: «{$utilPath}» kan ikke utføres. Sjekk innstillingen til "
-"{$utilVar} i config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Ingen språkpakker er tilgjengelig for nedlasting."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Utførelsen av «{$utilPath}»-programmet  ble returnert med feilmeldingen: "
-"{$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Gjennomført: «{$filePath}» til «{$destinationPath}»"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Varsel: filen «{$filePath}» finnes allerede i mappen med brukerstatisikk."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Feilmelding: filen «{$tmpFilePath}» kan ikke slettes"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr ""
-"Feilmelding: filen kan ikke kopieres fra «{$filePath}» til «{$tmpFilePath}»"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Feilmelding: Filen «{$filePath}» finnes ikke eller kan ikke vises."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Feilmelding: kan ikke lage midlertidig mappe {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopier de(n) godkjente apacheloggfilen(e). Filtrer oppføringer som er "
-"relatert til installasjonen til mappen over nåværende filer i mappen med "
-"brukerstatistikk. Detta kan bare gjøres av brukere med tilgang til å lese "
-"apacheloggfiler.\n"
-"\n"
-"Verktøyet vil bare kopiere filer som ikke allerede er i mappene (stadie, "
-"behandling, arkiver, avvis).\n"
-"\n"
-"Bruk: {$scriptName} path/to/apache/log/file.log\n"
-"Bruk: (behandle alle filer i en mappe): {$scriptName} path/to/apache/"
-"directory\n"
-"\t"
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Fillaster"

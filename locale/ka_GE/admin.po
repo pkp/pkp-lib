@@ -292,51 +292,6 @@ msgstr "დამუშავდა და დაარქივდა ფაი
 msgid "admin.fileLoader.emailSubject"
 msgstr "ფაილის ჩამტვირთველი"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"გადაწერეთ apache წვდომის ჟურნალი (ფაილები), ამ ინსტალაციასთან დაკავშირებული "
-"ჩანაწერების გაფილტვრის მიზნით,\n"
-"მიმდინარე ფაილების დირექტორიაში, UsageStatsPlugin ეტაპის დირექტორიაში. "
-"მომხმარებლის ქვეშ უნდა იმუშაოს საკმარისი პრივილეგიებით, რომ წაიკითხოს წვდომა "
-"apache log ფაილი.\n"
-"\n"
-"ეს ინსტრუმენტი მხოლოდ დააკოპირებს ფაილებს, რომლებიც უკვე არ არის "
-"გამოყენებული სტატისტიკის ფაილების მტვირთავი დირექტორიების შიგნით (ეტაპი, "
-"დამუშავება, დაარქივება, უარყოფა).\n"
-"\n"
-"გამოყენება: {$scriptName} path/to/apache/log/file.log\n"
-"გამოყენება (დირექტორიის შიგნით ყველა ფაილის დამუშავება): {$scriptName} path/"
-"to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "შეცდომა: დროებითი საქაღალდის შექმნა შეუძლებელია {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "შეცდომა: ფაილი {$filePath} არ არსებობს, ან მისი წვდომა შეუძლებელია."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "შეცდომა: ფაილის კოპირება შეუძლებელია {$filePath}-დან {$tmpFilePath}-ზე"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "შეცდომა: ფაილის წაშლა შეუძლებელია {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"გაფრთხილება: ფაილი {$filePath} უკვე არსებობს გამოყენების სტატისტიკის "
-"დირექტორიაში."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "წარმატებულად: {$filePath} to {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "“{$utilPath}” პროგრამის შესრულებამ დააბრუნა შემდეგი შეცდომა: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"შეცდომა: “{$utilPath}” ვერ შესრულდება. შეამოწმეთ თქვენი {$utilVar} პარამეტრი "
-"config.inc.php-ში."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "ჩამოსატვირთად ხელმისაწვდომი ენები არ არის."
 

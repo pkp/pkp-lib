@@ -265,41 +265,6 @@ msgstr "الملف {$filename} قد تمت معالجته وحفظه."
 msgid "admin.fileLoader.emailSubject"
 msgstr "محمِّل الملفات"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"\t\tإنسخ ملفات سجل التوثيق السابقة للملقم apache مع قيامك بتصفية الإدخالات المتعلقة بهذا التنصيب،\n"
-"\t\tوضعها في حافظة الملفات الحالية ضمن موضع الإضافة UsageStatsPlugin. هذا يجب أن يقوم به مستخدم يمكل صلاحيات كافية تسمح له بقراءة هذا النوع من الملفات.\n"
-"\n"
-"\t\tهذه الأداة ستقوم بمجرد نسخ الملفات التي لم يسبق لها أن تكون ضمن حوافظة ملفات الإضافة usageStats وهي: (stage, processing, archive, reject).\n"
-"\n"
-"\t\tUsage: {$scriptName} path/to/apache/log/file.log\n"
-"\t\tUsage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "خطأ: تعذر إنشاء حافظة ملفات مؤقتة بالمسار {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "خطأ: إن الملف {$filePath} لا وجود له أو لا يمكن الوصول إليه."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "خطأ: تعذر نسخ الملف من المسار {$filePath} إلى المسار {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "خطأ: تعذر حذف الملف {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "تحذير: إن الملف {$filePath} موجود مسبقاً ضمن حافظة ملفات إحصائيات الاستعمال."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "نجحت العملية: {$filePath} إلى {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "إن تنفيذ البرنامج عند المسار \"{$utilPath}\" أدى إلى الخطأ الآتي: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "خطأ: يتعذر تنفيذ \"{$utilPath}\". تحقق من إعدادات {$utilVar} في ملف التهيئة config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "ليست هناك لغات متاحة للتنزيل من الموقع."
 

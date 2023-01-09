@@ -110,36 +110,6 @@ msgstr "Առաջադրանքը log-ում չի գրանցվել:"
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Ներբեռնման համար հասանելի լեզուներ չկան:"
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Սխալ:  \"{$utilPath}\" չի կարող կատարել.  Ստուգեք Ձեր  {$utilVar} "
-"կարգավորումը config.inc.php-ի մեջ:."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"«{$ UtilPath}» ծրագրի կատարումը պարունակում է հետևյալ սխալը՝ {$ Output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Հաջողություն: {$filePath} to {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Զգուշացում: {$filePath} ֆայլը արդեն գոյություն ունի օգտագործման "
-"վիճակագրության ցուցակում:"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Սխալ: {$tmpFilePath} նիշքը չի կարող ջնջվել"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Սխալ: չի կարող ֆայլը պատճենել {$ filePath} - ից {$ tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr ""
-"Սխալ: {$ FilePath} ֆայլը գոյություն չունի կամ հնարավոր չէ մուտք գործել:"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Սխալ: {$tmpDir} ժամանակավոր պանակաը չի կարող ստեղծվել"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Ֆայլերի բեռնիչ"
 
@@ -330,22 +300,6 @@ msgstr "Անջատել դերերը"
 
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Արգելել մասսայական էլ․ նամակների ուղարկումը"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Պատճենեք փոխանցված apache մուտքի մատյանի նիշք(եր)ը՝ \n"
-"զտելով այս տեղադրման հետ կապված գրառումները, ընթացիկ նիշքերի գրացուցակում, "
-"UsageStatsPlugin փուլային գրացուցակի ներսում: Պետք է գործարկվի օգտվողի "
-"կողմից, որն ունի բավարար արտոնություններ՝ կարդալու մուտքի apache մատյան "
-"նիշքերը:\n"
-"\n"
-"Այս գործիքը պատճենելու է միայն այն նիշքերը, որոնք դեռևս չեն գտնվում "
-"usageStats նիշքերի բեռնիչի գրացուցակներում (փուլ, մշակում, արխիվ, մերժում):\n"
-"\n"
-"Օգտագործում՝ {$scriptName} path/to/apache/log/file.log\n"
-"Օգտագործում (բոլոր նիշքերի մշակումը գրացուցակի ներսում): {$scriptName} path/"
-"to/apache/directory\n"
-"\t"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Մասսայական էլ․ նամակ"

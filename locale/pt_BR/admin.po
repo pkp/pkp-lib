@@ -285,52 +285,6 @@ msgstr "O arquivo {$filename} foi processado e arquivado."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Carregador de arquivo"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copia o(s) arquivo(s) de log do apache repassado(s), filtrando as entradas "
-"relacionadas a este portal,\n"
-"para o diretório de arquivos atual, dentro do diretório stage do "
-"UsageStatsPlugin. Deve ser executado por um usuário com permissão para ler "
-"os logs do apache.\n"
-"\n"
-"Esta ferramenta irá apenas copiar os arquivos que já não estão dentro dos "
-"diretórios do usageStats (stage, processing, archive, reject).\n"
-"\n"
-"Uso: {$scriptName} path/to/apache/log/file.log\n"
-"Uso (processando todos os arquivos dentro de um diretório): {$scriptName} "
-"path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Erro: não foi possível criar a pasta temporária {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Erro: Arquivo {$filePath} não existe ou não pode ser acessado."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr ""
-"Erro: não foi possível copiar o arquivo {$filePath} para {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Erro: não foi possível apagar o arquivo {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Aviso: o arquivo {$filePath} já existe dentro do diretório de estatísticas "
-"de uso."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Sucesso: {$filePath} para {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"A execução do programa \"{$utilPath}\" retornou o seguinte erro: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Erro: não foi possível executar \"{$utilPath}\". Verifique a configuração de "
-"{$utilVar} em config.inc.php."
-
 msgid "admin.settings.siteLogo"
 msgstr "Logotipo do Site"
 

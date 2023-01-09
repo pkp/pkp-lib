@@ -201,35 +201,6 @@ msgstr ""
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Жүктеуге қол жетімді тілдер жоқ."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Қате: \"{$utilPath}\" орындау мүмкін емес.  config.inc.php файлында "
-"{$utilVar} параметрін тексеріңіз."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"\"{$utilPath}\" бағдарламасының орындалуы келесі қатені қайтарды: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Сәтті: {$filePath} - {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Ескерту: {$filePath} файлы пайдалану статистикасы каталогында бұрыннан бар."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Қате: {$tmpFilePath} файлын жою мүмкін емес"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr ""
-"Қате: файлды {$filePath} каталогынан {$tmpFilePath} ішіне көшіру мүмкін емес"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Қате: {$filePath} файлы жоқ немесе оған кіру мүмкін емес."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Қате: {$tmpDir} уақытша қалтасын жасау мүмкін емес"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Файл жүктеуші"
 
@@ -445,22 +416,6 @@ msgstr "Тапсырма пәрменін пайдалануды көрсету"
 
 msgid "admin.cli.tool.available.commands"
 msgstr "`{$namespace}` аттар кеңістігі үшін қол жетімді командалар:"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Берілген apache кіру журналының файлдарын, осы орнатумен байланысты сүзгі "
-"жазбаларын көшіріңіз,\n"
-"Usage Stats плагин сатысы каталогындағы ағымдағы файлдар каталогында. Apache "
-"access журналының файлдарын оқу үшін жеткілікті артықшылықтары бар "
-"пайдаланушының басқаруымен іске қосылуы керек.\n"
-"\n"
-"Бұл құрал тек UsageStats файл жүктеушісінің каталогында жоқ файлдарды ғана "
-"көшіреді (кезең, өңдеу, мұрағаттау, қабылдамау).\n"
-"\n"
-"Пайдалану: {$scriptName} path/to/apache/log/file.log\n"
-"Пайдалану (каталог ішіндегі барлық файлдарды өңдеу): {$scriptName} path/to/"
-"apache/directory\n"
-"\t"
 
 msgid "admin.cli.tool.usage.parameters"
 msgstr "команда [arguments]"

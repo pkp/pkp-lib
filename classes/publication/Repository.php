@@ -375,7 +375,7 @@ abstract class Repository
 
         Hook::call('Publication::edit', [&$newPublication, $publication, $params, $this->request]);
 
-        $this->dao->update($newPublication);
+        $this->dao->update($newPublication, $publication);
 
         $newPublication = Repo::publication()->get($newPublication->getId());
 

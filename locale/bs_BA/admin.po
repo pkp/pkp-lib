@@ -268,21 +268,6 @@ msgstr "Vrijednost postavke"
 msgid "admin.systemInfo.settingName"
 msgstr "Naziv postavke"
 
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Izvršenje programa \"{$utilPath}\" vratilo je sljedeću grešku: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Uspjeh: {$filePath} do {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Upozorenje: datoteka {$filePath} već postoji unutar direktorija statistike "
-"upotrebe."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Greška: nije moguće izbrisati datoteku {$tmpFilePath}"
-
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "Osnovna putanja {$path} mora biti unutar direktorija javnih datoteka."
 
@@ -297,36 +282,6 @@ msgstr "Zadatak nije proizveo log zapis."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nema dostupnih lokalizacija za preuzimanje."
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Greška: nije moguće izvršiti \"{$utilPath}\". Provjerite postavku {$utilVar} "
-"u config.inc.php."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Greška: ne mogu kopirati datoteku iz {$filePath} u {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Greška: Datoteka {$filePath} ne postoji ili joj se ne može pristupiti."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Greška: nije moguće kreirati privremeni folder {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopirajte proslijeđene datoteke evidencije pristupa apacheu, filtrirajući "
-"unose povezane s ovom instalacijom,\n"
-"u trenutni direktorij datoteka, unutar direktorija faze UsageStatsPlugin. "
-"Mora se pokretati od strane korisnika s dovoljno privilegija za čitanje "
-"pristupnih datoteka apache dnevnika.\n"
-"\n"
-"Ovaj će alat kopirati samo datoteke koje već nisu u direktorijima učitavača "
-"datoteka usageStats (faza, obrada, arhiviranje, odbacivanje).\n"
-"\n"
-"Upotreba: {$scriptName} path/to/apache/log/file.log\n"
-"Upotreba (obrada svih datoteka unutar direktorija): {$scriptName} path/to/"
-"apache/directory\n"
-"\t"
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""

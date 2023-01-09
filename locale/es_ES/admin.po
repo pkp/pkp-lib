@@ -44,34 +44,6 @@ msgstr "¿Está seguro de que desea que todas las sesiones de los usuarios/as ca
 msgid "admin.contentsOfConfigFile"
 msgstr "Contenidos del fichero de configuración"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copie el archivo o los archivos de acceso de registro apache y filtre las entradas relacionadas con esta instalación en el directorio de archivo actual, dentro del directorio de fase UsageStatsPlugin. Debe ejecutarlo un usuario/a que tenga los permisos necesarios para la lectura de archivos de acceso de registro apache.\n"
-"\n"
-"La herramienta solo copiará archivos que aún no estén en los directorios de carga de archivo usageStats (fase, procesamiento, archivo, rechazar).\n"
-"\n"
-"Uso: {$scriptName} ruta/a/apache/log/file.log\n"
-"Uso (procesamiento de todos los archivos dentro de un directorio): {$scriptName} ruta/a/apache/directorio\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Error: no se puede crear la carpeta temporal {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Error: el archivo {$filePath} no existe o no se puede acceder a él."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Error: no se puede copiar el archivo de {$filePath} a {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Error: no se puede eliminar el archivo {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Advertencia: el archivo {$filePath} ya existe en el directorio de estadísticas de uso."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Operación realizada con éxito: {$filePath} a {$destinationPath}"
-
 msgid "admin.currentVersion"
 msgstr "Versión actual"
 
@@ -275,12 +247,6 @@ msgstr "Cargador de archivos"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Limpiar el registro de ejecución de tareas programadas"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "La ejecución del programa \"{$utilPath}\" produjo el siguiente error: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Error: no se puede ejecutar \"{$utilPath}\". Compruebe su configuración {$utilVar} en config.inc.php."
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr "Su instalación de {$softwareName} ejecutó y finalizó automáticamente esta tarea y  puede descargarse el fichero de registro aquí: {$url}"

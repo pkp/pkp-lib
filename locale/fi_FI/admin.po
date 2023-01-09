@@ -254,35 +254,6 @@ msgstr "Tiedosto {$filename} käsiteltiin ja arkistoitiin."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Tiedostojen latausohjelma"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopioi suoritetut Apachen käyttölokitiedostot, tähän asennukseen liittyvät merkinnät suodattaen, nykyiseen tiedostohakemistoon UsageStatsPlugin-vaihehakemiston sisällä. Ajettava sellaisen käyttäjän toimesta, jolla on lukuoikeudet Apachen lokitiedostoihin. Tämä työkalu kopioi ainoastaan tiedostot, jotka eivät vielä ole usageStats tiedostojen latausohjelman hakemistoissa (vaihe, käsittely, arkisto, hylkää). Käyttö: {$scriptName} path/to/apache/log/file.log Käyttö (käsitellään kaikki hakemiston sisällä olevat tiedostot): {$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Virhe: ei voi luoda väliaikaista kansiota {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Virhe: Tiedostoa {$filePath} ei ole olemassa tai sitä ei voi käyttää."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Virhe: tiedostoa ei voi kopioida sijainnista {$filePath} sijaintiin {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Virhe: tiedostoa {$tmpFilePath} ei voi poistaa"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Varoitus: tiedosto {$filePath} on jo käyttötilastohakemistossa."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Onnistui: {$filePath} sijaintiin {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\" ohjelman suoritus tuotti seuraavan virheen: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Virhe: ei voi suorittaa \"{$utilPath}\". Tarkista {$utilVar}-asetuksesi config.inc.php -tiedostosta."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Kielialueita ei ole ladattavissa."
 

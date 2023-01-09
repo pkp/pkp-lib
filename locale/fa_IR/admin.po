@@ -258,33 +258,6 @@ msgstr "فایل {$filename} پردازش و بایگانی شد."
 msgid "admin.fileLoader.emailSubject"
 msgstr "بارگزار فایل"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr "فایل log آپاچی را کپی کنید. محتویات مربوط به نصب این سامانه را از آن استخراج کنید. و آن را در پوشه UsageStatsPlugin کپی کنید.  به یاد داشته باشید که باید سطح دسترسی کافی برای دسترسی به فایل log داشته باشید.\t\tUsage: {$scriptName} path/to/apache/log/file.log\t  Usage: (پردازش تمام فایل‌های داخل پوشه) {$scriptName} path/to/apache/directory  "
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "خطا: ایجاد پوشه موقت {$tmpDir} امکان پذیر نیست"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "خطا: فایل {$filePath} وجود ندارد یا قابل دسترسی نیست."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "خطا: کپی فایل از {$filePath} به {$tmpFilePath} امکان‌پذیر نیست."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "خطا: حذف فایل {$tmpFilePath} امکان پذیر نیست."
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "اخطار: فایل {$filePath} در داخل پوشه آمار استفاده، وجود دارد."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "موفقیت‌آمیز: {$filePath} به {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "اجرای برنامه \"{$utilPath}\"  با خطای زیر مواجه شد: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "خطا: اجرای \"{$utilPath}\" امکان‌پذیر نمی‌باشد. تنظیمات {$utilVar} را در فایل config.inc.php بررسی کنید."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "زبانی برای دانلود وجود ندارد."
 

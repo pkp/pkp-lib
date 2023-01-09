@@ -265,41 +265,6 @@ msgstr "Файл {$filename} был обработан и помещен в ар
 msgid "admin.fileLoader.emailSubject"
 msgstr "Загрузчик файлов"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Копирует прошедшие файлы журнала доступа apache, отфильтровывая записи, связанные с этой инсталляцией,\n"
-"в каталог текущих файлов, находящийся внутри каталога stage модуля «Статистика использования». Должен запускаться под пользователем с достаточными правами для чтения файлов журнала доступа apache.\n"
-"\n"
-"Этот инструмент будет только копировать те файлы, которые еще не скопированы в каталоги загрузки файлов модуля «Статистика использования» (stage, processing, archive, reject).\n"
-"\n"
-"Вызов: {$scriptName} path/to/apache/log/file.log\n"
-"Вызов (обработка всех файлов в каталоге): {$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Ошибка: не могу создать временный каталог {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Ошибка: Файл {$filePath} не существует или к нему нет доступа."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Ошибка: не могу скопировать файл из {$filePath} в {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Ошибка: не могу удалить файл {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Предупреждение: файл {$filePath} уже существует в каталоге статистики использования."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Успех: {$filePath} в {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Выполнение программы «{$utilPath}» закончилось следующей ошибкой: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Ошибка: не могу выполнить «{$utilPath}». Проверьте вашу настройку {$utilVar} в файле config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нет доступных языков для скачивания."
 

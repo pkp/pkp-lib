@@ -248,38 +248,5 @@ msgstr "Het bestand {$filename} is verwerkt en gearchiveerd."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Uploader"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopieer de doorgegeven apache toegangslogbestanden, waaruit de meldingen werden gefilterd die betrekking hebben op deze installatie, naar de folder van de gebruiksstatistieken plugin. Moet worden uitgevoerd door een gebruiker met voldoende rechten om apache toegangslogbestanden te lezen.\n"
-"\n"
-"Deze tool zal uitsluitend bestanden kopiëren die nog niet aanwezig zijn in de folders van de gebruiksstatistieken plugin (voorbereiding, bewerking, archief, geweigerd).\n"
-"\n"
-"Gebruik: {$scriptName} pad/naar/apache/log/file.log\n"
-"Gebruik (om alle bestanden in een folder te verwerken): {$scriptName} pad/naar/apache/directory"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Fout: kan geen tijdelijke folder maken {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Fout: bestand {$filePath} bestaat niet of kan niet worden geopend."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Fout: kan bestand niet kopiëren van {$filePath} naar {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Fout: kan bestand {$tmpFilePath} niet verwijderen"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Waarschuwing: bestand {$filePath} bestaat al in de folder met gebruiksstatistieken."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Succes: {$filePath} naar {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Het \"{$utilPath}\" programma eindigde met volgende fout: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Fout: kan \"{$utilPath}\" niet uitvoeren.  Controleer de instelling voor {$utilVar} in config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Er zijn geen taalbestanden om te downloaden."

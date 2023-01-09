@@ -90,7 +90,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 		} elseif ($column === 'dateLastActivity') {
 			$this->orderColumn = 's.date_last_activity';
 		} elseif ($column === 'title') {
-			$this->orderColumn = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
+			$this->orderColumn = Capsule::raw('publication_with_translation.setting_value');
 		} elseif ($column === 'seq') {
 			$this->orderColumn = 'po.seq';
 		} elseif ($column === ORDERBY_DATE_PUBLISHED) {
@@ -272,18 +272,37 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 		}
 
 		// order by title
-		if (is_object($this->orderColumn) && $this->orderColumn->getValue() === 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)') {
-			$locale = \AppLocale::getLocale();
-			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
+		if (is_object($this->orderColumn) && $this->orderColumn->getValue() === 'publication_with_translation.setting_value') {
+			$currentLocale = \AppLocale::getLocale();
+			$primaryLocale = Capsule::raw('publication_tlp.locale');
+			
+			$this->columns[] = Capsule::raw('publication_with_translation.setting_value');
 			$q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
-				->leftJoin('publication_settings as publication_tlps', 'publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
-				->where('publication_tlps.setting_name', '=', 'title')
-				->where('publication_tlps.locale', '=', $locale);
-			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
-				->leftJoin('publication_settings as publication_tlpsl', 'publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
-				->where('publication_tlpsl.setting_name', '=', 'title')
-				->where('publication_tlpsl.locale', '=', Capsule::raw('publication_tlpl.locale'));
-			$q->groupBy(Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
+				->leftJoin('publication_settings as publication_with_translation', 'publication_tlp.publication_id', '=', 'publication_with_translation.publication_id')
+				->leftJoin('publication_settings as publication_without_translation', 'publication_tlp.publication_id', '=', 'publication_without_translation.publication_id')
+				->where(function ($q) use ($primaryLocale,$currentLocale){
+					$q->where(function ($q) use ($primaryLocale,$currentLocale){
+						$q->where('publication_with_translation.setting_name', '=', 'title');
+						$q->where('publication_with_translation.locale', '=', $currentLocale);
+						$q->where('publication_with_translation.setting_value', '!=', '');
+						$q->where('publication_without_translation.setting_name', '=', 'title');
+						$q->where('publication_without_translation.locale', '=', $currentLocale);
+					});
+					$q->orWhere(function ($q) use ($primaryLocale,$currentLocale){
+						$q->where('publication_with_translation.setting_name', '=', 'title');
+						$q->where('publication_with_translation.locale', '=', $primaryLocale);
+						$q->where('publication_without_translation.setting_name', '=', 'title');
+						$q->where('publication_without_translation.locale', '=', $primaryLocale);
+						$q->whereNotIn('publication_without_translation.publication_id',function($query) use ($currentLocale){
+							$query->select('publication_id')
+							->from('publication_settings as p')
+							->where('p.setting_name', '=', 'title')
+							->where('p.setting_value', '!=', '')
+							->where('p.locale', '=', $currentLocale);
+						});
+					});
+				});
+			$q->groupBy('publication_with_translation.setting_value');
 		}
 
 		// order by publication sequence

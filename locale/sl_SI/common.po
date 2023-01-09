@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-11-04 17:21+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -2149,3 +2149,5 @@ msgstr "Avtor je bil dodan."
 msgid "notification.editedAuthor"
 msgstr "Avtor je bil urejen."
 
+msgid "common.details"
+msgstr "Podrobnosti"

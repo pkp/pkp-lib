@@ -12,44 +12,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"渡された Apache アクセスログファイルを、このインストールに関連するエントリをフィルタリングして、\n"
-"UsageStatsPlugin ステージディレクトリ内の現在のファイルディレクトリにコピーします。 Apache "
-"ログファイルへのアクセスを読み取るために十分な権限を持つユーザーで実行する必要があります。\n"
-"\n"
-"このツールは、 usageStats ファイルローダディレクトリ ( ステージ、処理、アーカイブ、拒否 ) 内にないファイルのみをコピーします。\n"
-"\n"
-"使用法: {$scriptName} path/to/apache/log/file.log\n"
-"使用法（ディレクトリ内のすべてのファイルを処理）: {$scriptName} path/to/apache/directory\n"
-"\t"
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "ダウンロードできる言語はありません。"
-
-msgid "admin.error.executingUtil"
-msgstr "エラー： \"{$utilPath}\" を実行できません。 config.inc.php で{$utilVar}の設定を確認してください。"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "\"{$utilPath}\"プログラムの実行により、次のエラーが返されました： {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "成功：{$filePath} ~ {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "警告：ファイル{$filePath}は使用状況ディレクトリ内にすでに存在します。"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "エラー：ファイル{$tmpFilePath}を削除できません"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "エラー：ファイルを{$filePath}から{$tmpFilePath}にコピーできません"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "エラー：ファイル{$filePath}が存在しないか、アクセスできません。"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "エラー：一時フォルダ{$tmpDir}を作成できません"
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "ファイル・ローダー"

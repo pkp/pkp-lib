@@ -159,25 +159,6 @@ msgstr ""
 "Bahasa/locale ini ialah bahasa utama laman. Anda tidak boleh "
 "menyahdayakannya sehingga anda memilih bahasa/locale utama yang lain."
 
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Ralat: tidak dapat mencipta folder sementara {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Salin fail log akses apache yang diluluskan, tapis entri yang berkaitan "
-"dengan pemasangan ini,\n"
-"ke direktori fail semasa, di dalam direktori peringkat UsageStatsPlugin. "
-"Mesti dijalankan di bawah pengguna dengan keistimewaan yang mencukupi untuk "
-"membaca fail log apache akses.\n"
-"\n"
-"Alat ini hanya akan menyalin fail yang belum lagi berada di dalam direktori "
-"pemuat fail usageStats (peringkat, pemprosesan, arkib, tolak).\n"
-"\n"
-"Penggunaan: {$scriptName} path/to/apache/log/file.log\n"
-"Penggunaan (memproses semua fail di dalam direktori): {$scriptName} path/to/"
-"apache/directory\n"
-"\t"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Pemuat fail"
 
@@ -314,30 +295,5 @@ msgstr "Maklumat Pelayan"
 msgid "admin.server.dbVersion"
 msgstr "Versi pelayan pangkalan data"
 
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Ralat: Fail {$filePath} tidak wujud atau tidak boleh diakses."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Perlaksanaan program \"{$utilPath}\" mengembalikan ralat berikut: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Berjaya: {$filePath} ke {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Amaran: fail {$filePath} sudah wujud di dalam direktori statistik penggunaan."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Ralat: tidak dapat memadam fail {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Ralat: tidak boleh menyalin fail daripada {$filePath} ke {$tmpFilePath}"
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Tiada bahasa/locales yang tersedia untuk dimuat turun."
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Ralat: tidak dapat melaksanakan \"{$utilPath}\". Semak tetapan {$utilVar} "
-"anda dalam config.inc.php."

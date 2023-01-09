@@ -258,41 +258,6 @@ msgstr "Filen {$filename} behandlades och arkiverades."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Filladdare"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopiera passerade Apache-loggfil(er), med poster relaterade till den här installationen filtrerade,\n"
-"till den aktuella filkatalogen, i stage-katalogen för UsageStatsPlugin. Jobbet måste köras av en användare med behörighet tillräcklig för att läsa Apache-loggfiler.\n"
-"\n"
-"Det här verktyget kommer enbart kopiera filer som inte redan finns i usageStats-kataloger för filladdare (stage, processing, archive, reject).\n"
-"\n"
-"Användning: {$scriptName} sökväg/till/apache/loggfil.log\n"
-"Användning (behandla alla filer i en katalog): {$scriptName} sökväg/till/apache/katalog\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Fel: Kan inte skapa den temporära mappen {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Fel: Filen {$filePath} finns inte, eller går inte att få åtkomst till."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Fel: Kan inte kopiera filen från {$filePath} till {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Fel: Kan inte radera filen {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Varning: Filen {$filePath} existerar redan i användarstatistik-katalogen."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Lyckades: {$filePath} till {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Körningen av \"{$utilPath}\"-programmet genererade följande fel: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Fel: Kan inte köra \"{$utilPath}\". Kolla inställningen {$utilVar} i config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Det finns inga språk/region-filer tillgängliga för nedladdning."
 

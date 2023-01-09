@@ -279,47 +279,6 @@ msgstr "Файл {$filename} був оброблений та заархівов
 msgid "admin.fileLoader.emailSubject"
 msgstr "Завантажувач файлів"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Копіює передані файли журналу доступу apache, фільтруючи записи, що "
-"пов'язані з цією інсталяцією,\n"
-"в каталог поточних файлів, що знаходиться в каталозі плагіну «Статистика "
-"використання» (UsageStatsPlugin).\n"
-"Має запускатися від користувача з достатніми правами для читання файлів "
-"журналу доступу apache.\n"
-"\n"
-"Цей інструмент копіює лише файли, які ще не знаходяться в каталозі плагіну «"
-"Статистика використання» (ступінь, процес, архів, відмова).\n"
-"\n"
-"Використання: {$scriptName} path/to/apache/log/file.log\n"
-"Використання (обробка усіх файлів в каталозі): {$scriptName} path/to/apache/"
-"directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Помилка: не можу створити тимчасовий каталог {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Помилка: Файл {$filePath} не існує або до нього немає доступу."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Помилка: не можу скопіювати файл з {$filePath} в {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Помилка: не можу видалити файл {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Попередження: файл {$filePath} уже існує в каталозі статистики використання."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Успіх: {$filePath} в {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Виконання програми «{$utilPath}» завершилось такою помилкою: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Помилка: не можу виконати «{$utilPath}». Перевірте ваші налаштування {$utilVar} у файлі config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Відсутні мови для завантаження."
 

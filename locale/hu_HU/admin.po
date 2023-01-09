@@ -273,40 +273,6 @@ msgstr "A fájl {$filename} feldolgozásra került és archív."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Fájltöltő"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Másolja a sikeres apache hozzáférési log fájlokat az aktuális könyvtárból, szűrje ki azokat, amelyek erre a telepítésre vonatkoznak, helyezze el a felhasználói statisztika bővítmény könyvtárában. Megfelelő jogokkal rendelkező felhasználó alatt tudja futtatni, aki hozzáfér az apache log fájljaihoz.\n"
-"\t\n"
-"\tEz az eszköz átmásolja azokat a fájlokat, amelyek nincsenek már benne a felhasználó statisztika könyvtárak egyikében sem (stage, processing, archive, reject).\n"
-"\n"
-"Használat: {$scriptName} path/to/apache/log/file.log\n"
-"Használat (a könyvtár valamennyi fájlját feldolgozza): {$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Hiba: nem sikerült létrehozni az ideiglenes mappát {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Hiba: A fájl {$filePath} nem létezik vagy nem elérhető."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Hiba: nem másolható innen {$filePath} ide {$tmpFilePath} "
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Hiba: a fájl nem törölhető {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Figyelmeztetés: a fájl {$filePath} már létezik a használati statisztika könyvtárban."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Sikerült: {$filePath} a(z) {$destinationPath} útvonalra"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "A \"{$utilPath}\" végrehajtása az alábbi hibaüzenettel tért véget: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Hiba: nem hajtható végre \"{$utilPath}\". Ellenőrizze a {$utilVar} config.inc.php beállításait."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nincsenek elérhető nyelvi fájlok letöltésre."
 

@@ -14,49 +14,6 @@ msgstr ""
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Không có ngôn ngữ nào có sẵn để tải xuống."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Lỗi: không thể thực thi \"{$usingPath}\". Kiểm tra cài đặt {$usingVar} của "
-"bạn trong config.inc.php."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Việc thực thi chương trình \"{$usingPath}\" trả lại lỗi sau: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Thành công: {$filePath} đến {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Cảnh báo: tệp {$filePath} đã tồn tại bên trong thư mục thống kê sử dụng."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Lỗi: không thể xóa tệp {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Lỗi: không thể sao chép tệp từ {$filePath} sang {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Lỗi: Tệp {$filePath} không tồn tại hoặc không thể truy cập được."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Lỗi: không thể tạo thư mục tạm thời {$tmpDir}"
-
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Sao chép (các) tệp nhật ký truy cập apache đã thông qua, lọc các mục nhập "
-"liên quan đến cài đặt này,\n"
-"vào thư mục tệp hiện tại, bên trong thư mục giai đoạn UsageStatsPlugin. Phải "
-"chạy dưới quyền người dùng có đủ đặc quyền để đọc các tệp nhật ký apache "
-"truy cập.\n"
-"\n"
-"Công cụ này sẽ chỉ sao chép các tệp chưa có trong thư mục trình tải tệp "
-"useStats (giai đoạn, xử lý, lưu trữ, từ chối).\n"
-"\n"
-"Cách sử dụng: {$scriptName} path/to/apache/log/file.log\n"
-"Cách sử dụng (xử lý tất cả các tệp bên trong một thư mục): {$scriptName} "
-"path/to/apache/directory\n"
-"\t"
-
 msgid "admin.fileLoader.emailSubject"
 msgstr "Trình tải tệp"
 

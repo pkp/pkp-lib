@@ -192,55 +192,11 @@ msgstr "Sistem Anda up-to-date"
 msgid "admin.version"
 msgstr "Versi"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Salin file log akses apache yang dilewati, yang menyaring entri berkaitan "
-"dengan instalasi ini,\n"
-"ke direktori file saat ini, di dalam direktori tahapan UsageStatsPlugin. "
-"Harus dijalankan oleh pengguna hak kases istimewa yang bisa membaca file log "
-"apache aksess.\n"
-"\n"
-"Tool ini hanya akan menyalin file yang belum ada di dalam direktori pemuat "
-"file usageStats (stage, processing, archive, reject).\n"
-"\n"
-"Penggunaan: {$scriptName} path/to/apache/log/file.log\n"
-"Penggunaan (memproses semua file dalam sebuah direktori): {$scriptName} path/"
-"to/apache/directory\n"
-"\t"
-
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Terbitkan naskah yang telah dijadwalkan terbit"
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Tidak ada bahasa yang dapat diunduh."
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Error: tidak dapat mejalankan \"{$utilPath}\".  Periksa pengaturan {$utilVar}"
-" dalam file config.inc.php."
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Eksekusi program \"{$utilPath}\" mengembalikan galat berikut: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Berhasil: {$filePath} ke {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Peringatan: file {$filePath} sudah ada di dalam direktori statistik "
-"pemakaian."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Error: tidak bisa menghapus file {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Error: tidak dapat menyalin file dari {$filePath} ke {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Error: File {$filePath} tidak dapat diakses atau tidak ada."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Error: tidak dapat membuat foledr temporer {$tmpDir}"
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Pemuat File"

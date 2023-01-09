@@ -100,6 +100,19 @@ abstract class Repository
     }
 
     /**
+     * Get a submission by "best" submission id -- url path if it exists,
+     * falling back on the internal submission ID otherwise.
+     */
+    public function getByBestId(string $idOrUrlPath, int $contextId = null): ?Submission
+    {
+        $submission = $this->getByUrlPath($idOrUrlPath, $contextId);
+        if (!$submission && (is_int($idOrUrlPath) || ctype_digit($idOrUrlPath))) {
+            $submission = $this->get((int) $idOrUrlPath, $contextId);
+        }
+        return $submission ?? null;
+    }
+
+    /**
      * Get a submission by its urlPath
      *
      * This returns a submission if any of its publications have a

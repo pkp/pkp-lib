@@ -259,41 +259,6 @@ msgstr "Die Datei {$filename} wurde verarbeitet und archiviert."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Fileloader"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Kopiere die übergebenen Apache-Zugriffsdatei(en), woraus die mit dieser Installation zusammenhängenden Einträge ausgewählt werden,\n"
-"in das aktuelle Dateiverzeichnis innerhalb des Vorbereitungs-Verzeichnisses des UsageStats-Plugins. Muss unter einem Benutzer mit ausreichenden Rechten für den Lesezugriff auf Apache-Log-Dateien ausgeführt werden.\n"
-"\n"
-"Dieses Werkzeug wird nur Dateien kopieren, die nicht bereits in den usageStats-Verzeichnissen (Vorbereitung, Bearbeitung, Archiv, zurückgewiesen) sind.\n"
-"\n"
-"Benutzung: {$scriptName} path/to/apache/log/file.log\n"
-"Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/apache/directory\n"
-"\t"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Fehler: kann temporären Ordner {$tmpDir} nicht anlegen"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Fehler: Datei {$filePath} existiert nicht, oder es kann nicht auf sie zugegriffen werden."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Fehler: kann Datei nicht von {$filePath} nach {$tmpFilePath} kopieren"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Fehler: kann Datei {$tmpFilePath} nicht löschen"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Warnung: Datei {$filePath} gibt es bereits im Verzeichnis der Nutzungsstatistiken."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Erfolgreich kopiert: {$filePath} nach {$destinationPath}"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr "Die Ausführung des Programms \"{$utilPath}\" hat den folgenden Fehler geliefert: {$output}"
-
-msgid "admin.error.executingUtil"
-msgstr "Fehler: Ausführung von \"{$utilPath}\" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."
 

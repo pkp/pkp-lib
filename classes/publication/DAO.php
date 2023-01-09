@@ -222,9 +222,8 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::update()
      */
-    public function update(Publication $publication)
+    public function update(Publication $publication, Publication $oldPublication = null)
     {
-        $oldPublication = clone $publication;
         $vocabs = $this->extractControlledVocab($publication);
 
         parent::_update($publication);
@@ -232,7 +231,7 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
+        if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
             $this->saveCitations($publication);
         }
     }

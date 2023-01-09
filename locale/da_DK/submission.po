@@ -1,13 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022.
-# Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-11-20 07:02+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
 "Language: da_DK\n"
@@ -1098,9 +1098,8 @@ msgstr "Du er blevet bedt om at gennemse manuskriptredigeringen af \"{$title}\".
 msgid "submission.submit.submissionChecklist"
 msgstr "Indsendelseskrav"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Du skal tilkendegive, at du opfylder nedenstående krav inden du fortsætter."
+msgstr "Alle indsendelser skal opfylde følgende krav."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nye bedømmelser er blevet indsendt og bliver behandlet af redaktøren."
@@ -1659,8 +1658,8 @@ msgstr "Ordantal: {$count}/{$limit}"
 
 msgid "publication.wordCountLong"
 msgstr ""
-"Resuméet er for langt. Det skal være på {$limit} ord eller derunder. Det er "
-"i øjeblikket {$count} ord langt."
+"Resuméet er for langt. Det skal være {$limit} ord eller færre. Den er i "
+"øjeblikket {$count} ord langt."
 
 msgid "publication.version.confirm"
 msgstr "Er du sikker på, at du vil oprette en ny version?"
@@ -1942,22 +1941,22 @@ msgstr "Sendt tilbage til indsendelse"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Tilbage til indsendelse"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
-"Send en e-mail til forfatterne og informer dem om, at deres indsendelse er "
-"blevet accepteret til publicering."
+"Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
+"blevet accepteret til offentliggørelse. Denne e-mail sendes ikke, før "
+"afgørelsen er registreret."
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Denne indsendelse vil blive accepteret til publicering og sendt til "
 "manuskriptredigering."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"Indsendelsen, {$title}, er blevet accepteret til publicering og sendt videre "
-"til manuskriptredigeringstrinnet."
+"Indsendelsen, {$title}, er blevet accepteret til offentliggørelse og sendt "
+"til kopiredigeringsstadiet. Alle meddelelser er blevet sendt, undtagen nogen "
+"du har valgt at springe over."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Indsendelse accepteret"
@@ -1967,14 +1966,13 @@ msgstr ""
 "{$editorName} accepterede denne indsendelse og sendte den videre til "
 "manuskriptredigeringstrinnet."
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
-"Send en e-mail til bedømmerne for at takke dem for deres bedømmelse og "
-"informer dem om, at der er truffet en beslutning. Hver enkelt bedømmer vil "
-"få en separat e-mail for at beskytte deres anonymitet. Frasen "
-"{$recipientName} kan trygt benyttes i beskeden for at anvende hver bedømmers "
-"navn uden det afsløres for andre."
+"Send en e-mail til anmelderne for at takke dem for deres anmeldelse og "
+"fortælle dem, at der er truffet en beslutning. Hver anmelder vil få tilsendt "
+"en separat e-mail for at beskytte deres anonymitet. Udtrykket "
+"{$recipientName} kan bruges i meddelelsen til at inkludere hver anmelders "
+"navn sikkert."
 
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Underret bedømmere"
@@ -2004,15 +2002,15 @@ msgstr ""
 "foretages ikke yderligere fagfællebedømmelse og indsendelsen vil blive "
 "arkiveret."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
-"blevet afslået."
+"blevet afvist. Denne e-mail sendes ikke, før afgørelsen er registreret."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "Indsendelsen, {$title}, er blevet afslået og er arkiveret."
+msgstr ""
+"Indsendelsen, {$title}, er blevet afvist og sendt til arkiverne. Alle "
+"meddelelser er blevet sendt, undtagen nogen du har valgt at springe over."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Indsendelse afslået"
@@ -2033,16 +2031,19 @@ msgstr ""
 msgid "editor.submission.decision.sendToProduction.log"
 msgstr "{$editorName} sendte denne indsendelse til produktionstrinnet."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "Indsendelsen, {$title} blev sendt til produktionstrinnet."
+msgstr ""
+"Indsendelsen, {$title} blev sendt til produktionstrinnet. Forfatteren er "
+"blevet underrettet, medmindre du har valgt at springe den e-mail over."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Sendt til produktion"
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "En ny bedømmelsesrunde er startet for indsendelsen, {$title}."
+msgstr ""
+"En ny runde af gennemgang er blevet oprettet for indsendelsen, {$title}. "
+"Forfatteren er blevet underrettet, medmindre du har valgt at springe den e-"
+"mail over."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Bedømmelsesrunde startet"
@@ -2059,11 +2060,11 @@ msgstr "Vælg filer der skal sendes til bedømmelse."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Vælg filer der skal sendes til manuskriptredigeringstrinnet."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
-"blevet sendt til en ny bedømmelsesrunde."
+"blevet sendt til en ny gennemgang. Denne e-mail sendes ikke, før afgørelsen "
+"er registreret."
 
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} ønskede ændringer af denne indsendelse."
@@ -2073,18 +2074,19 @@ msgstr ""
 "Forfatteren skal indsende ændringer før indsendelsen kan godkendes til "
 "publicering."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
-"Send en e-mail til forfatterne og lad dem vide, at rettelser til denne "
-"indsendelse er nødvendige, før den vil blive godkendt til publicering. "
-"Inkluder alle informationer som forfatterne skal bruge for at revidere deres "
-"indsendelse. Husk, hvor det er nødvendigt, at anonymisere "
-"fagfællebedømmerens bemærkninger."
+"Send en e-mail til forfatterne for at fortælle dem, at revisioner vil være "
+"nødvendige, før denne indsendelse vil blive accepteret til offentliggørelse. "
+"Medtag alle de detaljer, som forfatteren skal bruge for at revidere deres "
+"indsendelse. Husk, hvor det er relevant, at anonymisere eventuelle "
+"anmelderkommentarer. Denne e-mail vil ikke blive sendt, før afgørelsen er "
+"registreret."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Rettelser til indsendelsen, {$title}, er blevet ønsket."
+msgstr ""
+"Der er blevet anmodet om revisioner af indsendelsen {$title}. Alle "
+"meddelelser er blevet sendt, undtagen nogen du har valgt at springe over."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Rettelser ønskes"
@@ -2099,12 +2101,12 @@ msgstr ""
 "Forfatteren skal indsende rettelser, som skal sendes til en ny "
 "bedømmelsesrunde, før indsendelsen vil blive accepteret til udgivelse."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
-"Rettelser til denne indsendelse, {$title}, er ønskede. Det er registreret, "
-"at det er blevet besluttet at sende revisionen igennem en ny "
-"bedømmelsesrunde."
+"Der er blevet anmodet om revisioner af indsendelsen {$title}. En beslutning "
+"om at sende revisionerne til en ny runde af bedømmelser blev registreret. "
+"Alle meddelelser er blevet sendt, undtagen nogen du har valgt at springe "
+"over."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Rettelser ønskes"
@@ -2123,20 +2125,23 @@ msgstr "Send denne indsendelse tilbage til manuskriptredigeringstrinnet."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Tilbage til manuskriptredigering"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
-"blevet sendt til produktionstrinnet."
+"blevet sendt til produktionstrinnet. Denne e-mail vil ikke blive sendt, før "
+"afgørelsen er registreret."
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
 "Send denne indsendelse til produktionstrinnet for at forberede den til "
 "udgivelse."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "Indsendelsen, {$title}, er blevet sendt til bedømmelsestrinnet."
+msgstr ""
+"Indsendelsen, {$title}, er blevet sendt til bedømmelsestrinnet. forfatteren "
+"er blevet underrettet, medmindre du har valgt at springe den e-mail over. "
+"Forfatteren er blevet underrettet, medmindre du har valgt at springe den e-"
+"mail over."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Sendt til bedømmelse"
@@ -2215,9 +2220,10 @@ msgstr ""
 "redaktør. Forklar hvorfor denne anbefaling blev truffet som reaktion på "
 "anbefalingerne og kommentarerne indsendt af bedømmerne."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "Indsendelsen, {$title}, er nu aktiv på indsendelsestrinnet."
+msgstr ""
+"Indsendelsen, {$title}, er nu aktiv på indsendelsestrinnet. Forfatteren er "
+"blevet underrettet, medmindre du har valgt at springe den e-mail over."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -2236,24 +2242,23 @@ msgstr "Indsendelse genaktiveret"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} omgjorde beslutningen om at afvise denne indsendelse."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Omgør en tidligere beslutning om at afvise denne indsendelse, og aktiver "
-"dermed den redaktionelle proces."
+"dermed den redaktionelle proces. Forfatteren er blevet underrettet, "
+"medmindre du har valgt at springe den e-mail over."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
-"Send en e-mail til forfatterne og informer dem om, at deres indsendelse er "
-"blevet accepteret til publicering og sendt til manuskriptredigeringstrinnet "
-"uden bedømmelse."
+"Send en e-mail til forfatterne for at fortælle dem, at denne indsendelse er "
+"blevet accepteret til offentliggørelse og sendt til redigeringsstadiet uden "
+"anmeldelse. Denne e-mail vil ikke blive sendt, før afgørelsen er registreret."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Indsendelsen, {$title}, sprang over bedømmelsestrinnet og er blevet sendt "
-"videre til manuskriptredigeringstrinnet."
+"videre til manuskriptredigeringstrinnet. Forfatteren er blevet underrettet, "
+"medmindre du har valgt at springe den e-mail over."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Sprang over bedømmelse"
@@ -2276,10 +2281,11 @@ msgstr ""
 "redigering, der vil være påkrævet, før indsendelsen kan blive klar til "
 "produktion."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
-"Indsendelsen, {$title}, blev sendt tilbage til manuskriptredigeringstrinnet."
+"Indsendelsen, {$title}, blev sendt tilbage til manuskriptredigeringstrinnet. "
+"Forfatteren er blevet underrettet, medmindre du har valgt at springe den e-"
+"mail over."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Sendt tilbage til manuskriptredigering"
@@ -2324,9 +2330,10 @@ msgstr "{$editorName} annullerede bedømmelsesrunden."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Annullerede den seneste bedømmelsesrunde."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "Bedømmelsesrunden for indsendelsen, {$title}, er blevet annulleret."
+msgstr ""
+"Bedømmelsesrunden for indsendelsen, {$title}, er blevet annulleret. Alle "
+"meddelelser er blevet sendt, undtagen nogen du har valgt at springe over."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -2347,16 +2354,16 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Sendt tilbage fra manuskriptredigering"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"Indsendelsen, {$title}, blev sendt tilbage fra manuskriptredigeringstrinnet."
+"Indsendelsen, {$title}, blev sendt tilbage fra manuskriptredigeringstrinnet. "
+"Forfatteren er blevet underrettet, medmindre du har valgt at springe den e-"
+"mail over."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Send en e-mail til forfatterne for at meddele dem, at bedømmelsesrunden er "
-"blevet lukket."
+"Send en e-mail til forfatterne for at fortælle dem, at anmeldelsesrunden er "
+"afsluttet. Denne e-mail sendes ikke, før afgørelsen er registreret."
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
@@ -2446,3 +2453,106 @@ msgstr ""
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Primær kontaktperson for redaktionel korrespondance."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Vælg en redaktionel rolle, hvis du selv ønsker at redigere og udgive denne "
+"indsendelse."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Ja, mit bidrag opfylder alle disse krav."
+
+msgid "submission.forTheEditors"
+msgstr "Til redaktørerne"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Gennemgå og indsend"
+
+msgid "submission.copyright.agree"
+msgstr "Ja, jeg accepterer copyright-erklæringen."
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Denne indsendelse er allerede indsendt. Besøg dit <a href=\"{$url}\""
+">indsendelseskontrolpanel</a> for at se den."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Før du begynder"
+
+msgid "submission.wizard.categories.description"
+msgstr "Vælg kun de kategorier, der passer til din indsendelse."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Skift indsendelsesindstillinger"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Der er et eller flere problemer, der skal rettes, før du kan indsende. "
+"Gennemgå venligst oplysningerne nedenfor og foretag de ønskede ændringer."
+
+msgid "submission.wizard.validating"
+msgstr "Tjek din indsendelse"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Tilføj enhver information, som du mener, at vores redaktion bør vide, når de "
+"vurderer din indsendelse."
+
+msgid "submission.wizard.confirm"
+msgstr "Bekræft venligst følgende, før du indsender."
+
+msgid "submission.wizard.title"
+msgstr "Lav en indsendelse"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Foretag en indsendelse: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Der er ikke tilføjet nogen bidragydere til denne indsendelse."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Ikke tilladt"
+
+msgid "submission.wizard.saved"
+msgstr "Gemt til senere brug"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Vi har sendt en kopi af dette link til dig på {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Sektion lukket"
+
+msgid "submission.wizard.start"
+msgstr "Begynd indsendelse"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Starter en ny indsendelse"
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Indsender til sektionen <strong>{$section}</strong> på "
+"<strong>{$language}</strong>."
+
+msgid "submission.wizard.completeSteps"
+msgstr "Gennemfør trinene for at lave en indsendelse"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Indsendelsen, <strong>{$title}</strong>, vil blive sendt til "
+"<strong>{$context}</strong> til redaktionel gennemgang. Er du sikker på, at "
+"du vil fuldføre denne indsendelse?"
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "En eller flere af bidragyderne mangler detaljer på {$language}."
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Dine indsendelsesoplysninger er blevet gemt i vores system, men de er endnu "
+"ikke blevet sendt til behandling. Du kan til enhver tid vende tilbage for at "
+"fuldføre din indsendelse ved at følge linket nedenfor."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Indsender på <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Indsender til sektionen <strong>{$section}</strong>."

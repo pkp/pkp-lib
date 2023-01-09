@@ -758,6 +758,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	public function getWorkflowStageId($submissionFile) {
 		switch ($submissionFile->getFileStage()) {
 			case SUBMISSION_FILE_SUBMISSION:
+			case SUBMISSION_FILE_ATTACHMENT:
 				return WORKFLOW_STAGE_ID_SUBMISSION;
 			case SUBMISSION_FILE_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:

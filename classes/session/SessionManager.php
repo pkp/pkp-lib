@@ -46,6 +46,8 @@ class SessionManager
         ini_set('session.cookie_lifetime', 0);
         ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'));
         ini_set('session.cookie_domain', $request->getServerHost(null, false));
+        ini_set('session.cookie_httponly', 1);
+        ini_set('session.cookie_secure', Config::getVar('security', 'force_ssl'));
         ini_set('session.gc_probability', 1);
         ini_set('session.gc_maxlifetime', 60 * 60);
         ini_set('session.cache_limiter', 'none');

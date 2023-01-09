@@ -323,6 +323,9 @@ msgstr "Items successfully submitted for deposit"
 msgid "manager.dois.help.statuses.title"
 msgstr "DOI Statuses"
 
+msgid "manager.dois.settings.relocated"
+msgstr "DOI management has moved. Please see the <a href=\"{$doiManagementUrl}\">DOI management</a> and <a href=\"{$doiSettingsUrl}\">DOI settings</a> pages."
+
 msgid "manager.genres.alertDelete"
 msgstr ""
 "Before this component can be deleted, you must associate all related "

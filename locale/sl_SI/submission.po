@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-11-21 05:44+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl_SI/>\n"
@@ -31,9 +31,8 @@ msgstr "Izberite najbolj primerno vlogo, ki najbolje opčisuje vašo doprinos k 
 msgid "submission.submit.submissionChecklist"
 msgstr "Zahteve za oddajo prispevka"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Pred nadaljevanjem morate prebrati in potrditi, da ste zadostili vsem zahtevam spodaj."
+msgstr "Vsi prispevko morajo zadostiti vsem zahtevam spodaj."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Oddaja končana"
@@ -1212,9 +1211,9 @@ msgstr "Odobri korekturo"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "Ta korektura ne bo več javno na voljo za prenos ali nakup. Ali ste prepričani, da jo želite zavrniti?"
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Dodeli urednika, ki bo zadolžen za sprejetje uredniške odločitve za to fazo."
+msgstr ""
+"Dodeli urednika, ki bo zadolžen za sprejetje uredniške odločitve za to fazo."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Oddaj priporočilo"
@@ -1911,17 +1910,18 @@ msgstr ""
 msgid "category.category"
 msgstr "Kategorije"
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorejm z obvestilom, da so zahtevani popravki preden bo "
 "prispevek sprejet za objavo. Vključite vse podrobnosti, ki jih avtor "
 "potrebuje, da bo lahko popravil prispevek. Ne pozabite na anonimizacijo "
-"recenzentskih mnenj, kjer je potrebno."
+"recenzentskih mnenj, kjer je potrebno. Email na bo poslan, dokler odločitev "
+"ne bo zabeležena."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Za prispevek, {$title}, so bili zahtevani popravki."
+msgstr ""
+"Za prispevek, {$title}, so bili zahtevani popravki. Poslana so bila vsa "
+"obvestila, razen tistih, ki ste jih določili, da se ne pošljejo."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Zahtevani popravki"
@@ -1941,15 +1941,15 @@ msgstr "Izberi datoteke, ki naj se pošljejo v recenzijo."
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Izberite datoteke, ki naj bodo poslane v fazo lektoriranja."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek poslan v nov "
-"krog recenzije."
+"krog recenzije. Email na bo poslan, dokler odločitev ne bo zabeležena."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "Odprt je bil nov krog recenzije za prispevek {$title}."
+msgstr ""
+"Odprt je bil nov krog recenzije za prispevek {$title}. Avtor je bil "
+"obveščen, razen, če ste izbrali, da se email o tem ne pošlje."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Odprt je bil nov krog recenzije"
@@ -1968,14 +1968,15 @@ msgstr ""
 "Prispevek bo zavrnjen. Nobene recenzije ne bo več opravljene in prispevek bo "
 "arhiviran."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
-"Pošlji email avtorjem z obvestilom, da je bil njihov prispevek zavrnjen."
+"Pošlji email avtorjem z obvestilom, da je bil njihov prispevek "
+"zavrnjen.Email na bo poslan, dokler odločitev ne bo zabeležena."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "Prispevek, {$title}, je bil zavrnjen in arhiviran."
+msgstr ""
+"Prispevek, {$title}, je bil zavrnjen in arhiviran. Poslana so bila vsa "
+"obvestila, razen tistih, ki ste jih določili, da se ne pošljejo."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Prispevek zavrnjen"
@@ -2013,16 +2014,16 @@ msgstr "Pošlji nazaj v fazo oddaje prispevka"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Nazaj na fazo oddaje prispevka"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil njihov prispevek sprejet za "
-"objavo."
+"objavo. Email na bo poslan, dokler odločitev ne bo zabeležena."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"Prispevek, {$title}, je bil sprejet za objavo in poslan v fazo lektoriranja."
+"Prispevek, {$title}, je bil sprejet za objavo in poslan v fazo lektoriranja. "
+"Poslana so bila vsa obvestila, razen tistih, ki ste jih določili, da se ne "
+"pošljejo."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Prispevek je sprejet"
@@ -2034,7 +2035,6 @@ msgstr ""
 msgid "editor.submission.decision.accept.description"
 msgstr "Prispevek bo sprejet za objavo in poslan v lektoriranje."
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Pošlji email recenzentom v zahvalo za njihovo recenzijo in jih obvesti o "
@@ -2056,9 +2056,10 @@ msgstr ""
 "Email o odločitvi je bil poslan {$recipientCount} recenzent(om) z zadevo "
 "{$subject}."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "Prispevek, {$title}, je bil premaknjen nazaj v fazo lektoriranja."
+msgstr ""
+"Prispevek, {$title}, je bil premaknjen nazaj v fazo lektoriranja. Avtor je "
+"bil obveščen, razen, če ste določili, da se ta email izpusti."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Premaknjeno nazaj v fazo lektoriranja"
@@ -2072,15 +2073,15 @@ msgstr "Premakni ta prispevek nazaj v fazo lektoriranja."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Nazaj v fazo lektoriranja"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Pošljite email avtorjem z obvestilom, da je bil ta prispevek premaknjen v "
-"fazo produkcije."
+"fazo produkcije. Email na bo poslan, dokler odločitev ne bo zabeležena."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "Prispevek, {$title}, je bil premaknjen v fazo produkcije."
+msgstr ""
+"Prispevek, {$title}, je bil premaknjen v fazo produkcije. Avtor je bil "
+"obveščen, razen, če ste določili, da se ta email izpusti."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Premaknjeno v fazo produkcije"
@@ -2091,9 +2092,10 @@ msgstr "{$editorName} je premaknil ta prispevek v fazo produkcije."
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr "Premakni prispevek v fazo produkcije, da bo pripravljen za objavo."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "Prizpevek, {$title}, je bil premaknjen v fazo recenzije."
+msgstr ""
+"Prizpevek, {$title}, je bil premaknjen v fazo recenzije. Avtor je bil "
+"obveščen, razen, če ste določili, da se ta email izpusti."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Premaknjeno v fazo recenzije"
@@ -2125,11 +2127,11 @@ msgstr ""
 "ki jih so potrebne, da bodo lahko ustrezno popravili prispevek. Ne pozabite "
 "aninimizirati vse komentarje recenzentov, kjer je potrebno."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Zahtevani so popravki za prispevek, {$title}. Odločeno je bilo, da bodo "
-"popravki pregledani v novem krogu recenzije."
+"popravki pregledani v novem krogu recenzije. Poslana so bila vsa obvestila, "
+"razen tistih, ki ste jih določili, da se ne pošljejo."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Zahtevani popravki"
@@ -2201,9 +2203,10 @@ msgstr ""
 "Razložite zakaj tako priporočilo glede na priporočila in komentarje "
 "recenzentov."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "Prispevek, {$title}, je sedaj aktiven v fazi oddaje."
+msgstr ""
+"Prispevek, {$title}, je sedaj aktiven v fazi oddaje. Avtor je bil obveščen, "
+"razen, če ste določili, da se ta email izpusti."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -2220,23 +2223,23 @@ msgstr "Prispevek je ponovno aktiviran"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} je spremenil odločitev o zavrnitvi tega prispevka."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Spremeni prejšnjo odločitev o zavrnitvi tega prispevka in povrni prispevek v "
-"uredniški postopek."
+"uredniški postopek. Avtor je bil obveščen, razen, če ste določili, da se ta "
+"email izpusti."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Pošlji email avtorjem z obvestilom, da je bil prispevek sprejet za objavo in "
-"da je bil premaknjen v fazo lektoriranja brez recenzije."
+"da je bil premaknjen v fazo lektoriranja brez recenzije. Email na bo poslan, "
+"dokler odločitev ne bo zabeležena."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "Pri prispevku, {$title}, je bila faza recenzije izpuščena, prispevek je bil "
-"premaknjen v fazo lektoriranja."
+"premaknjen v fazo lektoriranja. Avtor je bil obveščen, razen, če ste "
+"določili, da se ta email izpusti."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Recenzija izpuščena"
@@ -2270,10 +2273,10 @@ msgstr ""
 "Prišlo je do napake pri označevanju DOI stanja za {$pubObjectTitle}. Stanje "
 "DOI ne more biti označeno, ker še ni bil registriran ali oddan."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Pošlji email avtorjem z obvestilom, da je bil recenzijski krog zaključen."
+"Pošlji email avtorjem z obvestilom, da je bil recenzijski krog zaključen. "
+"Email na bo poslan, dokler odločitev ne bo zabeležena."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Prekliči recenzijski krog"
@@ -2284,9 +2287,10 @@ msgstr "{$editorName} je preklical recenzijski krog."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Zadnji recenzijski krog je bil preklican."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "Recenzijski krog za prispevek {$title} je bil preklican."
+msgstr ""
+"Recenzijski krog za prispevek {$title} je bil preklican. Poslana so bila vsa "
+"obvestila, razen tistih, ki ste jih določili, da se ne pošljejo."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -2321,9 +2325,10 @@ msgstr ""
 "prejšnji krog recenzije. Če gre za prvi krog recenzije, bo prispevek "
 "prestavljen nazaj v fazo rokopis."
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "Prispevek {$title} je bil prestavljen nazaj v fazo recenzije."
+msgstr ""
+"Prispevek {$title} je bil prestavljen nazaj v fazo recenzije. Avtor je bil "
+"obveščen, razen, če ste določili, da se ta email izpusti."
 
 msgid "submission.firstPublished"
 msgstr "Prvič objavljeno"
@@ -2333,7 +2338,6 @@ msgstr ""
 "Recenzentu {$reviewerName} ponovno pošjli prošnjo za opravljanje recenzije v "
 "recenzijskem krogu {$round} za prispevek {$submissionid}."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
 "To je le predogled, še ni bilo objavljeno. <a href=\"{$url}\">View "
@@ -2394,9 +2398,120 @@ msgstr "Če želite, lahko zapišete kratko izjavo o pravicah do dostopa, ki jih
 msgid "submission.submit.metadataForm.tip"
 msgstr "Dodajte dodatne informacije za vaš prispevek. Pritisnite \"enter\" po vsakem terminu."
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Revija objavlja prispevke v različnih jezikih. Izberite primarni jezik vašega prispevka iz spodnjega spustnega menija."
+msgstr "Izberite primarni jezik vašega prispevka."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Glavni kontakt za korespondenco z uredništvom."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr "Izberite uredniško vlogo, če želite urejati in objaviti prispevek sami."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Da, prispevek zadošča vsem tem pogojem."
+
+msgid "submission.details"
+msgstr "Podrobnosti prispevka"
+
+msgid "submission.forTheEditors"
+msgstr "Za urednike"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Preveri in oddaj"
+
+msgid "submission.copyright.agree"
+msgstr "Da, strinjam se z izjavo o avtorskih pravicah."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Spremeni nastavitve prispevka"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Opravi korake za oddajo prispevka"
+
+msgid "submission.wizard.validating"
+msgstr "Preverjenje vašega prispevka"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Dodajte še kakšno informacijo, za katero mislite, da bo pomagala uredništvu "
+"pri ocenjevanju vašega prispevka."
+
+msgid "submission.wizard.confirm"
+msgstr "Prosimo potrdite spodnje, preden lahko oddate."
+
+msgid "submission.wizard.title"
+msgstr "Oddaj nov prispevek"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Oddaj nov prispevek: {$step}"
+
+msgid "submission.wizard.notAllowed"
+msgstr "Ni dovoljeno"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Soglasje k zasebnosti"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Kopijo tega emaila smo vam poslali na naslov {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Rubrika je zaprta"
+
+msgid "submission.wizard.start"
+msgstr "Začni z oddajo prispevka"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Začni z oddajo novega prispevka"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Prišlo je do napake in vašega prispevka ni bilo mogoče shraniti. Morda ste "
+"bili odjavljeni."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Oddaja prispevka v jeziku <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Oddajanje prispevka v rubriko <strong>{$section}</strong>."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Oddaja prispevka v rubriko <strong>{$section}</strong> v jeziku "
+"<strong>{$language}</strong>."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Prispevek <strong>{$title}</strong> bo oddaj v revijo <strong>{$context}</"
+"strong> za uredniški pregled. Ste prepričani, da želite dokončati to "
+"oddajanje prispevka?"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Ta prispevek je bil že oddan. Prosimo, običšite vašo <a href=\"{$url}\""
+">nadzorno ploščo prispevkov</a>, da ga vidite."
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Opraviti morate enega ali več problemov, preden lahko oddate prispevek. "
+"Prosim poglejte informacije spodaj in opravite potrebne spremembe."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Preden začnete"
+
+msgid "submission.wizard.noContributors"
+msgstr "Za ta prispevek niso bili dodani nobeni sodelavci."
+
+msgid "submission.wizard.categories.description"
+msgstr "Izberite le kategorije, ki ustrezajo vašemu prispevku."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Enemu ali več sodelavcem manjkajo podrobnosti v jeziku {$language}."
+
+msgid "submission.wizard.saved"
+msgstr "Shranjeno za pozneje"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Vaš prispevek je bil shranjen v sistem, a še ni bil oddan v uredniški "
+"postopek. Pozneje se lahko kadarkoli vrnete in dokončate oddajo prispveka "
+"preko spodnje povezave."

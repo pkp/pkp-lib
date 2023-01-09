@@ -1,11 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_PT/>\n"
@@ -558,8 +558,8 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
-"Opção de job de teste inválida. Só pode levar 'failed' ou 'success' para a "
-"opção '--only='"
+"Opção de test job inválida. Só pode ser 'failed' ou 'success' para a opção '"
+"--only='."
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""

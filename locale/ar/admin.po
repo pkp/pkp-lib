@@ -86,7 +86,7 @@ msgstr "الأعمال"
 msgid "admin.jobs.createdAt"
 msgstr "منشأ عند {$createdAt}"
 
-msgid "admin.jobs.list.queueName"
+msgid "admin.jobs.list.queue"
 msgstr "قائمة الانتظار"
 
 msgid "admin.jobs.list.attempts"

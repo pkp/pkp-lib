@@ -78,6 +78,11 @@ class FailedJob extends Model
      */
     public function exceptionMessage(): string
     {
+        if (isValidJson($this->exception)) {
+            $exception = json_decode($this->exception);
+            return $exception->message . ' in ' . $exception->file . ' at ' . $exception->line;
+        }
+        
         return preg_replace('/\s+/', ' ', trim(explode('Stack trace', $this->exception)[0]));
     }
 }

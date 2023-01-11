@@ -316,7 +316,7 @@ msgstr "Vytvořeno v"
 msgid "admin.jobs.list.attempts"
 msgstr "Pokusy"
 
-msgid "admin.jobs.list.queueName"
+msgid "admin.jobs.list.queue"
 msgstr "Fronta"
 
 msgid "admin.jobs.list.displayName"

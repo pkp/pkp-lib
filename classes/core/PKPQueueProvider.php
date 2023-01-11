@@ -118,7 +118,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 $event->connectionName,
                 $event->job->getQueue(),
                 $event->job->getRawBody(),
-                $event->exception
+                json_encode([
+                    'message'   => $event->exception->getMessage(),
+                    'code'      => $event->exception->getCode(),
+                    'file'      => $event->exception->getFile(),
+                    'line'      => $event->exception->getLine(),
+                    'trace'     => $event->exception->getTrace(),
+                ])
             );
         });
     }

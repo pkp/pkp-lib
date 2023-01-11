@@ -14,6 +14,7 @@
  */
 
 use PKP\config\Config;
+use PKP\core\Registry;
 
 /*
  * Constants for expressing human-readable data sizes in their respective number of bytes.
@@ -412,6 +413,24 @@ if (!function_exists('convertHrToBytes'))
     
         // Deal with large (float) values which run into the maximum integer size.
         return min( $bytes, PHP_INT_MAX );
+    }
+}
+
+/**
+ * Converts a shorthand byte value to an integer byte value.
+ *
+ * @param   mixed  $data 
+ * @return  bool
+ */
+if (!function_exists('isValidJson')) 
+{
+    function isValidJson(mixed $data): bool 
+    {
+        if (!empty($data)) {
+            @json_decode($data);
+            return (json_last_error() === JSON_ERROR_NONE);
+        }
+        return false;
     }
 }
 

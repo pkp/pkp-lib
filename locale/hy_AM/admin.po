@@ -319,7 +319,7 @@ msgstr "Ստեղծված է"
 msgid "admin.jobs.list.attempts"
 msgstr "Փորձեր"
 
-msgid "admin.jobs.list.queueName"
+msgid "admin.jobs.list.queue"
 msgstr "Հերթ"
 
 msgid "admin.jobs.list.displayName"

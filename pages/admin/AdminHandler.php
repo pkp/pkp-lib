@@ -22,12 +22,14 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use PDO;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\job\resources\HttpFailedJobResource;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
@@ -63,6 +65,7 @@ class AdminHandler extends Handler
                 'clearScheduledTaskLogFiles',
                 'jobs',
                 'failedJobs',
+                'failedJobDetails',
             ]
         );
     }
@@ -544,7 +547,7 @@ class AdminHandler extends Handler
                 ],
                 [
                     'name' => 'queue',
-                    'label' => __('admin.jobs.list.queueName'),
+                    'label' => __('admin.jobs.list.queue'),
                     'value' => 'queue',
                 ],
                 [
@@ -626,12 +629,12 @@ class AdminHandler extends Handler
                 ],
                 [
                     'name' => 'queue',
-                    'label' => __('admin.jobs.list.queueName'),
+                    'label' => __('admin.jobs.list.queue'),
                     'value' => 'queue',
                 ],
                 [
                     'name' => 'connection',
-                    'label' => __('admin.jobs.list.connectionName'),
+                    'label' => __('admin.jobs.list.connection'),
                     'value' => 'connection',
                 ],
                 [
@@ -645,13 +648,70 @@ class AdminHandler extends Handler
                     'value' => 'action',
                 ],
             ],
-            'rows' => $failedJobs->all(),
+            'rows' => collect($failedJobs->all())->map(fn($failedJob) => array_merge($failedJob, [
+                'detailsPath' => $request->getDispatcher()->url($request, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', $failedJob['id'])
+            ]))->toArray(),
             'total' => $total,
             'lastPage' => $failedJobs->lastPage(),
             'currentPage' => $failedJobs->currentPage(),
             'isLoadingItems' => false,
             'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'admin', 'jobs'),
         ];
+    }
+
+    /**
+     * 
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     */
+    public function failedJobDetails($args, $request)
+    {
+        $this->setupTemplate($request, true);
+
+        $templateMgr = TemplateManager::getManager($request);
+        
+        $failedJob = Repo::failedJob()->newQuery()->find([(int) $args[0]]);
+        
+        $rows = collect(array_merge(HttpFailedJobResource::collection($failedJob)->first(), [
+                'payload' => $failedJob->first()->getRawOriginal('payload'),
+            ]))
+            ->map(fn($value, $attribute) => [
+                'attribute' => '<b>' . __("admin.jobs.list." . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()) . '</b>',
+                'value' => isValidJson($value) ? json_encode(json_decode($value, true), JSON_PRETTY_PRINT): $value
+            ])
+            ->values();
+
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
+        $breadcrumbs[] = [
+            'id' => 'FailedJobDetailsPage',
+            'name' => __('navigation.tools.jobs.failed.details'),
+        ];
+
+        $templateMgr->setState([
+            'label' => __('navigation.tools.job.failed.details.view', ['id' => $failedJob->first()->id]),
+            'columns' => [
+                [
+                    'name' => 'attribute',
+                    'label' => __('admin.job.failed.list.attribute'),
+                    'value' => 'attribute',
+                ],
+                [
+                    'name' => 'value',
+                    'label' => __('admin.job.failed.list.attribute.value'),
+                    'value' => 'value',
+                ],
+            ],
+            'rows' => $rows,
+        ]);
+
+        $templateMgr->assign([
+            'pageComponent' => 'FailedJobDetailsPage',
+            'breadcrumbs' => $breadcrumbs,
+            'pageTitle' => __('navigation.tools.jobs.failed.details'),
+        ]);
+
+        $templateMgr->display('admin/failedJobDetails.tpl');
     }
     
 }

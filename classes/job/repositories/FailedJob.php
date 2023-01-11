@@ -83,17 +83,6 @@ class FailedJob extends BaseRepository
         return $failedJobs->toQuery()->delete();
     }
 
-    public function deleteJobsByDays(int $days, string $queue = null): int
-    {
-        $query = $this->model->newQuery();
-
-        if ($queue) {
-            $query = $query->queuedAt($queue); 
-        }
-
-        return $query->where('failed_at', '<=', Carbon::now()->subDays($days)->endOfDay())->delete();
-    }
-
     protected function getOutput(Collection $data): Arrayable
     {
         if ($this->outputFormat === self::OUTPUT_CLI) {

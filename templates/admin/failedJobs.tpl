@@ -1,11 +1,11 @@
 {**
- * templates/admin/jobs.tpl
+ * templates/admin/failedJobs.tpl
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Jobs index
+ * Failed Jobs index
  *}
 {extends file="layouts/backend.tpl"}
 
@@ -25,13 +25,13 @@
                 <td>
                     <div class="buttonRow">
                         <pkp-button @click="this.pkp.eventBus.$emit('redispatch-job', slotProps.row)">
-                            {translate key="admin.jobs.action.redispatch"}
+                            {translate key="admin.jobs.failed.action.redispatch"}
                         </pkp-button>
-                        <pkp-button @click="this.pkp.eventBus.$emit('remove-job', slotProps.row)">
-                            {translate key="admin.jobs.action.delete"}
+                        <pkp-button is-warnable @click="this.pkp.eventBus.$emit('remove-job', slotProps.row)">
+                            {translate key="admin.jobs.failed.action.delete"}
                         </pkp-button>
-                        <pkp-button @click="this.pkp.eventBus.$emit('show-job-exception', slotProps.row)">
-                            {translate key="admin.jobs.action.view.error"}
+                        <pkp-button element="a" is-link :href="slotProps.row.detailsPath">
+                            {translate key="admin.jobs.failed.action.details"}
                         </pkp-button>
                     </div>
                 </td>

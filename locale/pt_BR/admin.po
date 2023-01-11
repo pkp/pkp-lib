@@ -325,7 +325,7 @@ msgstr "Criado em"
 msgid "admin.jobs.list.attempts"
 msgstr "Tentativas"
 
-msgid "admin.jobs.list.queueName"
+msgid "admin.jobs.list.queue"
 msgstr "Fila"
 
 msgid "admin.jobs.list.displayName"

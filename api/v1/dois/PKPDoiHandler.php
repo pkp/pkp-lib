@@ -22,7 +22,7 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\APIResponse;
 use PKP\doi\Doi;
-use PKP\doi\exceptions\DoiActionException;
+use PKP\doi\exceptions\DoiException;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\jobs\doi\DepositSubmission;
@@ -486,13 +486,13 @@ class PKPDoiHandler extends APIHandler
         if (count($invalidIds)) {
             $failedDoiActions = array_map(function (int $id) {
                 $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
-                return new DoiActionException($submissionTitle, $submissionTitle, DoiActionException::SUBMISSION_NOT_PUBLISHED);
+                return new DoiException(DoiException::SUBMISSION_NOT_PUBLISHED, $submissionTitle, $submissionTitle);
             }, $invalidIds);
 
             return $response->withJson(
                 [
                     'failedDoiActions' => array_map(
-                        function (DoiActionException $item) {
+                        function (DoiException $item) {
                             return $item->getMessage();
                         },
                         $failedDoiActions
@@ -542,13 +542,13 @@ class PKPDoiHandler extends APIHandler
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
             $failedDoiActions = array_map(function (int $id) {
-                return new DoiActionException($id, $id, DoiActionException::INCORRECT_SUBMISSION_CONTEXT);
+                return new DoiException(DoiException::INCORRECT_SUBMISSION_CONTEXT, $id, $id);
             }, $invalidIds);
 
             return $response->withJson(
                 [
                     'failedDoiActions' => array_map(
-                        function (DoiActionException $item) {
+                        function (DoiException $item) {
                             return $item->getMessage();
                         },
                         $failedDoiActions
@@ -594,13 +594,13 @@ class PKPDoiHandler extends APIHandler
         if (count($invalidIds)) {
             $failedDoiActions = array_map(function (int $id) {
                 $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
-                return new DoiActionException($submissionTitle, $submissionTitle, DoiActionException::INCORRECT_STALE_STATUS);
+                return new DoiException(DoiException::INCORRECT_STALE_STATUS, $submissionTitle, $submissionTitle);
             }, $invalidIds);
 
             return $response->withJson(
                 [
                     'failedDoiActions' => array_map(
-                        function (DoiActionException $item) {
+                        function (DoiException $item) {
                             return $item->getMessage();
                         },
                         $failedDoiActions
@@ -644,10 +644,10 @@ class PKPDoiHandler extends APIHandler
             if ($submission !== null) {
                 if ($submission->getData('contextId') !== $context->getId()) {
                     $creationFailureResults = [
-                        new DoiActionException(
+                        new DoiException(
+                            DoiException::INCORRECT_SUBMISSION_CONTEXT,
                             $id,
-                            $id,
-                            DoiActionException::INCORRECT_SUBMISSION_CONTEXT
+                            $id
                         )
                     ];
                 } else {
@@ -661,7 +661,7 @@ class PKPDoiHandler extends APIHandler
             return $response->withJson(
                 [
                     'failedDoiActions' => array_map(
-                        function (DoiActionException $item) {
+                        function (DoiException $item) {
                             return $item->getMessage();
                         },
                         $failedDoiActions

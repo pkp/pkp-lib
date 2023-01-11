@@ -21,6 +21,7 @@ use Exception;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\PKPString;
+use PKP\doi\exceptions\DoiException;
 use PKP\jobs\doi\DepositSubmission;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -371,7 +372,7 @@ abstract class Repository
     {
         $doiPrefix = $context->getData(Context::SETTING_DOI_PREFIX);
         if (empty($doiPrefix)) {
-            throw new Exception('Tried to create a DOI, but a DOI prefix is required for the context to create one.');
+            throw new DoiException('doi.exceptions.missingPrefix');
         }
 
         $completedDoi = $doiPrefix . '/' . $doiSuffix;

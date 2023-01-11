@@ -21,7 +21,6 @@ use PKP\context\Context;
 use PKP\core\PKPString;
 
 use PKP\doi\Doi;
-use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 
 // Configuration errors.
@@ -47,9 +46,8 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
                 $configurationErrors = $templateMgr->getTemplateVars('configurationErrors');
                 // missing DOI prefix
                 $doiPrefix = null;
-                $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
-                if (isset($pubIdPlugins['doipubidplugin'])) {
-                    $doiPlugin = $pubIdPlugins['doipubidplugin'];
+                $doisEnabled = $context->getData(Context::SETTING_ENABLE_DOIS);
+                if ($doisEnabled) {
                     $doiPrefix = $context->getData(Context::SETTING_DOI_PREFIX);
                     $templateMgr->assign([
                         'exportPreprints' => $context->isDoiTypeEnabled(Repo::doi()::TYPE_PUBLICATION),

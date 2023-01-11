@@ -22,7 +22,6 @@ use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
-use PKP\plugins\PluginRegistry;
 use PKP\publication\Collector;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
@@ -99,20 +98,6 @@ class Repository extends \PKP\publication\Repository
         }
 
         return $errors;
-    }
-
-    /** @copydoc \PKP\publication\Repository::add() */
-    public function add(Publication $publication): int
-    {
-        // Assign DOI if automatic assigment is enabled
-        $context = $this->request->getContext();
-        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-        $doiPubIdPlugin = $pubIdPlugins['doipubidplugin'] ?? null;
-        if ($doiPubIdPlugin && $doiPubIdPlugin->getSetting($context->getId(), 'enablePublicationDoiAutoAssign')) {
-            $publication->setData('pub-id::doi', $doiPubIdPlugin->getPubId($publication));
-        }
-
-        return parent::add($publication);
     }
 
     /** @copydoc \PKP\publication\Repository::version() */

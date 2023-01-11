@@ -575,6 +575,9 @@ msgstr "Jobs"
 msgid "navigation.tools.jobs.failed"
 msgstr "Failed Jobs"
 
+msgid "navigation.tools.jobs.failed.details"
+msgstr "Failed Job Details"
+
 msgid "navigation.tools.jobs.description"
 msgstr "View all of the queued jobs in the system and track failed attempts."
 
@@ -584,16 +587,25 @@ msgstr "View Jobs"
 msgid "navigation.tools.jobs.failed.view"
 msgstr "View Failed Jobs"
 
+msgid "navigation.tools.job.failed.details.view"
+msgstr "View Failed Job:{$id} Details"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "Attribute"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "Attribute Value"
+
 msgid "admin.jobs.list.id"
 msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
 msgstr "Job"
 
-msgid "admin.jobs.list.queueName"
+msgid "admin.jobs.list.queue"
 msgstr "Queue"
 
-msgid "admin.jobs.list.connectionName"
+msgid "admin.jobs.list.connection"
 msgstr "Connection"
 
 msgid "admin.jobs.list.attempts"
@@ -620,17 +632,14 @@ msgstr "Created at {$failedAt}"
 msgid "admin.jobs.createdAt"
 msgstr "Created at {$createdAt}"
 
-msgid "admin.jobs.action.redispatch"
+msgid "admin.jobs.failed.action.redispatch"
 msgstr "Redispatch"
 
-msgid "admin.jobs.action.delete"
+msgid "admin.jobs.failed.action.delete"
 msgstr "Delete"
 
-msgid "admin.jobs.action.view.error"
-msgstr "Error"
-
-msgid "admin.jobs.action.view.error.title"
-msgstr "Job Error Trace"
+msgid "admin.jobs.failed.action.details"
+msgstr "Details"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed, and the file could not be moved from {$archivedFilePath} to {$stagingPath}."

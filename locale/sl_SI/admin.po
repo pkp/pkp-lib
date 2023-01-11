@@ -362,7 +362,7 @@ msgstr "Ustvarjeno"
 msgid "admin.jobs.list.attempts"
 msgstr "Poskusi"
 
-msgid "admin.jobs.list.queueName"
+msgid "admin.jobs.list.queue"
 msgstr "Čakalna vrsta"
 
 msgid "admin.jobs.list.displayName"

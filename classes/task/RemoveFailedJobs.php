@@ -43,7 +43,7 @@ class RemoveFailedJobs extends ScheduledTask
             return true;
         }
 
-        Repo::failedJob()->deleteJobsByDays($cleanUpPeriod);
+        app('queue.failer')->prune(Carbon::now()->subDays($cleanUpPeriod)->startOfDay());
 
         return true;
     }

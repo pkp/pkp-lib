@@ -9,8 +9,8 @@
 
  describe('Jobs tests', function() {
     it('Check if Jobs page is alive and with contents', function() {
-        // cy.login('admin', 'admin', 'publicknowledge');
-        cy.loginViaForm('abir', 'C0mm0n<>?', 'test-01');
+
+        cy.login('admin', 'admin', 'publicknowledge');
 
         // purge all existing jobs in any of the queues
         cy.purgeQueueJobs(null, true);
@@ -42,8 +42,7 @@
 
     it('Test Failed Jobs page and actions', function() {
 
-      // cy.login('admin', 'admin', 'publicknowledge');
-      cy.loginViaForm('abir', 'C0mm0n<>?', 'test-01');
+      cy.login('admin', 'admin', 'publicknowledge');
 
       // purge all existing jobs in any of the queues
       cy.purgeQueueJobs(null, true);

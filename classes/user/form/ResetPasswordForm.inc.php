@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file classes/user/form/ChangePasswordForm.inc.php
+ * @file classes/user/form/ResetPasswordForm.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ChangePasswordForm
+ * @class ResetPasswordForm
  * @ingroup user_form
  *
- * @brief Form to change a user's password.
+ * @brief Form to reset a user's forgotten password.
  */
 
 
@@ -123,32 +123,32 @@ class ResetPasswordForm extends Form {
 	/**
 	 * Validate the password reset hash
 	 */
-    public function validatePasswordResetHash()
-    {
-        if (Validation::verifyPasswordResetHash($this->getUser()->getId(), $this->getHash())) {
-            return true;
-        }
+	public function validatePasswordResetHash()
+	{
+		if (Validation::verifyPasswordResetHash($this->getUser()->getId(), $this->getHash())) {
+			return true;
+		}
 
-        return false;
-    }
+		return false;
+	}
 
 	/**
 	 * Display the error page when passed invalid password reset hash
 	 */
-    public function displayInvalidHashErrorMessage($request, $template = null)
-    {
-        $this->setTemplate('frontend/pages/error.tpl');
+	public function displayInvalidHashErrorMessage($request, $template = null)
+	{
+		$this->setTemplate('frontend/pages/error.tpl');
 
-        $templateMgr = TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
-        $templateMgr->assign([
-            'errorMsg' => 'user.login.lostPassword.invalidHash',
-            'backLink' => $request->url(null, null, 'lostPassword'),
-            'backLinkLabel' => 'user.login.resetPassword',
-        ]);
+		$templateMgr->assign([
+			'errorMsg' => 'user.login.lostPassword.invalidHash',
+			'backLink' => $request->url(null, null, 'lostPassword'),
+			'backLinkLabel' => 'user.login.resetPassword',
+		]);
 
-        parent::display($request, $template);
-    }
+		parent::display($request, $template);
+	}
 
 }
 

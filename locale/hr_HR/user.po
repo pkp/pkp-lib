@@ -78,6 +78,14 @@ msgid "user.login.lostPassword.invalidUser"
 msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
 
 #, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nije moguće dovršiti zahtjev za ponovno postavljanje lozinke jer {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Unesite novu lozinku za ažuriranje lozinke za prijavu."
+
+#, fuzzy
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr "Lozinka je uspješno ažurirana. Prijavite se ažuriranom lozinkom."
 

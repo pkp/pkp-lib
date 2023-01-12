@@ -202,8 +202,8 @@ class LoginHandler extends Handler
     public function lostPassword($args, $request)
     {
         if (Validation::isLoggedIn()) {
-			$this->sendHome($request);
-		}
+            $this->sendHome($request);
+        }
 
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
@@ -222,25 +222,25 @@ class LoginHandler extends Handler
         $user = Repo::user()->getByEmail($email, true); /** @var User $user */
 
         if ($user === null) {
-			$templateMgr
-				->assign('error', 'user.login.lostPassword.invalidUser')
-				->display('frontend/pages/userLostPassword.tpl');
+            $templateMgr
+                ->assign('error', 'user.login.lostPassword.invalidUser')
+                ->display('frontend/pages/userLostPassword.tpl');
 
-			return;
-		}
+            return;
+        }
 
         if ($user->getDisabled()) {
-			$templateMgr
-				->assign([
-					'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
-					'reason' => empty($reason = $user->getDisabledReason() ?? '')
-						? __('user.login.accountDisabled')
-						: __('user.login.accountDisabledWithReason', ['reason' => $reason])
-				])
-				->display('frontend/pages/userLostPassword.tpl');
-			
-			return;
-		}
+            $templateMgr
+                ->assign([
+                    'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+                    'reason' => empty($reason = $user->getDisabledReason() ?? '')
+                        ? __('user.login.accountDisabled')
+                        : __('user.login.accountDisabledWithReason', ['reason' => $reason])
+                ])
+                ->display('frontend/pages/userLostPassword.tpl');
+
+            return;
+        }
 
         // Send email confirming password reset
         $site = $request->getSite(); /** @var Site $site */
@@ -271,16 +271,16 @@ class LoginHandler extends Handler
     public function resetPassword($args, $request)
     {
         if (Validation::isLoggedIn()) {
-			$this->sendHome($request);
-		}
+            $this->sendHome($request);
+        }
 
         $this->_isBackendPage = true;
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->setupBackendPage();
-		$templateMgr->assign([
-			'pageTitle' => __('user.changePassword'),
-		]);
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->setupBackendPage();
+        $templateMgr->assign([
+            'pageTitle' => __('user.changePassword'),
+        ]);
 
         $username = $args[0] ?? null;
         $confirmHash = $request->getUserVar('confirm');
@@ -290,72 +290,69 @@ class LoginHandler extends Handler
         }
 
         if ($user->getDisabled()) {
-			$templateMgr
-				->assign([
-					'pageTitle' => 'user.login.resetPassword',
-					'backLink' => $request->url(null, $request->getRequestedPage()),
-					'backLinkLabel' => 'user.login',
-					'messageTranslated' => __(
-						'user.login.lostPassword.confirmationSentFailedWithReason', 
-						[
-							'reason' => empty($reason = $user->getDisabledReason() ?? '')
-								? __('user.login.accountDisabled')
-								: __('user.login.accountDisabledWithReason', ['reason' => $reason])
-						] 
-					),
-				])
-				->display('frontend/pages/message.tpl');
-			
-			return;
-		}
+            $templateMgr
+            ->assign([
+                'pageTitle' => 'user.login.resetPassword',
+                'backLink' => $request->url(null, $request->getRequestedPage()),
+                'backLinkLabel' => 'user.login',
+                'messageTranslated' => __('user.login.lostPassword.confirmationSentFailedWithReason', [
+                    'reason' => empty($reason = $user->getDisabledReason() ?? '')
+                        ? __('user.login.accountDisabled')
+                        : __('user.login.accountDisabledWithReason', ['reason' => $reason])
+                ]),
+            ])
+            ->display('frontend/pages/message.tpl');
+            
+            return;
+        }
 
         $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
-		$passwordResetForm->initData();
+        $passwordResetForm->initData();
 
-		$passwordResetForm->validatePasswordResetHash($request)
-			? $passwordResetForm->display($request)
-			: $passwordResetForm->displayInvalidHashErrorMessage($request);
+        $passwordResetForm->validatePasswordResetHash($request)
+            ? $passwordResetForm->display($request)
+            : $passwordResetForm->displayInvalidHashErrorMessage($request);
     }
 
     /**
-	 * Reset a user's password
-	 * @param $args array first param contains the username of the user whose password is to be reset
-	 */
-	public function updateResetPassword($args, $request)
-	{
-		$this->_isBackendPage = true;
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
+     * Reset a user's password
+     * @param $args array first param contains the username of the user whose password is to be reset
+     */
+    public function updateResetPassword($args, $request)
+    {
+        $this->_isBackendPage = true;
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
 
-		$username = $request->getUserVar('username');
-		$confirmHash = $request->getUserVar('hash');
+        $username = $request->getUserVar('username');
+        $confirmHash = $request->getUserVar('hash');
 
-		if ($username == null || ($user = Repo::user()->getByUsername($username, true)) == null) {
+        if ($username == null || ($user = Repo::user()->getByUsername($username, true)) == null) {
             return $request->redirect(null, null, 'lostPassword');
         }
 
-		$passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
-		$passwordResetForm->readInputData();
+        $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
+        $passwordResetForm->readInputData();
 
-		if ( !$passwordResetForm->validatePasswordResetHash($request) ) {
-			return $passwordResetForm->displayInvalidHashErrorMessage($request);
-		}
+        if ( !$passwordResetForm->validatePasswordResetHash($request) ) {
+            return $passwordResetForm->displayInvalidHashErrorMessage($request);
+        }
 
-		if ($passwordResetForm->validate()) {
-			if ($passwordResetForm->execute()) {
-				$templateMgr->assign([
-					'pageTitle' => 'user.login.resetPassword',
-					'message' => 'user.login.resetPassword.passwordUpdated',
-					'backLink' => $request->url(null, $request->getRequestedPage()),
-					'backLinkLabel' => 'user.login',
-				]);
+        if ($passwordResetForm->validate()) {
+            if ($passwordResetForm->execute()) {
+                $templateMgr->assign([
+                    'pageTitle' => 'user.login.resetPassword',
+                    'message' => 'user.login.resetPassword.passwordUpdated',
+                    'backLink' => $request->url(null, $request->getRequestedPage()),
+                    'backLinkLabel' => 'user.login',
+                ]);
 
-				$templateMgr->display('frontend/pages/message.tpl');
-			}
-		} else {
-			$passwordResetForm->display($request);
-		}
-	}
+                $templateMgr->display('frontend/pages/message.tpl');
+            }
+        } else {
+            $passwordResetForm->display($request);
+        }
+    }
 
     /**
      * Display form to change user's password.

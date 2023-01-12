@@ -42,8 +42,8 @@
 					{fbvElement type="text" required=true password=true id="password2" value=$password2|default:""|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 
-                {fbvElement type="hidden" id="username" value=$username}
-                {fbvElement type="hidden" id="hash" value=$hash}
+				{fbvElement type="hidden" id="username" value=$username}
+				{fbvElement type="hidden" id="hash" value=$hash}
 
 				<p>
 					{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}

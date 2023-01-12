@@ -672,6 +672,10 @@ class AdminHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         
         $failedJob = Repo::failedJob()->newQuery()->find([(int) $args[0]]);
+
+        if (!$failedJob->first()) {
+            $request->getDispatcher()->handle404();
+        }
         
         $rows = collect(array_merge(HttpFailedJobResource::collection($failedJob)->first(), [
                 'payload' => $failedJob->first()->getRawOriginal('payload'),

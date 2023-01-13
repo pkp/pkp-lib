@@ -225,14 +225,13 @@ class SessionManager {
 			setcookie(session_name(), "", 0, ini_get('session.cookie_path'), false);
 		}
 
+		$cookieParams = session_get_cookie_params();
+		unset($cookieParams['lifetime']);
+		$cookieParams['expires'] = $expireTime;
 		return setcookie(
 			session_name(),
-			($sessionId === false) ? session_id() : $sessionId,
-			$expireTime,
-			ini_get('session.cookie_path'),
-			$domain,
-			Config::getVar('security', 'force_ssl'),
-			true
+			$sessionId === false ? session_id() : $sessionId,
+			$cookieParams
 		);
 	}
 

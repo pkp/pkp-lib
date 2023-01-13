@@ -43,7 +43,6 @@ class SessionManager {
 		ini_set('session.cookie_secure', Config::getVar('security', 'force_ssl'));
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
-		ini_set('session.auto_start', 1);
 		ini_set('session.cache_limiter', 'none');
 
 		session_set_save_handler(
@@ -110,7 +109,7 @@ class SessionManager {
 		// having the APC opcode cache installed
 		// Bugzilla: https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
 		// PHP Bug tracker: https://bugs.php.net/bug.php?id=58739
-		register_shutdown_function('session_write_close'); 
+		register_shutdown_function('session_write_close');
 	}
 
 	/**

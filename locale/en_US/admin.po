@@ -432,7 +432,7 @@ msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr "Can not run queue jobs because the application maintenance mode is enabled."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr "List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage= . Pass flah --failed to list failied jobs."
+msgstr "List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage= . Pass flag --failed to list failed jobs."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr "Purge a specific queued job based on his Id. If you would like to purge all, pass the parameter --all. If you would like to purge all from a specific queue, pass the parameter --queue="

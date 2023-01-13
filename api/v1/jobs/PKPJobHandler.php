@@ -33,9 +33,9 @@ class PKPJobHandler extends APIHandler
      */
     public function __construct()
     {
-        $this->_handlerPath = 'jobs';
+        $this->_apiForAdmin = true;
 
-        $this->_pathPattern = '/admin/api/{version}/' . $this->_handlerPath;
+        $this->_handlerPath = 'jobs';
         
         $roles = [Role::ROLE_ID_SITE_ADMIN];
 

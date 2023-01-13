@@ -16,6 +16,7 @@
 namespace PKP\pages\admin;
 
 use APP\core\Application;
+use PKP\handler\APIHandler;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -655,7 +656,7 @@ class AdminHandler extends Handler
             'lastPage' => $failedJobs->lastPage(),
             'currentPage' => $failedJobs->currentPage(),
             'isLoadingItems' => false,
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'admin', 'jobs'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs'),
         ];
     }
 

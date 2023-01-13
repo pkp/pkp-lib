@@ -15,7 +15,6 @@
 
 namespace PKP\task;
 
-use APP\facades\Repo;
 use Carbon\Carbon;
 use PKP\config\Config;
 use PKP\scheduledTask\ScheduledTask;
@@ -36,7 +35,7 @@ class RemoveFailedJobs extends ScheduledTask
      */
     public function executeActions()
     {
-        $cleanUpPeriod = (int) Config::getVar('queues', 'failed_job_clean_period', null);
+        $cleanUpPeriod = (int) Config::getVar('queues', 'failed_job_clean_period', 180);
 
         // No need to run the clean up process if the cleaning period is not defined in config
         if ( !$cleanUpPeriod ) {

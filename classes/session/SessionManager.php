@@ -21,6 +21,7 @@ use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use SessionHandlerInterface;
+use Stringy\Stringy;
 
 class SessionManager implements SessionHandlerInterface
 {
@@ -62,10 +63,7 @@ class SessionManager implements SessionHandlerInterface
             }
         }
 
-        if (!$this->userSession
-            || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() !== $ip)
-            || $this->userSession->getUserAgent() !== substr($userAgent, 0, 255)
-        ) {
+        if (!$this->userSession || !$this->isValid($this->userSession)) {
             if ($this->userSession) {
                 // Destroy old session
                 session_destroy();
@@ -308,6 +306,19 @@ class SessionManager implements SessionHandlerInterface
         ini_set('session.cache_limiter', 'none');
 
         session_set_save_handler($this, true);
+    }
+
+    /**
+     * Retrieves whether the given session is valid
+     */
+    private function isValid(Session $session): bool
+    {
+        // Same IP address (if IP validation is enabled)
+        return (!Config::getVar('security', 'session_check_ip') || $session->getIpAddress() === $this->request->getRemoteAddr())
+            // Same user agent
+            && $session->getUserAgent() === substr($this->request->getUserAgent(), 0, 255)
+            // Compatible domain
+            && (!$session->getDomain() || (Stringy::create($this->request->getServerHost(includePort: false))->endsWith($session->getDomain(), false)));
     }
 
     /**

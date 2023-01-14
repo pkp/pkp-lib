@@ -46,30 +46,20 @@ class SessionManager implements SessionHandlerInterface
         $this->request = Application::get()->getRequest();
 
         $this->configure();
+        $this->start();
 
-        // Initialize the session. This calls SessionManager::read() and
-        // sets $this->userSession if a session is present.
-        session_start();
-
-        // Check if the session is tied to the parent domain
-        $domain = $this->userSession ? $this->userSession->getDomain() : null;
-        if ($domain && $domain != $request->getServerHost(null, false)) {
-            // if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
-            if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($domain))) === '.' . strtolower($domain)) {
-                ini_set('session.cookie_domain', $domain);
+        // If there's a session assigned to the session ID
+        if ($this->userSession) {
+            // Validates it and refresh
+            if ($this->isValid($this->userSession)) {
+                $this->refresh();
+                return;
             }
+            // When invalid, regenerates the session ID without destroying the failed session (perhaps it belongs to another user)
+            session_regenerate_id();
         }
 
-        if (!$this->userSession || !$this->isValid($this->userSession)) {
-            if ($this->userSession) {
-                // Destroy old session
-                session_destroy();
-            }
-
-            $this->createSession();
-        } else {
-            $this->refresh();
-        }
+        $this->createSession();
     }
 
     /**
@@ -176,33 +166,6 @@ class SessionManager implements SessionHandlerInterface
     }
 
     /**
-     * Resubmit the session cookie.
-     *
-     */
-    public function updateSessionCookie($sessionId = false, int $expireTime = 0): bool
-    {
-        $domain = ini_get('session.cookie_domain');
-        // Specific domains must contain at least one '.' (e.g. Chrome)
-        if (strpos($domain, '.') === false) {
-            $domain = false;
-        }
-
-        // Clear cookies with no domain #8921
-        if ($domain) {
-            setcookie(session_name(), '', 0, ini_get('session.cookie_path'), false);
-        }
-
-        $cookieParams = session_get_cookie_params();
-        unset($cookieParams['lifetime']);
-        $cookieParams['expires'] = $expireTime;
-        return setcookie(
-            session_name(),
-            $sessionId === false ? session_id() : $sessionId,
-            $cookieParams
-        );
-    }
-
-    /**
      * Regenerate the session ID for the current user session.
      * This is useful to guard against the "session fixation" form of hijacking
      * by changing the user's session ID after they have logged in (in case the
@@ -210,19 +173,15 @@ class SessionManager implements SessionHandlerInterface
      */
     public function regenerateSessionId(): bool
     {
-        $success = false;
-        $currentSessionId = session_id();
-
-        if (session_regenerate_id(true) && isset($this->userSession)) {
-            // Delete old session and insert new session
-            $this->sessionDao->deleteById($currentSessionId);
-            $this->userSession->setId(session_id());
-            $this->sessionDao->insertObject($this->userSession);
-            $this->updateSessionCookie(); // TODO: this might not be needed on >= 4.3.3
-            $success = true;
+        // Indirectly calls $this->destroy() with the old session ID
+        if (!session_regenerate_id(true)) {
+            return false;
         }
 
-        return $success;
+        $this->userSession->setId(session_id());
+        $this->sessionDao->insertObject($this->userSession);
+
+        return true;
     }
 
     /**
@@ -231,7 +190,10 @@ class SessionManager implements SessionHandlerInterface
      */
     public function updateSessionLifetime(int $expireTime = 0): bool
     {
-        return $this->updateSessionCookie(false, $expireTime);
+        $options = session_get_cookie_params();
+        unset($options['lifetime']);
+        $options['expires'] = $expireTime;
+        return setcookie(session_name(), session_id(), $options);
     }
 
     /**
@@ -285,6 +247,85 @@ class SessionManager implements SessionHandlerInterface
     }
 
     /**
+     * Starts the session
+     *
+     * In case there are many session cookies, it attempts to find the best one and clear the remaining, considering the issues below:
+     * Empty domains: Old applications (e.g. OJS 2.x) didn't store the domain, therefore users revising the application after a migration might be affected, we'll drop it.
+     * Subdomains mixed with parent domains: Users visiting "journal.sfu.ca", then "www.journal.sfu.ca" might end up with N+1 session cookies, this is problematic, we'll try to drop the excess.
+     * Domain cookies belonging to different paths or expired sessions: They will be kept (until the user clears his cookies) and probably trigger the extra checks.
+     */
+    private function start(): void
+    {
+        $sessionIds = collect($this->getSessionIds());
+        // Standard flow with a single session ID
+        if ($sessionIds->count() < 2) {
+            session_start();
+            return;
+        }
+
+        $requestDomain = Stringy::create($this->request->getServerHost(includePort: false));
+        /** @var \Illuminate\Support\Collection<Session> */
+        $sessions = $sessionIds
+            ->map(fn (string $sessionId) => $this->sessionDao->getSession($sessionId))
+            // Only sessions with valid domains (empty domains are also accepted)
+            ->filter(fn (?Session $session) => $session && $requestDomain->endsWith($session->getDomain(), false));
+
+        /** @var ?Session */
+        $bestSession = $sessions->reduce(function (?Session $best, Session $current): Session {
+            // Skip invalid sessions
+            if (!$this->isValid($current)) {
+                return $best;
+            }
+            // Give priority to logged in sessions
+            if ($current->getUserId() && !$best?->getUserId()) {
+                return $current;
+            }
+            // Give priority to the session which was used most recently
+            return $current->getSecondsLastUsed() > (int) $best?->getSecondsLastUsed() ? $current : $best;
+        });
+
+        /** @var \Illuminate\Support\Collection<string> */
+        $domains = $sessions->map(fn (Session $session) => $session->getDomain() ?: $requestDomain)->unique();
+        // Prefers the parent domain (smaller length) to define the session, fallbacks to the request domain
+        $bestDomain = $domains->reduce(fn (?string $best, string $current) => $best && strlen($best) <= strlen($current) ? $best : $current) ?: $requestDomain;
+
+        // Ensures the session domain isn't empty
+        $bestSession?->setDomain($bestDomain);
+        // Updates the domain setting while the session is closed
+        ini_set('session.cookie_domain', $bestDomain);
+
+        // Seed the session with the proper ID
+        session_id($bestSession?->getId() ?? session_create_id());
+        session_start();
+
+        // The cookies must be dropped after the session is started, otherwise PHP will not send them
+        $this->clearDiscardedSessions($domains->toArray(), $bestDomain);
+        // Ensures the domain is updated (data will be saved once the session gets closed)
+        $this->userSession?->setDomain($bestDomain);
+        $this->updateSessionLifetime();
+    }
+
+    /**
+     * Clears discarded session cookies
+     * @param string[] $domains
+     */
+    private function clearDiscardedSessions(array $domains, string $bestDomain): void
+    {
+        // Includes non-specified/empty domain (cleanup deprecated domainless cookie)
+        $domains[] = '';
+        $requestDomain = $this->request->getServerHost(includePort: false);
+        // Includes the request domain if it's not the domain used by the session
+        if ($requestDomain !== $bestDomain) {
+            $domains[] = $requestDomain;
+        }
+
+        // Drops the cookies (the session data will be cleared by the garbage collector)
+        foreach (array_unique($domains) as $domain) {
+            setcookie(session_name(), '', ['domain' => $domain, 'path' => ini_get('session.cookie_path')]);
+        }
+    }
+
+    /**
      * Retrieves whether the given session is valid
      */
     private function isValid(Session $session): bool
@@ -330,6 +371,23 @@ class SessionManager implements SessionHandlerInterface
         $this->userSession->setSessionData('');
 
         $this->sessionDao->insertObject($this->userSession);
+    }
+
+    /**
+     * Retrieve session IDs sent by the browser
+     * @return string[]
+     */
+    private function getSessionIds(): array
+    {
+        $ids = [];
+        foreach (explode('; ', $_SERVER['HTTP_COOKIE'] ?? '') as $cookie) {
+            $nameValue = explode('=', $cookie, 2);
+            $value = trim(urldecode($nameValue[1] ?? ''));
+            if ($nameValue[0] === session_name() && strlen($value)) {
+                $ids[$value] = 0;
+            }
+        }
+        return array_keys($ids);
     }
 }
 

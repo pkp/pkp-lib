@@ -26,11 +26,11 @@ use Stringy\Stringy;
 
 class SessionManager implements SessionHandlerInterface
 {
-    /** @var SessionDao The DAO for accessing Session objects */
-    public $sessionDao;
+    /** The DAO for accessing Session objects */
+    private SessionDao $sessionDao;
 
-    /** @var Session The Session associated with the current request */
-    public $userSession;
+    /** The Session associated with the current request */
+    private ?Session $userSession = null;
 
     private PKPRequest $request;
 
@@ -40,7 +40,7 @@ class SessionManager implements SessionHandlerInterface
      * Attempts to rejoin a user's session if it exists, or create a new session otherwise.
      *
      */
-    public function __construct(SessionDAO $sessionDao, PKPRequest $request)
+    private function __construct(SessionDAO $sessionDao)
     {
         $this->sessionDao = $sessionDao;
         $this->request = Application::get()->getRequest();
@@ -80,18 +80,7 @@ class SessionManager implements SessionHandlerInterface
     {
         // Reference required
         $instance = & Registry::get('sessionManager', true, null);
-
-        if (is_null($instance)) {
-            $application = Registry::get('application');
-            assert(!is_null($application));
-            $request = $application->getRequest();
-            assert(!is_null($request));
-
-            // Implicitly set session manager by ref in the registry
-            $instance = new SessionManager(DAORegistry::getDAO('SessionDAO'), $request);
-        }
-
-        return $instance;
+        return $instance ??= new SessionManager(DAORegistry::getDAO('SessionDAO'));
     }
 
     /**
@@ -147,10 +136,8 @@ class SessionManager implements SessionHandlerInterface
      */
     public function read(string $sessionId): string
     {
-        if (!$this->userSession) {
-            $this->userSession = $this->sessionDao->getSession($sessionId);
-        }
-        return $this->userSession ? $this->userSession->getSessionData() : '';
+        $this->userSession ??= $this->sessionDao->getSession($sessionId);
+        return $this->userSession?->getSessionData() ?? '';
     }
 
     /**
@@ -158,7 +145,7 @@ class SessionManager implements SessionHandlerInterface
      */
     public function write(string $sessionId, string $data): bool
     {
-        if (isset($this->userSession)) {
+        if ($this->userSession) {
             $this->userSession->setSessionData($data);
             $this->sessionDao->updateObject($this->userSession);
         }
@@ -182,7 +169,10 @@ class SessionManager implements SessionHandlerInterface
      */
     public function gc(int $lifetime): bool
     {
-        return (bool) $this->sessionDao->deleteByLastUsed(time() - 86400, Config::getVar('general', 'session_lifetime') <= 0 ? 0 : time() - Config::getVar('general', 'session_lifetime') * 86400);
+        $sessionLifetimeInDays = max(0, Config::getVar('general', 'session_lifetime'));
+        $lastUsedRemember = $sessionLifetimeInDays ? Carbon::now()->subDays($sessionLifetimeInDays)->getTimestamp() : 0;
+        $this->sessionDao->deleteByLastUsed(Carbon::now()->subDay()->getTimestamp(), $lastUsedRemember);
+        return true;
     }
 
     /**

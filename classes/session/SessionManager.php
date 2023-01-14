@@ -16,6 +16,7 @@
 namespace PKP\session;
 
 use APP\core\Application;
+use Carbon\Carbon;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
@@ -50,10 +51,6 @@ class SessionManager implements SessionHandlerInterface
         // sets $this->userSession if a session is present.
         session_start();
 
-        $ip = $request->getRemoteAddr();
-        $userAgent = $request->getUserAgent();
-        $now = time();
-
         // Check if the session is tied to the parent domain
         $domain = $this->userSession ? $this->userSession->getDomain() : null;
         if ($domain && $domain != $request->getServerHost(null, false)) {
@@ -71,18 +68,7 @@ class SessionManager implements SessionHandlerInterface
 
             $this->createSession();
         } else {
-            if ($this->userSession->getRemember()) {
-                // Update session timestamp for remembered sessions so it doesn't expire in the middle of a browser session
-                if (Config::getVar('general', 'session_lifetime') > 0) {
-                    $this->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
-                } else {
-                    $this->userSession->setRemember(0);
-                    $this->updateSessionLifetime(0);
-                }
-            }
-
-            // Update existing session's timestamp; will be saved when write is called
-            $this->userSession->setSecondsLastUsed($now);
+            $this->refresh();
         }
     }
 
@@ -319,6 +305,22 @@ class SessionManager implements SessionHandlerInterface
             && $session->getUserAgent() === substr($this->request->getUserAgent(), 0, 255)
             // Compatible domain
             && (!$session->getDomain() || (Stringy::create($this->request->getServerHost(includePort: false))->endsWith($session->getDomain(), false)));
+    }
+
+    /**
+     * Refreshes the session expiration
+     */
+    private function refresh(): void
+    {
+        // Update existing session's timestamp; will be saved when write is called
+        $this->userSession->setSecondsLastUsed(time());
+        if (!$this->userSession->getRemember()) {
+            return;
+        }
+        // Update session timestamp for remembered sessions so it doesn't expire in the middle of a browser session
+        $lifetime = max(0, Config::getVar('general', 'session_lifetime'));
+        $this->userSession->setRemember((bool) $lifetime);
+        $this->updateSessionLifetime($lifetime ? Carbon::now()->addDays($lifetime)->getTimestamp() : 0);
     }
 
     /**

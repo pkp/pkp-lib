@@ -48,7 +48,6 @@ class SessionManager implements SessionHandlerInterface
         // Initialize the session. This calls SessionManager::read() and
         // sets $this->userSession if a session is present.
         session_start();
-        $sessionId = session_id();
 
         $ip = $request->getRemoteAddr();
         $userAgent = $request->getUserAgent();
@@ -72,17 +71,7 @@ class SessionManager implements SessionHandlerInterface
                 session_destroy();
             }
 
-            // Create new session
-            $this->userSession = $this->sessionDao->newDataObject();
-            $this->userSession->setId($sessionId);
-            $this->userSession->setIpAddress($ip);
-            $this->userSession->setUserAgent($userAgent);
-            $this->userSession->setSecondsCreated($now);
-            $this->userSession->setSecondsLastUsed($now);
-            $this->userSession->setDomain(ini_get('session.cookie_domain'));
-            $this->userSession->setSessionData('');
-
-            $this->sessionDao->insertObject($this->userSession);
+            $this->createSession();
         } else {
             if ($this->userSession->getRemember()) {
                 // Update session timestamp for remembered sessions so it doesn't expire in the middle of a browser session
@@ -319,6 +308,25 @@ class SessionManager implements SessionHandlerInterface
         ini_set('session.cache_limiter', 'none');
 
         session_set_save_handler($this, true);
+    }
+
+    /**
+     * Creates a new session
+     */
+    private function createSession(): void
+    {
+        $now = time();
+
+        $this->userSession = $this->sessionDao->newDataObject();
+        $this->userSession->setId(session_id());
+        $this->userSession->setIpAddress($this->request->getRemoteAddr());
+        $this->userSession->setUserAgent($this->request->getUserAgent());
+        $this->userSession->setSecondsCreated($now);
+        $this->userSession->setSecondsLastUsed($now);
+        $this->userSession->setDomain(ini_get('session.cookie_domain'));
+        $this->userSession->setSessionData('');
+
+        $this->sessionDao->insertObject($this->userSession);
     }
 }
 

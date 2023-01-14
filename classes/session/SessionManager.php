@@ -19,8 +19,9 @@ use PKP\config\Config;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use SessionHandlerInterface;
 
-class SessionManager
+class SessionManager implements SessionHandlerInterface
 {
     /** @var SessionDao The DAO for accessing Session objects */
     public $sessionDao;
@@ -53,14 +54,7 @@ class SessionManager
         ini_set('session.gc_maxlifetime', 60 * 60);
         ini_set('session.cache_limiter', 'none');
 
-        session_set_save_handler(
-            [$this, 'open'],
-            [$this, 'close'],
-            [$this, 'read'],
-            [$this, 'write'],
-            [$this, 'destroy'],
-            [$this, 'gc']
-        );
+        session_set_save_handler($this, true);
 
         // Initialize the session. This calls SessionManager::read() and
         // sets $this->userSession if a session is present.
@@ -114,8 +108,6 @@ class SessionManager
             // Update existing session's timestamp; will be saved when write is called
             $this->userSession->setSecondsLastUsed($now);
         }
-        // https://www.php.net/manual/en/function.session-set-save-handler.php#refsect1-function.session-set-save-handler-notes
-        register_shutdown_function('session_write_close');
     }
 
     /**
@@ -174,7 +166,7 @@ class SessionManager
      * Open a session.
      * Does nothing; only here to satisfy PHP session handler requirements.
      */
-    public function open(): bool
+    public function open(string $path, string $name): bool
     {
         return true;
     }

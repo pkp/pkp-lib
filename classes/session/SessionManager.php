@@ -15,6 +15,7 @@
 
 namespace PKP\session;
 
+use APP\core\Application;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
@@ -29,6 +30,8 @@ class SessionManager implements SessionHandlerInterface
     /** @var Session The Session associated with the current request */
     public $userSession;
 
+    private PKPRequest $request;
+
     /**
      * Constructor.
      * Initialize session configuration and set PHP session handlers.
@@ -38,23 +41,9 @@ class SessionManager implements SessionHandlerInterface
     public function __construct(SessionDAO $sessionDao, PKPRequest $request)
     {
         $this->sessionDao = $sessionDao;
+        $this->request = Application::get()->getRequest();
 
-        // Configure PHP session parameters
-        ini_set('session.name', Config::getVar('general', 'session_cookie_name'));
-        ini_set('session.cookie_lifetime', 0);
-        ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'));
-        ini_set('session.cookie_domain', $request->getServerHost(null, false));
-        ini_set('session.cookie_httponly', 1);
-        ini_set('session.cookie_samesite', Config::getVar('general', 'same_site', 'Lax'));
-        ini_set('session.cookie_secure', Config::getVar('security', 'force_ssl'));
-        ini_set('session.use_trans_sid', 0);
-        ini_set('session.serialize_handler', 'php');
-        ini_set('session.use_cookies', 1);
-        ini_set('session.gc_probability', 1);
-        ini_set('session.gc_maxlifetime', 60 * 60);
-        ini_set('session.cache_limiter', 'none');
-
-        session_set_save_handler($this, true);
+        $this->configure();
 
         // Initialize the session. This calls SessionManager::read() and
         // sets $this->userSession if a session is present.
@@ -308,6 +297,28 @@ class SessionManager implements SessionHandlerInterface
     {
         // If the session isn't disabled and a cookie is present or a session was started in the current request
         return !SessionManager::isDisabled() && (isset($_COOKIE[Config::getVar('general', 'session_cookie_name')]) || !!session_id());
+    }
+
+    private function configure(): void
+    {
+        $domain = $this->request->getServerHost(includePort: false);
+
+        // Configure PHP session parameters
+        ini_set('session.name', Config::getVar('general', 'session_cookie_name'));
+        ini_set('session.cookie_lifetime', 0);
+        ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $this->request->getBasePath() . '/'));
+        ini_set('session.cookie_domain', $domain);
+        ini_set('session.cookie_httponly', 1);
+        ini_set('session.cookie_samesite', Config::getVar('general', 'same_site', 'Lax'));
+        ini_set('session.cookie_secure', Config::getVar('security', 'force_ssl'));
+        ini_set('session.use_trans_sid', 0);
+        ini_set('session.serialize_handler', 'php');
+        ini_set('session.use_cookies', 1);
+        ini_set('session.gc_probability', 1);
+        ini_set('session.gc_maxlifetime', 60 * 60);
+        ini_set('session.cache_limiter', 'none');
+
+        session_set_save_handler($this, true);
     }
 }
 

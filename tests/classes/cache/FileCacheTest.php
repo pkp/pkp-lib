@@ -36,7 +36,7 @@ class FileCacheTest extends PKPTestCase
     ];
 
     /**
-     * @covers FileCache::get
+     * @covers \PKP\cache\FileCache::get
      */
     public function testGetCache()
     {
@@ -66,7 +66,7 @@ class FileCacheTest extends PKPTestCase
     }
 
     /**
-     * @covers FileCache::get
+     * @covers \PKP\cache\FileCache::get
      */
     public function testCacheMiss()
     {

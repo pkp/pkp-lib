@@ -82,7 +82,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\Locale
      */
     public function testIsLocaleComplete()
     {
@@ -92,7 +92,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\Locale
      */
     public function testGetLocales()
     {
@@ -107,7 +107,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\Locale
      */
     public function testGetLocalesWithCountryName()
     {
@@ -122,7 +122,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\LocaleConversion
      */
     public function testGet3LetterFrom2LetterIsoLanguage()
     {
@@ -132,7 +132,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\LocaleConversion
      */
     public function testGet2LetterFrom3LetterIsoLanguage()
     {
@@ -142,7 +142,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\LocaleConversion
      */
     public function testGet3LetterIsoFromLocale()
     {
@@ -153,7 +153,7 @@ class LocaleTest extends PKPTestCase
     }
 
     /**
-     * @covers Locale
+     * @covers \PKP\i18n\LocaleConversion
      */
     public function testGetLocaleFrom3LetterIso()
     {

@@ -324,7 +324,7 @@ Cypress.Commands.add('recordDecisionAcceptSubmission', (authorNames, completedRe
 		cy.get('h2').contains('Notify Reviewers').should('exist');
 		cy.waitForEmailTemplateToBeLoaded('Notify Reviewers');
 		cy.checkComposerRecipients('Notify Reviewers', completedReviewerNames);
-		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
+		cy.checkEmailRecipientVariable('#notifyReviewers-body-control_ifr', '{$recipientName}');
 		cy.get('.decision__footer button').contains('Continue').click();
 	}
 	cy.selectPromotedFiles(filesToPromote);
@@ -359,7 +359,7 @@ Cypress.Commands.add('recordDecisionRevisions', (revisionLabel, authorNames, com
 		cy.get('h2').contains('Notify Reviewers').should('exist');
 		cy.waitForEmailTemplateToBeLoaded('Notify Reviewers');
 		cy.checkComposerRecipients('Notify Reviewers', completedReviewerNames);
-		cy.checkEmailRecipientVariable('#notifyReviewers-body-control', '{$recipientName}');
+		cy.checkEmailRecipientVariable('#notifyReviewers-body-control_ifr', '{$recipientName}');
 	}
 	cy.recordDecision('have been requested.');
 });
@@ -450,12 +450,16 @@ Cypress.Commands.add('checkEmailTemplateVariables', (selector) => {
  * This is used when the composer is set to send separate emails
  * to each recipient, and {$recipientName} is kept in the message.
  *
- * @param string selector The HTML element selector for the text area where the value is stored
+ * @param string selector The HTML selector for the iframe where the tinymce value exists
  */
 Cypress.Commands.add('checkEmailRecipientVariable', (selector, value) => {
-	cy.get(selector).should(($div) => {
-		expect($div.get(0).textContent).to.include(value);
-	});
+	cy.get(selector)
+		.its('0.contentDocument').should('exist')
+		.its('body').should('not.be.undefined')
+		.then(cy.wrap)
+		.should(($body) => {
+			expect($body.get(0).textContent).to.include(value);
+		});
 });
 
 /**

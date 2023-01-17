@@ -32,18 +32,18 @@ class SessionManager {
 		$this->sessionDao = $sessionDao;
 
 		// Configure PHP session parameters
-		ini_set('session.use_trans_sid', 0);
-		ini_set('session.serialize_handler', 'php');
-		ini_set('session.use_cookies', 1);
-		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
+		ini_set('session.name', Config::getVar('general', 'session_cookie_name'));
 		ini_set('session.cookie_lifetime', 0);
 		ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'));
 		ini_set('session.cookie_domain', $request->getServerHost(null, false));
 		ini_set('session.cookie_httponly', 1);
+		ini_set('session.cookie_samesite', Config::getVar('general', 'same_site', 'Lax'));
 		ini_set('session.cookie_secure', Config::getVar('security', 'force_ssl'));
+		ini_set('session.use_trans_sid', 0);
+		ini_set('session.serialize_handler', 'php');
+		ini_set('session.use_cookies', 1);
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
-		ini_set('session.auto_start', 1);
 		ini_set('session.cache_limiter', 'none');
 
 		session_set_save_handler(
@@ -110,7 +110,7 @@ class SessionManager {
 		// having the APC opcode cache installed
 		// Bugzilla: https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
 		// PHP Bug tracker: https://bugs.php.net/bug.php?id=58739
-		register_shutdown_function('session_write_close'); 
+		register_shutdown_function('session_write_close');
 	}
 
 	/**
@@ -201,7 +201,7 @@ class SessionManager {
 
 	/**
 	 * Garbage collect unused session data.
-	 * TODO: Use $maxlifetime instead of assuming 24 hours?
+	 * @todo Use $maxlifetime instead of assuming 24 hours?
 	 * @param $maxlifetime int the number of seconds after which data will be seen as "garbage" and cleaned up
 	 * @return boolean
 	 */
@@ -225,14 +225,13 @@ class SessionManager {
 			setcookie(session_name(), "", 0, ini_get('session.cookie_path'), false);
 		}
 
+		$cookieParams = session_get_cookie_params();
+		unset($cookieParams['lifetime']);
+		$cookieParams['expires'] = $expireTime;
 		return setcookie(
 			session_name(),
-			($sessionId === false) ? session_id() : $sessionId,
-			$expireTime,
-			ini_get('session.cookie_path'),
-			$domain,
-			Config::getVar('security', 'force_ssl'),
-			true
+			$sessionId === false ? session_id() : $sessionId,
+			$cookieParams
 		);
 	}
 
@@ -247,7 +246,7 @@ class SessionManager {
 		$success = false;
 		$currentSessionId = session_id();
 
-		if (session_regenerate_id() && isset($this->userSession)) {
+		if (session_regenerate_id(true) && isset($this->userSession)) {
 			// Delete old session and insert new session
 			$this->sessionDao->deleteById($currentSessionId);
 			$this->userSession->setId(session_id());

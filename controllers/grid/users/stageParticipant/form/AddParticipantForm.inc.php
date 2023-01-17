@@ -78,20 +78,36 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 	/**
 	 * Determine whether the specified user group is potentially restricted from editing metadata.
-	 * @param $userGroupId int
+	 *
+	 * Subeditors can not change their own permissions.
+	 *
 	 * @return boolean
 	 */
-	protected function _isChangePermitMetadataAllowed($userGroupId) {
-		return !in_array($userGroupId, $this->_managerGroupIds);
+	protected function _isChangePermitMetadataAllowed(UserGroup $userGroup, int $userId) {
+		$currentUser = Application::get()->getRequest()->getUser();
+
+		if ($currentUser->getId() === $userId && $userGroup->getRoleId() === ROLE_ID_SUB_EDITOR) {
+			return false;
+		}
+
+		return $userGroup->getRoleId() !== ROLE_ID_MANAGER;
 	}
 
 	/**
 	 * Determine whether the specified group is potentially required to make recommendations rather than decisions.
-	 * @param $userGroupId int
+	 *
+	 * Subeditors can not change their own permissions.
+	 *
 	 * @return boolean
 	 */
-	protected function _isChangeRecommendOnlyAllowed($userGroupId) {
-		return in_array($userGroupId, $this->_possibleRecommendOnlyUserGroupIds);
+	protected function _isChangeRecommendOnlyAllowed(UserGroup $userGroup, int $userId) {
+		$currentUser = Application::get()->getRequest()->getUser();
+
+		if ($currentUser->getId() === $userId && $userGroup->getRoleId() === ROLE_ID_SUB_EDITOR) {
+			return false;
+		}
+
+		return in_array($userGroup->getRoleId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
 	}
 
 	/**
@@ -137,7 +153,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			$currentUser = $userDao->getById($stageAssignment->getUserId());
 
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-			/** @var $userGroup UserGroup */
+			/** @var UserGroup $userGroup */
 			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 
 			$templateMgr->assign(array(
@@ -148,8 +164,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 				'userIdSelected' => $stageAssignment->getUserId(),
 				'currentAssignmentRecommendOnly' => $stageAssignment->getRecommendOnly(),
 				'currentAssignmentPermitMetadataEdit' => $stageAssignment->getCanChangeMetadata(),
-				'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed($userGroup->getId()),
-				'isChangeRecommendOnlyAllowed' => $this->_isChangeRecommendOnlyAllowed($userGroup->getId()),
+				'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed($userGroup, $stageAssignment->getUserId()),
+				'isChangeRecommendOnlyAllowed' => $this->_isChangeRecommendOnlyAllowed($userGroup, $stageAssignment->getUserId()),
 			));
 		}
 
@@ -214,13 +230,14 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
 
 		$submission = $this->getSubmission();
-		$userGroupId = (int) $this->getData('userGroupId');
+		/** @var UserGroup $userGroup */
+		$userGroup = $userGroupDao->getById((int) $this->getData('userGroupId'));
 		$userId = (int) $this->getData('userId');
-		$recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroupId) ? (boolean) $this->getData('recommendOnly') : false;
-		$canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroupId) ? (boolean) $this->getData('canChangeMetadata') : true;
+		$recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId) ? (boolean) $this->getData('recommendOnly') : false;
+		$canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroup, $userId) ? (boolean) $this->getData('canChangeMetadata') : true;
 
 		// sanity check
-		if ($userGroupDao->userGroupAssignedToStage($userGroupId, $this->getStageId())) {
+		if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), $this->getStageId())) {
 			$updated = false;
 
 			if ($this->_assignmentId) {
@@ -237,12 +254,12 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 			if (!$updated) {
 				// insert the assignment
-				$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId, $recommendOnly, $canChangeMetadata);
+				$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroup->getId(), $userId, $recommendOnly, $canChangeMetadata);
 			}
 		}
 
 		parent::execute(...$functionParams);
-		return array($userGroupId, $userId, $stageAssignment->getId());
+		return array($userGroup->getId(), $userId, $stageAssignment->getId());
 	}
 
 	/**

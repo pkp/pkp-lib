@@ -142,7 +142,7 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('.pkpSteps__step__label--current').contains('Details');
 		cy.get('h2').contains('Submission Details');
 		cy.setTinyMceContent('titleAbstract-abstract-control-en_US', submission.abstract);
-		cy.get('#titleAbstract-abstract-control-en_US').click(); // Ensure blur event is fired
+		cy.get('#titleAbstract-title-control-en_US').click(); // Ensure blur event is fired
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 

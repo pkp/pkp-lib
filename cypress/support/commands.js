@@ -18,6 +18,13 @@ Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 			// Clear any pre-existing content in the editor
 			const editor = win.tinymce.editors[tinyMceId].setContent('');
 
+			// The .type() command does not accept an empty string,
+			// so we simulate interaction with the field that leaves
+			// it empty.
+			if (!content.length) {
+				content = '{selectall}{backspace}';
+			}
+
 			// Type the content to ensure all browser events are fired
 			cy.get('#' + tinyMceId + '_ifr')
 				.its('0.contentDocument').should('exist')

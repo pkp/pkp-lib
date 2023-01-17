@@ -850,7 +850,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return string
 	 */
 	public static function getReadableMaxFileSize() {
-		return strtolower(UPLOAD_MAX_FILESIZE) . 'b';
+		return strtoupper(UPLOAD_MAX_FILESIZE) . 'B';
 	}
 
 	/**
@@ -859,15 +859,26 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return int
 	 */
 	public static function getIntMaxFileMBs() {
-		$num = substr(UPLOAD_MAX_FILESIZE, 0, (strlen(UPLOAD_MAX_FILESIZE) - 1));
-		$scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
-		switch ($scale) {
+		$size = (int) UPLOAD_MAX_FILESIZE;
+		$unit = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
+		// No letter suffix fallbacks to "byte"
+		switch (ctype_alpha($unit) ? $unit : 'b') {
 			case 'g':
-				$num = $num / 1024;
+				$size <<= 10;
+				break;
+			case 'm':
+				break;
 			case 'k':
-				$num = $num * 1024;
+				$size >>= 10;
+				break;
+			case 'b':
+				$size >>= 20;
+				break;
+			default:
+				error_log(sprintf('Invalid value for the PHP configuration upload_max_filesize: "%s"', UPLOAD_MAX_FILESIZE));
+				break;
 		}
-		return floor($num);
+		return floor($size);
 	}
 
 	/**
@@ -892,7 +903,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 }
 
 define('REALLY_BIG_NUMBER', 10000);
-define('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
+define('UPLOAD_MAX_FILESIZE', trim(ini_get('upload_max_filesize')));
 
 define('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
 define('WORKFLOW_STAGE_ID_SUBMISSION', 1);

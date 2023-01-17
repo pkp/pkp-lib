@@ -279,7 +279,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setupBackendPage();
         $templateMgr->assign([
-            'pageTitle' => __('user.changePassword'),
+            'pageTitle' => 'user.login.resetPassword',
         ]);
 
         $username = $args[0] ?? null;
@@ -292,7 +292,6 @@ class LoginHandler extends Handler
         if ($user->getDisabled()) {
             $templateMgr
             ->assign([
-                'pageTitle' => 'user.login.resetPassword',
                 'backLink' => $request->url(null, $request->getRequestedPage()),
                 'backLinkLabel' => 'user.login',
                 'messageTranslated' => __('user.login.lostPassword.confirmationSentFailedWithReason', [

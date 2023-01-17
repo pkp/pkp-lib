@@ -12,7 +12,7 @@
 
 {block name="page"}
 	<h1 class="app__pageHeading">
-		{translate key="user.changePassword"}
+		{translate key=$pageTitle}
 	</h1>
 
 	<div class="app__contentPanel">

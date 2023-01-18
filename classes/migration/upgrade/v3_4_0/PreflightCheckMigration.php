@@ -15,6 +15,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
 use Exception;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
@@ -107,6 +108,16 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $notificationId) {
                 $this->_installer->log("Removing orphaned settings for missing notification ID ${notificationId}");
                 DB::table('notification_settings')->where('notification_id', '=', $notificationId)->delete();
+            }
+            // Clean orphan notification_subscription_settings by user ID
+            $orphanedIds = DB::table('notification_subscription_settings AS nss')->leftJoin('users AS u', 'nss.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('nss.user_id');
+            foreach ($orphanedIds as $userId) {
+                DB::table('notification_subscription_settings')->where('user_id', '=', $userId)->delete();
+            }
+            // Clean orphan notification_subscription_settings by context ID
+            $orphanedIds = DB::table('notification_subscription_settings AS nss')->leftJoin($this->getContextTable() . ' AS c', 'nss.context', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->whereNotNull('nss.context')->distinct()->pluck('nss.context');
+            foreach ($orphanedIds as $contextId) {
+                DB::table('notification_subscription_settings')->where('context', '=', $contextId)->delete();
             }
             // Clean orphan submission_file_settings
             $orphanedIds = DB::table('submission_file_settings AS sfs')->leftJoin('submission_files AS sf', 'sfs.submission_file_id', '=', 'sf.submission_file_id')->whereNull('sf.submission_file_id')->distinct()->pluck('sfs.submission_file_id');
@@ -294,15 +305,20 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 }
             }
             // Clean orphaned submissions by context_id
-            $orphanedIds = DB::table('submissions AS s')->leftJoin($this->getContextTable() . ' AS c', 's.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('s.submission_id', 's.context_id');
-            foreach ($orphanedIds as $contextId => $submissionId) {
-                $this->_installer->log("Removing orphaned submission ID ${submissionId} with nonexistent context ID ${contextId}.");
-                DB::table('submissions')->where('submission_id', '=', $submissionId)->delete();
+            $rows = DB::table('submissions AS s')->leftJoin($this->getContextTable() . ' AS c', 's.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->select(['s.submission_id', 's.context_id'])->get();
+            foreach ($rows as $row) {
+                $this->_installer->log("Removing orphaned submission ID {$row->submission_id} with nonexistent context ID {$row->context_id}.");
+                DB::table('submissions')->where('submission_id', '=', $row->submission_id)->delete();
             }
             // Clean orphaned submission_settings entries
             $orphanedIds = DB::table('submission_settings AS ss')->leftJoin('submissions AS s', 'ss.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('ss.submission_id');
             foreach ($orphanedIds as $submissionId) {
                 DB::table('submission_settings')->where('submission_id', '=', $submissionId)->delete();
+            }
+            // Clean orphaned publications entries by submission_id
+            $orphanedIds = DB::table('publications AS p')->leftJoin('submissions AS s', 's.submission_id', '=', 'p.submission_id')->whereNull('s.submission_id')->distinct()->pluck('p.publication_id');
+            foreach ($orphanedIds as $publicationId) {
+                DB::table('publications')->where('publication_id', '=', $publicationId)->delete();
             }
             // Clean orphaned publication_settings entries
             $orphanedIds = DB::table('publication_settings AS ps')->leftJoin('publications AS p', 'ps.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('ps.publication_id');
@@ -324,7 +340,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 throw new Exception('There are author records without matching user_group entries. Please correct these before upgrading.');
             }
 
-            // Clean orphaned publication_settings entries
+            // Clean orphaned author_settings entries
             $orphanedIds = DB::table('author_settings AS a_s')->leftJoin('authors AS a', 'a_s.author_id', '=', 'a.author_id')->whereNull('a.author_id')->distinct()->pluck('a_s.author_id');
             foreach ($orphanedIds as $authorId) {
                 DB::table('author_settings')->where('author_id', '=', $authorId)->delete();
@@ -334,6 +350,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $editorId) {
                 $this->_installer->log("Removing orphaned edit_decisions entry for missing editor_id ${editorId}");
                 DB::table('edit_decisions')->where('editor_id', '=', $editorId)->delete();
+            }
+            // Clean orphaned edit_decisions entries by submission_id
+            $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('submissions AS s', 's.submission_id', '=', 'ed.submission_id')->whereNull('s.submission_id')->distinct()->pluck('ed.submission_id');
+            foreach ($orphanedIds as $submissionId) {
+                $this->_installer->log("Removing orphaned edit_decisions entries for missing submission_id ${submissionId}");
+                DB::table('edit_decisions')->where('submission_id', '=', $submissionId)->delete();
             }
             // Clean orphaned submission_comments entries by submission_id
             $orphanedIds = DB::table('submission_comments AS sc')->leftJoin('submissions AS s', 's.submission_id', '=', 'sc.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sc.submission_id');
@@ -416,10 +438,13 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('stage_assignments')->where('submission_id', '=', $submissionId)->delete();
             }
             // Clean orphaned submission_files entries by submission_id
-            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sf.submission_id');
-            foreach ($orphanedIds as $submissionId) {
-                $this->_installer->log("Removing orphaned submission_files entries for non-existent submission_id ${submissionId}.");
-                DB::table('submission_files')->where('submission_id', '=', $submissionId)->delete();
+            $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('sf.submission_file_id');
+            foreach ($orphanedIds as $submissionFileId) {
+                $this->_installer->log("Removing orphaned submission_files entry {$submissionFileId} with non-existent submission.");
+                DB::table('review_files')->where('submission_file_id', '=', $submissionFileId)->delete();
+                DB::table('submission_file_revisions')->where('submission_file_id', '=', $submissionFileId)->delete();
+                DB::table('submission_file_settings')->where('submission_file_id', '=', $submissionFileId)->delete();
+                DB::table('submission_files')->where('submission_file_id', '=', $submissionFileId)->delete();
             }
             // Clean orphaned submission_files entries by file_id
             $orphanedIds = DB::table('submission_files AS sf')->leftJoin('files AS f', 'sf.file_id', '=', 'f.file_id')->whereNull('f.file_id')->distinct()->pluck('sf.file_id');
@@ -461,34 +486,40 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table($this->getContextSettingsTable())->where($this->getContextKeyField(), '=', $contextId)->delete();
             }
 
-            // Flag users that have same emails if we consider them case insensitively
-            $result = DB::table('users AS a')
-                ->join('users AS b', function ($join) {
-                    $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
-                    $join->on('a.user_id', '<>', 'b.user_id');
-                })
-                ->select('a.user_id as user_id, b.user_id as paired_user_id')
-                ->get();
-            foreach ($result as $row) {
-                $this->_installer->log("The user with user_id {$row->user_id} and email {$row->email} collides with user_id {$row->paired_user_id} and email {$row->paired_email}.");
-            }
-            if ($result->count()) {
-                throw new Exception('Starting with 3.4.0, email addresses are not case sensitive. Your database contains users that have same emails if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
+            // Flag users that have same emails if we consider them case insensitively.
+            // By default, MySQL/MariaDB use case-insensitive collation, so they are not generally affected.
+            if (DB::connection() instanceof PostgresConnection) {
+                $result = DB::table('users AS a')
+                    ->join('users AS b', function ($join) {
+                        $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
+                        $join->on('a.user_id', '<>', 'b.user_id');
+                    })
+                    ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                    ->get();
+                foreach ($result as $row) {
+                    $this->_installer->log("The user with user_id {$row->user_id} and email {$row->email} collides with user_id {$row->paired_user_id} and email {$row->paired_email}.");
+                }
+                if ($result->count()) {
+                    throw new Exception('Starting with 3.4.0, email addresses are not case sensitive. Your database contains users that have same emails if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
+                }
             }
 
             // Flag users that have same username if we consider them case insensitively
-            $result = DB::table('users AS a')
-                ->join('users AS b', function ($join) {
-                    $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
-                    $join->on('a.user_id', '<>', 'b.user_id');
-                })
-                ->select('a.user_id as user_id, b.user_id as paired_user_id')
-                ->get();
-            foreach ($result as $row) {
-                $this->_installer->log("The user with user_id {$row->user_id} and username {$row->username} collides with user_id {$row->paired_user_id} and username {$row->username}.");
-            }
-            if ($result->count()) {
-                throw new Exception('Starting with 3.4.0, usernames are not case sensitive. Your database contains users that have same username if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
+            // By default, MySQL/MariaDB use case-insensitive collation, so they are not generally affected.
+            if (DB::connection() instanceof PostgresConnection) {
+                $result = DB::table('users AS a')
+                    ->join('users AS b', function ($join) {
+                        $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
+                        $join->on('a.user_id', '<>', 'b.user_id');
+                    })
+                    ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                    ->get();
+                foreach ($result as $row) {
+                    $this->_installer->log("The user with user_id {$row->user_id} and username {$row->username} collides with user_id {$row->paired_user_id} and username {$row->username}.");
+                }
+                if ($result->count()) {
+                    throw new Exception('Starting with 3.4.0, usernames are not case sensitive. Your database contains users that have same username if considered case insensitively. These must be merged or made unique before the upgrade can be executed. Use the tools/mergeUsers.php script in the old installation directory to resolve these before running the upgrade.');
+                }
             }
 
             // Make sure submission checklists have locale key
@@ -553,29 +584,18 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function checkContactSetting(): void
     {
-        $primaryLocale = DB::table('site')
-            ->select(['primary_locale'])
-            ->first()
-            ->primary_locale;
-
-        $missingContactContexts = DB::table("{$this->getContextTable()}")
-            ->select([
-                "{$this->getContextKeyField()}",
-            ])
-            ->addSelect(['title' => DB::table("{$this->getContextSettingsTable()}")
-            ->select(['setting_value'])
-            ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
-            ->where('locale', $primaryLocale)
-            ->where('setting_name', 'name')
-            ])
-            ->whereNotIn(
-                "{$this->getContextKeyField()}",
-                fn ($query) => $query
-                    ->select("{$this->getContextKeyField()}")
-                    ->from("{$this->getContextSettingsTable()}")
-                    ->whereColumn("{$this->getContextKeyField()}", "{$this->getContextTable()}.{$this->getContextKeyField()}")
-                    ->whereIn('setting_name', ['contactEmail', 'contactName'])
-            )
+        $missingContactContexts = DB::table($this->getContextTable() . ' AS contexts')
+            ->select('contexts.path AS path')
+            ->leftJoin($this->getContextSettingsTable() . ' AS email_join', function ($join) {
+                $join->on("contexts.{$this->getContextKeyField()}", '=', "email_join.{$this->getContextKeyField()}")
+                    ->where('email_join.setting_name', '=', 'contactEmail');
+            })
+            ->leftJoin($this->getContextSettingsTable() . ' AS name_join', function ($join) {
+                $join->on("contexts.{$this->getContextKeyField()}", '=', "name_join.{$this->getContextKeyField()}")
+                    ->where('name_join.setting_name', '=', 'contactName');
+            })
+            ->whereNull("email_join.{$this->getContextKeyField()}")
+            ->orWhereNull("name_join.{$this->getContextKeyField()}")
             ->get();
 
         if ($missingContactContexts->count() <= 0) {
@@ -584,8 +604,8 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
         throw new Exception(
             sprintf(
-                'Missing contact name/email information for contexts [%s], please set those before upgrading',
-                $missingContactContexts->pluck('title')->implode(',')
+                'Contact name or email is missing for context(s) with path(s) [%s]. Please set those before upgrading.',
+                $missingContactContexts->pluck('path')->implode(',')
             )
         );
     }

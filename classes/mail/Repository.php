@@ -39,7 +39,6 @@ class Repository extends \PKP\mail\Repository
             \PKP\mail\mailables\DecisionNotifyOtherAuthors::class,
             \PKP\mail\mailables\DecisionRevertInitialDeclineNotifyAuthor::class,
             \PKP\mail\mailables\DiscussionProduction::class,
-            \PKP\mail\mailables\EditorialReminder::class,
             \PKP\mail\mailables\PasswordReset::class,
             \PKP\mail\mailables\PasswordResetRequested::class,
             \PKP\mail\mailables\StatisticsReportNotify::class,
@@ -50,6 +49,8 @@ class Repository extends \PKP\mail\Repository
             \PKP\mail\mailables\ValidateEmailSite::class,
             \PKP\mail\mailables\PublicationVersionNotify::class,
             mailables\PostedAcknowledgement::class,
+            mailables\PostedNewVersionAcknowledgement::class,
+            mailables\SubmissionAcknowledgementCanPost::class,
         ]);
     }
 }

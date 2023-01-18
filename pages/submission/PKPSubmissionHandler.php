@@ -21,6 +21,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\Publication;
+use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\LazyCollection;
@@ -33,7 +34,6 @@ use PKP\components\forms\submission\ForTheEditors;
 use PKP\components\forms\submission\PKPSubmissionFileForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
-use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -162,7 +162,7 @@ abstract class PKPSubmissionHandler extends Handler
         $sectionId = $publication->getData(Application::getSectionIdPropName());
 
         if ($sectionId) {
-            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+            $section = Repo::section()->get($sectionId, $context->getId());
         }
 
         if (isset($section) &&
@@ -792,12 +792,12 @@ abstract class PKPSubmissionHandler extends Handler
      */
     protected function getSubmitSections(Context $context): array
     {
-        $allSections = Application::getSectionDAO()->getByContextId($context->getId())->toArray();
+        $allSections = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->activeOnly()->getMany();
 
         $submitSections = [];
         /** @var Section $section */
         foreach ($allSections as $section) {
-            if ($section->getIsInactive() || ($section->getEditorRestricted() && !$this->isEditor())) {
+            if ($section->getEditorRestricted() && !$this->isEditor()) {
                 continue;
             }
             $submitSections[] = $section;
@@ -822,7 +822,7 @@ abstract class PKPSubmissionHandler extends Handler
     {
         return !empty(
             array_intersect(
-                PKPSection::getEditorRestrictedRoles(),
+                Section::getEditorRestrictedRoles(),
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
             )
         );

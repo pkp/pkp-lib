@@ -41,13 +41,6 @@ interface iPKPApplicationInfoProvider
     public static function getContextDAO();
 
     /**
-     * Get the section DAO.
-     *
-     * @return DAO
-     */
-    public static function getSectionDAO();
-
-    /**
      * Get the representation DAO.
      */
     public static function getRepresentationDAO(): RepresentationDAOInterface;

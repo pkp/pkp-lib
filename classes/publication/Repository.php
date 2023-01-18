@@ -585,8 +585,7 @@ abstract class Repository
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $sectionId = $submission->getSectionId();
-        $sectionDao = Application::get()->getSectionDao();
-        $section = $sectionDao->getById($sectionId);
+        $section = Repo::section()->get($sectionId);
 
         $this->dao->delete($publication);
 

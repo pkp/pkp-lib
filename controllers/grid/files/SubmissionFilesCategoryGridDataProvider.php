@@ -103,7 +103,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
         $dataProvider = $this->getDataProvider();
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $stageId = $categoryDataElement;
-        $fileStage = $this->_getFileStageByStageId($stageId);
+        $fileStages = $this->_getFileStagesByStageId($stageId);
         $stageSubmissionFiles = null;
 
         // For review stages, get the revisions of the review round that user is currently accessing.
@@ -117,7 +117,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                     ->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
                     ->filterByReviewRoundIds([$reviewRound->getId()])
-                    ->filterByFileStages([$fileStage])
+                    ->filterByFileStages($fileStages)
                     ->getMany()
                     ->toArray();
             } else {
@@ -135,7 +135,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
             $submissionFiles = $this->_submissionFiles;
             $stageSubmissionFiles = [];
             foreach ($submissionFiles as $key => $submissionFile) {
-                if (in_array($submissionFile->getData('fileStage'), (array) $fileStage)) {
+                if (in_array($submissionFile->getData('fileStage'), $fileStages)) {
                     $stageSubmissionFiles[$key] = $submissionFile;
                 } elseif ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY) {
                     // Determine the stage from the query.
@@ -216,31 +216,27 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      * Get the file stage using the passed stage id. This will define
      * which file stage will be present on each workflow stage category
      * of the grid.
-     *
-     * @param int $stageId
-     *
-     * @return int|array
      */
-    public function _getFileStageByStageId($stageId)
+    public function _getFileStagesByStageId(int $stageId): array
     {
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION:
-                return SubmissionFile::SUBMISSION_FILE_SUBMISSION;
+                return [SubmissionFile::SUBMISSION_FILE_SUBMISSION];
                 break;
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-                return SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+                return [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION];
                 break;
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                return SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
+                return [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION];
                 break;
             case WORKFLOW_STAGE_ID_EDITING:
                 return [SubmissionFile::SUBMISSION_FILE_FINAL, SubmissionFile::SUBMISSION_FILE_COPYEDIT];
                 break;
             case WORKFLOW_STAGE_ID_PRODUCTION:
-                return SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY;
+                return [SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY];
                 break;
             default:
-                break;
+                return [];
         }
     }
 }

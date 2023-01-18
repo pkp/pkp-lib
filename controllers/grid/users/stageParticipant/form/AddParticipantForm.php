@@ -15,11 +15,14 @@
 
 namespace PKP\controllers\grid\users\stageParticipant\form;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\UserGroup;
 
 class AddParticipantForm extends PKPStageParticipantNotifyForm
 {
@@ -89,25 +92,33 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     /**
      * Determine whether the specified user group is potentially restricted from editing metadata.
      *
-     * @param int $userGroupId
-     *
-     * @return bool
+     * Subeditors can not change their own permissions.
      */
-    protected function _isChangePermitMetadataAllowed($userGroupId)
+    protected function _isChangePermitMetadataAllowed(UserGroup $userGroup, int $userId): bool 
     {
-        return !in_array($userGroupId, $this->_managerGroupIds);
+        $currentUser = Application::get()->getRequest()->getUser();
+
+        if ($currentUser->getId() === $userId && $userGroup->getRoleId() === Role::ROLE_ID_SUB_EDITOR) {
+            return false;
+        }
+
+        return $userGroup->getRoleId() !== Role::ROLE_ID_MANAGER;
     }
 
     /**
      * Determine whether the specified group is potentially required to make recommendations rather than decisions.
      *
-     * @param int $userGroupId
-     *
-     * @return bool
+     * Subeditors can not change their own permissions.
      */
-    protected function _isChangeRecommendOnlyAllowed($userGroupId)
+    protected function _isChangeRecommendOnlyAllowed(UserGroup $userGroup, int $userId): bool
     {
-        return in_array($userGroupId, $this->_possibleRecommendOnlyUserGroupIds);
+        $currentUser = Application::get()->getRequest()->getUser();
+
+        if ($currentUser->getId() === $userId && $userGroup->getRoleId() === Role::ROLE_ID_SUB_EDITOR) {
+            return false;
+        }
+
+        return in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
     }
 
     /**
@@ -173,8 +184,8 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
                 'userIdSelected' => $stageAssignment->getUserId(),
                 'currentAssignmentRecommendOnly' => $stageAssignment->getRecommendOnly(),
                 'currentAssignmentPermitMetadataEdit' => $stageAssignment->getCanChangeMetadata(),
-                'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed($userGroup->getId()),
-                'isChangeRecommendOnlyAllowed' => $this->_isChangeRecommendOnlyAllowed($userGroup->getId()),
+                'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed($userGroup, $stageAssignment->getUserId()),
+                'isChangeRecommendOnlyAllowed' => $this->_isChangeRecommendOnlyAllowed($userGroup, $stageAssignment->getUserId()),
             ]);
         }
 
@@ -241,13 +252,13 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
         $submission = $this->getSubmission();
-        $userGroupId = (int) $this->getData('userGroupId');
+        $userGroup = Repo::userGroup()->get((int) $this->getData('userGroupId'));
         $userId = (int) $this->getData('userId');
-        $recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroupId) ? (bool) $this->getData('recommendOnly') : false;
-        $canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroupId) ? (bool) $this->getData('canChangeMetadata') : true;
+        $recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId) ? (bool) $this->getData('recommendOnly') : false;
+        $canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroup, $userId) ? (bool) $this->getData('canChangeMetadata') : true;
 
         // sanity check
-        if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroupId)->get()->isNotEmpty()) {
+        if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroup->getId())->get()->isNotEmpty()) {
             $updated = false;
 
             if ($this->_assignmentId) {
@@ -264,12 +275,12 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
 
             if (!$updated) {
                 // insert the assignment
-                $stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId, $recommendOnly, $canChangeMetadata);
+                $stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroup->getId(), $userId, $recommendOnly, $canChangeMetadata);
             }
         }
 
         parent::execute(...$functionParams);
-        return [$userGroupId, $userId, $stageAssignment->getId()];
+        return [$userGroup->getId(), $userId, $stageAssignment->getId()];
     }
 
     /**

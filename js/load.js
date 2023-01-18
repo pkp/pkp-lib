@@ -32,7 +32,7 @@ import VueRegistry from './classes/VueRegistry.js';
 
 Vue.use(VModal, {
 	dynamic: true,
-	injectModalsContainer: true
+	injectModalsContainer: true,
 });
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
@@ -56,5 +56,5 @@ export default {
 	eventBus: new Vue(),
 	const: {},
 	localeKeys: {},
-	currentUser: null
+	currentUser: null,
 };

@@ -7,7 +7,7 @@
  *
  * @brief A small handler to initialize Chart.js graphs on the frontend.
  */
-(function() {
+(function () {
 	/*global pkpUsageStats, Chart */
 
 	if (
@@ -28,7 +28,7 @@
 	}
 
 	// Hide the unavailable stats notice when a chart is loaded
-	document.addEventListener('usageStatsChartLoaded.pkp', function(e) {
+	document.addEventListener('usageStatsChartLoaded.pkp', function (e) {
 		for (var i = 0; i < noStatsNotice.length; i++) {
 			if (
 				typeof noStatsNotice[i].dataset.objectType !== 'undefined' &&
@@ -44,59 +44,59 @@
 	// Define default chart options
 	var chartOptions = {
 		legend: {
-			display: false
+			display: false,
 		},
 		tooltips: {
 			titleColor: '#333',
 			bodyColor: '#333',
 			footerColor: '#333',
 			backgroundColor: '#ddd',
-			cornerRadius: 2
+			cornerRadius: 2,
 		},
 		elements: {
 			line: {
 				borderColor: 'rgba(0,0,0,0.3)',
 				borderWidth: 1,
 				borderJoinStyle: 'round',
-				backgroundColor: 'rgba(0,0,0,0.3)'
+				backgroundColor: 'rgba(0,0,0,0.3)',
 			},
 			rectangle: {
-				backgroundColor: 'rgba(0,0,0,0.3)'
+				backgroundColor: 'rgba(0,0,0,0.3)',
 			},
 			point: {
 				radius: 2,
 				hoverRadius: 6,
 				borderWidth: 0,
-				hitRadius: 5
-			}
+				hitRadius: 5,
+			},
 		},
 		scales: {
 			xAxes: [
 				{
 					gridLines: {
 						color: 'rgba(0,0,0,0.05)',
-						drawTicks: false
-					}
-				}
+						drawTicks: false,
+					},
+				},
 			],
 			yAxes: [
 				{
 					gridLines: {
 						color: 'rgba(0,0,0,0.05)',
-						drawTicks: false
-					}
-				}
-			]
-		}
+						drawTicks: false,
+					},
+				},
+			],
+		},
 	};
 
 	if (pkpUsageStats.config.chartType === 'bar') {
 		chartOptions.scales.xAxes = [
 			{
 				gridLines: {
-					color: 'transparent'
-				}
-			}
+					color: 'transparent',
+				},
+			},
 		];
 	}
 
@@ -169,11 +169,11 @@
 				datasets: [
 					{
 						label: graphData.label,
-						data: dataArray
-					}
-				]
+						data: dataArray,
+					},
+				],
 			},
-			options: chartOptions
+			options: chartOptions,
 		});
 
 		// Fire an event when the chart is initialized

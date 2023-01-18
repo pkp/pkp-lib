@@ -28,7 +28,7 @@
 	{fbvFormArea id="fileMetaData"}
 
 		{* File name and detail summary *}
-		{fbvFormSection title="submission.form.name" required=true}
+		{fbvFormSection for="name" size=$fbvStyles.size.LARGE title="submission.form.name" required=true}
 			{fbvElement type="text" id="name" value=$submissionFile->getData('name') multilingual=true maxlength="255" required=true}
 		{/fbvFormSection}
 

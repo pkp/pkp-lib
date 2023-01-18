@@ -21,6 +21,8 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	/** @var array */
 	var $_uploaderRoles;
 
+	/** @var Submission */
+	protected $_submission;
 
 	/**
 	 * Constructor.
@@ -43,6 +45,9 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 		// Initialize class.
 		assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
 		$this->_uploaderRoles = $uploaderRoles;
+		
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+		$this->_submission = $submissionDao->getById($submissionId);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
@@ -155,7 +160,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 				[
 					'fileId' => $fileId,
 					'name' => [
-						$request->getContext()->getPrimaryLocale() => $_FILES['uploadedFile']['name'],
+						$this->_submission->getLocale() => $_FILES['uploadedFile']['name'],
 					],
 					'uploaderUserId' => $user->getId(),
 				],
@@ -165,7 +170,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 			$submissionFile = DAORegistry::getDao('SubmissionFileDAO')->newDataObject();
 			$submissionFile->setData('fileId', $fileId);
 			$submissionFile->setData('fileStage', $this->getData('fileStage'));
-			$submissionFile->setData('name', $_FILES['uploadedFile']['name'], $request->getContext()->getPrimaryLocale());
+			$submissionFile->setData('name', $_FILES['uploadedFile']['name'], $this->_submission->getLocale());
 			$submissionFile->setData('submissionId', $this->getData('submissionId'));
 			$submissionFile->setData('uploaderUserId', $user->getId());
 			$submissionFile->setData('assocType', $this->getData('assocType') ? (int) $this->getData('assocType') : null);

@@ -89,7 +89,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 		$dataProvider = $this->getDataProvider();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $categoryDataElement;
-		$fileStage = $this->_getFileStageByStageId($stageId);
+		$fileStages = $this->_getFileStagesByStageId($stageId);
 		$stageSubmissionFiles = null;
 
 		// For review stages, get the revisions of the review round that user is currently accessing.
@@ -102,7 +102,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				$submissionFilesIterator = Services::get('submissionFile')->getMany([
 					'submissionIds' => [$submission->getId()],
 					'reviewRoundIds' => [$reviewRound->getId()],
-					'fileStages' => [$fileStage],
+					'fileStages' => $fileStages,
 				]);
 				$stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
 			} else {
@@ -119,7 +119,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 			$submissionFiles = $this->_submissionFiles;
 			$stageSubmissionFiles = array();
 			foreach ($submissionFiles as $key => $submissionFile) {
-				if (in_array($submissionFile->getData('fileStage'), (array) $fileStage)) {
+				if (in_array($submissionFile->getData('fileStage'), $fileStages)) {
 					$stageSubmissionFiles[$key] = $submissionFile;
 				} elseif ($submissionFile->getData('fileStage') == SUBMISSION_FILE_QUERY) {
 					// Determine the stage from the query.
@@ -191,28 +191,29 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	 * which file stage will be present on each workflow stage category
 	 * of the grid.
 	 * @param $stageId int
-	 * @return int|array
+	 * @return array
 	 */
-	function _getFileStageByStageId($stageId) {
+	function _getFileStagesByStageId($stageId) {
 		switch($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return SUBMISSION_FILE_SUBMISSION;
+				return [SUBMISSION_FILE_SUBMISSION];
 				break;
 			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-				return SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+				return [SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION];
 				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return SUBMISSION_FILE_REVIEW_FILE;
+				return [SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION];
 				break;
 			case WORKFLOW_STAGE_ID_EDITING:
-				return array(SUBMISSION_FILE_FINAL, SUBMISSION_FILE_COPYEDIT);
+				return [SUBMISSION_FILE_FINAL, SUBMISSION_FILE_COPYEDIT];
 				break;
 			case WORKFLOW_STAGE_ID_PRODUCTION:
-				return SUBMISSION_FILE_PRODUCTION_READY;
+				return [SUBMISSION_FILE_PRODUCTION_READY];
 				break;
 			default:
 				break;
 		}
+		return [];
 	}
 }
 

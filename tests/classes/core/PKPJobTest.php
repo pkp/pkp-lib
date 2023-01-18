@@ -51,19 +51,19 @@ class PKPJobTest extends PKPTestCase
 
         parent::tearDown();
     }
-    
+
     /**
-     * @covers Job exception handling
+     * Covers Job exception handling
      */
     public function testJobExceptionOnSync()
-    {   
+    {
         $this->expectException(Exception::class);
 
         TestJobFailure::dispatchSync();
     }
 
     /**
-     * @covers Job dispatching
+     * Covers Job dispatching
      */
     public function testJobDispatch()
     {
@@ -71,13 +71,13 @@ class PKPJobTest extends PKPTestCase
 
         TestJobFailure::dispatch();
         TestJobSuccess::dispatch();
-        
+
         Bus::assertDispatched(TestJobFailure::class);
         Bus::assertDispatched(TestJobSuccess::class);
     }
 
     /**
-     * @covers Job dispatching in chain
+     * Covers Job dispatching in chain
      */
     public function testJobDispatchInChain()
     {
@@ -95,7 +95,7 @@ class PKPJobTest extends PKPTestCase
     }
 
     /**
-     * @covers Job dispatching in batch
+     * Covers Job dispatching in batch
      */
     public function testJobDispatchInBatch()
     {
@@ -114,7 +114,7 @@ class PKPJobTest extends PKPTestCase
     }
 
     /**
-     * @covers Queue Worker
+     * Covers Queue Worker
      */
     public function testPuttingJobsAtQueue()
     {

@@ -87,8 +87,7 @@ class EntityDAOTest extends PKPTestCase
     }
 
     /**
-     * @covers EntityDAO::_insert
-     * @covers EntityDAO::get
+     * @covers \PKP\core\EntityDAO::_insert
      */
     public function testCRUD()
     {

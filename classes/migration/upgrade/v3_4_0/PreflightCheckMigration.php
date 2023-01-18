@@ -50,13 +50,6 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
                 DB::table('section_settings')->where('section_id', '=', $sectionId)->delete();
             }
 
-            // Clean orphaned publications entries by submission_id
-            $orphanedIds = DB::table('publications AS p')->leftJoin('submissions AS s', 's.submission_id', '=', 'p.submission_id')->whereNull('s.submission_id')->distinct()->pluck('p.publication_id');
-            foreach ($orphanedIds as $publicationId) {
-                DB::table('publication_settings')->where('publication_id', '=', $publicationId)->delete();
-                DB::table('publications')->where('publication_id', '=', $publicationId)->delete();
-            }
-
             // Clean orphaned publications entries by primary_contact_id
             switch (true) {
                 case DB::connection() instanceof MySqlConnection:

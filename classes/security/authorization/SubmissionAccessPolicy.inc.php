@@ -40,14 +40,6 @@ class SubmissionAccessPolicy extends ContextPolicy {
 		$submissionAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
 		//
-		// Managerial role
-		//
-		if (isset($roleAssignments[ROLE_ID_MANAGER])) {
-			// Managers have access to all submissions.
-			$submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
-		}
-
-		//
 		// Author role
 		//
 		if (isset($roleAssignments[ROLE_ID_AUTHOR])) {
@@ -112,6 +104,14 @@ class SubmissionAccessPolicy extends ContextPolicy {
 			$subEditorSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 
 			$submissionAccessPolicy->addPolicy($subEditorSubmissionAccessPolicy);
+		}
+
+		//
+		// Managerial role
+		//
+		if (isset($roleAssignments[ROLE_ID_MANAGER])) {
+			// Managers have access to all submissions.
+			$submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 		}
 
 		$this->addPolicy($submissionAccessPolicy);

@@ -18,6 +18,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
 use APP\publication\Publication;
 use APP\submission\Collector;
 use APP\submission\DAO;
@@ -29,6 +30,9 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiActionException;
+use PKP\log\contracts\iSubmissionIntroducer;
+use PKP\log\contracts\UnknownSubmissionIntroducer;
+use PKP\log\SubmissionLog;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
@@ -38,6 +42,7 @@ use PKP\services\PKPSchemaService;
 use PKP\user\User;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\validation\ValidatorFactory;
+use Exception;
 
 abstract class Repository
 {
@@ -487,7 +492,7 @@ abstract class Repository
     /**
      * Add a new submission
      */
-    public function add(Submission $submission, Publication $publication, Context $context): int
+    public function add(Submission $submission, ?Publication $publication, Context $context = null, iSubmissionIntroducer $submissionIntroducer = null): int
     {
         $submission->stampLastActivity();
         $submission->stampModified();
@@ -500,18 +505,51 @@ abstract class Repository
         if (!$submission->getData('locale')) {
             $submission->setData('locale', $context->getPrimaryLocale());
         }
-        $submissionId = $this->dao->insert($submission);
-        $submission = Repo::submission()->get($submissionId);
 
-        $publication->setData('submissionId', $submission->getId());
-        $publication->setData('version', 1);
-        if (!$publication->getData('status')) {
-            $publication->setData('status', $submission->getData('status'));
+        if (!isset($publication)) {
+            $currentPublicationId = $submission->getData('currentPublicationId');
+            if (!isset($currentPublicationId)) {
+                throw new Exception('currentPublicationId property should be present while adding a submission');
+            }
+            $currentPublication = Repo::publication()->get($currentPublicationId);
+
+            if (!isset($currentPublication)) {
+                throw new Exception("Publication with id {$currentPublicationId} does not exist");
+            }
         }
 
-        $publicationId = Repo::publication()->add($publication);
+        $submissionId = $this->dao->insert($submission);
+        $submission = Repo::submission()->get($submissionId);
+        
+        if (isset($publication)) {
+            $publication->setData('submissionId', $submission->getId());
+            $publication->setData('version', 1);
+            if (!$publication->getData('status')) {
+                $publication->setData('status', $submission->getData('status'));
+            }
 
-        $this->edit($submission, ['currentPublicationId' => $publicationId]);
+            $publicationId = Repo::publication()->add($publication);
+
+            $this->edit($submission, ['currentPublicationId' => $publicationId]);
+
+            $submission = $this->get($submission->getId());
+        }
+
+        if (!isset($submissionIntroducer)) {
+            $submissionIntroducer = Application::get();
+        }
+
+        if (!($submissionIntroducer instanceof iSubmissionIntroducer)) {
+            $submissionIntroducer = new UnknownSubmissionIntroducer();
+        }
+
+        SubmissionLog::logEvent(
+            $this->request,
+            $submission,
+            SubmissionEventLogEntry::SUBMISSION_LOG_CREATED,
+            'log.submission.created',
+            $submissionIntroducer->getSubmissionIntroducerEventEntry()->getParams()
+        );
 
         Hook::call('Submission::add', [$submission]);
 

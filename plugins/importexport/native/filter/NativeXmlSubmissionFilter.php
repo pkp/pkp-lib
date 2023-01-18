@@ -97,7 +97,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         // Handle any additional attributes etc.
         $submission = $this->populateObject($submission, $node);
 
-        $submissionId = Repo::submission()->dao->insert($submission);
+        $submissionId = Repo::submission()->add($submission, null, $context, $deployment->getImportExportPlugin());
         $submission = Repo::submission()->get($submissionId);
         $deployment->setSubmission($submission);
         $deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());

@@ -57,6 +57,7 @@ use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
 use PKP\observers\events\PluginSettingChanged;
+use PKP\site\Version;
 use PKP\template\PKPTemplateResource;
 
 // Define the well-known file name for filter configuration data.
@@ -759,7 +760,7 @@ abstract class Plugin
      *
      * @return Version
      */
-    public function getCurrentVersion()
+    public function getCurrentVersion() : ?Version
     {
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
         $pluginPath = $this->getPluginPath();
@@ -770,7 +771,7 @@ abstract class Plugin
         if ($installedPlugin) {
             return $installedPlugin;
         } else {
-            return false;
+            return null;
         }
     }
 

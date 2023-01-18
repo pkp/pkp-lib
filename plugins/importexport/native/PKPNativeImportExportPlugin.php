@@ -19,10 +19,12 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\log\contracts\iSubmissionIntroducer;
+use PKP\log\contracts\SubmissionIntroducerEventEntry;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 
-abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
+abstract class PKPNativeImportExportPlugin extends ImportExportPlugin implements iSubmissionIntroducer
 {
     /** @var PKPNativeImportExportCLIDeployment CLI Deployment for import/export operations */
     protected $cliDeployment = null;
@@ -364,5 +366,12 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 $this->usage($scriptName);
                 return true;
         }
+    }
+
+    /**
+        * @return \PKP\log\contracts\SubmissionIntroducerEventEntry
+        */
+    public function getSubmissionIntroducerEventEntry(): SubmissionIntroducerEventEntry {
+        return new SubmissionIntroducerEventEntry($this);
     }
 }

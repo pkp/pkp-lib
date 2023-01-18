@@ -21,6 +21,11 @@ use PKP\submissionFile\SubmissionFile;
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment
 {
+    /**
+     * The NativeImportExportPlugin plugin that uses this deployment
+     */
+    private PKPNativeImportExportPlugin $_nativeImportExportPlugin;
+
     //
     // Deployment items for subclasses to override
     //
@@ -85,5 +90,15 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment
             'dependent' => SubmissionFile::SUBMISSION_FILE_DEPENDENT,
             'query' => SubmissionFile::SUBMISSION_FILE_QUERY,
         ];
+    }
+
+    public function setImportExportPlugin(PKPNativeImportExportPlugin $importExportPlugin) : void 
+    {
+        $this->_nativeImportExportPlugin = $importExportPlugin;
+    }
+
+    public function getImportExportPlugin() : PKPNativeImportExportPlugin 
+    {
+        return $this->_nativeImportExportPlugin;
     }
 }

@@ -29,8 +29,10 @@ use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\log\contracts\iSubmissionIntroducer;
 use PKP\security\Role;
 use PKP\session\SessionManager;
+use PKP\site\Version;
 use PKP\submission\RepresentationDAOInterface;
 
 interface iPKPApplicationInfoProvider
@@ -79,7 +81,7 @@ interface iPKPApplicationInfoProvider
     public static function getContextAssocType();
 }
 
-abstract class PKPApplication implements iPKPApplicationInfoProvider
+abstract class PKPApplication implements iPKPApplicationInfoProvider, iSubmissionIntroducer
 {
     public const PHP_REQUIRED_VERSION = '8.0.2';
 
@@ -485,7 +487,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return Version
      */
-    public function &getCurrentVersion()
+    public function &getCurrentVersion() : Version
     {
         $currentVersion = & $this->getEnabledProducts('core');
         assert(count($currentVersion)) == 1;

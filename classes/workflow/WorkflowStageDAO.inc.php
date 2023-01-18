@@ -60,7 +60,7 @@ class WorkflowStageDAO extends DAO {
 	 * @return string|null
 	 */
 	static function getTranslationKeyFromId($stageId) {
-		$stageMapping = self::getWorkflowStageTranslationKeys();
+		$stageMapping = self::getWorkflowStageTranslationKeys(false);
 
 		assert(isset($stageMapping[$stageId]));
 		return $stageMapping[$stageId];
@@ -70,7 +70,7 @@ class WorkflowStageDAO extends DAO {
 	 * Return a mapping of workflow stages and its translation keys.
 	 * @return array
 	 */
-	static function getWorkflowStageTranslationKeys() {
+	static function getWorkflowStageTranslationKeys($filtered = true) {
 		$applicationStages = Application::get()->getApplicationStages();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
 		static $stageMapping = array(
@@ -80,8 +80,11 @@ class WorkflowStageDAO extends DAO {
 			WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
 			WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
 		);
-
-		return array_intersect_key($stageMapping, array_flip($applicationStages));
+		if ($filtered) {
+			return array_intersect_key($stageMapping, array_flip($applicationStages));
+		} else {
+			return $stageMapping;
+		}
 	}
 
 	/**

@@ -39,15 +39,12 @@ use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\doi\Doi;
-use PKP\galley\Galley;
 use PKP\galley\Collector as GalleyCollector;
+use PKP\galley\Galley;
 use PKP\oai\OAIRecord;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionSubjectDAO;
 use PKP\tests\PKPTestCase;
-
-import('plugins.oaiMetadataFormats.dc.OAIMetadataFormat_DC');
-import('plugins.oaiMetadataFormats.dc.OAIMetadataFormatPlugin_DC');
 
 class OAIMetadataFormat_DCTest extends PKPTestCase
 {
@@ -69,7 +66,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
 
     /**
      * @covers OAIMetadataFormat_DC
-     * @covers Dc11SchemaPreprintAdapter
+     * @covers \APP\plugins\metadata\dc11\filter\Dc11SchemaPreprintAdapter
      */
     public function testToXml()
     {

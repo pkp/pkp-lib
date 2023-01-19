@@ -711,3 +711,15 @@ msgstr ""
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr "The following is shown to authors during the For Readers step, when they are asked to provide metadata such as keywords, licensing information, and other details to assist in discovery and moderation."
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr "New Version Posted"
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr "This email is sent to the author when a new version of their preprint is posted."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Submission Declined"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr "This email notifies the author that their preprint has been declined and will not be posted."

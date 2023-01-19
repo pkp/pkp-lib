@@ -24,32 +24,16 @@ class ContextEmailVariable extends PKPContextEmailVariable
     public const CONTEXT_SIGNATURE = 'serverSignature';
 
     /**
-     * @copydoc Variable::descriptions()
-     */
-    public static function descriptions(): array
-    {
-        return array_merge(
-            parent::descriptions(),
-            [
-                self::CONTEXT_NAME => __('emailTemplate.variable.context.contextName'),
-                self::CONTEXT_URL => __('emailTemplate.variable.context.contextUrl'),
-                self::CONTEXT_SIGNATURE => __('emailTemplate.variable.context.contextSignature'),
-            ]
-        );
-    }
-
-    /**
      * @copydoc Variable::values()
      */
     public function values(string $locale): array
     {
-        return array_merge(
-            parent::values($locale),
-            [
-                self::CONTEXT_NAME => $this->context->getLocalizedData('name', $locale),
-                self::CONTEXT_URL => $this->getContextUrl(),
-                self::CONTEXT_SIGNATURE => $this->getContextSignature(),
-            ]
-        );
+        $values = parent::values($locale);
+
+        // Pass the values into the context signature so variables
+        // used in the signature can be rendered.
+        $values[static::CONTEXT_SIGNATURE] = $this->getContextSignature($values);
+
+        return $values;
     }
 }

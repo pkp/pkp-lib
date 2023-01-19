@@ -53,7 +53,7 @@ msgstr ""
 "{$activateUrl} <br />\n"
 "<br />\n"
 "Ви благодариме, <br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 msgid "emails.userValidateContext.subject"
 msgstr "Потврдете ја вашата сметка"

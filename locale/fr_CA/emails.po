@@ -60,7 +60,7 @@ msgstr ""
 "{$activateUrl}<br />\n"
 "<br />\n"
 "Merci,<br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Accusé de réception de la soumission"

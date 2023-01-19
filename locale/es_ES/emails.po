@@ -34,7 +34,7 @@ msgstr ""
 "{$enableUrl} <br />\n"
 "<br />\n"
 "Gracias <br />\n"
-"{$signature}"
+"{$contextSignature}"
 
 msgid "emails.userValidateContext.subject"
 msgstr "Valide su cuenta"

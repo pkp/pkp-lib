@@ -136,6 +136,8 @@ class PKPContainer extends Container
         if (method_exists($provider, 'boot')) {
             $provider->boot();
         }
+
+        $this->app->bind('request', fn($app) => PKPApplication::get()->getRequest());
     }
 
     /**

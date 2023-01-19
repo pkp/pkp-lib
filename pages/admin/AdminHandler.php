@@ -513,7 +513,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'JobsPage',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => __('navigation.tools.jobs'),
+            'pageTitle' => 'navigation.tools.jobs',
         ]);
 
         $templateMgr->display('admin/jobs.tpl');
@@ -595,7 +595,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'FailedJobsPage',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => __('navigation.tools.jobs.failed'),
+            'pageTitle' => 'navigation.tools.jobs.failed',
         ]);
 
         $templateMgr->display('admin/failedJobs.tpl');
@@ -672,13 +672,13 @@ class AdminHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
         
-        $failedJob = Repo::failedJob()->newQuery()->find([(int) $args[0]]);
+        $failedJob = Repo::failedJob()->get((int) $args[0]);
 
-        if (!$failedJob->first()) {
+        if (!$failedJob) {
             $request->getDispatcher()->handle404();
         }
         
-        $rows = collect(array_merge(HttpFailedJobResource::collection($failedJob)->first(), [
+        $rows = collect(array_merge(HttpFailedJobResource::toResourceArray($failedJob), [
                 'payload' => $failedJob->first()->getRawOriginal('payload'),
             ]))
             ->map(fn($value, $attribute) => [
@@ -694,7 +694,7 @@ class AdminHandler extends Handler
         ];
 
         $templateMgr->setState([
-            'label' => __('navigation.tools.job.failed.details.view', ['id' => $failedJob->first()->id]),
+            'label' => __('navigation.tools.job.failed.details.view', ['id' => $failedJob->id]),
             'columns' => [
                 [
                     'name' => 'attribute',
@@ -713,7 +713,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'FailedJobDetailsPage',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => __('navigation.tools.jobs.failed.details'),
+            'pageTitle' => 'navigation.tools.jobs.failed.details',
         ]);
 
         $templateMgr->display('admin/failedJobDetails.tpl');

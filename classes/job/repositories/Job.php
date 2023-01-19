@@ -63,7 +63,7 @@ class Job extends BaseRepository
         );
     }
 
-    protected function getOutput(Collection $data): Arrayable
+    protected function getOutput(Collection $data)
     {
         if ($this->outputFormat == self::OUTPUT_CLI) {
             return CLIJobResource::collection($data);

@@ -41,7 +41,7 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy
         // valid submission in the request.
         $this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
-        // Extends UserAccessibleWorkflowStagePolicy in order to permit users with review assignments
+        // Extends UserAccessibleWorkflowStageRequiredPolicy in order to permit users with review assignments
         // to access the reviews grid
         $this->addPolicy(new QueryUserAccessibleWorkflowStageRequiredPolicy($request));
 

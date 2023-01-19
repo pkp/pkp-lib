@@ -18,6 +18,7 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\core\PKPString;
+use PKP\mail\mailables\DecisionNotifyOtherAuthors;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
@@ -155,6 +156,8 @@ class Repository
                 return false;
             }
             return true;
+        } elseif ($class === DecisionNotifyOtherAuthors::class) {
+            return $context->getData('notifyAllAuthors');
         }
         return true;
     }

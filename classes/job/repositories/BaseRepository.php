@@ -23,11 +23,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseRepository
 {
-    /**
-     * @var Model
-     */
-    protected $model;
-    protected $perPage = 10;
+    protected Model $model;
+    protected int $perPage = 10;
+    protected ?string $outputFormat;
 
     public const OUTPUT_CLI = 'cli';
     public const OUTPUT_HTTP = 'http';

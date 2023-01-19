@@ -16,17 +16,17 @@ declare(strict_types=1);
 
 namespace PKP\job\resources;
 
-use PKP\job\resources\BaseResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\job\traits\JobResource;
 
-class HttpJobResource extends BaseResource
+class HttpJobResource extends JsonResource
 {
     use JobResource;
 
     /**
      * Transform the resource into an array.
      */
-    public function toArray(): array
+    public function toArray($request): array
     {
         return [
             'id'            => $this->getResource()->id,

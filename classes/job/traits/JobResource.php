@@ -17,10 +17,21 @@ declare(strict_types=1);
 namespace PKP\job\traits;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 trait JobResource
 {
     protected string $dateFormat = 'Y-m-d G:i:s T Z';
+
+    public static function toResourceArray(Model $modelInstance): array
+    {
+        return (new static($modelInstance))->toArray(app()->get('request'));
+    }
+
+    public function getResource(): mixed
+    {
+        return $this->resource;
+    }
 
     public function getCreatedAt(): string
     {

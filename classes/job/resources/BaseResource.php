@@ -18,13 +18,12 @@ namespace PKP\job\resources;
 
 use IteratorAggregate;
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseResource
 {
     protected $resource;
 
-    public function __construct(Model $resource)
+    public function __construct($resource)
     {
         $this->resource = $resource;
     }
@@ -44,10 +43,10 @@ abstract class BaseResource
         return collect($data);
     }
 
-    public function getResource(): Model
+    public function getResource()
     {
         return $this->resource;
     }
 
-    abstract public function toArray();
+    abstract public function toArray(): array;
 }

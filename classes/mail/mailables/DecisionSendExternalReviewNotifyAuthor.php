@@ -49,12 +49,12 @@ class DecisionSendExternalReviewNotifyAuthor extends Mailable
 
     public static function getDataDescriptions(): array
     {
-        return array_merge([
+        return array_merge(
             parent::getDataDescriptions(),
             [
                 static::REVIEW_TYPE_DESCRIPTION_VARIABLE => __('emailTemplate.variable.reviewType'),
             ]
-        ]);
+        );
     }
 
     protected function setupReviewTypeVariable(Context $context)

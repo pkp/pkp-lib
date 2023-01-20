@@ -96,10 +96,9 @@ msgstr ""
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Det finnes ingen bruker med denne e-postadressen."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"Du har fått et nytt passord tilsendt på e-post. Du kan nå logge inn på "
-"nettstedet med det nye passordet ditt."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Passordet har blitt oppdatert. Vennligst logg inn med oppdatert passord."
 
 msgid "user.login.registeredEmail"
 msgstr "Brukerens e-post"
@@ -403,6 +402,14 @@ msgid "user.register.form.privacyConsent"
 msgstr ""
 "Ja, jeg godtar at mine data samles inn og lagres i tråd med <a href=\""
 "{$privacyUrl}\" target=\"_blank\">personvernerklæringen</a>."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Kan ikke fullføre forespørsel om tilbakestilling av passord fordi {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Skriv inn nytt passord for å oppdatere påloggingspassordet."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""

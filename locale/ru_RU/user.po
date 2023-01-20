@@ -146,8 +146,9 @@ msgstr "Извините, ссылка на которой вы щелкнули
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Пользователя с таким адресом электронной почты не существует."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Новый пароль был отправлен на ваш адрес электронной почты. Теперь вы можете войти на сайт с вашим новым паролем."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Пароль успешно обновлен. Пожалуйста, войдите с обновленным паролем."
 
 msgid "user.login.registeredEmail"
 msgstr "Адрес электронной почты зарегистрированного пользователя"
@@ -283,6 +284,14 @@ msgstr "Повторить новый пароль"
 
 msgid "user.login.registerNewAccount"
 msgstr "Регистрация"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Не удалось выполнить запрос на сброс пароля, потому что {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Введите новый пароль, чтобы обновить пароль для входа."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Введите адрес электронной почты вашей учетной записи ниже и вам будет отправлено письмо с инструкциями по сбросу вашего пароля."

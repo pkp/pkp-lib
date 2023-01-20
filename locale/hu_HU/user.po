@@ -149,8 +149,9 @@ msgstr "Elnézést, a link, amire kattintott már elévült vagy nem érvényes.
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Ezzel az email címmel nincs felhasználó."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Egy új jelszó ment az email címére. Az új jelszóval már be tud jelentkezni az oldalra."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "A jelszó sikeresen frissítve. Kérjük, jelentkezzen be frissített jelszóval."
 
 msgid "user.login.registeredEmail"
 msgstr "Regisztrált felhasználói email"
@@ -286,6 +287,14 @@ msgstr "Ismételje meg az új jelszót"
 
 msgid "user.login.registerNewAccount"
 msgstr "Regisztráció"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nem sikerült végrehajtani a jelszó-visszaállítási kérelmet, mert {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Adja meg az új jelszót a bejelentkezési jelszó frissítéséhez."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Adja meg a fiókjához tartozó email címét és egy emailben megkapja a jelszótörléshez szükséges információkat."

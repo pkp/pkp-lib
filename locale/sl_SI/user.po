@@ -135,8 +135,9 @@ msgstr "Oprostite, povezava, ki ste jo uporabili, ni več veljavna ali pa je nap
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Uporabnik z vnešenim e-poštnim naslovom ne obstaja."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Novo geslo je bilo poslano na vaš e-poštni naslov. Prijavite se lahko z novim geslom."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Geslo je bilo uspešno posodobljeno. Prijavite se s posodobljenim geslom."
 
 msgid "user.login.registeredEmail"
 msgstr "Registrirana e-pošta uporabnika"
@@ -257,6 +258,14 @@ msgstr "Ponovite geslo"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registriraj"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Zahteve za ponastavitev gesla ni mogoče dokončati, ker {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Vnesite novo geslo za posodobitev gesla za prijavo."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Spodaj vnesite email vašega računa in dobili boste email z navodili, kako ponastaviti geslo."

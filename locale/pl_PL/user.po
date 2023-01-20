@@ -116,8 +116,9 @@ msgstr ""
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Użytkownik z takim adresem e-mail nie istnieje."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Nowe hasło zostało przesłane na podany adres e-mail. Możesz zalogować się na witrynę używając nowego hasła."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Hasło zostało pomyślnie zaktualizowane. Zaloguj się przy użyciu zaktualizowanego hasła."
 
 msgid "user.login.registeredEmail"
 msgstr "Zarejestruj e-mail użytkownika"
@@ -328,6 +329,14 @@ msgstr "Wyloguj się jako"
 
 msgid "user.login.registerNewAccount"
 msgstr "Zarejestruj"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nie można ukończyć żądania zresetowania hasła, ponieważ {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Wprowadź nowe hasło, aby zaktualizować hasło logowania."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami, jak zresetować swoje hasło."

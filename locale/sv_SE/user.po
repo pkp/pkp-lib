@@ -143,8 +143,9 @@ msgstr "Länken du har klickat på har upphört eller är ogiltig. Prova att åt
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Det finns ingen användare med den här e-postadressen."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Ett nytt lösenord har skickats till din e-postadress. Du kan nu logga in med det nya lösenordet."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Lösenordet har uppdaterats framgångsrikt. Vänligen logga in med uppdaterat lösenord."
 
 msgid "user.login.registeredEmail"
 msgstr "Registrerad användares e-postadress"
@@ -268,6 +269,14 @@ msgstr "Upprepa nytt lösenord"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registrera dig"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Det gick inte att slutföra begäran om lösenordsåterställning pga {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Ange nytt lösenord för att uppdatera inloggningslösenordet."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Fyll i e-postadressen för ditt konto nedan och få ett e-postmeddelande med instruktioner om hur du återställer ditt lösenord."

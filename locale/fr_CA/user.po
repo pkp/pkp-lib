@@ -153,8 +153,9 @@ msgstr "Désolé, le lien sur lequel vous avez cliqué est expiré ou n'est pas 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Il n'existe aucun-e utilisateur-trice ayant l'adresse de courriel indiquée."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Un nouveau mot de passe a été envoyé à votre adresse de courriel. Vous pouvez maintenant vous connecter au site avec votre nouveau mot de passe."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Le mot de passe a été mis à jour avec succès. Veuillez vous connecter avec un mot de passe mis à jour."
 
 msgid "user.login.registeredEmail"
 msgstr "Courriel de l'utilisateur-trice inscrit-e"
@@ -290,6 +291,14 @@ msgstr "Saisir de nouveau le nouveau mot de passe"
 
 msgid "user.login.registerNewAccount"
 msgstr "S'inscrire"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Impossible de terminer la demande de réinitialisation du mot de passe car {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Entrez le nouveau mot de passe pour mettre à jour le mot de passe de connexion."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Entrer votre adresse courriel ci-dessous. Un courriel comprenant des instructions sur comment réinitialiser votre mot de passe vous sera envoyé."

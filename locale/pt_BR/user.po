@@ -146,8 +146,9 @@ msgstr "O link acessado expirou ou é inválido. Lamentamos o inconveniente. Ten
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Nenhum usuário cadastrado com o e-mail especificado."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Uma nova senha foi enviada. Acesse o sistema com a nova senha."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "A senha foi atualizada com sucesso. Por favor, faça o login com a senha atualizada."
 
 msgid "user.login.registeredEmail"
 msgstr "E-mail do usuário cadastrado"
@@ -274,6 +275,14 @@ msgstr "Repetir nova senha"
 
 msgid "user.login.registerNewAccount"
 msgstr "Não é um usuário? Registre-se no site"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Não foi possível concluir a solicitação de redefinição de senha porque {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Digite a nova senha para atualizar a senha de login."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail."

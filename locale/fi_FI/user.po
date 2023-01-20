@@ -134,8 +134,9 @@ msgstr "Klikkaamasi linkki on vanhentunut tai se ei ole kelvollinen. Yritä vaih
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Määritetty sähköpostiosoite ei kuulu yhdellekään käyttäjälle."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Uusi salasana on lähetetty sähköpostiosoitteeseesi. Voit nyt kirjautua sivustolle uudella salasanallasi."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Salasana on päivitetty onnistuneesti. Ole hyvä ja kirjaudu sisään päivitetyllä salasanalla."
 
 msgid "user.login.registeredEmail"
 msgstr "Rekisteröityneen käyttäjän sähköposti"
@@ -256,6 +257,14 @@ msgstr "Anna uusi salasana uudelleen"
 
 msgid "user.login.registerNewAccount"
 msgstr "Rekisteröidy"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Salasanan palautuspyyntöä ei voi suorittaa, koska {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Syötä uusi salasana päivittääksesi kirjautumissalasana."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Anna tilisi sähköpostiosoite alla niin sinulle lähetetään sähköposti, jossa on ohjeet salasanan vaihtamiseen."

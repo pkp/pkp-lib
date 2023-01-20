@@ -137,8 +137,9 @@ msgstr "El enlace ha caducado o no es válido.  Intente restablecer su contrase�
 msgid "user.login.lostPassword.invalidUser"
 msgstr "No existe ningún usuario/a con la dirección de correo electrónico especificada."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Se le ha enviado una nueva contraseña a su dirección de correo electrónico. Ahora puede iniciar sesión con la nueva contraseña."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "La contraseña ha sido actualizada con éxito. Inicie sesión con la contraseña actualizada."
 
 msgid "user.login.registeredEmail"
 msgstr "Correo electronico de usuarios registrados"
@@ -255,6 +256,14 @@ msgstr "Repita la nueva contraseña"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registrarse"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "No se puede completar la solicitud de restablecimiento de contraseña porque {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Introduzca una nueva contraseña para actualizar la contraseña de inicio de sesión."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""

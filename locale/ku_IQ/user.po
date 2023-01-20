@@ -277,6 +277,14 @@ msgstr ""
 "بەڵێ، من ڕازیم بەوەی کە داتاکانم بە گوێرەی  <a href=\"{$privacyUrl}\" target="
 "\"_blank\"> کۆ کراونەتەوە و پارێزراون دەستەواژەی تایبەتێتی</a>."
 
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "ناتوانرێت داواکاری ڕێستکردنی وشەی نهێنی تەواو بکرێت چونکە {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "وشەی نهێنی نوێ داخڵ بکە بۆ نوێکردنەوەی وشەی نهێنی چوونەژوورەوە."
+
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
 "ئیمەیڵەکەت لە خوارەوە بنوسە، ئیمەیڵێک بۆ ئیمەیڵەکەت دێت و ڕێنماییەکانی "
@@ -425,10 +433,9 @@ msgstr "تۆمار کرا"
 msgid "user.login.registeredEmail"
 msgstr "ئیمەیڵی بەکارهێنەری تۆمارکراو"
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"وشەیەکی نهێنیی نوێ بۆ ئیمەیڵەکەت نێردرا. تۆ ئێستا دەتوانیت داخلی پەڕەکە ببیت "
-"بە بەکارهێنانی وشە نهێنییە نوێیەکە."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "وشەی نهێنی بە سەرکەوتوویی نوێ کراوەتەوە. تکایە بە وشەی نهێنی نوێکراوە بچۆرە ژوورەوە"
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "هیچ ئەژمارێکی تایبەت بەم ئیمەیڵە تۆمار نەکراوە."

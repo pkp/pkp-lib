@@ -150,8 +150,9 @@ msgstr "عذراً، الرابط الذي اتبعته قد انتهت صلاح
 msgid "user.login.lostPassword.invalidUser"
 msgstr "لا يوجد مستخدم مسجل في الموقع باستعمال هذا البريد الالكتروني."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "كلمة مرور جديدة أُرسلت إلى عنوان بريدك الالكتروني. بإمكانك الآن الدخول إلى الموقع مستعملاً كلمة المرور الجديدة."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "تم تحديث كلمة المرور بنجاح. الرجاء تسجيل الدخول بكلمة مرور محدثة."
 
 msgid "user.login.registeredEmail"
 msgstr "البريد الالكتروني للمستخدم المسجل في الموقع"
@@ -287,6 +288,14 @@ msgstr "أعد كلمة المرور الجديدة"
 
 msgid "user.login.registerNewAccount"
 msgstr "التسجيل"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "تعذر إكمال طلب إعادة تعيين كلمة المرور بسبب {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "أدخل كلمة مرور جديدة لتحديث كلمة مرور تسجيل الدخول."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "أدخل عنوان بريدك الالكتروني المتعلق بحسابك أدناه، وستتم مراسلتك برسالة تتضمن تعليمات توضح كيفية تصفير كلمة مرورك."

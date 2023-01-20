@@ -119,8 +119,9 @@ msgstr "Maaf, tautan yang Anda klik telah berakhir atau tidak valid. Coba mengat
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Tidak ada pengguna dengan alamat email yang spesifik."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Kata sandi baru telah dikirim ke alamat emal Anda. Anda sekarang bisa login ke situs dengan kata sandi baru Anda."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Kata sandi telah berhasil diperbarui. Silakan masuk dengan kata sandi yang diperbarui."
 
 msgid "user.login.registeredEmail"
 msgstr "Email pengguna yang sudah terdaftar"
@@ -438,6 +439,14 @@ msgid "user.register.form.privacyConsent"
 msgstr ""
 "Ya, saya setuju data saya diambil dan disimpan berdasarkan <a href=\""
 "{$privacyUrl}\" target=\"_blank\">pernyataan privasi</a>."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Tidak dapat menyelesaikan permintaan pengaturan ulang kata sandi karena {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Masukkan kata sandi baru untuk memperbarui kata sandi masuk."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""

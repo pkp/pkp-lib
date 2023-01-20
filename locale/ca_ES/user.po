@@ -122,8 +122,9 @@ msgstr "L'enllaç que heu seleccionat ha vençut o bé no és vàlid. Intenteu r
 msgid "user.login.lostPassword.invalidUser"
 msgstr "No existeix cap usuari/usuària amb l’adreça electrònica especificada."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu iniciar la sessió amb aquesta contrasenya."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "La contrasenya s'ha actualitzat correctament. Si us plau, inicieu sessió amb la contrasenya actualitzada."
 
 msgid "user.login.registeredEmail"
 msgstr "Adreça electrònica de l’usuari/usuària registrat"
@@ -225,6 +226,14 @@ msgstr "Repetiu la contrasenya nova"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registrar-se"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "No es pot completar la sol·licitud de restabliment de la contrasenya perquè {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Introduïu una nova contrasenya per actualitzar la contrasenya d'inici de sessió."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Per motius de seguretat, aquest sistema envia un missatge de restabliment de contrasenya als usuaris registrats, en lloc de tornar-ho a intentar amb la contrasenya actual.<br /><br />Introduïu la vostra adreça electrònica al camp següent per restablir la vostra contrasenya. S'enviarà un missatge de confirmació a la vostra adreça electrònica."

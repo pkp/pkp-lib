@@ -23,9 +23,9 @@ class Validation {
 	 * @param $remember boolean remember a user's session past the current browser session
 	 * @return User the User associated with the login credentials, or false if the credentials are invalid
 	 */
-	static function login($username, $password, &$reason, $remember = false) {
+	public static function login($username, $password, &$reason, $remember = false) {
 		$reason = null;
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$user = $userDao->getByUsername($username, true);
 		if (!isset($user)) {
 			// User does not exist
@@ -33,7 +33,7 @@ class Validation {
 		}
 
 		if ($user->getAuthId()) {
-			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
+			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
 			$auth = $authDao->getPlugin($user->getAuthId());
 		} else {
 			$auth = null;
@@ -81,7 +81,7 @@ class Validation {
 	 * @param string &$rehash if password needs rehash, this variable is used
 	 * @return boolean
 	 */
-	static function verifyPassword($username, $password, $hash, &$rehash) {
+	public static function verifyPassword($username, $password, $hash, &$rehash) {
 		if (password_needs_rehash($hash, PASSWORD_BCRYPT)) {
 			// update to new hashing algorithm
 			$oldHash = self::encryptCredentials($username, $password, false, true);
@@ -104,7 +104,8 @@ class Validation {
 	 * @param $remember boolean remember a user's session past the current browser session
 	 * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
 	 */
-	static function registerUserSession($user, &$reason, $remember = false) {
+	public static function registerUserSession($user, &$reason, $remember = false) {
+		
 		if (!is_a($user, 'User')) return false;
 
 		if ($user->getDisabled()) {
@@ -133,7 +134,7 @@ class Validation {
 		}
 
 		$user->setDateLastLogin(Core::getCurrentDate());
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$userDao->updateObject($user);
 
 		return $user;
@@ -143,7 +144,7 @@ class Validation {
 	 * Mark the user as logged out in the current session.
 	 * @return boolean
 	 */
-	static function logout() {
+	public static function logout() {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
 		$session->unsetSessionVar('userId');
@@ -155,7 +156,7 @@ class Validation {
 			$sessionManager->updateSessionLifetime(0);
 		}
 
-		$sessionDao = DAORegistry::getDAO('SessionDAO'); /* @var $sessionDao SessionDAO */
+		$sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
 		$sessionDao->updateObject($session);
 
 		return true;
@@ -165,7 +166,7 @@ class Validation {
 	 * Redirect to the login page, appending the current URL as the source.
 	 * @param $message string Optional name of locale key to add to login page
 	 */
-	static function redirectLogin($message = null) {
+	public static function redirectLogin($message = null) {
 		$args = array();
 
 		if (isset($_SERVER['REQUEST_URI'])) {
@@ -185,14 +186,14 @@ class Validation {
 	 * @param $password string unencrypted password
 	 * @return boolean
 	 */
-	static function checkCredentials($username, $password) {
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+	public static function checkCredentials($username, $password) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$user = $userDao->getByUsername($username, false);
 
 		$valid = false;
 		if (isset($user)) {
 			if ($user->getAuthId()) {
-				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
+				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
 				$auth =& $authDao->getPlugin($user->getAuthId());
 			}
 
@@ -222,7 +223,7 @@ class Validation {
 	 * @param $contextId optional (e.g., for global site admin role), the ID of the context
 	 * @return boolean
 	 */
-	static function isAuthorized($roleId, $contextId = 0) {
+	public static function isAuthorized($roleId, $contextId = 0) {
 		if (!self::isLoggedIn()) {
 			return false;
 		}
@@ -238,7 +239,7 @@ class Validation {
 		$session = $sessionManager->getUserSession();
 		$user = $session->getUser();
 
-		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 		return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
 	}
 
@@ -252,7 +253,7 @@ class Validation {
 	 * @param $legacy boolean if true, use legacy hashing technique for backwards compatibility
 	 * @return string encrypted password
 	 */
-	static function encryptCredentials($username, $password, $encryption = false, $legacy = false) {
+	public static function encryptCredentials($username, $password, $encryption = false, $legacy = false) {
 		if ($legacy) {
 			$valueToEncrypt = $username . $password;
 
@@ -280,9 +281,9 @@ class Validation {
 	 * @param $length int the length of the password to generate (default is site minimum)
 	 * @return string
 	 */
-	static function generatePassword($length = null) {
+	public static function generatePassword($length = null) {
 		if (!$length) {
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
 			$site = $siteDao->getSite();
 			$length = $site->getMinPasswordLength();
 		}
@@ -302,8 +303,8 @@ class Validation {
 	 * @param $expiry int timestamp when hash expires, defaults to CURRENT_TIME + RESET_SECONDS
 	 * @return string (boolean false if user is invalid)
 	 */
-	static function generatePasswordResetHash($userId, $expiry = null) {
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+	public static function generatePasswordResetHash($userId, $expiry = null) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		if (($user = $userDao->getById($userId)) == null) {
 			// No such user
 			return false;
@@ -338,7 +339,7 @@ class Validation {
 	 * @param $hash string
 	 * @return boolean
 	 */
-	static function verifyPasswordResetHash($userId, $hash) {
+	public static function verifyPasswordResetHash($userId, $hash) {
 		// append ":" to ensure the explode results in at least 2 elements
 		list(, $expiry) = explode(':', $hash . ':');
 
@@ -356,7 +357,7 @@ class Validation {
 	 * @param $familyName string
 	 * @return string
 	 */
-	static function suggestUsername($givenName, $familyName = null) {
+	public static function suggestUsername($givenName, $familyName = null) {
 		$name = $givenName;
 		if (!empty($familyName)) {
 			$initial = PKPString::substr($givenName, 0, 1);
@@ -364,7 +365,7 @@ class Validation {
 		}
 
 		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
 		return $suggestion . $i;
 	}
@@ -373,7 +374,7 @@ class Validation {
 	 * Check if the user must change their password in order to log in.
 	 * @return boolean
 	 */
-	static function isLoggedIn() {
+	public static function isLoggedIn() {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
 
@@ -385,7 +386,7 @@ class Validation {
 	 * Check if the user is logged in as a different user.
 	 * @return boolean
 	 */
-	static function isLoggedInAs() {
+	public static function isLoggedInAs() {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
 		$signedInAs = $session->getSessionVar('signedInAs');
@@ -397,9 +398,9 @@ class Validation {
 	 * Shortcut for checking authorization as site admin.
 	 * @return boolean
 	 */
-	static function isSiteAdmin() {
+	public static function isSiteAdmin() {
 		return self::isAuthorized(ROLE_ID_SITE_ADMIN);
-	}
+	}	
 
 	/**
 	 * Check whether a user is allowed to administer another user.
@@ -407,8 +408,8 @@ class Validation {
 	 * @param $administratorUserId int User ID of user who wants to do the administrating
 	 * @return boolean True IFF the administration operation is permitted
 	 */
-	static function canAdminister($administeredUserId, $administratorUserId) {
-		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+	public static function canAdminister($administeredUserId, $administratorUserId) {
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
 		// You can administer yourself
 		if ($administeredUserId == $administratorUserId) return true;
@@ -421,7 +422,7 @@ class Validation {
 
 		// Check for administered user group assignments in other contexts
 		// that the administrator user doesn't have a manager role in.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 		$userGroups = $userGroupDao->getByUserId($administeredUserId);
 		while ($userGroup = $userGroups->next()) {
 			if ($userGroup->getContextId()!=CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {

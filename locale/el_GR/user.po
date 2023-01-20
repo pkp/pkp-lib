@@ -149,8 +149,9 @@ msgstr "Η σύνδεση έχει λήξει ή δεν είναι έγκυρη.
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Δε βρέθηκε Χρήστης με τη συγκεκριμένη διεύθυνση ηλεκτρονικού ταχυδρομείου."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Ένας νέος κωδικός πρόσβασης έχει σταλεί στο ηλεκτρονικό σας ταχυδρομείο. Μπορείτε να συνδεθείτε στον ιστότοπο με την χρήση του νέου σας κωδικού."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Ο κωδικός πρόσβασης ενημερώθηκε με επιτυχία. Παρακαλούμε συνδεθείτε με ενημερωμένο κωδικό πρόσβασης."
 
 msgid "user.login.registeredEmail"
 msgstr "Ηλεκτρονικό ταχυδρομείο Χρήστη"
@@ -286,6 +287,14 @@ msgstr "Επαναλάβετε τον νέο κωδικό πρόσβασης"
 
 msgid "user.login.registerNewAccount"
 msgstr "Εγγραφή"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Δεν είναι δυνατή η ολοκλήρωση του αιτήματος επαναφοράς κωδικού πρόσβασης επειδή {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Εισαγάγετε νέο κωδικό πρόσβασης για να ενημερώσετε τον κωδικό πρόσβασης σύνδεσης."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας παρακάτω και θα σας σταλεί ένα μήνυμα με οδηγίες για την επαναφορά κωδικού."

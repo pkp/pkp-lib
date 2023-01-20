@@ -86,8 +86,9 @@ msgstr "Prijavi se"
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Ne postoji korisnik sa datom adresom."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Nova lozinka je poslata na vašu adresu. Možete se prijaviti u sajt sa vašom novom lozinkom."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Signum renovatum est feliciter. Please login with updated password."
 
 msgid "user.login.registeredEmail"
 msgstr "Imejl adresa registrovanog korisnika"
@@ -346,6 +347,14 @@ msgstr "Registracija"
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr "Korisničko ime može sadržati samo alfanumeričke karaktere, podvlake i crtice, i mora početi i završiti sa alfanumeričkim karakterima."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nije moguće dovršiti zahtjev za poništavanje lozinke jer {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Unesite novu lozinku da ažurirate lozinku za prijavu."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Unesite vašu imejl adresu i biće vam poslata poruka sa informacijama kako da obnovite vašu lozinku."

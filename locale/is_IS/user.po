@@ -208,6 +208,14 @@ msgstr ""
 "samræmi við yfirlýsingu um <a href=\"{$privacyUrl}\" target=\"_blank\""
 ">persónuvernd</a>."
 
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Ekki tókst að ljúka beiðni um endurstillingu lykilorðs vegna þess {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Sláðu inn nýtt lykilorð til að uppfæra innskráningarlykilorð."
+
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
 "Sláðu inn netfangið þitt hér fyrir neðan og tölvupóstur verður sendur með "
@@ -357,10 +365,9 @@ msgstr "Skráningu lokið"
 msgid "user.login.registeredEmail"
 msgstr "Netfang notanda"
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"Nýtt lykilorð var sent á netfangið þitt. Þú getur núna skráð þig inn með "
-"nýja lykilorðinu."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Lykilorðið hefur verið uppfært með góðum árangri. Vinsamlegast skráðu þig inn með uppfærðu lykilorði."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""

@@ -128,8 +128,9 @@ msgstr "متأسفانه لینکی که شما بر روی آن کلیک کرد
 msgid "user.login.lostPassword.invalidUser"
 msgstr "هیچ کاربری با این ایمیل وجود ندارد."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم اکنون میتوانید وارد سایت شوید."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "رمز عبور با موفقیت به روز شد. لطفا با رمز عبور به روز شده وارد شوید."
 
 msgid "user.login.registeredEmail"
 msgstr "ایمیل کاربر ثبت‌نام کرده"
@@ -250,6 +251,14 @@ msgstr "تکرار رمز عبور جدید"
 
 msgid "user.login.registerNewAccount"
 msgstr "ثبت‌نام"
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "امکان تکمیل درخواست بازنشانی رمز عبور وجود ندارد زیرا {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "رمز عبور جدید را برای به روز رسانی رمز ورود وارد کنید."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "لطفا ایمیلی را که با آن در این سامانه ثبت کرده اید را در کادر زیر وارد کنید"

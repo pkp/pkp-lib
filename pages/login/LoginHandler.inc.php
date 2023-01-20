@@ -153,6 +153,10 @@ class LoginHandler extends Handler {
 	 * Display form to reset a user's password.
 	 */
 	function lostPassword($args, $request) {
+		if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
+
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('frontend/pages/userLostPassword.tpl');
@@ -166,104 +170,147 @@ class LoginHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$email = $request->getUserVar('email');
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$user = $userDao->getUserByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
-			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
-			$templateMgr->display('frontend/pages/userLostPassword.tpl');
+			$templateMgr
+				->assign('error', 'user.login.lostPassword.invalidUser')
+				->display('frontend/pages/userLostPassword.tpl');
 
-		} else {
-			// Send email confirming password reset
-			import('lib.pkp.classes.mail.MailTemplate');
-			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
-			$site = $request->getSite();
-			$this->_setMailFrom($request, $mail, $site);
-			$mail->assignParams([
-				'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
-				'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
-			]);
-			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
-
-			$templateMgr->assign(array(
-				'pageTitle' => 'user.login.resetPassword',
-				'message' => 'user.login.lostPassword.confirmationSent',
-				'backLink' => $request->url(null, $request->getRequestedPage()),
-				'backLinkLabel' => 'user.login',
-			));
-			$templateMgr->display('frontend/pages/message.tpl');
+			return;
 		}
+
+		if ($user->getDisabled()) {
+			$templateMgr
+				->assign([
+					'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+					'reason' => empty($reason = $user->getDisabledReason() ?? '')
+						? __('user.login.accountDisabled')
+						: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+				])
+				->display('frontend/pages/userLostPassword.tpl');
+			
+			return;
+		}
+
+		// Send email confirming password reset as all check has passed
+		import('lib.pkp.classes.mail.MailTemplate');
+		$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
+		$site = $request->getSite();
+		$this->_setMailFrom($request, $mail, $site);
+		$mail->assignParams([
+			'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
+			'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+		]);
+		$mail->addRecipient($user->getEmail(), $user->getFullName());
+		$mail->send();
+
+		$templateMgr->assign([
+			'pageTitle' => 'user.login.resetPassword',
+			'message' => 'user.login.lostPassword.confirmationSent',
+			'backLink' => $request->url(null, $request->getRequestedPage()),
+			'backLinkLabel' => 'user.login',
+		]);
+		$templateMgr->display('frontend/pages/message.tpl');
 	}
 
 	/**
-	 * Reset a user's password
+	 * Present the password reset form to reset user's password
 	 * @param $args array first param contains the username of the user whose password is to be reset
 	 */
 	function resetPassword($args, $request) {
+
+		if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
+		
+		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->setupBackendPage();
+		$templateMgr->assign([
+			'pageTitle' => 'user.login.resetPassword',
+		]);
 
 		$username = isset($args[0]) ? $args[0] : null;
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$confirmHash = $request->getUserVar('confirm');
 
 		if ($username == null || ($user = $userDao->getByUsername($username)) == null) {
 			$request->redirect(null, null, 'lostPassword');
 		}
 
+		if ($user->getDisabled()) {
+			$templateMgr
+				->assign([
+					'backLink' => $request->url(null, $request->getRequestedPage()),
+					'backLinkLabel' => 'user.login',
+					'messageTranslated' => __(
+						'user.login.lostPassword.confirmationSentFailedWithReason', 
+						[
+							'reason' => empty($reason = $user->getDisabledReason() ?? '')
+								? __('user.login.accountDisabled')
+								: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+						] 
+					),
+				])
+				->display('frontend/pages/message.tpl');
+			
+			return;
+		}
+
+		import('lib.pkp.classes.user.form.ResetPasswordForm');
+
+		$passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
+		$passwordResetForm->initData();
+
+		
+		$passwordResetForm->validatePasswordResetHash($request)
+			? $passwordResetForm->display($request)
+			: $passwordResetForm->displayInvalidHashErrorMessage($request);
+	}
+
+	/**
+	 * Reset a user's password
+	 * @param $args array first param contains the username of the user whose password is to be reset
+	 */
+	public function updateResetPassword($args, $request)
+	{
+		$this->_isBackendPage = true;
+		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 
-		if (!Validation::verifyPasswordResetHash($user->getId(), $confirmHash)) {
-			$templateMgr->assign(array(
-				'errorMsg' => 'user.login.lostPassword.invalidHash',
-				'backLink' => $request->url(null, null, 'lostPassword'),
-				'backLinkLabel' => 'user.login.resetPassword',
-			));
-			$templateMgr->display('frontend/pages/error.tpl');
+		$username = $request->getUserVar('username');
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+		$confirmHash = $request->getUserVar('hash');
 
+		if ($username == null || ($user = $userDao->getByUsername($username)) == null) {
+			$request->redirect(null, null, 'lostPassword');
+		}
+
+		import('lib.pkp.classes.user.form.ResetPasswordForm');
+
+		$passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
+		$passwordResetForm->readInputData();
+
+		if ( !$passwordResetForm->validatePasswordResetHash($request) ) {
+			return $passwordResetForm->displayInvalidHashErrorMessage($request);
+		}
+
+		if ($passwordResetForm->validate()) {
+			if ($passwordResetForm->execute()) {
+				$templateMgr->assign([
+					'pageTitle' => 'user.login.resetPassword',
+					'message' => 'user.login.resetPassword.passwordUpdated',
+					'backLink' => $request->url(null, $request->getRequestedPage()),
+					'backLinkLabel' => 'user.login',
+				]);
+
+				$templateMgr->display('frontend/pages/message.tpl');
+			}
 		} else {
-			// Reset password
-			$newPassword = Validation::generatePassword();
-
-			if ($user->getAuthId()) {
-				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
-				$auth = $authDao->getPlugin($user->getAuthId());
-			}
-
-			if (isset($auth)) {
-				$auth->doSetUserPassword($user->getUsername(), $newPassword);
-				$user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
-			} else {
-				$user->setPassword(Validation::encryptCredentials($user->getUsername(), $newPassword));
-			}
-
-			$user->setMustChangePassword(1);
-			$userDao->updateObject($user);
-
-			// Send email with new password
-			$site = $request->getSite();
-			import('lib.pkp.classes.mail.MailTemplate');
-			$mail = new MailTemplate('PASSWORD_RESET');
-			$this->_setMailFrom($request, $mail, $site);
-			$mail->assignParams([
-				'username' => htmlspecialchars($user->getUsername()),
-				'password' => htmlspecialchars($newPassword),
-				'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
-			]);
-			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			if (!$mail->send()) {
-				import('classes.notification.NotificationManager');
-				$notificationMgr = new NotificationManager();
-				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
-			}
-
-			$templateMgr->assign(array(
-				'pageTitle' => 'user.login.resetPassword',
-				'message' => 'user.login.lostPassword.passwordSent',
-				'backLink' => $request->url(null, $request->getRequestedPage()),
-				'backLinkLabel' => 'user.login',
-			));
-			$templateMgr->display('frontend/pages/message.tpl');
+			$passwordResetForm->display($request);
 		}
 	}
 
@@ -334,7 +381,7 @@ class LoginHandler extends Handler {
 				return $templateMgr->display('frontend/pages/error.tpl');
 			}
 
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+			$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 			$newUser = $userDao->getById($userId);
 
 			if (isset($newUser) && $session->getUserId() != $newUser->getId()) {
@@ -362,7 +409,7 @@ class LoginHandler extends Handler {
 		if (isset($signedInAs) && !empty($signedInAs)) {
 			$signedInAs = (int)$signedInAs;
 
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+			$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 			$oldUser = $userDao->getById($signedInAs);
 
 			$session->unsetSessionVar('signedInAs');

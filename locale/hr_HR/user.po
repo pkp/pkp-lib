@@ -77,8 +77,17 @@ msgstr "Oprostite, poveznica na koju ste kliknuli nije važeća ili nije valjana
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr "Nova lozinka je poslana na vašu adresu e-pošte. Možete se sada prijaviti na stranici s vašom novom lozinkom."
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nije moguće dovršiti zahtjev za ponovno postavljanje lozinke jer {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Unesite novu lozinku za ažuriranje lozinke za prijavu."
+
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Lozinka je uspješno ažurirana. Prijavite se ažuriranom lozinkom."
 
 msgid "user.login.registeredEmail"
 msgstr "Registrirana e-pošta korisnika"

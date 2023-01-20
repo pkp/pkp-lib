@@ -12,6 +12,14 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nu se poate finaliza solicitarea de resetare a parolei deoarece {$reason}."
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Introduceți o nouă parolă pentru a actualiza parola de conectare."
+
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
 "Introduceți adresa de e-mail a contului de mai jos și un e-mail va fi trimis "
@@ -331,10 +339,9 @@ msgstr "Înregistrare completă"
 msgid "user.login.registeredEmail"
 msgstr "Adresa de e-mail a utilizatorului înregistrat"
 
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"O nouă parolă a fost trimisă la adresa dvs. de e-mail. Acum vă puteți "
-"autentifica pe site cu noua parolă."
+#, fuzzy
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Parola a fost actualizată cu succes. Vă rugăm să vă autentificați cu parola actualizată."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Nu există utilizator cu adresa de e-mail specificată."

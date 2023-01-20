@@ -72,20 +72,6 @@ msgstr ""
 "<br />\n"
 "{$siteContactName}"
 
-msgid "emails.passwordReset.body"
-msgstr ""
-"Sua senha foi redefinida com sucesso para uso com o site {$siteTitle}. Por "
-"favor, guarde este nome de usuário e senha, pois será necessário para todo o "
-"trabalho com o servidor.<br />\n"
-"<br />\n"
-"Seu nome de usuário: {$recipientUsername}<br />\n"
-"Senha: {$password}<br />\n"
-"<br />\n"
-"{$siteContactName}"
-
-msgid "emails.passwordReset.subject"
-msgstr "Redefinição de Senha"
-
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmação de Redefinição de Senha"
 

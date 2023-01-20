@@ -315,6 +315,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $submissionId) {
                 DB::table('submission_settings')->where('submission_id', '=', $submissionId)->delete();
             }
+            // Clean orphaned review_rounds entries by submission_id
+            $orphanedIds = DB::table('review_rounds AS rr')->leftJoin('submissions AS s', 's.submission_id', '=', 'rr.submission_id')->whereNull('s.submission_id')->distinct()->pluck('rr.review_round_id');
+            foreach ($orphanedIds as $reviewRoundId) {
+                DB::table('review_rounds')->where('review_round_id', '=', $reviewRoundId)->delete();
+            }
             // Clean orphaned publications entries by submission_id
             $orphanedIds = DB::table('publications AS p')->leftJoin('submissions AS s', 's.submission_id', '=', 'p.submission_id')->whereNull('s.submission_id')->distinct()->pluck('p.publication_id');
             foreach ($orphanedIds as $publicationId) {

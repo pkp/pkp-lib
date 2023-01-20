@@ -712,39 +712,28 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get a human-readable version of the max file upload size
-     *
-     * @return string
      */
-    public static function getReadableMaxFileSize()
+    public static function getReadableMaxFileSize(): string
     {
-        return strtolower(UPLOAD_MAX_FILESIZE) . 'b';
+        return strtoupper(UPLOAD_MAX_FILESIZE) . 'B';
     }
 
     /**
      * Convert the max upload size to an integer in MBs
-     *
-     * @return int
      */
-    public static function getIntMaxFileMBs()
+    public static function getIntMaxFileMBs(): int
     {
-        $num = substr(UPLOAD_MAX_FILESIZE, 0, (strlen(UPLOAD_MAX_FILESIZE) - 1));
-        $scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
-        switch ($scale) {
-            case 'g':
-                $num = $num * 1024;
-                break;
-            case 'k':
-                $num = $num / 1024;
-                break;
-            case 'm':
-                break; // Is set as MB already, do nothing.
-            default:
-                // No suffix, so this is "b" (Byte)
-                // Reset $num to the limit without cut the last digit
-                $num = UPLOAD_MAX_FILESIZE / 1024 / 1024;
-                break;
-        }
-        return floor($num);
+        $size = (int) UPLOAD_MAX_FILESIZE;
+        $unit = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
+        // No suffix fallbacks to "byte"
+        match (ctype_alpha($unit) ? $unit : 'b') {
+            'g' => $size <<= 10,
+            'm' => null,
+            'k' => $size >>= 10,
+            'b' => $size >>= 20,
+            default => error_log(sprintf('Invalid value for the PHP configuration upload_max_filesize "%s"', UPLOAD_MAX_FILESIZE))
+        };
+        return floor($size);
     }
 
     /**
@@ -816,7 +805,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 }
 
 define('REALLY_BIG_NUMBER', 10000);
-define('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
+define('UPLOAD_MAX_FILESIZE', trim(ini_get('upload_max_filesize')));
 
 define('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
 define('WORKFLOW_STAGE_ID_SUBMISSION', 1);

@@ -304,6 +304,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                     DB::table('review_form_responses')->where('review_id', '=', $reviewId)->delete();
                 }
             }
+            // Clean orphaned review_form_responses entries by review_id
+            $orphanedIds = DB::table('review_files AS rf')->leftJoin('review_assignments AS ra', 'rf.review_id', '=', 'ra.review_id')->whereNull('ra.review_id')->distinct()->pluck('rf.review_id');
+            foreach ($orphanedIds as $reviewId) {
+                $this->_installer->log("Removing orphaned review_files for missing review_id ${reviewId}");
+                DB::table('review_files')->where('review_id', '=', $reviewId)->delete();
+            }
             // Clean orphaned submissions by context_id
             $rows = DB::table('submissions AS s')->leftJoin($this->getContextTable() . ' AS c', 's.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->select(['s.submission_id', 's.context_id'])->get();
             foreach ($rows as $row) {

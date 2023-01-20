@@ -16,8 +16,8 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 use Throwable;
@@ -26,8 +26,7 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
 {
     /**
      * Get the decisions constants mappings
-     * 
-     * @return array
+     *
      */
     abstract public function getDecisionMappings(): array;
 
@@ -39,7 +38,6 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
         $this->configureUpdatedAtColumn();
 
         try {
-
             DB::beginTransaction();
 
             collect($this->getDecisionMappings())
@@ -58,12 +56,10 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
                 );
 
             DB::commit();
-
         } catch (Throwable $exception) {
-
             DB::rollBack();
 
-            error_log($exception->__toString());
+            $this->_installer->log($exception->__toString());
         }
 
         $this->removeUpdatedAtColumn();
@@ -77,7 +73,6 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
         $this->configureUpdatedAtColumn();
 
         try {
-
             DB::beginTransaction();
 
             collect($this->getDecisionMappings())
@@ -96,12 +91,10 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
                 );
 
             DB::commit();
-
         } catch (Throwable $exception) {
-
             DB::rollBack();
 
-            error_log($exception->__toString());
+            $this->_installer->log($exception->__toString());
         }
 
         $this->removeUpdatedAtColumn();
@@ -113,7 +106,6 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
     protected function configureUpdatedAtColumn(): void
     {
         if (!Schema::hasColumn('edit_decisions', 'updated_at')) {
-            
             Schema::table('edit_decisions', function (Blueprint $table) {
                 $table->timestamp('updated_at')->nullable();
             });
@@ -137,5 +129,4 @@ abstract class I7725_DecisionConstantsUpdate extends Migration
             });
         }
     }
-
 }

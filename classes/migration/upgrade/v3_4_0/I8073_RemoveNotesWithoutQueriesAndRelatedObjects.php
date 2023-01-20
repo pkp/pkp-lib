@@ -142,10 +142,10 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                     if ($filesystem->has($submissionFilePath)) {
                         try {
                             $filesystem->delete($submissionFilePath);
-                            error_log("A submission file that was attached to an orphaned note with ID ${noteId} at ${submissionFilePath} was successfully deleted.");
+                            $this->_installer->log("A submission file that was attached to an orphaned note with ID ${noteId} at ${submissionFilePath} was successfully deleted.");
                         } catch (FilesystemException | UnableToDeleteFile $exception) {
                             $exceptionMessage = $exception->getMessage();
-                            error_log("A submission file that was attached to an orphaned note with ID ${noteId} was found at ${submissionFilePath} but could not be deleted because of: ${exceptionMessage}.");
+                            $this->_installer->log("A submission file that was attached to an orphaned note with ID ${noteId} was found at ${submissionFilePath} but could not be deleted because of: ${exceptionMessage}.");
                         }
                     }
 
@@ -155,7 +155,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                 }
             }
 
-            error_log("Removing orphaned note entry ID ${noteId} with nonexistent query ${neQueryId}");
+            $this->_installer->log("Removing orphaned note entry ID ${noteId} with nonexistent query ${neQueryId}");
             DB::table('notes')
                 ->where('note_id', '=', $noteId)
                 ->delete();

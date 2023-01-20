@@ -98,11 +98,11 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
         try {
             Schema::table('user_settings', fn (Blueprint $table) => $table->dropUnique('user_settings_pkey'));
         } catch (Exception $e) {
-            error_log('Failed to drop unique index "user_settings_pkey" from table "user_settings", another attempt will be done.');
+            $this->_installer->log('Failed to drop unique index "user_settings_pkey" from table "user_settings", another attempt will be done.');
             try {
                 Schema::table('user_settings', fn (Blueprint $table) => $table->dropIndex('user_settings_pkey'));
             } catch (Exception $e) {
-                error_log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.');
+                $this->_installer->log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.');
             }
         }
 

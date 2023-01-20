@@ -84,7 +84,7 @@ class QueryForm extends Form
             $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
             $headNote = $noteDao->newDataObject();
             $headNote->setUserId($request->getUser()->getId());
-            $headNote->setAssocType(ASSOC_TYPE_QUERY);
+            $headNote->setAssocType(Application::ASSOC_TYPE_QUERY);
             $headNote->setAssocId($query->getId());
             $headNote->setDateCreated(Core::getCurrentDate());
             $noteDao->insertObject($headNote);
@@ -295,7 +295,7 @@ class QueryForm extends Form
         if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
             // Get all review assignments for current submission
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
 
             // Get current users roles
@@ -306,9 +306,8 @@ class QueryForm extends Form
                 $assignedRoles[] = $userGroup->getRoleId();
             }
 
-            // if current user is editor, add all reviewers
-            if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
-                    array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $assignedRoles)) {
+            // if current user is editor/journal manager/site admin and not have author role , add all reviewers
+            if ( array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || ( empty($assignedRoles) && ( $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) ) ) ) {
                 foreach ($reviewAssignments as $reviewAssignment) {
                     $includeUsers[] = $reviewAssignment->getReviewerId();
                 }
@@ -410,7 +409,7 @@ class QueryForm extends Form
         // In other stages validate that participants are assigned to that stage.
         $query = $this->getQuery();
         // Queryies only support ASSOC_TYPE_SUBMISSION so far (see above)
-        if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
+        if ($query->getAssocType() == Application::ASSOC_TYPE_SUBMISSION) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
             $context = $request->getContext();
@@ -450,7 +449,7 @@ class QueryForm extends Form
                     // is participant a blind reviewer
                     $blindReviewer = false;
                     foreach ($reviewAssignments as $reviewAssignment) {
-                        if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
+                        if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                             $blindReviewerCount++;
                             $blindReviewer = true;
                             break;
@@ -514,11 +513,11 @@ class QueryForm extends Form
         foreach ($removed as $userId) {
             // Delete this users' notifications relating to this query
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $userId);
+            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $query->getId(), $userId);
         }
 
         // Stamp the submission status modification date.
-        if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
+        if ($query->getAssocType() == Application::ASSOC_TYPE_SUBMISSION) {
             $submission = Repo::submission()->get($query->getAssocId());
             $submission->stampLastActivity();
             Repo::submission()->dao->update($submission);

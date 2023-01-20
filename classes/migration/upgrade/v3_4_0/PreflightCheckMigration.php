@@ -438,7 +438,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
 
             // Clean orphaned stage_assignments entries by submission_id
-            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('submissions AS s', 'sa.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('s.submission_id');
+            $orphanedIds = DB::table('stage_assignments AS sa')->leftJoin('submissions AS s', 'sa.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sa.submission_id');
             foreach ($orphanedIds as $submissionId) {
                 DB::table('stage_assignments')->where('submission_id', '=', $submissionId)->delete();
             }

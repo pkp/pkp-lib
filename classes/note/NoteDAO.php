@@ -95,8 +95,7 @@ class NoteDAO extends \PKP\db\DAO
         ?int $userId = null,
         int $orderBy = self::NOTE_ORDER_DATE_CREATED,
         int $sortDirection = self::SORT_DIRECTION_DESC
-    ): LazyCollection
-    {
+    ): LazyCollection {
         $query = DB::table('notes')
             ->where('assoc_id', '=', $assocId)
             ->where('assoc_type', '=', $assocType);
@@ -156,35 +155,6 @@ class NoteDAO extends \PKP\db\DAO
 			WHERE	assoc_id = ? AND assoc_type = ?
 			' . ($userId ? ' AND user_id = ?' : ''),
             $params
-        );
-        $row = $result->current();
-        return $row ? (bool) $row->row_count : false;
-    }
-
-    /**
-     * Determine whether or not unread notes exist for a given association
-     *
-     * @param int $assocType ASSOC_TYPE_...
-     * @param int $assocId Foreign key, depending on ASSOC_TYPE
-     * @param int $userId User ID
-     */
-    public function unreadNotesExistByAssoc($assocType, $assocId, $userId)
-    {
-        $params = [(int) $assocId, (int) $assocType, (int) $userId];
-
-        $result = $this->retrieve(
-            'SELECT	COUNT(*) AS row_count
-			FROM	notes n
-				JOIN item_views v ON (v.assoc_type = ? AND v.assoc_id = n.note_id AND v.user_id = ?)
-			WHERE	n.assoc_type = ? AND
-				n.assoc_id = ? AND
-				v.assoc_id IS NULL',
-            [
-                (int) ASSOC_TYPE_NOTE,
-                (int) $userId,
-                (int) $assocType,
-                (int) $assocId
-            ]
         );
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;
@@ -304,13 +274,13 @@ class NoteDAO extends \PKP\db\DAO
             ->getCollector()
             ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [(int) $noteId])
             ->getMany()
-            ->each(function(SubmissionFile $file) {
+            ->each(function (SubmissionFile $file) {
                 Repo::submissionFile()->delete($file);
             });
 
         DB::table('notes')
             ->where('note_id', '=', (int) $noteId)
-            ->when(!is_null($userId), function(Builder $q) use ($userId) {
+            ->when(!is_null($userId), function (Builder $q) use ($userId) {
                 $q->where('user_id', '=', $userId);
             })
             ->delete();

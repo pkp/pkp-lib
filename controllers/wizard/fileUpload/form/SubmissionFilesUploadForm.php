@@ -16,6 +16,7 @@
 namespace PKP\controllers\wizard\fileUpload\form;
 
 use APP\core\Application;
+use APP\submission\Submission;
 use APP\core\Services;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
@@ -28,6 +29,8 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
     /** @var array */
     public $_uploaderRoles;
 
+    /** @var Submission */
+    protected $_submission;
 
     /**
      * Constructor.
@@ -76,6 +79,8 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
             $assocId,
             $queryId
         );
+
+        $this->_submission = Repo::submission()->get($submissionId);
 
         // Disable the genre selector for review file attachments
         if ($fileStage == SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
@@ -192,7 +197,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 [
                     'fileId' => $fileId,
                     'name' => [
-                        $request->getContext()->getPrimaryLocale() => $_FILES['uploadedFile']['name'],
+                        $this->_submission->getLocale() => $_FILES['uploadedFile']['name'],
                     ],
                     'uploaderUserId' => $user->getId(),
                 ]
@@ -203,7 +208,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
             $submissionFile = Repo::submissionFile()->dao->newDataObject();
             $submissionFile->setData('fileId', $fileId);
             $submissionFile->setData('fileStage', $this->getData('fileStage'));
-            $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $request->getContext()->getPrimaryLocale());
+            $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $this->_submission->getLocale());
             $submissionFile->setData('submissionId', $this->getData('submissionId'));
             $submissionFile->setData('uploaderUserId', $user->getId());
             $submissionFile->setData('assocType', $this->getData('assocType') ? (int) $this->getData('assocType') : null);
@@ -216,7 +221,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
             $submissionFile->setData('genreId', $genreId);
 
             if ($this->getReviewRound() && $this->getReviewRound()->getId() && empty($submissionFile->getData('assocType'))) {
-                $submissionFile->setData('assocType', ASSOC_TYPE_REVIEW_ROUND);
+                $submissionFile->setData('assocType', Application::ASSOC_TYPE_REVIEW_ROUND);
                 $submissionFile->setData('assocId', $this->getReviewRound()->getId());
             }
 

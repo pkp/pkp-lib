@@ -2622,9 +2622,6 @@ msgstr "قائمة بطلبات التقديم التي لها مهام معلق
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
 
-msgid "mailable.passwordReset.description"
-msgstr "هذه الرسالة معنونة إلى المستخدمين المسجلين الذي تمكنوا من إعادة تعيين كلمات مرورهم بنجاح متبعين الخطوات الموضحة في رسالة إعادة تعيين كلمة المرور."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "هذه الرسالة معنونة إلى المستخدمين المسجلين الذي أبلغوا عن فقدانهم لكلمات مرورهم إلى الموقع، أو الذين تعذر عليهم الولوج لأي سبب آخر. سيحصل هؤلاء على رابط يمكنهم عند النقر عليه إعادة تعيين كلمات مرورهم."
 
@@ -2787,9 +2784,6 @@ msgid "mailable.reviewerResendRequest.description"
 msgstr ""
 "هذا البريد الالكتروني يرسله المحرر إلى المحكم الذي رفض إلتماس التحكيم عندما "
 "يرغب المحرر بإعادة إرسال الالتماس."
-
-msgid "mailable.passwordReset.name"
-msgstr "إعادة تعيين كلمة المرور"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "تأكيد إعادة تعيين كلمة المرور"

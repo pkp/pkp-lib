@@ -23,6 +23,7 @@ switch ($op) {
     case 'lostPassword':
     case 'requestResetPassword':
     case 'resetPassword':
+    case 'updateResetPassword':
     case 'changePassword':
     case 'savePassword':
     case 'signInAsUser':

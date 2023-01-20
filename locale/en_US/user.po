@@ -445,3 +445,15 @@ msgstr "Before generating an API key, your site administrator must set a secret 
 
 msgid "user.privacyLink"
 msgstr "Your data is stored in accordance with our <a href=\"{$privacyUrl}\" target=\"_blank\">privacy statement</a>."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "No user exists with the specified email address."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Unable to complete password reset request because {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Enter new password to update login password."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Password has been updated successfully. Please login with updated password."

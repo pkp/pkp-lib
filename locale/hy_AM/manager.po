@@ -3082,9 +3082,6 @@ msgstr ""
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Գրախոսման փուլը չեղարկվել է"
 
-msgid "mailable.passwordReset.name"
-msgstr "Գաղտնաբառի վերականգնում"
-
 msgid "mailable.passwordResetRequested.name"
 msgstr "Գաղտնաբառի վերականգնման Հաստատում"
 
@@ -3169,12 +3166,6 @@ msgstr ""
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr "Հոդվածի համար հրավիրված գրախոսը չեղարկվել է:"
-
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Այս էլ․ նամակն ուղարկվում է գրանցված օգտվողին, երբ նա հաջողությամբ "
-"վերականգնում է իր գաղտնաբառը հետևելով PASSWORD_RESET_CONFIRM էլ․ փոստում "
-"նկարագրված քայլերին:"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
 msgstr "Ներկայացումը հետ է ուղարկվել գրական սրբագրումից"

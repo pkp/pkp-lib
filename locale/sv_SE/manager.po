@@ -2773,12 +2773,6 @@ msgstr ""
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-uppdatering misslyckades"
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Det här e-postmeddelandet skickas till registrerade användare som "
-"bekräftelse på återställt lösenord (enligt beskrivning i "
-"PASSWORD_RESET_CONFIRM-mailet)."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Det här meddelandet skickas till registrerade användare som meddelar att de "
@@ -2960,9 +2954,6 @@ msgstr "Året för rapporten"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Länken till redaktionell aktivitet"
-
-msgid "mailable.passwordReset.name"
-msgstr "Återställ lösenord"
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"

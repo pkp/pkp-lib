@@ -2949,11 +2949,6 @@ msgstr "Seznam prispevkov z odprtimi nalogami"
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL za uporabnika, da lahko vidi in ureja uporabniški račun."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Email se pošlje registriranemu uporabniku, ko uspešno ponastavi svoje geslo, "
-"kot je opisano v emailu PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Email se pošlje uporabniku, ko pozabi geslo za prijavo in odda zahtevo za "
@@ -3102,8 +3097,6 @@ msgstr "Število prejetih prispevkov ta mesec"
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identifikacija številke, vključuje zvezek, številko, leto in naslov"
 
-msgid "mailable.passwordReset.name"
-msgstr "Ponastavi geslo"
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Registracija recenzenta"

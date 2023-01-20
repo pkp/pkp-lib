@@ -179,7 +179,7 @@ class DAO extends EntityDAO
             })
             ->get('user_id')
             ->first();
-        return $row ? $this->get($row->user_id) : null;
+        return $row ? $this->get($row->user_id, $allowDisabled) : null;
     }
 
     /**

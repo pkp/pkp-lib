@@ -2945,12 +2945,6 @@ msgstr "Uma lista de submissões com tarefas pendentes"
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "A URL para um usuário visualizar e editar seu perfil."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Esta mensagem é enviada a um usuário cadastrado quando ele redefiniu sua "
-"senha com sucesso, seguindo o processo descrito na mensagem "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Esta mensagem é enviada a um usuário cadastrado quando o mesmo indica que "
@@ -3153,9 +3147,6 @@ msgstr ""
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Rodada de Avaliação Cancelada"
-
-msgid "mailable.passwordReset.name"
-msgstr "Redefinição de Senha"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Confirmar redefinição de Senha"

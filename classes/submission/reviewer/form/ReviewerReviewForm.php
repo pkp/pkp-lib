@@ -117,7 +117,7 @@ class ReviewerReviewForm extends Form
         }
 
         // Save the reviewer submission.
-        $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignentDao */
+        $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignmentDAO->updateObject($reviewAssignment);
     }
 }

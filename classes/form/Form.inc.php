@@ -190,7 +190,9 @@ class Form {
 
 		if (!$templateMgr->getTemplateVars('primaryLocale')) {
 			$templateMgr->assign([
-				'primaryLocale' => $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale(),
+				'primaryLocale' => $context 
+					? $context->getPrimaryLocale() 
+					: (Config::getVar('general', 'installed') ? $request->getSite()->getPrimaryLocale() : null),
 			]);
 		}
 

@@ -139,7 +139,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
                     ];
                 });
             if ($newRows->count()) {
-                DB::table('subeditor_submission_group')->insert($newRows->toArray());
+                DB::table('subeditor_submission_group')->insertOrIgnore($newRows->toArray());
             }
         });
     }

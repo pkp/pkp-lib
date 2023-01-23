@@ -23,6 +23,7 @@
 namespace PKP\form;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
@@ -202,7 +203,9 @@ class Form
 
         if (!$templateMgr->getTemplateVars('primaryLocale')) {
             $templateMgr->assign([
-                'primaryLocale' => $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale(),
+                'primaryLocale' => $context 
+                    ? $context->getPrimaryLocale() 
+                    : (Application::isInstalled() ? $request->getSite()->getPrimaryLocale() : null),
             ]);
         }
 

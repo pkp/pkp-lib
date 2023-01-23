@@ -47,7 +47,7 @@ class PKPReviewerHandler extends Handler
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $reviewStep = max($reviewAssignment->getData('step'), 1);
+        $reviewStep = max($reviewAssignment->getStep(), 1);
         $userStep = (int) $request->getUserVar('step');
         $step = (int) (!empty($userStep) ? $userStep : $reviewStep);
         if ($step > $reviewStep) {
@@ -79,7 +79,7 @@ class PKPReviewerHandler extends Handler
 
         $this->setupTemplate($request);
 
-        $reviewStep = max($reviewAssignment->getData('step'), 1); // Get the current saved step from the DB
+        $reviewStep = max($reviewAssignment->getStep(), 1); // Get the current saved step from the DB
         $userStep = (int) $request->getUserVar('step');
         $step = (int) (!empty($userStep) ? $userStep : $reviewStep);
         if ($step > $reviewStep) {

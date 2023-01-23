@@ -56,9 +56,8 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         $context = $request->getContext();
 
         // Add submission parameters.
-        $reviewSubmission = $this->getReviewSubmission();
         $reviewAssignment = $this->getReviewAssignment();
-        $templateMgr->assign('completedSteps', $reviewSubmission->getStatus());
+
         $templateMgr->assign('reviewerCompetingInterests', $reviewAssignment->getCompetingInterests());
 
         // Add review assignment.

@@ -112,13 +112,13 @@ class ReviewerReviewForm extends Form
     {
         // Update the review step.
         $nextStep = $this->getStep() + 1;
-        if ($reviewAssignment->getData('step') < $nextStep) {
-            $reviewAssignment->setData('step', $nextStep);
+        if ($reviewAssignment->getStep() < $nextStep) {
+            $reviewAssignment->setStep($nextStep);
         }
 
         // Save the reviewer submission.
-        $reviewAssignentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignentDao */
-        $reviewAssignentDao->updateObject($reviewAssignment);
+        $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignentDao */
+        $reviewAssignmentDAO->updateObject($reviewAssignment);
     }
 }
 

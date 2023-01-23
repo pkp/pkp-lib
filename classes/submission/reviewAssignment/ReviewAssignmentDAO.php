@@ -345,28 +345,28 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $result = $this->update(
             sprintf(
                 'INSERT INTO review_assignments (
-				submission_id,
-				reviewer_id,
-				stage_id,
-				review_method,
-				round,
+                submission_id,
+                reviewer_id,
+                stage_id,
+                review_method,
+                round,
                 step,
-				competing_interests,
-				recommendation,
-				declined,
-				cancelled,
-				date_assigned, date_notified, date_confirmed,
-				date_completed, date_acknowledged, date_due, date_response_due,
-				quality, date_rated,
-				last_modified,
-				date_reminded, reminder_was_automatic,
-				review_form_id,
-				review_round_id,
-				unconsidered,
-				request_resent
-				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
-				)',
+                competing_interests,
+                recommendation,
+                declined,
+                cancelled,
+                date_assigned, date_notified, date_confirmed,
+                date_completed, date_acknowledged, date_due, date_response_due,
+                quality, date_rated,
+                last_modified,
+                date_reminded, reminder_was_automatic,
+                review_form_id,
+                review_round_id,
+                unconsidered,
+                request_resent
+                ) VALUES (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
+                )',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
                 $this->datetimeToDB($reviewAssignment->getDateConfirmed()),

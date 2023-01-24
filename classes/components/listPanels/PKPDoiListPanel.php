@@ -157,6 +157,7 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.registration.viewRecord.title',
             'manager.dois.publicationStatus',
             'manager.dois.registration.depositDois',
+            'manager.dois.status.needsDoi',
             'manager.dois.status.unregistered',
             'manager.dois.status.submitted',
             'manager.dois.status.registered',
@@ -176,6 +177,8 @@ abstract class PKPDoiListPanel extends ListPanel
             'common.edit',
             'common.save',
             'common.type',
+            'common.status',
+            'common.description',
             'list.expandAll',
             'list.collapseAll',
             'manager.dois.update.failedCreation',
@@ -187,8 +190,14 @@ abstract class PKPDoiListPanel extends ListPanel
             'doi.manager.versions.countStatement',
             'doi.manager.versions.view',
             'doi.manager.versions.modalTitle',
-            'common.save',
-            'common.edit',
+            'manager.dois.help.statuses.title',
+            'manager.dois.status.needsDoi.description',
+            'manager.dois.status.unpublished.description',
+            'manager.dois.status.unregistered.description',
+            'manager.dois.status.submitted.description',
+            'manager.dois.status.registered.description',
+            'manager.dois.status.error.description',
+            'manager.dois.status.stale.description',
         ]);
 
         $this->setAppConfig($config);

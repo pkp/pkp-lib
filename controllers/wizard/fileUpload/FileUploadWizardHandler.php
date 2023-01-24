@@ -126,7 +126,7 @@ class FileUploadWizardHandler extends Handler
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
             $stageId = (int) $request->getUserVar('stageId');
-            if (empty($assocType) || $assocType !== ASSOC_TYPE_REVIEW_ASSIGNMENT || empty($assocId)) {
+            if (empty($assocType) || $assocType !== Application::ASSOC_TYPE_REVIEW_ASSIGNMENT || empty($assocId)) {
                 return false;
             }
 
@@ -140,7 +140,7 @@ class FileUploadWizardHandler extends Handler
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
             $stageId = (int) $request->getUserVar('stageId');
-            if (empty($assocType) || $assocType !== ASSOC_TYPE_NOTE || empty($assocId)) {
+            if (empty($assocType) || $assocType !== Application::ASSOC_TYPE_NOTE || empty($assocId)) {
                 return false;
             }
 
@@ -151,7 +151,7 @@ class FileUploadWizardHandler extends Handler
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
-            if (empty($assocType) || $assocType !== ASSOC_TYPE_SUBMISSION_FILE || empty($assocId)) {
+            if (empty($assocType) || $assocType !== Application::ASSOC_TYPE_SUBMISSION_FILE || empty($assocId)) {
                 return false;
             }
 
@@ -172,13 +172,13 @@ class FileUploadWizardHandler extends Handler
                 SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
                 SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
                 SubmissionFile::SUBMISSION_FILE_ATTACHMENT
-            ]) || $assocType === ASSOC_TYPE_REVIEW_ROUND) {
+            ]) || $assocType === Application::ASSOC_TYPE_REVIEW_ROUND) {
                 $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
             }
 
             // Additional checks before uploading to a representation
-            if ($fileStage === SubmissionFile::SUBMISSION_FILE_PROOF || $assocType === ASSOC_TYPE_REPRESENTATION) {
-                if (empty($assocType) || $assocType !== ASSOC_TYPE_REPRESENTATION || empty($assocId)) {
+            if ($fileStage === SubmissionFile::SUBMISSION_FILE_PROOF || $assocType === Application::ASSOC_TYPE_REPRESENTATION) {
+                if (empty($assocType) || $assocType !== Application::ASSOC_TYPE_REPRESENTATION || empty($assocId)) {
                     return false;
                 }
                 $this->addPolicy(new RepresentationUploadAccessPolicy($request, $args, $assocId));
@@ -236,7 +236,7 @@ class FileUploadWizardHandler extends Handler
      */
     public function getSubmission()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 
 
@@ -247,7 +247,7 @@ class FileUploadWizardHandler extends Handler
      */
     public function getStageId()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
     }
 
     /**
@@ -289,7 +289,7 @@ class FileUploadWizardHandler extends Handler
      */
     public function getReviewRound()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
     }
 
     /**
@@ -441,6 +441,11 @@ class FileUploadWizardHandler extends Handler
      */
     public function editMetadata($args, $request)
     {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'primaryLocale' => $this->getSubmission()->getLocale(),
+        ]);
+        
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();

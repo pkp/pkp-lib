@@ -23,6 +23,7 @@
 namespace PKP\form;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
@@ -184,6 +185,7 @@ class Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setCacheability(TemplateManager::CACHEABILITY_NO_STORE);
 
+        $context = $request->getContext();
 
         // Attach this form object to the Form Builder Vocabulary for validation to work
         $fbv = $templateMgr->getFBV();
@@ -198,6 +200,14 @@ class Form
                 'formLocale' => $this->getDefaultFormLocale(),
             ]
         ));
+
+        if (!$templateMgr->getTemplateVars('primaryLocale')) {
+            $templateMgr->assign([
+                'primaryLocale' => $context 
+                    ? $context->getPrimaryLocale() 
+                    : (Application::isInstalled() ? $request->getSite()->getPrimaryLocale() : null),
+            ]);
+        }
 
         if ($display) {
             $templateMgr->display($this->_template);

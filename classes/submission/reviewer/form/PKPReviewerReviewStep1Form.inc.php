@@ -50,7 +50,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm {
 
 		// Add submission parameters.
 		$reviewerSubmission = $this->getReviewerSubmission();
-		$templateMgr->assign('completedSteps', $reviewerSubmission->getStatus());
+		
 		$templateMgr->assign('reviewerCompetingInterests', $reviewerSubmission->getCompetingInterests());
 
 		// Add review assignment.

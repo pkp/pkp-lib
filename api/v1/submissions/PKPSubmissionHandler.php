@@ -1579,7 +1579,13 @@ class PKPSubmissionHandler extends APIHandler
 
         $decision = Repo::decision()->newDataObject($params);
         $decisionId = Repo::decision()->add($decision);
-        $decision = Repo::decision()->get($decisionId);
+
+        // In some cases, recording a decision may delete the decision. This
+        // happens for example with the Cancel Review Round decision. When
+        // the decision is added, the review round is deleted and all decisions
+        // related to that round are deleted. In such cases, we return the
+        // original Decision object rather than fetching it from the data store.
+        $decision = Repo::decision()->get($decisionId) ?? $decision;
 
         return $response->withJson(Repo::decision()->getSchemaMap()->map($decision), 200);
     }

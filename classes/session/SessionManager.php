@@ -22,7 +22,6 @@ use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use SessionHandlerInterface;
-use Stringy\Stringy;
 
 class SessionManager implements SessionHandlerInterface
 {
@@ -263,12 +262,13 @@ class SessionManager implements SessionHandlerInterface
             return;
         }
 
-        $requestDomain = Stringy::create($this->request->getServerHost(includePort: false));
+        $requestDomain = $this->request->getServerHost(includePort: false);
         /** @var \Illuminate\Support\Collection<Session> */
         $sessions = $sessionIds
+            // Attempts to map the ID to an active session
             ->map(fn (string $sessionId) => $this->sessionDao->getSession($sessionId))
             // Only sessions with valid domains (empty domains are also accepted)
-            ->filter(fn (?Session $session) => $session && $requestDomain->endsWith($session->getDomain(), false));
+            ->filter(fn (?Session $session) => $session && str_ends_with(strtolower($requestDomain), strtolower($session->getDomain())));
 
         /** @var ?Session */
         $bestSession = $sessions->reduce(function (?Session $best, Session $current): Session {
@@ -298,7 +298,7 @@ class SessionManager implements SessionHandlerInterface
         session_id($bestSession?->getId() ?? session_create_id());
         session_start();
 
-        // The cookies must be dropped after the session is started, otherwise PHP will not send them
+        // The session cookies must be dropped **after** the session is started, otherwise PHP will not send the headers to clear them
         $this->clearDiscardedSessions($domains->toArray(), $bestDomain);
         // Ensures the domain is updated (data will be saved once the session gets closed)
         $this->userSession?->setDomain($bestDomain);
@@ -319,7 +319,7 @@ class SessionManager implements SessionHandlerInterface
             $domains[] = $requestDomain;
         }
 
-        // Drops the cookies (the session data will be cleared by the garbage collector)
+        // Drops only the cookies (the session data will be cleared by the garbage collector, if we attempt to drop them here we may affect other users)
         foreach (array_unique($domains) as $domain) {
             setcookie(session_name(), '', ['domain' => $domain, 'path' => ini_get('session.cookie_path')]);
         }
@@ -335,7 +335,7 @@ class SessionManager implements SessionHandlerInterface
             // Same user agent
             && $session->getUserAgent() === substr($this->request->getUserAgent(), 0, 255)
             // Compatible domain
-            && (!$session->getDomain() || (Stringy::create($this->request->getServerHost(includePort: false))->endsWith($session->getDomain(), false)));
+            && (!$session->getDomain() || str_ends_with(strtolower($this->request->getServerHost(includePort: false)), strtolower($session->getDomain())));
     }
 
     /**

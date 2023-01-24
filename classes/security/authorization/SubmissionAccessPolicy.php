@@ -46,21 +46,6 @@ class SubmissionAccessPolicy extends ContextPolicy
         // policies for those roles in a policy set.
         $submissionAccessPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
-        //
-        // Site administrator role
-        //
-        if (isset($roleAssignments[Role::ROLE_ID_SITE_ADMIN])) {
-            // Site administrators have access to all submissions.
-            $submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
-        }
-
-        //
-        // Managerial role
-        //
-        if (isset($roleAssignments[Role::ROLE_ID_MANAGER])) {
-            // Managers have access to all submissions.
-            $submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER]));
-        }
 
         //
         // Author role
@@ -122,6 +107,22 @@ class SubmissionAccessPolicy extends ContextPolicy
             $subEditorSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 
             $submissionAccessPolicy->addPolicy($subEditorSubmissionAccessPolicy);
+        }
+
+        //
+        // Managerial role
+        //
+        if (isset($roleAssignments[Role::ROLE_ID_MANAGER])) {
+            // Managers have access to all submissions.
+            $submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER]));
+        }
+
+        //
+        // Site administrator role
+        //
+        if (isset($roleAssignments[Role::ROLE_ID_SITE_ADMIN])) {
+            // Site administrators have access to all submissions.
+            $submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
         }
 
         $this->addPolicy($submissionAccessPolicy);

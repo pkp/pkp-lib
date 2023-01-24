@@ -275,6 +275,27 @@ msgstr "Error"
 msgid "manager.dois.status.stale"
 msgstr "Stale"
 
+msgid "manager.dois.status.needsDoi.description"
+msgstr "Any published or unpublished item that 1) has a sub-object without a DOI assigned where 2) the sub-object's DOI type is enabled (e.g. a galley without a DOI won't appear here if the galley DOI type is not enabled)"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr "An item that 1) has DOIs assigned for all enabled DOI types, and 2) has not been published"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr "Items that 1) has DOIs assigned for all enabled DOI types, 2) is published, and 3) has not yet been registered with a registration agency."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Items that have been submitted to the configured registration agency."
+
+msgid "manager.dois.status.registered.description"
+msgstr "Items that have successfully been registered with a registration agency or manually marked as registered."
+
+msgid "manager.dois.status.error.description"
+msgstr "Items that have encountered an error in the registration process."
+
+msgid "manager.dois.status.stale.description"
+msgstr "Items that have had their metadata updated locally and will need to be resubmitted to or updated with the configured registration agency to ensure all previously submitted metadata is up-to-date."
+
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI Updates Failed"
 
@@ -298,6 +319,9 @@ msgstr "Items successfully assigned new DOIs"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "Items successfully submitted for deposit"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "DOI Statuses"
 
 msgid "manager.genres.alertDelete"
 msgstr ""

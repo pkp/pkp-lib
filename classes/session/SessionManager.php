@@ -152,6 +152,7 @@ class SessionManager implements SessionHandlerInterface
 
     /**
      * Garbage collect unused session data.
+     *
      * @todo Use $lifetime instead of assuming 24 hours?
      *
      * @param int $lifetime the number of seconds after which data will be seen as "garbage" and cleaned up
@@ -271,7 +272,7 @@ class SessionManager implements SessionHandlerInterface
             ->filter(fn (?Session $session) => $session && str_ends_with(strtolower($requestDomain), strtolower($session->getDomain())));
 
         /** @var ?Session */
-        $bestSession = $sessions->reduce(function (?Session $best, Session $current): Session {
+        $bestSession = $sessions->reduce(function (?Session $best, Session $current): ?Session {
             // Skip invalid sessions
             if (!$this->isValid($current)) {
                 return $best;
@@ -307,6 +308,7 @@ class SessionManager implements SessionHandlerInterface
 
     /**
      * Clears discarded session cookies
+     *
      * @param string[] $domains
      */
     private function clearDiscardedSessions(array $domains, string $bestDomain): void
@@ -375,6 +377,7 @@ class SessionManager implements SessionHandlerInterface
 
     /**
      * Retrieve session IDs sent by the browser
+     *
      * @return string[]
      */
     private function getSessionIds(): array

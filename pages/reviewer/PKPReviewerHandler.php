@@ -15,10 +15,10 @@
 
 namespace PKP\pages\reviewer;
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
-use APP\submission\reviewer\ReviewerSubmission;
-use APP\submission\reviewer\ReviewerSubmissionDAO;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\JSONMessage;
@@ -42,14 +42,12 @@ class PKPReviewerHandler extends Handler
     public function submission(array $args, PKPRequest $request): void
     {
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
-        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
-        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+        $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $reviewStep = max($reviewerSubmission->getStep(), 1);
+        $reviewStep = max($reviewAssignment->getStep(), 1);
         $userStep = (int) $request->getUserVar('step');
         $step = (int) (!empty($userStep) ? $userStep : $reviewStep);
         if ($step > $reviewStep) {
@@ -59,10 +57,10 @@ class PKPReviewerHandler extends Handler
             throw new Exception('Invalid step!');
         }
         $templateMgr->assign([
-            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewerSubmission->getLocalizedTitle(),
+            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewSubmission->getLocalizedTitle(),
             'reviewStep' => $reviewStep,
             'selected' => $step - 1,
-            'submission' => $reviewerSubmission,
+            'submission' => $reviewSubmission,
         ]);
 
         $templateMgr->display('reviewer/review/reviewStepHeader.tpl');
@@ -74,16 +72,14 @@ class PKPReviewerHandler extends Handler
     public function step(array $args, PKPRequest $request): JSONMessage
     {
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
-        $reviewId = (int) $reviewAssignment->getId();
+        $reviewId = $reviewAssignment->getId();
         assert(!empty($reviewId));
 
-        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
-        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+        $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $this->setupTemplate($request);
 
-        $reviewStep = max($reviewerSubmission->getStep(), 1); // Get the current saved step from the DB
+        $reviewStep = max($reviewAssignment->getStep(), 1); // Get the current saved step from the DB
         $userStep = (int) $request->getUserVar('step');
         $step = (int) (!empty($userStep) ? $userStep : $reviewStep);
         if ($step > $reviewStep) {
@@ -94,13 +90,13 @@ class PKPReviewerHandler extends Handler
         }
 
         if ($step < 4) {
-            $reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
+            $reviewerForm = $this->getReviewForm($step, $request, $reviewSubmission, $reviewAssignment);
             $reviewerForm->initData();
             return new JSONMessage(true, $reviewerForm->fetch($request));
         } else {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign([
-                'submission' => $reviewerSubmission,
+                'submission' => $reviewSubmission,
                 'step' => 4,
                 'reviewAssignment' => $reviewAssignment,
             ]);
@@ -123,11 +119,9 @@ class PKPReviewerHandler extends Handler
             fatalError('Review already completed!');
         }
 
-        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
-        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+        $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
-        $reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
+        $reviewerForm = $this->getReviewForm($step, $request, $reviewSubmission, $reviewAssignment);
         $reviewerForm->readInputData();
 
         // Save the available form data, but do not submit
@@ -159,18 +153,16 @@ class PKPReviewerHandler extends Handler
     {
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
 
-        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
-        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+        $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('submissionId', $reviewerSubmission->getId());
+        $templateMgr->assign('submissionId', $reviewSubmission->getId());
 
         // Provide the email body to the template
         $reviewerAction = new ReviewerAction();
-        $mailable = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, true, null);
+        $mailable = $reviewerAction->getResponseEmail($reviewSubmission, $reviewAssignment, true, null);
         $messageBody = Mail::compileParams($mailable->view, $mailable->getData(Locale::getLocale()));
 
         $templateMgr->assign('declineMessageBody', $messageBody);
@@ -205,16 +197,18 @@ class PKPReviewerHandler extends Handler
     public function getReviewForm(
         int $step, // current step
         PKPRequest $request,
-        ReviewerSubmission $reviewerSubmission,
+        Submission $reviewSubmission,
         ReviewAssignment $reviewAssignment
     ): ReviewerReviewForm {
         switch ($step) {
             case 1:
-                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep1Form($request, $reviewerSubmission, $reviewAssignment);
+                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep1Form($request, $reviewSubmission, $reviewAssignment);
             case 2:
-                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep2Form($request, $reviewerSubmission, $reviewAssignment);
+                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep2Form($request, $reviewSubmission, $reviewAssignment);
             case 3:
-                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep3Form($request, $reviewerSubmission, $reviewAssignment);
+                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep3Form($request, $reviewSubmission, $reviewAssignment);
+            default:
+                return null;
         }
     }
 

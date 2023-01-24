@@ -15,26 +15,26 @@
 
 namespace PKP\submission\reviewer\form;
 
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\controllers\confirmationModal\linkAction\ViewCompetingInterestGuidelinesLinkAction;
 use PKP\controllers\modals\review\ReviewerViewMetadataLinkAction;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\ConfirmationModal;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 
 class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 {
     /**
      * Constructor.
-     *
-     * @param PKPRequest $request
-     * @param ReviewerSubmission $reviewerSubmission
      */
-    public function __construct($request, $reviewerSubmission, $reviewAssignment)
+    public function __construct(PKPRequest $request, Submission $reviewSubmission, ReviewAssignment $reviewAssignment)
     {
-        parent::__construct($request, $reviewerSubmission, $reviewAssignment, 1);
+        parent::__construct($request, $reviewSubmission, $reviewAssignment, 1);
         $context = $request->getContext();
         if (!$reviewAssignment->getDateConfirmed() && $context->getData('privacyStatement')) {
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
@@ -56,13 +56,11 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         $context = $request->getContext();
 
         // Add submission parameters.
-        $reviewerSubmission = $this->getReviewerSubmission();
-        $templateMgr->assign('completedSteps', $reviewerSubmission->getStatus());
-        $templateMgr->assign('reviewerCompetingInterests', $reviewerSubmission->getCompetingInterests());
+        $reviewAssignment = $this->getReviewAssignment();
+
+        $templateMgr->assign('reviewerCompetingInterests', $reviewAssignment->getCompetingInterests());
 
         // Add review assignment.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getById($reviewerSubmission->getReviewId());
         $templateMgr->assign([
             'reviewAssignment' => $reviewAssignment,
             'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
@@ -127,25 +125,24 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
      */
     public function execute(...$functionParams)
     {
-        $reviewerSubmission = $this->getReviewerSubmission();
+        $reviewAssignment = $this->getReviewAssignment();
+        $reviewSubmission = $this->getReviewSubmission();
 
         // Set competing interests.
         if ($this->getData('competingInterestOption') == 'hasCompetingInterests') {
-            $reviewerSubmission->setCompetingInterests($this->request->getUserVar('reviewerCompetingInterests'));
+            $reviewAssignment->setCompetingInterests($this->request->getUserVar('reviewerCompetingInterests'));
         } else {
-            $reviewerSubmission->setCompetingInterests(null);
+            $reviewAssignment->setCompetingInterests(null);
         }
 
         // Set review to next step.
-        $this->updateReviewStepAndSaveSubmission($reviewerSubmission);
+        $this->updateReviewStepAndSaveSubmission($reviewAssignment);
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getById($reviewerSubmission->getReviewId());
         // if the reviewer has not previously confirmed the review, then
         // Set that the reviewer has accepted the review.
         if (!$reviewAssignment->getDateConfirmed()) {
             $reviewerAction = new ReviewerAction();
-            $reviewerAction->confirmReview($this->request, $reviewAssignment, $reviewerSubmission, false);
+            $reviewerAction->confirmReview($this->request, $reviewAssignment, $reviewSubmission, false);
         }
 
         parent::execute(...$functionParams);

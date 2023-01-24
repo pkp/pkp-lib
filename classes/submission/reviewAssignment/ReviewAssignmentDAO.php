@@ -345,27 +345,28 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $result = $this->update(
             sprintf(
                 'INSERT INTO review_assignments (
-				submission_id,
-				reviewer_id,
-				stage_id,
-				review_method,
-				round,
-				competing_interests,
-				recommendation,
-				declined,
-				cancelled,
-				date_assigned, date_notified, date_confirmed,
-				date_completed, date_acknowledged, date_due, date_response_due,
-				quality, date_rated,
-				last_modified,
-				date_reminded, reminder_was_automatic,
-				review_form_id,
-				review_round_id,
-				unconsidered,
-				request_resent
-				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
-				)',
+                submission_id,
+                reviewer_id,
+                stage_id,
+                review_method,
+                round,
+                step,
+                competing_interests,
+                recommendation,
+                declined,
+                cancelled,
+                date_assigned, date_notified, date_confirmed,
+                date_completed, date_acknowledged, date_due, date_response_due,
+                quality, date_rated,
+                last_modified,
+                date_reminded, reminder_was_automatic,
+                review_form_id,
+                review_round_id,
+                unconsidered,
+                request_resent
+                ) VALUES (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
+                )',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
                 $this->datetimeToDB($reviewAssignment->getDateConfirmed()),
@@ -383,6 +384,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 (int) $reviewAssignment->getStageId(),
                 (int) $reviewAssignment->getReviewMethod(),
                 max((int) $reviewAssignment->getRound(), 1),
+                max((int) $reviewAssignment->getStep(), 1),
                 $reviewAssignment->getCompetingInterests(),
                 $reviewAssignment->getRecommendation(),
                 (int) $reviewAssignment->getDeclined(),
@@ -412,32 +414,33 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $result = $this->update(
             sprintf(
                 'UPDATE review_assignments
-				SET	submission_id = ?,
-					reviewer_id = ?,
-					stage_id = ?,
-					review_method = ?,
-					round = ?,
-					competing_interests = ?,
-					recommendation = ?,
-					declined = ?,
-					cancelled = ?,
-					date_assigned = %s,
-					date_notified = %s,
-					date_confirmed = %s,
-					date_completed = %s,
-					date_acknowledged = %s,
-					date_due = %s,
-					date_response_due = %s,
-					quality = ?,
-					date_rated = %s,
-					last_modified = %s,
-					date_reminded = %s,
-					reminder_was_automatic = ?,
-					review_form_id = ?,
-					review_round_id = ?,
-					unconsidered = ?,
-					request_resent = ?
-				WHERE review_id = ?',
+                SET	submission_id = ?,
+                    reviewer_id = ?,
+                    stage_id = ?,
+                    review_method = ?,
+                    round = ?,
+                    step = ?,
+                    competing_interests = ?,
+                    recommendation = ?,
+                    declined = ?,
+                    cancelled = ?,
+                    date_assigned = %s,
+                    date_notified = %s,
+                    date_confirmed = %s,
+                    date_completed = %s,
+                    date_acknowledged = %s,
+                    date_due = %s,
+                    date_response_due = %s,
+                    quality = ?,
+                    date_rated = %s,
+                    last_modified = %s,
+                    date_reminded = %s,
+                    reminder_was_automatic = ?,
+                    review_form_id = ?,
+                    review_round_id = ?,
+                    unconsidered = ?,
+                    request_resent = ?
+                WHERE review_id = ?',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
                 $this->datetimeToDB($reviewAssignment->getDateNotified()),
                 $this->datetimeToDB($reviewAssignment->getDateConfirmed()),
@@ -455,6 +458,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 (int) $reviewAssignment->getStageId(),
                 (int) $reviewAssignment->getReviewMethod(),
                 (int) $reviewAssignment->getRound(),
+                (int) $reviewAssignment->getStep(),
                 $reviewAssignment->getCompetingInterests(),
                 $reviewAssignment->getRecommendation(),
                 (int) $reviewAssignment->getDeclined(),
@@ -529,6 +533,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewAssignment->setDateReminded($this->datetimeFromDB($row['date_reminded']));
         $reviewAssignment->setReminderWasAutomatic((int) $row['reminder_was_automatic']);
         $reviewAssignment->setRound((int) $row['round']);
+        $reviewAssignment->setStep((int) $row['step']);
         $reviewAssignment->setReviewFormId($row['review_form_id']);
         $reviewAssignment->setReviewRoundId((int) $row['review_round_id']);
         $reviewAssignment->setReviewMethod((int) $row['review_method']);

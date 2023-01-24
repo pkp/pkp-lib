@@ -54,8 +54,8 @@ class SenderEmailVariable extends Variable
     {
         return
         [
-            self::SENDER_NAME => $this->sender->getFullName(true, false, $locale),
-            self::SENDER_EMAIL => $this->sender->getData('email'),
+            self::SENDER_NAME => htmlspecialchars($this->sender->getFullName(true, false, $locale)),
+            self::SENDER_EMAIL => htmlspecialchars($this->sender->getData('email')),
             self::SENDER_CONTACT_SIGNATURE => $this->getSignature($locale),
         ];
     }
@@ -68,6 +68,6 @@ class SenderEmailVariable extends Variable
         $signature = $this->sender->getSignature($locale);
         return $signature
             ? PKPString::stripUnsafeHtml($signature)
-            : '<p>' . $this->sender->getFullName(true, false, $locale) . '</p>';
+            : '<p>' . htmlspecialchars($this->sender->getFullName(true, false, $locale)) . '</p>';
     }
 }

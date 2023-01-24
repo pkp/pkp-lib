@@ -54,7 +54,7 @@ class QueuedPaymentEmailVariable extends Variable
     {
         return
         [
-            self::PAYMENT_NAME => $this->getItemName(),
+            self::PAYMENT_NAME => htmlspecialchars($this->getItemName()),
             self::PAYMENT_AMOUNT => (string) $this->getItemCost(),
             self::PAYMENT_CURRENCY_CODE => (string) $this->getItemCurrencyCode(),
         ];

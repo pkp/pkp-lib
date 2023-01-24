@@ -59,8 +59,8 @@ class RecipientEmailVariable extends Variable
     {
         return
         [
-            self::RECIPIENT_FULL_NAME => $this->getRecipientsFullName($locale),
-            self::RECIPIENT_USERNAME => $this->getRecipientsUserName(),
+            self::RECIPIENT_FULL_NAME => htmlspecialchars($this->getRecipientsFullName($locale)),
+            self::RECIPIENT_USERNAME => htmlspecialchars($this->getRecipientsUserName()),
         ];
     }
 

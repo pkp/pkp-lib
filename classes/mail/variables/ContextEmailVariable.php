@@ -22,7 +22,6 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\mail\Mailable;
-use PKP\mail\Mailer;
 
 class ContextEmailVariable extends Variable
 {
@@ -76,11 +75,11 @@ class ContextEmailVariable extends Variable
     {
         return
         [
-            static::CONTEXT_NAME => $this->context->getLocalizedData('name', $locale),
+            static::CONTEXT_NAME => htmlspecialchars($this->context->getLocalizedData('name', $locale)),
             static::CONTEXT_URL => $this->getContextUrl(),
-            static::CONTACT_NAME => (string) $this->context->getData('contactName'),
-            static::CONTACT_EMAIL => (string) $this->context->getData('contactEmail'),
-            static::MAILING_ADDRESS => (string) $this->context->getData('mailingAddress'),
+            static::CONTACT_NAME => htmlspecialchars((string) $this->context->getData('contactName')),
+            static::CONTACT_EMAIL => htmlspecialchars((string) $this->context->getData('contactEmail')),
+            static::MAILING_ADDRESS => PKPString::stripUnsafeHtml((string) $this->context->getData('mailingAddress')),
             static::PASSWORD_LOST_URL => $this->getPasswordLostUrl(),
             static::SUBMISSIONS_URL => $this->getSubmissionsUrl(),
             static::USER_PROFILE_URL => $this->getUserProfileUrl(),
@@ -109,7 +108,7 @@ class ContextEmailVariable extends Variable
     protected function getContextSignature(array $values): string
     {
         $signature = Mail::compileParams(
-            (string) $this->context->getData('emailSignature'), 
+            (string) $this->context->getData('emailSignature'),
             $values
         );
         return $signature

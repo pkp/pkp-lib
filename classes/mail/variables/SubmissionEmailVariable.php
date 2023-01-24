@@ -20,6 +20,7 @@ use APP\submission\Submission;
 use PKP\author\Author;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 use PKP\mail\Mailable;
 
 abstract class SubmissionEmailVariable extends Variable
@@ -73,12 +74,12 @@ abstract class SubmissionEmailVariable extends Variable
         return
         [
             self::AUTHOR_SUBMISSION_URL => $this->getAuthorSubmissionUrl($context),
-            self::AUTHORS => $this->getAuthorsFull($locale),
-            self::AUTHORS_SHORT => $this->currentPublication->getShortAuthorString($locale),
-            self::SUBMISSION_ABSTRACT => $this->currentPublication->getLocalizedData('abstract', $locale),
+            self::AUTHORS => htmlspecialchars($this->getAuthorsFull($locale)),
+            self::AUTHORS_SHORT => htmlspecialchars($this->currentPublication->getShortAuthorString($locale)),
+            self::SUBMISSION_ABSTRACT => PKPString::stripUnsafeHtml($this->currentPublication->getLocalizedData('abstract', $locale)),
             self::SUBMISSION_ID => (string) $this->submission->getId(),
             self::SUBMISSION_PUBLISHED_URL => $this->getSubmissionPublishedUrl($this->getContext()),
-            self::SUBMISSION_TITLE => $this->currentPublication->getLocalizedFullTitle($locale),
+            self::SUBMISSION_TITLE => htmlspecialchars($this->currentPublication->getLocalizedFullTitle($locale)),
             self::SUBMISSION_URL => $this->getSubmissionUrl($context),
             self::SUBMISSION_WIZARD_URL => $this->getSubmissionWizardUrl($context),
         ];

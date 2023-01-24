@@ -103,13 +103,20 @@ class PKPEmailSetupForm extends FormComponent
             'label' => __('manager.setup.emailSignature'),
             'description' => __('manager.setup.emailSignature.description'),
             'value' => $this->context->getData('emailSignature'),
-            'preparedContent' => array_values(Arr::map(ContextEmailVariable::descriptions(), function ($description, $key) {
-                return [
-                    'key' => $key,
-                    'description' => $description,
-                    'value' => '{$' . $key .'}'
-                ];
-            })),
+            'preparedContent' => array_values(
+                Arr::sort(
+                    Arr::map(
+                        Arr::except(ContextEmailVariable::descriptions(), ContextEmailVariable::CONTEXT_SIGNATURE),
+                        function ($description, $key) {
+                            return [
+                                'key' => $key,
+                                'description' => $description,
+                                'value' => '{$' . $key .'}'
+                            ];
+                        }
+                    )
+                )
+            ),
             'groupId' => self::GROUP_EMAIL_TEMPLATES,
         ]));
     }

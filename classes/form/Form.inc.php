@@ -175,20 +175,26 @@ class Form {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_NO_STORE);
 
+		$context = $request->getContext();
 
 		// Attach this form object to the Form Builder Vocabulary for validation to work
 		$fbv = $templateMgr->getFBV();
 		$fbv->setForm($this);
 
-		$templateMgr->assign(array_merge(
-			$this->_data,
-			array(
-				'isError' => !$this->isValid(),
-				'errors' => $this->getErrorsArray(),
-				'formLocales' => $this->supportedLocales,
-				'formLocale' => $this->getDefaultFormLocale(),
-			)
-		));
+		$templateMgr->assign(array_merge($this->_data,[
+			'isError' => !$this->isValid(),
+			'errors' => $this->getErrorsArray(),
+			'formLocales' => $this->supportedLocales,
+			'formLocale' => $this->getDefaultFormLocale(),
+		]));
+
+		if (!$templateMgr->getTemplateVars('primaryLocale')) {
+			$templateMgr->assign([
+				'primaryLocale' => $context 
+					? $context->getPrimaryLocale() 
+					: (Config::getVar('general', 'installed') ? $request->getSite()->getPrimaryLocale() : null),
+			]);
+		}
 
 		if ($display) {
 			$templateMgr->display($this->_template);

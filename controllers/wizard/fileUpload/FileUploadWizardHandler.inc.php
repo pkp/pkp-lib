@@ -388,10 +388,17 @@ class FileUploadWizardHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function editMetadata($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'primaryLocale' => $this->getSubmission()->getLocale(),
+		]);
+
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesMetadataForm');
 		$form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
 		$form->initData();
+		
 		return new JSONMessage(true, $form->fetch($request));
 	}
 

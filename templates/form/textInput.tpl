@@ -25,6 +25,7 @@
 			class="localizable {if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}
+			{if $FBV_validation} validation="{$FBV_validation|escape}"{/if}
 			value="{$FBV_value[$formLocale]|default:""|escape}"
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
 			id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}"
@@ -45,6 +46,8 @@
 					name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
 					id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
 					{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
+					{if $FBV_required && $thisFormLocale === $primaryLocale} required aria-required="true"{/if}
+					{if $FBV_validation && $thisFormLocale === $primaryLocale} validation="{$FBV_validation|escape}"{/if}
 				/>
 				<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
 			{/if}{/foreach}
@@ -62,6 +65,7 @@
 		id="{$FBV_id|escape}{$uniqId}"
 		{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
 		{if $FBV_required} required aria-required="true"{/if}
+		{if $FBV_validation} validation="{$FBV_validation|escape}"{/if}
 		{if $FBV_urlValidationErrorMessage} data-msg-url="{$FBV_urlValidationErrorMessage|escape}"{/if}
 	/>
 

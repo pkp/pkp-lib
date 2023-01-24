@@ -2097,22 +2097,20 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
-"Data Availability Statements are brief statements about whether the authors "
-"of an article have made the evidence supporting their findings available, "
-"and if so, where readers may access it."
+"A short statement describing whether or not the author(s) have made their research data available and, if so, where readers may access it."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr "Enable Data Availability Statement metadata"
+msgstr "Enable data availability statement metadata"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
-msgstr "Do not request a Data Availability Statement from the author during submission."
+msgstr "Do not request a data availability statement from the author during submission."
 
 msgid "manager.setup.metadata.dataAvailability.request"
-msgstr "Ask the author to provide a Data Availability Statement during submission."
+msgstr "Ask the author to provide a data availability statement during submission."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
-"Require the author to provide a Data Availability Statement before accepting their submission."
+"Require the author to provide a data availability statement before accepting their submission."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validation errors:"

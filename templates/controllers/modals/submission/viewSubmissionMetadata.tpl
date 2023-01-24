@@ -27,6 +27,16 @@
 				{/foreach}
 			</tr>
 		{/foreach}
+		{if $dataAvailability}
+			<tr>
+				<th scope="row">
+					{translate key="submission.dataAvailability"}
+				</th>
+				<td>
+					{$dataAvailability|strip_unsafe_html}
+				</td>
+			</tr>
+		{/if}
 		</table>
 	{/if}
 </div>

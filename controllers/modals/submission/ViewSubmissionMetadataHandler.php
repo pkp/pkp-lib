@@ -59,7 +59,7 @@ class ViewSubmissionMetadataHandler extends handler
             $templateMgr->assign('authors', $publication->getAuthorString($userGroups));
 
             if ($publication->getLocalizedData('dataAvailability')) {
-                $additionalMetadata[] = [__('submission.dataAvailability'), $publication->getLocalizedData('dataAvailability')];
+                $templateMgr->assign('dataAvailability', $publication->getLocalizedData('dataAvailability'));
             }
         }
 

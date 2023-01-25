@@ -301,11 +301,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      */
     protected function modifyEditorAssignTemplate(Collection $contextIds): void
     {
-        $newTemplates = collect([
-            'EDITOR_ASSIGN_SUBMISSION' => 'DISCUSSION_NOTIFICATION_SUBMISSION',
-            'EDITOR_ASSIGN_REVIEW' => 'DISCUSSION_NOTIFICATION_REVIEW',
-            'EDITOR_ASSIGN_PRODUCTION' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
-        ]);
+        $newTemplates = $this->mapEditorAssignTemplates();
 
         $newTemplates->each(
             function(string $alternateTo, string $key) {
@@ -500,6 +496,20 @@ abstract class I5716_EmailTemplateAssignments extends Migration
             'LAYOUT_REQUEST' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
             'LAYOUT_COMPLETE' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
         ];
+    }
+
+    /**
+     * Get a map of the EDITOR_ASSIGN_<stage> templates
+     *
+     * @return [email_key => alternate_to]
+     */
+    protected function mapEditorAssignTemplates(): Collection
+    {
+        return collect([
+            'EDITOR_ASSIGN_SUBMISSION' => 'DISCUSSION_NOTIFICATION_SUBMISSION',
+            'EDITOR_ASSIGN_REVIEW' => 'DISCUSSION_NOTIFICATION_REVIEW',
+            'EDITOR_ASSIGN_PRODUCTION' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
+        ]);
     }
 
     /**

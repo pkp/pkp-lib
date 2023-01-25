@@ -3394,11 +3394,14 @@ msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Submission Acknowledgement to Other Authors"
 
 msgid "mailable.editorAssigned.name"
-msgstr "Editor Assigned"
+msgstr "Editor Assigned (Auto)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
-"This email is sent to an editor when they are assigned to a submission."
+"This email is sent to an editor when they are automatically assigned to a submission."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Assign Editor"
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr "Submission Needs Editor"

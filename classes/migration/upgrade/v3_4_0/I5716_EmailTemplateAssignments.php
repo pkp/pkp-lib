@@ -13,6 +13,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
@@ -292,41 +293,39 @@ abstract class I5716_EmailTemplateAssignments extends Migration
     }
 
     /**
-     * Transform the EDITOR_ASSIGN template into three templates,
-     * one for each discussion stage where it is assigned
+     * Install the new EDITOR_ASSIGN_<stage> templates
+     *
+     * Install the default templates. If a custom template has been
+     * created for the EDITOR_ASSIGN template, copy this custom
+     * template to the new EDITOR_ASSIGN_<stage> templates.
      */
     protected function modifyEditorAssignTemplate(Collection $contextIds): void
     {
-        DB::table('email_templates')
-            ->where('email_key', 'EDITOR_ASSIGN')
-            ->update(['email_key' => 'EDITOR_ASSIGN_SUBMISSION']);
+        $newTemplates = collect([
+            'EDITOR_ASSIGN_SUBMISSION' => 'DISCUSSION_NOTIFICATION_SUBMISSION',
+            'EDITOR_ASSIGN_REVIEW' => 'DISCUSSION_NOTIFICATION_REVIEW',
+            'EDITOR_ASSIGN_PRODUCTION' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
+        ]);
 
-        DB::table('email_templates_default_data')
-            ->where('email_key', 'EDITOR_ASSIGN')
-            ->update(['email_key' => 'EDITOR_ASSIGN_SUBMISSION']);
+        $newTemplates->each(
+            function(string $alternateTo, string $key) {
+                Repo::emailTemplate()->dao->installEmailTemplates(
+                    Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
+                    [],
+                    $key
+                );
+            }
+        );
 
-        $contextIds->each(function(int $contextId) {
+        $contextIds->each(function(int $contextId) use ($newTemplates) {
 
             $customTemplateId = DB::table('email_templates')
                 ->where('context_id', $contextId)
-                ->where('email_key', 'EDITOR_ASSIGN_SUBMISSION')
+                ->where('email_key', 'EDITOR_ASSIGN')
                 ->pluck('email_id')
                 ->first();
 
             if (!$customTemplateId) {
-                DB::table('email_templates')->insert([
-                    [
-                        'email_key' => 'EDITOR_ASSIGN_REVIEW',
-                        'context_id' => $contextId,
-                        'alternate_to' => 'DISCUSSION_NOTIFICATION_REVIEW',
-                    ],
-                    [
-                        'email_key' => 'EDITOR_ASSIGN_PRODUCTION',
-                        'context_id' => $contextId,
-                        'alternate_to' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
-                    ],
-                ]);
-
                 return;
             }
 
@@ -334,33 +333,25 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                 ->where('email_id', $customTemplateId)
                 ->get();
 
-            collect([
-                'EDITOR_ASSIGN_REVIEW' => 'DISCUSSION_NOTIFICATION_REVIEW',
-                'EDITOR_ASSIGN_PRODUCTION' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
-            ])->each(function(string $alternateTo, string $key) use ($rows, $contextId) {
-
-                DB::table('email_templates')->insert([
-                    'email_key' => $key,
-                    'context_id' => $contextId,
-                    'alternate_to' => $alternateTo,
-                ]);
-
-                $emailId = DB::getPdo()->lastInsertId();
-
-                DB::table('email_templates_settings')
-                    ->insert(
-                        $rows->map(
-                            function(stdClass $row) use ($emailId) {
-                                return [
-                                    'email_id' => $emailId,
-                                    'locale' => $row->locale,
-                                    'setting_name' => $row->setting_name,
-                                    'setting_value' => $row->setting_value,
-                                ];
-                            }
-                        )->toArray()
-                    );
-            });
+            DB::table('email_templates')
+                ->where('context_id', $contextId)
+                ->whereIn('email_key', $newTemplates->keys())
+                ->pluck('email_id')
+                ->each(function(int $emailId) use ($rows) {
+                    DB::table('email_templates_settings')
+                        ->insert(
+                            $rows->map(
+                                function(stdClass $row) use ($emailId) {
+                                    return [
+                                        'email_id' => $emailId,
+                                        'locale' => $row->locale,
+                                        'setting_name' => $row->setting_name,
+                                        'setting_value' => $row->setting_value,
+                                    ];
+                                }
+                            )->toArray()
+                        );
+                });
         });
     }
 
@@ -369,16 +360,9 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      */
     protected function downgradeEditorAssignTemplate(): void
     {
-        DB::table('email_templates')
-            ->where('email_key', 'EDITOR_ASSIGN_SUBMISSION')
-            ->update(['email_key' => 'EDITOR_ASSIGN']);
-
-        DB::table('email_templates_default_data')
-            ->where('email_key', 'EDITOR_ASSIGN_SUBMISSION')
-            ->update(['email_key' => 'EDITOR_ASSIGN']);
-
         $emailIds = DB::table('email_templates')
-            ->where('email_key', 'EDITOR_ASSIGN_REVIEW')
+            ->where('email_key', 'EDITOR_ASSIGN_SUBMISSION')
+            ->orWhere('email_key', 'EDITOR_ASSIGN_REVIEW')
             ->orWhere('email_key', 'EDITOR_ASSIGN_PRODUCTION')
             ->pluck('email_id');
 
@@ -511,7 +495,6 @@ abstract class I5716_EmailTemplateAssignments extends Migration
     protected function mapIncludedAlternateTemplates(): array
     {
         return [
-            'EDITOR_ASSIGN' => 'DISCUSSION_NOTIFICATION_SUBMISSION',
             'COPYEDIT_REQUEST' => 'DISCUSSION_NOTIFICATION_COPYEDITING',
             'CITATION_EDITOR_AUTHOR_QUERY' => 'DISCUSSION_NOTIFICATION_COPYEDITING',
             'LAYOUT_REQUEST' => 'DISCUSSION_NOTIFICATION_PRODUCTION',

@@ -2312,11 +2312,6 @@ msgstr "DOI Ön Ekleri kayıt ajansları (Örneğin; <a href=\"http://www.crossr
 msgid "doi.manager.settings.doiObjects"
 msgstr "Dergi İçeriği"
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Bu e-posta PASSWORD_RESET_CONFIRM e-postasında gösterilen süreci takip "
-"ederek şifre sıfırlaması yapmış kayıtlı kullanıcılara gönderilmektedir."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Bu e-posta, şifrelerini unuttuğunu  ve/veya giriş yapamadıklarını bildiren "

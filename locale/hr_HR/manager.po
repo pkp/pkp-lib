@@ -543,9 +543,6 @@ msgstr "Ovim obrascem e-pošte urednik rubrike šalje upit recenzentu može li p
 msgid "mailable.reviewRequest.description"
 msgstr "Ovim obrascem e-pošte urednik rubrike šalje upit recenzentu može li prihvatiti zadatak recenziranja članka. Zamolba sadrži osnovne informacije u vidu naslova i kratkog sadržaja članka, datum do kojeg bi recenzija trebala biti napisana te načina na koji se recenzent može prijaviti u sustav. Ova poruka se koristi kada je odabran standardni recenzijski postupak u 2. koraku Postavljanja časopisa (Ako nije, koristi se Zamolba za recenziju članka u privitku)"
 
-msgid "mailable.passwordReset.description"
-msgstr "Ovaj obrazac e-pošte šalje se registriranim korisnicima nakon što  uspješno ponovno postave  svoju  lozinku slijedeći postupak koji je opisan u PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ovaj obrazac e-pošte šalje se registriranim korisnicima kada informiraju sustav da su zaboravili svoju lozinku ili da se ne mogu prijaviti u sustav. U poruci se nalazi URL koji mogu slijediti kao bi postavili svoju novu lozinku."
 

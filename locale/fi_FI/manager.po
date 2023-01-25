@@ -2085,9 +2085,6 @@ msgstr "This email from the Section Editor to a Reviewer requests that the revie
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission for a second or greater round of review. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Management > Settings > Workflow > Review."
 
-msgid "mailable.passwordReset.description"
-msgstr "This email is sent to a registered user when they have successfully reset their password following the process described in the PASSWORD_RESET_CONFIRM email."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Tämä sähköpostiviesti lähetetään rekisteröityneelle käyttäjälle, joka "

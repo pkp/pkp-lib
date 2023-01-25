@@ -2119,11 +2119,6 @@ msgstr ""
 "のアクセス方法を示しています。このメールは、雑誌設定のステップ2で標準的査読プロセスが選択された場合に使用されます（そうでない場合は、REVIEW_REQ"
 "UEST_ATTACHED_SUBSEQUENTを参照してください）。"
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"このメールは、PASSWORD_RESET_CONFIRMメールで説明されている処理を受けてパスワードのリセットが成功した場合に、登録ユーザーに送信される"
-"ものです。"
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "このメールは、登録ユーザーからパスワードを忘れた、または、ログインできない旨の連絡を受けた場合に、登録ユーザーに送信されるものです。このメールではパスワー"

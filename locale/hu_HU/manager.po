@@ -2502,9 +2502,6 @@ msgstr "Ez az emailt a Rovatszerkesztő küldi a Lektornak, megkérve, hogy vál
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Ezt az emailt a Rovatszerkesztő küldi a Szakmai Lektornak, megkérve, hogy vállalja el, vagy, ha nem alkalmas, akkor utasítsa el a beküldött anyag lektorálási feladatát a második vagy további lektorálási körökben. Ez információt ad a beküldött anyagról, úgymint cím, absztrakt, a lektorálási határideje, valamint hogyan lehet hozzáférni magához az anyaghoz. Ezt az üzenetet akkor kell használni, ha az általános lektorálási folyamat van kiválasztva a folyóirat menedzselése részben > Beállítások > Munkafolyamat > Szakmai lektorálás."
 
-msgid "mailable.passwordReset.description"
-msgstr "Ez az email egy regisztrált felhasználónak kerül kiküldésre, amikor sikeresen visszaállításra került jelszava, követve a PASSWORD_RESET_CONFIRM levélben írtakat."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ez a levél egy regisztrált felhasználónak kerül kiküldésre, amikor jelzi, hogy elfelejtette a jelszavát, és nem tud bejelentkezni. Tartalmaz egy linket, amire kattintva visszaállítható a jelszava."
 

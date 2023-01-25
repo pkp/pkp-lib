@@ -2308,9 +2308,6 @@ msgstr "Депонировать DOI"
 msgid "manager.dois.actions.deposit.all"
 msgstr "Депонировать всё"
 
-msgid "mailable.passwordReset.description"
-msgstr "Это письмо отправляется зарегистрированному пользователю, когда он успешно сбросил свой пароль в соответствии с процедурой, описанной в письме PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Это письмо отправляется зарегистрированному пользователю, когда он сообщает, что забыл пароль или не может войти на сайт. В письме содержится ссылка (URL), перейдя по которой пользователь сможет сбросить свой пароль."
 

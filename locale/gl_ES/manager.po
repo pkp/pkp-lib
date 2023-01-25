@@ -2331,12 +2331,6 @@ msgstr ""
 
 #, fuzzy
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Este correo envíase a un usuario/a rexistrado/a tras cambiar o seu "
-"contrasinal seguindo o procedemento descrito no correo electrónico "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Este correo envíase a un usuario/a rexistrado/a que indicou que non lembra o "

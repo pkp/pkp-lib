@@ -2231,11 +2231,6 @@ msgstr ""
 "a lucrării. Acest mesaj este utilizat când Procesul de revizuire standard "
 "este selectat în Management> Setări> Flux de lucru> Revizuire."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Acest e-mail este trimis unui utilizator înregistrat atunci când și-a "
-"resetat parola în urma procesului descris în e-mailul PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Acest e-mail este trimis unui utilizator înregistrat atunci când indică "

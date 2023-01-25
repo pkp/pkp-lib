@@ -620,9 +620,6 @@ msgstr "Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Atalen Editoreak Berrikusleari bidalitako mezu honetan berrikusleari eskatzen dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo baztertu dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, titulua eta aurkezpena, berrikuspena egiteko muga, eta nola sartu bidalitakora.  Mezu hau erabiltzen da Aldizkariaren Konfigurazioan, 2. urratsean Berrikuspen Estandarraren Prozesua hautatzen denean. (Bestela, ikus BERRIKUSPENA_ESKAKIZUNA_ERANTSIA_ONDORENGOA.)"
 
-msgid "mailable.passwordReset.description"
-msgstr "Mezu hau bidaltzen zaie PASSWORD_RESET_CONFIRM mezuan azaldutako prozesuaren bidez pasahitza ondo berrezartzea lortu duten erabiltzaile erregistratuei."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Pasahitza ahaztu duten erabiltzaile erregistratuei edo webgunean sartu ezinda dabiltzanei bidaltzen zaie mezu hau. Pasahitza berrezartzeko URL bat ematen du."
 

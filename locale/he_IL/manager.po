@@ -13,11 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"דוא\"ל זה נשלח למשתמש רשום לאחר שאיפס בהצלחה את סיסמתו בעקבות התהליך המתואר "
-"בדוא\"ל PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "דוא\"ל זה נשלח למשתמש רשום כאשר הוא מציין ששכח את סיסמתו או שאינו יכול "

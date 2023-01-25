@@ -191,7 +191,6 @@ class Repository
             mailables\DiscussionSubmission::class,
             mailables\EditReviewNotify::class,
             mailables\EditorialReminder::class,
-            mailables\PasswordReset::class,
             mailables\PasswordResetRequested::class,
             mailables\PublicationVersionNotify::class,
             mailables\RecommendationNotifyEditors::class,

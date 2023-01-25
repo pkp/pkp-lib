@@ -24,21 +24,25 @@ describe('DataAvailabilityStatements', function () {
 		cy.get('#metadata [role="status"]').contains('Saved');
 	});
 
-	it('Checks that anonymous reviewers can not view data availability statement', function() {
-		cy.login(config.anonymousReviewer);
-		cy.visit("/index.php/publicknowledge/submissions");
-		cy.contains('View ' + config.submission.title).click();
-		cy.contains('View All Submission Details').click();
-		cy.contains('Data Availability Statement').should('not.exist');
-		cy.contains(statement).should('not.exist');
-	});
+	if (config.anonymousReviewer) {
+		it('Checks that anonymous reviewers can not view data availability statement', function() {
+			cy.login(config.anonymousReviewer);
+			cy.visit("/index.php/publicknowledge/submissions");
+			cy.contains('View ' + config.submission.title).click();
+			cy.contains('View All Submission Details').click();
+			cy.contains('Data Availability Statement').should('not.exist');
+			cy.contains(statement).should('not.exist');
+		});
+	}
 
-	it('Checks that reviewers with the author disclosed can view data availability statement', function() {
-		cy.login(config.anonymousDisclosedReviewer);
-		cy.visit("/index.php/publicknowledge/submissions");
-		cy.contains('View ' + config.submission.title).click();
-		cy.contains('View All Submission Details').click();
-		cy.contains('Data Availability Statement');
-		cy.contains(statement);
-	});
+	if (config.anonymousDisclosedReviewer) {
+		it('Checks that reviewers with the author disclosed can view data availability statement', function() {
+			cy.login(config.anonymousDisclosedReviewer);
+			cy.visit("/index.php/publicknowledge/submissions");
+			cy.contains('View ' + config.submission.title).click();
+			cy.contains('View All Submission Details').click();
+			cy.contains('Data Availability Statement');
+			cy.contains(statement);
+		});
+	}
 });

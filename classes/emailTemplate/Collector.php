@@ -29,7 +29,7 @@ class Collector implements CollectorInterface
      * default.
      */
     public ?bool $isModified = null;
-    public ?int $contextId = null;
+    public int $contextId;
     public ?array $keys = null;
     public ?string $searchPhrase = null;
     public ?int $count = null;
@@ -38,9 +38,10 @@ class Collector implements CollectorInterface
 
     public const EMAIL_TEMPLATE_STAGE_DEFAULT = 0;
 
-    public function __construct(DAO $dao)
+    public function __construct(DAO $dao, int $contextId)
     {
         $this->dao = $dao;
+        $this->contextId = $contextId;
     }
 
     public function getMany(): LazyCollection
@@ -56,15 +57,6 @@ class Collector implements CollectorInterface
     public function isModified(?bool $isModified): self
     {
         $this->isModified = $isModified;
-        return $this;
-    }
-
-    /**
-     * Set context filter
-     */
-    public function filterByContext(?int $contextId): self
-    {
-        $this->contextId = $contextId;
         return $this;
     }
 
@@ -162,16 +154,13 @@ class Collector implements CollectorInterface
         $q = DB::table('email_templates_default_data as etddata')
             ->select('email_key')
             ->selectRaw('NULL as email_id')
-            ->selectRaw('NULL as context_id')
+            ->selectRaw($this->contextId . ' as context_id')
             ->selectRaw('NULL as alternate_to')
 
             ->whereNotIn('etddata.email_key', function (Builder $q) {
-                $q
-                    ->select('et.email_key')
+                $q->select('et.email_key')
                     ->from('email_templates as et')
-                    ->when(!is_null($this->contextId), function (Builder $q) {
-                        $q->where('et.context_id', $this->contextId);
-                    });
+                    ->where('et.context_id', $this->contextId);
             })
 
             ->when(!is_null($this->keys), function (Builder $q) {
@@ -215,9 +204,7 @@ class Collector implements CollectorInterface
                 'et.alternate_to',
             ])
 
-            ->when(!is_null($this->contextId), function (Builder $q) {
-                return $q->where('et.context_id', $this->contextId);
-            })
+            ->where('et.context_id', $this->contextId)
 
             ->when(!is_null($this->keys), function (Builder $q) {
                 return $q->whereIn('et.email_key', $this->keys);

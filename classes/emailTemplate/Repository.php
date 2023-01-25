@@ -57,9 +57,9 @@ class Repository
     }
 
     /** @copydoc DAO::getCollector() */
-    public function getCollector(): Collector
+    public function getCollector(int $contextId): Collector
     {
-        return app(Collector::class);
+        return app(Collector::class, ['contextId' => $contextId]);
     }
 
     /**
@@ -189,8 +189,7 @@ class Repository
      */
     public function restoreDefaults($contextId): array
     {
-        $results = $this->getCollector()
-            ->filterByContext($contextId)
+        $results = $this->getCollector($contextId)
             ->isModified(true)
             ->getMany();
 

@@ -107,7 +107,7 @@ class PKPEmailTemplateHandler extends APIHandler
     {
         $request = $this->getRequest();
 
-        $collector = Repo::emailTemplate()->getCollector();
+        $collector = Repo::emailTemplate()->getCollector($request->getContext()->getId());
 
         // Process query params to format incoming data as needed
         foreach ($slimRequest->getQueryParams() as $param => $val) {
@@ -132,9 +132,7 @@ class PKPEmailTemplateHandler extends APIHandler
 
         Hook::call('API::emailTemplates::params', [$collector, $slimRequest]);
 
-        $emailTemplates = $collector
-            ->filterByContext($request->getContext()->getId())
-            ->getMany();
+        $emailTemplates = $collector->getMany();
 
         return $response->withJson([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),

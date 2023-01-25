@@ -17,6 +17,14 @@ module.exports = defineConfig({
     },
     defaultGenre: 'Preprint Text',
     authorUserGroupId: 4,
+    dataAvailabilityTest: {
+      submission: {
+        title: 'The influence of lactation on the quantity and quality of cashmere production',
+        authorFamilyName: 'Corino'
+      },
+      anonymousReviewer: false,
+      anonymousDisclosedReviewer: false
+    }
   },
   watchForFileChanges: false,
   defaultCommandTimeout: 500000,

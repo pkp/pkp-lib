@@ -678,6 +678,13 @@ msgstr "Posted Acknowledgement"
 msgid "mailable.postedAck.description"
 msgstr "This email is automatically sent to an author when the preprint is posted online on the server."
 
+msgid "mailable.editorAssigned.name"
+msgstr "Moderator Assigned (Auto)"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"This email is sent to a moderator when they are automatically assigned to a submission."
+
 msgid "manager.preprintPosted"
 msgstr "Preprint Posted"
 

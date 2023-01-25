@@ -39,6 +39,7 @@ class Repository extends \PKP\mail\Repository
             \PKP\mail\mailables\DecisionNotifyOtherAuthors::class,
             \PKP\mail\mailables\DecisionRevertInitialDeclineNotifyAuthor::class,
             \PKP\mail\mailables\DiscussionProduction::class,
+            \PKP\mail\mailables\EditorAssigned::class,
             \PKP\mail\mailables\PasswordResetRequested::class,
             \PKP\mail\mailables\StatisticsReportNotify::class,
             \PKP\mail\mailables\SubmissionAcknowledgement::class,

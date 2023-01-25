@@ -72,23 +72,22 @@ class I5716_EmailTemplateAssignments extends \PKP\migration\upgrade\v3_4_0\I5716
     }
 
     /**
-     * Override this method in OPS because only the production stage is supported
-     *
-     * No action is needed here. All of the code in the base migration is about
-     * copying the EDITOR_ASSIGN template for each stage's discussions. Since there
-     * is only one stage in OPS, we don't need to change the name of the template
-     * or create any copies of it.
-     */
-    protected function modifyEditorAssignTemplate(Collection $contextIds): void
-    {
-        // Empty on purpose
-    }
-
-    /**
      * OPS doesn't require any additional templates to be reassigned
      */
     protected function mapIncludedAlternateTemplates(): array
     {
         return [];
+    }
+
+    /**
+     * Get a map of the EDITOR_ASSIGN_<stage> templates
+     *
+     * @return [email_key => alternate_to]
+     */
+    protected function mapEditorAssignTemplates(): Collection
+    {
+        return collect([
+            'EDITOR_ASSIGN_PRODUCTION' => 'DISCUSSION_NOTIFICATION_PRODUCTION',
+        ]);
     }
 }

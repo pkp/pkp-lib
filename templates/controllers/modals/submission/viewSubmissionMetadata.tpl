@@ -14,7 +14,7 @@
 	<div class="abstract">
 		{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 	</div>
-	{if $additionalMetadata}
+	{if $additionalMetadata || $dataAvailability}
 		<table class="pkpTable">
 		{foreach $additionalMetadata as $metadata}
 			<tr>

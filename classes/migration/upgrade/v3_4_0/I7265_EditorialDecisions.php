@@ -15,5 +15,18 @@ namespace APP\migration\upgrade\v3_4_0;
 
 class I7265_EditorialDecisions extends \PKP\migration\upgrade\v3_4_0\I7265_EditorialDecisions
 {
-    // No additional migrations required for OPS.
+    protected function getContextTable(): string
+    {
+        return 'servers';
+    }
+
+    protected function getContextSettingsTable(): string
+    {
+        return 'server_settings';
+    }
+
+    protected function getContextIdColumn(): string
+    {
+        return 'server_id';
+    }
 }

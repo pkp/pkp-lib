@@ -14,19 +14,29 @@
 	<div class="abstract">
 		{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 	</div>
-	{if $additionalMetadata}
+	{if $additionalMetadata || $dataAvailability}
 		<table class="pkpTable">
 		{foreach $additionalMetadata as $metadata}
 			<tr>
 				{foreach $metadata as $metadataItem}
 					{if $metadataItem@iteration % 2 != 0}
-						<th scope="row">{$metadataItem}</th>
+						<th scope="row">{$metadataItem|escape}</th>
 					{else}
-						<td>{$metadataItem}</td>
+						<td>{$metadataItem|escape}</td>
 					{/if}
 				{/foreach}
 			</tr>
 		{/foreach}
+		{if $dataAvailability}
+			<tr>
+				<th scope="row">
+					{translate key="submission.dataAvailability"}
+				</th>
+				<td>
+					{$dataAvailability|strip_unsafe_html}
+				</td>
+			</tr>
+		{/if}
 		</table>
 	{/if}
 </div>

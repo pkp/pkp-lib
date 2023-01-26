@@ -525,13 +525,16 @@ Cypress.Commands.add('clickStageParticipantButton', (participantName, buttonLabe
 	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '")').closest('tr').next().find('a:contains("' + buttonLabel + '")').click();
 });
 
-Cypress.Commands.add('assignReviewer', name => {
+Cypress.Commands.add('assignReviewer', (name, reviewMethod) => {
 	cy.wait(4000); // FIXME: Occasional problems opening the grid
 	cy.get('a:contains("Add Reviewer")').click();
 	cy.waitJQuery();
 	cy.get('.listPanel--selectReviewer .pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
 	cy.contains('Select ' + name).click();
 	cy.waitJQuery();
+	if (reviewMethod) {
+		cy.contains(reviewMethod).click();
+	}
 	cy.get('button:contains("Add Reviewer")').click();
 	cy.contains(name + ' was assigned to review');
 	cy.waitJQuery();

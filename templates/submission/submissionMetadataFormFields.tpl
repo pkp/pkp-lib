@@ -17,7 +17,7 @@
 	{assign var=citationsEnabled value=false}
 {/if}
 
-{if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled}
+{if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled || $dataAvailabilityEnabled}
 	{fbvFormArea id="additionalDublinCore" title="submission.metadata"}
 		{fbvFormSection description="submission.metadataDescription"}
 
@@ -40,6 +40,11 @@
 		{if $rightsEnabled}
 			{fbvFormSection label="submission.rights" for="rights" required=$rightsRequired}
 				{fbvElement type="text" label="submission.rights.tip" multilingual=true name="rights" id="rights" value=$rights maxlength="255" readonly=$readOnly required=$rightsRequired}
+			{/fbvFormSection}
+		{/if}
+		{if $dataAvailabilityEnabled}
+			{fbvFormSection label="submission.dataAvailability" for="dataAvailability" required=$dataAvailabilityRequired}
+				{fbvElement type="textarea" label="submission.dataAvailability.tip" multilingual=true name="dataAvailability" id="dataAvailability" value=$dataAvailability readonly=$readOnly required=$dataAvailabilityRequired}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

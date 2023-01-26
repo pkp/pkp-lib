@@ -2095,6 +2095,23 @@ msgid "manager.setup.metadata.citations.require"
 msgstr ""
 "Require the author to provide references before accepting their submission."
 
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"A short statement describing whether or not the author(s) have made their research data available and, if so, where readers may access it."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Enable data availability statement metadata"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "Do not request a data availability statement from the author during submission."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr "Ask the author to provide a data availability statement during submission."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Require the author to provide a data availability statement before accepting their submission."
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validation errors:"
 

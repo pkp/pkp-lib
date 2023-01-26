@@ -117,6 +117,14 @@
 				}
 			}
 		},
+		"dataAvailability": {
+			"type": "string",
+			"description": "Optional metadata that describes whether the author(s) have made their data available and, if so, where readers may access it.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"datePublished": {
 			"type": "string",
 			"apiSummary": true,

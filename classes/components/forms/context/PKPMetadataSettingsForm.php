@@ -170,6 +170,19 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.citations.require')],
                 ],
                 'value' => $context->getData('citations') ? $context->getData('citations') : Context::METADATA_DISABLE,
+            ]))
+            ->addField(new FieldMetadataSetting('dataAvailability', [
+                'label' => __('submission.dataAvailability'),
+                'description' => __('manager.setup.metadata.dataAvailability.description'),
+                'options' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataAvailability.enable')]
+                ],
+                'submissionOptions' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataAvailability.noRequest')],
+                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.dataAvailability.request')],
+                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.dataAvailability.require')],
+                ],
+                'value' => $context->getData('dataAvailability') ? $context->getData('dataAvailability') : Context::METADATA_DISABLE,
             ]));
     }
 }

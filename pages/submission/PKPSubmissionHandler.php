@@ -301,9 +301,9 @@ abstract class PKPSubmissionHandler extends Handler
         $publicationApiUrl = $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId());
 
         $steps = [];
+        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections);
         $steps[] = $this->getFilesStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getContributorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
-        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections);
         $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl, $categories);
         $steps[] = $this->getConfirmStep($request, $submission, $publication, $locales, $publicationApiUrl);
 

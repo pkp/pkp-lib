@@ -23,7 +23,7 @@ class I7191_SubmissionProgressType extends \PKP\migration\Migration
     public function up(): void
     {
         Schema::table('submissions', function (Blueprint $table) {
-            $table->string('submission_progress_temp', 50)->default('files');
+            $table->string('submission_progress_temp', 50)->default('start');
         });
 
         foreach ($this->getStepMap() as $oldValue => $newValue) {

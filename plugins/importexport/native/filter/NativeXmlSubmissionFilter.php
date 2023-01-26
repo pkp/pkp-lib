@@ -89,7 +89,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $submission->setData('contextId', $context->getId());
         $submission->stampLastActivity();
         $submission->setData('status', $node->getAttribute('status'));
-        $submission->setData('submissionProgress', 0);
+        $submission->setData('submissionProgress', '');
 
         $submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
         $submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));

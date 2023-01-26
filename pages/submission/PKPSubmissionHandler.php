@@ -299,9 +299,10 @@ abstract class PKPSubmissionHandler extends Handler
     protected function getSteps(Request $request, Submission $submission, Publication $publication, array $locales, array $sections, LazyCollection $categories): array
     {
         $publicationApiUrl = $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId());
+        $controlledVocabUrl = $this->getControlledVocabBaseUrl($request);
 
         $steps = [];
-        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections);
+        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections, $controlledVocabUrl);
         $steps[] = $this->getFilesStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getContributorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl, $categories);
@@ -374,6 +375,24 @@ abstract class PKPSubmissionHandler extends Handler
                 $request->getContext()->getPath(),
                 'submissions/' . $submissionId . '/files'
             );
+    }
+
+    /**
+     * Get the base url to the controlled vocab suggestions API endpoint
+     *
+     * The entry `__vocab__` will be replaced with the user's search phrase.
+     */
+    protected function getControlledVocabBaseUrl(Request $request): string
+    {
+        return $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $request->getContext()->getData('urlPath'),
+            'vocabs',
+            null,
+            null,
+            ['vocab' => '__vocab__']
+        );
     }
 
     /**
@@ -542,14 +561,15 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the state for the details step
      */
-    protected function getDetailsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, array $sections): array
+    protected function getDetailsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, array $sections, string $controlledVocabUrl): array
     {
-        $titleAbstractForm = $this->getTitleAbstractForm(
+        $titleAbstractForm = $this->getDetailsForm(
             $publicationApiUrl,
             $locales,
             $publication,
             $request->getContext(),
-            $sections
+            $sections,
+            $controlledVocabUrl
         );
         $this->removeButtonFromForm($titleAbstractForm);
 
@@ -855,7 +875,7 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the form for entering the title/abstract details
      */
-    abstract protected function getTitleAbstractForm(string $publicationApiUrl, array $locales, Publication $publication, Context $context, array $sections): TitleAbstractForm;
+    abstract protected function getDetailsForm(string $publicationApiUrl, array $locales, Publication $publication, Context $context, array $sections, string $suggestionUrlBase): TitleAbstractForm;
 
     /**
      * Get the form for entering information for the editors

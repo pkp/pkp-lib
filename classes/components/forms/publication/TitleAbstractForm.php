@@ -21,59 +21,61 @@ use PKP\components\forms\FormComponent;
 
 define('FORM_TITLE_ABSTRACT', 'titleAbstract');
 
-abstract class TitleAbstractForm extends FormComponent
+class TitleAbstractForm extends FormComponent
 {
     public $id = FORM_TITLE_ABSTRACT;
     public $method = 'PUT';
     public $publication;
+    public int $abstractWordLimit;
+    public bool $isAbstractRequired;
 
-    /** @var bool Whether or not this form is for the submission wizard */
-    public bool $isSubmissionWizard = false;
-
-    /** @var int The abstract word limit for this submission or 0 for no limit */
-    public int $abstractWordLimit = 0;
-
-    /** @var bool The abstract word limit for this submission */
-    public bool $isAbstractRequired = false;
-
-    public function __construct(string $action, array $locales, Publication $publication, bool $isSubmissionWizard = false)
+    /**
+     * Constructor
+     *
+     * @param int $abstractWordLimit The abstract word limit for this submission or 0 for no limit
+     * @param bool $isAbstractRequired Is the abstract required?
+     */
+    public function __construct(
+        string $action,
+        array $locales,
+        Publication $publication,
+        int $abstractWordLimit = 0,
+        bool $isAbstractRequired = false
+    )
     {
         $this->action = $action;
         $this->locales = $locales;
         $this->publication = $publication;
-        $this->isSubmissionWizard = $isSubmissionWizard;
+        $this->abstractWordLimit = $abstractWordLimit;
+        $this->isAbstractRequired = $isAbstractRequired;
 
-        if (!$this->isSubmissionWizard) {
-            $this->addField(new FieldText('prefix', [
+        $this->addField(new FieldText('prefix', [
                 'label' => __('common.prefix'),
                 'description' => __('common.prefixAndTitle.tip'),
                 'size' => 'small',
                 'isMultilingual' => true,
                 'value' => $publication->getData('prefix'),
-            ]));
-        }
-        $this->addField(new FieldText('title', [
-            'label' => __('common.title'),
-            'size' => 'large',
-            'isMultilingual' => true,
-            'isRequired' => true,
-            'value' => $publication->getData('title'),
-        ]));
-        if (!$this->isSubmissionWizard) {
-            $this->addField(new FieldText('subtitle', [
+            ]))
+            ->addField(new FieldText('title', [
+                'label' => __('common.title'),
+                'size' => 'large',
+                'isMultilingual' => true,
+                'isRequired' => true,
+                'value' => $publication->getData('title'),
+            ]))
+            ->addField(new FieldText('subtitle', [
                 'label' => __('common.subtitle'),
                 'size' => 'large',
                 'isMultilingual' => true,
                 'value' => $publication->getData('subtitle'),
+            ]))
+            ->addField(new FieldRichTextarea('abstract', [
+                'label' => __('common.abstract'),
+                'isMultilingual' => true,
+                'isRequired' => $this->isAbstractRequired,
+                'size' => 'large',
+                'wordLimit' => $this->abstractWordLimit,
+                'value' => $publication->getData('abstract'),
             ]));
-        }
-        $this->addField(new FieldRichTextarea('abstract', [
-            'label' => __('common.abstract'),
-            'isMultilingual' => true,
-            'isRequired' => $this->isAbstractRequired,
-            'size' => 'large',
-            'wordLimit' => $this->abstractWordLimit,
-            'value' => $publication->getData('abstract'),
-        ]));
     }
 }

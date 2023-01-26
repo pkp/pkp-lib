@@ -25,6 +25,7 @@ abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
     public function up(): void
     {
         $this->upReviewRounds();
+        $this->upNotifyAllAuthors();
     }
 
     /**
@@ -33,6 +34,7 @@ abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
     public function down(): void
     {
         $this->downReviewRounds();
+        $this->downNotifyAllAuthors();
     }
 
     /**
@@ -81,4 +83,39 @@ abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
             $table->bigInteger('round')->nullable(false)->change();
         });
     }
+
+    /**
+     * Enable the new context setting "notifyAllAuthors"
+     */
+    protected function upNotifyAllAuthors()
+    {
+        DB::table($this->getContextSettingsTable())
+            ->insert(
+                DB::table($this->getContextTable())
+                    ->pluck($this->getContextIdColumn())
+                    ->map(
+                        function(int $contextId) {
+                            return [
+                                $this->getContextIdColumn() => $contextId,
+                                'setting_name' => 'notifyAllAuthors',
+                                'setting_value' => 1,
+                            ];
+                        }
+                    )->toArray()
+            );
+    }
+
+    /**
+     * Delete the new context setting "notifyAllAuthors"
+     */
+    protected function downNotifyAllAuthors()
+    {
+        DB::table($this->getContextSettingsTable())
+            ->where('setting_name', 'notifyAllAuthors')
+            ->delete();
+    }
+
+    abstract protected function getContextTable(): string;
+    abstract protected function getContextSettingsTable(): string;
+    abstract protected function getContextIdColumn(): string;
 }

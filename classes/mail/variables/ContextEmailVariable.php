@@ -108,7 +108,7 @@ class ContextEmailVariable extends Variable
     protected function getContextSignature(array $values): string
     {
         $signature = Mail::compileParams(
-            (string) $this->context->getData('emailSignature'),
+            PKPString::stripUnsafeHtml((string) $this->context->getData('emailSignature')),
             $values
         );
         return $signature

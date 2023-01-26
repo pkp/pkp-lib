@@ -170,6 +170,7 @@ msgstr ""
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Одлука на модераторот"
 
+#, fuzzy
 msgid "emails.editorAssign.body"
 msgstr ""
 "{$recipientName}:<br />\n"

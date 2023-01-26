@@ -169,6 +169,7 @@ msgstr ""
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Decisão do moderador"
 
+#, fuzzy
 msgid "emails.editorAssign.body"
 msgstr ""
 "{$recipientName}:<br />\n"

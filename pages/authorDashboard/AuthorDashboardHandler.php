@@ -15,12 +15,12 @@
 
 namespace APP\pages\authorDashboard;
 
-use APP\components\forms\publication\TitleAbstractForm;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\server\SectionDAO;
 use APP\template\TemplateManager;
+use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -151,7 +151,10 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             $latestPublicationApiUrl,
             $locales,
             $latestPublication,
-            $section
+            $section->getData('wordCount')
+                ? (int) $section->getData('wordCount')
+                : 0,
+            !$section->getData('abstractsNotRequired')
         );
     }
 }

@@ -13,12 +13,6 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Thèid am post-d seo a chur gu cleachdaiche clàraichte nuair a bhios iad air "
-"am facal-faire aca ath-shuidheachadh a rèir mar a mhìnich sinn sa phost-d "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Thèid am post-d seo a chur gu cleachdaiche clàraichte nuair a bhios iad air "

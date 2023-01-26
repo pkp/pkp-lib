@@ -2284,11 +2284,6 @@ msgstr ""
 "fagfellevurderingsprosess er valgt under  Innstillinger > Arbeidsflyt > "
 "Fagfellevurdering."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Denne e-posten sendes til en bruker som har fornyet passordet sitt som "
-"beskrevet i PASSWORD_RESET_CONFIRM e-posten."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Denne e-posten sendes til registrerte brukere når de melder fra om at de har glemt passordet sitt, eller at de ikke klarer å logge inn. Den gir en URL-lenke brukeren kan følge for å fornye passordet sitt."
 

@@ -1427,9 +1427,6 @@ msgstr "This email from the Section Editor to a Reviewer requests that the revie
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای درخواست انجام داوری"
 
-msgid "mailable.passwordReset.description"
-msgstr "ایمیلی برای کاربرانی که رمز خود را رست نموده اند"
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "This email is sent to a registered user when they indicate that they have forgotten their password or are unable to login. It provides a URL they can follow to reset their password."
 

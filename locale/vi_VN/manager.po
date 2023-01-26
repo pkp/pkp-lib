@@ -2172,12 +2172,6 @@ msgstr ""
 "Quy trình phản biện tiêu chuẩn được chọn trong Quản lý > Cài đặt > Quy trình "
 "làm việc > Phản biện."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Email này được gửi đến người dùng đã đăng ký khi họ đã đặt lại thành công "
-"mật khẩu của mình theo quy trình được mô tả trong email "
-"PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Email này được gửi đến người dùng đã đăng ký khi họ cho biết rằng họ đã quên "

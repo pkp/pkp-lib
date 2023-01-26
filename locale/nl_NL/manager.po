@@ -1652,9 +1652,6 @@ msgstr "Deze e-mail van de sectieredacteur aan een reviewer vraagt aan de review
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "Deze e-mail van de sectieredacteur aan de reviewer vraagt de reviewer een inzending voor een tweede of latere ronde te reviewen. Het bevat informatie over de inzending zoals titel en samenvatting, de uiterste datum voor de review en de gegevens om de inzending te benaderen. Dit bericht wordt gebruikt bij het standaard review proces, zoals gekozen in instellen, stap 2"
 
-msgid "mailable.passwordReset.description"
-msgstr "Deze e-mail wordt verstuurd naar een geregistreerde gebruiker als ze met succes hun wachtwoord hebben veranderd volgens de procedure die is beschreven in de PASSWORD_RESET_CONFIRM e-mail."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Deze e-mail wordt gestuurd naar een geregistreerde gebruiker die heeft aangegeven zijn wachtwoord vergeten te zijn of niet in te kunnen loggen. Het bevat een URL die ze kunnen volgen om hun wachtwoord te herstellen."
 

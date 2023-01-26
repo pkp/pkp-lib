@@ -2358,12 +2358,6 @@ msgstr ""
 "sendiri. Mesej ini digunakan apabila Proses Ulansan Standard dipilih dalam "
 "Pengurusan> Tetapan> Aliran Kerja> Ulasan."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"E-mel ini dihantar kepada pengguna berdaftar apabila mereka berjaya "
-"menetapkan semula kata laluan mereka mengikuti proses yang dijelaskan dalam "
-"e-mel PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "E-mel ini dihantar kepada pengguna yang berdaftar apabila mereka menunjukkan "

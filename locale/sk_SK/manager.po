@@ -95,11 +95,6 @@ msgstr ""
 "v prípade, že je v časti Správa> Nastavenia> Pracovný postup> Kontrola "
 "vybraná možnosť Štandardná kontrola."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Tento email je odoslaný zaregistrovanému používateľovi, keď si úspešne "
-"obnoví svoje heslo postupom uvedeným v PASSWORD_RESET_CONFIRM emaili."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Tento email je odoslaný zaregistrovanému používateľovi, keď uvedie, že "

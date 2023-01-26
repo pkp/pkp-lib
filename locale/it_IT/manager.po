@@ -2342,9 +2342,6 @@ msgstr "Depositare le DOI"
 msgid "manager.dois.actions.deposit.all"
 msgstr "Depositare tutti"
 
-msgid "mailable.passwordReset.description"
-msgstr "Questa email viene mandata ad un utente registrato quando ha resettato la password seguendo il processo descritto nella email PASSWORD_RESETTA_CONFERMA."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Questa email viene mandata ad un utente registrato quando questi indica che ha dimenticato la sua password o non riesce a fare il log in. Fornisce una URL per il reset della password."
 

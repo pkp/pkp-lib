@@ -2429,9 +2429,6 @@ msgstr "DOIs abliefern"
 msgid "manager.dois.actions.deposit.all"
 msgstr "Alle abliefern"
 
-msgid "mailable.passwordReset.description"
-msgstr "Diese E-Mail wird an registrierte Benutzer/innen gesendet, nachdem sie ihr Passwort erfolgreich nach dem in der PASSWORD_RESET_CONFIRM-E-Mail beschriebenen Verfahren zurückgesetzt haben."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Diese E-Mail wird an registrierte Benutzer/innen der Benachrichtigungs-Mailingliste gesendet, die angegeben haben, dass sie ihr Passwort vergessen haben oder sich nicht einloggen können. Sie liefert eine URL, der die Benutzer/innen folgen können, um ihr Passwort zurückzusetzen."
 

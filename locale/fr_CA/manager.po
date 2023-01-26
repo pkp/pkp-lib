@@ -2124,9 +2124,6 @@ msgstr ""
 "Évaluation (Autrement voir « Demande d'évaluation d'un article (cycle "
 "subséquent) ».)"
 
-msgid "mailable.passwordReset.description"
-msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e lorsqu'il a réussi à réinitialiser son mot de passe en ayant suivi la procédure décrite dans le courriel « Confirmation de la réinitialisation du mot de passe »."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e qui nous signale avoir oublié son mot de passe ou qui est incapable d'ouvrir une session. Il fournit le lien URL à cliquer pour pouvoir réinitialiser son mot de passe."
 

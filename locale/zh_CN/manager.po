@@ -1571,9 +1571,6 @@ msgstr "这封电子邮件是由区段编辑寄发给审查人一份邀请函，
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr "This email from the Section Editor to a Reviewer requests that the reviewer accept or decline the task of reviewing a submission for a second or greater round of review. It provides information about the submission such as the title and abstract, a review due date, and how to access the submission itself. This message is used when the Standard Review Process is selected in Journal Setup, Step 2."
 
-msgid "mailable.passwordReset.description"
-msgstr "当注册用户成功依照PASSWORD_RESET_CONFIRM电子邮件的指示重新设定他们的密码时，这封电子邮件会被寄给他们。"
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "当注册用户忘记他们的密码或者无法登入的时候，这封电子邮件会寄给他们。信中会提供一个网址让它们能够登入并重置他们的密码。"
 

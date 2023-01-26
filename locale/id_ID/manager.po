@@ -2275,9 +2275,6 @@ msgstr ""
 "Email ini berisi informasi tentang naskah yang mencakup  judul dan abstrak, "
 "tenggat review, dan cara mengakses naskah."
 
-msgid "mailable.passwordReset.description"
-msgstr "Email ini dikirimkan ke pengguna terdaftar saat proses reset password berhasil sesuai prosedur di email PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Email ini dikirimkan ke pengguna terdaftar ketika lupa sandi atau tidak dapat login. Email ini memberikan URL untuk melakukan reset sandi."
 

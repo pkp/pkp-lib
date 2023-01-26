@@ -2325,12 +2325,6 @@ msgstr ""
 "Þessi tölvupóstur er frá kaflaritstjóra til ritrýnis með óskum um að "
 "viðkomandi samþykki eða hafni beiðni um ritrýni. "
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Þessi tölvupóstur er sendur á skráða notendur þegar þeir hafa endurstillt "
-"lykilorð sitt samkvæmt ferli sem lýst er í PASSWORD_RESET_CONFIRM "
-"tölvupóstinum."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Þessi tölvupóstur er sendur á skráða notendur þegar þeir hafa gleymt "

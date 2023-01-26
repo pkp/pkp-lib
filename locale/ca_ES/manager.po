@@ -2453,9 +2453,6 @@ msgstr ""
 "'accedir-hi. Aquest missatge s'utilitza quan el procés de revisió estàndard "
 "s'ha seleccionat a Gestió > Configuració > Flux de treball > Revisió."
 
-msgid "mailable.passwordReset.description"
-msgstr "Aquest missatge de correu electrònic s'envia a un usuari registrat per a notificar-li que la seva contrasenya s'ha reinicialitzat amb èxit després d'haver seguit el procés descrit al missatge de correu electrònic PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Aquest missatge de correu electrònic s'envia a un usuari registrat si ha indicat que no recorda la seva contrasenya o que no pot iniciar la sessió. Inclou un URL per a la reinicialització de la contrasenya."
 

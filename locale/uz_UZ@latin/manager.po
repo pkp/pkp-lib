@@ -70,12 +70,6 @@ msgstr ""
 "avtomatik ravishda yuboriladi. Rejalashtirilgan vazifalar yoqilgan va "
 "sozlangan bo'lishi kerak (sayt konfiguratsiya faylini ko'ring)."
 
-msgid "mailable.passwordReset.description"
-msgstr ""
-"Bu xat PASSWORD_RESET_CONFIRM elektron pochtasida tasvirlangan jarayondan "
-"so'ng parolni muvaffaqiyatli o'zgartirganida, ro'yxatdan o'tgan "
-"foydalanuvchiga yuboriladi."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Bu elektron pochta ro'yxatdan o'tgan foydalanuvchiga parolni unutganini yoki "

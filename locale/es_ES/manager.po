@@ -2303,9 +2303,6 @@ msgstr ""
 "al propio envío. Este mensaje se usa cuando se selecciona el proceso de "
 "revisión estándar en Gestión > Ajustes > Flujo de trabajo > Revisión."
 
-msgid "mailable.passwordReset.description"
-msgstr "Este correo se envía a un/a usuario/a registrado/a una vez han cambiado su contraseña siguiendo el procedimiento descrito en el correo-e PASSWORD_RESET_CONFIRM."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Este correo se envía a un/a usuario/a registrado/a cuando indican que han olvidado su contraseña o que no se pueden identificar. Proporciona una URL para que cambien su contraseña."
 

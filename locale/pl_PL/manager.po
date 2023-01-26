@@ -2150,9 +2150,6 @@ msgstr ""
 "dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
 "pracować będzie w systemie"
 
-msgid "mailable.passwordReset.description"
-msgstr "Wiadomość jest przesyłana do zarejestrowanych użytkowników po zresetowaniu hasła."
-
 msgid "mailable.passwordResetRequested.description"
 msgstr "Wiadomość jest przesyłana do zarejestrowanych użytkowników w celu potwierdzenia zresetowania hasła. Załączony jest link do strony resetowania hasła."
 

@@ -72,6 +72,7 @@ msgstr "Pentadbir Laman"
 msgid "default.groups.name.siteAdmin"
 msgstr "Pentadbir Laman"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

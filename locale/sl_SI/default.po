@@ -141,6 +141,7 @@ msgstr "Slika"
 msgid "default.genres.styleSheet"
 msgstr "HTML stilska tablica"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

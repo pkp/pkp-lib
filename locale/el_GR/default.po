@@ -141,6 +141,7 @@ msgstr "Εικόνα"
 msgid "default.genres.styleSheet"
 msgstr "Αρχείο HTML"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

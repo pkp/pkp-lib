@@ -141,6 +141,7 @@ msgstr "Immagine"
 msgid "default.genres.styleSheet"
 msgstr "Foglio di stile"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

@@ -142,6 +142,7 @@ msgstr "Obraz"
 msgid "default.genres.styleSheet"
 msgstr "Szablon HTML"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr/><br/><p><a href=\"{$contextUrl}\""

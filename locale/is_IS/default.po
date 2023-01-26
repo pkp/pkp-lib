@@ -15,6 +15,7 @@ msgstr ""
 msgid "default.groups.abbrev.productionEditor"
 msgstr "Ritstj"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

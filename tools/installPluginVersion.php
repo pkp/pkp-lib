@@ -70,7 +70,14 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         $versionDao->insertVersion($pluginVersion, true);
 
         $pluginPath = dirname($this->_descriptor);
-        $plugin = @include("${pluginPath}/index.php");
+        if (strpos($pluginVersion->getProductClassName(), '\\') !== false) {
+            // Product class name contains a FQCN.
+            $fqcn = $pluginVersion->getProductClassName();
+            $plugin = new $fqcn();
+        } else {
+            // Old-style (non-FQCN) plugin class name
+            $plugin = @include("${pluginPath}/index.php");
+        }
         if ($plugin && is_object($plugin)) {
             PluginRegistry::register($matches[1], $plugin, $pluginPath);
         }

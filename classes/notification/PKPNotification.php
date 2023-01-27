@@ -88,6 +88,8 @@ class PKPNotification extends \PKP\core\DataObject
 
     public const NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION = 0x100002B;
     public const NOTIFICATION_TYPE_EDITORIAL_REMINDER = 0x100002C;
+    public const NOTIFICATION_TYPE_CONFIGURE_PLUGIN = 0x100002D;
+    public const NOTIFICATION_TYPE_CONFIGURE_USER = 0x100002E;
 
     // Maximum number of notifications that can be sent per job
     public const NOTIFICATION_CHUNK_SIZE_LIMIT = 100;
@@ -307,6 +309,8 @@ if (!PKP_STRICT_MODE) {
         'NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED',
         'NOTIFICATION_TYPE_EDITORIAL_REPORT',
         'NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION',
+        'NOTIFICATION_TYPE_CONFIGURE_PLUGIN',
+        'NOTIFICATION_TYPE_CONFIGURE_USER'
     ] as $constantName) {
         define($constantName, constant('\PKPNotification::' . $constantName));
     }

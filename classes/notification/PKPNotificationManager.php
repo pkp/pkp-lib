@@ -518,6 +518,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return new PKPEditingProductionStatusNotificationManager($notificationType);
             case PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT:
                 return new EditorialReportNotificationManager($notificationType);
+            case PKPNotification::NOTIFICATION_TYPE_CONFIGURE_PLUGIN:
+                return new ConfigurationNotificationManager($notificationType);
+            case PKPNotification::NOTIFICATION_TYPE_CONFIGURE_USER:
+                return new ConfigurationNotificationManager($notificationType);
         }
         return null; // No delegate required, let calling context handle null.
     }

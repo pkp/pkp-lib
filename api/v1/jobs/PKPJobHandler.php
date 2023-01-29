@@ -17,6 +17,8 @@
 namespace PKP\API\v1\jobs;
 
 use APP\facades\Repo;
+use PKP\job\resources\HttpFailedJobResource;
+
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -40,6 +42,18 @@ class PKPJobHandler extends APIHandler
         $roles = [Role::ROLE_ID_SITE_ADMIN];
 
         $this->_endpoints = array_merge_recursive($this->_endpoints, [
+            'GET' => [
+                [
+                    'pattern' => $this->getEndpointPattern() . '/all',
+                    'handler' => [$this, 'getJobs'],
+                    'roles' => $roles,
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/failed/all',
+                    'handler' => [$this, 'getFailedJobs'],
+                    'roles' => $roles,
+                ],
+            ],
             'POST' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/redispatch/{jobId}',
@@ -77,6 +91,50 @@ class PKPJobHandler extends APIHandler
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
+    }
+
+    /**
+     * Get all pending jobs in the queue waiting to get executed
+     */
+    public function getJobs(SlimRequest $slimRequest, APIResponse $response, array $args): Response
+    {
+        $params = $slimRequest->getQueryParams();
+
+        $jobs =  Repo::job()
+            ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
+            ->setPage($params['page'] ?? 1)
+            ->showJobs();
+        
+        return $response->withJson([
+            'data' => $jobs->all(),
+            'total' =>  Repo::job()->total(),
+            'pagination' => [
+                'lastPage' => $jobs->lastPage(),
+                'currentPage' => $jobs->currentPage(),
+            ],
+        ], 200);
+    }
+
+    /**
+     * Get all failed jobs in the failed list
+     */
+    public function getFailedJobs(SlimRequest $slimRequest, APIResponse $response, array $args): Response
+    {
+        $params = $slimRequest->getQueryParams();
+
+        $failedJobs = Repo::failedJob()
+            ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
+            ->setPage($params['page'] ?? 1)
+            ->showJobs();
+        
+        return $response->withJson([
+            'data' => $failedJobs->all(),
+            'total' => Repo::failedJob()->total(),
+            'pagination' => [
+                'lastPage' => $failedJobs->lastPage(),
+                'currentPage' => $failedJobs->currentPage(),
+            ],
+        ], 200);
     }
 
     /**

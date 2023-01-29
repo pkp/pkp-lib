@@ -41,8 +41,6 @@ class AdminHandler extends Handler
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
 
-    public const JOBS_PER_PAGE = 10;
-
     /**
      * Constructor
      */
@@ -508,7 +506,7 @@ class AdminHandler extends Handler
             'name' => __('navigation.tools.jobs'),
         ];
 
-        $templateMgr->setState($this->getJobsTableState($page));
+        $templateMgr->setState($this->getJobsTableState($request));
 
         $templateMgr->assign([
             'pageComponent' => 'JobsPage',
@@ -522,19 +520,10 @@ class AdminHandler extends Handler
     /**
      * Build the state data for the queued jobs table
      */
-    protected function getJobsTableState(int $page = 1): array
+    protected function getJobsTableState(PKPRequest $request): array
     {
-        $total = Repo::job()->total();
-
-        $queuedJobsItems = Repo::job()
-            ->setOutputFormat(Repo::job()::OUTPUT_HTTP)
-            ->perPage(self::JOBS_PER_PAGE)
-            ->setPage($page)
-            ->showJobs();
-
         return [
             'label' => __('admin.jobs.viewQueuedJobs'),
-            'description' => __('admin.jobs.totalCount', ['total' => $total]),
             'columns' => [
                 [
                     'name' => 'id',
@@ -562,11 +551,7 @@ class AdminHandler extends Handler
                     'value' => 'created_at',
                 ]
             ],
-            'rows' => $queuedJobsItems->all(),
-            'total' => $total,
-            'lastPage' => $queuedJobsItems->lastPage(),
-            'currentPage' => $queuedJobsItems->currentPage(),
-            'isLoadingItems' => false,
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/all'),
         ];
     }
 
@@ -590,7 +575,7 @@ class AdminHandler extends Handler
             'name' => __('navigation.tools.jobs.failed'),
         ];
 
-        $templateMgr->setState($this->getFailedJobsTableState($request, $page));
+        $templateMgr->setState($this->getFailedJobsTableState($request));
 
         $templateMgr->assign([
             'pageComponent' => 'FailedJobsPage',
@@ -604,19 +589,10 @@ class AdminHandler extends Handler
     /**
      * Build the state data for the queued jobs table
      */
-    protected function getFailedJobsTableState(PKPRequest $request, int $page = 1): array
+    protected function getFailedJobsTableState(PKPRequest $request): array
     {
-        $total = Repo::failedJob()->total();
-
-        $failedJobs = Repo::failedJob()
-            ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
-            ->perPage(self::JOBS_PER_PAGE)
-            ->setPage($page)
-            ->showJobs();
-
         return [
             'label' => __('navigation.tools.jobs.failed.view'),
-            'description' => __('admin.jobs.failed.totalCount', ['total' => $total]),
             'columns' => [
                 [
                     'name' => 'id',
@@ -649,19 +625,12 @@ class AdminHandler extends Handler
                     'value' => 'action',
                 ],
             ],
-            'rows' => collect($failedJobs->all())->map(fn($failedJob) => array_merge($failedJob, [
-                'detailsPath' => $request->getDispatcher()->url($request, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', $failedJob['id'])
-            ]))->toArray(),
-            'total' => $total,
-            'lastPage' => $failedJobs->lastPage(),
-            'currentPage' => $failedJobs->currentPage(),
-            'isLoadingItems' => false,
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/failed/all'),
         ];
     }
 
     /**
-     * 
+     * Show the failed jobs details
      *
      * @param array $args
      * @param PKPRequest $request
@@ -681,10 +650,11 @@ class AdminHandler extends Handler
         $rows = collect(array_merge(HttpFailedJobResource::toResourceArray($failedJob), [
                 'payload' => $failedJob->first()->getRawOriginal('payload'),
             ]))
-            ->map(fn($value, $attribute) => [
+            ->map(fn($value, $attribute) => is_array($value) ? null : [
                 'attribute' => '<b>' . __("admin.jobs.list." . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()) . '</b>',
                 'value' => isValidJson($value) ? json_encode(json_decode($value, true), JSON_PRETTY_PRINT): $value
             ])
+            ->filter()
             ->values();
 
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');

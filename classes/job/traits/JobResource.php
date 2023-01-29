@@ -18,6 +18,7 @@ namespace PKP\job\traits;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use PKP\core\PKPRequest;
 
 trait JobResource
 {
@@ -25,7 +26,7 @@ trait JobResource
 
     public static function toResourceArray(Model $modelInstance): array
     {
-        return (new static($modelInstance))->toArray(app()->get('request'));
+        return (new static($modelInstance))->toArray(app()->get(PKPRequest::class));
     }
 
     public function getResource(): mixed

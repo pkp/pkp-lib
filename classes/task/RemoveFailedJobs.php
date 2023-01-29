@@ -35,7 +35,7 @@ class RemoveFailedJobs extends ScheduledTask
      */
     public function executeActions()
     {
-        $cleanUpPeriod = (int) Config::getVar('queues', 'failed_job_clean_period', 180);
+        $cleanUpPeriod = (int) Config::getVar('queues', 'delete_failed_jobs_after', null);
 
         // No need to run the clean up process if the cleaning period is not defined in config
         if ( !$cleanUpPeriod ) {

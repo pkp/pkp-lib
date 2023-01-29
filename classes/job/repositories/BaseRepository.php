@@ -24,7 +24,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 abstract class BaseRepository
 {
     protected Model $model;
-    protected int $perPage = 10;
+    protected int $perPage = 50;
     protected ?string $outputFormat;
 
     public const OUTPUT_CLI = 'cli';

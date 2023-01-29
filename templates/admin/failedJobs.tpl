@@ -21,20 +21,26 @@
 			:label="label"
             :api-url="apiUrl"
 		>
-            <template slot="actions" slot-scope="slotProps">
-                <td>
-                    <div class="buttonRow">
-                        <pkp-button @click="this.pkp.eventBus.$emit('redispatch-job', slotProps.row)">
+            <template slot-scope="{ row, rowIndex }">
+                <table-cell
+                    v-for="(column, columnIndex) in columns"
+                    :key="column.name"
+                    :column="column"
+                    :row="row"
+                    :tabindex="!rowIndex && !columnIndex ? 0 : -1"
+                >
+                    <div v-if="column.name === 'actions'" class="buttonRow">
+                        <pkp-button @click="redispatch(row)">
                             {translate key="admin.jobs.failed.action.redispatch"}
                         </pkp-button>
-                        <pkp-button is-warnable @click="this.pkp.eventBus.$emit('remove-job', slotProps.row)">
+                        <pkp-button is-warnable @click="remove(row)">
                             {translate key="admin.jobs.failed.action.delete"}
                         </pkp-button>
-                        <pkp-button element="a" is-link :href="slotProps.row.detailsPath">
+                        <pkp-button element="a" is-link :href="row._hrefs._details">
                             {translate key="admin.jobs.failed.action.details"}
                         </pkp-button>
                     </div>
-                </td>
+                </table-cell>
             </template>
 		</pkp-table>
 

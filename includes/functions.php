@@ -417,7 +417,7 @@ if (!function_exists('convertHrToBytes'))
 }
 
 /**
- * Converts a shorthand byte value to an integer byte value.
+ * Check if valid JSON
  *
  * @param   mixed  $data 
  * @return  bool

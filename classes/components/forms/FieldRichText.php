@@ -31,6 +31,9 @@ class FieldRichText extends Field
     /** @var int Optional. When a word limit is specified a word counter will be shown */
     public $wordLimit = 0;
 
+    /** @var array Optional. A list of required plugins. */
+    public $plugins = 'paste';
+
     /**
      * @copydoc Field::getConfig()
      */

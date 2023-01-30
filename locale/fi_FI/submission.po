@@ -1,2 +1,231 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
+
+msgid "submission.submit.userGroup"
+msgstr ""
+
+msgid "submission.upload.selectComponent"
+msgstr ""
+
+msgid "submission.title"
+msgstr ""
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr ""
+
+msgid "submission.abstract.wordCount.description"
+msgstr ""
+
+msgid "submission.submit.noContext"
+msgstr ""
+
+msgid "submission.galleyFiles"
+msgstr ""
+
+msgid "submission.upload.fileContents"
+msgstr ""
+
+msgid "submission.complete"
+msgstr ""
+
+msgid "submission.submit.submissionChecklist"
+msgstr ""
+
+msgid "submission.submit.contributorRole"
+msgstr ""
+
+msgid "submission.metadataDescription"
+msgstr ""
+
+msgid "submission.sectionOptions"
+msgstr ""
+
+msgid "catalog.browseTitles"
+msgstr ""
+
+msgid "catalog.category.heading"
+msgstr ""
+
+msgid "galley.editPublishedDisabled"
+msgstr ""
+
+msgid "galley.publicationNotFound"
+msgstr ""
+
+msgid "publication.invalidSection"
+msgstr ""
+
+msgid "publication.inactiveSection"
+msgstr ""
+
+msgid "preprint.entry"
+msgstr ""
+
+msgid "publication.issue.success"
+msgstr ""
+
+msgid "publication.datePublished.description"
+msgstr ""
+
+msgid "publication.relation"
+msgstr ""
+
+msgid "publication.relation.label"
+msgstr ""
+
+msgid "publication.relation.description"
+msgstr ""
+
+msgid "publication.relation.none"
+msgstr ""
+
+msgid "publication.relation.published"
+msgstr ""
+
+msgid "publication.relation.vorDoi"
+msgstr ""
+
+msgid "publication.publish.relationStatus"
+msgstr ""
+
+msgid "publication.publish.relationStatus.none"
+msgstr ""
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr ""
+
+msgid "publication.publish.relationStatus.published"
+msgstr ""
+
+msgid "publication.publish.confirmation"
+msgstr ""
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+
+msgid "publication.status.published"
+msgstr ""
+
+msgid "submission.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "submission.publication"
+msgstr ""
+
+msgid "submission.publications"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+
+msgid "publication.datePublished"
+msgstr ""
+
+msgid "publication.editDisabled"
+msgstr ""
+
+msgid "publication.event.published"
+msgstr ""
+
+msgid "publication.event.scheduled"
+msgstr ""
+
+msgid "publication.event.unpublished"
+msgstr ""
+
+msgid "publication.event.versionPublished"
+msgstr ""
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+
+msgid "publication.invalidSubmission"
+msgstr ""
+
+msgid "publication.publish"
+msgstr ""
+
+msgid "publication.publish.requirements"
+msgstr ""
+
+msgid "publication.required.declined"
+msgstr ""
+
+msgid "publication.required.reviewStage"
+msgstr ""
+
+msgid "submission.license.description"
+msgstr ""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+
+msgid "publication.unpublish"
+msgstr ""
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+
+msgid "publication.version.details"
+msgstr ""
+
+msgid "submission.queries.production"
+msgstr ""
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""
+
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""

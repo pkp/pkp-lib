@@ -20,13 +20,18 @@ msgstr "Järjestelmän XML-lisäosa"
 
 #, fuzzy
 msgid "plugins.importexport.native.description"
-msgstr "Tuo ja vie artikkeleita ja numeroita OJS-järjestelmän omassa XML-muodossa."
+msgstr ""
+"Tuo ja vie artikkeleita ja numeroita OJS-järjestelmän omassa XML-muodossa."
 
 msgid "plugins.importexport.native.import"
 msgstr "Tuo"
 
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Lataa tuotava XML-tiedosto"
+
+#, fuzzy
+msgid "plugins.importexport.native.exportSubmissionsSelect"
+msgstr "Valitse vietävät artikkelit"
 
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Vie artikkeleita"
@@ -40,24 +45,14 @@ msgstr "Ole hyvä ja lataa tiedosto kohdassa \"Tuo\" jatkaaksesi."
 msgid "plugins.importexport.native.importComplete"
 msgstr "Tuonti onnistui. Seuraavat kohteet tuotiin:"
 
-msgid "plugins.importexport.native.error.unknownSection"
-msgstr "Tuntematon osasto  {$param}"
-
-msgid "plugins.importexport.native.error.unknownUser"
-msgstr "Annettua käyttäjää \"{$userName}\" ei ole olemassa."
-
-#, fuzzy
-msgid "plugins.importexport.native.exportSubmissionsSelect"
-msgstr "Valitse vietävät artikkelit"
-
 #, fuzzy
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
 "Käyttö: {$scriptName} {$pluginName} [command] ...\n"
 "Komennot:\n"
 "\timport [xmlFileName] [journal_path] [user_name] ...\n"
-"\texport [xmlFileName] [journal_path] articles [articleId1] [articleId2] ..."
-"\n"
+"\texport [xmlFileName] [journal_path] articles [articleId1] "
+"[articleId2] ...\n"
 "\texport [xmlFileName] [journal_path] article [articleId]\n"
 "\texport [xmlFileName] [journal_path] issues [issueId1] [issueId2] ...\n"
 "\texport [xmlFileName] [journal_path] issue [issueId]\n"
@@ -78,3 +73,9 @@ msgstr ""
 "\n"
 "{$scriptName} {$pluginName} import [xmlFileName] [journal_path]\n"
 "\tissue_id [issueId] section_abbrev [abbrev]\n"
+
+msgid "plugins.importexport.native.error.unknownSection"
+msgstr "Tuntematon osasto  {$param}"
+
+msgid "plugins.importexport.native.error.unknownUser"
+msgstr "Annettua käyttäjää \"{$userName}\" ei ole olemassa."

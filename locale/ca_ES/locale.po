@@ -1,2 +1,378 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
+
+msgid "context.current"
+msgstr ""
+
+msgid "context.select"
+msgstr ""
+
+msgid "common.software"
+msgstr ""
+
+msgid "navigation.browseByAuthor"
+msgstr ""
+
+msgid "navigation.skip.about"
+msgstr ""
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr ""
+
+msgid "common.queue.long.active"
+msgstr ""
+
+msgid "doi.manager.settings.publications"
+msgstr ""
+
+msgid "section.section"
+msgstr ""
+
+msgid "section.sections"
+msgstr ""
+
+msgid "section.title"
+msgstr ""
+
+msgid "section.abbreviation"
+msgstr ""
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr ""
+
+msgid "section.description"
+msgstr ""
+
+msgid "section.pathDescription"
+msgstr ""
+
+msgid "section.emptySection"
+msgstr ""
+
+msgid "category.categories"
+msgstr ""
+
+msgid "common.publication"
+msgstr ""
+
+msgid "common.publications"
+msgstr ""
+
+msgid "preprint.details"
+msgstr ""
+
+msgid "preprint.abstract"
+msgstr ""
+
+msgid "preprint.pageTitle"
+msgstr ""
+
+msgid "submissions.published"
+msgstr ""
+
+msgid "submission.search"
+msgstr ""
+
+msgid "submission.numberOfVersions"
+msgstr ""
+
+msgid "submission.dates"
+msgstr ""
+
+msgid "publication.galley.downloads"
+msgstr ""
+
+msgid "context.contexts"
+msgstr ""
+
+msgid "context.context"
+msgstr ""
+
+msgid "user.authorization.representationNotFound"
+msgstr ""
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr ""
+
+msgid "user.register.contextsPrompt"
+msgstr ""
+
+msgid "user.register.otherContextRoles"
+msgstr ""
+
+msgid "user.register.noContextReviewerInterests"
+msgstr ""
+
+msgid "user.role.manager"
+msgstr ""
+
+msgid "user.role.subEditor"
+msgstr ""
+
+msgid "user.role.subEditors"
+msgstr ""
+
+msgid "submission.event.submissionSubmitted"
+msgstr ""
+
+msgid "search.results.orderBy"
+msgstr ""
+
+msgid "search.results.orderBy.preprint"
+msgstr ""
+
+msgid "search.results.orderBy.author"
+msgstr ""
+
+msgid "search.results.orderBy.date"
+msgstr ""
+
+msgid "search.results.orderBy.server"
+msgstr ""
+
+msgid "search.results.orderBy.popularityAll"
+msgstr ""
+
+msgid "search.results.orderBy.popularityMonth"
+msgstr ""
+
+msgid "search.results.orderBy.relevance"
+msgstr ""
+
+msgid "search.results.orderDir.asc"
+msgstr ""
+
+msgid "search.results.orderDir.desc"
+msgstr ""
+
+msgid "manager.people.noAdministrativeRights"
+msgstr ""
+
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr ""
+
+msgid "submission.layout.galley.remoteURL"
+msgstr ""
+
+msgid "user.register.registrationDisabled"
+msgstr ""
+
+msgid "user.register.form.privacyConsentThisContext"
+msgstr ""
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+
+msgid "user.register.form.missingSiteConsent"
+msgstr ""
+
+msgid "index.latestPreprints"
+msgstr ""
+
+msgid "search.searchFor"
+msgstr ""
+
+msgid "search.authorIndex"
+msgstr ""
+
+msgid "search.authorDetails"
+msgstr ""
+
+msgid "site.serverView"
+msgstr ""
+
+msgid "site.noServers"
+msgstr ""
+
+msgid "archive.archives"
+msgstr ""
+
+msgid "archive.archivesPageNumber"
+msgstr ""
+
+msgid "about.contact"
+msgstr ""
+
+msgid "about.aboutContext"
+msgstr ""
+
+msgid "about.editorialTeam"
+msgstr ""
+
+msgid "about.submissions"
+msgstr ""
+
+msgid "about.onlineSubmissions.login"
+msgstr ""
+
+msgid "about.onlineSubmissions.register"
+msgstr ""
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr ""
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr ""
+
+msgid "about.onlineSubmissions.submitToSection"
+msgstr ""
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr ""
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr ""
+
+msgid "about.authorGuidelines"
+msgstr ""
+
+msgid "about.submissionPreparationChecklist"
+msgstr ""
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+
+msgid "about.copyrightNotice"
+msgstr ""
+
+msgid "about.privacyStatement"
+msgstr ""
+
+msgid "about.aboutThisPublishingSystem"
+msgstr ""
+
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr ""
+
+msgid "about.aboutSoftware"
+msgstr ""
+
+msgid "about.aboutOPSServer"
+msgstr ""
+
+msgid "about.aboutOPSSite"
+msgstr ""
+
+msgid "help.goToEditPage"
+msgstr ""
+
+msgid "installer.appInstallation"
+msgstr ""
+
+msgid "installer.updatingInstructions"
+msgstr ""
+
+msgid "installer.installationInstructions"
+msgstr ""
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+
+msgid "installer.upgradeInstructions"
+msgstr ""
+
+msgid "installer.localeSettingsInstructions"
+msgstr ""
+
+msgid "installer.allowFileUploads"
+msgstr ""
+
+msgid "installer.maxFileUploadSize"
+msgstr ""
+
+msgid "installer.localeInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+
+msgid "installer.installApplication"
+msgstr ""
+
+msgid "installer.upgradeApplication"
+msgstr ""
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+
+msgid "installer.installationComplete"
+msgstr ""
+
+msgid "installer.upgradeComplete"
+msgstr ""
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+
+msgid "log.editor.decision"
+msgstr ""
+
+msgid "log.editor.recommendation"
+msgstr ""
+
+msgid "notification.type.submissionSubmitted"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewing"
+msgstr ""
+
+msgid "notification.type.submissions"
+msgstr ""
+
+msgid "notification.type.public"
+msgstr ""
+
+msgid "notification.type.editorAssignmentTask"
+msgstr ""
+
+msgid "notification.type.awaitingRepresentations"
+msgstr ""
+
+msgid "user.authorization.noContext"
+msgstr ""
+
+msgid "notification.type.approveSubmission"
+msgstr ""
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr ""
+
+msgid "user.profile.form.showOtherContexts"
+msgstr ""
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr ""
+
+msgid "catalog.sortBy"
+msgstr ""
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr ""
+
+msgid "preprint.subject"
+msgstr ""
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr ""

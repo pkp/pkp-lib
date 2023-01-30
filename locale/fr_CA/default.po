@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-02-28 19:34+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "default/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -12,29 +12,107 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Lorsque possible, les URL des références ont été fournies."
-
-msgid "default.contextSettings.checklist.fileFormat"
-msgstr ""
-"Le fichier de la soumission est dans un des formats de fichier suivants : "
-"OpenOffice, Microsoft Word, RTF ou WordPerfect."
-
-#, fuzzy
-msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr ""
-"La soumission n'a pas déjà été publiée et n'est pas considérée actuellement "
-"par un autre serveur. Si ce n'est pas le cas, fournir une explication dans "
-"le champ « Commentaires au,à la rédacteur-trice »."
-
-msgid "default.genres.preprint"
-msgstr "Texte de la prépublication"
-
-msgid "section.default.path"
-msgstr "prépublications"
+msgid "section.default.title"
+msgstr "Prépublications"
 
 msgid "section.default.abbrev"
 msgstr "PRE"
 
-msgid "section.default.title"
-msgstr "Prépublications"
+msgid "section.default.path"
+msgstr "prépublications"
+
+msgid "section.default.policy"
+msgstr ""
+
+msgid "default.genres.preprint"
+msgstr "Texte de la prépublication"
+
+msgid "default.contextSettings.authorGuidelines"
+msgstr ""
+
+msgid "default.contextSettings.checklist"
+msgstr ""
+
+msgid "default.contextSettings.forReaders"
+msgstr ""
+
+msgid "default.contextSettings.forAuthors"
+msgstr ""
+
+msgid "default.contextSettings.forLibrarians"
+msgstr ""
+
+msgid "default.contextSettings.privacyStatement"
+msgstr ""
+
+msgid "default.contextSettings.openAccessPolicy"
+msgstr ""
+
+msgid "default.groups.name.manager"
+msgstr ""
+
+msgid "default.groups.plural.manager"
+msgstr ""
+
+msgid "default.groups.abbrev.manager"
+msgstr ""
+
+msgid "default.groups.name.sectionEditor"
+msgstr ""
+
+msgid "default.groups.plural.sectionEditor"
+msgstr ""
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr ""
+
+msgid "default.genres.researchInstrument"
+msgstr ""
+
+msgid "default.genres.researchMaterials"
+msgstr ""
+
+msgid "default.genres.researchResults"
+msgstr ""
+
+msgid "default.genres.transcripts"
+msgstr ""
+
+msgid "default.genres.dataAnalysis"
+msgstr ""
+
+msgid "default.genres.dataSet"
+msgstr ""
+
+msgid "default.genres.sourceTexts"
+msgstr ""
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""
+
+#~ msgid "default.contextSettings.checklist.addressesLinked"
+#~ msgstr "Lorsque possible, les URL des références ont été fournies."
+
+#~ msgid "default.contextSettings.checklist.fileFormat"
+#~ msgstr ""
+#~ "Le fichier de la soumission est dans un des formats de fichier suivants : "
+#~ "OpenOffice, Microsoft Word, RTF ou WordPerfect."
+
+#, fuzzy
+#~ msgid "default.contextSettings.checklist.notPreviouslyPublished"
+#~ msgstr ""
+#~ "La soumission n'a pas déjà été publiée et n'est pas considérée "
+#~ "actuellement par un autre serveur. Si ce n'est pas le cas, fournir une "
+#~ "explication dans le champ « Commentaires au,à la rédacteur-trice »."

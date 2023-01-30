@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2021-01-08T23:00:18+00:00\n"
 "PO-Revision-Date: 2021-01-14 17:31+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
-"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/ops/"
-"themes-default/tr_TR/>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/ops/themes-"
+"default/tr_TR/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,16 +27,22 @@ msgid "plugins.themes.default.option.typography.description"
 msgstr "Bu dergiye uyan bir yazı tipi kombinasyonu seçiniz."
 
 msgid "plugins.themes.default.option.typography.notoSans"
-msgstr "Noto Sans: Geniş dil desteği için Google tarafından tasarlanan dijital yerli bir yazı."
+msgstr ""
+"Noto Sans: Geniş dil desteği için Google tarafından tasarlanan dijital yerli "
+"bir yazı."
 
 msgid "plugins.themes.default.option.typography.notoSerif"
 msgstr "Noto Serif: Google'ın dijital doğal yazı tipinin bir seri varyantı."
 
 msgid "plugins.themes.default.option.typography.notoSerif_notoSans"
-msgstr "Noto Serif / Noto Sans: Serif başlıkları ve sans-serif gövde metni ile tamamlayıcı bir eşleştirme sağlar."
+msgstr ""
+"Noto Serif / Noto Sans: Serif başlıkları ve sans-serif gövde metni ile "
+"tamamlayıcı bir eşleştirme sağlar."
 
 msgid "plugins.themes.default.option.typography.notoSans_notoSerif"
-msgstr "Noto Sans / Noto Serif: Sans-serif başlıkları ve serif gövde metni ile tamamlayıcı bir eşleştirme sağlar."
+msgstr ""
+"Noto Sans / Noto Serif: Sans-serif başlıkları ve serif gövde metni ile "
+"tamamlayıcı bir eşleştirme sağlar."
 
 msgid "plugins.themes.default.option.typography.lato"
 msgstr "Lato: Popüler bir modern sans-serif yazı tipi."
@@ -45,7 +51,9 @@ msgid "plugins.themes.default.option.typography.lora"
 msgstr "Lora: Çevrimiçi okumak için iyi tasarlanmış geniş bir serif yazı tipi."
 
 msgid "plugins.themes.default.option.typography.lora_openSans"
-msgstr "Lora / Open Sans: Serif başlıkları ve sans-serif gövde metni ile eşleştirme sağlar."
+msgstr ""
+"Lora / Open Sans: Serif başlıkları ve sans-serif gövde metni ile eşleştirme "
+"sağlar."
 
 msgid "plugins.themes.default.option.colour.label"
 msgstr "Renk"
@@ -53,16 +61,37 @@ msgstr "Renk"
 msgid "plugins.themes.default.option.colour.description"
 msgstr "Başlık için bir renk seçin."
 
-msgid "plugins.themes.default.option.useHomepageImageAsHeader.option"
-msgstr "Ana sayfa resmini başlık arka planı olarak gösterin."
+msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
+msgstr "Ana sayfada sunucu özetini gösterin."
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
+msgstr "Üstbilgi Arka Plan Resmi"
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.description"
 msgstr ""
 "Bir ana sayfa resmi yüklendiğinde, ana sayfadaki normal konumu yerine "
 "başlığın arka planında görüntüleyin."
 
-msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
-msgstr "Üstbilgi Arka Plan Resmi"
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.option"
+msgstr "Ana sayfa resmini başlık arka planı olarak gösterin."
 
-msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
-msgstr "Ana sayfada sunucu özetini gösterin."
+msgid "plugins.themes.default.option.displayStats.label"
+msgstr ""
+
+msgid "plugins.themes.default.option.displayStats.none"
+msgstr ""
+
+msgid "plugins.themes.default.option.displayStats.bar"
+msgstr ""
+
+msgid "plugins.themes.default.option.displayStats.line"
+msgstr ""
+
+msgid "plugins.themes.default.displayStats.monthInitials"
+msgstr ""
+
+msgid "plugins.themes.default.displayStats.downloads"
+msgstr ""
+
+msgid "plugins.themes.default.displayStats.noStats"
+msgstr ""

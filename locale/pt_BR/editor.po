@@ -11,18 +11,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#, fuzzy
-msgid "editor.publication.authorPublishRequirements"
-msgstr "O autor não preenche os seguintes requisitos de publicação:"
-
-msgid "editor.preprint.coverImage"
-msgstr "Imagem da capa"
-
-msgid "editor.publicIdentificationExistsForTheSameType"
+msgid "editor.publicIdentificationExists"
 msgstr ""
-"O identificador público '{$publicIdentifier}' já existe para outro objeto do "
-"mesmo tipo. Escolha identificadores exclusivos para os objetos do mesmo tipo "
-"no seu servidor."
+"O identificador público '{$publicIdentifier}' já existe para outro objeto "
+"(preprint , prova gráfica ou arquivo). Por favor, escolha identificadores "
+"únicos dentro do seu servidor."
+
+msgid "grid.action.addGalley"
+msgstr "Adicione composição final"
 
 msgid "editor.submission.proof.manageProofFilesDescription"
 msgstr ""
@@ -31,17 +27,21 @@ msgstr ""
 "seleção 'Incluir' abaixo e clicando em Pesquisar: todos os arquivos "
 "disponíveis serão listados e podem ser escolhidos para inclusão."
 
-msgid "grid.action.addGalley"
-msgstr "Adicione composição final"
-
-msgid "editor.publicIdentificationExists"
+msgid "editor.publicIdentificationExistsForTheSameType"
 msgstr ""
-"O identificador público '{$publicIdentifier}' já existe para outro objeto ("
-"preprint , prova gráfica ou arquivo). Por favor, escolha identificadores "
-"únicos dentro do seu servidor."
+"O identificador público '{$publicIdentifier}' já existe para outro objeto do "
+"mesmo tipo. Escolha identificadores exclusivos para os objetos do mesmo tipo "
+"no seu servidor."
 
-msgid "editor.submission.schedulePublication"
-msgstr "Postar o preprint"
+msgid "editor.preprint.coverImage"
+msgstr "Imagem da capa"
+
+#, fuzzy
+msgid "editor.publication.authorPublishRequirements"
+msgstr "O autor não preenche os seguintes requisitos de publicação:"
 
 msgid "editor.submissions.assignedTo"
 msgstr "Designado ao Moderador"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Postar o preprint"

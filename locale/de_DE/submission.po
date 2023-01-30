@@ -14,48 +14,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "submission.publications"
-msgstr "Preprints"
+msgid "submission.submit.userGroup"
+msgstr "Einreichen in meiner Rolle als..."
 
-msgid "submission.publication"
-msgstr "Preprint"
+msgid "submission.upload.selectComponent"
+msgstr "Preprint-Komponente auswählen"
 
-msgid "publication.status.unscheduled"
-msgstr "Unveröffentlicht"
+msgid "submission.title"
+msgstr "Preprint-Titel"
 
-msgid "submission.status.scheduled"
-msgstr "Geplant"
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Neue Einreichung"
 
-msgid "publication.status.published"
-msgstr "Veröffentlicht"
+msgid "submission.abstract.wordCount.description"
+msgstr "Die Zusammenfassung muss {$wordCount} Wörter oder weniger enthalten."
 
-msgid "author.submit.authorsCanNotPublish"
+msgid "submission.submit.noContext"
+msgstr "Der Einreichungsserver konnte nicht gefunden werden."
+
+msgid "submission.galleyFiles"
+msgstr "Gesamtfahnen"
+
+msgid "submission.upload.fileContents"
+msgstr "Preprint-Komponente"
+
+msgid "submission.complete"
+msgstr "Genehmigt"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Einreichungs-Checkliste"
+
+msgid "submission.submit.contributorRole"
+msgstr "Rolle des Beitragenden"
+
+msgid "submission.metadataDescription"
 msgstr ""
-"Sie können Ihren eigenen Preprint nicht veröffentlichen. Er muss von einem "
-"Moderator genehmigt und veröffentlicht werden."
+"Diese Spezifikationen basieren auf dem Dublin-Core-Metadatensatz, einem "
+"internationalen Standard zur Beschreibung von Inhalten."
 
-msgid "publication.publish.confirmation"
+msgid "submission.sectionOptions"
+msgstr "Abschnitt Optionen"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} Einträge"
+
+msgid "catalog.category.heading"
+msgstr "Alle Einträge"
+
+msgid "galley.editPublishedDisabled"
 msgstr ""
-"Alle Anforderungen sind erfüllt. Sind Sie sicher, dass Sie dies "
-"veröffentlichen wollen?"
+"Die Gesamtfahnen dieser Version können nicht bearbeitet werden, da sie "
+"bereits veröffentlicht wurde."
 
-msgid "publication.relation.vorDoi"
-msgstr "DOI des veröffentlichten Preprints"
+msgid "galley.publicationNotFound"
+msgstr "Die Version für diese Dateityp konnte nicht gefunden werden."
 
-#, fuzzy
-msgid "publication.relation.published"
-msgstr "Der Preprint wurde in einer Zeitschrift als ein Preprint veröffentlicht"
+msgid "publication.invalidSection"
+msgstr "Der Abschnitt für diese Version konnte nicht gefunden werden."
 
-#, fuzzy
-msgid "publication.relation.none"
-msgstr "Der Preprint wurde nicht zur Veröffentlichung eingereicht"
+msgid "publication.inactiveSection"
+msgstr "{$abschnitt} (inaktiv)"
 
-#, fuzzy
-msgid "publication.relation.label"
-msgstr "Eingereicht zur Veröffentlichung"
+msgid "preprint.entry"
+msgstr "Preprint-Eintrag"
 
-msgid "publication.relation"
-msgstr "Verbindugen"
+msgid "publication.issue.success"
+msgstr "Die Angaben zum Preprint-Eintrag wurden aktualisiert."
 
 msgid "publication.datePublished.description"
 msgstr ""
@@ -63,158 +87,190 @@ msgstr ""
 "veröffentlicht wird. Geben Sie kein Buchungsdatum ein, es sei denn, Sie "
 "müssen es rückdatieren."
 
-msgid "publication.issue.success"
-msgstr "Die Angaben zum Preprint-Eintrag wurden aktualisiert."
+msgid "publication.relation"
+msgstr "Verbindugen"
 
-msgid "preprint.entry"
-msgstr "Preprint-Eintrag"
+#, fuzzy
+msgid "publication.relation.label"
+msgstr "Eingereicht zur Veröffentlichung"
 
-msgid "publication.inactiveSection"
-msgstr "{$abschnitt} (inaktiv)"
-
-msgid "publication.invalidSection"
-msgstr "Der Abschnitt für diese Version konnte nicht gefunden werden."
-
-msgid "galley.publicationNotFound"
-msgstr "Die Version für diese Dateityp konnte nicht gefunden werden."
-
-msgid "galley.editPublishedDisabled"
+msgid "publication.relation.description"
 msgstr ""
-"Die Gesamtfahnen dieser Version können nicht bearbeitet werden, da sie "
-"bereits veröffentlicht wurde."
 
-msgid "catalog.category.heading"
-msgstr "Alle Einträge"
+#, fuzzy
+msgid "publication.relation.none"
+msgstr "Der Preprint wurde nicht zur Veröffentlichung eingereicht"
 
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} Einträge"
-
-msgid "submission.sectionOptions"
-msgstr "Abschnitt Optionen"
-
-msgid "submission.metadataDescription"
+#, fuzzy
+msgid "publication.relation.published"
 msgstr ""
-"Diese Spezifikationen basieren auf dem Dublin-Core-Metadatensatz, einem "
-"internationalen Standard zur Beschreibung von Inhalten."
+"Der Preprint wurde in einer Zeitschrift als ein Preprint veröffentlicht"
 
-msgid "submission.submit.contributorRole"
-msgstr "Rolle des Beitragenden"
+msgid "publication.relation.vorDoi"
+msgstr "DOI des veröffentlichten Preprints"
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Einreichungs-Checkliste"
-
-msgid "submission.complete"
-msgstr "Genehmigt"
-
-msgid "submission.upload.fileContents"
-msgstr "Preprint-Komponente"
-
-msgid "submission.galleyFiles"
-msgstr "Gesamtfahnen"
-
-msgid "submission.submit.noContext"
-msgstr "Der Einreichungsserver konnte nicht gefunden werden."
-
-msgid "submission.abstract.wordCount.description"
-msgstr "Die Zusammenfassung muss {$wordCount} Wörter oder weniger enthalten."
-
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Neue Einreichung"
-
-msgid "submission.title"
-msgstr "Preprint-Titel"
-
-msgid "submission.upload.selectComponent"
-msgstr "Preprint-Komponente auswählen"
-
-msgid "submission.submit.userGroup"
-msgstr "Einreichen in meiner Rolle als..."
-
-msgid "submission.queries.production"
-msgstr "Diskussionen"
-
-msgid "publication.version.details"
-msgstr "Details für Version {$version}"
-
-msgid "publication.unschedule.confirm"
+msgid "publication.publish.relationStatus"
 msgstr ""
-"Sind Sie sicher, dass Sie nicht möchten, dass dieser Beitrag veröffentlicht "
-"wird?"
 
-msgid "publication.unpublish.confirm"
-msgstr "Sind Sie sicher, dass Sie nicht möchten, dass dies veröffentlicht wird?"
-
-msgid "publication.unpublish"
-msgstr "unveröffentlichen"
-
-msgid "submission.copyrightOther.description"
+msgid "publication.publish.relationStatus.none"
 msgstr ""
-"Das Urheberrecht für die eingereichten Beiträge ist an die folgende "
-"Organisation zu übertragen."
 
-msgid "submission.copyrightHolder.description"
+msgid "publication.publish.relationStatus.submitted"
 msgstr ""
-"Das Urheberrecht wird automatisch {$copyright} zugewiesen, wenn dies "
-"veröffentlicht wird."
 
-msgid "submission.license.description"
+msgid "publication.publish.relationStatus.published.noDoi"
 msgstr ""
-"Die Lizenz wird automatisch auf <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> gesetzt, wenn dies veröffentlicht wird."
 
-msgid "publication.required.reviewStage"
+msgid "publication.publish.relationStatus.published"
 msgstr ""
-"Der Beitrag muss sich in der Produktionsphase befinden, bevor er "
-"veröffentlicht werden kann."
 
-msgid "publication.required.declined"
-msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
-
-msgid "publication.publish.requirements"
+msgid "publication.publish.confirmation"
 msgstr ""
-"Die folgenden Voraussetzungen müssen erfüllt sein, damit die Stelle "
-"ausgeschrieben werden kann."
+"Alle Anforderungen sind erfüllt. Sind Sie sicher, dass Sie dies "
+"veröffentlichen wollen?"
 
-msgid "publication.publish"
-msgstr "Posten"
-
-msgid "publication.invalidSubmission"
-msgstr "Die Einreichung von diesem Preprint konnte nicht gefunden werden."
-
-msgid "publication.event.versionUnpublished"
+msgid "author.submit.authorsCanNotPublish"
 msgstr ""
-"Diese Version wurde unveröffentlicht und ist nicht mehr öffentlich "
-"zugänglich."
+"Sie können Ihren eigenen Preprint nicht veröffentlichen. Er muss von einem "
+"Moderator genehmigt und veröffentlicht werden."
 
-msgid "publication.event.versionScheduled"
-msgstr "Die Veröffentlichung einer neuen Version war geplant."
+msgid "publication.status.published"
+msgstr "Veröffentlicht"
 
-msgid "publication.event.versionPublished"
-msgstr "Eine neue Version wurde veröffentlicht."
+msgid "submission.status.scheduled"
+msgstr "Geplant"
 
-msgid "publication.event.unpublished"
-msgstr "Die Einreichung wurde unveröffentlicht."
+msgid "publication.status.unscheduled"
+msgstr "Unveröffentlicht"
 
-msgid "publication.event.scheduled"
-msgstr "Die Einreichung war zur Veröffentlichung geplant."
+msgid "submission.publication"
+msgstr "Preprint"
 
-msgid "publication.event.published"
-msgstr "Die Einreichung wurde veröffentlicht."
+msgid "submission.publications"
+msgstr "Preprints"
 
-msgid "publication.editDisabled"
+msgid "publication.copyrightYearBasis.issueDescription"
 msgstr ""
-"Diese Version wurde bereits veröffentlicht und kann nicht mehr bearbeitet "
-"werden."
-
-msgid "publication.datePublished"
-msgstr "Datum der Veröffentlichung"
+"Das Jahr des Urheberrechts wird bei der Veröffentlichung automatisch "
+"eingestellt."
 
 msgid "publication.copyrightYearBasis.submissionDescription"
 msgstr ""
 "Das Jahr des Urheberrechts wird automatisch auf der Basis des "
 "Veröffentlichungsdatums festgelegt."
 
-msgid "publication.copyrightYearBasis.issueDescription"
+msgid "publication.datePublished"
+msgstr "Datum der Veröffentlichung"
+
+msgid "publication.editDisabled"
 msgstr ""
-"Das Jahr des Urheberrechts wird bei der Veröffentlichung automatisch "
-"eingestellt."
+"Diese Version wurde bereits veröffentlicht und kann nicht mehr bearbeitet "
+"werden."
+
+msgid "publication.event.published"
+msgstr "Die Einreichung wurde veröffentlicht."
+
+msgid "publication.event.scheduled"
+msgstr "Die Einreichung war zur Veröffentlichung geplant."
+
+msgid "publication.event.unpublished"
+msgstr "Die Einreichung wurde unveröffentlicht."
+
+msgid "publication.event.versionPublished"
+msgstr "Eine neue Version wurde veröffentlicht."
+
+msgid "publication.event.versionScheduled"
+msgstr "Die Veröffentlichung einer neuen Version war geplant."
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+"Diese Version wurde unveröffentlicht und ist nicht mehr öffentlich "
+"zugänglich."
+
+msgid "publication.invalidSubmission"
+msgstr "Die Einreichung von diesem Preprint konnte nicht gefunden werden."
+
+msgid "publication.publish"
+msgstr "Posten"
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Die folgenden Voraussetzungen müssen erfüllt sein, damit die Stelle "
+"ausgeschrieben werden kann."
+
+msgid "publication.required.declined"
+msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Der Beitrag muss sich in der Produktionsphase befinden, bevor er "
+"veröffentlicht werden kann."
+
+msgid "submission.license.description"
+msgstr ""
+"Die Lizenz wird automatisch auf <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> gesetzt, wenn dies veröffentlicht wird."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Das Urheberrecht wird automatisch {$copyright} zugewiesen, wenn dies "
+"veröffentlicht wird."
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Das Urheberrecht für die eingereichten Beiträge ist an die folgende "
+"Organisation zu übertragen."
+
+msgid "publication.unpublish"
+msgstr "unveröffentlichen"
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie nicht möchten, dass dies veröffentlicht wird?"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie nicht möchten, dass dieser Beitrag veröffentlicht "
+"wird?"
+
+msgid "publication.version.details"
+msgstr "Details für Version {$version}"
+
+msgid "submission.queries.production"
+msgstr "Diskussionen"
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""
+
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""

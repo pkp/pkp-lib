@@ -11,28 +11,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.contexts.enableContextInstructions"
-msgstr "Aktiver visning av denne preprint-tjeneren på nettsiden"
-
-msgid "admin.contexts.contextDescription"
-msgstr "Tjenerbeskrivelse"
-
-msgid "admin.contexts.form.pathExists"
-msgstr "Den valgte filstien er allerede tatt i bruk av en annen tjener."
-
-msgid "admin.contexts.form.pathAlphaNumeric"
+msgid "admin.hostedContexts"
 msgstr ""
-"Filstien kan bare inneholde bokstaver, tall, understrek og bindestrek, og må "
-"begynne og slutte med en bokstav eller et tall."
 
-msgid "admin.contexts.create"
-msgstr "Opprett tjener"
+msgid "admin.settings.redirect"
+msgstr ""
 
-msgid "admin.systemConfiguration"
-msgstr "OPS-konfigurasjon"
+msgid "admin.settings.redirectInstructions"
+msgstr ""
 
-msgid "admin.languages.localeInstalled"
-msgstr "Den oversatte språkpakken {$locale} ble installert."
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Er du sikker på at du vil skru av denne språkpakken? Dette kan gå ut over "
+"tjenerne som bruker den."
+
+msgid "admin.locale.maybeIncomplete"
+msgstr "De merkede språkpakkefilene kan være ukomplette."
+
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Er du sikker på at du vil avinstallere denne språkpakken? Dette kan påvirke "
+"tjenerne som for tiden bruker språkpakken."
 
 msgid "admin.languages.installNewLocalesInstructions"
 msgstr ""
@@ -40,15 +39,49 @@ msgstr ""
 "Språkpakkene må være installert før de kan brukes av tjenere. Konsulter OPS-"
 "dokumentasjonen for informasjon om å legge til støtte for flere språk."
 
-msgid "admin.languages.confirmUninstall"
-msgstr ""
-"Er du sikker på at du vil avinstallere denne språkpakken? Dette kan påvirke "
-"tjenerne som for tiden bruker språkpakken."
+msgid "admin.languages.localeInstalled"
+msgstr "Den oversatte språkpakken {$locale} ble installert."
 
-msgid "admin.locale.maybeIncomplete"
-msgstr "De merkede språkpakkefilene kan være ukomplette."
+msgid "admin.systemConfiguration"
+msgstr "OPS-konfigurasjon"
 
-msgid "admin.languages.confirmDisable"
+msgid "admin.contexts.create"
+msgstr "Opprett tjener"
+
+msgid "admin.contexts.form.pathAlphaNumeric"
 msgstr ""
-"Er du sikker på at du vil skru av denne språkpakken? Dette kan gå ut over "
-"tjenerne som bruker den."
+"Filstien kan bare inneholde bokstaver, tall, understrek og bindestrek, og må "
+"begynne og slutte med en bokstav eller et tall."
+
+msgid "admin.contexts.form.pathExists"
+msgstr "Den valgte filstien er allerede tatt i bruk av en annen tjener."
+
+msgid "admin.contexts.form.primaryLocaleNotSupported"
+msgstr ""
+
+msgid "admin.contexts.contextDescription"
+msgstr "Tjenerbeskrivelse"
+
+msgid "admin.contexts.enableContextInstructions"
+msgstr "Aktiver visning av denne preprint-tjeneren på nettsiden"
+
+msgid "admin.settings.enableBulkEmails.description"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.description"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.contextDisabled"
+msgstr ""
+
+msgid "admin.siteManagement.description"
+msgstr ""
+
+msgid "admin.settings.statistics.geo.description"
+msgstr ""
+
+msgid "admin.settings.statistics.institutions.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.public.description"
+msgstr ""

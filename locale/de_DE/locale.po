@@ -13,85 +13,270 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "installer.upgradeInstructions"
-msgstr "<h4>OPS Version {$version}</h4>"
+msgid "context.current"
+msgstr "Aktueller Server:"
 
-msgid "installer.preInstallationInstructions"
+msgid "context.select"
+msgstr "Wechseln Sie zu einem anderen Server:"
+
+msgid "common.software"
+msgstr "Open Preprint Systems"
+
+msgid "navigation.browseByAuthor"
+msgstr "vom Autor"
+
+msgid "navigation.skip.about"
+msgstr "Weiter zu Über den Server"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Nicht zugewiesen"
+
+msgid "common.queue.long.active"
+msgstr "Aktiv"
+
+msgid "doi.manager.settings.publications"
 msgstr ""
-"<h4>Vor-Installationsschritte</h4><p>1. Die folgenden Dateien und "
-"Verzeichnisse (und ihr Inhalt) müssen schreibbar gemacht werden is "
-"writable:</p><ul>\t<li><tt>config.inc.php</tt> is writable (optional): "
-"{$writable_config}</li>\t<li><tt>public/</tt> ist beschreibbar: "
-"{$writable_public}</li>\t<li><tt>cache/</tt> ist beschreibbar: "
-"{$writable_cache}</li>\t<li><tt>cache/t_cache/</tt> ist beschreibbar: "
-"{$writable_templates_cache}</li>\t<li><tt>cache/t_compile/</tt> ist "
-"beschreibbar: {$writable_templates_compile}</li>\t<li><tt>cache/_db</tt> ist "
-"beschreibbar: {$writable_db_cache}</li></ul><p>2. \n"
-"Es muss ein Verzeichnis zum Speichern der hochgeladenen Dateien erstellt und "
-"beschreibbar gemacht werden (siehe \"Datei-Einstellungen\" unten).</p>"
 
-msgid "installer.installationInstructions"
+msgid "section.section"
+msgstr "Abschnitt"
+
+msgid "section.sections"
+msgstr "Abschnitte"
+
+msgid "section.title"
+msgstr "Abschnittstitel"
+
+msgid "section.abbreviation"
+msgstr "Abkürzung"
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr "Es gibt bereits eine öffentliche Kennzeichnung der Gesamtpfahne."
+
+msgid "section.description"
+msgstr "Abschnittsarchiv Beschreibung"
+
+msgid "section.pathDescription"
 msgstr ""
-"<h4>OPS Version {$version}</h4><p>Vielen Dank für das Herunterladen des "
-"Public Knowledge Project's <strong>Open Preprint Systems</strong>. Bevor Sie "
-"fortfahren, lesen Sie bitte die <a href=\"{$baseUrl}/docs/README.md\""
-">README</a> die Datei, die dieser Software beiliegt. Für weitere "
-"Informationen über das Public Knowledge Project und seine Softwareprojekte "
-"besuchen Sie bitte die <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP "
-"web site</a>. Wenn Sie Fehlerberichte oder technische Supportanfragen zu "
-"Open Preprint Systems haben, wenden Sie sich an die <a href=\""
-"http://forum.pkp.sfu.ca\" target=\"_blank\">support forum</a> or visit PKP's "
-"online <a href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">"
-"bug reporting system</a>. Obwohl das Support-Forum die bevorzugte Methode "
-"der Kontaktaufnahme ist, können Sie auch eine E-Mail an das Team senden <a "
-"href=\"mailto:pkp.contact@gmail.com\""
-">pkp.contact@gmail.com</a>.</p><h4>Upgrade</h4><p>Wenn Sie eine bestehende "
-"OPS-Installation aktualisieren, <a href=\"{$upgradeUrl}\">klicken Sie "
-"hier</a> um fortzufahren.</p><h4>Empfohlene Systemanforderungen</h4><ul>\t"
-"<li><a href=\"http://www.php.net/\" target=\"_blank\">PHP</a> >= "
-"{$phpRequiredVersion}; Sie verwenden derzeit PHP "
-"{$phpVersion}{$wrongPhpText}</li>\t<li><a href=\"http://www.mysql.com/\" "
-"target=\"_blank\">MySQL</a> >= 4.1 or <a href=\"http://www.postgresql.org/\" "
-"target=\"_blank\">PostgreSQL</a> >= 9.1.5</li>\t<li><a href=\""
-"http://httpd.apache.org/\" target=\"_blank\">Apache</a> >= 1.3.2x or >= "
-"2.0.4x or Microsoft IIS 6</li>\t<li>Operating system: Any OS that supports "
-"the above software, including <a href=\"http://www.linux.org/\" target=\""
-"_blank\">Linux</a>, <a href=\"http://www.bsd.org/\" target=\"_blank\">BSD</a>"
-", <a href=\"http://www.oracle.com/sun/\" target=\"_blank\">Solaris</a>, <a "
-"href=\"http://www.apple.com/\" target=\"_blank\">Mac OS X</a>, <a href=\""
-"http://www.microsoft.com/\">Windows</a></li></ul><p>Da die PKP nicht über "
-"die Ressourcen verfügt, um alle möglichen Kombinationen von "
-"Softwareversionen und Plattformen zu testen, kann keine Garantie für den "
-"korrekten Betrieb oder die Unterstützung übernommen werden.</p><p>Änderungen "
-"an diesen Einstellungen können nach der Installation vorgenommen werden, "
-"indem die Datei <tt>config.inc.php</tt> indem Sie die Datei im Basis-OPS-"
-"Verzeichnis bearbeiten oder die Webschnittstelle der Website-Verwaltung "
-"verwenden.</p><h4>Unterstützte Datenbanksysteme</h4><p>OPS wurde derzeit nur "
-"auf MySQL und PostgreSQL getestet, obwohl andere Datenbankmanagementsysteme, "
-"die von <a href=\"http://adodb.sourceforge.net/\" target=\"_blank\">ADOdb</a>"
-" funktionieren (ganz oder teilweise). Kompatibilitätsberichte und/oder Code-"
-"Patches für alternative DBMS können an das OPS-Team geschickt werden.</p>>"
+"Abschnitt URL-Pfad. Verwenden Sie Bindestriche (-) anstelle von Leerzeichen."
 
-msgid "installer.updatingInstructions"
+msgid "section.emptySection"
+msgstr "In diesem Abschnitt ist noch nichts veröffentlicht worden."
+
+msgid "category.categories"
+msgstr "Kategorien"
+
+msgid "common.publication"
+msgstr "Preprint"
+
+msgid "common.publications"
+msgstr "Preprints"
+
+msgid "preprint.details"
+msgstr "Details"
+
+msgid "preprint.abstract"
+msgstr "Abstract"
+
+msgid "preprint.pageTitle"
+msgstr "Ansicht von {$title}"
+
+msgid "submissions.published"
+msgstr "Veröffentlicht"
+
+msgid "submission.search"
+msgstr "Preprint-Suche"
+
+msgid "submission.numberOfVersions"
+msgstr "Versionen: {$numberOfVersions}"
+
+msgid "submission.dates"
+msgstr "Eingereicht {$eingereicht} - Veröffentlicht {$veröffentlicht}"
+
+msgid "publication.galley.downloads"
+msgstr "Downloads: {$downloads}"
+
+msgid "context.contexts"
+msgstr "Server"
+
+msgid "context.context"
+msgstr "Server"
+
+msgid "user.authorization.representationNotFound"
+msgstr "Die gewünschte Gesamtpfahne konnte nicht gefunden werden."
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Benutzer ohne Rollen auf diesem Server einbeziehen."
+
+msgid "user.register.contextsPrompt"
+msgstr "Bei welchen Servern auf dieser Website möchten Sie sich anmelden?"
+
+msgid "user.register.otherContextRoles"
+msgstr "Beantragen Sie die folgenden Rollen."
+
+msgid "user.register.noContextReviewerInterests"
 msgstr ""
-"Wenn Sie eine bestehende Installation von OPS aktualisieren, <a href=\""
-"{$upgradeUrl}\">klicken Sie hier</a>, um fortzufahren."
+"Wenn Sie ein Rezensent sein möchten, geben Sie bitte Ihre Themeninteressen "
+"an."
 
-msgid "installer.appInstallation"
-msgstr "OPS-Installation"
+msgid "user.role.manager"
+msgstr "Manager"
 
-msgid "help.goToEditPage"
-msgstr "Bearbeiten {$sectionTitle}"
+msgid "user.role.subEditor"
+msgstr "Moderator"
 
-msgid "about.aboutOPSSite"
+msgid "user.role.subEditors"
+msgstr "Moderatoren"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Preprint eingereicht"
+
+msgid "search.results.orderBy"
+msgstr "Ergebnisse sortieren nach"
+
+msgid "search.results.orderBy.preprint"
+msgstr "Preprint Titel"
+
+msgid "search.results.orderBy.author"
+msgstr "Autor"
+
+msgid "search.results.orderBy.date"
+msgstr "Datum veröffentlicht"
+
+msgid "search.results.orderBy.server"
+msgstr "Server-Titel"
+
+msgid "search.results.orderBy.popularityAll"
+msgstr "Popularität (alle Zeiten)"
+
+msgid "search.results.orderBy.popularityMonth"
+msgstr "Popularität (letzter Monat)"
+
+msgid "search.results.orderBy.relevance"
+msgstr "Relevanz"
+
+msgid "search.results.orderDir.asc"
+msgstr "Aufsteigend"
+
+msgid "search.results.orderDir.desc"
+msgstr "Absteigend"
+
+msgid "manager.people.noAdministrativeRights"
 msgstr ""
-"Diese Seite verwendet Open Preprint Systems {$opsVersion}, eine Open-Source-"
-"Software zur Verwaltung von Preprint-Servern, die vom Public Knowledge "
-"Project unter der GNU General Public License entwickelt, unterstützt und "
-"frei verteilt wird. Besuchen Sie die Website des PKP, um <a href=\""
-"http://pkp.sfu.ca/\">mehr über die Software zu erfahren</a>. Bei Fragen zu "
-"den Servern und zur Einreichung von Preprints wenden Sie sich bitte direkt "
-"an die Website."
+"Tut mir leid, Sie haben keine administrativen Rechte für diesen Benutzer. "
+"Dies kann folgende Gründe haben: \t\t\t<ul>\t\t\t<li>Der Benutzer ist ein "
+"Site-Administrator</li> <li>Der Benutzer ist auf Servern aktiv, die Sie "
+"nicht verwalten</li> </ul> Diese Aufgabe muss von einem Site-Administrator "
+"durchgeführt werden."
+
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr "Diese Gesamtpfahne wird auf einer separaten Website verfügbar sein."
+
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL des ferngehosteten Inhalts"
+
+msgid "user.register.registrationDisabled"
+msgstr "Dieser Server nimmt derzeit keine Benutzerregistrierungen an."
+
+msgid "user.register.form.privacyConsentThisContext"
+msgstr ""
+"Ja, ich bin damit einverstanden, dass meine Daten gemäß der <a href="
+"\"{$privacyUrl}\" target=\"_blank\">Datenschutzerklärung</a> dieses Servers "
+"erfasst und gespeichert werden."
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+"Sie müssen die Datenschutzerklärung für jeden Server zustimmen, bei dem Sie "
+"sich registrieren."
+
+msgid "user.register.form.missingSiteConsent"
+msgstr "Sie müssen den Datenschutzbestimmungen dieser Website zustimmen."
+
+msgid "index.latestPreprints"
+msgstr "Neueste Preprints"
+
+msgid "search.searchFor"
+msgstr "Suche nach Preprints für"
+
+msgid "search.authorIndex"
+msgstr "Autorenindex durchsuchen"
+
+msgid "search.authorDetails"
+msgstr "Autor Details"
+
+msgid "site.serverView"
+msgstr "Server anzeigen"
+
+msgid "site.noServers"
+msgstr "Es sind keine Server verfügbar."
+
+msgid "archive.archives"
+msgstr "Archive"
+
+msgid "archive.archivesPageNumber"
+msgstr "Archiv - Seite {$pageNumber}"
+
+msgid "about.contact"
+msgstr "Kontakt"
+
+msgid "about.aboutContext"
+msgstr "Über den Server"
+
+msgid "about.editorialTeam"
+msgstr "Preprint-Server-Team"
+
+msgid "about.submissions"
+msgstr "Einreichungen"
+
+msgid "about.onlineSubmissions.login"
+msgstr "Anmelden"
+
+msgid "about.onlineSubmissions.register"
+msgstr "Registrieren"
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr "{$login} oder {$register}, um eine Einreichung vorzulegen."
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr "{$newSubmission} oder {$viewSubmissions}."
+
+msgid "about.onlineSubmissions.submitToSection"
+msgstr ""
+"Erstellen Sie eine neue Einreichung für den Abschnitt <a href="
+"\"{$url}\">{$name}</a>."
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr "Eine neue Einreichung erstellen"
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr "Ihre ausstehenden Einreichungen einsehen"
+
+msgid "about.authorGuidelines"
+msgstr "Autor Leitlinien"
+
+msgid "about.submissionPreparationChecklist"
+msgstr "Checkliste zur Vorbereitung der Einreichung"
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+"Als Teil des Einreichungsprozesses müssen die Autoren ankreuzen, dass ihre "
+"Einreichung alle folgenden Punkte erfüllt. Einreichungen können an Autoren "
+"zurückgeschickt werden, die sich nicht an diese Richtlinien halten."
+
+msgid "about.copyrightNotice"
+msgstr "Urheberrechtshinweis"
+
+msgid "about.privacyStatement"
+msgstr "Datenschutzerklärung"
+
+msgid "about.aboutThisPublishingSystem"
+msgstr ""
+"Weitere Informationen über dieses System, Plattform und Workflow von OPS/PKP."
+
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr "OPS Screening- und Entsendungsprozess"
+
+msgid "about.aboutSoftware"
+msgstr "Über Open Preprint Systems"
 
 msgid "about.aboutOPSServer"
 msgstr ""
@@ -103,264 +288,183 @@ msgstr ""
 "Sie sich bitte <a href=\"{$contactUrl}\">direkt an den Server</a>, wenn Sie "
 "Fragen zum Server und zur Einreichung von Preprints haben."
 
-msgid "about.aboutSoftware"
-msgstr "Über Open Preprint Systems"
-
-msgid "about.aboutThisPublishingSystem.altText"
-msgstr "OPS Screening- und Entsendungsprozess"
-
-msgid "about.aboutThisPublishingSystem"
+msgid "about.aboutOPSSite"
 msgstr ""
-"Weitere Informationen über dieses System, Plattform und Workflow von OPS/PKP."
+"Diese Seite verwendet Open Preprint Systems {$opsVersion}, eine Open-Source-"
+"Software zur Verwaltung von Preprint-Servern, die vom Public Knowledge "
+"Project unter der GNU General Public License entwickelt, unterstützt und "
+"frei verteilt wird. Besuchen Sie die Website des PKP, um <a href=\"http://"
+"pkp.sfu.ca/\">mehr über die Software zu erfahren</a>. Bei Fragen zu den "
+"Servern und zur Einreichung von Preprints wenden Sie sich bitte direkt an "
+"die Website."
 
-msgid "about.privacyStatement"
-msgstr "Datenschutzerklärung"
+msgid "help.goToEditPage"
+msgstr "Bearbeiten {$sectionTitle}"
 
-msgid "about.copyrightNotice"
-msgstr "Urheberrechtshinweis"
+msgid "installer.appInstallation"
+msgstr "OPS-Installation"
 
-msgid "about.submissionPreparationChecklist.description"
+msgid "installer.updatingInstructions"
 msgstr ""
-"Als Teil des Einreichungsprozesses müssen die Autoren ankreuzen, dass ihre "
-"Einreichung alle folgenden Punkte erfüllt. Einreichungen können an Autoren "
-"zurückgeschickt werden, die sich nicht an diese Richtlinien halten."
+"Wenn Sie eine bestehende Installation von OPS aktualisieren, <a href="
+"\"{$upgradeUrl}\">klicken Sie hier</a>, um fortzufahren."
 
-msgid "about.submissionPreparationChecklist"
-msgstr "Checkliste zur Vorbereitung der Einreichung"
-
-msgid "about.authorGuidelines"
-msgstr "Autor Leitlinien"
-
-msgid "about.onlineSubmissions.viewSubmissions"
-msgstr "Ihre ausstehenden Einreichungen einsehen"
-
-msgid "about.onlineSubmissions.newSubmission"
-msgstr "Eine neue Einreichung erstellen"
-
-msgid "about.onlineSubmissions.submitToSection"
+msgid "installer.installationInstructions"
 msgstr ""
-"Erstellen Sie eine neue Einreichung für den Abschnitt <a href=\"{$url}\""
-">{$name}</a>."
+"<h4>OPS Version {$version}</h4><p>Vielen Dank für das Herunterladen des "
+"Public Knowledge Project's <strong>Open Preprint Systems</strong>. Bevor Sie "
+"fortfahren, lesen Sie bitte die <a href=\"{$baseUrl}/docs/README.md"
+"\">README</a> die Datei, die dieser Software beiliegt. Für weitere "
+"Informationen über das Public Knowledge Project und seine Softwareprojekte "
+"besuchen Sie bitte die <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP "
+"web site</a>. Wenn Sie Fehlerberichte oder technische Supportanfragen zu "
+"Open Preprint Systems haben, wenden Sie sich an die <a href=\"http://forum."
+"pkp.sfu.ca\" target=\"_blank\">support forum</a> or visit PKP's online <a "
+"href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">bug "
+"reporting system</a>. Obwohl das Support-Forum die bevorzugte Methode der "
+"Kontaktaufnahme ist, können Sie auch eine E-Mail an das Team senden <a href="
+"\"mailto:pkp.contact@gmail.com\">pkp.contact@gmail.com</a>.</p><h4>Upgrade</"
+"h4><p>Wenn Sie eine bestehende OPS-Installation aktualisieren, <a href="
+"\"{$upgradeUrl}\">klicken Sie hier</a> um fortzufahren.</p><h4>Empfohlene "
+"Systemanforderungen</h4><ul>\t<li><a href=\"http://www.php.net/\" target="
+"\"_blank\">PHP</a> >= {$phpRequiredVersion}; Sie verwenden derzeit PHP "
+"{$phpVersion}{$wrongPhpText}</li>\t<li><a href=\"http://www.mysql.com/\" "
+"target=\"_blank\">MySQL</a> >= 4.1 or <a href=\"http://www.postgresql.org/\" "
+"target=\"_blank\">PostgreSQL</a> >= 9.1.5</li>\t<li><a href=\"http://httpd."
+"apache.org/\" target=\"_blank\">Apache</a> >= 1.3.2x or >= 2.0.4x or "
+"Microsoft IIS 6</li>\t<li>Operating system: Any OS that supports the above "
+"software, including <a href=\"http://www.linux.org/\" target=\"_blank"
+"\">Linux</a>, <a href=\"http://www.bsd.org/\" target=\"_blank\">BSD</a>, <a "
+"href=\"http://www.oracle.com/sun/\" target=\"_blank\">Solaris</a>, <a href="
+"\"http://www.apple.com/\" target=\"_blank\">Mac OS X</a>, <a href=\"http://"
+"www.microsoft.com/\">Windows</a></li></ul><p>Da die PKP nicht über die "
+"Ressourcen verfügt, um alle möglichen Kombinationen von Softwareversionen "
+"und Plattformen zu testen, kann keine Garantie für den korrekten Betrieb "
+"oder die Unterstützung übernommen werden.</p><p>Änderungen an diesen "
+"Einstellungen können nach der Installation vorgenommen werden, indem die "
+"Datei <tt>config.inc.php</tt> indem Sie die Datei im Basis-OPS-Verzeichnis "
+"bearbeiten oder die Webschnittstelle der Website-Verwaltung verwenden.</"
+"p><h4>Unterstützte Datenbanksysteme</h4><p>OPS wurde derzeit nur auf MySQL "
+"und PostgreSQL getestet, obwohl andere Datenbankmanagementsysteme, die von "
+"<a href=\"http://adodb.sourceforge.net/\" target=\"_blank\">ADOdb</a> "
+"funktionieren (ganz oder teilweise). Kompatibilitätsberichte und/oder Code-"
+"Patches für alternative DBMS können an das OPS-Team geschickt werden.</p>>"
 
-msgid "about.onlineSubmissions.submissionActions"
-msgstr "{$newSubmission} oder {$viewSubmissions}."
-
-msgid "about.onlineSubmissions.registrationRequired"
-msgstr "{$login} oder {$register}, um eine Einreichung vorzulegen."
-
-msgid "about.onlineSubmissions.register"
-msgstr "Registrieren"
-
-msgid "about.onlineSubmissions.login"
-msgstr "Anmelden"
-
-msgid "about.submissions"
-msgstr "Einreichungen"
-
-msgid "about.editorialTeam"
-msgstr "Preprint-Server-Team"
-
-msgid "about.aboutContext"
-msgstr "Über den Server"
-
-msgid "about.contact"
-msgstr "Kontakt"
-
-msgid "archive.archivesPageNumber"
-msgstr "Archiv - Seite {$pageNumber}"
-
-msgid "archive.archives"
-msgstr "Archive"
-
-msgid "site.noServers"
-msgstr "Es sind keine Server verfügbar."
-
-msgid "site.serverView"
-msgstr "Server anzeigen"
-
-msgid "search.authorDetails"
-msgstr "Autor Details"
-
-msgid "search.authorIndex"
-msgstr "Autorenindex durchsuchen"
-
-msgid "search.searchFor"
-msgstr "Suche nach Preprints für"
-
-msgid "index.latestPreprints"
-msgstr "Neueste Preprints"
-
-msgid "user.register.form.missingSiteConsent"
-msgstr "Sie müssen den Datenschutzbestimmungen dieser Website zustimmen."
-
-msgid "user.register.form.missingContextConsent"
+msgid "installer.preInstallationInstructions"
 msgstr ""
-"Sie müssen die Datenschutzerklärung für jeden Server zustimmen, bei dem Sie "
-"sich registrieren."
+"<h4>Vor-Installationsschritte</h4><p>1. Die folgenden Dateien und "
+"Verzeichnisse (und ihr Inhalt) müssen schreibbar gemacht werden is writable:"
+"</p><ul>\t<li><tt>config.inc.php</tt> is writable (optional): "
+"{$writable_config}</li>\t<li><tt>public/</tt> ist beschreibbar: "
+"{$writable_public}</li>\t<li><tt>cache/</tt> ist beschreibbar: "
+"{$writable_cache}</li>\t<li><tt>cache/t_cache/</tt> ist beschreibbar: "
+"{$writable_templates_cache}</li>\t<li><tt>cache/t_compile/</tt> ist "
+"beschreibbar: {$writable_templates_compile}</li>\t<li><tt>cache/_db</tt> ist "
+"beschreibbar: {$writable_db_cache}</li></ul><p>2. \n"
+"Es muss ein Verzeichnis zum Speichern der hochgeladenen Dateien erstellt und "
+"beschreibbar gemacht werden (siehe \"Datei-Einstellungen\" unten).</p>"
 
-msgid "user.register.form.privacyConsentThisContext"
+msgid "installer.upgradeInstructions"
+msgstr "<h4>OPS Version {$version}</h4>"
+
+msgid "installer.localeSettingsInstructions"
 msgstr ""
-"Ja, ich bin damit einverstanden, dass meine Daten gemäß der <a href=\""
-"{$privacyUrl}\" target=\"_blank\">Datenschutzerklärung</a> dieses Servers "
-"erfasst und gespeichert werden."
 
-msgid "user.register.registrationDisabled"
-msgstr "Dieser Server nimmt derzeit keine Benutzerregistrierungen an."
-
-msgid "submission.layout.galley.remoteURL"
-msgstr "URL des ferngehosteten Inhalts"
-
-msgid "submission.layout.galley.remotelyHostedContent"
-msgstr "Diese Gesamtpfahne wird auf einer separaten Website verfügbar sein."
-
-msgid "manager.people.noAdministrativeRights"
+msgid "installer.allowFileUploads"
 msgstr ""
-"Tut mir leid, Sie haben keine administrativen Rechte für diesen Benutzer. "
-"Dies kann folgende Gründe haben: \t\t\t<ul>\t\t\t<li>Der Benutzer ist ein "
-"Site-Administrator</li> <li>Der Benutzer ist auf Servern aktiv, die Sie "
-"nicht verwalten</li> </ul> Diese Aufgabe muss von einem Site-Administrator "
-"durchgeführt werden."
 
-msgid "search.results.orderDir.desc"
-msgstr "Absteigend"
-
-msgid "search.results.orderDir.asc"
-msgstr "Aufsteigend"
-
-msgid "search.results.orderBy.relevance"
-msgstr "Relevanz"
-
-msgid "search.results.orderBy.popularityMonth"
-msgstr "Popularität (letzter Monat)"
-
-msgid "search.results.orderBy.popularityAll"
-msgstr "Popularität (alle Zeiten)"
-
-msgid "search.results.orderBy.server"
-msgstr "Server-Titel"
-
-msgid "search.results.orderBy.date"
-msgstr "Datum veröffentlicht"
-
-msgid "search.results.orderBy.author"
-msgstr "Autor"
-
-msgid "search.results.orderBy.preprint"
-msgstr "Preprint Titel"
-
-msgid "search.results.orderBy"
-msgstr "Ergebnisse sortieren nach"
-
-msgid "submission.event.submissionSubmitted"
-msgstr "Preprint eingereicht"
-
-msgid "user.role.subEditors"
-msgstr "Moderatoren"
-
-msgid "user.role.subEditor"
-msgstr "Moderator"
-
-msgid "user.role.manager"
-msgstr "Manager"
-
-msgid "user.register.noContextReviewerInterests"
+msgid "installer.maxFileUploadSize"
 msgstr ""
-"Wenn Sie ein Rezensent sein möchten, geben Sie bitte Ihre Themeninteressen "
-"an."
 
-msgid "user.register.otherContextRoles"
-msgstr "Beantragen Sie die folgenden Rollen."
-
-msgid "user.register.contextsPrompt"
-msgstr "Bei welchen Servern auf dieser Website möchten Sie sich anmelden?"
-
-msgid "user.noRoles.selectUsersWithoutRoles"
-msgstr "Benutzer ohne Rollen auf diesem Server einbeziehen."
-
-msgid "user.authorization.representationNotFound"
-msgstr "Die gewünschte Gesamtpfahne konnte nicht gefunden werden."
-
-msgid "context.context"
-msgstr "Server"
-
-msgid "context.contexts"
-msgstr "Server"
-
-msgid "publication.galley.downloads"
-msgstr "Downloads: {$downloads}"
-
-msgid "submission.dates"
-msgstr "Eingereicht {$eingereicht} - Veröffentlicht {$veröffentlicht}"
-
-msgid "submission.numberOfVersions"
-msgstr "Versionen: {$numberOfVersions}"
-
-msgid "submission.search"
-msgstr "Preprint-Suche"
-
-msgid "submissions.published"
-msgstr "Veröffentlicht"
-
-msgid "preprint.pageTitle"
-msgstr "Ansicht von {$title}"
-
-msgid "preprint.abstract"
-msgstr "Abstract"
-
-msgid "preprint.details"
-msgstr "Details"
-
-msgid "common.publications"
-msgstr "Preprints"
-
-msgid "common.publication"
-msgstr "Preprint"
-
-msgid "category.categories"
-msgstr "Kategorien"
-
-msgid "section.emptySection"
-msgstr "In diesem Abschnitt ist noch nichts veröffentlicht worden."
-
-msgid "section.pathDescription"
+msgid "installer.localeInstructions"
 msgstr ""
-"Abschnitt URL-Pfad. Verwenden Sie Bindestriche (-) anstelle von Leerzeichen."
 
-msgid "section.description"
-msgstr "Abschnittsarchiv Beschreibung"
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
 
-msgid "submission.layout.galleyPublicIdentificationExists"
-msgstr "Es gibt bereits eine öffentliche Kennzeichnung der Gesamtpfahne."
+msgid "installer.filesDirInstructions"
+msgstr ""
 
-msgid "section.abbreviation"
-msgstr "Abkürzung"
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
 
-msgid "section.title"
-msgstr "Abschnittstitel"
+msgid "installer.installApplication"
+msgstr ""
 
-msgid "section.sections"
-msgstr "Abschnitte"
+msgid "installer.upgradeApplication"
+msgstr ""
 
-msgid "section.section"
-msgstr "Abschnitt"
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
 
-msgid "common.queue.long.active"
-msgstr "Aktiv"
+msgid "installer.installationComplete"
+msgstr ""
 
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "Nicht zugewiesen"
+msgid "installer.upgradeComplete"
+msgstr ""
 
-msgid "navigation.skip.about"
-msgstr "Weiter zu Über den Server"
+msgid "site.upgradeAvailable.admin"
+msgstr ""
 
-msgid "navigation.browseByAuthor"
-msgstr "vom Autor"
+msgid "site.upgradeAvailable.manager"
+msgstr ""
 
-msgid "common.software"
-msgstr "Open Preprint Systems"
+msgid "log.editor.decision"
+msgstr ""
 
-msgid "context.select"
-msgstr "Wechseln Sie zu einem anderen Server:"
+msgid "log.editor.recommendation"
+msgstr ""
 
-msgid "context.current"
-msgstr "Aktueller Server:"
+msgid "notification.type.submissionSubmitted"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewing"
+msgstr ""
+
+msgid "notification.type.submissions"
+msgstr ""
+
+msgid "notification.type.public"
+msgstr ""
+
+msgid "notification.type.editorAssignmentTask"
+msgstr ""
+
+msgid "notification.type.awaitingRepresentations"
+msgstr ""
+
+msgid "user.authorization.noContext"
+msgstr ""
+
+msgid "notification.type.approveSubmission"
+msgstr ""
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr ""
+
+msgid "user.profile.form.showOtherContexts"
+msgstr ""
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr ""
+
+msgid "catalog.sortBy"
+msgstr ""
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr ""
+
+msgid "preprint.subject"
+msgstr ""
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr ""

@@ -1,2 +1,45 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
+
+msgid "author.submit"
+msgstr ""
+
+msgid "author.competingInterests"
+msgstr ""
+
+msgid "author.submit.startHereLink"
+msgstr ""
+
+msgid "author.submit.start"
+msgstr ""
+
+msgid "author.submit.upload"
+msgstr ""
+
+msgid "author.submit.metadata"
+msgstr ""
+
+msgid "author.submit.nextSteps"
+msgstr ""
+
+msgid "author.submit.notAccepting"
+msgstr ""
+
+msgid "author.submit.serverSection"
+msgstr ""
+
+msgid "author.submit.serverSectionDescription"
+msgstr ""
+
+msgid "submission.submit.coverNote"
+msgstr ""
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+
+msgid "author.submit.form.abstractRequired"
+msgstr ""

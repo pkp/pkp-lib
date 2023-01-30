@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-12-12 22:52+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
-"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/api/fi_FI/>"
-"\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/api/fi_FI/"
+">\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,42 +11,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissionFiles.400.badRepresentationAssocType"
-msgstr "Tämän vaiheen tiedosto ei voi olla julkaistava tiedosto."
-
-msgid "api.publications.403.submissionsDidNotMatch"
-msgstr "Pyytämäsi julkaistu versio ei kuulu tähän käsikirjoitukseen."
-
-msgid "api.emailTemplates.403.notAllowedChangeContext"
-msgstr "Sinulla ei ole lupaa siirtää tätä sähköpostipohjaa toiseen palvelimeen."
-
-msgid "api.contexts.404.contextNotFound"
-msgstr "Etsimääsi palvelinta ei löytynyt."
-
-msgid "api.contexts.403.notAllowedDelete"
-msgstr "Sinulla ei ole lupaa poistaa tätä palvelinta."
-
-msgid "api.contexts.403.notAllowedEdit"
-msgstr "Sinulla ei ole lupaa muokata tätä palvelinta."
-
-msgid "api.contexts.403.requiresContext"
-msgstr "Palvelinta ei voi muokata sivuston rajapinnasta käsin."
-
-msgid "api.contexts.403.contextsDidNotMatch"
+msgid "api.announcements.400.contextsNotMatched"
 msgstr ""
-"Et voi katsoa tai muokata tätä palvelinta, jos et tee pyyntöä palvelimen tai "
-"sivuston rajapintaan."
 
-msgid "api.contexts.403.notAllowed"
-msgstr "Sinulla ei ole lupaa katsoa tätä palvelinta."
-
-msgid "api.contexts.403.requestedDisabledContexts"
-msgstr "Voit katsoa vain julkisia palvelimia."
+msgid "api.submissions.403.cantChangeContext"
+msgstr "Et voi vaihtaa käsikirjoitukseen liittyvää palvelinta."
 
 msgid "api.submissions.403.contextRequired"
 msgstr ""
 "Käsikirjoituksen luomiseksi tai muokkaamiseksi pitää tehdä kysely palvelimen "
 "rajapintaan."
 
-msgid "api.submissions.403.cantChangeContext"
-msgstr "Et voi vaihtaa käsikirjoitukseen liittyvää palvelinta."
+msgid "api.contexts.403.requestedDisabledContexts"
+msgstr "Voit katsoa vain julkisia palvelimia."
+
+msgid "api.contexts.403.notAllowed"
+msgstr "Sinulla ei ole lupaa katsoa tätä palvelinta."
+
+msgid "api.contexts.403.contextsDidNotMatch"
+msgstr ""
+"Et voi katsoa tai muokata tätä palvelinta, jos et tee pyyntöä palvelimen tai "
+"sivuston rajapintaan."
+
+msgid "api.contexts.403.requiresContext"
+msgstr "Palvelinta ei voi muokata sivuston rajapinnasta käsin."
+
+msgid "api.contexts.403.notAllowedEdit"
+msgstr "Sinulla ei ole lupaa muokata tätä palvelinta."
+
+msgid "api.contexts.403.notAllowedDelete"
+msgstr "Sinulla ei ole lupaa poistaa tätä palvelinta."
+
+msgid "api.contexts.404.contextNotFound"
+msgstr "Etsimääsi palvelinta ei löytynyt."
+
+msgid "api.dois.400.contextsNotMatched"
+msgstr ""
+
+msgid "api.dois.400.noRegistrationAgencyConfigured"
+msgstr ""
+
+msgid "api.emails.403.disabled"
+msgstr ""
+
+msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgstr ""
+"Sinulla ei ole lupaa siirtää tätä sähköpostipohjaa toiseen palvelimeen."
+
+msgid "api.publications.403.submissionsDidNotMatch"
+msgstr "Pyytämäsi julkaistu versio ei kuulu tähän käsikirjoitukseen."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr "Tämän vaiheen tiedosto ei voi olla julkaistava tiedosto."

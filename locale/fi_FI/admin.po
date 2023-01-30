@@ -14,25 +14,27 @@ msgstr ""
 msgid "admin.hostedContexts"
 msgstr "Ylläpidetyt palvelimet"
 
-msgid "admin.contexts.contextDescription"
-msgstr "Palvelimen kuvaus"
+msgid "admin.settings.redirect"
+msgstr "Palvelimen uudelleenohjaus"
 
-msgid "admin.contexts.form.pathExists"
-msgstr "Valittu polku on jo toisen palvelimen käytössä."
-
-msgid "admin.contexts.form.pathAlphaNumeric"
+msgid "admin.settings.redirectInstructions"
 msgstr ""
-"Polku voi sisältää vain aakkosnumeerisia merkkejä, alaviivoja ja "
-"yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin."
+"Pyynnöt pääsivustolle uudelleenohjataan tähän palvelimeen. Tämä saattaa olla "
+"hyödyllinen toiminto, jos sivustolla ylläpidetään vain yhtä palvelinta."
 
-msgid "admin.contexts.create"
-msgstr "Luo palvelin"
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Haluatko varmasti poistaa tämän kielialueen käytöstä? Se saattaa "
+"vahingoittaa muita ylläpidettyjä palvelimia, joilla on tämä kielialue "
+"käytössä."
 
-msgid "admin.systemConfiguration"
-msgstr "OPS:n määritys"
+msgid "admin.locale.maybeIncomplete"
+msgstr "Merkityt kielialueet saattavat olla vaillinaisia."
 
-msgid "admin.languages.localeInstalled"
-msgstr "{$locale} kielialue asennettu."
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Haluatko varmasti poistaa tämän kielialueen? Se saattaa vaikuttaa "
+"palvelimiin, joilla on tämä kielialue käytössä."
 
 msgid "admin.languages.installNewLocalesInstructions"
 msgstr ""
@@ -41,24 +43,49 @@ msgstr ""
 "voivat käyttää niitä. Katso OPS:n ohjeista tietoja siitä, kuinka uusille "
 "kielille lisätään tuki."
 
-msgid "admin.languages.confirmUninstall"
+msgid "admin.languages.localeInstalled"
+msgstr "{$locale} kielialue asennettu."
+
+msgid "admin.systemConfiguration"
+msgstr "OPS:n määritys"
+
+msgid "admin.contexts.create"
+msgstr "Luo palvelin"
+
+msgid "admin.contexts.form.pathAlphaNumeric"
 msgstr ""
-"Haluatko varmasti poistaa tämän kielialueen? Se saattaa vaikuttaa "
-"palvelimiin, joilla on tämä kielialue käytössä."
+"Polku voi sisältää vain aakkosnumeerisia merkkejä, alaviivoja ja "
+"yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin."
 
-msgid "admin.locale.maybeIncomplete"
-msgstr "Merkityt kielialueet saattavat olla vaillinaisia."
+msgid "admin.contexts.form.pathExists"
+msgstr "Valittu polku on jo toisen palvelimen käytössä."
 
-msgid "admin.languages.confirmDisable"
+msgid "admin.contexts.form.primaryLocaleNotSupported"
 msgstr ""
-"Haluatko varmasti poistaa tämän kielialueen käytöstä? Se saattaa "
-"vahingoittaa muita ylläpidettyjä palvelimia, joilla on tämä kielialue "
-"käytössä."
 
-msgid "admin.settings.redirectInstructions"
+msgid "admin.contexts.contextDescription"
+msgstr "Palvelimen kuvaus"
+
+msgid "admin.contexts.enableContextInstructions"
 msgstr ""
-"Pyynnöt pääsivustolle uudelleenohjataan tähän palvelimeen. Tämä saattaa olla "
-"hyödyllinen toiminto, jos sivustolla ylläpidetään vain yhtä palvelinta."
 
-msgid "admin.settings.redirect"
-msgstr "Palvelimen uudelleenohjaus"
+msgid "admin.settings.enableBulkEmails.description"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.description"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.contextDisabled"
+msgstr ""
+
+msgid "admin.siteManagement.description"
+msgstr ""
+
+msgid "admin.settings.statistics.geo.description"
+msgstr ""
+
+msgid "admin.settings.statistics.institutions.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.public.description"
+msgstr ""

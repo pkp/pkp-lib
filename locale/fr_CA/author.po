@@ -12,31 +12,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "author.submit"
+msgstr "Nouvelle soumission"
+
+msgid "author.competingInterests"
+msgstr ""
+"Intérêts conflictuels <a target=\"_new\" class=\"action\" href="
+"\"{$competingInterestGuidelinesUrl}\">Politique de CI</a>"
+
 msgid "author.submit.startHereLink"
 msgstr ""
 "<a href=\"{$submitUrl}\" class=\"action\">Cliquer ici</a> pour vous rendre à "
 "la première étape du processus de soumission en cinq étapes."
 
-msgid "author.competingInterests"
-msgstr ""
-"Intérêts conflictuels <a target=\"_new\" class=\"action\" href=\""
-"{$competingInterestGuidelinesUrl}\">Politique de CI</a>"
+msgid "author.submit.start"
+msgstr "Débuter"
 
-msgid "author.submit"
-msgstr "Nouvelle soumission"
+msgid "author.submit.upload"
+msgstr "Téléverser la soumission"
 
-msgid "author.submit.form.abstractRequired"
-msgstr "Veuillez saisir le résumé de votre prépublication."
+msgid "author.submit.metadata"
+msgstr "Saisir les métadonnées de la soumission"
 
-msgid "author.submit.languageInstructions"
-msgstr ""
-"anglais=en ; français=fr ; espagnol=es. <a href=\"http ://www.loc.gov/"
-"standards/iso639-2/php/code_list.php\" target=\"_blank\">Codes "
-"supplémentaires</a>."
+msgid "author.submit.nextSteps"
+msgstr "Étapes suivantes"
+
+msgid "author.submit.notAccepting"
+msgstr "Ce serveur n'accepte pas de soumissions pour le moment."
 
 #, fuzzy
-msgid "submission.submit.coverNote"
-msgstr "Commentaires pour le,la rédacteur-trice"
+msgid "author.submit.serverSection"
+msgstr "Séries du serveur"
 
 #, fuzzy
 msgid "author.submit.serverSectionDescription"
@@ -44,20 +50,14 @@ msgstr ""
 "Les prépublications doivent être soumises à l'une des séries du serveur."
 
 #, fuzzy
-msgid "author.submit.serverSection"
-msgstr "Séries du serveur"
+msgid "submission.submit.coverNote"
+msgstr "Commentaires pour le,la rédacteur-trice"
 
-msgid "author.submit.notAccepting"
-msgstr "Ce serveur n'accepte pas de soumissions pour le moment."
+msgid "author.submit.languageInstructions"
+msgstr ""
+"anglais=en ; français=fr ; espagnol=es. <a href=\"http ://www.loc.gov/"
+"standards/iso639-2/php/code_list.php\" target=\"_blank\">Codes "
+"supplémentaires</a>."
 
-msgid "author.submit.nextSteps"
-msgstr "Étapes suivantes"
-
-msgid "author.submit.metadata"
-msgstr "Saisir les métadonnées de la soumission"
-
-msgid "author.submit.upload"
-msgstr "Téléverser la soumission"
-
-msgid "author.submit.start"
-msgstr "Débuter"
+msgid "author.submit.form.abstractRequired"
+msgstr "Veuillez saisir le résumé de votre prépublication."

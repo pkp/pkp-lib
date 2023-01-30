@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-02-18 17:36+0000\n"
 "Last-Translator: ernesto spinak <spinaker@montevideo.com.uy>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/editor/es/>"
-"\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/editor/es/"
+">\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,22 +13,12 @@ msgstr ""
 
 msgid "editor.publicIdentificationExists"
 msgstr ""
-"El identificador público '{$publicIdentifier}' ya existe para otro objeto ("
-"preimpresión, galerada o archivo). Elija identificadores únicos dentro de su "
-"servidor."
-
-#, fuzzy
-msgid "editor.publication.authorPublishRequirements"
-msgstr "El autor no cumple los siguientes requisitos de publicación:"
-
-msgid "editor.preprint.coverImage"
-msgstr "Imagen de portada"
-
-msgid "editor.publicIdentificationExistsForTheSameType"
-msgstr ""
 "El identificador público '{$publicIdentifier}' ya existe para otro objeto "
-"del mismo tipo. Elija identificadores únicos para los objetos del mismo tipo "
-"dentro de su servidor."
+"(preimpresión, galerada o archivo). Elija identificadores únicos dentro de "
+"su servidor."
+
+msgid "grid.action.addGalley"
+msgstr "Añadir galerada"
 
 msgid "editor.submission.proof.manageProofFilesDescription"
 msgstr ""
@@ -37,5 +27,21 @@ msgstr ""
 "verificación incluir a continuación haciendo clic en Buscar: todos los "
 "archivos disponibles se enumerarán y se pueden elegir para su inclusión."
 
-msgid "grid.action.addGalley"
-msgstr "Añadir galerada"
+msgid "editor.publicIdentificationExistsForTheSameType"
+msgstr ""
+"El identificador público '{$publicIdentifier}' ya existe para otro objeto "
+"del mismo tipo. Elija identificadores únicos para los objetos del mismo tipo "
+"dentro de su servidor."
+
+msgid "editor.preprint.coverImage"
+msgstr "Imagen de portada"
+
+#, fuzzy
+msgid "editor.publication.authorPublishRequirements"
+msgstr "El autor no cumple los siguientes requisitos de publicación:"
+
+msgid "editor.submissions.assignedTo"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr ""

@@ -11,41 +11,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.genres.sourceTexts"
-msgstr "Lähdetekstit"
-
-msgid "default.genres.dataSet"
-msgstr "Tietoaineisto"
-
-msgid "default.genres.dataAnalysis"
-msgstr "Data-analyysi"
-
-msgid "default.genres.transcripts"
-msgstr "Transkriptiot"
-
-msgid "default.genres.researchResults"
-msgstr "Tutkimustulokset"
-
-msgid "default.genres.researchMaterials"
-msgstr "Tutkimusaineisto"
-
-msgid "default.genres.researchInstrument"
-msgstr "Tutkimusväline"
-
-msgid "default.groups.abbrev.sectionEditor"
-msgstr "MOD"
-
-msgid "default.groups.plural.sectionEditor"
-msgstr "Moderaattorit"
-
-msgid "default.groups.name.sectionEditor"
-msgstr "Moderaattori"
-
-msgid "default.contextSettings.openAccessPolicy"
+msgid "section.default.title"
 msgstr ""
-"Tämä palvelimen sisällöt ovat välittömästi avoimesti saatavilla noudattaen "
-"periaatetta, jonka mukaan tutkimuksen tekeminen vapaasti saatavilla olevaksi "
-"suurelle yleisölle tukee suurempaa globaalia tiedonvaihtoa."
+
+msgid "section.default.abbrev"
+msgstr ""
+
+msgid "section.default.path"
+msgstr ""
+
+msgid "section.default.policy"
+msgstr ""
+
+msgid "default.genres.preprint"
+msgstr ""
+
+msgid "default.contextSettings.authorGuidelines"
+msgstr ""
+
+msgid "default.contextSettings.checklist"
+msgstr ""
+
+msgid "default.contextSettings.forReaders"
+msgstr ""
+
+msgid "default.contextSettings.forAuthors"
+msgstr ""
+
+msgid "default.contextSettings.forLibrarians"
+msgstr ""
 
 msgid "default.contextSettings.privacyStatement"
 msgstr ""
@@ -53,22 +47,82 @@ msgstr ""
 "yksinomaan tämän palvelimen tarkoituksiin, eikä niitä luovuteta mihinkään "
 "muuhun tarkoitukseen tai muille osapuolille.</p>"
 
-msgid "default.contextSettings.checklist.bibliographicRequirements"
+msgid "default.contextSettings.openAccessPolicy"
 msgstr ""
-"Teksti noudattaa kirjoittajan ohjeissa määriteltyjä stilistisiä ja "
-"bibliografisia vaatimuksia."
+"Tämä palvelimen sisällöt ovat välittömästi avoimesti saatavilla noudattaen "
+"periaatetta, jonka mukaan tutkimuksen tekeminen vapaasti saatavilla olevaksi "
+"suurelle yleisölle tukee suurempaa globaalia tiedonvaihtoa."
 
-msgid "default.contextSettings.checklist.submissionAppearance"
+msgid "default.groups.name.manager"
 msgstr ""
-"Tekstin riviväli on yksi; kirjasinkoko on 12; tekstissä käytetään kursiivia, "
-"ei alleviivausta (paitsi URL-osoitteissa); ja kaikki kuvat, kuviot ja "
-"taulukot on sijoitettu ensisijaisesti sopiviin kohtiin tekstin lomaan, ei "
-"tekstin loppuun."
 
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Lähteiden URL-osoitteet on annettu, mikäli ne ovat saatavilla."
-
-msgid "default.contextSettings.checklist.fileFormat"
+msgid "default.groups.plural.manager"
 msgstr ""
-"Käsikirjoitustiedosto on OpenOffice-, Microsoft Word- tai RTF-asiakirjan "
-"tiedostomuodossa."
+
+msgid "default.groups.abbrev.manager"
+msgstr ""
+
+msgid "default.groups.name.sectionEditor"
+msgstr "Moderaattori"
+
+msgid "default.groups.plural.sectionEditor"
+msgstr "Moderaattorit"
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "MOD"
+
+msgid "default.genres.researchInstrument"
+msgstr "Tutkimusväline"
+
+msgid "default.genres.researchMaterials"
+msgstr "Tutkimusaineisto"
+
+msgid "default.genres.researchResults"
+msgstr "Tutkimustulokset"
+
+msgid "default.genres.transcripts"
+msgstr "Transkriptiot"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Data-analyysi"
+
+msgid "default.genres.dataSet"
+msgstr "Tietoaineisto"
+
+msgid "default.genres.sourceTexts"
+msgstr "Lähdetekstit"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""
+
+#~ msgid "default.contextSettings.checklist.bibliographicRequirements"
+#~ msgstr ""
+#~ "Teksti noudattaa kirjoittajan ohjeissa määriteltyjä stilistisiä ja "
+#~ "bibliografisia vaatimuksia."
+
+#~ msgid "default.contextSettings.checklist.submissionAppearance"
+#~ msgstr ""
+#~ "Tekstin riviväli on yksi; kirjasinkoko on 12; tekstissä käytetään "
+#~ "kursiivia, ei alleviivausta (paitsi URL-osoitteissa); ja kaikki kuvat, "
+#~ "kuviot ja taulukot on sijoitettu ensisijaisesti sopiviin kohtiin tekstin "
+#~ "lomaan, ei tekstin loppuun."
+
+#~ msgid "default.contextSettings.checklist.addressesLinked"
+#~ msgstr "Lähteiden URL-osoitteet on annettu, mikäli ne ovat saatavilla."
+
+#~ msgid "default.contextSettings.checklist.fileFormat"
+#~ msgstr ""
+#~ "Käsikirjoitustiedosto on OpenOffice-, Microsoft Word- tai RTF-asiakirjan "
+#~ "tiedostomuodossa."

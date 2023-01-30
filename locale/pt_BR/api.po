@@ -12,64 +12,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#, fuzzy
-msgid "api.publications.403.submissionsDidNotMatch"
-msgstr "A publicação solicitada não é parte desta submissão."
+msgid "api.announcements.400.contextsNotMatched"
+msgstr "A notícia solicitada não faz parte deste servidor."
 
-msgid "api.emailTemplates.403.notAllowedChangeContext"
-msgstr ""
-"Você não tem permissão para mover este modelo de e-mail para outro servidor."
-
-msgid "api.contexts.404.contextNotFound"
-msgstr "O servidor que você requisitou não foi encontrado."
-
-msgid "api.contexts.403.notAllowedDelete"
-msgstr "Você não tem permissão para deletar este servidor."
-
-msgid "api.contexts.403.notAllowedEdit"
-msgstr "Você não tem permissão para editar este servidor."
-
-msgid "api.contexts.403.requiresContext"
-msgstr "Não é possível editar este servidor a partir da API de todo o site."
-
-msgid "api.contexts.403.contextsDidNotMatch"
-msgstr ""
-"Você não pode visualizar ou editar este servidor a menos que realize uma "
-"solicitação à API do servidor ou à API de todo o site."
-
-msgid "api.contexts.403.notAllowed"
-msgstr "Você não tem permissão para visualizar este servidor."
-
-msgid "api.contexts.403.requestedDisabledContexts"
-msgstr "Você apenas pode ver servidores que foram habilitados."
+msgid "api.submissions.403.cantChangeContext"
+msgstr "Não é possível alterar o servidor de uma submissão."
 
 msgid "api.submissions.403.contextRequired"
 msgstr ""
 "Para realizar ou editar uma submissão, você deve fazer uma solicitação ao "
 "API do terminal do servidor."
 
-msgid "api.submissions.403.cantChangeContext"
-msgstr "Não é possível alterar o servidor de uma submissão."
+msgid "api.contexts.403.requestedDisabledContexts"
+msgstr "Você apenas pode ver servidores que foram habilitados."
 
-msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgid "api.contexts.403.notAllowed"
+msgstr "Você não tem permissão para visualizar este servidor."
+
+msgid "api.contexts.403.contextsDidNotMatch"
 msgstr ""
-"Você não pode associar um arquivo deste estágio de arquivo a uma composição."
+"Você não pode visualizar ou editar este servidor a menos que realize uma "
+"solicitação à API do servidor ou à API de todo o site."
 
-msgid "api.emails.403.disabled"
-msgstr ""
-"O recurso de notificação de e-mail não foi habilitado para este servidor."
+msgid "api.contexts.403.requiresContext"
+msgstr "Não é possível editar este servidor a partir da API de todo o site."
 
-msgid "api.announcements.400.contextsNotMatched"
-msgstr "A notícia solicitada não faz parte deste servidor."
+msgid "api.contexts.403.notAllowedEdit"
+msgstr "Você não tem permissão para editar este servidor."
 
-msgid "api.publications.400.invalidRelation"
-msgstr "O relationStatus que você passou não é válido."
+msgid "api.contexts.403.notAllowedDelete"
+msgstr "Você não tem permissão para deletar este servidor."
 
-msgid "api.publications.400.noRelations"
-msgstr "Você deve indicar se este preprint está relacionada a uma publicação."
+msgid "api.contexts.404.contextNotFound"
+msgstr "O servidor que você requisitou não foi encontrado."
 
 msgid "api.dois.400.contextsNotMatched"
 msgstr "O DOI solicitado não faz parte deste servidor"
 
 msgid "api.dois.400.noRegistrationAgencyConfigured"
 msgstr "Nenhuma agência de registro de DOI foi configurada para este servidor."
+
+msgid "api.emails.403.disabled"
+msgstr ""
+"O recurso de notificação de e-mail não foi habilitado para este servidor."
+
+msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgstr ""
+"Você não tem permissão para mover este modelo de e-mail para outro servidor."
+
+#, fuzzy
+msgid "api.publications.403.submissionsDidNotMatch"
+msgstr "A publicação solicitada não é parte desta submissão."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr ""
+"Você não pode associar um arquivo deste estágio de arquivo a uma composição."
+
+#~ msgid "api.publications.400.invalidRelation"
+#~ msgstr "O relationStatus que você passou não é válido."
+
+#~ msgid "api.publications.400.noRelations"
+#~ msgstr ""
+#~ "Você deve indicar se este preprint está relacionada a uma publicação."

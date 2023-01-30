@@ -12,18 +12,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#, fuzzy
-msgid "editor.publication.authorPublishRequirements"
-msgstr "L'auteur-e ne remplit pas les conditions de publication suivantes :"
-
-msgid "editor.preprint.coverImage"
-msgstr "Image de la page couverture"
-
-msgid "editor.publicIdentificationExistsForTheSameType"
+msgid "editor.publicIdentificationExists"
 msgstr ""
 "L'identifiant public « {$publicIdentifier} » existe déjà pour un autre objet "
-"de même type. Veuillez choisir des identifiants uniques pour les objets de "
-"même type au sein de votre serveur."
+"(prépublication, épreuves ou fichier complémentaire). Veuillez choisir des "
+"identifiants uniques au sein de votre serveur."
+
+msgid "grid.action.addGalley"
+msgstr "Ajouter des épreuves"
 
 msgid "editor.submission.proof.manageProofFilesDescription"
 msgstr ""
@@ -33,14 +29,21 @@ msgstr ""
 "tous les fichiers disponibles seront répertoriés et pourront être "
 "sélectionnés pour inclusion."
 
-msgid "grid.action.addGalley"
-msgstr "Ajouter des épreuves"
-
-msgid "editor.publicIdentificationExists"
+msgid "editor.publicIdentificationExistsForTheSameType"
 msgstr ""
 "L'identifiant public « {$publicIdentifier} » existe déjà pour un autre objet "
-"(prépublication, épreuves ou fichier complémentaire). Veuillez choisir des "
-"identifiants uniques au sein de votre serveur."
+"de même type. Veuillez choisir des identifiants uniques pour les objets de "
+"même type au sein de votre serveur."
+
+msgid "editor.preprint.coverImage"
+msgstr "Image de la page couverture"
+
+#, fuzzy
+msgid "editor.publication.authorPublishRequirements"
+msgstr "L'auteur-e ne remplit pas les conditions de publication suivantes :"
 
 msgid "editor.submissions.assignedTo"
 msgstr "Assigné au modérateur"
+
+msgid "editor.submission.schedulePublication"
+msgstr ""

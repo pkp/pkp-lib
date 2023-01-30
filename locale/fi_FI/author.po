@@ -11,41 +11,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "author.submit.languageInstructions"
+msgid "author.submit"
+msgstr "Uusi käsikirjoitus"
+
+msgid "author.competingInterests"
 msgstr ""
-"suomi=fi; ruotsi=sv; englanti=en. <a href=\"http://www.loc.gov/standards/"
-"iso639-2/php/code_list.php\" target=\"_blank\">Lisää koodeja</a>."
-
-msgid "submission.submit.coverNote"
-msgstr "Kommentit moderaattorille"
-
-msgid "author.submit.serverSection"
-msgstr "Palvelimen osasto"
-
-msgid "author.submit.notAccepting"
-msgstr "Tämä palvelin ei juuri nyt ota vastaan käsikirjoituksia."
-
-msgid "author.submit.nextSteps"
-msgstr "Seuraavat vaiheet"
-
-msgid "author.submit.metadata"
-msgstr "Syötä kuvailutiedot"
-
-msgid "author.submit.upload"
-msgstr "Lataa käsikirjoitus"
-
-msgid "author.submit.start"
-msgstr "Aloita"
+"Sidonnaisuudet <a target=\"_new\" class=\"action\" href="
+"\"{$competingInterestGuidelinesUrl}\">Sidonnaisuuksien ilmoittaminen</a>"
 
 msgid "author.submit.startHereLink"
 msgstr ""
 "<a href=\"{$submitUrl}\" class=\"action\">Klikkaa tästä</a> päästäksesi "
 "viisivaiheisen lähetysprosessin ensimmäiseen vaiheeseen."
 
-msgid "author.competingInterests"
-msgstr ""
-"Sidonnaisuudet <a target=\"_new\" class=\"action\" href=\""
-"{$competingInterestGuidelinesUrl}\">Sidonnaisuuksien ilmoittaminen</a>"
+msgid "author.submit.start"
+msgstr "Aloita"
 
-msgid "author.submit"
-msgstr "Uusi käsikirjoitus"
+msgid "author.submit.upload"
+msgstr "Lataa käsikirjoitus"
+
+msgid "author.submit.metadata"
+msgstr "Syötä kuvailutiedot"
+
+msgid "author.submit.nextSteps"
+msgstr "Seuraavat vaiheet"
+
+msgid "author.submit.notAccepting"
+msgstr "Tämä palvelin ei juuri nyt ota vastaan käsikirjoituksia."
+
+msgid "author.submit.serverSection"
+msgstr "Palvelimen osasto"
+
+msgid "author.submit.serverSectionDescription"
+msgstr ""
+
+msgid "submission.submit.coverNote"
+msgstr "Kommentit moderaattorille"
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+"suomi=fi; ruotsi=sv; englanti=en. <a href=\"http://www.loc.gov/standards/"
+"iso639-2/php/code_list.php\" target=\"_blank\">Lisää koodeja</a>."
+
+msgid "author.submit.form.abstractRequired"
+msgstr ""

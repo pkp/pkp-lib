@@ -6,8 +6,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-13T08:00:00+02:00\n"
 "PO-Revision-Date: 2022-02-25 00:26+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -17,132 +17,164 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "context.current"
+msgstr "Serveur actuel :"
+
+msgid "context.select"
+msgstr "Passer à un autre serveur :"
+
+msgid "common.software"
+msgstr "Open Preprint Systems"
+
+msgid "navigation.browseByAuthor"
+msgstr "Par auteur-e"
+
+msgid "navigation.skip.about"
+msgstr "Passer à « À propos du serveur »"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Non assigné-e"
+
+msgid "common.queue.long.active"
+msgstr "Actif-ve"
+
+msgid "doi.manager.settings.publications"
+msgstr "Prépublications"
+
 #, fuzzy
-msgid "about.aboutOPSSite"
-msgstr ""
-"Ce site utilise Open Preprint Systems {$opsVersion}, un logiciel de gestion "
-"et d'édition de serveurs à code source libre développé, pris en charge et "
-"distribué librement par le <a href=\"http://pkp.sfu.ca/\">Public Knowledge "
-"Project</a> sous la license publique générale GNU."
+msgid "section.section"
+msgstr "Série"
+
+#, fuzzy
+msgid "section.sections"
+msgstr "Série(s)"
+
+#, fuzzy
+msgid "section.title"
+msgstr "Titre de la série"
+
+#, fuzzy
+msgid "section.abbreviation"
+msgstr "Abréviation"
 
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "L'identification publique de cette épreuve existe déjà."
 
 #, fuzzy
-msgid "about.aboutOPSServer"
-msgstr ""
-"Ce serveur utilise Open Preprint Systems {$opsVersion}, un logiciel de "
-"gestion et d'édition de serveurs à code source libre développé, pris en "
-"charge et distribué librement par le <a href=\"http://pkp.sfu.ca/\">Public "
-"Knowledge Project</a> sous la license publique générale GNU."
+msgid "section.description"
+msgstr "Description de l'archive de la série"
 
 #, fuzzy
-msgid "about.aboutThisPublishingSystem.altText"
-msgstr "Processus d'édition et de publication d'OPS"
+msgid "section.pathDescription"
+msgstr ""
+"Chemin d'accès URL de la série. Utiliser des tirets (-) au lieu d'espaces. "
+"Exemple : histoire-culturelle."
 
 #, fuzzy
-msgid "about.aboutThisPublishingSystem"
-msgstr "À propos de ce système de publication"
+msgid "section.emptySection"
+msgstr "Rien n'a encore été publié dans cette série."
 
-msgid "about.privacyStatement"
-msgstr "Déclaration de confidentialité"
+msgid "category.categories"
+msgstr "Catégories"
 
-msgid "about.copyrightNotice"
-msgstr "Mention de droit d'auteur"
+msgid "common.publication"
+msgstr "Prépublication"
 
-msgid "about.submissionPreparationChecklist.description"
+msgid "common.publications"
+msgstr "Prépublications"
+
+msgid "preprint.details"
+msgstr "Renseignements"
+
+msgid "preprint.abstract"
+msgstr "Résumé"
+
+msgid "preprint.pageTitle"
+msgstr "Affichage de {$title}"
+
+msgid "submissions.published"
+msgstr "Diffusé-e"
+
+msgid "submission.search"
+msgstr "Recherche de prépublications"
+
+msgid "submission.numberOfVersions"
+msgstr "Il existe {$numberOfVersions} version(s) de cette prépublication"
+
+msgid "submission.dates"
+msgstr "Soumis-e {$submitted} - Diffusé-e {$published}"
+
+msgid "publication.galley.downloads"
+msgstr "Téléchargement(s) {$downloads}"
+
+msgid "context.contexts"
+msgstr "Serveurs"
+
+msgid "context.context"
+msgstr "Serveur"
+
+msgid "user.authorization.representationNotFound"
 msgstr ""
-"Les auteurs-es doivent s'assurer de la conformité de leur soumission avec "
-"l'ensemble des éléments suivants. Les soumissions non conformes pourraient "
-"être retournées aux auteurs-es."
 
-msgid "about.submissionPreparationChecklist"
-msgstr "Liste de vérification de la soumission"
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Inclure les utilisateurs-trices sans rôle sur ce serveur."
 
-msgid "about.authorGuidelines"
-msgstr "Directives aux auteurs-es"
+msgid "user.register.contextsPrompt"
+msgstr "Avec quel(s) serveur(s) de ce site souhaitez-vous vous inscrire ?"
 
-msgid "about.onlineSubmissions.viewSubmissions"
-msgstr "Voir vos soumissions en attente"
+msgid "user.register.otherContextRoles"
+msgstr "Demander les rôles suivants."
 
-msgid "about.onlineSubmissions.newSubmission"
-msgstr "Faire une nouvelle soumission"
+msgid "user.register.noContextReviewerInterests"
+msgstr ""
+"Si vous avez demandé d'être évaluateur-trice, veuillez indiquer vos champs "
+"d'intérêts."
 
 #, fuzzy
-msgid "about.onlineSubmissions.submitToSection"
-msgstr ""
-"Faire une nouvelle soumission à la série <a href=\"{$url}\">{$name}</a>."
-
-msgid "about.onlineSubmissions.submissionActions"
-msgstr "{$newSubmission} ou {$viewSubmissions}."
-
-msgid "about.onlineSubmissions.registrationRequired"
-msgstr "{$login} ou {$register} pour pouvoir faire une soumission."
-
-msgid "about.onlineSubmissions.register"
-msgstr "S'inscrire"
-
-msgid "about.onlineSubmissions.login"
-msgstr "Ouvrir une session"
-
-msgid "about.submissions"
-msgstr "Soumissions"
+msgid "user.role.manager"
+msgstr "Administrateur-trice du serveur"
 
 #, fuzzy
-msgid "about.editorialTeam"
-msgstr "Équipe éditoriale"
+msgid "user.role.subEditor"
+msgstr "Éditeur-trice de série"
 
-msgid "about.aboutContext"
-msgstr "À propos du serveur"
+#, fuzzy
+msgid "user.role.subEditors"
+msgstr "Éditeurs-trices de série"
 
-msgid "about.contact"
-msgstr "Personne-ressource"
+msgid "submission.event.submissionSubmitted"
+msgstr "Prépublication soumise"
 
-msgid "archive.archivesPageNumber"
-msgstr "Archives - Page {$pageNumber}"
+msgid "search.results.orderBy"
+msgstr "Trier les résultats par"
 
-msgid "archive.archives"
-msgstr "Archives"
+msgid "search.results.orderBy.preprint"
+msgstr "Titre de la prépublication"
 
-msgid "site.noServers"
-msgstr "Aucun serveur n'est disponible."
+msgid "search.results.orderBy.author"
+msgstr "Auteur-e"
 
-msgid "site.serverView"
-msgstr "Afficher le serveur"
+#, fuzzy
+msgid "search.results.orderBy.date"
+msgstr "Date de publication"
 
-msgid "search.authorDetails"
-msgstr "Renseignements sur l'auteur-e"
+msgid "search.results.orderBy.server"
+msgstr "Titre du serveur"
 
-msgid "search.authorIndex"
-msgstr "Parcourir l'index des auteurs-es"
+msgid "search.results.orderBy.popularityAll"
+msgstr "Popularité (de tous les temps)"
 
-msgid "search.searchFor"
-msgstr "Rechercher des prépublications sur"
+msgid "search.results.orderBy.popularityMonth"
+msgstr "Popularité (Mois dernier)"
 
-msgid "index.latestPreprints"
-msgstr "Dernière(s) prépublication(s)"
+msgid "search.results.orderBy.relevance"
+msgstr "Pertinence"
 
-msgid "user.register.form.missingSiteConsent"
-msgstr "Vous devez accepter la déclaration de confidentialité de ce site."
+msgid "search.results.orderDir.asc"
+msgstr "Ascendant"
 
-msgid "user.register.form.missingContextConsent"
-msgstr ""
-"Vous devez accepter la déclaration de confidentialité de tout serveur auquel "
-"vous vous inscrivez."
-
-msgid "user.register.form.privacyConsentThisContext"
-msgstr ""
-"Oui, j'accepte que mes données soient collectées et stockées conformément à "
-"la <a href=\"{$privacyUrl}\" target=\"_blank\">déclaration de "
-"confidentialité</a> de ce serveur."
-
-msgid "user.register.registrationDisabled"
-msgstr ""
-"Ce serveur n'accepte pas les inscriptions d'utilisateurs-trices pour le "
-"moment."
-
-msgid "submission.layout.galley.remotelyHostedContent"
-msgstr "Cette épreuve sera disponible sur un site web distinct."
+msgid "search.results.orderDir.desc"
+msgstr "Descendant"
 
 msgid "manager.people.noAdministrativeRights"
 msgstr ""
@@ -155,175 +187,144 @@ msgstr ""
 "\t\t</ul>\n"
 "\tCette tâche doit être effectuée par un-e administrateur-trice de site."
 
-msgid "search.results.orderDir.desc"
-msgstr "Descendant"
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr "Cette épreuve sera disponible sur un site web distinct."
 
-msgid "search.results.orderDir.asc"
-msgstr "Ascendant"
-
-msgid "search.results.orderBy.relevance"
-msgstr "Pertinence"
-
-msgid "search.results.orderBy.popularityMonth"
-msgstr "Popularité (Mois dernier)"
-
-msgid "search.results.orderBy.popularityAll"
-msgstr "Popularité (de tous les temps)"
-
-msgid "search.results.orderBy.server"
-msgstr "Titre du serveur"
-
-#, fuzzy
-msgid "search.results.orderBy.date"
-msgstr "Date de publication"
-
-msgid "search.results.orderBy.author"
-msgstr "Auteur-e"
-
-msgid "search.results.orderBy.preprint"
-msgstr "Titre de la prépublication"
-
-msgid "search.results.orderBy"
-msgstr "Trier les résultats par"
-
-msgid "submission.event.submissionSubmitted"
-msgstr "Prépublication soumise"
-
-#, fuzzy
-msgid "user.role.subEditors"
-msgstr "Éditeurs-trices de série"
-
-#, fuzzy
-msgid "user.role.subEditor"
-msgstr "Éditeur-trice de série"
-
-#, fuzzy
-msgid "user.role.manager"
-msgstr "Administrateur-trice du serveur"
-
-msgid "user.register.noContextReviewerInterests"
+msgid "submission.layout.galley.remoteURL"
 msgstr ""
-"Si vous avez demandé d'être évaluateur-trice, veuillez indiquer vos champs "
-"d'intérêts."
 
-msgid "user.register.otherContextRoles"
-msgstr "Demander les rôles suivants."
-
-msgid "user.register.contextsPrompt"
-msgstr "Avec quel(s) serveur(s) de ce site souhaitez-vous vous inscrire ?"
-
-msgid "user.noRoles.selectUsersWithoutRoles"
-msgstr "Inclure les utilisateurs-trices sans rôle sur ce serveur."
-
-msgid "context.context"
-msgstr "Serveur"
-
-msgid "context.contexts"
-msgstr "Serveurs"
-
-msgid "publication.galley.downloads"
-msgstr "Téléchargement(s) {$downloads}"
-
-msgid "submission.dates"
-msgstr "Soumis-e {$submitted} - Diffusé-e {$published}"
-
-msgid "submission.numberOfVersions"
-msgstr "Il existe {$numberOfVersions} version(s) de cette prépublication"
-
-msgid "submission.search"
-msgstr "Recherche de prépublications"
-
-msgid "submissions.published"
-msgstr "Diffusé-e"
-
-msgid "preprint.abstract"
-msgstr "Résumé"
-
-msgid "preprint.details"
-msgstr "Renseignements"
-
-msgid "common.publications"
-msgstr "Prépublications"
-
-msgid "common.publication"
-msgstr "Prépublication"
-
-#, fuzzy
-msgid "section.emptySection"
-msgstr "Rien n'a encore été publié dans cette série."
-
-#, fuzzy
-msgid "section.pathDescription"
+msgid "user.register.registrationDisabled"
 msgstr ""
-"Chemin d'accès URL de la série. Utiliser des tirets (-) au lieu d'espaces. "
-"Exemple : histoire-culturelle."
+"Ce serveur n'accepte pas les inscriptions d'utilisateurs-trices pour le "
+"moment."
 
-#, fuzzy
-msgid "section.description"
-msgstr "Description de l'archive de la série"
-
-#, fuzzy
-msgid "section.abbreviation"
-msgstr "Abréviation"
-
-#, fuzzy
-msgid "section.title"
-msgstr "Titre de la série"
-
-#, fuzzy
-msgid "section.sections"
-msgstr "Série(s)"
-
-#, fuzzy
-msgid "section.section"
-msgstr "Série"
-
-msgid "common.queue.long.active"
-msgstr "Actif-ve"
-
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "Non assigné-e"
-
-msgid "navigation.skip.about"
-msgstr "Passer à « À propos du serveur »"
-
-msgid "navigation.browseByAuthor"
-msgstr "Par auteur-e"
-
-msgid "common.software"
-msgstr "Open Preprint Systems"
-
-msgid "context.select"
-msgstr "Passer à un autre serveur :"
-
-msgid "context.current"
-msgstr "Serveur actuel :"
-
-msgid "installer.upgradeInstructions"
-msgstr "<h4>Version {$version} d'OPS</h4>"
-
-msgid "installer.preInstallationInstructions"
+msgid "user.register.form.privacyConsentThisContext"
 msgstr ""
-"<h4>Étapes de pré-installation</h4>\n"
-"\n"
-"\n"
-"<p>1. Les fichiers et répertoires suivants (et leur contenu) doivent être "
-"accessibles en écriture :</p>\n"
-"<ul>\n"
-"\t<li><tt>config.inc.php</tt> est accessible en écriture (facultatif) : "
-"{$writable_config}</li>\n"
-"\t<li><tt>public/</tt> est accessible en écriture : {$writable_public}</li>\n"
-"\t<li><tt>cache/</tt> est accessible en écriture : {$writable_cache}</li>\n"
-"\t<li><tt>cache/t_cache/</tt> est accessible en écriture : "
-"{$writable_templates_cache}</li>\n"
-"\t<li><tt>cache/t_compile/</tt> est accessible en écriture : "
-"{$writable_templates_compile}</li>\n"
-"\t<li><tt>cache/_db</tt> est accessible en écriture : "
-"{$writable_db_cache}</li>\n"
-"</ul>\n"
-"\n"
-"<p>2. Un répertoire pour stocker les fichiers téléversés doit être créé et "
-"accessible en écriture (voir  « Paramètres des fichiers » ci-dessous).</p>"
+"Oui, j'accepte que mes données soient collectées et stockées conformément à "
+"la <a href=\"{$privacyUrl}\" target=\"_blank\">déclaration de "
+"confidentialité</a> de ce serveur."
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+"Vous devez accepter la déclaration de confidentialité de tout serveur auquel "
+"vous vous inscrivez."
+
+msgid "user.register.form.missingSiteConsent"
+msgstr "Vous devez accepter la déclaration de confidentialité de ce site."
+
+msgid "index.latestPreprints"
+msgstr "Dernière(s) prépublication(s)"
+
+msgid "search.searchFor"
+msgstr "Rechercher des prépublications sur"
+
+msgid "search.authorIndex"
+msgstr "Parcourir l'index des auteurs-es"
+
+msgid "search.authorDetails"
+msgstr "Renseignements sur l'auteur-e"
+
+msgid "site.serverView"
+msgstr "Afficher le serveur"
+
+msgid "site.noServers"
+msgstr "Aucun serveur n'est disponible."
+
+msgid "archive.archives"
+msgstr "Archives"
+
+msgid "archive.archivesPageNumber"
+msgstr "Archives - Page {$pageNumber}"
+
+msgid "about.contact"
+msgstr "Personne-ressource"
+
+msgid "about.aboutContext"
+msgstr "À propos du serveur"
+
+#, fuzzy
+msgid "about.editorialTeam"
+msgstr "Équipe éditoriale"
+
+msgid "about.submissions"
+msgstr "Soumissions"
+
+msgid "about.onlineSubmissions.login"
+msgstr "Ouvrir une session"
+
+msgid "about.onlineSubmissions.register"
+msgstr "S'inscrire"
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr "{$login} ou {$register} pour pouvoir faire une soumission."
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr "{$newSubmission} ou {$viewSubmissions}."
+
+#, fuzzy
+msgid "about.onlineSubmissions.submitToSection"
+msgstr ""
+"Faire une nouvelle soumission à la série <a href=\"{$url}\">{$name}</a>."
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr "Faire une nouvelle soumission"
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr "Voir vos soumissions en attente"
+
+msgid "about.authorGuidelines"
+msgstr "Directives aux auteurs-es"
+
+msgid "about.submissionPreparationChecklist"
+msgstr "Liste de vérification de la soumission"
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+"Les auteurs-es doivent s'assurer de la conformité de leur soumission avec "
+"l'ensemble des éléments suivants. Les soumissions non conformes pourraient "
+"être retournées aux auteurs-es."
+
+msgid "about.copyrightNotice"
+msgstr "Mention de droit d'auteur"
+
+msgid "about.privacyStatement"
+msgstr "Déclaration de confidentialité"
+
+#, fuzzy
+msgid "about.aboutThisPublishingSystem"
+msgstr "À propos de ce système de publication"
+
+#, fuzzy
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr "Processus d'édition et de publication d'OPS"
+
+msgid "about.aboutSoftware"
+msgstr ""
+
+#, fuzzy
+msgid "about.aboutOPSServer"
+msgstr ""
+"Ce serveur utilise Open Preprint Systems {$opsVersion}, un logiciel de "
+"gestion et d'édition de serveurs à code source libre développé, pris en "
+"charge et distribué librement par le <a href=\"http://pkp.sfu.ca/\">Public "
+"Knowledge Project</a> sous la license publique générale GNU."
+
+#, fuzzy
+msgid "about.aboutOPSSite"
+msgstr ""
+"Ce site utilise Open Preprint Systems {$opsVersion}, un logiciel de gestion "
+"et d'édition de serveurs à code source libre développé, pris en charge et "
+"distribué librement par le <a href=\"http://pkp.sfu.ca/\">Public Knowledge "
+"Project</a> sous la license publique générale GNU."
+
+msgid "help.goToEditPage"
+msgstr "Éditer {$sectionTitle}"
+
+msgid "installer.appInstallation"
+msgstr "Installation de OPS"
+
+msgid "installer.updatingInstructions"
+msgstr ""
 
 #, fuzzy
 msgid "installer.installationInstructions"
@@ -331,18 +332,17 @@ msgstr ""
 "<h4>Version {$version} d'OPS</h4>\n"
 "\n"
 "<p>Merci d'avoir téléchargé <strong>Open Preprint Systems</strong> du Public "
-"Knowledge Project. Avant de continuer, veuillez lire le fichier <a href=\""
-"{$baseUrl}/docs/README\">README</a> inclus avec ce logiciel. Pour en savoir "
-"plus sur le Public Knowledge Project et ses projets de logiciels, veuillez "
-"visiter le <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">site Web de "
-"PKP</a>. Si vous avez des rapports de bogues ou des demandes de soutien "
-"technique concernant Open Preprint Systems, voir le <a href=\""
-"http://forum.pkp.sfu.ca\" target=\"_blank\">forum de soutien</a> ou visiter "
-"le <a href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">"
-"système de rapports de bogues</a>en ligne de PKP. Bien que le forum de "
-"soutien soit la méthode de contact préconisée, vous pouvez aussi vous "
-"adresser par courriel à <a href=\"mailto:pkp.contact@gmail.com\""
-">pkp.contact@gmail.com</a>.</p>\n"
+"Knowledge Project. Avant de continuer, veuillez lire le fichier <a href="
+"\"{$baseUrl}/docs/README\">README</a> inclus avec ce logiciel. Pour en "
+"savoir plus sur le Public Knowledge Project et ses projets de logiciels, "
+"veuillez visiter le <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">site "
+"Web de PKP</a>. Si vous avez des rapports de bogues ou des demandes de "
+"soutien technique concernant Open Preprint Systems, voir le <a href=\"http://"
+"forum.pkp.sfu.ca\" target=\"_blank\">forum de soutien</a> ou visiter le <a "
+"href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">système de "
+"rapports de bogues</a>en ligne de PKP. Bien que le forum de soutien soit la "
+"méthode de contact préconisée, vous pouvez aussi vous adresser par courriel "
+"à <a href=\"mailto:pkp.contact@gmail.com\">pkp.contact@gmail.com</a>.</p>\n"
 "\n"
 "<h4>Mise à jour</h4>\n"
 "\n"
@@ -353,19 +353,19 @@ msgstr ""
 "\n"
 "<ul>\n"
 "\t<li><a href=\"http://www.php.net/\" target=\"_blank\">PHP</a> >= "
-"{$phpRequiredVersion} ; vous utilisez présentement PHP "
-"{$phpVersion}{$wrongPhpText}</li>\n"
+"{$phpRequiredVersion} ; vous utilisez présentement PHP {$phpVersion}"
+"{$wrongPhpText}</li>\n"
 "\t<li><a href=\"http://www.mysql.com/\" target=\"_blank\">MySQL</a> >= 4.1 "
-"ou <a href=\"http://www.postgresql.org/\" target=\"_blank\">PostgreSQL</a> >="
-" 9.1.5</li>\n"
+"ou <a href=\"http://www.postgresql.org/\" target=\"_blank\">PostgreSQL</a> "
+">= 9.1.5</li>\n"
 "\t<li><a href=\"http://httpd.apache.org/\" target=\"_blank\">Apache</a> >= "
 "1.3.2x or >= 2.0.4x ou Microsoft IIS 6</li>\n"
 "\t<li>Système d'exploitation : Tout système d'exploitation qui supporte le "
-"logiciel ci-dessus, y compris <a href=\"http://www.linux.org/\" target=\""
-"_blank\">Linux</a>, <a href=\"http://www.bsd.org/\" target=\"_blank\">BSD</a>"
-", <a href=\"http://www.sun.com/\" target=\"_blank\">Solaris</a>, <a href=\""
-"http://www.apple.com/\" target=\"_blank\">Mac OS X</a>, <a href=\""
-"http://www.microsoft.com/\">Windows</a></li>\n"
+"logiciel ci-dessus, y compris <a href=\"http://www.linux.org/\" target="
+"\"_blank\">Linux</a>, <a href=\"http://www.bsd.org/\" target=\"_blank\">BSD</"
+"a>, <a href=\"http://www.sun.com/\" target=\"_blank\">Solaris</a>, <a href="
+"\"http://www.apple.com/\" target=\"_blank\">Mac OS X</a>, <a href=\"http://"
+"www.microsoft.com/\">Windows</a></li>\n"
 "</ul>\n"
 "\n"
 "<p>Comme PKP n'a pas les ressources nécessaires lui permettant de tester "
@@ -387,17 +387,130 @@ msgstr ""
 "l'équipe d'OPS des rapports de compatibilité ou des rustines de codes pour "
 "d'autres SGBD.</p>"
 
-msgid "installer.appInstallation"
-msgstr "Installation de OPS"
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<h4>Étapes de pré-installation</h4>\n"
+"\n"
+"\n"
+"<p>1. Les fichiers et répertoires suivants (et leur contenu) doivent être "
+"accessibles en écriture :</p>\n"
+"<ul>\n"
+"\t<li><tt>config.inc.php</tt> est accessible en écriture (facultatif) : "
+"{$writable_config}</li>\n"
+"\t<li><tt>public/</tt> est accessible en écriture : {$writable_public}</li>\n"
+"\t<li><tt>cache/</tt> est accessible en écriture : {$writable_cache}</li>\n"
+"\t<li><tt>cache/t_cache/</tt> est accessible en écriture : "
+"{$writable_templates_cache}</li>\n"
+"\t<li><tt>cache/t_compile/</tt> est accessible en écriture : "
+"{$writable_templates_compile}</li>\n"
+"\t<li><tt>cache/_db</tt> est accessible en écriture : {$writable_db_cache}</"
+"li>\n"
+"</ul>\n"
+"\n"
+"<p>2. Un répertoire pour stocker les fichiers téléversés doit être créé et "
+"accessible en écriture (voir  « Paramètres des fichiers » ci-dessous).</p>"
 
-msgid "help.goToEditPage"
-msgstr "Éditer {$sectionTitle}"
+msgid "installer.upgradeInstructions"
+msgstr "<h4>Version {$version} d'OPS</h4>"
 
-msgid "category.categories"
-msgstr "Catégories"
+msgid "installer.localeSettingsInstructions"
+msgstr ""
 
-msgid "preprint.pageTitle"
-msgstr "Affichage de {$title}"
+msgid "installer.allowFileUploads"
+msgstr ""
 
-msgid "doi.manager.settings.publications"
-msgstr "Prépublications"
+msgid "installer.maxFileUploadSize"
+msgstr ""
+
+msgid "installer.localeInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+
+msgid "installer.installApplication"
+msgstr ""
+
+msgid "installer.upgradeApplication"
+msgstr ""
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+
+msgid "installer.installationComplete"
+msgstr ""
+
+msgid "installer.upgradeComplete"
+msgstr ""
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+
+msgid "log.editor.decision"
+msgstr ""
+
+msgid "log.editor.recommendation"
+msgstr ""
+
+msgid "notification.type.submissionSubmitted"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewing"
+msgstr ""
+
+msgid "notification.type.submissions"
+msgstr ""
+
+msgid "notification.type.public"
+msgstr ""
+
+msgid "notification.type.editorAssignmentTask"
+msgstr ""
+
+msgid "notification.type.awaitingRepresentations"
+msgstr ""
+
+msgid "user.authorization.noContext"
+msgstr ""
+
+msgid "notification.type.approveSubmission"
+msgstr ""
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr ""
+
+msgid "user.profile.form.showOtherContexts"
+msgstr ""
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr ""
+
+msgid "catalog.sortBy"
+msgstr ""
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr ""
+
+msgid "preprint.subject"
+msgstr ""
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr ""

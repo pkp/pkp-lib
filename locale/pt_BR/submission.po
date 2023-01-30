@@ -12,137 +12,210 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-#, fuzzy
-msgid "publication.publish.confirmation"
-msgstr ""
-"Todos os requisitos de publicação foram cumpridos. Está seguro de que deseja "
-"publicar este?"
+msgid "submission.submit.userGroup"
+msgstr "Submeto na minha função de..."
 
-msgid "publication.relation.vorDoi"
-msgstr "DOI do preprint publicado"
+msgid "submission.upload.selectComponent"
+msgstr "Selecionar o componente de preprint"
 
-#, fuzzy
-msgid "publication.relation.published"
-msgstr "O preprint foi publicado em um periódico ou em outra publicação acadêmica."
+msgid "submission.title"
+msgstr "Título do preprint"
 
-#, fuzzy
-msgid "publication.relation.none"
-msgstr "O preprint não foi submetido para publicação."
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Nova submissão"
 
-#, fuzzy
-msgid "publication.relation.label"
-msgstr "Submetido para publicação"
+msgid "submission.abstract.wordCount.description"
+msgstr "O resumo deve ter {$wordCount} palavras ou menos."
 
-msgid "publication.relation"
-msgstr "Relações"
+msgid "submission.submit.noContext"
+msgstr "O periódico de submissão não foi encontrado."
 
-msgid "publication.datePublished.description"
-msgstr ""
-"A data de postagem será definida automaticamente quando o preprint for "
-"postado. Não insira uma data de postagem, a menos que necessite antedatá-la."
+msgid "submission.galleyFiles"
+msgstr "Composição final"
 
-msgid "publication.issue.success"
-msgstr "Os detalhes da inserção de preprint foram atualizados."
+msgid "submission.upload.fileContents"
+msgstr "Componente de preprint"
 
-msgid "preprint.entry"
-msgstr "Inserção de preprint"
+msgid "submission.complete"
+msgstr "Aprovado"
 
-msgid "publication.invalidSection"
-msgstr "A seção desta versão não pôde ser encontrada."
+msgid "submission.submit.submissionChecklist"
+msgstr "Lista de verificação da submissão"
 
-msgid "galley.publicationNotFound"
-msgstr "A versão da composição final não pode ser encontrada."
-
-msgid "galley.editPublishedDisabled"
-msgstr ""
-"As composições finais desta versão não podem ser editadas pois já foram "
-"postadas."
-
-msgid "catalog.category.heading"
-msgstr "Todos os itens"
-
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} Itens"
-
-#, fuzzy
-msgid "submission.sectionOptions"
-msgstr "Opções de série"
+msgid "submission.submit.contributorRole"
+msgstr "Função do colaborador"
 
 msgid "submission.metadataDescription"
 msgstr ""
 "Estas especificações estão baseadas no conjunto de metadatos Dublin Core, um "
 "padrão internacional utilizado para descrever conteúdo."
 
-msgid "submission.submit.contributorRole"
-msgstr "Função do colaborador"
+#, fuzzy
+msgid "submission.sectionOptions"
+msgstr "Opções de série"
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Lista de verificação da submissão"
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} Itens"
 
-msgid "submission.complete"
-msgstr "Aprovado"
+msgid "catalog.category.heading"
+msgstr "Todos os itens"
 
-msgid "submission.upload.fileContents"
-msgstr "Componente de preprint"
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"As composições finais desta versão não podem ser editadas pois já foram "
+"postadas."
 
-msgid "submission.galleyFiles"
-msgstr "Composição final"
+msgid "galley.publicationNotFound"
+msgstr "A versão da composição final não pode ser encontrada."
 
-msgid "submission.submit.noContext"
-msgstr "O periódico de submissão não foi encontrado."
+msgid "publication.invalidSection"
+msgstr "A seção desta versão não pôde ser encontrada."
 
-msgid "submission.abstract.wordCount.description"
-msgstr "O resumo deve ter {$wordCount} palavras ou menos."
+msgid "publication.inactiveSection"
+msgstr "{$section} (Inativa)"
 
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Nova submissão"
+msgid "preprint.entry"
+msgstr "Inserção de preprint"
 
-msgid "submission.title"
-msgstr "Título do preprint"
+msgid "publication.issue.success"
+msgstr "Os detalhes da inserção de preprint foram atualizados."
 
-msgid "submission.upload.selectComponent"
-msgstr "Selecionar o componente de preprint"
+msgid "publication.datePublished.description"
+msgstr ""
+"A data de postagem será definida automaticamente quando o preprint for "
+"postado. Não insira uma data de postagem, a menos que necessite antedatá-la."
 
-msgid "submission.submit.userGroup"
-msgstr "Submeto na minha função de..."
+msgid "publication.relation"
+msgstr "Relações"
 
-msgid "submission.status.scheduled"
-msgstr "Agendado"
+#, fuzzy
+msgid "publication.relation.label"
+msgstr "Submetido para publicação"
 
-msgid "publication.status.published"
-msgstr "Postado"
+msgid "publication.relation.description"
+msgstr ""
+
+#, fuzzy
+msgid "publication.relation.none"
+msgstr "O preprint não foi submetido para publicação."
+
+#, fuzzy
+msgid "publication.relation.published"
+msgstr ""
+"O preprint foi publicado em um periódico ou em outra publicação acadêmica."
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI do preprint publicado"
+
+msgid "publication.publish.relationStatus"
+msgstr "Publicação Relacionada"
+
+msgid "publication.publish.relationStatus.none"
+msgstr "Este preprint não foi publicado em outro lugar."
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
+"Este preprint foi submetido a um periódico ou outra publicação acadêmica."
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr "Este preprint foi publicado, mas ainda não há DOI disponível."
+
+msgid "publication.publish.relationStatus.published"
+msgstr "Este preprint foi <a href='{$vorDoi}' target='_blank'>publicado</a>."
+
+#, fuzzy
+msgid "publication.publish.confirmation"
+msgstr ""
+"Todos os requisitos de publicação foram cumpridos. Está seguro de que deseja "
+"publicar este?"
 
 msgid "author.submit.authorsCanNotPublish"
 msgstr ""
 "Não é possível postar seu próprio preprint. O preprint deve ser aprovado e "
 "postado por um moderador."
 
-msgid "publication.inactiveSection"
-msgstr "{$section} (Inativa)"
+msgid "publication.status.published"
+msgstr "Postado"
 
-msgid "publication.event.scheduled"
-msgstr "A submissão foi agendada para postagem."
+msgid "submission.status.scheduled"
+msgstr "Agendado"
 
-msgid "publication.event.published"
-msgstr "A submissão foi postada."
-
-msgid "publication.editDisabled"
-msgstr "Esta versão foi postada e não pode ser editada."
-
-msgid "publication.datePublished"
-msgstr "Data de postagem"
-
-msgid "submission.publications"
-msgstr "Preprints"
+msgid "publication.status.unscheduled"
+msgstr "Não postado"
 
 msgid "submission.publication"
 msgstr "Preprint"
 
-msgid "submission.queries.production"
-msgstr "Discussões"
+msgid "submission.publications"
+msgstr "Preprints"
 
-msgid "publication.version.details"
-msgstr "Detalhes da versão {$version}"
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"O ano de copyright será configurado automaticamente quando o manuscrito for "
+"postado."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"O ano de copyright será configurado automaticamente com base na data de "
+"postagem."
+
+msgid "publication.datePublished"
+msgstr "Data de postagem"
+
+msgid "publication.editDisabled"
+msgstr "Esta versão foi postada e não pode ser editada."
+
+msgid "publication.event.published"
+msgstr "A submissão foi postada."
+
+msgid "publication.event.scheduled"
+msgstr "A submissão foi agendada para postagem."
+
+msgid "publication.event.unpublished"
+msgstr "A submissão foi retirada."
+
+msgid "publication.event.versionPublished"
+msgstr "Uma nova versão foi postada."
+
+msgid "publication.event.versionScheduled"
+msgstr "Uma nova versão foi agendada para postagem."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Esta versão foi retirada e não está mais disponível publicamente."
+
+msgid "publication.invalidSubmission"
+msgstr "A submissão para este preprint não pôde ser encontrada."
+
+msgid "publication.publish"
+msgstr "Postar"
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Os seguinte requerimentos precisam ser cumpridos para que esse manuscrito "
+"possa ser postado."
+
+msgid "publication.required.declined"
+msgstr "Uma submissão rejeitada não pode ser postada."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"A submissão deve estar no estágio de Produção antes que possa ser postada."
+
+msgid "submission.license.description"
+msgstr ""
+"A licença será  configurada automaticamente para <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> quando este manuscrito for postado."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Copyright será designado automaticamente a {$copyright} quando isto for "
+"postado."
+
+msgid "submission.copyrightOther.description"
+msgstr "Designar copyright para submissões postadas ao seguinte partido."
+
+msgid "publication.unpublish"
+msgstr "Retirar"
 
 msgid "publication.unpublish.confirm"
 msgstr "Você tem certeza que não quer que isso seja postado?"
@@ -150,88 +223,46 @@ msgstr "Você tem certeza que não quer que isso seja postado?"
 msgid "publication.unschedule.confirm"
 msgstr "Você tem certeza que não quer que isso seja agendado para postagem?"
 
-msgid "publication.required.reviewStage"
-msgstr ""
-"A submissão deve estar no estágio de Produção antes que possa ser postada."
+msgid "publication.version.details"
+msgstr "Detalhes da versão {$version}"
 
-msgid "publication.required.declined"
-msgstr "Uma submissão rejeitada não pode ser postada."
-
-msgid "publication.publish"
-msgstr "Postar"
-
-msgid "publication.invalidSubmission"
-msgstr "A submissão para este preprint não pôde ser encontrada."
-
-msgid "publication.event.versionScheduled"
-msgstr "Uma nova versão foi agendada para postagem."
-
-msgid "publication.event.versionPublished"
-msgstr "Uma nova versão foi postada."
-
-msgid "submission.license.description"
-msgstr ""
-"A licença será  configurada automaticamente para <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> quando este manuscrito for postado."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Os seguinte requerimentos precisam ser cumpridos para que esse manuscrito "
-"possa ser postado."
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"O ano de copyright será configurado automaticamente com base na data de "
-"postagem."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"O ano de copyright será configurado automaticamente quando o manuscrito for "
-"postado."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Esta versão foi retirada e não está mais disponível publicamente."
-
-msgid "publication.event.unpublished"
-msgstr "A submissão foi retirada."
-
-msgid "publication.status.unscheduled"
-msgstr "Não postado"
-
-msgid "publication.unpublish"
-msgstr "Retirar"
-
-msgid "submission.copyrightOther.description"
-msgstr "Designar copyright para submissões postadas ao seguinte partido."
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Copyright será designado automaticamente a {$copyright} quando isto for "
-"postado."
-
-msgid "publication.publish.relationStatus.published"
-msgstr "Este preprint foi <a href='{$vorDoi}' target='_blank'>publicado</a>."
-
-msgid "publication.publish.relationStatus.published.noDoi"
-msgstr "Este preprint foi publicado, mas ainda não há DOI disponível."
-
-msgid "publication.publish.relationStatus.submitted"
-msgstr ""
-"Este preprint foi submetido a um periódico ou outra publicação acadêmica."
-
-msgid "publication.publish.relationStatus.none"
-msgstr "Este preprint não foi publicado em outro lugar."
-
-msgid "publication.publish.relationStatus"
-msgstr "Publicação Relacionada"
+msgid "submission.queries.production"
+msgstr "Discussões"
 
 msgid "doi.submission.incorrectContext"
 msgstr ""
 "Não foi possível criar um DOI para a seguinte submissão: {$pubObjectTitle}. "
 "Ele não existe no contexto do servidor atual."
 
+msgid "submission.layout.viewGalley"
+msgstr "Visualizar Composição"
+
 msgid "galley.cantEditPublished"
 msgstr "Esta composição não pode ser editada porque já foi publicada."
 
-msgid "submission.layout.viewGalley"
-msgstr "Visualizar Composição"
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""

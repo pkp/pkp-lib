@@ -15,16 +15,37 @@ msgstr ""
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin XML gốc"
 
-msgid "plugins.importexport.native.error.unknownUser"
-msgstr "Người dùng được chỉ định, \"{$userName}\", không tồn tại."
+#, fuzzy
+msgid "plugins.importexport.native.description"
+msgstr ""
+"Nhập và xuất các bài báo và các số xuất bản theo định dạng XML gốc của OJS."
 
-msgid "plugins.importexport.native.error.unknownSection"
-msgstr "Chuyên mục không xác định {$param}"
+msgid "plugins.importexport.native.import"
+msgstr "Nhập"
+
+msgid "plugins.importexport.native.import.instructions"
+msgstr "Tải lên tệp XML để nhập"
+
+#, fuzzy
+msgid "plugins.importexport.native.exportSubmissionsSelect"
+msgstr "Chọn các bài báo để xuất"
+
+msgid "plugins.importexport.native.exportSubmissions"
+msgstr "Xuất các bài báo"
+
+msgid "plugins.importexport.native.results"
+msgstr "Kết quả"
+
+msgid "plugins.inportexport.native.uploadFile"
+msgstr "Vui lòng tải lên một tập tin trong \"Nhập\" để tiếp tục."
+
+msgid "plugins.importexport.native.importComplete"
+msgstr "Việc nhập thành công. Các hạng mục sau đây đã được nhập:"
 
 #, fuzzy
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
-"Sử dụng: {$scriptName} {$pluginName} [command] ...\n"
+"\bSử dụng: {$scriptName} {$pluginName} [command] ...\n"
 "Các lệnh:\n"
 "\tnhập [xmlFileName] [journal_path] [user_name] ...\n"
 "\txuất [xmlFileName] [journal_path] articles [articleId1] [articleId2] ...\n"
@@ -47,29 +68,8 @@ msgstr ""
 "{$scriptName} {$pluginName} nhập [xmlFileName] [journal_path]\n"
 "\tissue_id [issueId] section_abbrev [abbrev]\n"
 
-msgid "plugins.importexport.native.importComplete"
-msgstr "Việc nhập thành công. Các hạng mục sau đây đã được nhập:"
+msgid "plugins.importexport.native.error.unknownSection"
+msgstr "Chuyên mục không xác định {$param}"
 
-msgid "plugins.inportexport.native.uploadFile"
-msgstr "Vui lòng tải lên một tập tin trong \"Nhập\" để tiếp tục."
-
-msgid "plugins.importexport.native.results"
-msgstr "Kết quả"
-
-msgid "plugins.importexport.native.exportSubmissions"
-msgstr "Xuất các bài báo"
-
-#, fuzzy
-msgid "plugins.importexport.native.exportSubmissionsSelect"
-msgstr "Chọn các bài báo để xuất"
-
-msgid "plugins.importexport.native.import.instructions"
-msgstr "Tải lên tệp XML để nhập"
-
-msgid "plugins.importexport.native.import"
-msgstr "Nhập"
-
-#, fuzzy
-msgid "plugins.importexport.native.description"
-msgstr ""
-"Nhập và xuất các bài báo và các số xuất bản theo định dạng XML gốc của OJS."
+msgid "plugins.importexport.native.error.unknownUser"
+msgstr "Người dùng được chỉ định, \"{$userName}\", không tồn tại."

@@ -1,50 +1,741 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
-msgid "doi.manager.settings.doiSuffixPattern"
 msgstr ""
-"Bruk mønsteret under for å generere DOI suffikser. Bruk %j for "
-"tjenerinitialer %a for OPS preprint ID, %g for OPS oppsett ID, %f for OPS "
-"fil-ID og %x for \"Brukerdefinert identifikator\"."
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
 
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "DOI-prefikset er obligatorisk, og må være i formatet 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "DOI-prefiks"
-
-msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgid "manager.distribution.access"
 msgstr ""
-"Automatisk tildeling av DOI for følgende objekter når de blir opprettet:"
 
-msgid "doi.manager.settings.publicationDoiAutoAssign"
-msgstr "Automatisk tildeling"
-
-msgid "doi.manager.settings.enableRepresentationDoi"
-msgstr "Oppsett"
-
-msgid "doi.manager.settings.enablePublicationDoi"
-msgstr "Preprint"
-
-msgid "doi.manager.settings.explainDois"
+msgid "manager.distribution.copyrightYearBasis.description"
 msgstr ""
-"Velg publiseringsobjekter som skal ha tildelt Digital Object Identifiers "
-"(DOI):"
+
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr ""
+
+msgid "manager.distribution.publishingMode"
+msgstr ""
+
+msgid "manager.distribution.publishingMode.none"
+msgstr ""
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixLegacy"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.copyedit"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning.yes"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning.no"
+msgstr ""
+
+msgid "manager.language.ui"
+msgstr ""
+
+msgid "manager.language.submissions"
+msgstr ""
+
+msgid "manager.language.forms"
+msgstr ""
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr ""
+
+msgid "manager.people.allUsers"
+msgstr ""
+
+msgid "manager.people.confirmRemove"
+msgstr ""
+
+msgid "manager.sections.abstractsNotRequired"
+msgstr ""
+
+msgid "manager.sections.confirmDelete"
+msgstr ""
+
+msgid "manager.sections.alertDelete"
+msgstr ""
+
+msgid "manager.sections.create"
+msgstr ""
+
+msgid "manager.sections.editorRestriction"
+msgstr ""
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+
+msgid "manager.sections.form.abbrevRequired"
+msgstr ""
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr ""
+
+msgid "manager.sections.identifyType"
+msgstr ""
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr ""
+
+msgid "manager.sections.policy"
+msgstr ""
+
+msgid "manager.sections.submissionIndexing"
+msgstr ""
+
+msgid "manager.sections.wordCount"
+msgstr ""
+
+msgid "manager.sections.wordCountInstructions"
+msgstr ""
+
+msgid "manager.payment.options.enablePayments"
+msgstr ""
+
+msgid "manager.setup"
+msgstr ""
+
+msgid "manager.setup.masthead"
+msgstr ""
+
+msgid "manager.setup.editorialTeam"
+msgstr ""
+
+msgid "manager.setup.useStyleSheet"
+msgstr ""
+
+msgid "manager.setup.announcements"
+msgstr ""
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr ""
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+
+msgid "manager.setup.authorScreening"
+msgstr ""
+
+msgid "manager.setup.disableUserRegistration"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+
+msgid "manager.setup.emailSignature"
+msgstr ""
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr ""
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr ""
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+
+msgid "manager.setup.enableDois.description"
+msgstr ""
 
 #, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
 msgstr "Velg objektene DOI-er skal tilordnes til."
 
-msgid "doi.manager.settings.description"
+msgid "manager.setup.enableUserRegistration"
 msgstr ""
-"Konfigurer DOI-programtillegg for å kunne administrere og bruke DOI-er i OPS:"
 
-msgid "doi.readerDisplayName"
+msgid "manager.setup.identity"
+msgstr ""
+
+msgid "manager.setup.information"
+msgstr ""
+
+msgid "manager.setup.information.description"
+msgstr ""
+
+msgid "manager.setup.information.forAuthors"
+msgstr ""
+
+msgid "manager.setup.information.forLibrarians"
+msgstr ""
+
+msgid "manager.setup.information.forReaders"
+msgstr ""
+
+msgid "manager.setup.itemsPerPage"
+msgstr ""
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+
+msgid "manager.setup.serverAbbreviation"
+msgstr ""
+
+msgid "manager.setup.contextSummary"
+msgstr ""
+
+msgid "manager.setup.contextAbout"
+msgstr ""
+
+msgid "manager.setup.contextAbout.description"
+msgstr ""
+
+msgid "manager.setup.contextInitials"
+msgstr ""
+
+msgid "manager.setup.selectCountry"
+msgstr ""
+
+msgid "manager.setup.serverThumbnail"
+msgstr ""
+
+msgid "manager.setup.serverThumbnail.description"
+msgstr ""
+
+msgid "manager.setup.contextTitle"
+msgstr ""
+
+msgid "manager.setup.keyInfo"
+msgstr ""
+
+msgid "manager.setup.keyInfo.description"
+msgstr ""
+
+msgid "manager.setup.lists"
+msgstr ""
+
+msgid "manager.setup.numPageLinks"
+msgstr ""
+
+msgid "manager.setup.numPageLinks.description"
+msgstr ""
+
+msgid "manager.setup.restrictPreprintAccess"
+msgstr ""
+
+msgid "manager.setup.restrictSiteAccess"
+msgstr ""
+
+msgid "manager.setup.searchEngineIndexing"
+msgstr ""
+
+msgid "manager.setup.searchEngineIndexing.description"
+msgstr ""
+
+msgid "manager.setup.searchDescription.description"
+msgstr ""
+
+msgid "manager.setup.siteAccess.view"
+msgstr ""
+
+msgid "manager.setup.siteAccess.viewContent"
+msgstr ""
+
+msgid "manager.setup.sponsoringOrganization"
+msgstr ""
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+
+msgid "manager.setup.enableOai"
+msgstr ""
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+
+msgid "manager.setup.userRegistration"
+msgstr ""
+
+msgid "manager.statistics.statistics"
+msgstr ""
+
+msgid "manager.statistics.statistics.preprintViews"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr ""
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr ""
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr ""
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr ""
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "manager.publication.library"
+msgstr ""
+
+msgid "manager.setup.resetPermissions"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.success"
+msgstr ""
+
+msgid "grid.genres.title.short"
+msgstr ""
+
+msgid "grid.genres.title"
+msgstr ""
+
+msgid "plugins.importexport.common.settings"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr ""
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr ""
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr ""
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+
+msgid "plugins.importexport.common.status.any"
+msgstr ""
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr ""
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.status.registered"
+msgstr ""
+
+msgid "plugins.importexport.common.action"
+msgstr ""
+
+msgid "plugins.importexport.common.action.export"
+msgstr ""
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.action.register"
+msgstr ""
+
+msgid "plugins.importexport.common.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr ""
+
+msgid "plugins.importexport.common.error.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr ""
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr ""
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+
+msgid "plugins.importexport.common.register.success"
+msgstr ""
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr ""
+
+msgid "stats.contextStats"
+msgstr ""
+
+msgid "stats.context.tooltip.text"
+msgstr ""
+
+msgid "stats.context.tooltip.label"
+msgstr ""
+
+msgid "stats.context.downloadReport.description"
+msgstr ""
+
+msgid "stats.context.downloadReport.downloadContext.description"
+msgstr ""
+
+msgid "stats.context.downloadReport.downloadContext"
+msgstr ""
+
+msgid "stats.publications.downloadReport.description"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr ""
+
+msgid "stats.publicationStats"
+msgstr ""
+
+msgid "stats.publications.details"
+msgstr ""
+
+msgid "stats.publications.none"
+msgstr ""
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.countOfTotal"
+msgstr ""
+
+msgid "stats.publications.abstracts"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+
+msgid ""
+"manager.setup.notifications.copySubmissionAckPrimaryContact.disabled."
+"description"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr ""
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr ""
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr ""
+
+msgid "mailable.validateEmailContext.name"
+msgstr ""
+
+msgid "mailable.validateEmailContext.description"
+msgstr ""
+
+msgid "doi.displayName"
 msgstr "DOI"
+
+msgid "doi.manager.displayName"
+msgstr ""
 
 msgid "doi.description"
 msgstr ""
 "Dette programtillegget tilordner digitale objektidentifikatorer (DOI) til "
 "preprints og oppsett i OPS."
 
-msgid "doi.displayName"
+msgid "doi.manager.submissionDois"
+msgstr ""
+
+msgid "doi.readerDisplayName"
 msgstr "DOI"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Konfigurer DOI-programtillegg for å kunne administrere og bruke DOI-er i OPS:"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Velg publiseringsobjekter som skal ha tildelt Digital Object Identifiers "
+"(DOI):"
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr ""
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Oppsett"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Automatisk tildeling"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+"Automatisk tildeling av DOI for følgende objekter når de blir opprettet:"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-prefiks"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI-prefikset er obligatorisk, og må være i formatet 10.xxxx."
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Bruk mønsteret under for å generere DOI suffikser. Bruk %j for "
+"tjenerinitialer %a for OPS preprint ID, %g for OPS oppsett ID, %f for OPS "
+"fil-ID og %x for \"Brukerdefinert identifikator\"."
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr ""
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr ""
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr ""
+
+msgid "doi.manager.settings.doiReassign"
+msgstr ""
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr ""
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr ""
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr ""
+
+msgid "doi.editor.doi"
+msgstr ""
+
+msgid "doi.editor.doi.description"
+msgstr ""
+
+msgid "doi.editor.doi.assignDoi"
+msgstr ""
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr ""
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr ""
+
+msgid "doi.editor.customSuffixMissing"
+msgstr ""
+
+msgid "doi.editor.missingParts"
+msgstr ""
+
+msgid "doi.editor.patternNotResolved"
+msgstr ""
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+
+msgid "doi.editor.assigned"
+msgstr ""
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr ""
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr ""
+
+msgid "doi.editor.assignDoi"
+msgstr ""
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr ""
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr ""
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr ""
+
+msgid "doi.editor.missingPrefix"
+msgstr ""
+
+msgid "doi.editor.preview.publication"
+msgstr ""
+
+msgid "doi.editor.preview.publication.none"
+msgstr ""
+
+msgid "doi.editor.preview.galleys"
+msgstr ""
+
+msgid "doi.editor.preview.objects"
+msgstr ""
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr ""
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr ""
+
+msgid "api.issue.400.invalidDoi"
+msgstr ""
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr ""
+
+msgid "manager.institutions.noContext"
+msgstr ""
+
+msgid "manager.manageEmails.description"
+msgstr ""
+
+msgid "mailable.postedAck.name"
+msgstr ""
+
+msgid "mailable.postedAck.description"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "manager.preprintPosted"
+msgstr ""
+
+msgid "manager.preprintPosted.description"
+msgstr ""
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr ""
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr ""
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr ""
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr ""
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr ""
+
+#~ msgid "doi.manager.settings.enablePublicationDoi"
+#~ msgstr "Preprint"

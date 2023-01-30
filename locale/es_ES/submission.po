@@ -11,17 +11,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "submission.submit.userGroup"
+msgstr "Envío en mi rol de ..."
+
+msgid "submission.upload.selectComponent"
+msgstr "Seleccionar el componente de preprint"
+
+msgid "submission.title"
+msgstr "Título de preprint"
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Nuevo Envío"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "El resumen debe ser {$wordCount} palabras o menos."
+
+msgid "submission.submit.noContext"
+msgstr "No se pudo encontrar el servidor de este envío."
+
+msgid "submission.galleyFiles"
+msgstr "Archivos de galerada"
+
+msgid "submission.upload.fileContents"
+msgstr "Componente de preprint"
+
+msgid "submission.complete"
+msgstr "Aprobado"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Lista de verificación de envío"
+
+msgid "submission.submit.contributorRole"
+msgstr "Rol del colaborador"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Estas especificaciones se basan en el conjunto de metadatos Dublin Core, un "
+"estándar internacional utilizado para describir contenido."
+
+#, fuzzy
+msgid "submission.sectionOptions"
+msgstr "Opciones de serie"
+
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} elementos"
 
-#, fuzzy
-msgid "publication.publish.confirmation"
-msgstr ""
-"Se han cumplido todos los requisitos de publicación. ¿Está seguro de que "
-"quiere publicar esto?"
+msgid "catalog.category.heading"
+msgstr "Todos los artículos"
 
-msgid "preprint.relations"
-msgstr "Relaciones"
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Las galeradas de esta publicación no se pueden editar porque ya se ha "
+"postado."
+
+msgid "galley.publicationNotFound"
+msgstr "La publicación de esta galerada no se pudo encontrar."
+
+msgid "publication.invalidSection"
+msgstr "No se pudo encontrar la sección de esta publicación."
+
+msgid "publication.inactiveSection"
+msgstr ""
+
+msgid "preprint.entry"
+msgstr "Entrada de preprint"
+
+msgid "publication.issue.success"
+msgstr "Los detalles de la entrada de preprint se han actualizado."
 
 msgid "publication.datePublished.description"
 msgstr ""
@@ -29,82 +85,170 @@ msgstr ""
 "preprint. No ingrese una fecha de publicación a menos que necesite "
 "antedatarla."
 
-msgid "publication.issue.success"
-msgstr "Los detalles de la entrada de preprint se han actualizado."
-
-msgid "preprint.entry"
-msgstr "Entrada de preprint"
-
-msgid "publication.invalidSection"
-msgstr "No se pudo encontrar la sección de esta publicación."
-
-msgid "galley.publicationNotFound"
-msgstr "La publicación de esta galerada no se pudo encontrar."
-
-msgid "galley.editPublishedDisabled"
-msgstr ""
-"Las galeradas de esta publicación no se pueden editar porque ya se ha "
-"postado."
-
-msgid "catalog.category.heading"
-msgstr "Todos los artículos"
+msgid "publication.relation"
+msgstr "Relaciones"
 
 #, fuzzy
-msgid "submission.sectionOptions"
-msgstr "Opciones de serie"
+msgid "publication.relation.label"
+msgstr "Enviado para publicación"
 
-msgid "submission.metadataDescription"
+msgid "publication.relation.description"
 msgstr ""
-"Estas especificaciones se basan en el conjunto de metadatos Dublin Core, un "
-"estándar internacional utilizado para describir contenido."
-
-msgid "submission.submit.contributorRole"
-msgstr "Rol del colaborador"
-
-msgid "submission.submit.submissionChecklist"
-msgstr "Lista de verificación de envío"
-
-msgid "submission.complete"
-msgstr "Aprobado"
-
-msgid "submission.upload.fileContents"
-msgstr "Componente de preprint"
-
-msgid "submission.galleyFiles"
-msgstr "Archivos de galerada"
-
-msgid "submission.submit.noContext"
-msgstr "No se pudo encontrar el servidor de este envío."
-
-msgid "submission.abstract.wordCount.description"
-msgstr "El resumen debe ser {$wordCount} palabras o menos."
-
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Nuevo Envío"
-
-msgid "submission.title"
-msgstr "Título de preprint"
-
-msgid "submission.upload.selectComponent"
-msgstr "Seleccionar el componente de preprint"
-
-msgid "submission.submit.userGroup"
-msgstr "Envío en mi rol de ..."
-
-msgid "publication.relation.vorDoi"
-msgstr "DOI del artículo publicado"
-
-#, fuzzy
-msgid "publication.relation.published"
-msgstr "El preprint ha sido publicado como artículo en una revista"
 
 #, fuzzy
 msgid "publication.relation.none"
 msgstr "El preprint no ha sido enviado para publicación"
 
 #, fuzzy
-msgid "publication.relation.label"
-msgstr "Enviado para publicación"
+msgid "publication.relation.published"
+msgstr "El preprint ha sido publicado como artículo en una revista"
 
-msgid "publication.relation"
-msgstr "Relaciones"
+msgid "publication.relation.vorDoi"
+msgstr "DOI del artículo publicado"
+
+msgid "publication.publish.relationStatus"
+msgstr ""
+
+msgid "publication.publish.relationStatus.none"
+msgstr ""
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr ""
+
+msgid "publication.publish.relationStatus.published"
+msgstr ""
+
+#, fuzzy
+msgid "publication.publish.confirmation"
+msgstr ""
+"Se han cumplido todos los requisitos de publicación. ¿Está seguro de que "
+"quiere publicar esto?"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+
+msgid "publication.status.published"
+msgstr ""
+
+msgid "submission.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "submission.publication"
+msgstr ""
+
+msgid "submission.publications"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+
+msgid "publication.datePublished"
+msgstr ""
+
+msgid "publication.editDisabled"
+msgstr ""
+
+msgid "publication.event.published"
+msgstr ""
+
+msgid "publication.event.scheduled"
+msgstr ""
+
+msgid "publication.event.unpublished"
+msgstr ""
+
+msgid "publication.event.versionPublished"
+msgstr ""
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+
+msgid "publication.invalidSubmission"
+msgstr ""
+
+msgid "publication.publish"
+msgstr ""
+
+msgid "publication.publish.requirements"
+msgstr ""
+
+msgid "publication.required.declined"
+msgstr ""
+
+msgid "publication.required.reviewStage"
+msgstr ""
+
+msgid "submission.license.description"
+msgstr ""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+
+msgid "publication.unpublish"
+msgstr ""
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+
+msgid "publication.version.details"
+msgstr ""
+
+msgid "submission.queries.production"
+msgstr ""
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""
+
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+
+#~ msgid "preprint.relations"
+#~ msgstr "Relaciones"

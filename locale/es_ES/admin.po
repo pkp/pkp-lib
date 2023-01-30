@@ -11,28 +11,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "admin.hostedContexts"
+msgstr "Servidores alojados"
+
+msgid "admin.settings.redirect"
+msgstr "Redireccionamiento del servidor"
+
+msgid "admin.settings.redirectInstructions"
+msgstr ""
+"Las solicitudes al sitio principal serán redirigidas a este servidor. Esto "
+"puede ser útil si el sitio aloja un solo servidor, por ejemplo."
+
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"¿Seguro que quiere deshabilitar esta configuración regional? Esto puede "
+"afectar a los servidores alojados que actualmente usan la configuración "
+"regional."
+
 msgid "admin.locale.maybeIncomplete"
 msgstr "Las configuraciones regionales marcadas pueden estar incompletas."
 
-msgid "admin.contexts.contextDescription"
-msgstr "Descripción del servidor"
-
-msgid "admin.contexts.form.pathExists"
-msgstr "La ruta que proporcionó ya está en uso por otro servidor."
-
-msgid "admin.contexts.form.pathAlphaNumeric"
+msgid "admin.languages.confirmUninstall"
 msgstr ""
-"La ruta solo puede incluir letras, números y los caracteres _ y -. Debe "
-"comenzar y terminar con una letra o número."
-
-msgid "admin.contexts.create"
-msgstr "Crear Servidor"
-
-msgid "admin.systemConfiguration"
-msgstr "Configuración OPS"
-
-msgid "admin.languages.localeInstalled"
-msgstr "Se ha instalado la configuración regional \"{$locale}\"."
+"¿Seguro que quiere desinstalar esta configuración regional? Esto puede "
+"afectar a los servidores alojados que actualmente usan la configuración "
+"regional."
 
 msgid "admin.languages.installNewLocalesInstructions"
 msgstr ""
@@ -42,25 +45,49 @@ msgstr ""
 "documentación de OPS para obtener información sobre cómo agregar soporte "
 "para nuevos idiomas."
 
-msgid "admin.languages.confirmUninstall"
+msgid "admin.languages.localeInstalled"
+msgstr "Se ha instalado la configuración regional \"{$locale}\"."
+
+msgid "admin.systemConfiguration"
+msgstr "Configuración OPS"
+
+msgid "admin.contexts.create"
+msgstr "Crear Servidor"
+
+msgid "admin.contexts.form.pathAlphaNumeric"
 msgstr ""
-"¿Seguro que quiere desinstalar esta configuración regional? Esto puede "
-"afectar a los servidores alojados que actualmente usan la configuración "
-"regional."
+"La ruta solo puede incluir letras, números y los caracteres _ y -. Debe "
+"comenzar y terminar con una letra o número."
 
-msgid "admin.languages.confirmDisable"
+msgid "admin.contexts.form.pathExists"
+msgstr "La ruta que proporcionó ya está en uso por otro servidor."
+
+msgid "admin.contexts.form.primaryLocaleNotSupported"
 msgstr ""
-"¿Seguro que quiere deshabilitar esta configuración regional? Esto puede "
-"afectar a los servidores alojados que actualmente usan la configuración "
-"regional."
 
-msgid "admin.settings.redirectInstructions"
+msgid "admin.contexts.contextDescription"
+msgstr "Descripción del servidor"
+
+msgid "admin.contexts.enableContextInstructions"
 msgstr ""
-"Las solicitudes al sitio principal serán redirigidas a este servidor. Esto "
-"puede ser útil si el sitio aloja un solo servidor, por ejemplo."
 
-msgid "admin.settings.redirect"
-msgstr "Redireccionamiento del servidor"
+msgid "admin.settings.enableBulkEmails.description"
+msgstr ""
 
-msgid "admin.hostedContexts"
-msgstr "Servidores alojados"
+msgid "admin.settings.disableBulkEmailRoles.description"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.contextDisabled"
+msgstr ""
+
+msgid "admin.siteManagement.description"
+msgstr ""
+
+msgid "admin.settings.statistics.geo.description"
+msgstr ""
+
+msgid "admin.settings.statistics.institutions.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.public.description"
+msgstr ""

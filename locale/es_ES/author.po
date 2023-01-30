@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-02-18 17:36+0000\n"
 "Last-Translator: ernesto spinak <spinaker@montevideo.com.uy>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/author/es/>"
-"\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/author/es/"
+">\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,50 +11,50 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "author.submit.form.abstractRequired"
-msgstr "Ingrese el resumen de su preprint."
+msgid "author.submit"
+msgstr "Nuevo envío"
 
-msgid "author.submit.languageInstructions"
+msgid "author.competingInterests"
 msgstr ""
-"Inglés=en; Francés=fr; Español=es. <a href=\"http://www.loc.gov/standards/"
-"iso639-2/php/code_list.php\" target=\"_blank\">Códigos adicionales</a>."
-
-#, fuzzy
-msgid "submission.submit.coverNote"
-msgstr "Comentarios para el Editor"
-
-#, fuzzy
-msgid "author.submit.serverSectionDescription"
-msgstr "Los preprints deben enviarse a una de las series del servidor."
-
-#, fuzzy
-msgid "author.submit.serverSection"
-msgstr "Serie del servidor"
-
-msgid "author.submit.notAccepting"
-msgstr "Este servidor no acepta envíos en este momento."
-
-msgid "author.submit.nextSteps"
-msgstr "Próximos pasos"
-
-msgid "author.submit.metadata"
-msgstr "Ingrese metadatos"
-
-msgid "author.submit.upload"
-msgstr "Subir envío"
-
-msgid "author.submit.start"
-msgstr "Comienzo"
+"Conflicto de intereses <a target=\"_new\" class=\"action\" href="
+"\"{$competingInterestGuidelinesUrl}\"> Política de CI</a>"
 
 msgid "author.submit.startHereLink"
 msgstr ""
 "<a href=\"{$submitUrl}\" class=\"action\"> Haga clic aquí</a> para ir al "
 "paso uno del proceso de envío de cinco pasos."
 
-msgid "author.competingInterests"
-msgstr ""
-"Conflicto de intereses <a target=\"_new\" class=\"action\" href=\""
-"{$competingInterestGuidelinesUrl}\"> Política de CI</a>"
+msgid "author.submit.start"
+msgstr "Comienzo"
 
-msgid "author.submit"
-msgstr "Nuevo envío"
+msgid "author.submit.upload"
+msgstr "Subir envío"
+
+msgid "author.submit.metadata"
+msgstr "Ingrese metadatos"
+
+msgid "author.submit.nextSteps"
+msgstr "Próximos pasos"
+
+msgid "author.submit.notAccepting"
+msgstr "Este servidor no acepta envíos en este momento."
+
+#, fuzzy
+msgid "author.submit.serverSection"
+msgstr "Serie del servidor"
+
+#, fuzzy
+msgid "author.submit.serverSectionDescription"
+msgstr "Los preprints deben enviarse a una de las series del servidor."
+
+#, fuzzy
+msgid "submission.submit.coverNote"
+msgstr "Comentarios para el Editor"
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+"Inglés=en; Francés=fr; Español=es. <a href=\"http://www.loc.gov/standards/"
+"iso639-2/php/code_list.php\" target=\"_blank\">Códigos adicionales</a>."
+
+msgid "author.submit.form.abstractRequired"
+msgstr "Ingrese el resumen de su preprint."

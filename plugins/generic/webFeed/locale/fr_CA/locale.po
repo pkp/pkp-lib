@@ -4,8 +4,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T06:56:43-07:00\n"
 "PO-Revision-Date: 2020-01-28 23:48+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "generic-webFeed/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -23,6 +23,12 @@ msgid "plugins.generic.webfeed.description"
 msgstr ""
 "Ce plugiciel produit des fils de nouvelles en format Atom/RSS pour le numéro "
 "courant."
+
+#, fuzzy
+msgid "plugins.generic.webfeed.settings.homepage"
+msgstr ""
+"Afficher les liens du fil sur la page d'accueil et sur les pages des numéros "
+"uniquement."
 
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
@@ -44,8 +50,8 @@ msgstr "Logo RSS1"
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "Logo RSS2"
 
-#, fuzzy
-msgid "plugins.generic.webfeed.settings.homepage"
+msgid "plugins.generic.webfeed.blockTitle"
 msgstr ""
-"Afficher les liens du fil sur la page d'accueil et sur les pages des numéros "
-"uniquement."
+
+msgid "plugins.generic.webfeed.settings.includeIdentifiers"
+msgstr ""

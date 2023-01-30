@@ -13,56 +13,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.genres.sourceTexts"
-msgstr "Quellentexte"
+msgid "section.default.title"
+msgstr "Preprints"
 
-msgid "default.genres.dataSet"
-msgstr "Datenbestand"
+msgid "section.default.abbrev"
+msgstr "PRE"
 
-msgid "default.genres.dataAnalysis"
-msgstr "Datenanalyse"
+msgid "section.default.path"
+msgstr "Preprints"
 
-msgid "default.genres.transcripts"
-msgstr "Abschriften"
-
-msgid "default.genres.researchResults"
-msgstr "Forschungsergebnisse"
-
-msgid "default.genres.researchMaterials"
-msgstr "Forschungsmaterialien"
-
-msgid "default.genres.researchInstrument"
-msgstr "Forschungsinstrument"
-
-msgid "default.groups.abbrev.sectionEditor"
-msgstr "MOD"
-
-msgid "default.groups.plural.sectionEditor"
-msgstr "Moderatoren"
-
-msgid "default.groups.name.sectionEditor"
-msgstr "Moderator"
-
-msgid "default.groups.abbrev.manager"
-msgstr "PSM"
-
-msgid "default.groups.plural.manager"
-msgstr "Preprint-Server-Manager"
-
-msgid "default.groups.name.manager"
-msgstr "Preprint-Server-Manager"
-
-msgid "default.contextSettings.openAccessPolicy"
+msgid "section.default.policy"
 msgstr ""
-"Dieser Server bietet einen sofortigen offenen Zugang zu seinen Inhalten nach "
-"dem Grundsatz, dass die freie Zugänglichkeit von Forschungsergebnissen für "
-"die Öffentlichkeit einen größeren globalen Wissensaustausch fördert."
 
-msgid "default.contextSettings.privacyStatement"
+msgid "default.genres.preprint"
+msgstr "Preprint-Text"
+
+msgid "default.contextSettings.authorGuidelines"
 msgstr ""
-"<p>Die auf dieser Serverseite eingegebenen Namen und E-Mail-Adressen werden "
-"ausschließlich für die angegebenen Zwecke dieses Servers verwendet und "
-"werden nicht für andere Zwecke oder an andere Parteien weitergegeben.</p>"
+
+msgid "default.contextSettings.checklist"
+msgstr ""
+
+msgid "default.contextSettings.forReaders"
+msgstr ""
+"Wir empfehlen den Lesern, sich für den Posting-Benachrichtigungsdienst für "
+"diesen Server zu registrieren. Benutzen Sie den <a href=\"{$indexUrl}/"
+"{$contextPath}/user/register\">Registrieren</a> Link oben auf der Homepage. "
+"Diese Liste ermöglicht es dem Server auch, einen bestimmten Grad an "
+"Unterstützung oder Leserschaft zu beanspruchen. Siehe die <a href="
+"\"{$indexUrl}/{$contextPath}/about/submissions#privacyStatement"
+"\">Datenschutzerklärung</a>, die den Lesern versichert, dass ihr Name und "
+"ihre E-Mail-Adresse nicht für andere Zwecke verwendet werden."
+
+msgid "default.contextSettings.forAuthors"
+msgstr ""
+"Sind Sie daran interessiert, sich auf diesem Server anzumelden? Wir "
+"empfehlen Ihnen, die Seite <a href=\"{$indexUrl}/{$contextPath}/about"
+"\">About</a> für die Richtlinien sowie die <a href=\"{$indexUrl}/"
+"{$contextPath}/about/submissions#authorGuidelines\">Autorenrichtlinien</a> "
+"zu lesen. Autoren müssen sich vor der Einreichung <a href=\"{$indexUrl}/"
+"{$contextPath}/user/register\">registrieren</a> oder, wenn sie bereits "
+"registriert sind, können sie sich einfach <a href=\"{$indexUrl}/index/login"
+"\">anmelden</a> und den Prozess beginnen."
 
 msgid "default.contextSettings.forLibrarians"
 msgstr ""
@@ -72,58 +64,91 @@ msgstr ""
 "Fakultätsmitglieder zu hosten (siehe <a href=\"http://pkp.sfu.ca\">Public "
 "Knowledge Project</a>)."
 
-msgid "default.contextSettings.forAuthors"
+msgid "default.contextSettings.privacyStatement"
 msgstr ""
-"Sind Sie daran interessiert, sich auf diesem Server anzumelden? Wir "
-"empfehlen Ihnen, die Seite <a href=\"{$indexUrl}/{$contextPath}/about\""
-">About</a> für die Richtlinien sowie die <a href=\""
-"{$indexUrl}/{$contextPath}/about/submissions#authorGuidelines\""
-">Autorenrichtlinien</a> zu lesen. Autoren müssen sich vor der Einreichung <a "
-"href=\"{$indexUrl}/{$contextPath}/user/register\">registrieren</a> oder, "
-"wenn sie bereits registriert sind, können sie sich einfach <a href=\""
-"{$indexUrl}/index/login\">anmelden</a> und den Prozess beginnen."
+"<p>Die auf dieser Serverseite eingegebenen Namen und E-Mail-Adressen werden "
+"ausschließlich für die angegebenen Zwecke dieses Servers verwendet und "
+"werden nicht für andere Zwecke oder an andere Parteien weitergegeben.</p>"
 
-msgid "default.contextSettings.forReaders"
+msgid "default.contextSettings.openAccessPolicy"
 msgstr ""
-"Wir empfehlen den Lesern, sich für den Posting-Benachrichtigungsdienst für "
-"diesen Server zu registrieren. Benutzen Sie den <a href=\""
-"{$indexUrl}/{$contextPath}/user/register\">Registrieren</a> Link oben auf "
-"der Homepage. Diese Liste ermöglicht es dem Server auch, einen bestimmten "
-"Grad an Unterstützung oder Leserschaft zu beanspruchen. Siehe die <a href=\""
-"{$indexUrl}/{$contextPath}/about/submissions#privacyStatement\""
-">Datenschutzerklärung</a>, die den Lesern versichert, dass ihr Name und ihre "
-"E-Mail-Adresse nicht für andere Zwecke verwendet werden."
+"Dieser Server bietet einen sofortigen offenen Zugang zu seinen Inhalten nach "
+"dem Grundsatz, dass die freie Zugänglichkeit von Forschungsergebnissen für "
+"die Öffentlichkeit einen größeren globalen Wissensaustausch fördert."
 
-msgid "default.contextSettings.checklist.bibliographicRequirements"
+msgid "default.groups.name.manager"
+msgstr "Preprint-Server-Manager"
+
+msgid "default.groups.plural.manager"
+msgstr "Preprint-Server-Manager"
+
+msgid "default.groups.abbrev.manager"
+msgstr "PSM"
+
+msgid "default.groups.name.sectionEditor"
+msgstr "Moderator"
+
+msgid "default.groups.plural.sectionEditor"
+msgstr "Moderatoren"
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "MOD"
+
+msgid "default.genres.researchInstrument"
+msgstr "Forschungsinstrument"
+
+msgid "default.genres.researchMaterials"
+msgstr "Forschungsmaterialien"
+
+msgid "default.genres.researchResults"
+msgstr "Forschungsergebnisse"
+
+msgid "default.genres.transcripts"
+msgstr "Abschriften"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Datenanalyse"
+
+msgid "default.genres.dataSet"
+msgstr "Datenbestand"
+
+msgid "default.genres.sourceTexts"
+msgstr "Quellentexte"
+
+msgid "default.submission.step.beforeYouBegin"
 msgstr ""
-"Der Text hält sich an die stilistischen und bibliografischen Anforderungen, "
-"die in den Autorenrichtlinien aufgeführt sind."
 
-msgid "default.contextSettings.checklist.submissionAppearance"
+msgid "default.submission.step.uploadFiles"
 msgstr ""
-"Der Text ist einzeilig, verwendet eine 12-Punkt-Schrift, ist kursiv und "
-"nicht unterstrichen (außer bei URL-Adressen), und alle Abbildungen, Zahlen "
-"und Tabellen sind an den entsprechenden Stellen im Text platziert und nicht "
-"am Ende."
 
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Soweit verfügbar, wurden URLs für die Referenzen angegeben."
-
-msgid "default.contextSettings.checklist.fileFormat"
+msgid "default.submission.step.contributors"
 msgstr ""
-"Die Einreichung erfolgt im OpenOffice-, Microsoft Word- oder RTF-Dateiformat."
 
-msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr "Die Einreichung wurde bisher noch nicht veröffentlicht."
+msgid "default.submission.step.forTheEditors"
+msgstr ""
 
-msgid "default.genres.preprint"
-msgstr "Preprint-Text"
+msgid "default.submission.step.review"
+msgstr ""
 
-msgid "section.default.path"
-msgstr "Preprints"
+#~ msgid "default.contextSettings.checklist.bibliographicRequirements"
+#~ msgstr ""
+#~ "Der Text hält sich an die stilistischen und bibliografischen "
+#~ "Anforderungen, die in den Autorenrichtlinien aufgeführt sind."
 
-msgid "section.default.abbrev"
-msgstr "PRE"
+#~ msgid "default.contextSettings.checklist.submissionAppearance"
+#~ msgstr ""
+#~ "Der Text ist einzeilig, verwendet eine 12-Punkt-Schrift, ist kursiv und "
+#~ "nicht unterstrichen (außer bei URL-Adressen), und alle Abbildungen, "
+#~ "Zahlen und Tabellen sind an den entsprechenden Stellen im Text platziert "
+#~ "und nicht am Ende."
 
-msgid "section.default.title"
-msgstr "Preprints"
+#~ msgid "default.contextSettings.checklist.addressesLinked"
+#~ msgstr "Soweit verfügbar, wurden URLs für die Referenzen angegeben."
+
+#~ msgid "default.contextSettings.checklist.fileFormat"
+#~ msgstr ""
+#~ "Die Einreichung erfolgt im OpenOffice-, Microsoft Word- oder RTF-"
+#~ "Dateiformat."
+
+#~ msgid "default.contextSettings.checklist.notPreviouslyPublished"
+#~ msgstr "Die Einreichung wurde bisher noch nicht veröffentlicht."

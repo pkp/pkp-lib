@@ -11,79 +11,264 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "installer.upgradeInstructions"
-msgstr "<h4> Верзија на OPS {$version} </h4>"
+msgid "context.current"
+msgstr "Тековен сервер:"
 
-msgid "installer.preInstallationInstructions"
+msgid "context.select"
+msgstr "Префрлете се на друг сервер:"
+
+msgid "common.software"
+msgstr "Отвори системи за печатење"
+
+msgid "navigation.browseByAuthor"
+msgstr "Од автор"
+
+msgid "navigation.skip.about"
+msgstr "Прескокнете до за серверот"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Неназначен"
+
+msgid "common.queue.long.active"
+msgstr "Активен"
+
+msgid "doi.manager.settings.publications"
 msgstr ""
-"<h4> Чекори пред инсталација </h4><p> 1. Следните датотеки и директориуми (и "
-"нивната содржина) мора да бидат напишани: </p><ul><li><tt>config.inc.php</tt>"
-" може да се запише (по избор): {$ Writable_config} </ li > <li> <tt> јавно / "
-"</tt> може да се запише: {$writable_public}</li><li><tt>cache/</tt> може да "
-"се запише: {$writable_cache}</li><li><tt>cache/t_cache/</tt> се запишува: "
-"{$writable_templates_cache}</li><li><tt>cache/t_compile/</tt> може да се "
-"запише: {$writable_templates_compile}</li><li><tt>cache/_db</tt> може да се "
-"запише: {$writable_db_cache}</li></ul><p> 2. Именикот за зачувување на "
-"подигнатите датотеки мора да биде креиран и да се запишува (видете „"
-"Подесувања на датотека“ подолу)"
 
-msgid "installer.installationInstructions"
+msgid "section.section"
+msgstr "Секција"
+
+msgid "section.sections"
+msgstr "Секции"
+
+msgid "section.title"
+msgstr "Наслов на секција"
+
+msgid "section.abbreviation"
+msgstr "Кратенка"
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr "Идентификација на јавниот отисок на труд веќе постои."
+
+msgid "section.description"
+msgstr "Архива на дел Опис"
+
+msgid "section.pathDescription"
+msgstr "Патека за URL на дел. Користете цртички (-) наместо празни места."
+
+msgid "section.emptySection"
+msgstr "Сè уште не е објавено ништо во овој дел."
+
+msgid "category.categories"
+msgstr "Категории"
+
+msgid "common.publication"
+msgstr "Предпечаток"
+
+msgid "common.publications"
+msgstr "Отпечатоци"
+
+msgid "preprint.details"
+msgstr "Детали"
+
+msgid "preprint.abstract"
+msgstr "Апстракт"
+
+msgid "preprint.pageTitle"
+msgstr "Поглед на {$title}"
+
+msgid "submissions.published"
+msgstr "Објавено"
+
+msgid "submission.search"
+msgstr "Пребарување на отпечатоци"
+
+msgid "submission.numberOfVersions"
+msgstr "Верзии: {$numberOfVersions}"
+
+msgid "submission.dates"
+msgstr "Поднесено {$submitted} - Објавено {$published}"
+
+msgid "publication.galley.downloads"
+msgstr "Преземања: {$downloads}"
+
+msgid "context.contexts"
+msgstr "Сервери"
+
+msgid "context.context"
+msgstr "Сервер"
+
+msgid "user.authorization.representationNotFound"
+msgstr "Бараниот отисок на труд не може да се најде."
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Вклучете корисници без улоги во овој сервер."
+
+msgid "user.register.contextsPrompt"
+msgstr "Со кои сервери на оваа страница сакате да се регистрирате?"
+
+msgid "user.register.otherContextRoles"
+msgstr "Побарајте ги следниве улоги."
+
+msgid "user.register.noContextReviewerInterests"
+msgstr "Ако баравте да бидете рецензент, внесете ги вашите предметни интереси."
+
+msgid "user.role.manager"
+msgstr "Менаџер"
+
+msgid "user.role.subEditor"
+msgstr "Модератор"
+
+msgid "user.role.subEditors"
+msgstr "Модератори"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Поднесен е отпечаток"
+
+msgid "search.results.orderBy"
+msgstr "Нареди ги резултатите по"
+
+msgid "search.results.orderBy.preprint"
+msgstr "Наслов на отпечаток"
+
+msgid "search.results.orderBy.author"
+msgstr "Автор"
+
+msgid "search.results.orderBy.date"
+msgstr "Датум на објавување"
+
+msgid "search.results.orderBy.server"
+msgstr "Наслов на серверот"
+
+msgid "search.results.orderBy.popularityAll"
+msgstr "Популарност (цело време)"
+
+msgid "search.results.orderBy.popularityMonth"
+msgstr "Популарност (минатиот месец)"
+
+msgid "search.results.orderBy.relevance"
+msgstr "Релевантност"
+
+msgid "search.results.orderDir.asc"
+msgstr "Искачување"
+
+msgid "search.results.orderDir.desc"
+msgstr "Опаѓање"
+
+msgid "manager.people.noAdministrativeRights"
 msgstr ""
-"<h4> Верзија за OPS {$version} </h4> <p> Ви благодариме што ги преземавте "
-"<strong> Отворените системи за печатење на проектот Јавно знаење </strong>. "
-"Пред да продолжите, прочитајте ја датотеката <a href=\"{$baseUrl}/docs/"
-"README.md\"> README </a> вклучена во овој софтвер. За повеќе информации во "
-"врска со Проектот за јавно знаење и неговите софтверски проекти, посетете ја "
-"<a href=\"http://pkp.sfu.ca/\" target=\"_blank\"> веб-страницата на PKP </a>"
-". Ако имате извештаи за грешки или прашања за техничка поддршка во врска со "
-"Отворени системи за печатење, видете го <a href=\"http://forum.pkp.sfu.ca\" "
-"target=\"_blank\"> форумот за поддршка </a> или посетете го Интернет-мрежата "
-"на PKP <a href=\"https://github.com/pkp/pkp-lib#issues\" target = \"_ blank\""
-"> систем за пријавување на грешки </a>. Иако форумот за поддршка е "
-"префериран метод за контакт, исто така можете да го испратите тимот по е-"
-"пошта на <a href=\"mailto:pkp.contact@gmail.com\"> pkp.contact@gmail.com </a>"
-". </p> <h4> Ажурирај </ h4> <p> Ако ја надградувате постоечката инсталација "
-"на OPS, <a href=\"{$upgradeUrl}\"> кликнете тука </a> за да продолжите. </p> "
-"<h4> Препорачан систем барања </h4> <ul> <li> <a href=\"http://www.php.net/\""
-" target=\"_blank\"> PHP </a>> = {$phpRequiredVersion}; моментално користите "
-"PHP {$phpVersion} {$wrongPhpText} </li> <li> <a href=\"http://www.mysql.com/"
-"\" target=\"_blank\"> MySQL </a>> = 4.1 или <a href=\"http://www.postgresql."
-"org/\" target=\"_blank\"> PostgreSQL </a>> = 9,1,5 </li> <li> <a href= \""
-"http://httpd.apache.org/\"target =\"_ blank \"> Apache </a>> = 1.3.2x или> = "
-"2.0.4x или Microsoft IIS 6 </li> <li> Оперативен систем: Секој ОС што го "
-"поддржува горенаведениот софтвер, вклучувајќи <a href=\"http://www.linux.org/"
-"\" target=\"_blank\"> Linux </a>, <a href=\"http://www.bsd.org/\" target = \""
-"_ blank\" > BSD </a>, <a href=\"http://www.oracle.com/sun/\" target=\""
-"_blank\"> Соларис </a>, <a href = \"http://www.apple. com / \"target =\" _ "
-"blank \"> Mac OS X </a>, <a href=\"http://www.microsoft.com/\"> Виндоус </a> "
-"</li></ul> <p> Бидејќи PKP нема ресурси за тестирање на секоја можна "
-"комбинација на софтверски верзии и платформи, не се подразбира никаква "
-"гаранција за правилно работење или поддршка. </p> <p> Промените во овие "
-"поставки може да се направат по инсталацијата со уредување на датотеката <tt "
-">config.inc.php</tt> во основниот директориум OPS, или користејќи веб-"
-"интерфејс за администрација на страницата. </p> <h4> Поддржани системи за "
-"бази на податоци </h4> <p> OPS во моментов е тестиран само на MySQL и "
-"PostgreSQL, иако други системи за управување со базата на податоци поддржани "
-"од <a href=\"http: //adodb.sourceforge.net/\"target =\"_ blank\">ADOdb</a> "
-"може да работи (целосно или делумно). Извештаите за компатибилност и / или "
-"закрпите за кодови за алтернативни ДБМС можат да бидат испратени до тимот на "
-"ОПС. </p>"
+"За жал, немате административни права над овој корисник. Ова може да биде "
+"затоа што: <ul> <li> Корисникот е администратор на веб-страница </li> <li> "
+"Корисникот е активен во серверите со кои не управувате </li> </ul> Оваа "
+"задача мора да ја извршува веб-страница администратор."
 
-msgid "installer.appInstallation"
-msgstr "Инсталација на OPS"
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr "Овој отисок на труд ќе биде достапен на посебна веб-страница."
 
-msgid "help.goToEditPage"
-msgstr "Уредете {$sectionTitle}"
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL на содржина оддалеку хостирана"
 
-msgid "about.aboutOPSSite"
+msgid "user.register.registrationDisabled"
+msgstr "Овој сервер во моментов не прифаќа регистрации на корисници."
+
+msgid "user.register.form.privacyConsentThisContext"
 msgstr ""
-"Оваа страница користи Отворени системи за печатење {$opsVersion}, што е "
-"софтвер за управување со сервери за печатење со отворен извор развиен, "
-"поддржан и слободно дистрибуиран од страна на Проектот за јавно знаење "
-"според Општата јавна лиценца на ГНУ. Посетете ја веб-страницата на PKP за да "
-"<a href=\"http://pkp.sfu.ca/\"> дознаете повеќе за софтверот </a>. Ве "
-"молиме, контактирајте ја страницата директно со прашања во врска со "
-"нејзините сервери и поднесоците на претходните отпечатоци."
+"Да, се согласувам моите податоци да бидат собрани и складирани според <a "
+"href=\"{$privacyUrl}\" target=\"_blank\"> изјавата за приватност </a> на "
+"овој сервер."
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+"Мора да се согласите на изјавата за приватност за кој било сервер со кој се "
+"регистрирате."
+
+msgid "user.register.form.missingSiteConsent"
+msgstr "Мора да се согласите со изјавата за приватност на оваа страница."
+
+msgid "index.latestPreprints"
+msgstr "Најнови предпечати"
+
+msgid "search.searchFor"
+msgstr "Пребарувајте претпечатоци за"
+
+msgid "search.authorIndex"
+msgstr "Прелистајте го индексот на авторот"
+
+msgid "search.authorDetails"
+msgstr "Детали за авторот"
+
+msgid "site.serverView"
+msgstr "Погледнете го серверот"
+
+msgid "site.noServers"
+msgstr "Нема достапни сервери."
+
+msgid "archive.archives"
+msgstr "Архиви"
+
+msgid "archive.archivesPageNumber"
+msgstr "Архива - Страница {$pageNumber}"
+
+msgid "about.contact"
+msgstr "Контакт"
+
+msgid "about.aboutContext"
+msgstr "За серверот"
+
+msgid "about.editorialTeam"
+msgstr "Тим за сервер за печатење"
+
+msgid "about.submissions"
+msgstr "Поднесоци"
+
+msgid "about.onlineSubmissions.login"
+msgstr "Логирај се"
+
+msgid "about.onlineSubmissions.register"
+msgstr "Регистрирај се"
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr "{$login} или {$register} за да направите поднесување."
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr "{$newSubmission} или {$viewSubmissions}."
+
+msgid "about.onlineSubmissions.submitToSection"
+msgstr "Направете ново доставување до делот <a href=\"{$url}\">{$name}</a>."
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr "Направете нов поднесок"
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr "прегледајте ги вашите пријави што чекаат"
+
+msgid "about.authorGuidelines"
+msgstr "Упатства за авторите"
+
+msgid "about.submissionPreparationChecklist"
+msgstr "Список за подготовка на поднесување"
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+"Како дел од процесот на доставување, од авторите се бара да ја проверат "
+"усогласеноста на поднесувањето со сите следни ставки, а поднесоците може да "
+"им бидат вратени на авторите кои не се придржуваат до овие упатства."
+
+msgid "about.copyrightNotice"
+msgstr "Известување за авторски права"
+
+msgid "about.privacyStatement"
+msgstr "Изјава за приватност"
+
+msgid "about.aboutThisPublishingSystem"
+msgstr ""
+"Повеќе информации за овој систем, Платформа и проток на работа од OPS / PKP."
+
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr "Процес на скринирање и објавување на OPS"
+
+msgid "about.aboutSoftware"
+msgstr "За системите со отворен отпечаток"
 
 msgid "about.aboutOPSServer"
 msgstr ""
@@ -95,263 +280,183 @@ msgstr ""
 "<a href=\"{$contactUrl}\"> контактирајте го серверот </a> директно со "
 "прашања во врска со серверот и испраќање на препечатоци."
 
-msgid "about.aboutSoftware"
-msgstr "За системите со отворен отпечаток"
-
-msgid "about.aboutThisPublishingSystem.altText"
-msgstr "Процес на скринирање и објавување на OPS"
-
-msgid "about.aboutThisPublishingSystem"
+msgid "about.aboutOPSSite"
 msgstr ""
-"Повеќе информации за овој систем, Платформа и проток на работа од OPS / PKP."
-
-msgid "about.privacyStatement"
-msgstr "Изјава за приватност"
-
-msgid "about.copyrightNotice"
-msgstr "Известување за авторски права"
-
-msgid "about.submissionPreparationChecklist.description"
-msgstr ""
-"Како дел од процесот на доставување, од авторите се бара да ја проверат "
-"усогласеноста на поднесувањето со сите следни ставки, а поднесоците може да "
-"им бидат вратени на авторите кои не се придржуваат до овие упатства."
-
-msgid "about.submissionPreparationChecklist"
-msgstr "Список за подготовка на поднесување"
-
-msgid "about.authorGuidelines"
-msgstr "Упатства за авторите"
-
-msgid "about.onlineSubmissions.viewSubmissions"
-msgstr "прегледајте ги вашите пријави што чекаат"
-
-msgid "about.onlineSubmissions.newSubmission"
-msgstr "Направете нов поднесок"
-
-msgid "about.onlineSubmissions.submitToSection"
-msgstr "Направете ново доставување до делот <a href=\"{$url}\">{$name}</a>."
-
-msgid "about.onlineSubmissions.submissionActions"
-msgstr "{$newSubmission} или {$viewSubmissions}."
-
-msgid "about.onlineSubmissions.registrationRequired"
-msgstr "{$login} или {$register} за да направите поднесување."
-
-msgid "about.onlineSubmissions.register"
-msgstr "Регистрирај се"
-
-msgid "about.onlineSubmissions.login"
-msgstr "Логирај се"
-
-msgid "about.submissions"
-msgstr "Поднесоци"
-
-msgid "about.editorialTeam"
-msgstr "Тим за сервер за печатење"
-
-msgid "about.aboutContext"
-msgstr "За серверот"
-
-msgid "about.contact"
-msgstr "Контакт"
-
-msgid "archive.archivesPageNumber"
-msgstr "Архива - Страница {$pageNumber}"
-
-msgid "archive.archives"
-msgstr "Архиви"
-
-msgid "site.noServers"
-msgstr "Нема достапни сервери."
-
-msgid "site.serverView"
-msgstr "Погледнете го серверот"
-
-msgid "search.authorDetails"
-msgstr "Детали за авторот"
-
-msgid "search.authorIndex"
-msgstr "Прелистајте го индексот на авторот"
-
-msgid "search.searchFor"
-msgstr "Пребарувајте претпечатоци за"
-
-msgid "index.latestPreprints"
-msgstr "Најнови предпечати"
-
-msgid "user.register.form.missingSiteConsent"
-msgstr "Мора да се согласите со изјавата за приватност на оваа страница."
-
-msgid "user.register.form.missingContextConsent"
-msgstr ""
-"Мора да се согласите на изјавата за приватност за кој било сервер со кој се "
-"регистрирате."
-
-msgid "user.register.form.privacyConsentThisContext"
-msgstr ""
-"Да, се согласувам моите податоци да бидат собрани и складирани според <a "
-"href=\"{$privacyUrl}\" target=\"_blank\"> изјавата за приватност </a> на "
-"овој сервер."
-
-msgid "user.register.registrationDisabled"
-msgstr "Овој сервер во моментов не прифаќа регистрации на корисници."
-
-msgid "submission.layout.galley.remoteURL"
-msgstr "URL на содржина оддалеку хостирана"
-
-msgid "submission.layout.galley.remotelyHostedContent"
-msgstr "Овој отисок на труд ќе биде достапен на посебна веб-страница."
-
-msgid "manager.people.noAdministrativeRights"
-msgstr ""
-"За жал, немате административни права над овој корисник. Ова може да биде "
-"затоа што: <ul> <li> Корисникот е администратор на веб-страница </li> <li> "
-"Корисникот е активен во серверите со кои не управувате </li> </ul> Оваа "
-"задача мора да ја извршува веб-страница администратор."
-
-msgid "search.results.orderDir.desc"
-msgstr "Опаѓање"
-
-msgid "search.results.orderDir.asc"
-msgstr "Искачување"
-
-msgid "search.results.orderBy.relevance"
-msgstr "Релевантност"
-
-msgid "search.results.orderBy.popularityMonth"
-msgstr "Популарност (минатиот месец)"
-
-msgid "search.results.orderBy.popularityAll"
-msgstr "Популарност (цело време)"
-
-msgid "search.results.orderBy.server"
-msgstr "Наслов на серверот"
-
-msgid "search.results.orderBy.date"
-msgstr "Датум на објавување"
-
-msgid "search.results.orderBy.author"
-msgstr "Автор"
-
-msgid "search.results.orderBy.preprint"
-msgstr "Наслов на отпечаток"
-
-msgid "search.results.orderBy"
-msgstr "Нареди ги резултатите по"
-
-msgid "submission.event.submissionSubmitted"
-msgstr "Поднесен е отпечаток"
-
-msgid "user.role.subEditors"
-msgstr "Модератори"
-
-msgid "user.role.subEditor"
-msgstr "Модератор"
-
-msgid "user.role.manager"
-msgstr "Менаџер"
-
-msgid "user.register.noContextReviewerInterests"
-msgstr "Ако баравте да бидете рецензент, внесете ги вашите предметни интереси."
-
-msgid "user.register.otherContextRoles"
-msgstr "Побарајте ги следниве улоги."
-
-msgid "user.register.contextsPrompt"
-msgstr "Со кои сервери на оваа страница сакате да се регистрирате?"
-
-msgid "user.noRoles.selectUsersWithoutRoles"
-msgstr "Вклучете корисници без улоги во овој сервер."
-
-msgid "user.authorization.representationNotFound"
-msgstr "Бараниот отисок на труд не може да се најде."
-
-msgid "context.context"
-msgstr "Сервер"
-
-msgid "context.contexts"
-msgstr "Сервери"
-
-msgid "publication.galley.downloads"
-msgstr "Преземања: {$downloads}"
-
-msgid "submission.dates"
-msgstr "Поднесено {$submitted} - Објавено {$published}"
-
-msgid "submission.numberOfVersions"
-msgstr "Верзии: {$numberOfVersions}"
-
-msgid "submission.search"
-msgstr "Пребарување на отпечатоци"
-
-msgid "submissions.published"
-msgstr "Објавено"
-
-msgid "preprint.pageTitle"
-msgstr "Поглед на {$title}"
-
-msgid "preprint.abstract"
-msgstr "Апстракт"
-
-msgid "preprint.details"
-msgstr "Детали"
-
-msgid "common.publications"
-msgstr "Отпечатоци"
-
-msgid "common.publication"
-msgstr "Предпечаток"
-
-msgid "category.categories"
-msgstr "Категории"
-
-msgid "section.emptySection"
-msgstr "Сè уште не е објавено ништо во овој дел."
-
-msgid "section.pathDescription"
-msgstr "Патека за URL на дел. Користете цртички (-) наместо празни места."
-
-msgid "section.description"
-msgstr "Архива на дел Опис"
-
-msgid "submission.layout.galleyPublicIdentificationExists"
-msgstr "Идентификација на јавниот отисок на труд веќе постои."
-
-msgid "section.abbreviation"
-msgstr "Кратенка"
-
-msgid "section.title"
-msgstr "Наслов на секција"
-
-msgid "section.sections"
-msgstr "Секции"
-
-msgid "section.section"
-msgstr "Секција"
-
-msgid "common.queue.long.active"
-msgstr "Активен"
-
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "Неназначен"
-
-msgid "navigation.skip.about"
-msgstr "Прескокнете до за серверот"
-
-msgid "navigation.browseByAuthor"
-msgstr "Од автор"
-
-msgid "common.software"
-msgstr "Отвори системи за печатење"
-
-msgid "context.select"
-msgstr "Префрлете се на друг сервер:"
-
-msgid "context.current"
-msgstr "Тековен сервер:"
+"Оваа страница користи Отворени системи за печатење {$opsVersion}, што е "
+"софтвер за управување со сервери за печатење со отворен извор развиен, "
+"поддржан и слободно дистрибуиран од страна на Проектот за јавно знаење "
+"според Општата јавна лиценца на ГНУ. Посетете ја веб-страницата на PKP за да "
+"<a href=\"http://pkp.sfu.ca/\"> дознаете повеќе за софтверот </a>. Ве "
+"молиме, контактирајте ја страницата директно со прашања во врска со "
+"нејзините сервери и поднесоците на претходните отпечатоци."
+
+msgid "help.goToEditPage"
+msgstr "Уредете {$sectionTitle}"
+
+msgid "installer.appInstallation"
+msgstr "Инсталација на OPS"
 
 msgid "installer.updatingInstructions"
 msgstr ""
-"Ако ја надградувате постоечката инсталација на OPS, <a href=\"{$upgradeUrl}\""
-"> кликнете овде </a> за да продолжите."
+"Ако ја надградувате постоечката инсталација на OPS, <a href="
+"\"{$upgradeUrl}\"> кликнете овде </a> за да продолжите."
+
+msgid "installer.installationInstructions"
+msgstr ""
+"<h4> Верзија за OPS {$version} </h4> <p> Ви благодариме што ги преземавте "
+"<strong> Отворените системи за печатење на проектот Јавно знаење </strong>. "
+"Пред да продолжите, прочитајте ја датотеката <a href=\"{$baseUrl}/docs/"
+"README.md\"> README </a> вклучена во овој софтвер. За повеќе информации во "
+"врска со Проектот за јавно знаење и неговите софтверски проекти, посетете ја "
+"<a href=\"http://pkp.sfu.ca/\" target=\"_blank\"> веб-страницата на PKP </"
+"a>. Ако имате извештаи за грешки или прашања за техничка поддршка во врска "
+"со Отворени системи за печатење, видете го <a href=\"http://forum.pkp.sfu.ca"
+"\" target=\"_blank\"> форумот за поддршка </a> или посетете го Интернет-"
+"мрежата на PKP <a href=\"https://github.com/pkp/pkp-lib#issues\" target = "
+"\"_ blank\"> систем за пријавување на грешки </a>. Иако форумот за поддршка "
+"е префериран метод за контакт, исто така можете да го испратите тимот по е-"
+"пошта на <a href=\"mailto:pkp.contact@gmail.com\"> pkp.contact@gmail.com </"
+"a>. </p> <h4> Ажурирај </ h4> <p> Ако ја надградувате постоечката "
+"инсталација на OPS, <a href=\"{$upgradeUrl}\"> кликнете тука </a> за да "
+"продолжите. </p> <h4> Препорачан систем барања </h4> <ul> <li> <a href="
+"\"http://www.php.net/\" target=\"_blank\"> PHP </a>> = "
+"{$phpRequiredVersion}; моментално користите PHP {$phpVersion} "
+"{$wrongPhpText} </li> <li> <a href=\"http://www.mysql.com/\" target=\"_blank"
+"\"> MySQL </a>> = 4.1 или <a href=\"http://www.postgresql.org/\" target="
+"\"_blank\"> PostgreSQL </a>> = 9,1,5 </li> <li> <a href= \"http://httpd."
+"apache.org/\"target =\"_ blank \"> Apache </a>> = 1.3.2x или> = 2.0.4x или "
+"Microsoft IIS 6 </li> <li> Оперативен систем: Секој ОС што го поддржува "
+"горенаведениот софтвер, вклучувајќи <a href=\"http://www.linux.org/\" target="
+"\"_blank\"> Linux </a>, <a href=\"http://www.bsd.org/\" target = \"_ blank\" "
+"> BSD </a>, <a href=\"http://www.oracle.com/sun/\" target=\"_blank\"> "
+"Соларис </a>, <a href = \"http://www.apple. com / \"target =\" _ blank \"> "
+"Mac OS X </a>, <a href=\"http://www.microsoft.com/\"> Виндоус </a> </li></"
+"ul> <p> Бидејќи PKP нема ресурси за тестирање на секоја можна комбинација на "
+"софтверски верзии и платформи, не се подразбира никаква гаранција за "
+"правилно работење или поддршка. </p> <p> Промените во овие поставки може да "
+"се направат по инсталацијата со уредување на датотеката <tt >config.inc.php</"
+"tt> во основниот директориум OPS, или користејќи веб-интерфејс за "
+"администрација на страницата. </p> <h4> Поддржани системи за бази на "
+"податоци </h4> <p> OPS во моментов е тестиран само на MySQL и PostgreSQL, "
+"иако други системи за управување со базата на податоци поддржани од <a href="
+"\"http: //adodb.sourceforge.net/\"target =\"_ blank\">ADOdb</a> може да "
+"работи (целосно или делумно). Извештаите за компатибилност и / или закрпите "
+"за кодови за алтернативни ДБМС можат да бидат испратени до тимот на ОПС. </p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<h4> Чекори пред инсталација </h4><p> 1. Следните датотеки и директориуми (и "
+"нивната содржина) мора да бидат напишани: </p><ul><li><tt>config.inc.php</"
+"tt> може да се запише (по избор): {$ Writable_config} </ li > <li> <tt> "
+"јавно / </tt> може да се запише: {$writable_public}</li><li><tt>cache/</tt> "
+"може да се запише: {$writable_cache}</li><li><tt>cache/t_cache/</tt> се "
+"запишува: {$writable_templates_cache}</li><li><tt>cache/t_compile/</tt> може "
+"да се запише: {$writable_templates_compile}</li><li><tt>cache/_db</tt> може "
+"да се запише: {$writable_db_cache}</li></ul><p> 2. Именикот за зачувување на "
+"подигнатите датотеки мора да биде креиран и да се запишува (видете "
+"„Подесувања на датотека“ подолу)"
+
+msgid "installer.upgradeInstructions"
+msgstr "<h4> Верзија на OPS {$version} </h4>"
+
+msgid "installer.localeSettingsInstructions"
+msgstr ""
+
+msgid "installer.allowFileUploads"
+msgstr ""
+
+msgid "installer.maxFileUploadSize"
+msgstr ""
+
+msgid "installer.localeInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+
+msgid "installer.installApplication"
+msgstr ""
+
+msgid "installer.upgradeApplication"
+msgstr ""
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+
+msgid "installer.installationComplete"
+msgstr ""
+
+msgid "installer.upgradeComplete"
+msgstr ""
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+
+msgid "log.editor.decision"
+msgstr ""
+
+msgid "log.editor.recommendation"
+msgstr ""
+
+msgid "notification.type.submissionSubmitted"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewing"
+msgstr ""
+
+msgid "notification.type.submissions"
+msgstr ""
+
+msgid "notification.type.public"
+msgstr ""
+
+msgid "notification.type.editorAssignmentTask"
+msgstr ""
+
+msgid "notification.type.awaitingRepresentations"
+msgstr ""
+
+msgid "user.authorization.noContext"
+msgstr ""
+
+msgid "notification.type.approveSubmission"
+msgstr ""
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr ""
+
+msgid "user.profile.form.showOtherContexts"
+msgstr ""
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr ""
+
+msgid "catalog.sortBy"
+msgstr ""
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr ""
+
+msgid "preprint.subject"
+msgstr ""
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr ""

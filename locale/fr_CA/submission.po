@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-03-03 18:36+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -12,15 +12,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "submission.submit.userGroup"
+msgstr "Soumettre en tant que (rôle)..."
+
+msgid "submission.upload.selectComponent"
+msgstr "Sélectionner l'élément de la prépublication"
+
+msgid "submission.title"
+msgstr "Titre de la prépublication"
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Nouvelle soumission"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Le résumé doit contenir {$wordCount} mots ou moins."
+
 msgid "submission.submit.noContext"
 msgstr "Le serveur de cette soumission est introuvable."
 
-#, fuzzy
-msgid "publication.relation.label"
-msgstr "Soumis-e pour publication"
+msgid "submission.galleyFiles"
+msgstr "Fichiers des épreuves"
 
-msgid "publication.relation"
-msgstr "Relations"
+msgid "submission.upload.fileContents"
+msgstr "Élément de la prépublication"
+
+msgid "submission.complete"
+msgstr "Approuvé-e"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Liste de vérification de la soumission"
+
+msgid "submission.submit.contributorRole"
+msgstr "Rôle du,de la contributeur-trice"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Ces spécifications sont basées sur le schéma de métadonnées du Dublin Core, "
+"une norme internationale utilisée pour décrire les contenus d'un serveur."
+
+#, fuzzy
+msgid "submission.sectionOptions"
+msgstr "Options de la série"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} titres"
+
+msgid "catalog.category.heading"
+msgstr "Tous les titres"
+
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Les épreuves de cette publication ne peuvent pas être modifiées car elles "
+"ont déjà été publiées."
+
+msgid "galley.publicationNotFound"
+msgstr "La publication de ces épreuves est introuvable."
+
+msgid "publication.invalidSection"
+msgstr ""
+
+msgid "publication.inactiveSection"
+msgstr ""
+
+msgid "preprint.entry"
+msgstr "Entrée de la prépublication"
+
+msgid "publication.issue.success"
+msgstr ""
+"Les renseignements de l'entrée de la prépublication ont été mis à jour."
 
 msgid "publication.datePublished.description"
 msgstr ""
@@ -28,61 +87,162 @@ msgstr ""
 "de la prépublication. Ne pas entrer de date de publication sauf si vous "
 "devez l'antidater."
 
-msgid "publication.issue.success"
-msgstr "Les renseignements de l'entrée de la prépublication ont été mis à jour."
-
-msgid "preprint.entry"
-msgstr "Entrée de la prépublication"
-
-msgid "galley.publicationNotFound"
-msgstr "La publication de ces épreuves est introuvable."
-
-msgid "galley.editPublishedDisabled"
-msgstr ""
-"Les épreuves de cette publication ne peuvent pas être modifiées car elles "
-"ont déjà été publiées."
-
-msgid "catalog.category.heading"
-msgstr "Tous les titres"
-
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} titres"
+msgid "publication.relation"
+msgstr "Relations"
 
 #, fuzzy
-msgid "submission.sectionOptions"
-msgstr "Options de la série"
+msgid "publication.relation.label"
+msgstr "Soumis-e pour publication"
 
-msgid "submission.metadataDescription"
+msgid "publication.relation.description"
 msgstr ""
-"Ces spécifications sont basées sur le schéma de métadonnées du Dublin Core, "
-"une norme internationale utilisée pour décrire les contenus d'un serveur."
 
-msgid "submission.submit.contributorRole"
-msgstr "Rôle du,de la contributeur-trice"
+msgid "publication.relation.none"
+msgstr ""
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Liste de vérification de la soumission"
+msgid "publication.relation.published"
+msgstr ""
 
-msgid "submission.complete"
-msgstr "Approuvé-e"
+msgid "publication.relation.vorDoi"
+msgstr ""
 
-msgid "submission.upload.fileContents"
-msgstr "Élément de la prépublication"
+msgid "publication.publish.relationStatus"
+msgstr ""
 
-msgid "submission.galleyFiles"
-msgstr "Fichiers des épreuves"
+msgid "publication.publish.relationStatus.none"
+msgstr ""
 
-msgid "submission.abstract.wordCount.description"
-msgstr "Le résumé doit contenir {$wordCount} mots ou moins."
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
 
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Nouvelle soumission"
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr ""
 
-msgid "submission.title"
-msgstr "Titre de la prépublication"
+msgid "publication.publish.relationStatus.published"
+msgstr ""
 
-msgid "submission.upload.selectComponent"
-msgstr "Sélectionner l'élément de la prépublication"
+msgid "publication.publish.confirmation"
+msgstr ""
 
-msgid "submission.submit.userGroup"
-msgstr "Soumettre en tant que (rôle)..."
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+
+msgid "publication.status.published"
+msgstr ""
+
+msgid "submission.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "submission.publication"
+msgstr ""
+
+msgid "submission.publications"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+
+msgid "publication.datePublished"
+msgstr ""
+
+msgid "publication.editDisabled"
+msgstr ""
+
+msgid "publication.event.published"
+msgstr ""
+
+msgid "publication.event.scheduled"
+msgstr ""
+
+msgid "publication.event.unpublished"
+msgstr ""
+
+msgid "publication.event.versionPublished"
+msgstr ""
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+
+msgid "publication.invalidSubmission"
+msgstr ""
+
+msgid "publication.publish"
+msgstr ""
+
+msgid "publication.publish.requirements"
+msgstr ""
+
+msgid "publication.required.declined"
+msgstr ""
+
+msgid "publication.required.reviewStage"
+msgstr ""
+
+msgid "submission.license.description"
+msgstr ""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+
+msgid "publication.unpublish"
+msgstr ""
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+
+msgid "publication.version.details"
+msgstr ""
+
+msgid "submission.queries.production"
+msgstr ""
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""
+
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""

@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T11:05:34+00:00\n"
 "PO-Revision-Date: 2020-02-25 19:36+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
-"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/ops/"
-"generic-webFeed/tr/>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/ops/generic-"
+"webFeed/tr/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,8 @@ msgstr "Bu eklenti son sayı için RSS/Atom web akış beslemeleri üretir."
 
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
-msgstr "Web besleme bağlantılarını sadece anasayfa ve sayı sayfalarında göster."
+msgstr ""
+"Web besleme bağlantılarını sadece anasayfa ve sayı sayfalarında göster."
 
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
@@ -43,3 +44,9 @@ msgstr "RSS1 logo"
 
 msgid "plugins.generic.webfeed.rss2.altText"
 msgstr "RSS2 logo"
+
+msgid "plugins.generic.webfeed.blockTitle"
+msgstr ""
+
+msgid "plugins.generic.webfeed.settings.includeIdentifiers"
+msgstr ""

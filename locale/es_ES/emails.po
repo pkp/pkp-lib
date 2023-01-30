@@ -11,33 +11,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "emails.issuePublishNotify.body"
+msgid "emails.passwordResetConfirm.subject"
+msgstr "Confirmación de restablecimiento de contraseña"
+
+msgid "emails.passwordResetConfirm.body"
 msgstr ""
-"Lectores: <br />\n"
+"Hemos recibido una solicitud para restablecer su contraseña para el sitio "
+"web {$siteTitle}. <br />\n"
 "<br />\n"
-"{$contextName} acaba de publicar su último preprint en {$contextUrl}.\n"
+"Si no realizó esta solicitud, ignore este correo electrónico y su contraseña "
+"no se cambiará. Si desea restablecer su contraseña, haga clic en la "
+"siguiente URL. <br />\n"
 "<br />\n"
-"Gracias por el continuo interés en nuestro trabajo, <br />\n"
-"{$signature}"
+"Restablecer mi contraseña: {$passwordResetUrl} <br />\n"
+"<br />\n"
+"{$siteContactName}"
 
-msgid "emails.issuePublishNotify.subject"
-msgstr "Nuevo preprint postado"
-
-msgid "emails.userValidateContext.body"
-msgstr ""
-"{$recipientName} <br />\n"
-"<br />\n"
-"Ha creado una cuenta con {$contextName}, pero antes de poder comenzar a "
-"usarla, debe validar su cuenta de correo electrónico. Para hacer esto, "
-"simplemente siga el siguiente enlace: <br />\n"
-"<br />\n"
-"{$enableUrl} <br />\n"
-"<br />\n"
-"Gracias <br />\n"
-"{$contextSignature}"
-
-msgid "emails.userValidateContext.subject"
-msgstr "Valide su cuenta"
+msgid "emails.userRegister.subject"
+msgstr "Registro en el servidor"
 
 msgid "emails.userRegister.body"
 msgstr ""
@@ -55,21 +46,93 @@ msgstr ""
 "Gracias <br />\n"
 "{$signature}"
 
-msgid "emails.userRegister.subject"
-msgstr "Registro en el servidor"
+msgid "emails.userValidateContext.subject"
+msgstr "Valide su cuenta"
 
-msgid "emails.passwordResetConfirm.body"
+msgid "emails.userValidateContext.body"
 msgstr ""
-"Hemos recibido una solicitud para restablecer su contraseña para el sitio "
-"web {$siteTitle}. <br />\n"
+"{$recipientName} <br />\n"
 "<br />\n"
-"Si no realizó esta solicitud, ignore este correo electrónico y su contraseña "
-"no se cambiará. Si desea restablecer su contraseña, haga clic en la "
-"siguiente URL. <br />\n"
+"Ha creado una cuenta con {$contextName}, pero antes de poder comenzar a "
+"usarla, debe validar su cuenta de correo electrónico. Para hacer esto, "
+"simplemente siga el siguiente enlace: <br />\n"
 "<br />\n"
-"Restablecer mi contraseña: {$passwordResetUrl} <br />\n"
+"{$enableUrl} <br />\n"
 "<br />\n"
-"{$siteContactName}"
+"Gracias <br />\n"
+"{$contextSignature}"
 
-msgid "emails.passwordResetConfirm.subject"
-msgstr "Confirmación de restablecimiento de contraseña"
+msgid "emails.userValidateSite.subject"
+msgstr ""
+
+msgid "emails.userValidateSite.body"
+msgstr ""
+
+msgid "emails.issuePublishNotify.subject"
+msgstr "Nuevo preprint postado"
+
+msgid "emails.issuePublishNotify.body"
+msgstr ""
+"Lectores: <br />\n"
+"<br />\n"
+"{$contextName} acaba de publicar su último preprint en {$contextUrl}.\n"
+"<br />\n"
+"Gracias por el continuo interés en nuestro trabajo, <br />\n"
+"{$signature}"
+
+msgid "emails.postedAck.subject"
+msgstr ""
+
+msgid "emails.postedAck.body"
+msgstr ""
+
+msgid "emails.submissionAckCanPost.subject"
+msgstr ""
+
+msgid "emails.submissionAckCanPost.body"
+msgstr ""
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr ""
+
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+
+msgid "emails.editorAssign.subject"
+msgstr ""
+
+msgid "emails.editorAssign.body"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.subject"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.body"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.subject"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.body"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.subject"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.body"
+msgstr ""
+
+msgid "emails.announcement.subject"
+msgstr ""
+
+msgid "emails.announcement.body"
+msgstr ""
+
+msgid "emails.submissionAck.body"
+msgstr ""
+
+msgid "emails.postedNewVersionAck.subject"
+msgstr ""
+
+msgid "emails.postedNewVersionAck.body"
+msgstr ""

@@ -12,73 +12,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "section.default.title"
+msgstr "Preprints"
+
+msgid "section.default.abbrev"
+msgstr "PRE"
+
+msgid "section.default.path"
+msgstr "preprints"
+
+msgid "section.default.policy"
+msgstr " "
+
+msgid "default.genres.preprint"
+msgstr "texto preprint"
+
+msgid "default.contextSettings.authorGuidelines"
+msgstr ""
+
+msgid "default.contextSettings.checklist"
+msgstr ""
+
+msgid "default.contextSettings.forReaders"
+msgstr ""
+"Alentamos a los lectores a registrarse en el servicio de notificaciones de "
+"publicación para este servidor. Utilice el enlace <a href=\"{$indexUrl}/"
+"{$contextPath}/user/register\"> Registrarse </a> en la parte superior de la "
+"página principal. Esta lista también permite al servidor reclamar un cierto "
+"nivel de soporte o lectores. Consulte la <a href=\"{$indexUrl}/"
+"{$contextPath}/about/submissions#privacyStatement\"> Declaración de "
+"privacidad </a>, que garantiza a los lectores que su nombre y dirección de "
+"correo electrónico no se utilizarán para otros fines."
+
+msgid "default.contextSettings.forAuthors"
+msgstr ""
+"¿Interesado en enviar a este servidor? Recomendamos que revise la página <a "
+"href=\"{$indexUrl}/{$contextPath}/about\">Acerca de</a> para conocer las "
+"políticas, así como la <a href=\"{$indexUrl}/{$contextPath}/about/"
+"submissions#authorGuidelines\">Directrices del autor</a>. Los autores deben "
+"<a href=\"{$indexUrl}/{$contextPath}/user/register\"> registrarse</a> antes "
+"de enviar o, si ya está registrado, pueden simplemente <a href=\"{$ "
+"indexUrl}/index/log in\">iniciar sesión </a> y comenzar el proceso."
+
 #, fuzzy
 msgid "default.contextSettings.forLibrarians"
 msgstr ""
 "Alentamos a los bibliotecarios de investigación a enumerar este servidor "
 "entre las existencias de su biblioteca. Además, vale la pena señalar que el "
 "sistema de publicación de código abierto de este servidor es adecuado para "
-"que las bibliotecas alojen a los miembros de su facultad (ver <a href=\""
-"http://pkp.sfu.ca\"> Proyecto de conocimiento público </a>)."
-
-msgid "default.genres.sourceTexts"
-msgstr "Textos fuente"
-
-msgid "default.genres.dataSet"
-msgstr "Conjunto de datos"
-
-msgid "default.genres.dataAnalysis"
-msgstr "Análisis de los datos"
-
-msgid "default.genres.transcripts"
-msgstr "Transcripciones"
-
-msgid "default.genres.researchResults"
-msgstr "Resultados de la investigacion"
-
-msgid "default.genres.researchMaterials"
-msgstr "Materiales de investigación"
-
-msgid "default.genres.researchInstrument"
-msgstr "Instrumento de investigación"
-
-#, fuzzy
-msgid "default.groups.abbrev.sectionEditor"
-msgstr "SecE"
-
-#, fuzzy
-msgid "default.groups.plural.sectionEditor"
-msgstr "Editores de series"
-
-#, fuzzy
-msgid "default.groups.name.sectionEditor"
-msgstr "Editor de series"
-
-msgid "default.groups.abbrev.editor"
-msgstr "JE"
-
-msgid "default.groups.plural.editor"
-msgstr "Editores del servidor"
-
-msgid "default.groups.name.editor"
-msgstr "Editor de servidores"
-
-msgid "default.groups.abbrev.manager"
-msgstr "PSM"
-
-#, fuzzy
-msgid "default.groups.plural.manager"
-msgstr "Administradores de servidores"
-
-#, fuzzy
-msgid "default.groups.name.manager"
-msgstr "Administrador de servidores"
-
-msgid "default.contextSettings.openAccessPolicy"
-msgstr ""
-"Este servidor proporciona acceso abierto inmediato a su contenido bajo el "
-"principio de que hacer que la investigación esté disponible gratuitamente "
-"para el público apoya un mayor intercambio global de conocimiento."
+"que las bibliotecas alojen a los miembros de su facultad (ver <a href="
+"\"http://pkp.sfu.ca\"> Proyecto de conocimiento público </a>)."
 
 msgid "default.contextSettings.privacyStatement"
 msgstr ""
@@ -87,61 +70,100 @@ msgstr ""
 "por este servidor y no estarán disponibles para ningún otro propósito ni "
 "para ninguna otra parte.</p>"
 
-msgid "default.contextSettings.forAuthors"
+msgid "default.contextSettings.openAccessPolicy"
 msgstr ""
-"¿Interesado en enviar a este servidor? Recomendamos que revise la página <a "
-"href=\"{$indexUrl}/{$contextPath}/about\">Acerca de</a> para conocer las "
-"políticas, así como la <a href=\"{$indexUrl}/{$contextPath}/about/submissions#"
-"authorGuidelines\">Directrices del autor</a>. Los autores deben <a href=\""
-"{$indexUrl}/{$contextPath}/user/register\"> registrarse</a> antes de enviar "
-"o, si ya está registrado, pueden simplemente <a href=\"{$ indexUrl}/index/"
-"log in\">iniciar sesión </a> y comenzar el proceso."
+"Este servidor proporciona acceso abierto inmediato a su contenido bajo el "
+"principio de que hacer que la investigación esté disponible gratuitamente "
+"para el público apoya un mayor intercambio global de conocimiento."
 
-msgid "default.contextSettings.forReaders"
+#, fuzzy
+msgid "default.groups.name.manager"
+msgstr "Administrador de servidores"
+
+#, fuzzy
+msgid "default.groups.plural.manager"
+msgstr "Administradores de servidores"
+
+msgid "default.groups.abbrev.manager"
+msgstr "PSM"
+
+#, fuzzy
+msgid "default.groups.name.sectionEditor"
+msgstr "Editor de series"
+
+#, fuzzy
+msgid "default.groups.plural.sectionEditor"
+msgstr "Editores de series"
+
+#, fuzzy
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "SecE"
+
+msgid "default.genres.researchInstrument"
+msgstr "Instrumento de investigación"
+
+msgid "default.genres.researchMaterials"
+msgstr "Materiales de investigación"
+
+msgid "default.genres.researchResults"
+msgstr "Resultados de la investigacion"
+
+msgid "default.genres.transcripts"
+msgstr "Transcripciones"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Análisis de los datos"
+
+msgid "default.genres.dataSet"
+msgstr "Conjunto de datos"
+
+msgid "default.genres.sourceTexts"
+msgstr "Textos fuente"
+
+msgid "default.submission.step.beforeYouBegin"
 msgstr ""
-"Alentamos a los lectores a registrarse en el servicio de notificaciones de "
-"publicación para este servidor. Utilice el enlace <a href=\""
-"{$indexUrl}/{$contextPath}/user/register\"> Registrarse </a> en la parte "
-"superior de la página principal. Esta lista también permite al servidor "
-"reclamar un cierto nivel de soporte o lectores. Consulte la <a href=\""
-"{$indexUrl}/{$contextPath}/about/submissions#privacyStatement\"> Declaración "
-"de privacidad </a>, que garantiza a los lectores que su nombre y dirección "
-"de correo electrónico no se utilizarán para otros fines."
 
-msgid "default.contextSettings.checklist.bibliographicRequirements"
+msgid "default.submission.step.uploadFiles"
 msgstr ""
-"El texto se adhiere a los requisitos estilísticos y bibliográficos descritos "
-"en las Directrices del autor."
 
-msgid "default.contextSettings.checklist.submissionAppearance"
+msgid "default.submission.step.contributors"
 msgstr ""
-"El texto es de espacio simple; usa una fuente de 12 puntos; emplea cursiva, "
-"en lugar de subrayar (excepto con direcciones URL); y todas las "
-"ilustraciones, figuras y tablas se colocan dentro del texto en los puntos "
-"apropiados, en lugar de al final."
 
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Donde esté disponible, se proporcionaron las URL de las referencias."
-
-msgid "default.contextSettings.checklist.fileFormat"
+msgid "default.submission.step.forTheEditors"
 msgstr ""
-"El archivo de envío está en formato de archivo de documento OpenOffice, "
-"Microsoft Word o RTF."
 
-msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr "La entrega no ha sido postado previamente."
+msgid "default.submission.step.review"
+msgstr ""
 
-msgid "default.genres.preprint"
-msgstr "texto preprint"
+#~ msgid "default.groups.abbrev.editor"
+#~ msgstr "JE"
 
-msgid "section.default.path"
-msgstr "preprints"
+#~ msgid "default.groups.plural.editor"
+#~ msgstr "Editores del servidor"
 
-msgid "section.default.abbrev"
-msgstr "PRE"
+#~ msgid "default.groups.name.editor"
+#~ msgstr "Editor de servidores"
 
-msgid "section.default.title"
-msgstr "Preprints"
+#~ msgid "default.contextSettings.checklist.bibliographicRequirements"
+#~ msgstr ""
+#~ "El texto se adhiere a los requisitos estilísticos y bibliográficos "
+#~ "descritos en las Directrices del autor."
 
-msgid "section.default.policy"
-msgstr " "
+#~ msgid "default.contextSettings.checklist.submissionAppearance"
+#~ msgstr ""
+#~ "El texto es de espacio simple; usa una fuente de 12 puntos; emplea "
+#~ "cursiva, en lugar de subrayar (excepto con direcciones URL); y todas las "
+#~ "ilustraciones, figuras y tablas se colocan dentro del texto en los puntos "
+#~ "apropiados, en lugar de al final."
+
+#~ msgid "default.contextSettings.checklist.addressesLinked"
+#~ msgstr ""
+#~ "Donde esté disponible, se proporcionaron las URL de las referencias."
+
+#~ msgid "default.contextSettings.checklist.fileFormat"
+#~ msgstr ""
+#~ "El archivo de envío está en formato de archivo de documento OpenOffice, "
+#~ "Microsoft Word o RTF."
+
+#~ msgid "default.contextSettings.checklist.notPreviouslyPublished"
+#~ msgstr "La entrega no ha sido postado previamente."

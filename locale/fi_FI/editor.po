@@ -11,14 +11,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "editor.submissions.assignedTo"
-msgstr "Osoitettu moderaattorille"
+msgid "editor.publicIdentificationExists"
+msgstr ""
 
-msgid "editor.publication.authorPublishRequirements"
-msgstr "Kirjoittaja ei täytä seuraavia julkaisemista koskevia vaatimuksia:"
+msgid "grid.action.addGalley"
+msgstr "Lisää julkaistava tiedosto"
 
-msgid "editor.preprint.coverImage"
-msgstr "Kansikuva"
+msgid "editor.submission.proof.manageProofFilesDescription"
+msgstr ""
 
 msgid "editor.publicIdentificationExistsForTheSameType"
 msgstr ""
@@ -26,5 +26,14 @@ msgstr ""
 "samantyyppisellä kohteella. Valitse samantyyppisille kohteille yksilöivät "
 "tunnisteet."
 
-msgid "grid.action.addGalley"
-msgstr "Lisää julkaistava tiedosto"
+msgid "editor.preprint.coverImage"
+msgstr "Kansikuva"
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr "Kirjoittaja ei täytä seuraavia julkaisemista koskevia vaatimuksia:"
+
+msgid "editor.submissions.assignedTo"
+msgstr "Osoitettu moderaattorille"
+
+msgid "editor.submission.schedulePublication"
+msgstr ""

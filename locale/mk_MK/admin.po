@@ -11,14 +11,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.contexts.create"
-msgstr "Креирај Сервер"
+msgid "admin.hostedContexts"
+msgstr "Хостирани сервери"
 
-msgid "admin.systemConfiguration"
-msgstr "ОПС Конфигурација"
+msgid "admin.settings.redirect"
+msgstr "Серверско пренасочување"
 
-msgid "admin.languages.localeInstalled"
-msgstr "\"{$locale}\" локалот е инсталиран."
+msgid "admin.settings.redirectInstructions"
+msgstr ""
+"Барања до главниот сајт ќе бидат пренасочени до овој сервер. Ова може да е "
+"корисно доколку сајтот хостира само еден сервер, на пример."
+
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Дали сте сигурни дека сакате да го оневозможите овој локал? Тоа може да "
+"влијае на хостираните сервери кои моментално го користат локалот."
+
+msgid "admin.locale.maybeIncomplete"
+msgstr "Обележаните локали може да се нецелосни."
+
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Дали сте сигурни дека сакате да го деинсталирате овој локал? Тоа може да "
+"влијае врз хостираните сервери кои моментално го користат локалот."
 
 msgid "admin.languages.installNewLocalesInstructions"
 msgstr ""
@@ -27,57 +42,31 @@ msgstr ""
 "хостирање сервери. Погледнете ја ОПС документацијата за информации во врска "
 "со додавање поддршка за нови јазици."
 
-msgid "admin.languages.confirmUninstall"
-msgstr ""
-"Дали сте сигурни дека сакате да го деинсталирате овој локал? Тоа може да "
-"влијае врз хостираните сервери кои моментално го користат локалот."
+msgid "admin.languages.localeInstalled"
+msgstr "\"{$locale}\" локалот е инсталиран."
 
-msgid "admin.locale.maybeIncomplete"
-msgstr "Обележаните локали може да се нецелосни."
+msgid "admin.systemConfiguration"
+msgstr "ОПС Конфигурација"
 
-msgid "admin.languages.confirmDisable"
-msgstr ""
-"Дали сте сигурни дека сакате да го оневозможите овој локал? Тоа може да "
-"влијае на хостираните сервери кои моментално го користат локалот."
-
-msgid "admin.settings.redirectInstructions"
-msgstr ""
-"Барања до главниот сајт ќе бидат пренасочени до овој сервер. Ова може да е "
-"корисно доколку сајтот хостира само еден сервер, на пример."
-
-msgid "admin.settings.redirect"
-msgstr "Серверско пренасочување"
-
-msgid "admin.hostedContexts"
-msgstr "Хостирани сервери"
-
-msgid "admin.contexts.contextDescription"
-msgstr "Опис на серверот"
-
-msgid "admin.contexts.form.pathExists"
-msgstr "Патеката што ја дадовте е веќе во употреба од друг сервер."
+msgid "admin.contexts.create"
+msgstr "Креирај Сервер"
 
 msgid "admin.contexts.form.pathAlphaNumeric"
 msgstr ""
 "Патеката може да вклучува само букви, броеви и знаци _ и -. Мора да започне "
 "и да заврши со буква или број."
 
+msgid "admin.contexts.form.pathExists"
+msgstr "Патеката што ја дадовте е веќе во употреба од друг сервер."
+
+msgid "admin.contexts.form.primaryLocaleNotSupported"
+msgstr "Главниот локал мора да биде еден од поддржаните локали на серверот."
+
+msgid "admin.contexts.contextDescription"
+msgstr "Опис на серверот"
+
 msgid "admin.contexts.enableContextInstructions"
 msgstr "Овозможете овој препринт сервер да се појавува јавно на страницата"
-
-msgid "admin.settings.disableBulkEmailRoles.contextDisabled"
-msgstr ""
-"Опцијагта мноштво имејли has been disabled for this server. Enable this "
-"feature in <a href=\"{$siteSettingsUrl}\">Admin > Site Settings</a>."
-
-msgid "admin.settings.disableBulkEmailRoles.description"
-msgstr ""
-"Менаџерот на серверот will be unable to send bulk emails to any of the roles "
-"selected below. Use this setting to limit abuse of the email notification "
-"feature. For example, it may be safer to disable bulk emails to readers, "
-"authors, or other large user groups that have not consented to receive such "
-"emails.<br><br>The bulk email feature can be disabled completely for this "
-"server in <a href=\"{$siteSettingsUrl}\">Admin > Site Settings</a>."
 
 msgid "admin.settings.enableBulkEmails.description"
 msgstr ""
@@ -91,5 +80,28 @@ msgstr ""
 "this feature can be enabled for each server by visiting its settings wizard "
 "in the list of <a href=\"{$hostedContextsUrl}\">Hosted Servers</a>."
 
-msgid "admin.contexts.form.primaryLocaleNotSupported"
-msgstr "Главниот локал мора да биде еден од поддржаните локали на серверот."
+msgid "admin.settings.disableBulkEmailRoles.description"
+msgstr ""
+"Менаџерот на серверот will be unable to send bulk emails to any of the roles "
+"selected below. Use this setting to limit abuse of the email notification "
+"feature. For example, it may be safer to disable bulk emails to readers, "
+"authors, or other large user groups that have not consented to receive such "
+"emails.<br><br>The bulk email feature can be disabled completely for this "
+"server in <a href=\"{$siteSettingsUrl}\">Admin > Site Settings</a>."
+
+msgid "admin.settings.disableBulkEmailRoles.contextDisabled"
+msgstr ""
+"Опцијагта мноштво имејли has been disabled for this server. Enable this "
+"feature in <a href=\"{$siteSettingsUrl}\">Admin > Site Settings</a>."
+
+msgid "admin.siteManagement.description"
+msgstr ""
+
+msgid "admin.settings.statistics.geo.description"
+msgstr ""
+
+msgid "admin.settings.statistics.institutions.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.public.description"
+msgstr ""

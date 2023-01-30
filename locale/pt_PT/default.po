@@ -11,108 +11,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.contextSettings.forReaders"
-msgstr ""
-"Encorajamos os leitores a registar-se no serviço de notificação de "
-"publicação deste servidor. Utilize o link <a href=\""
-"{$indexUrl}/{$contextPath}/user/register\">Registar</a> na parte superior da "
-"página de início. Esta lista também permite ao servidor reivindicar um certo "
-"nível de suporte ou leitores. Consulte a <a href=\""
-"{$indexUrl}/{$contextPath}/about/submissions#privacyStatement\">Política de "
-"Privacidade</a>, que garante aos leitores que o seu nome e e-mail não serão "
-"utilizados para outras finalidades."
-
-msgid "default.contextSettings.checklist.bibliographicRequirements"
-msgstr ""
-"O texto cumpre as normas estilísticas e bibliográficas referidas nas "
-"Instruções aos Autores."
-
-msgid "default.contextSettings.checklist.submissionAppearance"
-msgstr ""
-"O texto foi formatado em espaço simples; com fonte a 12 pontos; adota "
-"itálicos, em vez de sublinhados (exceto para endereços URL); e todas as "
-"ilustrações, figuras, e tabelas encontram-se no correto local no texto, e "
-"não todas no final."
-
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Foram inseridos os URLs das referências, quando disponíveis."
-
-msgid "default.contextSettings.checklist.fileFormat"
-msgstr ""
-"O ficheiro da submissão encontra-se em formato OpenOffice, Microsoft Word ou "
-"RTF."
-
-msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr "A submissão não foi previamente publicada."
-
-msgid "default.genres.preprint"
-msgstr "Texto de preprint"
+msgid "section.default.title"
+msgstr "Pré-prints"
 
 msgid "section.default.abbrev"
 msgstr "PRE"
 
-msgid "section.default.title"
-msgstr "Pré-prints"
+msgid "section.default.path"
+msgstr "pré-prints"
 
-msgid "default.genres.sourceTexts"
-msgstr "Textos fonte"
+msgid "section.default.policy"
+msgstr "Política padrão da secção"
 
-msgid "default.genres.dataSet"
-msgstr "Conjunto de Dados"
+msgid "default.genres.preprint"
+msgstr "Texto de preprint"
 
-msgid "default.genres.dataAnalysis"
-msgstr "Análise de Dados"
-
-msgid "default.genres.transcripts"
-msgstr "Transcrições"
-
-msgid "default.genres.researchResults"
-msgstr "Resultados de Investigação"
-
-msgid "default.genres.researchMaterials"
-msgstr "Materiais de Investigação"
-
-msgid "default.genres.researchInstrument"
-msgstr "Instrumento de Pesquisa"
-
-msgid "default.groups.abbrev.sectionEditor"
-msgstr "MOD"
-
-msgid "default.groups.plural.sectionEditor"
-msgstr "Moderadores"
-
-msgid "default.groups.name.sectionEditor"
-msgstr "Moderador"
-
-msgid "default.groups.abbrev.manager"
-msgstr "GSP"
-
-msgid "default.groups.plural.manager"
-msgstr "Gestores de servidor pré-prints"
-
-msgid "default.groups.name.manager"
-msgstr "Gestor de servidor de pré-prints"
-
-msgid "default.contextSettings.openAccessPolicy"
+msgid "default.contextSettings.authorGuidelines"
 msgstr ""
-"Este servidor fornece acesso aberto imediato ao seu conteúdo seguindo o "
-"princípio de que tornar a investigação disponível apoia uma maior troca de "
-"conhecimento global."
 
-msgid "default.contextSettings.privacyStatement"
+msgid "default.contextSettings.checklist"
 msgstr ""
-"<p>Os nomes e endereços de e-mail inseridos neste servidor serão usados "
-"exclusivamente para os propósitos do servidor e não serão disponibilizados "
-"para nenhum outro propósito ou cedidos a terceiros.</p>"
 
-#, fuzzy
-msgid "default.contextSettings.forLibrarians"
+msgid "default.contextSettings.forReaders"
 msgstr ""
-"Encorajamos bibliotecários de investigação a listar este servidor nos seus "
-"catálogos. Além disso, vale a pena assinalar que este sistema de publicação "
-"de código aberto é adequado para as bibliotecas oferecerem aos seus "
-"investigadores (veja <a href=\"http://pkp.sfu.ca\">Public Knowledge "
-"Project</a>)."
+"Encorajamos os leitores a registar-se no serviço de notificação de "
+"publicação deste servidor. Utilize o link <a href=\"{$indexUrl}/"
+"{$contextPath}/user/register\">Registar</a> na parte superior da página de "
+"início. Esta lista também permite ao servidor reivindicar um certo nível de "
+"suporte ou leitores. Consulte a <a href=\"{$indexUrl}/{$contextPath}/about/"
+"submissions#privacyStatement\">Política de Privacidade</a>, que garante aos "
+"leitores que o seu nome e e-mail não serão utilizados para outras "
+"finalidades."
 
 msgid "default.contextSettings.forAuthors"
 msgstr ""
@@ -120,12 +49,104 @@ msgstr ""
 "<a href=\"{$indexUrl}/{$contextPath}/about\">Sobre</a> para saber mais sobre "
 "as políticas, bem como as <a href=\"{$indexUrl}/{$contextPath}/about/"
 "submissions#authorGuidelines\">Instruções aos Autores</a>. Os autores têm de "
-"<a href=\"{$indexUrl}/{$contextPath}/user/register\">registar-se</a> antes de "
-"submeter ou, se já estiver registado, pode simplesmente <a href=\""
-"{$indexUrl}/index/login\">entrar no sistema</a> e iniciar o processo."
+"<a href=\"{$indexUrl}/{$contextPath}/user/register\">registar-se</a> antes "
+"de submeter ou, se já estiver registado, pode simplesmente <a href="
+"\"{$indexUrl}/index/login\">entrar no sistema</a> e iniciar o processo."
 
-msgid "section.default.policy"
-msgstr "Política padrão da secção"
+#, fuzzy
+msgid "default.contextSettings.forLibrarians"
+msgstr ""
+"Encorajamos bibliotecários de investigação a listar este servidor nos seus "
+"catálogos. Além disso, vale a pena assinalar que este sistema de publicação "
+"de código aberto é adequado para as bibliotecas oferecerem aos seus "
+"investigadores (veja <a href=\"http://pkp.sfu.ca\">Public Knowledge Project</"
+"a>)."
 
-msgid "section.default.path"
-msgstr "pré-prints"
+msgid "default.contextSettings.privacyStatement"
+msgstr ""
+"<p>Os nomes e endereços de e-mail inseridos neste servidor serão usados "
+"exclusivamente para os propósitos do servidor e não serão disponibilizados "
+"para nenhum outro propósito ou cedidos a terceiros.</p>"
+
+msgid "default.contextSettings.openAccessPolicy"
+msgstr ""
+"Este servidor fornece acesso aberto imediato ao seu conteúdo seguindo o "
+"princípio de que tornar a investigação disponível apoia uma maior troca de "
+"conhecimento global."
+
+msgid "default.groups.name.manager"
+msgstr "Gestor de servidor de pré-prints"
+
+msgid "default.groups.plural.manager"
+msgstr "Gestores de servidor pré-prints"
+
+msgid "default.groups.abbrev.manager"
+msgstr "GSP"
+
+msgid "default.groups.name.sectionEditor"
+msgstr "Moderador"
+
+msgid "default.groups.plural.sectionEditor"
+msgstr "Moderadores"
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "MOD"
+
+msgid "default.genres.researchInstrument"
+msgstr "Instrumento de Pesquisa"
+
+msgid "default.genres.researchMaterials"
+msgstr "Materiais de Investigação"
+
+msgid "default.genres.researchResults"
+msgstr "Resultados de Investigação"
+
+msgid "default.genres.transcripts"
+msgstr "Transcrições"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Análise de Dados"
+
+msgid "default.genres.dataSet"
+msgstr "Conjunto de Dados"
+
+msgid "default.genres.sourceTexts"
+msgstr "Textos fonte"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""
+
+#~ msgid "default.contextSettings.checklist.bibliographicRequirements"
+#~ msgstr ""
+#~ "O texto cumpre as normas estilísticas e bibliográficas referidas nas "
+#~ "Instruções aos Autores."
+
+#~ msgid "default.contextSettings.checklist.submissionAppearance"
+#~ msgstr ""
+#~ "O texto foi formatado em espaço simples; com fonte a 12 pontos; adota "
+#~ "itálicos, em vez de sublinhados (exceto para endereços URL); e todas as "
+#~ "ilustrações, figuras, e tabelas encontram-se no correto local no texto, e "
+#~ "não todas no final."
+
+#~ msgid "default.contextSettings.checklist.addressesLinked"
+#~ msgstr "Foram inseridos os URLs das referências, quando disponíveis."
+
+#~ msgid "default.contextSettings.checklist.fileFormat"
+#~ msgstr ""
+#~ "O ficheiro da submissão encontra-se em formato OpenOffice, Microsoft Word "
+#~ "ou RTF."
+
+#~ msgid "default.contextSettings.checklist.notPreviouslyPublished"
+#~ msgstr "A submissão não foi previamente publicada."

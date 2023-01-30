@@ -11,75 +11,262 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "context.select"
-msgstr "Başka bir sunucuya geçin:"
-
 msgid "context.current"
 msgstr "Mevcut Sunucu:"
 
-msgid "installer.preInstallationInstructions"
-msgstr ""
-"<h4>Kurulum Öncesi Adımlar</h4><p>1. Aşağıdaki dosyalar ve dizinler (ve "
-"içerikleri) yazılabilir hale "
-"getirilmelidir:</p><ul><li><tt>config.inc.php</tt> yazılabilir (optional): "
-"{$writable_config}</li><li><tt>public/</tt> yazılabilir: "
-"{$writable_public}</li><li><tt>cache/</tt> yazılabilir: "
-"{$writable_cache}</li><li><tt>cache/t_cache/</tt> yazılabilir: "
-"{$writable_templates_cache}</li><li><tt>cache/t_compile/</tt> yazılabilir: "
-"{$writable_templates_compile}</li><li><tt>cache/_db</tt> yazılabilir: "
-"{$writable_db_cache}</li></ul><p>2. Yüklenen dosyaları depolamak için bir "
-"dizin oluşturulmalı ve yazılabilir hale getirilmelidir (aşağıdaki \"Dosya "
-"Ayarları\" bölümüne bakın).</p>"
+msgid "context.select"
+msgstr "Başka bir sunucuya geçin:"
 
-#, fuzzy
-msgid "installer.installationInstructions"
-msgstr ""
-"<h4>OPS Sürümü {$version}</h4><p> Public Knowledge Project'in Open Preprint "
-"Sistemlerini indirdiğiniz için teşekkür ederiz. Devam etmeden önce, lütfen "
-"bu yazılımla birlikte gelen <a href=\"{$baseUrl}README</a> dosyasını okuyun. "
-"Public Knowledge Project ve yazılım projeleri hakkında daha fazla bilgi için "
-"lütfen <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP web sitesini</a> "
-"ziyaret edin. Açık Ön Baskı Sistemleri hakkında hata raporlarınız veya "
-"teknik destek sorularınız varsa, <a href=\"http://forum.pkp.sfu.ca\" target="
-"\"_blank\">destek forumuna</a> bakın veya PKP'nin çevrimiçi <a href=\""
-"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">hata raporlama "
-"sistemini</a> ziyaret edin. Destek forumu tercih edilen iletişim yöntemi "
-"olsa da ekibe <a href=\"mailto:pkp.contact@gmail.com\""
-">pkp.contact@gmail.com</a> adresinden de e-posta "
-"gönderebilirsiniz.</p><h4>Güncelleme</h4><p>Mevcut bir OPS kurulumunu "
-"yükseltiyorsanız, devam etmek için <a href=\"{$upgradeUrl}\">burayı "
-"tıklayın</a>.</p><h4>Önerilen Sistem Gereksinimleri</h4><ul><li><a href=\""
-"http://www.php.net/\" target=\"_blank\">PHP</a> >= {$phpRequiredVersion}; "
-"kullandığınız PHP {$phpVersion}{$wrongPhpText}</li><li><a href=\""
-"http://www.mysql.com/\" target=\"_blank\">MySQL</a> >= 4.1 or <a href=\""
-"http://www.postgresql.org/\" target=\"_blank\">PostgreSQL</a> >= "
-"9.1.5</li><li><a href=\"http://httpd.apache.org/\" target=\"_blank\""
-">Apache</a> >= 1.3.2x or >= 2.0.4x or Microsoft IIS 6</li><li> İşletim "
-"Sistemi: Herhangi bir işletim sistemi; <a href=\"http://www.linux.org/\" "
-"target=\"_blank\">Linux</a>, <a href=\"http://www.bsd.org/\" target=\""
-"_blank\">BSD</a>, <a href=\"http://www.oracle.com/sun/\" target=\"_blank\""
-">Solaris</a>, <a href=\"http://www.apple.com/\" target=\"_blank\">Mac OS "
-"X</a>, <a href=\"http://www.microsoft.com/\">Windows</a> OPS'yi "
-"destekler.</li></ul><p>PKP, yazılım sürümlerinin ve platformların olası her "
-"kombinasyonunu test edecek kaynaklara sahip olmadığından, doğru çalışma veya "
-"destek garantisi verilmez.</p><p>Bu ayarlarda değişiklikler, kurulumdan "
-"sonra, OPS dizinindeki <tt>config.inc.php</tt> dosyası düzenlenerek veya "
-"site yönetimi web arayüzü kullanılarak yapılabilir.</p><h4>Desteklenen "
-"veritabanı sistemleri</h4><p> OPS şu anda yalnızca MySQL ve PostgreSQL "
-"üzerinde test edilmiştir, ancak <a href=\"http://adodb.sourceforge.net/\" "
-"target=\"_blank\">ADOdb</a> tarafından desteklenen diğer veritabanı yönetim "
-"sistemleri çalışabilir (tamamen veya kısmen). Alternatif DBMS'ler için "
-"uyumluluk raporları ve/veya kod yamaları OPS ekibine gönderilebilir.</p>"
+msgid "common.software"
+msgstr "Açık Ön Baskı Sistemleri"
 
-msgid "about.aboutOPSSite"
+msgid "navigation.browseByAuthor"
+msgstr "Yazara göre"
+
+msgid "navigation.skip.about"
+msgstr "Sunucu hakkında bölümüne geç"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Atanmamış"
+
+msgid "common.queue.long.active"
+msgstr "Aktif"
+
+msgid "doi.manager.settings.publications"
 msgstr ""
-"Bu sunucu, GNU Genel Kamu Lisansı altında Public Knowledge Project "
-"tarafından geliştirilen, desteklenen ve ücretsiz olarak dağıtılan açık "
-"kaynaklı ön baskı sunucu yönetimi yazılımı olan Open Preprint Systems "
-"{$opsVersion} sürümünü kullanır. Yazılım hakkında daha fazla bilgi edinmek "
-"için <a href=\"http://pkp.sfu.ca/\">PKP'nin web sitesini</a> ziyaret edin. "
-"Lütfen sunucu ve ön baskıların gönderilmesi ile ilgili sorularınız için "
-"doğrudan <a href=\"{$contactUrl}\">sunucuyla</a> iletişime geçin."
+
+msgid "section.section"
+msgstr "Bölüm"
+
+msgid "section.sections"
+msgstr "Bölümler"
+
+msgid "section.title"
+msgstr "Bölüm başlığı"
+
+msgid "section.abbreviation"
+msgstr "Kısaltma"
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr "Genel dizgi kimliği zaten var."
+
+msgid "section.description"
+msgstr "Bölüm arşivi açıklaması"
+
+msgid "section.pathDescription"
+msgstr "Bölüm URL Yolu. Boşluk yerine kısa çizgi (-) kullanın."
+
+msgid "section.emptySection"
+msgstr "Bu bölümde henüz bir şey yayınlanmadı."
+
+msgid "category.categories"
+msgstr "Kategori"
+
+msgid "common.publication"
+msgstr "Ön Baskı"
+
+msgid "common.publications"
+msgstr "Ön Baskı"
+
+msgid "preprint.details"
+msgstr "Detaylar"
+
+msgid "preprint.abstract"
+msgstr "Öz"
+
+msgid "preprint.pageTitle"
+msgstr "{$title} görünümü"
+
+msgid "submissions.published"
+msgstr "Gönderildi"
+
+msgid "submission.search"
+msgstr "Ön Baskı Arama"
+
+msgid "submission.numberOfVersions"
+msgstr "Sürümler: {$numberOfVersions}"
+
+msgid "submission.dates"
+msgstr "Gönderildi {$submitted} - Yayınladı {$published}"
+
+msgid "publication.galley.downloads"
+msgstr "İndirme: {$downloads}"
+
+msgid "context.contexts"
+msgstr "Sunucu"
+
+msgid "context.context"
+msgstr "Sunucu"
+
+msgid "user.authorization.representationNotFound"
+msgstr "İstenilen dizgi bulunamadı."
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Rolleri olmayan kullanıcıları dahil edin."
+
+msgid "user.register.contextsPrompt"
+msgstr "Bu sitedeki hangi sunuculara kaydolmak istiyorsunuz?"
+
+msgid "user.register.otherContextRoles"
+msgstr "Rolleri isteyin."
+
+msgid "user.register.noContextReviewerInterests"
+msgstr "Hakem olmak için, lütfen ilgi alanlarınızı girin."
+
+msgid "user.role.manager"
+msgstr "Yönetici"
+
+msgid "user.role.subEditor"
+msgstr "Moderatör"
+
+msgid "user.role.subEditors"
+msgstr "Moderatörler"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Ön baskı gönderildi"
+
+msgid "search.results.orderBy"
+msgstr "Sonuçları sıralama ölçütü"
+
+msgid "search.results.orderBy.preprint"
+msgstr "Ön Baskı Başlık"
+
+msgid "search.results.orderBy.author"
+msgstr "Yazar"
+
+msgid "search.results.orderBy.date"
+msgstr "Yayın Tarihi"
+
+msgid "search.results.orderBy.server"
+msgstr "Sunucu Adı"
+
+msgid "search.results.orderBy.popularityAll"
+msgstr "Popülerlik (Tüm Zamanlar)"
+
+msgid "search.results.orderBy.popularityMonth"
+msgstr "Popülerlik (Son Bir Ay)"
+
+msgid "search.results.orderBy.relevance"
+msgstr "Alaka düzeyi"
+
+msgid "search.results.orderDir.asc"
+msgstr "Artan"
+
+msgid "search.results.orderDir.desc"
+msgstr "Azalan"
+
+msgid "manager.people.noAdministrativeRights"
+msgstr ""
+"Üzgünüz, bu kullanıcı üzerinde yönetici haklarınız yok. Bunun nedeni şunlar "
+"olabilir:<ul><li>Kullanıcı bir site yöneticisidir</li><li>Kullanıcı, sizin "
+"yönetmediğiniz sunucularda aktiftir</li></ul>Bu görev bir site yöneticisi "
+"tarafından gerçekleştirilmelidir."
+
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr "Bu dizgi ayrı bir websitesinde yayımlanabilir."
+
+msgid "submission.layout.galley.remoteURL"
+msgstr "Uzaktan barındırılan içeriğin URL'si"
+
+msgid "user.register.registrationDisabled"
+msgstr "Bu sunucu şu anda kullanıcı kaydı kabul etmiyor."
+
+msgid "user.register.form.privacyConsentThisContext"
+msgstr ""
+"Evet, verilerimin bu sunucunun <a href=\"{$privacyUrl}\" target=\"_blank"
+"\">gizlilik bildirimine</a> göre toplanmasını ve saklanmasını kabul ediyorum."
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+"Kaydolduğunuz herhangi bir sunucu için gizlilik bildirimini kabul "
+"etmelisiniz."
+
+msgid "user.register.form.missingSiteConsent"
+msgstr "Bu sitenin gizlilik bildirimini kabul etmelisiniz."
+
+msgid "index.latestPreprints"
+msgstr "Son Ön Baskılar"
+
+msgid "search.searchFor"
+msgstr "Ön baskı ara"
+
+msgid "search.authorIndex"
+msgstr "Yazar Dizinini Görüntüle"
+
+msgid "search.authorDetails"
+msgstr "Yazar Detayı"
+
+msgid "site.serverView"
+msgstr "Sunucuyu Görüntüle"
+
+msgid "site.noServers"
+msgstr "Kullanılabilir sunucu yok."
+
+msgid "archive.archives"
+msgstr "Arşiv"
+
+msgid "archive.archivesPageNumber"
+msgstr "Arşiv - Sayfa {$pageNumber}"
+
+msgid "about.contact"
+msgstr "İletişim"
+
+msgid "about.aboutContext"
+msgstr "Sunucu hakkında"
+
+msgid "about.editorialTeam"
+msgstr "Ön Baskı Sunucusu Takımı"
+
+msgid "about.submissions"
+msgstr "Gönderimler"
+
+msgid "about.onlineSubmissions.login"
+msgstr "Giriş"
+
+msgid "about.onlineSubmissions.register"
+msgstr "Kayıt ol"
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr "Gönderim yapabilmek için {$login} veya {$register}."
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr "{$newSubmission} veya {$viewSubmissions}."
+
+msgid "about.onlineSubmissions.submitToSection"
+msgstr "<a href=\"{$url}\">{$name}</a> bölümü için yeni bir gönderim yapın."
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr "Yeni gönderim yap"
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr "Bekleyen başvuruları görüntüle"
+
+msgid "about.authorGuidelines"
+msgstr "Yazar Rehberi"
+
+msgid "about.submissionPreparationChecklist"
+msgstr "Gönderi Ön Kontrol Listesi"
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+"Gönderim sürecinin bir parçası olarak yazarlar, gönderilerinin aşağıdaki tüm "
+"maddelere uygunluğunu kontrol etmeleri gerekir ve bu yönergelere uymayan "
+"yazarlara gönderimler iade edilebilir."
+
+msgid "about.copyrightNotice"
+msgstr "Telif Hakkı Bildirimi"
+
+msgid "about.privacyStatement"
+msgstr "Gizlilik Bildirimi"
+
+msgid "about.aboutThisPublishingSystem"
+msgstr "OPS/PKP sistemi, platformu ve işleyişi hakkında daha fazla bilgi."
+
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr "OPS Tarama ve Gönderme Süreci"
+
+msgid "about.aboutSoftware"
+msgstr "Ön Baskı Sistemi Hakkında"
 
 msgid "about.aboutOPSServer"
 msgstr ""
@@ -91,264 +278,180 @@ msgstr ""
 "Lütfen sunucu ve ön baskıların gönderilmesi ile ilgili sorularınız için "
 "doğrudan <a href=\"{$contactUrl}\">sunucuyla</a> iletişime geçin."
 
-msgid "installer.upgradeInstructions"
-msgstr "<h4>OPS Sürüm {$version}</h4>"
-
-msgid "installer.appInstallation"
-msgstr "OPS Kurulum"
+msgid "about.aboutOPSSite"
+msgstr ""
+"Bu sunucu, GNU Genel Kamu Lisansı altında Public Knowledge Project "
+"tarafından geliştirilen, desteklenen ve ücretsiz olarak dağıtılan açık "
+"kaynaklı ön baskı sunucu yönetimi yazılımı olan Open Preprint Systems "
+"{$opsVersion} sürümünü kullanır. Yazılım hakkında daha fazla bilgi edinmek "
+"için <a href=\"http://pkp.sfu.ca/\">PKP'nin web sitesini</a> ziyaret edin. "
+"Lütfen sunucu ve ön baskıların gönderilmesi ile ilgili sorularınız için "
+"doğrudan <a href=\"{$contactUrl}\">sunucuyla</a> iletişime geçin."
 
 msgid "help.goToEditPage"
 msgstr "{$sectionTitle} Düzenle"
 
-msgid "about.aboutSoftware"
-msgstr "Ön Baskı Sistemi Hakkında"
-
-msgid "about.aboutThisPublishingSystem.altText"
-msgstr "OPS Tarama ve Gönderme Süreci"
-
-msgid "about.aboutThisPublishingSystem"
-msgstr "OPS/PKP sistemi, platformu ve işleyişi hakkında daha fazla bilgi."
-
-msgid "about.privacyStatement"
-msgstr "Gizlilik Bildirimi"
-
-msgid "about.copyrightNotice"
-msgstr "Telif Hakkı Bildirimi"
-
-msgid "about.submissionPreparationChecklist.description"
-msgstr ""
-"Gönderim sürecinin bir parçası olarak yazarlar, gönderilerinin aşağıdaki tüm "
-"maddelere uygunluğunu kontrol etmeleri gerekir ve bu yönergelere uymayan "
-"yazarlara gönderimler iade edilebilir."
-
-msgid "about.submissionPreparationChecklist"
-msgstr "Gönderi Ön Kontrol Listesi"
-
-msgid "about.authorGuidelines"
-msgstr "Yazar Rehberi"
-
-msgid "about.onlineSubmissions.viewSubmissions"
-msgstr "Bekleyen başvuruları görüntüle"
-
-msgid "about.onlineSubmissions.newSubmission"
-msgstr "Yeni gönderim yap"
-
-msgid "about.onlineSubmissions.submitToSection"
-msgstr "<a href=\"{$url}\">{$name}</a> bölümü için yeni bir gönderim yapın."
-
-msgid "about.onlineSubmissions.submissionActions"
-msgstr "{$newSubmission} veya {$viewSubmissions}."
-
-msgid "about.onlineSubmissions.registrationRequired"
-msgstr "Gönderim yapabilmek için {$login} veya {$register}."
-
-msgid "about.onlineSubmissions.register"
-msgstr "Kayıt ol"
-
-msgid "about.onlineSubmissions.login"
-msgstr "Giriş"
-
-msgid "about.submissions"
-msgstr "Gönderimler"
-
-msgid "about.editorialTeam"
-msgstr "Ön Baskı Sunucusu Takımı"
-
-msgid "about.aboutContext"
-msgstr "Sunucu hakkında"
-
-msgid "about.contact"
-msgstr "İletişim"
-
-msgid "archive.archivesPageNumber"
-msgstr "Arşiv - Sayfa {$pageNumber}"
-
-msgid "archive.archives"
-msgstr "Arşiv"
-
-msgid "site.noServers"
-msgstr "Kullanılabilir sunucu yok."
-
-msgid "site.serverView"
-msgstr "Sunucuyu Görüntüle"
-
-msgid "search.authorDetails"
-msgstr "Yazar Detayı"
-
-msgid "search.authorIndex"
-msgstr "Yazar Dizinini Görüntüle"
-
-msgid "search.searchFor"
-msgstr "Ön baskı ara"
-
-msgid "index.latestPreprints"
-msgstr "Son Ön Baskılar"
-
-msgid "user.register.form.missingSiteConsent"
-msgstr "Bu sitenin gizlilik bildirimini kabul etmelisiniz."
-
-msgid "user.register.form.missingContextConsent"
-msgstr ""
-"Kaydolduğunuz herhangi bir sunucu için gizlilik bildirimini kabul "
-"etmelisiniz."
-
-msgid "user.register.form.privacyConsentThisContext"
-msgstr ""
-"Evet, verilerimin bu sunucunun <a href=\"{$privacyUrl}\" target=\"_blank\">"
-"gizlilik bildirimine</a> göre toplanmasını ve saklanmasını kabul ediyorum."
-
-msgid "user.register.registrationDisabled"
-msgstr "Bu sunucu şu anda kullanıcı kaydı kabul etmiyor."
-
-msgid "submission.layout.galley.remoteURL"
-msgstr "Uzaktan barındırılan içeriğin URL'si"
-
-msgid "submission.layout.galley.remotelyHostedContent"
-msgstr "Bu dizgi ayrı bir websitesinde yayımlanabilir."
-
-msgid "manager.people.noAdministrativeRights"
-msgstr ""
-"Üzgünüz, bu kullanıcı üzerinde yönetici haklarınız yok. Bunun nedeni şunlar "
-"olabilir:<ul><li>Kullanıcı bir site yöneticisidir</li><li>Kullanıcı, sizin "
-"yönetmediğiniz sunucularda aktiftir</li></ul>Bu görev bir site yöneticisi "
-"tarafından gerçekleştirilmelidir."
-
-msgid "search.results.orderDir.desc"
-msgstr "Azalan"
-
-msgid "search.results.orderDir.asc"
-msgstr "Artan"
-
-msgid "search.results.orderBy.relevance"
-msgstr "Alaka düzeyi"
-
-msgid "search.results.orderBy.popularityMonth"
-msgstr "Popülerlik (Son Bir Ay)"
-
-msgid "search.results.orderBy.popularityAll"
-msgstr "Popülerlik (Tüm Zamanlar)"
-
-msgid "search.results.orderBy.server"
-msgstr "Sunucu Adı"
-
-msgid "search.results.orderBy.date"
-msgstr "Yayın Tarihi"
-
-msgid "search.results.orderBy.author"
-msgstr "Yazar"
-
-msgid "search.results.orderBy.preprint"
-msgstr "Ön Baskı Başlık"
-
-msgid "search.results.orderBy"
-msgstr "Sonuçları sıralama ölçütü"
-
-msgid "submission.event.submissionSubmitted"
-msgstr "Ön baskı gönderildi"
-
-msgid "user.role.subEditors"
-msgstr "Moderatörler"
-
-msgid "user.role.subEditor"
-msgstr "Moderatör"
-
-msgid "user.role.manager"
-msgstr "Yönetici"
-
-msgid "user.register.noContextReviewerInterests"
-msgstr "Hakem olmak için, lütfen ilgi alanlarınızı girin."
-
-msgid "user.register.otherContextRoles"
-msgstr "Rolleri isteyin."
-
-msgid "user.register.contextsPrompt"
-msgstr "Bu sitedeki hangi sunuculara kaydolmak istiyorsunuz?"
-
-msgid "user.noRoles.selectUsersWithoutRoles"
-msgstr "Rolleri olmayan kullanıcıları dahil edin."
-
-msgid "user.authorization.representationNotFound"
-msgstr "İstenilen dizgi bulunamadı."
-
-msgid "context.context"
-msgstr "Sunucu"
-
-msgid "context.contexts"
-msgstr "Sunucu"
-
-msgid "publication.galley.downloads"
-msgstr "İndirme: {$downloads}"
-
-msgid "submission.dates"
-msgstr "Gönderildi {$submitted} - Yayınladı {$published}"
-
-msgid "submission.numberOfVersions"
-msgstr "Sürümler: {$numberOfVersions}"
-
-msgid "submission.search"
-msgstr "Ön Baskı Arama"
-
-msgid "submissions.published"
-msgstr "Gönderildi"
-
-msgid "preprint.pageTitle"
-msgstr "{$title} görünümü"
-
-msgid "preprint.abstract"
-msgstr "Öz"
-
-msgid "preprint.details"
-msgstr "Detaylar"
-
-msgid "common.publications"
-msgstr "Ön Baskı"
-
-msgid "common.publication"
-msgstr "Ön Baskı"
-
-msgid "category.categories"
-msgstr "Kategori"
-
-msgid "section.emptySection"
-msgstr "Bu bölümde henüz bir şey yayınlanmadı."
-
-msgid "section.pathDescription"
-msgstr "Bölüm URL Yolu. Boşluk yerine kısa çizgi (-) kullanın."
-
-msgid "section.description"
-msgstr "Bölüm arşivi açıklaması"
-
-msgid "submission.layout.galleyPublicIdentificationExists"
-msgstr "Genel dizgi kimliği zaten var."
-
-msgid "section.abbreviation"
-msgstr "Kısaltma"
-
-msgid "section.title"
-msgstr "Bölüm başlığı"
-
-msgid "section.sections"
-msgstr "Bölümler"
-
-msgid "section.section"
-msgstr "Bölüm"
-
-msgid "common.queue.long.active"
-msgstr "Aktif"
-
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "Atanmamış"
-
-msgid "navigation.skip.about"
-msgstr "Sunucu hakkında bölümüne geç"
-
-msgid "navigation.browseByAuthor"
-msgstr "Yazara göre"
-
-msgid "common.software"
-msgstr "Açık Ön Baskı Sistemleri"
+msgid "installer.appInstallation"
+msgstr "OPS Kurulum"
 
 msgid "installer.updatingInstructions"
 msgstr ""
 "Mevcut bir OPS kurulumunu yükseltiyorsanız, devam etmek için burayı <a href="
 "\"{$upgradeUrl}\">tıklayın</a>."
+
+#, fuzzy
+msgid "installer.installationInstructions"
+msgstr ""
+"<h4>OPS Sürümü {$version}</h4><p> Public Knowledge Project'in Open Preprint "
+"Sistemlerini indirdiğiniz için teşekkür ederiz. Devam etmeden önce, lütfen "
+"bu yazılımla birlikte gelen <a href=\"{$baseUrl}README</a> dosyasını okuyun. "
+"Public Knowledge Project ve yazılım projeleri hakkında daha fazla bilgi için "
+"lütfen <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP web sitesini</a> "
+"ziyaret edin. Açık Ön Baskı Sistemleri hakkında hata raporlarınız veya "
+"teknik destek sorularınız varsa, <a href=\"http://forum.pkp.sfu.ca\" target="
+"\"_blank\">destek forumuna</a> bakın veya PKP'nin çevrimiçi <a href="
+"\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">hata raporlama "
+"sistemini</a> ziyaret edin. Destek forumu tercih edilen iletişim yöntemi "
+"olsa da ekibe <a href=\"mailto:pkp.contact@gmail.com\">pkp.contact@gmail."
+"com</a> adresinden de e-posta gönderebilirsiniz.</p><h4>Güncelleme</"
+"h4><p>Mevcut bir OPS kurulumunu yükseltiyorsanız, devam etmek için <a href="
+"\"{$upgradeUrl}\">burayı tıklayın</a>.</p><h4>Önerilen Sistem "
+"Gereksinimleri</h4><ul><li><a href=\"http://www.php.net/\" target=\"_blank"
+"\">PHP</a> >= {$phpRequiredVersion}; kullandığınız PHP {$phpVersion}"
+"{$wrongPhpText}</li><li><a href=\"http://www.mysql.com/\" target=\"_blank"
+"\">MySQL</a> >= 4.1 or <a href=\"http://www.postgresql.org/\" target=\"_blank"
+"\">PostgreSQL</a> >= 9.1.5</li><li><a href=\"http://httpd.apache.org/\" "
+"target=\"_blank\">Apache</a> >= 1.3.2x or >= 2.0.4x or Microsoft IIS 6</"
+"li><li> İşletim Sistemi: Herhangi bir işletim sistemi; <a href=\"http://www."
+"linux.org/\" target=\"_blank\">Linux</a>, <a href=\"http://www.bsd.org/\" "
+"target=\"_blank\">BSD</a>, <a href=\"http://www.oracle.com/sun/\" target="
+"\"_blank\">Solaris</a>, <a href=\"http://www.apple.com/\" target=\"_blank"
+"\">Mac OS X</a>, <a href=\"http://www.microsoft.com/\">Windows</a> OPS'yi "
+"destekler.</li></ul><p>PKP, yazılım sürümlerinin ve platformların olası her "
+"kombinasyonunu test edecek kaynaklara sahip olmadığından, doğru çalışma veya "
+"destek garantisi verilmez.</p><p>Bu ayarlarda değişiklikler, kurulumdan "
+"sonra, OPS dizinindeki <tt>config.inc.php</tt> dosyası düzenlenerek veya "
+"site yönetimi web arayüzü kullanılarak yapılabilir.</p><h4>Desteklenen "
+"veritabanı sistemleri</h4><p> OPS şu anda yalnızca MySQL ve PostgreSQL "
+"üzerinde test edilmiştir, ancak <a href=\"http://adodb.sourceforge.net/\" "
+"target=\"_blank\">ADOdb</a> tarafından desteklenen diğer veritabanı yönetim "
+"sistemleri çalışabilir (tamamen veya kısmen). Alternatif DBMS'ler için "
+"uyumluluk raporları ve/veya kod yamaları OPS ekibine gönderilebilir.</p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<h4>Kurulum Öncesi Adımlar</h4><p>1. Aşağıdaki dosyalar ve dizinler (ve "
+"içerikleri) yazılabilir hale getirilmelidir:</p><ul><li><tt>config.inc.php</"
+"tt> yazılabilir (optional): {$writable_config}</li><li><tt>public/</tt> "
+"yazılabilir: {$writable_public}</li><li><tt>cache/</tt> yazılabilir: "
+"{$writable_cache}</li><li><tt>cache/t_cache/</tt> yazılabilir: "
+"{$writable_templates_cache}</li><li><tt>cache/t_compile/</tt> yazılabilir: "
+"{$writable_templates_compile}</li><li><tt>cache/_db</tt> yazılabilir: "
+"{$writable_db_cache}</li></ul><p>2. Yüklenen dosyaları depolamak için bir "
+"dizin oluşturulmalı ve yazılabilir hale getirilmelidir (aşağıdaki \"Dosya "
+"Ayarları\" bölümüne bakın).</p>"
+
+msgid "installer.upgradeInstructions"
+msgstr "<h4>OPS Sürüm {$version}</h4>"
+
+msgid "installer.localeSettingsInstructions"
+msgstr ""
+
+msgid "installer.allowFileUploads"
+msgstr ""
+
+msgid "installer.maxFileUploadSize"
+msgstr ""
+
+msgid "installer.localeInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+
+msgid "installer.installApplication"
+msgstr ""
+
+msgid "installer.upgradeApplication"
+msgstr ""
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+
+msgid "installer.installationComplete"
+msgstr ""
+
+msgid "installer.upgradeComplete"
+msgstr ""
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+
+msgid "log.editor.decision"
+msgstr ""
+
+msgid "log.editor.recommendation"
+msgstr ""
+
+msgid "notification.type.submissionSubmitted"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewing"
+msgstr ""
+
+msgid "notification.type.submissions"
+msgstr ""
+
+msgid "notification.type.public"
+msgstr ""
+
+msgid "notification.type.editorAssignmentTask"
+msgstr ""
+
+msgid "notification.type.awaitingRepresentations"
+msgstr ""
+
+msgid "user.authorization.noContext"
+msgstr ""
+
+msgid "notification.type.approveSubmission"
+msgstr ""
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr ""
+
+msgid "user.profile.form.showOtherContexts"
+msgstr ""
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr ""
+
+msgid "catalog.sortBy"
+msgstr ""
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr ""
+
+msgid "preprint.subject"
+msgstr ""
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr ""

@@ -11,124 +11,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "submission.queries.production"
-msgstr "Дискусии"
+msgid "submission.submit.userGroup"
+msgstr "Поднесете во моја улога како..."
 
-msgid "publication.version.details"
-msgstr "Детали за верзијата {$version}"
+msgid "submission.upload.selectComponent"
+msgstr "Изберете компонента за печатење"
 
-msgid "publication.unschedule.confirm"
-msgstr "Дали сте сигурни дека не сакате ова да биде закажано за објавување?"
+msgid "submission.title"
+msgstr "Наслов на отпечаток"
 
-msgid "publication.unpublish.confirm"
-msgstr "Дали сте сигурни дека не сакате ова да биде објавено?"
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Нов поднесок"
 
-msgid "publication.unpublish"
-msgstr "Откажи"
+msgid "submission.abstract.wordCount.description"
+msgstr "Апстрактот мора да биде {$wordCount} зборови или помалку."
 
-msgid "submission.copyrightOther.description"
+msgid "submission.submit.noContext"
+msgstr "Серверот на овој поднесок не може да се најде."
+
+msgid "submission.galleyFiles"
+msgstr "Датотеки од отисок на труд"
+
+msgid "submission.upload.fileContents"
+msgstr "Компонента за печатење"
+
+msgid "submission.complete"
+msgstr "Одобрен"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Листа за проверка на поднесок"
+
+msgid "submission.submit.contributorRole"
+msgstr "Улога на соработник"
+
+msgid "submission.metadataDescription"
 msgstr ""
-"Доделете ги авторските права за објавените поднесоци на следната страна."
+"Овие спецификации се засноваат на множеството метаподатоци во Даблин Основа, "
+"меѓународен стандард што се користи за опис на содржината."
 
-msgid "submission.copyrightHolder.description"
+msgid "submission.sectionOptions"
+msgstr "Опции за дел"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} Предмети"
+
+msgid "catalog.category.heading"
+msgstr "Сите предмети"
+
+msgid "galley.editPublishedDisabled"
 msgstr ""
-"Авторските права ќе бидат доделени автоматски на {$copyright} кога ова е "
-"објавено."
+"Отисоците на труд на оваа верзија не можат да се уредуваат бидејќи таа е "
+"веќе објавена."
 
-msgid "submission.license.description"
-msgstr ""
-"Лиценцата автоматски ќе се постави на <a href='{$licenseUrl}' "
-"target='_blank'> {$licenseName} </a> кога ова е објавено."
+msgid "galley.publicationNotFound"
+msgstr "Верзијата за овој отисок на труд не може да се најде."
 
-msgid "publication.required.reviewStage"
-msgstr ""
-"Поднесокот мора да биде во фаза на производство пред да може да се објави."
+msgid "publication.invalidSection"
+msgstr "Делот за оваа верзија не може да се најде."
 
-msgid "publication.required.declined"
-msgstr "Одбиениот поднесок не може да се објави."
+msgid "publication.inactiveSection"
+msgstr "{$section} (Inactive)"
 
-msgid "publication.publish.requirements"
-msgstr "Следниве барања мора да бидат исполнети пред ова да биде објавено."
+msgid "preprint.entry"
+msgstr "Внес на печатење"
 
-msgid "publication.publish"
-msgstr "Објави"
-
-msgid "publication.invalidSubmission"
-msgstr "Поднесокот за овој предпечат не може да се најде."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Оваа верзија е откажана и повеќе не е јавно достапна."
-
-msgid "publication.event.versionScheduled"
-msgstr "Закажана е нова верзија за објавување."
-
-msgid "publication.event.versionPublished"
-msgstr "Објавена е нова верзија."
-
-msgid "publication.event.unpublished"
-msgstr "Поднесокот е откажан."
-
-msgid "publication.event.scheduled"
-msgstr "Поднесокот е закажан за објавување."
-
-msgid "publication.event.published"
-msgstr "Поднесокот е објавен."
-
-msgid "publication.editDisabled"
-msgstr "Оваа верзија е објавена и не може да се уредува."
-
-msgid "publication.datePublished"
-msgstr "Датум на објавување"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Годината на авторските права ќе биде поставена автоматски врз основа на "
-"датумот на објавување."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "Авторската година ќе се постави автоматски кога ова ќе биде објавено."
-
-msgid "submission.publications"
-msgstr "Отпечатоци"
-
-msgid "submission.publication"
-msgstr "Предпечаток"
-
-msgid "publication.status.unscheduled"
-msgstr "Необјавено"
-
-msgid "submission.status.scheduled"
-msgstr "Закажан"
-
-msgid "publication.status.published"
-msgstr "Објавено"
-
-msgid "author.submit.authorsCanNotPublish"
-msgstr ""
-"Не можете да објавувате ваш сопствен отпечаток. Тој мора да биде одобрен и "
-"објавен од модераторот."
-
-msgid "publication.publish.confirmation"
-msgstr ""
-"Сите барања се исполнети. Дали сте сигурни дека сакате да го објавите ова?"
-
-msgid "publication.relation.vorDoi"
-msgstr "ДОИ на објавениот предпечаток"
-
-#, fuzzy
-msgid "publication.relation.published"
-msgstr "Предпечатокот е објавен во списание како предпечаток"
-
-#, fuzzy
-msgid "publication.relation.none"
-msgstr "Отпечатокот не е доставен за објавување"
-
-#, fuzzy
-msgid "publication.relation.label"
-msgstr "Поднесено за објавување"
-
-msgid "publication.relation"
-msgstr "Односи"
+msgid "publication.issue.success"
+msgstr "Деталите за влезот во печатот се ажурирани."
 
 msgid "publication.datePublished.description"
 msgstr ""
@@ -136,69 +84,175 @@ msgstr ""
 "внесувајте објавен датум, освен ако не треба да го поставите датумот на "
 "денот."
 
-msgid "publication.issue.success"
-msgstr "Деталите за влезот во печатот се ажурирани."
+msgid "publication.relation"
+msgstr "Односи"
 
-msgid "preprint.entry"
-msgstr "Внес на печатење"
+#, fuzzy
+msgid "publication.relation.label"
+msgstr "Поднесено за објавување"
 
-msgid "publication.inactiveSection"
-msgstr "{$section} (Inactive)"
-
-msgid "publication.invalidSection"
-msgstr "Делот за оваа верзија не може да се најде."
-
-msgid "galley.publicationNotFound"
-msgstr "Верзијата за овој отисок на труд не може да се најде."
-
-msgid "galley.editPublishedDisabled"
+msgid "publication.relation.description"
 msgstr ""
-"Отисоците на труд на оваа верзија не можат да се уредуваат бидејќи таа е "
-"веќе објавена."
 
-msgid "catalog.category.heading"
-msgstr "Сите предмети"
+#, fuzzy
+msgid "publication.relation.none"
+msgstr "Отпечатокот не е доставен за објавување"
 
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} Предмети"
+#, fuzzy
+msgid "publication.relation.published"
+msgstr "Предпечатокот е објавен во списание како предпечаток"
 
-msgid "submission.sectionOptions"
-msgstr "Опции за дел"
+msgid "publication.relation.vorDoi"
+msgstr "ДОИ на објавениот предпечаток"
 
-msgid "submission.metadataDescription"
+msgid "publication.publish.relationStatus"
 msgstr ""
-"Овие спецификации се засноваат на множеството метаподатоци во Даблин Основа, "
-"меѓународен стандард што се користи за опис на содржината."
 
-msgid "submission.submit.contributorRole"
-msgstr "Улога на соработник"
+msgid "publication.publish.relationStatus.none"
+msgstr ""
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Листа за проверка на поднесок"
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
 
-msgid "submission.complete"
-msgstr "Одобрен"
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr ""
 
-msgid "submission.upload.fileContents"
-msgstr "Компонента за печатење"
+msgid "publication.publish.relationStatus.published"
+msgstr ""
 
-msgid "submission.galleyFiles"
-msgstr "Датотеки од отисок на труд"
+msgid "publication.publish.confirmation"
+msgstr ""
+"Сите барања се исполнети. Дали сте сигурни дека сакате да го објавите ова?"
 
-msgid "submission.submit.noContext"
-msgstr "Серверот на овој поднесок не може да се најде."
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Не можете да објавувате ваш сопствен отпечаток. Тој мора да биде одобрен и "
+"објавен од модераторот."
 
-msgid "submission.abstract.wordCount.description"
-msgstr "Апстрактот мора да биде {$wordCount} зборови или помалку."
+msgid "publication.status.published"
+msgstr "Објавено"
 
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Нов поднесок"
+msgid "submission.status.scheduled"
+msgstr "Закажан"
 
-msgid "submission.title"
-msgstr "Наслов на отпечаток"
+msgid "publication.status.unscheduled"
+msgstr "Необјавено"
 
-msgid "submission.upload.selectComponent"
-msgstr "Изберете компонента за печатење"
+msgid "submission.publication"
+msgstr "Предпечаток"
 
-msgid "submission.submit.userGroup"
-msgstr "Поднесете во моја улога како..."
+msgid "submission.publications"
+msgstr "Отпечатоци"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr "Авторската година ќе се постави автоматски кога ова ќе биде објавено."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Годината на авторските права ќе биде поставена автоматски врз основа на "
+"датумот на објавување."
+
+msgid "publication.datePublished"
+msgstr "Датум на објавување"
+
+msgid "publication.editDisabled"
+msgstr "Оваа верзија е објавена и не може да се уредува."
+
+msgid "publication.event.published"
+msgstr "Поднесокот е објавен."
+
+msgid "publication.event.scheduled"
+msgstr "Поднесокот е закажан за објавување."
+
+msgid "publication.event.unpublished"
+msgstr "Поднесокот е откажан."
+
+msgid "publication.event.versionPublished"
+msgstr "Објавена е нова верзија."
+
+msgid "publication.event.versionScheduled"
+msgstr "Закажана е нова верзија за објавување."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Оваа верзија е откажана и повеќе не е јавно достапна."
+
+msgid "publication.invalidSubmission"
+msgstr "Поднесокот за овој предпечат не може да се најде."
+
+msgid "publication.publish"
+msgstr "Објави"
+
+msgid "publication.publish.requirements"
+msgstr "Следниве барања мора да бидат исполнети пред ова да биде објавено."
+
+msgid "publication.required.declined"
+msgstr "Одбиениот поднесок не може да се објави."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Поднесокот мора да биде во фаза на производство пред да може да се објави."
+
+msgid "submission.license.description"
+msgstr ""
+"Лиценцата автоматски ќе се постави на <a href='{$licenseUrl}' "
+"target='_blank'> {$licenseName} </a> кога ова е објавено."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Авторските права ќе бидат доделени автоматски на {$copyright} кога ова е "
+"објавено."
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Доделете ги авторските права за објавените поднесоци на следната страна."
+
+msgid "publication.unpublish"
+msgstr "Откажи"
+
+msgid "publication.unpublish.confirm"
+msgstr "Дали сте сигурни дека не сакате ова да биде објавено?"
+
+msgid "publication.unschedule.confirm"
+msgstr "Дали сте сигурни дека не сакате ова да биде закажано за објавување?"
+
+msgid "publication.version.details"
+msgstr "Детали за верзијата {$version}"
+
+msgid "submission.queries.production"
+msgstr "Дискусии"
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""
+
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""

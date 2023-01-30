@@ -12,55 +12,62 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissionFiles.400.badRepresentationAssocType"
-msgstr ""
-"Не можете да поврзете датотека од оваа фаза на датотека со отисок на труд."
+msgid "api.announcements.400.contextsNotMatched"
+msgstr "Огласот што го побаравте не е дел од овој сервер."
 
-msgid "api.publications.403.submissionsDidNotMatch"
-msgstr "Верзијата што ја побаравте не е дел од овој поднесок."
-
-msgid "api.emailTemplates.403.notAllowedChangeContext"
-msgstr "Немате дозвола да го преместите овој образец за е-пошта на друг сервер."
-
-msgid "api.contexts.404.contextNotFound"
-msgstr "Серверот што го баравте не беше пронајден."
-
-msgid "api.contexts.403.notAllowedDelete"
-msgstr "Немате дозвола да го избришете овој сервер."
-
-msgid "api.contexts.403.notAllowedEdit"
-msgstr "Немате дозвола за уредување на овој сервер."
-
-msgid "api.contexts.403.requiresContext"
-msgstr "Не можете да го уредувате овој сервер од API ширум страницата."
-
-msgid "api.contexts.403.contextsDidNotMatch"
-msgstr ""
-"Не можете да го прегледувате или уредувате овој сервер освен ако не побарате "
-"барање до API на серверот или API за целата страница."
-
-msgid "api.contexts.403.notAllowed"
-msgstr "Немате дозвола да го гледате овој сервер."
-
-msgid "api.contexts.403.requestedDisabledContexts"
-msgstr "Може да гледате само сервери што се овозможени."
+msgid "api.submissions.403.cantChangeContext"
+msgstr "Не можете да го промените серверот на поднесокот."
 
 msgid "api.submissions.403.contextRequired"
 msgstr ""
 "За да направите или уредувате поднесок, мора да побарате крајна точка на API "
 "на серверот."
 
-msgid "api.submissions.403.cantChangeContext"
-msgstr "Не можете да го промените серверот на поднесокот."
+msgid "api.contexts.403.requestedDisabledContexts"
+msgstr "Може да гледате само сервери што се овозможени."
 
-msgid "api.announcements.400.contextsNotMatched"
-msgstr "Огласот што го побаравте не е дел од овој сервер."
+msgid "api.contexts.403.notAllowed"
+msgstr "Немате дозвола да го гледате овој сервер."
+
+msgid "api.contexts.403.contextsDidNotMatch"
+msgstr ""
+"Не можете да го прегледувате или уредувате овој сервер освен ако не побарате "
+"барање до API на серверот или API за целата страница."
+
+msgid "api.contexts.403.requiresContext"
+msgstr "Не можете да го уредувате овој сервер од API ширум страницата."
+
+msgid "api.contexts.403.notAllowedEdit"
+msgstr "Немате дозвола за уредување на овој сервер."
+
+msgid "api.contexts.403.notAllowedDelete"
+msgstr "Немате дозвола да го избришете овој сервер."
+
+msgid "api.contexts.404.contextNotFound"
+msgstr "Серверот што го баравте не беше пронајден."
+
+msgid "api.dois.400.contextsNotMatched"
+msgstr ""
+
+msgid "api.dois.400.noRegistrationAgencyConfigured"
+msgstr ""
 
 msgid "api.emails.403.disabled"
 msgstr "Можноста за имејл нотификација не е овозможена на овој сервер."
 
-msgid "api.publications.400.invalidRelation"
-msgstr "Статусот кој го испративте не е валиден."
+msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgstr ""
+"Немате дозвола да го преместите овој образец за е-пошта на друг сервер."
 
-msgid "api.publications.400.noRelations"
-msgstr "Мора да наведете дали овој поднесок е поврзан со публикација."
+msgid "api.publications.403.submissionsDidNotMatch"
+msgstr "Верзијата што ја побаравте не е дел од овој поднесок."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr ""
+"Не можете да поврзете датотека од оваа фаза на датотека со отисок на труд."
+
+#~ msgid "api.publications.400.invalidRelation"
+#~ msgstr "Статусот кој го испративте не е валиден."
+
+#~ msgid "api.publications.400.noRelations"
+#~ msgstr "Мора да наведете дали овој поднесок е поврзан со публикација."

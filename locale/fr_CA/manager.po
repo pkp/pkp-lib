@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-02-28 19:34+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -12,38 +12,248 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.setup.numPageLinks.description"
+msgid "manager.distribution.access"
+msgstr "Accès"
+
+msgid "manager.distribution.copyrightYearBasis.description"
 msgstr ""
-"Limiter le nombre de liens à afficher sur les pages subséquentes de la liste."
+"Préciser comment la date de copyright par défaut est sélectionnée pour une "
+"prépublication. Cette valeur par défaut peut être remplacée au cas par cas."
 
-msgid "manager.setup.numPageLinks"
-msgstr "Page de liens"
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Utiliser la date de publication de la prépublication"
 
-msgid "manager.setup.lists"
-msgstr "Listes"
+msgid "manager.distribution.publishingMode"
+msgstr "Mode de publication"
 
-msgid "manager.setup.keyInfo.description"
+msgid "manager.distribution.publishingMode.none"
+msgstr "OPS ne sera pas utilisé pour publier en ligne le contenu du serveur."
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Le serveur offrira son contenu en libre accès."
+
+msgid "doi.manager.settings.doiSuffixLegacy"
 msgstr ""
-"Fournir une brève description de votre serveur et présenter les rédacteurs-"
-"trices, les directeurs-trices ainsi que les autres membres de votre équipe "
-"éditoriale."
 
-msgid "manager.setup.keyInfo"
-msgstr "Renseignements de base"
-
-msgid "manager.setup.contextTitle"
-msgstr "Titre du serveur"
-
-msgid "manager.setup.serverThumbnail.description"
+msgid "doi.manager.settings.doiCreationTime.copyedit"
 msgstr ""
-"Un logo ou une petite image du serveur, laquelle peut être utilisée dans des "
-"listes de serveurs."
 
-msgid "manager.setup.serverThumbnail"
-msgstr "Vignette du serveur"
+msgid "doi.manager.settings.doiVersioning.description"
+msgstr ""
 
-msgid "manager.setup.contextInitials"
-msgstr "Initiales du serveur"
+msgid "doi.manager.settings.doiVersioning.yes"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning.no"
+msgstr ""
+
+msgid "manager.language.ui"
+msgstr "Interface usager"
+
+msgid "manager.language.submissions"
+msgstr "Soumissions"
+
+msgid "manager.language.forms"
+msgstr "Formulaires"
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr ""
+"Ceci remplacera n'importe quel paramètre de langue spécifique à un serveur "
+"que vous aviez pour cette langue"
+
+msgid "manager.people.allUsers"
+msgstr "Tous,toutes les utilisateurs-trices enregistrés-es"
+
+#, fuzzy
+msgid "manager.people.confirmRemove"
+msgstr ""
+"Supprimer cet ou cette utilisateur-trice de ce serveur ? Cette action "
+"désinscrira l'utilisateur-trice de tous les rôles dans ce serveur."
+
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Ne pas exiger de résumé"
+
+#, fuzzy
+msgid "manager.sections.confirmDelete"
+msgstr ""
+"Êtes-vous certain-e de vouloir supprimer cette série de façon permanente ?"
+
+#, fuzzy
+msgid "manager.sections.alertDelete"
+msgstr ""
+"Pour pouvoir supprimer cette série, vous devez d'abord déplacer les "
+"prépublications qui y sont publiées dans d'autres séries."
+
+#, fuzzy
+msgid "manager.sections.create"
+msgstr "Créer une série"
+
+#, fuzzy
+msgid "manager.sections.editorRestriction"
+msgstr ""
+"Les prépublications ne peuvent être soumises que par les rédacteurs-trices "
+"et les rédacteurs-trices de séries."
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+
+#, fuzzy
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Un titre abrégé est obligatoire pour la série"
+
+#, fuzzy
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Un chemin d'accès URL est requis pour cette série"
+
+#, fuzzy
+msgid "manager.sections.identifyType"
+msgstr "Identifier les prépublications publiées dans cette série en tant que"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(Par exemple etc.)"
+
+#, fuzzy
+msgid "manager.sections.policy"
+msgstr "Politique de la série"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Ne sera pas inclus dans l'indexation du serveur"
+
+msgid "manager.sections.wordCount"
+msgstr "Décompte de mots"
+
+#, fuzzy
+msgid "manager.sections.wordCountInstructions"
+msgstr ""
+"Limiter le nombre de mots du résumé pour cette série (0 pour aucune limite)"
+
+msgid "manager.payment.options.enablePayments"
+msgstr ""
+
+msgid "manager.setup"
+msgstr "Paramètres du serveur"
+
+msgid "manager.setup.masthead"
+msgstr "Bloc générique"
+
+#, fuzzy
+msgid "manager.setup.editorialTeam"
+msgstr "Équipe éditoriale"
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Feuille de styles de la série"
+
+msgid "manager.setup.announcements"
+msgstr "Annonces"
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Introduction"
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+"Ajouter toute information additionnelle qui devrait être affichée aux "
+"lecteurs-trices sur la page des Annonces."
+
+msgid "manager.setup.authorScreening"
+msgstr ""
+
+msgid "manager.setup.disableUserRegistration"
+msgstr ""
+"L'administrateur-trice se chargera d'inscrire tous et toutes les "
+"utilisateurs-trices."
+
+msgid "manager.setup.emailBounceAddress"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+"Tout courriel non remis entraînera un message d'erreur envoyé à cette "
+"adresse."
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"Afin d'envoyer des courriels non livrés à une adresse de rebond, "
+"l'administrateur-trice du site Web doit activer l'option "
+"<code>allow_envelope_sender</code> dans le fichier de configuration. Une "
+"configuration particulière du serveur pourrait être requise, tel qu'indiqué "
+"dans la documentation d'OPS."
+
+msgid "manager.setup.emailSignature"
+msgstr "Signature"
+
+#, fuzzy
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"La signature suivante sera ajoutée à la fin de chaque courriel prédéfini "
+"envoyé par le système au nom du serveur."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Activer les annonces"
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+"Des annonces peuvent être publiées pour informer les lecteurs-trices au "
+"sujet des activités et événements du serveur. Les annonces publiées "
+"s'afficheront sur la page « Annonces »."
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Afficher sur la page d'accueil"
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Préciser combien d'annonces doivent être affichées sur la page d'accueil. "
+"Laissez ce champ vide pour n'en afficher aucune."
+
+msgid "manager.setup.enableDois.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr ""
+
+msgid "manager.setup.enableUserRegistration"
+msgstr ""
+"Les utilisateurs-trices peuvent s'inscrire eux-mêmes et elles-mêmes au "
+"serveur."
+
+#, fuzzy
+msgid "manager.setup.identity"
+msgstr "Identité du serveur"
+
+msgid "manager.setup.information"
+msgstr "Information"
+
+msgid "manager.setup.information.description"
+msgstr ""
+"Une brève description du serveur pour les bibliothécaires, les auteurs-es et "
+"lecteurs-trices potentiels-elles est disponible dans la section « "
+"Renseignements », lorsqu'ajoutée au menu latéral."
+
+msgid "manager.setup.information.forAuthors"
+msgstr "Pour les auteurs-es"
+
+msgid "manager.setup.information.forLibrarians"
+msgstr "Pour les bibliothécaires"
+
+msgid "manager.setup.information.forReaders"
+msgstr "Pour les lecteurs-trices"
+
+msgid "manager.setup.itemsPerPage"
+msgstr "Éléments par page"
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Vous pouvez limiter le nombre d'éléments (par exemple : soumissions, "
+"utilisateurs-trices, ou assignations) à afficher dans une liste avant "
+"d'afficher, dans une autre page, les éléments subséquents."
+
+msgid "manager.setup.serverAbbreviation"
+msgstr "Titre court du serveur"
+
+msgid "manager.setup.contextSummary"
+msgstr "Résumé du serveur"
+
+msgid "manager.setup.contextAbout"
+msgstr "À propos du serveur"
 
 #, fuzzy
 msgid "manager.setup.contextAbout.description"
@@ -54,212 +264,535 @@ msgstr ""
 "divulgation de commandites, l'historique du serveur, ainsi qu'une "
 "déclaration de confidentialité."
 
-msgid "manager.setup.contextAbout"
-msgstr "À propos du serveur"
+msgid "manager.setup.contextInitials"
+msgstr "Initiales du serveur"
 
-msgid "manager.setup.contextSummary"
-msgstr "Résumé du serveur"
-
-msgid "manager.setup.serverAbbreviation"
-msgstr "Titre court du serveur"
-
-msgid "manager.setup.itemsPerPage.description"
+msgid "manager.setup.selectCountry"
 msgstr ""
-"Vous pouvez limiter le nombre d'éléments (par exemple : soumissions, "
-"utilisateurs-trices, ou assignations) à afficher dans une liste avant "
-"d'afficher, dans une autre page, les éléments subséquents."
 
-msgid "manager.setup.itemsPerPage"
-msgstr "Éléments par page"
+msgid "manager.setup.serverThumbnail"
+msgstr "Vignette du serveur"
 
-msgid "manager.setup.information.forReaders"
-msgstr "Pour les lecteurs-trices"
-
-msgid "manager.setup.information.forLibrarians"
-msgstr "Pour les bibliothécaires"
-
-msgid "manager.setup.information.forAuthors"
-msgstr "Pour les auteurs-es"
-
-msgid "manager.setup.information.description"
+msgid "manager.setup.serverThumbnail.description"
 msgstr ""
-"Une brève description du serveur pour les bibliothécaires, les auteurs-es et "
-"lecteurs-trices potentiels-elles est disponible dans la section « "
-"Renseignements », lorsqu'ajoutée au menu latéral."
+"Un logo ou une petite image du serveur, laquelle peut être utilisée dans des "
+"listes de serveurs."
 
-msgid "manager.setup.information"
-msgstr "Information"
+msgid "manager.setup.contextTitle"
+msgstr "Titre du serveur"
 
-#, fuzzy
-msgid "manager.setup.identity"
-msgstr "Identité du serveur"
+msgid "manager.setup.keyInfo"
+msgstr "Renseignements de base"
 
-msgid "manager.setup.enableUserRegistration"
+msgid "manager.setup.keyInfo.description"
 msgstr ""
-"Les utilisateurs-trices peuvent s'inscrire eux-mêmes et elles-mêmes au "
-"serveur."
+"Fournir une brève description de votre serveur et présenter les rédacteurs-"
+"trices, les directeurs-trices ainsi que les autres membres de votre équipe "
+"éditoriale."
 
-msgid "manager.setup.numAnnouncementsHomepage.description"
+msgid "manager.setup.lists"
+msgstr "Listes"
+
+msgid "manager.setup.numPageLinks"
+msgstr "Page de liens"
+
+msgid "manager.setup.numPageLinks.description"
 msgstr ""
-"Préciser combien d'annonces doivent être affichées sur la page d'accueil. "
-"Laissez ce champ vide pour n'en afficher aucune."
+"Limiter le nombre de liens à afficher sur les pages subséquentes de la liste."
 
-msgid "manager.setup.numAnnouncementsHomepage"
-msgstr "Afficher sur la page d'accueil"
-
-msgid "manager.setup.enableAnnouncements.description"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr ""
-"Des annonces peuvent être publiées pour informer les lecteurs-trices au "
-"sujet des activités et événements du serveur. Les annonces publiées "
-"s'afficheront sur la page « Annonces »."
 
-msgid "manager.setup.enableAnnouncements.enable"
-msgstr "Activer les annonces"
-
-#, fuzzy
-msgid "manager.setup.emailSignature.description"
+msgid "manager.setup.restrictSiteAccess"
 msgstr ""
-"La signature suivante sera ajoutée à la fin de chaque courriel prédéfini "
-"envoyé par le système au nom du serveur."
 
-msgid "manager.setup.emailBounceAddress.disabled"
+msgid "manager.setup.searchEngineIndexing"
 msgstr ""
-"Afin d'envoyer des courriels non livrés à une adresse de rebond, l"
-"'administrateur-trice du site Web doit activer l'option "
-"<code>allow_envelope_sender</code> dans le fichier de configuration. Une "
-"configuration particulière du serveur pourrait être requise, tel qu'indiqué "
-"dans la documentation d'OPS."
 
-msgid "manager.setup.emailBounceAddress.description"
+msgid "manager.setup.searchEngineIndexing.description"
 msgstr ""
-"Tout courriel non remis entraînera un message d'erreur envoyé à cette "
-"adresse."
 
-msgid "manager.setup.emailSignature"
-msgstr "Signature"
-
-msgid "manager.setup.disableUserRegistration"
+msgid "manager.setup.searchDescription.description"
 msgstr ""
-"L'administrateur-trice se chargera d'inscrire tous et toutes les "
-"utilisateurs-trices."
 
-msgid "manager.setup.announcementsIntroduction.description"
+msgid "manager.setup.siteAccess.view"
 msgstr ""
-"Ajouter toute information additionnelle qui devrait être affichée aux "
-"lecteurs-trices sur la page des Annonces."
 
-msgid "manager.setup.announcementsIntroduction"
-msgstr "Introduction"
-
-msgid "manager.setup.announcements"
-msgstr "Annonces"
-
-msgid "manager.setup.useStyleSheet"
-msgstr "Feuille de styles de la série"
-
-#, fuzzy
-msgid "manager.setup.editorialTeam"
-msgstr "Équipe éditoriale"
-
-msgid "manager.setup.masthead"
-msgstr "Bloc générique"
-
-msgid "manager.setup"
-msgstr "Paramètres du serveur"
-
-#, fuzzy
-msgid "manager.sections.wordCountInstructions"
+msgid "manager.setup.siteAccess.viewContent"
 msgstr ""
-"Limiter le nombre de mots du résumé pour cette série (0 pour aucune limite)"
 
-msgid "manager.sections.wordCount"
-msgstr "Décompte de mots"
-
-msgid "manager.sections.submissionIndexing"
-msgstr "Ne sera pas inclus dans l'indexation du serveur"
-
-#, fuzzy
-msgid "manager.sections.policy"
-msgstr "Politique de la série"
-
-msgid "manager.sections.identifyTypeExamples"
-msgstr "(Par exemple etc.)"
-
-#, fuzzy
-msgid "manager.sections.identifyType"
-msgstr "Identifier les prépublications publiées dans cette série en tant que"
-
-#, fuzzy
-msgid "manager.setup.form.section.pathRequired"
-msgstr "Un chemin d'accès URL est requis pour cette série"
-
-#, fuzzy
-msgid "manager.people.confirmRemove"
+msgid "manager.setup.sponsoringOrganization"
 msgstr ""
-"Supprimer cet ou cette utilisateur-trice de ce serveur ? Cette action "
-"désinscrira l'utilisateur-trice de tous les rôles dans ce serveur."
 
-msgid "manager.distribution.publishingMode"
-msgstr "Mode de publication"
-
-msgid "manager.distribution.copyrightYearBasis.submission"
-msgstr "Utiliser la date de publication de la prépublication"
-
-#, fuzzy
-msgid "manager.sections.form.abbrevRequired"
-msgstr "Un titre abrégé est obligatoire pour la série"
-
-#, fuzzy
-msgid "manager.sections.editorRestriction"
+msgid "manager.setup.disableSubmissions.description"
 msgstr ""
-"Les prépublications ne peuvent être soumises que par les rédacteurs-trices "
-"et les rédacteurs-trices de séries."
 
-#, fuzzy
-msgid "manager.sections.create"
-msgstr "Créer une série"
-
-#, fuzzy
-msgid "manager.sections.alertDelete"
+msgid "manager.setup.disableSubmissions.notAccepting"
 msgstr ""
-"Pour pouvoir supprimer cette série, vous devez d'abord déplacer les "
-"prépublications qui y sont publiées dans d'autres séries."
 
-#, fuzzy
-msgid "manager.sections.confirmDelete"
+msgid "manager.setup.enableOai"
 msgstr ""
-"Êtes-vous certain-e de vouloir supprimer cette série de façon permanente ?"
 
-msgid "manager.sections.abstractsNotRequired"
-msgstr "Ne pas exiger de résumé"
-
-msgid "manager.people.allUsers"
-msgstr "Tous,toutes les utilisateurs-trices enregistrés-es"
-
-msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgid "manager.setup.enableOai.description"
 msgstr ""
-"Ceci remplacera n'importe quel paramètre de langue spécifique à un serveur "
-"que vous aviez pour cette langue"
 
-msgid "manager.language.forms"
-msgstr "Formulaires"
-
-msgid "manager.language.submissions"
-msgstr "Soumissions"
-
-msgid "manager.language.ui"
-msgstr "Interface usager"
-
-msgid "manager.distribution.publishingMode.openAccess"
-msgstr "Le serveur offrira son contenu en libre accès."
-
-msgid "manager.distribution.publishingMode.none"
-msgstr "OPS ne sera pas utilisé pour publier en ligne le contenu du serveur."
-
-msgid "manager.distribution.copyrightYearBasis.description"
+msgid "manager.setup.userRegistration"
 msgstr ""
-"Préciser comment la date de copyright par défaut est sélectionnée pour une "
-"prépublication. Cette valeur par défaut peut être remplacée au cas par cas."
 
-msgid "manager.distribution.access"
-msgstr "Accès"
+msgid "manager.statistics.statistics"
+msgstr ""
+
+msgid "manager.statistics.statistics.preprintViews"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr ""
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr ""
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr ""
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr ""
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "manager.publication.library"
+msgstr ""
+
+msgid "manager.setup.resetPermissions"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.success"
+msgstr ""
+
+msgid "grid.genres.title.short"
+msgstr ""
+
+msgid "grid.genres.title"
+msgstr ""
+
+msgid "plugins.importexport.common.settings"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr ""
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr ""
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr ""
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+
+msgid "plugins.importexport.common.status.any"
+msgstr ""
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr ""
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.status.registered"
+msgstr ""
+
+msgid "plugins.importexport.common.action"
+msgstr ""
+
+msgid "plugins.importexport.common.action.export"
+msgstr ""
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.action.register"
+msgstr ""
+
+msgid "plugins.importexport.common.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr ""
+
+msgid "plugins.importexport.common.error.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr ""
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr ""
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+
+msgid "plugins.importexport.common.register.success"
+msgstr ""
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr ""
+
+msgid "stats.contextStats"
+msgstr ""
+
+msgid "stats.context.tooltip.text"
+msgstr ""
+
+msgid "stats.context.tooltip.label"
+msgstr ""
+
+msgid "stats.context.downloadReport.description"
+msgstr ""
+
+msgid "stats.context.downloadReport.downloadContext.description"
+msgstr ""
+
+msgid "stats.context.downloadReport.downloadContext"
+msgstr ""
+
+msgid "stats.publications.downloadReport.description"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr ""
+
+msgid "stats.publicationStats"
+msgstr ""
+
+msgid "stats.publications.details"
+msgstr ""
+
+msgid "stats.publications.none"
+msgstr ""
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.countOfTotal"
+msgstr ""
+
+msgid "stats.publications.abstracts"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+
+msgid ""
+"manager.setup.notifications.copySubmissionAckPrimaryContact.disabled."
+"description"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr ""
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr ""
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr ""
+
+msgid "mailable.validateEmailContext.name"
+msgstr ""
+
+msgid "mailable.validateEmailContext.description"
+msgstr ""
+
+msgid "doi.displayName"
+msgstr ""
+
+msgid "doi.manager.displayName"
+msgstr ""
+
+msgid "doi.description"
+msgstr ""
+
+msgid "doi.manager.submissionDois"
+msgstr ""
+
+msgid "doi.readerDisplayName"
+msgstr ""
+
+msgid "doi.manager.settings.description"
+msgstr ""
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr ""
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr ""
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr ""
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr ""
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr ""
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr ""
+
+msgid "doi.manager.settings.doiReassign"
+msgstr ""
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr ""
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr ""
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr ""
+
+msgid "doi.editor.doi"
+msgstr ""
+
+msgid "doi.editor.doi.description"
+msgstr ""
+
+msgid "doi.editor.doi.assignDoi"
+msgstr ""
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr ""
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr ""
+
+msgid "doi.editor.customSuffixMissing"
+msgstr ""
+
+msgid "doi.editor.missingParts"
+msgstr ""
+
+msgid "doi.editor.patternNotResolved"
+msgstr ""
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+
+msgid "doi.editor.assigned"
+msgstr ""
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr ""
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr ""
+
+msgid "doi.editor.assignDoi"
+msgstr ""
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr ""
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr ""
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr ""
+
+msgid "doi.editor.missingPrefix"
+msgstr ""
+
+msgid "doi.editor.preview.publication"
+msgstr ""
+
+msgid "doi.editor.preview.publication.none"
+msgstr ""
+
+msgid "doi.editor.preview.galleys"
+msgstr ""
+
+msgid "doi.editor.preview.objects"
+msgstr ""
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr ""
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr ""
+
+msgid "api.issue.400.invalidDoi"
+msgstr ""
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr ""
+
+msgid "manager.institutions.noContext"
+msgstr ""
+
+msgid "manager.manageEmails.description"
+msgstr ""
+
+msgid "mailable.postedAck.name"
+msgstr ""
+
+msgid "mailable.postedAck.description"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "manager.preprintPosted"
+msgstr ""
+
+msgid "manager.preprintPosted.description"
+msgstr ""
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr ""
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr ""
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr ""
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr ""
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr ""

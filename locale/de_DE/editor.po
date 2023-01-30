@@ -14,32 +14,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "grid.action.addGalley"
-msgstr "Gesamtfahne hinzufügen"
-
 msgid "editor.publicIdentificationExists"
 msgstr ""
 "Der öffentliche Bezeichner '{$publicIdentifier}' existiert bereits für ein "
 "anderes Objekt (Preprint, Gesamtfahne oder Datei). Bitte wählen Sie "
 "eindeutige Bezeichner innerhalb Ihres Servers."
 
-msgid "editor.submissions.assignedTo"
-msgstr "Zugewiesen an Moderator"
-
-msgid "editor.submission.schedulePublication"
-msgstr "Den Preprint veröffentlichen"
-
-msgid "editor.publication.authorPublishRequirements"
-msgstr "Der Autor erfüllt die folgenden Entsendebedingungen nicht:"
-
-msgid "editor.preprint.coverImage"
-msgstr "Cover-Bild"
-
-msgid "editor.publicIdentificationExistsForTheSameType"
-msgstr ""
-"Der öffentliche Bezeichner '{$publicIdentifier}' existiert bereits für ein "
-"anderes Objekt desselben Typs. Bitte wählen Sie eindeutige Bezeichner für "
-"die Objekte desselben Typs auf Ihrem Server."
+msgid "grid.action.addGalley"
+msgstr "Gesamtfahne hinzufügen"
 
 msgid "editor.submission.proof.manageProofFilesDescription"
 msgstr ""
@@ -48,3 +30,21 @@ msgstr ""
 "Sie das Kontrollkästchen Einschließen unten aktivieren und auf Suchen "
 "klicken: Alle verfügbaren Dateien werden aufgelistet und können zur Aufnahme "
 "ausgewählt werden."
+
+msgid "editor.publicIdentificationExistsForTheSameType"
+msgstr ""
+"Der öffentliche Bezeichner '{$publicIdentifier}' existiert bereits für ein "
+"anderes Objekt desselben Typs. Bitte wählen Sie eindeutige Bezeichner für "
+"die Objekte desselben Typs auf Ihrem Server."
+
+msgid "editor.preprint.coverImage"
+msgstr "Cover-Bild"
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr "Der Autor erfüllt die folgenden Entsendebedingungen nicht:"
+
+msgid "editor.submissions.assignedTo"
+msgstr "Zugewiesen an Moderator"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Den Preprint veröffentlichen"

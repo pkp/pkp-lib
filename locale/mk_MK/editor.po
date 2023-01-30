@@ -11,23 +11,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "editor.submission.schedulePublication"
-msgstr "Објавете го препечатениот отпис"
-
-msgid "editor.submissions.assignedTo"
-msgstr "Доделено на модератор"
-
-msgid "editor.publication.authorPublishRequirements"
-msgstr "Авторот не ги исполнува следниве услови за објавување:"
-
-msgid "editor.preprint.coverImage"
-msgstr "Насловна слика"
-
-msgid "editor.publicIdentificationExistsForTheSameType"
+msgid "editor.publicIdentificationExists"
 msgstr ""
-"Јавниот идентификатор „{$publicIdentifier}“ веќе постои за друг објект од "
-"ист тип. Ве молиме, изберете уникатни идентификатори за објекти од ист тип "
-"во вашиот сервер."
+"Јавниот идентификатор „{$publicIdentifier}“ веќе постои за друг објект "
+"(предпечат, отисок на труд или датотека). Ве молиме изберете единствени "
+"идентификатори во вашиот сервер."
+
+msgid "grid.action.addGalley"
+msgstr "Додадете отисок на труд"
 
 msgid "editor.submission.proof.manageProofFilesDescription"
 msgstr ""
@@ -36,11 +27,20 @@ msgstr ""
 "подолу и кликнување на Пребарување: ќе бидат наведени сите достапни датотеки "
 "и може да бидат избрани за вклучување."
 
-msgid "grid.action.addGalley"
-msgstr "Додадете отисок на труд"
-
-msgid "editor.publicIdentificationExists"
+msgid "editor.publicIdentificationExistsForTheSameType"
 msgstr ""
-"Јавниот идентификатор „{$publicIdentifier}“ веќе постои за друг објект ("
-"предпечат, отисок на труд или датотека). Ве молиме изберете единствени "
-"идентификатори во вашиот сервер."
+"Јавниот идентификатор „{$publicIdentifier}“ веќе постои за друг објект од "
+"ист тип. Ве молиме, изберете уникатни идентификатори за објекти од ист тип "
+"во вашиот сервер."
+
+msgid "editor.preprint.coverImage"
+msgstr "Насловна слика"
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr "Авторот не ги исполнува следниве услови за објавување:"
+
+msgid "editor.submissions.assignedTo"
+msgstr "Доделено на модератор"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Објавете го препечатениот отпис"

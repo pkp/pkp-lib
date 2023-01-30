@@ -14,48 +14,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "author.submit.form.abstractRequired"
-msgstr "Bitte tragen Sie den Abstract Ihres Preprints ein."
+msgid "author.submit"
+msgstr "Neue Einreichung"
 
-msgid "author.submit.languageInstructions"
+msgid "author.competingInterests"
 msgstr ""
-"English=en; French=fr; Spanish=es. <a href=\"http://www.loc.gov/standards/"
-"iso639-2/php/code_list.php\" target=\"_blank\">Zusatzcodes</a>."
-
-msgid "submission.submit.coverNote"
-msgstr "Kommentare für den Moderator"
-
-msgid "author.submit.serverSectionDescription"
-msgstr ""
-"Die Preprints müssen in einem der Abschnitte des Servers eingereicht werden."
-
-msgid "author.submit.serverSection"
-msgstr "Server-Abschnitt"
-
-msgid "author.submit.notAccepting"
-msgstr "Dieser Server nimmt zur Zeit keine Einreichungen an."
-
-msgid "author.submit.nextSteps"
-msgstr "Nächste Schritte"
-
-msgid "author.submit.metadata"
-msgstr "Metadaten eintragen"
-
-msgid "author.submit.upload"
-msgstr "Upload Einreichung"
-
-msgid "author.submit.start"
-msgstr "Start"
+"Konkurrierende Interessen <a target=\"_new\" class=\"action\" href="
+"\"{$competingInterestGuidelinesUrl}\">CI Policy</a>"
 
 msgid "author.submit.startHereLink"
 msgstr ""
 "<a href=\"{$submitUrl}\" class=\"action\">Klicken Sie hier</a>, um zum "
 "ersten Schritt des fünfstufigen Einreichungsverfahrens zu kommen."
 
-msgid "author.competingInterests"
-msgstr ""
-"Konkurrierende Interessen <a target=\"_new\" class=\"action\" href=\""
-"{$competingInterestGuidelinesUrl}\">CI Policy</a>"
+msgid "author.submit.start"
+msgstr "Start"
 
-msgid "author.submit"
-msgstr "Neue Einreichung"
+msgid "author.submit.upload"
+msgstr "Upload Einreichung"
+
+msgid "author.submit.metadata"
+msgstr "Metadaten eintragen"
+
+msgid "author.submit.nextSteps"
+msgstr "Nächste Schritte"
+
+msgid "author.submit.notAccepting"
+msgstr "Dieser Server nimmt zur Zeit keine Einreichungen an."
+
+msgid "author.submit.serverSection"
+msgstr "Server-Abschnitt"
+
+msgid "author.submit.serverSectionDescription"
+msgstr ""
+"Die Preprints müssen in einem der Abschnitte des Servers eingereicht werden."
+
+msgid "submission.submit.coverNote"
+msgstr "Kommentare für den Moderator"
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+"English=en; French=fr; Spanish=es. <a href=\"http://www.loc.gov/standards/"
+"iso639-2/php/code_list.php\" target=\"_blank\">Zusatzcodes</a>."
+
+msgid "author.submit.form.abstractRequired"
+msgstr "Bitte tragen Sie den Abstract Ihres Preprints ein."

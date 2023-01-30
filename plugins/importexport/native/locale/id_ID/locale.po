@@ -12,6 +12,36 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "plugins.importexport.native.displayName"
+msgstr "Plugin XML Natif"
+
+#, fuzzy
+msgid "plugins.importexport.native.description"
+msgstr "Impor dan ekspor artikel dan issue dalam format XML Natif OJS."
+
+msgid "plugins.importexport.native.import"
+msgstr "Impor"
+
+msgid "plugins.importexport.native.import.instructions"
+msgstr "Unggah file XML untuk diimpor"
+
+#, fuzzy
+msgid "plugins.importexport.native.exportSubmissionsSelect"
+msgstr "Pilih artikel untuk diekspor"
+
+msgid "plugins.importexport.native.exportSubmissions"
+msgstr "Ekspor artikel"
+
+msgid "plugins.importexport.native.results"
+msgstr "Hasil"
+
+msgid "plugins.inportexport.native.uploadFile"
+msgstr "Unggahlah file pada \"Impor\" untuk melanjutkan."
+
+msgid "plugins.importexport.native.importComplete"
+msgstr "Impor berhasil. Berikut daftar item yang berhasil diimpor:"
+
+#, fuzzy
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
 "Usage: {$scriptName} {$pluginName} [command] ...\n"
@@ -38,38 +68,8 @@ msgstr ""
 "{$scriptName} {$pluginName} impor [xmlFileName] [journal_path]\n"
 "\tissue_id [issueId] section_abbrev [abbrev]\n"
 
-msgid "plugins.importexport.native.error.unknownUser"
-msgstr "Pengguna yang dimaksud,  \"{$userName}\", tidak ada."
-
 msgid "plugins.importexport.native.error.unknownSection"
 msgstr "Bagian Tak Diketahui {$param}"
 
-msgid "plugins.importexport.native.importComplete"
-msgstr "Impor berhasil. Berikut daftar item yang berhasil diimpor:"
-
-msgid "plugins.inportexport.native.uploadFile"
-msgstr "Unggahlah file pada \"Impor\" untuk melanjutkan."
-
-msgid "plugins.importexport.native.results"
-msgstr "Hasil"
-
-msgid "plugins.importexport.native.exportSubmissions"
-msgstr "Ekspor artikel"
-
-#, fuzzy
-msgid "plugins.importexport.native.exportSubmissionsSelect"
-msgstr "Pilih artikel untuk diekspor"
-
-msgid "plugins.importexport.native.import.instructions"
-msgstr "Unggah file XML untuk diimpor"
-
-msgid "plugins.importexport.native.import"
-msgstr "Impor"
-
-#, fuzzy
-msgid "plugins.importexport.native.description"
-msgstr "Impor dan ekspor artikel dan issue dalam format XML Natif OJS."
-
-#, fuzzy
-msgid "plugins.importexport.native.displayName"
-msgstr "Plugin XML Natif"
+msgid "plugins.importexport.native.error.unknownUser"
+msgstr "Pengguna yang dimaksud,  \"{$userName}\", tidak ada."

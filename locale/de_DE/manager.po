@@ -14,157 +14,397 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "emailTemplate.variable.site.siteTitle"
-msgstr "Name der Website, wenn mehr als ein Server gehostet wird"
+msgid "manager.distribution.access"
+msgstr "Zugang"
 
-msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
-msgstr "Die Währung des Zahlungsbetrags, z. B. USD"
-
-msgid "emailTemplate.variable.queuedPayment.itemCost"
-msgstr "Der Zahlungsbetrag"
-
-msgid "emailTemplate.variable.queuedPayment.itemName"
-msgstr "Bezeichnung der Zahlungsart"
-
-msgid "emailTemplate.variable.context.contactEmail"
-msgstr "Die E-Mail-Adresse der Hauptkontaktperson des Servers"
-
-msgid "emailTemplate.variable.context.principalContactSignature"
-msgstr "Die E-Mail-Signatur des Servers für automatisierte E-Mails"
-
-msgid "emailTemplate.variable.context.contactName"
-msgstr "Der Name des Hauptkontakts des Servers"
-
-msgid "emailTemplate.variable.context.contextUrl"
-msgstr "Die URL zur Homepage des Servers"
-
-msgid "emailTemplate.variable.context.contextName"
-msgstr "Name des Servers"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
+msgid "manager.distribution.copyrightYearBasis.description"
 msgstr ""
-"Für diesen Preprint-Server wurde kein Hauptkontakt definiert. Sie können "
-"einen Hauptkontakt in den <a href=\"{$url}\">Preprint-Servereinstellungen</a>"
-" eingeben"
+"Wählen Sie, wie ein Standard-Copyright-Datum für einen Preprint ausgewählt "
+"wird. Diese Vorgabe kann von Fall zu Fall überschrieben werden."
 
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Verwenden Sie das Datum der Veröffentlichung des Preprints"
+
+msgid "manager.distribution.publishingMode"
+msgstr "Posting-Modus"
+
+msgid "manager.distribution.publishingMode.none"
+msgstr "OPS wird nicht verwendet, um den Inhalt des Servers online zu stellen."
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Der Server bietet freien Zugang zu seinem Inhalt."
+
+msgid "doi.manager.settings.doiSuffixLegacy"
 msgstr ""
-"Senden Sie eine Kopie der Bestätigungs-E-Mail an den Hauptkontakt dieses "
-"Preprint-Servers."
 
-msgid "stats.publications.abstracts"
-msgstr "Abstracts"
-
-msgid "stats.publications.countOfTotal"
-msgstr "{$count} von {$total} Preprints"
-
-msgid "stats.publications.totalGalleyViews.timelineInterval"
-msgstr "Gesamtzahl der Aufrufe des Abstracts nach Datum"
-
-msgid "stats.publications.totalAbstractViews.timelineInterval"
-msgstr "Gesamtzahl der Aufrufe der Abstracts nach Datum"
-
-msgid "stats.publications.none"
+msgid "doi.manager.settings.doiCreationTime.copyedit"
 msgstr ""
-"Es wurden keine Preprints gefunden, deren Nutzungsstatistiken diesen "
-"Parametern entsprechen."
 
-msgid "stats.publications.details"
-msgstr "Preprint-Details"
-
-msgid "stats.publicationStats"
-msgstr "Preprint-Statistiken"
-
-msgid "plugins.importexport.common.error.unknownObjects"
-msgstr "Die angegebenen Objekte konnten nicht gefunden werden."
-
-msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
-msgstr "DOI-Präfix fehlt für den Server mit dem Pfad {$path}."
-
-msgid "plugins.importexport.common.register.success"
-msgstr "Registrierung erfolgreich!"
-
-msgid "plugins.importexport.common.register.error.mdsError"
+msgid "doi.manager.settings.doiVersioning.description"
 msgstr ""
-"Die Registrierung war nicht erfolgreich! Der DOI-Registrierungsserver hat "
-"einen Fehler zurückgegeben: '{$param}'."
 
-msgid "plugins.importexport.common.export.error.outputFileNotWritable"
-msgstr "Die Ausgabedatei {$param} ist nicht beschreibbar."
-
-msgid "plugins.importexport.common.invalidXML"
-msgstr "Ungültiges XML:"
-
-msgid "plugins.importexport.common.error.validation"
-msgstr "Ausgewählte Objekte konnten nicht konvertiert werden."
-
-msgid "plugins.importexport.common.error.noObjectsSelected"
-msgstr "Keine Objekte ausgewählt."
-
-msgid "plugins.importexport.common.validation"
-msgstr "Validieren Sie XML vor dem Export und der Registrierung."
-
-msgid "plugins.importexport.common.action.register"
-msgstr "Registrieren"
-
-msgid "plugins.importexport.common.action.markRegistered"
-msgstr "Markierung registriert"
-
-msgid "plugins.importexport.common.action.export"
-msgstr "Exportieren"
-
-msgid "plugins.importexport.common.action"
-msgstr "Aktion"
-
-msgid "plugins.importexport.common.status.registered"
-msgstr "Registriert"
-
-msgid "plugins.importexport.common.status.markedRegistered"
-msgstr "Markiert registriert"
-
-msgid "plugins.importexport.common.status.notDeposited"
-msgstr "Nicht hinterlegt"
-
-msgid "plugins.importexport.common.status.any"
-msgstr "Jeder Status"
-
-msgid "plugins.importexport.common.settings.form.password.description"
+msgid "doi.manager.settings.doiVersioning.yes"
 msgstr ""
-"Bitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, "
-"gespeichert wird."
 
-msgid "plugins.importexport.common.settings.form.password"
-msgstr "Passwort"
-
-msgid "plugins.importexport.common.error.pluginNotConfigured"
-msgstr "Das Plugin ist nicht vollständig eingerichtet."
-
-msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgid "doi.manager.settings.doiVersioning.no"
 msgstr ""
-"Um dieses Plugin zu nutzen, gehen Sie bitte in die Plugin-Kategorie \"Public "
-"Identifier\", aktivieren und konfigurieren Sie das DOI-Plugin und geben Sie "
-"dort einen gültigen DOI-Präfix an."
 
-msgid "plugins.importexport.common.missingRequirements"
-msgstr "Plugin-Anforderungen nicht erfüllt"
+msgid "manager.language.ui"
+msgstr "UI"
 
-msgid "plugins.importexport.common.export.preprints"
-msgstr "Preprints"
+msgid "manager.language.submissions"
+msgstr "Einreichungen"
 
-msgid "plugins.importexport.common.settings.DOIPluginSettings"
-msgstr "DOI-Plugin-Einstellungen"
+msgid "manager.language.forms"
+msgstr "Formen"
 
-msgid "plugins.importexport.common.settings"
-msgstr "Einstellungen"
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr ""
+"Dies ersetzt alle lokal-spezifischen Servereinstellungen, die Sie für dieses "
+"Gebietsschema hatten"
 
-msgid "grid.genres.title"
-msgstr "Preprint-Komponenten"
+msgid "manager.people.allUsers"
+msgstr "Alle registrierten Benutzer"
 
-msgid "grid.genres.title.short"
-msgstr "Komponenten"
+msgid "manager.people.confirmRemove"
+msgstr ""
+"Diesen Benutzer von diesem Server entfernen? Mit dieser Aktion wird der "
+"Benutzer aus allen Rollen auf diesem Server entfernt."
 
-msgid "manager.setup.resetPermissions.success"
-msgstr "Die Preprint-Berechtigungen wurden erfolgreich zurückgesetzt."
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Keine Abstracts verlangen"
+
+msgid "manager.sections.confirmDelete"
+msgstr "Sind Sie sicher, dass Sie diesen Abschnitt endgültig löschen wollen?"
+
+msgid "manager.sections.alertDelete"
+msgstr ""
+"Bevor dieser Bereich gelöscht werden kann, müssen Sie die dort eingestellten "
+"Preprints in einen anderen Bereich verschieben."
+
+msgid "manager.sections.create"
+msgstr "Abschnitt erstellen"
+
+msgid "manager.sections.editorRestriction"
+msgstr "Einträge können nur von Managern und Moderatoren eingereicht werden."
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+"Mindestens ein Abschnitt muss aktiv sein. Besuchen Sie die Workflow-"
+"Einstellungen, um alle Übermittlungen an diesen Server zu deaktivieren."
+
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Ein abgekürzter Titel ist für den Abschnitt erforderlich"
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Für den Abschnitt ist ein URL-Pfad erforderlich"
+
+msgid "manager.sections.identifyType"
+msgstr "Kennzeichnen Sie die in diesem Abschnitt veröffentlichten Einträge als"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(Zum Beispiel usw.)"
+
+msgid "manager.sections.policy"
+msgstr "Sektionspolitik"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Wird bei der Indexierung des Servers nicht berücksichtigt"
+
+msgid "manager.sections.wordCount"
+msgstr "Wortzahl"
+
+msgid "manager.sections.wordCountInstructions"
+msgstr ""
+"Begrenzen Sie die Anzahl der Wörter in Abstracts für diesen Abschnitt (0 für "
+"keine Begrenzung)"
+
+msgid "manager.payment.options.enablePayments"
+msgstr ""
+
+msgid "manager.setup"
+msgstr "Server-Einstellungen"
+
+msgid "manager.setup.masthead"
+msgstr "Impressum"
+
+msgid "manager.setup.editorialTeam"
+msgstr "Preprint-Server-Team"
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Server-Formatvorlage"
+
+msgid "manager.setup.announcements"
+msgstr "Ankündigungen"
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Einführung"
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+"Geben Sie alle Informationen ein, die auf Ihrer Ankündigungsseite erscheinen "
+"sollen."
+
+#, fuzzy
+msgid "manager.setup.authorScreening"
+msgstr "Autorenscreening-Plugins"
+
+msgid "manager.setup.disableUserRegistration"
+msgstr "Der Server Manager wird alle Benutzerkonten registrieren."
+
+msgid "manager.setup.emailBounceAddress"
+msgstr "Bounce-Adresse"
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+"Bei unzustellbaren E-Mails erhalten Sie eine Fehlermeldung an diese Adresse."
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"Um unzustellbare E-Mails an eine Bounce-Adresse zu senden, muss der Site-"
+"Administrator die Option <code>allow_envelope_sender</code> in der Site-"
+"Konfigurationsdatei aktivieren. Möglicherweise ist eine Serverkonfiguration "
+"erforderlich, wie in der OPS-Dokumentation angegeben."
+
+msgid "manager.setup.emailSignature"
+msgstr "Unterschrift"
+
+#, fuzzy
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"Die vorbereiteten E-Mails, die vom System im Namen des Servers versendet "
+"werden, werden mit der folgenden Signatur versehen, die am Ende hinzugefügt "
+"wird."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Ankündigungen einschalten"
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+"Ankündigungen können veröffentlicht werden, um die Leser über Neuigkeiten "
+"und Ereignisse auf dem Server zu informieren. Veröffentlichte Ankündigungen "
+"erscheinen auf der Seite Ankündigungen."
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Anzeige auf der Startseite"
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Wie viele Ankündigungen auf der Startseite angezeigt werden sollen. Lassen "
+"Sie dies leer, um keine anzuzeigen."
+
+msgid "manager.setup.enableDois.description"
+msgstr ""
+
+#, fuzzy
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr "Bitte wählen Sie die Objekte aus, denen DOIs zugewiesen werden sollen."
+
+msgid "manager.setup.enableUserRegistration"
+msgstr "Besucher können ein Benutzerkonto auf dem Server anlegen."
+
+msgid "manager.setup.identity"
+msgstr "Preprint-Server-Identität"
+
+msgid "manager.setup.information"
+msgstr "Information"
+
+msgid "manager.setup.information.description"
+msgstr ""
+"Kurze Beschreibungen des Servers für Bibliothekare und potenzielle Autoren "
+"und Leser. Diese werden in der Seitenleiste der Website zur Verfügung "
+"gestellt, wenn der Informationsblock hinzugefügt wurde."
+
+msgid "manager.setup.information.forAuthors"
+msgstr "Für Autoren"
+
+msgid "manager.setup.information.forLibrarians"
+msgstr "Für BibliothekarInnen"
+
+msgid "manager.setup.information.forReaders"
+msgstr "Für LeserInnen"
+
+msgid "manager.setup.itemsPerPage"
+msgstr "Einträge pro Seite"
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Begrenzen Sie die Anzahl der in einer Liste anzuzeigenden Einträge (z. B. "
+"Anmeldungen, Benutzer oder Bearbeitungsaufgaben), bevor die nachfolgenden "
+"Einträge auf einer anderen Seite angezeigt werden."
+
+msgid "manager.setup.serverAbbreviation"
+msgstr "Server-Abkürzung"
+
+msgid "manager.setup.contextSummary"
+msgstr "Server Zusammenfassung"
+
+msgid "manager.setup.contextAbout"
+msgstr "Über den Server"
+
+msgid "manager.setup.contextAbout.description"
+msgstr ""
+"Fügen Sie alle Informationen über Ihren Server hinzu, die für Leser oder "
+"Autoren von Interesse sein könnten. Dies könnte Ihre Open-Access-Politik, "
+"den Schwerpunkt und den Umfang des Servers, die Politik der Moderation und "
+"des Screenings, den Hinweis auf das Urheberrecht, die Offenlegung des "
+"Sponsorings, die Geschichte des Servers und eine Datenschutzerklärung "
+"umfassen."
+
+msgid "manager.setup.contextInitials"
+msgstr "Server-Initialen"
+
+msgid "manager.setup.selectCountry"
+msgstr ""
+"Wählen Sie das Land, in dem sich der Server befindet, oder das Land der "
+"Postanschrift des Servers oder des Herausgebers."
+
+msgid "manager.setup.serverThumbnail"
+msgstr "Server-Vorschaubild"
+
+msgid "manager.setup.serverThumbnail.description"
+msgstr ""
+"Ein kleines Logo oder eine Darstellung des Servers, die in Listen von "
+"Servern verwendet werden kann."
+
+msgid "manager.setup.contextTitle"
+msgstr "Server-Titel"
+
+msgid "manager.setup.keyInfo"
+msgstr "Wichtige Informationen"
+
+msgid "manager.setup.keyInfo.description"
+msgstr ""
+"Geben Sie eine Beschreibung Ihres Servers und nennen Sie den/die Preprint-"
+"Manager und andere Mitglieder des Preprint-Server-Teams."
+
+msgid "manager.setup.lists"
+msgstr "Listen"
+
+msgid "manager.setup.numPageLinks"
+msgstr "Links zur Seite"
+
+msgid "manager.setup.numPageLinks.description"
+msgstr ""
+"Begrenzen Sie die Anzahl der anzuzeigenden Links zu nachfolgenden Seiten in "
+"einer Liste."
+
+msgid "manager.setup.restrictPreprintAccess"
+msgstr ""
+"Benutzer müssen registriert sein und sich anmelden, um frei zugängliche "
+"Inhalte zu sehen."
+
+msgid "manager.setup.restrictSiteAccess"
+msgstr ""
+"Die Benutzer müssen registriert sein und sich anmelden, um die Server-Seite "
+"zu sehen."
+
+msgid "manager.setup.searchEngineIndexing"
+msgstr "Suche Indexierung"
+
+msgid "manager.setup.searchEngineIndexing.description"
+msgstr ""
+"Helfen Sie Suchmaschinen wie Google, Ihre Website zu finden und anzuzeigen. "
+"Sie sind aufgefordert, Ihre <a href=\"{$sitemapUrl}\" target=\"_blank"
+"\">Sitemap</a> einzureichen."
+
+msgid "manager.setup.searchDescription.description"
+msgstr ""
+"Geben Sie eine kurze Beschreibung (50-300 Zeichen) des Servers an, die "
+"Suchmaschinen bei der Auflistung des Servers in den Suchergebnissen anzeigen "
+"können."
+
+msgid "manager.setup.siteAccess.view"
+msgstr "Zugang zur Website"
+
+msgid "manager.setup.siteAccess.viewContent"
+msgstr "Preprint-Inhalt anzeigen"
+
+msgid "manager.setup.sponsoringOrganization"
+msgstr "Sponsororganisation"
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+"Verhindern Sie, dass Benutzer neue Preprints zu dem Server einreichen. Die "
+"Einreichung kann für einzelne Serverbereiche auf der Einstellungsseite <a "
+"href=\"{$url}\">Serverbereiche</a> deaktiviert werden."
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+"Dieser Server nimmt zur Zeit keine Anmeldungen an. Besuchen Sie die Workflow-"
+"Einstellungen, um Einreichungen zuzulassen."
+
+msgid "manager.setup.enableOai"
+msgstr "OAI aktivieren"
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+"Bereitstellung von Metadaten für Indexierungsdienste von Dritten über die <a "
+"href=\"https://www.openarchives.org/\">Open Archives Initiative</a>."
+
+msgid "manager.setup.userRegistration"
+msgstr "Benutzerregistrierung"
+
+msgid "manager.statistics.statistics"
+msgstr "Server-Statistik"
+
+msgid "manager.statistics.statistics.preprintViews"
+msgstr "Anzahl der Preprints (nur für Autoren)"
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr "Annehmen"
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr "Ablehnen"
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr "Erneut einreichen"
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr "Tage bis zur Veröffentlichung des Preprints"
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr "Gepostete Einträge"
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+"Prüfen Sie, welche Informationen den Lesern unter Über den Server zur "
+"Verfügung gestellt werden sollen."
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+"Hinweis: Die Prozentsätze für von Fachkollegen geprüfte Einreichungen "
+"ergeben möglicherweise nicht 100 %, da die erneut eingereichten Beiträge "
+"entweder angenommen, abgelehnt oder noch in Bearbeitung sind."
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr "Gesamte Einreichungen"
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr "Angemeldete Leser"
+
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
+msgstr "Downloads von Preprint-Dateien"
+
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
+msgstr "Seitenaufrufe der Abstracts von Preprints"
+
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
+msgstr "Server-Hauptseitenaufrufe"
+
+msgid "grid.category.path"
+msgstr "Pfad"
+
+msgid "manager.publication.library"
+msgstr "Preprint-Server-Bibliothek"
+
+msgid "manager.setup.resetPermissions"
+msgstr "Preprint-Berechtigungen zurücksetzen"
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie die Berechtigungsdaten für alle Preprints "
+"zurücksetzen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
 
 msgid "manager.setup.resetPermissions.description"
 msgstr ""
@@ -179,372 +419,192 @@ msgstr ""
 "nicht sicher sind, welche Rechte Sie an den auf Ihrem Server eingestellten "
 "Preprints haben."
 
-msgid "manager.setup.resetPermissions.confirm"
+msgid "manager.setup.resetPermissions.success"
+msgstr "Die Preprint-Berechtigungen wurden erfolgreich zurückgesetzt."
+
+msgid "grid.genres.title.short"
+msgstr "Komponenten"
+
+msgid "grid.genres.title"
+msgstr "Preprint-Komponenten"
+
+msgid "plugins.importexport.common.settings"
+msgstr "Einstellungen"
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr "DOI-Plugin-Einstellungen"
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr "Preprints"
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr "Plugin-Anforderungen nicht erfüllt"
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
 msgstr ""
-"Sind Sie sicher, dass Sie die Berechtigungsdaten für alle Preprints "
-"zurücksetzen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+"Um dieses Plugin zu nutzen, gehen Sie bitte in die Plugin-Kategorie \"Public "
+"Identifier\", aktivieren und konfigurieren Sie das DOI-Plugin und geben Sie "
+"dort einen gültigen DOI-Präfix an."
 
-msgid "manager.setup.resetPermissions"
-msgstr "Preprint-Berechtigungen zurücksetzen"
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr "Das Plugin ist nicht vollständig eingerichtet."
 
-msgid "manager.publication.library"
-msgstr "Preprint-Server-Bibliothek"
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Passwort"
 
-msgid "grid.category.path"
-msgstr "Pfad"
-
-msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
-msgstr "Server-Hauptseitenaufrufe"
-
-msgid "manager.statistics.reports.defaultReport.preprintAbstract"
-msgstr "Seitenaufrufe der Abstracts von Preprints"
-
-msgid "manager.statistics.reports.defaultReport.preprintDownloads"
-msgstr "Downloads von Preprint-Dateien"
-
-msgid "manager.statistics.statistics.registeredReaders"
-msgstr "Angemeldete Leser"
-
-msgid "manager.statistics.statistics.numSubmissions"
-msgstr "Gesamte Einreichungen"
-
-msgid "manager.statistics.statistics.note"
+msgid "plugins.importexport.common.settings.form.password.description"
 msgstr ""
-"Hinweis: Die Prozentsätze für von Fachkollegen geprüfte Einreichungen "
-"ergeben möglicherweise nicht 100 %, da die erneut eingereichten Beiträge "
-"entweder angenommen, abgelehnt oder noch in Bearbeitung sind."
+"Bitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, "
+"gespeichert wird."
 
-msgid "manager.statistics.statistics.makePublic"
+msgid "plugins.importexport.common.status.any"
+msgstr "Jeder Status"
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr "Nicht hinterlegt"
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr "Markiert registriert"
+
+msgid "plugins.importexport.common.status.registered"
+msgstr "Registriert"
+
+msgid "plugins.importexport.common.action"
+msgstr "Aktion"
+
+msgid "plugins.importexport.common.action.export"
+msgstr "Exportieren"
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr "Markierung registriert"
+
+msgid "plugins.importexport.common.action.register"
+msgstr "Registrieren"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validieren Sie XML vor dem Export und der Registrierung."
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr "Keine Objekte ausgewählt."
+
+msgid "plugins.importexport.common.error.validation"
+msgstr "Ausgewählte Objekte konnten nicht konvertiert werden."
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr "Ungültiges XML:"
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr "Die Ausgabedatei {$param} ist nicht beschreibbar."
+
+msgid "plugins.importexport.common.register.error.mdsError"
 msgstr ""
-"Prüfen Sie, welche Informationen den Lesern unter Über den Server zur "
-"Verfügung gestellt werden sollen."
+"Die Registrierung war nicht erfolgreich! Der DOI-Registrierungsserver hat "
+"einen Fehler zurückgegeben: '{$param}'."
 
-msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Gepostete Einträge"
+msgid "plugins.importexport.common.register.success"
+msgstr "Registrierung erfolgreich!"
 
-msgid "manager.statistics.statistics.daysToPublication"
-msgstr "Tage bis zur Veröffentlichung des Preprints"
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr "DOI-Präfix fehlt für den Server mit dem Pfad {$path}."
 
-msgid "manager.statistics.statistics.count.revise"
-msgstr "Erneut einreichen"
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr "Die angegebenen Objekte konnten nicht gefunden werden."
 
-msgid "manager.statistics.statistics.count.decline"
-msgstr "Ablehnen"
-
-msgid "manager.statistics.statistics.count.accept"
-msgstr "Annehmen"
-
-msgid "manager.statistics.statistics.preprintViews"
-msgstr "Anzahl der Preprints (nur für Autoren)"
-
-msgid "manager.statistics.statistics"
-msgstr "Server-Statistik"
-
-msgid "manager.setup.userRegistration"
-msgstr "Benutzerregistrierung"
-
-msgid "manager.setup.enableOai.description"
+msgid "stats.contextStats"
 msgstr ""
-"Bereitstellung von Metadaten für Indexierungsdienste von Dritten über die <a "
-"href=\"https://www.openarchives.org/\">Open Archives Initiative</a>."
 
-msgid "manager.setup.enableOai"
-msgstr "OAI aktivieren"
-
-msgid "manager.setup.disableSubmissions.notAccepting"
+msgid "stats.context.tooltip.text"
 msgstr ""
-"Dieser Server nimmt zur Zeit keine Anmeldungen an. Besuchen Sie die Workflow-"
-"Einstellungen, um Einreichungen zuzulassen."
 
-msgid "manager.setup.disableSubmissions.description"
+msgid "stats.context.tooltip.label"
 msgstr ""
-"Verhindern Sie, dass Benutzer neue Preprints zu dem Server einreichen. Die "
-"Einreichung kann für einzelne Serverbereiche auf der Einstellungsseite <a "
-"href=\"{$url}\">Serverbereiche</a> deaktiviert werden."
 
-msgid "manager.setup.sponsoringOrganization"
-msgstr "Sponsororganisation"
-
-msgid "manager.setup.siteAccess.viewContent"
-msgstr "Preprint-Inhalt anzeigen"
-
-msgid "manager.setup.siteAccess.view"
-msgstr "Zugang zur Website"
-
-msgid "manager.setup.searchDescription.description"
+msgid "stats.context.downloadReport.description"
 msgstr ""
-"Geben Sie eine kurze Beschreibung (50-300 Zeichen) des Servers an, die "
-"Suchmaschinen bei der Auflistung des Servers in den Suchergebnissen anzeigen "
-"können."
 
-msgid "manager.setup.searchEngineIndexing.description"
+msgid "stats.context.downloadReport.downloadContext.description"
 msgstr ""
-"Helfen Sie Suchmaschinen wie Google, Ihre Website zu finden und anzuzeigen. "
-"Sie sind aufgefordert, Ihre <a href=\"{$sitemapUrl}\" target=\"_blank\""
-">Sitemap</a> einzureichen."
 
-msgid "manager.setup.searchEngineIndexing"
-msgstr "Suche Indexierung"
-
-msgid "manager.setup.restrictSiteAccess"
+msgid "stats.context.downloadReport.downloadContext"
 msgstr ""
-"Die Benutzer müssen registriert sein und sich anmelden, um die Server-Seite "
-"zu sehen."
 
-msgid "manager.setup.restrictPreprintAccess"
+msgid "stats.publications.downloadReport.description"
 msgstr ""
-"Benutzer müssen registriert sein und sich anmelden, um frei zugängliche "
-"Inhalte zu sehen."
 
-msgid "manager.setup.numPageLinks.description"
+msgid "stats.publications.downloadReport.downloadSubmissions"
 msgstr ""
-"Begrenzen Sie die Anzahl der anzuzeigenden Links zu nachfolgenden Seiten in "
-"einer Liste."
 
-msgid "manager.setup.numPageLinks"
-msgstr "Links zur Seite"
-
-msgid "manager.setup.lists"
-msgstr "Listen"
-
-msgid "manager.setup.keyInfo.description"
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
 msgstr ""
-"Geben Sie eine Beschreibung Ihres Servers und nennen Sie den/die Preprint-"
-"Manager und andere Mitglieder des Preprint-Server-Teams."
 
-msgid "manager.setup.keyInfo"
-msgstr "Wichtige Informationen"
+msgid "stats.publicationStats"
+msgstr "Preprint-Statistiken"
 
-msgid "manager.setup.contextTitle"
-msgstr "Server-Titel"
+msgid "stats.publications.details"
+msgstr "Preprint-Details"
 
-msgid "manager.setup.serverThumbnail.description"
+msgid "stats.publications.none"
 msgstr ""
-"Ein kleines Logo oder eine Darstellung des Servers, die in Listen von "
-"Servern verwendet werden kann."
+"Es wurden keine Preprints gefunden, deren Nutzungsstatistiken diesen "
+"Parametern entsprechen."
 
-msgid "manager.setup.serverThumbnail"
-msgstr "Server-Vorschaubild"
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr "Gesamtzahl der Aufrufe der Abstracts nach Datum"
 
-msgid "manager.setup.selectCountry"
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr "Gesamtzahl der Aufrufe des Abstracts nach Datum"
+
+msgid "stats.publications.countOfTotal"
+msgstr "{$count} von {$total} Preprints"
+
+msgid "stats.publications.abstracts"
+msgstr "Abstracts"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
 msgstr ""
-"Wählen Sie das Land, in dem sich der Server befindet, oder das Land der "
-"Postanschrift des Servers oder des Herausgebers."
+"Senden Sie eine Kopie der Bestätigungs-E-Mail an den Hauptkontakt dieses "
+"Preprint-Servers."
 
-msgid "manager.setup.contextInitials"
-msgstr "Server-Initialen"
-
-msgid "manager.setup.contextAbout.description"
+msgid ""
+"manager.setup.notifications.copySubmissionAckPrimaryContact.disabled."
+"description"
 msgstr ""
-"Fügen Sie alle Informationen über Ihren Server hinzu, die für Leser oder "
-"Autoren von Interesse sein könnten. Dies könnte Ihre Open-Access-Politik, "
-"den Schwerpunkt und den Umfang des Servers, die Politik der Moderation und "
-"des Screenings, den Hinweis auf das Urheberrecht, die Offenlegung des "
-"Sponsorings, die Geschichte des Servers und eine Datenschutzerklärung "
-"umfassen."
+"Für diesen Preprint-Server wurde kein Hauptkontakt definiert. Sie können "
+"einen Hauptkontakt in den <a href=\"{$url}\">Preprint-Servereinstellungen</"
+"a> eingeben"
 
-msgid "manager.setup.contextAbout"
-msgstr "Über den Server"
+msgid "emailTemplate.variable.context.contextName"
+msgstr "Name des Servers"
 
-msgid "manager.setup.contextSummary"
-msgstr "Server Zusammenfassung"
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "Die URL zur Homepage des Servers"
 
-msgid "manager.setup.serverAbbreviation"
-msgstr "Server-Abkürzung"
+msgid "emailTemplate.variable.context.contactName"
+msgstr "Der Name des Hauptkontakts des Servers"
 
-msgid "manager.setup.itemsPerPage.description"
+msgid "emailTemplate.variable.context.contextSignature"
 msgstr ""
-"Begrenzen Sie die Anzahl der in einer Liste anzuzeigenden Einträge (z. B. "
-"Anmeldungen, Benutzer oder Bearbeitungsaufgaben), bevor die nachfolgenden "
-"Einträge auf einer anderen Seite angezeigt werden."
 
-msgid "manager.setup.itemsPerPage"
-msgstr "Einträge pro Seite"
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "Die E-Mail-Signatur des Servers für automatisierte E-Mails"
 
-msgid "manager.setup.information.forReaders"
-msgstr "Für LeserInnen"
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "Die E-Mail-Adresse der Hauptkontaktperson des Servers"
 
-msgid "manager.setup.information.forLibrarians"
-msgstr "Für BibliothekarInnen"
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "Bezeichnung der Zahlungsart"
 
-msgid "manager.setup.information.forAuthors"
-msgstr "Für Autoren"
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "Der Zahlungsbetrag"
 
-msgid "manager.setup.information.description"
-msgstr ""
-"Kurze Beschreibungen des Servers für Bibliothekare und potenzielle Autoren "
-"und Leser. Diese werden in der Seitenleiste der Website zur Verfügung "
-"gestellt, wenn der Informationsblock hinzugefügt wurde."
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "Die Währung des Zahlungsbetrags, z. B. USD"
 
-msgid "manager.setup.information"
-msgstr "Information"
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Name der Website, wenn mehr als ein Server gehostet wird"
 
-msgid "manager.setup.identity"
-msgstr "Preprint-Server-Identität"
-
-msgid "manager.setup.enableUserRegistration"
-msgstr "Besucher können ein Benutzerkonto auf dem Server anlegen."
-
-msgid "manager.setup.numAnnouncementsHomepage.description"
-msgstr ""
-"Wie viele Ankündigungen auf der Startseite angezeigt werden sollen. Lassen "
-"Sie dies leer, um keine anzuzeigen."
-
-msgid "manager.setup.numAnnouncementsHomepage"
-msgstr "Anzeige auf der Startseite"
-
-msgid "manager.setup.enableAnnouncements.description"
-msgstr ""
-"Ankündigungen können veröffentlicht werden, um die Leser über Neuigkeiten "
-"und Ereignisse auf dem Server zu informieren. Veröffentlichte Ankündigungen "
-"erscheinen auf der Seite Ankündigungen."
-
-msgid "manager.setup.enableAnnouncements.enable"
-msgstr "Ankündigungen einschalten"
-
-#, fuzzy
-msgid "manager.setup.emailSignature.description"
-msgstr ""
-"Die vorbereiteten E-Mails, die vom System im Namen des Servers versendet "
-"werden, werden mit der folgenden Signatur versehen, die am Ende hinzugefügt "
-"wird."
-
-msgid "manager.setup.emailSignature"
-msgstr "Unterschrift"
-
-msgid "manager.setup.emailBounceAddress.disabled"
-msgstr ""
-"Um unzustellbare E-Mails an eine Bounce-Adresse zu senden, muss der Site-"
-"Administrator die Option <code>allow_envelope_sender</code> in der Site-"
-"Konfigurationsdatei aktivieren. Möglicherweise ist eine Serverkonfiguration "
-"erforderlich, wie in der OPS-Dokumentation angegeben."
-
-msgid "manager.setup.emailBounceAddress.description"
-msgstr ""
-"Bei unzustellbaren E-Mails erhalten Sie eine Fehlermeldung an diese Adresse."
-
-msgid "manager.setup.emailBounceAddress"
-msgstr "Bounce-Adresse"
-
-msgid "manager.setup.disableUserRegistration"
-msgstr "Der Server Manager wird alle Benutzerkonten registrieren."
-
-#, fuzzy
-msgid "manager.setup.authorScreening"
-msgstr "Autorenscreening-Plugins"
-
-msgid "manager.setup.announcementsIntroduction.description"
-msgstr ""
-"Geben Sie alle Informationen ein, die auf Ihrer Ankündigungsseite erscheinen "
-"sollen."
-
-msgid "manager.setup.announcementsIntroduction"
-msgstr "Einführung"
-
-msgid "manager.setup.announcements"
-msgstr "Ankündigungen"
-
-msgid "manager.setup.useStyleSheet"
-msgstr "Server-Formatvorlage"
-
-msgid "manager.setup.editorialTeam"
-msgstr "Preprint-Server-Team"
-
-msgid "manager.setup.masthead"
-msgstr "Impressum"
-
-msgid "manager.setup"
-msgstr "Server-Einstellungen"
-
-msgid "manager.sections.wordCountInstructions"
-msgstr ""
-"Begrenzen Sie die Anzahl der Wörter in Abstracts für diesen Abschnitt (0 für "
-"keine Begrenzung)"
-
-msgid "manager.sections.wordCount"
-msgstr "Wortzahl"
-
-msgid "manager.sections.submissionIndexing"
-msgstr "Wird bei der Indexierung des Servers nicht berücksichtigt"
-
-msgid "manager.sections.policy"
-msgstr "Sektionspolitik"
-
-msgid "manager.sections.identifyTypeExamples"
-msgstr "(Zum Beispiel usw.)"
-
-msgid "manager.sections.identifyType"
-msgstr "Kennzeichnen Sie die in diesem Abschnitt veröffentlichten Einträge als"
-
-msgid "manager.setup.form.section.pathRequired"
-msgstr "Für den Abschnitt ist ein URL-Pfad erforderlich"
-
-msgid "manager.sections.form.abbrevRequired"
-msgstr "Ein abgekürzter Titel ist für den Abschnitt erforderlich"
-
-msgid "manager.sections.confirmDeactivateSection.error"
-msgstr ""
-"Mindestens ein Abschnitt muss aktiv sein. Besuchen Sie die Workflow-"
-"Einstellungen, um alle Übermittlungen an diesen Server zu deaktivieren."
-
-msgid "manager.sections.editorRestriction"
-msgstr "Einträge können nur von Managern und Moderatoren eingereicht werden."
-
-msgid "manager.sections.create"
-msgstr "Abschnitt erstellen"
-
-msgid "manager.sections.alertDelete"
-msgstr ""
-"Bevor dieser Bereich gelöscht werden kann, müssen Sie die dort eingestellten "
-"Preprints in einen anderen Bereich verschieben."
-
-msgid "manager.sections.confirmDelete"
-msgstr "Sind Sie sicher, dass Sie diesen Abschnitt endgültig löschen wollen?"
-
-msgid "manager.sections.abstractsNotRequired"
-msgstr "Keine Abstracts verlangen"
-
-msgid "manager.people.confirmRemove"
-msgstr ""
-"Diesen Benutzer von diesem Server entfernen? Mit dieser Aktion wird der "
-"Benutzer aus allen Rollen auf diesem Server entfernt."
-
-msgid "manager.people.allUsers"
-msgstr "Alle registrierten Benutzer"
-
-msgid "manager.language.confirmDefaultSettingsOverwrite"
-msgstr ""
-"Dies ersetzt alle lokal-spezifischen Servereinstellungen, die Sie für dieses "
-"Gebietsschema hatten"
-
-msgid "manager.language.forms"
-msgstr "Formen"
-
-msgid "manager.language.submissions"
-msgstr "Einreichungen"
-
-msgid "manager.language.ui"
-msgstr "UI"
-
-msgid "manager.distribution.publishingMode.openAccess"
-msgstr "Der Server bietet freien Zugang zu seinem Inhalt."
-
-msgid "manager.distribution.publishingMode.none"
-msgstr "OPS wird nicht verwendet, um den Inhalt des Servers online zu stellen."
-
-msgid "manager.distribution.publishingMode"
-msgstr "Posting-Modus"
-
-msgid "manager.distribution.copyrightYearBasis.submission"
-msgstr "Verwenden Sie das Datum der Veröffentlichung des Preprints"
-
-msgid "manager.distribution.copyrightYearBasis.description"
-msgstr ""
-"Wählen Sie, wie ein Standard-Copyright-Datum für einen Preprint ausgewählt "
-"wird. Diese Vorgabe kann von Fall zu Fall überschrieben werden."
-
-msgid "manager.distribution.access"
-msgstr "Zugang"
+msgid "mailable.validateEmailContext.name"
+msgstr "E-Mail überprüfen (Serverregistrierung)"
 
 msgid "mailable.validateEmailContext.description"
 msgstr ""
@@ -552,14 +612,79 @@ msgstr ""
 "mit einem Server registrieren, der die Überprüfung der E-Mail Adresse "
 "verlangt."
 
-msgid "mailable.validateEmailContext.name"
-msgstr "E-Mail überprüfen (Serverregistrierung)"
+msgid "doi.displayName"
+msgstr "DOI"
 
-msgid "doi.manager.settings.doiAssignServerWide"
-msgstr "DOIs zuweisen"
+msgid "doi.manager.displayName"
+msgstr ""
 
-msgid "doi.manager.settings.doiReassign.confirm"
-msgstr "Sind Sie sicher, dass Sie alle bestehenden DOIs löschen möchten?"
+msgid "doi.description"
+msgstr ""
+"Dieses Plugin ermöglicht die Zuweisung von Digital Object Identifiers zu "
+"Preprints und Gesamtfahnen im OPS."
+
+msgid "doi.manager.submissionDois"
+msgstr ""
+
+msgid "doi.readerDisplayName"
+msgstr "DOI"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Bitte konfigurieren Sie das DOI-Plugin, damit Sie DOIs in OPS verwalten und "
+"verwenden können:"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Bitte wählen Sie die Publikationsobjekte aus, denen Digital Object "
+"Identifier (DOI) zugewiesen werden sollen:"
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr ""
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Gesamtfahnen"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Automatische Zuweisung"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+"Automatische Zuweisung von DOI für die folgenden Objekte bei der Erstellung:"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-Präfix"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+"Der DOI-Präfix ist obligatorisch und muss in der Form 10.xxxx angegeben "
+"werden."
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Verwenden Sie das unten eingegebene Muster, um DOI-Suffixe zu erzeugen. "
+"Verwenden Sie %j für die Serverinitialen, %a für die OPS Preprint ID, %g für "
+"die OPS Galley ID, %f für die OPS File ID und %x für \"Custom Identifier\"."
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+"Zum Beispiel könnte %j.%a einen DOI wie 10.1234/server_initials.12345 "
+"erzeugen"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "für Preprints"
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "für Gesamtfahnen"
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Bitte geben Sie das DOI-Suffixmuster für Preprints ein."
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Bitte geben Sie das DOI-Suffixmuster für Gesamtfahnen ein."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "DOIs neu zuweisen"
 
 msgid "doi.manager.settings.doiReassign.description"
 msgstr ""
@@ -568,163 +693,11 @@ msgstr ""
 "diese Schaltfläche, um alle vorhandenen DOIs zu löschen, damit die neuen "
 "Einstellungen für die vorhandenen Objekte wirksam werden."
 
-msgid "doi.manager.settings.doiReassign"
-msgstr "DOIs neu zuweisen"
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "Sind Sie sicher, dass Sie alle bestehenden DOIs löschen möchten?"
 
-msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
-msgstr "Bitte geben Sie das DOI-Suffixmuster für Gesamtfahnen ein."
-
-msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
-msgstr "Bitte geben Sie das DOI-Suffixmuster für Preprints ein."
-
-msgid "doi.manager.settings.doiSuffixPattern.representations"
-msgstr "für Gesamtfahnen"
-
-msgid "doi.manager.settings.doiSuffixPattern.submissions"
-msgstr "für Preprints"
-
-msgid "doi.manager.settings.doiSuffixPattern.example"
-msgstr ""
-"Zum Beispiel könnte %j.%a einen DOI wie 10.1234/server_initials.12345 "
-"erzeugen"
-
-msgid "doi.manager.settings.doiSuffixPattern"
-msgstr ""
-"Verwenden Sie das unten eingegebene Muster, um DOI-Suffixe zu erzeugen. "
-"Verwenden Sie %j für die Serverinitialen, %a für die OPS Preprint ID, %g für "
-"die OPS Galley ID, %f für die OPS File ID und %x für \"Custom Identifier\"."
-
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
-"Der DOI-Präfix ist obligatorisch und muss in der Form 10.xxxx angegeben "
-"werden."
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "DOI-Präfix"
-
-msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
-msgstr ""
-"Automatische Zuweisung von DOI für die folgenden Objekte bei der Erstellung:"
-
-msgid "doi.manager.settings.publicationDoiAutoAssign"
-msgstr "Automatische Zuweisung"
-
-msgid "doi.manager.settings.enableRepresentationDoi"
-msgstr "Gesamtfahnen"
-
-msgid "doi.manager.settings.enablePublicationDoi"
-msgstr "Preprints"
-
-msgid "doi.manager.settings.explainDois"
-msgstr ""
-"Bitte wählen Sie die Publikationsobjekte aus, denen Digital Object "
-"Identifier (DOI) zugewiesen werden sollen:"
-
-#, fuzzy
-msgid "doi.manager.settings.doiObjectsRequired"
-msgstr "Bitte wählen Sie die Objekte aus, denen DOIs zugewiesen werden sollen."
-
-msgid "doi.manager.settings.description"
-msgstr ""
-"Bitte konfigurieren Sie das DOI-Plugin, damit Sie DOIs in OPS verwalten und "
-"verwenden können:"
-
-msgid "doi.readerDisplayName"
-msgstr "DOI"
-
-msgid "doi.description"
-msgstr ""
-"Dieses Plugin ermöglicht die Zuweisung von Digital Object Identifiers zu "
-"Preprints und Gesamtfahnen im OPS."
-
-msgid "doi.displayName"
-msgstr "DOI"
-
-msgid "doi.editor.preview.objects"
-msgstr "Eintrag"
-
-msgid "doi.editor.preview.galleys"
-msgstr "Gesamtfahne: {$galleyLabel}"
-
-msgid "doi.editor.preview.publication.none"
-msgstr "Für diese Veröffentlichung wurde kein DOI vergeben."
-
-msgid "doi.editor.preview.publication"
-msgstr "Der DOI für diese Veröffentlichung lautet {$doi}."
-
-msgid "doi.editor.missingPrefix"
-msgstr "Der DOI muss mit {$doiPrefix} beginnen."
-
-msgid "doi.editor.assignDoi.assigned"
-msgstr "Der DOI {$pubId} ist zugewiesen worden."
-
-msgid "doi.editor.assignDoi.pattern"
-msgstr ""
-"Der DOI {$pubId} kann nicht zugewiesen werden, da er ein nicht aufgelöstes "
-"Muster enthält."
-
-msgid "doi.editor.assignDoi.emptySuffix"
-msgstr ""
-"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
-"fehlt."
-
-msgid "doi.editor.assignDoi"
-msgstr "Weisen Sie die DOI {$pubId} diesem {$pubObjectType} zu"
-
-msgid "doi.editor.clearObjectsDoi.confirm"
-msgstr "Sind Sie sicher, dass Sie die bestehende DOI löschen möchten?"
-
-msgid "doi.editor.clearObjectsDoi"
-msgstr "Löschen"
-
-msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
-msgstr ""
-"Das angegebene DOI-Suffix ist bereits für einen anderen veröffentlichten "
-"Artikel in Gebrauch. Bitte geben Sie für jeden Artikel ein eindeutiges DOI-"
-"Suffix ein."
-
-msgid "doi.editor.assigned"
-msgstr "Der DOI wird diesem {$pubObjectType} zugewiesen."
-
-msgid "doi.editor.canBeAssigned"
-msgstr ""
-"Sie sehen eine Vorschau des DOI. Aktivieren Sie das Kontrollkästchen und "
-"speichern Sie das Formular, um den DOI zuzuweisen."
-
-msgid "doi.editor.patternNotResolved"
-msgstr ""
-"Der DOI kann nicht zugewiesen werden, da er ein nicht aufgelöstes Muster "
-"enthält."
-
-msgid "doi.editor.missingParts"
-msgstr ""
-"Sie können keinen DOI erzeugen, weil ein oder mehrere Teile des DOI-Musters "
-"fehlen."
-
-msgid "doi.editor.customSuffixMissing"
-msgstr ""
-"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
-"fehlt."
-
-msgid "doi.editor.doiObjectTypeRepresentation"
-msgstr "Gesamtfahne"
-
-msgid "doi.editor.doiObjectTypeSubmission"
-msgstr "Preprint"
-
-msgid "doi.editor.doi.assignDoi"
-msgstr "zuweisen"
-
-msgid "doi.editor.doi.description"
-msgstr "Der DOI muss mit {$prefix} beginnen."
-
-msgid "doi.editor.doi"
-msgstr "DOI"
-
-msgid "doi.manager.settings.doiAssignServerWide.confirm"
-msgstr ""
-"Sind Sie sicher, dass Sie allen veröffentlichten Objekten, denen keine DOIs "
-"zugewiesen wurden, DOIs zuweisen möchten?"
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "DOIs zuweisen"
 
 msgid "doi.manager.settings.doiAssignServerWide.description"
 msgstr ""
@@ -735,7 +708,177 @@ msgstr ""
 "starten. Die Zuweisung von DOIs kann je nach der Anzahl der veröffentlichten "
 "Objekte auf dem Server lange dauern."
 
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie allen veröffentlichten Objekten, denen keine DOIs "
+"zugewiesen wurden, DOIs zuweisen möchten?"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr ""
+
+msgid "doi.editor.doi"
+msgstr "DOI"
+
+msgid "doi.editor.doi.description"
+msgstr "Der DOI muss mit {$prefix} beginnen."
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "zuweisen"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "Preprint"
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "Gesamtfahne"
+
+msgid "doi.editor.customSuffixMissing"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
+"fehlt."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"Sie können keinen DOI erzeugen, weil ein oder mehrere Teile des DOI-Musters "
+"fehlen."
+
+msgid "doi.editor.patternNotResolved"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, da er ein nicht aufgelöstes Muster "
+"enthält."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"Sie sehen eine Vorschau des DOI. Aktivieren Sie das Kontrollkästchen und "
+"speichern Sie das Formular, um den DOI zuzuweisen."
+
+msgid "doi.editor.assigned"
+msgstr "Der DOI wird diesem {$pubObjectType} zugewiesen."
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Das angegebene DOI-Suffix ist bereits für einen anderen veröffentlichten "
+"Artikel in Gebrauch. Bitte geben Sie für jeden Artikel ein eindeutiges DOI-"
+"Suffix ein."
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Löschen"
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "Sind Sie sicher, dass Sie die bestehende DOI löschen möchten?"
+
+msgid "doi.editor.assignDoi"
+msgstr "Weisen Sie die DOI {$pubId} diesem {$pubObjectType} zu"
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
+"fehlt."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+"Der DOI {$pubId} kann nicht zugewiesen werden, da er ein nicht aufgelöstes "
+"Muster enthält."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr "Der DOI {$pubId} ist zugewiesen worden."
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr ""
+
+msgid "doi.editor.missingPrefix"
+msgstr "Der DOI muss mit {$doiPrefix} beginnen."
+
+msgid "doi.editor.preview.publication"
+msgstr "Der DOI für diese Veröffentlichung lautet {$doi}."
+
+msgid "doi.editor.preview.publication.none"
+msgstr "Für diese Veröffentlichung wurde kein DOI vergeben."
+
+msgid "doi.editor.preview.galleys"
+msgstr "Gesamtfahne: {$galleyLabel}"
+
+msgid "doi.editor.preview.objects"
+msgstr "Eintrag"
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr ""
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr ""
+
+msgid "api.issue.400.invalidDoi"
+msgstr ""
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr ""
+
+msgid "manager.institutions.noContext"
+msgstr ""
+
+msgid "manager.manageEmails.description"
+msgstr ""
+
+msgid "mailable.postedAck.name"
+msgstr ""
+
 msgid "mailable.postedAck.description"
 msgstr ""
 "Diese E-Mail wird, wenn die Funktion aktiviert ist, automatisch an den Autor "
 "gesendet, wenn der Preprint auf dem Server online gestellt wird."
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "manager.preprintPosted"
+msgstr ""
+
+msgid "manager.preprintPosted.description"
+msgstr ""
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr ""
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr ""
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr ""
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr ""
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr ""
+
+#~ msgid "doi.manager.settings.enablePublicationDoi"
+#~ msgstr "Preprints"

@@ -11,60 +11,231 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "publication.inactiveSection"
-msgstr "{$section} (Inaktiv)"
+msgid "submission.submit.userGroup"
+msgstr "Lever inn i min rolle som ..."
 
-msgid "publication.invalidSection"
-msgstr "Seksjonen til denne versjonen ble ikke funnet."
+msgid "submission.upload.selectComponent"
+msgstr "Velg preprintkomponent"
 
-msgid "galley.publicationNotFound"
-msgstr "Versjonen til dette oppsettet ble ikke funnet."
+msgid "submission.title"
+msgstr "Tittel"
 
-msgid "galley.editPublishedDisabled"
-msgstr ""
-"Oppsettene til denne versjonen kan ikke redigeres fordi den allerede har "
-"blitt deponert."
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Ny innlevering"
 
-msgid "catalog.category.heading"
-msgstr "Alle objekter"
+msgid "submission.abstract.wordCount.description"
+msgstr "Sammendraget må være {$wordCount} ord eller færre."
 
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} titler"
+msgid "submission.submit.noContext"
+msgstr "Denne innleveringens tjener ble ikke funnet."
+
+msgid "submission.galleyFiles"
+msgstr "Oppsettfiler"
+
+msgid "submission.upload.fileContents"
+msgstr "Preprintkomponent"
+
+msgid "submission.complete"
+msgstr "Utført"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Sjekkliste"
+
+msgid "submission.submit.contributorRole"
+msgstr "Bidragsyterens rolle"
 
 msgid "submission.metadataDescription"
 msgstr ""
 "Disse spesifikasjonene er basert på metadatasettet Dublin Core, en "
 "internasjonal standard som bl.a. brukes til å beskrive innhold."
 
-msgid "submission.submit.contributorRole"
-msgstr "Bidragsyterens rolle"
+msgid "submission.sectionOptions"
+msgstr ""
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Sjekkliste"
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} titler"
 
-msgid "submission.complete"
-msgstr "Utført"
+msgid "catalog.category.heading"
+msgstr "Alle objekter"
 
-msgid "submission.upload.fileContents"
-msgstr "Preprintkomponent"
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Oppsettene til denne versjonen kan ikke redigeres fordi den allerede har "
+"blitt deponert."
 
-msgid "submission.galleyFiles"
-msgstr "Oppsettfiler"
+msgid "galley.publicationNotFound"
+msgstr "Versjonen til dette oppsettet ble ikke funnet."
 
-msgid "submission.submit.noContext"
-msgstr "Denne innleveringens tjener ble ikke funnet."
+msgid "publication.invalidSection"
+msgstr "Seksjonen til denne versjonen ble ikke funnet."
 
-msgid "submission.abstract.wordCount.description"
-msgstr "Sammendraget må være {$wordCount} ord eller færre."
+msgid "publication.inactiveSection"
+msgstr "{$section} (Inaktiv)"
 
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Ny innlevering"
+msgid "preprint.entry"
+msgstr ""
 
-msgid "submission.title"
-msgstr "Tittel"
+msgid "publication.issue.success"
+msgstr ""
 
-msgid "submission.upload.selectComponent"
-msgstr "Velg preprintkomponent"
+msgid "publication.datePublished.description"
+msgstr ""
 
-msgid "submission.submit.userGroup"
-msgstr "Lever inn i min rolle som ..."
+msgid "publication.relation"
+msgstr ""
+
+msgid "publication.relation.label"
+msgstr ""
+
+msgid "publication.relation.description"
+msgstr ""
+
+msgid "publication.relation.none"
+msgstr ""
+
+msgid "publication.relation.published"
+msgstr ""
+
+msgid "publication.relation.vorDoi"
+msgstr ""
+
+msgid "publication.publish.relationStatus"
+msgstr ""
+
+msgid "publication.publish.relationStatus.none"
+msgstr ""
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr ""
+
+msgid "publication.publish.relationStatus.published"
+msgstr ""
+
+msgid "publication.publish.confirmation"
+msgstr ""
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+
+msgid "publication.status.published"
+msgstr ""
+
+msgid "submission.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "submission.publication"
+msgstr ""
+
+msgid "submission.publications"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+
+msgid "publication.datePublished"
+msgstr ""
+
+msgid "publication.editDisabled"
+msgstr ""
+
+msgid "publication.event.published"
+msgstr ""
+
+msgid "publication.event.scheduled"
+msgstr ""
+
+msgid "publication.event.unpublished"
+msgstr ""
+
+msgid "publication.event.versionPublished"
+msgstr ""
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+
+msgid "publication.invalidSubmission"
+msgstr ""
+
+msgid "publication.publish"
+msgstr ""
+
+msgid "publication.publish.requirements"
+msgstr ""
+
+msgid "publication.required.declined"
+msgstr ""
+
+msgid "publication.required.reviewStage"
+msgstr ""
+
+msgid "submission.license.description"
+msgstr ""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+
+msgid "publication.unpublish"
+msgstr ""
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+
+msgid "publication.version.details"
+msgstr ""
+
+msgid "submission.queries.production"
+msgstr ""
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""
+
+msgid "submission.licenseSection.description"
+msgstr ""
+
+msgid "submission.licenseUrl.missing"
+msgstr ""
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""

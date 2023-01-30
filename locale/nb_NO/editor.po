@@ -1,2 +1,30 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
+
+msgid "editor.publicIdentificationExists"
+msgstr ""
+
+msgid "grid.action.addGalley"
+msgstr ""
+
+msgid "editor.submission.proof.manageProofFilesDescription"
+msgstr ""
+
+msgid "editor.publicIdentificationExistsForTheSameType"
+msgstr ""
+
+msgid "editor.preprint.coverImage"
+msgstr ""
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr ""
+
+msgid "editor.submissions.assignedTo"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr ""

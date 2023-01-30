@@ -11,59 +11,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "section.default.title"
+msgstr "Отпечатоци"
+
+msgid "section.default.abbrev"
+msgstr "ПРЕ"
+
+msgid "section.default.path"
+msgstr "отпечатоци"
+
 msgid "section.default.policy"
 msgstr " "
 
-msgid "default.genres.sourceTexts"
-msgstr "Изворни текстови"
+msgid "default.genres.preprint"
+msgstr "Текст за печатење"
 
-msgid "default.genres.dataSet"
-msgstr "Сет на податоци"
-
-msgid "default.genres.dataAnalysis"
-msgstr "Анализа на податоци"
-
-msgid "default.genres.transcripts"
-msgstr "Записници"
-
-msgid "default.genres.researchResults"
-msgstr "Резултати од истражувањето"
-
-msgid "default.genres.researchMaterials"
-msgstr "Материјали за истражување"
-
-msgid "default.genres.researchInstrument"
-msgstr "Инструмент за истражување"
-
-msgid "default.groups.abbrev.sectionEditor"
-msgstr "МОД"
-
-msgid "default.groups.plural.sectionEditor"
-msgstr "Модератори"
-
-msgid "default.groups.name.sectionEditor"
-msgstr "Модератор"
-
-msgid "default.groups.abbrev.manager"
-msgstr "ПСМ"
-
-msgid "default.groups.plural.manager"
-msgstr "Менаџери на пред-отпечаток на сервер"
-
-msgid "default.groups.name.manager"
-msgstr "Менаџер на пред-отпечаток на сервер"
-
-msgid "default.contextSettings.openAccessPolicy"
+msgid "default.contextSettings.authorGuidelines"
 msgstr ""
-"Овој сервер обезбедува непосреден отворен пристап до неговата содржина врз "
-"принципот дека ставањето на истражување слободно достапно за јавноста "
-"поддржува поголема глобална размена на знаење."
 
-msgid "default.contextSettings.privacyStatement"
+msgid "default.contextSettings.checklist"
 msgstr ""
-"<p> Имињата и адресите за е-пошта внесени на оваа веб-страница на серверот "
-"ќе се користат исклучиво за наведените цели на овој сервер и нема да бидат "
-"достапни за која било друга цел или за која било друга страна. </p>"
+
+msgid "default.contextSettings.forReaders"
+msgstr ""
+"Ние ги охрабруваме читателите да се регистрираат за услугата за објавување "
+"известувања за овој сервер. Користете ја врската <a href=\"{$indexUrl}/"
+"{$contextPath}/user/register\"> Регистрирај се </a> на врвот на почетната "
+"страница. Оваа листа исто така му овозможува на серверот да бара одредено "
+"ниво на поддршка или читаност. Погледнете ја <a href=\"{$indexUrl}/"
+"{$contextPath}/about/submissions#privacyStatement\"> Изјавата за приватност "
+"</a>, што ги уверува читателите дека нивното име и адреса на е-пошта нема да "
+"се користат за други цели."
+
+msgid "default.contextSettings.forAuthors"
+msgstr ""
+"Заинтересирани сте за доставување до овој сервер? Препорачуваме да ја "
+"прегледате страницата <a href=\"{$indexUrl}/{$contextPath}/about\"> За </a> "
+"за политиките, како и <a href=\"{$indexUrl}/{$contextPath}/about/"
+"submissions#authorGuidelines\"> Упатства за автори </a> Авторите треба да<a "
+"href=\"{$indexUrl}/{$contextPath}/user/register\"> Регистрирај се </a> пред "
+"да поднесат или, ако веќе се регистрирани, можат едноставно д <a href="
+"\"{$indexUrl}/index/login\"> Најавете се </a> и започнете го процесот."
 
 msgid "default.contextSettings.forLibrarians"
 msgstr ""
@@ -73,57 +61,90 @@ msgstr ""
 "бидат домаќини за да ги користат нивните членови на факултет (видете  <a "
 "href=\"http://pkp.sfu.ca\"> Проект за јавно знаење </a>)."
 
-msgid "default.contextSettings.forAuthors"
+msgid "default.contextSettings.privacyStatement"
 msgstr ""
-"Заинтересирани сте за доставување до овој сервер? Препорачуваме да ја "
-"прегледате страницата <a href=\"{$indexUrl}/{$contextPath}/about\"> За </a> "
-"за политиките, како и <a href=\"{$indexUrl}/{$contextPath}/about/submissions#"
-"authorGuidelines\"> Упатства за автори </a> Авторите треба да<a href=\""
-"{$indexUrl}/{$contextPath}/user/register\"> Регистрирај се </a> пред да "
-"поднесат или, ако веќе се регистрирани, можат едноставно д <a href=\""
-"{$indexUrl}/index/login\"> Најавете се </a> и започнете го процесот."
+"<p> Имињата и адресите за е-пошта внесени на оваа веб-страница на серверот "
+"ќе се користат исклучиво за наведените цели на овој сервер и нема да бидат "
+"достапни за која било друга цел или за која било друга страна. </p>"
 
-msgid "default.contextSettings.forReaders"
+msgid "default.contextSettings.openAccessPolicy"
 msgstr ""
-"Ние ги охрабруваме читателите да се регистрираат за услугата за објавување "
-"известувања за овој сервер. Користете ја врската <a href=\""
-"{$indexUrl}/{$contextPath}/user/register\"> Регистрирај се </a> на врвот на "
-"почетната страница. Оваа листа исто така му овозможува на серверот да бара "
-"одредено ниво на поддршка или читаност. Погледнете ја <a href=\""
-"{$indexUrl}/{$contextPath}/about/submissions#privacyStatement\"> Изјавата за "
-"приватност </a>, што ги уверува читателите дека нивното име и адреса на е-"
-"пошта нема да се користат за други цели."
+"Овој сервер обезбедува непосреден отворен пристап до неговата содржина врз "
+"принципот дека ставањето на истражување слободно достапно за јавноста "
+"поддржува поголема глобална размена на знаење."
 
-msgid "default.contextSettings.checklist.bibliographicRequirements"
+msgid "default.groups.name.manager"
+msgstr "Менаџер на пред-отпечаток на сервер"
+
+msgid "default.groups.plural.manager"
+msgstr "Менаџери на пред-отпечаток на сервер"
+
+msgid "default.groups.abbrev.manager"
+msgstr "ПСМ"
+
+msgid "default.groups.name.sectionEditor"
+msgstr "Модератор"
+
+msgid "default.groups.plural.sectionEditor"
+msgstr "Модератори"
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "МОД"
+
+msgid "default.genres.researchInstrument"
+msgstr "Инструмент за истражување"
+
+msgid "default.genres.researchMaterials"
+msgstr "Материјали за истражување"
+
+msgid "default.genres.researchResults"
+msgstr "Резултати од истражувањето"
+
+msgid "default.genres.transcripts"
+msgstr "Записници"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Анализа на податоци"
+
+msgid "default.genres.dataSet"
+msgstr "Сет на податоци"
+
+msgid "default.genres.sourceTexts"
+msgstr "Изворни текстови"
+
+msgid "default.submission.step.beforeYouBegin"
 msgstr ""
-"Текстот се придржува кон стилските и библиографските барања наведени во "
-"Упатството за авторот."
 
-msgid "default.contextSettings.checklist.submissionAppearance"
+msgid "default.submission.step.uploadFiles"
 msgstr ""
-"Текстот е еднопростор; користи фонт од 12 точки; користи ракописно, наместо "
-"да подвлекува (освен со URL адреси); и сите илустрации, слики и табели се "
-"ставаат во текстот во соодветните точки, наместо на крајот."
 
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Онаму каде што е достапно, обезбедени се URL-адреси за препораките."
-
-msgid "default.contextSettings.checklist.fileFormat"
+msgid "default.submission.step.contributors"
 msgstr ""
-"Датотеката за поднесување е во формат на датотека со документ OpenOffice, "
-"Microsoft Word или RTF."
 
-msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr "Поднесокот не е претходно објавен."
+msgid "default.submission.step.forTheEditors"
+msgstr ""
 
-msgid "default.genres.preprint"
-msgstr "Текст за печатење"
+msgid "default.submission.step.review"
+msgstr ""
 
-msgid "section.default.path"
-msgstr "отпечатоци"
+#~ msgid "default.contextSettings.checklist.bibliographicRequirements"
+#~ msgstr ""
+#~ "Текстот се придржува кон стилските и библиографските барања наведени во "
+#~ "Упатството за авторот."
 
-msgid "section.default.abbrev"
-msgstr "ПРЕ"
+#~ msgid "default.contextSettings.checklist.submissionAppearance"
+#~ msgstr ""
+#~ "Текстот е еднопростор; користи фонт од 12 точки; користи ракописно, "
+#~ "наместо да подвлекува (освен со URL адреси); и сите илустрации, слики и "
+#~ "табели се ставаат во текстот во соодветните точки, наместо на крајот."
 
-msgid "section.default.title"
-msgstr "Отпечатоци"
+#~ msgid "default.contextSettings.checklist.addressesLinked"
+#~ msgstr "Онаму каде што е достапно, обезбедени се URL-адреси за препораките."
+
+#~ msgid "default.contextSettings.checklist.fileFormat"
+#~ msgstr ""
+#~ "Датотеката за поднесување е во формат на датотека со документ OpenOffice, "
+#~ "Microsoft Word или RTF."
+
+#~ msgid "default.contextSettings.checklist.notPreviouslyPublished"
+#~ msgstr "Поднесокот не е претходно објавен."

@@ -137,6 +137,7 @@ msgstr "サイト管理者"
 msgid "default.groups.name.siteAdmin"
 msgstr "サイト管理者"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

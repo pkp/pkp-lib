@@ -138,6 +138,7 @@ msgstr "Admin Situs"
 msgid "default.groups.name.siteAdmin"
 msgstr "Admin Situs"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

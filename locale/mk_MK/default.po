@@ -137,6 +137,7 @@ msgstr "Координатори за финансии"
 msgid "default.groups.name.funding"
 msgstr "Координатор за финансирање"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

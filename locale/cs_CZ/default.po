@@ -141,6 +141,7 @@ msgstr "Obrázek"
 msgid "default.genres.styleSheet"
 msgstr "HTML šablona stylu"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></p> "

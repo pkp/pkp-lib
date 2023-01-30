@@ -140,6 +140,7 @@ msgstr "Billede"
 msgid "default.genres.styleSheet"
 msgstr "HTML stylesheet"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

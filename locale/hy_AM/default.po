@@ -126,6 +126,7 @@ msgstr "Սրբագրիչներ"
 msgid "default.groups.plural.productionEditor"
 msgstr "Թողարկման խմբագիրներ"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

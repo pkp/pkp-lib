@@ -139,6 +139,7 @@ msgstr "Attēls"
 msgid "default.genres.styleSheet"
 msgstr "HTML stilu lapa"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

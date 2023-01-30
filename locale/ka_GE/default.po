@@ -35,6 +35,7 @@ msgstr "სხვა"
 msgid "default.genres.image"
 msgstr "სურათი"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

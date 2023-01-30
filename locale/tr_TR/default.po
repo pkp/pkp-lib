@@ -140,6 +140,7 @@ msgstr "Görsel"
 msgid "default.genres.styleSheet"
 msgstr "HTML Biçimi"
 
+#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
 "<br/><hr /><br/><p><a href=\"{$contextUrl}\""

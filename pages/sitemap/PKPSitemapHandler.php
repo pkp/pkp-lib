@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use DOMDocument;
+use DOMNode;
 use PKP\db\DAORegistry;
 use PKP\navigationMenu\NavigationMenuItem;
 

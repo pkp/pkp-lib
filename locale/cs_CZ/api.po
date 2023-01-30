@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-13 13:38+0000\n"
+"PO-Revision-Date: 2022-12-16 17:02+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -314,3 +314,9 @@ msgstr "Toto není výchozí šablona známého e-mailu."
 
 msgid "api.emailTemplates.400.invalidContext"
 msgstr "Toto není platný kontext."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "V této uživatelské roli nejste oprávněni podávat žádné příspěvky."
+
+msgid "api.400.propReadOnly"
+msgstr "Vlastnost {$prop} nelze změnit."

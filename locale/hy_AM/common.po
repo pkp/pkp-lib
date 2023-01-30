@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-24 16:34+0000\n"
-"Last-Translator: Artashes Mirzoyan <amirzoyan@sci.am>\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -2231,3 +2231,51 @@ msgstr "Հեղինակը ավելացված է."
 msgid "notification.editedAuthor"
 msgstr "Հեղինակի հաշիվը խմբագրված է։"
 
+msgid "common.disconnected"
+msgstr "Անջատված է"
+
+msgid "common.emailTemplates"
+msgstr "Էլ․ փոստի կաղապարներ"
+
+msgid "common.label"
+msgstr "Պիտակ"
+
+msgid "common.lastSaved"
+msgstr "Վերջին անգամ պահպանվել է {$when}"
+
+msgid "common.noneSelected"
+msgstr "Ոչ մեկը ընտրված չէ"
+
+msgid "common.noneProvided"
+msgstr "Ոչ մեկը չի տրամադրվել"
+
+msgid "common.reconnecting"
+msgstr "Վերամիացում"
+
+msgid "common.role"
+msgstr "Դեր"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} քայլեր"
+
+msgid "common.uploadedBy"
+msgstr "Վերբեռնված է {$name} -ի կողմից"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Վերբեռնվել է {$name} -ի կողմից {$date} -ին"
+
+msgid "common.unsavedChanges"
+msgstr "Չպահված փոփոխություններ"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Մենք գտանք չպահված փոփոխություններ {$when} -ից: Դա կարող է տեղի ունենալ, եթե "
+"աշխատանքի ընթացքում կորցնեք կապը սերվերի հետ: Այդ փոփոխությունները "
+"վերականգնելը կարող է վերագրել այն փոփոխությունները, որոնք դուք կատարել եք "
+"դրանից հետո: Կցանկանա՞ք վերականգնել այդ փոփոխությունները հիմա:"
+
+msgid "common.details"
+msgstr "Մանրամասներ"
+
+msgid "common.discardChanges"
+msgstr "Ոչ, մերժել չպահված փոփոխությունները"

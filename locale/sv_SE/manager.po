@@ -1,11 +1,12 @@
 # Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
+# Viveka Svensson <viveka.svensson@lnu.se>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-08-25 10:34+0000\n"
-"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"PO-Revision-Date: 2022-12-21 15:07+0000\n"
+"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
 "Language: sv_SE\n"
@@ -2927,7 +2928,6 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr "Gör ändringar för {$count} objekt."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionens användningsstatistik"
 

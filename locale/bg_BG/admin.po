@@ -1,8 +1,8 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-09 21:01+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
@@ -834,7 +834,7 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Невалидна опция за тестова работа. Може да приема само „неуспешно“ ('failed')"
-" или „успешно“ ('success') за опцията '--only='"
+" или „успешно“ ('success') за опцията '--only='."
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""

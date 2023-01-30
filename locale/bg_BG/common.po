@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-31 09:07+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -2194,7 +2194,7 @@ msgid "common.geographic"
 msgstr "Географска/и"
 
 msgid "common.withForwardSlash"
-msgstr "{$item}/{$afterSlash}"
+msgstr "{$item} / {$afterSlash}"
 
 msgid "validator.country.regex"
 msgstr ""
@@ -2203,7 +2203,7 @@ msgstr ""
 "org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "common.categorySeparator"
-msgstr "{$parent} > {$child}"
+msgstr "{$parent} >> {$child}"
 
 msgid "notification.addedAuthor"
 msgstr "Добавен е автор."
@@ -2211,3 +2211,51 @@ msgstr "Добавен е автор."
 msgid "notification.editedAuthor"
 msgstr "Редактиран е автор."
 
+msgid "common.label"
+msgstr "Етикет"
+
+msgid "common.lastSaved"
+msgstr "Последно записан {$when}"
+
+msgid "common.noneSelected"
+msgstr "Няма избран/и"
+
+msgid "common.noneProvided"
+msgstr "Няма предоставен/и"
+
+msgid "common.reconnecting"
+msgstr "Повторно свързване"
+
+msgid "common.role"
+msgstr "Роля"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} стъпки"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Качено от {$name} на {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "Незапазени промени"
+
+msgid "common.details"
+msgstr "Подробности"
+
+msgid "common.discardChanges"
+msgstr "Не, отхвърли незапазените промени"
+
+msgid "common.disconnected"
+msgstr "Несвързан"
+
+msgid "common.emailTemplates"
+msgstr "Шаблони за имейл"
+
+msgid "common.uploadedBy"
+msgstr "Качено от {$name}"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Открихме незапазени промени от {$when}. Това може да се случи, ако загубите "
+"връзка със сървъра по време на работа. Възстановяването на тези промени може "
+"да презапише всички промени, които сте направили оттогава. Искате ли да "
+"възстановите тези промени сега?"

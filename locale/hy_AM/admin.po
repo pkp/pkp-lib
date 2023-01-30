@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-15 20:17+0000\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -99,7 +99,7 @@ msgid "admin.systemInfo.settingValue"
 msgstr "Կարգավորման արժեք"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Կարգավորման անվանում"
+msgstr "Անվան կարգավորում"
 
 msgid "admin.languages.installLocale"
 msgstr "Տեղադրել լեզուն"
@@ -826,7 +826,7 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Անվավեր թեստային աշխատանքի տարբերակ: Այն կարող է լինել միայն «'failed' կամ "
-"'success' այս '--only=' տարբերակի համար"
+"'success' այս '--only=' տարբերակի համար."
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
 msgstr "Աշխատանքին հերթի միացման անվանումը[default : '{$default}']"

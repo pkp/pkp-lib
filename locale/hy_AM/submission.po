@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Aram Mirzoyan <mirzoyan.aram@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-13 13:38+0000\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -320,9 +320,7 @@ msgid "submission.submit.submissionComplete"
 msgstr "Ներկայացումն ավարտված է"
 
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Դուք պետք է կարդաք և հաստատեք, որ կատարել եք ստորև ներկայացված պահանջները՝ "
-"շարունակելուց առաջ:"
+msgstr "Բոլոր հայտերը պետք է համապատասխանեն հետևյալ պահանջներին."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Ներկայացման պահանջներ"
@@ -2467,9 +2465,8 @@ msgstr ""
 "Նորից ուղարկեք {$round} փուլում գրախոսման հարցումը {$reviewerName}-ին "
 "{$submissionid} ներկայացնելու համար:"
 
-#, fuzzy
 msgid "author.submit.noFiles"
-msgstr "Ոչ մի նիշք չի կցվել այս ներկայացմանը:"
+msgstr "Ոչ մի նիշք չի վերբեռնվել այս ներկայացման համար:"
 
 msgid "author.submit.confirmation"
 msgstr "Հաստատում"
@@ -2530,11 +2527,128 @@ msgstr ""
 "Ձեր ներկայացման համար ավելացրեք լրացուցիչ տեղեկություններ: Յուրաքանչյուր "
 "տերմինից հետո սեղմեք «enter»:"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Ընդունվում են ներկայացումներ մի քանի լեզուներով: Ընտրեք ներկայացման հիմնական "
-"լեզուն վերևի բացվող ցանկից:"
+msgstr "Ընտրեք ներկայացման հիմնական լեզուն:"
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Գլխավոր կոնտակտ խմբագրական նամակագրության համար:"
+
+msgid "submission.details"
+msgstr "Ներկայացման մանրամասները"
+
+msgid "submission.forTheEditors"
+msgstr "Խմբագիրների համար"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Վերանայեք և ներկայացրեք"
+
+msgid "submission.copyright.agree"
+msgstr "Այո, ես համաձայն եմ հեղինակային իրավունքի մասին հայտարարությանը:"
+
+msgid "submission.wizard.beforeStart"
+msgstr "Մինչ դուք սկսեք"
+
+msgid "submission.wizard.categories.description"
+msgstr "Ընտրեք միայն այն դասերը, որոնք հարմար են ձեր ներկայացման համար:"
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Փոխեք ներկայացման կարգավորումները"
+
+msgid "submission.wizard.validating"
+msgstr "Ստուգում է ձեր ներկայացումը"
+
+msgid "submission.wizard.confirm"
+msgstr "Նախքան ներկայացնելը խնդրում ենք հաստատել հետևյալը:"
+
+msgid "submission.wizard.title"
+msgstr "Կատարել Ներկայացում"
+
+msgid "submission.wizard.noContributors"
+msgstr "Այս ներկայացման համար աջակիցներ չեն ավելացվել:"
+
+msgid "submission.wizard.notAllowed"
+msgstr "Չթույլատրված"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Գաղտնիության համաձայնություն"
+
+msgid "submission.wizard.saved"
+msgstr "Պահված է ավելի ուշի համար"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Ձեր ներկայացման մանրամասները պահպանվել են մեր համակարգում, սակայն այն դեռ չի "
+"ներկայացվել քննարկման: Դուք կարող եք ցանկացած պահի վերադառնալ և լրացնել ձեր "
+"ներկայացումը` հետևելով ստորև նշված հղմանը:"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Մենք այս հղման պատճենն ուղարկել ենք ձեզ {$email} հասցեով:"
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Բաժինը փակված է"
+
+msgid "submission.wizard.start"
+msgstr "Սկսեք ներկայացումը"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Սկսվում է նոր ներկայացում"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Սխալ առաջացավ, և մենք չկարողացանք պահպանել ձեր ներկայացումը: Հնարավոր է "
+"անջատված եք:"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Ներկայացվում է <strong>{$language}</strong> լեզվով:"
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Ներկայացվում է <strong>{$section}</strong> բաժին:"
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Ներկայացվում է <strong>{$section}</strong> բաժին <strong>{$language}</"
+"strong> լեզվով:"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Կատարել Ներկայացում: {$step}"
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Ընտրեք խմբագրական դեր, եթե ցանկանում եք ինքներդ խմբագրել և հրապարակել այս "
+"ներկայացումը:"
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+"Աջակցողներից մեկի կամ մի քանիսի մանրամասները բացակայում են {$language} -ում:"
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Այո, իմ ներկայացումը համապատասխանում է այս բոլոր պահանջներին:"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Այս ներկայացումն արդեն ներկայացվել է։ Այցելեք ձեր <a href=\"{$url}\""
+">ներկայացումների վահանակ</a> այն դիտելու համար:"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Լրացրեք հայտ ներկայացնելու քայլերը"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Ներկայացումը, <strong>{$title}</strong>, կներկայացվի <strong>{$context}</"
+"strong> հասցեին՝ խմբագրական վերանայման: Վստա՞հ եք, որ ցանկանում եք լրացնել "
+"այս ներկայացումը:"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Կան մեկ կամ մի քանի խնդիրներ, որոնք պետք է շտկվեն՝ նախքան ներկայացնելը: "
+"Խնդրում ենք վերանայել ստորև ներկայացված տեղեկատվությունը և կատարել պահանջվող "
+"փոփոխությունները:"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Ավելացրեք ցանկացած տեղեկություն, որը կարծում եք, որ մեր խմբագրակազմը պետք է "
+"իմանա ձեր ներկայացումը գնահատելիս:"
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Սա նախադիտում է և չի հրապարակվել: <a href=\"{$url}\">Դիտել ներկայացումը</a>"

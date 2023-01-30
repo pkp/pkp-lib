@@ -1,11 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-11-22 18:02+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -752,9 +752,8 @@ msgstr "URL remoto"
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisitos Submissão"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Deve ler e validar os requisitos abaixo antes de prosseguir."
+msgstr "Todas as submissões devem ir ao encontro dos seguintes requisitos."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Submissão Concluída"
@@ -1525,9 +1524,8 @@ msgstr ""
 msgid "editor.submission.decision.skipReview"
 msgstr "Aceitar e Saltar Revisão"
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Atribua um editor para permitir a decisão editorial nesta etapa."
+msgstr "Atribua um editor para permitir decisões editoriais nesta etapa."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Realizar Recomendação"
@@ -1958,9 +1956,10 @@ msgstr ""
 "Envie esta submissão para a etapa de produção para ser preparada para "
 "publicação."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "A submissão, {$title}, foi enviada para a etapa de revisão."
+msgstr ""
+"A submissão {$title}, foi enviada para a etapa de revisão. O autor foi "
+"notificado, a menos que tenha optado por ignorar esse e-mail."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Enviado para Revisão"
@@ -2059,15 +2058,15 @@ msgstr ""
 "Esta submissão será rejeitada. Não será conduzida qualquer revisão adicional "
 "e a submissão será arquivada."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para informá-los que a sua submissão foi "
-"rejeitada."
+"rejeitada. Este e-mail não será enviado até que a decisão seja registada."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "A submissão, {$title}, foi rejeitada e enviada para os arquivos."
+msgstr ""
+"A submissão, {$title}, foi rejeitada e enviada para o arquivo. Todas as "
+"notificações foram enviadas, exceto as que optou por ignorar."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Submissão Rejeitada"
@@ -2106,17 +2105,17 @@ msgstr "Enviar de volta à Submissão"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Voltar à Submissão"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Enviar um e-mail aos autores para informá-los que a sua submissão foi aceite "
-"para publicação."
+"para publicação. Este e-mail não será enviado até que a decisão seja "
+"registada."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "A submissão, {$title}, foi aceite para publicação e enviada para a etapa de "
-"edição de texto."
+"edição de texto. Todas as notificações foram enviadas, exceto aquelas que "
+"optou por ignorar."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Submissão Aceite"
@@ -2130,13 +2129,12 @@ msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Esta submissão será aceite para publicação e enviada para edição de texto."
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
-"Enviar um e-mail aos revisores para agradecer a sua revisão e informá-los "
-"que foi tomada uma decisão. Cada revisor receberá um email separado para "
-"garantir o anonimato. O valor {$recipientName} pode ser usado na mensagem "
-"para incluir o nome de cada revisor."
+"Envie um e-mail aos revisores para os agradecer pela revisão e informá-los "
+"de que foi tomada uma decisão. Cada revisor receberá um e-mail separado para "
+"garantir o anonimato. O termo {$recipientName} pode ser usada na mensagem "
+"para incluir o nome de cada revisor com segurança."
 
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Notificar Revisores"
@@ -2158,11 +2156,11 @@ msgstr "Submissão Reativada"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} reverteu a decisão de rejeitar esta submissão."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
-"Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao ativo "
-"no processo editorial."
+"Reverta a decisão anterior de rejeitar esta submissão e devolva-a ao "
+"workflow ativo do processo editorial. O autor foi notificado, a menos que "
+"tenha optado por ignorar esse e-mail."
 
 #, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
@@ -2170,11 +2168,11 @@ msgstr ""
 "Envie um e-mail aos autores para informá-los que esta submissão foi aceite "
 "para publicação e enviada para a etapa de edição de texto sem revisão."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
-"A submissão, {$title}, saltou a etapa de revisão e foi enviada para a etapa "
-"de edição de texto."
+"A submissão {$title}, saltou a etapa de revisão e foi enviada para a etapa "
+"de edição de texto. O autor foi notificado, a menos que tenha optado por "
+"ignorar esse e-mail."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Saltar Revisão"
@@ -2196,10 +2194,10 @@ msgstr ""
 "ter sido tomada e informe o autor das edições adicionais que serão "
 "necessárias antes da submissão estar pronta para produção."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
-"A submissão, {$title}, foi enviada de volta para a etapa de edição de texto."
+"A submissão {$title}, foi enviada de volta para a etapa de edição de texto. "
+"O autor foi notificado, a menos que tenha optado por ignorar esse e-mail."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Enviar de volta para Edição de texto"
@@ -2220,9 +2218,10 @@ msgstr ""
 "Envie um e-mail para os autores para informá-lo que esta submissão foi "
 "enviada para a etapa de produção."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "A submissão, {$title}, foi enviada para a etapa de produção."
+msgstr ""
+"A submissão {$title}, foi enviada para a etapa de produção. O autor foi "
+"notificado, a menos que tenha optado por ignorar esse e-mail."
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
@@ -2289,9 +2288,10 @@ msgstr ""
 "Explique o porquê de ter emitido essa recomendação em resposta às "
 "recomendações e comentários enviados pelos revisores."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "A submissão, {$title}, está agora ativa na etapa da submissão."
+msgstr ""
+"A submissão {$title}, está agora ativa na etapa da submissão. O autor foi "
+"notificado, a menos que tenha optado por ignorar esse e-mail."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -2313,11 +2313,10 @@ msgstr ""
 "Envie um e-mail para os revisores designados a informá-los de que sua "
 "atribuição de revisão foi cancelada."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que a ronda de revisão foi "
-"encerrada."
+"encerrada. Este e-mail não será enviado até que a decisão seja registada."
 
 msgid "submission.firstPublished"
 msgstr "Publicado pela primeira vez"
@@ -2359,9 +2358,10 @@ msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
 "{$editorName} enviou esta submissão de volta para o passo de edição de texto."
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "A submissão {$title} foi enviada para o passo de edição de texto."
+msgstr ""
+"A submissão {$title} foi enviada para o passo de edição de texto. O autor "
+"foi notificado, a menos que tenha optado por ignorar esse e-mail."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -2388,7 +2388,6 @@ msgstr ""
 "Isto é uma visualização prévia e não foi ainda publicado.  <a href=\"{$url}\""
 ">Ver submissão</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
 msgstr "Nenhum documento anexado à submissão."
 
@@ -2437,9 +2436,115 @@ msgstr "Se desejar, pode inserir uma breve declaração sobre os direitos de ace
 msgid "submission.submit.metadataForm.tip"
 msgstr "Adicionar informações extra à sua submissão. Pressione 'enter' após cada termo."
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "São permitidas submissões em vários idiomas. Escolha o idioma principal da submissão a partir da lista abaixo."
+msgstr "Escolha o idioma principal da submissão."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Contacto principal para correspondência editorial."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Selecione um papel editorial se pretender editar e publicar esta submissão."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Sim, a minha submissão cumpre com todos estes requisitos."
+
+msgid "submission.details"
+msgstr "Detalhes da Submissão"
+
+msgid "submission.forTheEditors"
+msgstr "Para os Editores"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Rever e Enviar"
+
+msgid "submission.copyright.agree"
+msgstr "Sim, concordo com a declaração de direitos de autor."
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Esta submissão já foi enviada. Visite o seu <a href=\"{$url}\">dashboard</a> "
+"para a visualizar."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Antes de começar"
+
+msgid "submission.wizard.categories.description"
+msgstr "Selecione apenas as categorias que são apropriadas à sua submissão."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Alterar Configurações da Submissão"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Conclua as estapas para submeter uma submissão"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"A submissão, <strong>{$title}</strong>, será enviada para "
+"<strong>{$context}</strong> para revisão editorial. Tem a certeza de que "
+"deseja concluir este envio?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Há um ou mais aspetos que precisam de ser corrigidos antes que a possa "
+"enviar. Reveja as informações abaixo e faça as alterações solicitadas."
+
+msgid "submission.wizard.validating"
+msgstr "A verificar a sua submissão"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Adicione qualquer informação que acha que a equipa editorial deve saber ao "
+"avaliar a submissão."
+
+msgid "submission.wizard.confirm"
+msgstr "Confirme a seguinte informação antes de enviar."
+
+msgid "submission.wizard.title"
+msgstr "Iniciar uma Submissão"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Iniciar uma Submissão: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Nenhum contribuidor foi adicionado para esta submissão."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Não Permitido"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Consentimento de Privacidade"
+
+msgid "submission.wizard.saved"
+msgstr "Guardado para mais tarde"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Enviamos uma cópia deste link para {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Secção Fechada"
+
+msgid "submission.wizard.start"
+msgstr "Iniciar Submissão"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Iniciar uma nova submissão"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Foi encontrado um erro e não foi possível guardar a sua submissão. Pode ter "
+"sido desconectado."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "A submeter em <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "A submeter para a secção <strong>{$section}</strong>."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Um ou mais contribuidores têm elementos em falta em {$language}."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"A submeter para a secção <strong>{$section}</strong> em "
+"<strong>{$language}</strong>."

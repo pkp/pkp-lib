@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-11-29 15:08+0000\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "cs_CZ/>\n"
@@ -2190,3 +2190,50 @@ msgstr "Přidán autor."
 msgid "notification.editedAuthor"
 msgstr "Upraven autor."
 
+msgid "common.discardChanges"
+msgstr "Ne, zahoďte neuložené změny"
+
+msgid "common.disconnected"
+msgstr "Odpojeno"
+
+msgid "common.emailTemplates"
+msgstr "Šablony e-mailů"
+
+msgid "common.label"
+msgstr "Štítek"
+
+msgid "common.lastSaved"
+msgstr "Naposled uloženo {$when}"
+
+msgid "common.noneProvided"
+msgstr "Nic nebylo poskytnuto"
+
+msgid "common.reconnecting"
+msgstr "Opětovné připojení"
+
+msgid "common.role"
+msgstr "Role"
+
+msgid "common.uploadedBy"
+msgstr "Nahrál/a {$jméno}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Nahrál/a {$name} dne {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "Neuložené změny"
+
+msgid "common.details"
+msgstr "Podrobnosti"
+
+msgid "common.noneSelected"
+msgstr "Není nic vybráno"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} kroků"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Našli jsme neuložené změny z {$when}. K tomu může dojít, pokud během práce "
+"ztratíte spojení se serverem. Obnovení těchto změn může přepsat všechny "
+"změny, které jste od té doby provedli. Chcete tyto změny obnovit nyní?"

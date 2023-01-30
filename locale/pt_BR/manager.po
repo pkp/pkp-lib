@@ -1,5 +1,5 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-10-18 07:27+0000\n"
+"PO-Revision-Date: 2023-01-05 02:07+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2687,9 +2687,8 @@ msgstr ""
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Nova rodada de avaliação iniciada"
 
-#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Submissão Recusada"
+msgstr "Submissão Recusada (Pré-Avaliação)"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
@@ -3162,9 +3161,8 @@ msgstr "Cadastro de Avaliador"
 msgid "mailable.submissionAck.name"
 msgstr "Agradecimento da Submissão"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr "Confirmação de Submissão"
+msgstr "Confirmação de Submissão (Outros Autores)"
 
 msgid "mailable.discussionReview.name"
 msgstr "Discussão da Avaliação"
@@ -3280,10 +3278,275 @@ msgstr "O número de downloads para cada arquivo."
 msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr "Baixar Geográfico"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Condições para a submissão"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr "Ao submeter um trabalho para a revista, os autores devem ler, aceitar e marcar como realizados cada condição para a submissão, antes de proceder. A lista de condições também é apresentada em Diretrizes para autores, na página Sobre a revista. A lista pode ser modificada, porém todos os itens requerem a marcação dos autores para procederem à submissão."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"O seguinte é mostrado aos autores durante a etapa de upload de arquivos. "
+"Forneça uma breve explicação de quais arquivos os autores devem compartilhar "
+"com a submissão."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"O seguinte é mostrado aos autores durante a etapa de detalhes, quando eles "
+"são solicitados a fornecer o título, resumo e outras informações importantes "
+"sobre sua submissão."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"O seguinte é mostrado aos autores durante a etapa final do assistente da "
+"submissão, quando eles são solicitados a avaliar todas as informações que "
+"forneceram antes de submeter seu trabalho."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Orientação para Autores"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Atribuições Editoriais"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Selecione os usuários editoriais que devem ser atribuídos automaticamente a "
+"todas as novas submissões para esta seção."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Atribuir {$name} como {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Selecione os usuários editoriais que devem ser atribuídos automaticamente a "
+"todas as novas submissões para esta categoria."
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Os nomes e afiliações dos autores da submissão."
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "A URL para a submissão publicada"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "A URL para a submissão no assistente da submissão"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Submissão salva para mais tarde"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Um e-mail automático enviado aos autores quando eles salvam a submissão para "
+"concluir mais tarde"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Adicione e edite modelos</a> para todos os e-mails "
+"enviados pelo sistema.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Adicione e edite os modelos que você gostaria de disponibilizar ao usuário "
+"quando ele enviar este e-mail. O padrão será carregado automaticamente e o "
+"usuário poderá carregar rapidamente quaisquer outros modelos que você "
+"adicionar aqui."
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Remover Modelo"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Editar Modelo"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Redefinir Modelo"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Configure as notificações por e-mail para enviar aos autores quando uma "
+"decisão editorial for registrada."
+
+msgid "manager.forEditors"
+msgstr "Para Editores"
+
+msgid "manager.editorialStatistics"
+msgstr "Estatísticas Editoriais"
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Solicitar Edição de Texto"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Pergunta sobre Citação"
+
+msgid "mailable.editorAssign.name"
+msgstr "Editor Atribuído"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Pronto para Editoração"
+
+msgid "mailable.system"
+msgstr "Sistema"
+
+msgid "mailable.versionCreated.name"
+msgstr "Versão Criada"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Avaliação Concluída"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Avaliação Editada"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Agradecimentos de submissão a outros autores"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Editor Atribuído"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Este e-mail é enviado a um editor quando ele é atribuído a uma submissão."
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Editor de Necessidades de Submissão"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Geolocalização fornecida por <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Sobre a Geolocalização"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} até {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Todos {$filtro}"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Notifique os avaliadores da decisão"
+
+msgid "stats.timeline"
+msgstr "Linha do tempo"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "O número de {$type} para cada {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Baixe a Linha do Tempo"
+
+msgid "stats.timelineInterval"
+msgstr "Intervalo da linha do tempo"
+
+msgid "stats.timelineType"
+msgstr "Tipo de Linha do Tempo"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "O DOI contém caracteres inválidos."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"O seguinte é mostrado aos autores antes de iniciarem a submissão. Forneça "
+"uma breve explicação do processo de submissão para que o autor saiba o que "
+"esperar."
+
+msgid "manager.mailables.templates"
+msgstr "Modelos"
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"O seguinte é mostrado aos autores durante a etapa de contribuidores. Forneça "
+"uma breve explicação sobre quais informações o autor deve fornecer sobre si "
+"mesmo, coautores e quaisquer outros colaboradores."
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"Tem certeza de que deseja excluir o modelo <strong>{$template}</strong>?"
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"O seguinte é mostrado aos autores durante a etapa Para os Editores, quando "
+"eles são solicitados a fornecer metadados, como palavras-chave, comentários "
+"ao editor e outros detalhes para auxiliar na revisão editorial."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Se deve ou não enviar um e-mail mensal aos editores com as estatísticas "
+"editoriais da revista, como taxas de aceitação e rejeição. Os editores podem "
+"cancelar a assinatura deste e-mail em seu perfil de usuário."
+
+msgid "stats.views"
+msgstr "Visualizações"
+
+msgid "stats.downloads"
+msgstr "Downloads"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Total de downloads por data"
+
+msgid "stats.views.timelineInterval"
+msgstr "Total de visualizações por data"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Arquivo Principal"
+
+msgid "stats.file.type.suppFile"
+msgstr "Arquivo Suplementar"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "O número de submissões não incluídas em outros totais"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Submissões em Andamento"
+
+msgid "stats.name.submissionsImported"
+msgstr "Submissões importadas"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "O ano do relatório"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Novo Comunicado"
+
+msgid "manager.manageEmails"
+msgstr "Gerenciar E-mails"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Tem certeza de que deseja redefinir o assunto e o corpo para os padrões do "
+"modelo <strong>{$template}</strong>?"
+
+msgid "manager.mailables.search"
+msgstr "Pesquise por nome ou descrição"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Insira um nome breve para ajudá-lo a encontrar este modelo."
+
+msgid "manager.newSubmission"
+msgstr "Nova Submissão"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Configure as notificações por e-mail a serem enviadas quando uma nova "
+"submissão for feito."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Envie um e-mail para todos os autores."
+
+msgid "manager.editorialDecisions"
+msgstr "Decisões Editoriais"
+
+msgid "manager.submissionAck.description"
+msgstr "Quem deve receber um e-mail quando uma nova submissão for concluído."
+
+msgid "manager.submissionAck.off"
+msgstr "Não envie um e-mail."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Envie um e-mail apenas para o autor da submissão."
+
+msgid "manager.forEditors.description"
+msgstr "Configure as notificações por e-mail para enviar aos editores."
+
+msgid "manager.editorialStatistics.on"
+msgstr "Envie um e-mail mensal para os editores."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Não envie o e-mail para editores."

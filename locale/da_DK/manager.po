@@ -2704,7 +2704,6 @@ msgstr ""
 "Alle kommentarer fra færdiggjorte bedømmelser. Bedømmeres navne er skjulte "
 "ved anonyme bedømmelser"
 
-#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Send kun en e-mail til forfattere, der er tilmeldt det redaktionelle "
@@ -2973,16 +2972,14 @@ msgstr ""
 
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Denne e-mail sendes til en forfatter, når vedkommende har indsendt et "
-"manuskript til tidsskriftet. Den bør bekræfte modtagelse af manuskriptet og "
-"indeholde oplysninger om, hvad forfatteren kan forvente som næste skridt."
+"Denne e-mail sendes til en forfatter, når vedkommende indsender er "
+"manuskript. Den giver information om sporing af indsendelsen gennem den "
+"redaktionelle proces og takker forfatteren for indsendelsen."
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Denne e-mail sendes til forfatterne angivet i indsendelsesprocessen, udover "
-"indsenderen. Den bør informere dem om, at de er blevet angivet som "
-"forfattere, og give dem mulighed for at kontakte redaktionen med eventuelle "
-"rettelser eller betænkeligheder."
+"indsenderen."
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3144,7 +3141,7 @@ msgstr "Manuskriptredigeringsdiskussion"
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
 "Denne e-mail sendes på manuskriptredigeringstrinnet for at meddele en bruger "
-"om indsendelsen"
+"om indsendelsen."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Notifikation om revideret version"
@@ -3192,12 +3189,12 @@ msgstr "Nummer identifikation, inklusive årgang, nummer, år og titel"
 msgid "mailable.discussionReview.description"
 msgstr ""
 "Denne e-mail sendes på bedømmelsestrinnet for at meddele en bruger om "
-"indsendelsen"
+"indsendelsen."
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
 "Denne e-mail sendes på produktionstrinnet for at meddele en bruger om "
-"indsendelsen"
+"indsendelsen."
 
 msgid "mailable.publicationVersionNotify.name"
 msgstr "Notifikation om publikationsversion"
@@ -3205,7 +3202,7 @@ msgstr "Notifikation om publikationsversion"
 msgid "mailable.editReviewNotify.description"
 msgstr ""
 "Denne e-mail meddeler automatisk bedømmeren om ændrede detaljer for "
-"bedømmelsen"
+"bedømmelsen."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Bedømmer kommenterede, meddel redaktører"
@@ -3340,16 +3337,221 @@ msgstr "Importerede indsendelser"
 msgid "stats.name.submissionsInProgress"
 msgstr "Igangværende indsendelser"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Tjekliste til forberedelse af manuskript"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "Forfattere, der fremsender et manuskript til tidsskriftet, bliver først bedt om at fuldføre hvert enkelt element på Tjekliste til forberedelse af manuskript, inden de fortsætter. Tjeklisten vises også under Retningslinjer for forfattere under Om tidsskriftet. Listen kan redigeres nedenfor, men alle elementer på listen skal afkrydses, inden forfatterne kan fortsætte med deres manuskript."
+msgstr ""
+"Følgende vises til forfattere, når de begynder deres indsendelse. Forfattere "
+"bliver bedt om at bekræfte, at deres indsendelse overholder de krav, der er "
+"angivet her, før de begynder deres indsendelse."
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
 msgstr "Antallet af indsendelser, der ikke tælles med i andre totaler"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
 msgstr "Året for rapporten"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Bekræftelse af bedømmer"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"Følgende vises til forfattere under upload af filer trinnet. Giv en kort "
+"forklaring på, hvilke filer forfattere forventes at dele med deres "
+"indsendelse."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Følgende vises til forfattere under det sidste trin af indsendelsen, når de "
+"bliver bedt om at gennemgå alle de oplysninger, de har givet, før de "
+"indsender deres arbejde."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Forfattervejledning"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Redaktionelle opgaver"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Vælg de redaktionelle brugere, der automatisk skal tildeles alle nye indlæg "
+"til denne sektion."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Tildel {$name} som {$role}"
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Følgende vises til forfattere, når der skal angives detaljer om artiklen, "
+"såsom titel, resumé og andre vigtige oplysninger om deres indsendelse."
+
+msgid "manager.mailables.editTemplate"
+msgstr "Rediger skabelon"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Fjern skabelon"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"Er du sikker på, at du vil slette skabelonen <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Nulstil skabelon"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Er du sikker på, at du vil nulstille emnet og brødteksten til deres "
+"standardindstillinger for skabelonen <strong>{$template}</strong>?"
+
+msgid "manager.mailables.search"
+msgstr "Søg efter navn eller beskrivelse"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Konfigurer de e-mail-meddelelser, der skal sendes, når der foretages en ny "
+"indsendelse."
+
+msgid "manager.submissionAck.description"
+msgstr "Hvem der skal modtage en e-mail, når en ny indsendelse er gennemført."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Send kun en e-mail til den indsendende forfatter."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Send en e-mail til alle forfattere."
+
+msgid "manager.editorialDecisions"
+msgstr "Redaktionelle beslutninger"
+
+msgid "manager.forEditors"
+msgstr "For redaktører"
+
+msgid "manager.forEditors.description"
+msgstr "Konfigurer e-mailmeddelelserne der skal sendes til redaktører."
+
+msgid "manager.editorialStatistics"
+msgstr "Redaktionel statistik"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Send en månedlig e-mail til redaktionen."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Send ikke e-mailen til redaktionen."
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Spørgsmål om Citation"
+
+msgid "mailable.editorAssign.name"
+msgstr "Redaktør tildelt"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Klar til produktion"
+
+msgid "mailable.versionCreated.name"
+msgstr "Oprettet version"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Bedømmelse afsluttet"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Bedømmelse redigeret"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Anerkendelse af indsendelse til andre forfattere"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Indsendelse skal tildeles en redaktør"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Følgende vises til forfattere, før de begynder deres indsendelse. Giv en "
+"kort forklaring af indsendelsesprocessen, så forfatteren ved, hvad "
+"forfatteren kan forvente."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Følgende vises til forfattere under trinnet, når de bliver bedt om at give "
+"metadata såsom nøgleord, kommentarer til redaktøren og andre detaljer for at "
+"hjælpe med redaktionel gennemgang."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Vælg de redaktionelle brugere, der automatisk skal tildeles alle nye indlæg "
+"til denne kategori."
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Navne og tilhørsforhold til indsendelsens forfattere."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Hvorvidt der skal sendes en månedlig e-mail til redaktører med tidsskriftets "
+"redaktionelle statistik, såsom accept- og afvisningssatser. Redaktører kan "
+"afmelde denne e-mail fra deres brugerprofil."
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "URL'en til den offentliggjorte indsendelse"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Redaktør tildelt"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "URL'en til indsendelsen i indsendelsesguiden"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Denne e-mail sendes til en redaktør, når de er tildelt til en indsendelse."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Indsendelse gemt til senere brug"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"En automatisk e-mail sendt til forfattere, når de gemmer deres indsendelse "
+"for at fuldføre den senere"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Indtast et kort navn for at hjælpe dig med at finde denne skabelon."
+
+msgid "manager.submissionAck.off"
+msgstr "Send ikke en e-mail."
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Konfigurer e-mailmeddelelserne til at sende til forfattere, når en "
+"redaktionel beslutning registreres."
+
+msgid "mailable.announcementNotify.name"
+msgstr "Ny meddelelse"
+
+msgid "manager.manageEmails"
+msgstr "Administrer e-mails"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Tilføj og rediger skabeloner</a> for alle e-mails "
+"sendt af systemet.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Tilføj og rediger skabeloner, som du gerne vil gøre tilgængelige for "
+"brugeren, når de sender denne e-mail. Standarden indlæses automatisk, og "
+"brugeren vil hurtigt kunne indlæse andre skabeloner, du tilføjer her."
+
+msgid "manager.mailables.templates"
+msgstr "Skabeloner"
+
+msgid "manager.newSubmission"
+msgstr "Ny indsendelse"
+
+msgid "mailable.system"
+msgstr "System"
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"Følgende vises til forfattere, når de skal angive bidragydere. Giv en kort "
+"forklaring på, hvilke oplysninger forfatteren skal give om sig selv, "
+"medforfattere og eventuelle andre bidragydere."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Anmod om manuskriptredigering"

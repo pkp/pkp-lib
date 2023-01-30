@@ -1,10 +1,10 @@
-# M. Ali <vorteem@gmail.com>, 2021, 2022.
+# M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-10-27 11:08+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2146,3 +2146,8 @@ msgstr "المؤلف أُضيف."
 msgid "notification.editedAuthor"
 msgstr "المؤلف عُدِّل."
 
+msgid "common.details"
+msgstr "التفاصيل"
+
+msgid "common.discardChanges"
+msgstr "لا، تخلَّ عن التغييرات غير المحفوظة"

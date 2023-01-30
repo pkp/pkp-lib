@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-13 13:38+0000\n"
+"PO-Revision-Date: 2022-12-16 17:02+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
@@ -303,3 +303,9 @@ msgstr "Սա վավեր համատեքստ չէ:"
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr "Սա հայտնի էլ․ փոստի կանխադրված էլ․ փոստի ձևանմուշ չէ:"
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Ձեզ չի թույլատրվում կատարել ներկայացնել այս օգտվողի դերում:"
+
+msgid "api.400.propReadOnly"
+msgstr "{$prop} հատկությունը չի կարող փոփոխվել:"

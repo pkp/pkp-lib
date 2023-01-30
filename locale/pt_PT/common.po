@@ -1,11 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -2226,3 +2226,51 @@ msgstr "Adicionado autor."
 msgid "notification.editedAuthor"
 msgstr "Editado autor."
 
+msgid "common.details"
+msgstr "Detalhes"
+
+msgid "common.discardChanges"
+msgstr "Não, descartar alterações não guardadas"
+
+msgid "common.disconnected"
+msgstr "Desligado"
+
+msgid "common.emailTemplates"
+msgstr "Templates de Email"
+
+msgid "common.lastSaved"
+msgstr "Guardado em {$when}"
+
+msgid "common.noneProvided"
+msgstr "Nenhum disponibilizado"
+
+msgid "common.uploadedBy"
+msgstr "Carregado por {$name}"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Encontramos alterações não guardadas de {$when}. Isso pode acontecer se "
+"perder a ligação com o servidor enquanto trabalha. A recuperação dessas "
+"alterações pode substituir quaisquer alterações feitas desde então. Gostaria "
+"de restaurar essas alterações agora?"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Carregado por {$name} em {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "Alterações não guardadas"
+
+msgid "common.label"
+msgstr "Etiqueta"
+
+msgid "common.noneSelected"
+msgstr "Nenhum selecionado"
+
+msgid "common.reconnecting"
+msgstr "A ligar"
+
+msgid "common.role"
+msgstr "Papel"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} passos"

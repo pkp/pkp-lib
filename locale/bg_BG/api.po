@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-17 15:57+0000\n"
+"PO-Revision-Date: 2022-12-16 17:02+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "bg_BG/>\n"
@@ -302,3 +302,15 @@ msgstr ""
 
 msgid "api.institutions.404.institutionNotFound"
 msgstr "Институцията, която търсите, не беше намерена."
+
+msgid "api.400.propReadOnly"
+msgstr "Свойството {$prop} не може да се променя."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Нямате право да изпращате в тази потребителска роля."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Това не е имейл шаблон по подразбиране за известен имейл."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Това не е валиден контекст."

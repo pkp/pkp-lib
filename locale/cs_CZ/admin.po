@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-09-23 13:53+0000\n"
+"PO-Revision-Date: 2023-01-08 12:02+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -768,7 +768,7 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Neplatná možnost testovací úlohy. Pro volbu „--only=“ lze použít pouze "
-"„failed“ nebo „success“"
+"„failed“ nebo „success“."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
 msgstr "Nebyly nalezeny žádné úlohy k odstranění."

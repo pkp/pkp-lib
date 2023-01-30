@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-09-27 12:01+0000\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl_SI/>\n"
@@ -765,7 +765,7 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Neveljavna opcija za testno pravilo. Za opcijo '--only=' se lahko uporabi le "
-"'failed' or 'success'"
+"'failed' or 'success'."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
 msgstr "Ni najdenih opravil za brisanje."

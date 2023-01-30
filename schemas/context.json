@@ -758,6 +758,11 @@
 			],
 			"defaultLocaleKey": "default.contextSettings.checklist"
 		},
+		"submitWithCategories": {
+			"type": "boolean",
+			"default": false,
+			"description": "Whether or not submitting authors should be asked to select categories when they make a new submission."
+		},
 		"supportedFormLocales": {
 			"type": "array",
 			"items": {

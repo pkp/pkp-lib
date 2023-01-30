@@ -17,6 +17,7 @@ namespace PKP\components\forms\submission;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -36,7 +37,7 @@ class ForTheEditors extends PKPMetadataForm
     public Publication $publication;
     public Submission $submission;
 
-    public function __construct(string $action, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase)
+    public function __construct(string $action, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase, LazyCollection $categories)
     {
         parent::__construct($action, $locales, $publication, $context, $suggestionUrlBase);
 
@@ -44,7 +45,7 @@ class ForTheEditors extends PKPMetadataForm
 
         $this->changeTooltipsToDescriptions();
         $this->setRequiredMetadata();
-        $this->addCategoryField();
+        $this->addCategoryField($context, $categories);
     }
 
     /**
@@ -87,14 +88,13 @@ class ForTheEditors extends PKPMetadataForm
         }
     }
 
-    protected function addCategoryField(): void
+    protected function addCategoryField(Context $context, LazyCollection $categories): void
     {
-        $categoryOptions = [];
+        if (!$context->getData('submitWithCategories') || !$categories->count()) {
+            return;
+        }
 
-        $categories = Repo::category()
-            ->getCollector()
-            ->filterByContextIds([$this->context->getId()])
-            ->getMany();
+        $categoryOptions = [];
 
         $categoryOptions = Repo::category()
             ->getBreadcrumbs($categories)
@@ -114,7 +114,7 @@ class ForTheEditors extends PKPMetadataForm
                 'value' => $categoryValues,
                 'options' => $categoryOptions
             ]));
-        } elseif (!empty($categoryOptions)) {
+        } else {
             $this->addField(new FieldOptions('categoryIds', [
                 'label' => __('submission.submit.placement.categories'),
                 'description' => __('submission.wizard.categories.description'),

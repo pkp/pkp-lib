@@ -61,7 +61,7 @@
             {if in_array($currentContext->getData('dataAvailability'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="dataAvailability" inLocale=$localeKey name="{translate key="submission.dataAvailability"}" type="html"}
             {/if}
-            {if $localeKey === $submission->getData('locale')}
+            {if $isCategoriesEnabled && $localeKey === $submission->getData('locale')}
                 <div class="submissionWizard__reviewPanel__item">
                     <h4 class="submissionWizard__reviewPanel__item__header">
                         {translate key="submission.submit.placement.categories"}

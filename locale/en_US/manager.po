@@ -3402,6 +3402,15 @@ msgstr "Send a monthly email to editors."
 msgid "manager.editorialStatistics.off"
 msgstr "Do not send the email to editors."
 
+msgid "manager.submitWithCategories.description"
+msgstr "Should the submitting author be asked to select a category when they make a new submission?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Yes, add a categories field to the submission wizard."
+
+msgid "manager.submitWithCategories.no"
+msgstr "No, do not show authors this field."
+
 msgid "mailable.copyeditRequest.name"
 msgstr "Request Copyedit"
 

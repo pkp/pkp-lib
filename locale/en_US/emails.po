@@ -207,16 +207,6 @@ msgstr ""
 "<p>Thank you for considering {$contextName} as a venue for your work.</p>"
 "{$contextSignature}"
 
-msgid "emails.submissionAckCanPost.body"
-msgstr ""
-"<p>Dear {$recipientName},</p>"
-"<p>Thank you for your submission to {$contextName}. You can post your preprint, {$submissionTitle}, at any time by following the link below.</p>"
-"<p>Submission URL: {$authorSubmissionUrl}</p>"
-"<p>If you have been logged out, you can login again with the username {$recipientUsername}.</p>"
-"<p>If you have any questions, please contact me from your <a href=\"{$authorSubmissionUrl}\">submission dashboard</a>.</p>"
-"<p>Thank you for considering {$contextName} as a venue for your work.</p>"
-"{$signature}"
-
 msgid "emails.postedNewVersionAck.subject"
 msgstr "New Version Posted Acknowledgement"
 

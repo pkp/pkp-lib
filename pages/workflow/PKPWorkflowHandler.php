@@ -413,7 +413,7 @@ abstract class PKPWorkflowHandler extends Handler
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
             'pageTitle' => implode(__('common.titleSeparator'), array_filter([
-                $submission->getShortAuthorString(),
+                $submission->getLatestPublication()->getShortAuthorString(),
                 $submission->getLocalizedTitle()
             ])),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,

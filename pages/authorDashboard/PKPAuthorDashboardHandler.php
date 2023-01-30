@@ -341,7 +341,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
             'pageTitle' => implode(__('common.titleSeparator'), array_filter([
-                $submission->getShortAuthorString(),
+                $latestPublication->getShortAuthorString(),
                 $submission->getLocalizedTitle()
             ])),
             'submission' => $submission,

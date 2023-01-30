@@ -471,67 +471,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     }
 
     /**
-     * Return string of author names, separated by the specified token
-     *
-     * @param bool $preferred If the preferred public name should be used, if exist
-     * @param bool $familyOnly return list of family names only (default false)
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getAuthorString($preferred = true, $familyOnly = false)
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-
-        $userGroupIds = Repo::author()->getSubmissionAuthors($this, true)
-            ->map(fn (Author $author) => $author->getUserGroupId())
-            ->unique()
-            ->toArray();
-
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByUserGroupIds($userGroupIds)
-            ->getMany();
-
-        return $publication->getAuthorString($userGroups);
-    }
-
-    /**
-     * Return short author names string.
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getShortAuthorString()
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-        return $publication->getShortAuthorString();
-    }
-
-    /**
-     * Get the primary author of the current publication
-     *
-     * @return Author|null
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getPrimaryAuthor()
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return null;
-        }
-        return $publication->getPrimaryAuthor();
-    }
-
-    /**
      * Get the locale of the submission.
      *
      * @return string

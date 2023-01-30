@@ -19,7 +19,7 @@
             </template>
             <template v-if="localize(publication.title)">
                 <span class="app__breadcrumbsSeparator" aria-hidden="true">/</span>
-                {{ localize(publication.title) }}
+                <span v-html="localize(publication.title)">
             </template>
         </div>
         <h1 class="app__pageHeading" ref="pageTitle">

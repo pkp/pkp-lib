@@ -396,17 +396,18 @@ class PKPString
      * onclick(...) attributes, javascript: urls, and special characters.
      *
      * @param string $input input string
+     * @param string $configKey The config section key['allowed_html', 'allowed_title_html']
      *
      * @return string
      */
-    public static function stripUnsafeHtml($input)
+    public static function stripUnsafeHtml($input, $configKey = 'allowed_html')
     {
         static $purifier;
         if (!isset($purifier)) {
             $config = \HTMLPurifier_Config::createDefault();
             $config->set('Core.Encoding', 'utf-8');
             $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
-            $config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
+            $config->set('HTML.Allowed', Config::getVar('security', $configKey));
             $config->set('Cache.SerializerPath', 'cache');
             $purifier = new \HTMLPurifier($config);
         }

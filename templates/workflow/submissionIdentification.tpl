@@ -24,6 +24,8 @@
 </span>
 
 
-<span  class="pkpWorkflow__identificationTitle">
-	{{ localizeSubmission(currentPublication.fullTitle, currentPublication.locale) }}
+<span 
+	class="pkpWorkflow__identificationTitle" 
+	v-html="localizeSubmission(currentPublication.fullTitle, currentPublication.locale)"
+>
 </span>

@@ -164,7 +164,7 @@ class DAO extends EntityDAO
 
         $rows = DB::table($this->defaultTable)
             ->where('email_key', '=', $emailTemplate->getData('key'))
-            ->whereIn('locale', json_decode($supportedLocalesJson))
+            ->whereIn('locale', json_decode($supportedLocalesJson, true))
             ->get();
 
         $props = ['name', 'subject', 'body'];

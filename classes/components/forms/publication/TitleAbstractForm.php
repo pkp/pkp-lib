@@ -15,6 +15,7 @@
 namespace PKP\components\forms\publication;
 
 use APP\publication\Publication;
+use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
@@ -56,7 +57,7 @@ class TitleAbstractForm extends FormComponent
                 'isMultilingual' => true,
                 'value' => $publication->getData('prefix'),
             ]))
-            ->addField(new FieldText('title', [
+            ->addField(new FieldRichText('title', [
                 'label' => __('common.title'),
                 'size' => 'large',
                 'isMultilingual' => true,

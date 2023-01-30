@@ -114,7 +114,10 @@ class PKPPublication extends \PKP\core\DataObject
     public function getLocalizedTitle($preferredLocale = null)
     {
         $usedLocale = null;
-        $title = $this->getLocalizedData('title', $preferredLocale, $usedLocale);
+        $title = PKPString::stripUnsafeHtml(
+            $this->getLocalizedData('title', $preferredLocale, $usedLocale), 
+            'allowed_title_html'
+        );
         $prefix = $this->getData('prefix', $usedLocale);
         if ($prefix) {
             return $prefix . ' ' . $title;

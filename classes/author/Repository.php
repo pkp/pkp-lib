@@ -19,7 +19,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -247,23 +246,8 @@ class Repository
     }
 
     /**
-    * Returns the authors of a given submission by using the submission's current publication
-    */
-    public function getSubmissionAuthors(Submission $submission, bool $onlyIncludeInBrowse = false): LazyCollection
-    {
-        $publication = $submission->getCurrentPublication();
-
-        return Repo::author()
-            ->getCollector()
-            ->filterByIncludeInBrowse($onlyIncludeInBrowse)
-            ->filterByPublicationIds([$publication->getId()])
-            ->orderBy(\PKP\author\Collector::ORDERBY_ID)
-            ->getMany();
-    }
-
-    /**
-    * Reorders the authors of a publication according to the given order of the authors in the provided author array
-    */
+     * Reorders the authors of a publication according to the given order of the authors in the provided author array
+     */
     public function setAuthorsOrder(int $publicationId, array $authors)
     {
         $seq = 0;

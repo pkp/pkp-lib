@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-01-31 17:03+0000\n"
+"PO-Revision-Date: 2023-01-31 17:35+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -3576,3 +3576,14 @@ msgstr "Položky, u kterých došlo k chybě v procesu registrace."
 
 msgid "manager.dois.help.statuses.title"
 msgstr "Statusy DOI"
+
+msgid "manager.submitWithCategories.no"
+msgstr "Ne, toto pole autorům nezobrazujte."
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"Měl by být autor odesílající příspěvek při novém odeslání požádán o výběr "
+"kategorie?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Ano, přidejte do průvodce odesláním pole kategorie."

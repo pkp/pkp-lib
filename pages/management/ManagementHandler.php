@@ -132,11 +132,7 @@ class ManagementHandler extends Handler
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
-        $locales = Locale::getFormattedDisplayNamesFromOnlySpecifiedLocales(
-            array_keys($context->getSupportedFormLocaleNames()),
-            Locale::getLocales(),
-            LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
-        );
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $contactForm = new \PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
@@ -198,11 +194,7 @@ class ManagementHandler extends Handler
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
-        $locales = Locale::getFormattedDisplayNamesFromOnlySpecifiedLocales(
-            array_keys($context->getSupportedFormLocaleNames()),
-            Locale::getLocales(),
-            LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
-        );
+        $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);

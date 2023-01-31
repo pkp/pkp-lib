@@ -365,52 +365,36 @@ class Locale implements LocaleInterface
     /**
      * Get the formatted locale display names with country if same language code present multiple times
      * 
-     * @param   array $filterByLocales  Optional list of locales code to filter by the returned formatted names list
-     * @param   array $locales          Optional list of availabel all locales
-     * @param   int   $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     * @param   array $filterByLocales          Optional list of locales code to filter by the returned formatted names list
+     * @param   array $locales                  Optional list of availabel all locales
+     * @param   int   $langLocaleStatus         The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     * @param   bool  $omitLocaleCodeInDisplay  Should leave out the locale code from display. By deault leave out.
      * 
-     * @return  array                   The list of locales with formatted display name
+     * @return  array                           The list of locales with formatted display name
      */
-    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
+    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array
     {
         $locales ??= $this->getLocales();
 
+        if ($filterByLocales) {
+            $filterByLocales = array_intersect_key($locales, array_flip($filterByLocales));
+        }
+
+        $locales = $this->getFilteredLocales($locales, $filterByLocales ? array_keys($filterByLocales) : null);
+
         $localeCodesCount = array_count_values(
-            collect(array_keys($locales))
+            collect(array_keys($filterByLocales ?? $locales))
                 ->map(fn(string $value) => explode('_', $value)[0])
                 ->toArray()
         );
 
-        $locales = $this->getFilteredLocales($locales, $filterByLocales);
-
         return collect($locales)
-            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount, $langLocaleStatus) {
+            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount, $langLocaleStatus, $omitLocaleCodeInDisplay) {
                 $localeCode = explode('_', $localeKey)[0];
-                return $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, $langLocaleStatus);
+                $localeDisplay = $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, $langLocaleStatus);
+                return $localeDisplay . ($omitLocaleCodeInDisplay  ? "" : " ({$localeKey})");
             })
             ->toArray();
-    }
-
-    /**
-     * Get the formatted locale display names only for give specific list of locales
-     * 
-     * The difference between this method and Locale::getFormattedDisplayNames is that
-     * it apply the filtering by the $filterByLocales right before the deduction of
-     * locale code counts(e.g ['pt' => 3, 'en' => 1, ...]). This allows to generate 
-     * formatted display name with country based on given list of locales rathar than
-     * all of the available locales. 
-     * 
-     * @param   array $filterByLocales  Optional list of locales code to filter by the returned formatted names list
-     * @param   array $locales          Optional list of availabel all locales
-     * @param   int   $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
-     * 
-     * @return  array                   The list of locales with formatted display name
-     */
-    public function getFormattedDisplayNamesFromOnlySpecifiedLocales(array $filterByLocales, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
-    {
-        $locales = $this->getFilteredLocales($locales ?? $this->getLocales(), $filterByLocales);
-
-        return $this->getFormattedDisplayNames(null, $locales, $langLocaleStatus);
     }
 
     /**

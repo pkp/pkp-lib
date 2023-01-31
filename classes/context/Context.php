@@ -16,6 +16,7 @@
 namespace PKP\context;
 
 use APP\core\Application;
+use PKP\i18n\LocaleMetadata;
 use APP\core\Services;
 use APP\plugins\IDoiRegistrationAgency;
 use APP\statistics\StatisticsHelper;
@@ -336,11 +337,12 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Return associative array of all locales supported by forms on the site.
      *
+     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * @return array
      */
-    public function getSupportedFormLocaleNames()
+    public function getSupportedFormLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)
     {
-        return $this->getData('supportedFormLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedFormLocales());
+        return $this->getData('supportedFormLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedFormLocales(), null, $langLocaleStatus);
     }
 
     /**
@@ -357,11 +359,12 @@ abstract class Context extends \PKP\core\DataObject
      * Return associative array of all locales supported by submissions on the
      * context.
      *
+     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * @return array
      */
-    public function getSupportedSubmissionLocaleNames()
+    public function getSupportedSubmissionLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)
     {
-        return $this->getData('supportedSubmissionLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedSubmissionLocales());
+        return $this->getData('supportedSubmissionLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedSubmissionLocales(), null, $langLocaleStatus);
     }
 
     /**
@@ -378,11 +381,12 @@ abstract class Context extends \PKP\core\DataObject
      * Return associative array of all locales supported by the site.
      * These locales are used to provide a language toggle on the main site pages.
      *
+     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * @return array
      */
-    public function getSupportedLocaleNames()
+    public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)
     {   
-        return $this->getData('supportedLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedLocales());
+        return $this->getData('supportedLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedLocales(), null, $langLocaleStatus);
     }
 
     /**

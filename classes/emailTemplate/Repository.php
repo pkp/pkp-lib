@@ -116,7 +116,7 @@ class Repository
             $validator->after(function ($validator) use ($props, $context) {
                 $mailableExists = Repo::mailable()
                     ->getMany($context)
-                    ->contains(fn(array $mailable) => $mailable['emailTemplateKey'] === $props['alternateTo']);
+                    ->contains(fn(string $mailable) => $mailable::getEmailTemplateKey() === $props['alternateTo']);
 
                 if (!$mailableExists) {
                     $validator->errors()->add('alternateTo', __('api.emailTemplates.400.invalidAlternateTo'));

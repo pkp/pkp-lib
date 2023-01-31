@@ -1,8 +1,114 @@
 # Emma U <emmaupkp@gmail.com>, 2023.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/common/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "about.contact.email"
+msgstr "電郵地址"
+
+msgid "announcement.announcementsHome"
+msgstr "公告"
+
+msgid "common.delete"
+msgstr "刪除"
+
+msgid "common.search"
+msgstr "搜尋"
+
+msgid "common.searchQuery"
+msgstr "查詢搜尋"
+
+msgid "common.searching"
+msgstr "搜尋中"
+
+msgid "common.searchPhrase"
+msgstr "搜尋語句"
+
+msgid "common.clearSearch"
+msgstr "清除搜尋語句"
+
+msgid "navigation.search"
+msgstr "搜尋"
+
+msgid "navigation.browse"
+msgstr "瀏覽"
+
+msgid "navigation.about"
+msgstr "關於"
+
+msgid "navigation.login"
+msgstr "登入"
+
+msgid "navigation.dashboard"
+msgstr "用户介面"
+
+msgid "navigation.browseByAuthor"
+msgstr "按作者姓名"
+
+msgid "navigation.userHome"
+msgstr "用户中心"
+
+msgid "search.abstract"
+msgstr "摘要"
+
+msgid "search.advancedFilters"
+msgstr "進階篩選"
+
+msgid "search.advancedSearchMore"
+msgstr "更多搜尋選項"
+
+msgid "search.author"
+msgstr "按作者姓名"
+
+msgid "search.searchAgain"
+msgstr "重新搜尋"
+
+msgid "search.searchResults"
+msgstr "搜尋結果"
+
+msgid "search.dateTo"
+msgstr "此出版日期後"
+
+msgid "search.noResults"
+msgstr "無法搜尋結果"
+
+msgid "search.deleteFilter"
+msgstr "刪除"
+
+msgid "grid.action.markNew"
+msgstr "標示為新"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "您目前沒有足夠權限查閲提交。請編輯您的個人資料，以確保您在註冊頁面内被授予相"
+"應的角色和權限。"
+
+msgid "search.advancedSearchLess"
+msgstr "隱藏更多搜尋選項"
+
+msgid "common.viewProfile"
+msgstr "查看帳戶"
+
+msgid "search.dateFrom"
+msgstr "此出版日期前"
+
+msgid "grid.action.markRead"
+msgstr "標示為已讀取"
+
+msgid "navigation.register"
+msgstr "註冊"
+
+msgid "icon.delete.alt"
+msgstr "刪除"
+
+msgid "common.country"
+msgstr "國家"

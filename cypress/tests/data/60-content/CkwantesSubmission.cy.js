@@ -198,8 +198,6 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('h3').contains('For Readers (English/English)') // FIXME: Should be (English)
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
-			.parents('.submissionWizard__reviewPanel')
-			.find('h4').contains('Categories').siblings('.submissionWizard__reviewPanel__item__value').contains('None selected');
 		cy.get('h3').contains('For Readers (French/Français (Canada))') // FIXME: Should be (French)
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided');

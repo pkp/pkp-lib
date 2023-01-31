@@ -198,9 +198,9 @@ class SubmissionHandler extends PKPSubmissionHandler
         ];
     }
 
-    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, LazyCollection $categories): array
     {
-        $step = parent::getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
+        $step = parent::getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl, $categories);
 
         $licenseForm = new LicenseUrlForm(
             'licenseUrl',
@@ -255,7 +255,7 @@ class SubmissionHandler extends PKPSubmissionHandler
         return $step;
     }
 
-    protected function getForTheEditorsForm(string $publicationApiUrl, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase): ForTheEditors
+    protected function getForTheEditorsForm(string $publicationApiUrl, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase, LazyCollection $categories): ForTheEditors
     {
         return new ForTheEditors(
             $publicationApiUrl,
@@ -263,7 +263,8 @@ class SubmissionHandler extends PKPSubmissionHandler
             $publication,
             $submission,
             $context,
-            $suggestionUrlBase
+            $suggestionUrlBase,
+            $categories
         );
     }
 

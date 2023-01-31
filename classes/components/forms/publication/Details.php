@@ -20,13 +20,8 @@ use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\submission\SubmissionKeywordDAO;
 
-define('FORM_TITLE_ABSTRACT', 'titleAbstract');
-
 class Details extends TitleAbstractForm
 {
-    public Context $context;
-    public string $suggestionUrlBase;
-
     /**
      * Constructor
      * 
@@ -36,16 +31,13 @@ class Details extends TitleAbstractForm
         string $action,
         array $locales,
         Publication $publication,
-        Context $context,
-        string $suggestionUrlBase,
+        public Context $context,
+        public string $suggestionUrlBase,
         int $abstractWordLimit = 0,
         bool $isAbstractRequired = false
     )
     {
         parent::__construct($action, $locales, $publication, $abstractWordLimit, $isAbstractRequired);
-
-        $this->context = $context;
-        $this->suggestionUrlBase = $suggestionUrlBase;
 
         $this->removeField('prefix');
         $this->removeField('subtitle');

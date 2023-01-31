@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-01-05 02:07+0000\n"
+"PO-Revision-Date: 2023-01-31 17:03+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -3550,3 +3550,79 @@ msgstr "Envie um e-mail mensal para os editores."
 
 msgid "manager.editorialStatistics.off"
 msgstr "Não envie o e-mail para editores."
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Qualquer item publicado ou não publicado que 1) tenha um subobjeto sem um "
+"DOI atribuído onde 2) o tipo de DOI do subobjeto esteja ativado (por "
+"exemplo, uma cozinha sem um DOI não aparecerá aqui se o tipo de DOI da "
+"composição não estiver ativado)"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Itens que 1) possuem DOIs atribuídos para todos os tipos de DOI ativados, 2) "
+"são publicados e 3) ainda não foram registrados em uma agência de registro."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Os itens que tiveram seus metadados atualizados localmente e precisarão ser "
+"reenviados ou atualizados com a agência de registro configurada para "
+"garantir que todos os metadados enviados anteriormente estejam atualizados."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Ações em Massa"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "Versão DOI"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Existem {$count} versões."
+
+msgid "doi.manager.versions.view"
+msgstr "Ver todos"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI de todas as versões"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Um item que 1) tem DOIs atribuídos para todos os tipos de DOI ativados e 2) "
+"não foi publicado"
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Itens que foram submetidos à agência de registro configurada."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Itens que foram registrados com sucesso em uma agência de registro ou "
+"manualmente marcados como registrados."
+
+msgid "manager.dois.status.error.description"
+msgstr "Itens com erro no processo de registro."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Status DOI"
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"Uma breve declaração descrevendo se o(s) autor(es) disponibilizou ou não "
+"seus dados de pesquisa e, em caso afirmativo, onde os leitores podem "
+"acessá-los."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Habilitar metadados da declaração de disponibilidade de dados"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+"Não solicite uma declaração de disponibilidade de dados do autor durante a "
+"submissão."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Peça ao autor para fornecer uma declaração de disponibilidade de dados "
+"durante a submissão."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Exija que o autor forneça uma declaração de disponibilidade de dados antes "
+"de aceitar sua submissão."

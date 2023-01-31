@@ -23,6 +23,7 @@
 namespace PKP\site;
 
 use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 
 class Site extends \PKP\core\DataObject
 {
@@ -30,16 +31,17 @@ class Site extends \PKP\core\DataObject
      * Return associative array of all locales supported by the site.
      * These locales are used to provide a language toggle on the main site pages.
      *
+     * @param  int $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * @return array
      */
-    public function getSupportedLocaleNames(): array
+    public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
     {
         static $supportedLocales;
         if (isset($supportedLocales)) {
             return $supportedLocales;
         }
         
-        $supportedLocales = Locale::getFormattedDisplayNames($this->getSupportedLocales());
+        $supportedLocales = Locale::getFormattedDisplayNames($this->getSupportedLocales(), null, $langLocaleStatus);
 
         asort($supportedLocales);
         return $supportedLocales;
@@ -49,16 +51,17 @@ class Site extends \PKP\core\DataObject
      * Return associative array of all locales currently by the site.
      * These locales are used to provide a language toggle on the main site pages.
      *
+     * @param  int $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * @return array
      */
-    public function getInstalledLocaleNames(): array
+    public function getInstalledLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
     {
         static $installedLocales;
         if (isset($installedLocales)) {
             return $installedLocales;
         }
         
-        $installedLocales = Locale::getFormattedDisplayNames($this->getInstalledLocales());
+        $installedLocales = Locale::getFormattedDisplayNames($this->getInstalledLocales(), null, $langLocaleStatus);
 
         asort($installedLocales);
         return $installedLocales;

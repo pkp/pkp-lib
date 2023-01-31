@@ -111,11 +111,9 @@ msgstr ""
 msgid "emails.submissionAckCanPost.subject"
 msgstr ""
 
-#, fuzzy
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmação da submissão"
 
-#, fuzzy
 msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "Olá, <br/>\n"
@@ -128,7 +126,6 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
-#, fuzzy
 msgid "emails.editorAssign.subject"
 msgstr "Atribuição de moderador"
 
@@ -146,11 +143,9 @@ msgstr ""
 "<br />\n"
 "Obrigado."
 
-#, fuzzy
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Decisão do moderador"
 
-#, fuzzy
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -212,12 +207,37 @@ msgstr ""
 
 msgid "emails.submissionAck.body"
 msgstr ""
+"<p>Prezado(a) {$recipientName},</p><p>obrigado por submeter para "
+"{$contextName}. Recebemos seu preprint, {$submissionTitle}, e um moderador a "
+"verá em breve. Depois que o moderador revisar sua submissão, ele publicará "
+"seu preprint ou entrará em contato com você.</p><p>Você pode visualizar sua "
+"submissão e acompanhar seu progresso por meio do processo editorial no "
+"seguinte local:</p><p>URL da submisão: {$authorSubmissionUrl}</p><p>Se você "
+"foi desconectado, pode fazer login novamente com o nome de usuário "
+"{$recipientUsername}.</p><p>Se você tiver alguma dúvida, entre em contato "
+"comigo pelo seu <a href=\"{$authorSubmissionUrl}\">painel de submissão</a>.</"
+"p><p>Obrigado por considerar {$contextName} como um local para o seu "
+"trabalho.</p>{$contextSignature}"
 
 msgid "emails.postedNewVersionAck.subject"
 msgstr ""
 
 msgid "emails.postedNewVersionAck.body"
 msgstr ""
+"<p>Prezado(a) {$recipientName},</p><p>Obrigado por postar uma nova versão de "
+"seu preprint em {$contextName}. A nova versão agora está <a href="
+"\"{$submissionPublishedUrl}\">disponível</a>.</p><p>Se você tiver alguma "
+"dúvida, entre em contato comigo.</p>{$signature}"
+
+msgid "emails.submissionAckCanPost.body"
+msgstr ""
+"<p>Prezado(a) {$recipientName},</p><p>Você foi nomeado(a) coautor(a) de um "
+"preprint enviado para {$contextName}. O remetente, {$submitterName}, "
+"forneceu os seguintes detalhes:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Se algum desses detalhes estiver "
+"incorreto ou você não deseja ser nomeado nesta submissão, por favor contacte-"
+"me.</p><p>Obrigado por considerar este servidor como um local para o seu "
+"trabalho.</p><p>Atenciosamente,</p>{$contextSignature}"
 
 #~ msgid "emails.notification.body"
 #~ msgstr ""

@@ -1,10 +1,10 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-12-22 23:00+0000\n"
+"PO-Revision-Date: 2023-01-31 17:03+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_BR/>\n"
@@ -311,3 +311,9 @@ msgstr "Este não é um contexto válido."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr "Este não é um modelo de e-mail padrão para um e-mail conhecido."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "O tipo de publicação não foi reconhecido"
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "O objeto de publicação solicitado não foi encontrado."

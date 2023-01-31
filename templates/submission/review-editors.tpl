@@ -61,29 +61,31 @@
             {if in_array($currentContext->getData('dataAvailability'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="dataAvailability" inLocale=$localeKey name="{translate key="submission.dataAvailability"}" type="html"}
             {/if}
-            {if $isCategoriesEnabled && $localeKey === $submission->getData('locale')}
-                <div class="submissionWizard__reviewPanel__item">
-                    <h4 class="submissionWizard__reviewPanel__item__header">
-                        {translate key="submission.submit.placement.categories"}
-                    </h4>
-                    <ul
-                        v-if="currentCategoryTitles.length"
-                        class="submissionWizard__reviewPanel__item__value"
-                    >
-                        <li
-                            v-for="currentCategoryTitle in currentCategoryTitles"
-                            :key="currentCategoryTitle"
+            {if $localeKey === $submission->getData('locale')}
+                {if $isCategoriesEnabled}
+                    <div class="submissionWizard__reviewPanel__item">
+                        <h4 class="submissionWizard__reviewPanel__item__header">
+                            {translate key="submission.submit.placement.categories"}
+                        </h4>
+                        <ul
+                            v-if="currentCategoryTitles.length"
+                            class="submissionWizard__reviewPanel__item__value"
                         >
-                            {{ currentCategoryTitle }}
-                        </li>
-                    </ul>
-                    <div
-                        v-else
-                        class="submissionWizard__reviewPanel__item__value"
-                    >
-                        {translate key="common.noneSelected"}
+                            <li
+                                v-for="currentCategoryTitle in currentCategoryTitles"
+                                :key="currentCategoryTitle"
+                            >
+                                {{ currentCategoryTitle }}
+                            </li>
+                        </ul>
+                        <div
+                            v-else
+                            class="submissionWizard__reviewPanel__item__value"
+                        >
+                            {translate key="common.noneSelected"}
+                        </div>
                     </div>
-                </div>
+                {/if}
                 <div class="submissionWizard__reviewPanel__item">
                     <h4 class="submissionWizard__reviewPanel__item__header">
                         {translate key="submission.submit.coverNote"}

@@ -14,6 +14,12 @@
 		'Applied Science > Computer Science',
 		'Applied Science > Engineering',
 	];
+
+	// Skip OPS
+	// No categories configured in OPS.
+	if (Cypress.env('defaultGenre') === 'Preprint Text') {
+		return;
+	}
 	
 	it('Checks that categories field is not shown in submission wizard', function() {
 		cy.register({
@@ -29,14 +35,16 @@
 
 		// All required fields in the start submission form
 		cy.get('input[name="title"]').type(title, {delay: 0});
-		cy.get('label:contains("Articles")').click();
+		if (Cypress.env('defaultGenre') === 'Article Text') { // OJS only
+			cy.get('label:contains("Articles")').click();
+		}
 		cy.get('label:contains("English")').click();
 		cy.get('input[name="submissionRequirements"]').check();
 		cy.get('input[name="privacyConsent"]').check();
 		cy.contains('Begin Submission').click();
 
 		// The submission wizard has loaded
-		cy.get('.pkpSteps__step__label').contains('For the Editors');
+		cy.get('.pkpSteps__step__label').contains('Upload Files');
 
 		// Go to the For the Editors step
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
@@ -66,7 +74,7 @@
 		cy.get('a:contains("View ' + familyName + '")').click();
 
 		// The submission wizard has loaded
-		cy.get('.pkpSteps__step__label').contains('For the Editors');
+		cy.get('.pkpSteps__step__label').contains('Upload Files');
 
 		// Go to the For the Editors step
 		cy.get('.submissionWizard__footer button').contains('Continue').click();

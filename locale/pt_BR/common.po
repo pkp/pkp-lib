@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-10-18 07:27+0000\n"
+"PO-Revision-Date: 2023-01-31 17:03+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2224,3 +2224,57 @@ msgstr "Autor adicionado."
 msgid "notification.editedAuthor"
 msgstr "Autor editado."
 
+msgid "common.details"
+msgstr "Detalhes"
+
+msgid "common.discardChanges"
+msgstr "Não, descartar alterações não salvas"
+
+msgid "common.disconnected"
+msgstr "Desconectado"
+
+msgid "common.emailTemplates"
+msgstr "Modelos de E-mail"
+
+msgid "common.label"
+msgstr "Etiqueta"
+
+msgid "common.lastSaved"
+msgstr "Último salvo {$quando}"
+
+msgid "common.noneSelected"
+msgstr "Nenhum selecionado"
+
+msgid "common.noneProvided"
+msgstr "Nenhum disponibilizado"
+
+msgid "common.reconnecting"
+msgstr "Reconectando"
+
+msgid "common.role"
+msgstr "Papel"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} passos"
+
+msgid "common.uploadedBy"
+msgstr "Carregado por {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Carregado por {$name} em {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "Alterações não salvas"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Encontramos alterações não salvas de {$quando}. Isso pode acontecer se você "
+"perder a conexão com o servidor durante o trabalho. A restauração dessas "
+"alterações pode substituir quaisquer alterações feitas desde então. Gostaria "
+"de restaurar essas alterações agora?"
+
+msgid "validator.country.regex"
+msgstr ""
+"Este não é um país válido. O país deve ser um dos códigos internacionais de "
+"2 letras. Veja todos os códigos em https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2023-01-31 17:03+0000\n"
+"PO-Revision-Date: 2023-01-31 17:35+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -2121,8 +2121,8 @@ msgstr "Contagem de palavras: {$count}/{$limit}"
 
 msgid "publication.wordCountLong"
 msgstr ""
-"O resumo é muito longo. Ele deve ter {$limit} palavras ou menos. Atualmente "
-"ele possui {$limit} palavras."
+"O resumo é muito longo. Deve ter {$limit} palavras ou menos. Atualmente o "
+"resumo possui {$count} palavras."
 
 msgid "publication.version.all"
 msgstr "Todas as Versões"
@@ -2699,9 +2699,8 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Esta é uma prévia e não foi publicada. <a href=\"{$url}\"> Ver submissão</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
-msgstr "Nenhum documento anexado à submissão."
+msgstr "Nenhum documento foi anexado para esta submissão."
 
 msgid "author.submit.confirmation"
 msgstr "Confirmação"
@@ -2805,3 +2804,80 @@ msgstr "Conclua as etapas para fazer uma submissão"
 msgid "submission.wizard.categories.description"
 msgstr ""
 "Selecione apenas as categorias que são apropriadas para a sua submissão."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"A submissão, <strong>{$title}</strong>, será enviada para "
+"<strong>{$context}</strong> para avaliação editorial. Tem certeza de que "
+"deseja concluir esta submissão?"
+
+msgid "submission.wizard.validating"
+msgstr "Verificando seu submissão"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Adicione qualquer informação que acha que nossa equipe editorial deve saber "
+"ao avaliar sua submissão."
+
+msgid "submission.wizard.confirm"
+msgstr "Por favor, confirme o seguinte antes de submeter."
+
+msgid "submission.wizard.title"
+msgstr "Faça uma submissão"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Faça uma submissão: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Nenhum contribuidor foi adicionado para esta submissão."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Faltam detalhes em {$language} para um ou mais contribuidores."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Não Permitido"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Consentimento de Privacidade"
+
+msgid "submission.wizard.saved"
+msgstr "Salvo para Depois"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Enviamos uma cópia deste link para você em {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Seção Fechada"
+
+msgid "submission.wizard.start"
+msgstr "Iniciar Submissão"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Iniciando uma nova submissão"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Submetendo em <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Submetendo para a seção <strong>{$section}</strong>."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Submetendo para a seção <strong>{$section}</strong> em "
+"<strong>{$language}</strong>."
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Há um ou mais problemas que precisam ser corrigidos antes que você possa "
+"submeter. Revise as informações abaixo e faça as alterações solicitadas."
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Os detalhes da sua submissão foram salvas em nosso sistema, mas ainda não "
+"foram submetidas para consideração. Você pode retornar para concluir sua "
+"submissão a qualquer momento, seguindo o link abaixo."
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Foi encontrado um erro e não foi possível salvar sua submissão. Você pode "
+"ter sido desconectado."

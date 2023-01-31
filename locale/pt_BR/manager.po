@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-01-31 17:35+0000\n"
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2823,7 +2823,6 @@ msgstr ""
 "Todos os comentários de avaliações concluídas. Os nomes dos avaliadores "
 "estão ocultos para avaliações anônimas"
 
-#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
 "Envie um e-mail apenas para autores atribuídos ao fluxo de trabalho da "
@@ -2960,14 +2959,12 @@ msgstr ""
 "Esta mensagem é enviada a um avaliador recém-cadastrado para dar-lhe as boas-"
 "vindas e deixar registrado o seu nome de login e senha."
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Este e-mail, quando ativado, é enviado automaticamente a um autor quando ele "
 "submete para a revista. Ele fornece informações sobre o rastreamento da "
 "submissão através do processo editorial e agradece ao autor pela submissão."
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Quando habilitada, esta mensagem é enviado automaticamente para os autores "
@@ -3149,16 +3146,14 @@ msgstr "Rodada de Avaliação Cancelada"
 msgid "mailable.passwordResetRequested.name"
 msgstr "Confirmar redefinição de Senha"
 
-#, fuzzy
 msgid "mailable.userRegister.name"
-msgstr "Cadastro de Usuário"
+msgstr "Usuário Criado"
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Cadastro de Avaliador"
 
-#, fuzzy
 msgid "mailable.submissionAck.name"
-msgstr "Agradecimento da Submissão"
+msgstr "Confirmação da Submissão"
 
 msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Confirmação de Submissão (Outros Autores)"
@@ -3628,3 +3623,20 @@ msgstr ""
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Designar Editor"
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"O autor da submissão deve ser solicitado a selecionar uma categoria quando "
+"fizer uma nova submissão?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Sim, adicione um campo de categorias ao assistente de submissão."
+
+msgid "manager.submitWithCategories.no"
+msgstr "Não, não mostre aos autores este campo."
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"O gerenciamento do DOI mudou. Consulte as páginas <a href=\""
+"{$doiManagementUrl}\">Gerenciamento de DOI</a> e <a href=\"{$doiSettingsUrl}"
+"\">Configurações de DOI</a>."

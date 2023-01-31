@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-01-31 13:35+0000\n"
-"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -112,3 +112,6 @@ msgstr "刪除"
 
 msgid "common.country"
 msgstr "國家"
+
+msgid "navigation.home"
+msgstr "主頁"

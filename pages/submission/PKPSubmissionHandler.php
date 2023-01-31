@@ -209,7 +209,7 @@ abstract class PKPSubmissionHandler extends Handler
         $contributorsListPanel = $this->getContributorsListPanel($request, $submission, $publication, $formLocales);
         $reconfigureSubmissionForm = $this->getReconfigureForm($context, $submission, $publication, $sections, $categories);
 
-        $steps = $this->getSteps($request, $submission, $publication, $formLocales, $sections);
+        $steps = $this->getSteps($request, $submission, $publication, $formLocales, $sections, $categories);
 
         $templateMgr = TemplateManager::getManager($request);
 
@@ -243,6 +243,7 @@ abstract class PKPSubmissionHandler extends Handler
         ]);
 
         $templateMgr->assign([
+            'isCategoriesEnabled' => $context->getData('submitWithCategories') && $categories->count(),
             'locales' => $orderedLocales,
             'pageComponent' => 'SubmissionWizardPage',
             'pageTitle' => __('submission.wizard.title'),
@@ -295,7 +296,7 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get all steps of the submission wizard
      */
-    protected function getSteps(Request $request, Submission $submission, Publication $publication, array $locales, array $sections): array
+    protected function getSteps(Request $request, Submission $submission, Publication $publication, array $locales, array $sections, LazyCollection $categories): array
     {
         $publicationApiUrl = $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId());
 
@@ -303,7 +304,7 @@ abstract class PKPSubmissionHandler extends Handler
         $steps[] = $this->getFilesStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getContributorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections);
-        $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
+        $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl, $categories);
         $steps[] = $this->getConfirmStep($request, $submission, $publication, $locales, $publicationApiUrl);
 
         return $steps;
@@ -593,7 +594,7 @@ abstract class PKPSubmissionHandler extends Handler
      * If no metadata is enabled during submission, the metadata
      * form is not shown.
      */
-    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, LazyCollection $categories): array
     {
         $metadataForm = $this->getForTheEditorsForm(
             $publicationApiUrl,
@@ -609,7 +610,8 @@ abstract class PKPSubmissionHandler extends Handler
                 null,
                 null,
                 ['vocab' => '__vocab__']
-            )
+            ),
+            $categories
         );
         $this->removeButtonFromForm($metadataForm);
 
@@ -858,7 +860,7 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the form for entering information for the editors
      */
-    abstract protected function getForTheEditorsForm(string $publicationApiUrl, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase): ForTheEditors;
+    abstract protected function getForTheEditorsForm(string $publicationApiUrl, array $locales, Publication $publication, Submission $submission, Context $context, string $suggestionUrlBase, LazyCollection $categories): ForTheEditors;
 
     /**
      * Get the properties that should be saved to the Submission

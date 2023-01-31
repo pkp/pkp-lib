@@ -16,6 +16,7 @@
 namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldMetadataSetting;
+use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 
@@ -183,6 +184,16 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.dataAvailability.require')],
                 ],
                 'value' => $context->getData('dataAvailability') ? $context->getData('dataAvailability') : Context::METADATA_DISABLE,
+            ]))
+            ->addField(new FieldOptions('submitWithCategories', [
+                'label' => __('category.category'),
+                'description' => __('manager.submitWithCategories.description'),
+                'type' => 'radio',
+                'options' => [
+                    ['value' => true, 'label' => __('manager.submitWithCategories.yes')],
+                    ['value' => false, 'label' => __('manager.submitWithCategories.no')],
+                ],
+                'value' => (bool) $context->getData('submitWithCategories')
             ]));
     }
 }

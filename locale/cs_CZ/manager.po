@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"PO-Revision-Date: 2023-01-31 17:03+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -3540,3 +3540,39 @@ msgstr ""
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Přiřadit redaktora"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Jakákoli publikovaná nebo nepublikovaná položka, která 1) má dílčí objekt "
+"bez přiřazeného DOI, kde 2) je povolen typ DOI dílčího objektu (např. "
+"sazebnice bez DOI se zde nezobrazí, pokud není povoleno DOI pro sazebnice)"
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Položky, u nichž byla metadata aktualizována na místní úrovni a které bude "
+"třeba znovu předložit nebo aktualizovat u stanovené registrační agentury, "
+"aby se zajistila aktuálnost všech dříve předložených metadat."
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Položka, která 1) má přiřazeny všechny povolené typy DOI a 2) nebyla "
+"publikována"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Položky, které 1) mají přidělené DOI pro všechny povolené typy DOI, 2) jsou "
+"zveřejněny a 3) dosud nebyly registrovány u registrační agentury."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Položky, které byly předloženy stanovené registrační agentuře."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Položky, které byly úspěšně zaregistrovány u registrační agentury nebo ručně "
+"označeny jako registrované."
+
+msgid "manager.dois.status.error.description"
+msgstr "Položky, u kterých došlo k chybě v procesu registrace."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Statusy DOI"

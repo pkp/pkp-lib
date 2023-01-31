@@ -1,9 +1,10 @@
 # Emma U <emmaupkp@gmail.com>, 2023.
 # HKBU Library <libms@hkbu.edu.hk>, 2023.
+# Katie Cheng <ckykatie@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-01-31 13:35+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"Last-Translator: Katie Cheng <ckykatie@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -114,4 +115,10 @@ msgid "common.country"
 msgstr "國家"
 
 msgid "navigation.home"
+msgstr "主頁"
+
+msgid "navigation.archives"
+msgstr "過往期刊"
+
+msgid "common.homepageNavigationLabel"
 msgstr "主頁"

@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2022-09-30 20:01+0000\n"
+"PO-Revision-Date: 2023-01-31 17:03+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -2310,9 +2310,10 @@ msgstr ""
 "recomendação. Explique por que essa recomendação foi feita em resposta às "
 "recomendações e comentários enviados pelos avaliadores."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "A submissão, {$title}, agora está ativa no estágio de submissão."
+msgstr ""
+"A submissão, {$title}, agora está ativa no estágio de submissão. O autor foi "
+"notificado, a menos que você opte por ignorar esse e-mail."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -2331,24 +2332,24 @@ msgstr "Submissão Reativada"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} reverteu a decisão de recusar esta avaliação."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 "Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao "
-"processo editorial ativo."
+"processo editorial ativo. O autor foi notificado, a menos que você opte por "
+"ignorar esse e-mail."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que esta submissão foi "
 "aceita para publicação e enviada para a fase de edição de texto sem passar "
-"pela avaliação."
+"pela avaliação. Este e-mail não será enviado até que a decisão seja "
+"registrada."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "A submissão, {$title}, pulou a etapa de avaliação e foi enviada para a etapa "
-"de edição texto."
+"de edição texto. O autor foi notificado, a menos que você opte por ignorar "
+"esse e-mail."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Avaliação ignorada"
@@ -2370,9 +2371,10 @@ msgstr ""
 "decisão foi tomada e informe ao autor quais edições adicionais serão "
 "necessárias antes que esta submissão esteja pronto para editoração."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "A submissão, {$title}, foi enviada de volta à fase de edição de texto."
+msgstr ""
+"A submissão, {$title}, foi enviada de volta à fase de edição de texto. O "
+"autor foi notificado, a menos que você opte por ignorar esse e-mail."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Enviado de volta para edição de texto"
@@ -2387,15 +2389,16 @@ msgstr "Envie esta submissão de volta para o estágio de edição de texto."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Voltar para edição de texto"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores informando que esta submissão foi enviada "
-"para a fase de editoração."
+"para a fase de editoração. Este e-mail não será enviado até que a decisão "
+"seja registrada."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "A submissão, {$title}, foi enviada para a fase de editoração."
+msgstr ""
+"A submissão, {$title}, foi enviada para a fase de editoração. O autor foi "
+"notificado, a menos que você opte por ignorar esse e-mail."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Enviado para Editoração"
@@ -2408,9 +2411,10 @@ msgstr ""
 "Envie esta submissão para a fase de editoração para ser preparada para "
 "publicação."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "A submissão, {$title}, foi enviada para a fase de avaliação."
+msgstr ""
+"A submissão, {$title}, foi enviada para a fase de avaliação. O autor foi "
+"notificado, a menos que você opte por ignorar esse e-mail."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Enviado para Avaliação"
@@ -2431,11 +2435,11 @@ msgstr ""
 "detalhes que o autor precisará para revisar sua submissão. Quando "
 "apropriado, lembre-se de anonimizar quaisquer comentários do avaliador."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Revisões para a submissão, {$title}, foram solicitadas. A decisão de enviar "
-"as revisões para outra rodada de avaliações foi registrada."
+"as revisões para outra rodada de avaliações foi registrada. Todas as "
+"notificações foram enviadas, exceto aquelas que você optou por ignorar."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Revisões solicitadas"
@@ -2450,17 +2454,18 @@ msgstr ""
 "O autor deve fornecer revisões que serão enviadas para outra rodada de "
 "avaliação antes que esta submissão seja aceita para publicação."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que serão necessárias "
 "revisões antes que esta submissão seja aceita para publicação. Inclua todos "
 "os detalhes que o autor precisará para revisar sua submissão. Quando "
-"apropriado, lembre-se de anonimizar quaisquer comentários do avaliador."
+"apropriado, lembre-se de anonimizar quaisquer comentários do avaliador. Este "
+"e-mail não será enviado até que a decisão seja registrada."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Revisões para a submissão, {$title}, foram solicitadas."
+msgstr ""
+"Revisões para a submissão, {$title}, foram solicitadas. Todas as "
+"notificações foram enviadas, exceto aquelas que você optou por ignorar."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Revisões solicitadas"
@@ -2483,15 +2488,16 @@ msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr ""
 "Selecione os arquivos que devem ser enviados para a etapa de edição de texto."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores para que eles saibam que sua submissão foi "
-"enviada para uma nova rodada de avaliação."
+"enviada para uma nova rodada de avaliação. Este e-mail não será enviado até "
+"que a decisão seja registrada."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "Uma nova rodada de avaliação foi criada para a submissão, {$title}."
+msgstr ""
+"Uma nova rodada de avaliação foi criada para a submissão, {$title}. O autor "
+"foi notificado, a menos que você opte por ignorar esse e-mail."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Rodada de avaliação criada"
@@ -2510,15 +2516,16 @@ msgstr ""
 "Esta submissão será rejeitada para publicação. Nenhuma avaliação adicional "
 "será realizada e a submissão será arquivada."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail para os autores para que eles saibam que sua submissão foi "
-"rejeitada."
+"rejeitada. Este e-mail não será enviado até que a decisão tenha sido "
+"registrada."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "A submissão, {$title}, foi rejeitada e enviada aos arquivos."
+msgstr ""
+"A submissão, {$title}, foi rejeitada e enviada aos arquivos. Todas as "
+"notificações foram enviadas, exceto aquelas que você optou por ignorar."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Submissão Rejeitada"
@@ -2557,17 +2564,17 @@ msgstr "Voltar para Submissão"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Voltar para a submissão"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que sua submissão foi "
-"aceita para publicação."
+"aceita para publicação. Este e-mail não será enviado até que a decisão tenha "
+"sido registrada."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "A submissão, {$title}, foi aceita para publicação e enviada para a fase de "
-"edição de texto."
+"edição de texto. Todas as notificações foram enviadas, exceto aquelas que "
+"você optou por ignorar."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Submissão Aceita"
@@ -2581,11 +2588,12 @@ msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Esta submissão será aceita para publicação e enviada para edição de texto."
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Envie um e-mail aos avaliadores para agradecê-los por sua avaliação e "
-"informá-los de que uma decisão foi tomada."
+"informá-los de que uma decisão foi tomada. Cada avaliador receberá um e-mail "
+"separado para proteger seu anonimato. A frase {$recipientName} pode ser "
+"usada na mensagem para incluir o nome de cada avaliador com segurança."
 
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Notificar avaliadores"
@@ -2619,11 +2627,11 @@ msgstr ""
 "Falha ao marcar o DOI como registrado para {$pubObjectTitle}. A submissão "
 "deve ser publicada antes que o status possa ser atualizado."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para que eles saibam que a rodada de avaliação "
-"foi encerrada."
+"foi encerrada. Este e-mail não será enviado até que a decisão tenha sido "
+"registrada."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancelar Rodada de Avaliação"
@@ -2634,9 +2642,10 @@ msgstr "{$editorName} cancelou a rodada de avaliação."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Cancelada a última rodada de avaliação."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "A rodada de avaliação para a submissão, {$title}, foi cancelada."
+msgstr ""
+"A rodada de avaliação para a submissão, {$title}, foi cancelada. Todas as "
+"notificações foram enviadas, exceto aquelas que você optou por ignorar."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -2652,9 +2661,10 @@ msgstr "Envie esta submissão de volta para o estágio de edição de texto."
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Enviado de volta da edição de texto"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "A submissão, {$title}, foi enviada de volta da fase de edição de texto."
+msgstr ""
+"A submissão, {$title}, foi enviada de volta da fase de edição de texto. O "
+"autor foi notificado, a menos que você opte por ignorar esse e-mail."
 
 msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
@@ -2757,3 +2767,41 @@ msgstr "Contato principal para correspondência editorial."
 
 msgid "publication.version"
 msgstr "Versão {$version}"
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Selecione uma função editorial se quiser editar e publicar esta submissão "
+"por conta própria."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Sim, minha submissão atende a todos esses requisitos."
+
+msgid "submission.details"
+msgstr "Detalhes da Submissão"
+
+msgid "submission.forTheEditors"
+msgstr "Para os Editores"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Revise e submete"
+
+msgid "submission.copyright.agree"
+msgstr "Sim, eu concordo com a declaração de direitos autorais."
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Esta submissão já foi enviada. Visite seu <a href=\"{$url}\">painel de "
+"submissões</a> para visualizá-lo."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Antes de começar"
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Alterar configurações de submissão"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Conclua as etapas para fazer uma submissão"
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+"Selecione apenas as categorias que são apropriadas para a sua submissão."

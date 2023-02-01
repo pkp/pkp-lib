@@ -34,7 +34,7 @@ class Site extends \PKP\core\DataObject
      * @param  int $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
      * @return array
      */
-    public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
+    public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT): array
     {
         static $supportedLocales;
         if (isset($supportedLocales)) {

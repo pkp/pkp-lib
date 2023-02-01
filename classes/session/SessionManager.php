@@ -39,9 +39,9 @@ class SessionManager implements SessionHandlerInterface
      * Attempts to rejoin a user's session if it exists, or create a new session otherwise.
      *
      */
-    private function __construct(SessionDAO $sessionDao)
+    private function __construct()
     {
-        $this->sessionDao = $sessionDao;
+        $this->sessionDao = DAORegistry::getDAO('SessionDAO');
         $this->request = Application::get()->getRequest();
 
         $this->configure();
@@ -49,12 +49,11 @@ class SessionManager implements SessionHandlerInterface
 
         // If there's a session assigned to the session ID
         if ($this->userSession) {
-            // Validates it and refresh
+            // Validate and refresh it
             if ($this->isValid($this->userSession)) {
-                $this->refresh();
-                return;
+                return $this->refresh();
             }
-            // When invalid, regenerates the session ID without destroying the failed session (perhaps it belongs to another user)
+            // When invalid, regenerates the session ID without destroying the failed session (it might belong to another user)
             session_regenerate_id();
         }
 
@@ -65,11 +64,9 @@ class SessionManager implements SessionHandlerInterface
      * Return an instance of the session manager.
      *
      */
-    public static function getManager(): SessionManager
+    public static function getManager(): static
     {
-        // Reference required
-        $instance = & Registry::get('sessionManager', true, null);
-        return $instance ??= new SessionManager(DAORegistry::getDAO('SessionDAO'));
+        return Registry::get('sessionManager') ?? Registry::get('sessionManager', true, new static());
     }
 
     /**
@@ -206,10 +203,11 @@ class SessionManager implements SessionHandlerInterface
 
     /**
      * Prevents the session initialization
+     * @todo Drop the constant definition once it's safe
      */
     public static function disable(): void
     {
-        // Constant kept for backwards compatibility
+        // Constant kept for backwards compatibility with applications <= 3.3.0
         if (!defined('SESSION_DISABLE_INIT')) {
             define('SESSION_DISABLE_INIT', true);
         }
@@ -221,7 +219,7 @@ class SessionManager implements SessionHandlerInterface
     public static function hasSession(): bool
     {
         // If the session isn't disabled and a cookie is present or a session was started in the current request
-        return !SessionManager::isDisabled() && (isset($_COOKIE[Config::getVar('general', 'session_cookie_name')]) || !!session_id());
+        return !static::isDisabled() && (isset($_COOKIE[Config::getVar('general', 'session_cookie_name')]) || !!session_id());
     }
 
     private function configure(): void
@@ -313,7 +311,7 @@ class SessionManager implements SessionHandlerInterface
      */
     private function clearDiscardedSessions(array $domains, string $bestDomain): void
     {
-        // Includes non-specified/empty domain (cleanup deprecated domainless cookie)
+        // Includes non-specified/empty domain (cleanup deprecated domainless cookie from OJS 2.x)
         $domains[] = '';
         $requestDomain = $this->request->getServerHost(includePort: false);
         // Includes the request domain if it's not the domain used by the session

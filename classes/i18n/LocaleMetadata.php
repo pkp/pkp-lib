@@ -38,15 +38,15 @@ class LocaleMetadata
      * The following constants define how the locale information will be presented
      * 
      * LANGUAGE_LOCALE_WITHOUT : The locale will be presented in the current selected language
-     * So, if English and French is availabel and user selected locale is French, it will be
+     * So, if English and French is available and user selected locale is French, it will be
      * shown as Français | Anglais
      * 
      * LANGUAGE_LOCALE_WITH : The locale will be presented in current selected language along
-     * with each locale's own translated name . So, if English and French is availabel and user 
+     * with each locale's own translated name . So, if English and French is available and user 
      * selected locale is French, it will be shown as Français/French | Anglais/English
      * 
      * LANGUAGE_LOCALE_ONLY : The locale will be presented only in each locale's translated
-     * name . So, if English and French is availabel and user 
+     * name . So, if English and French is available and user 
      * selected locale is French, it will be shown as Français | English
      */
     public const LANGUAGE_LOCALE_WITHOUT = 1;

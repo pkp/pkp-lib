@@ -376,7 +376,7 @@ class Locale implements LocaleInterface
     {
         $locales ??= $this->getLocales();
 
-        if ($filterByLocales) {
+        if ($filterByLocales !== null) {
             $filterByLocales = array_intersect_key($locales, array_flip($filterByLocales));
         }
 

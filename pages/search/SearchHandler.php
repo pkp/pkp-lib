@@ -155,24 +155,21 @@ class SearchHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setCacheability(TemplateManager::CACHEABILITY_NO_STORE);
 
-        // Result set ordering options.
-        $orderByOptions = $preprintSearch->getResultSetOrderingOptions($request);
-        $templateMgr->assign('searchResultOrderOptions', $orderByOptions);
-        $orderDirOptions = $preprintSearch->getResultSetOrderingDirectionOptions();
-        $templateMgr->assign('searchResultOrderDirOptions', $orderDirOptions);
-
-        // Result set ordering selection.
         [$orderBy, $orderDir] = $preprintSearch->getResultSetOrdering($request);
-        $templateMgr->assign('orderBy', $orderBy);
-        $templateMgr->assign('orderDir', $orderDir);
-
-        // Similar documents.
-        $templateMgr->assign('simDocsEnabled', true);
-
-        // Result set display.
         $this->_assignSearchFilters($request, $templateMgr, $searchFilters);
-        $templateMgr->assign('results', $results);
-        $templateMgr->assign('error', $error);
+        $templateMgr->assign([
+            'searchResultOrderOptions' => $preprintSearch->getResultSetOrderingOptions($request),
+            'searchResultOrderDirOptions' => $preprintSearch->getResultSetOrderingDirectionOptions(),
+            'orderBy' => $orderBy,
+            'orderDir' => $orderDir,
+            'simDocsEnabled' => true,
+            'results' => $results,
+            'error' => $error,
+            'authorUserGroups' => Repo::userGroup()->getCollector()
+                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
+                ->filterByContextIds($searchFilters['searchServer'] ? [$searchFilters['searchServer']->getId()] : null)
+                ->getMany(),
+        ]);
         $templateMgr->display('frontend/pages/search.tpl');
     }
 

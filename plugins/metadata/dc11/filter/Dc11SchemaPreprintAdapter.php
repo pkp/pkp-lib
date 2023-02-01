@@ -82,15 +82,15 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $server = $oaiDao->getServer($submission->getData('contextId'));
         $section = $oaiDao->getSection($submission->getSectionId());
 
+        $publication = $submission->getCurrentPublication();
+
         $dc11Description = $this->instantiateMetadataDescription();
 
         // Title
         $this->_addLocalizedElements($dc11Description, 'dc:title', $submission->getFullTitle(null));
 
         // Creator
-        $authors = Repo::author()->getSubmissionAuthors($submission);
-
-        foreach ($authors as $author) {
+        foreach ($publication->getData('authors') as $author) {
             $dc11Description->addStatement('dc:creator', $author->getFullName(false, true));
         }
 
@@ -99,8 +99,8 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
         $supportedLocales = array_keys(Locale::getSupportedFormLocales());
         $subjects = array_merge_recursive(
-            (array) $submissionKeywordDao->getKeywords($submission->getCurrentPublication()->getId(), $supportedLocales),
-            (array) $submissionSubjectDao->getSubjects($submission->getCurrentPublication()->getId(), $supportedLocales)
+            (array) $submissionKeywordDao->getKeywords($publication->getId(), $supportedLocales),
+            (array) $submissionSubjectDao->getSubjects($publication->getId(), $supportedLocales)
         );
         $this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
@@ -136,7 +136,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $dc11Description->addStatement('dc:type', $driverVersion, MetadataDescription::METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
         $galleys = Repo::galley()->getCollector()
-            ->filterByPublicationIds([$submission->getCurrentPublication()->getId()])
+            ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
         // Format

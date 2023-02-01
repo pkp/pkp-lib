@@ -61,7 +61,7 @@ class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellP
                 if (empty($title)) {
                     $title = __('common.untitled');
                 }
-                $authorsInTitle = $submission->getShortAuthorString();
+                $authorsInTitle = $submission->getCurrentPublication()->getShortAuthorString();
                 $title = $authorsInTitle . '; ' . $title;
                 return [
                     new LinkAction(

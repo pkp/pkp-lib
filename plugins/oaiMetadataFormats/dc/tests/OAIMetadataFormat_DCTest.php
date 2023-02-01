@@ -34,7 +34,6 @@ use APP\server\Server;
 use APP\submission\Submission;
 use Illuminate\Support\LazyCollection;
 use PHPUnit\Framework\MockObject\MockObject;
-use PKP\author\Repository as AuthorRepository;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -82,6 +81,13 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->getMock();
         $publicationDoiObject->setData('doi', 'preprint-doi');
 
+        // Author
+        $author = new Author();
+        $author->setGivenName('author-firstname', 'en_US');
+        $author->setFamilyName('author-lastname', 'en_US');
+        $author->setAffiliation('author-affiliation', 'en_US');
+        $author->setEmail('someone@example.com');
+
         /** @var Publication|MockObject */
         $publication = $this->getMockBuilder(Publication::class)
             ->onlyMethods([])
@@ -98,13 +104,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $publication->setData('copyrightHolder', 'preprint-copyright');
         $publication->setData('copyrightYear', 'year');
         $publication->setData('datePublished', '2010-11-05');
-
-        // Author
-        $author = new Author();
-        $author->setGivenName('author-firstname', 'en_US');
-        $author->setFamilyName('author-lastname', 'en_US');
-        $author->setAffiliation('author-affiliation', 'en_US');
-        $author->setEmail('someone@example.com');
+        $publication->setData('authors', collect([$author]));
 
         // Preprint
         /** @var Submission|MockObject */
@@ -207,16 +207,6 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->method('getSection')
             ->will($this->returnValue($section));
         DAORegistry::registerDAO('OAIDAO', $oaiDao);
-
-        /** @var AuthorRepository|MockObject */
-        $mockAuthorRepository = $this->getMockBuilder(AuthorRepository::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getSubmissionAuthors'])
-            ->getMock();
-        $mockAuthorRepository->expects($this->any())
-            ->method('getSubmissionAuthors')
-            ->will($this->returnValue(LazyCollection::wrap([$author])));
-        app()->instance(AuthorRepository::class, $mockAuthorRepository);
 
         /** @var GalleyCollector|MockObject */
         $mockGalleyCollector = $this->getMockBuilder(GalleyCollector::class)

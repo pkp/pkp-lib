@@ -476,8 +476,7 @@ class ReviewerForm extends Form
         );
         $templateKeys = [ReviewRequest::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
 
-        $alternateTemplates = Repo::emailTemplate()->getCollector()
-            ->filterByContext(Application::get()->getRequest()->getContext()->getId())
+        $alternateTemplates = Repo::emailTemplate()->getCollector(Application::get()->getRequest()->getContext()->getId())
             ->alternateTo([ReviewRequest::getEmailTemplateKey()])
             ->getMany();
 

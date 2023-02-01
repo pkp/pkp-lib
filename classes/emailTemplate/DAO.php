@@ -13,16 +13,17 @@
 
 namespace PKP\emailTemplate;
 
+use APP\core\Application;
 use APP\core\Services;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use APP\facades\Repo;
-use PKP\context\Context;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use Stringy\Stringy;
@@ -124,8 +125,7 @@ class DAO extends EntityDAO
      */
     public function getByKey(int $contextId, string $key): ?EmailTemplate
     {
-        $results = Repo::emailTemplate()->getCollector()
-            ->filterByContext($contextId)
+        $results = Repo::emailTemplate()->getCollector($contextId)
             ->filterByKeys([$key])
             ->getMany();
 
@@ -153,9 +153,18 @@ class DAO extends EntityDAO
         /** @var EmailTemplate $emailTemplate */
         $emailTemplate = parent::fromRow($row);
         $schema = $this->schemaService->get($this->schema);
+        $contextDao = Application::getContextDAO();
+
+        $supportedLocalesJson = $row->context_id === PKPApplication::CONTEXT_SITE ?
+            DB::table('site')->first()->supported_locales :
+            DB::table($contextDao->settingsTableName)
+                ->where($contextDao->primaryKeyColumn, $row->context_id)
+                ->where('setting_name', 'supportedLocales')
+                ->value('setting_value');
 
         $rows = DB::table($this->defaultTable)
             ->where('email_key', '=', $emailTemplate->getData('key'))
+            ->whereIn('locale', json_decode($supportedLocalesJson, true))
             ->get();
 
         $props = ['name', 'subject', 'body'];

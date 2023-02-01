@@ -266,8 +266,7 @@ class QueryForm extends Form
             $data = $mailable->getData();
             $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
             $templateKeySubjectPairs = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
-            $alternateTemplates = Repo::emailTemplate()->getCollector()
-                ->filterByContext($context->getId())
+            $alternateTemplates = Repo::emailTemplate()->getCollector($context->getId())
                 ->alternateTo([$mailable::getEmailTemplateKey()])
                 ->getMany();
             foreach ($alternateTemplates as $alternateTemplate) {

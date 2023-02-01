@@ -115,8 +115,7 @@ class Repository
             $data['emailTemplates'] = [];
         } else {
             $templates = Repo::emailTemplate()
-                ->getCollector()
-                ->filterByContext($contextId)
+                ->getCollector($contextId)
                 ->alternateTo([$class::getEmailTemplateKey()])
                 ->getMany();
 

@@ -72,9 +72,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $context = $request->getContext();
         $mailable = $this->getMailable();
 
-        $templates = Repo::emailTemplate()->getCollector()
+        $templates = Repo::emailTemplate()->getCollector($context->getId())
             ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
-            ->filterByContext($context->getId())
             ->getMany()
             ->mapWithKeys(function(EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
@@ -241,8 +240,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             ReviewRequestSubsequent::getEmailTemplateKey()
         );
 
-        $alternateTemplates = Repo::emailTemplate()->getCollector()
-            ->filterByContext(Application::get()->getRequest()->getContext()->getId())
+        $alternateTemplates = Repo::emailTemplate()->getCollector(Application::get()->getRequest()->getContext()->getId())
             ->alternateTo([ReviewRequestSubsequent::getEmailTemplateKey()])
             ->getMany();
 

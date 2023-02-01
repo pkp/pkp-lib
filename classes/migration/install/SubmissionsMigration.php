@@ -48,7 +48,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->smallInteger('status')->default(PKPSubmission::STATUS_QUEUED);
 
-            $table->string('submission_progress', 50)->default('files');
+            $table->string('submission_progress', 50)->default('start');
             //  Used in OMP only; should not be null there
             $table->smallInteger('work_type')->default(0)->nullable();
         });

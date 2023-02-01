@@ -57,7 +57,6 @@ trait NotifyReviewers
                 if ($reviewAssignment) {
                     $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
                     $reviewAssignment->stampModified();
-                    $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
                     $reviewAssignmentDao->updateObject($reviewAssignment);
                 }
             }

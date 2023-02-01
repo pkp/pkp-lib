@@ -2,7 +2,7 @@
 # HKBU Library <libms@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
 "Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/zh_TW/>\n"
@@ -18,3 +18,15 @@ msgstr "返回搜尋"
 
 msgid "reviewer.list.reviewInterests"
 msgstr "評審題材偏好"
+
+msgid "editor.submission.addReviewer"
+msgstr "新增評審員"
+
+msgid "editor.review.createReviewer"
+msgstr "建立新評審員"
+
+msgid "editor.review.thankReviewer"
+msgstr "感謝評審員"
+
+msgid "editor.review.mustSelect"
+msgstr "您必須選擇一位評審員"

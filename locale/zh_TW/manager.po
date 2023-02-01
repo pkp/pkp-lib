@@ -2,7 +2,7 @@
 # HKBU Library <libms@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
 "Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/zh_TW/>\n"
@@ -57,3 +57,24 @@ msgstr "已註冊用戶"
 
 msgid "manager.people.editProfile"
 msgstr "編輯帳戶"
+
+msgid "manager.files.uploadFile"
+msgstr "上傳文件"
+
+msgid "manager.roles"
+msgstr "角色"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "通知"
+
+msgid "manager.setup.privacyStatement"
+msgstr "《私隱聲明》"
+
+msgid "manager.announcements.datePublish"
+msgstr "出版日期"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "姓名"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "通知所有作者"

@@ -277,7 +277,6 @@ class PreprintHandler extends Handler
             'copyrightYear' => $publication->getData('copyrightYear'),
             'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
             'keywords' => $publication->getData('keywords'),
-            'authorUserGroups' => Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->filterByContextIds([$context->getId()])->getMany(),
         ]);
 
         // Fetch and assign the galley to the template

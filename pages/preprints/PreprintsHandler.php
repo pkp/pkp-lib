@@ -83,6 +83,7 @@ class PreprintsHandler extends Handler
             'categories' => iterator_to_array($categories),
             'publishedSubmissions' => $publishedSubmissions,
             'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
+            'authorUserGroups' => Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->filterByContextIds([$context->getId()])->getMany(),
             'showingStart' => $showingStart,
             'showingEnd' => $showingEnd,
             'total' => $total,

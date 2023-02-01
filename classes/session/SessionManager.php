@@ -157,7 +157,7 @@ class SessionManager implements SessionHandlerInterface
      *
      * @param int $lifetime the number of seconds after which data will be seen as "garbage" and cleaned up
      */
-    public function gc(int $lifetime): bool
+    public function gc(int $lifetime): int|false
     {
         $sessionLifetimeInDays = max(0, Config::getVar('general', 'session_lifetime'));
         $lastUsedRemember = $sessionLifetimeInDays ? Carbon::now()->subDays($sessionLifetimeInDays)->getTimestamp() : 0;

@@ -196,7 +196,6 @@ class PreprintHandler extends Handler
         ]);
         $this->setupTemplate($request);
 
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $publicationCategories = Repo::category()->getCollector()
             ->filterByPublicationIds([$publication->getId()])
             ->getMany();
@@ -216,7 +215,7 @@ class PreprintHandler extends Handler
         $templateMgr->assign([
             'ccLicenseBadge' => Application::get()->getCCLicenseBadge($publication->getData('licenseUrl')),
             'publication' => $publication,
-            'section' => $sectionDao->getById($publication->getData('sectionId')),
+            'section' => Repo::section()->get($publication->getData('sectionId')),
             'categories' => $categories,
         ]);
 

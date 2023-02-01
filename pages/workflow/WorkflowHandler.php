@@ -19,15 +19,14 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
+use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\notification\Notification;
 use APP\publication\Publication;
-use APP\server\SectionDAO;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
 use PKP\pages\workflow\PKPWorkflowHandler;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -95,9 +94,8 @@ class WorkflowHandler extends PKPWorkflowHandler
         ]);
 
         $sectionWordLimits = [];
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        $sectionIterator = $sectionDao->getByContextId($submissionContext->getId());
-        while ($section = $sectionIterator->next()) {
+        $sectionIterator = Repo::section()->getCollector()->filterByContextIds([$submissionContext->getId()])->getMany();
+        foreach ($sectionIterator as $section) {
             $sectionWordLimits[$section->getId()] = (int) $section->getAbstractWordCount() ?? 0;
         }
 
@@ -217,9 +215,7 @@ class WorkflowHandler extends PKPWorkflowHandler
 
     protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm
     {
-        /** @var SectionDAO $sectionDao */
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
-        $section = $sectionDao->getById($latestPublication->getData('sectionId'), $context->getId());
+        $section = Repo::section()->get($latestPublication->getData('sectionId'), $context->getId());
 
         return new TitleAbstractForm(
             $latestPublicationApiUrl,

@@ -14,7 +14,7 @@
 
 namespace APP\components\forms\submission;
 
-use APP\server\Section;
+use APP\section\Section;
 use Illuminate\Support\Enumerable;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;

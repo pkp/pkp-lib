@@ -251,7 +251,6 @@ class PreprintSearch extends SubmissionSearch
     public function formatResults($results, $user = null)
     {
         $contextDao = Application::getContextDAO();
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
 
         $publishedSubmissionCache = [];
         $preprintCache = [];
@@ -272,7 +271,7 @@ class PreprintSearch extends SubmissionSearch
             if ($publishedSubmission && $preprint) {
                 $sectionId = $preprint->getSectionId();
                 if (!isset($sectionCache[$sectionId])) {
-                    $sectionCache[$sectionId] = $sectionDao->getById($sectionId);
+                    $sectionCache[$sectionId] = Repo::section()->get($sectionId);
                 }
 
                 // Get the context, storing in cache if necessary.

@@ -23,7 +23,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use APP\server\Section;
+use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\LazyCollection;

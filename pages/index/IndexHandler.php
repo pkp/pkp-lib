@@ -61,8 +61,7 @@ class IndexHandler extends PKPIndexHandler
         if ($server) {
 
             // OPS: sections
-            $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-            $sections = $sectionDao->getByContextId($server->getId());
+            $sections = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();
 
             // OPS: categories
             $categories = Repo::category()

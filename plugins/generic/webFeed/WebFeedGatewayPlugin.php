@@ -16,15 +16,13 @@ namespace APP\plugins\generic\webFeed;
 
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\server\Section;
-use APP\server\SectionDAO;
+use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\category\Category;
 use PKP\core\Registry;
-use PKP\db\DAORegistry;
 
 class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
 {
@@ -197,10 +195,8 @@ class WebFeedGatewayPlugin extends \PKP\plugins\GatewayPlugin
     private function getSection(?int $sectionId): ?Section
     {
         static $sections = [];
-        /** @var SectionDAO */
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
         return $sectionId
-            ? $sections[$sectionId] ??= $sectionDao->getById($sectionId)
+            ? $sections[$sectionId] ??= Repo::section()->get($sectionId)
             : null;
     }
 }

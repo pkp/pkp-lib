@@ -22,7 +22,6 @@ use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
-use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
 
@@ -55,8 +54,7 @@ class PreprintsHandler extends Handler
         $context = $request->getContext();
 
         // OPS: sections
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        $sections = $sectionDao->getByContextId($context->getId());
+        $sections = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->getMany();
 
         // OPS: categories
         $categories = Repo::category()->getCollector()

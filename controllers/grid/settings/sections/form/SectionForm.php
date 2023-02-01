@@ -16,9 +16,9 @@
 namespace APP\controllers\grid\settings\sections\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\settings\sections\form\PKPSectionForm;
-use PKP\db\DAORegistry;
 
 class SectionForm extends PKPSectionForm
 {
@@ -51,10 +51,9 @@ class SectionForm extends PKPSectionForm
         $request = Application::get()->getRequest();
         $server = $request->getServer();
 
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $sectionId = $this->getSectionId();
         if ($sectionId) {
-            $this->section = $sectionDao->getById($sectionId, $server->getId());
+            $this->section = Repo::section()->get($sectionId, $server->getId());
         }
 
         if (isset($this->section)) {
@@ -72,6 +71,8 @@ class SectionForm extends PKPSectionForm
                 'hideAuthor' => $this->section->getHideAuthor(),
                 'policy' => $this->section->getPolicy(null), // Localized
                 'wordCount' => $this->section->getAbstractWordCount(),
+                'path' => $this->section->getPath(),
+                'description' => $this->section->getDescription(null)
             ]);
         }
 
@@ -89,15 +90,11 @@ class SectionForm extends PKPSectionForm
             $context = $request->getContext();
             $sectionId = $this->getSectionId();
 
-            $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-            $sectionsIterator = $sectionDao->getByContextId($context->getId());
-            $activeSectionsCount = 0;
-            while ($section = $sectionsIterator->next()) {
-                if (!$section->getIsInactive() && ($sectionId != $section->getId())) {
-                    $activeSectionsCount++;
-                }
-            }
-            if ($activeSectionsCount < 1 && $this->getData('isInactive')) {
+            $activeSections = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->activeOnly()->getMany();
+            $otherActiveSections = $activeSections->filter(function ($activeSection) use ($sectionId) {
+                return $activeSection->getId() != $sectionId;
+            });
+            if ($otherActiveSections->count() < 1) {
                 $this->addError('isInactive', __('manager.sections.confirmDeactivateSection.error'));
             }
         }
@@ -134,8 +131,7 @@ class SectionForm extends PKPSectionForm
      */
     public function getLocaleFieldNames()
     {
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        return $sectionDao->getLocaleFieldNames();
+        return ['title', 'policy', 'abbrev', 'identifyType', 'description'];
     }
 
     /**
@@ -143,16 +139,15 @@ class SectionForm extends PKPSectionForm
      */
     public function execute(...$functionArgs)
     {
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $request = Application::get()->getRequest();
         $server = $request->getServer();
 
         // Get or create the section object
         if ($this->getSectionId()) {
-            $section = $sectionDao->getById($this->getSectionId(), $server->getId());
+            $section = Repo::section()->get($this->getSectionId(), $server->getId());
         } else {
-            $section = $sectionDao->newDataObject();
-            $section->setServerId($server->getId());
+            $section = Repo::section()->newDataObject();
+            $section->setContextId($server->getId());
         }
 
         // Populate/update the section object from the form
@@ -166,15 +161,15 @@ class SectionForm extends PKPSectionForm
         $section->setIdentifyType($this->getData('identifyType'), null); // Localized
         $section->setEditorRestricted($this->getData('editorRestriction') ? 1 : 0);
         $section->setPolicy($this->getData('policy'), null); // Localized
-        $section->setAbstractWordCount($this->getData('wordCount'));
+        $section->setAbstractWordCount((int) $this->getData('wordCount'));
 
         // Insert or update the section in the DB
         if ($this->getSectionId()) {
-            $sectionDao->updateObject($section);
+            Repo::section()->edit($section, []);
         } else {
             $section->setSequence(REALLY_BIG_NUMBER);
-            $this->setSectionId($sectionDao->insertObject($section));
-            $sectionDao->resequenceSections($server->getId());
+            $this->setSectionId(Repo::section()->add($section));
+            Repo::section()->resequence($server->getId());
         }
 
         return parent::execute(...$functionArgs);

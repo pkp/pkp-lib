@@ -18,6 +18,7 @@ use APP\decision\Repository as DecisionRepository;
 use APP\doi\Repository as DoiRepository;
 use APP\mail\Repository as MailRepository;
 use APP\publication\Repository as PublicationRepository;
+use APP\section\Repository as SectionRepository;
 use APP\submission\Repository as SubmissionRepository;
 use APP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\galley\Repository as GalleyRepository;
@@ -48,6 +49,11 @@ class Repo extends \PKP\facades\Repo
     public static function publication(): PublicationRepository
     {
         return app(PublicationRepository::class);
+    }
+
+    public static function section(): SectionRepository
+    {
+        return app(SectionRepository::class);
     }
 
     public static function submission(): SubmissionRepository

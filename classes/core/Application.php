@@ -122,7 +122,6 @@ class Application extends PKPApplication
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
             'ServerDAO' => 'APP\server\ServerDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
-            'SectionDAO' => 'APP\server\SectionDAO',
             'TemporaryTotalsDAO' => 'APP\statistics\TemporaryTotalsDAO',
             'TemporaryItemInvestigationsDAO' => 'APP\statistics\TemporaryItemInvestigationsDAO',
             'TemporaryItemRequestsDAO' => 'APP\statistics\TemporaryItemRequestsDAO',
@@ -163,16 +162,6 @@ class Application extends PKPApplication
     public static function getContextDAO()
     {
         return DAORegistry::getDAO('ServerDAO');
-    }
-
-    /**
-     * Get the section DAO.
-     *
-     * @return SectionDAO
-     */
-    public static function getSectionDAO()
-    {
-        return DAORegistry::getDAO('SectionDAO');
     }
 
     /**

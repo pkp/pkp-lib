@@ -20,9 +20,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
 
 class SectionsHandler extends Handler
@@ -71,11 +71,10 @@ class SectionsHandler extends Handler
             exit;
         }
 
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
-        $sections = $sectionDao->getByContextId($contextId);
+        $sections = Repo::section()->getCollector()->filterByContextIds([$contextId])->getMany();
 
         $sectionExists = false;
-        while ($section = $sections->next()) {
+        foreach ($sections as $section) {
             if ($section->getData('path') === $sectionPath) {
                 $sectionExists = true;
                 break;
@@ -91,12 +90,12 @@ class SectionsHandler extends Handler
             ->filterByContextIds([$contextId])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->filterBySectionIds([(int) $section->getId()])
-            ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
+            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED);
         $total = $collector->getCount();
         $submissions = $collector
-                ->limit($context->getData('itemsPerPage'))
-                ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
-                ->getMany();
+            ->limit($context->getData('itemsPerPage'))
+            ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
+            ->getMany();
 
         if ($page > 1 && !$submissions->count()) {
             $request->getDispatcher()->handle404();

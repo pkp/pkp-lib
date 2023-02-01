@@ -14,12 +14,12 @@
 
 namespace APP\components\forms\publication;
 
+use APP\facades\Repo;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
-use APP\facades\Repo;
 
 define('FORM_ISSUE_ENTRY', 'issueEntry');
 
@@ -47,7 +47,7 @@ class IssueEntryForm extends FormComponent
         $this->locales = $locales;
 
         // Section options
-        $sections = \Services::get('section')->getSectionList($publicationContext->getId());
+        $sections = Repo::section()->getSectionList($publicationContext->getId());
         $sectionOptions = [];
         foreach ($sections as $section) {
             $sectionOptions[] = [

@@ -15,8 +15,8 @@
 
 namespace APP\plugins\importexport\native\filter;
 
+use APP\facades\Repo;
 use PKP\plugins\importexport\native\filter\PKPNativeFilterHelper;
-use PKP\db\DAORegistry;
 
 class PublicationNativeXmlFilter extends \PKP\plugins\importexport\native\filter\PKPPublicationNativeXmlFilter
 {
@@ -63,8 +63,7 @@ class PublicationNativeXmlFilter extends \PKP\plugins\importexport\native\filter
 
         // Add the series, if one is designated.
         if ($sectionId = $entity->getData('sectionId')) {
-            $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-            $section = $sectionDao->getById($sectionId);
+            $section = Repo::section()->get($sectionId);
             assert(isset($section));
             $entityNode->setAttribute('section_ref', $section->getLocalizedAbbrev());
         }

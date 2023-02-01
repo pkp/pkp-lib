@@ -117,7 +117,7 @@ trait IsRecommendation
     {
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $queryParticipantIds = [];
-        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $stageId);
+        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
             if (!$editorsStageAssignment->getRecommendOnly()) {
                 if (!in_array($editorsStageAssignment->getUserId(), $queryParticipantIds)) {

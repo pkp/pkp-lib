@@ -42,11 +42,10 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS = 2;
     public const SUBMISSION_REVIEW_METHOD_OPEN = 3;
 
-    // A review is "unconsidered" when it is confirmed by an editor and then that
-    // confirmation is later revoked.
-    public const REVIEW_ASSIGNMENT_NOT_UNCONSIDERED = 0; // Has never been unconsidered
-    public const REVIEW_ASSIGNMENT_UNCONSIDERED = 1; // Has been unconsindered and is awaiting re-confirmation by an editor
-    public const REVIEW_ASSIGNMENT_UNCONSIDERED_READ = 2; // Has been reconfirmed by an editor
+    public const REVIEW_ASSIGNMENT_NEW = 0; // Has never been considered by an editor, review assignment just created
+    public const REVIEW_ASSIGNMENT_CONSIDERED = 3; // Has been marked considered by an editor
+    public const REVIEW_ASSIGNMENT_UNCONSIDERED = 1; // Considered status has been revoked by an editor and is awaiting re-confirmation by an editor
+    public const REVIEW_ASSIGNMENT_RECONSIDERED = 2; // Considered status has been granted again by an editor
 
     public const REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE = 0; // request has been sent but reviewer has not responded
     public const REVIEW_ASSIGNMENT_STATUS_DECLINED = 1; // reviewer declined review request
@@ -256,23 +255,23 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get unconsidered state.
+     * Get considered state.
      *
      * @return int
      */
-    public function getUnconsidered()
+    public function getConsidered()
     {
-        return $this->getData('unconsidered');
+        return $this->getData('considered');
     }
 
     /**
-     * Set unconsidered state.
+     * Set considered state.
      *
-     * @param int $unconsidered
+     * @param int $considered
      */
-    public function setUnconsidered($unconsidered)
+    public function setConsidered($considered)
     {
-        $this->setData('unconsidered', $unconsidered);
+        $this->setData('considered', $considered);
     }
 
     /**
@@ -687,12 +686,12 @@ class ReviewAssignment extends \PKP\core\DataObject
                 }
             }
         } elseif ($this->getDateAcknowledged()) { // reviewer thanked...
-            if ($this->getUnconsidered() == self::REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
+            if ($this->getConsidered() == self::REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
                 return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
             }
             return self::REVIEW_ASSIGNMENT_STATUS_THANKED;
         } elseif ($this->getDateCompleted()) { // review submitted...
-            if ($this->getUnconsidered() != self::REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
+            if ($this->getConsidered() != self::REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
                 return self::REVIEW_ASSIGNMENT_STATUS_COMPLETE;
             }
             return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
@@ -708,37 +707,8 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function isRead()
     {
-        $viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
-
-        $submission = Repo::submission()->get($this->getSubmissionId());
-
-        // Get the user groups for this stage
-        $userGroups = Repo::userGroup()->getUserGroupsByStage(
-            $submission->getContextId(),
-            $this->getStageId()
-        );
-
-        foreach ($userGroups as $userGroup) {
-            $roleId = $userGroup->getRoleId();
-            if ($roleId != Role::ROLE_ID_MANAGER && $roleId != Role::ROLE_ID_SUB_EDITOR) {
-                continue;
-            }
-
-            // Get the users assigned to this stage and user group
-            $stageUsers = Repo::user()->getCollector()
-                ->assignedTo($this->getSubmissionId(), $this->getStageId(), $userGroup->getId())
-                ->getMany();
-
-            // Check if any of these users have viewed it
-            foreach ($stageUsers as $user) {
-                if ($viewsDao->getLastViewDate(
-                    Application::ASSOC_TYPE_REVIEW_RESPONSE,
-                    $this->getId(),
-                    $user->getId()
-                )) {
-                    return true;
-                }
-            }
+        if($this->getConsidered() === self::REVIEW_ASSIGNMENT_CONSIDERED || $this->getConsidered() === self::REVIEW_ASSIGNMENT_RECONSIDERED) {
+            return true;
         }
 
         return false;
@@ -899,9 +869,10 @@ if (!PKP_STRICT_MODE) {
         'SUBMISSION_REVIEW_METHOD_ANONYMOUS',
         'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS',
         'SUBMISSION_REVIEW_METHOD_OPEN',
-        'REVIEW_ASSIGNMENT_NOT_UNCONSIDERED',
+        'REVIEW_ASSIGNMENT_NEW',
+        'REVIEW_ASSIGNMENT_CONSIDERED',
         'REVIEW_ASSIGNMENT_UNCONSIDERED',
-        'REVIEW_ASSIGNMENT_UNCONSIDERED_READ',
+        'REVIEW_ASSIGNMENT_RECONSIDERED',
         'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE',
         'REVIEW_ASSIGNMENT_STATUS_DECLINED',
         'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE',

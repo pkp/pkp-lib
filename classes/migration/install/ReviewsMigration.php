@@ -84,7 +84,7 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->foreign('review_form_id')->references('review_form_id')->on('review_forms');
             $table->index(['review_form_id'], 'review_assignments_form_id');
 
-            $table->smallInteger('unconsidered')->nullable();
+            $table->smallInteger('considered')->nullable();
             $table->smallInteger('request_resent')->default(0);
 
             // Normally reviewer can't be assigned twice on the same review round.

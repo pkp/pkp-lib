@@ -667,7 +667,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
-        $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED);
+        $reviewAssignment->setConsidered(ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED);
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         // log the unconsider.
@@ -711,13 +711,13 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Mark the latest read date of the review by the editor.
         $user = $request->getUser();
-        $viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
-        $viewsDao->recordView(Application::ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
 
         // if the review assignment had been unconsidered, update the flag.
-        if ($reviewAssignment->getUnconsidered() == ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED) {
-            $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED_READ);
-        }
+        $reviewAssignment->setConsidered(
+            $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
+                ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
+                : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED
+        );
 
         if (!$reviewAssignment->getDateCompleted()) {
             // Editor completes the review.

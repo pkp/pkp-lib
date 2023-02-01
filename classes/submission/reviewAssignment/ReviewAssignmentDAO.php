@@ -18,6 +18,7 @@
 namespace PKP\submission\reviewAssignment;
 
 use APP\facades\Repo;
+use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
@@ -362,7 +363,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 date_reminded, reminder_was_automatic,
                 review_form_id,
                 review_round_id,
-                unconsidered,
+                considered,
                 request_resent
                 ) VALUES (
                     ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
@@ -393,7 +394,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 (int) $reviewAssignment->getReminderWasAutomatic(),
                 $reviewAssignment->getReviewFormId(),
                 (int) $reviewAssignment->getReviewRoundId(),
-                (int) $reviewAssignment->getUnconsidered(),
+                (int) $reviewAssignment->getConsidered(),
                 (int) $reviewAssignment->getRequestResent(),
             ]
         );
@@ -438,7 +439,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                     reminder_was_automatic = ?,
                     review_form_id = ?,
                     review_round_id = ?,
-                    unconsidered = ?,
+                    considered = ?,
                     request_resent = ?
                 WHERE review_id = ?',
                 $this->datetimeToDB($reviewAssignment->getDateAssigned()),
@@ -467,7 +468,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
                 $reviewAssignment->getReminderWasAutomatic() ? 1 : 0,
                 $reviewAssignment->getReviewFormId(),
                 (int) $reviewAssignment->getReviewRoundId(),
-                (int) $reviewAssignment->getUnconsidered(),
+                (int) $reviewAssignment->getConsidered(),
                 (int) $reviewAssignment->getRequestResent(),
                 (int) $reviewAssignment->getId(),
             ]
@@ -538,7 +539,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewAssignment->setReviewRoundId((int) $row['review_round_id']);
         $reviewAssignment->setReviewMethod((int) $row['review_method']);
         $reviewAssignment->setStageId((int) $row['stage_id']);
-        $reviewAssignment->setUnconsidered((int) $row['unconsidered']);
+        $reviewAssignment->setConsidered((int) $row['considered']);
         $reviewAssignment->setRequestResent((int) $row['request_resent'] ?? null);
 
         return $reviewAssignment;
@@ -568,7 +569,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewFilesDao->revokeByReviewId($reviewId);
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
+        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
 
         // Retrieve the review assignment before it's deleted, so it can be
         // be used to fire an update on the review round status.

@@ -149,7 +149,6 @@ class ThankReviewerForm extends Form
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
         $reviewAssignment->stampModified();
-        $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         parent::execute(...$functionArgs);

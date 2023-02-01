@@ -220,6 +220,7 @@ class ReviewerForm extends Form
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);
+        $this->setData('considered', ReviewAssignment::REVIEW_ASSIGNMENT_NEW);
     }
 
     /**

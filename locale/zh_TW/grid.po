@@ -2,7 +2,7 @@
 # HKBU Library <libms@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
 "Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/zh_TW/>\n"
@@ -27,3 +27,30 @@ msgstr "更改密碼"
 
 msgid "grid.noItems"
 msgstr "沒有項目"
+
+msgid "grid.action.addAuthor"
+msgstr "新增作者"
+
+msgid "grid.action.editAuthor"
+msgstr "編輯作者"
+
+msgid "grid.action.deleteAuthor"
+msgstr "刪除作者"
+
+msgid "grid.action.addReviewer"
+msgstr "新增評審員"
+
+msgid "grid.action.selectCreate"
+msgstr "建立新評審員"
+
+msgid "grid.roles.add"
+msgstr "建立新角色"
+
+msgid "grid.user.userRoles"
+msgstr "用戶角色"
+
+msgid "grid.user.addRoles"
+msgstr "新增角色"
+
+msgid "author.users.contributor.role"
+msgstr "角色"

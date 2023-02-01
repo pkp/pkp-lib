@@ -42,14 +42,18 @@
 			$('#regularReviewerForm').show();
 
 			// Set the email message for reviewers depending on previous completed assignments
-			var $textarea = $('#reviewerFormFooter [name="personalMessage"]');
+			var $textarea = $('#reviewerFormFooter [name="personalMessage"]'),
+					$templateInput,
+					$templateOption,
+					editor,
+					templateKey;
 			if ($textarea.val()) {
 				return; // The message is already set; shouldn't happen
 			}
-			var $templateInput = $('#reviewerFormFooter input[name="template"]'); // Only 1 template available
-			var $templateOption = $('#reviewerFormFooter select[name="template"]'); // Multiple available templates
-			var editor = tinyMCE.EditorManager.get($textarea.attr('id'));
-			var templateKey = '';
+			$templateInput = $('#reviewerFormFooter input[name="template"]'); // Only 1 template available
+			$templateOption = $('#reviewerFormFooter select[name="template"]'); // Multiple available templates
+			editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+			templateKey = '';
 			if (options.lastRoundReviewerIds.includes(reviewer.id)) {
 				templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
 				editor.setContent(options.reviewerMessages[templateKey]);

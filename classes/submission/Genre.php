@@ -199,6 +199,22 @@ class Genre extends \PKP\core\DataObject
     }
 
     /**
+     * Get whether this file is required for new submissions
+     */
+    public function getRequired(): bool
+    {
+        return (bool) $this->getData('required');
+    }
+
+    /**
+     * Set whether this file is required for new submissions
+     */
+    public function setRequired(bool $required): void
+    {
+        $this->setData('required', $required);
+    }
+
+    /**
      * Is this a default genre.
      *
      * @return bool

@@ -26,11 +26,16 @@
             submissionWizard__reviewPanel__body--{$step.id|escape}
         "
     >
-        <notification v-if="!components.submissionFiles.items.length" type="warning" class="submissionWizard__reviewEmptyWarning">
+        <notification
+            v-for="(error, i) in errors.files"
+            :key="i"
+            type="warning"
+            class="submissionWizard__reviewEmptyWarning"
+        >
             <icon icon="exclamation-triangle" :inline="true"></icon>
-            {translate key="author.submit.noFiles"}
+            {{ error }}
         </notification>
-        <ul v-else class="submissionWizard__reviewPanel__list">
+        <ul class="submissionWizard__reviewPanel__list">
             <li
                 v-for="file in components.submissionFiles.items"
                 :key="file.id"

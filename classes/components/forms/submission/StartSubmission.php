@@ -19,6 +19,7 @@ use Illuminate\Support\Enumerable;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
+use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FormComponent;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -79,11 +80,11 @@ class StartSubmission extends FormComponent
 
     protected function addTitle(): void
     {
-        $this->addField(new FieldText('title', [
+        $this->addField(new FieldRichText('title', [
             'label' => __('common.title'),
-            'size' => 'large',
-            'value' => '',
+            'size' => 'oneline',
             'isRequired' => true,
+            'value' => '',
         ]));
     }
 

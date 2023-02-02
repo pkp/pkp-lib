@@ -15,13 +15,9 @@
 
 namespace PKP\userGroup\relationships;
 
-use PKP\facades\Locale;
-use PKP\db\DAORegistry;
-use PKP\user\User;
-use PKP\userGroup\UserGroup;
 use APP\facades\Repo;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 {
@@ -33,43 +29,43 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public function user(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => Repo::user()->get($attributes['user_id']),
-            set: fn($value) => $value->getId()
+            get: fn ($value, $attributes) => Repo::user()->get($attributes['user_id']),
+            set: fn ($value) => $value->getId()
         );
     }
 
     public function userGroup(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => Repo::userGroup()->get($attributes['user_group_id']),
-            set: fn($value) => $value->getId()
+            get: fn ($value, $attributes) => Repo::userGroup()->get($attributes['user_group_id']),
+            set: fn ($value) => $value->getId()
         );
     }
 
     public function userId(): Attribute
     {
         return Attribute::make(
-            get: fn($user, $attributes) => $attributes['user_id'],
-            set: fn($value) => ['user_id' => $value]
+            get: fn ($user, $attributes) => $attributes['user_id'],
+            set: fn ($value) => ['user_id' => $value]
         );
     }
 
     public function userGroupId(): Attribute
     {
         return Attribute::make(
-            get: fn($userGroup, $attributes) => $attributes['user_group_id'],
-            set: fn($value) => ['user_group_id' => $value]
+            get: fn ($userGroup, $attributes) => $attributes['user_group_id'],
+            set: fn ($value) => ['user_group_id' => $value]
         );
     }
 
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $query->where('user_id', $userId);
+        return $query->where('user_user_groups.user_id', $userId);
     }
 
     public function scopeWithUserGroupId(Builder $query, int $userGroupId): Builder
     {
-        return $query->where('user_group_id', $userGroupId);
+        return $query->where('user_user_groups.user_group_id', $userGroupId);
     }
 
     public function scopeWithContextId(Builder $query, int $contextId): Builder

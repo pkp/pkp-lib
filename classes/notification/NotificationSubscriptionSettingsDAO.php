@@ -57,15 +57,14 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      *
      * @param string $settingName
      * @param int $userId
-     * @param int $contextId
      *
      * @return array
      */
-    public function &getNotificationSubscriptionSettings($settingName, $userId, $contextId)
+    public function &getNotificationSubscriptionSettings($settingName, $userId, ?int $contextId)
     {
         $result = $this->retrieve(
             'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, $settingName, (int) $contextId]
+            [(int) $userId, $settingName, $contextId]
         );
 
         $settings = [];
@@ -81,14 +80,13 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      * @param string $settingName
      * @param array $settings
      * @param int $userId
-     * @param int $contextId
      */
-    public function updateNotificationSubscriptionSettings($settingName, $settings, $userId, $contextId)
+    public function updateNotificationSubscriptionSettings($settingName, $settings, $userId, ?int $contextId)
     {
         // Delete old settings first, then insert new settings
         $this->update(
             'DELETE FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, $settingName, (int) $contextId]
+            [(int) $userId, $settingName, $contextId]
         );
 
         foreach ($settings as $setting) {
@@ -101,7 +99,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
                     $settingName,
                     (int) $setting,
                     (int) $userId,
-                    (int) $contextId,
+                    $contextId,
                     'int'
                 ]
             );

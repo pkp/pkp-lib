@@ -73,7 +73,7 @@ class PKPNotificationSettingsForm extends Form
      *
      * @return array
      */
-    public function getNotificationSettingCategories(Context $context)
+    public function getNotificationSettingCategories(?Context $context = null)
     {
         $result = [
             // Changing the `categoryKey` for public notification types will disrupt
@@ -100,7 +100,7 @@ class PKPNotificationSettingsForm extends Form
             ['categoryKey' => 'user.role.editors',
                 'settings' => array_filter([
                     PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
-                    $context->getData('editorialStatsEmail')
+                    $context && $context->getData('editorialStatsEmail')
                         ? PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT
                         : '',
                 ])
@@ -121,7 +121,7 @@ class PKPNotificationSettingsForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : null;
         $userId = $request->getUser()->getId();
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $templateMgr = TemplateManager::getManager($request);
@@ -145,7 +145,7 @@ class PKPNotificationSettingsForm extends Form
         $user = $request->getUser();
         $userId = $user->getId();
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : null;
 
         $blockedNotifications = [];
         $emailSettings = [];

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2023-02-02 08:19+0000\n"
+"PO-Revision-Date: 2023-02-02 10:35+0000\n"
 "Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2445,11 +2445,8 @@ msgstr "Hvis du ønsker, kan du indsætte en kort erklæring om adgangsrettighed
 msgid "submission.submit.metadataForm.tip"
 msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Dette tidsskrift accepterer indsendelser på en række sprog. Vælg det primære "
-"sprog for indsendelsen i rullemenuen."
+msgstr "Vælg det primære sprog for indsendelsen i rullemenuen."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Primær kontaktperson for redaktionel korrespondance."

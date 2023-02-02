@@ -16,20 +16,16 @@
 namespace PKP\pages\management;
 
 use APP\components\forms\context\DoiSetupSettingsForm;
-use APP\components\forms\context\MetadataSettingsForm;
-use APP\components\forms\context\ReviewGuidanceForm;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\components\forms\context\PKPDisableSubmissionsForm;
 use PKP\components\forms\context\PKPEmailSetupForm;
 use PKP\components\forms\context\PKPInformationForm;
 use PKP\components\forms\context\PKPNotifyUsersForm;
 use PKP\components\forms\context\PKPReviewSetupForm;
-use PKP\components\forms\context\PKPSubmissionsNotificationsForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\config\Config;
@@ -263,7 +259,7 @@ class ManagementHandler extends Handler
         $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
         $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
-        $reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
+        $reviewSetupForm = new PKPReviewSetupForm($contextApiUrl, $locales, $context);
         $submissionGuidanceSettingsForm = new SubmissionGuidanceSettings($contextApiUrl, $locales, $context);
 
         $templateMgr->setState([
@@ -298,6 +294,7 @@ class ManagementHandler extends Handler
         $dispatcher = $request->getDispatcher();
 
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $doiRegistrationSettingsApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/registrationAgency');
         $sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
         $paymentsUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_payments');
 
@@ -306,7 +303,7 @@ class ManagementHandler extends Handler
 
         $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
         $doiSetupSettingsForm = new DoiSetupSettingsForm($apiUrl, $locales, $context);
-        $doiRegistrationSettingsForm = new \PKP\components\forms\context\PKPDoiRegistrationSettingsForm($apiUrl, $locales, $context);
+        $doiRegistrationSettingsForm = new \PKP\components\forms\context\PKPDoiRegistrationSettingsForm($doiRegistrationSettingsApiUrl, $locales, $context);
         $searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
         $paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
@@ -512,14 +509,14 @@ class ManagementHandler extends Handler
         $templateMgr->setState([
             'fromFilters' => $this->getEmailFromFilters(),
             'groupFilters' => $this->getEmailGroupFilters(),
-			'i18nRemoveTemplate' => __('manager.mailables.removeTemplate'),
-			'i18nRemoveTemplateMessage' => __('manager.mailables.removeTemplate.confirm'),
-			'i18nResetTemplate' => __('manager.mailables.resetTemplate'),
-			'i18nResetTemplateMessage' => __('manager.mailables.resetTemplate.confirm'),
-			'i18nResetAll' => __('manager.emails.resetAll'),
-			'i18nResetAllMessage' => __('manager.emails.resetAll.message'),
+            'i18nRemoveTemplate' => __('manager.mailables.removeTemplate'),
+            'i18nRemoveTemplateMessage' => __('manager.mailables.removeTemplate.confirm'),
+            'i18nResetTemplate' => __('manager.mailables.resetTemplate'),
+            'i18nResetTemplateMessage' => __('manager.mailables.resetTemplate.confirm'),
+            'i18nResetAll' => __('manager.emails.resetAll'),
+            'i18nResetAllMessage' => __('manager.emails.resetAll.message'),
             'mailables' => Repo::mailable()->getMany($context)
-                ->map(fn(string $class) => Repo::mailable()->summarizeMailable($class))
+                ->map(fn (string $class) => Repo::mailable()->summarizeMailable($class))
                 ->sortBy('name')
                 ->values(),
             'mailablesApiUrl' => $mailablesApiUrl,

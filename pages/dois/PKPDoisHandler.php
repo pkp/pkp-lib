@@ -78,7 +78,7 @@ abstract class PKPDoisHandler extends Handler
         $context = $request->getContext();
 
         $enabledDoiTypes = $context->getData(Context::SETTING_ENABLED_DOI_TYPES) ?? [];
-        $versionDois = $context->getData(Context::SETTING_DOI_VERSIONING);
+        $versionDois = $context->getData(Context::SETTING_DOI_VERSIONING) ?? false;
 
         $templateMgr = TemplateManager::getManager($request);
 

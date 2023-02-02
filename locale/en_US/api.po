@@ -92,6 +92,9 @@ msgstr "No valid publication objects were included with the request."
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr "One or more invalid publication objects were included with the request."
 
+msgid "api.dois.400.invalidPluginType"
+msgstr "The currently configured plugin must be a registration agency plugin."
+
 msgid "api.decisions.403.alreadyPublished"
 msgstr "You can not record a decision or recommend a decision for this submission because it has already been published."
 

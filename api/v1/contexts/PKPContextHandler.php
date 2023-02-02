@@ -16,11 +16,14 @@ namespace PKP\API\v1\contexts;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\plugins\IDoiRegistrationAgency;
 use APP\services\ContextService;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
+use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -29,7 +32,8 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
-
+use Slim\Http\Request as SlimRequest;
+use Slim\Http\Response as SlimResponse;
 
 class PKPContextHandler extends APIHandler
 {
@@ -79,6 +83,11 @@ class PKPContextHandler extends APIHandler
                     'handler' => [$this, 'editTheme'],
                     'roles' => $roles,
                 ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/registrationAgency',
+                    'handler' => [$this, 'editDoiRegistrationAgencyPlugin'],
+                    'roles' => $roles,
+                ]
             ],
             'DELETE' => [
                 [
@@ -424,7 +433,7 @@ class PKPContextHandler extends APIHandler
 
         // Don't allow to edit the context from the site-wide API, because the
         // context's plugins will not be enabled
-        if (!$request->getContext()) {
+        if (!$requestContext) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
         }
 
@@ -436,7 +445,7 @@ class PKPContextHandler extends APIHandler
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
         }
 
@@ -501,6 +510,115 @@ class PKPContextHandler extends APIHandler
         return $response->withJson($data, 200);
     }
 
+    public function editDoiRegistrationAgencyPlugin(SlimRequest $slimRequest, SlimResponse $response, array $args): SlimResponse
+    {
+        $request = $this->getRequest();
+        $requestContext = $request->getContext();
+
+        $contextId = (int) $args['contextId'];
+
+        // Don't allow to get one context from a different context's endpoint
+        if ($request->getContext() && $request->getContext()->getId() !== $contextId) {
+            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+        }
+
+        // Don't allow to edit the context from the site-wide API, because the
+        // context's plugins will not be enabled
+        if (!$requestContext) {
+            return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+        }
+
+        /** @var ContextService $contextService */
+        $contextService = Services::get('context');
+        $context = $contextService->get($contextId);
+
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+        }
+
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles)) {
+            return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
+        }
+
+        /** @var PKPSchemaService $schemaService */
+        $schemaService = Services::get('schema');
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+        $contextFullProps = array_flip($schemaService->getFullProps(PKPSchemaService::SCHEMA_CONTEXT));
+        $contextParams = array_intersect_key(
+            $params,
+            $contextFullProps,
+        );
+
+        // Validate the registrationAgency and automatic deposit fields
+        // and allow agencies to perform their own validation.
+        if (!empty($contextParams)) {
+            $errors = $contextService->validate(
+                ContextService::VALIDATE_ACTION_EDIT,
+                $contextParams,
+                $context->getSupportedFormLocales(),
+                $context->getPrimaryLocale(),
+            );
+
+            if (!empty($errors)) {
+                return $response->withJson($errors, 400);
+            }
+            $contextService->edit(
+                $context,
+                $contextParams,
+                $request
+            );
+        }
+
+        // Return if no registration agency enabled;
+        if ($contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] === null) {
+            return $response->withJson($contextParams, 200);
+        }
+
+        // Get the appropriate agency plugin
+        $plugins = PluginRegistry::loadCategory('generic', true);
+        $selectedPlugin = null;
+        foreach ($plugins as $plugin) {
+            if (
+                $contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] === $plugin->getName()
+            ) {
+                $selectedPlugin = $plugin;
+                break;
+            }
+        }
+
+        // Check if it's a registration agency plugin
+        if (!$selectedPlugin instanceof IDoiRegistrationAgency) {
+            return $response->withStatus(400)->withJsonError('api.dois.400.invalidPluginType');
+        }
+
+        $settingsObject = $selectedPlugin->getSettingsObject();
+        $params = $this->convertStringsToSchema($settingsObject::class, $slimRequest->getParsedBody());
+        $pluginParams = array_intersect_key(
+            $params,
+            (array) $settingsObject->getSchema()->properties,
+        );
+
+        // Validate plugin settings
+        $errors = $settingsObject->validate($pluginParams);
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+
+        $this->updateRegistrationAgencyPluginSettings(
+            $contextId,
+            $selectedPlugin,
+            $settingsObject::class,
+            $pluginParams,
+        );
+
+        return $response->withJson(
+            array_merge($contextParams, $pluginParams),
+            200,
+        );
+    }
+
     /**
      * Delete a context
      *
@@ -540,5 +658,23 @@ class PKPContextHandler extends APIHandler
         $contextService->delete($context);
 
         return $response->withJson($contextProps, 200);
+    }
+
+    /**
+     * Updates a settings plugin according to a given schema. Used in lieu of a generic plugin settings management workflow.
+     *
+     * @param Plugin $plugin Currently configured registration agency plugin. Should also implement IDoiRegistrationAgency
+     * @param string $schemaName Name of RegistrationAgencySettings child class used as schema name
+     * @param array $props Plugin properties to update
+     */
+    protected function updateRegistrationAgencyPluginSettings(int $contextId, Plugin $plugin, string $schemaName, array $props): void
+    {
+        /** @var PKPSchemaService $schemaService */
+        $schemaService = Services::get('schema');
+        $sanitizedProps = $schemaService->sanitize($schemaName, $props);
+
+        foreach ($sanitizedProps as $fieldName => $value) {
+            $plugin->updateSetting($contextId, $fieldName, $value);
+        }
     }
 }

@@ -280,13 +280,13 @@ msgid "manager.dois.status.stale"
 msgstr "Stale"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr "Any published or unpublished item that 1) has a sub-object without a DOI assigned where 2) the sub-object's DOI type is enabled (e.g. a galley without a DOI won't appear here if the galley DOI type is not enabled)"
+msgstr "Any published or unpublished item that does not have a DOI for all enabled published objects."
 
 msgid "manager.dois.status.unpublished.description"
-msgstr "An item that 1) has DOIs assigned for all enabled DOI types, and 2) has not been published"
+msgstr "Any unpublished items with assigned DOIs."
 
 msgid "manager.dois.status.unregistered.description"
-msgstr "Items that 1) has DOIs assigned for all enabled DOI types, 2) is published, and 3) has not yet been registered with a registration agency."
+msgstr "Any published items with assigned DOIs that have not been deposited with a registration agency."
 
 msgid "manager.dois.status.submitted.description"
 msgstr "Items that have been submitted to the configured registration agency."
@@ -298,7 +298,7 @@ msgid "manager.dois.status.error.description"
 msgstr "Items that have encountered an error in the registration process."
 
 msgid "manager.dois.status.stale.description"
-msgstr "Items that have had their metadata updated locally and will need to be resubmitted to or updated with the configured registration agency to ensure all previously submitted metadata is up-to-date."
+msgstr "Any items that have been republished since they were last deposited with a registration agency. They need to be resubmitted to the registration agency to update their metadata records."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI Updates Failed"
@@ -2255,6 +2255,9 @@ msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
 "The username \"{$username}\" and the e-mail \"{$email}\" do not match to the "
 "one and the same existing user."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "Testing"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Title"

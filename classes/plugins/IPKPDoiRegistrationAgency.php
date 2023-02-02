@@ -16,6 +16,7 @@
 namespace PKP\plugins;
 
 use PKP\context\Context;
+use PKP\doi\RegistrationAgencySettings;
 
 interface IPKPDoiRegistrationAgency
 {
@@ -52,4 +53,10 @@ interface IPKPDoiRegistrationAgency
      *
      */
     public function getRegisteredMessageKey(): ?string;
+
+    /**
+     * Get settings management object. Handles saving and validating of form fields.
+     *
+     */
+    public function getSettingsObject(): RegistrationAgencySettings;
 }

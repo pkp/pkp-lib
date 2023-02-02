@@ -27,7 +27,7 @@ class ForTheEditors extends PKPMetadataForm
 {
     /**
      * How many categories can be present before the options field
-     * should be come an autosuggest field
+     * should become an autosuggest field
      */
     public const MAX_CATEGORY_LIST_SIZE = 10;
 
@@ -43,6 +43,7 @@ class ForTheEditors extends PKPMetadataForm
 
         $this->submission = $submission;
 
+        $this->removeField('keywords');
         $this->changeTooltipsToDescriptions();
         $this->setRequiredMetadata();
         $this->addCategoryField($context, $categories);

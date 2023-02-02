@@ -32,6 +32,9 @@
             "
         >
             {include file="/submission/review-publication-field.tpl" prop="title" inLocale=$localeKey name="{translate key="common.title"}" type="string"}
+            {if in_array($currentContext->getData('keywords'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
+                {include file="/submission/review-publication-field.tpl" prop="keywords" inLocale=$localeKey name="{translate key="common.keywords"}" type="array"}
+            {/if}
             {include file="/submission/review-publication-field.tpl" prop="abstract" inLocale=$localeKey name="{translate key="common.abstract"}" type="html"}
             {if in_array($currentContext->getData('citations'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {if $localeKey === $submission->getData('locale')}

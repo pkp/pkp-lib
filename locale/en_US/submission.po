@@ -2125,7 +2125,7 @@ msgid "submission.wizard.noContributors"
 msgstr "No contributors have been added for this submission."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "One or more of the contributors are missing details in {$language}."
+msgstr "The given name is missing in {$language} for one or more of the contributors."
 
 msgid "submission.wizard.notAllowed"
 msgstr "Not Allowed"

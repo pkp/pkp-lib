@@ -217,12 +217,12 @@
 		},
 		"submissionProgress": {
 			"type": "string",
-			"description": "This is sent to the current step when a submission is in progress. After it is submitted, this will be an empty string, indicating it is ready for an editor's consideration.",
+			"description": "This value tracks the submission's progress in the submission wizard. It will be set to `start` or the current step when a submission is in progress. After it is submitted, this will be an empty string, indicating it is ready for an editor's consideration.",
 			"apiSummary": true,
-			"default": "files",
+			"default": "start",
 			"writeDisabledInApi": true,
 			"validation": [
-				"in:,files,contributors,details,editors,review"
+				"in:,start,details,files,contributors,editors,review"
 			]
 		},
 		"userGroupId": {

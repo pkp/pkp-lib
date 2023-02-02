@@ -15,7 +15,6 @@
 
 namespace PKP\pages\authorDashboard;
 
-use APP\components\forms\publication\TitleAbstractForm;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -25,6 +24,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
+use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
 use PKP\core\PKPApplication;

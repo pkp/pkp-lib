@@ -262,7 +262,7 @@ class PKPSubmissionMetadataFormImplementation
         $submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
 
         // Only log modifications on completed submissions
-        if ($submission->getSubmissionProgress() == 0) {
+        if (!$submission->getSubmissionProgress()) {
             // Log the metadata modification event.
             SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
         }

@@ -40,6 +40,7 @@ class GenresMigration extends \PKP\migration\Migration
 
             $table->smallInteger('dependent')->default(0);
             $table->smallInteger('supplementary')->default(0);
+            $table->smallInteger('required')->default(0)->comment('Whether or not at least one file of this genre is required for a new submission.');
             $table->string('entry_key', 30)->nullable();
         });
 

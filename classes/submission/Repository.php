@@ -37,6 +37,7 @@ use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
 use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submissionFile\SubmissionFile;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -390,6 +391,49 @@ abstract class Repository
                 $errors[$metadata] = [__('validator.required')];
             } elseif (!empty($schema->multilingual) && empty($publication->getData($metadata, $locale))) {
                 $errors[$metadata] = [$locale => [__('validator.required')]];
+            }
+        }
+
+        // Required submission files
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $requiredGenres = $genreDao->getRequiredToSubmit($context->getId());
+        if (!$requiredGenres->isEmpty()) {
+            $submissionFiles = Repo::submissionFile()
+                ->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByGenreIds(
+                    $requiredGenres->map(
+                        function(Genre $genre) {
+                            return $genre->getId();
+                        }
+                    )->toArray()
+                )
+                ->getMany();
+            $missingGenres = $submissionFiles->isEmpty()
+                ? clone $requiredGenres
+                : $requiredGenres->filter(
+                    function(Genre $genre) use ($submissionFiles) {
+                        $exists = $submissionFiles->first(
+                            function(SubmissionFile $submissionFile) use ($genre) {
+                                return $submissionFile->getData('genreId') === $genre->getId();
+                            }
+                        );
+                        return !$exists;
+                    }
+                );
+            if ($missingGenres->count()) {
+                $missingGenreNames = $missingGenres->map(
+                    function(Genre $genre) {
+                        return $genre->getLocalizedName();
+                    }
+                );
+                $errors['files'] = [
+                    $missingGenres->count() > 1
+                        ? __('submission.files.required.genres', [
+                            'genres' => $missingGenreNames->join(__('common.commaListSeparator'))
+                        ])
+                        : __('submission.files.required.genre', ['genre' => $missingGenreNames->first()])
+                ];
             }
         }
 

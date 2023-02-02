@@ -17,6 +17,8 @@
 
 namespace PKP\submission;
 
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\db\XMLDAO;
@@ -156,6 +158,21 @@ class GenreDAO extends DAO
     }
 
     /**
+     * Get genres that are required for a new
+     * submission in a context
+     */
+    public function getRequiredToSubmit(int $contextId): Collection
+    {
+        return DB::table('genres')
+            ->where('context_id', $contextId)
+            ->where('required', 1)
+            ->get()
+            ->map(function(object $row) {
+                return $this->_fromRow((array) $row);
+            });
+    }
+
+    /**
      * Retrieves the genre associated with a key.
      *
      * @param string $key the entry key
@@ -230,6 +247,7 @@ class GenreDAO extends DAO
         $genre->setCategory((int) $row['category']);
         $genre->setDependent($row['dependent']);
         $genre->setSupplementary($row['supplementary']);
+        $genre->setRequired($row['required']);
         $genre->setSequence($row['seq']);
         $genre->setEnabled($row['enabled']);
 
@@ -251,9 +269,9 @@ class GenreDAO extends DAO
     {
         $this->update(
             'INSERT INTO genres
-				(entry_key, seq, context_id, category, dependent, supplementary)
+				(entry_key, seq, context_id, category, dependent, supplementary, required)
 			VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?)',
             [
                 $genre->getKey(),
                 (float) $genre->getSequence(),
@@ -261,6 +279,7 @@ class GenreDAO extends DAO
                 (int) $genre->getCategory(),
                 $genre->getDependent() ? 1 : 0,
                 $genre->getSupplementary() ? 1 : 0,
+                $genre->getRequired() ? 1 : 0,
             ]
         );
 
@@ -283,7 +302,8 @@ class GenreDAO extends DAO
 				dependent = ?,
 				supplementary = ?,
 				enabled = ?,
-				category = ?
+				category = ?,
+				required = ?
 			WHERE	genre_id = ?',
             [
                 $genre->getKey(),
@@ -292,6 +312,7 @@ class GenreDAO extends DAO
                 $genre->getSupplementary() ? 1 : 0,
                 $genre->getEnabled() ? 1 : 0,
                 $genre->getCategory(),
+                $genre->getRequired() ? 1 : 0,
                 (int) $genre->getId(),
             ]
         );
@@ -367,6 +388,7 @@ class GenreDAO extends DAO
             $genre->setCategory($attrs['category']);
             $genre->setDependent($attrs['dependent']);
             $genre->setSupplementary($attrs['supplementary']);
+            $genre->setRequired((bool) ($attrs['required'] ?? false));
             $genre->setSequence($seq++);
             foreach ($locales as $locale) {
                 $genre->setName(__($attrs['localeKey'], [], $locale), $locale);

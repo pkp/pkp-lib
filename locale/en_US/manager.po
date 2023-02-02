@@ -1773,6 +1773,18 @@ msgstr ""
 "choose Supplementary Content for most file types. Artwork is appropriate for "
 "files which require distinct credit, caption and licensing metadata."
 
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Require with Submissions"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr "Should at least one of these files be required with every new submission? If you select yes, authors will not be allowed to submit until they have uploaded at least one file of this type."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr "Yes, require submitting authors to upload one or more of these files."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "No, allow new submissions without these files."
+
 msgid "manager.settings.wizard"
 msgstr "Settings Wizard"
 

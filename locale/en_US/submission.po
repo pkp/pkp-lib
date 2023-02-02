@@ -2318,5 +2318,11 @@ msgstr "Data Availability Statement"
 msgid "submission.dataAvailability.tip"
 msgstr "State whether you have made evidence supporting this work available, and if so, where and how it can be accessed"
 
+msgid "submission.files.required.genre"
+msgstr "You must upload at least one {$genre} file."
+
+msgid "submission.files.required.genres"
+msgstr "You must upload at least one of each of the following file types: {$genres}."
+
 msgid "publication.version"
 msgstr "Version {$version}"

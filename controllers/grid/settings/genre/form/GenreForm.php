@@ -21,6 +21,7 @@ use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\security\Validation;
 use PKP\submission\Genre;
+use PKP\submission\GenreDAO;
 
 class GenreForm extends Form
 {
@@ -96,6 +97,7 @@ class GenreForm extends Form
                 'category' => $genre->getCategory(),
                 'dependent' => $genre->getDependent(),
                 'supplementary' => $genre->getSupplementary(),
+                'required' => $genre->getRequired(),
                 'key' => $genre->getKey(),
                 'keyReadOnly' => $genre->isDefault(),
             ];
@@ -133,7 +135,7 @@ class GenreForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['genreId', 'name', 'category', 'dependent', 'supplementary', 'gridId', 'rowId', 'key']);
+        $this->readUserVars(['genreId', 'name', 'category', 'dependent', 'supplementary', 'required', 'gridId', 'rowId', 'key']);
     }
 
     /**
@@ -159,6 +161,7 @@ class GenreForm extends Form
         $genre->setCategory($this->getData('category'));
         $genre->setDependent($this->getData('dependent'));
         $genre->setSupplementary($this->getData('supplementary'));
+        $genre->setRequired((bool) $this->getData('required'));
 
         if (!$genre->isDefault()) {
             $genre->setKey($this->getData('key'));

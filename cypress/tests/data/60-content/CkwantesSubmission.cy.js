@@ -67,13 +67,13 @@ describe('Data suite: Ckwantes', function() {
 		cy.contains('Begin Submission').click();
 
 		// The submission wizard has loaded
-		cy.contains('Make a Submission: Upload Files');
+		cy.contains('Make a Submission: Details');
 		cy.get('.submissionWizard__submissionDetails').contains('Kwantes');
 		cy.get('.submissionWizard__submissionDetails').contains(submission.title);
 		cy.contains('Submitting in English');
-		cy.get('.pkpSteps__step__label--current').contains('Upload Files');
+		cy.get('.pkpSteps__step__label--current').contains('Details');
+		cy.get('.pkpSteps__step__label').contains('Upload Files');
 		cy.get('.pkpSteps__step__label').contains('Contributors');
-		cy.get('.pkpSteps__step__label').contains('Details');
 		cy.get('.pkpSteps__step__label').contains('For Readers');
 		cy.get('.pkpSteps__step__label').contains('Review');
 
@@ -83,7 +83,24 @@ describe('Data suite: Ckwantes', function() {
 				submission.id = parseInt(search.split('=')[1]);
 			});
 
+		// Enter details
+		cy.get('h2').contains('Submission Details');
+		cy.get('#titleAbstract-keywords-control-en_US').type('employees');
+		cy.wait(500);
+		cy.get('#titleAbstract-keywords-control-en_US').type('{enter}');
+		cy.get('#titleAbstract-keywords-selected-en_US .pkpBadge:contains(\'employees\')');
+
+		cy.get('#titleAbstract-keywords-control-en_US').type('survey');
+		cy.wait(500);
+		cy.get('#titleAbstract-keywords-control-en_US').type('{enter}');
+		cy.get('#titleAbstract-keywords-selected-en_US .pkpBadge:contains(\'survey\')');
+		cy.setTinyMceContent('titleAbstract-abstract-control-en_US', submission.abstract);
+		cy.get('#titleAbstract-title-control-en_US').click(); // Ensure blur event is fired
+
+		cy.get('.submissionWizard__footer button').contains('Continue').click();
+
 		// Upload files and set file genres
+		cy.contains('Make a Submission: Upload Files');
 		cy.get('h2').contains('Upload Files');
 		cy.get('h2').contains('Files');
 		cy.addSubmissionGalleys(submission.files);
@@ -137,28 +154,10 @@ describe('Data suite: Ckwantes', function() {
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
-		// Enter details
-		cy.contains('Make a Submission: Details');
-		cy.get('.pkpSteps__step__label--current').contains('Details');
-		cy.get('h2').contains('Submission Details');
-		cy.setTinyMceContent('titleAbstract-abstract-control-en_US', submission.abstract);
-		cy.get('#titleAbstract-title-control-en_US').click(); // Ensure blur event is fired
-
-		cy.get('.submissionWizard__footer button').contains('Continue').click();
-
 		// For Readers
 		cy.contains('Make a Submission: For Readers');
 		cy.get('.pkpSteps__step__label--current').contains('For Readers');
 		cy.get('h2').contains('For Readers');
-		cy.get('#forTheEditors-keywords-control-en_US').type('employees');
-		cy.wait(500);
-		cy.get('#forTheEditors-keywords-control-en_US').type('{enter}');
-		cy.get('#forTheEditors-keywords-selected-en_US .pkpBadge:contains(\'employees\')');
-
-		cy.get('#forTheEditors-keywords-control-en_US').type('survey');
-		cy.wait(500);
-		cy.get('#forTheEditors-keywords-control-en_US').type('{enter}');
-		cy.get('#forTheEditors-keywords-selected-en_US .pkpBadge:contains(\'survey\')');
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
@@ -189,18 +188,18 @@ describe('Data suite: Ckwantes', function() {
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Title').siblings('.submissionWizard__reviewPanel__item__value').contains(submission.title)
 			.parents('.submissionWizard__reviewPanel')
+			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('employees, survey')
+			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains(submission.abstract);
 		cy.get('h3').contains('Details (French/Français (Canada))') // FIXME: Should be (French)
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Title').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
 			.parents('.submissionWizard__reviewPanel')
+			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
+			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided');
 		cy.get('h3').contains('For Readers (English/English)') // FIXME: Should be (English)
-			.parents('.submissionWizard__reviewPanel')
-			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
 		cy.get('h3').contains('For Readers (French/Français (Canada))') // FIXME: Should be (French)
-			.parents('.submissionWizard__reviewPanel')
-			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided');
 
 		// Save for later
 		cy.get('button').contains('Save for Later').click();

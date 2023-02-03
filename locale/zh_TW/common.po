@@ -1,0 +1,1933 @@
+# Emma U <emmaupkp@gmail.com>, 2023.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
+# Katie Cheng <ckykatie@hkbu.edu.hk>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/common/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr ""
+
+msgid "common.currentStyleSheet"
+msgstr ""
+
+msgid "about.description"
+msgstr ""
+
+msgid "about.guidelines"
+msgstr ""
+
+msgid "about.aboutSite"
+msgstr ""
+
+msgid "about.contact"
+msgstr "聯絡"
+
+msgid "about.contact.email"
+msgstr "電郵地址"
+
+msgid "about.contact.phone"
+msgstr "電話號碼"
+
+msgid "about.contact.principalContact"
+msgstr ""
+
+msgid "about.contact.supportContact"
+msgstr ""
+
+msgid "about.other"
+msgstr ""
+
+msgid "about.people"
+msgstr ""
+
+msgid "about.policies"
+msgstr ""
+
+msgid "about.siteMap"
+msgstr ""
+
+msgid "announcement.announcements"
+msgstr ""
+
+msgid "announcement.announcementsHome"
+msgstr "公告"
+
+msgid "announcement.moreAnnouncements"
+msgstr ""
+
+msgid "announcement.noneExist"
+msgstr ""
+
+msgid "announcement.posted"
+msgstr ""
+
+msgid "announcement.postedOn"
+msgstr ""
+
+msgid "announcement.view"
+msgstr ""
+
+msgid "common.allDownloads"
+msgstr ""
+
+msgid "common.navigation.sidebar"
+msgstr ""
+
+msgid "common.navigation.site"
+msgstr ""
+
+msgid "common.navigation.siteContext"
+msgstr ""
+
+msgid "common.navigation.user"
+msgstr ""
+
+msgid "common.tasks"
+msgstr "任務"
+
+msgid "common.list"
+msgstr ""
+
+msgid "common.grid"
+msgstr ""
+
+msgid "common.confirmDelete"
+msgstr ""
+
+msgid "common.abstract"
+msgstr ""
+
+msgid "common.accepted"
+msgstr ""
+
+msgid "common.acknowledged"
+msgstr ""
+
+msgid "common.action"
+msgstr ""
+
+msgid "common.activate"
+msgstr ""
+
+msgid "common.active"
+msgstr ""
+
+msgid "common.inactive"
+msgstr ""
+
+msgid "common.add"
+msgstr ""
+
+msgid "common.addSelf"
+msgstr ""
+
+msgid "common.name"
+msgstr "姓名"
+
+msgid "common.all"
+msgstr ""
+
+msgid "common.alphaList"
+msgstr ""
+
+msgid "common.titleSmallWords"
+msgstr ""
+
+msgid "common.alreadyAssigned"
+msgstr ""
+
+msgid "common.altText"
+msgstr ""
+
+msgid "common.altTextInstructions"
+msgstr ""
+
+msgid "common.and"
+msgstr ""
+
+msgid "common.applyAction"
+msgstr ""
+
+msgid "common.assign"
+msgstr ""
+
+msgid "common.assigned"
+msgstr ""
+
+msgid "common.assigned.date"
+msgstr ""
+
+msgid "common.available"
+msgstr ""
+
+msgid "common.back"
+msgstr ""
+
+msgid "common.between"
+msgstr ""
+
+msgid "common.cancel"
+msgstr "取消"
+
+msgid "common.cancelled"
+msgstr "已取消"
+
+msgid "common.warning"
+msgstr ""
+
+msgid "common.error"
+msgstr ""
+
+msgid "common.notice"
+msgstr ""
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr ""
+
+msgid "common.captchaField.description"
+msgstr ""
+
+msgid "common.captchaField"
+msgstr ""
+
+msgid "common.ccLicense"
+msgstr ""
+
+msgid "common.ccLicense.rt"
+msgstr ""
+
+msgid "common.changesSaved"
+msgstr "您的修改已被儲存。"
+
+msgid "common.chooseOne"
+msgstr ""
+
+msgid "common.close"
+msgstr ""
+
+msgid "common.closePanel"
+msgstr ""
+
+msgid "common.closeWindow"
+msgstr ""
+
+msgid "common.complete"
+msgstr ""
+
+msgid "common.completed"
+msgstr ""
+
+msgid "common.completed.date"
+msgstr ""
+
+msgid "common.confirm"
+msgstr ""
+
+msgid "common.confirmed.date"
+msgstr ""
+
+msgid "common.content"
+msgstr ""
+
+msgid "common.contents"
+msgstr ""
+
+msgid "common.continue"
+msgstr ""
+
+msgid "common.copy"
+msgstr ""
+
+msgid "common.country"
+msgstr "國家"
+
+msgid "common.create"
+msgstr ""
+
+msgid "common.dateCompleted"
+msgstr ""
+
+msgid "common.dateDecided"
+msgstr ""
+
+msgid "common.date"
+msgstr ""
+
+msgid "common.dateModified"
+msgstr ""
+
+msgid "common.dateRequested"
+msgstr ""
+
+msgid "common.dateSubmitted"
+msgstr ""
+
+msgid "common.dateUploaded"
+msgstr ""
+
+msgid "common.dateHijri"
+msgstr ""
+
+msgid "common.day"
+msgstr ""
+
+msgid "common.deactivate"
+msgstr ""
+
+msgid "common.default"
+msgstr ""
+
+msgid "common.declined"
+msgstr ""
+
+msgid "common.delete"
+msgstr "刪除"
+
+msgid "common.deleting"
+msgstr ""
+
+msgid "common.deleteSelection"
+msgstr ""
+
+msgid "common.designation"
+msgstr ""
+
+msgid "common.description"
+msgstr ""
+
+msgid "common.dimensionsInches"
+msgstr ""
+
+msgid "common.dimensionsPixels"
+msgstr ""
+
+msgid "common.disable"
+msgstr ""
+
+msgid "common.disabled"
+msgstr ""
+
+msgid "common.discipline"
+msgstr ""
+
+msgid "common.done"
+msgstr ""
+
+msgid "common.download"
+msgstr ""
+
+msgid "common.downloadPdf"
+msgstr ""
+
+msgid "common.edit"
+msgstr ""
+
+msgid "common.editItem"
+msgstr ""
+
+msgid "common.enable"
+msgstr ""
+
+msgid "common.enabled"
+msgstr ""
+
+msgid "common.error.databaseError"
+msgstr ""
+
+msgid "common.error.databaseErrorUnknown"
+msgstr ""
+
+msgid "common.error.framesRequired"
+msgstr ""
+
+msgid "common.event"
+msgstr ""
+
+msgid "common.export"
+msgstr ""
+
+msgid "common.finish"
+msgstr ""
+
+msgid "common.fullscreen"
+msgstr ""
+
+msgid "common.fullscreenOff"
+msgstr ""
+
+msgid "common.false"
+msgstr ""
+
+msgid "common.file"
+msgstr ""
+
+msgid "common.file.namingPattern"
+msgstr ""
+
+msgid "common.file.anonymousNamingPattern"
+msgstr ""
+
+msgid "common.fileName"
+msgstr ""
+
+msgid "common.fileSize"
+msgstr ""
+
+msgid "common.fileType"
+msgstr ""
+
+msgid "common.fileUploaderError"
+msgstr ""
+
+msgid "common.filter"
+msgstr ""
+
+msgid "common.filterAdd"
+msgstr ""
+
+msgid "common.filterRemove"
+msgstr ""
+
+msgid "common.from"
+msgstr ""
+
+msgid "common.fromWithValue"
+msgstr ""
+
+msgid "common.until"
+msgstr ""
+
+msgid "common.go"
+msgstr ""
+
+msgid "common.height"
+msgstr ""
+
+msgid "common.homepageNavigationLabel"
+msgstr "主頁"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr ""
+
+msgid "common.hour"
+msgstr ""
+
+msgid "common.id"
+msgstr ""
+
+msgid "common.import"
+msgstr ""
+
+msgid "common.initiate"
+msgstr ""
+
+msgid "common.inProgress"
+msgstr ""
+
+msgid "common.itemsPerPage"
+msgstr ""
+
+msgid "common.keywords"
+msgstr ""
+
+msgid "common.language"
+msgstr ""
+
+msgid "common.languages"
+msgstr ""
+
+msgid "common.lastActivity"
+msgstr ""
+
+msgid "common.less"
+msgstr ""
+
+msgid "common.lessThan"
+msgstr ""
+
+msgid "common.lessThanOnly"
+msgstr ""
+
+msgid "common.commaListSeparator"
+msgstr ""
+
+msgid "common.semicolonListSeparator"
+msgstr ""
+
+msgid "common.manage"
+msgstr ""
+
+msgid "common.mailingAddress"
+msgstr "郵寄地址"
+
+msgid "common.billingAddress"
+msgstr ""
+
+msgid "common.minute"
+msgstr ""
+
+msgid "common.modify"
+msgstr ""
+
+msgid "common.month"
+msgstr ""
+
+msgid "common.more"
+msgstr ""
+
+msgid "common.moreThan"
+msgstr ""
+
+msgid "common.moreThanOnly"
+msgstr ""
+
+msgid "common.noneAssigned"
+msgstr ""
+
+msgid "common.none"
+msgstr ""
+
+msgid "common.no"
+msgstr ""
+
+msgid "common.noItemsFound"
+msgstr ""
+
+msgid "common.noComments"
+msgstr ""
+
+msgid "common.notApplicable"
+msgstr ""
+
+msgid "common.notApplicableShort"
+msgstr ""
+
+msgid "common.notAvailable"
+msgstr ""
+
+msgid "common.note"
+msgstr ""
+
+msgid "common.noTemporaryFile"
+msgstr ""
+
+msgid "common.notes"
+msgstr ""
+
+msgid "common.notes.tooltip"
+msgstr ""
+
+msgid "common.notified"
+msgstr ""
+
+msgid "common.notified.date"
+msgstr ""
+
+msgid "common.noMatches"
+msgstr ""
+
+msgid "common.off"
+msgstr ""
+
+msgid "common.on"
+msgstr ""
+
+msgid "common.ok"
+msgstr ""
+
+msgid "common.options"
+msgstr ""
+
+msgid "common.order"
+msgstr ""
+
+msgid "common.orderUp"
+msgstr ""
+
+msgid "common.orderDown"
+msgstr ""
+
+msgid "common.originalFileName"
+msgstr ""
+
+msgid "common.or"
+msgstr ""
+
+msgid "common.other"
+msgstr ""
+
+msgid "common.overdue"
+msgstr ""
+
+msgid "common.override"
+msgstr ""
+
+msgid "common.pagination"
+msgstr ""
+
+msgid "common.pagination.label"
+msgstr ""
+
+msgid "common.pagination.goToPage"
+msgstr ""
+
+msgid "common.pagination.next"
+msgstr ""
+
+msgid "common.pagination.previous"
+msgstr ""
+
+msgid "common.pageNumber"
+msgstr ""
+
+msgid "common.percentage"
+msgstr ""
+
+msgid "common.plugin"
+msgstr ""
+
+msgid "common.pluginEnabled"
+msgstr ""
+
+msgid "common.pluginDisabled"
+msgstr ""
+
+msgid "common.prefix"
+msgstr ""
+
+msgid "common.prefixAndTitle.tip"
+msgstr ""
+
+msgid "common.preview"
+msgstr ""
+
+msgid "common.publisher"
+msgstr ""
+
+msgid "common.quality"
+msgstr ""
+
+msgid "common.queue.long.active"
+msgstr ""
+
+msgid "common.range"
+msgstr ""
+
+msgid "common.re"
+msgstr ""
+
+msgid "common.readMore"
+msgstr ""
+
+msgid "common.readMoreWithTitle"
+msgstr ""
+
+msgid "common.record"
+msgstr ""
+
+msgid "common.refresh"
+msgstr ""
+
+msgid "common.related"
+msgstr ""
+
+msgid "common.reminder"
+msgstr ""
+
+msgid "common.reminded.date"
+msgstr ""
+
+msgid "common.remote"
+msgstr ""
+
+msgid "common.remoteURL"
+msgstr ""
+
+msgid "common.remove"
+msgstr ""
+
+msgid "common.removeItem"
+msgstr ""
+
+msgid "common.removeSelection"
+msgstr ""
+
+msgid "common.replaced"
+msgstr ""
+
+msgid "common.replaceFile"
+msgstr ""
+
+msgid "common.requiredField"
+msgstr "*為必填項目"
+
+msgid "common.required"
+msgstr ""
+
+msgid "common.reset"
+msgstr ""
+
+msgid "common.saveAndContinue"
+msgstr "儲存並繼續"
+
+msgid "common.saveAndEmail"
+msgstr ""
+
+msgid "common.save"
+msgstr "儲存"
+
+msgid "common.saving"
+msgstr ""
+
+msgid "common.search"
+msgstr "搜尋"
+
+msgid "common.searchQuery"
+msgstr "查詢搜尋"
+
+msgid "common.clearSearch"
+msgstr "清除搜尋語句"
+
+msgid "common.second"
+msgstr ""
+
+msgid "common.selectAll"
+msgstr ""
+
+msgid "common.selectedPrefix"
+msgstr ""
+
+msgid "common.selectNone"
+msgstr ""
+
+msgid "common.select"
+msgstr ""
+
+msgid "common.selectWithName"
+msgstr ""
+
+msgid "common.sendEmail"
+msgstr ""
+
+msgid "common.size"
+msgstr ""
+
+msgid "common.source"
+msgstr ""
+
+msgid "common.status"
+msgstr ""
+
+msgid "common.subject"
+msgstr ""
+
+msgid "common.subjects"
+msgstr ""
+
+msgid "common.submenu"
+msgstr ""
+
+msgid "common.subtitle"
+msgstr ""
+
+msgid "common.suggest"
+msgstr ""
+
+msgid "common.title"
+msgstr ""
+
+msgid "common.titleSeparator"
+msgstr ""
+
+msgid "common.top"
+msgstr ""
+
+msgid "common.toWithValue"
+msgstr ""
+
+msgid "common.true"
+msgstr ""
+
+msgid "common.type"
+msgstr ""
+
+msgid "common.component"
+msgstr ""
+
+msgid "common.uninitiated"
+msgstr ""
+
+msgid "common.unknownError"
+msgstr ""
+
+msgid "common.unread"
+msgstr ""
+
+msgid "common.untitled"
+msgstr ""
+
+msgid "common.updated"
+msgstr ""
+
+msgid "common.uploadedDate"
+msgstr ""
+
+msgid "common.upload"
+msgstr ""
+
+msgid "common.uploadFailed"
+msgstr ""
+
+msgid "common.up"
+msgstr ""
+
+msgid "common.addFile"
+msgstr ""
+
+msgid "common.upload.addFile"
+msgstr "上傳文件"
+
+msgid "common.upload.restore"
+msgstr ""
+
+msgid "common.upload.thumbnailPreview"
+msgstr ""
+
+msgid "common.upload.changeFile"
+msgstr ""
+
+msgid "common.upload.dragFile"
+msgstr "將文件拖放到此處即可開始上傳"
+
+msgid "common.url"
+msgstr ""
+
+msgid "common.user"
+msgstr ""
+
+msgid "common.user.nonexistent"
+msgstr ""
+
+msgid "common.view"
+msgstr ""
+
+msgid "common.viewWithName"
+msgstr ""
+
+msgid "common.viewProfile"
+msgstr "查看帳戶"
+
+msgid "common.weeks"
+msgstr ""
+
+msgid "common.width"
+msgstr ""
+
+msgid "common.year"
+msgstr ""
+
+msgid "common.yes"
+msgstr ""
+
+msgid "common.loading"
+msgstr ""
+
+msgid "common.plugins"
+msgstr ""
+
+msgid "common.metric"
+msgstr ""
+
+msgid "common.count"
+msgstr ""
+
+msgid "common.publicAccess"
+msgstr ""
+
+msgid "debug.databaseQueries"
+msgstr ""
+
+msgid "debug.executionTime"
+msgstr ""
+
+msgid "debug.memoryUsage"
+msgstr ""
+
+msgid "debug.notes.localeListLoad"
+msgstr ""
+
+msgid "debug.notes.localeLoad"
+msgstr ""
+
+msgid "debug.notes.missingLocaleKey"
+msgstr ""
+
+msgid "debug.notes"
+msgstr ""
+
+msgid "defaultMetric.title"
+msgstr ""
+
+msgid "defaultMetric.availableMetrics"
+msgstr ""
+
+msgid "editor.submissionReview.uploadFile"
+msgstr ""
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "上傳文件"
+
+msgid "email.addAttachment"
+msgstr ""
+
+msgid "email.addBccRecipient"
+msgstr ""
+
+msgid "email.addCcRecipient"
+msgstr ""
+
+msgid "email.addToRecipient"
+msgstr ""
+
+msgid "email.attachments"
+msgstr ""
+
+msgid "email.bcc"
+msgstr ""
+
+msgid "email.bccSender"
+msgstr ""
+
+msgid "email.body"
+msgstr ""
+
+msgid "email.cc"
+msgstr ""
+
+msgid "email.compose"
+msgstr ""
+
+msgid "email.compose.tooManyRecipients"
+msgstr ""
+
+msgid "email.compose.tooSoon"
+msgstr ""
+
+msgid "email.compose.error"
+msgstr ""
+
+msgid "email.email"
+msgstr ""
+
+msgid "email.from"
+msgstr ""
+
+msgid "email.invalid"
+msgstr ""
+
+msgid "email.multipart"
+msgstr ""
+
+msgid "email.recipient"
+msgstr ""
+
+msgid "email.recipients"
+msgstr ""
+
+msgid "email.sender"
+msgstr ""
+
+msgid "email.senderName"
+msgstr ""
+
+msgid "email.senderEmail"
+msgstr ""
+
+msgid "email.send"
+msgstr ""
+
+msgid "email.skip"
+msgstr ""
+
+msgid "email.subject"
+msgstr ""
+
+msgid "email.subjectRequired"
+msgstr ""
+
+msgid "email.bodyRequired"
+msgstr ""
+
+msgid "email.to"
+msgstr ""
+
+msgid "form.url.invalid"
+msgstr ""
+
+msgid "form.confirmSubmit"
+msgstr ""
+
+msgid "form.confirmSubmit.title"
+msgstr ""
+
+msgid "form.emailRequired"
+msgstr ""
+
+msgid "form.dataHasChanged"
+msgstr ""
+
+msgid "form.disallowedLocales"
+msgstr ""
+
+msgid "form.disallowedProp"
+msgstr ""
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr ""
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "取消上傳"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "上傳已取消"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr ""
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr ""
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr ""
+
+msgid "form.errorA11y"
+msgstr ""
+
+msgid "form.errorGoTo"
+msgstr ""
+
+msgid "form.errorOne"
+msgstr ""
+
+msgid "form.errorMany"
+msgstr ""
+
+msgid "form.errors"
+msgstr ""
+
+msgid "form.errorsOccurred"
+msgstr ""
+
+msgid "form.formLanguage.description"
+msgstr ""
+
+msgid "form.formLanguage"
+msgstr ""
+
+msgid "form.contains"
+msgstr ""
+
+msgid "form.is"
+msgstr ""
+
+msgid "form.startsWith"
+msgstr ""
+
+msgid "form.postRequired"
+msgstr ""
+
+msgid "form.csrfInvalid"
+msgstr ""
+
+msgid "form.fileRequired"
+msgstr ""
+
+msgid "form.required"
+msgstr ""
+
+msgid "form.requirePrimaryLocale"
+msgstr ""
+
+msgid "form.requireId"
+msgstr ""
+
+msgid "form.resubmit"
+msgstr ""
+
+msgid "form.saved"
+msgstr "已儲存"
+
+msgid "form.saveToUpload"
+msgstr ""
+
+msgid "form.send"
+msgstr ""
+
+msgid "form.submit"
+msgstr ""
+
+msgid "form.invalidImage"
+msgstr ""
+
+msgid "form.multilingualLabel"
+msgstr ""
+
+msgid "form.multilingualProgress"
+msgstr ""
+
+msgid "help.help"
+msgstr "幫助"
+
+msgid "help.toc"
+msgstr "目錄"
+
+msgid "help.previous"
+msgstr ""
+
+msgid "help.next"
+msgstr ""
+
+msgid "help.upALevel"
+msgstr ""
+
+msgid "icon.checked.alt"
+msgstr ""
+
+msgid "icon.comment.alt"
+msgstr ""
+
+msgid "icon.delete.alt"
+msgstr "刪除"
+
+msgid "icon.edit.alt"
+msgstr ""
+
+msgid "icon.folder.alt"
+msgstr ""
+
+msgid "icon.font_large.alt"
+msgstr ""
+
+msgid "icon.font_medium.alt"
+msgstr ""
+
+msgid "icon.font_small.alt"
+msgstr ""
+
+msgid "icon.info.alt"
+msgstr ""
+
+msgid "icon.letter.alt"
+msgstr ""
+
+msgid "icon.mail.alt"
+msgstr ""
+
+msgid "icon.unchecked.alt"
+msgstr ""
+
+msgid "icon.view.alt"
+msgstr ""
+
+msgid "informationCenter.informationCenter"
+msgstr ""
+
+msgid "informationCenter.editorialHistory"
+msgstr ""
+
+msgid "informationCenter.addNote"
+msgstr ""
+
+msgid "informationCenter.noNotes"
+msgstr ""
+
+msgid "informationCenter.pastNotes"
+msgstr ""
+
+msgid "informationCenter.deleteConfirm"
+msgstr ""
+
+msgid "informationCenter.currentHistory"
+msgstr ""
+
+msgid "informationCenter.pastHistory"
+msgstr ""
+
+msgid "informationCenter.history.noItems"
+msgstr ""
+
+msgid "informationCenter.history.notePosted"
+msgstr ""
+
+msgid "informationCenter.history.messageSent"
+msgstr ""
+
+msgid "stageParticipants.history.messageSent"
+msgstr ""
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr ""
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr ""
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+
+msgid "stageParticipants.notify.message"
+msgstr ""
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+
+msgid "stageParticipants.options"
+msgstr ""
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr ""
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+
+msgid "stageParticipants.selectedUser"
+msgstr ""
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr ""
+
+msgid "locale.primary"
+msgstr ""
+
+msgid "locale.supported"
+msgstr ""
+
+msgid "navigation.access"
+msgstr "用戶及角色"
+
+msgid "navigation.about"
+msgstr "關於"
+
+msgid "navigation.admin"
+msgstr ""
+
+msgid "navigation.archives"
+msgstr "過往期刊"
+
+msgid "navigation.breadcrumbLabel"
+msgstr ""
+
+msgid "navigation.breadcrumbSeparator"
+msgstr ""
+
+msgid "navigation.tools"
+msgstr ""
+
+msgid "navigation.tools.importExport"
+msgstr ""
+
+msgid "navigation.tools.statistics"
+msgstr ""
+
+msgid "navigation.browse"
+msgstr "瀏覽"
+
+msgid "navigation.backTo"
+msgstr ""
+
+msgid "navigation.browseByAuthor"
+msgstr "按作者姓名"
+
+msgid "navigation.browseByTitle"
+msgstr ""
+
+msgid "navigation.dashboard"
+msgstr "用户介面"
+
+msgid "navigation.data"
+msgstr ""
+
+msgid "navigation.home"
+msgstr "主頁"
+
+msgid "navigation.infoForReaders"
+msgstr ""
+
+msgid "navigation.infoForReaders.long"
+msgstr ""
+
+msgid "navigation.items"
+msgstr ""
+
+msgid "navigation.items.shownTotal"
+msgstr ""
+
+msgid "navigation.login"
+msgstr "登入"
+
+msgid "navigation.nextPage"
+msgstr ""
+
+msgid "navigation.nextStep"
+msgstr ""
+
+msgid "navigation.previousPage"
+msgstr ""
+
+msgid "navigation.previousStep"
+msgstr ""
+
+msgid "navigation.publicMenu"
+msgstr ""
+
+msgid "navigation.register"
+msgstr "註冊"
+
+msgid "navigation.search"
+msgstr "搜尋"
+
+msgid "navigation.settings"
+msgstr ""
+
+msgid "navigation.setup"
+msgstr ""
+
+msgid "navigation.sitemap"
+msgstr ""
+
+msgid "navigation.skip.description"
+msgstr ""
+
+msgid "navigation.skip.announcements"
+msgstr ""
+
+msgid "navigation.skip.main"
+msgstr ""
+
+msgid "navigation.skip.nav"
+msgstr ""
+
+msgid "navigation.skip.footer"
+msgstr ""
+
+msgid "navigation.stepNumber"
+msgstr ""
+
+msgid "navigation.submissions"
+msgstr ""
+
+msgid "navigation.system"
+msgstr ""
+
+msgid "navigation.userHome"
+msgstr "用户中心"
+
+msgid "navigation.user"
+msgstr ""
+
+msgid "navigation.userManagement"
+msgstr ""
+
+msgid "navigation.viewFrontend"
+msgstr ""
+
+msgid "notification.addedAuditor"
+msgstr ""
+
+msgid "notification.removedAuditor"
+msgstr ""
+
+msgid "notification.addedQuery"
+msgstr ""
+
+msgid "notification.reviewAcknowledged"
+msgstr ""
+
+msgid "notification.reviewerThankedEmail"
+msgstr ""
+
+msgid "notification.updatedReviewFiles"
+msgstr ""
+
+msgid "notification.allow"
+msgstr "啟用此類型之通知。"
+
+msgid "notification.addedAnnouncementType"
+msgstr ""
+
+msgid "notification.editedAnnouncementType"
+msgstr ""
+
+msgid "notification.removedAnnouncementType"
+msgstr ""
+
+msgid "notification.removedAnnouncement"
+msgstr ""
+
+msgid "notification.addedAuthor"
+msgstr ""
+
+msgid "notification.editedAuthor"
+msgstr ""
+
+msgid "notification.confirmError"
+msgstr ""
+
+msgid "notification.confirmSuccess"
+msgstr ""
+
+msgid "notification.email"
+msgstr "不要向我發送有關此類通知之電子郵件。"
+
+msgid "notification.noneExist"
+msgstr ""
+
+msgid "notification.addedNote"
+msgstr ""
+
+msgid "notification.removedNote"
+msgstr ""
+
+msgid "notification.removedFile"
+msgstr ""
+
+msgid "notification.removedSubmission"
+msgstr ""
+
+msgid "notification.notification"
+msgstr ""
+
+msgid "notification.notifications"
+msgstr "通知"
+
+msgid "notification.sentNotification"
+msgstr ""
+
+msgid "notification.settings"
+msgstr ""
+
+msgid "notification.settingsDescription"
+msgstr ""
+
+msgid "notification.reminderError"
+msgstr ""
+
+msgid "notification.reminderSent"
+msgstr ""
+
+msgid "notification.savedSubmissionMetadata"
+msgstr ""
+
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+
+msgid "search.author"
+msgstr "按作者姓名"
+
+msgid "search.abstract"
+msgstr "摘要"
+
+msgid "search.advancedFilters"
+msgstr "進階篩選"
+
+msgid "search.advancedSearchMore"
+msgstr "更多搜尋選項"
+
+msgid "search.advancedSearchLess"
+msgstr "隱藏更多搜尋選項"
+
+msgid "search.searchAgain"
+msgstr "重新搜尋"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.done"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.error"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.result"
+msgstr ""
+
+msgid "search.coverage"
+msgstr ""
+
+msgid "search.date"
+msgstr ""
+
+msgid "search.dateFrom"
+msgstr "此出版日期前"
+
+msgid "search.dateTo"
+msgstr "此出版日期後"
+
+msgid "search.deleteFilter"
+msgstr "刪除"
+
+msgid "search.discipline"
+msgstr ""
+
+msgid "search.fullText"
+msgstr ""
+
+msgid "search.indexTerms"
+msgstr ""
+
+msgid "search.indexTermsLong"
+msgstr ""
+
+msgid "search.matchAll"
+msgstr ""
+
+msgid "search.noResults"
+msgstr "無法搜尋結果"
+
+msgid "search.operator.and"
+msgstr ""
+
+msgid "search.operator.not"
+msgstr ""
+
+msgid "search.operator.or"
+msgstr ""
+
+msgid "search.SearchFor"
+msgstr ""
+
+msgid "search.searchResults"
+msgstr "搜尋結果"
+
+msgid "search.searchResults.foundSingle"
+msgstr ""
+
+msgid "search.searchResults.foundPlural"
+msgstr ""
+
+msgid "search.subject"
+msgstr ""
+
+msgid "search.titleIndex"
+msgstr ""
+
+msgid "search.title"
+msgstr ""
+
+msgid "search.typeMethodApproach"
+msgstr ""
+
+msgid "grid.action.downloadFile"
+msgstr ""
+
+msgid "context.path"
+msgstr ""
+
+msgid "review.ensuringAnonymousReview"
+msgstr ""
+
+msgid "grid.action.showReviewPolicy"
+msgstr ""
+
+msgid "grid.action.deleteNotification"
+msgstr ""
+
+msgid "grid.action.markNew"
+msgstr "標示為新"
+
+msgid "grid.action.markRead"
+msgstr "標示為已讀取"
+
+msgid "dashboard.tasks"
+msgstr "任務"
+
+msgid "dashboard.myQueue"
+msgstr ""
+
+msgid "review.anonymousPeerReview.title"
+msgstr ""
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr ""
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr ""
+
+msgid "reviewer.submission.responseDueDate"
+msgstr ""
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr ""
+
+msgid "submission.task.responseDueDate"
+msgstr ""
+
+msgid "navigation.goBack"
+msgstr ""
+
+msgid "notification.addedReviewer"
+msgstr ""
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+
+msgid "notification.removedReviewer"
+msgstr ""
+
+msgid "notification.cancelledReviewer"
+msgstr ""
+
+msgid "notification.reinstatedReviewer"
+msgstr ""
+
+msgid "notification.addedStageParticipant"
+msgstr ""
+
+msgid "notification.editStageParticipant"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewAssignment"
+msgstr ""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr ""
+
+msgid "notification.type.auditorRequest"
+msgstr ""
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+
+msgid "notification.type.pendingRevisions"
+msgstr ""
+
+msgid "notification.type.pendingRevisions.title"
+msgstr ""
+
+msgid "notification.type.metadataModified"
+msgstr ""
+
+msgid "notification.type.reviewerComment"
+msgstr "評審員對\"{$title}\"發表了評論。"
+
+msgid "notification.signedFile"
+msgstr ""
+
+msgid "user.email"
+msgstr ""
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+
+msgid "user.authorization.invalidPublication"
+msgstr ""
+
+msgid "user.authorization.invalidSubmission"
+msgstr ""
+
+msgid "user.authorization.invalidRepresentation"
+msgstr ""
+
+msgid "user.authorization.invalidReviewRound"
+msgstr ""
+
+msgid "user.authorization.invalidQuery"
+msgstr ""
+
+msgid "user.authorization.unauthorizedNote"
+msgstr ""
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr ""
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"您目前沒有足夠權限查閲投稿。請編輯您的個人資料，以確保您在註冊頁面内被授予相應"
+"的角色和權限。"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr ""
+
+msgid "notification.type.queryActivity"
+msgstr "討論活動。"
+
+msgid "notification.type.queryAdded"
+msgstr "討論已新增。"
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+
+msgid "notification.type.awaitingCopyedits"
+msgstr ""
+
+msgid "notification.type.roundStatusTitle"
+msgstr ""
+
+msgid "notification.type.editorialReport"
+msgstr "統計報告簡要。"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+
+msgid "semicolon"
+msgstr ""
+
+msgid "notification.editedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.removedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.addedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.addedNavigationMenu"
+msgstr ""
+
+msgid "notification.editedNavigationMenu"
+msgstr ""
+
+msgid "notification.removedNavigationMenu"
+msgstr ""
+
+msgid "list.viewMore"
+msgstr ""
+
+msgid "list.viewLess"
+msgstr ""
+
+msgid "validator.accepted"
+msgstr ""
+
+msgid "validator.active_url"
+msgstr ""
+
+msgid "validator.after"
+msgstr ""
+
+msgid "validator.alpha"
+msgstr ""
+
+msgid "validator.alpha_dash"
+msgstr ""
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+
+msgid "validator.alpha_num"
+msgstr ""
+
+msgid "validator.array"
+msgstr ""
+
+msgid "validator.before"
+msgstr ""
+
+msgid "validator.between.numeric"
+msgstr ""
+
+msgid "validator.between.file"
+msgstr ""
+
+msgid "validator.between.string"
+msgstr ""
+
+msgid "validator.between.array"
+msgstr ""
+
+msgid "validator.boolean"
+msgstr ""
+
+msgid "validator.confirmed"
+msgstr ""
+
+msgid "validator.currency"
+msgstr ""
+
+msgid "validator.date"
+msgstr ""
+
+msgid "validator.date_format"
+msgstr ""
+
+msgid "validator.different"
+msgstr ""
+
+msgid "validator.digits"
+msgstr ""
+
+msgid "validator.digits_between"
+msgstr ""
+
+msgid "validator.email"
+msgstr ""
+
+msgid "validator.exists"
+msgstr ""
+
+msgid "validator.filled"
+msgstr ""
+
+msgid "validator.image"
+msgstr ""
+
+msgid "validator.in"
+msgstr ""
+
+msgid "validator.integer"
+msgstr ""
+
+msgid "validator.ip"
+msgstr ""
+
+msgid "validator.issn"
+msgstr ""
+
+msgid "validator.json"
+msgstr ""
+
+msgid "validator.locale"
+msgstr ""
+
+msgid "validator.localeExpected"
+msgstr ""
+
+msgid "validator.localeKey"
+msgstr ""
+
+msgid "validator.max.numeric"
+msgstr ""
+
+msgid "validator.max.file"
+msgstr ""
+
+msgid "validator.max.string"
+msgstr ""
+
+msgid "validator.max.array"
+msgstr ""
+
+msgid "validator.mimes"
+msgstr ""
+
+msgid "validator.min.numeric"
+msgstr ""
+
+msgid "validator.min.file"
+msgstr ""
+
+msgid "validator.min.string"
+msgstr ""
+
+msgid "validator.min.array"
+msgstr ""
+
+msgid "validator.not_in"
+msgstr ""
+
+msgid "validator.numeric"
+msgstr ""
+
+msgid "validator.orcid"
+msgstr ""
+
+msgid "validator.present"
+msgstr ""
+
+msgid "validator.regex"
+msgstr ""
+
+msgid "validator.required"
+msgstr ""
+
+msgid "validator.required_if"
+msgstr ""
+
+msgid "validator.required_unless"
+msgstr ""
+
+msgid "validator.required_with"
+msgstr ""
+
+msgid "validator.required_with_all"
+msgstr ""
+
+msgid "validator.required_without"
+msgstr ""
+
+msgid "validator.required_without_all"
+msgstr ""
+
+msgid "validator.same"
+msgstr ""
+
+msgid "validator.size.numeric"
+msgstr ""
+
+msgid "validator.size.file"
+msgstr ""
+
+msgid "validator.size.string"
+msgstr ""
+
+msgid "validator.size.array"
+msgstr ""
+
+msgid "validator.string"
+msgstr ""
+
+msgid "validator.timezone"
+msgstr ""
+
+msgid "validator.unique"
+msgstr ""
+
+msgid "validator.url"
+msgstr ""

@@ -1,0 +1,313 @@
+# Weblate Admin <alec@smecher.bc.ca>, 2023.
+# Katie Cheng <ckykatie@hkbu.edu.hk>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"Last-Translator: Katie Cheng <ckykatie@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "設定名稱"
+
+msgid "admin.systemInfo.settingValue"
+msgstr ""
+
+msgid "admin.adminFunctions"
+msgstr ""
+
+msgid "admin.auth.confirmDelete"
+msgstr ""
+
+msgid "admin.auth.create"
+msgstr ""
+
+msgid "admin.auth.noneCreated"
+msgstr ""
+
+msgid "admin.authSources"
+msgstr ""
+
+msgid "admin.clearDataCache"
+msgstr ""
+
+msgid "admin.clearTemplateCache"
+msgstr ""
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+
+msgid "admin.confirmClearTemplateCache"
+msgstr ""
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+
+msgid "admin.contentsOfConfigFile"
+msgstr ""
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+
+msgid "admin.currentVersion"
+msgstr ""
+
+msgid "admin.dateInstalled"
+msgstr ""
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+
+msgid "admin.displayNewSystemConfig"
+msgstr ""
+
+msgid "admin.expireSessions"
+msgstr ""
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+
+msgid "admin.languages.installedLocales"
+msgstr ""
+
+msgid "admin.languages.installLanguages"
+msgstr ""
+
+msgid "admin.languages.availableLocales"
+msgstr ""
+
+msgid "admin.languages.installLocale"
+msgstr ""
+
+msgid "admin.languages.installLocales"
+msgstr ""
+
+msgid "admin.languages.installNewLocales"
+msgstr ""
+
+msgid "admin.languages.languageSettings"
+msgstr ""
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr ""
+
+msgid "admin.languages.reload"
+msgstr ""
+
+msgid "admin.languages.uninstall"
+msgstr ""
+
+msgid "admin.phpInfo"
+msgstr ""
+
+msgid "admin.scheduledTask"
+msgstr ""
+
+msgid "admin.scheduledTask.startTime"
+msgstr ""
+
+msgid "admin.scheduledTask.stopTime"
+msgstr ""
+
+msgid "admin.scheduledTask.noLog"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr ""
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr ""
+
+msgid "admin.server.dbDriver"
+msgstr ""
+
+msgid "admin.server.dbVersion"
+msgstr ""
+
+msgid "admin.serverInformation"
+msgstr ""
+
+msgid "admin.server.phpVersion"
+msgstr ""
+
+msgid "admin.server.platform"
+msgstr ""
+
+msgid "admin.settings"
+msgstr ""
+
+msgid "admin.settings.about"
+msgstr ""
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
+
+msgid "admin.settings.contactEmail"
+msgstr ""
+
+msgid "admin.settings.contactName"
+msgstr ""
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+
+msgid "admin.settings.introduction"
+msgstr ""
+
+msgid "admin.settings.minPasswordLength"
+msgstr ""
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
+
+msgid "admin.settings.siteLanguage"
+msgstr ""
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+
+msgid "admin.settings.siteStyleSheet"
+msgstr ""
+
+msgid "admin.settings.siteLogo"
+msgstr ""
+
+msgid "admin.settings.siteTitle"
+msgstr ""
+
+msgid "admin.settings.siteTheme"
+msgstr ""
+
+msgid "admin.siteAdmin"
+msgstr ""
+
+msgid "admin.siteManagement"
+msgstr ""
+
+msgid "admin.siteSettings"
+msgstr ""
+
+msgid "admin.siteSetup"
+msgstr ""
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+
+msgid "admin.systemInformation"
+msgstr ""
+
+msgid "admin.versionBuild"
+msgstr ""
+
+msgid "admin.version.checkForUpdates"
+msgstr ""
+
+msgid "admin.version.downloadPackage"
+msgstr ""
+
+msgid "admin.version.downloadPatch"
+msgstr ""
+
+msgid "admin.versionHistory"
+msgstr ""
+
+msgid "admin.version.latest"
+msgstr ""
+
+msgid "admin.versionMajor"
+msgstr ""
+
+msgid "admin.versionMinor"
+msgstr ""
+
+msgid "admin.version.moreInfo"
+msgstr ""
+
+msgid "admin.versionRevision"
+msgstr ""
+
+msgid "admin.version.updateAvailable"
+msgstr ""
+
+msgid "admin.version.upToDate"
+msgstr ""
+
+msgid "admin.version"
+msgstr ""
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr ""
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr ""
+
+msgid "admin.fileLoader.emailSubject"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr ""
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+
+msgid "admin.error.executingUtil"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr ""

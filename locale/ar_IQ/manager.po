@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-01-01 07:02+0000\n"
+"PO-Revision-Date: 2023-02-04 04:48+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -3201,3 +3201,84 @@ msgstr ""
 "فيما إذا كان ينبغي إرسال بريد الكتروني شهري إلى المحررين متضمًا إحصائيات "
 "التحرير الخاصة بالمجلة، مثل معدلات القبول والرفض. يمكن للمحررين إلغاء "
 "اشتراكهم بهذا الرسالة من صفحة ملفهم الشخصي."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "تم تسجيل هذا العنصر يدويًا مع وكالة تسجيل."
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "إصدارات معرف المكون الرقمي"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "هناك {$count} من الإصدارات."
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "معرفات المكونات الرقمية لكل الإصدارات"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "نعم، أضف حقل التصنيف إلى معالج عملية التقديم."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "تعيين المحرر"
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "تمكين البيانات الوصفية لبيان توافر البيانات"
+
+msgid "manager.submitWithCategories.no"
+msgstr "لا، لا تُظهر هذا الحقل للمؤلفين."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "مطلوب مع طلبات التقديم"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"هل ينبغي طلب واحد على الأقل من هذه الملفات مع كل طلب تقديم جديد؟ إذا اخترت "
+"نعم، لم يستطيع المؤلفون تقديم طلباتهم ما لم يقوموا برفع ملف واحد على الأقل "
+"من هذا النوع."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+"نعم، ينبغي على المؤلفين رفع ملف واحد أو أكثر من تلك الأنواع عند تسليم "
+"طلباتهم."
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"لقد انتقلت إدارة معرف المكون الرقمي. يرجى معاينة صفحات <a href=\""
+"{$doiManagementUrl}\">إدارة معرف المكون الرقمي</a> و <a href=\""
+"{$doiSettingsUrl}\">إعدادات معرف المكون الرقمي</a>."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "لا، السماح لطلبات التقديم الجديدة بدون تلك الملفات."
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "لا تطلب من المؤلف بيان توافر البيانات خلال عملية التقديم."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "إجراءات بالجملة"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"أي عنصر منشور أو غير منشور 1) لديه مكون فرعي بدون معرف مكون رقمي معين له "
+"حيثما 2) تم تمكين نوع معرف المكون الرقمي للمكون الفرعي (مثلاً، اللوح الطباعي "
+"بدون معرف المكون الرقمي لن يظهر هنا إذا لم يتم تمكين نوع المعرف له)"
+
+msgid "manager.dois.status.submitted.description"
+msgstr "العناصر المسلمة إلى وكالة التسجيل المعرفة."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"العناصر التي سُجلت بنجاح مع وكالة التسجيل أو المؤشرة يدوًا على أنها مسجلة."
+
+msgid "manager.dois.status.error.description"
+msgstr "العناصر التي واجهت أخطاء في عملية التسجيل."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"العناصر التي تم تحديث بياناتها الوصفية محليًا والتي ستحتاج إلى إعادة تسليم "
+"أو تحديث عند وكالة التسجيل المعرفة لضمان حداثة كل البيانات الوصفية المقدمة "
+"سابقًا."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "مواقف معرف المكون الرقمي"
+
+msgid "doi.manager.versions.view"
+msgstr "معاينة الكل"

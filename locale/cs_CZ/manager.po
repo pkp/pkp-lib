@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-12-21 15:07+0000\n"
+"PO-Revision-Date: 2023-02-02 21:29+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2467,7 +2467,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Položky byly úspěšně exportovány"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Některé DOI se nepodařilo aktualizovat."
+msgstr "Některé DOI se nepodařilo aktualizovat"
 
 msgid "manager.dois.status.stale"
 msgstr "Zastaralé"
@@ -2488,7 +2488,7 @@ msgid "manager.dois.registration.depositDois"
 msgstr "Uložit DOI"
 
 msgid "manger.dois.update.success"
-msgstr "Úspěšně aktualizované DOI"
+msgstr "Úspěšně aktualizované/á DOI"
 
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Zpráva o úspěšné registraci"
@@ -3456,7 +3456,7 @@ msgstr ""
 "dokončení"
 
 msgid "mailable.editorAssigned.name"
-msgstr "Redaktor přiřazen"
+msgstr "Redaktor přiřazen (automaticky)"
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr "Příspěvek potřebuje přiřazení redaktora"
@@ -3499,4 +3499,115 @@ msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Poděkování ostatním autorům příspěvku"
 
 msgid "mailable.editorAssigned.description"
-msgstr "Tento e-mail je zaslán redaktorovi, když je mu přiřazen příspěvek."
+msgstr ""
+"Tento e-mail je zaslán redaktorovi, když je mu automaticky přiřazen "
+"příspěvek."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Hromadné akce"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "Verzování DOI"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Existuje {$count} verzí."
+
+msgid "doi.manager.versions.view"
+msgstr "Zobrazit vše"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI pro všechny verze"
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"Krátké prohlášení popisující, zda autor či autoři zpřístupnili svá výzkumná "
+"data, a pokud ano, kde je mohou čtenáři získat."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Povolení dat prohlášení o dostupnosti metadat"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "Během odesílání nepožadovat od autora prohlášení o dostupnosti dat."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Požádejte autora o prohlášení o dostupnosti dat při odesílání příspěvku."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Před přijetím příspěvku požadovat, aby autor předložil prohlášení o "
+"dostupnosti údajů."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Přiřadit redaktora"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Jakákoli publikovaná nebo nepublikovaná položka, která 1) má dílčí objekt "
+"bez přiřazeného DOI, kde 2) je povolen typ DOI dílčího objektu (např. "
+"sazebnice bez DOI se zde nezobrazí, pokud není povoleno DOI pro sazebnice)"
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Položky, u nichž byla metadata aktualizována na místní úrovni a které bude "
+"třeba znovu předložit nebo aktualizovat u stanovené registrační agentury, "
+"aby se zajistila aktuálnost všech dříve předložených metadat."
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Položka, která 1) má přiřazeny všechny povolené typy DOI a 2) nebyla "
+"publikována"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Položky, které 1) mají přidělené DOI pro všechny povolené typy DOI, 2) jsou "
+"zveřejněny a 3) dosud nebyly registrovány u registrační agentury."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Položky, které byly předloženy stanovené registrační agentuře."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Položky, které byly úspěšně zaregistrovány u registrační agentury nebo ručně "
+"označeny jako registrované."
+
+msgid "manager.dois.status.error.description"
+msgstr "Položky, u kterých došlo k chybě v procesu registrace."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Statusy DOI"
+
+msgid "manager.submitWithCategories.no"
+msgstr "Ne, toto pole autorům nezobrazujte."
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"Měl by být autor odesílající příspěvek při novém odeslání požádán o výběr "
+"kategorie?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Ano, přidejte do průvodce odesláním pole kategorie."
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"Správa DOI se přestěhovala. Podívejte se prosím na stránky <a href=\""
+"{$doiManagementUrl}\">Správa DOI</a> a <a href=\"{$doiSettingsUrl}\""
+">Nastavení DOI</a>."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Tato položka byla manuálně zaregistrována u registrační agentury."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr "Ano, požadujte po autorech, aby nahráli jeden nebo více těchto souborů."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "Ne, povolte nové příspěvky bez těchto souborů."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Požadavek na příspěvek"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"Měl by být při každém novém podání příspěvku vyžadován alespoň jeden z "
+"těchto souborů? Pokud zvolíte ano, autoři nebudou moci odesílat příspěvky, "
+"dokud nenahrají alespoň jeden soubor tohoto typu."

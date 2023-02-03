@@ -1,11 +1,11 @@
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022.
-# Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-08-26 18:25+0000\n"
+"PO-Revision-Date: 2023-02-02 10:35+0000\n"
 "Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "da_DK/>\n"
@@ -473,3 +473,18 @@ msgstr ""
 
 msgid "user.apiKey.remove.confirmation.message"
 msgstr "Er du sikker på, at du vil slette denne API-nøgle?"
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Der eksisterer ingen bruger med den angivne e-mailadresse."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"Kan ikke gennemføre anmodningen om nulstilling af adgangskode, fordi "
+"{$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Indtast ny adgangskode for at opdatere login-adgangskoden."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Adgangskoden er blevet opdateret. Log venligst på med opdateret adgangskode."

@@ -1,10 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Jesper B. Thestrup <jbt@kb.dk>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-12-16 17:02+0000\n"
+"PO-Revision-Date: 2023-02-02 14:59+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "da_DK/>\n"
@@ -141,12 +142,10 @@ msgstr "Billede"
 msgid "default.genres.styleSheet"
 msgstr "HTML stylesheet"
 
-#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
-">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
-"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+"<br><br>—<br><p>Dette er en automatisk besked fra <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
 
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""
@@ -175,9 +174,9 @@ msgstr ""
 msgid "default.submission.step.forTheEditors"
 msgstr ""
 "<p>Angiv venligst de følgende detaljer for at hjælpe vores redaktion med at "
-"håndtere din indsendelse.</p><p>Når du indtaster metadata såsom emneord, så "
-"angiv ord/termer, som du tror vil være de mest hjælpsomme for den person, "
-"der håndterer din indsendelse. Denne information kan ændres inden "
+"håndtere din indsendelse.</p><p>Når du indtaster metadata, så angiv ord/"
+"termer, som du tror, vil være de mest hjælpsomme for den person, der "
+"håndterer din indsendelse. Denne information kan ændres inden "
 "publicering.</p>"
 
 msgid "default.submission.step.review"

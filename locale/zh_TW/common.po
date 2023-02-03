@@ -1,0 +1,214 @@
+# Emma U <emmaupkp@gmail.com>, 2023.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
+# Katie Cheng <ckykatie@hkbu.edu.hk>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/common/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "about.contact.email"
+msgstr "電郵地址"
+
+msgid "announcement.announcementsHome"
+msgstr "公告"
+
+msgid "common.delete"
+msgstr "刪除"
+
+msgid "common.search"
+msgstr "搜尋"
+
+msgid "common.searchQuery"
+msgstr "查詢搜尋"
+
+msgid "common.searching"
+msgstr "搜尋中"
+
+msgid "common.searchPhrase"
+msgstr "搜尋語句"
+
+msgid "common.clearSearch"
+msgstr "清除搜尋語句"
+
+msgid "navigation.search"
+msgstr "搜尋"
+
+msgid "navigation.browse"
+msgstr "瀏覽"
+
+msgid "navigation.about"
+msgstr "關於"
+
+msgid "navigation.login"
+msgstr "登入"
+
+msgid "navigation.dashboard"
+msgstr "用户介面"
+
+msgid "navigation.browseByAuthor"
+msgstr "按作者姓名"
+
+msgid "navigation.userHome"
+msgstr "用户中心"
+
+msgid "search.abstract"
+msgstr "摘要"
+
+msgid "search.advancedFilters"
+msgstr "進階篩選"
+
+msgid "search.advancedSearchMore"
+msgstr "更多搜尋選項"
+
+msgid "search.author"
+msgstr "按作者姓名"
+
+msgid "search.searchAgain"
+msgstr "重新搜尋"
+
+msgid "search.searchResults"
+msgstr "搜尋結果"
+
+msgid "search.dateTo"
+msgstr "此出版日期後"
+
+msgid "search.noResults"
+msgstr "無法搜尋結果"
+
+msgid "search.deleteFilter"
+msgstr "刪除"
+
+msgid "grid.action.markNew"
+msgstr "標示為新"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "您目前沒有足夠權限查閲投稿。請編輯您的個人資料，以確保您在註冊頁面内被授予相"
+"應的角色和權限。"
+
+msgid "search.advancedSearchLess"
+msgstr "隱藏更多搜尋選項"
+
+msgid "common.viewProfile"
+msgstr "查看帳戶"
+
+msgid "search.dateFrom"
+msgstr "此出版日期前"
+
+msgid "grid.action.markRead"
+msgstr "標示為已讀取"
+
+msgid "navigation.register"
+msgstr "註冊"
+
+msgid "icon.delete.alt"
+msgstr "刪除"
+
+msgid "common.country"
+msgstr "國家"
+
+msgid "navigation.home"
+msgstr "主頁"
+
+msgid "navigation.archives"
+msgstr "過往期刊"
+
+msgid "common.homepageNavigationLabel"
+msgstr "主頁"
+
+msgid "common.changesSaved"
+msgstr "您的修改已被儲存。"
+
+msgid "common.mailingAddress"
+msgstr "郵寄地址"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "取消上傳"
+
+msgid "notification.type.editorialReport"
+msgstr "統計報告簡要。"
+
+msgid "common.name"
+msgstr "姓名"
+
+msgid "about.contact"
+msgstr "聯絡"
+
+msgid "about.contact.phone"
+msgstr "電話號碼"
+
+msgid "common.tasks"
+msgstr "任務"
+
+msgid "common.cancel"
+msgstr "取消"
+
+msgid "common.cancelled"
+msgstr "已取消"
+
+msgid "common.save"
+msgstr "儲存"
+
+msgid "common.saveAndContinue"
+msgstr "儲存並繼續"
+
+msgid "common.requiredField"
+msgstr "*為必填項目"
+
+msgid "common.unsavedChanges"
+msgstr "尚未儲存修改"
+
+msgid "common.upload.dragFile"
+msgstr "將文件拖放到此處即可開始上傳"
+
+msgid "common.upload.addFile"
+msgstr "上傳文件"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "上傳文件"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "上傳已取消"
+
+msgid "form.saved"
+msgstr "已儲存"
+
+msgid "help.help"
+msgstr "幫助"
+
+msgid "help.toc"
+msgstr "目錄"
+
+msgid "navigation.access"
+msgstr "用戶及角色"
+
+msgid "notification.notifications"
+msgstr "通知"
+
+msgid "notification.allow"
+msgstr "啟用此類型之通知。"
+
+msgid "notification.email"
+msgstr "不要向我發送有關此類通知之電子郵件。"
+
+msgid "dashboard.tasks"
+msgstr "任務"
+
+msgid "notification.type.queryAdded"
+msgstr "討論已新增。"
+
+msgid "notification.type.queryActivity"
+msgstr "討論活動。"
+
+msgid "notification.type.reviewerComment"
+msgstr "評審員對\"{$title}\"發表了評論。"
+
+msgid "notification.addedAuthor"
+msgstr ""

@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-11-29 15:08+0000\n"
+"PO-Revision-Date: 2023-01-31 13:35+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "cs_CZ/>\n"
@@ -486,3 +486,17 @@ msgstr ""
 
 msgid "user.apiKey.remove.confirmation.message"
 msgstr "Opravdu chcete tento API klíč odstranit?"
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Pro aktualizaci přihlašovacího hesla zadejte nové heslo."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Heslo bylo úspěšně aktualizováno. Přihlaste se, prosím, aktualizovaným "
+"heslem."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Žádný uživatel se zadanou e-mailovou adresou neexistuje."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nelze dokončit požadavek na obnovení hesla, protože {$důvod}."

@@ -1,0 +1,56 @@
+# Emma U <emmaupkp@gmail.com>, 2023.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/grid/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "grid.action.delete"
+msgstr "刪除"
+
+msgid "grid.action.search"
+msgstr "搜尋"
+
+msgid "grid.action.advancedSearch"
+msgstr "進階搜尋"
+
+msgid "grid.user.mustChangePassword"
+msgstr "更改密碼"
+
+msgid "grid.noItems"
+msgstr "沒有項目"
+
+msgid "grid.action.addAuthor"
+msgstr "新增作者"
+
+msgid "grid.action.editAuthor"
+msgstr "編輯作者"
+
+msgid "grid.action.deleteAuthor"
+msgstr "刪除作者"
+
+msgid "grid.action.addReviewer"
+msgstr "新增評審員"
+
+msgid "grid.action.selectCreate"
+msgstr "建立新評審員"
+
+msgid "grid.roles.add"
+msgstr "建立新角色"
+
+msgid "grid.user.userRoles"
+msgstr "用戶角色"
+
+msgid "grid.user.addRoles"
+msgstr "新增角色"
+
+msgid "author.users.contributor.role"
+msgstr "角色"

@@ -1,11 +1,12 @@
 # Yukari Chiba <Charles@nia.ac.cn>, 2021.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
-"PO-Revision-Date: 2021-11-02 21:57+0000\n"
-"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "公告"
@@ -448,7 +449,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "在删除这个项目过程中发生了一个错误"
 
 msgid "manager.announcements.datePublish"
-msgstr "已出版"
+msgstr "出版日期"
 
 msgid "manager.emails.details"
 msgstr "模板详细"

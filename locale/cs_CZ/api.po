@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-16 17:02+0000\n"
+"PO-Revision-Date: 2023-01-31 13:35+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -320,3 +320,9 @@ msgstr "V této uživatelské roli nejste oprávněni podávat žádné přísp�
 
 msgid "api.400.propReadOnly"
 msgstr "Vlastnost {$prop} nelze změnit."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Požadovaný objekt publikace nebyl nalezen."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Typ publikace nebyl rozpoznán"

@@ -1,13 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
-# Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-12-14 07:16+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2023-02-02 10:35+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -3555,3 +3555,86 @@ msgstr ""
 
 msgid "mailable.copyeditRequest.name"
 msgstr "Anmod om manuskriptredigering"
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"Skal den indsendende forfatter blive bedt om at vælge en kategori, når "
+"vedkomne laver en ny indsendelse?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Ja, tilføj et kategorifelt til indsendelsesguiden."
+
+msgid "manager.submitWithCategories.no"
+msgstr "Nej, vis ikke forfattere dette felt."
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"DOI håndtering er flyttet. Se venligst siderne <a href=\"{$doiManagementUrl"
+"}\">DOI-administration</a> og <a href=\"{$doiSettingsUrl}\">DOI-"
+"indstillinger</a>."
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+"Anmod ikke om en erklæring om datatilgængelighed fra forfatteren under "
+"indsendelsen."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Kræv, at forfatteren giver en erklæring om datatilgængelighed, før vedkomne "
+"accepterer deres indsendelse."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Bed forfatteren om at give en erklæring om datatilgængelighed under "
+"indsendelsen."
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "DOI versionering"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Der er {$count} versioner."
+
+msgid "doi.manager.versions.view"
+msgstr "Se alle"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI'er for alle versioner"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Et element, der 1) har DOI'er tildelt for alle aktiverede DOI-typer, og 2) "
+"ikke er blevet offentliggjort"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Elementer, der 1) har DOI'er tildelt for alle aktiverede DOI-typer, 2) er "
+"offentliggjort og 3) endnu ikke er blevet registreret hos et "
+"registreringsbureau."
+
+msgid "manager.dois.status.submitted.description"
+msgstr ""
+"Publikationer, der er blevet indsendt til det konfigurerede "
+"registreringsbureau."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Udgivelser der er blevet registreret hos et registreringsbureau eller "
+"manuelt markeret som registreret."
+
+msgid "manager.dois.status.error.description"
+msgstr "Elementer, der er stødt på en fejl i registreringsprocessen."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Elementer, der har fået deres metadata opdateret lokalt og skal genindsendes "
+"til eller opdateres med det konfigurerede registreringsbureau for at sikre, "
+"at alle tidligere indsendte metadata er opdaterede."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"En kort tekst, der beskriver, hvorvidt forfatteren/forfatterne har stillet "
+"deres forskningsdata til rådighed, og i givet fald hvor læserne kan få "
+"adgang til dem."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Aktiver metadata for data tilgængelighedserklæring"

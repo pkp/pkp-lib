@@ -1,0 +1,227 @@
+# Emma U <emmaupkp@gmail.com>, 2023.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-01 11:28+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/user/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "user.affiliation"
+msgstr "附屬機構"
+
+msgid "user.affiliations"
+msgstr "附屬機構"
+
+msgid "user.login"
+msgstr "登入"
+
+msgid "user.login.forgotPassword"
+msgstr "忘記密碼？"
+
+msgid "user.login.loginError"
+msgstr "用戶名稱或密碼無效，請再試一次。"
+
+msgid "user.login.resetPassword"
+msgstr "重設密碼"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "保持登入"
+
+msgid "user.changePassword"
+msgstr "更改密碼"
+
+msgid "user.login.activate"
+msgstr "啟用帳戶"
+
+msgid "user.dateRegistered"
+msgstr "註冊日期"
+
+msgid "user.editMyProfile"
+msgstr "編輯我的帳戶"
+
+msgid "user.givenName"
+msgstr "名"
+
+msgid "user.familyName"
+msgstr "姓"
+
+msgid "user.login.registeredEmail"
+msgstr "已註冊用戶之電郵地址"
+
+msgid "user.email"
+msgstr "電郵地址"
+
+msgid "user.interests"
+msgstr "評審題材偏好"
+
+msgid "user.password"
+msgstr "密碼"
+
+msgid "user.profile.newPassword"
+msgstr "新密碼"
+
+msgid "user.profile.oldPassword"
+msgstr "現有密碼"
+
+msgid "user.profile"
+msgstr "帳戶"
+
+msgid "user.profile.publicProfile"
+msgstr "用戶帳戶"
+
+msgid "user.repeatPassword"
+msgstr "再次輸入密碼"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "再次輸入新密碼"
+
+msgid "user.register.form.privacyConsent"
+msgstr "是，我同意根據《私隱聲明》收集及儲存我的個人資料。"
+
+msgid "user.userHome"
+msgstr "用户中心"
+
+msgid "user.username"
+msgstr "用戶名稱"
+
+msgid "user.register"
+msgstr "註冊"
+
+msgid "user.apiKey.remove"
+msgstr "刪除"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "繼續瀏覽"
+
+msgid "user.register.form.emailConsent"
+msgstr "是，我希望接收有關出版期刊及公告之消息。"
+
+msgid "user.logOut"
+msgstr "登出"
+
+msgid "user.login.registerNewAccount"
+msgstr "註冊"
+
+msgid "user.login.activated"
+msgstr "感謝您啟用帳戶，您現在可以使用創建帳戶時所提供的憑據登入。"
+
+msgid "user.logOutAs"
+msgstr "以{$username}登出"
+
+msgid "user.profile.editProfile"
+msgstr "編輯帳戶"
+
+msgid "user.affiliation.description"
+msgstr "（您的機構，例如“西門菲莎大學”）"
+
+msgid "user.mailingAddress"
+msgstr "郵寄地址"
+
+msgid "user.biography"
+msgstr "個人簡介（例如部門與職級）"
+
+msgid "user.login.registrationComplete"
+msgstr "註冊完成"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "感謝您的註冊！您接下來打算做什麼？"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "查閲投稿"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "進行新投稿"
+
+msgid "user.name"
+msgstr "姓名"
+
+msgid "user.preferredPublicName"
+msgstr "首選公開名稱"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "您必須同意《私隱聲明》之條款。"
+
+msgid "user.phone"
+msgstr "電話號碼"
+
+msgid "user.profile.form.profileImage"
+msgstr "帳戶圖片"
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "密碼必須為 {$length}個字元以上。"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "在此輸入您的現有密碼及新密碼，以更改您的帳戶密碼。"
+
+msgid "user.workingLanguages"
+msgstr "工作語言"
+
+msgid "user.profile.identity"
+msgstr "身份"
+
+msgid "user.roles"
+msgstr "角色"
+
+msgid "user.signature"
+msgstr "簽名"
+
+msgid "user.role.reader"
+msgstr "讀者"
+
+msgid "user.role.readers"
+msgstr "讀者"
+
+msgid "user.role.author"
+msgstr "作者"
+
+msgid "user.role.author_s"
+msgstr "作者"
+
+msgid "user.role.authors"
+msgstr "作者"
+
+msgid "user.role.reviewer"
+msgstr "評審員"
+
+msgid "user.role.reviewers"
+msgstr "評審員"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.role.editors"
+msgstr "編輯"
+
+msgid "user.register.registrationCompleted"
+msgstr "您已成功註冊。<a href=\"{$profileUrl}\">按此</a>填寫您的用戶資料。"
+
+msgid "user.profile.contact"
+msgstr "聯絡"
+
+msgid "user.profile.public"
+msgstr "公開"
+
+msgid "user.apiKey"
+msgstr "API金鑰"
+
+msgid "user.apiKey.generate"
+msgstr "建立API金鑰"
+
+msgid "user.apiKey.generateWarning"
+msgstr "建立新的API金鑰將令該用戶之任何現有密鑰失效。"
+
+msgid "user.apiKeyEnabled"
+msgstr "使用API金鑰啟用外部應用程式以訪問此帳戶"
+
+msgid "user.privacyLink"
+msgstr "您的個人資料會按照《私隱聲明》來儲存。"

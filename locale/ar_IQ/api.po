@@ -1,10 +1,10 @@
-# M. Ali <vorteem@gmail.com>, 2022.
+# M. Ali <vorteem@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-12-24 05:02+0000\n"
+"PO-Revision-Date: 2023-02-04 04:48+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
@@ -276,3 +276,9 @@ msgstr "ليس هذا سياقًا صحيحًا."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr "ليس هذا قالب بريد الكتروني إفتراضي لرسالة معروفة."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "لم يتم التعرف على نوع المنشور"
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "لم يتم العثور على مكون النشر الذي طلبته."

@@ -443,7 +443,7 @@ class ReviewerForm extends Form
     protected function getMailable(): ReviewRequest
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->newDataObject();
+        $reviewAssignment = $reviewAssignmentDao->newDataObject(); /** @var ReviewAssignment $reviewAssignment */
         $reviewAssignment->setSubmissionId($this->getSubmissionId());
         $submission = $this->getSubmission();
         $request = Application::get()->getRequest();

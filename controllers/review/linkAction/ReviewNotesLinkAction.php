@@ -15,9 +15,9 @@
 
 namespace PKP\controllers\review\linkAction;
 
-use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewNotesLinkAction extends LinkAction
 {
@@ -55,10 +55,10 @@ class ReviewNotesLinkAction extends LinkAction
             'modal_information'
         );
 
-        $viewsDao = DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
-        $lastViewDate = $viewsDao->getLastViewDate(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
-
-        $icon = !$lastViewDate || $isUnread ? 'read_new_review' : null;
+        $icon = match($reviewAssignment->getConsidered()) {
+            ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'read_new_review',
+            default => null
+        };
 
         // Configure the link action.
         parent::__construct('readReview', $ajaxModal, __('editor.review.readReview'), $icon);

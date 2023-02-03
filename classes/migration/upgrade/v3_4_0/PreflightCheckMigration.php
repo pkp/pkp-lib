@@ -88,9 +88,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('publication_categories')->where('publication_id', '=', $publicationId)->delete();
             }
 
-            // Clean out orphaned views entries
-            DB::table('item_views AS v')->leftJoin('users AS u', 'v.user_id', '=', 'u.user_id')->whereNull('u.user_id')->whereNotNull('v.user_id')->delete();
-
             // Clean orphaned genre data
             $orphanedIds = DB::table('genres AS g')->leftJoin($this->getContextTable() . ' AS c', 'g.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('g.genre_id');
             foreach ($orphanedIds as $genreId) {

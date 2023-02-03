@@ -79,10 +79,6 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
             $table->index(['publication_id'], 'publication_categories_publication_id');
         });
-        Schema::table('item_views', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->index(['user_id'], 'item_views_user_id');
-        });
         Schema::table('genres', function (Blueprint $table) {
             $table->foreign('context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
             $table->index(['context_id'], 'genres_context_id');

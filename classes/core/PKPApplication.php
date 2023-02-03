@@ -549,7 +549,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'TemporaryInstitutionsDAO' => 'PKP\statistics\TemporaryInstitutionsDAO',
             'UserStageAssignmentDAO' => 'PKP\user\UserStageAssignmentDAO',
             'VersionDAO' => 'PKP\site\VersionDAO',
-            'ViewsDAO' => 'PKP\views\ViewsDAO',
             'WorkflowStageDAO' => 'PKP\workflow\WorkflowStageDAO',
             'XMLDAO' => 'PKP\db\XMLDAO',
         ];

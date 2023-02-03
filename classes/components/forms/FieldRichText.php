@@ -26,7 +26,7 @@ class FieldRichText extends Field
     public $size;
 
     /** @var string Optional. A preset toolbar configuration. */
-    public $toolbar = 'bold italic superscript subscript';
+    public $toolbar = 'bold italic underline superscript subscript';
 
     /** @var int Optional. When a word limit is specified a word counter will be shown */
     public $wordLimit = 0;
@@ -41,6 +41,7 @@ class FieldRichText extends Field
     {
         $config = parent::getConfig();
         $config['toolbar'] = $this->toolbar;
+        $config['plugins'] = $this->plugins;
 
         if (!empty($this->init)) {
             $config['init'] = $this->init;

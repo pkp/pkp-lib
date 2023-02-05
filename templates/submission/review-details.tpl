@@ -31,7 +31,7 @@
                 submissionWizard__reviewPanel__body--{$step.id|escape}
             "
         >
-            {include file="/submission/review-publication-field.tpl" prop="title" inLocale=$localeKey name="{translate key="common.title"}" type="string"}
+            {include file="/submission/review-publication-field.tpl" prop="title" inLocale=$localeKey name="{translate key="common.title"}" type="html"}
             {if in_array($currentContext->getData('keywords'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="keywords" inLocale=$localeKey name="{translate key="common.keywords"}" type="array"}
             {/if}

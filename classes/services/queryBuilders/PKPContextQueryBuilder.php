@@ -132,6 +132,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
                     ->where('cst.locale', '=', DB::raw('c.primary_locale'));
             })
             ->orderBy('c.seq')
+            ->distinct()
             ->get()
             ->toArray();
     }

@@ -13,4 +13,23 @@
  *  hoverTitle: Whether to show the title as hover text only.
  *  anyhtml: True iff the link action text permits all HTML (i.e. escaping handled elsewhere).
  *}
-<a href="#" id="{$buttonId|escape}"{if $action->getToolTip()} title="{$action->getToolTip()|escape}"{/if} class="pkp_controllers_linkAction pkp_linkaction_{$action->getId()} pkp_linkaction_icon_{$action->getImage()}">{if $anyhtml}{$action->getTitle()}{else}{$action->getTitle()|strip_unsafe_html}{/if}</a>
+<a 
+    href="#" 
+    id="{$buttonId|escape}"
+    {if $action->getToolTip()} 
+        title="{$action->getToolTip()|escape}"
+    {/if} 
+    class="pkp_controllers_linkAction pkp_linkaction_{$action->getId()} pkp_linkaction_icon_{$action->getImage()}"
+>
+    {if $anyhtml}
+        {assign var=_labelTitle value=$action->getTitle()}
+    {else}
+        {assign var=_labelTitle value=$action->getTitle()|strip_unsafe_html}
+    {/if}
+
+    {if $unescapehtml}
+        {$_labelTitle|unescape:'html'}
+    {else}
+        {$_labelTitle}
+    {/if}
+</a>

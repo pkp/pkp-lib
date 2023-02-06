@@ -21,7 +21,7 @@
 			:label="label"
 		></pkp-table>
 
-		<pagination
+		<pagination v-if="lastPage > 1"
 			:current-page="currentPage"
 			:last-page="lastPage"
 			:is-loading="isLoadingItems"

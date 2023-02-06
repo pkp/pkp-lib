@@ -498,8 +498,6 @@ class AdminHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
 
-        $page = (int) ($request->getUserVar('page') ?? 1);
-
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [
             'id' => 'jobs',
@@ -566,8 +564,6 @@ class AdminHandler extends Handler
         $this->setupTemplate($request, true);
 
         $templateMgr = TemplateManager::getManager($request);
-
-        $page = (int) ($request->getUserVar('page') ?? 1);
 
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [

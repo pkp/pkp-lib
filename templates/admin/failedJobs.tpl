@@ -19,7 +19,6 @@
 			:rows="rows"
 			:description="description"
 			:label="label"
-            :api-url="apiUrl"
 		>
             <template slot-scope="{ row, rowIndex }">
                 <table-cell
@@ -29,22 +28,23 @@
                     :row="row"
                     :tabindex="!rowIndex && !columnIndex ? 0 : -1"
                 >
-                    <div v-if="column.name === 'actions'" class="buttonRow">
+                    <button-row v-if="column.name === 'actions'">
                         <pkp-button @click="redispatch(row)">
                             {translate key="admin.jobs.failed.action.redispatch"}
                         </pkp-button>
                         <pkp-button is-warnable @click="remove(row)">
-                            {translate key="admin.jobs.failed.action.delete"}
+                            {translate key="common.delete"}
                         </pkp-button>
                         <pkp-button element="a" is-link :href="row._hrefs._details">
-                            {translate key="admin.jobs.failed.action.details"}
+                            {translate key="common.details"}
                         </pkp-button>
-                    </div>
+                    </button-row>
                 </table-cell>
             </template>
 		</pkp-table>
 
-		<pagination
+		<pagination 
+            v-if="lastPage > 1"
 			:current-page="currentPage"
 			:last-page="lastPage"
 			:is-loading="isLoadingItems"

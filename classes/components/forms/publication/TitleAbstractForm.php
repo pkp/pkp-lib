@@ -59,7 +59,6 @@ class TitleAbstractForm extends FormComponent
             ]))
             ->addField(new FieldRichText('title', [
                 'label' => __('common.title'),
-                'size' => 'large',
                 'isMultilingual' => true,
                 'isRequired' => true,
                 'value' => $publication->getData('title'),

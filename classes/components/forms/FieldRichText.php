@@ -23,7 +23,7 @@ class FieldRichText extends Field
     public $init;
 
     /** @var string Optional. A preset size option. */
-    public $size;
+    public $size = 'oneline';
 
     /** @var string Optional. A preset toolbar configuration. */
     public $toolbar = 'bold italic underline superscript subscript';

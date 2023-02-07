@@ -71,16 +71,18 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     public function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {
         $entry = $this->newDataObject();
+        $clonedMailable = clone $mailable;
+        $clonedMailable->removeFooter();
         $entry->setEventType($eventType);
         $entry->setAssocId($submission->getId());
         $entry->setDateSent(Core::getCurrentDate());
         $entry->setSenderId($sender ? $sender->getId() : 0);
-        $entry->setSubject($mailable->subject);
-        $entry->setBody($mailable->render());
-        $entry->setFrom($this->getContactString($mailable->from));
-        $entry->setRecipients($this->getContactString($mailable->to));
-        $entry->setCcs($this->getContactString($mailable->cc));
-        $entry->setBccs($this->getContactString($mailable->bcc));
+        $entry->setSubject($clonedMailable->subject);
+        $entry->setBody($clonedMailable->render());
+        $entry->setFrom($this->getContactString($clonedMailable->from));
+        $entry->setRecipients($this->getContactString($clonedMailable->to));
+        $entry->setCcs($this->getContactString($clonedMailable->cc));
+        $entry->setBccs($this->getContactString($clonedMailable->bcc));
 
         return $this->insertObject($entry);
     }

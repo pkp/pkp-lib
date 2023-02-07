@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-04 04:48+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2151,3 +2151,45 @@ msgstr "التفاصيل"
 
 msgid "common.discardChanges"
 msgstr "لا، تخلَّ عن التغييرات غير المحفوظة"
+
+msgid "common.disconnected"
+msgstr "غير متصل"
+
+msgid "common.emailTemplates"
+msgstr "قوالب البريد الالكتروني"
+
+msgid "common.label"
+msgstr "الملصق"
+
+msgid "common.lastSaved"
+msgstr "آخر حفظ {$when}"
+
+msgid "common.noneSelected"
+msgstr "لا أحد محدد"
+
+msgid "common.noneProvided"
+msgstr "غير مقدم"
+
+msgid "common.reconnecting"
+msgstr "إعادة الاتصال"
+
+msgid "common.role"
+msgstr "الدور"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} من الخطوات"
+
+msgid "common.uploadedBy"
+msgstr "مرفوع من قبل {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "مرفوع من قبل {$name} في {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "تغييرات غير محفوظة"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"لقد وجدنا تغييرات غير محفوظة منذ {$when}. يمكن أن يحدث ذلك إذا فقدت اتصالك "
+"مع الملقم خلال عملك. استعادة تلك التغييرات قد يطغى على أي تغييرات أجريتها "
+"منذ ذلك الحين. هل ترغب باستعادة تلك التغييرات الآن؟"

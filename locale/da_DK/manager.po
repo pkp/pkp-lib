@@ -1,13 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-02-02 10:35+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2023-02-04 04:48+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -3638,3 +3638,37 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr "Aktiver metadata for data tilgængelighedserklæring"
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Dette element er blevet registreret manuelt ved registreringsbureauet."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Massehandlinger"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Ethvert udgivet eller ikke-publiceret element, der 1) har et underobjekt "
+"uden en DOI tildelt, hvor 2) underobjektets DOI-type er aktiveret (f.eks. "
+"vises en fil uden en DOI ikke her, hvis filens type ikke er aktiveret som "
+"DOI-type)"
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Påkrævet ved indsendelse"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"Skal mindst én af denne type filer være påkrævet ved hver ny indsendelse? "
+"Hvis du vælger ja, kan en forfatter ikke indsende deres manuskript uden at "
+"have uploaded mindst en fil af denne type."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr "Ja, kræv at forfattere uploader en eller flere af denne type fil."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "Nej, tillad nye indsendelser uden denne type fil."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Tilknyt redaktør"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "DOI statusser"

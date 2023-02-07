@@ -62,7 +62,7 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel
      *
      * @return array
      */
-    public static function getSectionFilters($activeOnly = false)
+    public static function getSectionFilters($excludeInactive = false)
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -71,7 +71,7 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel
             return [];
         }
 
-        $sections = Repo::section()->getSectionList($context->getId(), $activeOnly);
+        $sections = Repo::section()->getSectionList($context->getId(), $excludeInactive);
 
         return array_map(function ($section) {
             return [

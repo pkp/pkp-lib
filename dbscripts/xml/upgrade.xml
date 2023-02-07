@@ -81,6 +81,7 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I6306_EnableCategories"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I8592_SiteNotificationSubscriptions"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I6241_RequiredGenres"/>
+		<migration class="APP\migration\upgrade\v3_4_0\I7128_SectionEntityDAORefactor" />
 		<note file="docs/release-notes/README-3.4.0" />
 	</upgrade>
 

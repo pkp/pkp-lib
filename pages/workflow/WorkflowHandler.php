@@ -94,7 +94,10 @@ class WorkflowHandler extends PKPWorkflowHandler
         ]);
 
         $sectionWordLimits = [];
-        $sectionIterator = Repo::section()->getCollector()->filterByContextIds([$submissionContext->getId()])->getMany();
+        $sectionIterator = Repo::section()
+            ->getCollector()
+            ->filterByContextIds([$submissionContext->getId()])
+            ->getMany();
         foreach ($sectionIterator as $section) {
             $sectionWordLimits[$section->getId()] = (int) $section->getAbstractWordCount() ?? 0;
         }

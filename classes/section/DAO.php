@@ -17,13 +17,10 @@
 
 namespace APP\section;
 
-use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
 class DAO extends \PKP\section\DAO
 {
-    use EntityWithParent;
-
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_SECTION;
 

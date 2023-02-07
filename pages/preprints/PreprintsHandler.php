@@ -54,7 +54,10 @@ class PreprintsHandler extends Handler
         $context = $request->getContext();
 
         // OPS: sections
-        $sections = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->getMany();
+        $sections = Repo::section()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
 
         // OPS: categories
         $categories = Repo::category()->getCollector()

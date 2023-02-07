@@ -68,7 +68,12 @@ class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter
 
         $sectionAbbrev = $node->getAttribute('section_ref');
         if ($sectionAbbrev !== '') {
-            $section = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->filterByAbbrevs([$sectionAbbrev])->getMany()->first();
+            $section = Repo::section()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->filterByAbbrevs([$sectionAbbrev])
+                ->getMany()
+                ->first();
             if (!$section) {
                 $deployment->addError(Application::ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.native.error.unknownSection', ['param' => $sectionAbbrev]));
             } else {

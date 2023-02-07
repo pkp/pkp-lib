@@ -163,7 +163,11 @@ class ContextService extends \PKP\services\PKPContextService
     {
         $context = $args[0];
 
-        Repo::section()->deleteMany(Repo::section()->getCollector()->filterByContextIds([$context->getId()]));
+        Repo::section()->deleteMany(
+            Repo::section()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+        );
 
         Repo::submission()->deleteByContextId($context->getId());
 

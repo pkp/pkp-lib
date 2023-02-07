@@ -109,7 +109,10 @@ class OAIDAO extends PKPOAIDAO
             $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
             $preprintTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
 
-            $sections = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();
+            $sections = Repo::section()
+                ->getCollector()
+                ->filterByContextIds([$server->getId()])
+                ->getMany();
             foreach ($sections as $section) {
                 $setSpec = self::setSpec($server, $section);
                 if (array_key_exists($setSpec, $preprintTombstoneSets)) {

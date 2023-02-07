@@ -63,9 +63,8 @@ class TitleAbstractForm extends FormComponent
                 'isRequired' => true,
                 'value' => $publication->getData('title'),
             ]))
-            ->addField(new FieldText('subtitle', [
+            ->addField(new FieldRichText('subtitle', [
                 'label' => __('common.subtitle'),
-                'size' => 'large',
                 'isMultilingual' => true,
                 'value' => $publication->getData('subtitle'),
             ]))

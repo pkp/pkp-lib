@@ -191,7 +191,7 @@ class DecisionHandler extends Handler
                 __('common.commaListSeparator'),
                 [
                     $currentPublication->getShortAuthorString(),
-                    $currentPublication->getLocalizedFullTitle(),
+                    $currentPublication->getLocalizedFullTitle(null, 'html'),
                 ]
             )
         );
@@ -214,6 +214,7 @@ class DecisionHandler extends Handler
             [
                 'id' => 'submission',
                 'name' => $submissionTitle,
+                'unscapeHtml' => true,
                 'url' => $dispatcher->url(
                     $request,
                     Application::ROUTE_PAGE,

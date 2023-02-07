@@ -53,7 +53,7 @@ class Sanitizer
     }
 
     /**
-     * Sanitize the submission localized/unlocalized title attribute
+     * Sanitize the submission localized/unlocalized title[title] attribute
      */
     public function title(string|array $param): string|array
     {
@@ -66,6 +66,14 @@ class Sanitizer
         }
 
         return PKPString::stripUnsafeHtml($param, 'allowed_title_html');
+    }
+
+    /**
+     * Sanitize the submission localized/unlocalized sub title[subtitle] attribute
+     */
+    public function subtitle(string|array $param): string|array
+    {
+        return $this->title($param);
     }
 
     /**

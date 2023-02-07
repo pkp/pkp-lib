@@ -191,7 +191,7 @@ class Schema extends \PKP\core\maps\Schema
         $currentPublication = $submission->getCurrentPublication();
         if ($currentPublication) {
             $props['authorsStringShort'] = $currentPublication->getShortAuthorString();
-            $props['fullTitle'] = $currentPublication->getFullTitles();
+            $props['fullTitle'] = $currentPublication->getFullTitles('html');
         }
 
         return $props;

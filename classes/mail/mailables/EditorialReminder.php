@@ -86,7 +86,7 @@ class EditorialReminder extends Mailable
                 . ' — '
                 . htmlspecialchars($publication->getShortAuthorString())
                 . ' — '
-                . htmlspecialchars($publication->getLocalizedFullTitle())
+                . htmlspecialchars($publication->getLocalizedFullTitle(null, 'html'))
                 . '</a><br />
             <br />
         </td>

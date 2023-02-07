@@ -182,10 +182,20 @@
 									{foreach from=$breadcrumbs item="breadcrumb" name="breadcrumbs"}
 										<li>
 											{if $smarty.foreach.breadcrumbs.last}
-												<span aria-current="page">{$breadcrumb.name|escape}</span>
+												<span aria-current="page">
+													{if $breadcrumb.unscapeHtml}
+														{$breadcrumb.name|unescape:'html'}
+													{else}
+														{$breadcrumb.name|escape}
+													{/if}
+												</span>
 											{else}
 												<a href="{$breadcrumb.url|escape}">
-													{$breadcrumb.name|escape}
+													{if $breadcrumb.unscapeHtml}
+														{$breadcrumb.name|unescape:'html'}
+													{else}
+														{$breadcrumb.name|escape}
+													{/if}
 												</a>
 												<span class="app__breadcrumbsSeparator" aria-hidden="true">{translate key="navigation.breadcrumbSeparator"}</span>
 											{/if}

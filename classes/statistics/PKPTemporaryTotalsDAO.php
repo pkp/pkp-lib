@@ -106,7 +106,8 @@ abstract class PKPTemporaryTotalsDAO
      */
     public function compileContextMetrics(string $loadId): void
     {
-        DB::table('metrics_context')->where('load_id', '=', $loadId)->delete();
+        $date = substr($loadId, -12, 8);
+        DB::table('metrics_context')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
         $selectContextMetrics = DB::table($this->table)
             ->select(DB::raw('load_id, context_id, DATE(date) as date, count(*) as metric'))
             ->where('load_id', '=', $loadId)
@@ -120,7 +121,8 @@ abstract class PKPTemporaryTotalsDAO
      */
     public function compileSubmissionMetrics(string $loadId): void
     {
-        DB::table('metrics_submission')->where('load_id', '=', $loadId)->delete();
+        $date = substr($loadId, -12, 8);
+        DB::table('metrics_submission')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
         $selectSubmissionMetrics = DB::table($this->table)
             ->select(DB::raw('load_id, context_id, submission_id, assoc_type, DATE(date) as date, count(*) as metric'))
             ->where('load_id', '=', $loadId)
@@ -148,15 +150,18 @@ abstract class PKPTemporaryTotalsDAO
     // The total metrics will be loaded here (s. load... functions below), unique metrics are loaded in UnsageStatsUnique... classes
     public function deleteSubmissionGeoDailyByLoadId(string $loadId): void
     {
-        DB::table('metrics_submission_geo_daily')->where('load_id', '=', $loadId)->delete();
+        $date = substr($loadId, -12, 8);
+        DB::table('metrics_submission_geo_daily')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
     }
     public function deleteCounterSubmissionDailyByLoadId(string $loadId): void
     {
-        DB::table('metrics_counter_submission_daily')->where('load_id', '=', $loadId)->delete();
+        $date = substr($loadId, -12, 8);
+        DB::table('metrics_counter_submission_daily')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
     }
     public function deleteCounterSubmissionInstitutionDailyByLoadId(string $loadId): void
     {
-        DB::table('metrics_counter_submission_institution_daily')->where('load_id', '=', $loadId)->delete();
+        $date = substr($loadId, -12, 8);
+        DB::table('metrics_counter_submission_institution_daily')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
     }
 
     /**

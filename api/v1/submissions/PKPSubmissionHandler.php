@@ -1100,7 +1100,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $params = (new \PKP\submission\Sanitizer)->sanitize($params, ['title']);
+        $params = (new \PKP\submission\Sanitizer)->sanitize($params, ['title', 'subtitle']);
         Repo::publication()->edit($publication, $params);
 
         $publication = Repo::publication()->get($publication->getId());

@@ -155,7 +155,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $retVal;
                     break;
                 case 'fullTitle':
-                    $output[$prop] = $publication->getFullTitles();
+                    $output[$prop] = $publication->getFullTitles('html');
                     break;
                 default:
                     $output[$prop] = $publication->getData($prop);

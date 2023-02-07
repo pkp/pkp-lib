@@ -77,7 +77,7 @@ class RequestRevisions extends DecisionType
 
     public function getCompletedMessage(Submission $submission): string
     {
-        return __('editor.submission.decision.requestRevisions.completed.description', ['title' => $submission->getLocalizedFullTitle()]);
+        return __('editor.submission.decision.requestRevisions.completed.description', ['title' => $submission?->getCurrentPublication()?->getLocalizedFullTitle(null, 'html') ?? '']);
     }
 
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)

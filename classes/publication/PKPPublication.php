@@ -70,27 +70,30 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Combine the localized title, prefix and subtitle
      *
-     * @param string $preferredLocale Override the publication's default
-     *  locale and return the title in a specified locale.
-     *
+     * @param  string $preferredLocale  Override the publication's default locale and return the title in a specified locale.
+     * @param  string $format           Define the return data format as text or html
+     * 
      * @return string
      */
-    public function getLocalizedFullTitle($preferredLocale = null)
+    public function getLocalizedFullTitle($preferredLocale = null, string $format = 'text')
     {
-        $fullTitle = $this->getLocalizedTitle($preferredLocale);
-        $subtitle = $this->getLocalizedData('subtitle', $preferredLocale);
+        $fullTitle = $this->getLocalizedTitle($preferredLocale, $format);
+        $subtitle = $this->getLocalizedSubTitle($preferredLocale, $format);
+
         if ($subtitle) {
             return PKPString::concatTitleFields([$fullTitle, $subtitle]);
         }
+
         return $fullTitle;
     }
 
     /**
      * Return the combined prefix, title and subtitle for all locales
      *
+     * @param  string $format Define the return data format as text or html
      * @return array
      */
-    public function getFullTitles()
+    public function getFullTitles(string $format = 'text')
     {
         $allTitles = (array) $this->getData('title');
         $return = [];
@@ -98,7 +101,7 @@ class PKPPublication extends \PKP\core\DataObject
             if (!$title) {
                 continue;
             }
-            $return[$locale] = $this->getLocalizedFullTitle($locale);
+            $return[$locale] = $this->getLocalizedFullTitle($locale, $format);
         }
         return $return;
     }
@@ -106,19 +109,21 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Combine the localized title and prefix
      *
-     * @param string $preferredLocale Override the publication's default
-     *  locale and return the title in a specified locale.
-     *
+     * @param  string $preferredLocale  Override the publication's default locale and return the title in a specified locale.
+     * @param  string $format           Define the return data format as text or html
+     * 
      * @return string
      */
-    public function getLocalizedTitle($preferredLocale = null)
+    public function getLocalizedTitle($preferredLocale = null, string $format = 'text')
     {
         $usedLocale = null;
-        $title = PKPString::stripUnsafeHtml(
-            $this->getLocalizedData('title', $preferredLocale, $usedLocale), 
-            'allowed_title_html'
-        );
+        $title = $this->getLocalizedData('title', $preferredLocale, $usedLocale);
         $prefix = $this->getData('prefix', $usedLocale);
+
+        if (strtolower($format) === 'text') {
+            $title = strip_tags($title);
+        }
+        
         if ($prefix) {
             return $prefix . ' ' . $title;
         }
@@ -126,11 +131,31 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
+     * Get the localized sub title
+     *
+     * @param  string $preferredLocale  Override the publication's default locale and return the title in a specified locale.
+     * @param  string $format           Define the return data format as text or html
+     *
+     * @return string|null
+     */
+    public function getLocalizedSubTitle($preferredLocale = null, string $format = 'text')
+    {
+        $subTitle = $this->getLocalizedData('subtitle', $preferredLocale);
+
+        if($subTitle) {
+            return strtolower($format) === 'text' ? strip_tags($subTitle) : $subTitle;
+        }
+
+        return null;
+    }
+
+    /**
      * Return the combined title and prefix for all locales
      *
+     * @param  string $format Define the return data format as text or html
      * @return array
      */
-    public function getTitles()
+    public function getTitles(string $format = 'text')
     {
         $allTitles = $this->getData('title');
         $return = [];
@@ -138,7 +163,7 @@ class PKPPublication extends \PKP\core\DataObject
             if (!$title) {
                 continue;
             }
-            $return[$locale] = $this->getLocalizedTitle($locale);
+            $return[$locale] = $this->getLocalizedTitle($locale, $format);
         }
         return $return;
     }

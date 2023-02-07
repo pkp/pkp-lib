@@ -20,7 +20,7 @@
             <a href="{$submissionWizardUrl}">
                 {$submission->getCurrentPublication()->getShortAuthorString()|escape}
                 —
-                {$submission->getCurrentPublication()->getLocalizedFullTitle()|escape}
+                {$submission->getCurrentPublication()->getLocalizedFullTitle(null, 'html')|unescape:'html'}
             </a>
         </p>
         <p>{translate key="submission.wizard.saved.emailConfirmation" email=$email|escape}</p>

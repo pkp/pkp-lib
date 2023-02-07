@@ -21,16 +21,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 
-abstract class Collector implements CollectorInterface
+class Collector implements CollectorInterface
 {
     public DAO $dao;
-    //public string $parentColumnName;
     public ?array $contextIds = null;
     public ?array $titles = null;
     public ?array $abbrevs = null;
-    public bool $submittableOnly = false;
-    public bool $activeOnly = false;
-    public bool $withPublicationsOnly = false;
+    public bool $editorOnly = false;
+    public bool $excludeInactive = false;
+    public bool $withPublished = false;
     public ?int $count = null;
     public ?int $offset = null;
 
@@ -57,7 +56,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Filter sections by one or more contexts
      */
-    public function filterByContextIds(?array $contextIds): \APP\section\Collector
+    public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -66,7 +65,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Filter sections by one or more titles
      */
-    public function filterByTitles(?array $titles): \APP\section\Collector
+    public function filterByTitles(?array $titles): self
     {
         $this->titles = $titles;
         return $this;
@@ -75,43 +74,43 @@ abstract class Collector implements CollectorInterface
     /**
      * Filter sections by one or more abbreviations
      */
-    public function filterByAbbrevs(?array $abbrevs): \APP\section\Collector
+    public function filterByAbbrevs(?array $abbrevs): self
     {
         $this->abbrevs = $abbrevs;
         return $this;
     }
 
     /**
-     * Filter only submittable sections
+     * Only include sections that all users can submit to
      */
-    public function submittableOnly(bool $submittableOnly = true): \APP\section\Collector
+    public function excludeEditorOnly(bool $editorOnly = true): self
     {
-        $this->submittableOnly = $submittableOnly;
+        $this->editorOnly = $editorOnly;
         return $this;
     }
 
     /**
-     * Filter only submittable sections
+     * Only include active sections
      */
-    public function activeOnly(bool $activeOnly = true): \APP\section\Collector
+    public function excludeInactive(bool $excludeInactive = true): self
     {
-        $this->activeOnly = $activeOnly;
+        $this->excludeInactive = $excludeInactive;
         return $this;
     }
 
     /**
-     * Filter only series that contain publications
+     * Only include sections that contain published items
      */
-    public function withPublicationsOnly(bool $withPublicationsOnly = true): Collector
+    public function withPublished(bool $withPublished = true): self
     {
-        $this->withPublicationsOnly = $withPublicationsOnly;
+        $this->withPublished = $withPublished;
         return $this;
     }
 
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(?int $count): \APP\section\Collector
+    public function limit(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -121,58 +120,51 @@ abstract class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(?int $offset): \APP\section\Collector
+    public function offset(?int $offset): self
     {
         $this->offset = $offset;
         return $this;
     }
 
-    /**
-     * @copydoc CollectorInterface::getQueryBuilder()
-     */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table, 's')->select('s.*');
-
-        if (!is_null($this->contextIds)) {
-            $qb->whereIn('s.' . $this->dao->getParentColumn(), $this->contextIds);
-        }
-
-        if (!is_null($this->titles) || !is_null($this->abbrevs)) {
-            $qb->join($this->dao->settingsTable . ' ss', 'ss.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn);
-            if (!is_null($this->titles)) {
-                $qb->where('ss.setting_name', 'title')
-                    ->whereIn('ss.setting_value', $this->titles);
-            }
-            if (!is_null($this->abbrevs)) {
-                $qb->where('setting_name', 'abbrev')
-                    ->whereIn('setting_value', $this->abbrevs);
-            }
-        }
-
-        if ($this->submittableOnly) {
-            $qb->where('s.editor_restricted', 0)->where('s.is_inactive', 0);
-        }
-
-        if ($this->activeOnly) {
-            $qb->where('s.is_inactive', 0);
-        }
-
-        if ($this->withPublicationsOnly) {
-            $publicationsCountSql = '(SELECT COUNT(*) FROM publications AS p WHERE p.series_id = s.series_id AND p.status = ' . Submission::STATUS_PUBLISHED . ')';
-            $qb->where(DB::raw($publicationsCountSql), '>', 0);
-        }
-
-        $qb->orderBy('s.seq');
-
-        if (!is_null($this->count)) {
-            $qb->limit($this->count);
-        }
-
-        if (!is_null($this->offset)) {
-            $qb->offset($this->offset);
-        }
-
-        return $qb;
+        return DB::table($this->dao->table, 's')->select('s.*')
+            ->when(!is_null($this->contextIds), function (Builder $qb) {
+                $qb->whereIn('s.' . $this->dao->getParentColumn(), $this->contextIds);
+            })
+            ->when(!is_null($this->titles) || !is_null($this->abbrevs), function (Builder $qb) {
+                $qb->join($this->dao->settingsTable . ' AS ss', 'ss.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn)
+                    ->when(!is_null($this->titles), function (Builder $qb) {
+                        $qb->where('ss.setting_name', 'title')
+                            ->whereIn('ss.setting_value', $this->titles);
+                    })
+                    ->when(!is_null($this->abbrevs), function (Builder $qb) {
+                        $qb->where('setting_name', 'abbrev')
+                            ->whereIn('setting_value', $this->abbrevs);
+                    });
+            })
+            ->when($this->editorOnly, function (Builder $qb) {
+                $qb->where('s.editor_restricted', 0)
+                    ->where('s.is_inactive', 0);
+            })
+            ->when($this->excludeInactive, function (Builder $qb) {
+                $qb->where('s.is_inactive', 0);
+            })
+            ->when($this->withPublished, function (Builder $qb) {
+                $qb->whereExists(function (Builder $qb) {
+                    $qb->select('p.*')
+                        ->from('publications AS p')
+                        ->whereNotNull('p.' . $this->dao->primaryKeyColumn)
+                        ->where(DB::raw('p.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn))
+                        ->where('p.status', '=', Submission::STATUS_PUBLISHED);
+                });
+            })
+            ->orderBy('s.seq')
+            ->when(!is_null($this->count), function (Builder $qb) {
+                $qb->limit($this->count);
+            })
+            ->when(!is_null($this->offset), function (Builder $qb) {
+                $qb->offset($this->offset);
+            });
     }
 }

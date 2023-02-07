@@ -20,7 +20,6 @@ namespace PKP\section;
 use APP\section\Section;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
@@ -80,7 +79,6 @@ abstract class DAO extends EntityDAO
         });
     }
 
-
     public function insert(Section $section): int
     {
         return parent::_insert($section);
@@ -94,18 +92,5 @@ abstract class DAO extends EntityDAO
     public function delete(Section $section)
     {
         parent::_delete($section);
-    }
-
-    /**
-     * Check if the section is empty.
-     */
-    public function isEmpty(int $sectionId, int $contextId): bool
-    {
-        return DB::table('publications p')
-            //->select('p.publication_id')
-            ->join('submissions s', 's.submission_id', '=', 'p.submission_id')
-            ->where('s.context_id', $contextId)
-            ->where('p.' . $this->primaryKeyColumn, $sectionId)
-            ->exists();
     }
 }

@@ -6,12 +6,20 @@
 		"title"
 	],
 	"properties": {
+		"contextId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"editorRestricted": {
+			"type": "boolean",
+			"apiSummary": true
+		},
 		"id": {
 			"type": "integer",
 			"apiSummary": true
 		},
-		"contextId": {
-			"type": "integer",
+		"isInactive": {
+			"type": "boolean",
 			"apiSummary": true
 		},
 		"sequence": {
@@ -22,72 +30,6 @@
 			"type": "string",
 			"multilingual": true,
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
-		},
-		"editorRestricted": {
-			"type": "boolean"
-		},
-		"isInactive": {
-			"type": "boolean"
-		},
-		"abbrev": {
-			"type": "string",
-			"multilingual": true,
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
-		},
-		"policy": {
-			"type": "string",
-			"multilingual": true,
-			"validation": [
-				"nullable"
-			]
-		},
-		"reviewFormId": {
-			"type": "integer",
-			"validation": [
-				"nullable"
-			]
-		},
-		"metaIndexed": {
-			"type": "boolean"
-		},
-		"metaReviewed": {
-			"type": "boolean"
-		},
-		"abstractsNotRequired": {
-			"type": "boolean"
-		},
-		"hideTitle": {
-			"type": "boolean"
-		},
-		"hideAuthor": {
-			"type": "boolean"
-		},
-		"wordCount": {
-			"type": "integer",
-			"validation": [
-				"nullable"
-			]
-		},
-		"identifyType": {
-			"type": "string",
-			"multilingual": true,
-			"validation": [
-				"nullable"
-			]
-		},
-		"path": {
-			"type": "string",
-			"apiSummary": true
-		},
-		"description": {
-			"type": "string",
-			"multilingual": true,
 			"validation": [
 				"nullable"
 			]

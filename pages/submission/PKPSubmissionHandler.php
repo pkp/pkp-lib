@@ -792,7 +792,11 @@ abstract class PKPSubmissionHandler extends Handler
      */
     protected function getSubmitSections(Context $context): array
     {
-        $allSections = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->activeOnly()->getMany();
+        $allSections = Repo::section()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->excludeInactive()
+            ->getMany();
 
         $submitSections = [];
         /** @var Section $section */

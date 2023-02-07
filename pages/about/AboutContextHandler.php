@@ -89,7 +89,7 @@ class AboutContextHandler extends Handler
         $sections = Repo::section()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->submittableOnly(!$canSubmitAll)
+            ->excludeEditorOnly(!$canSubmitAll)
             ->getMany()
             ->all();
 

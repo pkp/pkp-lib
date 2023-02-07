@@ -187,7 +187,9 @@ class ReviewerForm extends Form
 
         // If there is a section/series and it has a default
         // review form designated, use it.
-        $section = Repo::section()->get($submission->getSectionId(), $context->getId());
+        $sectionId = $submission->getCurrentPublication()->getData(Application::getSectionIdPropName());
+        $section = $sectionId ? Repo::section()->get($sectionId, $context->getId()) : null;
+
         if ($section) {
             $reviewFormId = $section->getReviewFormId();
         } else {

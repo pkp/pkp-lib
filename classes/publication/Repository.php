@@ -584,8 +584,8 @@ abstract class Repository
         Hook::call('Publication::delete::before', [&$publication]);
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $sectionId = $submission->getSectionId();
-        $section = Repo::section()->get($sectionId);
+        $sectionId = $publication->getData(Application::getSectionIdPropName());
+        $section = $sectionId ? Repo::section()->get($sectionId) : null;
 
         $this->dao->delete($publication);
 

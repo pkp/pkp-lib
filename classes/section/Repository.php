@@ -15,10 +15,12 @@ namespace PKP\section;
 
 use APP\core\Request;
 use APP\core\Services;
-use APP\section\Collector;
+use APP\facades\Repo;
+use PKP\section\Collector;
 use APP\section\DAO;
 use APP\section\Section;
 use Illuminate\Support\Facades\App;
+use PKP\context\Context;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -59,7 +61,6 @@ class Repository
         return $this->dao->get($id, $contextId);
     }
 
-    /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
         return App::make(Collector::class);
@@ -67,7 +68,7 @@ class Repository
 
     /**
      * Get an instance of the map class for mapping
-     * senctions to their schema
+     * sections to their schema
      */
     public function getSchemaMap(): maps\Schema
     {
@@ -81,14 +82,14 @@ class Repository
      *
      * @param Section|null $object Section being edited. Pass `null` if creating a new section
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(?Section $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?Section $object, array $props, Context $context): array
     {
         $errors = [];
+        $allowedLocales = $context->getSupportedSubmissionLocales();
+        $primaryLocale = $context->getPrimaryLocale();
 
         $validator = ValidatorFactory::make(
             $props,
@@ -162,10 +163,16 @@ class Repository
         }
     }
 
-    /** @copydoc DAO::isEmpty() */
+    /**
+     * Check i the section has any submissions assigned to it.
+     */
     public function isEmpty(int $sectionId, int $contextId): bool
     {
-        return $this->dao->isEmpty($sectionId, $contextId);
+        return Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterBySectionIds([$sectionId])
+            ->getCount() > 0;
     }
 
     /**
@@ -185,11 +192,11 @@ class Repository
     /**
      * Get array of sections containing id, title and group (isInactive) key
      */
-    public function getSectionList(int $contextId, bool $activeOnly = false): array
+    public function getSectionList(int $contextId, bool $excludeInactive = false): array
     {
         return $this->getCollector()
             ->filterByContextIds([$contextId])
-            ->activeOnly($activeOnly)
+            ->excludeInactive($excludeInactive)
             ->getMany()
             ->map(fn (Section $section) => [
                 'id' => $section->getId(),

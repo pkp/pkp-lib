@@ -1,11 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
+# Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2023-02-04 04:48+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2023-02-08 06:59+0000\n"
+"Last-Translator: Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
 "Language: ar_IQ\n"
@@ -148,7 +149,7 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "تعذر العثور على الإعلان الذي طلبته."
 
 msgid "api.files.400.notAllowedCreatedAt"
-msgstr "ليس من الممكن تغيير  وقت إنشائه."
+msgstr "ليس من الممكن تغيير وقت إنشائه."
 
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
 msgstr "ليس مسموحاً لك بالوصول إلى هذه الملفات في جولة التحكيم هذه."
@@ -228,8 +229,8 @@ msgstr "لم يتم تضمين مكونات نشر صالحة في الطلب."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
-"لم ينجح إيداع بعض العناصر. يرجى التحقق منها فردًا فردًا للوقوف على رسائل "
-"الخطأ الخاصة بكل منها."
+"لم يتم إيداع بعض العناصر بنجاح. يُرجى التحقق من العناصر الفردية بحثًا عن "
+"رسائل الخطأ المحددة الخاصة بها."
 
 msgid "api.dois.400.markRegisteredFailed"
 msgstr "وقع خطأ ما وبعض العناصر المسلمة لم يتم تأشيرها على أنها مسجلة."

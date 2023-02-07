@@ -1,11 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
+# Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2023-02-04 04:48+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2023-02-08 06:59+0000\n"
+"Last-Translator: Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ar_IQ/>\n"
 "Language: ar_IQ\n"
@@ -294,7 +295,9 @@ msgid "user.login.resetPasswordInstructions"
 msgstr "أدخل عنوان بريدك الالكتروني المتعلق بحسابك أدناه، وستتم مراسلتك برسالة تتضمن تعليمات توضح كيفية تصفير كلمة مرورك."
 
 msgid "user.register.form.privacyConsent"
-msgstr "نعم، أوافق على جمع بياناتي وخزنها وفق ما ورد في  <a href=\"{$privacyUrl}\" target=\"_blank\">بيان الخصوصية</a>."
+msgstr ""
+"نعم، أوافق على جمع بياناتي وخزنها وفق ما ورد في <a href=\"{$privacyUrl}\" "
+"target=\"_blank\">بيان الخصوصية</a>."
 
 msgid "user.register.form.emailConsent"
 msgstr "نعم، أود الحصول على إشعارات بشأن الإصدارات والإعلانات الجديدة."

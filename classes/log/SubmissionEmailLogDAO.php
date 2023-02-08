@@ -18,7 +18,9 @@
 namespace PKP\log;
 
 use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\user\User;
 
@@ -77,7 +79,10 @@ class SubmissionEmailLogDAO extends EmailLogDAO
         $entry->setAssocId($submission->getId());
         $entry->setDateSent(Core::getCurrentDate());
         $entry->setSenderId($sender ? $sender->getId() : 0);
-        $entry->setSubject($clonedMailable->subject);
+        $entry->setSubject(Mail::compileParams(
+            $clonedMailable->subject,
+            $clonedMailable->getData(Locale::getLocale())
+        ));
         $entry->setBody($clonedMailable->render());
         $entry->setFrom($this->getContactString($clonedMailable->from));
         $entry->setRecipients($this->getContactString($clonedMailable->to));

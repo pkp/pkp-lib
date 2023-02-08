@@ -1,8 +1,303 @@
 # Ljiljana Brkić <ljilja96@outlook.com>, 2023.
+# Jula Dakić <juladakic@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-02-08 15:40+0000\n"
+"Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
+"Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "grid.action.sendToProduction"
+msgstr "Pošalji ovaj podnesak u produkciju"
+
+msgid "grid.action.settings"
+msgstr "Postavke"
+
+msgid "grid.action.importexport"
+msgstr "Import ili eksport sadržaja ili podataka o web mjestu"
+
+msgid "grid.action.orderItems"
+msgstr "Omogući način sortiranja"
+
+msgid "grid.action.resetAll"
+msgstr "Vrati sve stavke na zadane vrijednosti"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Dodaj novi predložak e-pošte"
+
+msgid "grid.action.disableEmail"
+msgstr "Onemogući ovaj predložak e-pošte"
+
+msgid "grid.action.resetEmail"
+msgstr "Vrati ovaj predložak e-pošte na zadane vrijednosti"
+
+msgid "grid.action.disable"
+msgstr "Onemogući"
+
+msgid "grid.action.details"
+msgstr "Pogledaj ovu stavku"
+
+msgid "grid.action.enrolExisting"
+msgstr "Upiši postojećeg korisnika kao recenzenta"
+
+msgid "grid.action.selectCreate"
+msgstr "Stvori novog recenzenta"
+
+msgid "grid.action.search"
+msgstr "Traži"
+
+msgid "grid.action.advancedSearch"
+msgstr "Napredno pretraživanje"
+
+msgid "grid.action.viewLibrary"
+msgstr "Pogledaj biblioteku dokumenata"
+
+msgid "grid.action.expandAll"
+msgstr "Otvori sve"
+
+msgid "grid.action.requestAccount"
+msgstr "Dodaj sudionika"
+
+msgid "grid.action.expand"
+msgstr "Otvori više"
+
+msgid "grid.action.notify"
+msgstr "Obavijesti ovog korisnika"
+
+msgid "grid.action.addUserGroup"
+msgstr "Dodaj novu grupu korisnika"
+
+msgid "grid.action.editUserGroup"
+msgstr "Uredi ovu grupu korisnika"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Ukloni ovu grupu korisnika"
+
+msgid "grid.action.viewMetadata"
+msgstr "Pogledaj metapodatke za ovaj podnesak"
+
+msgid "grid.action.sendReminder"
+msgstr "Pošalji podsjetnik za zadatak ovom korisniku"
+
+msgid "grid.action.newRound"
+msgstr "Stvori novi krug"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Pogledaj smjernice za recenziju"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Pogledaj politiku smjernica o suprotstavljenim interesima"
+
+msgid "grid.action.thankReviewer"
+msgstr "Pošalji poruku zahvale ovom recenzentu"
+
+msgid "grid.action.uploadFile"
+msgstr "Prenesi datoteku"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Dodaj vrstu obavijesti"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Dodaj obavijest"
+
+msgid "grid.action.addInstitution"
+msgstr "Dodaj instituciju"
+
+msgid "grid.action.mergeUser"
+msgstr "Spoji korisnika"
+
+msgid "grid.action.unassignUser"
+msgstr "Poništi dodjelu korisnika"
+
+msgid "grid.action.history"
+msgstr "Pogledaj povijest"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Ova je recenzija dovršena, ali ju možete odbaciti"
+
+msgid "grid.action.enable"
+msgstr "Omogući"
+
+msgid "grid.action.bookInfo"
+msgstr "Informacije o podnesku"
+
+msgid "grid.action.logInAs"
+msgstr "Prijavi se kao"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Eksport svih korisnika"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Jeste li sigurni da želite izvršiti eksport svih korisnika?"
+
+msgid "grid.action.activate"
+msgstr "Aktiviraj"
+
+msgid "grid.action.deactivate"
+msgstr "Deaktiviraj"
+
+msgid "grid.action.copy"
+msgstr "Kopiraj"
+
+msgid "grid.action.preview"
+msgstr "Pregled"
+
+msgid "grid.action.install"
+msgstr "Instaliraj"
+
+msgid "grid.action.moreItems"
+msgstr "Učitaj više"
+
+msgid "grid.action.users"
+msgstr "Prikaži/odaberi korisnike"
+
+msgid "grid.task.status.completed"
+msgstr "Ovaj je zadatak dovršen"
+
+msgid "grid.task.status.new"
+msgstr "Stavka zahtijeva radnju"
+
+msgid "grid.task.status.uploaded"
+msgstr "Naslov stupca pokazuje tko je učitao ovu datoteku"
+
+msgid "grid.task.status.unfinished"
+msgstr "Zadatak nedovršen"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Ova je recenzija spremna. Pritisnite ikonu bilješke s lijeve strane da biste "
+"ju pročitali."
+
+msgid "grid.columns.actions"
+msgstr "Radnje"
+
+msgid "grid.columns.institution"
+msgstr "Institucija"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Revizor"
+
+msgid "grid.columns.locale"
+msgstr "Jezično područje"
+
+msgid "grid.columns.locale.code"
+msgstr "Kod"
+
+msgid "grid.sponsor.title"
+msgstr "Pokroviteljske organizacije"
+
+msgid "grid.action.addSponsor"
+msgstr "Dodaj pokrovitelja"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Izbriši pokrovitelja"
+
+msgid "grid.action.editSponsor"
+msgstr "Uredi pokrovitelja"
+
+msgid "grid.action.addSeries"
+msgstr "Dodaj seriju"
+
+msgid "grid.action.editSeries"
+msgstr "Uredi seriju"
+
+msgid "grid.action.deleteSeries"
+msgstr "Izbriši seriju"
+
+msgid "grid.action.addCategory"
+msgstr "Dodaj kategoriju"
+
+msgid "grid.action.editCategory"
+msgstr "Uredi kategoriju"
+
+msgid "grid.action.deleteCategory"
+msgstr "Izbriši kategoriju"
+
+msgid "grid.contributor.title"
+msgstr "Izvori potpore"
+
+msgid "grid.action.addContributor"
+msgstr "Dodaj suradnika"
+
+msgid "grid.action.deleteContributor"
+msgstr "Izbriši suradnika"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Jeste li sigurni da želite ukloniti {$name} kao suradnika? Ova se radnja ne "
+"može poništiti."
+
+msgid "grid.action.newVersion"
+msgstr "Stvori novu verziju"
+
+msgid "grid.reviewForm.title"
+msgstr "Obrasci za recenziju"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opcije odgovora"
+
+msgid "grid.noFiles"
+msgstr "Nema datoteka"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Datoteke"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Biblioteka podnesaka"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Urednička biblioteka"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Biblioteka recenzija"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Biblioteka produkcije"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Popis podnesaka"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Stavka s popisa"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Glavni kontakt"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Postavi glavni kontakt"
+
+msgid "contributor.listPanel.preview"
+msgstr "Pregled"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Prikaz"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Skraćeno"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Popisi publikacija"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Uredi ovaj predložak e-pošte"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Biblioteka produkcijskih predložaka"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Suradnici ove publikacije bit će navedeni u ovom časopisu u sljedećim "
+"formatima."

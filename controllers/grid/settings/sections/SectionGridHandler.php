@@ -62,12 +62,11 @@ class SectionGridHandler extends SetupGridHandler
         $this->setTitle('section.sections');
 
         // Elements to be displayed in the grid
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-        $sectionIterator = $sectionDao->getByServerId($server->getId());
+        $sectionIterator = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();
 
         $gridData = [];
-        while ($section = $sectionIterator->next()) {
+        foreach ($sectionIterator as $section) {
             // Get the section editors data for the row
             $users = $subEditorsDao->getBySubmissionGroupIds([$section->getId()], Application::ASSOC_TYPE_SECTION, $server->getId());
             if ($users->isEmpty()) {
@@ -172,11 +171,10 @@ class SectionGridHandler extends SetupGridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $server = $request->getServer();
-        $section = $sectionDao->getById($rowId, $server->getId());
+        $section = Repo::section()->get($rowId, $server->getId());
         $section->setSequence($newSequence);
-        $sectionDao->updateObject($section);
+        Repo::section()->edit($section, []);
     }
 
     //
@@ -248,42 +246,35 @@ class SectionGridHandler extends SetupGridHandler
      */
     public function deleteSection($args, $request)
     {
-        $server = $request->getServer();
-
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        $section = $sectionDao->getById(
-            $request->getUserVar('sectionId'),
-            $server->getId()
-        );
-
         if (!$request->checkCSRF()) {
             return new JSONMessage(false, __('form.csrfInvalid'));
         }
 
+        $server = $request->getServer();
+
+        $section = Repo::section()->get($request->getUserVar('sectionId'), $server->getId());
         if (!$section) {
             return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
         }
 
-        $sectionEmpty = $sectionDao->sectionEmpty($request->getUserVar('sectionId'), $server->getId());
+        $sectionEmpty = Repo::section()->isEmpty($section->getId(), $server->getId());
         if (!$sectionEmpty) {
             return new JSONMessage(false, __('manager.sections.alertDelete'));
         }
 
         // Validate if it can be deleted
-        $sectionsIterator = $sectionDao->getByContextId($server->getId(), null, false);
-        $activeSectionsCount = (!$section->getIsInactive()) ? -1 : 0;
-        while ($checkSection = $sectionsIterator->next()) {
-            if (!$checkSection->getIsInactive()) {
-                $activeSectionsCount++;
-            }
-        }
-
+        $activeSectionsCount = Repo::section()
+            ->getCollector()
+            ->filterByContextIds([$server->getId()])
+            ->excludeInactive()
+            ->getCount();
+        $activeSectionsCount = (!$section->getIsInactive()) ? $activeSectionsCount - 1 : $activeSectionsCount;
         if ($activeSectionsCount < 1) {
             return new JSONMessage(false, __('manager.sections.confirmDeactivateSection.error'));
             return false;
         }
 
-        $sectionDao->deleteObject($section);
+        Repo::section()->delete($section);
         return DAO::getDataChangedEvent($section->getId());
     }
 
@@ -304,22 +295,13 @@ class SectionGridHandler extends SetupGridHandler
         // Identify the context id.
         $context = $request->getContext();
 
-        // Get section object
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         // Validate if it can be inactive
-        $sectionsIterator = $sectionDao->getByContextId($context->getId(), null, false);
-        $activeSectionsCount = 0;
-        while ($section = $sectionsIterator->next()) {
-            if (!$section->getIsInactive()) {
-                $activeSectionsCount++;
-            }
-        }
+        $activeSectionsCount = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->excludeInactive()->getCount();
         if ($activeSectionsCount > 1) {
-            $section = $sectionDao->getById($sectionId, $context->getId());
-
+            $section = Repo::section()->get($sectionId, $context->getId());
             if ($request->checkCSRF() && isset($section) && !$section->getIsInactive()) {
                 $section->setIsInactive(1);
-                $sectionDao->updateObject($section);
+                Repo::section()->edit($section, []);
 
                 // Create the notification.
                 $notificationMgr = new NotificationManager();
@@ -349,7 +331,6 @@ class SectionGridHandler extends SetupGridHandler
      */
     public function activateSection($args, $request)
     {
-
         // Identify the current section
         $sectionId = (int) $request->getUserVar('sectionKey');
 
@@ -357,12 +338,10 @@ class SectionGridHandler extends SetupGridHandler
         $context = $request->getContext();
 
         // Get section object
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-        $section = $sectionDao->getById($sectionId, $context->getId());
-
+        $section = Repo::section()->get($sectionId, $context->getId());
         if ($request->checkCSRF() && isset($section) && $section->getIsInactive()) {
             $section->setIsInactive(0);
-            $sectionDao->updateObject($section);
+            Repo::section()->edit($section, []);
 
             // Create the notification.
             $notificationMgr = new NotificationManager();

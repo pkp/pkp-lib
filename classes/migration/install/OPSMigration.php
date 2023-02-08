@@ -56,7 +56,6 @@ class OPSMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
 
             $table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_pkey');
         });
@@ -144,8 +143,10 @@ class OPSMigration extends \PKP\migration\Migration
 
         // Add partial index (DBMS-specific)
         switch (DB::getDriverName()) {
-            case 'mysql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))'); break;
-            case 'pgsql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)'); break;
+            case 'mysql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))');
+                break;
+            case 'pgsql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)');
+                break;
         }
     }
 

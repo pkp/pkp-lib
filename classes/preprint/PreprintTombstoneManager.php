@@ -16,11 +16,11 @@
 namespace APP\preprint;
 
 use APP\facades\Repo;
+use APP\section\Section;
 use APP\submission\Submission;
 use PKP\config\Config;
 
 use PKP\context\Context;
-use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
 use PKP\oai\OAIUtils;
 use PKP\plugins\Hook;
@@ -34,7 +34,7 @@ class PreprintTombstoneManager
     {
     }
 
-    public function insertPreprintTombstone($preprint, $context, PKPSection $section)
+    public function insertPreprintTombstone($preprint, $context, Section $section)
     {
         $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /** @var DataObjectTombstoneDAO $tombstoneDao */
         // delete preprint tombstone -- to ensure that there aren't more than one tombstone for this preprint
@@ -68,14 +68,13 @@ class PreprintTombstoneManager
     public function insertTombstonesByContext(Context $context)
     {
         $submissions = Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-                ->getMany();
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getMany();
 
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
         foreach ($submissions as $submission) {
-            $section = $sectionDao->getById($submission->getSectionId());
+            $section = Repo::section()->get($submission->getSectionId());
             $this->insertPreprintTombstone($submission, $context, $section);
         }
     }
@@ -87,10 +86,10 @@ class PreprintTombstoneManager
     {
         $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /** @var DataObjectTombstoneDAO $tombstoneDao */
         $submissions = Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$contextId])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-                ->getMany();
+            ->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getMany();
 
         foreach ($submissions as $submission) {
             $tombstoneDao->deleteByDataObjectId($submission->getId());

@@ -16,7 +16,6 @@
 namespace APP\services;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\preprint\PreprintTombstoneManager;
@@ -63,8 +62,7 @@ class ContextService extends \PKP\services\PKPContextService
         $request = $args[1];
 
         // Create a default section
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
-        $section = $sectionDao->newDataObject();
+        $section = Repo::section()->newDataObject();
         $section->setTitle(__('section.default.title'), $context->getPrimaryLocale());
         $section->setAbbrev(__('section.default.abbrev'), $context->getPrimaryLocale());
         $section->setPath(__('section.default.path'), $context->getPrimaryLocale());
@@ -73,8 +71,9 @@ class ContextService extends \PKP\services\PKPContextService
         $section->setPolicy(__('section.default.policy'), $context->getPrimaryLocale());
         $section->setEditorRestricted(false);
         $section->setHideTitle(false);
+        $section->setContextId($context->getId());
 
-        Services::get('section')->addSection($section, $context);
+        Repo::section()->add($section, $context);
     }
 
     /**
@@ -164,8 +163,11 @@ class ContextService extends \PKP\services\PKPContextService
     {
         $context = $args[0];
 
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
-        $sectionDao->deleteByServerId($context->getId());
+        Repo::section()->deleteMany(
+            Repo::section()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+        );
 
         Repo::submission()->deleteByContextId($context->getId());
 

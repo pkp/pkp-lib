@@ -15,8 +15,9 @@
 
 namespace APP\plugins\importexport\native\filter;
 
+use APP\core\Application;
+use APP\facades\Repo;
 use PKP\plugins\importexport\native\filter\PKPNativeFilterHelper;
-use PKP\db\DAORegistry;
 
 class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter\NativeXmlPKPPublicationFilter
 {
@@ -43,10 +44,9 @@ class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter
         $context = $deployment->getContext();
         $sectionAbbrev = $node->getAttribute('section_ref');
         if ($sectionAbbrev !== '') {
-            $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-            $section = $sectionDao->getByAbbrev($sectionAbbrev, $context->getId());
+            $section = Repo::section()->getCollector()->filterByContextIds([$context->getId()])->filterByAbbrevs([$sectionAbbrev])->getMany()->first();
             if (!$section) {
-                $deployment->addError(ASSOC_TYPE_SUBMISSION, null, __('plugins.importexport.native.error.unknownSection', ['param' => $sectionAbbrev]));
+                $deployment->addError(Application::ASSOC_TYPE_SUBMISSION, null, __('plugins.importexport.native.error.unknownSection', ['param' => $sectionAbbrev]));
             } else {
                 return parent::handleElement($node);
             }
@@ -68,10 +68,14 @@ class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter
 
         $sectionAbbrev = $node->getAttribute('section_ref');
         if ($sectionAbbrev !== '') {
-            $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
-            $section = $sectionDao->getByAbbrev($sectionAbbrev, $context->getId());
+            $section = Repo::section()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->filterByAbbrevs([$sectionAbbrev])
+                ->getMany()
+                ->first();
             if (!$section) {
-                $deployment->addError(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.native.error.unknownSection', ['param' => $sectionAbbrev]));
+                $deployment->addError(Application::ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.native.error.unknownSection', ['param' => $sectionAbbrev]));
             } else {
                 $publication->setData('sectionId', $section->getId());
             }

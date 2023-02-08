@@ -16,7 +16,7 @@
 namespace APP\components\forms\submission;
 
 use APP\publication\Publication;
-use APP\server\Section;
+use APP\section\Section;
 use APP\submission\Submission;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;

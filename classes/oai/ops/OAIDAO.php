@@ -30,7 +30,6 @@ class OAIDAO extends PKPOAIDAO
 {
     // Helper DAOs
     public $serverDao;
-    public $sectionDao;
     public $galleyDao;
 
     public $serverCache;
@@ -43,7 +42,6 @@ class OAIDAO extends PKPOAIDAO
     {
         parent::__construct();
         $this->serverDao = DAORegistry::getDAO('ServerDAO');
-        $this->sectionDao = DAORegistry::getDAO('SectionDAO');
         $this->galleyDao = Repo::galley()->dao;
 
         $this->serverCache = [];
@@ -75,7 +73,7 @@ class OAIDAO extends PKPOAIDAO
     public function &getSection($sectionId)
     {
         if (!isset($this->sectionCache[$sectionId])) {
-            $this->sectionCache[$sectionId] = $this->sectionDao->getById($sectionId);
+            $this->sectionCache[$sectionId] = Repo::section()->get($sectionId);
         }
         return $this->sectionCache[$sectionId];
     }
@@ -111,8 +109,11 @@ class OAIDAO extends PKPOAIDAO
             $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
             $preprintTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
 
-            $sections = $this->sectionDao->getByServerId($server->getId());
-            foreach ($sections->toArray() as $section) {
+            $sections = Repo::section()
+                ->getCollector()
+                ->filterByContextIds([$server->getId()])
+                ->getMany();
+            foreach ($sections as $section) {
                 $setSpec = self::setSpec($server, $section);
                 if (array_key_exists($setSpec, $preprintTombstoneSets)) {
                     unset($preprintTombstoneSets[$setSpec]);
@@ -153,9 +154,8 @@ class OAIDAO extends PKPOAIDAO
 
         if (isset($sectionSpec)) {
             $sectionId = 0;
-            $sectionIterator = $this->sectionDao->getByServerId($serverId);
-
-            while ($section = $sectionIterator->next()) {
+            $sectionIterator = Repo::section()->getCollector()->filterByContextIds([$serverId])->getMany();
+            foreach ($sectionIterator as $section) {
                 if ($sectionSpec == OAIUtils::toValidSetSpec($section->getLocalizedAbbrev())) {
                     $sectionId = $section->getId();
                     break;

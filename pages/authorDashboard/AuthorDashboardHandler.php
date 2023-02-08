@@ -18,12 +18,10 @@ namespace APP\pages\authorDashboard;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use APP\server\SectionDAO;
 use APP\template\TemplateManager;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\pages\authorDashboard\PKPAuthorDashboardHandler;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -143,9 +141,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
 
     protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm
     {
-        /** @var SectionDAO $sectionDao */
-        $sectionDao = DAORegistry::getDAO('SectionDAO');
-        $section = $sectionDao->getById($latestPublication->getData('sectionId'), $context->getId());
+        $section = Repo::section()->get($latestPublication->getData('sectionId'), $context->getId());
 
         return new TitleAbstractForm(
             $latestPublicationApiUrl,

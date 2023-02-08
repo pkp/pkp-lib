@@ -20,12 +20,11 @@ namespace APP\tests\classes\search;
 use APP\core\Application;
 use APP\search\PreprintSearch;
 use APP\search\PreprintSearchDAO;
-use APP\server\SectionDAO;
 use APP\server\Server;
 use APP\server\ServerDAO;
 use PKP\core\PKPRouter;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
 class PreprintSearchTest extends PKPTestCase
@@ -42,7 +41,7 @@ class PreprintSearchTest extends PKPTestCase
      */
     protected function getMockedDAOs(): array
     {
-        return [...parent::getMockedDAOs(), 'PreprintSearchDAO', 'ServerDAO', 'SectionDAO'];
+        return [...parent::getMockedDAOs(), 'PreprintSearchDAO', 'ServerDAO'];
     }
 
     /**
@@ -51,12 +50,11 @@ class PreprintSearchTest extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        HookRegistry::rememberCalledHooks();
+        Hook::rememberCalledHooks();
 
         // Prepare the mock environment for this test.
         $this->registerMockPreprintSearchDAO();
         $this->registerMockServerDAO();
-        $this->registerMockSectionDAO();
 
         $request = Application::get()->getRequest();
         if (is_null($request->getRouter())) {
@@ -70,7 +68,7 @@ class PreprintSearchTest extends PKPTestCase
      */
     protected function tearDown(): void
     {
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         parent::tearDown();
     }
 
@@ -84,7 +82,7 @@ class PreprintSearchTest extends PKPTestCase
     public function testRetrieveResults()
     {
         // Make sure that no hook is being called.
-        HookRegistry::clear('SubmissionSearch::retrieveResults');
+        Hook::clear('SubmissionSearch::retrieveResults');
 
         // Test a simple search with a mock database back-end.
         $server = new Server();
@@ -108,7 +106,7 @@ class PreprintSearchTest extends PKPTestCase
     public function testRetrieveResultsViaPluginHook()
     {
         // Diverting a search to the search plugin hook.
-        HookRegistry::register('SubmissionSearch::retrieveResults', fn (...$args) => $this->callbackRetrieveResults(...$args));
+        Hook::add('SubmissionSearch::retrieveResults', [$this, 'callbackRetrieveResults']);
 
         $testCases = [
             [null => 'query'], // Simple Search - "All"
@@ -132,7 +130,7 @@ class PreprintSearchTest extends PKPTestCase
             $server = new Server();
             $keywords = $testCase;
             $preprintSearch = new PreprintSearch();
-            HookRegistry::resetCalledHooks(true);
+            Hook::resetCalledHooks(true);
             $searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error, $testFromDate, $testToDate);
 
             // Check the parameters passed into the callback.
@@ -145,7 +143,7 @@ class PreprintSearchTest extends PKPTestCase
             }
 
             // Test the call history of the hook registry.
-            $calledHooks = HookRegistry::getCalledHooks();
+            $calledHooks = Hook::getCalledHooks();
             self::assertCount(1, array_filter($calledHooks, fn ($hook) => $hook[0] === 'SubmissionSearch::retrieveResults'));
 
             // Test whether the result from the hook is being returned.
@@ -162,7 +160,7 @@ class PreprintSearchTest extends PKPTestCase
         }
 
         // Remove the test hook.
-        HookRegistry::clear('SubmissionSearch::retrieveResults');
+        Hook::clear('SubmissionSearch::retrieveResults');
     }
 
 
@@ -244,28 +242,5 @@ class PreprintSearchTest extends PKPTestCase
 
         // Register the mock DAO.
         DAORegistry::registerDAO('ServerDAO', $serverDAO);
-    }
-
-    /**
-     * Mock and register an SectionDAO as a test
-     * back end for the PreprintSearch class.
-     */
-    private function registerMockSectionDAO()
-    {
-        // Mock a SectionDAO.
-        $sectionDao = $this->getMockBuilder(SectionDAO::class)
-            ->onlyMethods(['getById'])
-            ->getMock();
-
-        // Mock a section.
-        $section = $sectionDao->newDataObject();
-
-        // Mock the getSection() method.
-        $sectionDao->expects($this->any())
-            ->method('getById')
-            ->will($this->returnValue($section));
-
-        // Register the mock DAO.
-        DAORegistry::registerDAO('SectionDAO', $sectionDao);
     }
 }

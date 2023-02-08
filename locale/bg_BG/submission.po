@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-09 10:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -2672,7 +2672,7 @@ msgstr ""
 "да знае, когато оценява вашия ръкопис."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "За един или повече от авторите липсват подробности в {$language}."
+msgstr "Даденото име липсва на {$language} за един или повече от сътрудниците."
 
 msgid "submission.wizard.saved.description"
 msgstr ""
@@ -2692,3 +2692,24 @@ msgid "submission.viewingPreview"
 msgstr ""
 "Това е предварителен преглед и не е публикуван. <a href=\"{$url}\">Вижте "
 "подадените материали</a>"
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Моля, въведете Декларацията за наличност на данните."
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Посочете дали сте предоставили доказателства в подкрепа на тази работа и ако "
+"е така, къде и как може да бъде получен достъп до тях"
+
+msgid "submission.files.required.genres"
+msgstr ""
+"Трябва да качите поне един от всеки от следните типове файлове: {$genres}."
+
+msgid "submission.dataAvailability"
+msgstr "Декларация за наличност на данни"
+
+msgid "submission.files.required.genre"
+msgstr "Трябва да качите поне един файл от {$genre}."
+
+msgid "publication.version"
+msgstr "Версия {$version}"

@@ -735,6 +735,7 @@ class PKPTemplateManager extends Smarty
             'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
             'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
             'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
+            'tinyMceOneLineContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content_oneline.css',
         ];
 
         // Add an array of rtl languages (right-to-left)

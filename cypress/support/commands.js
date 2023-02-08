@@ -184,15 +184,16 @@ Cypress.Commands.add('getCsrfToken', () => {
 
 // Provides: @submissionId, @currentPublicationId, @currentPublicationApiUrl
 Cypress.Commands.add('beginSubmissionWithApi', (api, data, csrfToken) => {
+	let sectionPropName = ('seriesId' in data) ? 'seriesId' : 'sectionId';
+	let body = {};
+	body[sectionPropName] = data[sectionPropName];
 	return cy.request({
 		url: api.submissions(),
 		method: 'POST',
 		headers: {
 			'X-Csrf-Token': csrfToken
 		},
-		body: {
-			sectionId: data.sectionId
-		}
+		body: body,
 	}).then(xhr => {
 		expect(xhr.status).to.eq(200);
 	}).then(xhr => {

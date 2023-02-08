@@ -15,7 +15,7 @@
 
 namespace PKP\pages\about;
 
-use APP\core\Application;
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\security\authorization\ContextRequiredPolicy;
@@ -86,8 +86,12 @@ class AboutContextHandler extends Handler
             $canSubmitAll = true;
         }
 
-        $sectionDao = Application::getSectionDAO();
-        $sections = $sectionDao->getByContextId($context->getId(), null, !$canSubmitAll)->toArray();
+        $sections = Repo::section()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->excludeEditorOnly(!$canSubmitAll)
+            ->getMany()
+            ->all();
 
         $templateMgr->assign('sections', $sections);
         $templateMgr->display('frontend/pages/submissions.tpl');

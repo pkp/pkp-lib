@@ -17,8 +17,8 @@ namespace PKP\controllers\grid\settings\sections\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\section\Section;
 use APP\template\TemplateManager;
-use PKP\context\PKPSection;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\security\Role;
@@ -38,7 +38,7 @@ class PKPSectionForm extends Form
     /** @var array Cover image information from getimagesize */
     public $_sizeArray;
 
-    public ?PKPSection $section = null;
+    public ?Section $section = null;
 
     /** @var array Roles that can be assigned to this section */
     public $assignableRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
@@ -92,12 +92,12 @@ class PKPSectionForm extends Form
         $this->_sectionId = $sectionId;
     }
 
-    public function getSection(): ?PKPSection
+    public function getSection(): ?Section
     {
         return $this->section;
     }
 
-    public function setSection(PKPSection $section): void
+    public function setSection(Section $section): void
     {
         $this->section = $section;
     }

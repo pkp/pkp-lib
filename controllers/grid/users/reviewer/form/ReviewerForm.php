@@ -26,7 +26,6 @@ use PKP\context\Context;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
@@ -39,7 +38,6 @@ use PKP\submission\action\EditorAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
-use Prophecy\Prophecy\Revealer;
 
 class ReviewerForm extends Form
 {
@@ -189,8 +187,9 @@ class ReviewerForm extends Form
 
         // If there is a section/series and it has a default
         // review form designated, use it.
-        $sectionDao = Application::getSectionDAO();
-        $section = $sectionDao->getById($submission->getSectionId(), $context->getId());
+        $sectionId = $submission->getCurrentPublication()->getData(Application::getSectionIdPropName());
+        $section = $sectionId ? Repo::section()->get($sectionId, $context->getId()) : null;
+
         if ($section) {
             $reviewFormId = $section->getReviewFormId();
         } else {

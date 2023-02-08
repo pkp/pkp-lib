@@ -1,0 +1,38 @@
+{
+	"title": "Section",
+	"description": "A journal or server section, or press series.",
+	"required": [
+		"contextId",
+		"title"
+	],
+	"properties": {
+		"contextId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"editorRestricted": {
+			"type": "boolean",
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"isInactive": {
+			"type": "boolean",
+			"apiSummary": true
+		},
+		"sequence": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"title": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		}
+	}
+}

@@ -959,8 +959,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $seriesPath = $args[0];
-                $seriesDao = Application::getSectionDAO(); /* @var $seriesDao SeriesDAO */
-                $series = $seriesDao->getByPath($seriesPath, $newEntry['contextId']);
+                $series = Repo::section()->getByPath($seriesPath, $newEntry['contextId']);
                 if (!$series) {
                     fwrite(STDERR, "Series with the path {$seriesPath} does not exist in the press with the ID {$newEntry['contextId']}." . PHP_EOL);
                     break;

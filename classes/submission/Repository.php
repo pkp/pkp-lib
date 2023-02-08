@@ -19,12 +19,12 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\DAO;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use PKP\context\PKPSection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -35,9 +35,9 @@ use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\user\User;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -306,7 +306,7 @@ abstract class Repository
                 return;
             }
             $contextId = $props['contextId'] ?? ($submission ? $submission->getData('contextId') : null);
-            if (!Application::getSectionDAO()->exists($sectionId, $contextId)) {
+            if (!Repo::section()->exists($sectionId, $contextId)) {
                 $validator->errors()->add($propName, __('submission.sectionNotFound'));
                 return;
             }
@@ -504,7 +504,6 @@ abstract class Repository
      * @param $user User
      * @param $submission Submission
      *
-     * @return bool
      */
     public function canPreview(User $user, Submission $submission): bool
     {
@@ -636,10 +635,10 @@ abstract class Repository
      * status changes, such as changing the current publication ID
      * and creating or deleting tombstones.
      *
-     * @param ?PKPSection $section If this submission is being deleted, its previous section ID should be specified
+     * @param ?Section $section If this submission is being deleted, its previous section ID should be specified
      *    in order to ensure a correctly created tombstone.
      */
-    public function updateStatus(Submission $submission, ?int $newStatus = null, ?PKPSection $section = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null)
     {
         $status = $submission->getData('status');
 
@@ -880,7 +879,6 @@ abstract class Repository
      * @param $user User
      * @param $submission Submission
      *
-     * @return bool
      */
     protected function _roleCanPreview(User $user, Submission $submission): bool
     {

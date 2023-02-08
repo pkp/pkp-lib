@@ -20,14 +20,13 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\journal\Section;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
-use PKP\context\PKPSection;
 use PKP\core\APIResponse;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -474,8 +473,7 @@ class PKPSubmissionHandler extends APIHandler
         $sectionIdPropName = Application::getSectionIdPropName();
         if (isset($params[$sectionIdPropName])) {
             $sectionId = $params[$sectionIdPropName];
-            /** @var Section $section */
-            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+            $section = Repo::section()->get($sectionId, $context->getId());
             if ($section->getIsInactive()) {
                 $errors[$sectionIdPropName] = [__('api.submission.400.inactiveSection')];
             } else {
@@ -678,7 +676,7 @@ class PKPSubmissionHandler extends APIHandler
         $sectionId = $publication->getData(Application::getSectionIdPropName());
 
         if ($sectionId) {
-            $section = Application::getSectionDAO()->getById($sectionId, $context->getId());
+            $section = Repo::section()->get($sectionId, $context->getId());
         }
 
         if (isset($section) &&
@@ -1602,7 +1600,7 @@ class PKPSubmissionHandler extends APIHandler
     {
         return !empty(
             array_intersect(
-                PKPSection::getEditorRestrictedRoles(),
+                Section::getEditorRestrictedRoles(),
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
             )
         );

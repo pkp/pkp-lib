@@ -25,9 +25,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 use IntlDateFormatter;
 use PKP\context\Context;
+use PKP\jobs\BaseJob;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\notification\PKPNotification;
-use PKP\jobs\BaseJob;
 use SplFileObject;
 
 class StatisticsReportMail extends BaseJob
@@ -64,11 +64,11 @@ class StatisticsReportMail extends BaseJob
         $editorialTrendsTotal = Services::get('editorialStats')->getOverview(['contextIds' => [$context->getId()]]);
         $totalSubmissions = Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$context->getId()]]);
         $formatter = IntlDateFormatter::create(
-            $locale, 
-            IntlDateFormatter::FULL, 
-            IntlDateFormatter::FULL, 
-            null, 
-            null, 
+            $locale,
+            IntlDateFormatter::FULL,
+            IntlDateFormatter::FULL,
+            null,
+            null,
             'MMMM'
         );
         $month = $formatter->format($this->dateStart);

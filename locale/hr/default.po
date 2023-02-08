@@ -1,8 +1,193 @@
 # Maria Češnik <mariaces237@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-02-09 10:50+0000\n"
+"Last-Translator: Maria Češnik <mariaces237@gmail.com>\n"
+"Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administratori web stranice"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Urednik produkcije"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Urednik produkcije"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Urednik"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Lektori"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korektori"
+
+msgid "default.groups.name.designer"
+msgstr "Dizajner"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Dizajn"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Interni recenzent"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "Koordinator marketinga i prodaje"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.funding"
+msgstr "Koordinatori financiranja"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Indeksator"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indekseri"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Layout upravitelji"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "Autor"
+
+msgid "default.groups.plural.author"
+msgstr "Autori"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Prevoditelj"
+
+msgid "default.groups.plural.translator"
+msgstr "Prevoditelji"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.plural.reader"
+msgstr "Čitatelji"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Čitati"
+
+msgid "default.genres.other"
+msgstr "Ostalo"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedija"
+
+msgid "default.genres.image"
+msgstr "Slika"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrator web stranice"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interni recenzenti"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korektor"
+
+msgid "default.groups.plural.marketing"
+msgstr "Koordinatori marketinga i prodaje"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.name.funding"
+msgstr "Koordinator financiranja"
+
+msgid "default.groups.plural.designer"
+msgstr "Dizajneri"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Layout upravitelj"
+
+msgid "default.groups.name.reader"
+msgstr "Čitatelj"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stylesheet"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>Ovo je automatizirana poruka od <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>Hvala što ste se prijavili na {$contextName}. Od vas će se tražiti da "
+"prenesete datoteke, identificirate koautore i date informacije kao što su "
+"naslov i sažetak.<p><p>Pročitajte naše <a href=\"{$submissionGuidelinesUrl}\""
+" target=\"_blank\">Smjernice za prijavu </a> ako to već niste učinili. Kada "
+"ispunjavate obrasce, navedite što više pojedinosti kako biste pomogli našim "
+"urednicima da procijene vaš rad.</p><p>Kad počnete, možete spremiti svoj "
+"podnesak i vratiti mu se kasnije. Moći ćete pregledati i ispraviti sve "
+"informacije prije slanja.</p>"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>Navedite sve datoteke koje će naš urednički tim možda trebati za procjenu "
+"vašeg podneska. Uz glavni rad, možda ćete htjeti poslati skupove podataka, "
+"izjave o sukobu interesa ili druge dopunske datoteke ako će biti od pomoći "
+"našim urednicima.</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Dodajte pojedinosti za sve suradnike ovom podnesku. Suradnicima koji su "
+"ovdje dodani bit će poslana e-pošta s potvrdom podneska, kao i kopija svih "
+"uredničkih odluka zabilježenih u vezi s ovim podneskom.</p><p>Ako se "
+"suradnika ne može kontaktirati e-poštom, jer mora ostati anoniman ili nemate "
+"račun e-pošte, nemojte unositi lažnu adresu e-pošte. Možete dodati "
+"informacije o ovom suradniku u poruci uredniku u kasnijem koraku u procesu "
+"podnošenja.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Navedite sljedeće podatke kako biste nam pomogli u upravljanju vašim "
+"podneskom u našem sustavu.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>Navedite sljedeće pojedinosti kako biste našem uredničkom timu pomogli u "
+"upravljanju vašim podneskom.</p><p>Prilikom unosa metapodataka navedite "
+"unose za koje mislite da bi bili od najveće pomoći osobi koja upravlja vašim "
+"podneskom. Ovi se podaci mogu promijeniti prije objave.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Pregledajte podatke koje ste unijeli prije dovršetka slanja. Možete "
+"promijeniti bilo koju pojedinost prikazanu ovdje klikom na gumb za "
+"uređivanje na vrhu svakog odjeljka.</p><p>Nakon što dovršite svoj podnesak, "
+"članu našeg uredničkog tima bit će dodijeljen pregled. Provjerite jesu li "
+"detalji koje ste ovdje unijeli što točniji.</p>"

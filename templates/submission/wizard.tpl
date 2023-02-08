@@ -81,7 +81,7 @@
                             v-bind="section.form"
                             ref="autosaveForms"
                             class="submissionWizard__stepForm"
-                            @set="updateForm"
+                            @set="updateAutosaveForm"
                         ></pkp-form>
                         <submission-files-list-panel
                             v-else-if="section.type === 'files'"
@@ -122,6 +122,12 @@
                                 </span>
                             </transition>
                         </template>
+                        <pkp-form
+                            v-if="section.type === 'confirm'"
+                            v-bind="section.form"
+                            class="submissionWizard__stepForm"
+                            @set="updateForm"
+                        ></pkp-form>
                         {call_hook name="Template::SubmissionWizard::Section" submission=$submission}
                     </panel-section>
                 </panel>

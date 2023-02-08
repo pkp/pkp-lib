@@ -45,7 +45,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('redirect')->default(0)->comment('If not 0, redirect to the specified journal/conference/... site.');
             $table->string('primary_locale', 14)->comment('Primary locale for the site.');
             $table->smallInteger('min_password_length')->default(6);
-            $table->string('installed_locales', 1024)->default('en_US')->comment('Locales for which support has been installed.');
+            $table->string('installed_locales', 1024)->default('en')->comment('Locales for which support has been installed.');
             $table->string('supported_locales', 1024)->comment('Locales supported by the site (for hosted journals/conferences/...).')->nullable();
             $table->string('original_style_file_name', 255)->nullable();
         });
@@ -196,7 +196,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Default data for email templates.
         Schema::create('email_templates_default_data', function (Blueprint $table) {
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
-            $table->string('locale', 14)->default('en_US');
+            $table->string('locale', 14)->default('en');
             $table->string('name', 255);
             $table->string('subject', 255);
             $table->text('body')->nullable();

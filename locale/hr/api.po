@@ -1,8 +1,305 @@
 # Tadej Grlić <tadejgrlic@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-02-09 10:50+0000\n"
+"Last-Translator: Tadej Grlić <tadejgrlic@gmail.com>\n"
+"Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hr/"
+">\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API token nije mogao biti potvrđen. To može ukazivati na pogrešku u API "
+"tokenu ili da API token više nije valjan."
+
+msgid "api.404.endpointNotFound"
+msgstr "Traženi URL nije prepoznat."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Došlo je do pogreške i neke od poslanih stavki nisu označene kao "
+"registrirane."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Neki predmeti nisu uspješno položeni. Molimo provjerite pojedinačne stavke "
+"za njihove specifične poruke pogreške."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Morate navesti korisničke uloge koje bi trebale primiti ovu e-poruku."
+
+msgid "api.files.400.noUpload"
+msgstr "Uz zahtjev nije pronađena nijedna datoteka za učitavanje."
+
+msgid "api.files.400.config"
+msgstr ""
+"Datoteka se ne može učitati zbog pogreške konfiguracije poslužitelja. Molimo "
+"kontaktirajte administratora sustava."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Morate poništiti objavu ove publikacije prije nego što je možete izbrisati."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Možete učitati samo sljedeće vrste datoteka: {$fileTypes}."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Datoteka koju ste prenijeli ne odgovara ekstenziji datoteke. To se može "
+"dogoditi kada je datoteka preimenovana u nekompatibilnu vrstu, na primjer "
+"promjena photo.png u photo.jpg."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Javni direktorij datoteka nije pronađen ili se datoteke ne mogu spremiti u "
+"njega. Obratite se svom administratoru kako biste riješili ovaj problem."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Vaš zahtjev nije valjan. Interval vremenske trake mora biti `dan` ili "
+"`mjesec`."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Ne možete pridružiti datoteku iz ove faze datoteke s dodjelom pregleda."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametar {$param} nije podržan."
+
+msgid "api.400.propReadOnly"
+msgstr "Svojstvo {$prop} ne može se mijenjati."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "ApiToken se nije mogao dekodirati zbog sljedeće pogreške: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Morate navesti predmet i tijelo e-poruke."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Nije moguće promijeniti vrijeme kada je ovo kreirano."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "DOI prefiks je potreban za generiranje DOI."
+
+msgid "api.403.unauthorized"
+msgstr "Niste ovlašteni za pristup traženom izvoru."
+
+msgid "api.404.resourceNotFound"
+msgstr "Traženi izvor nije pronađen."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API token ne može se koristiti za pristup ovoj stranici jer administrator "
+"stranice nije konfigurirao tajni ključ."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Obavijest koju ste tražili nije pronađena."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Institucija koju ste tražili nije pronađena."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Sljedeće oznake jezika nisu podržane: {$locale}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Ne možete uređivati DOI stavke koja nije u ovom kontekstu."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Vrsta publikacije nije prepoznata"
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Ova krajnja točka nije dostupna iz imenskog prostora na cijelom web-mjestu i "
+"mora se zatražiti za određeni kontekst."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "DOI koji ste tražili nije pronađen."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Objekt objave koji ste tražili nije pronađen."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Neobjavljene stavke ne mogu se izvesti/pohraniti. Poništite odabir "
+"neobjavljenih stavki i pokušajte ponovno."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Došlo je do pogreške i DOI objekt se nije mogao stvoriti."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Dogodila se pogreška provjere valjanosti XML-a i XML se nije mogao izvesti."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Uz zahtjev nisu uključeni valjani objekti objave."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "Jedan ili više nevažećih objekata objave uključeni su u zahtjev."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Ne možete zabilježiti odluku ili preporučiti odluku za ovaj podnesak jer je "
+"već objavljen."
+
+msgid "api.emails.400.missingBody"
+msgstr "Morate uključiti e-poštu koja će biti poslana."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Morate unijeti predmet e-pošte."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Nije vam dopušteno slanje e-pošte korisnicima u jednoj ili više odabranih "
+"uloga."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Ovo nije zadani predložak e-pošte za poznatu e-poštu."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Ovo nije važeći kontekst."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Predložak e-pošte koji ste tražili nije pronađen."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nije moguće učitati jednu ili više datoteka."
+
+msgid "api.files.400.fileSize"
+msgstr "Datoteke veće od {$maxSize} ne mogu se učitati."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikacija koju želite objaviti već je objavljena."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikacija koju želite poništiti nije objavljena."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Ne možete uređivati ovu publikaciju jer je već objavljena."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Ne možete mijenjati status izravno putem API-ja. Umjesto toga koristite "
+"krajnje točke / objave i / poništavanja objave."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Slika koju ste učitali nije važeća."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nemate dopuštenje za učitavanje datoteka."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Nemate dovoljno prostora u korisničkom direktoriju. Datoteka koju učitavate "
+"ima {$fileUploadSize} kb, a vama je preostalo {$dirSizeLeft} kb."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datum mora biti u formatu GGGG-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Datum početka ne može biti kasniji od datuma završetka."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Datum početka ne može biti raniji od 1.1.2001."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Datum završetka ne može biti kasniji od jučer."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Vaš zahtjev nije valjan. Interval vremenske trake mora biti `dan` ili "
+"`mjesec`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Vaš zahtjev nije valjan. Smjer redoslijeda mora biti \"desc\" ili \"asc\"."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Ne možete mijenjati pridruživanje datoteka bez prosljeđivanja assocType i "
+"assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Ne možete pridružiti datoteku iz ove faze datoteke s drugom datotekom za "
+"podnošenje."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Ne možete pridružiti datoteku iz ove faze datoteke s bilješkom o raspravi."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Ne možete pridružiti datoteku iz ove faze datoteke s krugom pregleda."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Morate navesti krug pregleda kada tražite datoteke u fazi pregleda."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Morate osigurati fazu datoteke."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Faza datoteke koju ste naveli nije važeća."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "U zahtjevu za uređivanje ove datoteke nisu pronađene promjene."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Morate dati ID kruga pregleda kada premještate datoteku u ovu fazu datoteke."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Krug pregleda koji ste dostavili nije dio ovog podneska."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nije vam dopušten pristup ovim datotekama."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nemate dopuštenje za dodavanje i uređivanje ovih datoteka."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nije vam dopušten pristup datotekama u ovom krugu pregleda."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Vaš zahtjev nije moguće ispuniti jer nedostaju potrebni podaci."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Traženi volumen, broj ili godina nisu važeći."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Nije vam dopušteno podnošenje u ovoj korisničkoj ulozi."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Vaš zahtjev je odbijen. To može biti zato što je vaša prijava istekla. "
+"Pokušajte ponovo učitati stranicu i pokušajte ponovno."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Ne možete izbrisati podnesak koji nije dodijeljen ovom kontekstu."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Možete vidjeti samo neobjavljene podneske kojima ste dodijeljeni."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nemate dopuštenje za brisanje ovog podneska."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nije vam dopušteno uređivati ovu publikaciju."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ova krajnja točka nije dostupna iz konteksta. Mora joj se pristupiti iz "
+"imenskog prostora na cijeloj stranici."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Aktivna tema, {$themePluginPath}, nije omogućena i možda se neće instalirati."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Jezik {$locale} nije podržan."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Email koji ste tražili nije pronađen."

@@ -180,22 +180,22 @@
 							<nav class="app__breadcrumbs" role="navigation" aria-label="{translate key="navigation.breadcrumbLabel"}">
 								<ol>
 									{foreach from=$breadcrumbs item="breadcrumb" name="breadcrumbs"}
+										{assign var=_format value=$breadcrumb.format|default:'text'|lower}
+
+										{if $_format === 'text'}
+											{assign var=_name value=$breadcrumb.name|escape}
+										{else}
+											{assign var=_name value=$breadcrumb.name|strip_unsafe_html}
+										{/if}
+										
 										<li>
 											{if $smarty.foreach.breadcrumbs.last}
 												<span aria-current="page">
-													{if $breadcrumb.unscapeHtml}
-														{$breadcrumb.name|unescape:'html'}
-													{else}
-														{$breadcrumb.name|escape}
-													{/if}
+													{$_name}
 												</span>
 											{else}
 												<a href="{$breadcrumb.url|escape}">
-													{if $breadcrumb.unscapeHtml}
-														{$breadcrumb.name|unescape:'html'}
-													{else}
-														{$breadcrumb.name|escape}
-													{/if}
+													{$_name}
 												</a>
 												<span class="app__breadcrumbsSeparator" aria-hidden="true">{translate key="navigation.breadcrumbSeparator"}</span>
 											{/if}

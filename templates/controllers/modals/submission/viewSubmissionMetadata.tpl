@@ -9,7 +9,7 @@
  *}
 
 <div id="viewSubmissionMetadata" class="">
-	<h3>{$publication->getLocalizedFullTitle(null, 'html')|unescape:'html'}</h3>
+	<h3>{$publication->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}</h3>
 	{if $authors}<h4>{$authors|escape}</h4>{/if}
 	<div class="abstract">
 		{$publication->getLocalizedData('abstract')|strip_unsafe_html}

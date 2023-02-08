@@ -22,6 +22,12 @@
 	{/if}
 {/if}
 
+{if $column->hasFlag('format')}
+	{assign var=_format value=$column->getFlag('format')|lower}
+{else}
+	{assign var=_format value='text'|lower}
+{/if}
+
 {* Handle escaping as needed *}
 {if $column->hasFlag('anyhtml')}
 	{* Any HTML is allowed; do not escape anything *}
@@ -46,6 +52,6 @@
 
 {if count($actions) gt 0}
 	{foreach from=$actions item=action}
-		{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId anyhtml=$column->hasFlag('anyhtml') unescapehtml=$column->hasFlag('unescape_html')}
+		{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId anyhtml=$column->hasFlag('anyhtml') html=$column->hasFlag('html')}
 	{/foreach}
 {/if}

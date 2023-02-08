@@ -26,7 +26,7 @@ class FieldRichText extends Field
     public $size = 'oneline';
 
     /** @var string Optional. A preset toolbar configuration. */
-    public $toolbar = 'bold italic underline superscript subscript';
+    public $toolbar = 'formatgroup';
 
     /** @var array Optional. A list of required plugins. */
     public $plugins = 'paste';
@@ -37,7 +37,7 @@ class FieldRichText extends Field
     public function getConfig()
     {
         $config = parent::getConfig();
-        
+
         $config['toolbar']  = $this->toolbar;
         $config['plugins']  = $this->plugins;
         $config['size']     = $this->size;

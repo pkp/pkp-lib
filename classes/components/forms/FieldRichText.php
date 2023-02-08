@@ -28,9 +28,6 @@ class FieldRichText extends Field
     /** @var string Optional. A preset toolbar configuration. */
     public $toolbar = 'bold italic underline superscript subscript';
 
-    /** @var int Optional. When a word limit is specified a word counter will be shown */
-    public $wordLimit = 0;
-
     /** @var array Optional. A list of required plugins. */
     public $plugins = 'paste';
 
@@ -40,20 +37,13 @@ class FieldRichText extends Field
     public function getConfig()
     {
         $config = parent::getConfig();
-        $config['toolbar'] = $this->toolbar;
-        $config['plugins'] = $this->plugins;
+        
+        $config['toolbar']  = $this->toolbar;
+        $config['plugins']  = $this->plugins;
+        $config['size']     = $this->size;
 
         if (!empty($this->init)) {
             $config['init'] = $this->init;
-        }
-
-        if (!empty($this->size)) {
-            $config['size'] = $this->size;
-        }
-        
-        if ($this->wordLimit) {
-            $config['wordLimit'] = $this->wordLimit;
-            $config['wordCountLabel'] = __('publication.wordCount');
         }
 
         return $config;

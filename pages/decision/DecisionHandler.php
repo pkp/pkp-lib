@@ -214,7 +214,7 @@ class DecisionHandler extends Handler
             [
                 'id' => 'submission',
                 'name' => $submissionTitle,
-                'unscapeHtml' => true,
+                'format' => 'html',
                 'url' => $dispatcher->url(
                     $request,
                     Application::ROUTE_PAGE,

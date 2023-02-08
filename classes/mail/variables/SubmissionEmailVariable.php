@@ -79,7 +79,7 @@ abstract class SubmissionEmailVariable extends Variable
             self::SUBMISSION_ABSTRACT => PKPString::stripUnsafeHtml($this->currentPublication->getLocalizedData('abstract', $locale)),
             self::SUBMISSION_ID => (string) $this->submission->getId(),
             self::SUBMISSION_PUBLISHED_URL => $this->getSubmissionPublishedUrl($this->getContext()),
-            self::SUBMISSION_TITLE => PKPString::stripUnsafeHtml($this->currentPublication->getLocalizedFullTitle($locale, 'html'), 'allowed_title_html'),
+            self::SUBMISSION_TITLE => $this->currentPublication->getLocalizedFullTitle($locale, 'html'),
             self::SUBMISSION_URL => $this->getSubmissionUrl($context),
             self::SUBMISSION_WIZARD_URL => $this->getSubmissionWizardUrl($context),
         ];

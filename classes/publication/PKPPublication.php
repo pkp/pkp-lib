@@ -120,13 +120,24 @@ class PKPPublication extends \PKP\core\DataObject
         $title = $this->getLocalizedData('title', $preferredLocale, $usedLocale);
         $prefix = $this->getData('prefix', $usedLocale);
 
-        if (strtolower($format) === 'text') {
-            $title = strip_tags($title);
+        switch (strtolower($format)) {
+            case 'html':
+                // Title is already in HTML, prefix is in text. Convert prefix.
+                if ($prefix) {
+                    $prefix = htmlspecialchars($prefix);
+                }
+                break;
+            case 'text':
+                // Title is in HTML, prefix is already in text. Convert title.
+                $title = strip_tags($title);
+                break;
+            default: throw new \Exception('Invalid format!');
         }
         
         if ($prefix) {
-            return $prefix . ' ' . $title;
+            $title = $prefix . ' ' . $title;
         }
+
         return $title;
     }
 
@@ -136,7 +147,7 @@ class PKPPublication extends \PKP\core\DataObject
      * @param  string $preferredLocale  Override the publication's default locale and return the title in a specified locale.
      * @param  string $format           Define the return data format as text or html
      *
-     * @return string|null
+     * @return string
      */
     public function getLocalizedSubTitle($preferredLocale = null, string $format = 'text')
     {
@@ -146,7 +157,7 @@ class PKPPublication extends \PKP\core\DataObject
             return strtolower($format) === 'text' ? strip_tags($subTitle) : $subTitle;
         }
 
-        return null;
+        return '';
     }
 
     /**

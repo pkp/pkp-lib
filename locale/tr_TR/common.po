@@ -1,11 +1,11 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023.
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-10-24 16:34+0000\n"
+"PO-Revision-Date: 2023-02-09 21:27+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr_TR/>\n"
@@ -2195,3 +2195,51 @@ msgstr "Yazar eklendi."
 msgid "notification.editedAuthor"
 msgstr "Yazar düzeltildi."
 
+msgid "common.discardChanges"
+msgstr "Hayır, kaydedilmemiş değişiklikleri sil"
+
+msgid "common.noneSelected"
+msgstr "Hiçbiri seçilmedi"
+
+msgid "common.reconnecting"
+msgstr "Yeniden bağlan"
+
+msgid "common.role"
+msgstr "Rol"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} adım"
+
+msgid "common.uploadedByAndWhen"
+msgstr "{$name} tarafından {$date} tarihinde yüklendi"
+
+msgid "common.unsavedChanges"
+msgstr "Değişiklikler Kaydedilmedi"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"{$when} tarihinden bu yana kaydedilmemiş değişiklikler bulduk. Bu durum "
+"çalışırken sunucu bağlantınızı kaybetmenizden kaynaklı olabilir. Bu "
+"değişiklikleri yüklemek, o zamandan beri yaptığınız tüm değişikliklerin "
+"üzerine yazabilir. Bu değişiklikleri geri yüklemek ister misiniz?"
+
+msgid "common.details"
+msgstr "Detaylar"
+
+msgid "common.disconnected"
+msgstr "Bağlantı kesildi"
+
+msgid "common.emailTemplates"
+msgstr "E-posta Şablonları"
+
+msgid "common.label"
+msgstr "Etiket"
+
+msgid "common.lastSaved"
+msgstr "Son kayıt {$when}"
+
+msgid "common.noneProvided"
+msgstr "Sağlanmadı"
+
+msgid "common.uploadedBy"
+msgstr "{$name} tarafından yüklendi"

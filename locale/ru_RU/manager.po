@@ -1976,6 +1976,7 @@ msgstr "URL материала в бэкенде редакции"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "ФИО авторов"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Имена авторов в форме короткой строки"
 
@@ -2005,12 +2006,6 @@ msgstr "ФИО отправителя"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL задания на рецензию"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Дата, когда рецензирование должно быть завершено"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Дата, когда рецензент должен принять или отклонить задание на рецензию"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Логин получателя или всех получателей"

@@ -906,6 +906,7 @@ msgstr "Жіберуге автордың URL мекенжайы"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Авторлардың толық аты-жөні"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Қысқа жол түріндегі автор есімдері"
 
@@ -966,32 +967,31 @@ msgstr "Ұсынылған шешім, мысалы, жіберуді қабыл
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "Тексеру тапсырмасының URL мекенжайы"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Рецензиялауды аяқтау керек күн"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Рецензент шолу тапсырмасын қабылдау немесе қабылдамау керек күні"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Алушының немесе барлық алушылардың логині"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Алушының немесе барлық алушылардың аты-жөні"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Шешім қайта қарау қадамымен байланысты болса, бұл шешім қабылданған шолу "
 "кезеңі."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Шешім қабылданған редакциялық жұмыс үрдісіндегі қадам."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Қабылданған шешімнің сипаттамасы."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Қабылданған шешімнің атауы."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "Барлық пайдаланушы тағайындаған жіберулерді көру үшін URL мекенжайы."
 
@@ -2724,6 +2724,7 @@ msgstr "Біз бұл материалды қабылдамау туралы ш�
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Біз бұл материалды түзетусіз қабылдауды таңдадық."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Осы шешім туралы рецензенттерге жіберілген электрондық пошта хабарламасында "

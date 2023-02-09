@@ -2235,12 +2235,6 @@ msgstr "El nombre completo del remitente"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "La URL a la asignación de revisión"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Fecha en que la revisión debería haberse completado"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Fecha en que el revisor/a debería aceptar o rechazar la asignación"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "El nombre de usuario/a del destinatario/a o todos los destinatarios/as"
 

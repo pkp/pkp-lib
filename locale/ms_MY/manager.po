@@ -674,12 +674,6 @@ msgstr "URL untuk tugasan ulasan"
 msgid "manager.reviewFormElements.viewable"
 msgstr "Boleh dilihat (untuk pengarang)"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Tarikh ulasan perlu disiapkan"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Tarikh apabila pengulas harus menerima atau menolak tugasan"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Nama pengguna penerima atau semua penerima"
 

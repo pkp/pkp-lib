@@ -2118,15 +2118,6 @@ msgstr "Der volle Name der Absenderin/des Absenders"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Die URL zu der zugeordneten Begutachtung"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
-"Datum, zu dem die begutachtende Person die Begutachtung fertig stellen soll"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
-"Datum, zu dem die begutachtende Person die Zuordnung annehmen oder ablehnen "
-"soll"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr ""
 "Der Benutzer/innenname der Empfängerin/des Empfängers oder aller Empfangenden"
@@ -2172,6 +2163,7 @@ msgstr ""
 msgid "mailable.discussionMessage.name"
 msgstr "Neuer Diskussionsbeitrag"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Autorennamen in Form einer verkürzten Zeichenfolge"
 

@@ -2002,6 +2002,7 @@ msgstr "الرابط المؤدي إلى طلب التقديم من وجهة ه�
 msgid "emailTemplate.variable.submission.authors"
 msgstr "الأسماء الكاملة للمؤلفين"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "أسماء المؤلفين بصيغة جملة مختصرة"
 
@@ -2031,12 +2032,6 @@ msgstr "الاسم الكامل للمرسل"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "رابط مهمة التحكيم"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "التاريخ الذي ينبغي فيه إكمال التحكيم"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "التاريخ الذي على المحكم فيه قبول المهمة أو رفضها"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "اسم المستخدم للمتلقي أو كل المتلقين"
@@ -2305,20 +2300,25 @@ msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً ا�
 msgid "emailTemplate.variable.recommendation"
 msgstr "القرار الموصى به، مثل قبول طلب التقديم"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
 "تحكيم."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "وصف القرار الذي تم اتخاذه."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "اسم القرار الذي تم اتخاذه."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
 
@@ -2381,6 +2381,7 @@ msgstr ""
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr "التحكيم متخطى"
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "وصف موجز للقرار الذي من المزمع مشاركته عبر إشعار بريد الكتروني يُرسل إلى "
@@ -2616,6 +2617,7 @@ msgstr "عدد طلبات التقديم المعينة لهذا المحرر"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "قائمة بطلبات التقديم التي لها مهام معلقة"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
 

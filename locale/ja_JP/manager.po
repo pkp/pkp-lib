@@ -84,12 +84,6 @@ msgstr "送信者のフルネーム"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "査読者任命のURL"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "査読を終えるべき日付"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "査読者が任命を承諾または辞退すべき日付"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "受信者または全受信者のユーザー名"
 

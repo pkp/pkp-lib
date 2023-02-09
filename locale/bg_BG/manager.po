@@ -1904,6 +1904,7 @@ msgstr "Избрахме да отхвърлим това подаване на 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Избрахме да приемем това подаване на материали без ревизии."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Кратко описание на това решение, което е предназначено да бъде споделено в "
@@ -1973,6 +1974,7 @@ msgstr "URL адрес на автора към подадените матер�
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Пълните имена на авторите"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Имена на автори под формата на съкратен низ"
 
@@ -2036,32 +2038,31 @@ msgstr "Препоръчителното решение, като \"Приема
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "URL адресът на заданието за рецензия"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Дата, на която трябва да приключи рецензирането"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Дата, на която рецензентът трябва да приеме или отхвърли заданието"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Потребителското име на получателя или на всички получатели"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Пълното име на получателя или на всички получатели"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "В кръга на рецензиране е взето това решение, ако решението е свързано с етап "
 "на рецензиране."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "На етапа на редакционния работен процес е взето това решение."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Описание на взетото решение."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Име (заглавие) на взетото решение."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
 "URL адресът за преглед на всички присвоени от потребителя заявки за подаване "
@@ -3082,6 +3083,7 @@ msgstr "Уникални"
 msgid "stats.unknown"
 msgstr "неизвестен"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL адресът за потребителя, за да преглежда и редактира своя профил."
 

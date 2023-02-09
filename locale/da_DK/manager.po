@@ -2289,6 +2289,7 @@ msgstr "Indsendelsens URL i den redaktionelle backend"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Forfatternes fulde navne"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Forfatternavne i form af en forkortet streng"
 
@@ -2320,12 +2321,6 @@ msgstr "Afsenders fulde navn"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Webadressen til bedømmelsestildelingen"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Dato for, hvornår anmeldelsen skal være afsluttet"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Dato, hvor korrekturlæseren skal acceptere eller afvise opgaven"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Modtagerens eller alle modtagers brugernavn"
@@ -2622,6 +2617,7 @@ msgstr "Vi har besluttet af afvise denne indsendelse."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Vi har besluttet af acceptere denne indsendelse uden revisioner."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "En kort beskrivelse af denne beslutning, som er ment til at blive delt i en "
@@ -2681,21 +2677,26 @@ msgstr ""
 msgid "emailTemplate.variable.recommendation"
 msgstr "Den anbefalede beslutning, som fx Accepter Indsendelse"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Bedømmelsesrunden, hvor denne beslutning blev truffet, hvis beslutningen er "
 "relateret til bedømmelsestrinnet."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr ""
 "Trinnet af det redaktionelle workflow, hvor denne beslutning blev truffet."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "En beskrivelse af den trufne beslutning."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Navnet på beslutningen, der blev truffet."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "URL til at se alle brugerens tildelte indsendelser."
 
@@ -2949,6 +2950,7 @@ msgstr "Antallet af indsendelser, der er tildelt denne redaktør"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "En liste af indsendelser med uafsluttede opgaver"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL til en side, hvor brugeren kan se og redigere sin profil."
 

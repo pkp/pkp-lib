@@ -2777,24 +2777,24 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "The URL to a page where the user can recover a lost password"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "The URL to view all of a user's assigned submissions."
+msgstr "The URL to view all of a user's assigned submissions"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "The URL for a user to view and edit their profile."
+msgstr "The URL for a user to view and edit their profile"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr "The name of the decision that was taken."
+msgstr "The name of the decision that was taken"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr "A description of the decision that was taken."
+msgstr "A description of the decision that was taken"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr "The stage of the editorial workflow this decision was taken in."
+msgstr "The stage of the editorial workflow this decision was taken in"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "The round of review this decision was taken in, if the decision is related "
-"to a review stage."
+"to a review stage"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "The subject of the discussion"
@@ -2815,10 +2815,10 @@ msgid "emailTemplate.variable.recipient.username"
 msgstr "The username of the recipient or all recipients"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Date when the reviewer should accept or decline the assignment"
+msgstr "Date when the review should be completed"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Date when the review should be completed"
+msgstr "Date when the reviewer should accept or decline the assignment"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "The URL to the review assignment"
@@ -2880,7 +2880,7 @@ msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "The submission's abstract"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Author names in a form of a shortened string"
+msgstr "The names of the authors in a short string, like \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "The full names of the authors"
@@ -3004,7 +3004,7 @@ msgstr ""
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "A short description of this decision that is intended to be shared in an "
-"email notification sent to reviewers about this decision."
+"email notification sent to reviewers about this decision"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "We have chosen to accept this submission without revisions."

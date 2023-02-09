@@ -46,6 +46,8 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
     /** Include records for these submission files */
     protected array $submissionFileIds = [];
 
+    /** Application specific name of the section column  */
+    abstract public function getSectionColumn(): string;
 
     /**
      * Set the sections/series to get records for
@@ -163,7 +165,7 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
         $q->whereBetween(PKPStatisticsHelper::STATISTICS_DIMENSION_DATE, [$this->dateStart, $this->dateEnd]);
 
         if (!empty($this->pkpSectionIds)) {
-            $sectionColumn = 'p.' . $this->sectionColumn;
+            $sectionColumn = 'p.' . $this->getSectionColumn();
             $sectionSubmissionIds = DB::table('publications as p')->select('p.submission_id')->distinct()
                 ->from('publications as p')
                 ->where('p.status', Submission::STATUS_PUBLISHED)

@@ -457,6 +457,7 @@ msgstr ""
 "php</tt> em um editor de texto adequado e substitua seu conteúdo pelo "
 "conteúdo do campo de texto abaixo.</p>"
 
+#, fuzzy
 msgid "installer.installationComplete"
 msgstr ""
 "<p>A instalação do OPS foi concluída com sucesso.</p>\n"
@@ -471,6 +472,7 @@ msgstr ""
 "suporte</a> se tiver dúvidas ou comentários.</li>\n"
 "</ol>"
 
+#, fuzzy
 msgid "installer.upgradeComplete"
 msgstr ""
 "<p>A atualização do OPS para a versão {$version} foi concluída com sucesso.</"

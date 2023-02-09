@@ -449,17 +449,17 @@ class Mailable extends IlluminateMailable
         }
 
         foreach ($args as $arg) { /** @var ReflectionParameter $arg) */
-            $class = $arg->getType()->getName();
+            $argClassName = $arg->getType()->getName();
 
-            if (!array_key_exists($class, $map)) {
-                continue;
+            foreach ($map as $dataClass => $variableClass) {
+                if (is_a($argClassName, $dataClass, true)) {
+                    $descriptions = array_merge(
+                        $descriptions,
+                        $variableClass::descriptions()
+                    );
+                    continue 2;
+                }
             }
-
-            // No special treatment for others
-            $descriptions = array_merge(
-                $descriptions,
-                $map[$class]::descriptions()
-            );
         }
 
         return $descriptions;

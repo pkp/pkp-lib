@@ -43,7 +43,9 @@ msgid "manager.announcements.form.dateExpire"
 msgstr "Son Tarih"
 
 msgid "manager.announcements.form.dateExpireInstructions"
-msgstr "Duyuru, bu tarihe kadar okuyuculara gösterilir. Duyurunun sürekli görüntülenmesi için boş bırakın."
+msgstr ""
+"Duyuru, bu tarihe kadar okuyuculara gösterilir. Duyurunun sürekli "
+"görüntülenmesi için boş bırakın."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Lütfen son tarih için ay bilgisinin yanı sıra gün ve yıl da seçiniz."
@@ -52,7 +54,9 @@ msgid "manager.announcements.form.dateExpireValid"
 msgstr "Lütfen geçerli bir son duyuru tarihi seçiniz."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Lütfen son tarih için yıl bilgisinin yanı sıra son tarih için gün ve ay da belirleyiniz."
+msgstr ""
+"Lütfen son tarih için yıl bilgisinin yanı sıra son tarih için gün ve ay da "
+"belirleyiniz."
 
 msgid "manager.announcements.form.description"
 msgstr "Duyuru"
@@ -100,7 +104,9 @@ msgid "manager.announcementTypes"
 msgstr "Duyuru tipleri"
 
 msgid "manager.announcementTypes.confirmDelete"
-msgstr "Uyarı! Bu duyuru türü ve bu tür ile kayıtlı tüm duyurular silinecektir. Devan etmek ve bu duyuru türlerini silmek itediğinizden emin misiniz?"
+msgstr ""
+"Uyarı! Bu duyuru türü ve bu tür ile kayıtlı tüm duyurular silinecektir. "
+"Devan etmek ve bu duyuru türlerini silmek itediğinizden emin misiniz?"
 
 msgid "manager.announcementTypes.create"
 msgstr "Duyuru Türü Oluştur"
@@ -169,7 +175,9 @@ msgid "manager.filesBrowser"
 msgstr "Dosya Tarayıcı"
 
 msgid "manager.files.confirmDelete"
-msgstr "Bu dosyayı veya dizini silmek istiyor musunuz? Bir dizinin silinebilmesi için boş olması gerekir."
+msgstr ""
+"Bu dosyayı veya dizini silmek istiyor musunuz? Bir dizinin silinebilmesi "
+"için boş olması gerekir."
 
 msgid "manager.files.createDir"
 msgstr "Dizin oluştur"
@@ -223,7 +231,10 @@ msgid "manager.importExport"
 msgstr "Veri Alma/Verme"
 
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Bu sistem isteğe bağlı olarak çeşitli dillerde bazı önemli bilgilerin girilmesine izin verir. Bu özelliği kullanmak için, alternatif diller seçin ve aşağıdaki seçeneklerden birini kulanın."
+msgstr ""
+"Bu sistem isteğe bağlı olarak çeşitli dillerde bazı önemli bilgilerin "
+"girilmesine izin verir. Bu özelliği kullanmak için, alternatif diller seçin "
+"ve aşağıdaki seçeneklerden birini kulanın."
 
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
@@ -244,7 +255,8 @@ msgid "manager.people.createUserGeneratePassword"
 msgstr "Rasgele bir şifre oluştur."
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Üyeye kullanıcı adını ve şifresini içeren bir hoş geldin e-postası gönder."
+msgstr ""
+"Üyeye kullanıcı adını ve şifresini içeren bir hoş geldin e-postası gönder."
 
 msgid "manager.people.disable"
 msgstr "Pasifleştir"
@@ -306,7 +318,10 @@ msgid "manager.people.mergeUser"
 msgstr "Kullanıcıyı birleştir"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "{$oldAccountCount} adlı üyenin hesap bilgilerini {$newUsername} alı üyenin hesabına taşımak istediğinizden emin misiniz? {$oldAccountCount} adlı üye hesabı kapatılacaktır ve bu işlemin geri dönüşü yoktur."
+msgstr ""
+"{$oldAccountCount} adlı üyenin hesap bilgilerini {$newUsername} alı üyenin "
+"hesabına taşımak istediğinizden emin misiniz? {$oldAccountCount} adlı üye "
+"hesabı kapatılacaktır ve bu işlemin geri dönüşü yoktur."
 
 msgid "manager.people.mergeUsers"
 msgstr "Üyeleri Birleştir"
@@ -363,7 +378,9 @@ msgid "manager.plugins.pluginManagement"
 msgstr "Eklenti Yönetimi"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Bu tüm siteyi ilgilendiren bir eklentidir. Yalnız site yöneticisi eklentiyi kullanabilir."
+msgstr ""
+"Bu tüm siteyi ilgilendiren bir eklentidir. Yalnız site yöneticisi eklentiyi "
+"kullanabilir."
 
 msgid "manager.plugins"
 msgstr "Sistem Eklentileri"
@@ -384,13 +401,17 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Bu öğe silinirken bir hata oluştu."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir."
+msgstr ""
+"Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri ."
+"gif, .jpg, veya .png biçimleridir."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Giriş ve Denetim"
 
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir."
+msgstr ""
+"Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri ."
+"gif, .jpg, veya .png biçimleridir."
 
 msgid "manager.statistics"
 msgstr "İstatistikler ve Raporlar"
@@ -411,7 +432,9 @@ msgid "plugins.categories.blocks"
 msgstr "Blok Eklentileri"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Blok Eklentileri, çeşitli kenar çubuğu araçları gibi eklenip kaldırılabilir kullanıcı ara yüz bileşenleridir."
+msgstr ""
+"Blok Eklentileri, çeşitli kenar çubuğu araçları gibi eklenip kaldırılabilir "
+"kullanıcı ara yüz bileşenleridir."
 
 msgid "plugins.categories.gateways.description"
 msgstr "Geçiş Eklentileri diğer sistemlere anında veri sunulması içindir."
@@ -423,19 +446,25 @@ msgid "plugins.categories.generic"
 msgstr "Genel Eklentiler"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Veri Alma/Verme Eklentileri içeriğin başka sistemlere taşınması için kullanılırlar."
+msgstr ""
+"Veri Alma/Verme Eklentileri içeriğin başka sistemlere taşınması için "
+"kullanılırlar."
 
 msgid "plugins.categories.importexport"
 msgstr "Veri Alma/Verme Eklentileri"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Ödeme Yöntemi eklentisi çevrimiçi ödeme sürecini çeşitli yollarla desteklemyi sağlar."
+msgstr ""
+"Ödeme Yöntemi eklentisi çevrimiçi ödeme sürecini çeşitli yollarla "
+"desteklemyi sağlar."
 
 msgid "plugins.categories.paymethod"
 msgstr "Ödeme Eklentileri"
 
 msgid "plugins.categories.reports.description"
-msgstr "Rapor eklentileri çeşitli türde veri özetleri ve rapor sağlamak için kullanılır."
+msgstr ""
+"Rapor eklentileri çeşitli türde veri özetleri ve rapor sağlamak için "
+"kullanılır."
 
 msgid "plugins.categories.reports"
 msgstr "Rapor Eklentileri"
@@ -485,7 +514,9 @@ msgstr ""
 "önceden doldurulur."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png."
+msgstr ""
+"Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: ."
+"gif, .jpg veya .png."
 
 msgid "plugins.categories.metadata"
 msgstr "Üst Veri Eklentileri"
@@ -503,7 +534,10 @@ msgid "manager.website"
 msgstr "Web Sitesi"
 
 msgid "manager.reviewFormElement.changeType"
-msgstr "Warning: Changing the review form element type from a multiple-choice type to an open-ended type will result in the deletion of the multiple choice options."
+msgstr ""
+"Warning: Changing the review form element type from a multiple-choice type "
+"to an open-ended type will result in the deletion of the multiple choice "
+"options."
 
 msgid "manager.reviewFormElements"
 msgstr "Form Öğeleri"
@@ -590,7 +624,13 @@ msgid "manager.reviewForms.inReview"
 msgstr "Değerlendirmede"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Burada oluşturulan değerlendirme formları hazır değerlendirme formu yerine kullanılır. Hazır değerlendirme formu iki tane metin kutusu içerir ve bunlardan iki \"editör ve yazar\" için, ikincisi \"editör\" içindir. Değerlendirme formları dergi bölümlerine yönelik ayrı ayrı oluşturulabilir. Oluşturulan formlar hakem ataması sırasında seçilebilir. Her durumda, editörler yazar ile ilgili değerlendirme seçeneğine sahip olabileceklerdir."
+msgstr ""
+"Burada oluşturulan değerlendirme formları hazır değerlendirme formu yerine "
+"kullanılır. Hazır değerlendirme formu iki tane metin kutusu içerir ve "
+"bunlardan iki \"editör ve yazar\" için, ikincisi \"editör\" içindir. "
+"Değerlendirme formları dergi bölümlerine yönelik ayrı ayrı oluşturulabilir. "
+"Oluşturulan formlar hakem ataması sırasında seçilebilir. Her durumda, "
+"editörler yazar ile ilgili değerlendirme seçeneğine sahip olabileceklerdir."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Hayır / Serbest Değerlendirme Formu"
@@ -611,7 +651,9 @@ msgid "manager.website.appearance"
 msgstr "Görünüm"
 
 msgid "manager.website.imageFileRequired"
-msgstr "Bir görsel dosyası gerekli. Lütfen bir dosya seçtiğinizden ve yüklediğinizden emin olun."
+msgstr ""
+"Bir görsel dosyası gerekli. Lütfen bir dosya seçtiğinizden ve "
+"yüklediğinizden emin olun."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Arama sayfası bağlantısı."
@@ -698,7 +740,8 @@ msgid "manager.plugins.deleteConfirm"
 msgstr "Bu eklentiyi sistemden silmek istediğinizden emin misiniz?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr "Sil tuşuna basarsanız, eklenti sunucunun dosya sisteminden silinecektir."
+msgstr ""
+"Sil tuşuna basarsanız, eklenti sunucunun dosya sisteminden silinecektir."
 
 msgid "manager.plugins.deleteSuccess"
 msgstr "\"{$pluginName}\" eklentisi başarılı bir şekilde silindi"
@@ -734,13 +777,17 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Resmi"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Bu eklenti, Public Knowledge Project ekibi tarafından geliştirilmekte ve sürdürülmektedir."
+msgstr ""
+"Bu eklenti, Public Knowledge Project ekibi tarafından geliştirilmekte ve "
+"sürdürülmektedir."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Değerlendirildi"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Bu eklenti, Public Knowledge Project ekibi tarafından gözden geçirildi ve onaylandı."
+msgstr ""
+"Bu eklenti, Public Knowledge Project ekibi tarafından gözden geçirildi ve "
+"onaylandı."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Ortak"
@@ -794,19 +841,24 @@ msgid "manager.plugins.installSuccessful"
 msgstr "Başarıyla yüklenmiş sürüm {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
-msgstr "Yüklenen eklenti arşivi, eklenti adına karşılık gelen bir klasör içermiyor."
+msgstr ""
+"Yüklenen eklenti arşivi, eklenti adına karşılık gelen bir klasör içermiyor."
 
 msgid "manager.plugins.wrongCategory"
 msgstr "Yüklenen eklenti, yükseltilmiş eklentinin kategorisine uymuyor."
 
 msgid "manager.plugins.wrongName"
-msgstr "Yüklenen eklenti içindeki version.xml, yükseltilmiş eklentinin ismine uymayan bir eklenti adı içeriyor."
+msgstr ""
+"Yüklenen eklenti içindeki version.xml, yükseltilmiş eklentinin ismine "
+"uymayan bir eklenti adı içeriyor."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Eklenti mevcut değil. Lütfen bunun yerine yükleyin"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Eklenti zaten var, ancak yüklü sürümünden daha yeni. Lütfen bunun yerine yeni sürüme geçin"
+msgstr ""
+"Eklenti zaten var, ancak yüklü sürümünden daha yeni. Lütfen bunun yerine "
+"yeni sürüme geçin"
 
 msgid "manager.plugins.settings"
 msgstr "Ayarlar"
@@ -815,7 +867,9 @@ msgid "manager.plugins.upgrade"
 msgstr "Eklenti Güncelle"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Bu form bir eklentiyi yükseltmenize izin verir. Lütfen eklentinin .tar.gz dosyası olarak sıkıştırıldığından emin olun."
+msgstr ""
+"Bu form bir eklentiyi yükseltmenize izin verir. Lütfen eklentinin .tar.gz "
+"dosyası olarak sıkıştırıldığından emin olun."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Güncelleme başarısız oldu. {$errorString}"
@@ -875,7 +929,9 @@ msgid "manager.paymentMethod.currency"
 msgstr "Para birimi"
 
 msgid "manager.paymentMethod.currency.description"
-msgstr "Doğrudan bu web sitesi üzerinden yapılan ödemeler seçilen para biriminde belirtilecektir."
+msgstr ""
+"Doğrudan bu web sitesi üzerinden yapılan ödemeler seçilen para biriminde "
+"belirtilecektir."
 
 msgid "settings.roles.roleOptions"
 msgstr "Rol Seçenekleri"
@@ -887,7 +943,9 @@ msgid "settings.roles.permitSelfRegistration"
 msgstr "Kullanıcıların kendi kaydına izin ver"
 
 msgid "settings.roles.recommendOnly"
-msgstr "Bu rolün yalnızca bir gözden geçirme kararının önerilmesine izin verilir ve nihai bir kararı kaydetmesi için yetkili bir editör gerektirecektir."
+msgstr ""
+"Bu rolün yalnızca bir gözden geçirme kararının önerilmesine izin verilir ve "
+"nihai bir kararı kaydetmesi için yetkili bir editör gerektirecektir."
 
 msgid "settings.roles.roleName"
 msgstr "Rol Adı"
@@ -908,7 +966,9 @@ msgid "settings.roles.from"
 msgstr "İzin seviyesi"
 
 msgid "settings.roles.removeText"
-msgstr "Bu rolü bu bağlamdan kaldırmak üzeresiniz. Bu işlem ayrıca ilgili ayarları ve bu role tüm kullanıcı atamaları da siler. Devam etmek istiyor musun?"
+msgstr ""
+"Bu rolü bu bağlamdan kaldırmak üzeresiniz. Bu işlem ayrıca ilgili ayarları "
+"ve bu role tüm kullanıcı atamaları da siler. Devam etmek istiyor musun?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Bir rol adı tanımlamanız gerekli."
@@ -968,7 +1028,9 @@ msgid "settings.roles.stageIdRequired"
 msgstr "Atamak için bir adım tanımlamanız gerekir."
 
 msgid "settings.libraryFiles.fileRequired"
-msgstr "Bir kütüphane dosyası gereklidir. Lütfen bir dosya seçip yüklediğinizden emin olun."
+msgstr ""
+"Bir kütüphane dosyası gereklidir. Lütfen bir dosya seçip yüklediğinizden "
+"emin olun."
 
 msgid "settings.libraryFiles.nameRequired"
 msgstr "Bu kütüphane dosyası için bir ad gereklidir."
@@ -1012,19 +1074,25 @@ msgid "manager.setup.authorCopyrightNotice"
 msgstr "Telif Hakkı Bildirimi"
 
 msgid "manager.setup.authorCopyrightNoticeAgree"
-msgstr "Gönderi sürecinin bir parçası olarak yazarların Telif Hakkı Bildirimini kabul etmesini isteyin."
+msgstr ""
+"Gönderi sürecinin bir parçası olarak yazarların Telif Hakkı Bildirimini "
+"kabul etmesini isteyin."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Yazar Rehberleri"
 
 msgid "manager.setup.authorGuidelines.description"
-msgstr "Tavsiye edilen yönergeler, bibliyografik ve düzenleme standartlarını, gönderide kullanılacak ortak alıntı formatlarının örneklerini içerir."
+msgstr ""
+"Tavsiye edilen yönergeler, bibliyografik ve düzenleme standartlarını, "
+"gönderide kullanılacak ortak alıntı formatlarının örneklerini içerir."
 
 msgid "manager.setup.competingInterests"
 msgstr "Çıkar Çatışması"
 
 msgid "manager.setup.competingInterestsDescription"
-msgstr "Hakemlerden, aşağıda belirttiğiniz çıkar çatışması politikasına uymaları istenecektir."
+msgstr ""
+"Hakemlerden, aşağıda belirttiğiniz çıkar çatışması politikasına uymaları "
+"istenecektir."
 
 msgid "manager.setup.favicon"
 msgstr "Favori ikon"
@@ -1033,7 +1101,9 @@ msgid "settings.roles.roleIdRequired"
 msgstr "Bir rol izin düzeyi tanımlamanız gerekir."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Bu kütüphane dosyası, \"Herkese Açık Erişim\" seçeneği ile şu adresten erişilip indirilebilir: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr ""
+"<p>Bu kütüphane dosyası, \"Herkese Açık Erişim\" seçeneği ile şu adresten "
+"erişilip indirilebilir: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Eklenecek Kütüphane Dosyalarını Seç"
@@ -1060,7 +1130,9 @@ msgid "manager.setup.genres.key.exists"
 msgstr "Anahtar zaten mevcut."
 
 msgid "manager.setup.genres.key.alphaNumeric"
-msgstr "Anahtar yalnızca alfanümerik karakterler, alt çizgi ve tire içerebilir ve alfanümerik bir karakterle başlayıp bitmelidir."
+msgstr ""
+"Anahtar yalnızca alfanümerik karakterler, alt çizgi ve tire içerebilir ve "
+"alfanümerik bir karakterle başlayıp bitmelidir."
 
 msgid "manager.settings.wizard"
 msgstr "Ayarlar Sihirbazı"
@@ -1084,7 +1156,9 @@ msgid "manager.distribution.title"
 msgstr "Dağıtım Ayarları"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Bu makalenin değerlendirilmesi sırasında bir Çıkar Çatışması bildirimi isteyin."
+msgstr ""
+"Bu makalenin değerlendirilmesi sırasında bir Çıkar Çatışması bildirimi "
+"isteyin."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "Varsa, lisansı açıklayan bir web sayfasının URL'si."
@@ -1093,10 +1167,14 @@ msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "Geçici dosya {$dest}, {$source} kaynağıdan oluşturulamadı"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr "Sağlanan dosyalar \"{$expected}\" ve gerçek dosyalardaki \"{$actual}\" \"eşleşmiyor\""
+msgstr ""
+"Sağlanan dosyalar \"{$expected}\" ve gerçek dosyalardaki \"{$actual}\" "
+"\"eşleşmiyor\""
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr "Revizyon \"{$revisionId}\", \"{$fileId}\" gönderi dosyası için yinelenen bir kayıt oluşturur"
+msgstr ""
+"Revizyon \"{$revisionId}\", \"{$fileId}\" gönderi dosyası için yinelenen bir "
+"kayıt oluşturur"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Gönderi dosyası içe aktarılamadı"
@@ -1114,7 +1192,9 @@ msgid "manager.navigationMenus.form.content"
 msgstr "İçerik"
 
 msgid "manager.navigationMenus.form.pathRegEx"
-msgstr "Yol alanı sadece alfanümerik karakterler ile bilrilkte '.', '/', '-' ve '_' içermelidir."
+msgstr ""
+"Yol alanı sadece alfanümerik karakterler ile bilrilkte '.', '/', '-' ve '_' "
+"içermelidir."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr "Bu yol başka bir gezinme menüsü öğesi için zaten mevcut."
@@ -1150,28 +1230,42 @@ msgid "manager.navigationMenus.form.customUrlError"
 msgstr "Bir URL sağlanmalı"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr "Bu menü öğesinin ne zaman görüntüleneceği veya gizleneceği hakkında daha fazla bilgi edinin."
+msgstr ""
+"Bu menü öğesinin ne zaman görüntüleneceği veya gizleneceği hakkında daha "
+"fazla bilgi edinin."
 
 msgid "manager.navigationMenus.customPage.description"
-msgstr "Sitenize özel bir sayfa oluşturun ve bir gezinme menüsünde bağlantı oluşturun."
+msgstr ""
+"Sitenize özel bir sayfa oluşturun ve bir gezinme menüsünde bağlantı "
+"oluşturun."
 
 msgid "manager.navigationMenus.remoteUrl"
 msgstr "Uzak URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
-msgstr "https://pkp.sfu.ca gibi başka bir sitedeki herhangi bir URL'ye bağlantı verin."
+msgstr ""
+"https://pkp.sfu.ca gibi başka bir sitedeki herhangi bir URL'ye bağlantı "
+"verin."
 
 msgid "manager.navigationMenus.about.description"
-msgstr "Ayarlar > Dergi kısmında dergi İçeriği Hakkında'yı görüntüleyen bir sayfaya bağlantı oluştur"
+msgstr ""
+"Ayarlar > Dergi kısmında dergi İçeriği Hakkında'yı görüntüleyen bir sayfaya "
+"bağlantı oluştur"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr "Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Dergi Hakkında bölümünü doldurduysanız görüntülenir."
+msgstr ""
+"Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Dergi Hakkında bölümünü "
+"doldurduysanız görüntülenir."
 
 msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "\"Ayarlar > Dergi\" bölümündeki Yönetici Listesi içeriğini görüntüleyen bir sayfaya bağlantı verin."
+msgstr ""
+"\"Ayarlar > Dergi\" bölümündeki Yönetici Listesi içeriğini görüntüleyen bir "
+"sayfaya bağlantı verin."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr "Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Kişiler ve Kurullar bölümünü doldurduysanız görüntülenir."
+msgstr ""
+"Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Kişiler ve Kurullar "
+"bölümünü doldurduysanız görüntülenir."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Gönderi talimatlarını gösteren sayfaya bağlantı ver."
@@ -1186,7 +1280,9 @@ msgid "manager.navigationMenus.announcements.description"
 msgstr "Duyurularınızı görüntüleyen sayfaya bağlantı verin."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr "Bu bağlantı, yalnızca \"Ayarlar > Web Sitesi\" altında duyuruları etkinleştirdiyseniz görüntülenir."
+msgstr ""
+"Bu bağlantı, yalnızca \"Ayarlar > Web Sitesi\" altında duyuruları "
+"etkinleştirdiyseniz görüntülenir."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Kullanıcı giriş sayfasına bağlantı verin."
@@ -1204,7 +1300,8 @@ msgid "manager.navigationMenus.administration.description"
 msgstr "Site yönetim araçlarına bağlantı verin."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr "Bu bağlantıyı sadece yönetici yetkisine sahip olanlar görüntüleyebilir."
+msgstr ""
+"Bu bağlantıyı sadece yönetici yetkisine sahip olanlar görüntüleyebilir."
 
 msgid "manager.navigationMenus.logOut.description"
 msgstr "Kullanıcıyı çıkışını kaydedecek bir bağlantı verin."
@@ -1219,52 +1316,90 @@ msgid "manager.navigationMenus.contact.description"
 msgstr "İletişim bilgilerinizi görüntüleyen bir sayfaya bağlantı verin."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr "Bu bağlantı sadece \"Ayarlar > İletişim\" altındaki Kişi bilgilerini doldurduysanız görüntülenir."
+msgstr ""
+"Bu bağlantı sadece \"Ayarlar > İletişim\" altındaki Kişi bilgilerini "
+"doldurduysanız görüntülenir."
 
 msgid "manager.navigationMenus.form.typeMissing"
 msgstr "Lütfen bir yönlendirme menü tipi seçin."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr "Bu ödemeler bağlantısı yalnızca \"Ayarlar > Dağıtım > Ödemeler\" altında etkinleştirilirse görüntülenir."
+msgstr ""
+"Bu ödemeler bağlantısı yalnızca \"Ayarlar > Dağıtım > Ödemeler\" altında "
+"etkinleştirilirse görüntülenir."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr "Bu bağlantı yalnızca ziyaretçi giriş yapmışsa görüntülenir, ödemeler \"Ayarlar> Dağıtım> Ödemeler\" altında etkinleştirilir ve \"Ayarlar> Dağıtım> Erişim\" altında abonelik gereklidir."
+msgstr ""
+"Bu bağlantı yalnızca ziyaretçi giriş yapmışsa görüntülenir, ödemeler "
+"\"Ayarlar> Dağıtım> Ödemeler\" altında etkinleştirilir ve \"Ayarlar> "
+"Dağıtım> Erişim\" altında abonelik gereklidir."
 
 msgid "manager.navigationMenus.form.submenuWarning"
-msgstr "Bir menü öğesi bir alt menüyü açtığında, bağlantı tüm cihazlarda izlenemez. Örneğin, \"İletişim\" ve \"İçerik Ekibi\" ile bir alt menü açan \"Hakkında\" öğeniz varsa, \"Hakkında\" bağlantısına tüm cihazlarda erişilemeyebilir. Varsayılan menüde bu, alt menüde görünen \"Dergi Hakkında\" adlı ikinci bir menü öğesi oluşturarak işlenir."
+msgstr ""
+"Bir menü öğesi bir alt menüyü açtığında, bağlantı tüm cihazlarda izlenemez. "
+"Örneğin, \"İletişim\" ve \"İçerik Ekibi\" ile bir alt menü açan \"Hakkında\" "
+"öğeniz varsa, \"Hakkında\" bağlantısına tüm cihazlarda erişilemeyebilir. "
+"Varsayılan menüde bu, alt menüde görünen \"Dergi Hakkında\" adlı ikinci bir "
+"menü öğesi oluşturarak işlenir."
 
 msgid "manager.navigationMenus.form.viewInstructions"
-msgstr "<p>Bu sayfaya şu adreste erişilebilir: <blockquote>{$pagesPath}</blockquote>...nerede %PATH% yukarıda girilen yoldur. <strong>Not:</strong> İki sayfa aynı yola sahip olamaz. Sistemde yerleşik yollar kullanmak, önemli işlevlere erişiminizi kaybetmenize neden olabilir.</p>"
+msgstr ""
+"<p>Bu sayfaya şu adreste erişilebilir: <blockquote>{$pagesPath}</"
+"blockquote>...nerede %PATH% yukarıda girilen yoldur. <strong>Not:</strong> "
+"İki sayfa aynı yola sahip olamaz. Sistemde yerleşik yollar kullanmak, önemli "
+"işlevlere erişiminizi kaybetmenize neden olabilir.</p>"
 
 msgid "manager.reviewForms.confirmActivate"
-msgstr "Bu değerlendirme formunu etkinleştirmek istediğinizden emin misiniz? Bir değerlendirmeye atandığında, artık bunu devre dışı bırakamazsınız."
+msgstr ""
+"Bu değerlendirme formunu etkinleştirmek istediğinizden emin misiniz? Bir "
+"değerlendirmeye atandığında, artık bunu devre dışı bırakamazsınız."
 
 msgid "manager.reviewForms.confirmDeactivate"
-msgstr "Bu değerlendirme formunu devre dışı bırakmak istediğinizden emin misiniz? Yeni değerlendirme talepleri için artık geçerli olmayacaktır."
+msgstr ""
+"Bu değerlendirme formunu devre dışı bırakmak istediğinizden emin misiniz? "
+"Yeni değerlendirme talepleri için artık geçerli olmayacaktır."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr "Bu değerlendirme formunun bir kopyasını oluşturmak istediğinizden emin misiniz?"
+msgstr ""
+"Bu değerlendirme formunun bir kopyasını oluşturmak istediğinizden emin "
+"misiniz?"
 
 msgid "manager.reviewForms.confirmDelete"
 msgstr "Bu değerlendirme formunu silmek istediğinizden emin misiniz?"
 
 msgid "manager.plugins.description"
-msgstr "Bu sayfa, Yöneticinin şu anda yüklü olan eklentileri gözden geçirmesini ve potansiyel olarak yapılandırmasını sağlar. Eklentiler, işlevlerine göre kategorilere ayrılır. Kategoriler aşağıda listelenmiştir ve her kategori içinde eklenti kümesi mevcuttur."
+msgstr ""
+"Bu sayfa, Yöneticinin şu anda yüklü olan eklentileri gözden geçirmesini ve "
+"potansiyel olarak yapılandırmasını sağlar. Eklentiler, işlevlerine göre "
+"kategorilere ayrılır. Kategoriler aşağıda listelenmiştir ve her kategori "
+"içinde eklenti kümesi mevcuttur."
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Bu form, yeni bir eklenti yüklemenize ve kurmanıza izin verir. Lütfen eklentinin .tar.gz dosyası olarak sıkıştırıldığından emin olun."
+msgstr ""
+"Bu form, yeni bir eklenti yüklemenize ve kurmanıza izin verir. Lütfen "
+"eklentinin .tar.gz dosyası olarak sıkıştırıldığından emin olun."
 
 msgid "manager.plugins.pluginGallery.version"
 msgstr "v{$version} {$date} tarihinde yayınlandı"
 
 msgid "manager.plugins.copyError"
-msgstr "Eklenti kopyalanmadı. Bu bir yetki problemi olabilir. Lütfen web sunucusunun eklenti dizinine (alt dizinler dahil) yazma yetkisi olduğundan emin olun; ancak daha sonra tekrar yetkileri düzenlemeyi unutmayın."
+msgstr ""
+"Eklenti kopyalanmadı. Bu bir yetki problemi olabilir. Lütfen web sunucusunun "
+"eklenti dizinine (alt dizinler dahil) yazma yetkisi olduğundan emin olun; "
+"ancak daha sonra tekrar yetkileri düzenlemeyi unutmayın."
 
 msgid "manager.plugins.deleteError"
-msgstr "\"{$pluginName}\" eklentisi dosya sisteminden silinemedi. Bu bir izin sorunu olabilir. Lütfen web sunucusunun eklenti dizinine (alt dizinler dahil) yazama yetkisi olduğundan emin olun; ancak daha sonra yazma yetkisini düzenlemeyi unutmayın."
+msgstr ""
+"\"{$pluginName}\" eklentisi dosya sisteminden silinemedi. Bu bir izin sorunu "
+"olabilir. Lütfen web sunucusunun eklenti dizinine (alt dizinler dahil) "
+"yazama yetkisi olduğundan emin olun; ancak daha sonra yazma yetkisini "
+"düzenlemeyi unutmayın."
 
 msgid "manager.statistics.reports.description"
-msgstr "Sistem, belirli bir süre boyunca site kullanımı ve gönderimlerle ilgili ayrıntıları izleyen raporlar üretir. Raporlar, görüntülenecek bir elektronik tablo uygulaması gerektiren CSV biçiminde oluşturulur."
+msgstr ""
+"Sistem, belirli bir süre boyunca site kullanımı ve gönderimlerle ilgili "
+"ayrıntıları izleyen raporlar üretir. Raporlar, görüntülenecek bir elektronik "
+"tablo uygulaması gerektiren CSV biçiminde oluşturulur."
 
 msgid "manager.setup.homepageImage"
 msgstr "Ana Sayfa Görseli"
@@ -1279,7 +1414,9 @@ msgid "manager.setup.layout.theme"
 msgstr "Tema"
 
 msgid "manager.setup.layout.themeDescription"
-msgstr "Yeni temalar, bu sayfanın en üst tarafında bulunan Eklentiler sekmesinden yüklenebilir."
+msgstr ""
+"Yeni temalar, bu sayfanın en üst tarafında bulunan Eklentiler sekmesinden "
+"yüklenebilir."
 
 msgid "manager.setup.layout.sidebar"
 msgstr "Kenar Çubuğu"
@@ -1294,34 +1431,50 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Bu e-posta adresine bir kopya gönderin"
 
 msgid "manager.setup.notifications.description"
-msgstr "Yazarlara otomatik olarak gönderilerinin alındığını bildiren bir e-posta gönderilir. Bu e-postanın kopyaları aşağıdakilere gönderilebilir:"
+msgstr ""
+"Yazarlara otomatik olarak gönderilerinin alındığını bildiren bir e-posta "
+"gönderilir. Bu e-postanın kopyaları aşağıdakilere gönderilebilir:"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Açık Erişim Politikası"
 
 msgid "manager.setup.openAccessPolicy.description"
-msgstr "Yayınlanmış tüm içeriğe anında ücretsiz erişim sağlıyorsanız, Açık Erişim Politikanızın açıklamasını giriniz."
+msgstr ""
+"Yayınlanmış tüm içeriğe anında ücretsiz erişim sağlıyorsanız, Açık Erişim "
+"Politikanızın açıklamasını giriniz."
 
 msgid "manager.setup.pageFooter"
 msgstr "Saya Altı"
 
 msgid "manager.setup.pageFooterDescription"
-msgstr "Web sitenizin alt kısmında görünmesini istediğiniz herhangi bir resim, metin veya HTML kodunu girin."
+msgstr ""
+"Web sitenizin alt kısmında görünmesini istediğiniz herhangi bir resim, metin "
+"veya HTML kodunu girin."
 
 msgid "manager.setup.peerReview.description"
-msgstr "Hakem değerlendirme politikasının süreçlerini okuyucular ve yazarlar için özetleyin. Bu tanım genellikle bir gönderiyi değerlendirmede kullanılan değerlendirme sayısını, hakemlerin başvuruları değerlendirme kriterleri, değerlendirmeyi yürütmek için beklenen süreyi ve değerlendirmeyi seçmek için kullanılan ilkeleri içermektedir."
+msgstr ""
+"Hakem değerlendirme politikasının süreçlerini okuyucular ve yazarlar için "
+"özetleyin. Bu tanım genellikle bir gönderiyi değerlendirmede kullanılan "
+"değerlendirme sayısını, hakemlerin başvuruları değerlendirme kriterleri, "
+"değerlendirmeyi yürütmek için beklenen süreyi ve değerlendirmeyi seçmek için "
+"kullanılan ilkeleri içermektedir."
 
 msgid "manager.setup.principalContact"
 msgstr "Temel İletişim"
 
 msgid "manager.setup.principalContactDescription"
-msgstr "Genel olarak editörlüğünüz, editörlüğün yönetimi veya genel erişilebilen web sitenizde görüntülenebilecek idari personel pozisyonu için iletişim bilgilerini girin."
+msgstr ""
+"Genel olarak editörlüğünüz, editörlüğün yönetimi veya genel erişilebilen web "
+"sitenizde görüntülenebilecek idari personel pozisyonu için iletişim "
+"bilgilerini girin."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Gizlilik Bildirimi"
 
 msgid "manager.setup.privacyStatement.description"
-msgstr "Bu beyan, Yazar Göndersi sırasında ve herkese açık olarak sayfada bulunabilir."
+msgstr ""
+"Bu beyan, Yazar Göndersi sırasında ve herkese açık olarak sayfada "
+"bulunabilir."
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Bir değerlendirme isteğini kabul etme veya reddetme süresi haftaları."
@@ -1336,10 +1489,14 @@ msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Varsayılanlar, editöryal süreçte her inceleme için değiştirilebilir."
 
 msgid "manager.setup.reviewOptions.remindForInvite"
-msgstr "Bir hakem, yanıt süresinden sonra aşağıdaki (değerlendirme) isteğine yanıt vermediyse bir hatırlatma gönder:"
+msgstr ""
+"Bir hakem, yanıt süresinden sonra aşağıdaki (değerlendirme) isteğine yanıt "
+"vermediyse bir hatırlatma gönder:"
 
 msgid "manager.setup.reviewOptions.remindForSubmit"
-msgstr "Bir hakem, değerlendirme tarihinden sonra aşağıdaki zaman (gün) içinde bir öneri sunmadıysa bir hatırlatma gönder:"
+msgstr ""
+"Bir hakem, değerlendirme tarihinden sonra aşağıdaki zaman (gün) içinde bir "
+"öneri sunmadıysa bir hatırlatma gönder:"
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Varsayılan İnceleme Son Başvuru Tarihleri"
@@ -1353,22 +1510,31 @@ msgid "manager.setup.searchEngineIndexing.sitemap"
 msgstr "Site Haritası"
 
 msgid "manager.setup.sponsors.description"
-msgstr "Örnekler: Bilimsel dernekler, üniversite bölümleri, kooperatifler, vb. Sponsorlar kamuya açık olarak gösterilmektedir."
+msgstr ""
+"Örnekler: Bilimsel dernekler, üniversite bölümleri, kooperatifler, vb. "
+"Sponsorlar kamuya açık olarak gösterilmektedir."
 
 msgid "manager.setup.styleSheetDescription"
-msgstr "Deneyimli web geliştiricileri, web sitesinin görünümünü daha da özelleştirmek için bir CSS dosyası yükleyebilir."
+msgstr ""
+"Deneyimli web geliştiricileri, web sitesinin görünümünü daha da "
+"özelleştirmek için bir CSS dosyası yükleyebilir."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Teknik Destek İletişimi"
 
 msgid "manager.setup.technicalSupportContactDescription"
-msgstr "Editörlere, yazarlara ve hakemlere materyallerini göndermelerini, düzenlemelerini, gözden geçirmelerini veya yayınladıkları herhangi bir problemle yardımcı olabilecek bir irtibat kişisi."
+msgstr ""
+"Editörlere, yazarlara ve hakemlere materyallerini göndermelerini, "
+"düzenlemelerini, gözden geçirmelerini veya yayınladıkları herhangi bir "
+"problemle yardımcı olabilecek bir irtibat kişisi."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Erişim Seçenekleri"
 
 msgid "manager.setup.searchEngineIndexing.sitemapDescription"
-msgstr "Arama motorlarına göndermek için hazırlanmış XML site haritası için tılyaınız. <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
+msgstr ""
+"Arama motorlarına göndermek için hazırlanmış XML site haritası için "
+"tılyaınız. <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsor İlişkisi ve Politika Açıklaması"
@@ -1377,7 +1543,9 @@ msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Gizlilik beyanınızı görüntüleyen sayfaya bağlantı verin."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr "Bu bağlantı sadece Ayarlar > İş Akışı > Gönderiler altında bir gizlilik bildirimi girdiyseniz görüntülenir."
+msgstr ""
+"Bu bağlantı sadece Ayarlar > İş Akışı > Gönderiler altında bir gizlilik "
+"bildirimi girdiyseniz görüntülenir."
 
 msgid "manager.publication.reviewerGuidance.success"
 msgstr "Hakem rehberi güncellendi."
@@ -1687,9 +1855,9 @@ msgstr "Tür üst verilerini etkinleştir"
 msgid "manager.setup.metadata.type.description"
 msgstr ""
 "Gönderinin ana içeriğinin niteliği veya türü. Tür genellikle \"Metin\"dir, "
-"ancak \"Veri Kümesi\", \"Görsel\" veya <a target=\"_blank\" href=\""
-"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-"
-"vocabulary\">Dublin Core türlerinden</a> herhangi biri de olabilir."
+"ancak \"Veri Kümesi\", \"Görsel\" veya <a target=\"_blank\" href=\"http://"
+"dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary"
+"\">Dublin Core türlerinden</a> herhangi biri de olabilir."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr "Yazardan gönderisini kabul etmeden önce konu vermesini isteyin."
@@ -1755,7 +1923,8 @@ msgstr ""
 "Yazarın gönderisini kabul etmeden önce gönderi dillerini girmesini isteyin."
 
 msgid "manager.setup.metadata.languages.request"
-msgstr "Yazardan, gönderi sırasında aday makalenin dilini belirtmesini isteyin."
+msgstr ""
+"Yazardan, gönderi sırasında aday makalenin dilini belirtmesini isteyin."
 
 msgid "manager.setup.metadata.languages.noRequest"
 msgstr "Gönderi sırasında yazardan gönderinin dilini talep etmeyin."
@@ -1895,7 +2064,8 @@ msgstr ""
 "olun."
 
 msgid "manager.setup.homepageImage.description"
-msgstr "Ana sayfada belirgin bir şekilde görüntülemek için bir görsel yükleyin."
+msgstr ""
+"Ana sayfada belirgin bir şekilde görüntülemek için bir görsel yükleyin."
 
 msgid "manager.setup.checklist"
 msgstr "Kontrol Listesi"
@@ -2035,7 +2205,8 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr "E-posta tüm alıcılara başarıyla gönderildi."
 
 msgid "manager.setup.notifyUsers.sending"
-msgstr "E-postayı gönderiliyor. Lütfen gönderme tamamlanana sayfayı kapatmayın."
+msgstr ""
+"E-postayı gönderiliyor. Lütfen gönderme tamamlanana sayfayı kapatmayın."
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
@@ -2150,7 +2321,6 @@ msgstr "Editör ekranında aday makalenin URL'si"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Yazarların tam isimleri"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Kısaltılmış bir dize biçimindeki yazar adları"
 
@@ -2228,7 +2398,10 @@ msgstr ""
 "tarafından gönderilir."
 
 msgid "mailable.reviewDecline.description"
-msgstr "Bu elektronik posta gözden geçirme talebine cevap olarak, gözden geçirmenin red edildiğini bildirmek amacıyla Bölüm Editörüne gözden geçirmeyi yapan kişi tarafından gönderilir."
+msgstr ""
+"Bu elektronik posta gözden geçirme talebine cevap olarak, gözden geçirmenin "
+"red edildiğini bildirmek amacıyla Bölüm Editörüne gözden geçirmeyi yapan "
+"kişi tarafından gönderilir."
 
 #, fuzzy
 msgid "mailable.reviewRemind.description"
@@ -2244,7 +2417,12 @@ msgstr ""
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "Bu e-posta, bir hakemin onay tarihi geçtiğinde otomatik olarak gönderilir (Ayarlar> İş Akışı> Gözden geçirme altındaki İnceleme Seçenekleri'ne bakın) ve tek tıklatma hakem erişimi devre dışı bırakılır. Zamanlanmış görevler etkinleştirilmeli ve yapılandırılmalıdır (site yapılandırma dosyası bölümüne bakınız)."
+msgstr ""
+"Bu e-posta, bir hakemin onay tarihi geçtiğinde otomatik olarak gönderilir "
+"(Ayarlar> İş Akışı> Gözden geçirme altındaki İnceleme Seçenekleri'ne bakın) "
+"ve tek tıklatma hakem erişimi devre dışı bırakılır. Zamanlanmış görevler "
+"etkinleştirilmeli ve yapılandırılmalıdır (site yapılandırma dosyası bölümüne "
+"bakınız)."
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
@@ -2302,7 +2480,10 @@ msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI Son Eki"
 
 msgid "doi.manager.settings.doiPrefix.description"
-msgstr "DOI Ön Ekleri kayıt ajansları (Örneğin; <a href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) tarafından atanmıştır ve biçimi 10.xxxx şeklindedir (Örneğin; 10.1234):"
+msgstr ""
+"DOI Ön Ekleri kayıt ajansları (Örneğin; <a href=\"http://www.crossref.org\" "
+"target=\"_new\">Crossref</a>) tarafından atanmıştır ve biçimi 10.xxxx "
+"şeklindedir (Örneğin; 10.1234):"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Dergi İçeriği"
@@ -2315,12 +2496,15 @@ msgstr ""
 
 #, fuzzy
 msgid "mailable.userRegister.description"
-msgstr "Bu e-posta yeni kaydolmuş kullanıcıya sisteme kabul edildiğini belirtmek ve kullanıcı adı ile şifresini bildirmek amacı ile gönderilmektedir."
+msgstr ""
+"Bu e-posta yeni kaydolmuş kullanıcıya sisteme kabul edildiğini belirtmek ve "
+"kullanıcı adı ile şifresini bildirmek amacı ile gönderilmektedir."
 
 msgid "mailable.reviewerRegister.description"
-msgstr "Bu e-posta, yeni kayıt olan bir hakeme, sisteme hoş geldiniz mesajı ile birlikte kullanıcı adı ve şifresini iletmek için gönderilir."
+msgstr ""
+"Bu e-posta, yeni kayıt olan bir hakeme, sisteme hoş geldiniz mesajı ile "
+"birlikte kullanıcı adı ve şifresini iletmek için gönderilir."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -2329,7 +2513,6 @@ msgstr ""
 "makale gönderdiği için teşekkür mesajı ve makalenin durumunu takip "
 "edebilmesi için gerekli olan bilgileri içerir."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
@@ -2548,7 +2731,8 @@ msgid "doi.manager.settings.registrationAgency"
 msgstr "Kayıt Ajansı"
 
 msgid "doi.manager.settings.registrationAgency.description"
-msgstr "Lütfen DOI üstverilerinizi aktarmak istediğiniz kayıt kuruluşunu seçin."
+msgstr ""
+"Lütfen DOI üstverilerinizi aktarmak istediğiniz kayıt kuruluşunu seçin."
 
 msgid "doi.manager.settings.doiSuffix.pattern"
 msgstr "DOI Soneki"
@@ -2640,8 +2824,8 @@ msgstr "{$count} adet seçili öge için işlem yapın."
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
 "Geçerli değerler arasında bir IP adresi (ör. 142.58.103.1), IP aralığı (ör. "
-"142.58.103.1 - 142.58.103.4), joker karakter '*' olan IP aralığı (ör. 142."
-"58.*.*) ve CIDR'li bir IP aralığı (ör. 142.58.100.0/24)."
+"142.58.103.1 - 142.58.103.4), joker karakter '*' olan IP aralığı (ör. 142.58."
+"*.*) ve CIDR'li bir IP aralığı (ör. 142.58.100.0/24)."
 
 msgid "manager.dois.registration.submittedDescription"
 msgstr "Bu ögenin meta verileri {$registrationAgency}'e gönderildi."
@@ -2693,23 +2877,18 @@ msgstr ""
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Her şehir, bölge veya ülke için görüntüleme ve indirme sayısı."
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "Bir kullanıcıya atanan tüm gönderileri görüntülemek için URL."
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "Kullanıcının profilini görüntülemesi ve düzenlemesi için URL."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Alınan kararın adı."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Alınan kararın açıklaması."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Bu kararın alındığı iş akış aşaması."
 
@@ -2735,7 +2914,8 @@ msgid "mailable.reviewRemindAuto.name"
 msgstr "Değerlendirme Hatırlatıcısı (Otomatik)"
 
 msgid "stats.geographic.ccAttribution"
-msgstr "<a href='https://db-ip.com'>DB-IP</a> tarafından sağlanan coğrafi konum"
+msgstr ""
+"<a href='https://db-ip.com'>DB-IP</a> tarafından sağlanan coğrafi konum"
 
 msgid "stats.geographic.tooltip.label"
 msgstr "Coğrafi Konum Hakkında"
@@ -2776,7 +2956,6 @@ msgstr "Tarihe göre toplam görüntüleme"
 msgid "stats.downloads.timelineInterval"
 msgstr "Tarihe göre toplam indirme"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Değerlendirme turu, kararın bir değerlendirme aşamasıyla ilgili olması "
@@ -2809,3 +2988,26 @@ msgstr ""
 "\"Yazar Rehberi\" bölümündedir. Liste aşağıda düzenlenebilir, ama listedeki "
 "bütün öğelerin bir sonraki basamağa geçebilmek için yazarlar tarafından "
 "işaretlenmesi gerekmektedir."
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Değerlendirmenin tamamlanması gereken tarih"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Hakemin değerlendirmeyi kabul etmesi veya reddetmesi gereken tarih"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Bu e-posta editörler ve dergi yöneticilerine sistem durumu ve istatistikler "
+"hakkında genel bir bakış sağlamak için aylık olarak otomatik gönderilir."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Derginin yazışma adresi"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Yayımlanan makale istatistikleri sayfasına bağlantı"
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Bu öge, manuel olarak kaydedildi."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Toplu İşlemler"

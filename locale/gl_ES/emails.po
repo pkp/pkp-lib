@@ -21,7 +21,6 @@ msgstr ""
 "editorial e agradécelle ao autor/a o seu envío."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

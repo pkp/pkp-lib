@@ -2819,7 +2819,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Lembrete de Revisão (automático)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Este e-mail é enviar por um Editor para lembrar um revisor que o prazo foi "
 "ultrapassado"

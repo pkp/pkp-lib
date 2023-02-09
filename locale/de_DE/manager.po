@@ -2177,7 +2177,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Diese E-Mail wird von einer Gutachterin/einem Gutachter an die/den Rubrikredakteur/in als Antwort auf eine Begutachtungsanfrage gesendet, um darüber zu informieren, dass die Anfrage abgelehnt wird."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "Diese E-Mail wird von einer Rubrikredakteurin/einem Rubrikredakteur gesendet, um eine/n Gutachter/in daran zu erinnern, dass ihr/sein Gutachten fällig ist."
 
 #, fuzzy
@@ -2432,7 +2433,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Diese E-Mail wird an neu registrierte Gutachter/innen gesendet, um sie beim System willkommen zu heißen und ihnen Benutzer/innennamen und Passwort zu bestätigen."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Diese E-Mail wird, sofern aktiviert, automatisch an eine Autorin/einen Autor "
@@ -2441,7 +2441,6 @@ msgstr ""
 "Verfolgen der Einreichung durch den Prozess hindurch und dankt der Autorin/"
 "dem Autor für die Einreichung."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Diese E-Mail wird, sofern aktiviert, automatisch an die weiteren Autor/innen geschickt, die laut Einreichung keine OJS-Benutzeraccounts haben."

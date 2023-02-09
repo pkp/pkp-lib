@@ -21,7 +21,6 @@ msgstr ""
 "kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Hurmatli {$recipientName},</p><p>{$contextName} ga yuborganingiz uchun "

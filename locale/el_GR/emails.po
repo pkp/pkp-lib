@@ -18,7 +18,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Επιβεβαίωση υποβολής"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

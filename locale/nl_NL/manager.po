@@ -1631,7 +1631,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Deze e-mail wordt door de reviewer verstuurd naar de sectieredacteur als reactie op een reviewverzoek om te laten weten dat het verzoek wordt afgewezen."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Deze e-mail wordt door de sectieredacteur verstuurd om een reviewer eraan te "
 "herinneren dat de afgesproken reviewperiode verstreken is."
@@ -1663,7 +1664,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Deze e-mail wordt naar iedere nieuwe reviewer gestuurd om ze welkom te heten bij het systeem en ze van een kopie van hun gebruikersnaam en wachtwoord te voorzien."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar een auteur "
@@ -1671,7 +1671,6 @@ msgstr ""
 "Het verstrekt informatie over het volgen van de inzending tijdens de "
 "procedure en de auteur wordt bedankt voor de inzending."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar de andere auteurs die niet geregistreerd zijn als gebruikers van OJS.."

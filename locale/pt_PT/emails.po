@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Obrigado pela sua submissão a {$contextName}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName},<br />\n"

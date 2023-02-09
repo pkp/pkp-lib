@@ -601,7 +601,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko eskaerari erantzunez, ezin duela egin esateko."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazioa egiteko epea pasatu dela gogorarazteko."
 
 #, fuzzy
@@ -631,11 +632,9 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Ebaluatzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana bidaltzeagatik."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana bidaltzeagatik."

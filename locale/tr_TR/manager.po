@@ -2231,7 +2231,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Bu elektronik posta gözden geçirme talebine cevap olarak, gözden geçirmenin red edildiğini bildirmek amacıyla Bölüm Editörüne gözden geçirmeyi yapan kişi tarafından gönderilir."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Bu elektronik posta hakemin değerlendirme için belirtilen son tarihin "
 "dolmakta olduğunu hatırlatmak için Bölüm Editörü tarafından hakemlere "
@@ -2321,7 +2322,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Bu e-posta, yeni kayıt olan bir hakeme, sisteme hoş geldiniz mesajı ile birlikte kullanıcı adı ve şifresini iletmek için gönderilir."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Bu eposta etkinleştirildiğinde, yazar dergiye yazı gönderme işlemini "
@@ -2329,7 +2329,6 @@ msgstr ""
 "makale gönderdiği için teşekkür mesajı ve makalenin durumunu takip "
 "edebilmesi için gerekli olan bilgileri içerir."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

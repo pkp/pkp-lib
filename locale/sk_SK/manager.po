@@ -56,7 +56,8 @@ msgstr ""
 "spracovaní recenzie, aby mu oznámil, že recenziu nemôže spracovať."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Tento email posiela editor sekcie recenzentovi, aby mu pripomenul, že "
 "vypršal termín pre spracovanie recenzie."
@@ -113,7 +114,6 @@ msgstr ""
 "systému a poskytne mu informáciu o jeho používateľskom mene a hesle."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
@@ -121,7 +121,6 @@ msgstr ""
 "možnosti sledovania príspevku počas redakčného spracovania a poďakovanie "
 "autorovi za príspevok."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

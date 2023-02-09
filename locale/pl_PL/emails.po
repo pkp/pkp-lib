@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Potwierdzenie zgłoszenia tekstu"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

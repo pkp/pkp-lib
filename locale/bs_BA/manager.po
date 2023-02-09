@@ -522,7 +522,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Ovim obrascem e-pošte recenzent odgovara uredniku rubrike da ne prihvaća zahtjev za recenzijom."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "Ovim obrascem e-pošte urednik rubrike podsjeća recenzenta da rok za izradu recenzije istekao."
 
 #, fuzzy
@@ -547,7 +548,6 @@ msgstr "Ovaj se obrazac e-pošte šalje novoregistriranim korisnicima u sustavu 
 msgid "mailable.reviewerRegister.description"
 msgstr "Ova se poruka šalje recenzentima koje registriraju urednici. Njome se novoregistriranom recenzentu želi dobrodošlica te pružaju informacije o korisničkom imenu i lozinki."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Ovaj se obrazac e-pošte automatski šalje autoru kada su on ili ona završili postupak prijave priloga časopisu. Poruka daje informacije o tome kako mogu pratiti prilog kroz uređivački postupak."

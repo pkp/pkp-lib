@@ -2066,7 +2066,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "This email is sent by a Reviewer to the Section Editor in response to a review request to notify the Section Editor that the review request has been declined."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "This email is sent by a Section Editor to remind a reviewer that their review is due."
 
 #, fuzzy
@@ -2099,7 +2100,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Tämä sähköpostiviesti voidaan lähettää automaattisesti kirjoittajalle "
@@ -2107,7 +2107,6 @@ msgstr ""
 "käsikirjoituksen seuraamisesta toimitusprosessissa sekä kiittää kirjoittajaa "
 "käsikirjoituksen lähettämisestä."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "This email, when enabled, is automatically sent to the other authors who are not users specified during the submission process."

@@ -19,7 +19,6 @@ msgstr ""
 "dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Kính gửi {$recipientName},<br />\n"

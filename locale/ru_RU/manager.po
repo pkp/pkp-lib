@@ -2057,7 +2057,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Это письмо рецензента, отправляемое редактору раздела, в ответ на запрос на рецензирование статьи, чтобы уведомить редактора раздела о том, что запрос на рецензирование отклонен."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Это письмо отправляется редактором, чтобы напомнить рецензенту о том, что "
 "срок предоставления рецензии уже прошел. Это письмо используется, когда "
@@ -2314,7 +2315,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Это письмо отправляется вновь зарегистрированному рецензенту, приветствуя его в системе и сообщая ему имя пользователя и пароль для доступа к сайту."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Это письмо (если эта возможность включена) автоматически отправляется "
@@ -2322,7 +2322,6 @@ msgstr ""
 "информация об отслеживании прохождения материала через редакционный процесс "
 "и благодарность автору за присланный материал."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
@@ -2351,7 +2350,6 @@ msgstr "Префикс DOI назначается регистрационным
 msgid "doi.manager.settings.doiObjects"
 msgstr "Контент журнала"
 
-#, fuzzy
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Контрольный список подготовки материала к отправке"

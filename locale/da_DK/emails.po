@@ -21,7 +21,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Tak for din indsendelse til {$contextName}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Kære{$recipientName}.</p><p> Tak, fordi du har fremsendt manuskriptet til "

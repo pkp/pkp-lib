@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Terima kasih atas naskah yang Anda kirimkan ke {$contextName}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

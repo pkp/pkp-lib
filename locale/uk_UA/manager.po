@@ -1946,7 +1946,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Цим листом рецензент повідомляє редактору розділу у відповідь на його запит, що відмовляється рецензувати."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "Цим листом редактор розділу нагадує рецензенту про настання кінцевої дати рецензування."
 
 #, fuzzy
@@ -1981,11 +1982,9 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Цей лист надсилається новому зареєстрованому рецензенту для того, щоб повідомити йому про реєстрацію та надіслати його ім'я користувача та пароль."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Якщо розсилання таких листів дозволене, цей лист автоматично надсилається автору, коли він або вона завершує процес подання рукопису до журналу. У ньому міститься інформація про відстеження редакційного опрацювання рукопису та подяка автору за подання."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

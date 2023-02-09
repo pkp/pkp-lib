@@ -2288,7 +2288,8 @@ msgstr ""
 "realizar a tarefa."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Este correo electrónico é enviado polo Editor/a de Sección a un revisor/a "
 "para lembrarlle que superou a data de entrega da revisión."
@@ -2351,7 +2352,6 @@ msgstr ""
 "contrasinal."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Este correo electrónico, se está activado, envíase automaticamente ao autor/"
@@ -2359,7 +2359,6 @@ msgstr ""
 "Proporciona información sobre o seguimento do dito manuscrito no proceso "
 "editorial e agradécelle ao autor/a o seu envío."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

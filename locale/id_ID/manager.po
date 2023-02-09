@@ -2247,7 +2247,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "Email ini dikirimkan Reviewer kepada Editor Bagian sebagai respon terhadap permohonan review untuk memberitahu Editor Bagian bahwa permohonan review ditolak."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Email ini dikirim oleh Editor untuk mengingatkan reviewer bahwa batas "
 "reviewnya telah habis. Email ini digunakan ketika editor secara manual "
@@ -2286,7 +2287,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Email ini dikirimkan ke reviewer baru untuk menyambut dan memberikan informasi nama pengguna dan sandi."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Email ini, jika diaktifkan, secara otomatis dikirimkan ke penulis ketika "
@@ -2294,7 +2294,6 @@ msgstr ""
 "pemantauan naskah melalui proses editorial dan ucaan terima kasih atas "
 "naskah yang dikirimkan."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

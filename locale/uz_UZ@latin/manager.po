@@ -48,7 +48,8 @@ msgstr ""
 "javoban bo'lim muharririga yuboriladi."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Bu elektron pochta bo'limi muharriri tomonidan sharhlovchiga ko'rib chiqish "
 "muddati tugashini eslatish uchun yuborilgan."
@@ -109,14 +110,12 @@ msgstr ""
 "yuboriladi."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Bu elektron pochta, qo'lyozmani jurnalga topshirish jarayonini tugatgandan "
 "so'ng, avtomatik ravishda muallifga yuboriladi. U yuborish jarayonini "
 "kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

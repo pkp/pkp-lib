@@ -24,7 +24,6 @@ msgstr ""
 "پێشکەشکردنی توێژینەوەکەی."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"

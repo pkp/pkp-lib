@@ -1408,7 +1408,8 @@ msgid "mailable.reviewDecline.description"
 msgstr "ایمیلی از طرف داور به سردبیر یا دبیر بخش برای اطلاع از عدم پذیرش انجام داوری"
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای یادآوری انجام داوری"
 
 #, fuzzy
@@ -1438,11 +1439,9 @@ msgid "mailable.reviewerRegister.description"
 msgstr "This email is sent to a newly registered reviewer to welcome them to the system and provide them with a record of their username and password."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "در صورت فعال سازی. این ایمیل به صورت خودکار به نوسنده مقاله پس از تکمیل عملیات ارسال مقاله، فرستاده خواهد شد."

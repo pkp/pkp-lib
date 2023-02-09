@@ -1,8 +1,9 @@
 # Maria Češnik <mariaces237@gmail.com>, 2023.
+# Boris Badurina <boris.badurina@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-09 10:50+0000\n"
-"Last-Translator: Maria Češnik <mariaces237@gmail.com>\n"
+"PO-Revision-Date: 2023-02-09 21:35+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/hr/>\n"
 "Language: hr\n"
@@ -23,7 +24,7 @@ msgid "default.groups.plural.productionEditor"
 msgstr "Urednik produkcije"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdE"
+msgstr "UrProd"
 
 msgid "default.groups.name.copyeditor"
 msgstr "Urednik"
@@ -137,7 +138,7 @@ msgid "default.groups.name.reader"
 msgstr "Čitatelj"
 
 msgid "default.genres.styleSheet"
-msgstr "HTML Stylesheet"
+msgstr "HTML Stilovi"
 
 msgid "default.contextSettings.emailSignature"
 msgstr ""

@@ -2088,7 +2088,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Ce courriel est envoyé par l'évaluateur-trice au,à la rédacteur-trice de rubrique en réponse à la demande d'évaluation, pour l'aviser qu'il ou elle ne peut effectuer l'évaluation."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "Ce courriel est envoyé par le,la rédacteur-trice de rubrique pour rappeler à un,une évaluateur-trice que son évaluation est due."
 

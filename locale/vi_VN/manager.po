@@ -2134,7 +2134,6 @@ msgstr ""
 "rằng yêu cầu đánh giá đã bị từ chối."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Email này được gửi bởi một Biên tập viên để nhắc nhở người review rằng "

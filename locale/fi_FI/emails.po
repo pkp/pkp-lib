@@ -181,3 +181,19 @@ msgstr "Viesti julkaisua {$contextName} koskien"
 
 msgid "emails.discussion.body"
 msgstr "Kirjoita viesti."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Käsikirjoituksesi on vastaanotettu"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Hei,<br />\n"
+"<br />\n"
+"{$submitterName} on lähettänyt julkaisuumme {$contextName} käsikirjoituksen "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Jos teillä on kysyttävää, otattehan yhteyttä minuun. Kiitos, että valitsitte "
+"tämän julkaisun työllenne.<br />\n"
+"<br />\n"
+"{$contextSignature}"

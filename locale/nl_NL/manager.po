@@ -1631,7 +1631,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Deze e-mail wordt door de reviewer verstuurd naar de sectieredacteur als reactie op een reviewverzoek om te laten weten dat het verzoek wordt afgewezen."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Deze e-mail wordt door de sectieredacteur verstuurd om een reviewer eraan te "

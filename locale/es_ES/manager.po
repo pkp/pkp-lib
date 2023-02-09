@@ -2266,7 +2266,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Este correo es enviado por un/a revisor/a al / a la Editor/a de Sección en respuesta a una petición de revisión para notificarle que rechaza la petición de revisión."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "Este correo es enviado por el/la Editor/a de Sección para recordar a un/a revisor/a que ya debe entregar su revisión."
 

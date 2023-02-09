@@ -2177,7 +2177,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Diese E-Mail wird von einer Gutachterin/einem Gutachter an die/den Rubrikredakteur/in als Antwort auf eine Begutachtungsanfrage gesendet, um darüber zu informieren, dass die Anfrage abgelehnt wird."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "Diese E-Mail wird von einer Rubrikredakteurin/einem Rubrikredakteur gesendet, um eine/n Gutachter/in daran zu erinnern, dass ihr/sein Gutachten fällig ist."
 

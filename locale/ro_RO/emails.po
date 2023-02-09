@@ -182,3 +182,20 @@ msgstr "Un mesaj cu privire la {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Vă rugăm să introduceți mesajul dvs."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Confirmarea înregistrării manuscrisului"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Buna ziua,<br />\n"
+"<br />\n"
+"{$submitterName} a depus manuscrisul, &quot;{$submissionTitle}&quot; la "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Dacă aveți întrebări, vă rugăm să ne contactați. Vă mulțumim pentru că ați "
+"considerat acest jurnal un loc de desfășurare a activității dumneavoastră."
+"<br />\n"
+"<br />\n"
+"{$contextSignature}"

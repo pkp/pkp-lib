@@ -197,3 +197,21 @@ msgstr "कृपया अपना संदेश लिखें."
 
 # (pofilter) brackets: Added '(', ')'
 # (pofilter) endpunc: Different punctuation at the end
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "सबमिशन स्वीकृति"
+
+# (pofilter) simplecaps: Different capitalization
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Hello,<br />\n"
+"<br />\n"
+"{$submitterName} ने पांडुलिपि जमा की है, &quot;{$submissionTitle}&quot; to "
+"{$contextName}. <br />\n"
+"<br />\n"
+"यदि आपके पास किसी तरह का प्रश्न है, तो कृपया मुझ से सम्पर्क करें। अपने काम के लिए इस जर्नल "
+"को एक स्थान के रूप में विचार करने के लिए धन्यवाद.<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+# (pofilter) endpunc: Different punctuation at the end

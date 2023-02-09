@@ -183,3 +183,17 @@ msgstr "Zpráva týkající se {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Vložte, prosím, vaši zprávu."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Potvrzení příspěvku"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Vážený/á {$recipientName}, byl/a jste uveden/a jako spoluautor/spoluautorka "
+"v příspěvku zaslaném do {$contextName}. Předkladatel, {$submitterName}, "
+"poskytl následující údaje:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>. Pokud jsou některé z těchto údajů "
+"nesprávné nebo si nepřejete být v tomto příspěvku uvedeni, kontaktujte mě "
+"prosím.</p><p>Děkuji, že zvažujete náš časopis jako místo pro publikaci své "
+"práce.</p><p>S pozdravem,</p>{$contextSignature}"

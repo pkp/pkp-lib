@@ -172,3 +172,19 @@ msgstr "Mensaje sobre {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Introduzca su mensaje."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Acuse de recibo del envío"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Hola,<br />\n"
+"<br />\n"
+"{$submitterName} ha enviado el manuscrito &quot;{$submissionTitle}&quot; a "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Si tiene cualquier pregunta no dude en contactarme. Le agradecemos que haya "
+"elegido esta revista para dar a conocer su obra.<br />\n"
+"<br />\n"
+"{$contextSignature}"

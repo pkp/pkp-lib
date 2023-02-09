@@ -56,7 +56,6 @@ msgstr ""
 "spracovaní recenzie, aby mu oznámil, že recenziu nemôže spracovať."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Tento email posiela editor sekcie recenzentovi, aby mu pripomenul, že "

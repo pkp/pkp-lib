@@ -2260,7 +2260,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Questa email viene mandata dal revisore al section editor in risposta a una richiesta di revisione per far sapere a quest'ultimo che la richiesta è stata declinata."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "Questa email viene mandata da un editor per ricordare al revisore che è attesa la revisione."
 

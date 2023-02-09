@@ -2247,7 +2247,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Email ini dikirimkan Reviewer kepada Editor Bagian sebagai respon terhadap permohonan review untuk memberitahu Editor Bagian bahwa permohonan review ditolak."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Email ini dikirim oleh Editor untuk mengingatkan reviewer bahwa batas "

@@ -182,3 +182,21 @@ msgstr "Üzenet a(z) {$contextName} folyóirattól"
 
 msgid "emails.discussion.body"
 msgstr "Kérjük, adja meg itt üzenete tartalmát."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Értesítés cikk beküldéséről"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Tisztelt Szerző!<br />\n"
+"<br />\n"
+"Ezúton értesítjük, hogy {$submitterName} benyújtotta a(z) {$contextName} "
+"folyóirathoz a(z) &quot;{$submissionTitle}&quot; című kéziratot.<br />\n"
+"<br />\n"
+"Köszönjük, hogy munkájuk publikálásához folyóiratunkat választották.<br />\n"
+"<br />\n"
+"Ha a szerkesztési munkafolyamat során segítségére lehetünk, kérjük forduljon "
+"szerkesztőségünkhöz.<br />\n"
+"<br />\n"
+"{$contextSignature}"

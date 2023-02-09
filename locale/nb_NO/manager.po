@@ -2245,7 +2245,6 @@ msgstr ""
 "avslått."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Denne e-posten sendes av en redaktør til en fagfelle for å minne om "

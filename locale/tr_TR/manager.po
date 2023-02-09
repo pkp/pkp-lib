@@ -2231,7 +2231,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "Bu elektronik posta gözden geçirme talebine cevap olarak, gözden geçirmenin red edildiğini bildirmek amacıyla Bölüm Editörüne gözden geçirmeyi yapan kişi tarafından gönderilir."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Bu elektronik posta hakemin değerlendirme için belirtilen son tarihin "

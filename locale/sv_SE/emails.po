@@ -163,3 +163,16 @@ msgstr "Ett meddelande angående {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Skriv in ditt meddelande."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Bekräftelse på mottaget bidrag"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>{$recipientName},</p><p>Du har angivits som medförfattare till "
+"{$contextName}. {$submitterName} skickade med följande detaljer:</"
+"p><p>{$submissionTitle}<br>{$authorsWithAffiliation}</p><p>Kontakta gärna "
+"oss om detta behöver korrigeras, eller om du inte vill vara angiven som "
+"medförfattare till detta bidrag.</p><p>Vänliga hälsningar,</"
+"p>{$contextSignature}"

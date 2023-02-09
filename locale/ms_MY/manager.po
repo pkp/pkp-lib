@@ -2314,7 +2314,6 @@ msgstr ""
 "ulasan telah ditolak."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "E-mel ini dihantar oleh Editor Bahagian untuk mengingatkan pengulas bahawa "

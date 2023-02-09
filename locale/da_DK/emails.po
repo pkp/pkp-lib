@@ -229,3 +229,18 @@ msgid "emails.submissionAckNotUser.description"
 msgstr ""
 "Når denne e-mail er aktiveret, sendes den automatisk til de øvrige "
 "forfattere, udover indsenderen, angivet under indsendelsesprocessen."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Indsendelsesbekræftelse"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Kære {$recipientName}</p><p>Du er angivet som medforfatter på et "
+"manuskript indsendt til {$contextName}. Indsenderen, {$submitterName}, har "
+"angivet følgende information:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Hvis nogle af disse oplysninger er "
+"forkerte, eller du ikke ønsker at være angivet som medforfatter på dette "
+"manuskript, bedes du venligst kontakte mig.</p><p>Tak for at overveje dette "
+"tidsskrift til at udgive dit arbejde i.</p><p>Med venlig hilsen</"
+"p>{$contextSignature}"

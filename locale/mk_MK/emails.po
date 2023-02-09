@@ -175,3 +175,20 @@ msgstr "Порака во врска со {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Ве молиме да ја внесете вашата порака."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Потврда за поднесување"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Почитувани,<br />\n"
+"<br />\n"
+"{$submitterName} го поднесе ракописот, &quot;{$submissionTitle}&quot; до "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Доколку имате било какви прашања, ве молам да ме контактирате. Ви "
+"благодариме што го земавте во предвид ова списание како место за вашата "
+"работа.<br />\n"
+"<br />\n"
+"{$contextSignature}"

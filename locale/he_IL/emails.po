@@ -57,3 +57,17 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "אישור סקירת מאמר"
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "אישור הגשה"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"שלום,<br />\n"
+"<br />\n"
+"{$submitterName} הגיש כתב יד {$sumbissionTitle} ל{$contextName}.<br />\n"
+"<br />\n"
+"בכל שאלה ניתן לפנות אלי. תודה על פנייתך לכתב עת זה.<br />\n"
+"<br />\n"
+"{$contextSignature}"

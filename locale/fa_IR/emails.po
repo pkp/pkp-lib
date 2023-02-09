@@ -656,7 +656,6 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای یادآوری انجام داوری"
 
@@ -1146,3 +1145,19 @@ msgstr ""
 "در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
 "<br />\n"
 "تصمیم نهایی: عدم پذیرش"
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "قدردانی برای ارسال مقاله"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"با سلام,<br />\n"
+"<br />\n"
+"مقاله {$submitterName} مقاله &quot;{$submissionTitle}&quot; را به مجله "
+"{$contextName} ارسال نمودند <br />\n"
+"<br />\n"
+"در صورت داشتن هر گونه سوالی با من تماس حاصل فرمایید. از اینکه نتیجه پژوهش "
+"خود را برای این مجله ارسال نمودید، سپاسگذاریم<br />\n"
+"<br />\n"
+"{$contextSignature}"

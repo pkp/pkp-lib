@@ -69,3 +69,18 @@ msgstr ""
 "Srdačno,"
 
 #, fuzzy
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Potvrda o prijavi članka"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Pozdrav,<br />\n"
+"<br />\n"
+"{$submitterName} prijavio/la je rukopis, &quot;{$submissionTitle}&quot; u  "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Ako imate nekih pitanja, molim kontaktirajte me. Hvala što ste prijavili rad "
+"u ovom časopisu.<br />\n"
+"<br />\n"
+"{$contextSignature}"

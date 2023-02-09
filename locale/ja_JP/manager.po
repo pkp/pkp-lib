@@ -2085,7 +2085,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "このメールは、査読者からセクション編集者に査読依頼を受けることができない旨を通知するものです。"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "このメールは、セクション編集者から査読者に査読期限日が過ぎたことを督促するものです。"
 

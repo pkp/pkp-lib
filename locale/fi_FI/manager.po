@@ -2066,7 +2066,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "This email is sent by a Reviewer to the Section Editor in response to a review request to notify the Section Editor that the review request has been declined."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "This email is sent by a Section Editor to remind a reviewer that their review is due."
 

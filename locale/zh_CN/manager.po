@@ -1551,7 +1551,6 @@ msgid "mailable.reviewDecline.description"
 msgstr "这封电子邮件是由一位审查人寄给区段编辑以回复一份审查邀请，并通知区段编辑要婉谢审查邀请。"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "这封电子邮件是由区段编辑发出，提醒一位审查人他们的审查工作已经到期。"
 

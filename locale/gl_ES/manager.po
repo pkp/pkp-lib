@@ -2288,7 +2288,6 @@ msgstr ""
 "realizar a tarefa."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Este correo electrónico é enviado polo Editor/a de Sección a un revisor/a "

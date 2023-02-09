@@ -285,7 +285,6 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazioa egiteko epea pasatu dela gogorarazteko."
 
@@ -888,3 +887,10 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "Mezu hau Ataleko editoreak Zuzentzaileari bidaltzen dio, artikuluaren zuzenketa-prozesua egin dezala eskatzeko. Artikuluari buruzko informazioa eta fitxategia hartzeko datuak ematen ditu."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr ""
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""

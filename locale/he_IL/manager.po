@@ -29,7 +29,6 @@ msgstr ""
 "המדור כי בקשת הביקורת נדחתה."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr "דוא\"ל זה נשלח על ידי עורך מדור להזכיר מבקר שהביקורת שלהם נובעת."
 

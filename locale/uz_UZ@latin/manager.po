@@ -48,7 +48,6 @@ msgstr ""
 "javoban bo'lim muharririga yuboriladi."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Bu elektron pochta bo'limi muharriri tomonidan sharhlovchiga ko'rib chiqish "

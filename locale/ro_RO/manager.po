@@ -2190,7 +2190,6 @@ msgstr ""
 "revizuire a fost respinsă."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.reviewRemind.body"
 msgstr ""
 "Acest email este trimis de un editor pentru a reaminti evaluatorului că "

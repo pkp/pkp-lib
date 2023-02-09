@@ -1,11 +1,12 @@
 # Maria Češnik <mariaces237@gmail.com>, 2022.
+# Boris Badurina <boris.badurina@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2022-11-12 10:02+0000\n"
-"Last-Translator: Maria Češnik <mariaces237@gmail.com>\n"
+"PO-Revision-Date: 2023-02-09 21:27+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hr_HR/>\n"
 "Language: hr_HR\n"
@@ -233,3 +234,6 @@ msgid "admin.expireSessions.description"
 msgstr ""
 "Svi korisnici će odmah biti odjavljeni iz aplikacije, uključujući i vas te "
 "će se morati ponovno prijaviti."
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Podsjetnik recenzije"

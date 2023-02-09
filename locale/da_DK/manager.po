@@ -2669,6 +2669,7 @@ msgstr ""
 "medforfattere. På samme vis, vil du ikke vide hvem der bedømte din "
 "indsendelse, og du vil ikke høre direkte fra bedømmerne."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "En beskrivelse af standard bedømmelsesmetoden, som fx dobbelt anonym eller "

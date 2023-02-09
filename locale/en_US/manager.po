@@ -2826,9 +2826,10 @@ msgstr "The URL to the review assignment"
 msgid "emailTemplate.variable.recommendation"
 msgstr "The recommended decision, such as Accept Submission"
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
-"A description of the default review method, such as double anonymous or open."
+"A description of the default review method, such as double anonymous or open"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""

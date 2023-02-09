@@ -2789,6 +2789,7 @@ msgstr ""
 "mesma forma, você não saberá quem avaliou sua submissão e não receberá "
 "notícias diretamente dos avaliadores."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Uma descrição do método de avaliação padrão, como duplo anônimo ou aberto."

@@ -2655,6 +2655,7 @@ msgstr "Författarnamn i en förkortad version"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-postadress till sidans primära kontakt"
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Beskrivning av standardmetoden för granskning, t.ex. anonym författare/"

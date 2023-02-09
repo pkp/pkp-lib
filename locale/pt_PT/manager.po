@@ -2589,6 +2589,7 @@ msgstr ""
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Enviar uma notificação de e-mail para todos os autores da submissão."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Uma descrição do método de revisão padrão, tal como duplamente cega ou "

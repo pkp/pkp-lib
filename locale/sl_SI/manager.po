@@ -2886,6 +2886,7 @@ msgstr ""
 "vaših soavtorjev. Podobno, vi ne boste vedeli kdo je opravil recenzijo "
 "vašega prispevka in ne bo ste direktno v stiku z recenzenti."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."

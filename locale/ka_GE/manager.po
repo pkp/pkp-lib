@@ -2525,6 +2525,7 @@ msgstr "გაგზავნილია განხილვაზე"
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "ჩვენ ავირჩიეთ ამ წარდგენის მიღება გადასინჯვის გარეშე."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "ნაგულისხმევი განხილვის მეთოდის აღწერა, როგორიცაა ორმაგი ანონიმური ან ღია."

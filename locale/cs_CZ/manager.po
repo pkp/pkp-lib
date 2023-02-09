@@ -2740,6 +2740,7 @@ msgstr ""
 "žádné identifikační údaje o vás ani o vašich spoluautorech. Stejně tak se "
 "nedozvíte, kdo váš příspěvek recenzoval, a recenzenti se vám přímo neozvou."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Popis výchozí metody recenzí, například dvojitá anonymní nebo otevřená."

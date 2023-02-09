@@ -111,12 +111,11 @@ msgstr ""
 msgid "emails.submissionAckCanPost.subject"
 msgstr ""
 
-msgid "emails.submissionAckCanPost.body"
-msgstr ""
-
+#, fuzzy
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmação da submissão"
 
+#, fuzzy
 msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "Olá, <br/>\n"

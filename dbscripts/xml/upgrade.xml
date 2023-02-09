@@ -57,7 +57,6 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I7191_SubmissionChecklistMigration"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7191_SubmissionProgressType"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7191_SubmissionsDefaultStage"/>
-		<data file="dbscripts/xml/upgrade/3.4.0_preupdate_email_templates.xml" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I6895_CreateNewInstitutionsTables" />
 		<migration class="APP\migration\upgrade\v3_4_0\I6782_OrphanedMetrics" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I6782_UsageStatsSettings" />

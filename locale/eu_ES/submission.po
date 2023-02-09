@@ -1,15 +1,19 @@
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2023-02-09 11:50+0000\n"
+"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/eu/>\n"
+"Language: eu_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
-"Language: eu_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "submission.agencies"
 msgstr "Agentziak"
@@ -815,3 +819,27 @@ msgstr "Bidalketa honi ez zaio fitxategirik erantsi."
 
 msgid "author.submit.confirmation"
 msgstr "Berretsi"
+
+msgid "submission.identifiers"
+msgstr "Identifikatzaileak"
+
+msgid "submission.query.replies"
+msgstr "Erantzunak"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Laburpena"
+
+msgid "submission.query.from"
+msgstr "Norengandik"
+
+msgid "submission.production"
+msgstr "Ekoizpena"
+
+msgid "submission.query.lastReply"
+msgstr "Azken erantzuna"
+
+msgid "submission.query.closed"
+msgstr "Itxita"
+
+msgid "publication.titleAbstract"
+msgstr "Izenburua & laburpena"

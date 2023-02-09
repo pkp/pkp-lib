@@ -2074,9 +2074,6 @@ msgstr ""
 "URL адресът към страница, където потребителят може да възстанови изгубена "
 "парола"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Пощенски адрес на списанието"
-
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
 "Всички коментари от завършени реценции. Имената на рецензентите са скрити за "
@@ -3034,11 +3031,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Този имейл се изпраща, когато се създаде ново съобщение."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Този имейл се изпраща автоматично месечно до редактори и мениджъри на "
-"списания, за да им предостави общ преглед на състоянието на системата."
-
 msgid "manager.people.authSource"
 msgstr "Източник на удостоверяване"
 
@@ -3261,9 +3253,6 @@ msgstr ""
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Кръгът за рецензиране е отменен"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Връзка към страницата със статистика на публикуваните статии"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""

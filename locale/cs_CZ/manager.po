@@ -2795,9 +2795,6 @@ msgstr "Upozornit všechny autory"
 msgid "manager.dois.status.needsDoi"
 msgstr "Potřebuje DOI"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Mailová adresa časopisu"
-
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Tento e-mail se automaticky odešle, pokud recenzent nedokončí recenzi do "
@@ -2942,11 +2939,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Tento email je posílán, pokud je vytvořeno nové oznámení."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Tento e-mail je automaticky zasílán měsíčně editorům a správcům časopisů, "
-"aby jim poskytl přehled o stavu systému."
-
 msgid "manager.people.authSource"
 msgstr "Zdroj ověření"
 
@@ -3080,9 +3072,6 @@ msgstr "Rok vydání zprávy"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Odkaz na stránku s redakčními aktivitami"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Odkaz na stránku se statistikami publikovaných článků"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potvrzení obnovení hesla"

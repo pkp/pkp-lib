@@ -2742,9 +2742,6 @@ msgstr "Verifiera e-post (site)"
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr "Webbsidans e-postsignatur för automatiska e-postmeddelanden"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Tidskriftens postadress"
-
 msgid "stats.name.submissionsSkipped"
 msgstr "Övriga bidrag"
 
@@ -2817,11 +2814,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr ""
 "Detta e-post-meddelande skickas när ett nytt publicerat meddelande skapas."
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"E-postmeddelandet skickas ut månadsvis till redaktörer och "
-"tidskriftsansvariga för ge en lägesrapport."
 
 msgid "manager.people.authSource"
 msgstr "Autentiseringskälla"
@@ -2973,10 +2965,6 @@ msgstr ""
 "Detta e-postmeddelande meddelar författaren att en granskningsrunda har "
 "avbrutits."
 
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Länken till sidan om statistik för publicerade artiklar"
-
-#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
 "Det här e-postmeddelandet skickas av en sektionsredaktör för att bekräfta "

@@ -2143,10 +2143,6 @@ msgstr "このメールは、著者が投稿の改訂版をアップロードし
 msgid "mailable.announcementNotify.description"
 msgstr "このメールは、新しいお知らせが作成された際に送信されます。"
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "このメールは、編集者や雑誌管理者に毎月自動的に送信され、システムの健全性の概要を提供します。"
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "提出準備チェックリスト"
 

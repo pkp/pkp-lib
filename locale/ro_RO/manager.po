@@ -2274,13 +2274,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Acest e-mail este trimis la crearea unui nou anunț."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Acest e-mail este trimis automat lunar către editorii și managerii de "
-"jurnale pentru a le oferi o imagine de ansamblu asupra funcționării "
-"sistemului."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Lista de verificare a pregătirii depunerii manuscrisului"
 

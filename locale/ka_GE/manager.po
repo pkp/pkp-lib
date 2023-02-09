@@ -2737,9 +2737,6 @@ msgstr ""
 "სახელი და თქვენი თანაავტორების სახელი ხილული იქნება რეცენზენტებისთვის; "
 "თუმცა, მიმომხილველთა ვინაობა დარჩება ანონიმური."
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "ჟურნალის საფოსტო მისამართი"
-
 msgid "emailTemplate.variable.sender.senderEmail"
 msgstr "გამგზავნის ელ.ფოსტის მისამართი"
 
@@ -2924,12 +2921,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "ეს წერილი იგზავნება ახალი განცხადების შექმნისას."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"ეს წერილი ყოველთვიურად ავტომატურად ეგზავნებათ რედაქტორებს და ჟურნალის "
-"მმართველებს, რათა მათ ჰქონდეთ სისტემის მუშაობზე წარმოდგენა."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "მასალის გაგზავნის მომზადების საკონტროლო სია"
 

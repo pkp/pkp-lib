@@ -161,11 +161,6 @@ msgstr "यह ईमेल स्वचालित रूप से असा�
 # (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$contextName}
 # (pofilter) startpunc: Different punctuation at the start
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"यह ईमेल स्वचालित रूप से संपादकों और पत्रिका प्रबंधकों को मासिक रूप से भेजा "
-"जाता है ताकि उन्हें एक प्रणाली स्वास्थ्य अवलोकन प्रदान किया जा सके।"
-
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "सबमिशन तैयारी चेकलिस्ट"
 

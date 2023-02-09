@@ -2336,8 +2336,6 @@ msgstr "Это письмо автоматически отправляется 
 msgid "mailable.announcementNotify.description"
 msgstr "Это письмо отправляется при создании нового объявления."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "Это письмо каждый месяц автоматически отправляется редакторам и управляющим журнала, чтобы у них было представление о работе системы."
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Суффикс DOI может принимать любую форму, но должен быть уникальным среди всех публикуемых объектов, которым присвоен один и тот же префикс DOI:"
 

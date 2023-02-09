@@ -131,12 +131,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Bu e -pochta yangi e'lon yaratilganda yuboriladi."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Bu elektron pochta har oy muharrirlarga va jurnal menejerlariga tizim "
-"salomatligi haqida umumiy ma'lumot berish uchun avtomatik ravishda "
-"yuboriladi."
-
 msgid "manager.announcements.form.descriptionShortRequired"
 msgstr "Qisqacha e'lon tavsifi talab qilinadi."
 

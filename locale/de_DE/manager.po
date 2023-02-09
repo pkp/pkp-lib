@@ -2452,11 +2452,6 @@ msgstr "Diese E-Mail wird automatisch an die/den zuständige/n Redakteur/in gesc
 msgid "mailable.announcementNotify.description"
 msgstr "Diese E-Mail wird gesendet, wenn eine neue Ankündigung erstellt wird."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Diese E-Mail wird monatlich an die Redakteure und Journal Manager gesendet "
-"und stellt Statistiken zum Journal zur Verfügung."
-
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Ein DOI-Suffix kann in beliebiger Form sein, muss aber eindeutig unter allen Publikationsobjekten, denen derselbe DOI-Präfix zugewiesen wird:"
 

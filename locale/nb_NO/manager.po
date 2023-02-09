@@ -2321,11 +2321,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Denne e-posten blir sendt når et nytt oppslag opprettes."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Denne e-posten blir automatisk sendt en gang i måneden til redaktører og "
-"redaksjonsledere for å gi dem en oversikt over systemets tilstand."
-
 msgid "manager.dois.actions.markRegistered.label"
 msgstr "Marker DOI-er som registrerte"
 

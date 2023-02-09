@@ -2180,11 +2180,6 @@ msgstr "Wiadomość automatycznie przesyłana do redaktora prowadzącego, po prz
 msgid "mailable.announcementNotify.description"
 msgstr "Ten email jest wysyłany, kiedy pojawiło się nowe ogłoszenie."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Ten email jest automatycznie wysyłany każdego miesiąca do redaktorów i "
-"menedżerów czasopisma, aby dostarczyć im przegląd stanu systemu."
-
 msgid "manger.dois.update.success"
 msgstr "DOI zarejestrowane pomyślnie"
 
@@ -2520,10 +2515,6 @@ msgstr "Proces nie mógł przetworzyć nazw autorów"
 msgid "plugins.importexport.publication.exportFailed"
 msgstr "Proces nie mógł przetworzyć publikacji"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Adres pocztowy czasopisma"
-
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
 "Adres URL strony gdzie użytkownik może przejrzeć przydzielone zgłoszenia."

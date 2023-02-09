@@ -1598,10 +1598,6 @@ msgstr "当作者上传的修订版的一篇文章后，此邮件将被自动发
 msgid "mailable.announcementNotify.description"
 msgstr "此邮件当公告发布时将会自动发送。"
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "此为系统自动为总编和期刊管理提供系统运行状况报告的邮件。"
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "投稿准备清单"
 

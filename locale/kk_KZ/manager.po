@@ -1000,9 +1000,6 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
 "Пайдаланушы жоғалған құпия сөзді қалпына келтіре алатын беттің URL мекенжайы"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Журналдың пошталық мекенжайы"
-
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
 "Барлық пікірлер аяқталған шолулардан алынған. Рецензент атаулары анонимді "
@@ -2909,12 +2906,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Бұл электрондық пошта жаңа тізім жасалған кезде жіберіледі."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Бұл хат журналдың редакторлары мен менеджерлеріне жүйенің қалай жұмыс "
-"істейтіні туралы түсінік алу үшін автоматты түрде ай сайын жіберіледі."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Контрольный список подготовки материала к отправке"
 

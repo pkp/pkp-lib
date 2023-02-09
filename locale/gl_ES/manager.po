@@ -2375,12 +2375,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Este correo electrónico envíase cando se crea un novo anuncio."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Este correo electrónico envíase automaticamente cada mes a editores/as e "
-"administradores/as de revistas para ofrecerlles unha visión xeral da "
-"actividade do sistema."
-
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Lista de verificación para preparar o envío"
 

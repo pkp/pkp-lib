@@ -2145,12 +2145,6 @@ msgstr "Το παρόν μήνυμα αποστέλλεται αυτόματα �
 msgid "mailable.announcementNotify.description"
 msgstr "Αυτό το email αποστέλλεται όταν δημιουργείται μια νέα ανακοίνωση."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Αυτό το email αποστέλλεται αυτόματα κάθε μήνα σε συντάκτες και διαχειριστές "
-"περιοδικών για να τους παρέχει μια επισκόπηση της υγείας του συστήματος."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Λίστα ελέγχου προετοιμασίας υποβολής"
 

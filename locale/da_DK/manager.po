@@ -2842,9 +2842,6 @@ msgstr ""
 msgid "manager.dois.status.needsDoi"
 msgstr "Kræver DOI"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Dette tidsskrifts postadresse"
-
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Denne e-mail sendes automatisk, når en bedømmer ikke har færdiggjort sin "
@@ -2992,11 +2989,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Denne e-mail sendes, når der oprettes en ny meddelelse."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Denne e-mail sendes automatisk en gang om måneden til redaktører og "
-"tidsskriftschefer for at give dem et overblik over systemets tilstand."
-
 msgid "manager.people.authSource"
 msgstr "Godkendelseskilde"
 
@@ -3119,9 +3111,6 @@ msgstr "Året for rapporten"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Link til siden om redaktionel aktivitet"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Link til side om statistik for publicerede artikler"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Bekræft nulstilling af password"

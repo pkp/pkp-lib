@@ -2479,13 +2479,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Aquest correu electrònic s'envia quan es crea un avís nou."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Aquest correu electrònic s'envia automàticament cada mes a editors/ores i "
-"administradors/ores de revistes per donar-los una visió general de la salut "
-"del sistema."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Llista de verificació per preparar trameses"
 

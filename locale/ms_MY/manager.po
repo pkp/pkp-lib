@@ -2396,12 +2396,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "E-mel ini dihantar semasa pengumuman baru dibuat."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"E-mel ini dihantar secara automatik setiap bulan kepada editor dan pengurus "
-"jurnal untuk memberi mereka gambaran keseluruhan kesihatan sistem."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Senarai Semak Penyediaan Penyerahan"
 

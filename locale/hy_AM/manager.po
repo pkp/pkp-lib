@@ -2799,9 +2799,6 @@ msgstr "Էջի URL-ը, որտեղից օգտագործողը կարող է վե�
 msgid "manager.dois.status.needsDoi"
 msgstr "Անհրաժեշտ է DOI"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Ամսագրի փոստային հասցեն"
-
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Այս նամակն ավտոմատ կերպով ուղարկվում է, երբ գրախոսը չի ավարտել իր "
@@ -3070,9 +3067,6 @@ msgstr "Հաշվետվության տարին"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Հղում դեպի խմբագրական գործունեության էջին"
 
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Հրապարակված հոդվածների վիճակագրության էջի հղումը"
-
 msgid "mailable.userRegister.name"
 msgstr "Օգտագործողը ստեղծվել է"
 
@@ -3197,12 +3191,6 @@ msgid "mailable.revisedVersionNotify.description"
 msgstr ""
 "Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է նշանակված խմբագրին, երբ "
 "հեղինակը վերբեռնում է հոդվածի վերանայված տարբերակը:"
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Այս էլ․ նամակն ամեն ամիս ինքնաշխատ կերպով ուղարկվում է խմբագիրներին և "
-"ամսագրի մենեջերներին՝ նրանց համակարգի վիճակի մասին հաշվետվություն "
-"տրամադրելու համար:"
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""

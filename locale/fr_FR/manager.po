@@ -2410,13 +2410,6 @@ msgstr "Ce courriel est envoyé automatiquement au rédacteur attribué quand un
 msgid "mailable.announcementNotify.description"
 msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Ce courriel est envoyé automatiquement chaque mois aux rédacteurs et "
-"rédactrices en chef et aux directeurs et directrices de revues pour leur "
-"fournir un aperçu de l'intégrité du système."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Liste de vérification de la soumission"
 

@@ -2373,12 +2373,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Questo messaggio è inviato quando viene creata una nuova notizia."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Questo report sull'attività del sistema è inviato via email  mensilmente in "
-"automatico agli editors."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checklist per la preparazione dell'invio di una proposta"
 

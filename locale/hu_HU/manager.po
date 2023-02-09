@@ -2518,10 +2518,6 @@ msgstr "Ha be van kapcsolva ez az email, akkor automatikusan értesítést küld
 msgid "mailable.revisedVersionNotify.description"
 msgstr "Ez az email automatikus értesítést küld a kijelölt szerkesztőnek, amikor a szerző a cikk átdolgozott változatát feltöltötte."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "Ez az email automatikusan kerül kiküldésre a szerkesztőknek és folyóirat menedzsereknek a folyóiratukkal kapcsolatos tájékoztatásul."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "A benyújtás előkészítésének ellenőrzőlistája"
 

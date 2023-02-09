@@ -2323,13 +2323,6 @@ msgstr "Este correo electrónico se envía de forma automática al editor/a asig
 msgid "mailable.announcementNotify.description"
 msgstr "Se mandará este email tras la creación de un nuevo anuncio."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Este correo electrónico es enviado mensualmente y de manera automática a los "
-"editores y administradores de publicaciones para suministrarles una visión "
-"general de la publicación."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Lista de comprobación para la preparación de envíos"
 

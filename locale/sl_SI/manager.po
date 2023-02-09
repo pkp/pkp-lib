@@ -2404,9 +2404,6 @@ msgstr "Ime sprejete odločitve."
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "URL za pregled vseh prispevkov dodeljenih enemu uporabniku."
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Poštni naslov revije"
-
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
 "Vsi komentarji zaključenih recenzij. Imena recenzentov so skrita zaradi "
@@ -2984,11 +2981,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Email je poslan, ko je objavljeno novo obvestilo."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Ta email je vsak mesec avtomatično poslan urednikom in glavnim urednikom, da "
-"vidijo stanje sistema."
-
 msgid "manager.people.authSource"
 msgstr "Vir avtentikacije"
 
@@ -3021,9 +3013,6 @@ msgstr "Leto poročila"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Povezava do strani z uredniškimi aktivnostmi"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Povezava do strani statistik objavljenih člakov"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potrditev ponastavitve gesla"

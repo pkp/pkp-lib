@@ -2833,9 +2833,6 @@ msgstr ""
 msgid "manager.dois.status.needsDoi"
 msgstr "Precisa de DOI"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "O endereço de correspondência da revista"
-
 msgid "mailable.reviewConfirm.name"
 msgstr "Confirmar avaliação"
 
@@ -2983,11 +2980,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Este email é enviado quando um novo comunicado é criado."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Este e-mail é automaticamente enviado todo mês aos editores e gerentes do "
-"sistema para dar-lhes uma visão geral do estado do sistema."
-
 msgid "manager.people.authSource"
 msgstr "Fonte de autenticação"
 
@@ -3124,9 +3116,6 @@ msgstr "O ano do relatório"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "O link para a página de atividade editorial"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "O link para a página de estatísticas de artigos publicados"
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Discussão da Submissão"

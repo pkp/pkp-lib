@@ -2515,9 +2515,6 @@ msgstr ""
 "الحال بالنسبة إلى زملائك المشاركين في التأليف. بشكل مشابه، سترى أسماء "
 "المحكمين وانتماءاتهم."
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "عنوان المراسلة للمجلة"
-
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد "
@@ -2650,9 +2647,6 @@ msgstr "هذه الرسالة تُرسل تلقائياً إلى المحرر ا
 msgid "mailable.announcementNotify.description"
 msgstr "هذه الرسالة تُرسل إلى المشتركين في الموقع عند إنشاء إعلان جديد."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "هذه الرسالة تُرسل شهرياً إلى مدراء التحرير ورؤسائه لتزويدهم بنظرة عامة على حالة النظام."
-
 msgid "emailTemplate.variable.password"
 msgstr "كلمة مرور جديدة عشوائية للمستخدم"
 
@@ -2760,9 +2754,6 @@ msgstr "موضوع المناقشة"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr "محتوى المناقشة أو الرد الجديدين"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "الشهر في التقرير"

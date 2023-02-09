@@ -2452,12 +2452,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Оваа е-пошта се испраќа кога ќе се креира ново соопштение."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Оваа е-пошта автоматски се испраќа месечно до уредниците и менаџерите на "
-"списанија за да им се обезбеди преглед на здравјето на системот."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Список за подготовка на поднесување"
 

@@ -1,11 +1,12 @@
 # Aitor Renobales <aitor.renobales@ehu.eus>, 2022.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2022-01-25 13:03+0000\n"
-"Last-Translator: Aitor Renobales <aitor.renobales@ehu.eus>\n"
+"PO-Revision-Date: 2023-02-09 11:50+0000\n"
+"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
 "Language: eu_ES\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Anuntzioak"
@@ -650,3 +651,15 @@ msgstr "Bidalketa prestatzeko zerrenda"
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr "Aldizkarira lan bat bidaltzera doazenean, bidali aurretik Bidalketa prestatzeko zerrendako puntu guztiak bete dituztela egiaztatzeko eskatzen zaie egileei. Zerrenda hori Egileentzako gidalerroetan ere azaltzen da, Aldizkariari buruz orrian. Behean edita daiteke zerrenda, baina bertako puntu guztiak markatu beharko dituzte egileek bidalketa egin ahal izateko."
+
+msgid "stats.dateRange.from"
+msgstr "Norengandik"
+
+msgid "manager.publication.reviewStage"
+msgstr "Berrikuspena"
+
+msgid "manager.publication.productionStage"
+msgstr "Ekoizpena"
+
+msgid "grid.category.name"
+msgstr "Izena"

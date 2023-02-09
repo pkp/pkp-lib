@@ -574,4 +574,12 @@ class Mailable extends IlluminateMailable
         $this->attach($file->getFilePath(), ['as' => $name]);
         return $this;
     }
+
+    /**
+     * Removes a footer, e.g., this may be required to remove personal information like unsubscribe link for logging purposes
+     */
+    public function removeFooter(): void
+    {
+        $this->footer = '';
+    }
 }

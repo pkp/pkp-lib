@@ -18,7 +18,9 @@
 namespace PKP\log;
 
 use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\user\User;
 
@@ -71,16 +73,21 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     public function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {
         $entry = $this->newDataObject();
+        $clonedMailable = clone $mailable;
+        $clonedMailable->removeFooter();
         $entry->setEventType($eventType);
         $entry->setAssocId($submission->getId());
         $entry->setDateSent(Core::getCurrentDate());
         $entry->setSenderId($sender ? $sender->getId() : 0);
-        $entry->setSubject($mailable->subject);
-        $entry->setBody($mailable->render());
-        $entry->setFrom($this->getContactString($mailable->from));
-        $entry->setRecipients($this->getContactString($mailable->to));
-        $entry->setCcs($this->getContactString($mailable->cc));
-        $entry->setBccs($this->getContactString($mailable->bcc));
+        $entry->setSubject(Mail::compileParams(
+            $clonedMailable->subject,
+            $clonedMailable->getData(Locale::getLocale())
+        ));
+        $entry->setBody($clonedMailable->render());
+        $entry->setFrom($this->getContactString($clonedMailable->from));
+        $entry->setRecipients($this->getContactString($clonedMailable->to));
+        $entry->setCcs($this->getContactString($clonedMailable->cc));
+        $entry->setBccs($this->getContactString($clonedMailable->bcc));
 
         return $this->insertObject($entry);
     }

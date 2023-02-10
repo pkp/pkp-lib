@@ -1,11 +1,12 @@
 # Maja Jurić <maja-juric@windowslive.com>, 2023.
+# Jula Dakić <juladakic@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2023-02-10 15:53+0000\n"
-"Last-Translator: Maja Jurić <maja-juric@windowslive.com>\n"
+"Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr_HR/>\n"
 "Language: hr_HR\n"
@@ -854,3 +855,625 @@ msgid "manager.dois.status.unpublished.description"
 msgstr ""
 "Stavka koja 1) ima DOI dodijeljene za sve omogućene vrste DOI i 2) nije "
 "objavljena"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Vrsta navigacijskog izbornika"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Sve {$filter}"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Geolokaciju omogućuje <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "O geolokaciji"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} do {$endDate}"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Broj {$type} za svaki {$interval}."
+
+msgid "stats.timelineInterval"
+msgstr "Interval vremenske trake"
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Preuzmi vremensku traku"
+
+msgid "stats.timeline"
+msgstr "Vremenska traka"
+
+msgid "stats.timelineType"
+msgstr "Vrsta vremenske trake"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Podnesci u tijeku"
+
+msgid "stats.name.submissionsImported"
+msgstr "Importirani podnesci"
+
+msgid "stats.name.daysToDecision"
+msgstr "Broj dana do prve odluke uredništva"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Jedan od unesenih datuma ne postoji."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Odaberi navigacijsko područje"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Sadržaj"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Ostali podnesci"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Putanja kategorije mora se sastojati samo od slova i brojeva."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Poveznica za stranicu za prijavu korisnika."
+
+msgid "grid.category.edit"
+msgstr "Uredi kategoriju"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.userStatistics"
+msgstr "Korisnička statistika"
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Importirana lozinka korisnika \"{$username}\" nije se mogla importirati. "
+"Nova lozinka poslana je na e-mail korisnika. Korisnik je importiran."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Početni datum ne smije biti ranije od {$date}."
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Naslov"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Nepoznati element {$param}"
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Odaberite vrstu navigacijskog izbornika."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Ovaj naslov već postoji za drugi navigacijski izbornik."
+
+msgid "stats.name.acceptanceRate"
+msgstr "Stopa prihvaćanja"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Opis donesene odluke."
+
+msgid "grid.category.parentCategory"
+msgstr "Nadređena kategorija"
+
+msgid "grid.category.nameRequired"
+msgstr "Unesite naziv kategorije."
+
+msgid "grid.category.urlWillBe"
+msgstr "URL kategorije je: {$sampleUrl}"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Poštanska adresa časopisa"
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Poveznica za stranicu korisničkog profila."
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Stopa odbijanja od strane uredništva"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.dateRange.from"
+msgstr "Od"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Datoteka podneska nije se mogla importirati"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Eksport je uspješno dovršen."
+
+msgid "stats.monthly"
+msgstr "Mjesečno"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "URL za stranicu na kojoj korisnik može vratiti izgubljenu lozinku"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL mora biti naveden"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Objavljeni podnesci"
+
+msgid "stats.dateRange.change"
+msgstr "Izmijeni datumsko razdoblje"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Aktualna godina"
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Ova će poveznica biti prikazana samo ako ste ispunili Kontakt podatke pod "
+"Postavke > Kontakt."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Ova će poveznica biti prikazana samo ako ste omogućili najave pod Postavke > "
+"Web stranica."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Ne tražite od autora otkrivanje prava tijekom prijave."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"Datoteka za import uključuje autora '{$authorName}', s grupom korisnika "
+"'{$userGroupName}'. Ne postoji grupa korisnika definirana u odredišnoj "
+"instalaciji s grupom korisnika s ovim imenom."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Privremena datoteka {$dest} nije se mogla stvoriti iz {$source}"
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Ova poveznica bit će prikazana samo ako su plaćanja omogućena pod Postavke > "
+"Distribucija > Plaćanja."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Ova poveznica bit će prikazana samo ako ste ispunili odjeljak Urednički tim "
+"pod Postavke > Časopis."
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Revizija \"{$revisionId}\" za datoteku podneska \"{$fileId}\" stvorila bi "
+"dvostruki zapis"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Nedodijeljene stavke izbornika"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Importirani korisnik \"{$username}\" nema lozinku. Provjerite svoj XML "
+"format importa. Korisnik nije importiran."
+
+msgid "stats.name.declineRate"
+msgstr "Stopa odbijanja"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Odbijeni podnesci (odbijeni nakon recenzije)"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces nije uspio. Provjerite pogreške/upozorenja."
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Nepoznato kodiranje {$param}"
+
+msgid "manager.navigationMenus"
+msgstr "Navigacija"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Unesite svaki datum u formatu GGGG-MM-DD. Na primjer, ako želite datum za "
+"15. siječnja 2019., unesite 2019-01-15."
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL preko kojeg korisnik može pregledavati i uređivati svoj profil."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Poveznica za stranicu koja prikazuje vaše najave."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Ova poveznica bit će prikazana samo kada posjetitelj nije prijavljen."
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Dodijeljene stavke izbornika"
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Poveznica za stranicu koja prikazuje sadržaj Impresuma u Postavke > Časopis."
+
+msgid "stats.name.daysToAccept"
+msgstr "Broj dana do Prihvaćanja"
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Udaljeni URL"
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Poveznica za stranicu koja prikazuje sadržaj O časopisu u Postavke > Časopis"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Povežite se s bilo kojim URL-om na drugom mjestu, poput https://pkp.sfu.ca."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Završni datum ne smije biti kasnije od {$date}."
+
+msgid "grid.category.removeText"
+msgstr "Jeste li sigurni da želite ukloniti ovu kategoriju?"
+
+msgid "stats.dateRange.customRange"
+msgstr "Prilagođeno razdoblje"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Zadnje godine"
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Poveznica za aktualni broj."
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Autor {$authorName} nema određeno ime na jeziku podneska, {$localeName}. "
+"Podnesak se ne može importirati bez ovih podataka."
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Odaberite vrstu navigacijskog izbornika ili Prilagođeno da napravite vlastiti"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Ova poveznica bit će prikazana samo ako ste unijeli izjavu o privatnosti pod "
+"Postavke > Tijek rada > Podnesci."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Opće stavke"
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Ova poveznica bit će prikazana samo administrativnim korisnicima."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Stopa odbijanja nakon recenzije"
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Poveznica za stranicu koja prikazuje vašu izjavu o privatnosti ."
+
+msgid "stats.dateRange.to"
+msgstr "Do"
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Poveznica za administrativne alate za cijelu stranicu."
+
+msgid "stats.total"
+msgstr "Ukupno"
+
+msgid "stats.allUsers"
+msgstr "Svi korisnici"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Datoteka podneska {$id} preskočena je jer je priložena zapisu koji se neće "
+"importirati, kao što je zadatak recenzije ili rasprava."
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Stvorite prilagođenu stranicu na svojoj web stranici i povežite se na nju "
+"preko navigacijskog izbornika."
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Sadržaj nije kodiran kao {$param}"
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Poveznica za stranicu za pretraživanje."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Korisničko ime \"{$username}\" i e-mail \"{$email}\" ne odgovaraju istom "
+"postojećem korisniku."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Format datuma nije valjan. Unesite svaki datum u formatu GGGG-MM-DD."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Nepoznati prenositelj {$param}"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Navigacijski izbornik već je dodijeljen ovom području."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Naziv donesene odluke."
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Odbijeni podnesci"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL za pregled svih dodijeljenih podnesaka korisnika."
+
+msgid "grid.category.path"
+msgstr "Putanja"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Od {$date}"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Faza uređivačkog radnog tijeka u kojoj je ova odluka donesena."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Pogreške pri importu/eksportu:"
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Ova poveznica bit će prikazana samo ako je posjetitelj prijavljen, plaćanja "
+"su omogućena pod Postavke > Distribucija > Plaćanja, a pretplate su navedene "
+"pod Postavke > Distribucija > Pristup."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Ova poveznica bit će prikazana samo kada se posjetitelj prijavi."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Ova će poveznica biti prikazana samo ako ste ispunili odjeljak O časopisu "
+"pod Postavke > Časopis."
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Odbijeni podnesci (odbijeni od strane urednika)"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Putanja može sadržavati samo alfanumeričke znakove plus '.', '/', '-' i '_'."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Zadnjih 12 mjeseci"
+
+msgid "stats.views"
+msgstr "Pregledi"
+
+msgid "stats.downloads"
+msgstr "Preuzimanja"
+
+msgid "stats.views.timelineInterval"
+msgstr "Ukupni broj pregleda po datumu"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Ukupni broj preuzimanja po datumu"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Eksport rezultata podnošenja"
+
+msgid "manager.navigationMenuItems"
+msgstr "Stavke navigacijskog izbornika"
+
+msgid "stats.daily"
+msgstr "Dnevno"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Putanja"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Navedena se veličina datoteke \"{$expected}\" i stvarna veličina datoteke \""
+"{$actual}\" ne podudaraju"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Pogrešna konfiguracija filtra [{$filterName}]: {$filterCount} pojavljivanja. "
+"Trebao bi biti samo jedan."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Nedostaje Korisničkagrupa za ime autora {$param}"
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Poveznica za uredničku nadzornu ploču."
+
+msgid "stats.submissionsActive"
+msgstr "Aktivne prijave"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Preuzmite eksportiranu datoteku pomoću donjeg gumba."
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Zadnje dvije godine"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Omogući metapodatke o pravima"
+
+msgid "grid.category.description"
+msgstr "Opis"
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Poveznica za stranicu za registraciju korisnika."
+
+msgid "stats.dateRange"
+msgstr "Datumsko razdoblje"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Do {$date}"
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Importirani korisnik \"{$username}\" ima običnu lozinku koja nije važeća. "
+"Korisnik nije importiran."
+
+msgid "grid.category.categoryDetails"
+msgstr "Detalji kategorije"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Ukupno unutar datumskog razdoblja"
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Zatražite od autora da unese jezike podneska prije prihvaćanja svog podneska."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Proces nije uspio analizirati publikacije"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Prihvaćeni podnesci"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Ovo uključuje podneske koji se ne ubrajaju u druge ukupne iznose, poput onih "
+"koji su još u tijeku i onih za koje se čini da su importirani."
+
+msgid "stats.editorialActivity"
+msgstr "Urednička aktivnost"
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Poveznica za stranicu s uputama za podnošenje."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Poveznica za stranicu koja prikazuje vaše kontakt podatke."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Poveznica za odjavu korisnika."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Naslov je obavezan"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Primljeni podnesci"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Ova putanja već postoji za drugu stavku navigacijskog izbornika."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Saznajte više o tome kada će ova stavka izbornika biti prikazana ili "
+"skrivena."
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Područja za navigaciju aktivne teme"
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Poveznica za arhivu brojeva."
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces nije uspio analizirati autore"
+
+msgid "stats.trends"
+msgstr "Trendovi"
+
+msgid "grid.category.name"
+msgstr "Ime"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Zadnjih 30 dana"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Nepoznati žanr {$param}"
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Početni datum mora biti prije završnog datuma."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Preuzmi eksportiranu datoteku"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Broj dana koji je potreban da većina podnesaka dobije prvu uredničku odluku, "
+"kao što je odbijanje ili slanje na pregled.<br><br>Ove brojke pokazuju da "
+"80% podnesaka uspiju doći do odluke unutar zadanog broja dana.< br <br>Ova "
+"statistika prikazuje kada većina autora koji podnose za vaš časopis može "
+"očekivati odluku."
+
+msgid "stats.file.type.primaryFile"
+msgstr "Primarna datoteka"
+
+msgid "stats.file.type.suppFile"
+msgstr "Dodatna datoteka"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Sva prava nad podneskom, koja mogu uključivati prava intelektualnog "
+"vlasništva (IPR), autorska prava i razna vlasnička prava."
+
+msgid "stats.fileViews"
+msgstr "Pregledi datoteke"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Kada stavka izbornika otvori podizbornik, njezinu poveznicu nije moguće "
+"pratiti na svim uređajima. Na primjer, ako imate stavku \"Saznaj više\" koja "
+"otvara podizbornik s \"Kontakt\" i \"Urednički tim\", poveznica \"Saznaj "
+"više\" možda neće biti dostupna na svim uređajima. U zadanom izborniku to se "
+"rješava stvaranjem druge stavke izbornika, \"Saznaj više o časopisu\", koja "
+"se pojavljuje u podizborniku."
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Imena i afilijacije autora podneska."
+
+msgid "stats.dateRange.apply"
+msgstr "Primijeni"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Zadnjih 90 dana"
+
+msgid "stats.city"
+msgstr "Grad"
+
+msgid "stats.region"
+msgstr "Regija"
+
+msgid "grid.category.add"
+msgstr "Dodaj kategoriju"
+
+msgid "stats.dateRange.allDates"
+msgstr "Svi datumi"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Postotak za odabrano datumsko razdoblje izračunava se za podneske koji su "
+"predani tijekom ovog datumskog razdoblja i za koje je donesena konačna "
+"odluka.<br><br>Na primjer, razmotrite slučaj u kojem je deset podnesaka "
+"napravljeno tijekom ovog datumskog razdoblja. Četiri su prihvaćena, četiri "
+"su odbijena, a dva još čekaju konačnu odluku.<br><br>Stopa prihvaćanja je "
+"50% (4 od 8 podnesaka) jer se dva podneska za koje nije donesena konačna "
+"odluka ne računaju."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Prilagođena stranica"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Pretraživanje po naslovu, autoru i ID-u"
+
+msgid "stats.unique"
+msgstr "Jedinstvena"
+
+msgid "stats.unknown"
+msgstr "nepoznato"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Preuzmi datoteke"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Broj preuzimanja svake datoteke."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Preuzmi Geographic"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Broj pregleda i preuzimanja za svaki grad, regiju ili državu."
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Ova će stranica biti dostupna na: <blockquote>{$pagesPath}</"
+"blockquote>...gdje je %PATH% gore unesena putanja. <strong>Napomena:</"
+"strong> dvije stranice ne mogu imati istu putanju. Korištenje putanja koje "
+"su ugrađene u sustav može uzrokovati gubitak pristupa važnim funkcijama.</p>"
+
+msgid "grid.category.pathExists"
+msgstr "Putanja kategorije već postoji. Unesite novu putanju."
+
+msgid "stats.descriptionForStat"
+msgstr "Opis za {$stat}"
+
+msgid "stats.name.daysToReject"
+msgstr "Broj dana do Odbijanja"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Svi komentari iz završenih recenzija. Imena recenzenata skrivena su za "
+"anonimne recenzije"

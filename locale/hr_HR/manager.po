@@ -1,19 +1,20 @@
+# Maja Jurić <maja-juric@windowslive.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2021-04-23 10:47+0000\n"
-"Last-Translator: Dobrica Pavlinušić <dpavlin@ffzg.hr>\n"
+"PO-Revision-Date: 2023-02-10 15:53+0000\n"
+"Last-Translator: Maja Jurić <maja-juric@windowslive.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr_HR/>\n"
 "Language: hr_HR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.announcements"
 msgstr "Obavijesti"
@@ -572,3 +573,284 @@ msgstr "Uvjeti za predaju članka"
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr "Pri prijavljivanju priloga za časopis, od autora se prvo traži da potvrde kako njihov prilog zadovoljava svaku stavku \"uvjeta za predaju priloga\" prije nego što mogu nastaviti s postupkom prijave. Uvjeti za predaju priloga se također navode i kod \"smjernica za autore\", unutar rubrike \"o časopisu\". Popis uvjeta se može nadopuniti ili prilagoditi, a autori će uz svaku navedenu stavku svoju suglasnost morati označiti kvačicom."
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"Uprava DOI-ja se preselila. Pogledajte stranice <a href=\"{$doiManagementUrl}"
+"\">Upravljanje DOI</a> i <a href=\"{$doiSettingsUrl}\">Postavke DOI</a>."
+
+msgid "manger.dois.update.success"
+msgstr "DOI je uspješno ažuriran"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Ova stavka ne može se isporučiti dok se ne objavi."
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status publikacije"
+
+msgid "manager.emails.addEmail"
+msgstr "Dodajte predložak"
+
+msgid "manager.publication.submissionStage"
+msgstr "Predaja"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Označite DOI kao registrirane"
+
+msgid "manager.dois.depositStatus"
+msgstr "Status isporuke"
+
+msgid "manager.announcements.type"
+msgstr "Tip"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Potreban DOI"
+
+msgid "manager.website.appearance"
+msgstr "Izgled"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Pohranite sve DOI"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Sljedeća poruka vraćena je od {$registrationAgency} i uključuje podatke o "
+"registraciji:"
+
+msgid "manager.announcements.datePublish"
+msgstr "Objavljeno"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metapodaci za ovaj objekt nisu podneseni{$registrationAgency}."
+
+msgid "manager.announcementTypes.edit"
+msgstr "Uredi vrstu obavijesti"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Ažurirani su detalji podsjetnika za pregled."
+
+msgid "manager.dois.status.error"
+msgstr "Pogreška"
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Ova stavka ručno je registrirana kod agencije za registraciju."
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Pogledajte zapis"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Pošaljite DOI"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Izvezi DOI"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Ažuriranje DOI nije uspjelo"
+
+msgid "manager.publication.emails"
+msgstr "E-pošta"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metapodaci za ovu stavku predani su {$registration Agency}."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Izbrišite obavijest"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Spremate se poslati DOI zapise metapodataka za {$count} stavki "
+"{$registrationAgency}. Jeste li sigurni da želite pohraniti ove zapise?"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Predat ćete sve DOI metapodatke na čekanju {$registrationAgency}. Status "
+"svake stavke ažurira se čim se primi odgovor. Jeste li sigurni da želite "
+"poslati podatke za sve stavke?"
+
+msgid "manager.publication.editorialStage"
+msgstr "Uredništvo"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Stavke su uspješno predane na isporuku"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Poruka o uspješnoj registraciji"
+
+msgid "manager.website.information"
+msgstr "Informacije"
+
+msgid "manager.publication.reviewStage"
+msgstr "Recenzija"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Poruka pogreške pri registraciji"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Prije nego što se ova komponenta može izbrisati, morate povezati sve "
+"povezane datoteke podneska s drugom komponentom."
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Upravo ćete označiti DOI metapodatke za {$count} objekata kao "
+"'registrirane'. Jeste li sigurni da želite označiti datume kao \"registrirane"
+"\"?"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Smjernice za recenzente"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Sljedeću poruku o pogrešci vratila je {$registrationAgency} i uključuje "
+"detalje o uzroku pogreške:"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Dodijeli DOI"
+
+msgid "manager.publication.productionStage"
+msgstr "Proizvodnja"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Pogledajte poruku o pogrešci"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Pohranite sve"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Pohranite DOI"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Potrebna je slikovna datoteka. Provjerite jeste li odabrali i učitali "
+"datoteku."
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Upravo ćete izvesti DOI metapodatke za {$count} objekt/e za "
+"{$registrationAgency}. Jeste li sigurni da želite izvesti podatke?"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Upravo ćete dodijeliti nove DOI-je {$count} stavkama (za sve stavke kojima "
+"već nisu dodijeljeni DOI-ji). Jeste li sigurni da želite dodijeliti DOI ovim "
+"stavkama?"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "ID registra istraživačke organizacije za ovu instituciju."
+
+msgid "manager.dois.status.unregistered"
+msgstr "Neregistriran"
+
+msgid "manager.dois.status.submitted"
+msgstr "Podnesen"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Oznaka DOI je zastarjela"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Upravo ćete označiti DOI zapise metapodataka za {$count} stavki kao "
+"neregistrirane. Jeste li sigurni da želite označiti ove zapise kao "
+"neregistrirane?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Upravo ćete označiti DOI zapise metapodataka za {$count} stavki kao "
+"zastarjele. Zastarjeli status može se primijeniti samo na prethodno poslane "
+"DOI. Jeste li sigurni da želite označiti ove zapise kao zastarjele?"
+
+msgid "manager.dois.actions.description"
+msgstr "Poduzmite radnju na {$count} odabranih stavki."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Označite DOI kao neregistrirane"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Stavkama su uspješno dodijeljeni novi DOI"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Važeće vrijednosti uključuju IP adresu (npr. 142.58.103.1), IP raspon (npr. "
+"142.58.103.1 - 142.58.103.4), IP raspon sa zamjenskim znakom '*' (npr. 142."
+"58.*.*) i IP raspon s CIDR-om (npr. 142.58.100.0/24)."
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Nevažeći IP raspon"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Stavke su uspješno označene kao neregistrirane"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Brisanje institucije"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Stavke su uspješno označene kao zastarjele"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Jeste li sigurni da želite nastaviti i izbrisati ovu instituciju?"
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Masovne radnje"
+
+msgid "manager.dois.status.registered"
+msgstr "Registriran"
+
+msgid "manager.dois.status.stale"
+msgstr "Zastarjelo"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Neki DOI nisu mogli biti ažurirani"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Stavke su uspješno izvezene"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Stavke su uspješno označene kao registrirane"
+
+msgid "manager.institutions.edit"
+msgstr "Uredi instituciju"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR (Registar istraživačke organizacije)"
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "Rasponi IP adresa"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Stavke koje 1) imaju DOI dodijeljene za sve omogućene vrste DOI, 2) su "
+"objavljene i 3) još nisu registrirane kod agencije za registraciju."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "DOI statusi"
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Stavke koje su predane konfiguriranoj agenciji za registraciju."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Stavke koje su uspješno registrirane u registracijskoj agenciji ili ručno "
+"označene kao registrirane."
+
+msgid "manager.dois.status.error.description"
+msgstr "Stavke koje su naišle na pogrešku u procesu registracije."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Stavke čiji su metapodaci ažurirani lokalno i morat će se ponovno poslati "
+"konfiguriranoj agenciji za registraciju ili ažurirati s njom kako bi se "
+"osiguralo da su svi prethodno dostavljeni metapodaci ažurni."
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Svaka objavljena ili neobjavljena stavka koja 1) ima dodijeljen pod-objekt "
+"bez DOI-ja gdje je 2) omogućena vrsta DOI-ja pod-objekta (npr. tarifa bez "
+"DOI-ja neće se pojaviti ovdje osim ako je DOI za tarifu omogućen)"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Stavka koja 1) ima DOI dodijeljene za sve omogućene vrste DOI i 2) nije "
+"objavljena"

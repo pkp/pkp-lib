@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-10 15:53+0000\n"
+"PO-Revision-Date: 2023-02-10 16:18+0000\n"
 "Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr_HR/>\n"
@@ -1477,3 +1477,38 @@ msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
 "Svi komentari iz završenih recenzija. Imena recenzenata skrivena su za "
 "anonimne recenzije"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum kada bi recenzija trebala biti dovršena"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Puno ime primatelja ili svih primatelja"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Krug recenzije u kojem je donesena ova odluka, ako se odluka odnosi na fazu "
+"recenzije."
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Korisničko ime primatelja ili svih primatelja"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Broj podnesaka dodijeljenih ovom uredniku"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Popis podnesaka s neizvršenim zadacima"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "URL za zadatak recenzije"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Preporučena odluka, kao što je Prihvati podnesak"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Predmet rasprave"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Sadržaj nove rasprave ili odgovora"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Datum kada recenzent treba prihvatiti ili odbiti zadatak"

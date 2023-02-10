@@ -1,12 +1,12 @@
-# M. Ali <vorteem@gmail.com>, 2021, 2022.
+# M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2023-02-08 06:59+0000\n"
-"Last-Translator: Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>\n"
+"PO-Revision-Date: 2023-02-10 09:25+0000\n"
+"Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
 "Language: ar_IQ\n"
@@ -18,13 +18,15 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
-msgstr "مؤلفوا هذه المقالة لا يمكن تعديلهم لأنها سبق وأن تم نشرها."
+msgstr "مؤلفو هذه المقالة لا يمكن تعديلهم لأنها سبق وأن تم نشرها."
 
 msgid "author.publicationNotFound"
 msgstr "تعذر العثور على عمل هذا المؤلف."
 
 msgid "author.submit.submissionCitations"
-msgstr "إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ."
+msgstr ""
+"أعطِ قائمة منسقة بالمراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل "
+"بين المراجع بسطر فارغ."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "لقد تم تسليم تحكيمات جديدة وقد تم الأخذ بها من قبل المحرر."
@@ -1801,7 +1803,7 @@ msgstr "أي نوع من الملفات هذا؟"
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"واحد أو أكثر من المحكمين قد تأخروا عن موعدهم. تم إشعار فريق هيئة التحرير "
+"واحد أو أكثر من المحكمين قد تأخر عن موعده. تم إشعار فريق هيئة التحرير "
 "وسيقومون باتخاذ الإجراء الذي يضمن إكمال التحكيمات. لست بحاجة إلى القيام بأي "
 "شيء حالياً. سيتم إشعارك عند التوصل إلى قرار."
 
@@ -2313,7 +2315,7 @@ msgid "submission.submit.managerUserGroupsDescription"
 msgstr "حدد دورًا تحريريًا إذا كنت تريد تحرير ونشر هذا المؤلَّف بنفسك."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr "نعم ، طلب النشر الخاص بي مستوفي لجميع هذه المتطلبات."
+msgstr "نعم ، طلب النشر الخاص بي مستوفٍ لجميع هذه المتطلبات."
 
 msgid "submission.details"
 msgstr "تفاصيل طلب النشر"

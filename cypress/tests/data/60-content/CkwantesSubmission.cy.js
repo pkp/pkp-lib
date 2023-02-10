@@ -184,22 +184,22 @@ describe('Data suite: Ckwantes', function() {
 				.find('.pkpBadge')
 				.contains('Author');
 		});
-		cy.get('h3').contains('Details (English/English)') // FIXME: Should be (English)
+		cy.get('h3').contains('Details (English)')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Title').siblings('.submissionWizard__reviewPanel__item__value').contains(submission.title)
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('employees, survey')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains(submission.abstract);
-		cy.get('h3').contains('Details (French/Français (Canada))') // FIXME: Should be (French)
+		cy.get('h3').contains('Details (French)')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Title').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided');
-		cy.get('h3').contains('For Readers (English/English)') // FIXME: Should be (English)
-		cy.get('h3').contains('For Readers (French/Français (Canada))') // FIXME: Should be (French)
+		cy.get('h3').contains('For Readers (English)')
+		cy.get('h3').contains('For Readers (French)')
 
 		// Save for later
 		cy.get('button').contains('Save for Later').click();

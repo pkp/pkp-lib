@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\context;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
@@ -46,6 +47,13 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
     {
         $this->action = $action;
         $this->locales = $locales;
+
+        $doiManagementUrl = Application::get()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_PAGE,
+            $context->getPath(),
+            'dois'
+        );
 
         $this->addGroup(
             [
@@ -112,7 +120,7 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
                     ],
                     [
                         'value' => Repo::doi()::SUFFIX_MANUAL,
-                        'label' => __('common.none')
+                        'label' => __('doi.manager.settings.doiSuffixManual', ['doiManagementUrl' => $doiManagementUrl])
                     ],
                     [
                         'value' => Repo::doi()::SUFFIX_CUSTOM_PATTERN,

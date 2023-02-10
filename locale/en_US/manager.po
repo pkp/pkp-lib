@@ -879,10 +879,13 @@ msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Select the format to use when the application generates a DOI."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Default"
+msgstr "Default - Automatically generates a unique eight-character suffix"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr "None - Suffixes must be entered manually on the <a href=\"{$doiManagementUrl}\">DOI management page</a> and will not be generated automatically"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Custom pattern (not recommended)"
+msgstr "Custom pattern - (not recommended)"
 
 msgid "doi.manager.settings.registrationAgency"
 msgstr "Registration Agency"
